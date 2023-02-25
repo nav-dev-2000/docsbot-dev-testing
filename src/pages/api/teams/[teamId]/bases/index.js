@@ -1,0 +1,114 @@
+import userTeamCheck from '@/lib/userTeamCheck'
+import { getBases, getTeam } from '@/lib/dbQueries'
+import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { bentoTrack } from '@/lib/bento'
+import { createRouter } from 'next-connect'
+
+const router = createRouter()
+
+router.post(async (req, res) => {
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  //check if user has access to team
+  let check = null
+  try {
+    check = await userTeamCheck(req, res)
+  } catch (error) {
+    return res.status(500).json({ message: error?.message })
+  }
+  const { userId, team } = check
+
+  try {
+    //TODO check plan credits
+    if (team.baseCount >= 1) {
+      return res.status(402).json({
+        message: 'Base limit exceeded. Please check your plan.',
+      })
+    }
+
+    //data validation
+    let { name, description, privacy } = req.body
+
+    name = name.trim()
+    if (!name) {
+      return res.status(400).send({ message: 'Invalid name' })
+    }
+
+    description = description.trim()
+
+    if (privacy !== 'public' && privacy !== 'private') {
+      return res.status(400).send({ message: 'Invalid param "privacy".' })
+    }
+    
+    //create base in db
+    const docRef = await firestore.collection('teams').doc(team.id).collection('bases').add({
+      createdAt: FieldValue.serverTimestamp(),
+      name,
+      description,
+      privacy,
+      status: 'pending',
+      indexId: null,
+      sourceCount: 0,
+      pageCount: 0,
+    })
+
+    const baseId = docRef.id
+
+    //increment baseCounts on team
+    await firestore.runTransaction(async (transaction) => {
+      const teamRef = firestore.collection('teams').doc(team.id)
+      const sfDoc = await transaction.get(teamRef)
+      if (!sfDoc.exists) {
+        throw 'Team does not exist!'
+      }
+
+      const newBaseCount = (sfDoc.data().baseCount || 0) + 1
+      transaction.update(teamRef, {
+        baseCount: newBaseCount,
+      })
+    })
+
+    try {
+      bentoTrack(userId, 'track', {
+        type: 'createBase',
+      })
+    } catch (e) {
+      console.log('Error sending bento track', e)
+    }
+
+    return res.status(201).json({ id: baseId })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ message: error?.message })
+  }
+})
+
+router.get(async (req, res) => {
+  //check if user has access to team
+  let check = null
+  try {
+    check = await userTeamCheck(req, res)
+  } catch (error) {
+    return res.status(500).json({ message: error?.message })
+  }
+  const { userId, team } = check
+
+  //TODO add pagination
+  try {
+    const recentSources = await getBases(team, req.params?.resultLimit || 1000)
+    return res.json(recentSources)
+  } catch (error) {
+    return res.status(500).json({ message: error?.message })
+  }
+})
+
+export default router.handler({
+  onError(error, req, res) {
+    res.status(500).json({ message: error?.message })
+  },
+  onNoMatch(req, res) {
+    res.status(405).json({ message: `Method '${req.method}' Not Allowed` })
+  },
+})

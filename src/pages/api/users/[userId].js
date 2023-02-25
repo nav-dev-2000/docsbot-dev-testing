@@ -1,0 +1,60 @@
+import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getFirestore } from 'firebase-admin/firestore'
+import { getTeamUsers } from '@/lib/dbQueries'
+import { isSuperAdmin } from '@/utils/helpers'
+import { getAuth } from 'firebase-admin/auth'
+
+export default async function handler(req, res) {
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  const { userId } = req.query
+
+  try {
+    const context = { req, res }
+    const { uid } = await getAuthorizedUser(context)
+    if (uid !== userId) {
+      return res.status(403).json({ message: 'No access to this user' })
+    }
+  } catch (error) {
+    return res.status(401).json({ message: error?.message })
+  }
+
+  if (req.method === 'PUT') {
+    //update user
+    let { currentTeam } = req.body
+
+    //If we passed an email instead of a teamId, get the teamId via user's currentTeam
+    try {
+      if (isSuperAdmin(userId) && ! ( currentTeam.match(/^[a-zA-Z0-9]{20}$/) || 'storybook' === currentTeam || 'portrait' === currentTeam )) {
+        //get user via email from firebase
+        const user = await getAuth().getUserByEmail(currentTeam)
+        if (user) {
+          const userRef = await firestore.collection('users').doc(user.uid).get()
+          if (userRef.exists) {
+            currentTeam = userRef.data().currentTeam
+          } else {
+            return res.status(404).json({ message: 'User not found in DB' })
+          }
+        } else {
+          return res.status(404).json({ message: 'No user found with that email' })
+        }
+      }
+    } catch (error) {
+      return res.status(400).json({ message: error?.message })
+    }
+
+    //check if user is already in team
+    const users = await getTeamUsers(currentTeam)
+    const userInTeam = users.find((user) => user.uid === userId)
+    if (userInTeam || isSuperAdmin(userId)) {
+      await firestore.collection('users').doc(userId).update({ currentTeam })
+      return res.json({ message: 'currentTeam updated' })
+    } else {
+      return res.status(403).json({ message: 'User not in team' })
+    }
+  } else {
+    return res.status(400).json({ message: 'Invalid HTTP method' })
+  }
+}
