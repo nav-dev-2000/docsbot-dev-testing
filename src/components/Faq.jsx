@@ -4,40 +4,30 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
 const faqs = [
   {
-    question: "Where is ChatWP getting it's information?",
-    answer:
-      'We built a webcrawler to scrape all official documentation from the WordPress.org website. This includes the "Learn WordPress" tutorials and lesson plans, all articles on the "Documentation" pages (wordpress.org/documentation/), and the entire "Developer" site (developer.wordpress.org) with code references, handbooks, and commands.',
-  },
-  {
     question: "Does it work with languages other than English?",
-    answer: "Unlike traditional search, this base inherits GPT's understanding of any language found on the Internet. So even though almost all documentation indexed was in English, you can ask it to respond in your own language. Asking your questions in another language may not be as effective right now, as it will be less likely to be able to find the best context from our embeddings index. Give it a try, we would love to learn how to improve this!"
+    answer: "Unlike traditional search, DocsBot inherits GPT's understanding of any language found on the Internet. So even if you index your documentation in English, it can respond in the language of the question. Asking questions in a different language than what you trained it on may not be as effective right now, as it will be less likely to be able to find the best context from our embeddings index. We are working on improving this!"
   },
   {
-    question: 'How does ChatWP work?',
+    question: 'How does DocsBot work?',
     answer:
-      "It's a bit technical, but here is a brief overview. We use OpenAI's GPT-3.5 embedding and completion APIs, as well as a vector database to store our index. All scraped documentation is cleaned up and divided into smaller chunks and labeled by source. We then use the GPT embedding API to generate a vector representation of each chunk and store it in our vector db index. When a user asks a question, convert it to an embedding, and use the vector database to find the closest matchs to the user's query. Then we take the most relevant chunks, included them as context along with the original question, and use the GPT completion API to generate a response in markdown format that we then convert to HTML and display to the user.",
+      "It's a bit technical, but here is a brief overview. We use OpenAI's embedding and ChatGPT APIs, as well as a vector database to store our index. All ingested documentation is cleaned up and divided into smaller chunks and labeled by source. We then use the GPT embedding API to generate a vector representation of each chunk and store it in our vector db index. When a user asks a question, we convert it to an embedding, and use the vector database to find the closest matches to the user's query. Then we take the most relevant chunks, included them as context along with the original question, and use the ChatGPT API to generate a response in markdown format that we then convert to HTML and display to the user.",
   },
   {
-    question: 'How much does it cost to run?',
+    question: 'Why do I need to provide my own OpenAI API key?',
     answer:
-      'It took about 24hrs and $5 to build the vector index. Queries cost about $0.02-$0.04 each depending on how long the context, query, and response is. We also have to pay for the API servers to handle requests. We are covering the costs for this at the moment until we run out of money!',
+      'To use DocsBot, you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. OpenAI currently provides $18 of free credit when you signup, which should be enough to try out DocsBot for a few months. Each question uses <$0.006 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
   },
   {
-    question: "Are you stealing WordPress contributor's content?",
-    answer:
-      "Hopefully it's not seen this way. We've created a unique way to help WordPress users and developers find the documentation they need, free of charge (or at cost). A really unique feature of ChatWP is that we link to the sources for the answer as much as possible to give them credit, similar to a traditional search engine.",
-  },
-  {
-    question: "How old is the information and how often is the data updated?",
-    answer: "We built our initial index in Feb 2023. Currently refreshing the index is a manual process, but if this tool proves useful we will look into automatic periodic indexing."
+    question: "Can I automatically update my DocsBot sources?",
+    answer: "We are quickly working on scheduled updates for dynamic sources like URLs and Sitemaps. For now, you can manually update your sources by creating a new DocsBot or adding them again."
   },
   {
     question: "Do you have an API I can use?",
-    answer: "Not currently for the full chat (internal API is limited), but you can use our embeddings API to build your own tools on top of our index. Contact us for details."
+    answer: "Yes! We have a public API that you can use to integrate DocsBot into your own applications. You can find the documentation here: https://api.docsbot.ai/docs. We will also soon release our admin API for managing your DocsBots and sources."
   },
   {
     question: "What are your privacy protections?",
-    answer: "IPs are stored hashed for ratelimiting purposes. We do store the queries and responses in our database to be able to privide and improve on the service. Queries and responses pass through OpenAI and are subject to their privacy policy as well. If you enter your own OpenAI API key it is only stored in your browser. We use Bento (https://bentonow.com/) for usage tracking and waitlist management.",
+    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to privide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. We use Bento (https://bentonow.com/) for usage tracking, email, and marketing. Please see our privacy policy for more details: https://docsbot.ai/privacy-policy.",
   },
 ]
 
@@ -56,7 +46,7 @@ export default function Faq() {
                   <>
                     <dt>
                       <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                        <span className="text-base font-semibold leading-7">
+                        <span className="text-DocsBot font-semibold leading-7">
                           {faq.question}
                         </span>
                         <span className="ml-6 flex h-7 items-center">
@@ -75,7 +65,7 @@ export default function Faq() {
                       </Disclosure.Button>
                     </dt>
                     <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base leading-7 text-gray-600">
+                      <p className="text-DocsBot leading-7 text-gray-600">
                         {faq.answer}
                       </p>
                     </Disclosure.Panel>

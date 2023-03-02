@@ -20,8 +20,8 @@ export default async function sendEmail(userId, subject, htmlBody, id = 'Generic
         Messages: [
           {
             From: {
-              Email: 'genie@imajinn.ai',
-              Name: 'Imajinn AI',
+              Email: 'genie@docsbot.ai',
+              Name: 'DocsBot AI',
             },
             To: [
               {

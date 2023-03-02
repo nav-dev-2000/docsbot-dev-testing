@@ -88,7 +88,7 @@ function Register() {
   return (
     <>
       <Head>
-        <title key="title">Sign Up - Imajinn</title>
+        <title key="title">Sign Up - DocsBot</title>
       </Head>
       <AuthLayout
         title="Get started now"
@@ -102,6 +102,9 @@ function Register() {
           </>
         }
       >
+        {true ? (
+          <p className="text-2xl text-center text-gray-800">Coming soon...</p>
+        ) : (
         <form
           action="#"
           className="mt-10 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2"
@@ -145,8 +148,8 @@ function Register() {
             <label>
             <input type="checkbox" id="terms" name="terms" className="mr-2" onChange={handleTos} />
             I agree to the{' '}
-            <Link href="/terms-of-service">Terms of Service</Link>{' '}&{' '}
-            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-of-service" target="_blank">Terms of Service</Link>{' '}&{' '}
+            <Link href="/privacy-policy" target="_blank">Privacy Policy</Link>
             </label>
           </div>
           <div className="col-span-full">
@@ -155,7 +158,7 @@ function Register() {
               variant="solid"
               color="blue"
               className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-              disabled={isAnyAuthMethodLoading ? 'disabled' : ''}
+              disabled={isAnyAuthMethodLoading}
             >
               <span>
                 Sign up <span aria-hidden="true">&rarr;</span>
@@ -167,7 +170,7 @@ function Register() {
               variant="outline"
               color="slate"
               className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-              disabled={isAnyAuthMethodLoading ? 'disabled' : ''}
+              disabled={isAnyAuthMethodLoading}
               onClick={(e) => {
                 e.preventDefault()
                 if (!checked) {
@@ -184,6 +187,7 @@ function Register() {
             </Button>
           </div>
         </form>
+        )}
       </AuthLayout>
     </>
   )

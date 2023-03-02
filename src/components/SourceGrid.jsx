@@ -20,7 +20,6 @@ export default function SourceGrid({ sources }) {
       newSources.push(source)
     })
     setFullSources(newSources)
-    console.log(newSources)
   }, [sources])
 
   function classNames(...classes) {
@@ -53,17 +52,20 @@ export default function SourceGrid({ sources }) {
             >
               <source.icon className="h-6 w-6 text-cyan-100" aria-hidden="true" />
             </div>
-            <div className="w-full rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate">
+            <div className="w-full rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate truncate">
               <div className="flex flex-1 items-center justify-between ">
-                <div className="flex-1 truncate text-sm">
+                <div className="flex items-center text-sm">
                   <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
+                  {source.pageCount ? (
+                  <p className="ml-2 text-xs text-gray-500">{source.pageCount} Pages</p>
+                  ) : null}
                 </div>
                 <div className="">
                   <BadgeStatusSource status={source.status} small={true} />
                 </div>
               </div>
               <div className="flex-1 truncate text-sm">
-                <p className="text-xs text-gray-600">{source.title}</p>
+                <p className="truncate text-xs text-gray-600">{source.title}</p>
                 <p className="truncate text-xs text-gray-500">{source.url}</p>
               </div>
             </div>

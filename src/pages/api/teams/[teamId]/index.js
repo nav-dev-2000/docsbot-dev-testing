@@ -25,12 +25,12 @@ export default async function handler(req, res) {
     }
     if (openAIKey) {
       //encrypt openAIKey with aes256
-      const algorithm = 'aes-256-ctr'
+      const algorithm = 'aes-256-cbc'
       const password = process.env.OPENAI_KEY_ENCRYPTION_PASSWORD
       const iv = crypto.randomBytes(16)
       const cipher = crypto.createCipheriv(algorithm, password, iv)
-      let encrypted = cipher.update(openAIKey, 'utf8', 'hex')
-      encrypted += cipher.final('hex')
+      //encrypt, prepend iv, and encode to base64
+      const encrypted = Buffer.concat([iv, cipher.update(openAIKey), cipher.final()]).toString('base64')
       newTeam.openAIKey = encrypted
     }
 

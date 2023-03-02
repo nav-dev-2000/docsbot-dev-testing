@@ -1,36 +1,36 @@
 import Head from 'next/head'
 
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import ContentSection from '@/components/ContentSection'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title key="title">Imajinn AI - Privacy Policy</title>
-        <meta name="description" content="Privacy Policy for Imajinn AI" key="description" />
+        <title key="title">DocsBot AI - Privacy Policy</title>
+        <meta name="description" content="Privacy Policy for DocsBot AI" key="description" />
       </Head>
       <Header />
       <main>
         <ContentSection
-          pretitle="Imajinn AI"
+          pretitle="DocsBot AI"
           title="Privacy Policy"
           intro="The privacy of your data is important to us, and we work hard to maintain it with careful design decisions and sparing use of third-party services that we trust."
         >
           <h2>Who We Are</h2>
-          <p>UglyRobase, LLC provides AI services Imajinn AI.</p>
+          <p>UglyRobot, LLC is the owner of and provides the service DocsBot AI.</p>
           <p>
             This privacy policy applies to all visitors and customers using or accessing any of the
             websites that we produced and maintain for the services that we provide, including
-            imajinn.ai. It also applies to human resources data of our employees and contractors.
+            DocsBot.ai. It also applies to human resources data of our employees and contractors.
           </p>
           <p>
             This policy DOES NOT cover generated content we host for our customers that is shared by
             them. In that case the customer is responsible for publishing its own privacy policy.
           </p>
-          <p>UglyRobase is a registered LLC in Delaware, USA.</p>
-          <p>For any privacy-related questions, you can reach us at support@imajinn.ai.</p>
+          <p>UglyRobot is a registered LLC in Delaware, USA.</p>
+          <p>For any privacy-related questions, you can reach us at human@docsbot.ai.</p>
 
           <h3>Sharing Your Data</h3>
           <p>
@@ -72,10 +72,10 @@ export default function Home() {
           <p>
             A cookie is a string of information that a website stores on a visitor’s computer, and
             that the visitor’s browser provides to the website each time the visitor returns. We use
-            cookies across our sites to manage authentication and login. Visitors who do
-            not wish to have cookies placed on their computers should set their browsers to refuse
-            cookies before using our websites, with the drawback that certain features may not
-            function properly without the aid of cookies.
+            cookies across our sites to manage authentication and login. Visitors who do not wish to
+            have cookies placed on their computers should set their browsers to refuse cookies
+            before using our websites, with the drawback that certain features may not function
+            properly without the aid of cookies.
           </p>
 
           <h3>Personal Data We Collect</h3>
@@ -86,25 +86,24 @@ export default function Home() {
               Email Address.
             </li>
             <li>
-              Your Email Address is stored in Google Firebase Authentication. Your Email Address is used to
-              send you an email with a link to set your password or to send you an email with a link
-              to reset your password in the event you forget your password.
+              Your Email Address is stored in Google Firebase Authentication. Your Email Address is
+              used to send you an email with a link to set your password or to send you an email
+              with a link to reset your password in the event you forget your password.
             </li>
             <li>Once an account is created, you must contact us to have it deleted.</li>
             <li>
-              Accounts have a random userid assigned to them when they are
-              created. They are private and cannot be changed.
+              Accounts have a random userid assigned to them when they are created. They are private
+              and cannot be changed.
             </li>
             <li>
-              An anonymized string created from your email address (also called a hash) may be provided
-              to the Gravatar service to see if a Profile picture of you is available for display.
-              The Gravatar service privacy policy is available{' '}
+              An anonymized string created from your email address (also called a hash) may be
+              provided to the Gravatar service to see if a Profile picture of you is available for
+              display. The Gravatar service privacy policy is available{' '}
               <a href="https://automattic.com/privacy/">here</a>.
             </li>
 
             <li>
-              Your First Name, Last Name and Email Address are accessible by employees on
-              the site.
+              Your First Name, Last Name and Email Address are accessible by employees on the site.
             </li>
             <li>
               If you have an account and you log in to a site, we will set up several cookies to
@@ -118,7 +117,7 @@ export default function Home() {
               that data at any time.
             </li>
           </ul>
-          
+
           <h4>Email/Chat/Contact Forms</h4>
           <ul>
             <li>
@@ -158,47 +157,6 @@ export default function Home() {
           <ul>
             <li>
               <a
-                href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Amazon
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://animoto.com/legal/privacy_policy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Animoto
-              </a>
-            </li>
-            <li>
-              <a href="https://blip.fm/corp/privacy" target="_blank" rel="noreferrer noopener">
-                Blip
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://www.collegehumor.com/static/privacy/policy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                CollegeHumor
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.dailymotion.com/legal/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                DailyMotion
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://www.facebook.com/about/privacy"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -207,207 +165,17 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a
-                href="https://policies.yahoo.com/privacy/flickr/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Flickr
-              </a>
-            </li>
-            <li>
-              <a
-                href="http://www.funnyordie.com/about/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                FunnyOrDie.com
-              </a>
-            </li>
-            <li>
-              <a href="https://www.hulu.com/privacy" target="_blank" rel="noreferrer noopener">
-                Hulu
-              </a>
-            </li>
-            <li>
-              <a href="https://imgur.com/privacy" target="_blank" rel="noreferrer noopener">
-                Imgur
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://help.instagram.com/155833707900388"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://issuu.com/legal/privacy" target="_blank" rel="noreferrer noopener">
-                Issuu
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.kickstarter.com/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Kickstarter
-              </a>
-            </li>
-            <li>
-              <a href="https://www.meetup.com/privacy/" target="_blank" rel="noreferrer noopener">
-                Meetup.com
-              </a>
-            </li>
-            <li>
-              <a href="https://www.mixcloud.com/terms/" target="_blank" rel="noreferrer noopener">
-                Mixcloud
-              </a>
-            </li>
-            <li>
-              <a href="http://photobucket.com/privacy" target="_blank" rel="noreferrer noopener">
-                Photobucket
-              </a>
-            </li>
-            <li>
-              <a href="https://polldaddy.com/privacy/" target="_blank" rel="noreferrer noopener">
-                PollDaddy
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.reddit.com/help/privacypolicy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Reddit
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.reverbnation.com/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                ReverbNation
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://support.scribd.com/hc/en-us/articles/210129366-Privacy-policy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Scribd (US)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/legal/privacy-policy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                SlideShare (LinkedIn)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.smugmug.com/about/privacy/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                SmugMug
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.someecards.com/page/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Someecards
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://soundcloud.com/pages/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                SoundCloud
-              </a>
-            </li>
-            <li>
-              <a href="https://speakerdeck.com/privacy" target="_blank" rel="noreferrer noopener">
-                Speaker Deck
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.spotify.com/us/legal/privacy-policy/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Spotify (US)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.ted.com/about/our-organization/our-policies-terms/privacy-policy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                TED
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tumblr.com/policy/en/privacy"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Tumblr
-              </a>
-            </li>
-            <li>
               <a href="https://twitter.com/en/privacy" target="_blank" rel="noreferrer noopener">
                 Twitter
               </a>
             </li>
             <li>
-              <a href="https://automattic.com/privacy/" target="_blank" rel="noreferrer noopener">
-                VideoPress
-              </a>
-            </li>
-            <li>
-              <a href="https://vimeo.com/privacy" target="_blank" rel="noreferrer noopener">
-                Vimeo
-              </a>
-            </li>
-            <li>
-              <a href="https://vine.co/privacy" target="_blank" rel="noreferrer noopener">
-                Vine&nbsp;
-              </a>
-            </li>
-            <li>
               <a
                 href="https://wordpress.org/about/privacy/"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                WordPress Plugin Directory&nbsp;
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://wordpress.org/about/privacy/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                WordPress.tv&nbsp;
+                WordPress Plugin Directory
               </a>
             </li>
             <li>
@@ -424,10 +192,8 @@ export default function Home() {
           <h3>Analytics</h3>
           <ul>
             <li>
-              We use Vercel Analytics for tracking visits and aggregating information about the
-              traffic to our websites. This is cookieless and anonymized GDPR compliant tracking.
-              The Vercel Analytics privacy policy can be found{' '}
-              <a href="https://vercel.com/docs/sources/analytics/privacy">here</a>.
+              We use Bento for analytics. Bento’s privacy policy
+              is found <a href="https://bentonow.com/legal/privacy">here</a>.
             </li>
           </ul>
           <h3>Marketing</h3>
@@ -446,8 +212,8 @@ export default function Home() {
               All marketing emails sent by us will include an unsubscribe link in the footer of the
               email. Emails sent to you may also include standard tracking, including open and click
               activities.
-              <br /> We use MailChimp. Mailchimp’s privacy policy is found{' '}
-              <a href="https://mailchimp.com/legal/privacy/">here</a>.
+              <br /> We use Bento. Bento privacy policy is found{' '}
+              <a href="https://bentonow.com/legal/privacy">here</a>.
             </li>
             <li>
               We may utilize social media and web advertising campaigns. These service providers use
@@ -480,7 +246,7 @@ export default function Home() {
           <h3>Paying Customers</h3>
           <ul>
             <li>
-              For payment transactions for Imajinn AI, we use Stripe.&nbsp;Stripe’s privacy policy
+              For payment transactions for DocsBot AI, we use Stripe.&nbsp;Stripe’s privacy policy
               can be found<span>&nbsp;</span>
               <a rel="noreferrer noopener" href="https://stripe.com/us/privacy" target="_blank">
                 here
@@ -493,9 +259,7 @@ export default function Home() {
             </li>
           </ul>
 
-          <h3>
-            Hosting and API Services
-          </h3>
+          <h3>Hosting and API Services</h3>
           <ul>
             <li>
               All web servers and hosting are managed by our team on Vercel, and Google Cloud
@@ -513,25 +277,20 @@ export default function Home() {
               .
             </li>
             <li>
-              Our services use Bunny.net Content Delivery Network (CDN). Bunny.net may store web log
-              information of site visitors, including IPs, UA, referrer, Location and ISP info of
-              site visitors. Files and images served by the CDN may be stored and served from
-              countries other than your own. Bunny.net’s privacy policy can be found
+              Our services use Weaviate cloud as a database provider. Their privacy policy can be found
               <span>&nbsp;</span>
-              <a rel="noreferrer noopener" href="https://bunny.net/privacy/" target="_blank">
+              <a rel="noreferrer noopener" href="https://weaviate.io/" target="_blank">
                 here
               </a>
               .
             </li>
             <li>
-              In order to run our Imajinn AI services, we receive and store your prompts, styles,
-              arguments, uploaded images, and generated images made by users on your team that use
-              the Imajinn service. This data may also be shared with our cloud provider Replicate.
-              Replicate’s privacy policy can be found{' '}
-              <a href="https://replicate.com/privacy">here</a>. Staff may have access to review this
-              data for quality control and terms of service enforcement purposes. If you submit
-              personally identifying information in your prompts, this is against our terms of
-              service, but may be stored in our systems.
+              In order to run our DocsBot AI services, we receive and store sources, questions, answers, and chat history made by you or customers that use
+              the DocsBot service. This data will be passed through the OpenAI APIs.
+              OpenAI's privacy policy can be found{' '}
+              <a href="https://openai.com/policies/privacy-policy">here</a>. Staff may have access to review this
+              data for quality control and terms of service enforcement purposes. We don't recommend that you submit
+              personally identifying information in your questions or source content, but if you do it may be stored in our systems.
             </li>
           </ul>
 
@@ -551,7 +310,7 @@ export default function Home() {
           </p>
           <p>
             An individual who seeks access, or who seeks to correct, amend, or delete inaccurate
-            data, should direct his/her query to support@imajinn.aid. We will respond within a
+            data, should direct his/her query to human@docsbot.ai. We will respond within a
             reasonable timeframe, not to exceed one week.
           </p>
 
@@ -563,7 +322,7 @@ export default function Home() {
           </p>
           <ul>
             <li>
-              Every Imajinn AI employee and contractor goes through an onboarding process. All staff
+              Every DocsBot AI employee and contractor goes through an onboarding process. All staff
               only have access to systems that are directly required to complete the functions of
               their job. We use dual factor authentication for all critical systems and
               communications services.
@@ -575,7 +334,7 @@ export default function Home() {
               review and agree, in writing, to all policies and procedures annually.
             </li>
             <li>
-              We only use third-party services, such as Google Cloud, that are fully vetted and
+              We only use third-party services, such as Google Cloud and OpenAI that are fully vetted and
               adhere to the highest levels of privacy and security practices.
             </li>
           </ul>
@@ -591,20 +350,20 @@ export default function Home() {
 
           <h3>Privacy Shield Frameworks</h3>
           <p>
-            Imajinn AI complies with the EU-U.S. Privacy Shield Framework and Swiss-U.S. Privacy
+            DocsBot AI complies with the EU-U.S. Privacy Shield Framework and Swiss-U.S. Privacy
             Shield Framework as set forth by the U.S. Department of Commerce regarding the
             collection, use, and retention of personal information transferred from the European
-            Union and Switzerland to the United States. Imajinn AI has certified to the Department
+            Union and Switzerland to the United States. DocsBot AI has certified to the Department
             of Commerce that it adheres to the Privacy Shield Principles. If there is any conflict
             between the terms in this privacy policy and the Privacy Shield Principles, the Privacy
             Shield Principles shall govern. To learn more about the Privacy Shield program, please
             visit <a href="https://www.privacyshield.gov/">privacyshield.gov</a>.
           </p>
           <p>
-            In compliance with the Privacy Shield Principles, Imajinn AI commits to resolve
+            In compliance with the Privacy Shield Principles, DocsBot AI commits to resolve
             complaints about our collection or use of your personal information. EU and Swiss
             individuals with inquiries or complaints regarding our Privacy Shield policy should
-            first contact Imajinn AI at support@imajinn.ai.
+            first contact DocsBot AI at human@docsbot.ai.
           </p>
           <p>
             If we do not resolve your complaint, you may contact JAMS, our designated independent
@@ -615,12 +374,12 @@ export default function Home() {
             </a>
           </p>
           <p>
-            If neither Imajinn AI nor JAMS resolves your complaint, you may, in certain
+            If neither DocsBot AI nor JAMS resolves your complaint, you may, in certain
             circumstances, be able to seek binding arbitration through the Privacy Shield Panel. You
             can read more about binding arbitration in Annex I to the Privacy Shield Principles.
           </p>
           <p>
-            Imajinn AI commits to cooperate with EU data protection authorities (DPAs) and the Swiss
+            DocsBot AI commits to cooperate with EU data protection authorities (DPAs) and the Swiss
             Federal Data Protection and Information Commissioner (FDPIC) and comply with the advice
             given by such authorities with regard to human resources data transferred from the EU
             and Switzerland in the context of the employment relationship.

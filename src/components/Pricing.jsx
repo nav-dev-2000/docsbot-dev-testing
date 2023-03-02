@@ -1,215 +1,210 @@
-import clsx from 'clsx'
-import { useState, useEffect } from 'react'
-import { Switch } from '@headlessui/react'
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
+import { useState } from 'react'
+import { RadioGroup } from '@headlessui/react'
+import { CheckIcon } from '@heroicons/react/20/solid'
+import classNames from '@/utils/classNames'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+const frequencies = [
+  { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
+  { value: 'annually', label: 'Annually', priceSuffix: '/year' },
+]
+const tiers = [
+  {
+    name: 'Hobby',
+    id: 'tier-hobby',
+    href: '/register',
+    price: { monthly: 19, annually: 192 },
+    description: 'Create your own basic knowledge base for quick answers and copywriting.',
+    features: [
+      '1 DocsBot',
+      '10 Sources',
+      '100 Source Pages',
+      'Unlock all source types',
+      '1k questions/mo',
+      '1 user'
+    ],
+    mostPopular: false,
+  },
+  {
+    name: 'Pro',
+    id: 'tier-startup',
+    href: '/register',
+    price: { monthly: 99, annually: 996 },
+    description: 'For businesses who want to save time and money on support and copywriting.',
+    features: [
+      '10 DocsBots',
+      '100 Sources',
+      '1000 Source Pages',
+      'Unlock all source types',
+      '10k questions/mo',
+      '5 team users',
+      'Basic Analytics',
+      'Chat history (coming soon)',
+      'Unbranded chat widgets (coming soon)',
+    ],
+    mostPopular: true,
+  },
+  {
+    name: 'Enterprise',
+    id: 'tier-enterprise',
+    href: '/register',
+    price: { monthly: 499, annually: 4992 },
+    description: 'For serious traffic and custom integrations. Identify gaps in your documentation.',
+    features: [
+      '100 DocsBots',
+      '1k Sources',
+      '100k Source Pages',
+      'Unlock all source types',
+      '100k questions/mo',
+      '50 team users',
+      'Advanced Analytics (coming soon)',
+      'Chat history',
+      'Unbranded chat widgets (coming soon)',
+      'AI reports (coming soon)',
+    ],
+    mostPopular: false,
+  },
+]
 
-function SwirlyDoodle({ className }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 281 40"
-      className={className}
-      preserveAspectRatio="none"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M240.172 22.994c-8.007 1.246-15.477 2.23-31.26 4.114-18.506 2.21-26.323 2.977-34.487 3.386-2.971.149-3.727.324-6.566 1.523-15.124 6.388-43.775 9.404-69.425 7.31-26.207-2.14-50.986-7.103-78-15.624C10.912 20.7.988 16.143.734 14.657c-.066-.381.043-.344 1.324.456 10.423 6.506 49.649 16.322 77.8 19.468 23.708 2.65 38.249 2.95 55.821 1.156 9.407-.962 24.451-3.773 25.101-4.692.074-.104.053-.155-.058-.135-1.062.195-13.863-.271-18.848-.687-16.681-1.389-28.722-4.345-38.142-9.364-15.294-8.15-7.298-19.232 14.802-20.514 16.095-.934 32.793 1.517 47.423 6.96 13.524 5.033 17.942 12.326 11.463 18.922l-.859.874.697-.006c2.681-.026 15.304-1.302 29.208-2.953 25.845-3.07 35.659-4.519 54.027-7.978 9.863-1.858 11.021-2.048 13.055-2.145a61.901 61.901 0 0 0 4.506-.417c1.891-.259 2.151-.267 1.543-.047-.402.145-2.33.913-4.285 1.707-4.635 1.882-5.202 2.07-8.736 2.903-3.414.805-19.773 3.797-26.404 4.829Zm40.321-9.93c.1-.066.231-.085.29-.041.059.043-.024.096-.183.119-.177.024-.219-.007-.107-.079ZM172.299 26.22c9.364-6.058 5.161-12.039-12.304-17.51-11.656-3.653-23.145-5.47-35.243-5.576-22.552-.198-33.577 7.462-21.321 14.814 12.012 7.205 32.994 10.557 61.531 9.831 4.563-.116 5.372-.288 7.337-1.559Z"
-      />
-    </svg>
-  )
-}
-
-function CheckIcon({ className }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={clsx(
-        'h-6 w-6 flex-none fill-current stroke-current',
-        className
-      )}
-    >
-      <path
-        d="M9.307 12.248a.75.75 0 1 0-1.114 1.004l1.114-1.004ZM11 15.25l-.557.502a.75.75 0 0 0 1.15-.043L11 15.25Zm4.844-5.041a.75.75 0 0 0-1.188-.918l1.188.918Zm-7.651 3.043 2.25 2.5 1.114-1.004-2.25-2.5-1.114 1.004Zm3.4 2.457 4.25-5.5-1.187-.918-4.25 5.5 1.188.918Z"
-        strokeWidth={0}
-      />
-      <circle
-        cx={12}
-        cy={12}
-        r={8.25}
-        fill="none"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function PeriodToggle({ period, setPeriod }) {
-  const [enabled, setEnabled] = useState(period === 'yearly')
-
-  useEffect(() => {
-    return () => {
-      setPeriod(enabled ? 'yearly' : 'monthly')
-    }
-  }, [enabled])
-  
-  return (
-    <Switch.Group as="div" className="flex items-center">
-      <Switch
-        checked={enabled}
-        onChange={setEnabled}
-        className={classNames(
-          enabled ? 'bg-blue-600' : 'bg-gray-200',
-          'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-        )}
-      >
-        <span
-          aria-hidden="true"
-          className={classNames(
-            enabled ? 'translate-x-5' : 'translate-x-0',
-            'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
-          )}
-        />
-      </Switch>
-      <Switch.Label as="span" className="ml-3">
-        <span className="text-sm font-medium text-white">Annual billing</span> 
-        <span className="text-sm text-gray-100">(Save 20%!)</span>
-      </Switch.Label>
-    </Switch.Group>
-  )
-}
-
-
-function Plan({ name, price, description, href, features, featured = false }) {
-  return (
-    <section
-      className={clsx(
-        'flex flex-col rounded-3xl px-6 sm:px-8',
-        featured ? 'order-first bg-blue-600 py-8 lg:order-none' : 'lg:py-8'
-      )}
-    >
-      <h3 className="mt-5 font-display text-lg text-white">{name}</h3>
-      <p
-        className={clsx(
-          'mt-2 text-base',
-          featured ? 'text-white' : 'text-slate-400'
-        )}
-      >
-        {description}
-      </p>
-      <p className="order-first font-display text-5xl font-light tracking-tight text-white">
-        {price}
-      </p>
-      <ul
-        role="list"
-        className={clsx(
-          'order-last mt-10 flex flex-col gap-y-3 text-sm',
-          featured ? 'text-white' : 'text-slate-200'
-        )}
-      >
-        {features.map((feature) => (
-          <li key={feature} className="flex">
-            <CheckIcon className={featured ? 'text-white' : 'text-slate-400'} />
-            <span className="ml-4">{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <Button
-        href={href}
-        variant={featured ? 'solid' : 'outline'}
-        color="white"
-        className="mt-8"
-        aria-label={`Get started with the ${name} plan for ${price}`}
-      >
-        Get started
-      </Button>
-    </section>
-  )
-}
-
-export function Pricing() {
-  const [period, setPeriod] = useState('yearly')
+export default function Pricing() {
+  const [frequency, setFrequency] = useState(frequencies[1])
 
   return (
-    <section
-      id="pricing"
-      aria-label="Pricing"
-      className="bg-slate-900 py-20 sm:py-32"
-    >
-      <Container>
-        <div className="md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            <span className="relative whitespace-nowrap">
-              <SwirlyDoodle className="absolute top-1/2 left-0 h-[1em] w-full fill-blue-400" />
-              <span className="relative">Simple pricing,</span>
-            </span>{' '}
-            for everyone.
-          </h2>
-          <p className="mt-4 text-lg text-slate-400">
-            It doesn’t matter what size your business is, we have a plan for you.
-          </p>
-
-          <p className="mt-2 text-md font-bold text-white">
-            New: Get two months free when you sign up for an annual plan!
+    <div className="bg-white py-24 sm:py-32" id="pricing">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-base font-semibold leading-7 text-cyan-600">Pricing</h2>
+          <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Pricing plans for any integration
           </p>
         </div>
-        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-          <Plan
-            name="Starter"
-            price="$24.99"
-            description="Get access to the ultimate AI photobooth for amazing profile pictures."
-            href="/register"
-            features={[
-              'Train one base/person',
-              '90 day base storage',
-              '+80 custom sources (up to 480 images!)',
-              'Premium product visualization',
-              'Choose from 100+ amazing style presets',
-              'Choose from three image ratios',
-            ]}
-          />
-          <Plan
-            featured
-            name="Small business"
-            price="$59/mo"
-            description="Perfect for artists or small ecommerce, agency, or freelance businesses."
-            href="/register"
-            features={[
-              'Train 5 bases per month',
-              'Keep unlimited trained bases',
-              '250 sources/mo (up to 1,500 images!)',
-              'Premium product visualization',
-              'Every image ratio',
-              'High resolution images',
-              '2x faster source generation',
-              'Commercial use for one user',
-            ]}
-          />
-          <Plan
-            name="Enterprise"
-            price="$399/mo"
-            description="Empower your team with near instant visualization."
-            href="/register"
-            features={[
-              'Train 50 bases per month',
-              'Keep unlimited trained bases',
-              '2k sources/mo (up to 12k images!)',
-              'Premium product visualization',
-              'Every image ratio',
-              'High resolution images',
-              '2x faster source generation',
-              'Commercial use for up to 10 users',
-            ]}
-          />
+        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+          Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a
+          custom plan?{' '}
+          <a
+            className="underline"
+            href="mailto:human@docsbot.ai"
+            onClick={(e) => {
+              if (Beacon !== undefined) {
+                e.preventDefault()
+                Beacon('open')
+              }
+            }}
+          >
+            Contact us
+          </a>
+          .
+        </p>
+        <div className="mt-16 flex justify-center">
+          <RadioGroup
+            value={frequency}
+            onChange={setFrequency}
+            className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          >
+            <RadioGroup.Label className="sr-only">Payment frequency</RadioGroup.Label>
+            {frequencies.map((option) => (
+              <RadioGroup.Option
+                key={option.value}
+                value={option}
+                className={({ checked }) =>
+                  classNames(
+                    checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
+                    'cursor-pointer rounded-full py-1 px-2.5'
+                  )
+                }
+              >
+                <span>{option.label}</span>
+              </RadioGroup.Option>
+            ))}
+          </RadioGroup>
         </div>
-      </Container>
-    </section>
+        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {tiers.map((tier) => (
+            <div
+              key={tier.id}
+              className={classNames(
+                tier.mostPopular ? 'ring-2 ring-cyan-600' : 'ring-1 ring-gray-200',
+                'rounded-3xl p-8 xl:p-10'
+              )}
+            >
+              <div className="flex items-center justify-between gap-x-4">
+                <h3
+                  id={tier.id}
+                  className={classNames(
+                    tier.mostPopular ? 'text-cyan-600' : 'text-gray-900',
+                    'text-lg font-semibold leading-8'
+                  )}
+                >
+                  {tier.name}
+                </h3>
+                {tier.mostPopular ? (
+                  <p className="rounded-full bg-cyan-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-cyan-600">
+                    Most popular
+                  </p>
+                ) : null}
+              </div>
+              <p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
+              {frequency?.value === 'monthly' ? (
+                <p className="mt-6 flex items-baseline gap-x-1">
+                  <span className="text-4xl font-bold tracking-tight text-gray-900">
+                    ${tier.price[frequency.value]}
+                  </span>
+                  <span className="text-sm font-semibold leading-6 text-gray-600">
+                    {frequency.priceSuffix}
+                  </span>
+                </p>
+              ) : (
+                <p className="mt-6 flex items-baseline gap-x-1">
+                  <span className="text-4xl font-bold tracking-tight text-gray-900">
+                    ${tier.price[frequency.value] / 12}
+                  </span>
+                  <span className="text-sm font-semibold leading-6 text-gray-600">/month</span>
+                  <span className="ml-2 text-sm font-semibold leading-6 text-gray-600">
+                    (${tier.price[frequency.value]}
+                    {frequency.priceSuffix})
+                  </span>
+                </p>
+              )}
+              <a
+                href={tier.href}
+                aria-describedby={tier.id}
+                className={classNames(
+                  tier.mostPopular
+                    ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
+                    : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
+                  'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800'
+                )}
+              >
+                Get started
+              </a>
+              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex gap-x-3">
+                    <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
+          <div className="lg:min-w-0 lg:flex-1">
+            <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">
+              Personal
+            </h3>
+            <p className="mt-1 text-base leading-7 text-gray-600">
+              Try DocsBot free for personal use. No credit card required. Import up to three
+              document files or urls and chat with your bot within our website.
+            </p>
+          </div>
+          <a
+            href="#"
+            className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-cyan-600 ring-1 ring-inset ring-cyan-600 hover:ring-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"
+          >
+            Try free <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
   )
 }

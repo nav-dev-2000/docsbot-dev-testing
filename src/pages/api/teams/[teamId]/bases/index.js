@@ -4,6 +4,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
+import { createSchema } from '@/lib/weaviate'
 
 const router = createRouter()
 
@@ -22,7 +23,7 @@ router.post(async (req, res) => {
 
   try {
     //TODO check plan credits
-    if (team.baseCount >= 1) {
+    if (team.baseCount >= 3) {
       return res.status(402).json({
         message: 'Base limit exceeded. Please check your plan.',
       })
@@ -41,7 +42,13 @@ router.post(async (req, res) => {
     if (privacy !== 'public' && privacy !== 'private') {
       return res.status(400).send({ message: 'Invalid param "privacy".' })
     }
-    
+
+    //create classname with a random string
+    const indexId = `Document_${Math.random().toString(36).substr(2, 10)}`
+
+    //create schema in weaviate
+    await createSchema(indexId)
+
     //create base in db
     const docRef = await firestore.collection('teams').doc(team.id).collection('bases').add({
       createdAt: FieldValue.serverTimestamp(),
@@ -49,9 +56,11 @@ router.post(async (req, res) => {
       description,
       privacy,
       status: 'pending',
-      indexId: null,
+      indexId: indexId,
       sourceCount: 0,
       pageCount: 0,
+      chunkCount: 0,
+      questionCount: 0,
     })
 
     const baseId = docRef.id

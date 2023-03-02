@@ -35,8 +35,8 @@ const relevantEvents = new Set([
 
 //add Slack webhook
 const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL, {
-  username: 'Imajinn-AI-Base',
-  icon_url: 'https://infiniteuploads.com/wp-content/uploads/2022/09/imajinn-icon-1.png',
+  username: 'DocsBot-AI-Base',
+  icon_url: 'https://infiniteuploads.com/wp-content/uploads/2022/09/docsbot-icon-1.png',
   channel: '#signups',
 })
 
@@ -100,9 +100,9 @@ const webhookHandler = async (req, res) => {
               await slack.send({
                 attachments: [
                   {
-                    fallback: `Imajinn AI cancellation!`,
+                    fallback: `DocsBot AI cancellation!`,
                     color: '#d10014',
-                    title: 'Imajinn AI Subscription Cancelled',
+                    title: 'DocsBot AI Subscription Cancelled',
                     text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
                     fields: [
                       {
@@ -173,13 +173,13 @@ const webhookHandler = async (req, res) => {
               await slack.send({
                 attachments: [
                   {
-                    fallback: `New Imajinn AI signup by ${session.customer_details.name} (${
+                    fallback: `New DocsBot AI signup by ${session.customer_details.name} (${
                       session.customer_details.email
                     }) to ${planName} x${session.subscription.quantity} for $${
                       session.amount_total / 100
                     } ${session.currency} ${session.subscription.plan.interval}ly!`,
                     color: '#57a35d',
-                    title: 'New Imajinn AI Subscription Signup',
+                    title: 'New DocsBot AI Subscription Signup',
                     text: `${planName} x ${session.subscription.quantity}`,
                     fields: [
                       {
@@ -220,7 +220,7 @@ const webhookHandler = async (req, res) => {
                     await slack.send({
                       attachments: [
                         {
-                          fallback: `New Imajinn AI storybook checkout by ${
+                          fallback: `New DocsBot AI storybook checkout by ${
                             session.customer_details.name
                           } (${session.customer_details.email}) to ${
                             session.line_items.data[0].description
@@ -228,7 +228,7 @@ const webhookHandler = async (req, res) => {
                             session.line_items.data[0].amount_total / 100
                           } ${session.line_items.data[0].currency} one-time!`,
                           color: '#57a35d',
-                          title: 'New Imajinn AI Storybook Checkout',
+                          title: 'New DocsBot AI Storybook Checkout',
                           text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
                           fields: [
                             {
@@ -256,7 +256,7 @@ const webhookHandler = async (req, res) => {
                     await slack.send({
                       attachments: [
                         {
-                          fallback: `New Imajinn AI portrait checkout by ${
+                          fallback: `New DocsBot AI portrait checkout by ${
                             session.customer_details.name
                           } (${session.customer_details.email}) to ${
                             session.line_items.data[0].description
@@ -264,7 +264,7 @@ const webhookHandler = async (req, res) => {
                             session.line_items.data[0].amount_total / 100
                           } ${session.line_items.data[0].currency} one-time!`,
                           color: '#57a35d',
-                          title: 'New Imajinn AI Portrait Checkout',
+                          title: 'New DocsBot AI Portrait Checkout',
                           text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
                           fields: [
                             {
@@ -305,7 +305,7 @@ const webhookHandler = async (req, res) => {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `New Imajinn AI checkout by ${session.customer_details.name} (${
+                        fallback: `New DocsBot AI checkout by ${session.customer_details.name} (${
                           session.customer_details.email
                         }) to ${session.line_items.data[0].description} x${
                           session.line_items.data[0].quantity
@@ -313,7 +313,7 @@ const webhookHandler = async (req, res) => {
                           session.line_items.data[0].currency
                         } one-time!`,
                         color: '#57a35d',
-                        title: 'New Imajinn AI Checkout',
+                        title: 'New DocsBot AI Checkout',
                         text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
                         fields: [
                           {
@@ -366,7 +366,7 @@ const webhookHandler = async (req, res) => {
                     },
                   },
                   cart: {
-                    abandoned_checkout_url: 'https://imajinn.ai/app/account',
+                    abandoned_checkout_url: 'https://docsbot.ai/app/account',
                     items: [
                       {
                         product_id: session.line_items.data[0].price.id,
@@ -443,7 +443,7 @@ const webhookHandler = async (req, res) => {
                   value: { amount: invoice.amount_paid, currency: invoice.currency },
                 },
                 cart: {
-                  abandoned_checkout_url: 'https://imajinn.ai/app/account',
+                  abandoned_checkout_url: 'https://docsbot.ai/app/account',
                   items: [
                     {
                       product_id: invoiceWithSubscription.lines.data[0].price.id,

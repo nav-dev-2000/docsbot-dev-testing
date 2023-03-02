@@ -4,6 +4,7 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBase } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
+import { deleteSchema } from '@/lib/weaviate'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -42,6 +43,28 @@ export default async function handler(req, res) {
       // Commit the batch
       await batch.commit()
 
+      //delete schema in weaviate
+      if (base.indexId) {
+        await deleteSchema(base.indexId)
+      }
+
+      // Delete all questions for base
+      const questionsSnapshot = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bases')
+        .doc(baseId)
+        .collection('questions')
+        .get()
+      // Once we get the results, begin a batch
+      const questionsBatch = firestore.batch()
+      questionsSnapshot.forEach(function (doc) {
+        // For each doc, add a delete operation to the batch
+        questionsBatch.delete(doc.ref)
+      })
+      // Commit the batch
+      await questionsBatch.commit()
+
       //delete base
       await firestore.collection('teams').doc(team.id).collection('bases').doc(baseId).delete()
 
@@ -62,7 +85,7 @@ export default async function handler(req, res) {
       })
 
       //delete all base data from bucket
-      const bucket = getStorage().bucket('gs://customchat-base.appspot.com')
+      const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
       await bucket.deleteFiles({prefix: `teams/${team.id}/bases/${baseId}`})
 
       try {

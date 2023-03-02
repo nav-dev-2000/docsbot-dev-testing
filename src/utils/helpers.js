@@ -1,7 +1,7 @@
 export const getURL = () => {
   const url =
     process?.env?.VERCEL_ENV && process.env.VERCEL_ENV === 'production'
-      ? 'https://imajinn.ai'
+      ? 'https://docsbot.ai'
       : process?.env?.VERCEL_URL && process.env.VERCEL_URL !== ''
       ? process.env.VERCEL_URL
       : 'http://localhost:3000'

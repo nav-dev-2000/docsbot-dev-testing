@@ -59,6 +59,8 @@ export default function DashboardWrap({ page, title, children }) {
   ]
   const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
+  const currentPageLink = navigation.find((nav) => nav.name === page).href
+
   return (
     <>
       <Head>
@@ -196,7 +198,7 @@ export default function DashboardWrap({ page, title, children }) {
               </button>
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
-                  <h1 className="ml-4 text-2xl font-semibold text-gray-900">{page}</h1>
+                  <h1 className="ml-4 text-2xl font-semibold text-gray-900"><Link href={currentPageLink}>{page}</Link></h1>
                   {title && (
                     <>
                       <ArrowRightIcon className="ml-4 h-4 w-4" />

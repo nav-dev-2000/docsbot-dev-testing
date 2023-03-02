@@ -26,7 +26,7 @@ export function CallToAction() {
             It’s time to take visualization to the next level.
           </p>
           <Button href="/register" color="white" className="mt-10">
-            Imajinn Now
+            DocsBot Now
           </Button>
         </div>
       </Container>

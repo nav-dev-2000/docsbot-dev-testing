@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function ImajinnSpinner() {
+export default function DocsBotSpinner() {
 	useEffect( () => {
 		! ( function ( t, n ) {
 			'object' == typeof exports && 'undefined' != typeof module
@@ -2714,7 +2714,7 @@ export default function ImajinnSpinner() {
 	return (
 		<svg
 			id="e29gnwghxaec1"
-			className="imajinn-spinner"
+			className="docsbot-spinner"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 300 300"
 			shapeRendering="geometricPrecision"

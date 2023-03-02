@@ -84,7 +84,7 @@ function Login() {
   return (
     <>
       <Head>
-        <title key="title">Sign In - Imajinn</title>
+        <title key="title">Sign In - DocsBot</title>
       </Head>
       <AuthLayout
         title="Sign in to account"

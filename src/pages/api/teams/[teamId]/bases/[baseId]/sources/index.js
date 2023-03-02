@@ -1,6 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { PubSub } from '@google-cloud/pubsub'
 import { getBase, getSources, getSource } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
@@ -82,7 +83,8 @@ export default async function handler(req, res) {
           url,
           file,
           status: 'pending',
-          pages: null,
+          pageCount: 0,
+          chunkCount: 0,
         })
 
       //increment sourceCounts on team
@@ -122,6 +124,22 @@ export default async function handler(req, res) {
       }
 
       //TODO add source event to pub/sub queue for processing
+      const pubSubClient = new PubSub()
+      const topicName = 'docsbot_index'
+      const dataBuffer = Buffer.from(
+        JSON.stringify({
+          teamId: team.id,
+          baseId,
+          sourceId: docRef.id,
+          indexId: base.indexId,
+          type,
+          title,
+          url,
+          file,
+        })
+      )
+      const messageId = await pubSubClient.topic(topicName).publishMessage({data: dataBuffer})
+      console.log(`Message ${messageId} published to ${topicName}.`)
 
 
       try {

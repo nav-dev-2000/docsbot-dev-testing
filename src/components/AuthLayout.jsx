@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
 import { Logo } from '@/components/Logo'
+import Image from 'next/image'
+import docsbotLogo from '@/images/docsbot-logo-white.png'
 
 function BackgroundIllustration(props) {
   return (
@@ -23,10 +25,10 @@ export function AuthLayout({ title, subtitle, children }) {
   return (
     <main className="flex min-h-full overflow-hidden pt-16 sm:py-28 bg-gradient-to-r from-teal-500 to-cyan-600">
       <div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
-        <Link href="/" aria-label="Home">
-          <Logo className="mx-auto h-10 w-auto fill-white" />
+        <Link href="/" aria-label="Home" className='mx-auto'>
+          <Image src={docsbotLogo} alt="Docsbot" />
         </Link>
-        <div className="relative mt-12 sm:mt-16 ">
+        <div className="relative mt-12 sm:mt-16">
           <h1 className="text-center text-2xl font-medium tracking-tight text-white">
             {title}
           </h1>

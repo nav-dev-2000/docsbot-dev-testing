@@ -18,7 +18,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.imajinn.ai',
+        hostname: '**.docsbot.ai',
       },
       {
         protocol: 'https',

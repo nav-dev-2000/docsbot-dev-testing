@@ -105,6 +105,9 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
       setPercent(0)
       setIsUploading(true)
       setFileName(file.name)
+      if (!title) {
+        setTitle(file.name)
+      }
 
       //upload to firebase cloud storage
       const filepath = `user/${user.uid}/team/${team.id}/base/${base.id}/${file.name}`
@@ -125,9 +128,6 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
         () => {
           setFile(filepath)
           setIsUploading(false)
-          if (!title) {
-            setTitle(file.name)
-          }
         }
       )
     }
@@ -240,15 +240,19 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
                       className="block w-full rounded-md border-gray-300 pl-10 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       placeholder={
                         selectedSourceType?.id === 'sitemap'
-                          ? 'https://example.com/sitemap.xml'
+                          ? 'https://example.com/'
                           : 'https://example.com/page/'
                       }
                       aria-describedby="url-description"
                     />
                   </div>
-                  {selectedSourceType?.id !== 'sitemap' && (
+                  {selectedSourceType?.id !== 'sitemap' ? (
                     <p className="mt-2 text-sm text-gray-500" id="url-description">
                       Clickable URL of source link displayed with answers.
+                    </p>
+                  ) : (
+                    <p className="mt-2 text-sm text-gray-500" id="url-description">
+                      URL of the site to crawl based on any discovered sitemaps.
                     </p>
                   )}
                 </div>
@@ -369,7 +373,7 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
     )
   } else {
     return (
-      <div className="mt-16 text-center max-w-2xl mx-auto">
+      <div className="mx-auto mt-16 max-w-2xl text-center">
         <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
         <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
         <p className="mt-1 text-sm text-gray-500">

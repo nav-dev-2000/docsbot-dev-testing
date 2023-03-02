@@ -4,10 +4,14 @@ import {
   ChatBubbleLeftEllipsisIcon,
   ChatBubbleLeftRightIcon,
   EyeIcon,
+  Square3Stack3DIcon,
+  QuestionMarkCircleIcon,
+  DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
-import BadgeStatus from './BadgeStatus'
+import BadgeStatus from '@/components/BadgeStatus'
+import ChatModal from '@/components/ChatModal'
 
-export default function BaseCard({ base, canGenerate }) {
+export default function BaseCard({ team, base }) {
   if (!base || !base.id) {
     return null
   }
@@ -21,10 +25,13 @@ export default function BaseCard({ base, canGenerate }) {
       </h2>
       <div className="bg-white p-6">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <div className="flex space-x-5 items-center">
+          <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
               <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-600 to-cyan-700 p-3 shadow-lg">
-                <BookOpenIcon className="h-8 w-8 sm:h-10 sm:w-10 text-cyan-100" aria-hidden="true" />
+                <BookOpenIcon
+                  className="h-8 w-8 text-cyan-100 sm:h-10 sm:w-10"
+                  aria-hidden="true"
+                />
               </span>
             </div>
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
@@ -40,7 +47,7 @@ export default function BaseCard({ base, canGenerate }) {
                     {base.privacy}
                   </p>
                 </div>
-                <div className="flex items-center text-sm text-gray-500 ml-4">
+                <div className="ml-4 flex items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
@@ -52,41 +59,41 @@ export default function BaseCard({ base, canGenerate }) {
               </div>
             </div>
           </div>
-          <div className="mt-4 flex justify-between sm:block sm:mt-0">
-            <div className="flex justify-center sm:justify-end flex-shrink-0">
+          <div className="mt-4 flex justify-between sm:mt-0 sm:block">
+            <div className="flex flex-shrink-0 justify-center sm:justify-end">
               <BadgeStatus status={base.status} small={false} />
             </div>
             <div className="flex justify-between space-x-2 sm:mt-5">
-              <button className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+              <button
+                className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={true}
+              >
                 <ChatBubbleLeftRightIcon
                   className="mr-2 h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />
-                Chat
+                Chat (coming soon)
               </button>
 
-              <button className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                <ChatBubbleLeftEllipsisIcon
-                  className="mr-2 h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-                Q / A
-              </button>
+              <ChatModal team={team} base={base} />
             </div>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-        <div className="px-6 py-5 text-center text-sm font-medium">
+        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
+        <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{base.sourceCount}</span>{' '}
           <span className="text-gray-600">Sources</span>
         </div>
-        <div className="px-6 py-5 text-center text-sm font-medium">
+        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
+          <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{base.pageCount}</span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
-        <div className="px-6 py-5 text-center text-sm font-medium">
-          <span className="text-gray-900">35,000</span>{' '}
+        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
+          <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <span className="text-gray-900">{base.questionCount}</span>{' '}
           <span className="text-gray-600">Questions</span>
         </div>
       </div>
