@@ -3,12 +3,10 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 configureFirebaseApp()
 const firestore = getFirestore()
-import { stripePlan, bookPlan, portraitPlan } from '@/utils/helpers'
+import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
-import { storyPurchase } from '@/lib/storyFunctions'
-import { portraitPurchase } from '@/lib/portraitFunctions'
-import { getBook, getTeam, getPortrait } from '@/lib/dbQueries'
+import { getTeam } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -35,8 +33,8 @@ const relevantEvents = new Set([
 
 //add Slack webhook
 const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL, {
-  username: 'DocsBot-AI-Base',
-  icon_url: 'https://infiniteuploads.com/wp-content/uploads/2022/09/docsbot-icon-1.png',
+  username: 'DocsBot-AI',
+  icon_url: 'https://docsbot.ai/apple-touch-icon.png',
   channel: '#signups',
 })
 
@@ -198,189 +196,6 @@ const webhookHandler = async (req, res) => {
                   },
                 ],
               })
-            } else if (checkoutSession.mode === 'payment') {
-              // Retrieve the Checkout Session with expand
-              const session = await stripe.checkout.sessions.retrieve(checkoutSession.id, {
-                expand: ['line_items'],
-              })
-
-              if (checkoutSession.client_reference_id) {
-                //get team by customer id
-                const team = await getTeam(checkoutSession.client_reference_id)
-                if (!team) {
-                  const book = await getBook(checkoutSession.client_reference_id)
-                  const portrait = await getPortrait(checkoutSession.client_reference_id)
-                  if (book) {
-                    //enable imagePackage for book
-                    await firestore.collection('books').doc(book.id).update({
-                      imagePackage: true,
-                    })
-
-                    // Send the Slack notification
-                    await slack.send({
-                      attachments: [
-                        {
-                          fallback: `New DocsBot AI storybook checkout by ${
-                            session.customer_details.name
-                          } (${session.customer_details.email}) to ${
-                            session.line_items.data[0].description
-                          } x${session.line_items.data[0].quantity} for $${
-                            session.line_items.data[0].amount_total / 100
-                          } ${session.line_items.data[0].currency} one-time!`,
-                          color: '#57a35d',
-                          title: 'New DocsBot AI Storybook Checkout',
-                          text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
-                          fields: [
-                            {
-                              title: 'Customer',
-                              value: `${session.customer_details.name} (${session.customer_details.email})`,
-                              short: true,
-                            },
-                            {
-                              title: 'Amount',
-                              value: `$${session.amount_total / 100} ${session.currency} one-time`,
-                              short: true,
-                            },
-                          ],
-                        },
-                      ],
-                    })
-                    console.log(`🔔 Image package enabled for book ${book.id}`)
-                  } else if (portrait) {
-                    //enable imagePackage for book
-                    await firestore.collection('portraits').doc(portrait.id).update({
-                      imagePackage: true,
-                    })
-
-                    // Send the Slack notification
-                    await slack.send({
-                      attachments: [
-                        {
-                          fallback: `New DocsBot AI portrait checkout by ${
-                            session.customer_details.name
-                          } (${session.customer_details.email}) to ${
-                            session.line_items.data[0].description
-                          } x${session.line_items.data[0].quantity} for $${
-                            session.line_items.data[0].amount_total / 100
-                          } ${session.line_items.data[0].currency} one-time!`,
-                          color: '#57a35d',
-                          title: 'New DocsBot AI Portrait Checkout',
-                          text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
-                          fields: [
-                            {
-                              title: 'Customer',
-                              value: `${session.customer_details.name} (${session.customer_details.email})`,
-                              short: true,
-                            },
-                            {
-                              title: 'Amount',
-                              value: `$${session.amount_total / 100} ${session.currency} one-time`,
-                              short: true,
-                            },
-                          ],
-                        },
-                      ],
-                    })
-                    console.log(`🔔 Image package enabled for portrait ${portrait.id}`)
-                  } else {
-                    console.log(`❌ Team not found for checkout session ${checkoutSession.id}`)
-                    break
-                  }
-                } else {
-                  //update baseCredits for team
-                  const planSources = 80 //todo: get from plan metadata
-                  const baseCredits =
-                    (team.baseCredits || 0) + session.line_items.data[0].quantity
-                  const sourceCredits =
-                    (team.sourceCredits || 0) + session.line_items.data[0].quantity * planSources
-                  await firestore
-                    .collection('teams')
-                    .doc(checkoutSession.client_reference_id)
-                    .update({ baseCredits, sourceCredits })
-                  console.log(
-                    `🔔 Base quota updated for team ${team.id} to ${baseCredits}, source quota to ${sourceCredits}`
-                  )
-
-                  // Send the Slack notification
-                  await slack.send({
-                    attachments: [
-                      {
-                        fallback: `New DocsBot AI checkout by ${session.customer_details.name} (${
-                          session.customer_details.email
-                        }) to ${session.line_items.data[0].description} x${
-                          session.line_items.data[0].quantity
-                        } for $${session.line_items.data[0].amount_total / 100} ${
-                          session.line_items.data[0].currency
-                        } one-time!`,
-                        color: '#57a35d',
-                        title: 'New DocsBot AI Checkout',
-                        text: `${session.line_items.data[0].description} x ${session.line_items.data[0].quantity}`,
-                        fields: [
-                          {
-                            title: 'Customer',
-                            value: `${session.customer_details.name} (${session.customer_details.email})`,
-                            short: true,
-                          },
-                          {
-                            title: 'Amount',
-                            value: `$${session.amount_total / 100} ${session.currency} one-time`,
-                            short: true,
-                          },
-                          {
-                            title: 'Base Credits',
-                            value: `+${session.line_items.data[0].quantity} (new balance: ${baseCredits})`,
-                            short: true,
-                          },
-                          {
-                            title: 'Source Credits',
-                            value: `+${
-                              session.line_items.data[0].quantity * planSources
-                            } (new balance: ${sourceCredits})`,
-                            short: true,
-                          },
-                        ],
-                      },
-                    ],
-                  })
-                }
-              } else {
-                const tempObj = { stripe: session }
-                if (bookPlan(tempObj)) {
-                  //this is a storybook checkout
-                  await storyPurchase(session)
-                } else if (portraitPlan(tempObj)) {
-                  await portraitPurchase(session)
-                } else {
-                  console.log(`❌ No product found for checkout session ${checkoutSession.id}`)
-                }
-              }
-
-              try {
-                bentoTrack(null, 'trackPurchase', {
-                  email: session.customer_details.email,
-                  purchaseDetails: {
-                    unique: { key: checkoutSession.id },
-                    value: {
-                      amount: session.amount_total,
-                      currency: session.currency,
-                    },
-                  },
-                  cart: {
-                    abandoned_checkout_url: 'https://docsbot.ai/app/account',
-                    items: [
-                      {
-                        product_id: session.line_items.data[0].price.id,
-                        product_sku: session.line_items.data[0].price.product,
-                        product_name: session.line_items.data[0].description,
-                        product_price: session.line_items.data[0].price.unit_amount,
-                        quantity: session.line_items.data[0].quantity,
-                      },
-                    ],
-                  },
-                })
-              } catch (e) {
-                console.log('Bento error', e)
-              }
             }
             break
           case 'invoice.paid':
@@ -422,19 +237,6 @@ const webhookHandler = async (req, res) => {
             if (!teamsRef3.empty) {
               newTeam = { id: teamsRef3.id, ...teamsRef3.data() }
             }
-
-            //update baseCredits for team
-            const baseCredits =
-              stripePlan(newTeam).baseCredits * invoiceWithSubscription.subscription.quantity
-            const sourceCredits =
-              stripePlan(newTeam).sourceCredits * invoiceWithSubscription.subscription.quantity
-            await firestore
-              .collection('teams')
-              .doc(team.id)
-              .set({ baseCredits, sourceCredits }, { merge: true })
-            console.log(
-              `🔔 Base quota updated for team ${team.id} to ${baseCredits}, source quota to ${sourceCredits}`
-            )
 
             try {
               bentoTrack(teamOwner(newTeam), 'trackPurchase', {
