@@ -6,7 +6,7 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('https://track.bentonow.com/forms/a72c79ffb06a248333be6e1de58f63cf/$subscribe', {
+    fetch('/api/waitlist', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

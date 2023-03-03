@@ -30,13 +30,13 @@ const integrations = [
   {
     name: 'URL & Sitemaps',
     description:
-      'Index a url or your whole website or support docs in minutes with our url and sitemap importers. Just add your url and we take care of the rest. Schedule regular updates to keep your content fresh (coming soon).',
+      'Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh (coming soon).',
     icon: MapIcon,
   },
   {
     name: 'Document Files',
     description:
-      'Upload any files in TXT, DOC, PPT, HTML, or PDF format. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
+      'Upload any files in TXT, DOC, PPT, EML, HTML, or PDF format. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
     icon: DocumentMagnifyingGlassIcon,
   },
   {
@@ -69,13 +69,13 @@ const features = [
   {
     name: 'Quesiton/Answer Bots',
     description:
-      'Make you documentation interactive with our answer bot. Get detailed and direct answers about your product, including code examples and formatted output.',
+      'Make you documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
     icon: ChatBubbleLeftEllipsisIcon,
   },
   {
     name: 'Embeddable Widgets',
     description:
-      'Our embeddable widgets allows you to add DocsBot chat to your website in minutes. Just add a script tag or WordPress plugin and you are ready to go. (coming soon)',
+      'We make it simple to add DocsBot chats to your website in minutes. Just add a script tag or WordPress plugin and you are ready to go. (coming soon)',
     icon: ChatBubbleLeftRightIcon,
   },
   {
@@ -93,7 +93,7 @@ const features = [
   {
     name: 'Internal Knowledge Bases',
     description:
-      'Employees spend a huge percentage of their time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.',
+      'Employees spend too much time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.',
     icon: ShieldCheckIcon,
   },
   {
@@ -143,9 +143,9 @@ export default function Home() {
                       </h1>
                       <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
                         Get instant answers for you, your customers, or your team with AI powered
-                        chatbots and copywriting trained with your content and documentation. Save
-                        money and improve the support experience for your customers, improve the
-                        productivity of your team, and perform AI copywriting with existing knowledge of your
+                        chatbots trained with your content and documentation. Save
+                        money and improve the support experience for your customers, the
+                        productivity of your team, and AI copywriting with existing knowledge of your
                         business!
                       </p>
                       <div className="mt-8">
