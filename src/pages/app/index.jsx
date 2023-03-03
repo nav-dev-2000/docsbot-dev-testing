@@ -6,10 +6,11 @@ import {
   CreditCardIcon,
   ServerStackIcon,
   UsersIcon,
-  PhotoIcon,
-  CubeTransparentIcon,
   ArrowRightIcon,
   CheckBadgeIcon,
+  DocumentTextIcon,
+  Square3Stack3DIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -17,6 +18,43 @@ import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
 import { stripePlan } from '@/utils/helpers'
 import NewBasePanel from '@/components/NewBasePanel'
+import classNames from '@/utils/classNames'
+
+const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
+  return (
+    <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
+      <div className="p-5">
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <CardIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />
+          </div>
+          <div className="ml-5 w-0 flex-1">
+            <dl>
+              <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
+              <dd>
+                <div className="text-lg font-medium text-gray-900">{stat}
+                {limit && (
+                  <span className="text-sm text-gray-500"> / {limit}</span>
+                )}
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      {href && (
+        <div className="bg-gray-50 px-5 py-3">
+          <div className="text-sm">
+            <Link href={href} className="font-medium text-cyan-700 hover:text-cyan-900">
+              {linkText}
+              <ArrowRightIcon className="ml-1 -mr-0.5 inline h-3 w-3" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 function Dashboard({ team }) {
   const [errorText, setErrorText] = useState(null)
@@ -28,21 +66,32 @@ function Dashboard({ team }) {
       href: '/app/bases',
       linkText: 'View all',
       icon: ServerStackIcon,
-      stat: team?.baseCount,
+      stat: team?.baseCount || 0,
+      limit: stripePlan(team).bots,
     },
     {
       name: 'Sources',
       href: '/app/account',
       linkText: 'Get more',
-      icon: CubeTransparentIcon,
-      stat: team?.baseCredits,
+      icon: DocumentTextIcon,
+      stat: team?.sourceCount || 0,
+      limit: stripePlan(team).sources,
     },
     {
-      name: 'Source Credits',
+      name: 'Source Pages',
       href: '/app/account',
       linkText: 'Get more',
-      icon: PhotoIcon,
-      stat: team?.sourceCredits,
+      icon: Square3Stack3DIcon,
+      stat: team?.pageCount || 0,
+      limit: stripePlan(team).pages,
+    },
+    {
+      name: 'Questions',
+      href: '/app/account',
+      linkText: 'Get more',
+      icon: QuestionMarkCircleIcon,
+      stat: team?.questionCount || 0,
+      limit: stripePlan(team).questions,
     },
     {
       name: 'Current Plan',
@@ -55,6 +104,14 @@ function Dashboard({ team }) {
 
   const actions = [
     {
+      title: 'View Bases',
+      description: 'Manage, test, and deploy bots for your trained knowledge bases.',
+      href: '/app/bases',
+      icon: ServerStackIcon,
+      iconForeground: 'text-indigo-700',
+      iconBackground: 'bg-indigo-50',
+    },
+    {
       title: 'New Base',
       description: 'Train a new knowledge base with your custom documentation and content.',
       href: '/app/bases',
@@ -62,14 +119,6 @@ function Dashboard({ team }) {
       icon: AcademicCapIcon,
       iconForeground: 'text-cyan-700',
       iconBackground: 'bg-cyan-50',
-    },
-    {
-      title: 'View Bases',
-      description: 'Manage, test, and deploy bots for your trained knowledge bases.',
-      href: '/app/bases',
-      icon: ServerStackIcon,
-      iconForeground: 'text-teal-700',
-      iconBackground: 'bg-teal-50',
     },
     {
       title: 'Plan & Billing',
@@ -89,49 +138,19 @@ function Dashboard({ team }) {
     },
   ]
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
-
   return (
     <DashboardWrap page="Dashboard">
       <Alert title={errorText} type="error" />
       <UpgradeNotice team={team} />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
-          <div key={card.name} className="overflow-hidden rounded-lg bg-white shadow">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <card.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
-                </div>
-                <div className="ml-5 w-0 flex-1">
-                  <dl>
-                    <dt className="truncate text-sm font-medium text-gray-500">{card.name}</dt>
-                    <dd>
-                      <div className="text-lg font-medium text-gray-900">{card.stat}</div>
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </div>
-            {card.href && (
-              <div className="bg-gray-50 px-5 py-3">
-                <div className="text-sm">
-                  <Link href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
-                    {card.linkText}
-                    <ArrowRightIcon className="ml-1 -mr-0.5 inline h-3 w-3" aria-hidden="true" />
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
+          <Card name={card.name} href={card.href} linkText={card.linkText} CardIcon={card.icon} stat={card.stat} limit={card.limit} />
         ))}
       </div>
 
-      <div className="mt-4 divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+      <div className="mt-8 divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
         {actions.map((action, actionIdx) => (
           <div
             key={action.title}

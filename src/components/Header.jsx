@@ -173,7 +173,7 @@ export default function Header() {
                 Log in
               </Link>
               <Link
-                href="/register"
+                href="/#signup"
                 className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-white hover:bg-gray-700"
               >
                 Try Free
@@ -222,7 +222,7 @@ export default function Header() {
               </div>
               <div className="mt-6 px-5">
                 <Link
-                  href="/register"
+                  href="/#signup"
                   className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-white hover:bg-gray-700"
                 >
                   Try Free

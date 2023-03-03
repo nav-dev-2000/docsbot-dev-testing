@@ -32,40 +32,16 @@ export function stripePlan(team) {
     const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
     if (team?.stripeSubscriptionStatus === 'active' && plans[team.stripeSubscriptionPlan]) {
       return plans[team.stripeSubscriptionPlan]
-    } else if (team?.baseCredits > 0 || team?.sourceCredits > 0) {
-      return { name: 'Starter', baseCredits: 0, sourceCredits: 0 }
     }
   }
 
-  return { name: 'None', baseCredits: 0, sourceCredits: 0 }
+  return { name: 'Free', bots: 1, sources: 3, pages: 10, questions: 100 }
 }
 
 export function isSuperAdmin(userId) {
   if (process?.env?.NEXT_PUBLIC_SUPER_ADMINS) {
     const superAdmins = JSON.parse(process.env.NEXT_PUBLIC_SUPER_ADMINS)
     return superAdmins.includes(userId)
-  }
-  
-  return false
-}
-
-export function bookPlan(book) {
-  if (process?.env?.NEXT_PUBLIC_STRIPE_BOOK_PLANS) {
-    const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_BOOK_PLANS)
-    if (plans[book.stripe?.line_items?.data[0]?.price?.product]) {
-      return plans[book.stripe?.line_items?.data[0]?.price?.product]
-    }
-  }
-
-  return false
-}
-
-export function portraitPlan(portrait) {
-  if (process?.env?.NEXT_PUBLIC_STRIPE_PORTRAIT_PLANS) {
-    const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PORTRAIT_PLANS)
-    if (plans[portrait.stripe?.line_items?.data[0]?.price?.product]) {
-      return plans[portrait.stripe?.line_items?.data[0]?.price?.product]
-    }
   }
 
   return false

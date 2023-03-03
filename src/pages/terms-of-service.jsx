@@ -316,7 +316,7 @@ export default function Home() {
               arbitrarily-targeted use).
             </li>
           </ul>
-          <p>All usage must also comply <Link href="https://openai.com/policies/terms-of-use" target="_blank">OpenAI's Terms of Service</Link>.</p>
+          <p>All usage must also comply <Link href="https://platform.openai.com/docs/usage-policies" target="_blank">OpenAI's Terms of Usage</Link>.</p>
         </ContentSection>
       </main>
       <Footer />

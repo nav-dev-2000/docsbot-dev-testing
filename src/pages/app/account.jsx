@@ -14,7 +14,7 @@ import {
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import { StripePricingTableBaseh, StripePricingTableRecharge } from '@/components/StripePricing'
+import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
 
@@ -119,7 +119,7 @@ function Account({ team }) {
       </div>
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
-        {!isStripeCustomer && <StripePricingTableBaseh teamId={team?.id} email={user?.email} />}
+        {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
         {isStripeCustomer && (
           <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-x-16 gap-y-8">
             <div className="text-center">
@@ -142,9 +142,6 @@ function Account({ team }) {
                 )}
                 Billing Portal
               </button>
-            </div>
-            <div className="">
-              <StripePricingTableRecharge teamId={team?.id} email={user?.email} />
             </div>
           </div>
         )}

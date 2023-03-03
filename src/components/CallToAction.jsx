@@ -25,7 +25,7 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
             It’s time to take visualization to the next level.
           </p>
-          <Button href="/register" color="white" className="mt-10">
+          <Button href="/#signup" color="white" className="mt-10">
             DocsBot Now
           </Button>
         </div>

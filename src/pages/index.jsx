@@ -12,7 +12,6 @@ import {
   PencilSquareIcon,
   Cog6ToothIcon,
   CogIcon,
-  LockClosedIcon,
   LifebuoyIcon,
   ChatBubbleLeftEllipsisIcon,
 } from '@heroicons/react/20/solid'
@@ -119,9 +118,9 @@ export default function Home() {
                   <div className="mx-auto max-w-md px-6 sm:max-w-2xl sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
                     <div className="lg:py-24">
                       <div className="inline-flex items-center rounded-full bg-black p-1 pl-3 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base">
-                        <span className="pr-1 text-sm">Powered by the</span>
+                        <span className="pr-1 text-sm">Powered by the NEW</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
-                          new ChatGPT API and embeddings!
+                          ChatGPT API and embeddings!
                         </span>
                       </div>
                       <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
@@ -151,14 +150,14 @@ export default function Home() {
                       </p>
                       <div className="mt-8">
                         <Link
-                          href="/register"
+                          href="/#signup"
                           type="button"
                           className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                         >
                           Create your own free DocsBot
                         </Link>
                       </div>
-                      <p className="mt-3 text-sm text-gray-300 sm:mt-4">No credit card required!</p>
+                      <p className="mt-3 text-sm text-gray-300 sm:mt-4">Get started today, no credit card required!</p>
                     </div>
                   </div>
                   <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">

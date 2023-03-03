@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 import classNames from '@/utils/classNames'
 
 const frequencies = [
   { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
-  { value: 'annually', label: 'Annually', priceSuffix: '/year' },
+  { value: 'annually', label: 'Annual', priceSuffix: '/year' },
 ]
 const tiers = [
   {
     name: 'Hobby',
     id: 'tier-hobby',
-    href: '/register',
+    href: '/#signup',
     price: { monthly: 19, annually: 192 },
     description: 'Create your own basic knowledge base for quick answers and copywriting.',
     features: [
@@ -27,7 +28,7 @@ const tiers = [
   {
     name: 'Pro',
     id: 'tier-startup',
-    href: '/register',
+    href: '/#signup',
     price: { monthly: 99, annually: 996 },
     description: 'For businesses who want to save time and money on support and copywriting.',
     features: [
@@ -46,7 +47,7 @@ const tiers = [
   {
     name: 'Enterprise',
     id: 'tier-enterprise',
-    href: '/register',
+    href: '/#signup',
     price: { monthly: 499, annually: 4992 },
     description: 'For serious traffic and custom integrations. Identify gaps in your documentation.',
     features: [
@@ -57,7 +58,7 @@ const tiers = [
       '100k questions/mo',
       '50 team users',
       'Advanced Analytics (coming soon)',
-      'Chat history',
+      'Chat history (coming soon)',
       'Unbranded chat widgets (coming soon)',
       'AI reports (coming soon)',
     ],
@@ -74,7 +75,7 @@ export default function Pricing() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-base font-semibold leading-7 text-cyan-600">Pricing</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Pricing plans for any integration
+            Pricing plans for any size business
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
@@ -164,7 +165,7 @@ export default function Pricing() {
                   </span>
                 </p>
               )}
-              <a
+              <Link
                 href={tier.href}
                 aria-describedby={tier.id}
                 className={classNames(
@@ -175,7 +176,7 @@ export default function Pricing() {
                 )}
               >
                 Get started
-              </a>
+              </Link>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
@@ -197,12 +198,12 @@ export default function Pricing() {
               document files or urls and chat with your bot within our website.
             </p>
           </div>
-          <a
-            href="#"
+          <Link
+            href="/#signup"
             className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-cyan-600 ring-1 ring-inset ring-cyan-600 hover:ring-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"
           >
             Try free <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

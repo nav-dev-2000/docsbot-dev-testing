@@ -6,24 +6,22 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch(
-      'https://track.bentonow.com/forms/a72c79ffb06a248333be6e1de58f63cf/$subscribe',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-        }),
-      }
-    )
+    fetch('https://track.bentonow.com/forms/a72c79ffb06a248333be6e1de58f63cf/$subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+      }),
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data)
         setSubmitted(true)
         //redirect to link
-        window.location.href = 'https://app.bentonow.com/f/a72c79ffb06a248333be6e1de58f63cf/cool-tree-1274'
+        window.location.href =
+          'https://app.bentonow.com/f/a72c79ffb06a248333be6e1de58f63cf/cool-tree-1274'
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -32,7 +30,7 @@ export default function Signup() {
   }
 
   return (
-    <div id="waitlist" className="bg-white">
+    <div id="signup" className="bg-white">
       <div className="relative sm:py-16">
         <div aria-hidden="true" className="hidden sm:block">
           <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />
@@ -62,19 +60,12 @@ export default function Signup() {
                 />
               </pattern>
             </defs>
-            <rect
-              width={404}
-              height={392}
-              fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)"
-            />
+            <rect width={404} height={392} fill="url(#8228f071-bcee-4ec8-905a-2a059a2cc4fb)" />
           </svg>
         </div>
         <div className="mx-auto max-w-md px-6 sm:max-w-3xl lg:max-w-7xl lg:px-8">
           <div className="relative overflow-hidden rounded-2xl bg-cyan-600 px-6 py-10 shadow-xl sm:px-12 sm:py-20">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0"
-            >
+            <div aria-hidden="true" className="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
               <svg
                 className="absolute inset-0 h-full w-full"
                 preserveAspectRatio="xMidYMid slice"
@@ -100,9 +91,9 @@ export default function Signup() {
                   Join the Waitlist
                 </h2>
                 <p className="mx-auto mt-6 max-w-2xl text-lg text-white">
-                  Save your spot and get notified when we&rsquo;re launching our
-                  custom chatbase service for your business or website. We&rsquo;ll be giving special
-                  introductory pricing and features to our early users!
+                  We are launching in a matter of days. Save your spot and be the first to be
+                  notified. We&rsquo;ll be giving special introductory pricing and features to our
+                  early users!
                 </p>
               </div>
               {submitted ? (
@@ -136,7 +127,7 @@ export default function Signup() {
                   <div className="mt-4 sm:mt-0 sm:ml-3">
                     <button
                       type="submit"
-                      className="shadow block w-full rounded-md border border-cyan-600 bg-gradient-to-b from-teal-300 to-cyan-400 px-5  py-3 text-center text-base font-medium text-cyan-900 hover:bg-teal-200 hover:from-teal-200 hover:to-cyan-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-600 sm:px-10"
+                      className="block w-full rounded-md border border-cyan-600 bg-gradient-to-b from-teal-300 to-cyan-400 px-5 py-3  text-center text-base font-medium text-cyan-900 shadow hover:bg-teal-200 hover:from-teal-200 hover:to-cyan-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-600 sm:px-10"
                     >
                       Notify me
                     </button>

@@ -176,7 +176,7 @@ const webhookHandler = async (req, res) => {
                     }) to ${planName} x${session.subscription.quantity} for $${
                       session.amount_total / 100
                     } ${session.currency} ${session.subscription.plan.interval}ly!`,
-                    color: '#57a35d',
+                    color: '#0891b2',
                     title: 'New DocsBot AI Subscription Signup',
                     text: `${planName} x ${session.subscription.quantity}`,
                     fields: [

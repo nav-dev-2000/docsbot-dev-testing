@@ -91,7 +91,7 @@ function Login() {
         subtitle={
           <>
             Don’t have an account?{' '}
-            <Link href="/register" className="text-teal-100">
+            <Link href="/#signup" className="text-teal-100">
               Sign up
             </Link>{' '}
             to get started.
