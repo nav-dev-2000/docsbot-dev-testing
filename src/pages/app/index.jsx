@@ -146,7 +146,7 @@ function Dashboard({ team }) {
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
-          <Card name={card.name} href={card.href} linkText={card.linkText} CardIcon={card.icon} stat={card.stat} limit={card.limit} />
+          <Card key={card.name} name={card.name} href={card.href} linkText={card.linkText} CardIcon={card.icon} stat={card.stat} limit={card.limit} />
         ))}
       </div>
 
