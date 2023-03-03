@@ -19,7 +19,11 @@ const faqs = [
   },
   {
     question: "Can I automatically update my DocsBot sources?",
-    answer: "We are quickly working on scheduled updates for dynamic sources like URLs and Sitemaps. For now, you can manually update your sources by creating a new DocsBot or adding them again."
+    answer: "We are working on scheduled updates for dynamic sources like URLs and Sitemaps. For now, you can manually update your sources by creating a new DocsBot or adding them again."
+  },
+  {
+    question: "What are source 'Pages'?",
+    answer: "When you train your bot using various sources we calculate how many pages were imported. This is equivalent to one webpage url, or a page of a PDF or other document. For example if you import your website via sitemap that may have hundreds of pages. Different plans have different page limits depending on your needs."
   },
   {
     question: "Do you have an API I can use?",
