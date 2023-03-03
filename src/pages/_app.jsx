@@ -46,19 +46,20 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
         </title>
         <meta
           name="description"
-          content="A custom chatbot and content generation platform that uses your documentation to create a conversational experience for your users."
+          content="Custom ChatGPT trained on your documentation and content."
           key="description"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@docsbotai" />
         <meta name="twitter:creator" content="@docsbotai" />
+        <meta property="twitter:domain" content="docsbot.ai" />
         <meta name="twitter:image" content="/social-card.png" />
         <meta property="og:url" content={'https://docsbot.ai' + router.asPath} key="ogurl" />
         <meta property="og:title" content="DocsBot AI" key="ogtitle" />
         <meta
           property="og:description"
-          content="A custom chatbot and content generation platform that uses your documentation to create a conversational experience for your users."
+          content="Custom ChatGPT trained on your documentation and content."
           key="ogdesc"
         />
         <meta property="og:image" content="/social-card.png" key="ogimage" />
