@@ -4,10 +4,7 @@ import { XCircleIcon } from '@heroicons/react/20/solid'
 import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import classNames from '@/utils/classNames'
 
 export default function Alert({ title, type, children, onClose = noop }) {
   const [show, setShow] = useState(true)

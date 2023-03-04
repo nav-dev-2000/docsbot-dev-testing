@@ -14,8 +14,11 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
+import { stripePlan } from '@/utils/helpers'
+import CheckoutModal from '@/components/CheckoutModal'
+import classNames from '@/utils/classNames'
 
-export default function SourceForm({ team, bot, sources, setSources, setCanAddSource }) {
+export default function SourceForm({ team, bot, sources, setSources }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
   const [selectedSourceType, setSelectedSourceType] = useState(null)
   const [user] = useAuthState(auth)
@@ -29,6 +32,17 @@ export default function SourceForm({ team, bot, sources, setSources, setCanAddSo
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [validated, setValidated] = useState(false)
+  const [showUpgrade, setShowUpgrade] = useState(false)
+
+  useEffect(() => {
+    if (
+      showForm &&
+      (stripePlan(team).sources <= team.sourceCount || stripePlan(team).pages <= team.pageCount)
+    ) {
+      setShowForm(false)
+      setShowUpgrade(true)
+    }
+  }, [showForm])
 
   //validate fields
   useEffect(() => {
@@ -93,10 +107,6 @@ export default function SourceForm({ team, bot, sources, setSources, setCanAddSo
       }
       setIsUpdating(false)
     }
-  }
-
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
   }
 
   function handleFileChange(e) {
@@ -373,23 +383,27 @@ export default function SourceForm({ team, bot, sources, setSources, setCanAddSo
     )
   } else {
     return (
-      <div className="mx-auto mt-16 max-w-2xl text-center">
-        <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
-        <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
-        <p className="mt-1 text-sm text-gray-500">
-          Add source content to {bot.name} that you want your bot to be able to answer questions
-          about. Periodic scheduled source updates are coming soon for pro plans.
-        </p>
-        <div className="mt-8">
-          <button
-            className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
-            onClick={() => setShowForm(true)}
-          >
-            <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-            New Source
-          </button>
+      <>
+        <CheckoutModal team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+        <div className="mx-auto mt-16 max-w-2xl text-center">
+          <CheckoutModal team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+          <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
+          <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
+          <p className="mt-1 text-sm text-gray-500">
+            Add source content to {bot.name} that you want your bot to be able to answer questions
+            about. Periodic scheduled source updates are coming soon for pro plans.
+          </p>
+          <div className="mt-8">
+            <button
+              className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
+              onClick={() => setShowForm(true)}
+            >
+              <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+              New Source
+            </button>
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }

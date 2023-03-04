@@ -21,10 +21,7 @@ import { getBots } from '@/lib/dbQueries'
 import BotDelete from '@/components/BotDelete'
 import NewBotPanel from '@/components/NewBotPanel'
 import ModalOpenAI from '@/components/ModalOpenAI'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import classNames from '@/utils/classNames'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)

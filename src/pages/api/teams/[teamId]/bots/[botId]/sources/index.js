@@ -37,7 +37,12 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
-    //TODO check plan source limit
+    //check plan credits
+    if (stripePlan(team).sources <= team.sourceCount || stripePlan(team).pages <= team.pageCount) {
+      return res.status(402).json({
+        message: 'Source or page limit exceeded. Please upgrade your plan.',
+      })
+    }
 
     //data validation
     let { type, title, url, file } = req.body

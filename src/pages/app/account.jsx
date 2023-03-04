@@ -4,7 +4,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail } from "firebase/auth";
 import { auth } from '@/config/firebase-ui.config'
 import {
-  CreditCardIcon,
   ServerStackIcon,
   ArrowRightIcon,
   CheckBadgeIcon,
@@ -15,9 +14,7 @@ import {
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
-import LoadingSpinner from '@/components/LoadingSpinner'
 import Checkout from '@/components/Checkout'
 
 function Account({ team }) {
@@ -38,35 +35,31 @@ function Account({ team }) {
       href: false,
       linkText: 'View all',
       icon: ServerStackIcon,
-      stat: team?.botCount || 0,
-      limit: stripePlan(team).bots,
+      stat: stripePlan(team).bots,
     },
     {
       name: 'Source Limit',
       href: false,
       linkText: 'Get more',
       icon: DocumentTextIcon,
-      stat: team?.sourceCount || 0,
-      limit: stripePlan(team).sources,
+      stat: stripePlan(team).sources,
     },
     {
-      name: 'Source Page Limit',
+      name: 'Page Limit',
       href: false,
       linkText: 'Get more',
       icon: Square3Stack3DIcon,
-      stat: team?.pageCount || 0,
-      limit: stripePlan(team).pages,
+      stat: stripePlan(team).pages,
     },
     {
       name: 'Question Limit',
       href: false,
       linkText: 'Get more',
       icon: QuestionMarkCircleIcon,
-      stat: team?.questionCount || 0,
-      limit: stripePlan(team).questions,
+      stat: stripePlan(team).questions,
     },
   ]
-
+console.log(stripePlan(team))
   return (
     <DashboardWrap page="Account">
       <Alert title={errorText} type="error" />

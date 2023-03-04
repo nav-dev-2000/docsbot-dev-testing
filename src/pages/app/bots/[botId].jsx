@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
-import { DocumentPlusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { getBot, getSources } from '@/lib/dbQueries'
 import BotCard from '@/components/BotCard'
@@ -16,7 +15,6 @@ function Bot({ team, preBot, preSources }) {
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
-  const [canAddSource, setCanAddSource] = useState(true)
   const router = useRouter()
   const { botId } = router.query
 
@@ -106,7 +104,7 @@ function Bot({ team, preBot, preSources }) {
 
       <SourceGrid {...{ sources }} />
 
-      <SourceForm {...{ team, bot, sources, setSources, setCanAddSource }} />
+      <SourceForm {...{ team, bot, sources, setSources }} />
 
       <ModalOpenAI {...{ team }} />
     </DashboardWrap>

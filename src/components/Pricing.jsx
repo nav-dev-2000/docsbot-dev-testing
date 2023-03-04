@@ -34,13 +34,13 @@ const tiers = [
     features: [
       '10 DocsBots',
       '100 Sources',
-      '1000 Source Pages',
+      '10k Source Pages',
       'Unlock all source types',
       '10k questions/mo',
       '5 team users',
       'Basic Analytics',
-      'Chat history (coming soon)',
-      'Unbranded chat widgets (coming soon)',
+      'Chat history *',
+      'Unbranded chat widgets *',
     ],
     mostPopular: true,
   },
@@ -57,10 +57,10 @@ const tiers = [
       'Unlock all source types',
       '100k questions/mo',
       '50 team users',
-      'Advanced Analytics (coming soon)',
-      'Chat history (coming soon)',
-      'Unbranded chat widgets (coming soon)',
-      'AI reports (coming soon)',
+      'Advanced Analytics *',
+      'Chat history *',
+      'Unbranded chat widgets *',
+      'AI reports *',
     ],
     mostPopular: false,
   },
@@ -188,6 +188,7 @@ export default function Pricing() {
             </div>
           ))}
         </div>
+        <p className="mx-auto mt-4 text-center text-sm leading-8 text-gray-600">* coming soon</p>
         <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">

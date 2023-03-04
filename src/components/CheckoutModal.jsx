@@ -41,7 +41,9 @@ export default function CheckoutModal({ team, open, setOpen }) {
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                <Checkout team={team} />
+                <div className="p-6">
+                  <Checkout team={team} />
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>

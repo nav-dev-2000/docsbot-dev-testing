@@ -18,10 +18,7 @@ import {
   ArrowRightIcon,
 } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import classNames from '@/utils/classNames'
 
 import { useCallback } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'

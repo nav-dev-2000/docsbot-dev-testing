@@ -5,6 +5,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createSchema } from '@/lib/weaviate'
+import { stripePlan } from '@/utils/helpers'
 
 const router = createRouter()
 
@@ -22,10 +23,10 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
-    //TODO check plan credits
-    if (team.botCount >= 3) {
+    //check plan credits
+    if (stripePlan(team).bots <= team.botCount) {
       return res.status(402).json({
-        message: 'Bot limit exceeded. Please check your plan.',
+        message: 'Bot limit exceeded. Please upgrade your plan.',
       })
     }
 

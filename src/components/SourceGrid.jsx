@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
-import {
-  PlusIcon,
-  LinkIcon,
-  DocumentArrowUpIcon,
-  PaperClipIcon,
-  DocumentPlusIcon,
-} from '@heroicons/react/24/outline'
-import BadgeStatusSource from './BadgeStatusSource'
+import BadgeStatusSource from '@/components/BadgeStatusSource'
+import classNames from '@/utils/classNames'
 
 export default function SourceGrid({ sources }) {
   const [fullSources, setFullSources] = useState([])
@@ -21,10 +15,6 @@ export default function SourceGrid({ sources }) {
     })
     setFullSources(newSources)
   }, [sources])
-
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
 
   const sourceArg = (type, arg) => {
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)

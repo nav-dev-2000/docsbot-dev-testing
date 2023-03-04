@@ -10,11 +10,8 @@ import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import Router from 'next/router'
-import { isSuperAdmin } from '../../utils/helpers'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import { isSuperAdmin } from '@/utils/helpers'
+import classNames from '@/utils/classNames'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
