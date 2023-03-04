@@ -36,10 +36,12 @@ export default async function handler(req, res) {
       const teamRef = await firestore.collection('teams').add({
         createdAt: FieldValue.serverTimestamp(),
         name: `${name.trim()}'s Team`,
-        baseCount: 0,
-        baseCredits: 0,
+        botCount: 0,
         sourceCount: 0,
-        sourceCredits: 0,
+        pageCount: 0,
+        chunkCount: 0,
+        questionCount: 0,
+        openAIKey: null,
         roles: {
           [userId]: 'owner',
         },

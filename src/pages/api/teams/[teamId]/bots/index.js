@@ -1,5 +1,5 @@
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getBases, getTeam } from '@/lib/dbQueries'
+import { getBots, getTeam } from '@/lib/dbQueries'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
@@ -23,9 +23,9 @@ router.post(async (req, res) => {
 
   try {
     //TODO check plan credits
-    if (team.baseCount >= 3) {
+    if (team.botCount >= 3) {
       return res.status(402).json({
-        message: 'Base limit exceeded. Please check your plan.',
+        message: 'Bot limit exceeded. Please check your plan.',
       })
     }
 
@@ -49,8 +49,8 @@ router.post(async (req, res) => {
     //create schema in weaviate
     await createSchema(indexId)
 
-    //create base in db
-    const docRef = await firestore.collection('teams').doc(team.id).collection('bases').add({
+    //create bot in db
+    const docRef = await firestore.collection('teams').doc(team.id).collection('bots').add({
       createdAt: FieldValue.serverTimestamp(),
       name,
       description,
@@ -63,9 +63,9 @@ router.post(async (req, res) => {
       questionCount: 0,
     })
 
-    const baseId = docRef.id
+    const botId = docRef.id
 
-    //increment baseCounts on team
+    //increment botCounts on team
     await firestore.runTransaction(async (transaction) => {
       const teamRef = firestore.collection('teams').doc(team.id)
       const sfDoc = await transaction.get(teamRef)
@@ -73,21 +73,21 @@ router.post(async (req, res) => {
         throw 'Team does not exist!'
       }
 
-      const newBaseCount = (sfDoc.data().baseCount || 0) + 1
+      const newBotCount = (sfDoc.data().botCount || 0) + 1
       transaction.update(teamRef, {
-        baseCount: newBaseCount,
+        botCount: newBotCount,
       })
     })
 
     try {
       bentoTrack(userId, 'track', {
-        type: 'createBase',
+        type: 'createBot',
       })
     } catch (e) {
       console.log('Error sending bento track', e)
     }
 
-    return res.status(201).json({ id: baseId })
+    return res.status(201).json({ id: botId })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: error?.message })
@@ -106,7 +106,7 @@ router.get(async (req, res) => {
 
   //TODO add pagination
   try {
-    const recentSources = await getBases(team, req.params?.resultLimit || 1000)
+    const recentSources = await getBots(team, req.params?.resultLimit || 1000)
     return res.json(recentSources)
   } catch (error) {
     return res.status(500).json({ message: error?.message })

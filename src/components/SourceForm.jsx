@@ -15,8 +15,8 @@ import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
 
-export default function SourceForm({ team, base, sources, setSources, setCanAddSource }) {
-  const [showForm, setShowForm] = useState(base.sourceCount === 0) //show form if base has no sources
+export default function SourceForm({ team, bot, sources, setSources, setCanAddSource }) {
+  const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
   const [selectedSourceType, setSelectedSourceType] = useState(null)
   const [user] = useAuthState(auth)
   // State to store uploaded file
@@ -57,7 +57,7 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
     setErrorText('')
     setIsUpdating(true)
 
-    const urlParams = ['teams', team.id, 'bases', base.id, 'sources']
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'sources']
     const apiPath = '/api/' + urlParams.join('/')
 
     const response = await fetch(apiPath, {
@@ -110,7 +110,7 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
       }
 
       //upload to firebase cloud storage
-      const filepath = `user/${user.uid}/team/${team.id}/base/${base.id}/${file.name}`
+      const filepath = `user/${user.uid}/team/${team.id}/bot/${bot.id}/${file.name}`
       const storageRef = ref(storage, filepath)
       const uploadTask = uploadBytesResumable(storageRef, file)
 
@@ -377,7 +377,7 @@ export default function SourceForm({ team, base, sources, setSources, setCanAddS
         <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
         <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
         <p className="mt-1 text-sm text-gray-500">
-          Add source content to {base.name} that you want your bot to be able to answer questions
+          Add source content to {bot.name} that you want your bot to be able to answer questions
           about. Periodic scheduled source updates are coming soon for pro plans.
         </p>
         <div className="mt-8">

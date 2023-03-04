@@ -14,7 +14,7 @@ const tiers = [
     id: 'tier-hobby',
     href: '/#signup',
     price: { monthly: 19, annually: 192 },
-    description: 'Create your own basic knowledge base for quick answers and copywriting.',
+    description: 'Create your own basic DocsBot for quick answers and copywriting.',
     features: [
       '1 DocsBot',
       '10 Sources',
@@ -195,7 +195,7 @@ export default function Pricing() {
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
               Try DocsBot free for personal use. No credit card required. Import up to three
-              document files or urls and chat with your bot within our website.
+              document files or urls with ten pages and chat with your bot within our website.
             </p>
           </div>
           <Link

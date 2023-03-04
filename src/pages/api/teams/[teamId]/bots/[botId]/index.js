@@ -1,7 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
-import { getBase } from '@/lib/dbQueries'
+import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { deleteSchema } from '@/lib/weaviate'
@@ -18,20 +18,20 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
   const { userId, team } = check
-  const { baseId } = req.query
+  const { botId } = req.query
 
   if (req.method === 'PUT') {
-    return res.status(400).json({ message: 'Base update not implemented' })
+    return res.status(400).json({ message: 'Bot update not implemented' })
   } else if (req.method === 'DELETE') {
-    const base = await getBase(team.id, baseId)
-    //delete base from db
+    const bot = await getBot(team.id, botId)
+    //delete bot from db
     try {
-      // Delete all sources for base
+      // Delete all sources for bot
       const querySnapshot = await firestore
         .collection('teams')
         .doc(team.id)
-        .collection('bases')
-        .doc(baseId)
+        .collection('bots')
+        .doc(botId)
         .collection('sources')
         .get()
       // Once we get the results, begin a batch
@@ -44,16 +44,16 @@ export default async function handler(req, res) {
       await batch.commit()
 
       //delete schema in weaviate
-      if (base.indexId) {
-        await deleteSchema(base.indexId)
+      if (bot.indexId) {
+        await deleteSchema(bot.indexId)
       }
 
-      // Delete all questions for base
+      // Delete all questions for bot
       const questionsSnapshot = await firestore
         .collection('teams')
         .doc(team.id)
-        .collection('bases')
-        .doc(baseId)
+        .collection('bots')
+        .doc(botId)
         .collection('questions')
         .get()
       // Once we get the results, begin a batch
@@ -65,10 +65,10 @@ export default async function handler(req, res) {
       // Commit the batch
       await questionsBatch.commit()
 
-      //delete base
-      await firestore.collection('teams').doc(team.id).collection('bases').doc(baseId).delete()
+      //delete bot
+      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
 
-      //decrement baseCounts on team
+      //decrement botCounts on team
       await firestore.runTransaction(async (transaction) => {
         const teamRef = firestore.collection('teams').doc(team.id)
         const sfDoc = await transaction.get(teamRef)
@@ -76,39 +76,43 @@ export default async function handler(req, res) {
           throw 'Team does not exist!'
         }
 
-        const newBaseCount = Math.max(0, (sfDoc.data().baseCount || 0) - 1)
-        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
+        const newBotCount = Math.max(0, (sfDoc.data().botCount || 0) - 1)
+        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - (bot.sourceCount || 0))
+        const newPageCount = Math.max(0, (sfDoc.data().pageCount || 0) - (bot.pageCount || 0))
+        const newChunkCount = Math.max(0, (sfDoc.data().chunkCount || 0) - (bot.chunkCount || 0))
         transaction.update(teamRef, {
-          baseCount: newBaseCount,
+          botCount: newBotCount,
           sourceCount: newSourceCount,
+          pageCount: newPageCount,
+          chunkCount: newChunkCount,
         })
       })
 
-      //delete all base data from bucket
+      //delete all bot data from bucket
       const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
-      await bucket.deleteFiles({prefix: `teams/${team.id}/bases/${baseId}`})
+      await bucket.deleteFiles({prefix: `teams/${team.id}/bots/${botId}`})
 
       try {
         bentoTrack(userId, 'track', {
-          type: 'deleteBase',
+          type: 'deleteBot',
         })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
 
-      return res.status(200).json({ message: 'Base deleted' })
+      return res.status(200).json({ message: 'Bot deleted' })
     } catch (error) {
-      console.warn('Error deleting base:', error)
+      console.warn('Error deleting bot:', error)
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {
     try {
-      const base = await getBase(team.id, baseId)
-      if (base) {
-        return res.json(base)
+      const bot = await getBot(team.id, botId)
+      if (bot) {
+        return res.json(bot)
       } else {
         // doc.data() will be undefined in this case
-        return res.status(404).json({ message: "baseId doesn't exist." })
+        return res.status(404).json({ message: "botId doesn't exist." })
       }
     } catch (error) {
       console.warn('Error getting document:', error)

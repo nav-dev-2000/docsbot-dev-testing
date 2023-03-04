@@ -1,11 +1,13 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getStorage } from 'firebase-admin/storage'
 import { PubSub } from '@google-cloud/pubsub'
-import { getBase, getSources, getSource } from '@/lib/dbQueries'
+import { getBot, getSources, getSource } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
+import { uuidv4 } from '@firebase/util'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -19,14 +21,14 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
   const { userId, team } = check
-  const { baseId } = req.query
+  const { botId } = req.query
 
-  let base = null
+  let bot = null
   try {
-    base = await getBase(team.id, baseId)
-    if (!base) {
+    bot = await getBot(team.id, botId)
+    if (!bot) {
       // doc.data() will be undefined in this case
-      return res.status(404).json({ message: "baseId doesn't exist." })
+      return res.status(404).json({ message: "botId doesn't exist." })
     }
   } catch (error) {
     console.warn('Error getting document:', error)
@@ -35,7 +37,6 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
-
     //TODO check plan source limit
 
     //data validation
@@ -47,7 +48,10 @@ export default async function handler(req, res) {
 
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
     url = url?.trim() || null
-    if (sourceType.fieldUrl === 'required' && ( !url || !url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/) ) ) {
+    if (
+      sourceType.fieldUrl === 'required' &&
+      (!url || !url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/))
+    ) {
       return res.status(400).send({ message: 'Invalid or missing parameter "url".' })
     }
 
@@ -66,15 +70,23 @@ export default async function handler(req, res) {
       if (!Object.keys(sourceType.fileTypes).includes(extension)) {
         return res.status(400).send({ message: 'Invalid file type.' })
       }
+
+      //generate uuid for file name with same extension
+      const uuid = uuidv4()
+      //move the file to the correct location in bucket
+      const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
+      const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
+      const fileRef = bucket.file(file)
+      await fileRef.move(newFile)
+      file = newFile
     }
 
     try {
-
       const docRef = await firestore
         .collection('teams')
         .doc(team.id)
-        .collection('bases')
-        .doc(baseId)
+        .collection('bots')
+        .doc(botId)
         .collection('sources')
         .add({
           createdAt: FieldValue.serverTimestamp(),
@@ -102,20 +114,16 @@ export default async function handler(req, res) {
           })
         })
 
-        //increment source counts on base
+        //increment source counts on bot
         await firestore.runTransaction(async (transaction) => {
-          const baseRef = firestore
-            .collection('teams')
-            .doc(team.id)
-            .collection('bases')
-            .doc(baseId)
-          const sfDoc = await transaction.get(baseRef)
+          const botRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId)
+          const sfDoc = await transaction.get(botRef)
           if (!sfDoc.exists) {
-            throw 'Base does not exist!'
+            throw 'Bot does not exist!'
           }
 
           const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
-          transaction.update(baseRef, {
+          transaction.update(botRef, {
             sourceCount: newSourceCount,
           })
         })
@@ -129,18 +137,17 @@ export default async function handler(req, res) {
       const dataBuffer = Buffer.from(
         JSON.stringify({
           teamId: team.id,
-          baseId,
+          botId,
           sourceId: docRef.id,
-          indexId: base.indexId,
+          indexId: bot.indexId,
           type,
           title,
           url,
           file,
         })
       )
-      const messageId = await pubSubClient.topic(topicName).publishMessage({data: dataBuffer})
+      const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
       console.log(`Message ${messageId} published to ${topicName}.`)
-
 
       try {
         bentoTrack(userId, 'track', {
@@ -151,7 +158,7 @@ export default async function handler(req, res) {
       }
 
       //done, return source object
-      return res.status(201).json(await getSource(team, base, docRef.id))
+      return res.status(201).json(await getSource(team, bot, docRef.id))
     } catch (error) {
       return res.status(500).json({ message: error?.message })
     }
@@ -159,7 +166,7 @@ export default async function handler(req, res) {
     const sourceLimit = parseInt(req.query.limit) || 10000
     const ascending = req.query.ascending || false
     try {
-      return res.json(await getSources(team.id, base, sourceLimit, ascending))
+      return res.json(await getSources(team.id, bot, sourceLimit, ascending))
     } catch (e) {
       return res.status(500).json({ message: e?.message })
     }

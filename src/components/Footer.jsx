@@ -17,6 +17,7 @@ const footerNavigation = {
     { name: 'AI Photobooth', href: 'https://imajinn.ai/photobooth' },
   ],
   tools: [
+    { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
     { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
     {

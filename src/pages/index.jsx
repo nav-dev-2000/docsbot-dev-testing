@@ -67,7 +67,7 @@ const integrations = [
 
 const features = [
   {
-    name: 'Quesiton/Answer Bots',
+    name: 'Question/Answer Bots',
     description:
       'Make you documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
     icon: ChatBubbleLeftEllipsisIcon,
@@ -91,7 +91,7 @@ const features = [
     icon: LifebuoyIcon,
   },
   {
-    name: 'Internal Knowledge Bases',
+    name: 'Internal Knowledge Bots',
     description:
       'Employees spend too much time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.',
     icon: ShieldCheckIcon,

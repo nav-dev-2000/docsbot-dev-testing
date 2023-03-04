@@ -5,23 +5,23 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
 import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
 
-export default function NewBasePanel({ team, open, setOpen }) {
-  const [baseName, setBaseName] = useState('')
-  const [baseDescription, setBaseDescription] = useState('')
+export default function NewBotPanel({ team, open, setOpen }) {
+  const [botName, setBotName] = useState('')
+  const [botDescription, setBotDescription] = useState('')
   const [privacy, setPrivacy] = useState('public')
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const router = useRouter()
 
-  async function createBase() {
-    if (!baseName) {
-      setErrorText('Please enter a name for your base.')
+  async function createBot() {
+    if (!botName) {
+      setErrorText('Please enter a name for your bot.')
       return
     }
     setErrorText('')
     setIsUpdating(true)
 
-    const urlParams = ['teams', team.id, 'bases']
+    const urlParams = ['teams', team.id, 'bots']
     const apiPath = '/api/' + urlParams.join('/')
 
     const response = await fetch(apiPath, {
@@ -30,19 +30,19 @@ export default function NewBasePanel({ team, open, setOpen }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: baseName,
-        description: baseDescription,
+        name: botName,
+        description: botDescription,
         privacy: privacy,
       }),
     })
     if (response.ok) {
       const data = await response.json()
-      setBaseName('')
-      setBaseDescription('')
+      setBotName('')
+      setBotDescription('')
       setPrivacy('public')
       setIsUpdating(false)
       setOpen(false)
-      router.push(`/app/bases/${data.id}`)
+      router.push(`/app/bots/${data.id}`)
     } else {
       try {
         const data = await response.json()
@@ -77,14 +77,14 @@ export default function NewBasePanel({ team, open, setOpen }) {
                     className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl"
                     onSubmit={(e) => {
                       e.preventDefault()
-                      createBase()
+                      createBot()
                     }}
                   >
                     <div className="h-0 flex-1 overflow-y-auto">
                       <div className="bg-gradient-to-r from-cyan-700 to-cyan-800 py-6 px-4 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-lg font-medium text-white">
-                            New Base
+                            Create a new DocsBot
                           </Dialog.Title>
                           <div className="ml-3 flex h-7 items-center">
                             <button
@@ -99,8 +99,8 @@ export default function NewBasePanel({ team, open, setOpen }) {
                         </div>
                         <div className="mt-1">
                           <p className="text-sm text-cyan-100">
-                            Fill in the information below to create your new knowledge base. Once
-                            created you can add content sources and create bots for your base.
+                            Fill in the information below to create your new bot. Once
+                            created you can add source documentation and content then start chatting!
                           </p>
                         </div>
                       </div>
@@ -120,10 +120,10 @@ export default function NewBasePanel({ team, open, setOpen }) {
                                   type="text"
                                   name="project-name"
                                   id="project-name"
-                                  value={baseName}
-                                  onChange={(e) => setBaseName(e.target.value)}
+                                  value={botName}
+                                  onChange={(e) => setBotName(e.target.value)}
                                   disabled={isUpdating}
-                                  placeholder="What would you like to call your base?"
+                                  placeholder="What would you like to call your bot?"
                                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                 />
                               </div>
@@ -139,12 +139,12 @@ export default function NewBasePanel({ team, open, setOpen }) {
                                 <textarea
                                   id="description"
                                   name="description"
-                                  placeholder="(optional) Describe what your base will do and how it will be used, e.g. 'Ask me anything about my product!'"
+                                  placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
                                   rows={4}
                                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                  value={baseDescription}
+                                  value={botDescription}
                                   disabled={isUpdating}
-                                  onChange={(e) => setBaseDescription(e.target.value)}
+                                  onChange={(e) => setBotDescription(e.target.value)}
                                 />
                               </div>
                             </div>
@@ -210,7 +210,7 @@ export default function NewBasePanel({ team, open, setOpen }) {
                               </div>
                             </fieldset>
                           </div>
-                          <div className="pt-4 pb-6">
+                          <div className="pt-4 pb-6 hidden">
                             <div className="mt-4 flex text-sm">
                               <a
                                 href="#"
@@ -239,7 +239,7 @@ export default function NewBasePanel({ team, open, setOpen }) {
                       <input
                         type="submit"
                         disabled={isUpdating}
-                        value={isUpdating ? 'Creating...' : 'Create'}
+                        value={isUpdating ? 'Creating...' : 'Create Bot'}
                         className="ml-4 inline-flex justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                       />
                     </div>

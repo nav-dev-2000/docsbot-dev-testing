@@ -11,17 +11,17 @@ import {
 import BadgeStatus from '@/components/BadgeStatus'
 import ChatModal from '@/components/ChatModal'
 
-export default function BaseCard({ team, base }) {
-  if (!base || !base.id) {
+export default function BotCard({ team, bot }) {
+  if (!bot || !bot.id) {
     return null
   }
 
-  let ts = new Date(base.createdAt)
+  let ts = new Date(bot.createdAt)
 
   return (
     <div className="overflow-hidden rounded-lg bg-white shadow">
       <h2 className="sr-only" id="profile-overview-title">
-        {base.name} Base Overview
+        {bot.name} Bot Overview
       </h2>
       <div className="bg-white p-6">
         <div className="sm:flex sm:items-center sm:justify-between">
@@ -35,8 +35,8 @@ export default function BaseCard({ team, base }) {
               </span>
             </div>
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
-              <p className="text-xl font-bold text-gray-900 sm:text-2xl">{base.name}</p>
-              <p className="text-sm text-gray-600">{base.description}</p>
+              <p className="text-xl font-bold text-gray-900 sm:text-2xl">{bot.name}</p>
+              <p className="text-sm text-gray-600">{bot.description}</p>
               <div className="mt-2 flex">
                 <div className="sm:flex">
                   <p className="flex items-center text-sm capitalize text-gray-500">
@@ -44,7 +44,7 @@ export default function BaseCard({ team, base }) {
                       className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
                       aria-hidden="true"
                     />
-                    {base.privacy}
+                    {bot.privacy}
                   </p>
                 </div>
                 <div className="ml-4 flex items-center text-sm text-gray-500">
@@ -53,7 +53,7 @@ export default function BaseCard({ team, base }) {
                     aria-hidden="true"
                   />
                   <p>
-                    <time dateTime={base.createdAt}>{ts.toLocaleString()}</time>
+                    <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
                   </p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function BaseCard({ team, base }) {
           </div>
           <div className="mt-4 flex justify-between sm:mt-0 sm:block">
             <div className="flex flex-shrink-0 justify-center sm:justify-end">
-              <BadgeStatus status={base.status} small={false} />
+              <BadgeStatus status={bot.status} small={false} />
             </div>
             <div className="flex justify-between space-x-2 sm:mt-5">
               <button
@@ -75,7 +75,7 @@ export default function BaseCard({ team, base }) {
                 Chat (coming soon)
               </button>
 
-              <ChatModal team={team} base={base} />
+              <ChatModal team={team} bot={bot} />
             </div>
           </div>
         </div>
@@ -83,17 +83,17 @@ export default function BaseCard({ team, base }) {
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
         <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
         <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{base.sourceCount}</span>{' '}
+          <span className="text-gray-900">{bot.sourceCount}</span>{' '}
           <span className="text-gray-600">Sources</span>
         </div>
         <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
           <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{base.pageCount}</span>{' '}
+          <span className="text-gray-900">{bot.pageCount}</span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
         <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
           <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{base.questionCount}</span>{' '}
+          <span className="text-gray-900">{bot.questionCount}</span>{' '}
           <span className="text-gray-600">Questions</span>
         </div>
       </div>

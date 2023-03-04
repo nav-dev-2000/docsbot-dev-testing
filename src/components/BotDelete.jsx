@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-export default function BaseDelete({ team, base, setToDelete, setErrorText, bases, setBases }) {
+export default function BotDelete({ team, bot, setToDelete, setErrorText, bots, setBots }) {
   const [submitting, setSubmitting] = useState(false)
   const alertRef = useRef(null);
 
   async function submitDelete() {
     setErrorText('')
     setSubmitting(true)
-    const response = await fetch(`/api/teams/${team.id}/bases/${base.id}`, {
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -16,8 +16,8 @@ export default function BaseDelete({ team, base, setToDelete, setErrorText, base
     })
     if (response.ok) {
       const data = await response.json()
-      const deleting = base.id
-      setBases(bases.filter((base) => base.id !== deleting))
+      const deleting = bot.id
+      setBots(bots.filter((bot) => bot.id !== deleting))
       setToDelete(null)
       setSubmitting(false)
     } else {
@@ -38,17 +38,17 @@ export default function BaseDelete({ team, base, setToDelete, setErrorText, base
         alertRef.current.scrollIntoView({ behavior: 'smooth' })
       }
     }
-  }, [base])
+  }, [bot])
 
-  if (!base) return null
+  if (!bot) return null
 
   return (
     <div className="mb-6 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">Delete base {base.name}?</h3>
+        <h3 className="text-lg font-medium leading-6 text-gray-900">Delete bot {bot.name}?</h3>
         <div className="text-md mt-2 text-gray-500">
             <p>
-              Once you delete this base, all indexed sources will be deleted and any embedded chats for this base will no longer work.
+              Once you delete this bot, all indexed sources will be deleted and any embedded chats for this bot will no longer work.
             </p>
         </div>
         <div className="mt-5">

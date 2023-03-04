@@ -74,7 +74,7 @@ const webhookHandler = async (req, res) => {
             const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
 
             //save subscription to team
-            const baseRef = firestore.collection('teams').doc(teamId).set(
+            const botRef = firestore.collection('teams').doc(teamId).set(
               {
                 stripeSubscriptionId: subscription.id,
                 stripeSubscriptionStatus: subscription.status,

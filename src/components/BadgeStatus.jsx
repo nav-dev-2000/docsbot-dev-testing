@@ -2,7 +2,7 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 /*
 Possible status values from the API:
   starting: the prediction is starting up. If this status lasts longer than a few seconds, then it's typically because a new worker is being started to run the prediction.
-  processing: the predict() method of the base is currently running.
+  processing: the predict() method of the bot is currently running.
   succeeded: the prediction completed successfully.
   failed: the prediction encountered an error during processing.
   canceled: the prediction was canceled by the user.

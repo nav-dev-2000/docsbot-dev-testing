@@ -74,7 +74,7 @@ export function Hero() {
         with fine-tuned AI.
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        Fine-tune your own AI bases in minutes to generate amazing images of anyone or anything ...anywhere.
+        Fine-tune your own AI bots in minutes to generate amazing images of anyone or anything ...anywhere.
       </p>
     </Container>
   )

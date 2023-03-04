@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
-const baseStyles = {
+const botstyles = {
   solid:
     'group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
   outline:
@@ -32,7 +32,7 @@ export function Button({
   ...props
 }) {
   className = clsx(
-    baseStyles[variant],
+    botstyles[variant],
     variantStyles[variant][color],
     className
   )

@@ -51,7 +51,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
                 </div>
                 <div className="hidden sm:block">
                   <span className="truncate text-gray-500">
-                    {selected?.baseCount?.toLocaleString() || 'No'} Bases
+                    {selected?.botCount?.toLocaleString() || 'No'} Bots
                   </span>
                 </div>
               </span>
@@ -117,7 +117,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
                                 'truncate'
                               )}
                             >
-                              {team.baseCount?.toLocaleString() || 'No'} Bases
+                              {team.botCount?.toLocaleString() || 'No'} Bots
                             </span>
                             <span
                               className={classNames(
@@ -194,14 +194,14 @@ function Team({ team, userId, teamUsers, userTeams }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: newTeamName, baseCredits: newBaseCredits, sourceCredits: newSourceCredits }),
+      body: JSON.stringify({ name: newTeamName, botCredits: newBotCredits, sourceCredits: newSourceCredits }),
     })
     if (response.ok) {
       const data = await response.json()
       setCurrTeam(data)
       setNewTeamName(data.name)
       setCurrUserTeams((teams) => {
-        const index = teams.findBase((team) => team.id === data.id)
+        const index = teams.findBot((team) => team.id === data.id)
         teams[index] = data
         return teams
       })

@@ -5,7 +5,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import Alert from '@/components/Alert'
 
-export default function Chat({ team, base }) {
+export default function Chat({ team, bot }) {
   const [question, setQuestion] = useState('')
   const [resultHtml, setResultHtml] = useState('')
   const [sources, setSources] = useState([])
@@ -35,7 +35,7 @@ export default function Chat({ team, base }) {
       'Content-Type': 'application/json',
     }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bases/${base.id}/ask`
+    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/ask`
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -109,9 +109,9 @@ export default function Chat({ team, base }) {
       <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {base.name}
+            {bot.name}
           </p>
-          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{base.description}</p>
+          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{bot.description}</p>
         </div>
         <div className="mt-12">
           <Alert title={errorText} type="warning" />
@@ -191,7 +191,7 @@ export default function Chat({ team, base }) {
         {resultHtml && (
           <>
             <div className="relative mt-16 rounded-sm bg-white text-left shadow-sm sm:rounded-lg ">
-              <div className="absolute -inset-6 flex h-12 items-center text-4xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+              <div className="absolute -inset-6 flex h-12 items-center text-3xl font-extrabold tracking-tighter text-gray-800 opacity-25">
                 <svg
                   className="mr-2 h-12 w-12"
                   fill="currentColor"
@@ -209,7 +209,7 @@ export default function Chat({ team, base }) {
             </div>
 
             <div className="relative mt-16 pt-1">
-              <div className="absolute -inset-6 flex h-12 items-center text-4xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+              <div className="absolute -inset-6 flex h-12 items-center text-3xl font-extrabold tracking-tighter text-gray-800 opacity-25">
                 Sources:
               </div>
               <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">

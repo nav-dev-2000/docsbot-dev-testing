@@ -52,7 +52,7 @@ export default function DashboardWrap({ page, title, children }) {
 
   const navigation = [
     { name: 'Dashboard', href: '/app', icon: HomeIcon },
-    { name: 'Bases', href: '/app/bases', icon: ServerStackIcon },
+    { name: 'Bots', href: '/app/bots', icon: ServerStackIcon },
     { name: 'Team', href: '/app/team', icon: UsersIcon },
     { name: 'Account', href: '/app/account', icon: CreditCardIcon },
     //{ name: 'Reports', href: '/app/reports', icon: ChartBarIcon, current: false },

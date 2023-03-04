@@ -5,24 +5,24 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import DashboardWrap from '@/components/DashboardWrap'
 import { DocumentPlusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
-import { getBase, getSources } from '@/lib/dbQueries'
-import BaseCard from '@/components/BaseCard'
+import { getBot, getSources } from '@/lib/dbQueries'
+import BotCard from '@/components/BotCard'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
 
-function Base({ team, preBase, preSources }) {
+function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
-  const [base, setBase] = useState(preBase)
+  const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
   const [canAddSource, setCanAddSource] = useState(true)
   const router = useRouter()
-  const { baseId } = router.query
+  const { botId } = router.query
 
-  async function refreshBase() {
+  async function refreshBot() {
 
-    const urlParams = ['teams', team.id, 'bases', baseId]
+    const urlParams = ['teams', team.id, 'bots', botId]
     let path = '/api/' + urlParams.join('/')
     const response = await fetch(path, {
       method: 'GET',
@@ -32,7 +32,7 @@ function Base({ team, preBase, preSources }) {
     })
     if (response.ok) {
       const data = await response.json()
-      setBase(data)
+      setBot(data)
       setErrorText('')
     } else {
       try {
@@ -46,7 +46,7 @@ function Base({ team, preBase, preSources }) {
 
   async function refreshSources() {
 
-    const urlParams = ['teams', team.id, 'bases', baseId, 'sources']
+    const urlParams = ['teams', team.id, 'bots', botId, 'sources']
     let path = '/api/' + urlParams.join('/')
     const response = await fetch(path, {
       method: 'GET',
@@ -70,11 +70,11 @@ function Base({ team, preBase, preSources }) {
   //restart polling when sources change
   useEffect(() => {
     let interval = null
-    if (base) {
+    if (bot) {
       if (isProcessing && !interval) {
         clearInterval(interval)
         interval = setInterval(() => {
-          refreshBase()
+          refreshBot()
           refreshSources()
         }, 10000)
       }
@@ -96,17 +96,17 @@ function Base({ team, preBase, preSources }) {
     
   }, [sources])
 
-  if (!base) return null
+  if (!bot) return null
 
   return (
-    <DashboardWrap page="Bases" title={base.name}>
+    <DashboardWrap page="Bots" title={bot.name}>
       <Alert title={errorText} type="error" />
 
-      <BaseCard team={team} base={base} />
+      <BotCard team={team} bot={bot} />
 
       <SourceGrid {...{ sources }} />
 
-      <SourceForm {...{ team, base, sources, setSources, setCanAddSource }} />
+      <SourceForm {...{ team, bot, sources, setSources, setCanAddSource }} />
 
       <ModalOpenAI {...{ team }} />
     </DashboardWrap>
@@ -115,21 +115,21 @@ function Base({ team, preBase, preSources }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
-  const { baseId } = context.params
+  const { botId } = context.params
 
   if (data?.props?.team) {
-    data.props.preBase = await getBase(data.props.team.id, baseId)
-    //return 404 if base doesn't exist
-    if (!data.props.preBase) {
+    data.props.preBot = await getBot(data.props.team.id, botId)
+    //return 404 if bot doesn't exist
+    if (!data.props.preBot) {
       return {
         notFound: true,
       }
     }
 
-    data.props.preSources = await getSources(data.props.team.id, data.props.preBase)
+    data.props.preSources = await getSources(data.props.team.id, data.props.preBot)
   }
 
   return data
 }
 
-export default Base
+export default Bot

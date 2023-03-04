@@ -4,12 +4,13 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail } from "firebase/auth";
 import { auth } from '@/config/firebase-ui.config'
 import {
-  PhotoIcon,
-  CubeTransparentIcon,
+  CreditCardIcon,
+  ServerStackIcon,
   ArrowRightIcon,
   CheckBadgeIcon,
-  ReceiptRefundIcon,
-  CreditCardIcon,
+  DocumentTextIcon,
+  Square3Stack3DIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -17,41 +18,12 @@ import Alert from '@/components/Alert'
 import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import Checkout from '@/components/Checkout'
 
 function Account({ team }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
-  const [isStripeCustomer, setIsStripeCustomer] = useState(!!team.stripeCustomerId)
-  const [opening, setOpening] = useState(false)
   const [newEmail, setNewEmail] = useState('')
-
-  async function openPortal() {
-    setErrorText(null)
-    setOpening(true)
-    const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${user?.accessToken}`,
-      },
-    })
-    if (response.ok) {
-      const data = await response.json()
-      const { url } = data
-      //redirect to url
-      window.location.href = url
-      return
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
-        setOpening(false)
-      }
-    }
-    setOpening(false)
-  }
 
   const cards = [
     {
@@ -62,30 +34,44 @@ function Account({ team }) {
       stat: stripePlan(team).name,
     },
     {
-      name: 'Base Credits',
+      name: 'Bot Limit',
       href: false,
-      linkText: 'Get more',
-      icon: CubeTransparentIcon,
-      stat: team?.baseCredits,
+      linkText: 'View all',
+      icon: ServerStackIcon,
+      stat: team?.botCount || 0,
+      limit: stripePlan(team).bots,
     },
     {
-      name: 'Source Credits',
+      name: 'Source Limit',
       href: false,
       linkText: 'Get more',
-      icon: PhotoIcon,
-      stat: team?.sourceCredits,
+      icon: DocumentTextIcon,
+      stat: team?.sourceCount || 0,
+      limit: stripePlan(team).sources,
+    },
+    {
+      name: 'Source Page Limit',
+      href: false,
+      linkText: 'Get more',
+      icon: Square3Stack3DIcon,
+      stat: team?.pageCount || 0,
+      limit: stripePlan(team).pages,
+    },
+    {
+      name: 'Question Limit',
+      href: false,
+      linkText: 'Get more',
+      icon: QuestionMarkCircleIcon,
+      stat: team?.questionCount || 0,
+      limit: stripePlan(team).questions,
     },
   ]
-
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
 
   return (
     <DashboardWrap page="Account">
       <Alert title={errorText} type="error" />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
           <div key={card.name} className="overflow-hidden rounded-lg bg-white shadow">
@@ -119,32 +105,7 @@ function Account({ team }) {
       </div>
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
-        {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
-        {isStripeCustomer && (
-          <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-x-16 gap-y-8">
-            <div className="text-center">
-              <h3 className="text-3xl font-bold">Manage your Plan</h3>
-              <p className="mt-2 text-md text-gray-800 text-justify">
-                You are currently on the {stripePlan(team).name} plan. Open our billing portal to
-                change your plan, update payment methods, download invoices, or cancel your
-                subscription.
-              </p>
-              <button
-                type="button"
-                className="mt-8 md:mt-16 w-3/4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 text-md font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25"
-                onClick={openPortal}
-                disabled={opening}
-              >
-                {opening ? (
-                  <LoadingSpinner />
-                ) : (
-                  <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
-                )}
-                Billing Portal
-              </button>
-            </div>
-          </div>
-        )}
+        <Checkout team={team} />
       </div>
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
@@ -174,7 +135,7 @@ function Account({ team }) {
                   updateEmail(auth.currentUser,newEmail).then(() => {
                     alert('Email updated successfully')
                   }).catch((error) => {
-                    setErrorText(error.message)
+                    setErrorText(error.message + ' If you havn\'t recently logged in to your account, you may need log out then back in to change your email address for security reasons.')
                   });
                 }}
                 className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"

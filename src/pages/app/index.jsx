@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   AcademicCapIcon,
@@ -17,7 +17,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
 import { stripePlan } from '@/utils/helpers'
-import NewBasePanel from '@/components/NewBasePanel'
+import NewBotPanel from '@/components/NewBotPanel'
 import classNames from '@/utils/classNames'
 
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
@@ -60,13 +60,19 @@ function Dashboard({ team }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
 
+  useEffect(() => {
+    if (!team.botCount) {
+      setOpen(true)
+    }
+  }, [])
+
   const cards = [
     {
-      name: 'Knowledge Bases',
-      href: '/app/bases',
+      name: 'Bots',
+      href: '/app/bots',
       linkText: 'View all',
       icon: ServerStackIcon,
-      stat: team?.baseCount || 0,
+      stat: team?.botCount || 0,
       limit: stripePlan(team).bots,
     },
     {
@@ -104,17 +110,17 @@ function Dashboard({ team }) {
 
   const actions = [
     {
-      title: 'View Bases',
-      description: 'Manage, test, and deploy bots for your trained knowledge bases.',
-      href: '/app/bases',
+      title: 'View Bots',
+      description: 'Manage, test, use, and deploy trained DocsBots.',
+      href: '/app/bots',
       icon: ServerStackIcon,
       iconForeground: 'text-indigo-700',
       iconBackground: 'bg-indigo-50',
     },
     {
-      title: 'New Base',
+      title: 'New Bot',
       description: 'Train a new knowledge base with your custom documentation and content.',
-      href: '/app/bases',
+      href: '/app/bots',
       click: setOpen,
       icon: AcademicCapIcon,
       iconForeground: 'text-cyan-700',
@@ -217,7 +223,7 @@ function Dashboard({ team }) {
         ))}
       </div>
 
-      <NewBasePanel {...{ team, open, setOpen }} />
+      <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>
   )
 }

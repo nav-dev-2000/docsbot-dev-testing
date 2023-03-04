@@ -7,13 +7,13 @@ export default function UpgradeNotice({ team, isSourcesPage }) {
   const [upgradeText, setUpgradeText] = useState(null)
 
   useEffect(() => {
-    if (team?.baseCredits === 0 && !isSourcesPage) {
+    if (team?.botCredits === 0 && !isSourcesPage) {
       setUpgradeText(
-        'You have no remaining base credits. Please upgrade your plan to train bases.'
+        'You have no remaining bot credits. Please upgrade your plan to train bots.'
       )
-    } else if (team?.baseCount && team?.sourceCredits === 0) {
+    } else if (team?.botCount && team?.sourceCredits === 0) {
       setUpgradeText(
-        'You have no remaining source credits. Please upgrade your plan to generate sources for your bases.'
+        'You have no remaining source credits. Please upgrade your plan to generate sources for your bots.'
       )
     }
   }, [team])

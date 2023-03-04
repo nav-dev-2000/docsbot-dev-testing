@@ -10,7 +10,7 @@ export const weaviateClient = weaviate.client({
 })
 
 export const createSchema = (indexId) => {
-  //create a weaviate schema for the base
+  //create a weaviate schema for the bot
   return weaviateClient.schema
     .classCreator()
     .withClass({
@@ -78,6 +78,6 @@ export const createSchema = (indexId) => {
 }
 
 export const deleteSchema = (indexId) => {
-  //delete a weaviate schema for the base
+  //delete a weaviate schema for the bot
   return weaviateClient.schema.classDeleter().withClassName(indexId).do()
 }

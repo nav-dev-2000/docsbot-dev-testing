@@ -1,6 +1,6 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
-import { getBase, getSource } from '@/lib/dbQueries'
+import { getBot, getSource } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -15,14 +15,14 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
   const { team } = check
-  const { baseId, sourceId } = req.query
+  const { botId, sourceId } = req.query
 
-  let base = null
+  let bot = null
   try {
-    base = await getBase(team.id, baseId)
-    if (!base) {
+    bot = await getBot(team.id, botId)
+    if (!bot) {
       // doc.data() will be undefined in this case
-      return res.status(404).json({ message: "baseId doesn't exist." })
+      return res.status(404).json({ message: "botId doesn't exist." })
     }
   } catch (error) {
     console.warn('Error getting document:', error)
@@ -32,16 +32,16 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     return res.status(400).json({ message: 'Source update not implemented' })
   } else if (req.method === 'DELETE') {
-    //fail if base is indexing
-    if (['indexing'].includes(base.status)) {
+    //fail if bot is indexing
+    if (['indexing'].includes(bot.status)) {
       return res
         .status(409)
-        .json({ message: 'Base is currently indexing, you can delete sources later.' })
+        .json({ message: 'Bot is currently indexing, you can delete sources later.' })
     }
 
     //delete source from db
     try {
-      await firestore.collection('teams').doc(team.id).collection('bases').doc(baseId).collection('sources').doc(sourceId).delete()
+      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).delete()
       return res.status(200).json({ message: 'Source deleted successfully' })
     } catch (error) {
       console.warn('Error deleting source doc:', error)
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     
   } else if (req.method === 'GET') {
     try {
-      const source = await getSource(team, base, sourceId)
+      const source = await getSource(team, bot, sourceId)
       if (source) {
         return res.json(source)
       } else {

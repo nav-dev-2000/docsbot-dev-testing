@@ -98,7 +98,7 @@ export default function ModalOpenAI({ team }) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-700">
-                        We need to connect your bases to your OpenAI account so you have full control
+                        We need to connect your bots to your OpenAI account so you have full control
                         and ownership of your data.
                       </p>
                       <p className="text-xs text-gray-600">

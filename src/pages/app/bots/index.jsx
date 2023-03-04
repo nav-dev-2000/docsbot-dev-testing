@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/future/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
-import BaseCTA from '@/components/BaseCTA'
+import BotCTA from '@/components/BotCTA'
 import BadgeStatus from '@/components/BadgeStatus'
 import {
   CalendarIcon,
@@ -17,56 +17,72 @@ import {
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
-import { getBases } from '@/lib/dbQueries'
-import BaseDelete from '@/components/BaseDelete'
-import NewBasePanel from '@/components/NewBasePanel'
+import { getBots } from '@/lib/dbQueries'
+import BotDelete from '@/components/BotDelete'
+import NewBotPanel from '@/components/NewBotPanel'
 import ModalOpenAI from '@/components/ModalOpenAI'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function Bases({ preBases, team }) {
-  const [bases, setBases] = useState(preBases)
+function Bots({ preBots, team }) {
+  const [bots, setBots] = useState(preBots)
   const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
 
-  const BasesGrid = ({ bases }) => {
+  useEffect(() => {
+    if (!team.botCount) {
+      setOpen(true)
+    }
+  }, [])
+
+  const BotsGrid = ({ bots }) => {
+    if (!bots || bots.length === 0) {
+      return null
+    }
+
     return (
-      <ul
-        role="list"
-        className={classNames(
-          bases.length > 1 ? 'xl:grid-cols-2' : '',
-          'mt-8 grid grid-cols-1 gap-6'
-        )}
-      >
-        {bases.map((base) => (
-          <BaseItem key={base.id} base={base} />
-        ))}
-      </ul>
+      <>
+        <p className="text-md font-bol mb-2 sm:text-base">
+          These are your custom trained DocsBots. You can create new bots, or train them with new
+          sources.
+        </p>
+        <ul
+          role="list"
+          className={classNames(
+            bots.length > 1 ? 'xl:grid-cols-2' : '',
+            'mt-8 grid grid-cols-1 gap-6'
+          )}
+        >
+          {bots.map((bot) => (
+            <BotItem key={bot.id} bot={bot} />
+          ))}
+        </ul>
+      </>
     )
   }
 
-  const BaseItem = ({ base }) => {
-    if (!base || !base.id) return null
+  const BotItem = ({ bot }) => {
+    if (!bot || !bot.id) return null
 
-    let ts = new Date(base.createdAt)
+    let ts = new Date(bot.createdAt)
 
     return (
       <li
-        key={base.id}
+        key={bot.id}
         className="col-span-1 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow hover:shadow-lg"
       >
-        <Link href={'/app/bases/' + base.id} className="cover-link">
+        <Link href={'/app/bots/' + bot.id} className="cover-link">
           <div className="relative flex w-full items-start justify-between space-x-6 p-6">
             <div className="flex-1 truncate">
               <div className="flex items-center space-x-3">
-                <h3 className="truncate text-lg font-medium text-gray-900">{base.name}</h3>
+                <h3 className="truncate text-lg font-medium text-gray-900">{bot.name}</h3>
               </div>
-              <p className="mt-1 truncate text-sm text-gray-700">{base.description}</p>
+              <p className="mt-1 truncate text-sm text-gray-700">{bot.description}</p>
               <p className="mt-1 truncate text-sm capitalize text-gray-500">
-                <EyeIcon className="inline-block h-4 w-4" aria-hidden="true" /> {base.privacy}
+                <EyeIcon className="inline-block h-4 w-4" aria-hidden="true" /> {bot.privacy}
               </p>
               <p className="mt-1 truncate text-xs text-gray-500 sm:text-sm">
                 <CalendarIcon className="inline-block h-4 w-4" /> {ts.toLocaleString()}
@@ -74,7 +90,7 @@ function Bases({ preBases, team }) {
             </div>
             <div className="grid flex-shrink-0">
               <div className="mt-2 mb-10 flex justify-center sm:mb-6">
-                <BadgeStatus status={base.status} small={true} />
+                <BadgeStatus status={bot.status} small={true} />
               </div>
 
               <div className="flex justify-end">
@@ -88,7 +104,7 @@ function Bases({ preBases, team }) {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault()
-                  setToDelete(base)
+                  setToDelete(bot)
                 }}
                 className=" text-red-400 hover:text-red-200 focus:text-red-200"
                 title="Delete"
@@ -101,17 +117,17 @@ function Bases({ preBases, team }) {
           <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
             <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
               <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{base.sourceCount}</span>{' '}
+              <span className="text-gray-900">{bot.sourceCount}</span>{' '}
               <span className="text-gray-600">Sources</span>
             </div>
             <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
               <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{base.pageCount}</span>{' '}
+              <span className="text-gray-900">{bot.pageCount}</span>{' '}
               <span className="text-gray-600">Indexed pages</span>
             </div>
             <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
               <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{base.questionCount}</span>{' '}
+              <span className="text-gray-900">{bot.questionCount}</span>{' '}
               <span className="text-gray-600">Questions</span>
             </div>
           </div>
@@ -121,27 +137,23 @@ function Bases({ preBases, team }) {
   }
 
   return (
-    <DashboardWrap page="Bases">
-      <p className="text-md font-bol mb-4 text-center sm:text-base">
-        These are your custom trained AI bases. You can train new bases, or generate new source
-        images from these bases.
-      </p>
+    <DashboardWrap page="Bots">
       <Alert title={errorText} type="error" />
 
-      <BaseDelete
+      <BotDelete
         team={team}
-        base={toDelete}
+        bot={toDelete}
         setToDelete={setToDelete}
         setErrorText={setErrorText}
-        bases={bases}
-        setBases={setBases}
+        bots={bots}
+        setBots={setBots}
       />
 
-      <BasesGrid bases={bases} />
+      <BotsGrid bots={bots} />
 
-      <BaseCTA {...{ setOpen }} />
+      <BotCTA {...{ setOpen }} />
 
-      <NewBasePanel {...{ team, open, setOpen }} />
+      <NewBotPanel {...{ team, open, setOpen }} />
 
       <ModalOpenAI {...{ team }} />
     </DashboardWrap>
@@ -152,10 +164,10 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
 
   if (data?.props?.team) {
-    data.props.preBases = await getBases(data.props.team)
+    data.props.preBots = await getBots(data.props.team)
   }
 
   return data
 }
 
-export default Bases
+export default Bots

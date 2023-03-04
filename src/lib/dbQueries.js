@@ -5,42 +5,42 @@ import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
 
-export async function getBases(team, resultLimit = 1000) {
+export async function getBots(team, resultLimit = 1000) {
   const querySnapshot = await firestore
     .collection('teams')
     .doc(team.id)
-    .collection('bases')
+    .collection('bots')
     .orderBy('createdAt', 'desc')
     .limit(resultLimit)
     .get()
 
-  let bases = []
+  let bots = []
   querySnapshot.forEach(async (doc) => {
-    let base = { id: doc.id, ...doc.data() }
-    base.createdAt = base.createdAt.toDate().toJSON() //make serializable
-    bases.push(base)
+    let bot = { id: doc.id, ...doc.data() }
+    bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+    bots.push(bot)
   })
 
-  return bases
+  return bots
 }
 
-export async function getBase(teamId, baseId) {
-  const baseRef = await firestore.collection('teams').doc(teamId).collection('bases').doc(baseId).get()
-  if (baseRef.exists) {
-    let base = { id: baseRef.id, ...baseRef.data() }
-    base.createdAt = base.createdAt.toDate().toJSON() //make serializable
-    return base
+export async function getBot(teamId, botId) {
+  const botRef = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).get()
+  if (botRef.exists) {
+    let bot = { id: botRef.id, ...botRef.data() }
+    bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+    return bot
   } else {
     return null
   }
 }
 
-export async function getSources(teamId, base, resultLimit = 1000, ascending = false) {
+export async function getSources(teamId, bot, resultLimit = 1000, ascending = false) {
   let sourcesRef = firestore
     .collection('teams')
     .doc(teamId)
-    .collection('bases')
-    .doc(base.id)
+    .collection('bots')
+    .doc(bot.id)
     .collection('sources')
     .orderBy('createdAt', ascending ? 'asc' : 'desc')
     .limit(resultLimit)
@@ -57,12 +57,12 @@ export async function getSources(teamId, base, resultLimit = 1000, ascending = f
   return sources
 }
 
-export async function getSource(team, base, sourceId) {
+export async function getSource(team, bot, sourceId) {
   const sourceRef = await firestore
     .collection('teams')
     .doc(team.id)
-    .collection('bases')
-    .doc(base.id)
+    .collection('bots')
+    .doc(bot.id)
     .collection('sources')
     .doc(sourceId)
     .get()
