@@ -52,6 +52,14 @@ export default async function handler(req, res) {
     }
 
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
+
+    //check if they are pro and can use the source type
+    if (sourceType.isPro && stripePlan(team).bots === 1) {
+      return res.status(402).json({
+        message: 'Source type not available on your plan. Please upgrade your plan.',
+      })
+    }
+
     url = url?.trim() || null
     if (
       sourceType.fieldUrl === 'required' &&
@@ -144,6 +152,7 @@ export default async function handler(req, res) {
           teamId: team.id,
           botId,
           sourceId: docRef.id,
+          pageLimit: stripePlan(team).pages - team.pageCount,
           indexId: bot.indexId,
           type,
           title,

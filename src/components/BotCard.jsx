@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ChatModal from '@/components/ChatModal'
+import APIModal from '@/components/APIModal'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -77,6 +78,7 @@ export default function BotCard({ team, bot }) {
 
               <ChatModal team={team} bot={bot} />
             </div>
+            <APIModal team={team} bot={bot} />
           </div>
         </div>
       </div>

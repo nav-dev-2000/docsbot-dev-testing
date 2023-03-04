@@ -51,7 +51,7 @@ export default function SourceGrid({ sources }) {
                   ) : null}
                 </div>
                 <div className="">
-                  <BadgeStatusSource status={source.status} small={true} />
+                  <BadgeStatusSource source={source} small={true} />
                 </div>
               </div>
               <div className="flex-1 truncate text-sm">

@@ -42,15 +42,15 @@ function Bots({ preBots, team }) {
 
     return (
       <>
-        <p className="text-md font-bol mb-2 sm:text-base">
-          These are your custom trained DocsBots. You can create new bots, or train them with new
+        <p className="text-md font-bol mb-4 sm:text-base">
+          These are your custom trained DocsBots. You can create a new one, or train them with new
           sources.
         </p>
         <ul
           role="list"
           className={classNames(
             bots.length > 1 ? 'xl:grid-cols-2' : '',
-            'mt-8 grid grid-cols-1 gap-6'
+            'mt-0 grid grid-cols-1 gap-6'
           )}
         >
           {bots.map((bot) => (

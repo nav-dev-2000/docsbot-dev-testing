@@ -46,6 +46,7 @@
     "react-firebase-hooks": "^5.0.3",
     "react-hook-form": "^7.38.0",
     "react-rotating-text": "^1.4.1",
+    "react-syntax-highlighter": "^15.5.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.2",
     "sharp": "^0.31.3",

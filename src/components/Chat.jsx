@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
-import { ArrowPathIcon, ChatBubbleLeftEllipsisIcon, DocumentTextIcon, LinkIcon } from '@heroicons/react/24/outline'
+import {
+  HandThumbDownIcon,
+  ChatBubbleLeftEllipsisIcon,
+  DocumentTextIcon,
+  HandThumbUpIcon,
+  LinkIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
@@ -79,7 +85,6 @@ export default function Chat({ team, bot }) {
   }
 
   const Source = ({ source }) => {
-
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
     const page = source.page ? ` Page ${source.page}` : ''
 
@@ -92,12 +97,18 @@ export default function Chat({ team, bot }) {
         </div>
         <div className="min-w-0 flex-1">
           {source.url ? (
-          <Link href={source.url} target="_blank" className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
-            <p className="text-left text-sm font-medium text-gray-900">{source.title}{page}</p>
-          </Link>
+            <Link href={source.url} target="_blank" className="focus:outline-none">
+              <span className="absolute inset-0" aria-hidden="true" />
+              <p className="text-left text-sm font-medium text-gray-900">
+                {source.title}
+                {page}
+              </p>
+            </Link>
           ) : (
-            <p className="text-left text-sm font-medium text-gray-900">{source.title || source.url}{page}</p>
+            <p className="text-left text-sm font-medium text-gray-900">
+              {source.title || source.url}
+              {page}
+            </p>
           )}
         </div>
       </div>
@@ -203,9 +214,25 @@ export default function Chat({ team, bot }) {
                 Answer:
               </div>
               <div
-                className="wpchat-code prose min-w-full p-4 sm:p-8"
+                className="wpchat-code prose min-w-full p-4 sm:p-8 pb-0 sm:pb-0"
                 dangerouslySetInnerHTML={{ __html: resultHtml }}
               />
+              <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
+                <button
+                  type="button"
+                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  <span className="sr-only">Vote up</span>
+                  <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  <span className="sr-only">Vote down</span>
+                  <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
             </div>
 
             <div className="relative mt-16 pt-1">

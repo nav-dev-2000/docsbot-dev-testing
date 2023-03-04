@@ -77,7 +77,7 @@ function Dashboard({ team }) {
     },
     {
       name: 'Sources',
-      href: '/app/account',
+      href: false,
       linkText: 'Get more',
       icon: DocumentTextIcon,
       stat: team?.sourceCount || 0,
@@ -85,7 +85,7 @@ function Dashboard({ team }) {
     },
     {
       name: 'Source Pages',
-      href: '/app/account',
+      href: false,
       linkText: 'Get more',
       icon: Square3Stack3DIcon,
       stat: team?.pageCount || 0,
@@ -93,7 +93,7 @@ function Dashboard({ team }) {
     },
     {
       name: 'Questions',
-      href: '/app/account',
+      href: false,
       linkText: 'Get more',
       icon: QuestionMarkCircleIcon,
       stat: team?.questionCount || 0,

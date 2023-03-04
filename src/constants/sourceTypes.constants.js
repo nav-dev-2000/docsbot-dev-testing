@@ -69,7 +69,7 @@ export const sourceTypes = [
     fullDescription: 'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to learn from.',
     icon: TableCellsIcon,
     isPro: true,
-    coming: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: 'required',
