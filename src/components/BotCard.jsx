@@ -3,14 +3,18 @@ import {
   CalendarIcon,
   ChatBubbleLeftEllipsisIcon,
   ChatBubbleLeftRightIcon,
-  EyeIcon,
+  ClipboardIcon,
   Square3Stack3DIcon,
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
+  PaperClipIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ChatModal from '@/components/ChatModal'
 import APIModal from '@/components/APIModal'
+import PrivacyStatus from '@/components/PrivacyStatus'
+import Link from 'next/link'
+import classNames from '@/utils/classNames'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -40,13 +44,7 @@ export default function BotCard({ team, bot }) {
               <p className="text-sm text-gray-600">{bot.description}</p>
               <div className="mt-2 flex">
                 <div className="sm:flex">
-                  <p className="flex items-center text-sm capitalize text-gray-500">
-                    <EyeIcon
-                      className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    {bot.privacy}
-                  </p>
+                  <PrivacyStatus bot={bot} />
                 </div>
                 <div className="ml-4 flex items-center text-sm text-gray-500">
                   <CalendarIcon
@@ -66,7 +64,7 @@ export default function BotCard({ team, bot }) {
             </div>
             <div className="flex justify-between space-x-2 sm:mt-5">
               <button
-                className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={true}
               >
                 <ChatBubbleLeftRightIcon
@@ -78,22 +76,41 @@ export default function BotCard({ team, bot }) {
 
               <ChatModal team={team} bot={bot} />
             </div>
-            <APIModal team={team} bot={bot} />
+            <div className="flex justify-end space-x-4 sm:mt-1">
+              <a
+                target="_blank"
+                type="button"
+                className={classNames(
+                  bot.privacy === 'private' ? 'opacity-50 cursor-not-allowed' : '',
+                  'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
+                )}
+                href={`/chat/${team.id}/${bot.id}`}
+                onClick={(e) => {
+                  if (bot.privacy === 'private') {
+                    e.preventDefault()
+                  }
+                }}
+              >
+                <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                Public link
+              </a>
+              <APIModal team={team} bot={bot} />
+            </div>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
-        <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+        <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
+          <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{bot.sourceCount}</span>{' '}
           <span className="text-gray-600">Sources</span>
         </div>
-        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
+        <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{bot.pageCount}</span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
-        <div className="px-6 py-5 text-center text-sm font-medium flex items-center justify-center space-x-1">
+        <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{bot.questionCount}</span>{' '}
           <span className="text-gray-600">Questions</span>

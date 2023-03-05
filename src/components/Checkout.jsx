@@ -2,9 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import {
-  CreditCardIcon,
-} from '@heroicons/react/24/outline'
+import { CreditCardIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
@@ -47,9 +45,10 @@ export default function Checkout({ team }) {
     <>
       <Alert title={errorText} type="error" />
 
-      <div className="flex justify-center text-center">
+      <div className="">
         {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
         {isStripeCustomer && (
+          <div className="flex justify-center text-center">
             <div className="max-w-2xl">
               <h3 className="text-3xl font-bold">Manage your Plan</h3>
               <p className="text-md mt-2 text-gray-800">
@@ -71,6 +70,7 @@ export default function Checkout({ team }) {
                 Billing Portal
               </button>
             </div>
+          </div>
         )}
       </div>
     </>

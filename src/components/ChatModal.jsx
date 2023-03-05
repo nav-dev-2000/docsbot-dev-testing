@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ChatBubbleLeftEllipsisIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Chat from '@/components/Chat'
+import Chat from '@/components/ChatStreaming'
 
 export default function ChatModal({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -53,7 +53,7 @@ export default function ChatModal({ team, bot }) {
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <Chat team={team} bot={bot} />
+                  <Chat teamId={team.id} bot={bot} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

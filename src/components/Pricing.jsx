@@ -18,7 +18,7 @@ const tiers = [
     features: [
       '1 DocsBot',
       '10 Sources',
-      '100 Source Pages',
+      '1k Source Pages',
       'Unlock all source types',
       '1k questions/mo',
       '1 user'
@@ -196,7 +196,7 @@ export default function Pricing() {
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
               Try DocsBot free for personal use. No credit card required. Import up to three
-              document files or urls with ten pages and chat with your bot within our website.
+              document files or urls with up to 50 pages of content and chat with your bot within our website.
             </p>
           </div>
           <Link

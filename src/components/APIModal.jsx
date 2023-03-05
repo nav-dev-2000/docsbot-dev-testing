@@ -59,7 +59,7 @@ export default function APIModal({ team, bot }) {
         className="text-sm font-medium text-gray-500 hover:text-gray-900 flex items-center justify-end cursor-pointer mt-2"
         onClick={() => setOpen(true)}
       >
-        <CogIcon className="h-4 w-4 text-gray-400" aria-hidden="true" />
+        <CogIcon className="h-4 w-4 mr-0.5" aria-hidden="true" />
         API Instructions
       </a>
 

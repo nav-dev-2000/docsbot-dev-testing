@@ -35,7 +35,7 @@ export function stripePlan(team) {
     }
   }
 
-  return { name: 'Free', bots: 1, sources: 3, pages: 10, questions: 100 }
+  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100 }
 }
 
 export function isSuperAdmin(userId) {

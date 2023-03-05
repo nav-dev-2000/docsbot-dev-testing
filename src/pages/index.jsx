@@ -54,7 +54,7 @@ const integrations = [
   {
     name: 'CSV Import',
     description:
-      'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index (coming soon).',
+      'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index.',
     icon: TableCellsIcon,
   },
   {
@@ -69,7 +69,7 @@ const features = [
   {
     name: 'Question/Answer Bots',
     description:
-      'Make you documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
+      'Make your documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
     icon: ChatBubbleLeftEllipsisIcon,
   },
   {
@@ -87,7 +87,7 @@ const features = [
   {
     name: 'Reply to Support Tickets',
     description:
-      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money.',
+      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money!',
     icon: LifebuoyIcon,
   },
   {
@@ -235,7 +235,7 @@ export default function Home() {
                 <p className="mx-auto mt-5 max-w-7xl text-xl text-gray-500">
                   Our intuitive interface makes it easy to index your documentation, blog posts, or
                   any other content with just a few clicks. Then use our simple API and embeddable
-                  widgets integrate your custom DocsBot into your website, WordPress, app/plugin,
+                  widgets to integrate your custom DocsBot into your website, WordPress, app/plugin,
                   Slack, or anywhere else you want to use it!
                 </p>
                 <div className="mt-12">

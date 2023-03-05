@@ -135,7 +135,7 @@ function Dashboard({ team }) {
       iconBackground: 'bg-green-50',
     },
     {
-      title: 'Team Management (coming soon!)',
+      title: 'Team Management',
       description: 'Manage your team members and their roles in your team dashboard.',
       href: '/app/team',
       icon: UsersIcon,

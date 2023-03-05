@@ -14,7 +14,7 @@ customer-email="${email}">
 
 export function StripePricingTable({ teamId, email }) {
   return (
-    <>
+    <div>
       <div className="mb-2 text-center">
         <h2 className="mb-2 text-3xl font-bold">Choose a plan</h2>
         <Alert
@@ -37,6 +37,6 @@ export function StripePricingTable({ teamId, email }) {
           process.env.NEXT_PUBLIC_STRIPE_PRICING_TABLE
         )}
       />
-    </>
+    </div>
   )
 }

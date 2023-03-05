@@ -54,7 +54,7 @@ export default async function handler(req, res) {
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
 
     //check if they are pro and can use the source type
-    if (sourceType.isPro && stripePlan(team).bots === 1) {
+    if (sourceType.isPro && stripePlan(team).name === 'Free') {
       return res.status(402).json({
         message: 'Source type not available on your plan. Please upgrade your plan.',
       })

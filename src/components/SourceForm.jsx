@@ -174,7 +174,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                 <RadioGroup.Option
                   key={sourceType.id}
                   value={sourceType}
-                  disabled={sourceType.coming}
+                  disabled={sourceType.coming || isUpdating}
                   className={({ checked, active }) =>
                     classNames(
                       checked ? 'border-transparent' : 'border-gray-300',
@@ -238,9 +238,14 @@ export default function SourceForm({ team, bot, sources, setSources }) {
             <div className="col mt-6 text-sm text-gray-600">
               <p>{selectedSourceType?.fullDescription}</p>
               {selectedSourceType?.id === 'csv' && (
-                <Link href="/csv-import-template.csv" className="underline">
+                <a href="/csv-import-template.csv" download={true} className="underline">
                   Download CSV template
-                </Link>
+                </a>
+              )}
+              {selectedSourceType?.id === 'document' && (
+                <a href="/infinite-uploads.pdf" download={true} className="underline">
+                  Download an example PDF document
+                </a>
               )}
             </div>
             <div className="col">
@@ -263,6 +268,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                       name="url"
                       id="url"
                       value={url}
+                      disabled={isUpdating}
                       onChange={(e) => setUrl(e.target.value)}
                       className="block w-full rounded-md border-gray-300 pl-10 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       placeholder={
@@ -300,6 +306,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                       name="title"
                       id="title"
                       value={title}
+                      disabled={isUpdating}
                       onChange={(e) => setTitle(e.target.value)}
                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                       placeholder=""
