@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useState, useEffect } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -7,13 +6,8 @@ import BotCTA from '@/components/BotCTA'
 import BadgeStatus from '@/components/BadgeStatus'
 import {
   CalendarIcon,
-  DocumentPlusIcon,
   XMarkIcon,
-  EyeIcon,
-  EyeSlashIcon,
   BookOpenIcon,
-  QuestionMarkCircleIcon,
-  Square3Stack3DIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
@@ -23,6 +17,7 @@ import NewBotPanel from '@/components/NewBotPanel'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import classNames from '@/utils/classNames'
 import PrivacyStatus from '@/components/PrivacyStatus'
+import RobotIcon from '@/components/RobotIcon'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
@@ -79,17 +74,27 @@ function Bots({ preBots, team }) {
                 <h3 className="truncate text-lg font-medium text-gray-900">{bot.name}</h3>
               </div>
               <p className="mt-1 truncate text-sm text-gray-700">{bot.description}</p>
-              <div className="mt-2 flex">
+              <div className="mt-2 md:space-x-4 md:flex">
                 <div className="sm:flex">
                   <PrivacyStatus bot={bot} />
                 </div>
-                <div className="ml-4 flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
                   <p>
                     <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
+                  </p>
+                </div>
+                <div className="flex items-center text-sm text-gray-500">
+                  <DocumentDuplicateIcon
+                    className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <p>
+                  <span className="text-gray-900">{bot.sourceCount}</span>{' '}
+                  Sources
                   </p>
                 </div>
               </div>
@@ -101,7 +106,7 @@ function Bots({ preBots, team }) {
 
               <div className="flex justify-end">
                 <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-600 to-cyan-700 p-3 shadow-lg">
-                  <BookOpenIcon className="h-6 w-6 text-cyan-200" aria-hidden="true" />
+                  <RobotIcon className="h-6 w-6 text-cyan-200" aria-hidden="true" />
                 </span>
               </div>
             </div>
@@ -118,23 +123,6 @@ function Bots({ preBots, team }) {
                 <span className="sr-only">Delete</span>
                 <XMarkIcon className="h-4 w-4" aria-hidden="true" />
               </button>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-            <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
-              <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{bot.sourceCount}</span>{' '}
-              <span className="text-gray-600">Sources</span>
-            </div>
-            <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
-              <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{bot.pageCount}</span>{' '}
-              <span className="text-gray-600">Indexed pages</span>
-            </div>
-            <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
-              <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              <span className="text-gray-900">{bot.questionCount}</span>{' '}
-              <span className="text-gray-600">Questions</span>
             </div>
           </div>
         </Link>

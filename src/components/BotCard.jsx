@@ -15,6 +15,7 @@ import APIModal from '@/components/APIModal'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
+import RobotIcon from '@/components/RobotIcon'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -29,11 +30,11 @@ export default function BotCard({ team, bot }) {
         {bot.name} Bot Overview
       </h2>
       <div className="bg-white p-6">
-        <div className="sm:flex sm:items-center sm:justify-between">
+        <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
               <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-600 to-cyan-700 p-3 shadow-lg">
-                <BookOpenIcon
+                <RobotIcon
                   className="h-8 w-8 text-cyan-100 sm:h-10 sm:w-10"
                   aria-hidden="true"
                 />
@@ -58,22 +59,11 @@ export default function BotCard({ team, bot }) {
               </div>
             </div>
           </div>
-          <div className="mt-4 flex justify-between sm:mt-0 sm:block">
+          <div className="mt-4 flex justify-between sm:mt-0 lg:block">
             <div className="flex flex-shrink-0 justify-center sm:justify-end">
               <BadgeStatus status={bot.status} small={false} />
             </div>
-            <div className="flex justify-between space-x-2 sm:mt-5">
-              <button
-                className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                disabled={true}
-              >
-                <ChatBubbleLeftRightIcon
-                  className="mr-2 h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-                Chat (coming soon)
-              </button>
-
+            <div className="flex justify-end space-x-2 sm:mt-5">
               <ChatModal team={team} bot={bot} />
             </div>
             <div className="flex justify-end space-x-4 sm:mt-1">
@@ -92,7 +82,7 @@ export default function BotCard({ team, bot }) {
                 }}
               >
                 <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                Public link
+                Share
               </a>
               <APIModal team={team} bot={bot} />
             </div>
