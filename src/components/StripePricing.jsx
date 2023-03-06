@@ -1,6 +1,7 @@
 import Script from 'next/script'
 import Alert from '@/components/Alert'
 import Image from 'next/image'
+import { CheckBadgeIcon } from '@heroicons/react/24/solid'
 
 function stripeEmbed(teamId, email, table) {
   return {
@@ -25,10 +26,11 @@ export function StripePricingTable({ teamId, email }) {
         <p className="text-lg text-gray-800">
           Please choose a plan that fits your needs. You can upgrade or downgrade at any time.
         </p>
+        <p className="text-md  text-teal-500 font-semibold flex items-center mx-auto justify-center"><CheckBadgeIcon className='h-5 w-5 mr-1' /> 14-day money-back guarantee!</p>
       </div>
       <Script src="https://js.stripe.com/v3/pricing-table.js" />
       <div className="mt-4 mb-6 text-center">
-        <p className="text-md text-gray-600">Get two months free with all Yearly plans!</p>
+        <p className="text-md text-gray-600">Get two months free with all Yearly plans</p>
       </div>
       <div
         dangerouslySetInnerHTML={stripeEmbed(

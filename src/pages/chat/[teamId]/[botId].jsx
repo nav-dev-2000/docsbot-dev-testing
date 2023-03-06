@@ -33,10 +33,10 @@ export function ChatPage({ team, bot }) {
         <div className="mt-32 mb-4 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">Powered by</span>
-            <Link href="/">
+            <Link href="/" className="ml-1 block">
               <span className="sr-only">DocsBot AI</span>
               <Image
-                className="ml-4 h-6"
+                className=""
                 src={docsbotLogo}
                 alt="DocsBot Logo"
                 height={24}

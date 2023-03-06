@@ -87,8 +87,11 @@ export default async function handler(req, res) {
 
     //check file type, mostly for sanity
     if (file) {
+      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
+      const fileRef = bucket.file(file)
       const extension = file.split('.').pop()
       if (!Object.keys(sourceType.fileTypes).includes(extension)) {
+        await fileRef.delete()
         return res.status(400).send({ message: 'Invalid file type.' })
       }
 
@@ -96,8 +99,6 @@ export default async function handler(req, res) {
       const uuid = uuidv4()
       //move the file to the correct location in bucket
       const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
-      const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
-      const fileRef = bucket.file(file)
       await fileRef.move(newFile)
       file = newFile
     }
@@ -154,7 +155,7 @@ export default async function handler(req, res) {
 
       //TODO add source event to pub/sub queue for processing
       const pubSubClient = new PubSub()
-      const topicName = 'docsbot_index'
+      const topicName = 'docsbot-ingest'
       const dataBuffer = Buffer.from(
         JSON.stringify({
           teamId: team.id,

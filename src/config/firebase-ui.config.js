@@ -9,12 +9,13 @@ import { getFirestore } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDfWBY9F09_puhg0PmIR1EOobcVyqs1vuU",
-  authDomain: "customchat-bot.firebaseapp.com",
-  projectId: "customchat-bot",
-  storageBucket: "customchat-bot.appspot.com",
-  messagingSenderId: "373633123977",
-  appId: "1:373633123977:web:87c0d1cbf965b8ed6a6858"
+  apiKey: "AIzaSyDFU8TVMvWP99bT1fAC5WJKqK1DQ_rHKoQ",
+  authDomain: "docsbotai.firebaseapp.com",
+  projectId: "docsbotai",
+  storageBucket: "docsbotai.appspot.com",
+  messagingSenderId: "634153948748",
+  appId: "1:634153948748:web:9ca045bd4f820101cf06e9",
+  measurementId: "G-X9MJG8Q7SH"
 };
 
 // Initialize Firebase

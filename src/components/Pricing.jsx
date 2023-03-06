@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
 
@@ -76,7 +76,7 @@ export default function Pricing() {
             Pricing plans for any size business
           </p>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+        <p className="mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
           Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a
           custom plan?{' '}
           <a
@@ -93,6 +93,7 @@ export default function Pricing() {
           </a>
           .
         </p>
+        <p className="text-lg text-teal-500 font-bold flex items-center justify-center"><CheckBadgeIcon className='h-5 w-5 mr-1' /> 14-day money-back guarantee!</p>
         <div className="mt-16 flex justify-center">
           <RadioGroup
             value={frequency}

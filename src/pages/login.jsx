@@ -19,6 +19,7 @@ import { TextField } from '@/components/Fields'
 import { Logo } from '@/components/Logo'
 import { GoogleLogo } from '@/components/GoogleLogo'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 function Login() {
   const router = useRouter()
@@ -98,6 +99,11 @@ function Login() {
           </>
         }
       >
+        {isAnyAuthMethodLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <LoadingSpinner /> <span className="ml-3">Loading...</span>
+          </div>
+        ) : (
         <form
           onSubmit={handleSubmit(async ({ email, password }) => {
             signInWithEmailAndPassword(email, password)
@@ -177,6 +183,7 @@ function Login() {
             </Button>
           </div>
         </form>
+        )}
       </AuthLayout>
     </>
   )

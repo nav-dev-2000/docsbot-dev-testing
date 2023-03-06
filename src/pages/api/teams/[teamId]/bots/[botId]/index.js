@@ -123,7 +123,7 @@ export default async function handler(req, res) {
       })
 
       //delete all bot data from bucket
-      const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
+      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
       await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
 
       try {
