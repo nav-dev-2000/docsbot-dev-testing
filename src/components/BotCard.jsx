@@ -1,9 +1,5 @@
 import {
-  BookOpenIcon,
   CalendarIcon,
-  ChatBubbleLeftEllipsisIcon,
-  ChatBubbleLeftRightIcon,
-  ClipboardIcon,
   Square3Stack3DIcon,
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
@@ -67,7 +63,7 @@ export default function BotCard({ team, bot }) {
               <ChatModal team={team} bot={bot} />
             </div>
             <div className="flex justify-end space-x-4 sm:mt-1">
-              <a
+              <Link
                 target="_blank"
                 type="button"
                 className={classNames(
@@ -83,7 +79,7 @@ export default function BotCard({ team, bot }) {
               >
                 <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
                 Share
-              </a>
+              </Link>
               <APIModal team={team} bot={bot} />
             </div>
           </div>
