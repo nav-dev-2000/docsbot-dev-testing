@@ -10,12 +10,12 @@ const faqs = [
   {
     question: 'How does DocsBot work?',
     answer:
-      "It's a bit technical, but here is a brief overview. We use OpenAI's embedding and ChatGPT APIs, as well as a vector database to store our index. All ingested documentation is cleaned up and divided into smaller chunks and labeled by source. We then use the GPT embedding API to generate a vector representation of each chunk and store it in our vector db index. When a user asks a question, we convert it to an embedding, and use the vector database to find the closest matches to the user's query. Then we take the most relevant chunks, included them as context along with the original question, and use the ChatGPT API to generate a response in markdown format that we then convert to HTML and display to the user.",
+      "It's a bit technical, but here is a brief overview. We use OpenAI's embedding and ChatGPT APIs, as well as vector databases to store our index. All ingested documentation is cleaned up and divided into smaller chunks and labeled by source. We then use the GPT embedding API to generate a vector representation of each chunk and store it in our vector db index. When a user asks a question, we convert it to an embedding, and perform an advanced semantic search for closest matches to the user's query. Then we take the most relevant chunks, included them as context along with the original question, and use the ChatGPT API to generate a response in markdown format that we then convert to HTML and display to the user.",
   },
   {
     question: 'Why do I need to provide my own OpenAI API key?',
     answer:
-      'To use DocsBot, you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. OpenAI currently provides $18 of free credit when you signup, which should be enough to try out DocsBot for a few months. Each question uses <$0.006 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
+      'To use DocsBot, you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. OpenAI currently provides $18 of free credit when you signup, which should be enough to try out DocsBot for a few months and thousands of questions. Each question uses <$0.006 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
   },
   {
     question: "Can I automatically update my DocsBot sources?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "What are source 'Pages'?",
-    answer: "When you train your bot using various sources we calculate how many pages were imported. This is equivalent to one webpage url, or a page of a PDF or other document. For example if you import your website via sitemap that may have hundreds of pages. Different plans have different page limits depending on your needs."
+    answer: "When you train your bot using various sources we calculate how many pages were imported. This is equivalent to one webpage url, or a page of a PDF or other document file. For example if you import your website via sitemap that may have hundreds of pages. For long document files we calculate a page as roughly 4000 characters of cleaned-up raw text. Different plans have different page limits depending on your needs."
   },
   {
     question: "Do you have an API I can use?",

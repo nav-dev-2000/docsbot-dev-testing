@@ -2,8 +2,9 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Checkout from '@/components/Checkout'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
-export default function CheckoutModal({ team, open, setOpen }) {
+export default function ModalCheckout({ team, open, setOpen }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -42,7 +43,17 @@ export default function CheckoutModal({ team, open, setOpen }) {
                   </button>
                 </div>
                 <div className="p-6">
-                  <Checkout team={team} />
+                  <p className="mb-8 text-center text-gray-500">
+                    You've reached the limit of your current plan. Please upgrade to enable this
+                    feature. View{' '}
+                    <Link href="/#pricing" target="_blank" className="underline">
+                      plan details
+                    </Link>
+                    .
+                  </p>
+                  <div className="py-8">
+                    <Checkout team={team} />
+                  </div>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

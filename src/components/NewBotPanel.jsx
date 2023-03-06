@@ -5,7 +5,7 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
 import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
 import { stripePlan } from '@/utils/helpers'
-import CheckoutModal from '@/components/CheckoutModal'
+import ModalCheckout from '@/components/ModalCheckout'
 
 export default function NewBotPanel({ team, open, setOpen }) {
   const [botName, setBotName] = useState('')
@@ -66,7 +66,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   return (
     <>
-      <CheckoutModal team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <div className="fixed inset-0" />

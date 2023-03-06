@@ -32,12 +32,12 @@ export default function Chat({ teamId, bot }) {
   useEffect(() => {
     if (answer) {
       remark()
-      .use(html)
-      .use(remarkGfm)
-      .process(answer)
-      .then((html) => {
-        setResultHtml(html.toString())
-      })
+        .use(html)
+        .use(remarkGfm)
+        .process(answer)
+        .then((html) => {
+          setResultHtml(html.toString())
+        })
     }
   }, [answer])
 
@@ -58,8 +58,13 @@ export default function Chat({ teamId, bot }) {
 
     const data = { question: question, format: 'markdown' }
 
-    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/ask`
-    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/ask`
+    //get apiBase from env
+    let apiUrl = ''
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV !== undefined) {
+      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/ask`
+    } else {
+      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/ask`
+    }
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
@@ -98,7 +103,6 @@ export default function Chat({ teamId, bot }) {
     }
   }
 
-
   //trigger api call when rating changes
   useEffect(() => {
     if (rating) {
@@ -111,7 +115,7 @@ export default function Chat({ teamId, bot }) {
     if (!answerId) {
       return
     }
-    
+
     setErrorText(null)
 
     const data = { rating: newRating }
@@ -195,12 +199,12 @@ export default function Chat({ teamId, bot }) {
 
           {loading ? (
             <>
-              <div className="mt-4 flex justify-center items-center">
+              <div className="mt-4 flex items-center justify-center">
                 <div className="relative w-5">
                   <div className="h-5 w-5 rounded-full border border-teal-400"></div>
                   <div className="absolute left-0 top-0 h-5 w-5 animate-spin rounded-full border-t-2 border-cyan-600"></div>
                 </div>
-                <p className="ml-2 text-cyan-700 animate-pulse text-lg">{loadingMessage}</p>
+                <p className="ml-2 animate-pulse text-lg text-cyan-700">{loadingMessage}</p>
               </div>
             </>
           ) : (
@@ -276,44 +280,44 @@ export default function Chat({ teamId, bot }) {
                 Answer:
               </div>
               <div
-                className="wpchat-code prose min-w-full p-4 sm:p-8 pb-2 sm:pb-4"
+                className="wpchat-code prose min-w-full p-4 pb-2 sm:p-8 sm:pb-4"
                 dangerouslySetInnerHTML={{ __html: resultHtml }}
               />
               {answerId && (
-              <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
-                <button
-                  type="button"
-                  onClick={() => setRating(1)}
-                  disabled={rating === 1}
-                  className="rounded-sm text-gray-400 hover:text-gray-500 disabled:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Downvote</span>
-                  <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setRating(-1)}
-                  disabled={rating === -1}
-                  className="rounded-sm text-gray-400 hover:text-gray-500 disabled:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Upvote</span>
-                  <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
+                <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
+                  <button
+                    type="button"
+                    onClick={() => setRating(1)}
+                    disabled={rating === 1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Downvote</span>
+                    <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRating(-1)}
+                    disabled={rating === -1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Upvote</span>
+                    <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
               )}
             </div>
 
             {sources?.length > 0 && (
-            <div className="relative mt-16 pt-1">
-              <div className="absolute ml-8 -inset-6 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
-                Sources:
+              <div className="relative mt-16 pt-1">
+                <div className="absolute -inset-6 ml-8 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+                  Sources:
+                </div>
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {sources.map((source, index) => (
+                    <Source key={index} source={source} />
+                  ))}
+                </div>
               </div>
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {sources.map((source) => (
-                  <Source key={source.id} source={source} />
-                ))}
-              </div>
-            </div>
             )}
           </>
         )}

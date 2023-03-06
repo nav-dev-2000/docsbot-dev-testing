@@ -109,7 +109,7 @@ export default function ModalOpenAI({ team }) {
                     <div className="mt-5 sm:mt-6">
                       <Link
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
+                        className="inline-flex w-full justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
                         href="https://beta.openai.com/account/api-keys"
                         target="_blank"
                       >
@@ -129,7 +129,7 @@ export default function ModalOpenAI({ team }) {
                         <input
                           type="text"
                           id="openai-key"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                           placeholder="sk-xxxxxxxxxxxxxxxx"
                           aria-describedby="openai-key-description"
                           value={openAIKey}

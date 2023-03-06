@@ -15,7 +15,7 @@ import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
 import { stripePlan } from '@/utils/helpers'
-import CheckoutModal from '@/components/CheckoutModal'
+import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
 import Link from 'next/link'
 
@@ -38,7 +38,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   useEffect(() => {
     if (
       showForm &&
-      (stripePlan(team).sources <= team.sourceCount || stripePlan(team).pages <= team.pageCount)
+      (stripePlan(team).pages <= team.pageCount)
     ) {
       setShowForm(false)
       setShowUpgrade(true)
@@ -147,7 +147,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   if (showForm) {
     return (
       <>
-      <CheckoutModal team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
         <p className="text-md mt-8 mb-2 ml-2 text-gray-800">
           Add any content sources you want your bot to be able to answer questions about. You can
           always add more later on.
@@ -412,7 +412,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   } else {
     return (
       <>
-        <CheckoutModal team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+        <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
         <div className="mx-auto mt-16 max-w-2xl text-center">
           <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
           <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>

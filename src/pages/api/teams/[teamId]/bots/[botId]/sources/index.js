@@ -38,7 +38,7 @@ export default async function handler(req, res) {
   //create source
   if (req.method === 'POST') {
     //check plan credits
-    if (stripePlan(team).sources <= team.sourceCount || stripePlan(team).pages <= team.pageCount) {
+    if (stripePlan(team).pages <= team.pageCount) {
       return res.status(402).json({
         message: 'Source or page limit exceeded. Please upgrade your plan.',
       })
@@ -52,6 +52,14 @@ export default async function handler(req, res) {
     }
 
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
+
+      //check plan credits
+      const predictedPageCount = sourceType.isPro ? team.pageCount + 5 : team.pageCount + 1
+      if (stripePlan(team).pages < predictedPageCount) {
+        return res.status(402).json({
+          message: 'Source page limit exceeded. Please upgrade your plan.',
+        })
+      }
 
     //check if they are pro and can use the source type
     if (sourceType.isPro && stripePlan(team).name === 'Free') {

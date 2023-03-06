@@ -17,7 +17,6 @@ const tiers = [
     description: 'Create your own basic DocsBot for quick answers and copywriting.',
     features: [
       '1 DocsBot',
-      '10 Sources',
       '1k Source Pages',
       'Unlock all source types',
       '1k questions/mo',
@@ -33,7 +32,6 @@ const tiers = [
     description: 'For businesses who want to save time and money on support and copywriting.',
     features: [
       '10 DocsBots',
-      '100 Sources',
       '10k Source Pages',
       'Unlock all source types',
       '10k questions/mo',
@@ -52,7 +50,6 @@ const tiers = [
     description: 'For serious traffic and custom integrations. Identify gaps in your documentation.',
     features: [
       '100 DocsBots',
-      '1k Sources',
       '100k Source Pages',
       'Unlock all source types',
       '100k questions/mo',
@@ -61,13 +58,14 @@ const tiers = [
       'Chat history *',
       'Unbranded chat widgets *',
       'AI reports *',
+      'Prompt customization',
     ],
     mostPopular: false,
   },
 ]
 
 export default function Pricing() {
-  const [frequency, setFrequency] = useState(frequencies[1])
+  const [frequency, setFrequency] = useState(frequencies[0])
 
   return (
     <div className="bg-white py-24 sm:py-32" id="pricing">
@@ -118,6 +116,9 @@ export default function Pricing() {
             ))}
           </RadioGroup>
         </div>
+        <p className="mt-2 text-sm text-center text-gray-600">
+          Two months free with annual plans!
+        </p>
         <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {tiers.map((tier) => (
             <div
@@ -188,15 +189,15 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-4 text-center text-sm leading-8 text-gray-600">* coming soon</p>
+        <p className="mx-auto mt-4 text-center text-sm text-gray-600">Does not include OpenAI API costs (roughly $0.005/question)</p>
+        <p className="mx-auto mt-1 text-center text-xs text-gray-600">* coming soon</p>
         <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">
               Personal
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
-              Try DocsBot free for personal use. No credit card required. Import up to three
-              document files or urls with up to 50 pages of content and chat with your bot within our website.
+              Try DocsBot free for personal use. No credit card required. Import document files or urls with up to 50 pages of content and chat with your bot within our website.
             </p>
           </div>
           <Link

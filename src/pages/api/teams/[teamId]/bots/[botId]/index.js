@@ -21,7 +21,41 @@ export default async function handler(req, res) {
   const { botId } = req.query
 
   if (req.method === 'PUT') {
-    return res.status(400).json({ message: 'Bot update not implemented' })
+    try {
+      const bot = await getBot(team.id, botId)
+      if (!bot) {
+        return res.status(404).json({ message: 'Bot not found' })
+      }
+
+      const { name, description, customPrompt, privacy } = req.body
+      const botData = {}
+
+      if (name) {
+        botData.name = name.trim()
+      }
+
+      if (description) {
+        botData.description = description.trim()
+      }
+
+      if (privacy) {
+        if (privacy !== 'public' && privacy !== 'private') {
+          return res.status(400).send({ message: 'Invalid param "privacy".' })
+        } else {
+          botData.privacy = privacy
+        }
+      }
+
+      if (customPrompt !== undefined) {
+        botData.customPrompt = customPrompt
+      }
+
+      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
+
+      return res.status(200).json({ message: 'Bot updated' })
+    } catch (error) {
+      return res.status(500).json({ message: error?.message })
+    }
   } else if (req.method === 'DELETE') {
     const bot = await getBot(team.id, botId)
     //delete bot from db
@@ -90,7 +124,7 @@ export default async function handler(req, res) {
 
       //delete all bot data from bucket
       const bucket = getStorage().bucket('gs://customchat-bot.appspot.com')
-      await bucket.deleteFiles({prefix: `teams/${team.id}/bots/${botId}`})
+      await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
 
       try {
         bentoTrack(userId, 'track', {

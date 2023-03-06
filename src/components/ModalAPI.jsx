@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { CogIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
-export default function APIModal({ team, bot }) {
+export default function ModalAPI({ team, bot }) {
   const [open, setOpen] = useState(false)
 
   const example1 = `curl --request POST 'https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/ask' \\

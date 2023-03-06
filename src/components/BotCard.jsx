@@ -4,14 +4,17 @@ import {
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
   PaperClipIcon,
+  CommandLineIcon,
+  PencilIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
-import ChatModal from '@/components/ChatModal'
-import APIModal from '@/components/APIModal'
+import ModalChat from '@/components/ModalChat'
+import ModalAPI from '@/components/ModalAPI'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
 import RobotIcon from '@/components/RobotIcon'
+import ModalPrompt from '@/components/ModalPrompt'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -30,10 +33,7 @@ export default function BotCard({ team, bot }) {
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
               <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-600 to-cyan-700 p-3 shadow-lg">
-                <RobotIcon
-                  className="h-8 w-8 text-cyan-100 sm:h-10 sm:w-10"
-                  aria-hidden="true"
-                />
+                <RobotIcon className="h-8 w-8 text-cyan-100 sm:h-10 sm:w-10" aria-hidden="true" />
               </span>
             </div>
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
@@ -52,6 +52,7 @@ export default function BotCard({ team, bot }) {
                     <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
                   </p>
                 </div>
+                <ModalPrompt team={team} bot={bot} />
               </div>
             </div>
           </div>
@@ -60,19 +61,21 @@ export default function BotCard({ team, bot }) {
               <BadgeStatus status={bot.status} small={false} />
             </div>
             <div className="flex justify-end space-x-2 sm:mt-5">
-              <ChatModal team={team} bot={bot} />
+              <ModalChat team={team} bot={bot} />
             </div>
             <div className="flex justify-end space-x-4 sm:mt-1">
               <Link
                 target="_blank"
                 type="button"
                 className={classNames(
-                  bot.privacy === 'private' ? 'opacity-50 cursor-not-allowed' : '',
+                  bot.privacy === 'private' || bot.status !== 'ready'
+                    ? 'cursor-not-allowed opacity-50'
+                    : '',
                   'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
                 )}
                 href={`/chat/${team.id}/${bot.id}`}
                 onClick={(e) => {
-                  if (bot.privacy === 'private') {
+                  if (bot.privacy === 'private' || bot.status !== 'ready') {
                     e.preventDefault()
                   }
                 }}
@@ -80,7 +83,7 @@ export default function BotCard({ team, bot }) {
                 <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
                 Share
               </Link>
-              <APIModal team={team} bot={bot} />
+              <ModalAPI team={team} bot={bot} />
             </div>
           </div>
         </div>
