@@ -58,8 +58,8 @@ export default function Chat({ teamId, bot }) {
 
     const data = { question: question, format: 'markdown' }
 
-    //const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/ask`
-    const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/ask`
+    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/ask`
+    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/ask`
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
