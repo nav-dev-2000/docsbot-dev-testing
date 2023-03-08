@@ -21,7 +21,6 @@ export default function ModalAPI({ team, bot }) {
             "title": "Source Name",
             "url": "https://yourdomain.com",
             "page": 1,
-            "certainty": 0.8682532906532288,
             "content": null
         },
         {
@@ -29,7 +28,6 @@ export default function ModalAPI({ team, bot }) {
             "title": "Source Name",
             "url": "https://yourdomain.com",
             "page": 1,
-            "certainty": 0.8676544427871704,
             "content": null
         },
         {
@@ -37,7 +35,6 @@ export default function ModalAPI({ team, bot }) {
             "title": "Infinite Uploads – Your WordPress Media Cloud Library",
             "url": "https://infiniteuploads.com/",
             "page": null,
-            "certainty": 0.8670842051506042,
             "content": null
         }
     ],
@@ -119,7 +116,10 @@ export default function ModalAPI({ team, bot }) {
                     <pre>{response2}</pre>
 
                     <p>
-                      You can view the full API documentation{' '}<Link href="https://api.docsbot.ai/docs" target="_blank" className='underline'>here</Link>.
+                      You can view the current API documentation{' '}<Link href="https://api.docsbot.ai/docs" target="_blank" className='underline'>here</Link>.
+                    </p>
+                    <p>
+                      Full documentation and code examples for our streaming websocket and chat APIs are coming soon!
                     </p>
                   </div>
                 </Dialog.Panel>

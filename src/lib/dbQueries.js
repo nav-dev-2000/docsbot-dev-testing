@@ -36,7 +36,7 @@ export async function getBot(teamId, botId) {
 }
 
 export async function getSources(teamId, bot, resultLimit = 1000, ascending = false) {
-  let sourcesRef = firestore
+  const sourcesRef = firestore
     .collection('teams')
     .doc(teamId)
     .collection('bots')
@@ -50,6 +50,50 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
   let sources = []
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
+    //if createdAt is more than 1 hour ago and indexing is not complete, set error
+    if (
+      source.status === 'indexing' &&
+      source.createdAt.toDate() < new Date(Date.now() - 60 * 60 * 1000)
+    ) {
+      source.status = 'failed'
+      source.error = 'Processing timed out, please try again'
+      //update source
+      firestore
+        .collection('teams')
+        .doc(teamId)
+        .collection('bots')
+        .doc(bot.id)
+        .collection('sources')
+        .doc(doc.id)
+        .update({ status: source.status, error: source.error })
+        //decrement botCounts on team
+        firestore.runTransaction(async (transaction) => {
+          const teamRef = firestore.collection('teams').doc(teamId)
+          const sfDoc = await transaction.get(teamRef)
+          if (!sfDoc.exists) {
+            throw 'Team does not exist!'
+          }
+
+          const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
+          transaction.update(teamRef, {
+            sourceCount: newSourceCount,
+          })
+        })
+
+        //increment source counts on bot
+        firestore.runTransaction(async (transaction) => {
+          const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(bot.id)
+          const sfDoc = await transaction.get(botRef)
+          if (!sfDoc.exists) {
+            throw 'Bot does not exist!'
+          }
+
+          const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
+          transaction.update(botRef, {
+            sourceCount: newSourceCount,
+          })
+        })
+    }
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
     sources.push(source)
   })

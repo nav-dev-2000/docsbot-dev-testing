@@ -9,6 +9,7 @@ import {
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
+import ModalAsk from '@/components/ModalAsk'
 import ModalAPI from '@/components/ModalAPI'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
@@ -61,7 +62,10 @@ export default function BotCard({ team, bot }) {
               <BadgeStatus status={bot.status} small={false} />
             </div>
             <div className="flex justify-end space-x-2 sm:mt-5">
+              {false && (
               <ModalChat team={team} bot={bot} />
+              )}
+              <ModalAsk team={team} bot={bot} />
             </div>
             <div className="flex justify-end space-x-4 sm:mt-1">
               <Link
@@ -73,7 +77,7 @@ export default function BotCard({ team, bot }) {
                     : '',
                   'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
                 )}
-                href={`/chat/${team.id}/${bot.id}`}
+                href={`/ask/${team.id}/${bot.id}`}
                 onClick={(e) => {
                   if (bot.privacy === 'private' || bot.status !== 'ready') {
                     e.preventDefault()

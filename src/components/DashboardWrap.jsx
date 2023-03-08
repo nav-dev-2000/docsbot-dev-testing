@@ -155,10 +155,11 @@ export default function DashboardWrap({ page, title, children }) {
           <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800">
-              <div className="flex h-16 flex-shrink-0 items-center bg-cyan-800 px-4">
+              <div className="flex justify-between h-16 flex-shrink-0 items-center bg-cyan-800 text-white px-4">
                 <Link href="/app" title="Dashboard" className="fill-white">
-                <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
+                  <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
                 </Link>
+                BETA
               </div>
               <div className="flex flex-1 flex-col overflow-y-auto">
                 <nav className="flex-1 space-y-1 px-2 py-4">

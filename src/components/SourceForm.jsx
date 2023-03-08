@@ -418,7 +418,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
           <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
           <p className="mt-1 text-sm text-gray-500">
             Add source content to {bot.name} that you want your bot to be able to answer questions
-            about. Periodic scheduled source updates are coming soon for pro plans.
+            about. Don't index the same content multiple times. Periodic scheduled source updates are coming soon for pro plans.
           </p>
           <div className="mt-8">
             <button

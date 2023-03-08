@@ -24,7 +24,10 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
     }
 
     //if on a page starting with /chat/ then hide the beacon
-    if (router.pathname.startsWith('/chat/') && Beacon !== undefined) {
+    if (
+      (router.pathname.startsWith('/chat/') || router.pathname.startsWith('/ask/')) &&
+      Beacon !== undefined
+    ) {
       Beacon('on', 'ready', () => Beacon('destroy'))
     }
 

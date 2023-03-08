@@ -9,19 +9,37 @@ import {
 import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
+import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
 
-export default function Chat({ team, bot }) {
+export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')
+  const [answer, setAnswer] = useState('')
+  const [answerId, setAnswerId] = useState(null)
   const [resultHtml, setResultHtml] = useState('')
   const [sources, setSources] = useState([])
   const [loading, setLoading] = useState(false)
+  const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
+  const [rating, setRating] = useState(0)
 
   //clear error text when question changes
   useEffect(() => {
     setErrorText(null)
   }, [question])
+
+  //convert markdown to html when answer changes or is appended to
+  useEffect(() => {
+    if (answer) {
+      remark()
+        .use(html)
+        .use(remarkGfm)
+        .process(answer)
+        .then((html) => {
+          setResultHtml(html.toString())
+        })
+    }
+  }, [answer])
 
   // make api call to ask question
   const askQuestion = async () => {
@@ -31,20 +49,86 @@ export default function Chat({ team, bot }) {
     }
     setLoading(true)
     setErrorText(null)
+    setAnswer('')
     setResultHtml('')
     setSources([])
+    setRating(0)
+    setAnswerId(null)
+    setLoadingMessage('Sending...')
 
     const data = { question: question, format: 'markdown' }
+
+    //get apiBase from env
+    let apiUrl = ''
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === undefined) {
+      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
+    } else {
+      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
+    }
+    const ws = new WebSocket(apiUrl)
+
+    // Send message to server when connection is established
+    ws.onopen = function (event) {
+      setLoadingMessage('Thinking...')
+      ws.send(JSON.stringify(data))
+    }
+
+    // Receive message from server word by word. Display the words as they are received.
+    ws.onmessage = function (event) {
+      const data = JSON.parse(event.data)
+      if (data.sender === 'bot') {
+        if (data.type === 'start') {
+          setLoadingMessage('Checking my sources...')
+        } else if (data.type === 'stream') {
+          setLoadingMessage('Answering...')
+          //append to answer
+          setAnswer((prev) => prev + data.message)
+        } else if (data.type === 'info') {
+          setLoadingMessage(data.message)
+        } else if (data.type === 'end') {
+          data = JSON.parse(data.message)
+          setSources(data.sources)
+          setAnswer(data.answer)
+          setAnswerId(data.id)
+          setLoading(false)
+          setLoadingMessage(null)
+          ws.close()
+        } else if (data.type === 'error') {
+          setErrorText(data.message)
+          setLoading(false)
+          setLoadingMessage(null)
+          ws.close()
+        }
+      }
+    }
+  }
+
+  //trigger api call when rating changes
+  useEffect(() => {
+    if (rating) {
+      rateAnswer(rating)
+    }
+  }, [rating])
+
+  // make api call to rate
+  const rateAnswer = async (newRating) => {
+    if (!answerId) {
+      return
+    }
+
+    setErrorText(null)
+
+    const data = { rating: newRating }
 
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/ask`
+    const apiUrl = `https://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/rate/${answerId}`
     try {
       const response = await fetch(apiUrl, {
-        method: 'POST',
+        method: 'PUT',
         headers,
         body: JSON.stringify(data),
       })
@@ -53,20 +137,6 @@ export default function Chat({ team, bot }) {
         //if trimmed answer is empty, show error
         if (data.error) {
           setErrorText(data.error)
-          setLoading(false)
-        } else if (!data.answer.trim()) {
-          setErrorText('No answer found, please try again.')
-          setLoading(false)
-        } else {
-          // Use remark to convert markdown into HTML string
-          remark()
-            .use(html)
-            .process(data.answer)
-            .then((html) => {
-              setResultHtml(html.toString())
-              setSources(data.sources)
-              setLoading(false)
-            })
         }
       } else {
         try {
@@ -116,7 +186,7 @@ export default function Chat({ team, bot }) {
   }
 
   return (
-    <div className="relative bg-gray-50 py-8 px-4">
+    <div className="relative py-8 px-4">
       <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -129,12 +199,12 @@ export default function Chat({ team, bot }) {
 
           {loading ? (
             <>
-              <div className="mt-6 flex justify-center">
-                <div className="relative w-20">
-                  <ChatBubbleLeftEllipsisIcon className="absolute m-6 h-8 w-8 animate-pulse text-teal-500" />
-                  <div className="h-20 w-20 rounded-full border-2 border-teal-400"></div>
-                  <div className="absolute left-0 top-0 h-20 w-20 animate-spin rounded-full border-t-4 border-cyan-600"></div>
+              <div className="mt-4 flex items-center justify-center">
+                <div className="relative w-5">
+                  <div className="h-5 w-5 rounded-full border border-teal-400"></div>
+                  <div className="absolute left-0 top-0 h-5 w-5 animate-spin rounded-full border-t-2 border-cyan-600"></div>
                 </div>
+                <p className="ml-2 animate-pulse text-lg text-cyan-700">{loadingMessage}</p>
               </div>
             </>
           ) : (
@@ -158,10 +228,6 @@ export default function Chat({ team, bot }) {
                     minLength={10}
                     required
                     onChange={(e) => setQuestion(e.target.value)}
-                    onDoubleClick={() => {
-                      //highlight the text
-                      document.getElementById('query').select()
-                    }}
                     onKeyDown={(e) => {
                       //submit on enter
                       if (e.key === 'Enter') {
@@ -192,7 +258,7 @@ export default function Chat({ team, bot }) {
                   Ask me full questions, I'm not a search engine!"
                 </li>
                 <li className="text-md text-gray-500">
-                  Tell me how to respond, like "with code examples", "as a list", or "with a haiku".
+                Tell me how to respond, like "with code examples", "as a list", or "as a table".
                 </li>
               </ul>
             </div>
@@ -202,9 +268,9 @@ export default function Chat({ team, bot }) {
         {resultHtml && (
           <>
             <div className="relative mt-16 rounded-sm bg-white text-left shadow-sm sm:rounded-lg ">
-              <div className="absolute -inset-6 flex h-12 items-center text-3xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+              <div className="absolute -inset-6 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
                 <svg
-                  className="mr-2 h-12 w-12"
+                  className="mr-2 h-8 w-8"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                   aria-hidden="true"
@@ -214,37 +280,45 @@ export default function Chat({ team, bot }) {
                 Answer:
               </div>
               <div
-                className="wpchat-code prose min-w-full p-4 sm:p-8 pb-0 sm:pb-0"
+                className="wpchat-code prose min-w-full p-4 pb-2 sm:p-8 sm:pb-4"
                 dangerouslySetInnerHTML={{ __html: resultHtml }}
               />
-              <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
-                <button
-                  type="button"
-                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Vote up</span>
-                  <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Vote down</span>
-                  <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
+              {answerId && (
+                <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
+                  <button
+                    type="button"
+                    onClick={() => setRating(1)}
+                    disabled={rating === 1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Downvote</span>
+                    <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRating(-1)}
+                    disabled={rating === -1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Upvote</span>
+                    <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
             </div>
 
-            <div className="relative mt-16 pt-1">
-              <div className="absolute -inset-6 flex h-12 items-center text-3xl font-extrabold tracking-tighter text-gray-800 opacity-25">
-                Sources:
+            {sources?.length > 0 && (
+              <div className="relative mt-16 pt-1">
+                <div className="absolute -inset-6 ml-8 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+                  Sources:
+                </div>
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  {sources.map((source, index) => (
+                    <Source key={index} source={source} />
+                  ))}
+                </div>
               </div>
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {sources.map((source) => (
-                  <Source key={source.id} source={source} />
-                ))}
-              </div>
-            </div>
+            )}
           </>
         )}
       </div>

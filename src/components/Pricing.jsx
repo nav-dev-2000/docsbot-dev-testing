@@ -59,6 +59,7 @@ const tiers = [
       'Unbranded chat widgets *',
       'AI reports *',
       'Prompt customization',
+      'Priority support & integration help',
     ],
     mostPopular: false,
   },
@@ -190,7 +191,7 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-4 text-center text-sm text-gray-600">Does not include OpenAI API costs (roughly $0.005/question)</p>
+        <p className="mx-auto mt-4 text-center text-sm text-gray-600">Does not include OpenAI API costs (roughly $0.003/question)</p>
         <p className="mx-auto mt-1 text-center text-xs text-gray-600">* coming soon</p>
         <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">

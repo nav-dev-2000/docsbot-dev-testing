@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ChatBubbleLeftEllipsisIcon, ChatBubbleLeftRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Chat from '@/components/ChatStreaming'
+import { ChatBubbleLeftEllipsisIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Ask from '@/components/Ask'
 
-export default function ModalChat({ team, bot }) {
+export default function ModalAsk({ team, bot }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -13,8 +13,8 @@ export default function ModalChat({ team, bot }) {
         disabled={bot.status !== 'ready'}
         onClick={() => setOpen(true)}
       >
-        <ChatBubbleLeftRightIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-        Chat
+        <ChatBubbleLeftEllipsisIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />Q /
+        A
       </button>
 
       <Transition.Root show={open} as={Fragment}>
@@ -53,7 +53,7 @@ export default function ModalChat({ team, bot }) {
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <Chat teamId={team.id} bot={bot} />
+                  <Ask team={team} bot={bot} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

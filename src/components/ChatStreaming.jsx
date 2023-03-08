@@ -5,23 +5,28 @@ import {
   DocumentTextIcon,
   HandThumbUpIcon,
   LinkIcon,
+  UserCircleIcon,
 } from '@heroicons/react/24/outline'
+import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
+import RobotIcon from '@/components/RobotIcon'
+import classNames from '@/utils/classNames'
+import LoadingDots from './LoadingDots'
 
 export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')
-  const [answer, setAnswer] = useState('')
-  const [answerId, setAnswerId] = useState(null)
-  const [resultHtml, setResultHtml] = useState('')
-  const [sources, setSources] = useState([])
+  const [answers, setAnswers] = useState([])
+  const [currentAnswer, setCurrentAnswer] = useState('')
+  const [answerHtml, setAnswerHtml] = useState('')
   const [loading, setLoading] = useState(false)
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
-  const [rating, setRating] = useState(0)
+  const [chatHistory, setChatHistory] = useState([])
+  const [ratings, setRatings] = useState({})
 
   //clear error text when question changes
   useEffect(() => {
@@ -30,16 +35,30 @@ export default function Chat({ teamId, bot }) {
 
   //convert markdown to html when answer changes or is appended to
   useEffect(() => {
-    if (answer) {
+    if (currentAnswer) {
       remark()
         .use(html)
         .use(remarkGfm)
-        .process(answer)
+        .process(currentAnswer)
         .then((html) => {
-          setResultHtml(html.toString())
+          setAnswerHtml(html.toString())
         })
     }
-  }, [answer])
+  }, [currentAnswer])
+
+  //update answer html when answers change
+  useEffect(() => {
+    if (answers.length > 0 && answerHtml) {
+      const lastAnswer = answers[answers.length - 1]
+      if (lastAnswer.type === 'answer') {
+        setAnswers((prev) => {
+          //edit last answer
+          prev[prev.length - 1].html = answerHtml
+          return [...prev]
+        })
+      }
+    }
+  }, [answerHtml])
 
   // make api call to ask question
   const askQuestion = async () => {
@@ -49,28 +68,42 @@ export default function Chat({ teamId, bot }) {
     }
     setLoading(true)
     setErrorText(null)
-    setAnswer('')
-    setResultHtml('')
-    setSources([])
-    setRating(0)
-    setAnswerId(null)
+    setAnswerHtml('')
+    setCurrentAnswer('')
     setLoadingMessage('Sending...')
 
-    const data = { question: question, format: 'markdown' }
+    const data = { question: question, markdown: true, history: chatHistory }
 
     //get apiBase from env
     let apiUrl = ''
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV !== undefined) {
-      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/ask`
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === undefined) {
+      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
     } else {
-      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/ask`
+      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
     }
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
     ws.onopen = function (event) {
       setLoadingMessage('Thinking...')
+      setAnswers((prev) => {
+        //add new question
+        return [...prev, { type: 'question', question: question }]
+      })
+      setQuestion('')
       ws.send(JSON.stringify(data))
+    }
+
+    ws.onerror = function (event) {
+      console.log('error', event)
+      setErrorText('There was a connection error. Please try again.')
+      setLoading(false)
+      setLoadingMessage(null)
+    }
+
+    ws.onclose = function (event) {
+      setLoading(false)
+      setLoadingMessage(null)
     }
 
     // Receive message from server word by word. Display the words as they are received.
@@ -79,17 +112,27 @@ export default function Chat({ teamId, bot }) {
       if (data.sender === 'bot') {
         if (data.type === 'start') {
           setLoadingMessage('Checking my sources...')
+          setAnswers((prev) => {
+            //add new question
+            return [...prev, { type: 'answer', html: null, rating: 0 }]
+          })
         } else if (data.type === 'stream') {
           setLoadingMessage('Answering...')
           //append to answer
-          setAnswer((prev) => prev + data.message)
+          setCurrentAnswer((prev) => {
+            return prev + data.message
+          })
         } else if (data.type === 'info') {
           setLoadingMessage(data.message)
         } else if (data.type === 'end') {
           data = JSON.parse(data.message)
-          setSources(data.sources)
-          setAnswer(data.answer)
-          setAnswerId(data.id)
+          setChatHistory(data.history)
+          setCurrentAnswer(data.answer)
+          setAnswers((prev) => {
+            prev[prev.length - 1].sources = data.sources
+            prev[prev.length - 1].id = data.id
+            return prev
+          })
           setLoading(false)
           setLoadingMessage(null)
           ws.close()
@@ -103,20 +146,17 @@ export default function Chat({ teamId, bot }) {
     }
   }
 
-  //trigger api call when rating changes
-  useEffect(() => {
-    if (rating) {
-      rateAnswer(rating)
-    }
-  }, [rating])
-
   // make api call to rate
-  const rateAnswer = async (newRating) => {
+  const setRating = async (answerId, newRating = 0) => {
     if (!answerId) {
       return
     }
 
     setErrorText(null)
+    setRatings((prev) => {
+      prev[answerId] = newRating
+      return { ...prev }
+    })
 
     const data = { rating: newRating }
 
@@ -137,6 +177,10 @@ export default function Chat({ teamId, bot }) {
         //if trimmed answer is empty, show error
         if (data.error) {
           setErrorText(data.error)
+          setRatings((prev) => {
+            prev[answerId] = 0
+            return { ...prev }
+          })
         }
       } else {
         try {
@@ -146,43 +190,129 @@ export default function Chat({ teamId, bot }) {
           setErrorText('Something went wrong, please try again.')
         }
         setLoading(false)
+        setRatings((prev) => {
+          prev[answerId] = 0
+          return { ...prev }
+        })
       }
     } catch (e) {
       console.warn(e)
       setErrorText('Something went wrong, please try again.')
       setLoading(false)
+      setRatings((prev) => {
+        prev[answerId] = 0
+        return { ...prev }
+      })
     }
   }
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
-    const page = source.page ? ` Page ${source.page}` : ''
+    const page = source.page ? ` - Page ${source.page}` : ''
 
     return (
-      <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
-        <div className="flex-shrink-0">
-          <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-3 shadow-lg">
-            <SourceIcon className="h-6 w-6 text-white" aria-hidden="true" />
-          </span>
-        </div>
-        <div className="min-w-0 flex-1">
-          {source.url ? (
-            <Link href={source.url} target="_blank" className="focus:outline-none">
-              <span className="absolute inset-0" aria-hidden="true" />
-              <p className="text-left text-sm font-medium text-gray-900">
-                {source.title}
-                {page}
-              </p>
-            </Link>
-          ) : (
-            <p className="text-left text-sm font-medium text-gray-900">
-              {source.title || source.url}
+      <div className="flex items-center">
+        <SourceIcon className="mr-1.5 h-4 w-4 text-gray-400" aria-hidden="true" />
+        {source.url ? (
+          <Link href={source.url} target="_blank" className="focus:outline-none">
+            <p className="text-left text-sm font-medium text-gray-500">
+              {source.title}
               {page}
             </p>
-          )}
-        </div>
+          </Link>
+        ) : (
+          <p className="text-left text-sm font-medium text-gray-500">
+            {source.title || source.url}
+            {page}
+          </p>
+        )}
       </div>
     )
+  }
+
+  const ChatRow = ({ answer }) => {
+    if (answer.type === 'question') {
+      return (
+        <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
+          <div className="absolute -inset-7 flex h-28 items-center text-2xl font-extrabold tracking-tighter">
+            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
+              <UserCircleIcon className="h-7 w-7 text-white" aria-hidden="true" />
+            </span>
+          </div>
+          <div className="prose min-w-full p-4 px-6 sm:px-8">{answer.question}</div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+          <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter">
+            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
+              <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
+            </span>
+          </div>
+          {answer.html ? (
+            <div
+              className={classNames(
+                answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
+                'prose min-w-full p-6 sm:px-8'
+              )}
+              dangerouslySetInnerHTML={{ __html: answer.html }}
+            />
+          ) : (
+            <div
+              className={classNames(
+                answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
+                'prose min-w-full p-6 sm:px-8'
+              )}
+            >
+              <LoadingDots />
+            </div>
+          )}
+
+          {answer.sources?.length > 0 && (
+            <div className="relative px-6 pb-4 pr-4 sm:px-8 sm:pr-4">
+              <div className="text-sm font-semibold text-gray-800">Sources:</div>
+              <div className="items-end justify-between sm:flex">
+                <div
+                  className={classNames(
+                    answer.sources.length == 2 ? 'sm:grid-cols-2' : '',
+                    answer.sources.length == 3 ? 'lg:grid-cols-3' : '',
+                    answer.sources.length == 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : '',
+                    'grid grid-cols-1 gap-4'
+                  )}
+                >
+                  {answer.sources.map((source, index) => (
+                    <Source key={index} source={source} />
+                  ))}
+                </div>
+                {answer.id && (
+                  <div className="flex items-center justify-end space-x-1">
+                    <button
+                      type="button"
+                      onClick={() => setRating(answer.id, 1)}
+                      disabled={ratings[answer.id] === 1}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      <span className="sr-only">Unhelpful</span>
+                      <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRating(answer.id, -1)}
+                      disabled={ratings[answer.id] === -1}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      <span className="sr-only">Helpful</span>
+                      <HandThumbDownIcon className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )
+    }
   }
 
   return (
@@ -195,132 +325,76 @@ export default function Chat({ teamId, bot }) {
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{bot.description}</p>
         </div>
         <div className="mt-12">
-          <Alert title={errorText} type="warning" />
+          {answers.map((answer, index) => (
+            <ChatRow key={index} answer={answer} />
+          ))}
 
-          {loading ? (
-            <>
-              <div className="mt-4 flex items-center justify-center">
-                <div className="relative w-5">
-                  <div className="h-5 w-5 rounded-full border border-teal-400"></div>
-                  <div className="absolute left-0 top-0 h-5 w-5 animate-spin rounded-full border-t-2 border-cyan-600"></div>
-                </div>
-                <p className="ml-2 animate-pulse text-lg text-cyan-700">{loadingMessage}</p>
-              </div>
-            </>
-          ) : (
-            <form
-              className="flex justify-center"
-              onSubmit={(e) => {
-                console.log('submit')
-                askQuestion()
-                e.preventDefault()
-              }}
-              disabled={loading}
-            >
-              <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
-                <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
-                  <input
-                    type="text"
-                    name="query"
-                    id="query"
-                    value={question}
-                    maxLength={200}
-                    minLength={10}
-                    required
-                    onChange={(e) => setQuestion(e.target.value)}
-                    onKeyDown={(e) => {
-                      //submit on enter
-                      if (e.key === 'Enter') {
-                        askQuestion()
-                      }
-                    }}
-                    tabIndex={1}
-                    className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
-                    placeholder="What can I help you with?"
-                  />
-                </div>
+          <Alert title={errorText} type="warning" />
+          <form
+            className="mt-10 flex justify-center"
+            onSubmit={(e) => {
+              askQuestion()
+              e.preventDefault()
+            }}
+            disabled={loading}
+          >
+            <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
+              <div className="relative flex w-full flex-grow items-center shadow-sm sm:shadow-inherit">
+                <input
+                  type="text"
+                  name="query"
+                  id="query"
+                  value={question}
+                  maxLength={200}
+                  minLength={10}
+                  required
+                  onChange={(e) => setQuestion(e.target.value)}
+                  onKeyDown={(e) => {
+                    //submit on enter
+                    if (e.key === 'Enter') {
+                      askQuestion()
+                    }
+                  }}
+                  tabIndex={1}
+                  className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
+                  placeholder="What can I help you with?"
+                />
+
                 <button
                   type="submit"
                   tabIndex={2}
-                  className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:-ml-px sm:mt-0 sm:w-32 sm:rounded-none sm:rounded-r-md sm:text-lg"
+                  disabled={loading}
+                  className="absolute right-0 mr-3 text-cyan-600  hover:text-cyan-700 focus:ring-cyan-400"
                 >
-                  Ask
+                  <span className="sr-only">Ask</span>
+                  {loading ? (
+                    <div className="flex items-center justify-center">
+                      <div className="relative w-5">
+                        <div className="h-5 w-5 rounded-full border border-teal-400"></div>
+                        <div className="absolute left-0 top-0 h-5 w-5 animate-spin rounded-full border-t-2 border-cyan-600"></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <PaperAirplaneIcon className="h-6 w-6" />
+                  )}
                 </button>
               </div>
-            </form>
-          )}
-
-          {!resultHtml && (
-            <div className="mx-auto mt-8 max-w-7xl text-left">
-              <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>
-              <ul className="mt-4 ml-6 list-disc text-left">
-                <li className="text-md text-gray-500">
-                  Ask me full questions, I'm not a search engine!"
-                </li>
-                <li className="text-md text-gray-500">
-                  Tell me how to respond, like "with code examples", "as a list", or "with a haiku".
-                </li>
-              </ul>
             </div>
-          )}
+          </form>
+
+          <div className="mx-auto mt-8 mb-2 max-w-7xl text-left">
+            <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>
+            <ul className="mt-4 ml-6 list-disc text-left">
+              <li className="text-md text-gray-500">
+                Ask me full questions, I'm not a search engine!"
+              </li>
+              <li className="text-md text-gray-500">
+                Tell me how to respond, like "with code examples", "as a list", or "as a table".
+              </li>
+            </ul>
+            <p className="mt-8 text-xs text-gray-400 text-center">Chatbot Beta</p>
+          </div>
         </div>
-
-        {resultHtml && (
-          <>
-            <div className="relative mt-16 rounded-sm bg-white text-left shadow-sm sm:rounded-lg ">
-              <div className="absolute -inset-6 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
-                <svg
-                  className="mr-2 h-8 w-8"
-                  fill="currentColor"
-                  viewBox="0 0 32 32"
-                  aria-hidden="true"
-                >
-                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                </svg>
-                Answer:
-              </div>
-              <div
-                className="wpchat-code prose min-w-full p-4 pb-2 sm:p-8 sm:pb-4"
-                dangerouslySetInnerHTML={{ __html: resultHtml }}
-              />
-              {answerId && (
-                <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
-                  <button
-                    type="button"
-                    onClick={() => setRating(1)}
-                    disabled={rating === 1}
-                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                  >
-                    <span className="sr-only">Downvote</span>
-                    <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setRating(-1)}
-                    disabled={rating === -1}
-                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                  >
-                    <span className="sr-only">Upvote</span>
-                    <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {sources?.length > 0 && (
-              <div className="relative mt-16 pt-1">
-                <div className="absolute -inset-6 ml-8 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
-                  Sources:
-                </div>
-                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {sources.map((source, index) => (
-                    <Source key={index} source={source} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </>
-        )}
       </div>
     </div>
   )
