@@ -17,6 +17,7 @@ export async function bentoTrack(userId, command, data) {
       if (!userId) return
       const auth = getAuth()
       const user = await auth.getUser(userId)
+      if (!user?.email) return
       data.email = user.email
     }
 
