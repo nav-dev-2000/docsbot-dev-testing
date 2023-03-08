@@ -153,8 +153,11 @@ export default async function handler(req, res) {
         console.warn('Increment transaction failed: ', e)
       }
 
-      //TODO add source event to pub/sub queue for processing
-      const pubSubClient = new PubSub()
+      //add source event to pub/sub queue for processing
+      const serviceAccount = JSON.parse(
+        process.env.FIREBASE_SERVICE_ACCOUNT_KEY
+      )
+      const pubSubClient = new PubSub({projectId: serviceAccount.project_id, credentials: serviceAccount })
       const topicName = 'docsbot-ingest'
       const dataBuffer = Buffer.from(
         JSON.stringify({
