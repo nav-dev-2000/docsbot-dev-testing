@@ -9,7 +9,7 @@ export const TWO_WEEKS_IN_SECONDS = SECONDS_IN_MINUTE * MINUTES_IN_HOUR * HOURS_
 export const TWO_WEEKS_IN_MILLISECONDS = TWO_WEEKS_IN_SECONDS * ONE_SECOND_IN_MILLISECONDS
 
 export const authDefaults = {
-  COOKIE_NAME: 'chatbase-app',
+  COOKIE_NAME: 'docsbot-auth',
   COOKIE_OPTIONS: {
     maxAge: TWO_WEEKS_IN_SECONDS,
     httpOnly: true,

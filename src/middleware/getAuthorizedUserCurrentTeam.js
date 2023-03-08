@@ -36,6 +36,7 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
   } catch (error) {
     // If session verification fails or token expires (auth/session-cookie-expire),
     // then redirect back to login.
+    console.error(error)
     return {
       redirect: {
         destination: routePaths.LOGIN,
