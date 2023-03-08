@@ -16,6 +16,8 @@ export default function Ask({ team, bot }) {
   const [resultHtml, setResultHtml] = useState('')
   const [sources, setSources] = useState([])
   const [loading, setLoading] = useState(false)
+  const [answerId, setAnswerId] = useState(null)
+  const [rating, setRating] = useState(0)
   const [errorText, setErrorText] = useState(null)
 
   //clear error text when question changes
@@ -33,6 +35,8 @@ export default function Ask({ team, bot }) {
     setErrorText(null)
     setResultHtml('')
     setSources([])
+    setAnswerId(null)
+    setRating(0)
 
     const data = { question: question, format: 'markdown' }
 
@@ -58,6 +62,7 @@ export default function Ask({ team, bot }) {
           setErrorText('No answer found, please try again.')
           setLoading(false)
         } else {
+          setAnswerId(data.id)
           // Use remark to convert markdown into HTML string
           remark()
             .use(html)
@@ -67,6 +72,57 @@ export default function Ask({ team, bot }) {
               setSources(data.sources)
               setLoading(false)
             })
+        }
+      } else {
+        try {
+          const data = await response.json()
+          setErrorText(data.error || 'Something went wrong, please try again.')
+        } catch (e) {
+          setErrorText('Something went wrong, please try again.')
+        }
+        setLoading(false)
+      }
+    } catch (e) {
+      console.warn(e)
+      setErrorText('Something went wrong, please try again.')
+      setLoading(false)
+    }
+  }
+
+  //trigger api call when rating changes
+  useEffect(() => {
+    if (rating) {
+      rateAnswer(rating)
+    }
+  }, [rating])
+
+  // make api call to rate
+  const rateAnswer = async (newRating) => {
+    if (!answerId) {
+      return
+    }
+
+    setErrorText(null)
+
+    const data = { rating: newRating }
+
+    const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }
+
+    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/rate/${answerId}`
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify(data),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        //if trimmed answer is empty, show error
+        if (data.error) {
+          setErrorText(data.error)
         }
       } else {
         try {
@@ -214,25 +270,31 @@ export default function Ask({ team, bot }) {
                 Answer:
               </div>
               <div
-                className="wpchat-code prose min-w-full p-4 sm:p-8 pb-0 sm:pb-0"
+                className="wpchat-code prose min-w-full p-4 pb-0 sm:p-8 sm:pb-0"
                 dangerouslySetInnerHTML={{ __html: resultHtml }}
               />
-              <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
-                <button
-                  type="button"
-                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Vote up</span>
-                  <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">Vote down</span>
-                  <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
+              {answerId && (
+                <div className="flex items-center justify-end space-x-1 pb-4 pr-4">
+                  <button
+                    type="button"
+                    onClick={() => setRating(1)}
+                    disabled={rating === 1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Downvote</span>
+                    <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRating(-1)}
+                    disabled={rating === -1}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <span className="sr-only">Upvote</span>
+                    <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="relative mt-16 pt-1">

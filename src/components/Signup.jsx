@@ -19,9 +19,6 @@ export default function Signup() {
       .then((data) => {
         console.log('Success:', data)
         setSubmitted(true)
-        //redirect to link
-        window.location.href =
-          'https://app.bentonow.com/f/a72c79ffb06a248333be6e1de58f63cf/cool-tree-1274'
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -88,19 +85,17 @@ export default function Signup() {
             <div className="relative">
               <div className="sm:text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Join the Waitlist
+                  Subscribe to product updates
                 </h2>
                 <p className="mx-auto mt-6 max-w-2xl text-lg text-white">
-                  We are launching in a matter of days. Save your spot and be the first to be
-                  notified. We&rsquo;ll be giving special introductory pricing and features to our
-                  early users!
+                  Signup for news updates as we quickly launch new features. We are hard at work on new source importers and embeddable widgets.
                 </p>
               </div>
               {submitted ? (
                 <div className="mt-12 sm:mx-auto sm:flex sm:max-w-lg">
                   <div className="min-w-0 flex-1">
                     <p className="text-center text-3xl font-medium text-white">
-                      Thanks for signing up! We'll be in touch soon.
+                      Thanks for signing up!
                     </p>
                   </div>
                 </div>
@@ -129,7 +124,7 @@ export default function Signup() {
                       type="submit"
                       className="block w-full rounded-md border border-cyan-600 bg-gradient-to-b from-teal-300 to-cyan-400 px-5 py-3  text-center text-base font-medium text-cyan-900 shadow hover:bg-teal-200 hover:from-teal-200 hover:to-cyan-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-600 sm:px-10"
                     >
-                      Notify me
+                      Subscribe
                     </button>
                   </div>
                 </form>

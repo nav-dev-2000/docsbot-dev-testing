@@ -12,7 +12,7 @@ const tiers = [
   {
     name: 'Hobby',
     id: 'tier-hobby',
-    href: '/#signup',
+    href: '/register',
     price: { monthly: 19, annually: 192 },
     description: 'Create your own basic DocsBot for quick answers and copywriting.',
     features: [
@@ -27,7 +27,7 @@ const tiers = [
   {
     name: 'Pro',
     id: 'tier-startup',
-    href: '/#signup',
+    href: '/register',
     price: { monthly: 99, annually: 996 },
     description: 'For businesses who want to save time and money on support and copywriting.',
     features: [
@@ -45,7 +45,7 @@ const tiers = [
   {
     name: 'Enterprise',
     id: 'tier-enterprise',
-    href: '/#signup',
+    href: '/register',
     price: { monthly: 499, annually: 4992 },
     description: 'For serious traffic and custom integrations. Identify gaps in your documentation.',
     features: [
@@ -203,7 +203,7 @@ export default function Pricing() {
             </p>
           </div>
           <Link
-            href="/#signup"
+            href="/register"
             className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-cyan-600 ring-1 ring-inset ring-cyan-600 hover:ring-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"
           >
             Try free <span aria-hidden="true">&rarr;</span>

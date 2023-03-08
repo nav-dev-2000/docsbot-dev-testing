@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import {
   HandThumbDownIcon,
   ChatBubbleLeftEllipsisIcon,
@@ -75,12 +75,8 @@ export default function Chat({ teamId, bot }) {
     const data = { question: question, markdown: true, history: chatHistory }
 
     //get apiBase from env
-    let apiUrl = ''
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV === undefined) {
-      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
-    } else {
-      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
-    }
+    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
+    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
@@ -231,6 +227,17 @@ export default function Chat({ teamId, bot }) {
   }
 
   const ChatRow = ({ answer }) => {
+    const myRef = useRef(null)
+
+    // run this function from an event handler or an effect to execute scroll
+    const executeScroll = () => myRef.current.scrollIntoView()
+
+    useEffect(() => {
+      if (answer.type === 'answer' && answer.id) {
+        executeScroll()
+      }
+    }, [answer])
+    
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
@@ -244,7 +251,11 @@ export default function Chat({ teamId, bot }) {
       )
     } else {
       return (
-        <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+        <div
+          className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg"
+          id={answer.id || null}
+          ref={myRef}
+        >
           <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
@@ -356,8 +367,9 @@ export default function Chat({ teamId, bot }) {
                     }
                   }}
                   tabIndex={1}
+                  autocomplete="off"
                   className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
-                  placeholder="What can I help you with?"
+                  placeholder={answers.length ? '' : 'What can I help you with?'}
                 />
 
                 <button
@@ -392,7 +404,7 @@ export default function Chat({ teamId, bot }) {
                 Tell me how to respond, like "with code examples", "as a list", or "as a table".
               </li>
             </ul>
-            <p className="mt-8 text-xs text-gray-400 text-center">Chatbot Beta</p>
+            <p className="mt-8 text-center text-xs text-gray-400">Chatbot Beta</p>
           </div>
         </div>
       </div>

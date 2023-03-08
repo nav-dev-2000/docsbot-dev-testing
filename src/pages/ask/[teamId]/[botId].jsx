@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { getTeam, getBot } from '@/lib/dbQueries'
-import Ask from '@/components/Ask'
+import AskStreaming from '@/components/AskStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { stripePlan } from '@/utils/helpers'
@@ -26,7 +26,7 @@ export function ChatPage({ team, bot }) {
             </p>
           </div>
         ) : (
-          <Ask team={team} bot={bot} />
+          <AskStreaming teamId={team.id} bot={bot} />
         )}
       </main>
       {stripePlan(team).bots < 10 && (

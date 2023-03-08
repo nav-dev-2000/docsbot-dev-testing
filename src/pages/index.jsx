@@ -150,7 +150,7 @@ export default function Home() {
                       </p>
                       <div className="mt-8">
                         <Link
-                          href="/#signup"
+                          href="/register"
                           type="button"
                           className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                         >
@@ -265,9 +265,9 @@ export default function Home() {
             {/* Pricing section */}
             <Pricing />
 
-            <Signup />
-
             <Faq />
+            
+            <Signup />
           </main>
           <Footer />
         </div>

@@ -18,11 +18,13 @@ export function StripePricingTable({ teamId, email }) {
     <div>
       <div className="mb-2 text-center">
         <h2 className="mb-2 text-3xl font-bold">Choose a plan</h2>
+        {false && (
         <Alert
           type="info"
           className=""
           title="Have a discount code? Apply it on the next screen!"
         />
+        )}
         <p className="text-lg text-gray-800">
           Please choose a plan that fits your needs. You can upgrade or downgrade at any time.
         </p>

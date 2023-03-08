@@ -12,7 +12,7 @@ import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
 
-export default function Chat({ teamId, bot }) {
+export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
   const [answerId, setAnswerId] = useState(null)
@@ -59,12 +59,8 @@ export default function Chat({ teamId, bot }) {
     const data = { question: question, format: 'markdown' }
 
     //get apiBase from env
-    let apiUrl = ''
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV === undefined) {
-      apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
-    } else {
-      apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
-    }
+    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
+    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
@@ -235,6 +231,7 @@ export default function Chat({ teamId, bot }) {
                       }
                     }}
                     tabIndex={1}
+                    autocomplete="off"
                     className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
                     placeholder="What can I help you with?"
                   />
@@ -258,7 +255,7 @@ export default function Chat({ teamId, bot }) {
                   Ask me full questions, I'm not a search engine!"
                 </li>
                 <li className="text-md text-gray-500">
-                Tell me how to respond, like "with code examples", "as a list", or "as a table".
+                  Tell me how to respond, like "with code examples", "as a list", or "as a table".
                 </li>
               </ul>
             </div>

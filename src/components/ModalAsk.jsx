@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ChatBubbleLeftEllipsisIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Ask from '@/components/Ask'
+import AskStreaming from '@/components/AskStreaming'
 
 export default function ModalAsk({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -53,7 +53,7 @@ export default function ModalAsk({ team, bot }) {
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <Ask team={team} bot={bot} />
+                  <AskStreaming teamId={team.id} bot={bot} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>

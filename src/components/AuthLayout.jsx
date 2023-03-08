@@ -23,12 +23,12 @@ function BackgroundIllustration(props) {
 
 export function AuthLayout({ title, subtitle, children }) {
   return (
-    <main className="flex min-h-full overflow-hidden pt-16 sm:py-28 bg-gradient-to-r from-teal-500 to-cyan-600">
+    <main className="flex min-h-full overflow-hidden pt-10 sm:py-18 bg-gradient-to-r from-teal-500 to-cyan-600">
       <div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
         <Link href="/" aria-label="Home" className='mx-auto'>
           <Image src={docsbotLogo} alt="Docsbot" />
         </Link>
-        <div className="relative mt-12 sm:mt-16">
+        <div className="relative mt-8 sm:mt-12">
           <h1 className="text-center text-2xl font-medium tracking-tight text-white">
             {title}
           </h1>

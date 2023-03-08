@@ -62,9 +62,7 @@ export default function BotCard({ team, bot }) {
               <BadgeStatus status={bot.status} small={false} />
             </div>
             <div className="flex justify-end space-x-2 sm:mt-5">
-              {false && (
               <ModalChat team={team} bot={bot} />
-              )}
               <ModalAsk team={team} bot={bot} />
             </div>
             <div className="flex justify-end space-x-4 sm:mt-1">
