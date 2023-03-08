@@ -231,7 +231,7 @@ export default function AskStreaming({ teamId, bot }) {
                       }
                     }}
                     tabIndex={1}
-                    autocomplete="off"
+                    autoComplete="off"
                     className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
                     placeholder="What can I help you with?"
                   />

@@ -367,7 +367,7 @@ export default function Chat({ teamId, bot }) {
                     }
                   }}
                   tabIndex={1}
-                  autocomplete="off"
+                  autoComplete="off"
                   className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
                   placeholder={answers.length ? '' : 'What can I help you with?'}
                 />
