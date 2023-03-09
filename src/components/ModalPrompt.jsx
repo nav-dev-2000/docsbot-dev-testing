@@ -61,7 +61,7 @@ export default function ModalPrompt({ team, bot }) {
           className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
           aria-hidden="true"
         />
-        {bot.customPrompt ? <p>Default prompt</p> : <p>Custom prompt</p>}
+        {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}
       </button>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>

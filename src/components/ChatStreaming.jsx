@@ -234,7 +234,7 @@ export default function Chat({ teamId, bot }) {
 
     useEffect(() => {
       if (answer.type === 'answer' && answer.id) {
-        executeScroll()
+        //executeScroll()
       }
     }, [answer])
     
