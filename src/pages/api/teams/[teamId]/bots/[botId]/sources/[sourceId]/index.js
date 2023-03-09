@@ -42,6 +42,14 @@ export default async function handler(req, res) {
     //delete source from db
     try {
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).delete()
+
+      //track custom prompt
+      try {
+        bentoTrack(userId, 'deleteSource')
+      } catch (e) {
+        console.log('Error sending bento track', e)
+      }
+
       return res.status(200).json({ message: 'Source deleted successfully' })
     } catch (error) {
       console.warn('Error deleting source doc:', error)

@@ -53,13 +53,13 @@ export default async function handler(req, res) {
 
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
 
-      //check plan credits
-      const predictedPageCount = sourceType.isPro ? team.pageCount + 5 : team.pageCount + 1
-      if (stripePlan(team).pages < predictedPageCount) {
-        return res.status(402).json({
-          message: 'Source page limit exceeded. Please upgrade your plan.',
-        })
-      }
+    //check plan credits
+    const predictedPageCount = sourceType.isPro ? team.pageCount + 5 : team.pageCount + 1
+    if (stripePlan(team).pages < predictedPageCount) {
+      return res.status(402).json({
+        message: 'Source page limit exceeded. Please upgrade your plan.',
+      })
+    }
 
     //check if they are pro and can use the source type
     if (sourceType.isPro && stripePlan(team).name === 'Free') {
@@ -154,10 +154,11 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      const serviceAccount = JSON.parse(
-        process.env.FIREBASE_SERVICE_ACCOUNT_KEY
-      )
-      const pubSubClient = new PubSub({projectId: serviceAccount.project_id, credentials: serviceAccount })
+      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+      const pubSubClient = new PubSub({
+        projectId: serviceAccount.project_id,
+        credentials: serviceAccount,
+      })
       const topicName = 'docsbot-ingest'
       const dataBuffer = Buffer.from(
         JSON.stringify({
@@ -175,10 +176,9 @@ export default async function handler(req, res) {
       const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
       console.log(`Message ${messageId} published to ${topicName}.`)
 
+      //send bento track
       try {
-        bentoTrack(userId, 'track', {
-          type: 'createSource',
-        })
+        bentoTrack(userId, 'addSource', { type })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

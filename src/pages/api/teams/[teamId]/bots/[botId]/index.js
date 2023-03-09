@@ -47,6 +47,23 @@ export default async function handler(req, res) {
       }
 
       if (customPrompt !== undefined) {
+        //if setting not empty
+        if (customPrompt) {
+          //check if their plan allows custom prompts
+          if (stripePlan(team).bots < 100) {
+            return res.status(402).json({
+              message: 'Custom prompts are not available at your plan level.',
+            })
+          }
+
+          //track custom prompt
+          try {
+            bentoTrack(userId, 'addCustomPrompt', { botName: bot.name })
+          } catch (e) {
+            console.log('Error sending bento track', e)
+          }
+        }
+
         botData.customPrompt = customPrompt
       }
 

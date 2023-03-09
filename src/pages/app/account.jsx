@@ -102,7 +102,7 @@ console.log(stripePlan(team))
       </div>
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
-        <h3 className="text-3xl font-bold">Update your email address</h3>
+        <h3 className="text-2xl font-bold">Update your email address</h3>
         <p className="mt-2 text-md text-gray-800 text-justify">
           You can update your email address here. This will update your email address for all of your teams.
         </p>
