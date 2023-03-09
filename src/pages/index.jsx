@@ -110,7 +110,7 @@ const features = [
 export default function Home() {
   return (
     <>
-      <Head></Head>
+      <Head />
       <div className="bg-white">
         <div className="relative overflow-hidden">
           <Header />

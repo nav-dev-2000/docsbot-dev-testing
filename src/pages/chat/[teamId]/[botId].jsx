@@ -9,11 +9,12 @@ import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { stripePlan } from '@/utils/helpers'
 
 export function ChatPage({ team, bot }) {
+  const pageTitle = `${bot.name} Chatbot`
 
   return (
     <>
       <Head>
-        <title key="title">{bot.name} Chatbot</title>
+        <title key="title">{pageTitle}</title>
         <meta name="description" content={bot.description} key="description" />
       </Head>
       <main className="mx-auto my-16 max-w-6xl">

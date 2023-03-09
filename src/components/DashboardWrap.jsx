@@ -59,13 +59,11 @@ export default function DashboardWrap({ page, title, children }) {
 
   const currentPageLink = navigation.find((nav) => nav.name === page).href
 
+  const pageTitle = `${page} ${title ? ` | ${title}` : ''}`
   return (
     <>
       <Head>
-        <title key="title">
-          {page}
-          {title ? ` | ${title}` : ''}
-        </title>
+        <title key="title">{pageTitle}</title>
         <meta name="description" content="DocsBot Dashboard" key="description" />
       </Head>
       <main>

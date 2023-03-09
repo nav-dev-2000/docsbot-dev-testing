@@ -93,6 +93,48 @@ function Bot({ team, preBot, preSources }) {
     
   }, [sources])
 
+  const deleteSource = async(id) => {
+    setErrorText('')
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setSources((prev) => prev.filter((source) => source.id !== id))
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText(response.statusText + ', please try again.')
+      }
+    }
+  }
+
+  const retrySource = async(id) => {
+    setErrorText('')
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setSources((prev) => prev.map((source) => source.id === id ? data : source))
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText(response.statusText + ', please try again.')
+      }
+    }
+  }
+
   if (!bot) return null
 
   return (
@@ -101,7 +143,7 @@ function Bot({ team, preBot, preSources }) {
 
       <BotCard team={team} bot={bot} />
 
-      <SourceGrid {...{ sources }} />
+      <SourceGrid {...{ sources, deleteSource, retrySource }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
 

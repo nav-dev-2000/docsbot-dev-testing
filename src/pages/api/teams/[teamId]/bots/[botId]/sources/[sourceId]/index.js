@@ -1,6 +1,9 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot, getSource } from '@/lib/dbQueries'
+import { PubSub } from '@google-cloud/pubsub'
+import { stripePlan } from '@/utils/helpers'
+import { bentoTrack } from '@/lib/bento'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -14,15 +17,20 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({ message: error?.message })
   }
-  const { team } = check
+  const { userId, team } = check
   const { botId, sourceId } = req.query
 
   let bot = null
+  let source = null
   try {
     bot = await getBot(team.id, botId)
     if (!bot) {
       // doc.data() will be undefined in this case
       return res.status(404).json({ message: "botId doesn't exist." })
+    }
+    source = await getSource(team, bot, sourceId)
+    if (!source) {
+      return res.status(404).json({ message: "sourceId doesn't exist." })
     }
   } catch (error) {
     console.warn('Error getting document:', error)
@@ -30,18 +38,109 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
-    return res.status(400).json({ message: 'Source update not implemented' })
+    //error if source is not in failed state
+    if (source.status !== 'failed') {
+      return res.status(409).json({ message: 'Only failed sources can be retried currently.' })
+    }
+
+    //update source status in db
+    try {
+      await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+          status: 'pending',
+          createdAt: FieldValue.serverTimestamp(), //update timestamp so that it doesn't timeout
+        })
+
+      //track custom prompt
+      try {
+        bentoTrack(userId, 'retrySource')
+      } catch (e) {
+        console.log('Error sending bento track', e)
+      }
+
+      //increment sourceCounts on team
+      try {
+        await firestore.runTransaction(async (transaction) => {
+          const teamRef = firestore.collection('teams').doc(team.id)
+          const sfDoc = await transaction.get(teamRef)
+          if (!sfDoc.exists) {
+            throw 'Team does not exist!'
+          }
+
+          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
+          transaction.update(teamRef, {
+            sourceCount: newSourceCount,
+          })
+        })
+
+        //increment source counts on bot
+        await firestore.runTransaction(async (transaction) => {
+          const botRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId)
+          const sfDoc = await transaction.get(botRef)
+          if (!sfDoc.exists) {
+            throw 'Bot does not exist!'
+          }
+
+          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
+          transaction.update(botRef, {
+            sourceCount: newSourceCount,
+          })
+        })
+      } catch (e) {
+        console.warn('Increment transaction failed: ', e)
+      }
+
+      //add source event to pub/sub queue for processing
+      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+      const pubSubClient = new PubSub({
+        projectId: serviceAccount.project_id,
+        credentials: serviceAccount,
+      })
+      const topicName = 'docsbot-ingest'
+      const dataBuffer = Buffer.from(
+        JSON.stringify({
+          teamId: team.id,
+          botId,
+          sourceId,
+          pageLimit: stripePlan(team).pages - team.pageCount,
+          indexId: bot.indexId,
+          type: source.type,
+          title: source.title,
+          url: source.url,
+          file: source.file,
+        })
+      )
+      const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
+      console.log(`Message ${messageId} published to ${topicName}.`)
+
+      //done, return source object
+      return res.status(201).json(await getSource(team, bot, sourceId))
+    } catch (error) {
+      console.warn('Error updating source doc:', error)
+      return res.status(500).json({ message: error?.message })
+    }
   } else if (req.method === 'DELETE') {
-    //fail if bot is indexing
-    if (['indexing'].includes(bot.status)) {
-      return res
-        .status(409)
-        .json({ message: 'Bot is currently indexing, you can delete sources later.' })
+    //error if source is not in failed state
+    if (source.status !== 'failed') {
+      return res.status(409).json({ message: 'Only failed sources can be deleted currently.' })
     }
 
     //delete source from db
     try {
-      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).delete()
+      await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .delete()
 
       //track custom prompt
       try {
@@ -55,19 +154,8 @@ export default async function handler(req, res) {
       console.warn('Error deleting source doc:', error)
       return res.status(500).json({ message: error?.message })
     }
-    
   } else if (req.method === 'GET') {
-    try {
-      const source = await getSource(team, bot, sourceId)
-      if (source) {
-        return res.json(source)
-      } else {
-        return res.status(404).json({ message: "sourceId doesn't exist." })
-      }
-    } catch (error) {
-      console.warn('Error getting document:', error)
-      return res.status(500).json({ message: error?.message })
-    }
+    return res.json(source)
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

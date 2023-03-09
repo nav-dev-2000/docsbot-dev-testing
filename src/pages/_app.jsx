@@ -49,9 +49,7 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
   return (
     <>
       <Head>
-        <title key="title">
-          DocsBot AI - Custom chatbots and content generation from your documentation
-        </title>
+        <title key="title">DocsBot AI - Custom chatbots and content generation from your documentation</title>
         <meta
           name="description"
           content="Custom ChatGPT bots trained on your documentation and content."
