@@ -25,6 +25,8 @@ import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
+import WPMUDEVLogo from '../components/WPMUDEVLogo'
+import chatwpLogo from '@/images/chatwp.svg'
 
 const integrations = [
   {
@@ -143,10 +145,9 @@ export default function Home() {
                       </h1>
                       <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
                         Get instant answers for you, your customers, or your team with AI powered
-                        chatbots trained with your content and documentation. Save
-                        money and improve the support experience for your customers, the
-                        productivity of your team, and AI copywriting with existing knowledge of your
-                        business!
+                        chatbots trained with your content and documentation. Save money and improve
+                        the support experience for your customers, the productivity of your team,
+                        and AI copywriting with existing knowledge of your business!
                       </p>
                       <div className="mt-8">
                         <Link
@@ -157,7 +158,9 @@ export default function Home() {
                           Create your own free DocsBot
                         </Link>
                       </div>
-                      <p className="mt-3 text-sm text-gray-300 sm:mt-4">Get started today, no credit card required!</p>
+                      <p className="mt-3 text-sm text-gray-300 sm:mt-4">
+                        Get started today, no credit card required!
+                      </p>
                     </div>
                   </div>
                   <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
@@ -170,6 +173,25 @@ export default function Home() {
                       />
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-8 xl:py-4">
+                <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
+                  Trusted to power
+                </h2>
+                <div className="flex justify-center space-x-8 sm:space-x-32">
+                  <Link href="https://wpdocs.chat" target="_blank" title="ChatWP">
+                    <Image
+                      className="max-h-12 w-full object-contain"
+                      src={chatwpLogo}
+                      alt="ChatWP Logo"
+                      width={158}
+                      height={48}
+                    />
+                  </Link>
+                  <Link href="https://wpmudev.com/support/" target="_blank" title="WPMU DEV">
+                    <WPMUDEVLogo className="max-h-12 w-full object-contain text-white" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -266,7 +288,7 @@ export default function Home() {
             <Pricing />
 
             <Faq />
-            
+
             <Signup />
           </main>
           <Footer />
