@@ -237,7 +237,7 @@ export default function Chat({ teamId, bot }) {
         //executeScroll()
       }
     }, [answer])
-    
+
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
