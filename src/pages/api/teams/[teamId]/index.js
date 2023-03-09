@@ -41,7 +41,15 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    return res.status(400).json({ message: 'Not implemented' })
+
+    try {
+      await firestore.collection('teams').doc(team.id).delete()
+      return res.json({ message: 'Team deleted' })
+    } catch (error) {
+      return res.status(500).json({ message: error?.message })
+    }
+    
+
   } else if (req.method === 'GET') {
     return res.json(team)
   } else {
