@@ -59,7 +59,7 @@ function Account({ team }) {
       stat: stripePlan(team).questions,
     },
   ]
-console.log(stripePlan(team))
+
   return (
     <DashboardWrap page="Account">
       <Alert title={errorText} type="error" />

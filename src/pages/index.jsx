@@ -25,8 +25,9 @@ import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
-import WPMUDEVLogo from '../components/WPMUDEVLogo'
+import WPMUDEVLogo from '@/components/WPMUDEVLogo'
 import chatwpLogo from '@/images/chatwp.svg'
+import iuLogo from '@/images/iu-logo-words.svg'
 
 const integrations = [
   {
@@ -191,6 +192,15 @@ export default function Home() {
                   </Link>
                   <Link href="https://wpmudev.com/support/" target="_blank" title="WPMU DEV">
                     <WPMUDEVLogo className="max-h-12 w-full object-contain text-white" />
+                  </Link>
+                  <Link href="https://infiniteuploads" target="_blank" title="Infinite Uploads">
+                  <Image
+                      className="max-h-12 w-full object-contain"
+                      src={iuLogo}
+                      alt="Infinite Uploads Logo"
+                      width={158}
+                      height={48}
+                    />
                   </Link>
                 </div>
               </div>
