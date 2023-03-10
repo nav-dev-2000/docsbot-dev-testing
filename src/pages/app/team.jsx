@@ -48,7 +48,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
                 </div>
                 <div className="hidden sm:block">
                   <span className="truncate text-gray-500">
-                    {selected?.botCount?.toLocaleString() || 'No'} Bots
+                    {selected?.botCount || 'No'} Bots
                   </span>
                 </div>
               </span>
@@ -114,7 +114,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
                                 'truncate'
                               )}
                             >
-                              {team.botCount?.toLocaleString() || 'No'} Bots
+                              {team.botCount || 'No'} Bots
                             </span>
                             <span
                               className={classNames(
@@ -122,7 +122,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
                                 'ml-4 truncate capitalize'
                               )}
                             >
-                              {team.sourceCount?.toLocaleString() || 'No'} Sources
+                              {team.sourceCount || 'No'} Sources
                             </span>
                           </div>
                         </div>

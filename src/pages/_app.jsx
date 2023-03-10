@@ -39,10 +39,13 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
 
   useEffect(() => {
     if (user && Beacon !== undefined) {
-      Beacon('identify', {
-        name: user.displayName,
+      const ident = {
         email: user.email,
-      })
+      }
+      if (user.displayName) {
+        ident.name = user.displayName
+      }
+      Beacon('identify', ident)
     }
   }, [user])
 

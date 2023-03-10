@@ -84,7 +84,7 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                    <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
+                    <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
                 </div>
                 <div className="flex items-center text-sm text-gray-500">

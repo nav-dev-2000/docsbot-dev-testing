@@ -50,7 +50,7 @@ export default function BotCard({ team, bot }) {
                     aria-hidden="true"
                   />
                   <p>
-                    <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
+                    <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
                 </div>
                 <ModalPrompt team={team} bot={bot} />
