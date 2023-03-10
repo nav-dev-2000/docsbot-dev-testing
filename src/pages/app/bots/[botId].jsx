@@ -8,6 +8,7 @@ import BotCard from '@/components/BotCard'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
+import SourceFailed from '@/components/SourceFailed'
 
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
@@ -142,8 +143,9 @@ function Bot({ team, preBot, preSources }) {
       <Alert title={errorText} type="error" />
 
       <BotCard team={team} bot={bot} />
+      <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ sources, deleteSource, retrySource }} />
+      <SourceGrid {...{ sources }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
 

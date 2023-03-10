@@ -4,7 +4,7 @@ import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
 import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-export default function SourceGrid({ sources, deleteSource, retrySource }) {
+export default function SourceGrid({ sources }) {
   const [fullSources, setFullSources] = useState([])
 
   useEffect(() => {
@@ -12,7 +12,9 @@ export default function SourceGrid({ sources, deleteSource, retrySource }) {
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
-      newSources.push(source)
+      if (source.status !== 'failed') {
+        newSources.push(source)
+      }
     })
     setFullSources(newSources)
   }, [sources])
@@ -23,7 +25,7 @@ export default function SourceGrid({ sources, deleteSource, retrySource }) {
   }
 
   //if no sources, show empty state
-  if (!sources || sources.length === 0) {
+  if (!fullSources || fullSources.length === 0) {
     return null
   }
 
