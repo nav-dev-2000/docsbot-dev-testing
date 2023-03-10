@@ -81,7 +81,8 @@ router.post(async (req, res) => {
     })
 
     try {
-      bentoTrack(userId, 'createBot', {
+      bentoTrack(userId, 'track', {
+        type: 'createBot',
         botName: name,
       })
     } catch (e) {

@@ -58,7 +58,10 @@ export default async function handler(req, res) {
 
           //track custom prompt
           try {
-            bentoTrack(userId, 'addCustomPrompt', { botName: bot.name })
+            bentoTrack(userId, 'track', {
+              type: 'addCustomPrompt',
+              botName: bot.name,
+            })
           } catch (e) {
             console.log('Error sending bento track', e)
           }
@@ -146,6 +149,7 @@ export default async function handler(req, res) {
       try {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
+          botName: bot.name,
         })
       } catch (e) {
         console.log('Error sending bento track', e)

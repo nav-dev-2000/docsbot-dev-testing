@@ -59,7 +59,9 @@ export default async function handler(req, res) {
 
       //track custom prompt
       try {
-        bentoTrack(userId, 'retrySource')
+        bentoTrack(userId, 'track', {
+          type: 'retrySource',
+        })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
@@ -144,7 +146,9 @@ export default async function handler(req, res) {
 
       //track custom prompt
       try {
-        bentoTrack(userId, 'deleteSource')
+        bentoTrack(userId, 'track', {
+          type: 'deleteSource',
+        })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

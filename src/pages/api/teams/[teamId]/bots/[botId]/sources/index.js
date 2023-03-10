@@ -178,7 +178,10 @@ export default async function handler(req, res) {
 
       //send bento track
       try {
-        bentoTrack(userId, 'addSource', { type })
+        bentoTrack(userId, 'track', {
+          type: 'addSource',
+          sourceType: type,
+        })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

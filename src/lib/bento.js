@@ -10,7 +10,7 @@ export const bento = new Analytics({
   siteUuid: process.env.NEXT_PUBLIC_BENTO_SITE,
 });
 
-export async function bentoTrack(userId, command, data = {}) {
+export async function bentoTrack(userId, command, data) {
   //get user email from firebase auth
   try {
     if (!data.email) {
