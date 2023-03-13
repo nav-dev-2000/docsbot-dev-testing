@@ -44,6 +44,13 @@ export default async function handler(req, res) {
       })
     }
 
+    //check that they set an openAIKey
+    if (!team.openAIKey) {
+      return res.status(402).json({
+        message: 'Please set your OpenAI API key to be able to train a bot.',
+      })
+    }
+
     //data validation
     let { type, title, url, file } = req.body
 

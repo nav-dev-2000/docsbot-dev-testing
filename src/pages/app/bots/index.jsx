@@ -132,7 +132,7 @@ function Bots({ preBots, team }) {
 
   return (
     <DashboardWrap page="Bots">
-      <Alert title={errorText} type="error" />
+      <Alert title={errorText} type="warning" />
 
       <BotDelete
         team={team}

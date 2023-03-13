@@ -146,7 +146,7 @@ function Dashboard({ team }) {
 
   return (
     <DashboardWrap page="Dashboard">
-      <Alert title={errorText} type="error" />
+      <Alert title={errorText} type="warning" />
       <UpgradeNotice team={team} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
