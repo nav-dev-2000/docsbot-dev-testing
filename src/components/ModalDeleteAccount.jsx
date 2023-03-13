@@ -4,7 +4,46 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function ModalDeleteAccount({ team }) {
   const [open, setOpen] = useState(false)
+  const [isUpdating, setIsUpdating] = useState(false)
   const cancelButtonRef = useRef(null)
+
+  async function updateTeam() {
+    if (!openAIKey || !/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
+      setErrorText('Please enter your OpenAI API key.')
+      return
+    }
+
+    if (!hasPaymentCard) {
+      setErrorText('Please confirm you added a payment card to your OpenAI account.')
+      return
+    }
+
+    setErrorText('')
+    setIsUpdating(true)
+
+    const urlParams = ['teams', team.id]
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setOpen(false)
+      setIsUpdating(false)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText(response.status + ' error, please try again.')
+      }
+      setIsUpdating(false)
+    }
+  }
 
   return (
     <>
@@ -67,8 +106,12 @@ export default function ModalDeleteAccount({ team }) {
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                      onClick={() => setOpen(false)}
+                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto disabled:opacity-25"
+                      onClick={(e) => {
+                        deleteTeam()
+                        e.preventDefault()
+                      }}
+                      disabled={isUpdating}
                     >
                       Delete
                     </button>

@@ -16,7 +16,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
-import ModalDeleteAccount from '../../components/ModalDeleteAccount'
+import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 
 function Account({ team }) {
   const [user] = useAuthState(auth)

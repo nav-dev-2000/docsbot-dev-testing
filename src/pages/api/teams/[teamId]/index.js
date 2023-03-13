@@ -4,6 +4,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import crypto from 'crypto'
+import { deleteSchema } from '@/lib/weaviate'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -24,13 +25,18 @@ export default async function handler(req, res) {
       newTeam.name.trim()
     }
     if (openAIKey) {
+      if (!/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
+        return res.status(400).json({ message: 'Invalid OpenAI Key' })
+      }
       //encrypt openAIKey with aes256
       const algorithm = 'aes-256-cbc'
       const password = process.env.OPENAI_KEY_ENCRYPTION_PASSWORD
       const iv = crypto.randomBytes(16)
       const cipher = crypto.createCipheriv(algorithm, password, iv)
       //encrypt, prepend iv, and encode to base64
-      const encrypted = Buffer.concat([iv, cipher.update(openAIKey), cipher.final()]).toString('base64')
+      const encrypted = Buffer.concat([iv, cipher.update(openAIKey), cipher.final()]).toString(
+        'base64'
+      )
       newTeam.openAIKey = encrypted
     }
 
@@ -41,15 +47,79 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-
+    //delete team from db
     try {
+      //delete all bots
+      const botsSnapshot = await firestore.collection('teams').doc(team.id).collection('bots').get()
+
+      // Once we get the results, begin a batch
+      const botBatch = firestore.batch()
+      botsSnapshot.forEach(async function (doc) {
+        const botId = doc.id
+        botBatch.delete(doc.ref)
+
+        // Delete all sources for bot
+        const querySnapshot = await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('sources')
+          .get()
+        // Once we get the results, begin a batch
+        const batch = firestore.batch()
+        querySnapshot.forEach(function (doc) {
+          // For each doc, add a delete operation to the batch
+          batch.delete(doc.ref)
+        })
+        // Commit the batch
+        await batch.commit()
+
+        //delete schema in weaviate
+        if (doc.indexId) {
+          await deleteSchema(doc.indexId)
+        }
+
+        // Delete all questions for bot
+        const questionsSnapshot = await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('questions')
+          .get()
+        // Once we get the results, begin a batch
+        const questionsBatch = firestore.batch()
+        questionsSnapshot.forEach(function (doc) {
+          // For each doc, add a delete operation to the batch
+          questionsBatch.delete(doc.ref)
+        })
+        // Commit the batch
+        await questionsBatch.commit()
+      })
+
+      // Commit the batch
+      await botBatch.commit()
+
+      //delete all team data from bucket
+      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
+      await bucket.deleteFiles({ prefix: `teams/${team.id}` })
+
+      //delete team
       await firestore.collection('teams').doc(team.id).delete()
-      return res.json({ message: 'Team deleted' })
+
+      //delete team from user
+      if (!isSuperAdmin(userId)) {
+        await firestore.collection('users').doc(userId).update({currentTeam: null})
+      } else {
+        await firestore.collection('users').doc(userId).update({currentTeam: 'ZrbLG98bbxZ9EFqiPvyl'})
+      }
+      
+      return res.status(200).json({ message: 'Team deleted' })
     } catch (error) {
+      console.warn('Error deleting team:', error)
       return res.status(500).json({ message: error?.message })
     }
-    
-
   } else if (req.method === 'GET') {
     return res.json(team)
   } else {
