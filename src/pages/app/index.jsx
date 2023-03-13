@@ -57,7 +57,7 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
 }
 
 function Dashboard({ team }) {
-  const [errorText, setErrorText] = useState(null)
+  const [errorText, setErrorText] = useState('We are currently experiencing extreemely high traffic due to this app going viral. Our DB provider is working hard to try to scale up resources, so if you encounter errors please be patient and try again in a few minutes!')
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
