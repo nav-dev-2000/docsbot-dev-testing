@@ -1,17 +1,19 @@
-import { getFirestore } from 'firebase-admin/firestore'
+import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { routePaths } from '@/constants/routePaths.constants'
 import { getAuthorizedUser } from './getAuthorizedUser'
 import { isSuperAdmin } from '@/utils/helpers'
+import { getTeam } from '@/lib/dbQueries'
 
 export const getAuthorizedUserCurrentTeam = async (context) => {
   configureFirebaseApp()
+  const firestore = getFirestore()
   try {
     const { uid, name } = await getAuthorizedUser(context)
     const userRef = await getFirestore().collection('users').doc(uid).get()
     const { currentTeam } = userRef.data()
 
-    if (userRef.exists) {
+    if (userRef.exists && currentTeam) {
       //check if user has access to team
       const teamRef = await getFirestore().collection('teams').doc(currentTeam).get()
       if (teamRef.exists && (teamRef.data().roles[uid] || isSuperAdmin(uid))) {
@@ -27,10 +29,35 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
       }
     }
 
-    context.res.statusCode = 400
+    let userName = name ? name.trim() : 'User'
+    // If user does not belong to a team, create a new team for them.
+    const teamRef = await firestore.collection('teams').add({
+      createdAt: FieldValue.serverTimestamp(),
+      name: `${userName}'s Team`,
+      botCount: 0,
+      sourceCount: 0,
+      pageCount: 0,
+      chunkCount: 0,
+      questionCount: 0,
+      openAIKey: null,
+      roles: {
+        [uid]: 'owner',
+      },
+    })
+
+    const teamId = teamRef.id
+    const team = await getTeam(teamId)
+
+    // Create user with current team set
+    await firestore.collection('users').doc(uid).set({
+      createdAt: FieldValue.serverTimestamp(),
+      currentTeam: teamId,
+    })
+
     return {
       props: {
-        error: 'This user does not belong to a team',
+        team,
+        userId: uid,
       },
     }
   } catch (error) {
@@ -39,7 +66,7 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
     console.error(error)
     return {
       redirect: {
-        destination: routePaths.LOGIN,
+        destination: routePaths.ROOT,
         permanent: false,
       },
     }

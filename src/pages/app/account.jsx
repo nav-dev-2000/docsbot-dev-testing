@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { updateEmail } from "firebase/auth";
+import { updateEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
 import {
   ServerStackIcon,
@@ -16,6 +16,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
+import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 
 function Account({ team }) {
   const [user] = useAuthState(auth)
@@ -59,7 +60,7 @@ function Account({ team }) {
       stat: stripePlan(team).questions,
     },
   ]
-
+  
   return (
     <DashboardWrap page="Account">
       <Alert title={errorText} type="error" />
@@ -101,12 +102,14 @@ function Account({ team }) {
         <Checkout team={team} />
       </div>
 
-      <div className="mt-6 rounded-lg bg-white p-8 shadow">
-        <h3 className="text-2xl font-bold">Update your email address</h3>
-        <p className="mt-2 text-md text-gray-800 text-justify">
-          You can update your email address here. This will update your email address for all of your teams.
-        </p>
-        <div>
+      <div className="mt-6 md:grid md:grid-cols-2 gap-6">
+        <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">Update your email address</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can update your email address here. This will update your email address for all of
+            your teams.
+          </p>
+          <div>
             <label htmlFor="team_id" className="block text-sm font-medium text-gray-700">
               New Email
             </label>
@@ -125,11 +128,16 @@ function Account({ team }) {
               <button
                 type="button"
                 onClick={() => {
-                  updateEmail(auth.currentUser,newEmail).then(() => {
-                    alert('Email updated successfully')
-                  }).catch((error) => {
-                    setErrorText(error.message + ' If you havn\'t recently logged in to your account, you may need log out then back in to change your email address for security reasons.')
-                  });
+                  updateEmail(auth.currentUser, newEmail)
+                    .then(() => {
+                      alert('Email updated successfully')
+                    })
+                    .catch((error) => {
+                      setErrorText(
+                        error.message +
+                          " If you havn't recently logged in to your account, you may need log out then back in to change your email address for security reasons."
+                      )
+                    })
                 }}
                 className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
               >
@@ -137,6 +145,17 @@ function Account({ team }) {
               </button>
             </div>
           </div>
+        </div>
+
+        <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">Delete Team Account</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can delete your team account here. This will delete all of your bots, sources, questions, keys, any other data, and remove all team members. This action cannot be undone and you should cancel any subscriptions before deleting your team account.
+          </p>
+          <div className="mt-5 flex justify-end">
+          <ModalDeleteAccount team={team} />
+        </div>
+        </div>
       </div>
     </DashboardWrap>
   )
