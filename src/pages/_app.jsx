@@ -5,7 +5,6 @@ import Script from 'next/script'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter, Router } from 'next/router'
-import Cookies from 'js-cookie'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 

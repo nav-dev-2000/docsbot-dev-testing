@@ -20,13 +20,30 @@ const tiers = [
       '1k Source Pages',
       'Unlock all source types',
       '1k questions/mo',
-      '1 user'
+      '1 user',
     ],
     mostPopular: false,
   },
   {
+    name: 'Power',
+    id: 'tier-power',
+    href: '/register',
+    price: { monthly: 49, annually: 492 },
+    description: 'For power users and small businesses just getting started.',
+    features: [
+      '3 DocsBots',
+      '5k Source Pages',
+      'Unlock all source types',
+      '5k questions/mo',
+      '1 user',
+      'Basic Analytics',
+      'Chat history *',
+    ],
+    mostPopular: true,
+  },
+  {
     name: 'Pro',
-    id: 'tier-startup',
+    id: 'tier-pro',
     href: '/register',
     price: { monthly: 99, annually: 996 },
     description: 'For businesses who want to save time and money on support and copywriting.',
@@ -39,30 +56,23 @@ const tiers = [
       'Basic Analytics',
       'Chat history *',
       'Unbranded chat widgets *',
-    ],
-    mostPopular: true,
-  },
-  {
-    name: 'Enterprise',
-    id: 'tier-enterprise',
-    href: '/register',
-    price: { monthly: 499, annually: 4992 },
-    description: 'For serious traffic and custom integrations. Identify gaps in your documentation.',
-    features: [
-      '100 DocsBots',
-      '100k Source Pages',
-      'Unlock all source types',
-      '100k questions/mo',
-      '50 team users',
-      'Advanced Analytics *',
-      'Chat history *',
-      'Unbranded chat widgets *',
-      'AI reports *',
       'Prompt customization',
-      'Priority support & integration help',
     ],
     mostPopular: false,
   },
+]
+
+const includedFeatures = [
+  '100+ DocsBots',
+  '100k+ Source Pages',
+  'Unlock all source types',
+  '100k+ questions/mo',
+  '50+ team users',
+  'Advanced Analytics *',
+  'Chat history *',
+  'Unbranded chat widgets *',
+  'AI reports *',
+  'Prompt customization',
 ]
 
 export default function Pricing() {
@@ -94,7 +104,9 @@ export default function Pricing() {
           </a>
           .
         </p>
-        <p className="text-lg text-teal-500 font-bold flex items-center justify-center"><CheckBadgeIcon className='h-5 w-5 mr-1' /> 14-day money-back guarantee!</p>
+        <p className="flex items-center justify-center text-lg font-bold text-teal-500">
+          <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back guarantee!
+        </p>
         <div className="mt-16 flex justify-center">
           <RadioGroup
             value={frequency}
@@ -118,9 +130,7 @@ export default function Pricing() {
             ))}
           </RadioGroup>
         </div>
-        <p className="mt-2 text-sm text-center text-gray-600">
-          Two months free with annual plans!
-        </p>
+        <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
         <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {tiers.map((tier) => (
             <div
@@ -191,7 +201,9 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-4 text-center text-sm text-gray-600">Does not include OpenAI API costs (roughly $0.003/question)</p>
+        <p className="mx-auto mt-4 text-center text-sm text-gray-600">
+          Does not include OpenAI API costs (roughly $0.003/question)
+        </p>
         <p className="mx-auto mt-1 text-center text-xs text-gray-600">* coming soon</p>
         <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
@@ -199,7 +211,8 @@ export default function Pricing() {
               Personal
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
-              Try DocsBot free for personal use. No credit card required. Import document files or urls with up to 50 pages of content and chat with your bot within our website.
+              Try DocsBot free for personal use. No credit card required. Import document files or
+              urls with up to 50 pages of content and chat with your bot within our website.
             </p>
           </div>
           <Link
@@ -208,6 +221,62 @@ export default function Pricing() {
           >
             Try free <span aria-hidden="true">&rarr;</span>
           </Link>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+          <div className="p-8 sm:p-10 lg:flex-auto">
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
+            <p className="mt-6 text-base leading-7 text-gray-600">
+              For serious traffic and custom integrations. Identify gaps in your documentation with
+              automated AI analysis. Get priority support & integration help to create specialized
+              bots for your unique business needs.
+            </p>
+            <div className="mt-10 flex items-center gap-x-4">
+              <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
+                What’s included
+              </h4>
+              <div className="h-px flex-auto bg-gray-100" />
+            </div>
+            <ul
+              role="list"
+              className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+            >
+              {includedFeatures.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+            <div className="h-full rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+              <div className="mx-auto max-w-xs px-8">
+                <p className="text-base font-semibold text-gray-600">Plans starting at</p>
+                <p className="mt-6 flex items-baseline justify-center gap-x-2">
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$499/mo</span>
+                  <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
+                    USD
+                  </span>
+                </p>
+                <a
+                  href="mailto:human@docsbot.ai"
+            onClick={(e) => {
+              if (Beacon !== undefined) {
+                e.preventDefault()
+                Beacon('open')
+              }
+            }}
+                  className="mt-10 block w-full rounded-md bg-cyan-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                >
+                  Contact us
+                </a>
+                <p className="mt-6 text-xs leading-5 text-gray-600">
+                  Invoices and receipts available for easy company reimbursement
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

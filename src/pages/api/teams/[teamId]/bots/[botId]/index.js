@@ -50,7 +50,7 @@ export default async function handler(req, res) {
         //if setting not empty
         if (customPrompt) {
           //check if their plan allows custom prompts
-          if (stripePlan(team).bots < 100) {
+          if (stripePlan(team).bots < 10) {
             return res.status(402).json({
               message: 'Custom prompts are not available at your plan level.',
             })

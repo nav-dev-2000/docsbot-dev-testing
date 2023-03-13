@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
-import BadgeStatusSource from '@/components/BadgeStatusSource'
-import classNames from '@/utils/classNames'
-import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 
 export default function SourceFailed({ sources, deleteSource, retrySource }) {

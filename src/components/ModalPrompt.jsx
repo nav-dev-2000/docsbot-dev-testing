@@ -17,8 +17,8 @@ export default function ModalPrompt({ team, bot }) {
   async function updatePrompt() {
     setErrorText('')
 
-    //show upgrade modal if they are not enterprise and doing anything other than erasing the prompt
-    if (prompt && stripePlan(team).bots < 100) {
+    //show upgrade modal if they are not pro and doing anything other than erasing the prompt
+    if (prompt && stripePlan(team).bots < 10) {
       setShowUpgrade(true)
       return
     }
