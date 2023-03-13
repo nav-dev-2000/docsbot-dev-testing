@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
+import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function SourceGrid({ sources }) {
   const [fullSources, setFullSources] = useState([])
@@ -11,7 +12,9 @@ export default function SourceGrid({ sources }) {
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
-      newSources.push(source)
+      if (source.status !== 'failed') {
+        newSources.push(source)
+      }
     })
     setFullSources(newSources)
   }, [sources])
@@ -22,7 +25,7 @@ export default function SourceGrid({ sources }) {
   }
 
   //if no sources, show empty state
-  if (!sources || sources.length === 0) {
+  if (!fullSources || fullSources.length === 0) {
     return null
   }
 
@@ -42,16 +45,44 @@ export default function SourceGrid({ sources }) {
             >
               <source.icon className="h-6 w-6 text-cyan-100" aria-hidden="true" />
             </div>
-            <div className="w-full rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate truncate">
+            <div className="w-full truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate">
               <div className="flex flex-1 items-center justify-between ">
                 <div className="flex items-center text-sm">
                   <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
                   {source.pageCount ? (
-                  <p className="ml-2 text-xs text-gray-500">{source.pageCount} Pages</p>
+                    <p className="ml-2 text-xs text-gray-500">{source.pageCount} Pages</p>
                   ) : null}
                 </div>
                 <div className="">
                   <BadgeStatusSource source={source} small={true} />
+                  {source.status === 'failed' && (
+                    <div className="mt-1 flex justify-end space-x-2 text-xs text-gray-400">
+                      <button
+                        className="hover:text-gray-600 focus:text-gray-500"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          retrySource(source.id)
+                        }}
+                        title="Retry"
+                      >
+                        <span className="sr-only">Retry</span>
+                        <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          deleteSource(source.id)
+                        }}
+                        className="text-red-400 hover:text-red-200 focus:text-red-200"
+                        title="Delete"
+                      >
+                        <span className="sr-only">Delete</span>
+                        <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="flex-1 truncate text-sm">

@@ -72,7 +72,7 @@ export default function Chat({ teamId, bot }) {
     setCurrentAnswer('')
     setLoadingMessage('Sending...')
 
-    const data = { question: question, markdown: true, history: chatHistory }
+    const req = { question: question, markdown: true, history: chatHistory }
 
     //get apiBase from env
     const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
@@ -87,7 +87,7 @@ export default function Chat({ teamId, bot }) {
         return [...prev, { type: 'question', question: question }]
       })
       setQuestion('')
-      ws.send(JSON.stringify(data))
+      ws.send(JSON.stringify(req))
     }
 
     ws.onerror = function (event) {
@@ -104,7 +104,7 @@ export default function Chat({ teamId, bot }) {
 
     // Receive message from server word by word. Display the words as they are received.
     ws.onmessage = function (event) {
-      const data = JSON.parse(event.data)
+      let data = JSON.parse(event.data)
       if (data.sender === 'bot') {
         if (data.type === 'start') {
           setLoadingMessage('Checking my sources...')
@@ -237,7 +237,7 @@ export default function Chat({ teamId, bot }) {
         //executeScroll()
       }
     }, [answer])
-
+    
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">

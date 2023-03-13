@@ -1,23 +1,32 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef, useState, useCallback } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import Alert from '@/components/Alert'
+import { signOut } from 'firebase/auth'
+import { useRouter } from 'next/router'
+import { logout } from '@/api/logout'
+import { auth } from '@/config/firebase-ui.config'
+import { routePaths } from '@/constants/routePaths.constants'
 
 export default function ModalDeleteAccount({ team }) {
   const [open, setOpen] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
+  const [errorText, setErrorText] = useState(null)
   const cancelButtonRef = useRef(null)
+  const router = useRouter()
 
-  async function updateTeam() {
-    if (!openAIKey || !/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
-      setErrorText('Please enter your OpenAI API key.')
-      return
-    }
+  const logoutUser = useCallback(logout, [])
+  const signUserOut = () => {
+    signOut(auth).then(() => {
+      logoutUser({
+        onComplete: () => {
+          router.push(routePaths.LOGIN)
+        },
+      })
+    })
+  }
 
-    if (!hasPaymentCard) {
-      setErrorText('Please confirm you added a payment card to your OpenAI account.')
-      return
-    }
-
+  async function deleteTeam() {
     setErrorText('')
     setIsUpdating(true)
 
@@ -34,6 +43,7 @@ export default function ModalDeleteAccount({ team }) {
       const data = await response.json()
       setOpen(false)
       setIsUpdating(false)
+      signUserOut()
     } else {
       try {
         const data = await response.json()
@@ -88,6 +98,7 @@ export default function ModalDeleteAccount({ team }) {
                       />
                     </div>
                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                      <Alert title={errorText} type="error" />
                       <Dialog.Title
                         as="h3"
                         className="text-base font-semibold leading-6 text-gray-900"
@@ -96,7 +107,7 @@ export default function ModalDeleteAccount({ team }) {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to delete your account? All of your data will be
+                          Are you sure you want to delete your team account? All of your data will be
                           permanently removed from our servers forever. This action cannot be
                           undone.
                         </p>

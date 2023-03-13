@@ -57,7 +57,7 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
 }
 
 function Dashboard({ team }) {
-  const [errorText, setErrorText] = useState(null)
+  const [errorText, setErrorText] = useState('We are currently experiencing extreemely high traffic due to this app going viral. Our DB provider is working hard to try to scale up resources, so if you encounter errors please be patient and try again in a few minutes!')
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -146,7 +146,7 @@ function Dashboard({ team }) {
 
   return (
     <DashboardWrap page="Dashboard">
-      <Alert title={errorText} type="error" />
+      <Alert title={errorText} type="warning" />
       <UpgradeNotice team={team} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">

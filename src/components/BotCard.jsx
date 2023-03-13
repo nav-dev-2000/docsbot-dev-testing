@@ -40,32 +40,54 @@ export default function BotCard({ team, bot }) {
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
               <p className="text-xl font-bold text-gray-900 sm:text-2xl">{bot.name}</p>
               <p className="text-sm text-gray-600">{bot.description}</p>
-              <div className="mt-2 flex">
+              <div className="mt-2 md:space-x-2 flex-wrap md:flex">
                 <div className="sm:flex">
                   <PrivacyStatus bot={bot} />
                 </div>
-                <div className="ml-4 flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
                   <p>
-                    <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
+                    <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
                 </div>
                 <ModalPrompt team={team} bot={bot} />
               </div>
             </div>
           </div>
-          <div className="mt-4 flex justify-between sm:mt-0 lg:block">
-            <div className="flex flex-shrink-0 justify-center sm:justify-end">
-              <BadgeStatus status={bot.status} small={false} />
+          <div className="block">
+            <div className="justify-between flex lg:block mt-4 lg:mt-0">
+              <div className="flex flex-shrink-0 justify-start lg:justify-end">
+                <BadgeStatus status={bot.status} small={false} />
+              </div>
+              <div className="flex justify-end space-x-2 lg:mt-4">
+                <ModalChat team={team} bot={bot} />
+                <ModalAsk team={team} bot={bot} />
+              </div>
             </div>
-            <div className="flex justify-end space-x-2 sm:mt-5">
-              <ModalChat team={team} bot={bot} />
-              <ModalAsk team={team} bot={bot} />
-            </div>
-            <div className="flex justify-end space-x-4 sm:mt-1">
+            <div className="flex sm:justify-end justify-between space-x-4 mt-4 sm:mt-1">
+              <Link
+                target="_blank"
+                type="button"
+                className={classNames(
+                  bot.privacy === 'private' || bot.status !== 'ready'
+                    ? 'cursor-not-allowed opacity-50'
+                    : '',
+                  'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
+                )}
+                href={`/chat/${team.id}/${bot.id}`}
+                onClick={(e) => {
+                  if (bot.privacy === 'private' || bot.status !== 'ready') {
+                    e.preventDefault()
+                  }
+                }}
+                title="Sharable link"
+              >
+                <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                Chat
+              </Link>
               <Link
                 target="_blank"
                 type="button"
@@ -81,9 +103,10 @@ export default function BotCard({ team, bot }) {
                     e.preventDefault()
                   }
                 }}
+                title="Sharable link"
               >
                 <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                Share
+                Q/A
               </Link>
               <ModalAPI team={team} bot={bot} />
             </div>

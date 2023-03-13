@@ -21,7 +21,7 @@ import RobotIcon from '@/components/RobotIcon'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
-  const [errorText, setErrorText] = useState(null)
+  const [errorText, setErrorText] = useState('We are currently experiencing extreemely high traffic due to this app going viral. Our DB provider is working hard to try to scale up resources, so if you encounter errors please be patient and try again in a few minutes!')
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
 
@@ -84,7 +84,7 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                    <time dateTime={bot.createdAt}>{ts.toLocaleString()}</time>
+                    <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
@@ -132,7 +132,7 @@ function Bots({ preBots, team }) {
 
   return (
     <DashboardWrap page="Bots">
-      <Alert title={errorText} type="error" />
+      <Alert title={errorText} type="warning" />
 
       <BotDelete
         team={team}

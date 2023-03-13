@@ -5,6 +5,7 @@ import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { deleteSchema } from '@/lib/weaviate'
+import { stripePlan } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -47,6 +48,26 @@ export default async function handler(req, res) {
       }
 
       if (customPrompt !== undefined) {
+        //if setting not empty
+        if (customPrompt) {
+          //check if their plan allows custom prompts
+          if (stripePlan(team).bots < 10) {
+            return res.status(402).json({
+              message: 'Custom prompts are not available at your plan level.',
+            })
+          }
+
+          //track custom prompt
+          try {
+            bentoTrack(userId, 'track', {
+              type: 'addCustomPrompt',
+              botName: bot.name,
+            })
+          } catch (e) {
+            console.log('Error sending bento track', e)
+          }
+        }
+
         botData.customPrompt = customPrompt
       }
 
@@ -129,6 +150,7 @@ export default async function handler(req, res) {
       try {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
+          botName: bot.name,
         })
       } catch (e) {
         console.log('Error sending bento track', e)

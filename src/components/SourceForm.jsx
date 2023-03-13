@@ -247,6 +247,11 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                   Download an example PDF document
                 </a>
               )}
+              {selectedSourceType?.id === 'urls' && (
+                <a href="/urls-import-template.csv" download={true} className="underline">
+                  Download an example CSV urls file
+                </a>
+              )}
             </div>
             <div className="col">
               {selectedSourceType?.fieldUrl && (

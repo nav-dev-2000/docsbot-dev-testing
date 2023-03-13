@@ -8,6 +8,7 @@ import BotCard from '@/components/BotCard'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
+import SourceFailed from '@/components/SourceFailed'
 
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
@@ -93,6 +94,48 @@ function Bot({ team, preBot, preSources }) {
     
   }, [sources])
 
+  const deleteSource = async(id) => {
+    setErrorText('')
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setSources((prev) => prev.filter((source) => source.id !== id))
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText(response.statusText + ', please try again.')
+      }
+    }
+  }
+
+  const retrySource = async(id) => {
+    setErrorText('')
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setSources((prev) => prev.map((source) => source.id === id ? data : source))
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText(response.statusText + ', please try again.')
+      }
+    }
+  }
+
   if (!bot) return null
 
   return (
@@ -100,6 +143,7 @@ function Bot({ team, preBot, preSources }) {
       <Alert title={errorText} type="error" />
 
       <BotCard team={team} bot={bot} />
+      <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
       <SourceGrid {...{ sources }} />
 

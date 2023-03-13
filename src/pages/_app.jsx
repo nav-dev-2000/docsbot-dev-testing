@@ -5,7 +5,6 @@ import Script from 'next/script'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter, Router } from 'next/router'
-import Cookies from 'js-cookie'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
@@ -39,19 +38,20 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
 
   useEffect(() => {
     if (user && Beacon !== undefined) {
-      Beacon('identify', {
-        name: user.displayName,
+      const ident = {
         email: user.email,
-      })
+      }
+      if (user.displayName) {
+        ident.name = user.displayName
+      }
+      Beacon('identify', ident)
     }
   }, [user])
 
   return (
     <>
       <Head>
-        <title key="title">
-          DocsBot AI - Custom chatbots and content generation from your documentation
-        </title>
+        <title key="title">DocsBot AI - Custom chatbots and content generation from your documentation</title>
         <meta
           name="description"
           content="Custom ChatGPT bots trained on your documentation and content."

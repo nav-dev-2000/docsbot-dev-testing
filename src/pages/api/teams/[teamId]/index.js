@@ -1,5 +1,6 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
+import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
