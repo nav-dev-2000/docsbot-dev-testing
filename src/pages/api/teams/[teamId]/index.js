@@ -39,6 +39,7 @@ export default async function handler(req, res) {
         'base64'
       )
       newTeam.openAIKey = encrypted
+      newTeam.openAIKeyPreview = openAIKey.substring(0, 4) + '...' + openAIKey.substring(44, 48)
     }
 
     try {
