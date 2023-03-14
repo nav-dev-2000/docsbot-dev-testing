@@ -15,6 +15,7 @@ function Bot({ team, preBot, preSources }) {
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
+  const [open, setOpen] = useState(team.openAIKey ? false : true)
   const router = useRouter()
   const { botId } = router.query
 
@@ -149,7 +150,7 @@ function Bot({ team, preBot, preSources }) {
 
       <SourceForm {...{ team, bot, sources, setSources }} />
 
-      <ModalOpenAI {...{ team }} />
+      <ModalOpenAI {...{team, open, setOpen}} />
     </DashboardWrap>
   )
 }

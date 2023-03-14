@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   ArrowTopRightOnSquareIcon,
@@ -9,8 +9,8 @@ import Image from 'next/image'
 import Alert from '@/components/Alert'
 import openAILogo from '@/images/openai-logo.svg'
 
-export default function ModalOpenAI({ team }) {
-  const [open, setOpen] = useState(team.openAIKey ? false : true)
+export default function ModalOpenAI({ team, open, setOpen }) {
+  //const [open, setOpen] = useState(team.openAIKey ? false : true)
 
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
