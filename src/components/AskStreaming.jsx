@@ -252,7 +252,7 @@ export default function AskStreaming({ teamId, bot }) {
               <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>
               <ul className="mt-4 ml-6 list-disc text-left">
                 <li className="text-md text-gray-500">
-                  Ask me full questions, I'm not a search engine!"
+                  Ask me full questions, I'm not a search engine!
                 </li>
                 <li className="text-md text-gray-500">
                   Tell me how to respond, like "with code examples", "as a list", or "as a table".
