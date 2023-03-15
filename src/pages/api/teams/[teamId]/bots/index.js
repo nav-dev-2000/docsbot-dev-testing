@@ -23,8 +23,6 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
-    return res.status(503).send({ message: 'We are undergoing temporary maintenance and bot creation is disabled. Please try again in about 1 hour.' })
-
     //check plan credits
     if (stripePlan(team).bots <= team.botCount) {
       return res.status(402).json({
