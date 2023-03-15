@@ -22,7 +22,7 @@
             "headers": [
                 {
                     "key": "X-Frame-Options",
-                    "value": "ALLOW"
+                    "value": "ALLOWALL"
                 }
             ]
         }

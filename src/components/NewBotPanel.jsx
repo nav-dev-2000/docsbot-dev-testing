@@ -58,7 +58,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again. Please be patient our DB provider is trying to scale to meet demand.')
+        setErrorText('Error ' + response.status + ' creating bot, please try again later. Please be patient while our DB provider is trying to scale to meet the extreme demand.')
       }
       setIsUpdating(false)
     }
