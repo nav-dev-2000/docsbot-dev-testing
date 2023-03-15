@@ -13,7 +13,7 @@ import SourceFailed from '@/components/SourceFailed'
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
   const [bot, setBot] = useState(preBot)
-  const [errorText, setErrorText] = useState(null)
+  const [errorText, setErrorText] = useState("With the recent announcement of GPT-4, OpenAI's API has been experiencing high demand and may sometimes cause slow chat responses or timeouts. Please be patient while they scale up their infrastructure.")
   const [isProcessing, setIsProcessing] = useState(true)
   const [open, setOpen] = useState(team.openAIKey ? false : true)
   const router = useRouter()
@@ -141,7 +141,7 @@ function Bot({ team, preBot, preSources }) {
 
   return (
     <DashboardWrap page="Bots" title={bot.name}>
-      <Alert title={errorText} type="error" />
+      <Alert title={errorText} type="warning" />
 
       <BotCard team={team} bot={bot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />

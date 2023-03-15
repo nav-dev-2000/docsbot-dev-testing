@@ -75,12 +75,7 @@ export default async function handler(req, res) {
           batch.delete(doc.ref)
         })
         // Commit the batch
-        await batch.commit()
-
-        //delete schema in weaviate
-        if (doc.indexId) {
-          await deleteSchema(doc.indexId)
-        }
+        batch.commit()
 
         // Delete all questions for bot
         const questionsSnapshot = await firestore
@@ -97,11 +92,22 @@ export default async function handler(req, res) {
           questionsBatch.delete(doc.ref)
         })
         // Commit the batch
-        await questionsBatch.commit()
+        questionsBatch.commit()
+
+
+        //delete schema in weaviate
+        if (doc.indexId) {
+          try {
+            deleteSchema(doc.indexId)
+          } catch (error) {
+            console.warn('Error deleting Weaviate Schema:', error)
+          }
+        }
+
       })
 
       // Commit the batch
-      await botBatch.commit()
+      botBatch.commit()
 
       //delete all team data from bucket
       const bucket = getStorage().bucket('gs://docsbotai.appspot.com')

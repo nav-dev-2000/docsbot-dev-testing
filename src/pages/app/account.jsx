@@ -39,14 +39,7 @@ function Account({ team }) {
       stat: stripePlan(team).bots,
     },
     {
-      name: 'Source Limit',
-      href: false,
-      linkText: 'Get more',
-      icon: DocumentTextIcon,
-      stat: stripePlan(team).sources,
-    },
-    {
-      name: 'Page Limit',
+      name: 'Source Page Limit',
       href: false,
       linkText: 'Get more',
       icon: Square3Stack3DIcon,
@@ -65,7 +58,7 @@ function Account({ team }) {
     <DashboardWrap page="Account">
       <Alert title={errorText} type="error" />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {/* Card */}
         {cards.map((card) => (
           <div key={card.name} className="overflow-hidden rounded-lg bg-white shadow">

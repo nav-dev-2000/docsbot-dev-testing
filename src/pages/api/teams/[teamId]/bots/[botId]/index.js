@@ -5,7 +5,7 @@ import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { deleteSchema } from '@/lib/weaviate'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         //if setting not empty
         if (customPrompt) {
           //check if their plan allows custom prompts
-          if (stripePlan(team).bots < 10) {
+          if (stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
             return res.status(402).json({
               message: 'Custom prompts are not available at your plan level.',
             })
@@ -79,6 +79,7 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'DELETE') {
     const bot = await getBot(team.id, botId)
+
     //delete bot from db
     try {
       // Delete all sources for bot
@@ -97,11 +98,6 @@ export default async function handler(req, res) {
       })
       // Commit the batch
       await batch.commit()
-
-      //delete schema in weaviate
-      if (bot.indexId) {
-        await deleteSchema(bot.indexId)
-      }
 
       // Delete all questions for bot
       const questionsSnapshot = await firestore
@@ -146,6 +142,15 @@ export default async function handler(req, res) {
       //delete all bot data from bucket
       const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
       await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
+
+      //delete schema in weaviate
+      if (bot.indexId) {
+        try {
+          await deleteSchema(bot.indexId)
+        } catch (error) {
+          console.warn('Error deleting Weaviate Schema:', error)
+        }
+      }
 
       try {
         bentoTrack(userId, 'track', {

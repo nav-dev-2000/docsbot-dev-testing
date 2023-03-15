@@ -21,7 +21,7 @@ import RobotIcon from '@/components/RobotIcon'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
-  const [errorText, setErrorText] = useState('We are currently experiencing extreemely high traffic due to this app going viral. Our DB provider is working hard to try to scale up resources, so if you encounter errors please be patient and try again in a few minutes!')
+  const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
   const [keyOpen, setKeyOpen] = useState(team.openAIKey ? false : true)

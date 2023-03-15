@@ -57,7 +57,7 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
 }
 
 function Dashboard({ team }) {
-  const [errorText, setErrorText] = useState('We are currently experiencing extreemely high traffic due to this app going viral. Our DB provider is working hard to try to scale up resources, so if you encounter errors please be patient and try again in a few minutes!')
+  const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -81,7 +81,6 @@ function Dashboard({ team }) {
       linkText: 'Get more',
       icon: DocumentTextIcon,
       stat: team?.sourceCount || 0,
-      limit: stripePlan(team).sources,
     },
     {
       name: 'Source Pages',

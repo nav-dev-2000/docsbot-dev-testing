@@ -1,11 +1,12 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CommandLineIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import Alert from '@/components/Alert'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 export default function ModalPrompt({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -13,12 +14,13 @@ export default function ModalPrompt({ team, bot }) {
   const [isUpdating, setIsUpdating] = useState(false)
   const [prompt, setPrompt] = useState(bot.customPrompt || '')
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [user] = useAuthState(auth)
 
   async function updatePrompt() {
     setErrorText('')
 
     //show upgrade modal if they are not pro and doing anything other than erasing the prompt
-    if (prompt && stripePlan(team).bots < 10) {
+    if (prompt && stripePlan(team).bots < 10 && !isSuperAdmin(user.uid)) {
       setShowUpgrade(true)
       return
     }
