@@ -55,12 +55,12 @@ export default function ModalPrompt({ team, bot }) {
   return (
     <>
       <button
-        className="flex items-center text-sm text-gray-500 hover:text-gray-700"
+        className="flex items-center text-sm text-gray-600 hover:text-gray-800"
         title="Customize prompt"
         onClick={() => setOpen(true)}
       >
         <CommandLineIcon
-          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+          className="mr-1 h-4 w-4 flex-shrink-0"
           aria-hidden="true"
         />
         {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}

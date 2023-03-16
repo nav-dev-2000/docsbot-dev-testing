@@ -4,8 +4,7 @@ import {
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
   PaperClipIcon,
-  CommandLineIcon,
-  PencilIcon,
+  LanguageIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -41,18 +40,25 @@ export default function BotCard({ team, bot }) {
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
               <p className="text-xl font-bold text-gray-900 sm:text-2xl">{bot.name}</p>
               <p className="text-sm text-gray-600">{bot.description}</p>
-              <div className="mt-2 md:space-x-2 flex-wrap md:flex">
+              <div className="mt-2 flex-wrap md:flex md:space-x-3">
                 <div className="sm:flex">
                   <PrivacyStatus bot={bot} />
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <CalendarIcon
-                    className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+                    className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
                   <p>
                     <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
+                </div>
+                <div className="flex items-center text-sm text-gray-500">
+                  <LanguageIcon
+                    className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  {bot.language === 'jp' ? <p>Japanese</p> : <p>English</p>}
                 </div>
                 <ModalPrompt team={team} bot={bot} />
                 <ModalBotEdit team={team} bot={bot} />
@@ -60,7 +66,7 @@ export default function BotCard({ team, bot }) {
             </div>
           </div>
           <div className="block">
-            <div className="justify-between flex lg:block mt-4 lg:mt-0">
+            <div className="mt-4 flex justify-between lg:mt-0 lg:block">
               <div className="flex flex-shrink-0 justify-start lg:justify-end">
                 <BadgeStatus status={bot.status} small={false} />
               </div>
@@ -69,7 +75,7 @@ export default function BotCard({ team, bot }) {
                 <ModalAsk team={team} bot={bot} />
               </div>
             </div>
-            <div className="flex sm:justify-end justify-between space-x-4 mt-4 sm:mt-1">
+            <div className="mt-4 flex justify-between space-x-4 sm:mt-1 sm:justify-end">
               <Link
                 target="_blank"
                 type="button"
