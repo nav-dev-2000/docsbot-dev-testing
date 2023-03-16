@@ -66,33 +66,33 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
         .collection('sources')
         .doc(doc.id)
         .update({ status: source.status, error: source.error })
-        //decrement botCounts on team
-        firestore.runTransaction(async (transaction) => {
-          const teamRef = firestore.collection('teams').doc(teamId)
-          const sfDoc = await transaction.get(teamRef)
-          if (!sfDoc.exists) {
-            throw 'Team does not exist!'
-          }
+      //decrement botCounts on team
+      firestore.runTransaction(async (transaction) => {
+        const teamRef = firestore.collection('teams').doc(teamId)
+        const sfDoc = await transaction.get(teamRef)
+        if (!sfDoc.exists) {
+          throw 'Team does not exist!'
+        }
 
-          const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
-          transaction.update(teamRef, {
-            sourceCount: newSourceCount,
-          })
+        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
+        transaction.update(teamRef, {
+          sourceCount: newSourceCount,
         })
+      })
 
-        //increment source counts on bot
-        firestore.runTransaction(async (transaction) => {
-          const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(bot.id)
-          const sfDoc = await transaction.get(botRef)
-          if (!sfDoc.exists) {
-            throw 'Bot does not exist!'
-          }
+      //increment source counts on bot
+      firestore.runTransaction(async (transaction) => {
+        const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(bot.id)
+        const sfDoc = await transaction.get(botRef)
+        if (!sfDoc.exists) {
+          throw 'Bot does not exist!'
+        }
 
-          const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
-          transaction.update(botRef, {
-            sourceCount: newSourceCount,
-          })
+        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
+        transaction.update(botRef, {
+          sourceCount: newSourceCount,
         })
+      })
     }
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
     sources.push(source)
@@ -124,6 +124,13 @@ export async function getTeam(teamId) {
   if (teamRef.exists) {
     let team = { id: teamRef.id, ...teamRef.data() }
     team.createdAt = team.createdAt.toDate().toJSON() //make serializable
+
+    //use preview key if available otherwise use fake one or null
+    team.openAIKey = team.openAIKey
+      ? team.openAIKeyPreview
+        ? team.openAIKeyPreview
+        : 'sk-*...****'
+      : null
     return team
   } else {
     return null
@@ -141,6 +148,12 @@ export async function getTeams(userId) {
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
+      //use preview key if available otherwise use fake one or null
+      team.openAIKey = team.openAIKey
+        ? team.openAIKeyPreview
+          ? team.openAIKeyPreview
+          : 'sk-*...****'
+        : null
       teams.push(team)
     })
   } catch (error) {

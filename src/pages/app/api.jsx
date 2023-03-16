@@ -22,12 +22,6 @@ function Api({ team }) {
     openRef.current = open
   }, [open])
 
-  const key = team.openAIKeyPreview
-    ? team.openAIKeyPreview
-    : team.openAIKey
-    ? 'sk-***************************'
-    : ''
-
   return (
     <DashboardWrap page="API">
       <Alert title={errorText} type="error" />
@@ -40,7 +34,7 @@ function Api({ team }) {
         </p>
         <div className="mt-4 flex justify-between">
           <div className="mt-4 flex items-center justify-start">
-            <pre className="">{key}</pre>
+            <pre className="">{team.openAIKey}</pre>
             <a
               type="button"
               className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"

@@ -232,11 +232,7 @@ const webhookHandler = async (req, res) => {
             )
 
             //get new team data
-            let newTeam = null
-            const teamsRef3 = await firestore.collection('teams').doc(team.id).get()
-            if (!teamsRef3.empty) {
-              newTeam = { id: teamsRef3.id, ...teamsRef3.data() }
-            }
+            const newTeam = await getTeam(team.id)
 
             try {
               bentoTrack(teamOwner(newTeam), 'trackPurchase', {

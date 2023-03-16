@@ -15,11 +15,8 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
 
     if (userRef.exists && currentTeam) {
       //check if user has access to team
-      const teamRef = await getFirestore().collection('teams').doc(currentTeam).get()
-      if (teamRef.exists && (teamRef.data().roles[uid] || isSuperAdmin(uid))) {
-        let team = { id: currentTeam, ...teamRef.data() }
-        team.createdAt = team.createdAt.toDate().toJSON() //make serializable
-
+      const team = await getTeam(currentTeam)
+      if (team && (team.roles[uid] || isSuperAdmin(uid))) {
         return {
           props: {
             team,
