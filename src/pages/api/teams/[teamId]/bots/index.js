@@ -31,7 +31,7 @@ router.post(async (req, res) => {
     }
 
     //data validation
-    let { name, description, privacy } = req.body
+    let { name, description, privacy, language } = req.body
 
     name = name.trim()
     if (!name) {
@@ -42,6 +42,11 @@ router.post(async (req, res) => {
 
     if (privacy !== 'public' && privacy !== 'private') {
       return res.status(400).send({ message: 'Invalid param "privacy".' })
+    }
+
+    const languages = ['en', 'jp']
+    if (!languages.includes(language)) {
+      return res.status(400).send({ message: 'Invalid param "language".' })
     }
 
     //create classname with a random string
@@ -56,6 +61,7 @@ router.post(async (req, res) => {
       name,
       description,
       privacy,
+      language,
       status: 'pending',
       indexId: indexId,
       sourceCount: 0,
