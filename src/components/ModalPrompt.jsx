@@ -46,7 +46,7 @@ export default function ModalPrompt({ team, bot }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
       setIsUpdating(false)
     }

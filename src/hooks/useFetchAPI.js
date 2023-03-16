@@ -23,7 +23,7 @@ export function useFetchAPI({ urlParams, onComplete = noop, onError = noop, skip
           const data = await response.json()
           onError(data.message || 'Something went wrong, please try again.')
         } catch (e) {
-          onError(response.statusText + ', please try again.')
+          onError('Error ' + response.status + ', please try again.')
         }
       }
     }

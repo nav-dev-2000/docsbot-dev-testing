@@ -12,7 +12,7 @@ import SourceFailed from '@/components/SourceFailed'
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
   const [bot, setBot] = useState(preBot)
-  const [errorText, setErrorText] = useState("With the recent announcement of GPT-4, OpenAI's API has been experiencing high demand and may sometimes cause slow chat responses or timeouts. Please be patient while they scale up their infrastructure.")
+  const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
   const router = useRouter()
   const { botId } = router.query
@@ -36,7 +36,7 @@ function Bot({ team, preBot, preSources }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
     }
   }
@@ -59,7 +59,7 @@ function Bot({ team, preBot, preSources }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
     }
   }
@@ -109,7 +109,7 @@ function Bot({ team, preBot, preSources }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
     }
   }
@@ -130,7 +130,7 @@ function Bot({ team, preBot, preSources }) {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
     }
   }
@@ -139,6 +139,7 @@ function Bot({ team, preBot, preSources }) {
 
   return (
     <DashboardWrap page="Bots" title={bot.name}>
+      <Alert title="With the recent announcement of GPT-4, OpenAI's API has been experiencing high demand and may sometimes cause slow chat responses or timeouts. Please be patient while they scale up their infrastructure." type="info" />
       <Alert title={errorText} type="warning" />
 
       <BotCard team={team} bot={bot} />

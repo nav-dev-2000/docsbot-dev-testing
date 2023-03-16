@@ -25,7 +25,7 @@ export default function BotDelete({ team, bot, setToDelete, setErrorText, bots, 
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText(response.statusText + ', please try again.')
+        setErrorText('Error ' + response.status + ', please try again.')
       }
       setSubmitting(false)
     }
