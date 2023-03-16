@@ -49,11 +49,8 @@ export default function ModalPrompt({ team, bot }) {
         title="Customize prompt"
         onClick={() => setOpen(true)}
       >
-        <LanguageIcon
-          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
-          aria-hidden="true"
-        />
-        
+        <LanguageIcon className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
+
         {bot.language === 'jp' ? <p>Japanese</p> : <p>English</p>}
       </button>
       <Transition.Root show={open} as={Fragment}>
@@ -107,63 +104,62 @@ export default function ModalPrompt({ team, bot }) {
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
                       <p className="text-md text-gray-700">
-                        Change the language of internal prompts to reply in the language of your choice.
+                        Change the language of internal prompts to reply in the language of your
+                        choice.
                       </p>
-                      
+
                       <div className="mt-4 text-left">
-                      <fieldset>
-                                <legend className="text-sm font-medium text-gray-900">
-                                  Language
-                                </legend>
-                                <div className="mt-2 space-y-2">
-                                  <div className="relative flex items-start">
-                                    <div className="absolute flex h-5 items-center">
-                                      <input
-                                        id="language-english"
-                                        name="language"
-                                        value="en"
-                                        type="radio"
-                                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                        checked={language === 'en'}
-                                        onChange={() => setLanguage('en')}
-                                        disabled={isUpdating}
-                                      />
-                                    </div>
-                                    <div className="pl-7 text-sm">
-                                      <label
-                                        htmlFor="language-english"
-                                        className="font-medium text-gray-900"
-                                      >
-                                        English
-                                      </label>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <div className="relative flex items-start">
-                                      <div className="absolute flex h-5 items-center">
-                                        <input
-                                          id="language-japanese"
-                                          name="language"
-                                          value="jp"
-                                          type="radio"
-                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          checked={language === 'jp'}
-                                          onChange={() => setLanguage('jp')}
-                                          disabled={isUpdating}
-                                        />
-                                      </div>
-                                      <div className="pl-7 text-sm">
-                                        <label
-                                          htmlFor="language-japanese"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          Japanese (日本語)
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
+                        <fieldset>
+                          <legend className="text-sm font-medium text-gray-900">Language</legend>
+                          <div className="mt-2 space-y-2">
+                            <div className="relative flex items-start">
+                              <div className="absolute flex h-5 items-center">
+                                <input
+                                  id="language-english"
+                                  name="language"
+                                  value="en"
+                                  type="radio"
+                                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                                  checked={language === 'en'}
+                                  onChange={() => setLanguage('en')}
+                                  disabled={isUpdating}
+                                />
+                              </div>
+                              <div className="pl-7 text-sm">
+                                <label
+                                  htmlFor="language-english"
+                                  className="font-medium text-gray-900"
+                                >
+                                  English
+                                </label>
+                              </div>
+                            </div>
+                            <div>
+                              <div className="relative flex items-start">
+                                <div className="absolute flex h-5 items-center">
+                                  <input
+                                    id="language-japanese"
+                                    name="language"
+                                    value="jp"
+                                    type="radio"
+                                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                                    checked={language === 'jp'}
+                                    onChange={() => setLanguage('jp')}
+                                    disabled={isUpdating}
+                                  />
                                 </div>
-                              </fieldset>
+                                <div className="pl-7 text-sm">
+                                  <label
+                                    htmlFor="language-japanese"
+                                    className="font-medium text-gray-900"
+                                  >
+                                    Japanese (日本語)
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
                       </div>
                       <div className="mt-5 flex justify-end sm:mt-6">
                         <button

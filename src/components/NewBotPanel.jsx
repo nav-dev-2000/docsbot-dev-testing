@@ -6,6 +6,7 @@ import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalOpenAI from '@/components/ModalOpenAI'
 
 export default function NewBotPanel({ team, open, setOpen }) {
   const [botName, setBotName] = useState('')
@@ -15,12 +16,17 @@ export default function NewBotPanel({ team, open, setOpen }) {
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [showOpenAI, setShowOpenAI] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
     if (open && stripePlan(team).bots <= team.botCount) {
       setOpen(false)
       setShowUpgrade(true)
+    }
+    if (open && !team.openAIKey) {
+      setOpen(false)
+      setShowOpenAI(true)
     }
   }, [open])
 
@@ -69,6 +75,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <div className="fixed inset-0" />

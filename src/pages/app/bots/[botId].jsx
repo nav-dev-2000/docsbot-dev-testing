@@ -5,7 +5,6 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot, getSources } from '@/lib/dbQueries'
 import BotCard from '@/components/BotCard'
-import ModalOpenAI from '@/components/ModalOpenAI'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
@@ -15,7 +14,6 @@ function Bot({ team, preBot, preSources }) {
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState("With the recent announcement of GPT-4, OpenAI's API has been experiencing high demand and may sometimes cause slow chat responses or timeouts. Please be patient while they scale up their infrastructure.")
   const [isProcessing, setIsProcessing] = useState(true)
-  const [open, setOpen] = useState(team.openAIKey ? false : true)
   const router = useRouter()
   const { botId } = router.query
 
@@ -149,8 +147,6 @@ function Bot({ team, preBot, preSources }) {
       <SourceGrid {...{ sources }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
-
-      <ModalOpenAI {...{team, open, setOpen}} />
     </DashboardWrap>
   )
 }

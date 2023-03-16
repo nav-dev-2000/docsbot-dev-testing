@@ -30,6 +30,13 @@ router.post(async (req, res) => {
       })
     }
 
+    //must have an openai key
+    if (!team.openAIKey) {
+      return res.status(402).json({
+        message: 'Please add an OpenAI key to create bots.',
+      })
+    }
+
     //data validation
     let { name, description, privacy, language } = req.body
 

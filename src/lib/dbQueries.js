@@ -131,6 +131,7 @@ export async function getTeam(teamId) {
         ? team.openAIKeyPreview
         : 'sk-*...****'
       : null
+    delete team.openAIKeyPreview
     return team
   } else {
     return null
@@ -154,6 +155,7 @@ export async function getTeams(userId) {
           ? team.openAIKeyPreview
           : 'sk-*...****'
         : null
+      delete team.openAIKeyPreview
       teams.push(team)
     })
   } catch (error) {
