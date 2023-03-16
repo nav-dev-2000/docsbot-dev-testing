@@ -16,6 +16,7 @@ import Link from 'next/link'
 import classNames from '@/utils/classNames'
 import RobotIcon from '@/components/RobotIcon'
 import ModalPrompt from '@/components/ModalPrompt'
+import ModalBotEdit from '@/components/ModalBotEdit'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -54,6 +55,7 @@ export default function BotCard({ team, bot }) {
                   </p>
                 </div>
                 <ModalPrompt team={team} bot={bot} />
+                <ModalBotEdit team={team} bot={bot} />
               </div>
             </div>
           </div>

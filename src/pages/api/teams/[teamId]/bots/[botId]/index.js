@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Bot not found' })
       }
 
-      const { name, description, customPrompt, privacy } = req.body
+      const { name, description, customPrompt, privacy, language } = req.body
       const botData = {}
 
       if (name) {
@@ -69,6 +69,15 @@ export default async function handler(req, res) {
         }
 
         botData.customPrompt = customPrompt
+      }
+
+      if (language) {
+        const languages = ['en', 'jp']
+        if (!languages.includes(language)) {
+          return res.status(400).send({ message: 'Invalid param "language".' })
+        } else {
+          botData.language = language
+        }
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
