@@ -20,6 +20,8 @@ export default function BotDelete({ team, bot, setToDelete, setErrorText, bots, 
       setBots(bots.filter((bot) => bot.id !== deleting))
       setToDelete(null)
       setSubmitting(false)
+      //reload page
+      window.location.reload()
     } else {
       try {
         const data = await response.json()

@@ -8,6 +8,7 @@ import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
+import { getSchema } from '@/lib/weaviate'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -49,6 +50,14 @@ export default async function handler(req, res) {
       return res.status(402).json({
         message: 'Please set your OpenAI API key to be able to train a bot.',
       })
+    }
+
+    //check that the schema is created in weaviate
+    try {
+      const test = await getSchema(bot.indexId)
+    } catch (error) {
+      console.warn('Error getting weaviate schema:', error)
+      return res.status(409).json({ message: 'Whoops, your bot is not quite ready to train. Try again in a minute or two, or if it has been a while delete and recreate this bot.' })
     }
 
     //data validation

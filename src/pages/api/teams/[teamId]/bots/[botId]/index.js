@@ -153,10 +153,10 @@ export default async function handler(req, res) {
       const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
       await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
 
-      //delete schema in weaviate
+      //delete schema in weaviate async
       if (bot.indexId) {
         try {
-          await deleteSchema(bot.indexId)
+          deleteSchema(bot.indexId)
         } catch (error) {
           console.warn('Error deleting Weaviate Schema:', error)
         }

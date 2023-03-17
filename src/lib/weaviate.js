@@ -77,6 +77,11 @@ export const createSchema = (indexId) => {
     .do()
 }
 
+export const getSchema = (indexId) => {
+  //get a weaviate schema for the bot
+  return weaviateClient.schema.classGetter().withClassName(indexId).do()
+}
+
 export const deleteSchema = (indexId) => {
   //delete a weaviate schema for the bot
   return weaviateClient.schema.classDeleter().withClassName(indexId).do()
