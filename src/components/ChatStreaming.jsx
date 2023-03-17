@@ -30,7 +30,9 @@ export default function Chat({ teamId, bot }) {
 
   //clear error text when question changes
   useEffect(() => {
-    setErrorText(null)
+    if (question) {
+      setErrorText(null)
+    }
   }, [question])
 
   //convert markdown to html when answer changes or is appended to
@@ -93,18 +95,33 @@ export default function Chat({ teamId, bot }) {
     ws.onerror = function (event) {
       console.log('error', event)
       setErrorText('There was a connection error. Please try again.')
+      //strip all empty answers
+      if (answers.length > 0) {
+        setAnswers((prev) => {
+          return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+        })
+      }
       setLoading(false)
       setLoadingMessage(null)
     }
 
     ws.onclose = function (event) {
-      setLoading(false)
-      setLoadingMessage(null)
+      if (!event.wasClean) {
+        setErrorText('Network error, please try again.')
+        //strip all empty answers
+        if (answers.length > 0) {
+          setAnswers((prev) => {
+            return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+          })
+        }
+        setLoading(false)
+        setLoadingMessage(null)
+      }
     }
 
     // Receive message from server word by word. Display the words as they are received.
     ws.onmessage = function (event) {
-      let data = JSON.parse(event.data)
+      const data = JSON.parse(event.data)
       if (data.sender === 'bot') {
         if (data.type === 'start') {
           setLoadingMessage('Checking my sources...')
@@ -121,12 +138,12 @@ export default function Chat({ teamId, bot }) {
         } else if (data.type === 'info') {
           setLoadingMessage(data.message)
         } else if (data.type === 'end') {
-          data = JSON.parse(data.message)
-          setChatHistory(data.history)
-          setCurrentAnswer(data.answer)
+          const endData = JSON.parse(data.message)
+          setChatHistory(endData.history)
+          setCurrentAnswer(endData.answer)
           setAnswers((prev) => {
-            prev[prev.length - 1].sources = data.sources
-            prev[prev.length - 1].id = data.id
+            prev[prev.length - 1].sources = endData.sources
+            prev[prev.length - 1].id = endData.id
             return prev
           })
           setLoading(false)
@@ -134,6 +151,12 @@ export default function Chat({ teamId, bot }) {
           ws.close()
         } else if (data.type === 'error') {
           setErrorText(data.message)
+          //strip all empty answers
+          if (answers.length > 0) {
+            setAnswers((prev) => {
+              return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+            })
+          }
           setLoading(false)
           setLoadingMessage(null)
           ws.close()
@@ -227,17 +250,7 @@ export default function Chat({ teamId, bot }) {
   }
 
   const ChatRow = ({ answer }) => {
-    const myRef = useRef(null)
 
-    // run this function from an event handler or an effect to execute scroll
-    const executeScroll = () => myRef.current.scrollIntoView()
-
-    useEffect(() => {
-      if (answer.type === 'answer' && answer.id) {
-        //executeScroll()
-      }
-    }, [answer])
-    
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
@@ -254,7 +267,6 @@ export default function Chat({ teamId, bot }) {
         <div
           className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg"
           id={answer.id || null}
-          ref={myRef}
         >
           <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
@@ -344,8 +356,10 @@ export default function Chat({ teamId, bot }) {
           <form
             className="mt-10 flex justify-center"
             onSubmit={(e) => {
-              askQuestion()
               e.preventDefault()
+              if (!loading) {
+                askQuestion()
+              }
             }}
             disabled={loading}
           >
@@ -360,15 +374,9 @@ export default function Chat({ teamId, bot }) {
                   minLength={10}
                   required
                   onChange={(e) => setQuestion(e.target.value)}
-                  onKeyDown={(e) => {
-                    //submit on enter
-                    if (e.key === 'Enter') {
-                      askQuestion()
-                    }
-                  }}
                   tabIndex={1}
                   autoComplete="off"
-                  className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
+                  className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white disabled:opacity-50 sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
                   placeholder={answers.length ? '' : 'What can I help you with?'}
                 />
 

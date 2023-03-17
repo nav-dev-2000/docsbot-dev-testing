@@ -25,7 +25,9 @@ export default function AskStreaming({ teamId, bot }) {
 
   //clear error text when question changes
   useEffect(() => {
-    setErrorText(null)
+    if (question) {
+      setErrorText(null)
+    }
   }, [question])
 
   //convert markdown to html when answer changes or is appended to
@@ -67,6 +69,21 @@ export default function AskStreaming({ teamId, bot }) {
     ws.onopen = function (event) {
       setLoadingMessage('Thinking...')
       ws.send(JSON.stringify(data))
+    }
+
+    ws.onerror = function (event) {
+      console.log('error', event)
+      setErrorText('There was a connection error. Please try again.')
+      setLoading(false)
+      setLoadingMessage(null)
+    }
+    
+    ws.onclose = function (event) {
+      if (!event.wasClean) {
+        setErrorText('Network error, please try again.')
+        setLoading(false)
+        setLoadingMessage(null)
+      }
     }
 
     // Receive message from server word by word. Display the words as they are received.
