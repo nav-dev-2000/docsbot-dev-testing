@@ -2,10 +2,11 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { isSuperAdmin } from '@/utils/helpers'
+import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import crypto from 'crypto'
 import { deleteSchema } from '@/lib/weaviate'
+
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -15,7 +16,7 @@ export default async function handler(req, res) {
   try {
     check = await userTeamCheck(req, res)
   } catch (error) {
-    return res.status(500).json({ message: error?.message })
+    return res.status(403).json({ message: error?.message })
   }
   const { userId, team } = check
 
@@ -129,7 +130,17 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {
-    return res.json(team)
+    const filteredTeam = { ...team }
+    //delete sensitive data keys starting with stripe
+    Object.keys(filteredTeam).forEach((key) => {
+      if (key.startsWith('stripe')) {
+        delete filteredTeam[key]
+      }
+    })
+    //add stripe plan
+    filteredTeam.plan = stripePlan(team)
+
+    return res.json(filteredTeam)
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

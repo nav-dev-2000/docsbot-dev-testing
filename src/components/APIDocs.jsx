@@ -47,7 +47,6 @@ export default function APIDocs({ team, bot }) {
 
   return (
     <div className="prose w-full max-w-full p-6">
-      <h2 className="text-xl font-medium text-gray-900">API Integration</h2>
       <p>For Question / Answer bots, use the following endpoint:</p>
       <p>
         <code>

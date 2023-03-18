@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const { uid } = await getAuthorizedUser(context)
     userId = uid
   } catch (error) {
-    return res.status(401).json({ message: error?.message })
+    return res.status(403).json({ message: error?.message })
   }
 
   if (req.method === 'GET') {

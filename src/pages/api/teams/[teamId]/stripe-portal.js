@@ -8,7 +8,7 @@ export default async function createCheckoutSession(req, res) {
   try {
     check = await userTeamCheck(req)
   } catch (error) {
-    return res.status(500).json({ message: error?.message })
+    return res.status(403).json({ message: error?.message })
   }
   const { userId, team } = check
 

@@ -1,6 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
+import { stripePlan } from '@/utils/helpers'
 import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -119,6 +120,19 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
+export async function getUser(userId) {
+  const userRef = await firestore.collection('users').doc(userId).get()
+  if (userRef.exists) {
+    let user = { id: userRef.id, ...userRef.data() }
+    user.createdAt = user.createdAt.toDate().toJSON() //make serializable
+    user.apiKey = user.apiKey ? user.apiKeyPreview : null
+    delete user.apiKeyPreview
+    return user
+  } else {
+    return null
+  }
+}
+
 export async function getTeam(teamId) {
   const teamRef = await firestore.collection('teams').doc(teamId).get()
   if (teamRef.exists) {
@@ -156,6 +170,16 @@ export async function getTeams(userId) {
           : 'sk-*...****'
         : null
       delete team.openAIKeyPreview
+
+      //delete sensitive data keys starting with stripe
+      Object.keys(team).forEach((key) => {
+        if (key.startsWith('stripe')) {
+          delete team[key]
+        }
+      })
+      //add stripe plan
+      team.plan = stripePlan(team)
+
       teams.push(team)
     })
   } catch (error) {

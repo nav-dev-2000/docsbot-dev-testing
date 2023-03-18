@@ -1,17 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
-import { PencilIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, ArrowRightCircleIcon, PencilIcon } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
+import { getUser } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import openAILogo from '@/images/openai-logo.svg'
 import APIDocs from '@/components/APIDocs'
 
-function Api({ team }) {
+function Api({ user, team }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(team.openAIKey ? false : true)
+  const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
+  const [copyMessage, setCopyMessage] = useState(null)
 
   const openRef = useRef(open)
   useEffect(() => {
@@ -20,6 +23,33 @@ function Api({ team }) {
     }
     openRef.current = open
   }, [open])
+
+  async function updateKey() {
+    setErrorText('')
+
+    const urlParams = ['users', user.id]
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ apiKey: true }),
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setApiKey(data.apiKey)
+      setCopyMessage('Copy this key now, you will not be able to view it again.')
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
 
   return (
     <DashboardWrap page="API">
@@ -31,8 +61,7 @@ function Api({ team }) {
           You can update your API key here. You must have a valid API key with billing enabled in
           your OpenAI account for DocsBot to function.{' '}
           <Link
-            type="button"
-            className="inline-flex w-full justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
+            className="text-cyan-800 underline"
             href="https://beta.openai.com/account/api-keys"
             target="_blank"
           >
@@ -59,6 +88,27 @@ function Api({ team }) {
         </div>
       </div>
 
+      <div className="rounded-lg bg-white p-8 shadow mt-8">
+        <h3 className="text-2xl font-bold">DocsBot API Key</h3>
+        <p className="text-md mt-2 text-justify text-gray-800">
+          You can get your DocsBot API key here that can be used for the admin API and querying private bots. This key is is tied to your user account and can be used to access all teams that you have a role for.
+        </p>
+          <div className="mt-4 flex items-center justify-start">
+            <pre className="block">{apiKey}</pre>
+            <a
+              type="button"
+              className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+              onClick={() => {
+                updateKey()
+              }}
+            >
+              <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+              Change
+            </a>
+          </div>
+          <p className="text-sm mt-1 text-justify text-gray-800">{copyMessage}</p>
+      </div>
+
       <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">API Documentation</h3>
         <APIDocs team={team} />
@@ -69,6 +119,10 @@ function Api({ team }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
+
+  // get user data
+  data.props.user = await getUser(data.props.userId)
+
   return data
 }
 

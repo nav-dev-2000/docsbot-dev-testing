@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   try {
     check = await userTeamCheck(req, res)
   } catch (error) {
-    return res.status(500).json({ message: error?.message })
+    return res.status(403).json({ message: error?.message })
   }
   const { userId, team } = check
   const { botId } = req.query
