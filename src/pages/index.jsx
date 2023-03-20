@@ -190,9 +190,6 @@ export default function Home() {
                       height={48}
                     />
                   </Link>
-                  <Link href="https://wpmudev.com/support/" target="_blank" title="WPMU DEV">
-                    <WPMUDEVLogo className="max-h-12 w-full object-contain text-white" />
-                  </Link>
                   <Link href="https://infiniteuploads.com" target="_blank" title="Infinite Uploads">
                   <Image
                       className="max-h-12 w-full object-contain"
