@@ -8,7 +8,7 @@ The chat API is used to create a full chat interface in your product. You pass i
 ---
 
 {% callout type="warning" title="Coming Soon" %}
-This REST API endpoint is coming soon. It is only available via the websocket streaming API at the moment. We will update this page when the REST API endpoint is available.
+This REST API endpoint is coming soon. It is only available via the [websocket streaming API](/docs/streaming-chat-api) at the moment. We will update this page when the REST API endpoint is available.
 {% /callout %}
 
 ## Request
