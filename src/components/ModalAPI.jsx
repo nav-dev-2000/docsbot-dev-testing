@@ -2,7 +2,6 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CogIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import APIDocs from '@/components/APIDocs'
 
 export default function ModalAPI({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -55,7 +54,21 @@ export default function ModalAPI({ team, bot }) {
                     </button>
                   </div>
 
-                  <APIDocs team={team} bot={bot} />
+                  <div className="mt-8 rounded-lg bg-white p-8 shadow">
+                    <h3 className="text-2xl font-bold">API Documentation</h3>
+                    <p className="text-md mt-2 text-justify text-gray-800">
+                      You can find the full{' '}
+                      <Link href="/docs" className="text-cyan-800 underline">
+                        DocsBot API documentation here
+                      </Link>
+                      . You will use the Team ID and Bot ID below for the admin API and chat APIs
+                      for this bot.
+                    </p>
+                    <h3 className="mt-8 text-xl font-bold">Team ID</h3>
+                    <pre className="block">{team.id}</pre>
+                    <h3 className="mt-8 text-xl font-bold">Bot ID</h3>
+                    <pre className="block">{bot.id}</pre>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

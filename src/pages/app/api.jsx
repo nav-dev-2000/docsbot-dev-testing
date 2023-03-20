@@ -8,7 +8,6 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import openAILogo from '@/images/openai-logo.svg'
-import APIDocs from '@/components/APIDocs'
 
 function Api({ user, team }) {
   const [errorText, setErrorText] = useState(null)
@@ -111,7 +110,11 @@ function Api({ user, team }) {
 
       <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">API Documentation</h3>
-        <APIDocs team={team} />
+        <p className="text-md mt-2 text-justify text-gray-800">
+          You can find the full <Link href="/docs" className='underline text-cyan-800'>DocsBot API documentation here</Link>. You can use the API key above to access the admin API and query private bots. You will use the team ID below for the admin API and chat APIs.
+        </p>
+        <h3 className="text-xl font-bold mt-8">Team ID</h3>
+        <pre className="block">{team.id}</pre>
       </div>
     </DashboardWrap>
   )

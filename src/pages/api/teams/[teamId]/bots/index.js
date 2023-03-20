@@ -1,5 +1,5 @@
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getBots, getTeam } from '@/lib/dbQueries'
+import { getBots, getBot } from '@/lib/dbQueries'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
@@ -71,6 +71,7 @@ router.post(async (req, res) => {
       language,
       status: 'pending',
       indexId: indexId,
+      customPrompt: '',
       sourceCount: 0,
       pageCount: 0,
       chunkCount: 0,
@@ -102,7 +103,7 @@ router.post(async (req, res) => {
       console.log('Error sending bento track', e)
     }
 
-    return res.status(201).json({ id: botId })
+    return res.status(201).json(await getBot(team.id, botId))
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: error?.message })
