@@ -1,15 +1,13 @@
 import { Head, Html, Main, NextScript } from 'next/document'
 
-export default function Document(props) {
-  //let pageProps = props.__NEXT_DATA__?.props?.pageProps
-
+export default function Document() {
   return (
     <Html
-      className="h-full scroll-smooth bg-gray-100 antialiased [font-feature-settings:'ss01']"
+      className="h-full scroll-smooth antialiased [font-feature-settings:'ss01']"
       lang="en"
     >
       <Head />
-      <body className="flex h-full flex-col">
+      <body className="flex h-full flex-col bg-gray-50">
         <Main />
         <NextScript />
       </body>

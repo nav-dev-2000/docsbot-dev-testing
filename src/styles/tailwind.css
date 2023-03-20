@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import './fonts.css';
+@import './docsearch.css';
+@import './prism.css';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 #__next {
   min-height: 100%;
