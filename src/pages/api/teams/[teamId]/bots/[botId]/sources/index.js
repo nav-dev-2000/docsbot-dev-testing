@@ -84,10 +84,11 @@ export default async function handler(req, res) {
       })
     }
 
+    // https://mathiasbynens.be/demo/url-regex
     url = url?.trim() || null
     if (
       sourceType.fieldUrl === 'required' &&
-      (!url || !url.match(/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/))
+      (!url || !url.match(/^(https?):\/\/[^\s\/$.?#].[^\s]*$/))
     ) {
       return res.status(400).send({ message: 'Invalid or missing parameter "url".' })
     }

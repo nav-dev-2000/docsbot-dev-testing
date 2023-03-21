@@ -28,6 +28,10 @@ export const postData = async ({ url, data }) => {
 }
 
 export function stripePlan(team) {
+  if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
+    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000 }
+  }
+  
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
     const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
     if (team?.stripeSubscriptionStatus === 'active' && plans[team.stripeSubscriptionPlan]) {
