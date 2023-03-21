@@ -69,9 +69,9 @@ export function Gradient({ color = 'blue', ...props }) {
 }
 
 export function LightMode({ className, ...props }) {
-  return <g className={clsx('dark:hidden', className)} {...props} />
+  return <g className={clsx('hidden', className)} {...props} />
 }
 
 export function DarkMode({ className, ...props }) {
-  return <g className={clsx('hidden dark:inline', className)} {...props} />
+  return <g className={clsx('inline', className)} {...props} />
 }

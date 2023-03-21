@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Dialog } from '@headlessui/react'
 
-import { Logomark } from '@/components/docs/Logo'
 import { Navigation } from '@/components/docs/Navigation'
+import docsbotLogo from '@/images/docsbot-logo.png'
 
 function MenuIcon(props) {
   return (
@@ -72,7 +73,7 @@ export function MobileNavigation({ navigation }) {
         className="fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur lg:hidden"
         aria-label="Navigation"
       >
-        <Dialog.Panel className="min-h-full w-full max-w-xs bg-white px-4 pt-5 pb-12 dark:bg-slate-900 sm:px-6">
+        <Dialog.Panel className="min-h-full w-full max-w-xs px-4 pt-5 pb-12 bg-slate-900 sm:px-6">
           <div className="flex items-center">
             <button
               type="button"
@@ -82,7 +83,7 @@ export function MobileNavigation({ navigation }) {
               <CloseIcon className="h-6 w-6 stroke-slate-500" />
             </button>
             <Link href="/" className="ml-6" aria-label="Home page">
-              <Logomark className="h-9 w-9" />
+              <Image className="h-9 w-auto" src={docsbotLogo} alt="DocsBot Logo" />
             </Link>
           </div>
           <Navigation navigation={navigation} className="mt-5 px-1" />
