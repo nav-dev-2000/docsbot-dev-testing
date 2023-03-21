@@ -111,6 +111,14 @@ export default function App({ Component, pageProps }) {
         <Layout title={title} tableOfContents={tableOfContents}>
           <Component {...pageProps} />
         </Layout>
+        <Script id="helpscout">
+          {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});window.Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')`}
+        </Script>
+        <Script
+          id="bento-script"
+          src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+          strategy="afterInteractive"
+        />
       </>
     )
   }

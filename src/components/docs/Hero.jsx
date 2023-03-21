@@ -1,25 +1,34 @@
 import { Fragment } from 'react'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import clsx from 'clsx'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
 import { Button } from '@/components/docs/Button'
 import { HeroBackground } from '@/components/docs/HeroBackground'
 import blurCyanImage from '@/images/blur-cyan.png'
-import blurIndigoImage from '@/images/blur-indigo.png'
+import blurIndigoImage from '@/images/blur-cyan.png'
 
-const codeLanguage = 'javascript'
-const code = `export default {
-  strategy: 'predictive',
-  engine: {
-    cpus: 12,
-    backups: ['./storage/cache.wtf'],
-  },
+const codeLanguage = 'bash'
+const code = `curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFiXuQsakcqyEdpLvCB/ask' \\
+--header 'Content-Type: application/json' \\
+--data-raw '{
+    "question": "What is WordPress?",
+    "full_source": false
+}'
+
+{
+  "answer": "WordPress is an open source free software distributed under the GPL license. It is a self-hosted content management system that enables users to create and manage websites.",
+  "sources": [
+      {
+          "title": "Introduction to Open-Source | Learn WordPress ",
+          "url": "https://learn.wordpress.org/tutorial/introduction-to-open-source/"
+      }
+  ]
 }`
 
 const tabs = [
-  { name: 'cache-advance.config.js', isActive: true },
-  { name: 'package.json', isActive: false },
+  { name: 'Q / A', isActive: true },
+  { name: 'Chat', isActive: false },
 ]
 
 function TrafficLightsIcon(props) {
@@ -36,7 +45,7 @@ export function Hero() {
   return (
     <div className="overflow-hidden bg-slate-900 -mb-32 mt-[-4.5rem] pb-32 pt-[4.5rem] lg:mt-[-4.75rem] lg:pt-[4.75rem]">
       <div className="py-16 sm:px-2 lg:relative lg:py-20 lg:px-0">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-y-16 gap-x-4 px-4 lg:grid-cols-2 xl:gap-x-8">
           <div className="relative z-10 md:text-center lg:text-left">
             <Image
               className="absolute bottom-full right-full -mr-72 -mb-56 opacity-50"
@@ -48,22 +57,21 @@ export function Hero() {
               priority
             />
             <div className="relative">
-              <p className="inline bg-gradient-to-r from-indigo-200 via-teal-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Never miss the cache again.
+              <p className="inline bg-gradient-to-r from-cyan-200 via-teal-400 to-cyan-400 bg-clip-text font-display text-5xl tracking-tight text-transparent">
+                Simple chat API integrations for your business.
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                Cache every single thing your app could ever do ahead of time,
-                so your code never even has to run at all.
+                View our comprehensive API documentation to start integrating DocsBot with your products.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/">Get started</Button>
-                <Button href="/" variant="secondary">
-                  View on GitHub
+                <Button href="#start">View Docs</Button>
+                <Button href="/register" variant="secondary">
+                  Signup
                 </Button>
               </div>
             </div>
           </div>
-          <div className="relative lg:static xl:pl-10">
+          <div className="relative lg:static">
             <div className="absolute inset-x-[-50vw] -top-32 -bottom-48 [mask-image:linear-gradient(transparent,white,transparent)] lg:left-[calc(50%+14rem)] lg:right-0 lg:-top-32 lg:-bottom-32 lg:[mask-image:linear-gradient(white,white,transparent)]">
               <HeroBackground className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]" />
             </div>
