@@ -27,6 +27,8 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
     }
   }
 
+  if (pages.length <= 1) return null
+  
   const Page = ({ page, current }) => {
     if (page === false) {
       return (
