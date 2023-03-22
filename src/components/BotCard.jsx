@@ -132,11 +132,14 @@ export default function BotCard({ team, bot }) {
           <span className="text-gray-900">{bot.pageCount}</span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
-        <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
+        <Link className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100"
+        href={`/app/bots/${bot.id}/questions`}
+        title="View Questions"
+        >
           <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{bot.questionCount}</span>{' '}
           <span className="text-gray-600">Questions</span>
-        </div>
+        </Link>
       </div>
     </div>
   )

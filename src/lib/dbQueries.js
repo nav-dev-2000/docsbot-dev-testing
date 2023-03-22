@@ -120,6 +120,48 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
+export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascending = false) {
+  const offset = page * perPage
+  const questionsRef = firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('questions')
+    .orderBy('createdAt', ascending ? 'asc' : 'desc')
+    .offset(offset)
+    .limit(perPage)
+
+  const querySnapshot = await questionsRef.get()
+  let questions = []
+  querySnapshot.forEach(async (doc) => {
+    let question = { id: doc.id, ...doc.data() }
+    question.createdAt = question.createdAt.toDate().toJSON() //make serializable
+    questions.push(question)
+  })
+
+  //get total count
+  const countSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('questions')
+    .count()
+    .get()
+
+  const totalCount = countSnapshot.data().count
+
+  const pagination = {
+    perPage,
+    page,
+    totalCount,
+    hasMorePages: offset + perPage < totalCount,
+  }
+
+  return { questions, pagination }
+}
+
 export async function getUser(userId) {
   const userRef = await firestore.collection('users').doc(userId).get()
   if (userRef.exists) {

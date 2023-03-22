@@ -6,11 +6,9 @@ import { Fragment, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
-  BellIcon,
   ChartBarIcon,
   HomeIcon,
   UsersIcon,
-  Bars3Icon,
   XMarkIcon,
   ServerStackIcon,
   CreditCardIcon,
@@ -61,6 +59,28 @@ export default function DashboardWrap({ page, title, children }) {
   const currentPageLink = navigation.find((nav) => nav.name === page).href
 
   const pageTitle = `${page} ${title ? ` | ${title}` : ''}`
+
+  const Breadcrumbs = ({ title }) => {
+    if (!title) return null
+
+    let titles = title
+    //if title is not array cast to array
+    if (!Array.isArray(title)) {
+      titles = [title]
+    }
+
+    return (
+      <>
+        {titles.map((title, index) => (
+          <div key={index} className="ml-1 lg:ml-2 flex flex-inline items-center">
+            <ChevronRightIcon className="h-4 w-4" />
+            <h1 className="ml-1 lg:ml-2 text-xl lg:text-2xl font-medium text-gray-800">{title}</h1>
+          </div>
+        ))}
+      </>
+    )
+  }
+
   return (
     <>
       <Head>
@@ -154,7 +174,7 @@ export default function DashboardWrap({ page, title, children }) {
           <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800">
-              <div className="flex justify-between h-16 flex-shrink-0 items-center bg-cyan-800 text-white px-4">
+              <div className="flex h-16 flex-shrink-0 items-center justify-between bg-cyan-800 px-4 text-white">
                 <Link href="/app" title="Dashboard" className="fill-white">
                   <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
                 </Link>
@@ -196,13 +216,10 @@ export default function DashboardWrap({ page, title, children }) {
               </button>
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
-                  <h1 className="ml-4 text-2xl font-semibold text-gray-900"><Link href={currentPageLink}>{page}</Link></h1>
-                  {title && (
-                    <>
-                      <ArrowRightIcon className="ml-4 h-4 w-4" />
-                      <h1 className="ml-4 text-2xl font-medium text-gray-800">{title}</h1>
-                    </>
-                  )}
+                  <h1 className="ml-4 text-2xl font-semibold text-gray-900">
+                    <Link href={currentPageLink}>{page}</Link>
+                  </h1>
+                  <Breadcrumbs title={title} />
                 </div>
                 <div className="ml-4 flex items-center md:ml-6">
                   {/* Profile dropdown */}
@@ -287,8 +304,8 @@ export default function DashboardWrap({ page, title, children }) {
             </div>
 
             <main className="flex-1">
-              <div className="py-8">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">{children}</div>
+              <div className="py-4 sm:py-8">
+                <div className="mx-auto max-w-7xl px-2 sm:px-6 md:px-8">{children}</div>
               </div>
             </main>
           </div>
