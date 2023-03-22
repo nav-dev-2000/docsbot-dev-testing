@@ -31,7 +31,7 @@ Bot objects have the following properties:
 
 ## List Bots
 
-This endpoint lists all bots that the API key user has a role for. It accepts a GET request with the following parameters:
+This endpoint lists all bots for a specific team. It accepts a GET request with the following parameters:
 
 `GET https://api.docsbot.ai/teams/:teamId/bots`
 

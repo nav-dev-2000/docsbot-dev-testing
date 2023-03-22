@@ -54,6 +54,7 @@ const navigation = [
       { title: 'Teams', href: '/docs/team-api' },
       { title: 'Bots', href: '/docs/bot-api' },
       { title: 'Sources', href: '/docs/source-api' },
+      { title: 'Question History', href: '/docs/questions-api' },
     ],
   },
 ]

@@ -28,3 +28,9 @@ Read more about the [Bots API](/docs/bot-api) endpoints.
 You can add sources to train your bots. This could be a url, a document file, a sitemap, etc. The source API alows you to programatically add new content to your bots.
 
 Read more about the [Sources API](/docs/source-api) endpoints.
+
+## Question / Answer History
+
+Once you've deployed your bot to production, you can view the questions and answers that your users are asking. This is a great way to see how your bot is performing and to see what questions your users are asking. You can also use this data to improve your bot.
+
+Read more about the [Questions API](/docs/questions-api) endpoint.

@@ -102,6 +102,18 @@ Response is a JSON object with the following properties:
 | **sources**  | array  | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
 | **id**       | string | The unique ID of the answer. Use for the rating API.                                              |
 
+## The Source object
+
+Source objects found in the `sources` array have the following properties:
+
+| Property       | Type   | Description                                                                                                           |
+| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| **type**       | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, etc.                                                        |
+| **title**      | string | The source title.                                                                                                     |
+| **url**        | string/null | The url for the source as set during indexing. May be null.                                                        |
+| **page**       | string/null | The page for the source as set during indexing. May be null.                                                       |
+| **content**    | string/null | The full source tex content for the source as set during indexing  if `full_source` was `true`. May be null.   |
+
 ```json
 {
     "answer": "WordPress is an open source free software distributed under the GPL license. It is a self-hosted content management system that enables users to create and manage websites.",
