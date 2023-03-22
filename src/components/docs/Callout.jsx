@@ -5,15 +5,15 @@ import { Icon } from '@/components/docs/Icon'
 const styles = {
   note: {
     container:
-      'bg-teal-50 bg-slate-800/60 ring-1 ring-slate-300/10',
+      'bg-slate-800/60 ring-1 ring-slate-300/10',
     title: 'text-teal-400',
-    body: 'text-teal-200 [--tw-prose-background:theme(colors.teal.50)] prose-a:text-teal-200 prose-code:text-teal-400 text-slate-300 prose-code:text-slate-300',
+    body: 'text-teal-50 [--tw-prose-background:theme(colors.teal.50)] prose-a:text-teal-200 prose-code:text-teal-400 text-slate-300 prose-code:text-slate-300',
   },
   warning: {
     container:
-      'bg-amber-50 bg-slate-800/60 ring-1 ring-slate-300/10',
-    title: 'text-amber-900 text-amber-500',
-    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-900 prose-code:text-amber-900 text-slate-300 [--tw-prose-underline:theme(colors.sky.700)] prose-code:text-slate-300',
+      'bg-slate-800/60 ring-1 ring-slate-300/10',
+    title: 'text-amber-500',
+    body: 'text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-900 prose-code:text-amber-900 text-slate-300 [--tw-prose-underline:theme(colors.teal.700)] prose-code:text-slate-300',
   },
 }
 
