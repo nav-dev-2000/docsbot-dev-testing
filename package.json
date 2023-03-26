@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site"
+    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -53,6 +54,7 @@
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.5",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "globby": "^11.0.1"
   }
 }

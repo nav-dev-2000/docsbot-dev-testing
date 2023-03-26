@@ -36,3 +36,5 @@ firebase-debug.log
 firebase-account-creds.json
 googleSecretCredentials.js
 cors.json
+
+public/sitemap.xml
