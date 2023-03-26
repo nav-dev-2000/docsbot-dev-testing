@@ -105,177 +105,172 @@ export default function ModalPrompt({ team, bot }) {
                         Edit Bot
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
-                      <p className="text-md text-gray-700">
-                        Adjust the settings for your bot.
-                      </p>
+                      <p className="text-md text-gray-700">Adjust the settings for your bot.</p>
 
-                     
                       <div className="flex flex-1 flex-col justify-between">
-                          <div className="divide-y divide-gray-200 px-4 sm:px-6">
-                            <Alert title={errorText} type="error" />
-                            <div className="space-y-6 pt-6 pb-5">
-                              <div>
-                                <label
-                                  htmlFor="project-name"
-                                  className="block text-sm font-medium text-gray-900"
-                                >
-                                  Name
-                                </label>
-                                <div className="mt-1">
-                                  <input
-                                    type="text"
-                                    name="project-name"
-                                    id="project-name"
-                                    value={botName}
-                                    onChange={(e) => setBotName(e.target.value)}
-                                    disabled={isUpdating}
-                                    placeholder="What would you like to call your bot?"
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                  />
-                                </div>
+                        <div className="divide-y divide-gray-200 px-4 sm:px-6">
+                          <Alert title={errorText} type="error" />
+                          <div className="space-y-6 pt-6 pb-5">
+                            <div>
+                              <label
+                                htmlFor="project-name"
+                                className="block text-sm font-medium text-gray-900"
+                              >
+                                Name
+                              </label>
+                              <div className="mt-1">
+                                <input
+                                  type="text"
+                                  name="project-name"
+                                  id="project-name"
+                                  value={botName}
+                                  onChange={(e) => setBotName(e.target.value)}
+                                  disabled={isUpdating}
+                                  placeholder="What would you like to call your bot?"
+                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                />
                               </div>
-                              <div>
-                                <label
-                                  htmlFor="description"
-                                  className="block text-sm font-medium text-gray-900"
-                                >
-                                  Description
-                                </label>
-                                <div className="mt-1">
-                                  <textarea
-                                    id="description"
-                                    name="description"
-                                    placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
-                                    rows={4}
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    value={botDescription}
-                                    disabled={isUpdating}
-                                    onChange={(e) => setBotDescription(e.target.value)}
-                                  />
-                                </div>
+                            </div>
+                            <div>
+                              <label
+                                htmlFor="description"
+                                className="block text-sm font-medium text-gray-900"
+                              >
+                                Description
+                              </label>
+                              <div className="mt-1">
+                                <textarea
+                                  id="description"
+                                  name="description"
+                                  placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
+                                  rows={4}
+                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                  value={botDescription}
+                                  disabled={isUpdating}
+                                  onChange={(e) => setBotDescription(e.target.value)}
+                                />
                               </div>
+                            </div>
 
-                              <fieldset>
-                                <legend className="text-sm font-medium text-gray-900">
-                                  Privacy
-                                </legend>
-                                <div className="mt-2 space-y-2">
+                            <fieldset>
+                              <legend className="text-sm font-medium text-gray-900">Privacy</legend>
+                              <div className="mt-2 space-y-2">
+                                <div className="relative flex items-start">
+                                  <div className="absolute flex h-5 items-center">
+                                    <input
+                                      id="privacy-public"
+                                      name="privacy"
+                                      value="public"
+                                      aria-describedby="privacy-public-description"
+                                      type="radio"
+                                      className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                                      checked={privacy === 'public'}
+                                      onChange={() => setPrivacy('public')}
+                                      disabled={isUpdating}
+                                    />
+                                  </div>
+                                  <div className="pl-7 text-sm">
+                                    <label
+                                      htmlFor="privacy-public"
+                                      className="font-medium text-gray-900"
+                                    >
+                                      Public access
+                                    </label>
+                                    <p id="privacy-public-description" className="text-gray-500">
+                                      Allows for embedding on the frontend of websites.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div>
                                   <div className="relative flex items-start">
                                     <div className="absolute flex h-5 items-center">
                                       <input
-                                        id="privacy-public"
+                                        id="privacy-private"
                                         name="privacy"
-                                        value="public"
-                                        aria-describedby="privacy-public-description"
+                                        value="private"
+                                        aria-describedby="privacy-private-to-project-description"
                                         type="radio"
                                         className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                        defaultChecked
+                                        checked={privacy === 'private'}
+                                        onChange={() => setPrivacy('private')}
                                         disabled={isUpdating}
                                       />
                                     </div>
                                     <div className="pl-7 text-sm">
                                       <label
-                                        htmlFor="privacy-public"
+                                        htmlFor="privacy-private"
                                         className="font-medium text-gray-900"
                                       >
-                                        Public access
+                                        Private
+                                        <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                                          Pro
+                                        </span>
                                       </label>
-                                      <p id="privacy-public-description" className="text-gray-500">
-                                        Allows for embedding on the frontend of websites.
+                                      <p id="privacy-private-description" className="text-gray-500">
+                                        Authenticated API access only. Good for internal company
+                                        content.
                                       </p>
                                     </div>
                                   </div>
-                                  <div>
-                                    <div className="relative flex items-start">
-                                      <div className="absolute flex h-5 items-center">
-                                        <input
-                                          id="privacy-private"
-                                          name="privacy"
-                                          value="private"
-                                          aria-describedby="privacy-private-to-project-description"
-                                          type="radio"
-                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          disabled
-                                        />
-                                      </div>
-                                      <div className="pl-7 text-sm">
-                                        <label
-                                          htmlFor="privacy-private"
-                                          className="font-medium text-gray-500"
-                                        >
-                                          Private (coming soon)
-                                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                            Pro
-                                          </span>
-                                        </label>
-                                        <p
-                                          id="privacy-private-description"
-                                          className="text-gray-400"
-                                        >
-                                          Authenticated API access only. Good for internal company
-                                          content.
-                                        </p>
-                                      </div>
-                                    </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                            <fieldset>
+                              <legend className="text-sm font-medium text-gray-900">
+                                Language
+                              </legend>
+                              <div className="mt-2 space-y-2">
+                                <div className="relative flex items-start">
+                                  <div className="absolute flex h-5 items-center">
+                                    <input
+                                      id="language-english"
+                                      name="language"
+                                      value="en"
+                                      type="radio"
+                                      className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                                      checked={language === 'en'}
+                                      onChange={() => setLanguage('en')}
+                                      disabled={isUpdating}
+                                    />
+                                  </div>
+                                  <div className="pl-7 text-sm">
+                                    <label
+                                      htmlFor="language-english"
+                                      className="font-medium text-gray-900"
+                                    >
+                                      English
+                                    </label>
                                   </div>
                                 </div>
-                              </fieldset>
-                              <fieldset>
-                                <legend className="text-sm font-medium text-gray-900">
-                                  Language
-                                </legend>
-                                <div className="mt-2 space-y-2">
+                                <div>
                                   <div className="relative flex items-start">
                                     <div className="absolute flex h-5 items-center">
                                       <input
-                                        id="language-english"
+                                        id="language-japanese"
                                         name="language"
-                                        value="en"
+                                        value="jp"
                                         type="radio"
                                         className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                        checked={language === 'en'}
-                                        onChange={() => setLanguage('en')}
+                                        checked={language === 'jp'}
+                                        onChange={() => setLanguage('jp')}
                                         disabled={isUpdating}
                                       />
                                     </div>
                                     <div className="pl-7 text-sm">
                                       <label
-                                        htmlFor="language-english"
+                                        htmlFor="language-japanese"
                                         className="font-medium text-gray-900"
                                       >
-                                        English
+                                        Japanese (日本語)
                                       </label>
                                     </div>
                                   </div>
-                                  <div>
-                                    <div className="relative flex items-start">
-                                      <div className="absolute flex h-5 items-center">
-                                        <input
-                                          id="language-japanese"
-                                          name="language"
-                                          value="jp"
-                                          type="radio"
-                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          checked={language === 'jp'}
-                                          onChange={() => setLanguage('jp')}
-                                          disabled={isUpdating}
-                                        />
-                                      </div>
-                                      <div className="pl-7 text-sm">
-                                        <label
-                                          htmlFor="language-japanese"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          Japanese (日本語)
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
                                 </div>
-                              </fieldset>
-                            </div>
+                              </div>
+                            </fieldset>
                           </div>
                         </div>
+                      </div>
 
                       <div className="mt-5 flex justify-end sm:mt-6">
                         <button

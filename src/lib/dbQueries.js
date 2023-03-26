@@ -30,6 +30,15 @@ export async function getBot(teamId, botId) {
   if (botRef.exists) {
     let bot = { id: botRef.id, ...botRef.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+
+    //create an expiring hmac token for the bot so that it can be used to authenticate with the API
+    if (bot.privacy === 'private') {
+      const hmac = crypto.createHmac('sha256', process.env.HMAC_SECRET)
+      const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 24 //expires in 24 hours
+      hmac.update(`${botId}:${expires}`)
+      bot.signature = `${hmac.digest('hex')}:${expires}`
+    }
+
     return bot
   } else {
     return null

@@ -29,11 +29,29 @@ API keys are only shown once as we store them safely hashed, so make sure you co
 
 ### Authenticating requests
 
-DocsBot for all it's APIs uses the standard `Authorization` header to authenticate requests with a Bearer token. You can authenticate requests by including your API key in the `Authorization` header prefixed with the "Bearer" keyword. For example, if your API key is `1234567890`, you would include the following header in your request:
+#### REST API endpoints
+
+DocsBot for all it's REST APIs uses the standard `Authorization` header to authenticate requests with a Bearer token. You can authenticate requests by including your API key in the `Authorization` header prefixed with the "Bearer" keyword. For example, if your API key is `1234567890`, you would include the following header in your request:
 
 ```http
 Authorization: Bearer 1234567890
 ```
+
+#### Websocket API endpoints (Streaming)
+
+For the streaming APIs, websockets do not support Authorization headers. You should send the API key as an `auth` parameter with the questions. For example:
+
+```javascript
+// Send message to server when connection is established
+ws.onopen = function (event) {
+  const req = { question: 'What is WordPress?', full_source: false, history: [], auth: '1234567890' }
+  ws.send(JSON.stringify(req))
+}
+```
+
+{% callout type="warning" title="Do not expose your API key!" %}
+API keys are meant to be used server-side, and should never be exposed to the public in JavaScript. If you are using a client-side library, make sure you are not exposing your API key to the public by proxying requests through your own server.
+{% /callout %}
 
 ---
 

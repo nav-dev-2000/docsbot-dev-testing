@@ -43,6 +43,12 @@ export default async function handler(req, res) {
         if (privacy !== 'public' && privacy !== 'private') {
           return res.status(400).send({ message: 'Invalid param "privacy".' })
         } else {
+          if (privacy === 'private' && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
+            return res.status(402).json({
+              message: 'Private bots are not available at your plan level.',
+            })
+          }
+
           botData.privacy = privacy
         }
       }

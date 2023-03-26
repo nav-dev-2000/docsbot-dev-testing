@@ -30,6 +30,14 @@ export default function NewBotPanel({ team, open, setOpen }) {
     }
   }, [open])
 
+  //show upgrade if they change privacy to private
+  useEffect(() => {
+    if (privacy === 'private' && stripePlan(team).name === 'Free') {
+      setShowUpgrade(true)
+      setPrivacy('public')
+    }
+  }, [privacy])
+
   async function createBot() {
     if (!botName) {
       setErrorText('Please enter a name for your bot.')
@@ -185,6 +193,8 @@ export default function NewBotPanel({ team, open, setOpen }) {
                                         type="radio"
                                         className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                                         defaultChecked
+                                        checked={privacy === 'public'}
+                                        onChange={() => setPrivacy('public')}
                                         disabled={isUpdating}
                                       />
                                     </div>
@@ -210,7 +220,9 @@ export default function NewBotPanel({ team, open, setOpen }) {
                                           aria-describedby="privacy-private-to-project-description"
                                           type="radio"
                                           className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          disabled
+                                          checked={privacy === 'private'}
+                                          onChange={() => setPrivacy('private')}
+                                          disabled={isUpdating}
                                         />
                                       </div>
                                       <div className="pl-7 text-sm">
@@ -218,7 +230,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
                                           htmlFor="privacy-private"
                                           className="font-medium text-gray-500"
                                         >
-                                          Private (coming soon)
+                                          Private
                                           <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                                             Pro
                                           </span>

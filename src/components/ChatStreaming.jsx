@@ -28,6 +28,7 @@ export default function Chat({ teamId, bot }) {
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
 
+  console.log(bot)
   //clear error text when question changes
   useEffect(() => {
     if (question) {
@@ -74,11 +75,8 @@ export default function Chat({ teamId, bot }) {
     setCurrentAnswer('')
     setLoadingMessage('Sending...')
 
-    const req = { question: question, markdown: true, history: chatHistory }
-
     //get apiBase from env
-    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
-    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_WEBSOCKET}/teams/${teamId}/bots/${bot.id}/chat`
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
@@ -89,6 +87,12 @@ export default function Chat({ teamId, bot }) {
         return [...prev, { type: 'question', question: question }]
       })
       setQuestion('')
+
+      const req = { question: question, markdown: true, history: chatHistory }
+      if (bot.privacy === 'private') {
+        //add token to request
+        req.auth = bot.signature
+      }
       ws.send(JSON.stringify(req))
     }
 

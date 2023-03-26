@@ -58,17 +58,19 @@ export default function AskStreaming({ teamId, bot }) {
     setAnswerId(null)
     setLoadingMessage('Sending...')
 
-    const data = { question: question, format: 'markdown' }
-
     //get apiBase from env
-    const apiUrl = `wss://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/chat`
-    //const apiUrl = `ws://localhost:9000/teams/${teamId}/bots/${bot.id}/chat`
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_WEBSOCKET}/teams/${teamId}/bots/${bot.id}/chat`
     const ws = new WebSocket(apiUrl)
 
     // Send message to server when connection is established
     ws.onopen = function (event) {
       setLoadingMessage('Thinking...')
-      ws.send(JSON.stringify(data))
+      const req = { question: question, markdown: true }
+      if (bot.privacy === 'private') {
+        //add token to request
+        req.auth = bot.signature
+      }
+      ws.send(JSON.stringify(req))
     }
 
     ws.onerror = function (event) {
