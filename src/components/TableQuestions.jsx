@@ -33,7 +33,7 @@ export default function TableQuestions({ questions, changePage }) {
     const page = source.page ? ` - Page ${source.page}` : ''
 
     return (
-      <li className="flex lg:w-48 items-center truncate">
+      <li className="flex items-center truncate lg:w-48">
         <SourceIcon className="mr-1 h-3 w-3 text-gray-400" aria-hidden="true" />
         {source.url ? (
           <Link
@@ -56,6 +56,37 @@ export default function TableQuestions({ questions, changePage }) {
     )
   }
 
+  const FullSource = ({ source }) => {
+    const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const page = source.page ? ` - Page ${source.page}` : ''
+
+    return (
+      <>
+        <h4 className="mb-2 flex items-center text-sm text-gray-500">
+          <SourceIcon className="mr-1 h-3 w-3 text-gray-400" aria-hidden="true" />
+          {source.url ? (
+            <Link
+              href={source.url}
+              target="_blank"
+              className="block truncate underline hover:text-gray-700 focus:outline-none active:text-gray-700"
+            >
+              <p className="truncate text-left">
+                {source.title}
+                {page}
+              </p>
+            </Link>
+          ) : (
+            <p className="text-left text-gray-500">
+              {source.title || source.url}
+              {page}
+            </p>
+          )}
+        </h4>
+        <p className="mb-4 text-left text-xs text-gray-500">{source.content}</p>
+      </>
+    )
+  }
+
   const Rating = ({ rating }) => {
     const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : null
 
@@ -72,34 +103,34 @@ export default function TableQuestions({ questions, changePage }) {
     )
   }
 
-  const Answer = ({ answer }) => {
+  const Answer = ({ question, children }) => {
     const [open, setOpen] = useState(false)
     const [answerHtml, setAnswerHtml] = useState(null)
-    const [shortAnswer, setShortAnswer] = useState(answer)
+    const [shortAnswer, setShortAnswer] = useState(question.answer)
 
     useEffect(() => {
-      if (answer) {
-        if (answer.length > 300) {
-          setShortAnswer(answer.substring(0, 300) + '...')
+      if (question.answer) {
+        if (question.answer.length > 300) {
+          setShortAnswer(question.answer.substring(0, 300) + '...')
         }
         remark()
           .use(html)
           .use(remarkGfm)
-          .process(answer)
+          .process(question.answer)
           .then((html) => {
             setAnswerHtml(html.toString())
           })
       }
-    }, [answer])
+    }, [question.answer])
 
     return (
       <>
         <a
           type="button"
-          className="prose block cursor-pointer text-xs hover:text-gray-900"
+          className="m-0 block cursor-pointer px-3 py-4"
           onClick={() => setOpen(true)}
         >
-          {shortAnswer}
+          {children}
         </a>
         <Transition.Root show={open} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -137,11 +168,19 @@ export default function TableQuestions({ questions, changePage }) {
                         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                       </button>
                     </div>
+                    <div className="p-8">
+                      <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
 
-                    <div
-                      className="prose mt-4 w-full max-w-none p-8"
-                      dangerouslySetInnerHTML={{ __html: answerHtml }}
-                    />
+                      <div
+                        className="prose mt-2 w-full max-w-none"
+                        dangerouslySetInnerHTML={{ __html: answerHtml }}
+                      />
+
+                      <h3 className="mt-2 text-base font-medium text-gray-700">Used Sources:</h3>
+                      {question.sources.map((source, index) => (
+                        <FullSource key={index} source={source} />
+                      ))}
+                    </div>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
@@ -152,8 +191,20 @@ export default function TableQuestions({ questions, changePage }) {
     )
   }
 
+  const ShortAnswer = ({ answer }) => {
+    const [shortAnswer, setShortAnswer] = useState(answer)
+
+    useEffect(() => {
+      if (answer.length > 300) {
+        setShortAnswer(answer.substring(0, 300) + '...')
+      }
+    }, [answer])
+
+    return <>{shortAnswer}</>
+  }
+
   return (
-    <div className="mx-0 rounded-lg bg-white p-4 lg:p-8 shadow-lg">
+    <div className="mx-0 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-2 sm:px-4 lg:px-6">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
@@ -163,7 +214,12 @@ export default function TableQuestions({ questions, changePage }) {
             </p>
           </div>
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <Paginator perPage={questions.pagination.perPage} totalCount={questions.pagination.totalCount} page={questions.pagination.page} changePage={changePage} />
+            <Paginator
+              perPage={questions.pagination.perPage}
+              totalCount={questions.pagination.totalCount}
+              page={questions.pagination.page}
+              changePage={changePage}
+            />
           </div>
         </div>
         <div className="mt-8 flow-root">
@@ -206,71 +262,81 @@ export default function TableQuestions({ questions, changePage }) {
                 </thead>
                 <tbody>
                   {questions.questions.map((question, questionIdx) => (
-                    <tr key={question.id}>
+                    <tr key={question.id} className="hover:bg-gray-50">
                       <td
                         className={clsx(
                           questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden px-3 py-4 text-sm text-gray-500 lg:table-cell'
+                          'hidden text-sm text-gray-500 lg:table-cell'
                         )}
                       >
-                        {question.isChat ? (
-                          <ChatBubbleLeftEllipsisIcon
-                            className="h-5 w-5 text-gray-400"
-                            aria-hidden="true"
-                            title="Chat"
-                          />
-                        ) : (
-                          <QuestionMarkCircleIcon
-                            className="h-5 w-5 text-gray-400"
-                            aria-hidden="true"
-                            title="Q / A"
-                          />
-                        )}
+                        <Answer {...{ question }}>
+                          {question.isChat ? (
+                            <ChatBubbleLeftEllipsisIcon
+                              className="h-5 w-5 text-gray-400"
+                              aria-hidden="true"
+                              title="Chat"
+                            />
+                          ) : (
+                            <QuestionMarkCircleIcon
+                              className="h-5 w-5 text-gray-400"
+                              aria-hidden="true"
+                              title="Q / A"
+                            />
+                          )}
+                        </Answer>
                       </td>
                       <td
                         className={clsx(
                           questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'max-w-xs overflow-hidden px-3 py-4 text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
+                          'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
                         )}
                       >
-                        <p>{question.question}</p>
-                        <span className="hidden mt-2 text-xs text-gray-400 sm:block">
-                          {question.createdAt}
-                        </span>
-                        <dl className="font-normal lg:hidden">
-                          <dt className="sr-only">Answer</dt>
-                          <dd className="mt-1 text-sm text-gray-600">
-                            <Answer answer={question.answer} />
-                          </dd>
-                          <dt className="sr-only">Sources</dt>
-                          <dd className="mt-2 text-gray-500">
+                        <Answer {...{ question }}>
+                          <p>{question.question}</p>
+                          <span className="mt-2 hidden text-xs text-gray-400 sm:block">
+                            {question.createdAt}
+                          </span>
+                          <dl className="font-normal lg:hidden">
+                            <dt className="sr-only">Answer</dt>
+                            <dd className="mt-1 text-sm text-gray-600">
+                              <ShortAnswer answer={question.answer} />
+                            </dd>
+                            <dt className="sr-only">Sources</dt>
+                            <dd className="mt-2 text-gray-500">
+                              <Sources sources={question.sources} />
+                            </dd>
+                          </dl>
+                        </Answer>
+                      </td>
+                      <td
+                        className={clsx(
+                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                          'hidden text-sm text-gray-500 lg:table-cell'
+                        )}
+                      >
+                        <Answer {...{ question }}>
+                          <ShortAnswer answer={question.answer} />
+                        </Answer>
+                      </td>
+                      <td
+                        className={clsx(
+                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                          'hidden truncate text-sm text-gray-500 lg:table-cell'
+                        )}
+                      >
+                        <Answer {...{ question }}>
                           <Sources sources={question.sources} />
-                          </dd>
-                        </dl>
+                        </Answer>
                       </td>
                       <td
                         className={clsx(
                           questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden px-3 py-4 text-sm text-gray-500 lg:table-cell'
+                          'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
                         )}
                       >
-                        <Answer answer={question.answer} />
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden truncate px-3 py-4 text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Sources sources={question.sources} />
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Rating rating={question.rating} />
+                        <Answer {...{ question }}>
+                          <Rating rating={question.rating} />
+                        </Answer>
                       </td>
                     </tr>
                   ))}
@@ -279,9 +345,14 @@ export default function TableQuestions({ questions, changePage }) {
             </div>
           </div>
         </div>
-          <div className="mt-6 flex justify-center md:justify-end">
-            <Paginator perPage={questions.pagination.perPage} totalCount={questions.pagination.totalCount} page={questions.pagination.page} changePage={changePage} />
-          </div>
+        <div className="mt-6 flex justify-center md:justify-end">
+          <Paginator
+            perPage={questions.pagination.perPage}
+            totalCount={questions.pagination.totalCount}
+            page={questions.pagination.page}
+            changePage={changePage}
+          />
+        </div>
       </div>
     </div>
   )
