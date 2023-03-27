@@ -196,9 +196,9 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                             className="block text-sm font-medium text-gray-900"
                           >
                             {sourceType.title}
-                            {sourceType.isPro && !sourceType.coming && (
+                            {sourceType.isPro && !sourceType.coming && stripePlan(team).name === 'Free' && (
                               <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                Pro
+                                Paid
                               </span>
                             )}
                             {sourceType.coming && (

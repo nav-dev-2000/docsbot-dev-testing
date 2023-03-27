@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { LanguageIcon, PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { stripePlan } from '@/utils/helpers'
 import Alert from '@/components/Alert'
 
 export default function ModalPrompt({ team, bot }) {
@@ -193,7 +194,7 @@ export default function ModalPrompt({ team, bot }) {
                                         className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                                         checked={privacy === 'private'}
                                         onChange={() => setPrivacy('private')}
-                                        disabled={isUpdating}
+                                        disabled={isUpdating || stripePlan(team).name === 'Free'}
                                       />
                                     </div>
                                     <div className="pl-7 text-sm">
@@ -202,9 +203,11 @@ export default function ModalPrompt({ team, bot }) {
                                         className="font-medium text-gray-900"
                                       >
                                         Private
-                                        <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                          Pro
-                                        </span>
+                                        {stripePlan(team).name === 'Free' && (
+                                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                                            Paid
+                                          </span>
+                                        )}
                                       </label>
                                       <p id="privacy-private-description" className="text-gray-500">
                                         Authenticated API access only. Good for internal company

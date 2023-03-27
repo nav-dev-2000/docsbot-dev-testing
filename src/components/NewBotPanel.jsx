@@ -228,16 +228,18 @@ export default function NewBotPanel({ team, open, setOpen }) {
                                       <div className="pl-7 text-sm">
                                         <label
                                           htmlFor="privacy-private"
-                                          className="font-medium text-gray-500"
+                                          className="font-medium text-gray-900"
                                         >
                                           Private
+                                          {stripePlan(team).name === 'Free' && (
                                           <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                            Pro
+                                            Paid
                                           </span>
+                                          )}
                                         </label>
                                         <p
                                           id="privacy-private-description"
-                                          className="text-gray-400"
+                                          className="text-gray-500"
                                         >
                                           Authenticated API access only. Good for internal company
                                           content.
