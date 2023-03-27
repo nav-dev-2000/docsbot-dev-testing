@@ -17,6 +17,7 @@ import classNames from '@/utils/classNames'
 import RobotIcon from '@/components/RobotIcon'
 import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
+import GPTModel from '@/components/GPTModel'
 
 export default function BotCard({ team, bot }) {
   if (!bot || !bot.id) {
@@ -42,10 +43,7 @@ export default function BotCard({ team, bot }) {
               <p className="text-xl font-bold text-gray-900 sm:text-2xl">{bot.name}</p>
               <p className="text-sm text-gray-600">{bot.description}</p>
               <div className="mt-2 flex-wrap md:flex md:space-x-3">
-                <div className="sm:flex">
-                  <PrivacyStatus bot={bot} />
-                </div>
-                <div className="flex items-center text-sm text-gray-500">
+              <div className="flex items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
@@ -53,6 +51,12 @@ export default function BotCard({ team, bot }) {
                   <p>
                     <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
+                </div>
+                <div className="sm:flex">
+                  <PrivacyStatus bot={bot} />
+                </div>
+                <div className="sm:flex">
+                  <GPTModel bot={bot} />
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
                   <LanguageIcon

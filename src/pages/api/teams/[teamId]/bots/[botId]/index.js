@@ -28,7 +28,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Bot not found' })
       }
 
-      const { name, description, customPrompt, privacy, language } = req.body
+      const { name, description, customPrompt, privacy, model, language } = req.body
       const botData = {}
 
       if (name) {
@@ -50,6 +50,22 @@ export default async function handler(req, res) {
           }
 
           botData.privacy = privacy
+        }
+      }
+
+      if (model) {
+        if (model !== 'gpt-3.5-turbo' && model !== 'gpt-4') {
+          return res.status(400).send({ message: 'Invalid param "model".' })
+        } else if (!team.supportsGPT4 && model === 'gpt-4') {
+          return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
+        } else {
+          if ('gpt-4' === model && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
+            return res.status(402).json({
+              message: 'GPT-4 is not available at your plan level.',
+            })
+          }
+
+          botData.model = model
         }
       }
 

@@ -19,6 +19,9 @@ export async function getBots(team, resultLimit = 1000) {
   querySnapshot.forEach(async (doc) => {
     let bot = { id: doc.id, ...doc.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+    if (!bot.model) {
+      bot.model = 'gpt-3.5-turbo'
+    }
     bots.push(bot)
   })
 
@@ -37,6 +40,10 @@ export async function getBot(teamId, botId) {
       const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 24 //expires in 24 hours
       hmac.update(`${botId}:${expires}`)
       bot.signature = `${hmac.digest('hex')}:${expires}`
+    }
+
+    if (!bot.model) {
+      bot.model = 'gpt-3.5-turbo'
     }
 
     return bot

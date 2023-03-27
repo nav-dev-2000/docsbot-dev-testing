@@ -69,51 +69,73 @@ function Api({ user, team }) {
           .
         </p>
         <div className="mt-4 flex justify-between">
-          <div className="mt-4 flex items-center justify-start">
-            <pre className="">{team.openAIKey}</pre>
-            <a
-              type="button"
-              className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
-              onClick={() => {
-                setOpen(true)
-              }}
-            >
-              <PencilIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-              Edit
-            </a>
+          <div>
+            <div className="mt-4 flex items-center justify-start">
+              <pre className="">{team.openAIKey}</pre>
+              <a
+                type="button"
+                className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+                onClick={() => {
+                  setOpen(true)
+                }}
+              >
+                <PencilIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                Edit
+              </a>
+            </div>
+            {team.supportsGPT4 ? (
+              <p className="mt-4 text-sm italic">GPT-4 Support Enabled</p>
+            ) : (
+              <>
+              <Link
+                className="mt-4 block text-sm underline hover:text-gray-500"
+                href="https://openai.com/waitlist/gpt-4-api"
+                target="_blank"
+              >
+                Request GPT-4 access
+              </Link>
+              <p className="mt-1 text-xs italic">Optional - Once approved update your OpenAI API key to enable</p>
+              </>
+            )}
           </div>
-
           <Image src={openAILogo} alt="OpenAI logo" width={130} height={90} />
         </div>
       </div>
 
-      <div className="rounded-lg bg-white p-8 shadow mt-8">
+      <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">DocsBot API Key</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
-          You can get your DocsBot API key here that can be used for the admin API and querying private bots. This key is is tied to your user account and can be used to access all teams that you have a role for.
+          You can get your DocsBot API key here that can be used for the admin API and querying
+          private bots. This key is is tied to your user account and can be used to access all teams
+          that you have a role for.
         </p>
-          <div className="mt-4 flex items-center justify-start">
-            <pre className="block">{apiKey}</pre>
-            <a
-              type="button"
-              className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
-              onClick={() => {
-                updateKey()
-              }}
-            >
-              <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-              Change
-            </a>
-          </div>
-          <p className="text-sm mt-1 text-justify text-gray-800">{copyMessage}</p>
+        <div className="mt-4 flex items-center justify-start">
+          <pre className="block">{apiKey}</pre>
+          <a
+            type="button"
+            className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+            onClick={() => {
+              updateKey()
+            }}
+          >
+            <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+            Change
+          </a>
+        </div>
+        <p className="mt-1 text-justify text-sm text-gray-800">{copyMessage}</p>
       </div>
 
       <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">API Documentation</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
-          You can find the full <Link href="/docs" className='underline text-cyan-800'>DocsBot API documentation here</Link>. You can use the API key above to access the admin API and query private bots. You will use the team ID below for the admin API and chat APIs.
+          You can find the full{' '}
+          <Link href="/docs" className="text-cyan-800 underline">
+            DocsBot API documentation here
+          </Link>
+          . You can use the API key above to access the admin API and query private bots. You will
+          use the team ID below for the admin API and chat APIs.
         </p>
-        <h3 className="text-xl font-bold mt-8">Team ID</h3>
+        <h3 className="mt-8 text-xl font-bold">Team ID</h3>
         <pre className="block">{team.id}</pre>
       </div>
     </DashboardWrap>

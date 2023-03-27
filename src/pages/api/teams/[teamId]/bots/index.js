@@ -38,7 +38,7 @@ router.post(async (req, res) => {
     }
 
     //data validation
-    let { name, description, privacy, language } = req.body
+    let { name, description, privacy, model, language } = req.body
 
     name = name.trim()
     if (!name) {
@@ -49,6 +49,26 @@ router.post(async (req, res) => {
 
     if (privacy !== 'public' && privacy !== 'private') {
       return res.status(400).send({ message: 'Invalid param "privacy".' })
+    }
+
+    if ('private' === privacy && stripePlan(team).name === 'Free') {
+      return res.status(402).json({
+        message: 'Private bots are not available at your plan level.',
+      })
+    }
+
+    if (model !== 'gpt-3.5-turbo' && model !== 'gpt-4') {
+      return res.status(400).send({ message: 'Invalid param "model".' })
+    }
+
+    if ('gpt-4' === model && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
+      return res.status(402).json({
+        message: 'GPT-4 is not available at your plan level.',
+      })
+    }
+
+    if (!team.supportsGPT4 && model === 'gpt-4') {
+      return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
     }
 
     const languages = ['en', 'jp']
@@ -72,6 +92,7 @@ router.post(async (req, res) => {
       status: 'pending',
       indexId: indexId,
       customPrompt: '',
+      model,
       sourceCount: 0,
       pageCount: 0,
       chunkCount: 0,

@@ -18,6 +18,7 @@ Bot objects have the following properties:
 | **description** | string | The bot description. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **indexId** | string | Used internally. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4`. |
 | **customPrompt** | string | Any custom prompt for the bot. |
 | **language** | string | The bot language. Currently supports `en` and `jp`. |
 | **createdAt** | string | The date and time the bot was created.                                     |
@@ -77,6 +78,7 @@ Response is a JSON array of bot objects:
         "indexId": "Document_mlc4lmmc91",
         "customPrompt": null,
         "language": "en",
+        "model": "gpt-3.5-turbo",
         "createdAt": "2023-03-16T21:15:19.994Z",
         "sourceCount": 1,
         "pageCount": 50,
@@ -135,6 +137,7 @@ Response is a JSON bot object:
     "indexId": "Document_mlc4lmmc91",
     "customPrompt": null,
     "language": "en",
+    "model": "gpt-3.5-turbo",
     "createdAt": "2023-03-16T21:15:19.994Z",
     "sourceCount": 1,
     "pageCount": 50,
@@ -159,6 +162,7 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **description** | string | The bot description. Shown by default in embeds and share links. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if your OpenAI account has access. |
 
 ### Examples
 
@@ -217,6 +221,7 @@ Response is a HTTP 201 with a JSON bot object:
     "indexId": "Document_mlc4lmmc91",
     "customPrompt": null,
     "language": "en",
+    "model": "gpt-3.5-turbo",
     "createdAt": "2023-03-16T21:15:19.994Z",
     "sourceCount": 0,
     "pageCount": 0,
@@ -242,6 +247,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **customPrompt** | string | Optional custom prompt instructions. Only editible on Pro plan and higher. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if the OpenAI account has it enabled. |
 
 ### Examples
 

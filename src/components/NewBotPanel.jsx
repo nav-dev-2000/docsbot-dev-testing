@@ -1,22 +1,19 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
+import { InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
 import { stripePlan } from '@/utils/helpers'
-import ModalCheckout from '@/components/ModalCheckout'
 import ModalOpenAI from '@/components/ModalOpenAI'
+import FormBot from '@/components/FormBot'
+import ModalCheckout from '@/components/ModalCheckout'
 
 export default function NewBotPanel({ team, open, setOpen }) {
-  const [botName, setBotName] = useState('')
-  const [botDescription, setBotDescription] = useState('')
-  const [privacy, setPrivacy] = useState('public')
-  const [language, setLanguage] = useState('en')
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
-  const [showUpgrade, setShowUpgrade] = useState(false)
   const [showOpenAI, setShowOpenAI] = useState(false)
+  const [botSettings, setBotSettings] = useState({})
+  const [showUpgrade, setShowUpgrade] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -30,16 +27,10 @@ export default function NewBotPanel({ team, open, setOpen }) {
     }
   }, [open])
 
-  //show upgrade if they change privacy to private
-  useEffect(() => {
-    if (privacy === 'private' && stripePlan(team).name === 'Free') {
-      setShowUpgrade(true)
-      setPrivacy('public')
-    }
-  }, [privacy])
+  
 
   async function createBot() {
-    if (!botName) {
+    if (!botSettings.name) {
       setErrorText('Please enter a name for your bot.')
       return
     }
@@ -54,18 +45,11 @@ export default function NewBotPanel({ team, open, setOpen }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name: botName,
-        description: botDescription,
-        privacy: privacy,
-        language: language,
-      }),
+      body: JSON.stringify(botSettings),
     })
     if (response.ok) {
       const data = await response.json()
-      setBotName('')
-      setBotDescription('')
-      setPrivacy('public')
+      setBotSettings({})
       setIsUpdating(false)
       setOpen(false)
       router.push(`/app/bots/${data.id}`)
@@ -82,8 +66,8 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   return (
     <>
-      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} />
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <div className="fixed inset-0" />
@@ -137,184 +121,15 @@ export default function NewBotPanel({ team, open, setOpen }) {
                           <div className="divide-y divide-gray-200 px-4 sm:px-6">
                             <Alert title={errorText} type="error" />
                             <div className="space-y-6 pt-6 pb-5">
-                              <div>
-                                <label
-                                  htmlFor="project-name"
-                                  className="block text-sm font-medium text-gray-900"
-                                >
-                                  Name
-                                </label>
-                                <div className="mt-1">
-                                  <input
-                                    type="text"
-                                    name="project-name"
-                                    id="project-name"
-                                    value={botName}
-                                    onChange={(e) => setBotName(e.target.value)}
-                                    disabled={isUpdating}
-                                    placeholder="What would you like to call your bot?"
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                  />
-                                </div>
-                              </div>
-                              <div>
-                                <label
-                                  htmlFor="description"
-                                  className="block text-sm font-medium text-gray-900"
-                                >
-                                  Description
-                                </label>
-                                <div className="mt-1">
-                                  <textarea
-                                    id="description"
-                                    name="description"
-                                    placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
-                                    rows={4}
-                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    value={botDescription}
-                                    disabled={isUpdating}
-                                    onChange={(e) => setBotDescription(e.target.value)}
-                                  />
-                                </div>
-                              </div>
-
-                              <fieldset>
-                                <legend className="text-sm font-medium text-gray-900">
-                                  Privacy
-                                </legend>
-                                <div className="mt-2 space-y-2">
-                                  <div className="relative flex items-start">
-                                    <div className="absolute flex h-5 items-center">
-                                      <input
-                                        id="privacy-public"
-                                        name="privacy"
-                                        value="public"
-                                        aria-describedby="privacy-public-description"
-                                        type="radio"
-                                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                        defaultChecked
-                                        checked={privacy === 'public'}
-                                        onChange={() => setPrivacy('public')}
-                                        disabled={isUpdating}
-                                      />
-                                    </div>
-                                    <div className="pl-7 text-sm">
-                                      <label
-                                        htmlFor="privacy-public"
-                                        className="font-medium text-gray-900"
-                                      >
-                                        Public access
-                                      </label>
-                                      <p id="privacy-public-description" className="text-gray-500">
-                                        Allows for embedding on the frontend of websites.
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <div className="relative flex items-start">
-                                      <div className="absolute flex h-5 items-center">
-                                        <input
-                                          id="privacy-private"
-                                          name="privacy"
-                                          value="private"
-                                          aria-describedby="privacy-private-to-project-description"
-                                          type="radio"
-                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          checked={privacy === 'private'}
-                                          onChange={() => setPrivacy('private')}
-                                          disabled={isUpdating}
-                                        />
-                                      </div>
-                                      <div className="pl-7 text-sm">
-                                        <label
-                                          htmlFor="privacy-private"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          Private
-                                          {stripePlan(team).name === 'Free' && (
-                                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                            Paid
-                                          </span>
-                                          )}
-                                        </label>
-                                        <p
-                                          id="privacy-private-description"
-                                          className="text-gray-500"
-                                        >
-                                          Authenticated API access only. Good for internal company
-                                          content.
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </fieldset>
-                              <fieldset>
-                                <legend className="text-sm font-medium text-gray-900">
-                                  Language
-                                </legend>
-                                <div className="mt-2 space-y-2">
-                                  <div className="relative flex items-start">
-                                    <div className="absolute flex h-5 items-center">
-                                      <input
-                                        id="language-english"
-                                        name="language"
-                                        value="en"
-                                        type="radio"
-                                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                        checked={language === 'en'}
-                                        onChange={() => setLanguage('en')}
-                                        disabled={isUpdating}
-                                      />
-                                    </div>
-                                    <div className="pl-7 text-sm">
-                                      <label
-                                        htmlFor="language-english"
-                                        className="font-medium text-gray-900"
-                                      >
-                                        English
-                                      </label>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <div className="relative flex items-start">
-                                      <div className="absolute flex h-5 items-center">
-                                        <input
-                                          id="language-japanese"
-                                          name="language"
-                                          value="jp"
-                                          type="radio"
-                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                                          checked={language === 'jp'}
-                                          onChange={() => setLanguage('jp')}
-                                          disabled={isUpdating}
-                                        />
-                                      </div>
-                                      <div className="pl-7 text-sm">
-                                        <label
-                                          htmlFor="language-japanese"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          Japanese (日本語)
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </fieldset>
-                            </div>
-                            <div className="hidden pt-4 pb-6">
+                            <FormBot {...{team, setBotSettings }} disabled={isUpdating} />
+                          </div>
+                            <div className=" pt-4 pb-6">
                               <div className="mt-4 flex text-sm">
-                                <a
-                                  href="#"
-                                  className="group inline-flex items-center text-gray-500 hover:text-gray-900"
-                                >
-                                  <QuestionMarkCircleIcon
+                                  <InformationCircleIcon
                                     className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
                                     aria-hidden="true"
                                   />
-                                  <span className="ml-2">Learn more</span>
-                                </a>
+                                  <span className="ml-2">You can change these settings later.</span>
                               </div>
                             </div>
                           </div>

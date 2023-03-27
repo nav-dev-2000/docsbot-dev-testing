@@ -59,10 +59,7 @@ export default function ModalPrompt({ team, bot }) {
         title="Customize prompt"
         onClick={() => setOpen(true)}
       >
-        <CommandLineIcon
-          className="mr-1 h-4 w-4 flex-shrink-0"
-          aria-hidden="true"
-        />
+        <CommandLineIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
         {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}
       </button>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
@@ -114,6 +111,11 @@ export default function ModalPrompt({ team, bot }) {
                         className="mb-4 text-xl font-medium leading-6 text-gray-900"
                       >
                         Customize Prompt (advanced)
+                        {stripePlan(team).bots < 10 && (
+                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                            Pro
+                          </span>
+                        )}
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
                       <p className="text-md text-gray-700">

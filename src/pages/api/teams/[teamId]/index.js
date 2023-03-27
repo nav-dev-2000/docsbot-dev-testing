@@ -4,9 +4,9 @@ import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
-import crypto from 'crypto'
+import { encryptKey } from '@/lib/encryption'
 import { deleteSchema } from '@/lib/weaviate'
-
+import { Configuration, OpenAIApi } from 'openai'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -30,17 +30,23 @@ export default async function handler(req, res) {
       if (!/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
         return res.status(400).json({ message: 'Invalid OpenAI Key' })
       }
-      //encrypt openAIKey with aes256
-      const algorithm = 'aes-256-cbc'
-      const password = process.env.OPENAI_KEY_ENCRYPTION_PASSWORD
-      const iv = crypto.randomBytes(16)
-      const cipher = crypto.createCipheriv(algorithm, password, iv)
-      //encrypt, prepend iv, and encode to base64
-      const encrypted = Buffer.concat([iv, cipher.update(openAIKey), cipher.final()]).toString(
-        'base64'
-      )
-      newTeam.openAIKey = encrypted
-      newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
+
+      try {
+        //check if key is valid
+        const configuration = new Configuration({
+          apiKey: openAIKey,
+        })
+        const openai = new OpenAIApi(configuration)
+        //list models available
+        const models = await openai.listModels()
+        const isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4')
+
+        newTeam.openAIKey = encryptKey(openAIKey)
+        newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
+        newTeam.supportsGPT4 = isGPT4
+      } catch (error) {
+        return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
+      }
     }
 
     try {
@@ -95,7 +101,6 @@ export default async function handler(req, res) {
         // Commit the batch
         questionsBatch.commit()
 
-
         //delete schema in weaviate
         if (doc.indexId) {
           try {
@@ -104,7 +109,6 @@ export default async function handler(req, res) {
             console.warn('Error deleting Weaviate Schema:', error)
           }
         }
-
       })
 
       // Commit the batch
@@ -119,11 +123,14 @@ export default async function handler(req, res) {
 
       //delete team from user
       if (!isSuperAdmin(userId)) {
-        await firestore.collection('users').doc(userId).update({currentTeam: null})
+        await firestore.collection('users').doc(userId).update({ currentTeam: null })
       } else {
-        await firestore.collection('users').doc(userId).update({currentTeam: 'ZrbLG98bbxZ9EFqiPvyl'})
+        await firestore
+          .collection('users')
+          .doc(userId)
+          .update({ currentTeam: 'ZrbLG98bbxZ9EFqiPvyl' })
       }
-      
+
       return res.status(200).json({ message: 'Team deleted' })
     } catch (error) {
       console.warn('Error deleting team:', error)
