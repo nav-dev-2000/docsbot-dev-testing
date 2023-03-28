@@ -239,7 +239,7 @@ export default function AskStreaming({ teamId, bot }) {
                     name="query"
                     id="query"
                     value={question}
-                    maxLength={200}
+                    maxLength={2000}
                     minLength={10}
                     required
                     onChange={(e) => setQuestion(e.target.value)}

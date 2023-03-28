@@ -21,7 +21,7 @@ This endpoint accepts a websocket request with the following parameters in the i
 
 | Parameter       | Type    | Description                                                                       |
 | --------------- | ------- | --------------------------------------------------------------------------------- |
-| **question**    | string  | The question to ask the bot. 10 to 200 characters.                                |
+| **question**    | string  | The question to ask the bot. 10 to 2000 characters.                                |
 | **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false` |
 | **history**     | array   | The chat history array. Optional, defaults to `[]`                                |
 | **auth**        | string  | The API key. Required only for private bots.                                      |
