@@ -121,9 +121,9 @@ export default function Home() {
                   <div className="mx-auto max-w-md px-6 sm:max-w-2xl sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
                     <div className="lg:py-24">
                       <div className="inline-flex items-center rounded-full bg-black p-1 pl-3 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base">
-                        <span className="pr-1 text-sm">Powered by the NEW</span>
+                        <span className="pr-1 text-sm">Powered by</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
-                          ChatGPT API and embeddings!
+                          ChatGPT & GPT-4!
                         </span>
                       </div>
                       <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
