@@ -133,6 +133,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
         },
         (err) => () => {
           console.warn(err)
+          setErrorText('Error uploading file, please try again. If the problem persists, try logging out then back in again.')
           setIsUploading(false)
           setFileName(null)
         },

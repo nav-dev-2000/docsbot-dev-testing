@@ -1,4 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
@@ -115,7 +116,7 @@ export default async function handler(req, res) {
       botBatch.commit()
 
       //delete all team data from bucket
-      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
+      const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
       await bucket.deleteFiles({ prefix: `teams/${team.id}` })
 
       //delete team

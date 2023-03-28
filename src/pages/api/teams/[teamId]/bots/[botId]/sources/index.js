@@ -1,4 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
@@ -104,7 +105,7 @@ export default async function handler(req, res) {
 
     //check file type, mostly for sanity
     if (file) {
-      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
+      const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
       const fileRef = bucket.file(file)
       const extension = file.split('.').pop()
       if (!Object.keys(sourceType.fileTypes).includes(extension)) {

@@ -1,4 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
@@ -172,7 +173,7 @@ export default async function handler(req, res) {
       })
 
       //delete all bot data from bucket
-      const bucket = getStorage().bucket('gs://docsbotai.appspot.com')
+      const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
       await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
 
       //delete schema in weaviate async
