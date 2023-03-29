@@ -34,6 +34,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   const [isUpdating, setIsUpdating] = useState(false)
   const [validated, setValidated] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [urlDescription, setUrlDescription] = useState(null)
 
   useEffect(() => {
     if (
@@ -61,6 +62,14 @@ export default function SourceForm({ team, bot, sources, setSources }) {
       setValidated(valid)
     } else {
       setValidated(false)
+    }
+
+    if (selectedSourceType?.id === 'rss') {
+      setUrlDescription('URL of the RSS feed to learn from.')
+    } else if (selectedSourceType?.id === 'sitemap') {
+      setUrlDescription('URL of the site to crawl for all discovered sitemaps.')
+    } else {
+      setUrlDescription('Clickable URL of source link displayed with answers.')
     }
   }, [selectedSourceType, url, file, title])
 
@@ -285,15 +294,9 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                       aria-describedby="url-description"
                     />
                   </div>
-                  {selectedSourceType?.id !== 'sitemap' ? (
-                    <p className="mt-2 text-sm text-gray-500" id="url-description">
-                      Clickable URL of source link displayed with answers.
-                    </p>
-                  ) : (
-                    <p className="mt-2 text-sm text-gray-500" id="url-description">
-                      URL of the site to crawl based on any discovered sitemaps.
-                    </p>
-                  )}
+                  <p className="mt-2 text-sm text-gray-500" id="url-description">
+                    {urlDescription}
+                  </p>
                 </div>
               )}
               {selectedSourceType?.fieldTitle && (
