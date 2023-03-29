@@ -94,7 +94,7 @@ export const sourceTypes = [
     title: 'RSS Feed',
     description: 'Answer from post content from a blog RSS feed url',
     icon: RssIcon,
-    isPro: false,
+    isPro: true,
     coming: false,
     fieldUrl: 'required',
     fieldTitle: false,
