@@ -152,7 +152,7 @@ function Bot({ team, preBot, preSources }) {
         setToDelete={setToDelete}
         setErrorText={setErrorText}
         sources={sources}
-        setSource={setSources}
+        setSources={setSources}
       />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 

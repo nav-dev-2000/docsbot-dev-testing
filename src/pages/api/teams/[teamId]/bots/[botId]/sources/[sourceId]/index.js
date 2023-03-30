@@ -4,6 +4,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { PubSub } from '@google-cloud/pubsub'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
+import { deleteSource } from '@/lib/weaviate'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -128,21 +129,45 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    //error if source is not in failed state
-    if (source.status !== 'failed') {
-      return res.status(409).json({ message: 'Only failed sources can be deleted currently.' })
+    //if source is in a ready state, we need to delete it from weaviate\
+    let chunks = 0
+    if (source.status === 'ready') {
+      chunks = await deleteSource(bot.indexId, sourceId)
+    } else if (source.status !== 'failed') {
+      return res.status(500).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }
 
     //delete source from db
     try {
-      await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('sources')
-        .doc(sourceId)
-        .delete()
+      await firestore.runTransaction(async (transaction) => {
+        const teamRef = firestore.collection('teams').doc(team.id)
+        const botRef = teamRef.collection('bots').doc(botId)
+        const teamDoc = await transaction.get(teamRef)
+        const botDoc = await transaction.get(botRef)
+        if (!teamDoc.exists) {
+          throw 'Team does not exist!'
+        }
+  
+        // decrement counts
+        // TODO: we also need to decrement page counts for both team and bot
+        const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
+        const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - chunks
+        await transaction.update(teamRef, {
+          sourceCount: newTeamSourceCount,
+          chunkCount: newTeamChunkCount,
+        })
+
+        const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
+        const newBotChunkCount = (botDoc.data().chunkCount || 0) - chunks
+        await transaction.update(botRef, {
+          sourceCount: newBotSourceCount,
+          chunkCount: newBotChunkCount,
+        })
+
+
+        // remove source
+        await transaction.delete(teamRef.collection('bots').doc(botId).collection('sources').doc(sourceId))
+      })
 
       //track custom prompt
       try {
@@ -153,6 +178,7 @@ export default async function handler(req, res) {
         console.log('Error sending bento track', e)
       }
 
+      // send response
       return res.status(200).json({ message: 'Source deleted successfully' })
     } catch (error) {
       console.warn('Error deleting source doc:', error)
