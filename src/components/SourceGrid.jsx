@@ -54,39 +54,43 @@ export default function SourceGrid({ sources, setToDelete }) {
                   ) : null}
                 </div>
               </div>
-              <div className="absolute right-2 bottom-2">
-                <BadgeStatusSource source={source} small={true} />
-                {source.status === 'failed' && (
-                  <div className="mt-1 flex justify-end space-x-2 text-xs text-gray-400">
-                    <button
-                      className="hover:text-gray-600 focus:text-gray-500"
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        retrySource(source.id)
-                      }}
-                      title="Retry"
-                    >
-                      <span className="sr-only">Retry</span>
-                      <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
-                    </button>
-                  </div>
-                )}
-              </div>
-              <div className="absolute right-1 top-1">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setToDelete(source)
-                  }}
-                  className="text-red-400 hover:text-red-200 focus:text-red-200"
-                  title="Delete"
-                >
-                  <span className="sr-only">Delete</span>
-                  <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
+              {source.status !== 'ready' && (
+                <div className="absolute right-2 top-2">
+                  <BadgeStatusSource source={source} small={true} />
+                  {source.status === 'failed' && (
+                    <div className="mt-1 flex justify-end space-x-2 text-xs text-gray-400">
+                      <button
+                        className="hover:text-gray-600 focus:text-gray-500"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          retrySource(source.id)
+                        }}
+                        title="Retry"
+                      >
+                        <span className="sr-only">Retry</span>
+                        <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+              {source.status === 'ready' && (
+                <div className="absolute right-1 top-1">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setToDelete(source)
+                    }}
+                    className="text-red-400 hover:text-red-200 focus:text-red-200"
+                    title="Delete"
+                  >
+                    <span className="sr-only">Delete</span>
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
               <div className="flex-1 truncate text-sm">
                 <p className="truncate text-xs text-gray-600">{source.title}</p>
                 <p className="truncate text-xs text-gray-500">{source.url}</p>
