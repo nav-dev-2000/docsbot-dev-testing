@@ -139,7 +139,6 @@ function Bot({ team, preBot, preSources }) {
 
   return (
     <DashboardWrap page="Bots" title={bot.name}>
-      <Alert title="With the recent announcement of GPT-4, OpenAI's API has been experiencing high demand and may sometimes cause slow chat responses or timeouts. Please be patient while they scale up their infrastructure." type="info" />
       <Alert title={errorText} type="warning" />
 
       <BotCard team={team} bot={bot} />
