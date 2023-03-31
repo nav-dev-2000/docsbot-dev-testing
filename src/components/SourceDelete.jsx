@@ -44,7 +44,7 @@ export default function SourceDelete({ team, bot, source, setToDelete, setErrorT
   if (!source) return null
 
   return (
-    <div className="mb-6 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
+    <div className="mt-8 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
       <div className="px-4 py-5 sm:p-6">
         <h3 className="text-lg font-medium leading-6 text-gray-900">Delete source {source.name}?</h3>
         <div className="text-md mt-2 text-gray-500">
