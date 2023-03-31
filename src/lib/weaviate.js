@@ -99,7 +99,4 @@ export const deleteSource = async (indexId, sourceId) => {
     const objectId = data["_additional"].id
     await weaviateClient.data.deleter().withClassName(indexId).withId(objectId).do()
   })
-  
-  const chunks = data.data.Get[indexId].length
-  return chunks
 }

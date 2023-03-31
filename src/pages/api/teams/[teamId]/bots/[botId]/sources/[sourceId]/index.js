@@ -130,9 +130,8 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'DELETE') {
     //if source is in a ready state, we need to delete it from weaviate\
-    let chunks = 0
     if (source.status === 'ready') {
-      chunks = await deleteSource(bot.indexId, sourceId)
+      deleteSource(bot.indexId, sourceId)
     } else if (source.status !== 'failed') {
       return res.status(500).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }
@@ -142,31 +141,36 @@ export default async function handler(req, res) {
       await firestore.runTransaction(async (transaction) => {
         const teamRef = firestore.collection('teams').doc(team.id)
         const botRef = teamRef.collection('bots').doc(botId)
+        const sourceRef = botRef.collection('sources').doc(sourceId)
         const teamDoc = await transaction.get(teamRef)
         const botDoc = await transaction.get(botRef)
+        const sourceDoc = await transaction.get(sourceRef)
         if (!teamDoc.exists) {
           throw 'Team does not exist!'
         }
-  
-        // decrement counts
-        // TODO: we also need to decrement page counts for both team and bot
+
+        // decrement team counts
         const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
-        const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - chunks
+        const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+        const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
         await transaction.update(teamRef, {
           sourceCount: newTeamSourceCount,
           chunkCount: newTeamChunkCount,
+          pageCount: newTeamPageCount,
         })
 
+        // decrement bot counts
         const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
-        const newBotChunkCount = (botDoc.data().chunkCount || 0) - chunks
+        const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+        const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
         await transaction.update(botRef, {
           sourceCount: newBotSourceCount,
           chunkCount: newBotChunkCount,
+          pageCount: newBotPageCount,
         })
 
-
         // remove source
-        await transaction.delete(teamRef.collection('bots').doc(botId).collection('sources').doc(sourceId))
+        await transaction.delete(sourceRef)
       })
 
       //track custom prompt
