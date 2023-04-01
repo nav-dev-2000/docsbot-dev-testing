@@ -149,25 +149,27 @@ export default async function handler(req, res) {
           throw 'Team does not exist!'
         }
 
-        // decrement team counts
-        const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
-        const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-        const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-        await transaction.update(teamRef, {
-          sourceCount: newTeamSourceCount,
-          chunkCount: newTeamChunkCount,
-          pageCount: newTeamPageCount,
-        })
-
-        // decrement bot counts
-        const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
-        const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-        const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-        await transaction.update(botRef, {
-          sourceCount: newBotSourceCount,
-          chunkCount: newBotChunkCount,
-          pageCount: newBotPageCount,
-        })
+        // decrement team counts (if the source was ingested)
+        if (sourceDoc.data().status == 'ready') {
+          const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
+          const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+          const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+          await transaction.update(teamRef, {
+            sourceCount: newTeamSourceCount,
+            chunkCount: newTeamChunkCount,
+            pageCount: newTeamPageCount,
+          })
+  
+          // decrement bot counts
+          const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
+          const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+          const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+          await transaction.update(botRef, {
+            sourceCount: newBotSourceCount,
+            chunkCount: newBotChunkCount,
+            pageCount: newBotPageCount,
+          })
+        }
 
         // remove source
         await transaction.delete(sourceRef)
