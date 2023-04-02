@@ -1,5 +1,6 @@
 import { getBot } from '@/lib/dbQueries'
 import Cors from 'cors'
+import { i18n } from '@/constants/strings.constants'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
     'Cache-Control',
     'public, s-maxage=300, stale-while-revalidate=359'
   )
-  
+
   if (req.method === 'GET') {
     try {
       const bot = await getBot(teamId, botId)
@@ -49,19 +50,12 @@ export default async function handler(req, res) {
           botName: bot.name,
           description: bot.description,
           color: bot.color || '#1292EE',
-          icon: 'default',
-          botIcon: 'robot',
-          branding: true,
+          icon: bot.icon || 'default',
+          botIcon: bot.botIcon || 'robot',
+          branding: bot.branding || true,
           supportLink: bot.supportLink || 'https://docsbot.ai',
-          labels: {
-            poweredBy: 'Powered by',
-            inputPlaceholder: 'Send a message...',
-            firstMessage: 'What can I help you with?',
-            sources: 'Sources',
-            helpful: 'Rate as helpful',
-            unhelpful: 'Rate as unhelpful',
-            getSupport: 'Contact support',
-          }
+          showButtonLabel: bot.showButtonLabel || false,
+          labels: i18n[bot.language]?.labels || i18n.en.labels,
         }
 
         return res.json(widget)
