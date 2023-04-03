@@ -4,7 +4,7 @@ import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
 import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-export default function SourceGrid({ sources }) {
+export default function SourceGrid({ sources, setToDelete }) {
   const [fullSources, setFullSources] = useState([])
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function SourceGrid({ sources }) {
             >
               <source.icon className="h-6 w-6 text-cyan-100" aria-hidden="true" />
             </div>
-            <div className="w-full truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate">
+            <div className="relative w-full truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate">
               <div className="flex flex-1 items-center justify-between ">
                 <div className="flex items-center text-sm">
                   <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
@@ -53,7 +53,9 @@ export default function SourceGrid({ sources }) {
                     <p className="ml-2 text-xs text-gray-500">{source.pageCount} Pages</p>
                   ) : null}
                 </div>
-                <div className="">
+              </div>
+              {source.status !== 'ready' && (
+                <div className="absolute right-2 top-2">
                   <BadgeStatusSource source={source} small={true} />
                   {source.status === 'failed' && (
                     <div className="mt-1 flex justify-end space-x-2 text-xs text-gray-400">
@@ -69,22 +71,26 @@ export default function SourceGrid({ sources }) {
                         <span className="sr-only">Retry</span>
                         <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
                       </button>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          deleteSource(source.id)
-                        }}
-                        className="text-red-400 hover:text-red-200 focus:text-red-200"
-                        title="Delete"
-                      >
-                        <span className="sr-only">Delete</span>
-                        <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-                      </button>
                     </div>
                   )}
                 </div>
-              </div>
+              )}
+              {source.status === 'ready' && (
+                <div className="absolute right-1 top-1">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setToDelete(source)
+                    }}
+                    className="text-red-400 hover:text-red-200 focus:text-red-200"
+                    title="Delete"
+                  >
+                    <span className="sr-only">Delete</span>
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
               <div className="flex-1 truncate text-sm">
                 <p className="truncate text-xs text-gray-600">{source.title}</p>
                 <p className="truncate text-xs text-gray-500">{source.url}</p>

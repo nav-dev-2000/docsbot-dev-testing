@@ -8,10 +8,12 @@ import BotCard from '@/components/BotCard'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
+import SourceDelete from '@/components/SourceDelete'
 
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
   const [bot, setBot] = useState(preBot)
+  const [toDelete, setToDelete] = useState(null)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
   const router = useRouter()
@@ -142,9 +144,18 @@ function Bot({ team, preBot, preSources }) {
       <Alert title={errorText} type="warning" />
 
       <BotCard team={team} bot={bot} />
+      <SourceDelete 
+        team={team}
+        bot={bot}
+        source={toDelete}
+        setToDelete={setToDelete}
+        setErrorText={setErrorText}
+        sources={sources}
+        setSources={setSources}
+      />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ sources }} />
+      <SourceGrid {...{ sources, setToDelete }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
     </DashboardWrap>
