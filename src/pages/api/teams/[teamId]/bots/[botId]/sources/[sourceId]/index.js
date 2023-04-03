@@ -164,10 +164,12 @@ export default async function handler(req, res) {
           const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
           const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
           const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+          const newBotStatus = (newBotSourceCount == 0 ? 'pending' : 'ready')
           await transaction.update(botRef, {
             sourceCount: newBotSourceCount,
             chunkCount: newBotChunkCount,
             pageCount: newBotPageCount,
+            status: newBotStatus,
           })
         }
 
