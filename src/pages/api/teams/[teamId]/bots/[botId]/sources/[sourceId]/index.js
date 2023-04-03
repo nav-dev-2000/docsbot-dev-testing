@@ -130,10 +130,10 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'DELETE') {
     //if source is in a ready state, we need to delete it from weaviate\
-    if (source.status === 'ready') {
+    if (source.status === 'ready' || source.status === 'failed') {
       deleteSource(bot.indexId, sourceId)
-    } else if (source.status !== 'failed') {
-      return res.status(500).json({ message: 'Please wait until indexing is complete before deleting this source.' })
+    } else {
+      return res.status(409).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }
 
     //delete source from db
@@ -154,7 +154,7 @@ export default async function handler(req, res) {
           const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
           const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
           const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-          await transaction.update(teamRef, {
+          transaction.update(teamRef, {
             sourceCount: newTeamSourceCount,
             chunkCount: newTeamChunkCount,
             pageCount: newTeamPageCount,
@@ -164,7 +164,7 @@ export default async function handler(req, res) {
           const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
           const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
           const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-          await transaction.update(botRef, {
+          transaction.update(botRef, {
             sourceCount: newBotSourceCount,
             chunkCount: newBotChunkCount,
             pageCount: newBotPageCount,
@@ -172,7 +172,7 @@ export default async function handler(req, res) {
         }
 
         // remove source
-        await transaction.delete(sourceRef)
+        transaction.delete(sourceRef)
       })
 
       //track custom prompt
