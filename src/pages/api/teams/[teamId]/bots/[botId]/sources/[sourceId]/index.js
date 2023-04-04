@@ -110,7 +110,7 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     //if source is in a ready state, we need to delete it from weaviate\
     if (source.status === 'ready' || source.status === 'failed') {
-      await QueueSourceExpel(team.id, bot.indexId, source.id)
+      QueueSourceExpel(team.id, bot.indexId, source.id)
     } else {
       return res.status(409).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }

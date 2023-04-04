@@ -173,7 +173,7 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      await QueueSourceIngest(team.id, botId, docRed.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file)
+      await QueueSourceIngest(team.id, botId, docRef.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file)
 
       //send bento track
       try {
