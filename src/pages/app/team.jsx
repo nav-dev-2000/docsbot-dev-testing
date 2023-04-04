@@ -191,7 +191,7 @@ function Team({ team, userId, teamUsers, userTeams }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name: newTeamName, botCredits: newBotCredits, sourceCredits: newSourceCredits }),
+      body: JSON.stringify({ name: newTeamName }),
     })
     if (response.ok) {
       const data = await response.json()
