@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           icon: bot.icon || 'default',
           botIcon: bot.botIcon || 'robot',
           branding: bot.branding || true,
-          supportLink: bot.supportLink || 'https://docsbot.ai',
+          supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           labels: i18n[bot.language]?.labels || i18n.en.labels,
         }
