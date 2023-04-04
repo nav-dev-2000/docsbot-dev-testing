@@ -198,7 +198,7 @@ function Team({ team, userId, teamUsers, userTeams }) {
       setCurrTeam(data)
       setNewTeamName(data.name)
       setCurrUserTeams((teams) => {
-        const index = teams.findBot((team) => team.id === data.id)
+        const index = teams.find((team) => team.id === data.id)
         teams[index] = data
         return teams
       })

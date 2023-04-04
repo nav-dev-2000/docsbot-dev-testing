@@ -25,6 +25,7 @@ export default async function handler(req, res) {
     let { name, openAIKey } = req.body
     let newTeam = {}
     if (name) {
+      newTeam.name = name
       newTeam.name.trim()
     }
     if (openAIKey) {
