@@ -49,7 +49,7 @@ export default function SourceDelete({ team, bot, source, setToDelete, setErrorT
         <h3 className="text-lg font-medium leading-6 text-gray-900">Delete source {source.name}?</h3>
         <div className="text-md mt-2 text-gray-500">
             <p>
-              Once you delete this source, it will not be recoverable! Are you sure you'd like to delete this source?
+              Once you delete this source, it will not be recoverable! It may take a few minutes to propagate through our services before the sources are completely removed. Are you sure you'd like to delete this source? 
             </p>
         </div>
         <div className="mt-5">
