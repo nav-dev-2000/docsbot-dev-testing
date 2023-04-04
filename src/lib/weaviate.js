@@ -86,17 +86,3 @@ export const deleteSchema = (indexId) => {
   //delete a weaviate schema for the bot
   return weaviateClient.schema.classDeleter().withClassName(indexId).do()
 }
-
-export const deleteSource = async (indexId, sourceId) => {
-  const data = await weaviateClient.graphql.get().withClassName(indexId).withFields('_additional { id }').withWhere({
-    operator: 'Equal',
-    path: ['sourceId'],
-    valueString: sourceId,
-  }).do()
-
-  // these aren't awaited, so they're done asynchronously
-  data.data.Get[indexId].forEach(async (data) => {
-    const objectId = data["_additional"].id
-    await weaviateClient.data.deleter().withClassName(indexId).withId(objectId).do()
-  })
-}

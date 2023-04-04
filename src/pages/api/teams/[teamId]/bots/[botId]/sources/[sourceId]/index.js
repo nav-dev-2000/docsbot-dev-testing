@@ -4,8 +4,14 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { PubSub } from '@google-cloud/pubsub'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
-import { deleteSource } from '@/lib/weaviate'
 import userTeamCheck from '@/lib/userTeamCheck'
+
+const SERVICE_ACCOUNT = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+const PUBSUB_CLIENT = new PubSub({
+  projectId: SERVICE_ACCOUNT.project_id,
+  credentials: SERVICE_ACCOUNT,
+})
+const PUBSUB_TOPIC = 'docsbot-ingest'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -100,14 +106,9 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
-      const pubSubClient = new PubSub({
-        projectId: serviceAccount.project_id,
-        credentials: serviceAccount,
-      })
-      const topicName = 'docsbot-ingest'
       const dataBuffer = Buffer.from(
         JSON.stringify({
+          action: 'ingest',
           teamId: team.id,
           botId,
           sourceId,
@@ -119,8 +120,8 @@ export default async function handler(req, res) {
           file: source.file,
         })
       )
-      const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
-      console.log(`Message ${messageId} published to ${topicName}.`)
+      const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
+      console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
 
       //done, return source object
       return res.status(201).json(await getSource(team, bot, sourceId))
@@ -131,7 +132,17 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     //if source is in a ready state, we need to delete it from weaviate\
     if (source.status === 'ready' || source.status === 'failed') {
-      deleteSource(bot.indexId, sourceId)
+      //deleteSource(bot.indexId, sourceId)
+      const dataBuffer = Buffer.from(
+        JSON.stringify({
+          action: 'excel',
+          teamId: team.id,
+          indexId: bot.indexId,
+          sourceId: source.id,
+        })
+      )
+      const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
+      console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
     } else {
       return res.status(409).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }

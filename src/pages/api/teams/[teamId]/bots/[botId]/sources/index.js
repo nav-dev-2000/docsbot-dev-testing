@@ -180,6 +180,7 @@ export default async function handler(req, res) {
       const topicName = 'docsbot-ingest'
       const dataBuffer = Buffer.from(
         JSON.stringify({
+          action: 'ingest',
           teamId: team.id,
           botId,
           sourceId: docRef.id,
