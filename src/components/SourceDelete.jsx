@@ -1,8 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function SourceDelete({ team, bot, source, setToDelete, setErrorText, sources, setSources }) {
+export default function SourceDelete({
+  team,
+  bot,
+  source,
+  setToDelete,
+  setErrorText,
+  sources,
+  setSources,
+}) {
   const [submitting, setSubmitting] = useState(false)
-  const alertRef = useRef(null);
+  const alertRef = useRef(null)
 
   async function submitDelete() {
     setErrorText('')
@@ -46,11 +54,16 @@ export default function SourceDelete({ team, bot, source, setToDelete, setErrorT
   return (
     <div className="mt-8 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
       <div className="px-4 py-5 sm:p-6">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">Delete source {source.name}?</h3>
+        <h3 className="text-lg font-medium leading-6 text-gray-900">
+          Delete source {source.name}?
+        </h3>
         <div className="text-md mt-2 text-gray-500">
-            <p>
-              Once you delete this source, it will not be recoverable! It may take a few minutes to propagate through our services before the sources are completely removed. Are you sure you'd like to delete this source? 
-            </p>
+          <p>
+            By choosing to delete this source, you'll be removing all of its pages from your bot's
+            index. Please be aware that it might take a little while for the changes to take effect
+            across our services, and for the sources to be fully removed from chat results. Are you
+            certain you want to proceed with deleting this source?
+          </p>
         </div>
         <div className="mt-5">
           <div className="flex justify-start">
@@ -64,9 +77,9 @@ export default function SourceDelete({ team, bot, source, setToDelete, setErrorT
             </button>
             <button
               onClick={submitDelete}
-                disabled={submitting}
+              disabled={submitting}
               type="button"
-              className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:text-sm disabled:opacity-25 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25 sm:text-sm"
             >
               Delete
             </button>
