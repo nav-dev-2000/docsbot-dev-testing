@@ -18,7 +18,7 @@ You can find the full embed code for your bot from the [Bot](/app/bots) page for
 ```html
 <script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})}</script>
 <script type="text/javascript">
-    DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy"});
+    DocsBotAI.init({id: "YOUR_ID_HERE"});
 </script>
 ```
 
@@ -58,7 +58,7 @@ If you would like to run a callback when the user clicks the support link in the
 
 ```js
 DocsBotAI.init({
-    id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy",
+    id: "YOUR_ID_HERE",
     supportCallback: function (event, history) {
         event.preventDefault(); // Prevent default behavior opening the url.
         console.log(history); // Safely access the chat history and widget API.
@@ -77,7 +77,7 @@ If your business uses [Helpscout](https://helpscout.grsm.io/9cush642f1y3) for su
 
 ```js
 DocsBotAI.init({
-    id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy",
+    id: "YOUR_ID_HERE",
     supportCallback: function (event, history) {
         event.preventDefault(); // Prevent default behavior opening the url.
         DocsBotAI.unmount(); // Hide the widget.
