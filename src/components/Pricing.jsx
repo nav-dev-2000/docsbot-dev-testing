@@ -41,7 +41,7 @@ const tiers = [
       'GPT-4 support',
       '1 user',
       'Basic Analytics',
-      'Chat history *',
+      'Chat history',
     ],
     mostPopular: true,
   },
@@ -60,8 +60,8 @@ const tiers = [
       'GPT-4 support',
       '5 team users',
       'Basic Analytics',
-      'Chat history *',
-      'Unbranded chat widgets *',
+      'Chat history',
+      'Unbranded chat widgets',
       'Prompt customization',
     ],
     mostPopular: false,
@@ -75,8 +75,8 @@ const includedFeatures = [
   '100k+ questions/mo',
   '50+ team users',
   'Advanced Analytics *',
-  'Chat history *',
-  'Unbranded chat widgets *',
+  'Chat history',
+  'Unbranded chat widgets',
   'AI reports *',
   'Prompt customization',
 ]
@@ -102,6 +102,8 @@ export default function Pricing() {
             onClick={(e) => {
               if (Beacon !== undefined) {
                 e.preventDefault()
+                DocsBotAI.unmount()
+                Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
                 Beacon('open')
               }
             }}
@@ -270,6 +272,8 @@ export default function Pricing() {
             onClick={(e) => {
               if (Beacon !== undefined) {
                 e.preventDefault()
+                DocsBotAI.unmount()
+                Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
                 Beacon('open')
               }
             }}

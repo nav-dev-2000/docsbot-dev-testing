@@ -64,14 +64,6 @@ export default function App({ Component, pageProps }) {
       }
     }
 
-    //if on a page starting with /chat/ then hide the beacon
-    if (
-      (router.pathname.startsWith('/chat/') || router.pathname.startsWith('/ask/')) &&
-      Beacon !== undefined
-    ) {
-      Beacon('on', 'ready', () => Beacon('destroy'))
-    }
-
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
@@ -107,13 +99,42 @@ export default function App({ Component, pageProps }) {
         <Head>
           <title>{pageTitle}</title>
           {description && <meta name="description" content={description} />}
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@docsbotai" />
+          <meta name="twitter:creator" content="@docsbotai" />
+          <meta property="twitter:domain" content="docsbot.ai" />
+          <meta name="twitter:image" content="https://docsbot.ai/social-card.png" />
+          <meta property="og:url" content={'https://docsbot.ai' + router.asPath} key="ogurl" />
+          <meta property="og:title" content="DocsBot AI" key="ogtitle" />
+          <meta property="og:description" content={description} key="ogdesc" />
+          <meta property="og:image" content="https://docsbot.ai/social-card.png" key="ogimage" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff"></meta>
         </Head>
         <Layout title={title} tableOfContents={tableOfContents}>
           <Component {...pageProps} />
         </Layout>
-        <Script id="helpscout">
-          {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});window.Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')`}
-        </Script>
+        {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && (
+          <>
+            <Script id="helpscout">
+              {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
+            </Script>
+            <Script id="docsbot">
+              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})};DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
+      event.preventDefault();
+      DocsBotAI.unmount();
+      Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
+      Beacon('open');
+  },});`}
+            </Script>
+          </>
+        )}
         <Script
           id="bento-script"
           src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
@@ -159,17 +180,21 @@ export default function App({ Component, pageProps }) {
       <div className="h-screen">
         <Component {...pageProps} />
       </div>
-      <Script id="helpscout">
-        {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
-      </Script>
-      <Script id="docsbot">
-      {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})};DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
+      {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && (
+        <>
+          <Script id="helpscout">
+            {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
+          </Script>
+          <Script id="docsbot">
+            {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})};DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
       event.preventDefault();
       DocsBotAI.unmount();
       Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
       Beacon('open');
   },});`}
-      </Script>
+          </Script>
+        </>
+      )}
       <Script
         id="bento-script"
         src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
