@@ -5,6 +5,7 @@ import { getAuth } from 'firebase-admin/auth'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import sendEmail from '@/lib/sendEmail'
+import { stripePlan } from '@/utils/helpers'
 
 export default async function createCheckoutSession(req, res) {
     configureFirebaseApp()
@@ -19,7 +20,22 @@ export default async function createCheckoutSession(req, res) {
       }
       const { userId, team } = check
 
+      // sanity check stripe plan
+      const plan = stripePlan(team)
+      if (Object.keys(team.roles).length >= plan.teamMembers) {
+        return res.status(403).send({ message: `You've reached your team member limit, please upgrade to our enterprise plan!`})
+      }
+
       try {
+        bentoTrack(userId, 'track', {
+          type: 'inviteUser',
+        })
+      } catch (e) {
+        console.log('Error sending bento track', e)
+      }
+
+      try {
+        // grab user and invite them (or send an email if they haven't signed up)
         const { inviteEmail } = req.body
         let userRecord = null
         try {
@@ -27,14 +43,6 @@ export default async function createCheckoutSession(req, res) {
         } catch {}
 
         if (userRecord !== null) {
-          try {
-            bentoTrack(userId, 'track', {
-              type: 'inviteUser',
-            })
-          } catch (e) {
-            console.log('Error sending bento track', e)
-          }
-
           // add user to team roles
           await firestore.runTransaction(async (transaction) => {
             const teamRef = firestore.collection('teams').doc(team.id)
@@ -46,10 +54,10 @@ export default async function createCheckoutSession(req, res) {
 
             // get invites where the email && the teamId match
             const inviteRef = firestore.collection('invites')
-            const alreadyInvited = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
-            if (alreadyInvited.length >= 1) {
+            const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
+            invites.forEach(() => { // would much rather do if (alreadyInvited.length >= 1), but you can't so...
               throw new Error('User was already invited to the team!')
-            }
+            })
 
             const docRef = await inviteRef.add({
               createdAt: FieldValue.serverTimestamp(),
@@ -60,6 +68,12 @@ export default async function createCheckoutSession(req, res) {
 
           return res.status(200).send({ message: `Successfully invited ${inviteEmail} to the team!`})
         } else {
+          const inviteRef = firestore.collection('invites')
+          const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
+          invites.forEach(() => { // would much rather do if (alreadyInvited.length >= 1), but you can't so...
+            throw new Error('User was already invited to the team!')
+          })
+
           // user doesn't exist, add invite!
           await firestore.runTransaction(async (transaction) => {
             const inviteRef = firestore.collection('invites')
@@ -79,6 +93,14 @@ export default async function createCheckoutSession(req, res) {
       }
     } else if (req.method === 'PUT') {
       const { uid, email } = await getAuthorizedUser({ req, res })
+
+      try {
+        bentoTrack(uid, 'track', {
+          type: 'acceptInvite',
+        })
+      } catch (e) {
+        console.log('Error sending bento track', e)
+      }
 
       // user is accepting/denying an invite request
       try {
