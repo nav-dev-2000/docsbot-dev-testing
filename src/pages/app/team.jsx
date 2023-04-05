@@ -227,7 +227,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites }) {
       <Alert title={successText} type="success" />
 
       {inviteList.map(({ teamId, teamName, inviteId }) => (
-        <InviteRequest {...{teamId, teamName, inviteId, setInviteList, setErrorText }} />
+        <InviteRequest key={inviteId} {...{teamId, teamName, inviteId, setInviteList, setErrorText }} />
       ))}
 
       <div className="flex flex-wrap items-center justify-between rounded-lg bg-white p-4 py-6 shadow gap-4">
