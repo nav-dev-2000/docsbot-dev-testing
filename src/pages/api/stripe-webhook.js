@@ -78,6 +78,7 @@ const webhookHandler = async (req, res) => {
               {
                 stripeSubscriptionId: subscription.id,
                 stripeSubscriptionStatus: subscription.status,
+                stripeSubscriptionProduct: subscription.plan.product,
                 stripeSubscriptionPlan: subscription.plan.id,
                 stripeSubscriptionPrice: subscription.plan.amount,
                 stripeSubscriptionCurrency: subscription.plan.currency,
@@ -144,6 +145,7 @@ const webhookHandler = async (req, res) => {
                   stripeCustomerId: session.customer,
                   stripeSubscriptionId: session.subscription.id,
                   stripeSubscriptionStatus: session.subscription.status,
+                  stripeSubscriptionProduct: session.subscription.plan.product,
                   stripeSubscriptionPlan: session.subscription.plan.id,
                   stripeSubscriptionPrice: session.subscription.plan.amount,
                   stripeSubscriptionCurrency: session.subscription.plan.currency,
@@ -165,6 +167,7 @@ const webhookHandler = async (req, res) => {
               const planName = stripePlan({
                 stripeSubscriptionStatus: session.subscription.status,
                 stripeSubscriptionPlan: session.subscription.plan.id,
+                stripeSubscriptionProduct: session.subscription.plan.product,
               }).name
 
               // Send the Slack notification
@@ -220,6 +223,7 @@ const webhookHandler = async (req, res) => {
               {
                 stripeSubscriptionId: invoiceWithSubscription.subscription.id,
                 stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
+                stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
                 stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
                 stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
                 stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
