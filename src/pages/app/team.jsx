@@ -382,7 +382,6 @@ export const getServerSideProps = async (context) => {
       data.props.userInvites.splice(0, 0, JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
     })
   })
-  console.log(email, data.props)
 
   if (data?.props?.team) {
     data.props.userTeams = await getTeams(data.props.userId)

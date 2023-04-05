@@ -7,7 +7,7 @@ import { bentoTrack } from '@/lib/bento'
 import sendEmail from '@/lib/sendEmail'
 import { stripePlan } from '@/utils/helpers'
 
-export default async function createCheckoutSession(req, res) {
+export default async function handleInvite(req, res) {
     configureFirebaseApp()
     const firestore = getFirestore()
 
@@ -55,9 +55,9 @@ export default async function createCheckoutSession(req, res) {
             // get invites where the email && the teamId match
             const inviteRef = firestore.collection('invites')
             const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
-            invites.forEach(() => { // would much rather do if (alreadyInvited.length >= 1), but you can't so...
+            if (invites.size >= 1) {
               throw new Error('User was already invited to the team!')
-            })
+            }
 
             const docRef = await inviteRef.add({
               createdAt: FieldValue.serverTimestamp(),
@@ -70,9 +70,9 @@ export default async function createCheckoutSession(req, res) {
         } else {
           const inviteRef = firestore.collection('invites')
           const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
-          invites.forEach(() => { // would much rather do if (alreadyInvited.length >= 1), but you can't so...
+          if (invites.size >= 1) {
             throw new Error('User was already invited to the team!')
-          })
+          }
 
           // user doesn't exist, add invite!
           await firestore.runTransaction(async (transaction) => {
