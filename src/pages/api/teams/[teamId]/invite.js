@@ -7,6 +7,12 @@ import { bentoTrack } from '@/lib/bento'
 import sendEmail from '@/lib/sendEmail'
 import { stripePlan } from '@/utils/helpers'
 
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  )
+}
+
 export default async function handleInvite(req, res) {
     configureFirebaseApp()
     const firestore = getFirestore()
@@ -23,6 +29,7 @@ export default async function handleInvite(req, res) {
       // sanity check stripe plan
       const plan = stripePlan(team)
       if (Object.keys(team.roles).length >= plan.teamMembers) {
+        // the user copy here isn't actually read by the user, the 403 status code is handled by showing the upgrade modal
         return res.status(403).send({ message: `You've reached your team member limit, please upgrade to our enterprise plan!`})
       }
 
@@ -37,6 +44,11 @@ export default async function handleInvite(req, res) {
       try {
         // grab user and invite them (or send an email if they haven't signed up)
         const { inviteEmail } = req.body
+
+        if (!validateEmail(inviteEmail)) {
+          throw new Error("Please make sure the email is valid!")
+        }
+
         let userRecord = null
         try {
           userRecord = await getAuth().getUserByEmail(inviteEmail)
