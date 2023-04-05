@@ -10,6 +10,7 @@ import { bentoTrack } from '@/lib/bento'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
+import { QueueSourceIngest } from '@/lib/service'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -172,27 +173,7 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
-      const pubSubClient = new PubSub({
-        projectId: serviceAccount.project_id,
-        credentials: serviceAccount,
-      })
-      const topicName = 'docsbot-ingest'
-      const dataBuffer = Buffer.from(
-        JSON.stringify({
-          teamId: team.id,
-          botId,
-          sourceId: docRef.id,
-          pageLimit: stripePlan(team).pages - team.pageCount,
-          indexId: bot.indexId,
-          type,
-          title,
-          url,
-          file,
-        })
-      )
-      const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
-      console.log(`Message ${messageId} published to ${topicName}.`)
+      await QueueSourceIngest(team.id, botId, docRef.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file)
 
       //send bento track
       try {

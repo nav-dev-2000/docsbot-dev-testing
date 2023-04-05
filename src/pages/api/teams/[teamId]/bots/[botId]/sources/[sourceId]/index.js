@@ -1,10 +1,9 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot, getSource } from '@/lib/dbQueries'
-import { PubSub } from '@google-cloud/pubsub'
+import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
-import { deleteSource } from '@/lib/weaviate'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -100,27 +99,7 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
-      const pubSubClient = new PubSub({
-        projectId: serviceAccount.project_id,
-        credentials: serviceAccount,
-      })
-      const topicName = 'docsbot-ingest'
-      const dataBuffer = Buffer.from(
-        JSON.stringify({
-          teamId: team.id,
-          botId,
-          sourceId,
-          pageLimit: stripePlan(team).pages - team.pageCount,
-          indexId: bot.indexId,
-          type: source.type,
-          title: source.title,
-          url: source.url,
-          file: source.file,
-        })
-      )
-      const messageId = await pubSubClient.topic(topicName).publishMessage({ data: dataBuffer })
-      console.log(`Message ${messageId} published to ${topicName}.`)
+      await QueueSourceIngest(team.id, botId, sourceId, stripePlan(team).pages - team.pageCount, bot.indexId, source.type, source.title, source.url, source.file)
 
       //done, return source object
       return res.status(201).json(await getSource(team, bot, sourceId))
@@ -131,7 +110,7 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     //if source is in a ready state, we need to delete it from weaviate\
     if (source.status === 'ready' || source.status === 'failed') {
-      deleteSource(bot.indexId, sourceId)
+      QueueSourceExpel(team.id, bot.indexId, source.id)
     } else {
       return res.status(409).json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }
