@@ -97,7 +97,8 @@ export default async function handleInvite(req, res) {
           })
 
           const inviter = await getAuth().getUser(userId)
-          const emailBody = `You have been invited by ${inviter.name} to join ${team.name} on DocsBot, a powerful platform for managing custom-trained AI chatbots!
+          const name = inviter.name || inviter.email
+          const emailBody = `You have been invited by ${name} to join ${team.name} on DocsBot, a powerful platform for managing custom-trained AI chatbots!
           To get started, please follow these simple steps:
           <ol>
             <li>Click on the following link to accept your invitation and create your DocsBot account: <a href="https://docsbot.ai/register?redirect=/app/team">https://docsbot.ai/register?redirect=/app/team</a></li>
