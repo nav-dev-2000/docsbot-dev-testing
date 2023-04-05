@@ -4,4 +4,5 @@ export const routePaths = {
   REGISTER: '/register',
   IMAGES: '/images',
   APP: '/app',
+  TEAM: '/app/team',
 }

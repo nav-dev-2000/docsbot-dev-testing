@@ -96,7 +96,15 @@ export default async function handleInvite(req, res) {
             });
           })
 
-          await sendEmail(inviteEmail, `You've been invited to ${team.name}`, `<p>Please <a href="https://docsbot.ai/register">sign up</a> to get started! You'll be able to see the invite under your teams dashboard.</p>`)
+          const inviter = await getAuth().getUser(userId)
+          const emailBody = `You have been invited by ${inviter.name} to join ${team.name} on DocsBot, a powerful platform for managing custom-trained AI chatbots!
+          To get started, please follow these simple steps:
+          <ol>
+            <li>Click on the following link to accept your invitation and create your DocsBot account: <a href="https://docsbot.ai/register?redirect=/app/team">https://docsbot.ai/register?redirect=/app/team</a></li>
+            <li>Once you've created your account, you'll be directed to the team's workspace on DocsBot. Here, you'll find all our bots, as well as any relevant documentation and resources.</li>
+            <li>Feel free to explore the platform and familiarize yourself with its features. If you have any questions or need assistance, you can reach out to our support line by clicking on 'help' <a href="https://docsbot.ai/">here</a>.</li>
+          </ol>`
+          await sendEmail(inviteEmail, `You've been invited to ${team.name} on DocsBot`, emailBody)
           return res.status(200).send({ message: `An invite email has been sent to ${inviteEmail}`})
         }
       } catch (err) {
