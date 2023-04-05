@@ -16,7 +16,6 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText }
       body: JSON.stringify({inviteEmail, teamId: team.id})
     })
     if (response.ok) {
-      const data = await response.json()
       setToInvite(null)
       setSubmitting(false)
       //reload page
