@@ -4,6 +4,8 @@ import { EnvelopeIcon, PlusIcon, PlusSmallIcon } from '@heroicons/react/24/outli
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
+import { getAuth } from 'firebase-admin/auth'
+import { getFirestore } from 'firebase-admin/firestore'
 import { getTeams, getTeamUsers } from '@/lib/dbQueries'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
@@ -13,6 +15,7 @@ import Router from 'next/router'
 import { isSuperAdmin } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
+import InviteRequest from '@/components/InviteRequest'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -141,10 +144,12 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
   )
 }
 
-function Team({ team, userId, teamUsers, userTeams }) {
+function Team({ team, userId, teamUsers, userTeams, userInvites }) {
   const [errorText, setErrorText] = useState(null)
+  const [successText, setSuccessText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
   const [currUserTeams, setCurrUserTeams] = useState(userTeams)
+  const [inviteList, setInviteList] = useState(userInvites)
   const [invite, setToInvite] = useState(null)
   const [newTeam, setNewTeam] = useState(null)
   const [newTeamName, setNewTeamName] = useState(currTeam.name)
@@ -219,6 +224,11 @@ function Team({ team, userId, teamUsers, userTeams }) {
   return (
     <DashboardWrap page="Team">
       <Alert title={errorText} type="error" />
+      <Alert title={successText} type="success" />
+
+      {inviteList.map(({ teamId, teamName, inviteId }) => (
+        <InviteRequest {...{teamId, teamName, inviteId, setInviteList, setErrorText }} />
+      ))}
 
       <div className="flex flex-wrap items-center justify-between rounded-lg bg-white p-4 py-6 shadow gap-4">
         <TeamSelect {...{ team: currTeam, userId, userTeams: currUserTeams, changeTeam }} />
@@ -291,7 +301,7 @@ function Team({ team, userId, teamUsers, userTeams }) {
         </div>
       )}
 
-      <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText}} />
+      <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText, setSuccessText}} />
 
       <div className="mt-6 overflow-hidden bg-white shadow sm:rounded-md">
         <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
@@ -362,6 +372,17 @@ function Team({ team, userId, teamUsers, userTeams }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
+  const firestore = getFirestore()
+  const { email } = await getAuth().getUser(data.props.userId)
+  const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
+  data.props.userInvites = []
+  inviteQuery.forEach((doc) => {
+    const docData = doc.data()
+    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
+      data.props.userInvites.splice(0, 0, JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
+    })
+  })
+  console.log(email, data.props)
 
   if (data?.props?.team) {
     data.props.userTeams = await getTeams(data.props.userId)

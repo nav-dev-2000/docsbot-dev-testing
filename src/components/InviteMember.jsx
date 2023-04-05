@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function InviteMember({ team, invite, setToInvite, setErrorText }) {
+export default function InviteMember({ team, invite, setToInvite, setErrorText, setSuccessText }) {
   const [submitting, setSubmitting] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
   const alertRef = useRef(null);
@@ -16,10 +16,10 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText }
       body: JSON.stringify({inviteEmail, teamId: team.id})
     })
     if (response.ok) {
+      const data = await response.json()
       setToInvite(null)
       setSubmitting(false)
-      //reload page
-      window.location.reload()
+      setSuccessText(data.message || 'Success')
     } else {
       try {
         const data = await response.json()
