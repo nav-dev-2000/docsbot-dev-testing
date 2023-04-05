@@ -12,6 +12,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import Router from 'next/router'
 import { isSuperAdmin } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
+import InviteMember from '@/components/InviteMember'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -144,11 +145,12 @@ function Team({ team, userId, teamUsers, userTeams }) {
   const [errorText, setErrorText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
   const [currUserTeams, setCurrUserTeams] = useState(userTeams)
+  const [invite, setToInvite] = useState(null)
   const [newTeam, setNewTeam] = useState(null)
   const [newTeamName, setNewTeamName] = useState(currTeam.name)
   const [isUpdating, setIsUpdating] = useState(false)
 
-  async function changeTeam(teamId) {
+  const changeTeam = async(teamId) => {
     setErrorText('')
 
     if (teamId === currTeam.id || !teamId) {
@@ -179,7 +181,7 @@ function Team({ team, userId, teamUsers, userTeams }) {
     }
   }
 
-  async function updateTeam() {
+  const updateTeam = async() => {
     setErrorText('')
     setIsUpdating(true)
 
@@ -289,6 +291,8 @@ function Team({ team, userId, teamUsers, userTeams }) {
         </div>
       )}
 
+      <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText}} />
+
       <div className="mt-6 overflow-hidden bg-white shadow sm:rounded-md">
         <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
           <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
@@ -297,13 +301,13 @@ function Team({ team, userId, teamUsers, userTeams }) {
                 {currTeam.name}: Members
               </h3>
               <p className="mt-1 mb-0 text-sm text-gray-500">
-                View and manage the members of this team. (coming soon)
+                View and manage the members of this team.
               </p>
             </div>
             <div className="ml-4 mt-4 flex-shrink-0">
               <button
                 type="button"
-                disabled={true}
+                onClick={() => {setToInvite(true)}}
                 className="relative inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25"
               >
                 <PlusIcon className="mr-2 h-5 w-5" aria-hidden="true" />
