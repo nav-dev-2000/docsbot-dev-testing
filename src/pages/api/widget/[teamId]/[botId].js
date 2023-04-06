@@ -1,6 +1,7 @@
-import { getBot } from '@/lib/dbQueries'
+import { getBot, getTeam } from '@/lib/dbQueries'
 import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
+import { stripePlan } from '@/utils/helpers'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -34,6 +35,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     try {
+      const team = await getTeam(teamId)
       const bot = await getBot(teamId, botId)
       if (bot) {
         if (bot.privacy === 'private') {
@@ -51,11 +53,11 @@ export default async function handler(req, res) {
           description: bot.description,
           color: bot.color || '#1292EE',
           icon: bot.icon || 'default',
-          botIcon: bot.botIcon || 'robot',
-          branding: bot.branding || true,
+          botIcon: bot.botIcon || false,
+          branding: bot.branding === false && stripePlan(team).bots < 10 ? false : true,
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
-          labels: i18n[bot.language]?.labels || i18n.en.labels,
+          labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
         }
 
         return res.json(widget)
