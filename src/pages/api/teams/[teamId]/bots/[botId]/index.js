@@ -193,7 +193,6 @@ export default async function handler(req, res) {
         botData.labels = labels;
       }
 
-      console.log('botData', botData)
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
       return res.status(200).json(await getBot(team.id, botId))
