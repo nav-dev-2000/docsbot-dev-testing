@@ -43,7 +43,7 @@ export default function ModalEmbed({ team, bot }) {
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
   const [botIcon, setBotIcon] = useState(bot.botIcon || 'none')
-  const [branding, setBranding] = useState(bot.branding)
+  const [branding, setBranding] = useState(bot.branding === undefined ? true : bot.branding)
   const [supportLink, setSupportLink] = useState(bot.supportLink || '')
   const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
   const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
