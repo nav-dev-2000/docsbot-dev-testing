@@ -107,7 +107,6 @@ export default function ModalBotEdit({ team, bot }) {
 
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
-                          <Alert title={errorText} type="error" />
                           <div className="space-y-6 pt-6 pb-5">
                             <FormBot {...{team, bot, setBotSettings }} disabled={isUpdating} />
                           </div>

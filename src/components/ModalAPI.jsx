@@ -1,14 +1,11 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CodeBracketSquareIcon, CogIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ShareIcon, XMarkIcon, PaperClipIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import classNames from '@/utils/classNames'
 
 export default function ModalAPI({ team, bot }) {
   const [open, setOpen] = useState(false)
-  const [copied, setCopied] = useState(false)
-
-  const embed = `<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})}</script>
-<script type="text/javascript">DocsBotAI.init({id: "${team.id}/${bot.id}"});</script>`
 
   return (
     <>
@@ -17,8 +14,8 @@ export default function ModalAPI({ team, bot }) {
         className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
         onClick={() => setOpen(true)}
       >
-        <CodeBracketSquareIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-        Integrations
+        <ShareIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+        Sharing & API
       </a>
 
       <Transition.Root show={open} as={Fragment}>
@@ -59,32 +56,50 @@ export default function ModalAPI({ team, bot }) {
                   </div>
 
                   <div className="rounded-lg bg-white p-8 shadow">
-                    <h3 className="text-2xl font-bold">Chat Widget Embed Code</h3>
+                    <h3 className="text-2xl font-bold">Share Links</h3>
                     <p className="text-md mt-2 text-justify text-gray-800">
-                      You can embed this DocsBot on your website by adding the following code to
-                      your HTML page before the closing `&lt;/body&gt;` tag.
+                      You can share the following public links for people to interact with your bot.
                     </p>
-                    <div
-                      className="mx-auto mt-4 block sm:w-2/3 whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 p-4 font-mono text-sm"
-                      disabled
-                    >
-                      {embed}
-                    </div>
-                    <div className="mx-auto mt-4 sm:flex sm:w-2/3 items-end justify-between">
-                      <button
-                        className="rounded sm:w-1/3 bg-cyan-500 py-2 px-4 font-bold text-white hover:bg-cyan-600 active:opacity-80"
+                    <div className="mt-4 flex justify-between w-1/3 mx-auto">
+                      <Link
+                        target="_blank"
+                        type="button"
+                        className={classNames(
+                          bot.privacy === 'private' || bot.status !== 'ready'
+                            ? 'cursor-not-allowed opacity-50'
+                            : '',
+                          'mt-2 flex cursor-pointer items-center justify-end text-md font-medium text-gray-500 hover:text-gray-900'
+                        )}
+                        href={`/chat/${team.id}/${bot.id}`}
                         onClick={(e) => {
-                          navigator.clipboard.writeText(embed)
-                          setCopied(true)
-                          setTimeout(() => {
-                            setCopied(false)
-                          }, 2000)
+                          if (bot.privacy === 'private' || bot.status !== 'ready') {
+                            e.preventDefault()
+                          }
                         }}
+                        title="Sharable link"
                       >
-                        {copied ? 'Copied!' : 'Copy to Clipboard'}
-                      </button>
-                      <Link href="/docs/embeddable-chat-widget" className="mt-4 sm:mt-0 block text-cyan-800 underline">
-                        Full widget documentation
+                        <PaperClipIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        Chat Page
+                      </Link>
+                      <Link
+                        target="_blank"
+                        type="button"
+                        className={classNames(
+                          bot.privacy === 'private' || bot.status !== 'ready'
+                            ? 'cursor-not-allowed opacity-50'
+                            : '',
+                          'mt-2 flex cursor-pointer items-center justify-end text-md font-medium text-gray-500 hover:text-gray-900'
+                        )}
+                        href={`/ask/${team.id}/${bot.id}`}
+                        onClick={(e) => {
+                          if (bot.privacy === 'private' || bot.status !== 'ready') {
+                            e.preventDefault()
+                          }
+                        }}
+                        title="Sharable link"
+                      >
+                        <PaperClipIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        Q/A Page
                       </Link>
                     </div>
 

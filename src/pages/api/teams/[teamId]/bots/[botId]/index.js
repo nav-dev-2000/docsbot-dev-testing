@@ -7,6 +7,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { deleteSchema } from '@/lib/weaviate'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { i18n } from '@/constants/strings.constants'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -29,7 +30,21 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Bot not found' })
       }
 
-      const { name, description, customPrompt, privacy, model, language } = req.body
+      const {
+        name,
+        description,
+        customPrompt,
+        privacy,
+        model,
+        language,
+        color,
+        icon,
+        botIcon,
+        branding,
+        supportLink,
+        showButtonLabel,
+        labels,
+      } = req.body
       const botData = {}
 
       if (name) {
@@ -58,7 +73,9 @@ export default async function handler(req, res) {
         if (model !== 'gpt-3.5-turbo' && model !== 'gpt-4') {
           return res.status(400).send({ message: 'Invalid param "model".' })
         } else if (!team.supportsGPT4 && model === 'gpt-4') {
-          return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
+          return res
+            .status(400)
+            .send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
         } else {
           if ('gpt-4' === model && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
             return res.status(402).json({
@@ -103,9 +120,83 @@ export default async function handler(req, res) {
         }
       }
 
+      if (color) {
+        //check if color is valid hex
+        const validHex = /^#[0-9A-F]{6}$/i.test(color)
+        if (!validHex) {
+          return res.status(400).send({ message: 'Invalid param "color".' })
+        } else {
+          botData.color = color
+        }
+      }
+
+      if (icon) {
+        //check if icon is valid
+        const validIcon = ['default', 'comments', 'robot', 'life-ring', 'question', 'book']
+        if (!validIcon.includes(icon)) {
+          return res.status(400).send({ message: 'Invalid param "icon".' })
+        } else {
+          botData.icon = icon
+        }
+      }
+
+      if (botIcon !== undefined) {
+        //check if icon is valid
+        const validIcon = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
+        if (!validIcon.includes(botIcon)) {
+          return res.status(400).send({ message: 'Invalid param "botIcon".' })
+        } else {
+          botData.botIcon = botIcon
+        }
+      }
+
+      if (branding !== undefined) {
+        //check if branding is valid
+        if (branding === false && stripePlan(team).bots < 10) {
+          return res.status(402).json({
+            message: 'Disabling branding is not available at your plan level.',
+          })
+        }
+        botData.branding = !!branding
+      }
+
+      if (supportLink !== undefined) {
+        //check if support link is valid
+
+        bot.supportLink = supportLink
+      }
+
+      if (showButtonLabel !== undefined) {
+        botData.showButtonLabel = !!showButtonLabel
+      }
+
+      if (labels) {
+        // Check that all labels are present in i18n.en.labels
+        const validLabels = Object.keys(i18n.en.labels);
+        const labelsKeys = Object.keys(labels);
+        const invalidLabels = labelsKeys.filter((label) => !validLabels.includes(label));
+      
+        if (invalidLabels.length > 0) {
+          return res.status(400).send({
+            message: `Invalid labels: ${invalidLabels.join(', ')}. Valid labels: ${validLabels.join(', ')}`,
+          });
+        }
+      
+        // Check for missing labels
+        const missingLabels = validLabels.filter((label) => !labelsKeys.includes(label));
+        if (missingLabels.length > 0) {
+          return res.status(400).send({
+            message: `Missing labels: ${missingLabels.join(', ')}. These labels must be set: ${validLabels.join(', ')}`,
+          });
+        }
+      
+        botData.labels = labels;
+      }
+
+      console.log('botData', botData)
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
-      return res.status(200).json({ message: 'Bot updated' })
+      return res.status(200).json(await getBot(team.id, botId))
     } catch (error) {
       console.warn('Error:', error)
       return res.status(500).json({ message: error?.message })

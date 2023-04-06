@@ -3,7 +3,6 @@ import {
   Square3Stack3DIcon,
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
-  PaperClipIcon,
   LanguageIcon,
   QueueListIcon,
 } from '@heroicons/react/24/outline'
@@ -11,9 +10,9 @@ import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
 import ModalAsk from '@/components/ModalAsk'
 import ModalAPI from '@/components/ModalAPI'
+import ModalEmbed from '@/components/ModalEmbed'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
-import classNames from '@/utils/classNames'
 import RobotIcon from '@/components/RobotIcon'
 import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
@@ -89,46 +88,7 @@ export default function BotCard({ team, bot }) {
               </div>
             </div>
             <div className="mt-4 flex justify-between space-x-4 sm:mt-1 sm:justify-end">
-              <Link
-                target="_blank"
-                type="button"
-                className={classNames(
-                  bot.privacy === 'private' || bot.status !== 'ready'
-                    ? 'cursor-not-allowed opacity-50'
-                    : '',
-                  'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
-                )}
-                href={`/chat/${team.id}/${bot.id}`}
-                onClick={(e) => {
-                  if (bot.privacy === 'private' || bot.status !== 'ready') {
-                    e.preventDefault()
-                  }
-                }}
-                title="Sharable link"
-              >
-                <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                Chat
-              </Link>
-              <Link
-                target="_blank"
-                type="button"
-                className={classNames(
-                  bot.privacy === 'private' || bot.status !== 'ready'
-                    ? 'cursor-not-allowed opacity-50'
-                    : '',
-                  'mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900'
-                )}
-                href={`/ask/${team.id}/${bot.id}`}
-                onClick={(e) => {
-                  if (bot.privacy === 'private' || bot.status !== 'ready') {
-                    e.preventDefault()
-                  }
-                }}
-                title="Sharable link"
-              >
-                <PaperClipIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                Q/A
-              </Link>
+              <ModalEmbed team={team} bot={bot} />
               <ModalAPI team={team} bot={bot} />
             </div>
           </div>
