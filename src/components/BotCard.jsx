@@ -3,7 +3,6 @@ import {
   Square3Stack3DIcon,
   QuestionMarkCircleIcon,
   DocumentDuplicateIcon,
-  PaperClipIcon,
   LanguageIcon,
   QueueListIcon,
 } from '@heroicons/react/24/outline'
@@ -14,7 +13,6 @@ import ModalAPI from '@/components/ModalAPI'
 import ModalEmbed from '@/components/ModalEmbed'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
-import classNames from '@/utils/classNames'
 import RobotIcon from '@/components/RobotIcon'
 import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'

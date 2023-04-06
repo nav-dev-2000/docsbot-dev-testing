@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CodeBracketSquareIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -8,19 +8,52 @@ import FieldToggle from '@/components/FieldToggle'
 import FieldRadioIcon from '@/components/FieldRadioIcon'
 import { i18n } from '@/constants/strings.constants'
 import { SketchPicker } from 'react-color'
+import {
+  faComment,
+  faComments,
+  faRobot,
+  faLifeRing,
+  faQuestion,
+  faBook,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import classNames from '@/utils/classNames'
+import { decideTextColor } from '@/utils/colors'
+import { stripePlan } from '@/utils/helpers'
+import ModalCheckout from '@/components/ModalCheckout'
+
+//icon can be default, robot, life-ring, or question-circle
+const iconMap = {
+  default: faComment,
+  comments: faComments,
+  robot: faRobot,
+  'life-ring': faLifeRing,
+  question: faQuestion,
+  book: faBook,
+}
 
 export default function ModalEmbed({ team, bot }) {
   const [open, setOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
+  const [showUpgrade, setShowUpgrade] = useState(false)
+
+  //bot settings
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
-  const [botIcon, setBotIcon] = useState(bot.botIcon || 'robot')
-  const [branding, setBranding] = useState(bot.branding || true)
+  const [botIcon, setBotIcon] = useState(bot.botIcon || 'none')
+  const [branding, setBranding] = useState(bot.branding)
   const [supportLink, setSupportLink] = useState(bot.supportLink || '')
   const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
-  const [labels, setLabels] = useState(i18n[bot.language]?.labels || i18n.en.labels)
+  const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
+
+  useEffect(() => {
+    if (!branding && stripePlan(team).bots < 10) {
+      setShowUpgrade(true)
+      setBranding(true)
+    }
+  }, [branding, team])
 
   async function updateBot() {
     setErrorText('')
@@ -30,7 +63,7 @@ export default function ModalEmbed({ team, bot }) {
     const botSettings = {
       color,
       icon,
-      botIcon,
+      botIcon: botIcon === 'none' ? false : botIcon,
       branding,
       supportLink,
       showButtonLabel,
@@ -69,6 +102,7 @@ export default function ModalEmbed({ team, bot }) {
 
   return (
     <>
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <a
         type="button"
         className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
@@ -128,12 +162,12 @@ export default function ModalEmbed({ team, bot }) {
                         your HTML page before the closing `&lt;/body&gt;` tag.
                       </p>
                       <div
-                        className="mx-auto mt-4 block whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-sm text-white sm:w-2/3"
+                        className="mx-auto mt-4 h-36 overflow-scroll block whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-sm text-white"
                         disabled
                       >
                         {embed}
                       </div>
-                      <div className="mx-auto mt-4 mb-8 items-end justify-between sm:flex sm:w-2/3">
+                      <div className="mx-auto mt-4 mb-8 items-end justify-between sm:flex">
                         <button
                           className="rounded bg-cyan-600 py-2 px-4 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
                           onClick={(e) => {
@@ -166,7 +200,7 @@ export default function ModalEmbed({ team, bot }) {
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
                           <div className="space-y-6 pt-6 pb-5">
                             <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-                              <div className="flex items-center space-x-8">
+                              <div className="flex w-full items-center justify-between">
                                 <div>
                                   <label className="mb-2 block text-sm font-medium text-gray-900">
                                     Widget Color
@@ -175,21 +209,30 @@ export default function ModalEmbed({ team, bot }) {
                                     color={color}
                                     onChangeComplete={(color) => setColor(color.hex)}
                                     disableAlpha={true}
+                                    presetColors={['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#FFEB3B', '#FF9800', '#FF5722', '#607D8B', '#FFFFFF']}
                                   />
                                 </div>
                                 <span
-                                  className="inline-flex items-center rounded-full px-3 py-0.5 text-lg font-medium text-white"
+                                  className={classNames(
+                                    showButtonLabel ? '' : 'w-14',
+                                    'inline-flex mx-auto h-14 cursor-pointer items-center justify-center rounded-full px-4 text-lg font-medium text-white shadow-lg hover:opacity-90'
+                                  )}
                                   style={{
                                     backgroundColor: color,
-                                    backgroundImage:
-                                      'radial-gradient(rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.1) 100%)',
+                                    color: decideTextColor(color),
                                   }}
                                 >
-                                  {color}
+                                  <FontAwesomeIcon icon={iconMap[icon]} size="xl" />
+                                  {showButtonLabel && (
+                                    <span className="text-md ml-3 font-normal">
+                                      {labels.floatingButton}
+                                    </span>
+                                  )}
                                 </span>
                               </div>
                               <div className="flex flex-col justify-between space-y-4 sm:space-y-0">
                                 <FieldRadioIcon
+                                  type="icon"
                                   label="Button Icon"
                                   icon={icon}
                                   setIcon={setIcon}
@@ -228,6 +271,7 @@ export default function ModalEmbed({ team, bot }) {
                             </div>
 
                             <FieldRadioIcon
+                              type="bot"
                               label="Bot Avatar"
                               icon={botIcon}
                               setIcon={setBotIcon}
@@ -319,7 +363,7 @@ export default function ModalEmbed({ team, bot }) {
                               description="If your plan allows you can disable the DocsBot branding in your widget footer."
                               enabled={branding}
                               setEnabled={setBranding}
-                              disabled={isUpdating}
+                              disabled={isUpdating || stripePlan(team).bots < 10}
                             />
                           </div>
                         </div>
