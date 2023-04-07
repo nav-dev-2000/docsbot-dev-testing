@@ -5,6 +5,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.constants'
 import { bentoTrack } from '@/lib/bento'
+import { getTeams } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -32,22 +33,28 @@ export default async function handler(req, res) {
     const firestore = getFirestore()
 
     try {
-      // Add team based on user id with 'owner' as default permission
-      const teamRef = await firestore.collection('teams').add({
-        createdAt: FieldValue.serverTimestamp(),
-        name: `${name.trim()}'s Team`,
-        botCount: 0,
-        sourceCount: 0,
-        pageCount: 0,
-        chunkCount: 0,
-        questionCount: 0,
-        openAIKey: null,
-        roles: {
-          [userId]: 'owner',
-        },
-      })
-
-      const teamId = teamRef.id
+      // first, sanity check that a team for this user doesn't already exist
+      const teams = getTeams()
+      let teamId = ''
+      if (teams.length >= 1) {
+        teamId = teams[0].id
+      } else {
+          // Add team based on user id with 'owner' as default permission
+          const teamRef = await firestore.collection('teams').add({
+            createdAt: FieldValue.serverTimestamp(),
+            name: `${name.trim()}'s Team`,
+            botCount: 0,
+            sourceCount: 0,
+            pageCount: 0,
+            chunkCount: 0,
+            questionCount: 0,
+            openAIKey: null,
+            roles: {
+              [userId]: 'owner',
+            },
+          })
+          teamId = teamRef.id
+      }
 
       // Create user with current team set
       await firestore.collection('users').doc(userId).set({
