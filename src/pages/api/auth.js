@@ -33,33 +33,34 @@ export default async function handler(req, res) {
     const firestore = getFirestore()
 
     try {
-      // first, sanity check that a team for this user doesn't already exist
-      const teams = getTeams()
-      let teamId = ''
-      if (teams.length >= 1) {
-        teamId = teams[0].id
-      } else {
-          // Add team based on user id with 'owner' as default permission
-          const teamRef = await firestore.collection('teams').add({
-            createdAt: FieldValue.serverTimestamp(),
-            name: `${name.trim()}'s Team`,
-            botCount: 0,
-            sourceCount: 0,
-            pageCount: 0,
-            chunkCount: 0,
-            questionCount: 0,
-            openAIKey: null,
-            roles: {
-              [userId]: 'owner',
-            },
-          })
-          teamId = teamRef.id
-      }
+      await firestore.runTransaction(async (transaction) => {
+        // first, sanity check that a team for this user doesn't already exist
+        const teams = await getTeams(userId)
+        let teamId = ''
+        if (teams.length >= 1) {
+          teamId = teams[0].id
+        } else {
+            // Add team based on user id with 'owner' as default permission
+            const teamRef = await firestore.collection('teams').add({
+              createdAt: FieldValue.serverTimestamp(),
+              name: `${name.trim()}'s Team`,
+              botCount: 0,
+              sourceCount: 0,
+              pageCount: 0,
+              chunkCount: 0,
+              questionCount: 0,
+              openAIKey: null,
+              roles: {
+                [userId]: 'owner',
+              },
+            })
+            teamId = teamRef.id
+        }
 
-      // Create user with current team set
-      await firestore.collection('users').doc(userId).set({
-        createdAt: FieldValue.serverTimestamp(),
-        currentTeam: teamId,
+        await transaction.set(firestore.collection('users').doc(userId), {
+          createdAt: FieldValue.serverTimestamp(),
+          currentTeam: teamId,
+        })
       })
 
       //track with bento

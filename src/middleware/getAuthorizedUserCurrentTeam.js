@@ -11,11 +11,10 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
   try {
     const { uid, name } = await getAuthorizedUser(context)
     const userRef = await getFirestore().collection('users').doc(uid).get()
-    const { currentTeam } = userRef.data()
 
-    if (userRef.exists && currentTeam) {
+    if (userRef.exists && userRef.data().currentTeam) {
       //check if user has access to team
-      const team = await getTeam(currentTeam)
+      const team = await getTeam(userRef.data().currentTeam)
       if (team && (team.roles[uid] || isSuperAdmin(uid))) {
         return {
           props: {

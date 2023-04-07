@@ -77,7 +77,7 @@ function Register() {
 
   useRegisterGoogleUser({
     googleUser,
-    googleAuthLoading,
+    authLoading,
     setAuthLoading,
     onComplete: () => {
       if (window.bento !== undefined) {
