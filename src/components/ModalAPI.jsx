@@ -58,9 +58,9 @@ export default function ModalAPI({ team, bot }) {
                   <div className="rounded-lg bg-white p-8 shadow">
                     <h3 className="text-2xl font-bold">Share Links</h3>
                     <p className="text-md mt-2 text-justify text-gray-800">
-                      You can share the following public links for people to interact with your bot.
+                      You can share the following public links for people to interact with your bot if it is public.
                     </p>
-                    <div className="mt-4 flex justify-between w-1/3 mx-auto">
+                    <div className="mt-4 flex justify-start space-x-4">
                       <Link
                         target="_blank"
                         type="button"
@@ -68,7 +68,7 @@ export default function ModalAPI({ team, bot }) {
                           bot.privacy === 'private' || bot.status !== 'ready'
                             ? 'cursor-not-allowed opacity-50'
                             : '',
-                          'mt-2 flex cursor-pointer items-center justify-end text-md font-medium text-gray-500 hover:text-gray-900'
+                          'flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50'
                         )}
                         href={`/chat/${team.id}/${bot.id}`}
                         onClick={(e) => {
@@ -88,7 +88,7 @@ export default function ModalAPI({ team, bot }) {
                           bot.privacy === 'private' || bot.status !== 'ready'
                             ? 'cursor-not-allowed opacity-50'
                             : '',
-                          'mt-2 flex cursor-pointer items-center justify-end text-md font-medium text-gray-500 hover:text-gray-900'
+                          'flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50'
                         )}
                         href={`/ask/${team.id}/${bot.id}`}
                         onClick={(e) => {

@@ -39,6 +39,7 @@ export default async function handler(req, res) {
         language,
         color,
         icon,
+        alignment,
         botIcon,
         branding,
         supportLink,
@@ -137,6 +138,16 @@ export default async function handler(req, res) {
           return res.status(400).send({ message: 'Invalid param "icon".' })
         } else {
           botData.icon = icon
+        }
+      }
+
+      if (alignment) {
+        //check if icon is valid
+        const valid = ['left', 'right']
+        if (!valid.includes(alignment)) {
+          return res.status(400).send({ message: 'Invalid param "alignment". Should be "left" or "right".' })
+        } else {
+          botData.alignment = alignment
         }
       }
 

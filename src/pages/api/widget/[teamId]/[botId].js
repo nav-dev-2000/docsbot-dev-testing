@@ -53,6 +53,7 @@ export default async function handler(req, res) {
           description: bot.description,
           color: bot.color || '#1292EE',
           icon: bot.icon || 'default',
+          alignment: bot.alignment || 'right',
           botIcon: bot.botIcon || false,
           branding: bot.branding === false && stripePlan(team).bots < 10 ? false : true,
           supportLink: bot.supportLink || false,

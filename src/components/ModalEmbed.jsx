@@ -42,6 +42,7 @@ export default function ModalEmbed({ team, bot }) {
   //bot settings
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
+  const [alignment, setAlignment] = useState(bot.alignment || 'right')
   const [botIcon, setBotIcon] = useState(bot.botIcon || 'none')
   const [branding, setBranding] = useState(bot.branding === undefined ? true : bot.branding)
   const [supportLink, setSupportLink] = useState(bot.supportLink || '')
@@ -63,6 +64,7 @@ export default function ModalEmbed({ team, bot }) {
     const botSettings = {
       color,
       icon,
+      alignment,
       botIcon: botIcon === 'none' ? false : botIcon,
       branding,
       supportLink,
@@ -162,7 +164,7 @@ export default function ModalEmbed({ team, bot }) {
                         your HTML page before the closing `&lt;/body&gt;` tag.
                       </p>
                       <div
-                        className="mx-auto mt-4 h-36 overflow-scroll block whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-sm text-white"
+                        className="mx-auto mt-4 block h-36 overflow-scroll whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-sm text-white"
                         disabled
                       >
                         {embed}
@@ -207,15 +209,33 @@ export default function ModalEmbed({ team, bot }) {
                                   </label>
                                   <SketchPicker
                                     color={color}
-                                    onChangeComplete={(color) => setColor(color.hex)}
+                                    onChange={(color) => setColor(color.hex)}
                                     disableAlpha={true}
-                                    presetColors={['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#03A9F4', '#00BCD4', '#009688', '#4CAF50', '#8BC34A', '#FFEB3B', '#FF9800', '#FF5722', '#607D8B', '#FFFFFF']}
+                                    presetColors={[
+                                      '#F44336',
+                                      '#E91E63',
+                                      '#9C27B0',
+                                      '#673AB7',
+                                      '#3F51B5',
+                                      '#2196F3',
+                                      '#03A9F4',
+                                      '#00BCD4',
+                                      '#009688',
+                                      '#4CAF50',
+                                      '#FFEB3B',
+                                      '#FF9800',
+                                      '#FF5722',
+                                      '#607D8B',
+                                      '#FFFFFF',
+                                      '#000000',
+                                    ]}
                                   />
                                 </div>
                                 <span
                                   className={classNames(
+                                    alignment === 'right' ? 'ml-auto' : 'mx-auto',
                                     showButtonLabel ? '' : 'w-14',
-                                    'inline-flex mx-auto h-14 cursor-pointer items-center justify-center rounded-full px-4 text-lg font-medium text-white shadow-lg hover:opacity-90'
+                                    'inline-flex h-14 items-center justify-center rounded-full px-5 text-lg font-medium text-white shadow-lg hover:opacity-90'
                                   )}
                                   style={{
                                     backgroundColor: color,
@@ -238,9 +258,51 @@ export default function ModalEmbed({ team, bot }) {
                                   setIcon={setIcon}
                                   disabled={isUpdating}
                                 />
+                                <div>
+                                  <label className="block text-sm font-medium text-gray-900">
+                                    Button Alignment
+                                  </label>
+                                  <fieldset className="mt-4">
+                                    <legend className="sr-only">Alignment</legend>
+                                    <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+                                      <div className="flex items-center">
+                                        <input
+                                          id="left"
+                                          name="alignment"
+                                          type="radio"
+                                          checked={alignment === 'left'}
+                                          onClick={() => setAlignment('left')}
+                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                        />
+                                        <label
+                                          htmlFor="left"
+                                          className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                          Left
+                                        </label>
+                                      </div>
+                                      <div className="flex items-center">
+                                        <input
+                                          id="right"
+                                          name="alignment"
+                                          type="radio"
+                                          checked={alignment === 'right'}
+                                          onClick={() => setAlignment('right')}
+                                          className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                        />
+                                        <label
+                                          htmlFor="right"
+                                          className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                          Right
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </fieldset>
+                                </div>
                                 <FieldToggle
                                   label="Show Button Text"
-                                  description="Wether to show text next to the floating button icon."
+                                  description="Show text next to the floating button icon?"
                                   enabled={showButtonLabel}
                                   setEnabled={setShowButtonLabel}
                                   disabled={isUpdating}
