@@ -10,6 +10,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import { Layout } from '@/components/docs/Layout'
 import { Analytics } from '@vercel/analytics/react'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 function getNodeText(node) {
   let text = ''
