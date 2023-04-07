@@ -9,6 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import { Layout } from '@/components/docs/Layout'
+import { Analytics } from '@vercel/analytics/react'
 
 function getNodeText(node) {
   let text = ''
@@ -135,6 +136,7 @@ export default function App({ Component, pageProps }) {
             </Script>
           </>
         )}
+        <Analytics />
         <Script
           id="bento-script"
           src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
@@ -195,6 +197,7 @@ export default function App({ Component, pageProps }) {
           </Script>
         </>
       )}
+      <Analytics />
       <Script
         id="bento-script"
         src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
