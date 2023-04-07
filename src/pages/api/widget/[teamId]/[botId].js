@@ -55,7 +55,7 @@ export default async function handler(req, res) {
           icon: bot.icon || 'default',
           alignment: bot.alignment || 'right',
           botIcon: bot.botIcon || false,
-          branding: bot.branding === false && stripePlan(team).bots < 10 ? false : true,
+          branding: bot.branding === false && stripePlan(team).bots >= 10 ? false : true,
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
