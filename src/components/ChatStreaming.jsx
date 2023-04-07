@@ -98,6 +98,8 @@ export default function Chat({ teamId, bot }) {
 
     ws.onerror = function (event) {
       console.log('error', event)
+      setLoading(false)
+      setLoadingMessage(null)
       setErrorText('There was a connection error. Please try again.')
       //strip all empty answers
       if (answers.length > 0) {
@@ -105,12 +107,12 @@ export default function Chat({ teamId, bot }) {
           return [...prev.filter((a) => a.type !== 'answer' || a.html)]
         })
       }
-      setLoading(false)
-      setLoadingMessage(null)
     }
 
     ws.onclose = function (event) {
       if (!event.wasClean) {
+        setLoading(false)
+        setLoadingMessage(null)
         setErrorText('Network error, please try again.')
         //strip all empty answers
         if (answers.length > 0) {
@@ -118,8 +120,6 @@ export default function Chat({ teamId, bot }) {
             return [...prev.filter((a) => a.type !== 'answer' || a.html)]
           })
         }
-        setLoading(false)
-        setLoadingMessage(null)
       }
     }
 
