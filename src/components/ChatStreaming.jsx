@@ -416,7 +416,6 @@ export default function Chat({ teamId, bot }) {
                 Tell me how to respond, like "with code examples", "as a list", or "as a table".
               </li>
             </ul>
-            <p className="mt-8 text-center text-xs text-gray-400">Chatbot Beta</p>
           </div>
         </div>
       </div>

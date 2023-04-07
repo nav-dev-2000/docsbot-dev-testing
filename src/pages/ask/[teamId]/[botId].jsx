@@ -34,13 +34,13 @@ export function ChatPage({ team, bot }) {
         <div className="mt-32 mb-4 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">Powered by</span>
-            <Link href="/" className="ml-1 block">
+            <Link href="/" target="_blank" className="ml-1 block">
               <span className="sr-only">DocsBot AI</span>
               <Image className="" src={docsbotLogo} alt="DocsBot Logo" height={24} width={95} />
             </Link>
           </p>
           <p>
-            <Link href="/" className="text-sm text-gray-500 underline hover:text-gray-600">
+            <Link href="/" target="_blank" className="text-sm text-gray-500 underline hover:text-gray-600">
               Create your own!
             </Link>
           </p>
