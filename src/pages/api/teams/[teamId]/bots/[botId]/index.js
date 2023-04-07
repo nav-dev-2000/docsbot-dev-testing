@@ -162,8 +162,7 @@ export default async function handler(req, res) {
 
       if (supportLink !== undefined) {
         //check if support link is valid
-
-        bot.supportLink = supportLink
+        botData.supportLink = supportLink
       }
 
       if (showButtonLabel !== undefined) {
