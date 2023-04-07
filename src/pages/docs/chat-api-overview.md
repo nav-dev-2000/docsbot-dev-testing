@@ -9,15 +9,13 @@ Use the chat API endpoints to create your own Q/A and chat interfaces in your pr
 
 ## Introduction
 
-There are two basic chat API endpoints for different purposes:
+There is one chat API endpoint that can be used for different purposes:
 
-### Question and Answer (Q/A) API
+### Question and Answer (Q/A) Bots
 
-The Q/A API is the simplest and is used to get answers to questions. You pass it one question, and it returns one answer along with its sources. This is the endpoint you should use if you want to create a simple Q/A interface in your product.
+Q/A bots are the simplest and is used to get answers to questions. You pass it one question, and it returns one answer along with its sources. It lets you create a simple Q/A interface in your product. This uses the same endpoint as the chat API, you simply don't pass any chat history.
 
-[Read more about the Q/A API](/docs/qa-api)
-
-### Chat API
+### Chat Bots
 
 The chat API is more complex and is used to create a full chat interface in your product. You pass it a question plus chat history, and it returns the next answer along with its sources. It also returns the new chat history array to pass back with the next response. This is the endpoint you should use if you want to create a full chat interface in your product.
 

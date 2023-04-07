@@ -41,7 +41,6 @@ const navigation = [
     title: 'Chat API',
     links: [
       { title: 'Overview', href: '/docs/chat-api-overview' },
-      { title: 'Question / Answer', href: '/docs/qa-api' },
       { title: 'Chat', href: '/docs/chat-api' },
       { title: 'Streaming Chat', href: '/docs/streaming-chat-api' },
       { title: 'Answer Rating', href: '/docs/answer-rating' },
