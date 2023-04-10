@@ -1,0 +1,127 @@
+openapi: 3.0.2
+info:
+  title: Retrieval Plugin API
+  description: >-
+    A retrieval API for querying and filtering documents based on natural
+    language queries.
+  version: 1.0.0
+servers:
+  - url: http://localhost:9000
+paths:
+  /semantic-search:
+    post:
+      summary: Sub Query
+      operationId: sub_query_semantic_search_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Query'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Sub Query Semantic Search Post
+                anyOf:
+                  - $ref: '#/components/schemas/QueryResults'
+                  - $ref: '#/components/schemas/Error'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Error:
+      title: Error
+      required:
+        - error
+      type: object
+      properties:
+        error:
+          title: The error message
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    Query:
+      title: Query
+      required:
+        - query
+      type: object
+      properties:
+        query:
+          title: Query
+          type: string
+        top_k:
+          title: Top K
+          type: integer
+          default: 4
+    QueryResults:
+      title: QueryResults
+      required:
+        - query
+        - results
+      type: object
+      properties:
+        query:
+          title: Query
+          type: string
+        results:
+          title: Results
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySource'
+    QuerySource:
+      title: QuerySource
+      required:
+        - content
+      type: object
+      properties:
+        title:
+          title: The title of the source
+          type: string
+        url:
+          title: The url of the source
+          type: string
+        page:
+          title: For PDFs, the page number of the source in the PDF
+          type: integer
+        certainty:
+          title: Certainty
+          type: number
+          default: Certainty score of the source
+        content:
+          title: The raw text content of the source.
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
