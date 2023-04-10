@@ -6,7 +6,7 @@ info:
     language queries.
   version: 1.0.0
 servers:
-  - url: http://localhost:9000
+  - url: https://api.docsbot.ai
 paths:
   /semantic-search:
     post:
