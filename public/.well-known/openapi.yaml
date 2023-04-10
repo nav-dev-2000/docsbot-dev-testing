@@ -98,9 +98,8 @@ components:
           title: For PDFs, the page number of the source in the PDF
           type: integer
         certainty:
-          title: Certainty
+          title: Certainty score of the source
           type: number
-          default: Certainty score of the source
         content:
           title: The raw text content of the source.
           type: string
