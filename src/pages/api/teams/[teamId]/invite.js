@@ -161,11 +161,9 @@ export default async function handleInvite(req, res) {
 
           return res.status(200).send({ message: `Successfully joined ${teamName}!`})
         } else if (status == 'deny') {
-          // add user to team roles
+          // remove invite
           await firestore.runTransaction(async (transaction) => {
-            const teamRef = firestore.collection('teams').doc(teamId)
             const inviteRef = firestore.collection('invites').doc(inviteId)
-            const teamDoc = await transaction.get(teamRef)
             const inviteDoc = await transaction.get(inviteRef)
             if (inviteDoc.data().email !== email) {
               throw new Error('You were not invited to this team!')
