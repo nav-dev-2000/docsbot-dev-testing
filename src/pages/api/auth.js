@@ -5,6 +5,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.constants'
 import { bentoTrack } from '@/lib/bento'
+import { stripePlan } from '@/utils/helpers'
 import { getTeams } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
@@ -35,13 +36,40 @@ export default async function handler(req, res) {
     try {
       await firestore.runTransaction(async (transaction) => {
         // first, sanity check that a team for this user doesn't already exist
-        const teams = await getTeams(userId)
+        const teamsSnapshot = await transaction.get(await firestore
+          .collection('teams')
+          .where('roles.' + userId, '!=', null))
+        let teams = []
+        teamsSnapshot.forEach((doc) => {
+          let team = { id: doc.id, ...doc.data() }
+          team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
+          //use preview key if available otherwise use fake one or null
+          team.openAIKey = team.openAIKey
+            ? team.openAIKeyPreview
+              ? team.openAIKeyPreview
+              : 'sk-*...****'
+            : null
+          delete team.openAIKeyPreview
+    
+          //delete sensitive data keys starting with stripe
+          Object.keys(team).forEach((key) => {
+            if (key.startsWith('stripe')) {
+              delete team[key]
+            }
+          })
+          //add stripe plan
+          team.plan = stripePlan(team)
+    
+          teams.push(team)
+        })
+
         let teamId = ''
         if (teams.length >= 1) {
           teamId = teams[0].id
         } else {
             // Add team based on user id with 'owner' as default permission
-            const teamRef = await firestore.collection('teams').add({
+            const teamRef = firestore.collection('teams').doc()
+            await transaction.set(teamRef, {
               createdAt: FieldValue.serverTimestamp(),
               name: `${name.trim()}'s Team`,
               botCount: 0,
@@ -66,6 +94,7 @@ export default async function handler(req, res) {
       //track with bento
       bentoTrack(userId, 'addSubscriber')
     } catch (error) {
+      console.error(error)
       return res.status(500).send({ message: error?.message })
     }
   }
