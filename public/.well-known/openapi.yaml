@@ -1,17 +1,28 @@
 openapi: 3.0.2
 info:
-  title: Retrieval Plugin API
-  description: >-
-    A retrieval API for querying and filtering documents based on natural
-    language queries.
+  title: DocsBot Retrieval Plugin API
+  description: A retrieval API for querying documents from various libraries based on natural language queries.
   version: 1.0.0
 servers:
   - url: https://api.docsbot.ai
 paths:
-  /semantic-search:
+  /teams/{team_id}/bots/{bot_id}/search:
     post:
-      summary: Sub Query
-      operationId: sub_query_semantic_search_post
+      summary: Semantic Search
+      operationId: Semantic_Search_teams__team_id__bots__bot_id__search_post
+      parameters:
+        - required: true
+          schema:
+            title: Team Id
+            type: string
+          name: team_id
+          in: path
+        - required: true
+          schema:
+            title: Bot Id
+            type: string
+          name: bot_id
+          in: path
       requestBody:
         content:
           application/json:
@@ -24,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Response Sub Query Semantic Search Post
+                title: Response Semantic Search Teams  Team Id  Bots  Bot Id  Search Post
                 anyOf:
                   - $ref: '#/components/schemas/QueryResults'
                   - $ref: '#/components/schemas/Error'
@@ -34,8 +45,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /libraries:
+    get:
+      summary: List Libraries That Can Be Searched
+      operationId: List_libraries_that_can_be_searched_libraries_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response List Libraries That Can Be Searched Libraries Get
+                anyOf:
+                  - $ref: '#/components/schemas/BotResults'
+                  - $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Bot:
+      title: Bot
+      required:
+        - name
+        - description
+        - team_id
+        - bot_id
+      type: object
+      properties:
+        name:
+          title: Name of the bot library
+          type: string
+        description:
+          title: Description of the bot library
+          type: string
+        team_id:
+          title: team_id to use for /search endpoint to search this library
+          type: string
+        bot_id:
+          title: bot_id to use for /search endpoint to search this library
+          type: string
+    BotResults:
+      title: BotResults
+      required:
+        - libraries
+      type: object
+      properties:
+        libraries:
+          title: List of libraries that can be searched
+          type: array
+          items:
+            $ref: '#/components/schemas/Bot'
     Error:
       title: Error
       required:
@@ -85,6 +142,7 @@ components:
     QuerySource:
       title: QuerySource
       required:
+        - certainty
         - content
       type: object
       properties:
