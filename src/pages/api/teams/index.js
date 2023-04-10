@@ -1,6 +1,8 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import userTeamCheck from '@/lib/userTeamCheck'
+import { isSuperAdmin } from '@/utils/helpers'
 import { getTeams, assignDefaultTeamTransaction, getInvitesFromEmailAndTeamIdTransaction } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
@@ -31,11 +33,22 @@ export default async function handler(req, res) {
 
     try {
       await firestore.runTransaction(async (transaction) => {
+        const teamRef = firestore.collection('teams').doc(team.id)
+        const teamDoc = await transaction.get(teamRef)
+
+        // sanity check that only owners can remove members
+        if (teamDoc.data().roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+          throw new Error('Only team owners can remove members!')
+        }
+        
         // remove member from teamRoles
         if (removeUserId !== null) {
-          const teamRef = firestore.collection('teams').doc(team.id)
-          const teamDoc = await transaction.get(teamRef)
           const isAdded = teamDoc.data().roles[removeUserId]
+  
+          // sanity check that they're not removing themselves lol
+          if (userId === removeUserId) {
+            throw new Error('You cannot remove yourself!')
+          }
 
           if (isAdded === undefined) {
             throw new Error('User is not part of this team!')
