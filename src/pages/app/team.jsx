@@ -6,7 +6,7 @@ import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
 import { getAuth } from 'firebase-admin/auth'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getTeams, getTeamUsers } from '@/lib/dbQueries'
+import { getTeams, getTeamUsers, getInvitesFromEmail } from '@/lib/dbQueries'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
@@ -374,18 +374,14 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
   const firestore = getFirestore()
   
+  if (data?.props?.userId) {
+    const { email } = await getAuth().getUser(data.props.userId)
+    data.props.userInvites = await getInvitesFromEmail(email)
+  }
+
   if (data?.props?.team) {
     data.props.userTeams = await getTeams(data.props.userId)
     data.props.teamUsers = await getTeamUsers(data.props.team.id)
-    const { email } = await getAuth().getUser(data.props.userId)
-    const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
-    data.props.userInvites = []
-    inviteQuery.forEach((doc) => {
-      const docData = doc.data()
-      firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
-        data.props.userInvites.splice(0, 0, JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
-      })
-    })
   }
 
   return data
