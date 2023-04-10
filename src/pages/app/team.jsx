@@ -374,9 +374,7 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
   const firestore = getFirestore()
   
-  if (data?.props?.team) {
-    data.props.userTeams = await getTeams(data.props.userId)
-    data.props.teamUsers = await getTeamUsers(data.props.team.id)
+  if (data?.props?.userId) {
     const { email } = await getAuth().getUser(data.props.userId)
     const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
     data.props.userInvites = []
@@ -386,6 +384,11 @@ export const getServerSideProps = async (context) => {
         data.props.userInvites.splice(0, 0, JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
       })
     })
+  }
+
+  if (data?.props?.team) {
+    data.props.userTeams = await getTeams(data.props.userId)
+    data.props.teamUsers = await getTeamUsers(data.props.team.id)
   }
 
   return data
