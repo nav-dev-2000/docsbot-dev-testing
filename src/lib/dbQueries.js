@@ -247,6 +247,19 @@ export async function getTeams(userId) {
   return teams
 }
 
+export async function getInvitesFromEmail(email) {
+  const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
+  let userInvites = []
+  inviteQuery.forEach((doc) => {
+    const docData = doc.data()
+    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
+      userInvites.push(JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
+    })
+  })
+
+  return userInvites
+}
+
 export async function getTeamUsers(teamId) {
   const users = []
 
