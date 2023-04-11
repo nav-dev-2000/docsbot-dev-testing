@@ -363,7 +363,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     </div>
                   </div>
                 </div>
-                {userId !== user.uid && (
+                {userId !== user.uid && currTeam.roles[userId] == "owner" && (
                   <div className="absolute right-2 top-1">
                     <button
                       type="button"
@@ -416,7 +416,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     </div>
                   </div>
                 </div>
-                <div className="absolute right-2 top-1">
+                {currTeam.roles[userId] == "owner" && <div className="absolute right-2 top-1">
                   <button
                     type="button"
                     onClick={(e) => {
@@ -429,7 +429,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     <span className="sr-only">Delete</span>
                     <XMarkIcon className="h-4 w-4" aria-hidden="true" />
                   </button>
-                </div>
+                </div>}
               </div>
             </li>
           ))}
