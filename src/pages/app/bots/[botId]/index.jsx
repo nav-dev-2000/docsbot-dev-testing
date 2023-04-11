@@ -92,7 +92,8 @@ function Bot({ team, preBot, preSources }) {
     } else {
       setIsProcessing(false)
     }
-    
+
+    refreshBot()
   }, [sources])
 
   const deleteSource = async(id) => {

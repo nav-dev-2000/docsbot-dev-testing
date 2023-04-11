@@ -27,8 +27,6 @@ export default function SourceDelete({
       setSources(sources.filter((source) => source.id !== deleting))
       setToDelete(null)
       setSubmitting(false)
-      //reload page
-      window.location.reload()
     } else {
       try {
         const data = await response.json()
