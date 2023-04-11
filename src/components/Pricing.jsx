@@ -220,7 +220,8 @@ export default function Pricing() {
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
               Try DocsBot free for personal use. No credit card required. Import document files or
-              urls with up to 50 pages of content and chat with your bot within our website. Bots will be deleted after 30 days.
+              urls with up to 50 pages of content and chat with your bot within our website. Bots
+              will be deleted after 30 days.
             </p>
           </div>
           <Link
@@ -269,14 +270,14 @@ export default function Pricing() {
                 </p>
                 <a
                   href="mailto:human@docsbot.ai"
-            onClick={(e) => {
-              if (Beacon !== undefined) {
-                e.preventDefault()
-                DocsBotAI.unmount()
-                Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
-                Beacon('open')
-              }
-            }}
+                  onClick={(e) => {
+                    if (Beacon !== undefined) {
+                      e.preventDefault()
+                      DocsBotAI.unmount()
+                      Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
+                      Beacon('open')
+                    }
+                  }}
                   className="mt-10 block w-full rounded-md bg-cyan-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
                 >
                   Contact us

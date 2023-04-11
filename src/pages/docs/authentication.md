@@ -11,7 +11,7 @@ An overview of how to handle authentication for our various APIs. {% .lead %}
 
 ### What is a team?
 
-A team is the basic root of a DocsBot account. Plans and limits are tied to a team, which has a collection of bots and their sources. Multiple user accounts can be assigned to a team (coming soon). Each team has a unique ID and a name.
+A team is the basic root of a DocsBot account. Plans and limits are tied to a team, which has a collection of bots and their sources. Multiple user accounts can be assigned to a team. Each team has a unique ID and a name.
 
 ### Key permissions
 

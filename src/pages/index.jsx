@@ -49,21 +49,21 @@ const integrations = [
     icon: RssIcon,
   },
   {
-    name: 'YouTube Transcripts',
-    description:
-      'Create DocsBots trained on the transcripts of a YouTube video or channel! Surface that valuable content in your support responses (coming soon).',
-    icon: VideoCameraIcon,
-  },
-  {
     name: 'CSV Import',
     description:
       'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index.',
     icon: TableCellsIcon,
   },
   {
+    name: 'YouTube Transcripts',
+    description:
+      'Create DocsBots trained on the transcripts of a YouTube video or channel! Surface that valuable content in your support responses (coming soon).',
+    icon: VideoCameraIcon,
+  },
+  {
     name: 'API',
     description:
-      'Build your own data ingestion pipelines for any usecase with our powerful admin API (coming soon).',
+      'Build your own data ingestion pipelines for any use case with our powerful admin API.',
     icon: CogIcon,
   },
 ]
@@ -78,7 +78,7 @@ const features = [
   {
     name: 'Embeddable Widgets',
     description:
-      'We make it simple to add DocsBot chats to your website in minutes. Just add a script tag or WordPress plugin and you are ready to go. (coming soon)',
+      'We make it simple to add DocsBot to your website in minute with fully customizable widgets. Just add a script tag or WordPress plugin (coming soon) and you are ready to go.',
     icon: ChatBubbleLeftRightIcon,
   },
   {
