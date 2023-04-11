@@ -5,7 +5,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 import FormBot from '@/components/FormBot'
 
-export default function ModalBotEdit({ team, bot }) {
+export default function ModalBotEdit({ team, bot, setBot }) {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
@@ -30,8 +30,7 @@ export default function ModalBotEdit({ team, bot }) {
       const data = await response.json()
       setOpen(false)
       setIsUpdating(false)
-      //refresh the page
-      window.location.reload()
+      setBot(data)
     } else {
       try {
         const data = await response.json()
