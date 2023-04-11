@@ -154,7 +154,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [invite, setToInvite] = useState(null)
   const [removeUser, setRemoveUser] = useState(null)
   const [newTeam, setNewTeam] = useState(null)
-  const [newTeamName, setNewTeamName] = useState(currTeam.name)
+  const [newTeamName, setNewTeamName] = useState(team.name)
   const [isUpdating, setIsUpdating] = useState(false)
 
   const changeTeam = async(teamId) => {
@@ -176,8 +176,11 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
       body: JSON.stringify({ currentTeam: teamId }),
     })
     if (response.ok) {
-      const data = await response.json()
-      Router.reload()
+      const { users: newUsers, team: newTeam } = await response.json()
+      console.info(newUsers, newTeam)
+      setCurrTeam(newTeam)
+      setNewTeamName(newTeam.name)
+      setCurrTeamUsers(newUsers)
     } else {
       try {
         const data = await response.json()
