@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
-import { getTeamsTransaction, getInvitesFromEmailAndTeamIdTransaction } from '@/lib/dbQueries'
+import { getTeamsTransaction, getInvitesFromEmailAndTeamIdTransaction, getTeamUsers } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -18,7 +18,23 @@ export default async function handler(req, res) {
     return res.status(403).json({ message: error?.message })
   }
 
-  if (req.method === 'DELETE') {
+  if (req.method === 'GET') {
+    // respond with team members
+    let check = null
+    try {
+      check = await userTeamCheck(req, res)
+    } catch (error) {
+      return res.status(403).json({ message: error?.message })
+    }
+    const { team } = check
+
+    try {
+      return res.status(200).send(await getTeamUsers(team.id))
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({ message: error?.message })
+    }
+  } else if (req.method === 'DELETE') {
     let check = null
     try {
       check = await userTeamCheck(req, res)
