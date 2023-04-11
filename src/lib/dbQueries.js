@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore } from 'firebase-admin/firestore'
+import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import crypto from 'crypto'
@@ -247,15 +247,124 @@ export async function getTeams(userId) {
   return teams
 }
 
+export async function getTeamsTransaction(transaction, userId) {
+  //get teams for user list
+  let teams = []
+  try {
+    const teamsSnapshot = await transaction.get(firestore
+      .collection('teams')
+      .where('roles.' + userId, '!=', null))
+    teamsSnapshot.forEach((doc) => {
+      let team = { id: doc.id, ...doc.data() }
+      team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
+      //use preview key if available otherwise use fake one or null
+      team.openAIKey = team.openAIKey
+        ? team.openAIKeyPreview
+          ? team.openAIKeyPreview
+          : 'sk-*...****'
+        : null
+      delete team.openAIKeyPreview
+
+      //delete sensitive data keys starting with stripe
+      Object.keys(team).forEach((key) => {
+        if (key.startsWith('stripe')) {
+          delete team[key]
+        }
+      })
+      //add stripe plan
+      team.plan = stripePlan(team)
+
+      teams.push(team)
+    })
+  } catch (error) {
+    console.warn('Error getting team:', error)
+  }
+
+  return teams
+}
+
+// creates a team if one doesn't exist
+export async function assignDefaultTeamTransaction(transaction, userId, name) {
+  let teams = await getTeamsTransaction(transaction, userId)
+
+  let teamId = ''
+  if (teams.length >= 1) {
+    teamId = teams[0].id
+  } else {
+      // Add team based on user id with 'owner' as default permission
+      const teamRef = firestore.collection('teams').doc()
+      await transaction.set(teamRef, {
+        createdAt: FieldValue.serverTimestamp(),
+        name: `${name.trim()}'s Team`,
+        botCount: 0,
+        sourceCount: 0,
+        pageCount: 0,
+        chunkCount: 0,
+        questionCount: 0,
+        openAIKey: null,
+        roles: {
+          [userId]: 'owner',
+        },
+      })
+      teamId = teamRef.id
+  }
+
+  await transaction.set(firestore.collection('users').doc(userId), {
+    createdAt: FieldValue.serverTimestamp(),
+    currentTeam: teamId,
+  })
+}
+
 export async function getInvitesFromEmail(email) {
   const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
-      userInvites.push(JSON.parse(JSON.stringify({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})))
-    })
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
   })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await firestore.collection('teams').doc(ui.teamId).get()
+    const hash = crypto.createHash('md5').update(ui.email).digest('hex')
+    userInvites[i].photoURL = `https://www.gravatar.com/avatar/${hash}?d=mp`
+    userInvites[i].teamName = ref.data().name
+  }
+
+  return userInvites
+}
+
+export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email, teamId) {
+  const inviteQuery = await transaction.get(firestore.collection('invites').where("email", "==", email).where("teamId", "==", teamId))
+  let userInvites = []
+  inviteQuery.forEach((doc) => {
+    const docData = doc.data()
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
+  })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await transaction.get(firestore.collection('teams').doc(ui.teamId))
+    const hash = crypto.createHash('md5').update(ui.email).digest('hex')
+    userInvites[i].photoURL = `https://www.gravatar.com/avatar/${hash}?d=mp`
+    userInvites[i].teamName = ref.data().name
+  }
+
+  return userInvites
+}
+
+export async function getInvitesFromTeam(teamId) {
+  const inviteQuery = await firestore.collection('invites').where("teamId", "==", teamId).get()
+  let userInvites = []
+  inviteQuery.forEach((doc) => {
+    const docData = doc.data()
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
+  })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await firestore.collection('teams').doc(ui.teamId).get()
+    const hash = crypto.createHash('md5').update(ui.email).digest('hex')
+    userInvites[i].photoURL = `https://www.gravatar.com/avatar/${hash}?d=mp`
+    userInvites[i].teamName = ref.data().name
+  }
 
   return userInvites
 }
