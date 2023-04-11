@@ -150,6 +150,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [currTeam, setCurrTeam] = useState(team)
   const [currUserTeams, setCurrUserTeams] = useState(userTeams)
   const [currTeamUsers, setCurrTeamUsers] = useState(teamUsers)
+  const [currTeamInvites, setCurrTeamInvites] = useState(teamInvites)
   const [inviteList, setInviteList] = useState(userInvites)
   const [invite, setToInvite] = useState(null)
   const [removeUser, setRemoveUser] = useState(null)
@@ -339,7 +340,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
       )}
 
       <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText, setSuccessText}} />
-      <MemberDelete {...{team: currTeam, removeUser, setRemoveUser, setErrorText}} />
+      <MemberDelete {...{team: currTeam, removeUser, setRemoveUser, setErrorText, setCurrTeamUsers, setCurrTeamInvites}} />
 
       <div className="mt-6 overflow-hidden bg-white shadow sm:rounded-md">
         <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
@@ -418,7 +419,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </div>
             </li>
           ))}
-          {teamInvites.map((user) => (
+          {currTeamInvites.map((user) => (
             <li key={user.email}>
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
