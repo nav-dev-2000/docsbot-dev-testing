@@ -27,10 +27,10 @@ function Bots({ preBots, team }) {
   const [keyOpen, setKeyOpen] = useState(team.openAIKey ? false : true)
 
   useEffect(() => {
-    if (!team.botCount) {
+    if (!team.botCount || bots.length == 0) {
       setOpen(true)
     }
-  }, [])
+  }, [bots])
 
   const BotsGrid = ({ bots }) => {
     if (!bots || bots.length === 0) {

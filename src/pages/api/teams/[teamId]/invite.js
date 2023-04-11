@@ -6,6 +6,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import sendEmail from '@/lib/sendEmail'
 import { stripePlan } from '@/utils/helpers'
+import { getTeam } from '@/lib/dbQueries'
 
 const validateEmail = (email) => {
   return email.match(
@@ -124,9 +125,8 @@ export default async function handleInvite(req, res) {
       }
 
       // user is accepting/denying an invite request
+      const { status, teamId, inviteId } = req.body
       try {
-        const { status, teamId, inviteId } = req.body
-        console.log(status, teamId, inviteId)
         if (status === 'accept') {
           // add user to team roles
           let teamName = null
@@ -159,7 +159,7 @@ export default async function handleInvite(req, res) {
             await transaction.delete(inviteRef)
           })
 
-          return res.status(200).send({ message: `Successfully joined ${teamName}!`})
+          return res.status(200).send({ message: 'Accepted invite', data: await getTeam(teamId)})
         } else if (status == 'deny') {
           // remove invite
           await firestore.runTransaction(async (transaction) => {
@@ -172,7 +172,7 @@ export default async function handleInvite(req, res) {
             await transaction.delete(inviteRef)
           })
 
-          return res.status(200).send({ message: `Declined invite`})
+          return res.status(200).send({ message: `Declined invite`, data: null})
         }
       } catch (err) {
         console.log(err)

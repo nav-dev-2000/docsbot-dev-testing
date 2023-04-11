@@ -92,7 +92,8 @@ function Bot({ team, preBot, preSources }) {
     } else {
       setIsProcessing(false)
     }
-    
+
+    refreshBot()
   }, [sources])
 
   const deleteSource = async(id) => {
@@ -143,7 +144,7 @@ function Bot({ team, preBot, preSources }) {
     <DashboardWrap page="Bots" title={bot.name}>
       <Alert title={errorText} type="warning" />
 
-      <BotCard team={team} bot={bot} />
+      <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceDelete 
         team={team}
         bot={bot}

@@ -149,11 +149,13 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [successText, setSuccessText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
   const [currUserTeams, setCurrUserTeams] = useState(userTeams)
+  const [currTeamUsers, setCurrTeamUsers] = useState(teamUsers)
+  const [currTeamInvites, setCurrTeamInvites] = useState(teamInvites)
   const [inviteList, setInviteList] = useState(userInvites)
   const [invite, setToInvite] = useState(null)
   const [removeUser, setRemoveUser] = useState(null)
   const [newTeam, setNewTeam] = useState(null)
-  const [newTeamName, setNewTeamName] = useState(currTeam.name)
+  const [newTeamName, setNewTeamName] = useState(team.name)
   const [isUpdating, setIsUpdating] = useState(false)
 
   const changeTeam = async(teamId) => {
@@ -175,8 +177,11 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
       body: JSON.stringify({ currentTeam: teamId }),
     })
     if (response.ok) {
-      const data = await response.json()
-      Router.reload()
+      const { users: newUsers, team: newTeam } = await response.json()
+      console.info(newUsers, newTeam)
+      setCurrTeam(newTeam)
+      setNewTeamName(newTeam.name)
+      setCurrTeamUsers(newUsers)
     } else {
       try {
         const data = await response.json()
@@ -222,13 +227,45 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
     }
   }
 
+  const updateTeamUsers = async() => {
+    setErrorText('')
+    setIsUpdating(true)
+
+    const urlParams = ['teams', currTeam.id, 'members']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setCurrTeamUsers(data)
+      setIsUpdating(false)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+      setIsUpdating(false)
+    }
+  }
+
+  useEffect(() => {
+    updateTeamUsers()
+  }, [currTeam])
+
   return (
     <DashboardWrap page="Team">
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 
       {inviteList.map(({ teamId, teamName, inviteId }) => (
-        <InviteRequest key={inviteId} {...{teamId, teamName, inviteId, setInviteList, setErrorText }} />
+        <InviteRequest key={inviteId} {...{teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam }} />
       ))}
 
       <div className="flex flex-wrap items-center justify-between rounded-lg bg-white p-4 py-6 shadow gap-4">
@@ -303,7 +340,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
       )}
 
       <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText, setSuccessText}} />
-      <MemberDelete {...{team: currTeam, removeUser, setRemoveUser, setErrorText}} />
+      <MemberDelete {...{team: currTeam, removeUser, setRemoveUser, setErrorText, setCurrTeamUsers, setCurrTeamInvites}} />
 
       <div className="mt-6 overflow-hidden bg-white shadow sm:rounded-md">
         <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
@@ -329,7 +366,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
           </div>
         </div>
         <ul role="list" className="divide-y divide-gray-200">
-          {teamUsers.map((user) => (
+          {currTeamUsers.map((user) => (
             <li key={user.uid}>
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
@@ -382,7 +419,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </div>
             </li>
           ))}
-          {teamInvites.map((user) => (
+          {currTeamInvites.map((user) => (
             <li key={user.email}>
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">

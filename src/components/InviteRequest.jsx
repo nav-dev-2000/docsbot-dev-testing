@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function InviteRequest({ teamId, teamName, inviteId, setInviteList, setErrorText }) {
+export default function InviteRequest({ teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam }) {
   const [submitting, setSubmitting] = useState(false)
   const alertRef = useRef(null);
 
@@ -16,14 +16,16 @@ export default function InviteRequest({ teamId, teamName, inviteId, setInviteLis
       body: JSON.stringify({status, teamId, inviteId})
     })
     if (response.ok) {
+      const { message, data } = await response.json()
       setSubmitting(false)
       setInviteList((invites) => {
         const inv = invites.find((i) => i.uid === inviteId)
         invites.splice(inv, 1)
         return invites
       })
-      //reload page
-      window.location.reload()
+      if (status === 'accept') {
+        setCurrTeam(data)
+      }
     } else {
       try {
         const data = await response.json()

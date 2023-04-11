@@ -5,11 +5,17 @@ export default function MemberDelete({
   removeUser,
   setRemoveUser,
   setErrorText,
+  setCurrTeamUsers,
+  setCurrTeamInvites,
 }) {
   const [submitting, setSubmitting] = useState(false)
   const alertRef = useRef(null)
 
   async function submitDelete() {
+    if (submitting) {
+      return
+    }
+
     setErrorText('')
     setSubmitting(true)
     const body = (removeUser.inviteId) ? {removeUserEmail: removeUser.email} : {removeUserId: removeUser.uid}
@@ -23,10 +29,29 @@ export default function MemberDelete({
     })
     if (response.ok) {
       const data = await response.json()
-      setRemoveUser(null)
-      setSubmitting(false)
-      //reload page
-      window.location.reload()
+      if (removeUser.inviteId) { // update invites
+        setCurrTeamInvites((invites) => {
+          const index = invites.findIndex((invite) => {
+            return invite ? invite.inviteId === removeUser.inviteId : false
+          })
+
+          if (index != -1) {
+            delete invites[index]
+            return invites
+          }
+        })
+      } else { // update users
+        setCurrTeamUsers((users) => {
+          const index = users.findIndex((user) => {
+            return user ? user.uid === removeUser.uid : false
+          })
+
+          if (index != -1) {
+            delete users[index]
+            return users
+          }
+        })
+      }
     } else {
       try {
         const data = await response.json()
@@ -34,8 +59,9 @@ export default function MemberDelete({
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
-      setSubmitting(false)
     }
+    setRemoveUser(null)
+    setSubmitting(false)
   }
 
   //show whenever params change
@@ -71,7 +97,7 @@ export default function MemberDelete({
               Cancel
             </button>
             <button
-              onClick={submitDelete}
+              onClick={() => submitDelete()}
               disabled={submitting}
               type="button"
               className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-red-700 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25 sm:text-sm"

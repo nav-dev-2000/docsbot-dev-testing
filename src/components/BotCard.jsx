@@ -18,7 +18,7 @@ import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
 import GPTModel from '@/components/GPTModel'
 
-export default function BotCard({ team, bot }) {
+export default function BotCard({ team, bot, setBot }) {
   if (!bot || !bot.id) {
     return null
   }
@@ -65,7 +65,7 @@ export default function BotCard({ team, bot }) {
                   {bot.language === 'jp' ? <p>Japanese</p> : <p>English</p>}
                 </div>
                 <ModalPrompt team={team} bot={bot} />
-                <ModalBotEdit team={team} bot={bot} />
+                <ModalBotEdit team={team} bot={bot} setBot={setBot} />
               </div>
             </div>
           </div>
