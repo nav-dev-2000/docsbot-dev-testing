@@ -271,7 +271,7 @@ export default function ModalEmbed({ team, bot }) {
                                           name="alignment"
                                           type="radio"
                                           checked={alignment === 'left'}
-                                          onClick={() => setAlignment('left')}
+                                          onChange={() => setAlignment('left')}
                                           className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
                                         />
                                         <label
@@ -287,7 +287,7 @@ export default function ModalEmbed({ team, bot }) {
                                           name="alignment"
                                           type="radio"
                                           checked={alignment === 'right'}
-                                          onClick={() => setAlignment('right')}
+                                          onChange={() => setAlignment('right')}
                                           className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
                                         />
                                         <label
