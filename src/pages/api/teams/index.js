@@ -21,64 +21,6 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     //get teams for user list
     return res.json(await getTeams(userId))
-  } if (req.method === 'DELETE') {
-    let check = null
-    try {
-      check = await userTeamCheck(req, res)
-    } catch (error) {
-      return res.status(403).json({ message: error?.message })
-    }
-    const { team } = check
-    const { removeUserId, removeUserEmail } = req.body
-
-    try {
-      await firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(team.id)
-        const teamDoc = await transaction.get(teamRef)
-
-        // sanity check that only owners can remove members
-        if (teamDoc.data().roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
-          throw new Error('Only team owners can remove members!')
-        }
-        
-        // remove member from teamRoles
-        if (removeUserId !== null) {
-          const isAdded = teamDoc.data().roles[removeUserId]
-  
-          // sanity check that they're not removing themselves lol
-          if (userId === removeUserId) {
-            throw new Error('You cannot remove yourself!')
-          }
-
-          if (isAdded === undefined) {
-            throw new Error('User is not part of this team!')
-          }
-
-          // remove from team roles
-          let newRoles = teamDoc.data().roles
-          delete newRoles[removeUserId]
-          await transaction.update(teamRef, {
-            roles: newRoles
-          })
-
-          // set the user's currentTeam to their default team
-          await assignDefaultTeamTransaction(transaction, removeUserId, 'User')
-        } else if (removeUserEmail !== null) { // remove invite
-          const invites = await getInvitesFromEmailAndTeamIdTransaction(transaction, removeUserEmail, team.id)
-          if (invites.length <= 0) {
-            throw new Error('Email was not invited!')
-          }
-          const invite = invites[0];
-
-          await transaction.delete(firestore.collection('invites').doc(invite.id))
-        }
-      })
-
-      return res.status(200).send({ message: `Removed user successfully`})
-    } catch (error) {
-      console.log(err)
-      return res.status(500).json({ message: err?.message })
-    }
   } else {
     res.status(400).send({ message: 'Invalid HTTP method' })
   }

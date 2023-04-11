@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { EnvelopeIcon, PlusIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { EnvelopeIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import UpgradeNotice from '@/components/UpgradeNotice'
 import { getAuth } from 'firebase-admin/auth'
-import { getFirestore } from 'firebase-admin/firestore'
-import { getTeams, getTeamUsers, getInvitesFromEmail } from '@/lib/dbQueries'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam } from '@/lib/dbQueries'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
@@ -16,6 +15,7 @@ import { isSuperAdmin } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
+import MemberDelete from '@/components/MemberDelete'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -144,13 +144,14 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
   )
 }
 
-function Team({ team, userId, teamUsers, userTeams, userInvites }) {
+function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) {
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
   const [currUserTeams, setCurrUserTeams] = useState(userTeams)
   const [inviteList, setInviteList] = useState(userInvites)
   const [invite, setToInvite] = useState(null)
+  const [removeUser, setRemoveUser] = useState(null)
   const [newTeam, setNewTeam] = useState(null)
   const [newTeamName, setNewTeamName] = useState(currTeam.name)
   const [isUpdating, setIsUpdating] = useState(false)
@@ -302,6 +303,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites }) {
       )}
 
       <InviteMember {...{team: currTeam, invite, setToInvite, setErrorText, setSuccessText}} />
+      <MemberDelete {...{team: currTeam, removeUser, setRemoveUser, setErrorText}} />
 
       <div className="mt-6 overflow-hidden bg-white shadow sm:rounded-md">
         <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
@@ -329,7 +331,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites }) {
         <ul role="list" className="divide-y divide-gray-200">
           {teamUsers.map((user) => (
             <li key={user.uid}>
-              <div className="flex items-center px-4 py-4 sm:px-6">
+              <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
                   <div className="flex-shrink-0">
                     <Image
@@ -361,6 +363,64 @@ function Team({ team, userId, teamUsers, userTeams, userInvites }) {
                     </div>
                   </div>
                 </div>
+                {userId !== user.uid && (
+                  <div className="absolute right-2 top-1">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setRemoveUser(user)
+                      }}
+                      className="text-red-400 hover:text-red-200 focus:text-red-200"
+                      title="Delete"
+                    >
+                      <span className="sr-only">Delete</span>
+                      <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+          {teamInvites.map((user) => (
+            <li key={user.email}>
+              <div className="relative flex items-center px-4 py-4 sm:px-6">
+                <div className="flex min-w-0 flex-1 items-center">
+                  <div className="flex w-full min-w-0 items-center justify-between px-4">
+                    <div>
+                      <p className="mb-1 truncate text-sm font-medium text-cyan-600">
+                        No Name
+                      </p>
+                      <p className="m-0 flex items-center text-sm text-gray-500">
+                        <EnvelopeIcon
+                          className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="truncate">{user.email}</span>
+                      </p>
+                    </div>
+                    <div className="items-center text-right">
+                      <p className="mb-1 truncate text-sm text-gray-400">Role</p>
+                      <p className="text-md m-0 font-medium capitalize text-gray-900">
+                        Pending...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute right-2 top-1">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setRemoveUser(user)
+                    }}
+                    className="text-red-400 hover:text-red-200 focus:text-red-200"
+                    title="Delete"
+                  >
+                    <span className="sr-only">Delete</span>
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </div>
               </div>
             </li>
           ))}
@@ -372,8 +432,8 @@ function Team({ team, userId, teamUsers, userTeams, userInvites }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
-  const firestore = getFirestore()
-  
+  configureFirebaseApp()
+
   if (data?.props?.userId) {
     const { email } = await getAuth().getUser(data.props.userId)
     data.props.userInvites = await getInvitesFromEmail(email)
@@ -382,6 +442,7 @@ export const getServerSideProps = async (context) => {
   if (data?.props?.team) {
     data.props.userTeams = await getTeams(data.props.userId)
     data.props.teamUsers = await getTeamUsers(data.props.team.id)
+    data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
   }
 
   return data
