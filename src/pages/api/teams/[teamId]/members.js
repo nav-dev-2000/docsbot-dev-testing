@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
-import { getTeams, assignDefaultTeamTransaction, getInvitesFromEmailAndTeamIdTransaction } from '@/lib/dbQueries'
+import { getTeamsTransaction, getInvitesFromEmailAndTeamIdTransaction } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -27,7 +27,6 @@ export default async function handler(req, res) {
     }
     const { team } = check
     const { removeUserId, removeUserEmail } = req.body
-    console.log(removeUserId, removeUserEmail)
 
     try {
       await firestore.runTransaction(async (transaction) => {
@@ -52,15 +51,23 @@ export default async function handler(req, res) {
             throw new Error('User is not part of this team!')
           }
 
+          // grab the first non-'this team' and assign it to the removed user's current team
+          const userTeams = await getTeamsTransaction(transaction, removeUserId)
+          for (const removedUserTeam of userTeams) {
+            if (removedUserTeam.id !== team.id) {
+              await transaction.update(firestore.collection('users').doc(removeUserId), {
+                currentTeam: removedUserTeam.id
+              })
+              break
+            }
+          }
+
           // remove from team roles
           let newRoles = teamDoc.data().roles
           delete newRoles[removeUserId]
           await transaction.update(teamRef, {
-            roles: newRoles
+              roles: newRoles
           })
-
-          // set the user's currentTeam to their default team
-          await assignDefaultTeamTransaction(transaction, removeUserId, 'User')
         } else if (removeUserEmail !== undefined) { // remove invite
           const invites = await getInvitesFromEmailAndTeamIdTransaction(transaction, removeUserEmail, team.id)
           if (invites.length <= 0) {

@@ -386,6 +386,15 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
             <li key={user.email}>
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
+                  <div className="flex-shrink-0">
+                    <Image
+                      className="h-12 w-12 rounded-full"
+                      src={user.photoURL}
+                      width={48}
+                      height={48}
+                      alt="User avatar"
+                    />
+                  </div>
                   <div className="flex w-full min-w-0 items-center justify-between px-4">
                     <div>
                       <p className="mb-1 truncate text-sm font-medium text-cyan-600">
