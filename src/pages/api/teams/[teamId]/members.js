@@ -27,6 +27,7 @@ export default async function handler(req, res) {
     }
     const { team } = check
     const { removeUserId, removeUserEmail } = req.body
+    console.log(removeUserId, removeUserEmail)
 
     try {
       await firestore.runTransaction(async (transaction) => {
@@ -39,7 +40,7 @@ export default async function handler(req, res) {
         }
 
         // remove member from teamRoles
-        if (removeUserId !== null) {
+        if (removeUserId !== undefined) {
           const isAdded = teamDoc.data().roles[removeUserId]
   
           // sanity check that they're not removing themselves lol
@@ -60,21 +61,24 @@ export default async function handler(req, res) {
 
           // set the user's currentTeam to their default team
           await assignDefaultTeamTransaction(transaction, removeUserId, 'User')
-        } else if (removeUserEmail !== null) { // remove invite
+        } else if (removeUserEmail !== undefined) { // remove invite
           const invites = await getInvitesFromEmailAndTeamIdTransaction(transaction, removeUserEmail, team.id)
           if (invites.length <= 0) {
             throw new Error('Email was not invited!')
           }
           const invite = invites[0];
 
-          await transaction.delete(firestore.collection('invites').doc(invite.id))
+          await transaction.delete(firestore.collection('invites').doc(invite.uid))
+        } else {
+            // something's wrong
+            return res.status(500).json({ message: "Something went wrong, please try again" })
         }
       })
 
       return res.status(200).send({ message: `Removed user successfully`})
     } catch (error) {
-      console.log(err)
-      return res.status(500).json({ message: err?.message })
+      console.log(error)
+      return res.status(500).json({ message: error?.message })
     }
   } else {
     res.status(400).send({ message: 'Invalid HTTP method' })

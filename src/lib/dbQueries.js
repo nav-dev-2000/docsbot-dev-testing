@@ -346,10 +346,13 @@ export async function getInvitesFromEmail(email) {
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
-      userInvites.push({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id})
-    })
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
   })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await firestore.collection('teams').doc(ui.teamId).get()
+    userInvites[i].teamName = ref.data().name
+  }
 
   return userInvites
 }
@@ -359,10 +362,13 @@ export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
-      userInvites.push({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id, uid: doc.id})
-    })
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
   })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await transaction.get(firestore.collection('teams').doc(ui.teamId))
+    userInvites[i].teamName = ref.data().name
+  }
 
   return userInvites
 }
@@ -372,10 +378,13 @@ export async function getInvitesFromTeam(teamId) {
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    firestore.collection('teams').doc(docData.teamId).get().then((ref) => {
-      userInvites.push({teamId: docData.teamId, email: docData.email, teamName: ref.data().name, inviteId: doc.id, key: doc.id, uid: doc.id})
-    })
+    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
   })
+
+  for (const [i, ui] of userInvites.entries()) {
+    const ref = await firestore.collection('teams').doc(ui.teamId).get()
+    userInvites[i].teamName = ref.data().name
+  }
 
   return userInvites
 }
