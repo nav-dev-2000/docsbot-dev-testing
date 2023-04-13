@@ -236,6 +236,12 @@ export default function TableQuestions({ questions, changePage }) {
                     </th>
                     <th
                       scope="col"
+                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                    >
+                      IP hash
+                    </th>
+                    <th
+                      scope="col"
                       className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
                     >
                       Question
@@ -283,6 +289,18 @@ export default function TableQuestions({ questions, changePage }) {
                               title="Q / A"
                             />
                           )}
+                        </Answer>
+                      </td>
+                      <td
+                        className={clsx(
+                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                          'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
+                        )}
+                      >
+                        <Answer {...{ question }}>
+                          <span className="mt-2 hidden text-xs text-gray-400 sm:block truncate">
+                            {question.ip}
+                          </span>
                         </Answer>
                       </td>
                       <td
