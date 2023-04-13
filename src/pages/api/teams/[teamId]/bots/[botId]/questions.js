@@ -33,12 +33,13 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    let { page, perPage, ascending } = req.query
-    perPage = perPage ? parseInt(perPage) : 50
+    let { page, perPage, ascending, filter } = req.query
+    perPage = perPage ? parseInt(perPage) : 5
     page = page ? parseInt(page) : 0
     ascending = ascending ? ( ascending === 'true' || ascending === '1' ) : false
     try {
-      const questions = await getQuestions(team.id, botId, perPage, page, ascending)
+      const questions = await getQuestions(team.id, botId, perPage, page, ascending, filter)
+      console.log(questions)
       return res.json(questions)
     } catch (error) {
       console.warn('Error getting document:', error)

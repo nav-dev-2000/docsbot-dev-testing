@@ -138,15 +138,21 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascending = false) {
+export async function getQuestions(teamId, botId, perPage = 5, page = 0, ascending = false, filter = null) {
   const offset = page * perPage
-  const questionsRef = firestore
+  let snapshot = firestore
     .collection('teams')
     .doc(teamId)
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .orderBy('createdAt', ascending ? 'asc' : 'desc')
+
+  if (filter) {
+    console.log('applying filter!', filter)
+    snapshot = snapshot.where('ip', '==', filter)
+  }
+
+  const questionsRef = snapshot.orderBy('createdAt', ascending ? 'asc' : 'desc')
     .offset(offset)
     .limit(perPage)
 
@@ -159,14 +165,19 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
   })
 
   //get total count
-  const countSnapshot = await firestore
+  snapshot = firestore
     .collection('teams')
     .doc(teamId)
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .count()
-    .get()
+
+  if (filter) {
+    console.log('applying filter!', filter)
+    snapshot = snapshot.where('ip', '==', filter)
+  }
+
+  const countSnapshot = await snapshot.count().get()
 
   const totalCount = countSnapshot.data().count
 

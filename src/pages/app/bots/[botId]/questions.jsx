@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
@@ -14,9 +14,11 @@ function Questions({ team, bot, preQuestions }) {
   const router = useRouter()
   const { botId } = router.query
 
-  async function changePage(page) {
-    const urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page]
+  async function changePage(page, ipFilter) {
+    let urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page + ((ipFilter !== null) ? ('&filter=' + ipFilter) : '')]
+
     let path = '/api/' + urlParams.join('/')
+    console.log(path)
     const response = await fetch(path, {
       method: 'GET',
       headers: {
@@ -25,6 +27,7 @@ function Questions({ team, bot, preQuestions }) {
     })
     if (response.ok) {
       const data = await response.json()
+      console.log(data)
       setQuestions(data)
     } else {
       try {

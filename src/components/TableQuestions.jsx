@@ -216,6 +216,7 @@ export default function TableQuestions({ questions, changePage }) {
   const updateIPFilter = (ip, alias) => {
     setIPFilter(ip)
     setIPAlias(alias)
+    changePage(0, ip)
   }
 
   return (
@@ -233,7 +234,7 @@ export default function TableQuestions({ questions, changePage }) {
               perPage={questions.pagination.perPage}
               totalCount={questions.pagination.totalCount}
               page={questions.pagination.page}
-              changePage={changePage}
+              changePage={(page) => changePage(page, ipFilter)}
             />
           </div>
         </div>
@@ -286,10 +287,6 @@ export default function TableQuestions({ questions, changePage }) {
                 </thead>
                 <tbody>
                   {questions.questions.map((question, questionIdx) => {
-                    if (ipFilter !== null && question.ip !== ipFilter) {
-                      return null
-                    }
-
                     return (
                       <tr key={question.id} className="hover:bg-gray-50">
                         <td
