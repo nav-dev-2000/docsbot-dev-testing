@@ -15,12 +15,10 @@ function Api({ user, team }) {
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
   const [copyMessage, setCopyMessage] = useState(null)
 
-  const openRef = useRef(open)
   useEffect(() => {
-    if (openRef.current !== open && !open) {
-      window.location.reload()
+    if (!open && !team.openAIKey) {
+      setOpen(true)
     }
-    openRef.current = open
   }, [open])
 
   async function updateKey() {
@@ -53,7 +51,7 @@ function Api({ user, team }) {
   return (
     <DashboardWrap page="API">
       <Alert title={errorText} type="error" />
-      <ModalOpenAI {...{ team, open, setOpen }} />
+      <ModalOpenAI {...{ team, open, setOpen, onKey: (key) => {team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)} }} />
       <div className="rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">OpenAI API Key</h3>
         <p className="text-md mt-2 text-justify text-gray-800">

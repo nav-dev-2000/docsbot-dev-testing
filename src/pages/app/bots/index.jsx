@@ -24,7 +24,6 @@ function Bots({ preBots, team }) {
   const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
-  const [keyOpen, setKeyOpen] = useState(team.openAIKey ? false : true)
 
   useEffect(() => {
     if (!team.botCount || bots.length == 0) {
@@ -149,8 +148,6 @@ function Bots({ preBots, team }) {
       <BotCTA {...{ setOpen }} />
 
       <NewBotPanel {...{ team, open, setOpen }} />
-
-      <ModalOpenAI {...{team}} open={keyOpen} setOpen={setKeyOpen} />
     </DashboardWrap>
   )
 }

@@ -9,7 +9,7 @@ import Image from 'next/image'
 import Alert from '@/components/Alert'
 import openAILogo from '@/images/logos/openai-logo.svg'
 
-export default function ModalOpenAI({ team, open, setOpen }) {
+export default function ModalOpenAI({ team, open, setOpen, onKey }) {
   //const [open, setOpen] = useState(team.openAIKey ? false : true)
 
   const [errorText, setErrorText] = useState(null)
@@ -43,11 +43,10 @@ export default function ModalOpenAI({ team, open, setOpen }) {
     })
     if (response.ok) {
       const data = await response.json()
-      setOpen(false)
+      onKey(openAIKey)
       setOpenAIKey('')
       setIsUpdating(false)
-      //refresh the page
-      window.location.reload()
+      setOpen(false)
     } else {
       try {
         const data = await response.json()
