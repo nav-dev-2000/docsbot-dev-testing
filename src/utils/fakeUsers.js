@@ -132,9 +132,9 @@ const getFakeUserByIp = (ip) => {
 
   let name = ""
   const generator = seeder(ip)
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     name = name + wordList[Math.floor(generator() * wordList.length)]
-    if (i != 2) {
+    if (i != 1) {
       name = name + '-'
     }
   }
