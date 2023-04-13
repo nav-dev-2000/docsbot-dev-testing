@@ -115,14 +115,14 @@ export function ChatPage() {
             <div>
               <Image src={phImage} width={250} height={90} alt="Product Hunt" />
               <h1 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                DocsBot Product Hunt Comment Generator
+                DocsBot Product Hunt Comment Inspiration
               </h1>
               {!resultHtml && (
                 <p className="mx-auto mt-5 max-w-5xl text-lg text-gray-500">
                   Thanks for your help spreading the word about DocsBot via Product Hunt! Besides
                   rating, <span className="font-semibold">writing a comment, review, or question on our launch page has a HUGE
                   impact!</span> So we built a little AI comment generator via our powerful API to give you some
-                  inspiration!
+                  inspiration and ideas!
                 </p>
               )}
             </div>
@@ -194,7 +194,7 @@ export function ChatPage() {
                     </Link>
 
                     <p className="text-left text-xl text-gray-500 mt-4 sm:m-0">
-                      Now copy you favorite comments as a starting point, then{' '}
+                      Now you can use your favorite comments as a starting point (make it your own), then{' '}
                       <Link
                         href="https://www.producthunt.com/posts/docsbot-ai?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-docsbot&#0045;ai"
                         target="_blank"
