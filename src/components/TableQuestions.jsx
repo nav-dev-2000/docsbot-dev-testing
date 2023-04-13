@@ -16,10 +16,10 @@ import Paginator from '@/components/Paginator'
 import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
-import getFakeUserByIp from '@/utils/fakeUsers'
 
 export default function TableQuestions({ questions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
+  const [ipAlias, setIPAlias] = useState(null)
   const Sources = ({ sources }) => {
     return (
       <ul className="my-0 list-none py-0">
@@ -165,7 +165,7 @@ export default function TableQuestions({ questions, changePage }) {
                         <button
                           type="button"
                           className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-                          onClick={() => {updateIPFilter(question.ip)}}>
+                          onClick={() => {updateIPFilter(question.ip, question.alias)}}>
                           <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
                           <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter</span>
                         </button>
@@ -180,9 +180,7 @@ export default function TableQuestions({ questions, changePage }) {
                       </button>
                     </div>
                     <div className="p-8">
-                      {question.ip !== undefined && (
-                        <h2 className="text-md font-medium text-gray-400">{getFakeUserByIp(question.ip)} said:</h2>
-                      )}
+                      <h2 className="text-md font-medium text-gray-400">{question.alias} said:</h2>
                       <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
 
                       <div
@@ -217,14 +215,9 @@ export default function TableQuestions({ questions, changePage }) {
     return <>{shortAnswer}</>
   }
 
-  const updateIPFilter = (ip) => {
-    setIPFilter((ipFilter) => {
-      if (ipFilter === null) {
-        return ip
-      } else {
-        return null
-      }
-    })
+  const updateIPFilter = (ip, alias) => {
+    setIPFilter(ip)
+    setIPAlias(alias)
   }
 
   return (
@@ -252,7 +245,7 @@ export default function TableQuestions({ questions, changePage }) {
             className="rounded-md pt-2 bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
             onClick={() => {setIPFilter(null)}}>
             <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
-            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filtering by {getFakeUserByIp(ipFilter)}</span>
+            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filtering by {ipAlias}</span>
           </button>
         )}
         <div className="mt-8 flow-root">
