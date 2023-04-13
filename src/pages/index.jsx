@@ -221,6 +221,14 @@ export default function Home() {
 
                   <Image
                     className="max-h-8 w-full object-contain"
+                    src={conversionLogo}
+                    alt="Conversion Logo"
+                    width={125}
+                    height={32}
+                  />
+                  
+                  <Image
+                    className="max-h-8 w-full object-contain"
                     src={dollieLogo}
                     alt="Dollie Logo"
                     width={125}
@@ -231,14 +239,6 @@ export default function Home() {
                     className="max-h-8 w-full object-contain"
                     src={extendifyLogo}
                     alt="Extendify Logo"
-                    width={125}
-                    height={32}
-                  />
-
-                  <Image
-                    className="max-h-8 w-full object-contain"
-                    src={conversionLogo}
-                    alt="Conversion Logo"
                     width={125}
                     height={32}
                   />
