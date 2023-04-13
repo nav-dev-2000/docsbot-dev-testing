@@ -120,6 +120,8 @@ export default async function handler(req, res) {
       const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
       await fileRef.move(newFile)
       file = newFile
+    } else {
+      file = null
     }
 
     try {
