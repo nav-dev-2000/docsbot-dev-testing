@@ -166,18 +166,6 @@ export default function Header() {
             </div>
           ) : (
             <div className="hidden md:flex md:items-center md:space-x-6">
-              <Link
-                href="https://www.producthunt.com/posts/docsbot-ai?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-docsbot&#0045;ai"
-                target="_blank"
-              >
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=388863&theme=neutral"
-                  alt="DocsBot&#0032;AI - Custom&#0032;ChatGPT&#0032;for&#0032;your&#0032;business&#0032;with&#0032;powerful&#0032;APIs&#0032;&#0038;&#0032;widget | Product Hunt"
-                  style={{ width: '250px', height: '54px' }}
-                  width="250"
-                  height="54"
-                />
-              </Link>
               <Link href="/login" className="text-base font-medium text-white hover:text-gray-300">
                 Log in
               </Link>
