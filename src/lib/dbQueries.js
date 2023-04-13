@@ -148,7 +148,6 @@ export async function getQuestions(teamId, botId, perPage = 5, page = 0, ascendi
     .collection('questions')
 
   if (filter) {
-    console.log('applying filter!', filter)
     snapshot = snapshot.where('ip', '==', filter)
   }
 
@@ -173,7 +172,6 @@ export async function getQuestions(teamId, botId, perPage = 5, page = 0, ascendi
     .collection('questions')
 
   if (filter) {
-    console.log('applying filter!', filter)
     snapshot = snapshot.where('ip', '==', filter)
   }
 

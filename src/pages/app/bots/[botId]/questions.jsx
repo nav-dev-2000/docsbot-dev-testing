@@ -27,7 +27,6 @@ function Questions({ team, bot, preQuestions }) {
     })
     if (response.ok) {
       const data = await response.json()
-      console.log(data)
       setQuestions(data)
     } else {
       try {

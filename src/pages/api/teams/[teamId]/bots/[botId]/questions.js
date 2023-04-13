@@ -39,7 +39,6 @@ export default async function handler(req, res) {
     ascending = ascending ? ( ascending === 'true' || ascending === '1' ) : false
     try {
       const questions = await getQuestions(team.id, botId, perPage, page, ascending, filter)
-      console.log(questions)
       return res.json(questions)
     } catch (error) {
       console.warn('Error getting document:', error)
