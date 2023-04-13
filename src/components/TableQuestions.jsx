@@ -159,7 +159,16 @@ export default function TableQuestions({ questions, changePage }) {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <div className="absolute top-0 right-0 pt-4 pr-4 flex">
+                      {ipFilter === null && question.ip !== undefined && (
+                        <button
+                          type="button"
+                          className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
+                          onClick={() => {updateIPFilter(question.ip)}}>
+                          <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
+                          <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter</span>
+                        </button>
+                      )}
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -234,6 +243,15 @@ export default function TableQuestions({ questions, changePage }) {
             />
           </div>
         </div>
+        {ipFilter !== null && (
+          <button
+            type="button"
+            className="rounded-md pt-2 bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
+            onClick={() => {setIPFilter(null)}}>
+            <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
+            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter by {ipFilter}</span>
+          </button>
+        )}
         <div className="mt-8 flow-root">
           <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle">
@@ -245,12 +263,6 @@ export default function TableQuestions({ questions, changePage }) {
                       className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Type
-                    </th>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                    >
-                      IP hash
                     </th>
                     <th
                       scope="col"
@@ -307,27 +319,6 @@ export default function TableQuestions({ questions, changePage }) {
                               />
                             )}
                           </Answer>
-                        </td>
-                        <td
-                          className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
-                          )}
-                        >
-                          {(question.ip !== undefined && question.ip !== null && question.ip !== "") && (
-                            <div className='p-1'>
-                              <span className="mt-2 hidden text-xs text-gray-400 sm:block truncate">
-                                {question.ip}
-                              </span>
-                              <button
-                                type="button"
-                                className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-                                onClick={() => {updateIPFilter(question.ip)}}>
-                                <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter</span>
-                                {ipFilter === null ? <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" /> : <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />}
-                              </button>
-                            </div>
-                          )}
                         </td>
                         <td
                           className={clsx(
