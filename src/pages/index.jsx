@@ -25,9 +25,13 @@ import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Pricing from '@/components/Pricing'
-import WPMUDEVLogo from '@/components/WPMUDEVLogo'
-import chatwpLogo from '@/images/chatwp.svg'
-import iuLogo from '@/images/iu-logo-words.svg'
+import chatwpLogo from '@/images/logos/chatwp.svg'
+import iuLogo from '@/images/logos/iu-logo-words.svg'
+import dollieLogo from '@/images/logos/logo-dollie.png'
+import a8cLogo from '@/images/logos/logo-automattic.png'
+import plaidLogo from '@/images/logos/logo-plaid.png'
+import extendifyLogo from '@/images/logos/logo-extendify.png'
+import conversionLogo from '@/images/logos/logo-conversion.svg'
 
 const integrations = [
   {
@@ -178,27 +182,66 @@ export default function Home() {
               </div>
               <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-8 xl:py-4">
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
-                  Trusted to power
+                  Trusted by
                 </h2>
-                <div className="flex justify-center space-x-8 sm:space-x-32">
+                <div className="flex flex-wrap items-center justify-center space-y-4 space-x-4 sm:space-y-0 md:justify-between">
                   <Link href="https://wpdocs.chat" target="_blank" title="ChatWP">
                     <Image
-                      className="max-h-12 w-full object-contain"
+                      className="max-h-8 w-full object-contain"
                       src={chatwpLogo}
                       alt="ChatWP Logo"
-                      width={158}
-                      height={48}
+                      width={125}
+                      height={32}
                     />
                   </Link>
                   <Link href="https://infiniteuploads.com" target="_blank" title="Infinite Uploads">
-                  <Image
-                      className="max-h-12 w-full object-contain"
+                    <Image
+                      className="max-h-8 w-full object-contain"
                       src={iuLogo}
                       alt="Infinite Uploads Logo"
-                      width={158}
-                      height={48}
+                      width={125}
+                      height={32}
                     />
                   </Link>
+                  <Image
+                    className="max-h-8 w-full object-contain"
+                    src={a8cLogo}
+                    alt="Automattic Logo"
+                    width={125}
+                    height={32}
+                  />
+
+                  <Image
+                    className="max-h-8 w-full object-contain"
+                    src={plaidLogo}
+                    alt="Plaid Logo"
+                    width={125}
+                    height={32}
+                  />
+
+                  <Image
+                    className="max-h-8 w-full object-contain"
+                    src={dollieLogo}
+                    alt="Dollie Logo"
+                    width={125}
+                    height={32}
+                  />
+
+                  <Image
+                    className="max-h-8 w-full object-contain"
+                    src={extendifyLogo}
+                    alt="Extendify Logo"
+                    width={125}
+                    height={32}
+                  />
+
+                  <Image
+                    className="max-h-8 w-full object-contain"
+                    src={conversionLogo}
+                    alt="Conversion Logo"
+                    width={125}
+                    height={32}
+                  />
                 </div>
               </div>
             </div>

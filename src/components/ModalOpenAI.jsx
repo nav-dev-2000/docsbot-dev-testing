@@ -7,7 +7,7 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 import Alert from '@/components/Alert'
-import openAILogo from '@/images/openai-logo.svg'
+import openAILogo from '@/images/logos/openai-logo.svg'
 
 export default function ModalOpenAI({ team, open, setOpen }) {
   //const [open, setOpen] = useState(team.openAIKey ? false : true)

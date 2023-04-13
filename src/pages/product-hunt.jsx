@@ -7,7 +7,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
-import phImage from '@/images/product-hunt-logo-horizontal-orange.png'
+import phImage from '@/images/logos/product-hunt-logo-horizontal-orange.png'
 
 export function ChatPage() {
   const [answer, setAnswer] = useState('')

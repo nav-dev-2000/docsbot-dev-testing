@@ -7,7 +7,7 @@ import { getUser } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
-import openAILogo from '@/images/openai-logo.svg'
+import openAILogo from '@/images/logos/openai-logo.svg'
 
 function Api({ user, team }) {
   const [errorText, setErrorText] = useState(null)
