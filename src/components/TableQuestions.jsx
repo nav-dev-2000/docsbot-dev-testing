@@ -299,7 +299,7 @@ export default function TableQuestions({ questions, changePage }) {
                           )}
                         >
                           <Answer {...{ question }}>
-                            <p>{question.alias}</p>
+                            <p className='text-xs'>{question.alias}</p>
                           </Answer>
                         </td>
                         <td
