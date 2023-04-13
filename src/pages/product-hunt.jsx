@@ -113,15 +113,29 @@ export function ChatPage() {
         <div className="relative py-8 px-4">
           <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
             <div>
-              <Image src={phImage} width={250} height={90} alt="Product Hunt" />
+              <Link
+                href="https://www.producthunt.com/posts/docsbot-ai?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-docsbot&#0045;ai"
+                target="_blank"
+                onClick={() => {
+                  if (window.bento !== undefined) {
+                    window.bento.track('product_hunt_rate')
+                  }
+                }}
+                className="text-cyan-800 underline"
+              >
+                <Image src={phImage} width={250} height={90} alt="Product Hunt" />
+              </Link>
               <h1 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
                 DocsBot Product Hunt Comment Inspiration
               </h1>
               {!resultHtml && (
                 <p className="mx-auto mt-5 max-w-5xl text-lg text-gray-500">
                   Thanks for your help spreading the word about DocsBot via Product Hunt! Besides
-                  rating, <span className="font-semibold">writing a comment, review, or question on our launch page has a HUGE
-                  impact!</span> So we built a little AI comment generator via our powerful API to give you some
+                  rating,{' '}
+                  <span className="font-semibold">
+                    writing a comment, review, or question on our launch page has a HUGE impact!
+                  </span>{' '}
+                  So we built a little AI comment generator via our powerful API to give you some
                   inspiration and ideas!
                 </p>
               )}
@@ -172,7 +186,7 @@ export function ChatPage() {
                 </div>
 
                 <div className="mt-12">
-                  <div className="mt-4 sm:flex items-center justify-center  space-x-4">
+                  <div className="mt-4 items-center justify-center space-x-4  sm:flex">
                     <Link
                       href="https://www.producthunt.com/posts/docsbot-ai?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-docsbot&#0045;ai"
                       target="_blank"
@@ -181,7 +195,7 @@ export function ChatPage() {
                           window.bento.track('product_hunt_rate')
                         }
                       }}
-                      className='mx-auto'
+                      className="mx-auto"
                     >
                       <img
                         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=388863&theme=light"
@@ -189,12 +203,13 @@ export function ChatPage() {
                         style={{ width: '250px', height: '54px' }}
                         width="250"
                         height="54"
-                        className='max-w-sm block mx-auto'
+                        className="mx-auto block max-w-sm"
                       />
                     </Link>
 
-                    <p className="text-left text-xl text-gray-500 mt-4 sm:m-0">
-                      Now you can use your favorite comments as a starting point (make it your own), then{' '}
+                    <p className="mt-4 text-left text-xl text-gray-500 sm:m-0">
+                      Now you can use your favorite comments as a starting point (make it your own),
+                      then{' '}
                       <Link
                         href="https://www.producthunt.com/posts/docsbot-ai?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-docsbot&#0045;ai"
                         target="_blank"
