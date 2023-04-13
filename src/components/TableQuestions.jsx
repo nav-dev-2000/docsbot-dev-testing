@@ -3,13 +3,12 @@ import { useEffect, useState, useRef, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   HandThumbDownIcon,
-  ChatBubbleLeftEllipsisIcon,
   DocumentTextIcon,
   HandThumbUpIcon,
   LinkIcon,
   MinusIcon,
-  QuestionMarkCircleIcon,
   XMarkIcon,
+  AdjustmentsHorizontalIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -18,6 +17,8 @@ import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 
 export default function TableQuestions({ questions, changePage }) {
+  const [ipFilter, setIPFilter] = useState(null)
+  const [ipAlias, setIPAlias] = useState(null)
   const Sources = ({ sources }) => {
     return (
       <ul className="my-0 list-none py-0">
@@ -88,15 +89,14 @@ export default function TableQuestions({ questions, changePage }) {
   }
 
   const Rating = ({ rating }) => {
-    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : null
-
-    if (!ThumbIcon) return null
+    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon
+    const color = rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500'
 
     return (
       <>
         <span className="sr-only">{rating > 0 ? 'Up vote' : 'Down vote'}</span>
         <ThumbIcon
-          className={clsx(rating > 0 ? 'text-green-600' : 'text-red-600', 'h-6 w-6')}
+          className={clsx(color, 'h-6 w-6')}
           aria-hidden="true"
         />
       </>
@@ -158,7 +158,16 @@ export default function TableQuestions({ questions, changePage }) {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <div className="absolute top-0 right-0 pt-4 pr-4 flex">
+                      {ipFilter === null && question.ip !== undefined && (
+                        <button
+                          type="button"
+                          className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
+                          onClick={() => {updateIPFilter(question.ip, question.alias)}}>
+                          <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
+                          <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter</span>
+                        </button>
+                      )}
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -169,6 +178,7 @@ export default function TableQuestions({ questions, changePage }) {
                       </button>
                     </div>
                     <div className="p-8">
+                      <h2 className="text-md font-medium text-gray-400">{question.alias} said:</h2>
                       <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
 
                       <div
@@ -203,6 +213,11 @@ export default function TableQuestions({ questions, changePage }) {
     return <>{shortAnswer}</>
   }
 
+  const updateIPFilter = (ip, alias) => {
+    setIPFilter(ip)
+    setIPAlias(alias)
+  }
+
   return (
     <div className="mx-0 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-2 sm:px-4 lg:px-6">
@@ -222,6 +237,15 @@ export default function TableQuestions({ questions, changePage }) {
             />
           </div>
         </div>
+        {ipFilter !== null && (
+          <button
+            type="button"
+            className="rounded-md pt-2 bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
+            onClick={() => {setIPFilter(null)}}>
+            <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
+            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filtering by {ipAlias}</span>
+          </button>
+        )}
         <div className="mt-8 flow-root">
           <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle">
@@ -232,7 +256,7 @@ export default function TableQuestions({ questions, changePage }) {
                       scope="col"
                       className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
-                      Type
+                      User
                     </th>
                     <th
                       scope="col"
@@ -261,85 +285,79 @@ export default function TableQuestions({ questions, changePage }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {questions.questions.map((question, questionIdx) => (
-                    <tr key={question.id} className="hover:bg-gray-50">
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Answer {...{ question }}>
-                          {question.isChat ? (
-                            <ChatBubbleLeftEllipsisIcon
-                              className="h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                              title="Chat"
-                            />
-                          ) : (
-                            <QuestionMarkCircleIcon
-                              className="h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                              title="Q / A"
-                            />
+                  {questions.questions.map((question, questionIdx) => {
+                    if (ipFilter !== null && question.ip !== ipFilter) {
+                      return null
+                    }
+
+                    return (
+                      <tr key={question.id} className="hover:bg-gray-50">
+                        <td
+                          className={clsx(
+                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                            'hidden text-sm text-gray-500 lg:table-cell'
                           )}
-                        </Answer>
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
-                        )}
-                      >
-                        <Answer {...{ question }}>
-                          <p>{question.question}</p>
-                          <span className="mt-2 hidden text-xs text-gray-400 sm:block">
-                            {question.createdAt}
-                          </span>
-                          <dl className="font-normal lg:hidden">
-                            <dt className="sr-only">Answer</dt>
-                            <dd className="mt-1 text-sm text-gray-600">
-                              <ShortAnswer answer={question.answer} />
-                            </dd>
-                            <dt className="sr-only">Sources</dt>
-                            <dd className="mt-2 text-gray-500">
-                              <Sources sources={question.sources} />
-                            </dd>
-                          </dl>
-                        </Answer>
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Answer {...{ question }}>
-                          <ShortAnswer answer={question.answer} />
-                        </Answer>
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden truncate text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Answer {...{ question }}>
-                          <Sources sources={question.sources} />
-                        </Answer>
-                      </td>
-                      <td
-                        className={clsx(
-                          questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                          'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
-                        )}
-                      >
-                        <Answer {...{ question }}>
-                          <Rating rating={question.rating} />
-                        </Answer>
-                      </td>
-                    </tr>
-                  ))}
+                        >
+                          <Answer {...{ question }}>
+                            <p className='text-xs'>{question.alias}</p>
+                          </Answer>
+                        </td>
+                        <td
+                          className={clsx(
+                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                            'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
+                          )}
+                        >
+                          <Answer {...{ question }}>
+                            <p>{question.question}</p>
+                            <span className="mt-2 hidden text-xs text-gray-400 sm:block">
+                              {question.createdAt}
+                            </span>
+                            <dl className="font-normal lg:hidden">
+                              <dt className="sr-only">Answer</dt>
+                              <dd className="mt-1 text-sm text-gray-600">
+                                <ShortAnswer answer={question.answer} />
+                              </dd>
+                              <dt className="sr-only">Sources</dt>
+                              <dd className="mt-2 text-gray-500">
+                                <Sources sources={question.sources} />
+                              </dd>
+                            </dl>
+                          </Answer>
+                        </td>
+                        <td
+                          className={clsx(
+                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                            'hidden text-sm text-gray-500 lg:table-cell'
+                          )}
+                        >
+                          <Answer {...{ question }}>
+                            <ShortAnswer answer={question.answer} />
+                          </Answer>
+                        </td>
+                        <td
+                          className={clsx(
+                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                            'hidden truncate text-sm text-gray-500 lg:table-cell'
+                          )}
+                        >
+                          <Answer {...{ question }}>
+                            <Sources sources={question.sources} />
+                          </Answer>
+                        </td>
+                        <td
+                          className={clsx(
+                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
+                            'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
+                          )}
+                        >
+                          <Answer {...{ question }}>
+                            <Rating rating={question.rating} />
+                          </Answer>
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>

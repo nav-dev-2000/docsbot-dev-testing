@@ -17,7 +17,6 @@ Question objects have the following properties:
 | -------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
 | **id**         | string | The question id.                                                                                                        |
 | **createdAt**  | string | The question creation date.                                                                                             |
-| **isChat**       | boolean | Whether this was a chat response or Q/A api response. Chat questions don't record the full history context.          |
 | **question**      | string | The question the user asked.                                                                                        |
 | **answer**        | string | The answer text as returned to user in Markdown.                                                                |
 | **sources**  | array  | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
@@ -90,7 +89,6 @@ Response is a JSON object with `questions` as an array of question objects, and 
         {
             "id": "8wuz1pqi8laooV1jLJHG",
             "createdAt": "2023-03-22T18:25:16.980Z",
-            "isChat": false,
             "question": "What is WordPress?",
             "sources": [
                 {

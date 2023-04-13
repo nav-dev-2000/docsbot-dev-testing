@@ -2,6 +2,8 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
+import getFakeUserByIp from '@/utils/fakeUsers'
+
 import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -151,7 +153,7 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
   const querySnapshot = await questionsRef.get()
   let questions = []
   querySnapshot.forEach(async (doc) => {
-    let question = { id: doc.id, ...doc.data() }
+    let question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
     question.createdAt = question.createdAt.toDate().toJSON() //make serializable
     questions.push(question)
   })
