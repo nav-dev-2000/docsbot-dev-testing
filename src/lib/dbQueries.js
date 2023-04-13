@@ -138,7 +138,7 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-export async function getQuestions(teamId, botId, perPage = 5, page = 0, ascending = false, filter = null) {
+export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascending = false, filter = null) {
   const offset = page * perPage
   let snapshot = firestore
     .collection('teams')

@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     let { page, perPage, ascending, filter } = req.query
-    perPage = perPage ? parseInt(perPage) : 5
+    perPage = perPage ? parseInt(perPage) : 50
     page = page ? parseInt(page) : 0
     ascending = ascending ? ( ascending === 'true' || ascending === '1' ) : false
     try {
