@@ -21,13 +21,11 @@ export default function NewBotPanel({ team, open, setOpen }) {
       setOpen(false)
       setShowUpgrade(true)
     }
-    if (open && !team.openAIKey) {
+    if (open && !showOpenAI && !team.openAIKey) {
       setOpen(false)
       setShowOpenAI(true)
     }
   }, [open])
-
-  
 
   async function createBot() {
     if (!botSettings.name) {
@@ -66,7 +64,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   return (
     <>
-      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} />
+      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {team.openAIKey = key}}/>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
