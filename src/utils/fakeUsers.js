@@ -1,4 +1,4 @@
-import wordList from '@/utils/wordList'
+import {adjectives, nouns} from '@/utils/wordList'
 
 const getFakeUserByIp = (ip) => {
   const seeder = (s) => { // generate pseudo-random numbers based off a unique string
@@ -14,16 +14,8 @@ const getFakeUserByIp = (ip) => {
     }
   }
 
-  let name = ""
   const generator = seeder(ip)
-  for (let i = 0; i < 2; i++) {
-    name = name + wordList[Math.floor(generator() * wordList.length)]
-    if (i != 1) {
-      name = name + '-'
-    }
-  }
-
-  return name
+  return adjectives[Math.floor(generator() * adjectives.length)] + '-' + nouns[Math.floor(generator() * nouns.length)]
 }
 
 export default getFakeUserByIp

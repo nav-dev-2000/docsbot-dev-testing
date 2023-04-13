@@ -3,11 +3,10 @@ import { useEffect, useState, useRef, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   HandThumbDownIcon,
-  ChatBubbleLeftEllipsisIcon,
   DocumentTextIcon,
   HandThumbUpIcon,
   LinkIcon,
-  QuestionMarkCircleIcon,
+  MinusIcon,
   XMarkIcon,
   AdjustmentsHorizontalIcon
 } from '@heroicons/react/24/outline'
@@ -90,15 +89,14 @@ export default function TableQuestions({ questions, changePage }) {
   }
 
   const Rating = ({ rating }) => {
-    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : null
-
-    if (!ThumbIcon) return null
+    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon
+    const color = rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500'
 
     return (
       <>
         <span className="sr-only">{rating > 0 ? 'Up vote' : 'Down vote'}</span>
         <ThumbIcon
-          className={clsx(rating > 0 ? 'text-green-600' : 'text-red-600', 'h-6 w-6')}
+          className={clsx(color, 'h-6 w-6')}
           aria-hidden="true"
         />
       </>
@@ -258,7 +256,7 @@ export default function TableQuestions({ questions, changePage }) {
                       scope="col"
                       className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
-                      Type
+                      User
                     </th>
                     <th
                       scope="col"
@@ -301,19 +299,7 @@ export default function TableQuestions({ questions, changePage }) {
                           )}
                         >
                           <Answer {...{ question }}>
-                            {question.isChat ? (
-                              <ChatBubbleLeftEllipsisIcon
-                                className="h-5 w-5 text-gray-400"
-                                aria-hidden="true"
-                                title="Chat"
-                              />
-                            ) : (
-                              <QuestionMarkCircleIcon
-                                className="h-5 w-5 text-gray-400"
-                                aria-hidden="true"
-                                title="Q / A"
-                              />
-                            )}
+                            <p>{question.alias}</p>
                           </Answer>
                         </td>
                         <td
