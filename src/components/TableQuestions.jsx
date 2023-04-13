@@ -216,6 +216,7 @@ export default function TableQuestions({ questions, changePage }) {
   const updateIPFilter = (ip, alias) => {
     setIPFilter(ip)
     setIPAlias(alias)
+    changePage(0, ip)
   }
 
   return (
@@ -233,7 +234,7 @@ export default function TableQuestions({ questions, changePage }) {
               perPage={questions.pagination.perPage}
               totalCount={questions.pagination.totalCount}
               page={questions.pagination.page}
-              changePage={changePage}
+              changePage={(page) => changePage(page, ipFilter)}
             />
           </div>
         </div>
@@ -241,7 +242,7 @@ export default function TableQuestions({ questions, changePage }) {
           <button
             type="button"
             className="rounded-md pt-2 bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-            onClick={() => {setIPFilter(null)}}>
+            onClick={() => {updateIPFilter(null, null)}}>
             <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
             <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filtering by {ipAlias}</span>
           </button>
@@ -286,10 +287,6 @@ export default function TableQuestions({ questions, changePage }) {
                 </thead>
                 <tbody>
                   {questions.questions.map((question, questionIdx) => {
-                    if (ipFilter !== null && question.ip !== ipFilter) {
-                      return null
-                    }
-
                     return (
                       <tr key={question.id} className="hover:bg-gray-50">
                         <td
