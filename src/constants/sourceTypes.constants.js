@@ -28,8 +28,8 @@ export const sourceTypes = [
   {
     id: 'document',
     title: 'Document',
-    description: 'Upload document files containing text (Text, Office, PDF, HTML, EML, etc)',
-    fullDescription: 'Upload a document file containing text to learn from. Some examples are product documentation, slide decks, research papers, employee handbooks, an ebook, or any content you can convert to a text file. We will parse the content, and add it to this bot. Currently we support adding .txt, .docx, .pptx, .eml, .html, and .pdf documents. Paid users can also add .zip files containing multiple documents.',
+    description: 'Upload document files containing text (Text, Office, PDF, HTML, EML, ZIP, etc)',
+    fullDescription: 'Upload a document file containing text to learn from. Some examples are product documentation, slide decks, research papers, employee handbooks, an ebook, or any content you can convert to a text file. We will parse the content, and add it to this bot. Currently we support adding .txt, .docx, .pptx, .eml, .html, and .pdf documents. Paid users can also add .zip files containing multiple documents!',
     icon: DocumentTextIcon,
     isPro: false,
     coming: false,
