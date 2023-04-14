@@ -360,7 +360,11 @@ Response is the new JSON bot object:
   "chunkCount":157,
   "showButtonLabel":false,
   "botIcon":false,
-  "color":"#1292EE","branding":true,"icon":"default","alignment":"right","supportLink":"",
+  "color":"#1292EE",
+  "branding":true,
+  "icon":"default",
+  "alignment":"right",
+  "supportLink":"",
   "labels": {
     "firstMessage":"What can I help you with?",
     "sources":"Sources",
