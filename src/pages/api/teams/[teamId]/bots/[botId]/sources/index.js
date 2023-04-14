@@ -114,6 +114,14 @@ export default async function handler(req, res) {
         return res.status(400).send({ message: 'Invalid file type.' })
       }
 
+      // zip files are only for non-free plans
+      if (extension === 'zip' && stripePlan(team).name === 'Free') {
+        await fileRef.delete()
+        return res.status(402).json({
+          message: 'File type not available on your plan. Please upgrade your plan.',
+        })
+      }
+
       //generate uuid for file name with same extension
       const uuid = uuidv4()
       //move the file to the correct location in bucket
