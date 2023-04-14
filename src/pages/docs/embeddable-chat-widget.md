@@ -44,7 +44,7 @@ You can customize the widget to match your brand and desired behaviour on your b
 - **Custom support link** - Choose a custom support link that will appear in the widget for user's to contact you directly if they need to.
 - **Language** - Choose the language that the widget will be displayed in. Currently we support English and Japanese. We will soon allow you to eaily translate the widget into your own language or customize any text strings.
 
-Note that changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
+**Note**: Changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
 ## Widget API
 

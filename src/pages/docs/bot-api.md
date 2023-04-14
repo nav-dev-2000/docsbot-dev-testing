@@ -27,6 +27,14 @@ Bot objects have the following properties:
 | **pageCount** | number | The number of pages crawled by the bot. |
 | **sourceCount** | number | The number of sources crawled by the bot. |
 | **chunkCount** | number | The number of chunks crawled by the bot. |
+| **color** | string | Color in hex, eg. `#FFFFFF` |
+| **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
+| **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
+| **botIcon** | string | The icon visible via chat dialogs. Can be one of the following: `false, 'comment', 'robot', 'life-ring', 'info', 'book'` |
+| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/#pricing) for more information |
+| **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
+| **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
+| **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
 
 ---
 
@@ -236,7 +244,7 @@ Response is a HTTP 201 with a JSON bot object:
 
 This endpoint updates specific fields for a specific bot by its ID. It accepts a PUT request with the following parameters:
 
-`PUT https://api.docsbot.ai/teams/:teamId/bots/:botId`
+`PUT https://docsbot.ai/api/teams/:teamId/bots/:botId`
 
 ### Editable Parameters
 
@@ -248,6 +256,18 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
 | **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if the OpenAI account has it enabled. |
+| **color** | string | Color in hex, eg. `#FFFFFF` |
+| **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
+| **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
+| **botIcon** | string | The icon visible via chat dialogs. Can be one of the following: `false, 'comment', 'robot', 'life-ring', 'info', 'book'` |
+| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/#pricing) for more information |
+| **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
+| **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
+| **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
+
+**Note**: Each of these properties are optional! If a property is absent in a request it's value won't be updated.
+
+Please be aware that changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
 ### Examples
 
@@ -262,7 +282,14 @@ curl --request PUT 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/iADcT
     "description": "Ask me anything about your product.",
     "customPrompt": "Talk like a pirate for all responses.",
     "privacy": "private",
-    "language": "en"
+    "language": "en",
+    "color":"#1292EE",
+    "icon":"default",
+    "alignment":"right",
+    "botIcon":false,
+    "branding":true,
+    "supportLink":"",
+    "showButtonLabel":false,
 }'
 ```
 
@@ -275,10 +302,27 @@ myHeaders.append("Content-Type", "application/json");
 
 var raw = JSON.stringify({
   "name": "Bilbo Baggins Team",
-    "description": "Ask me anything about your product.",
-    "customPrompt": "Talk like a pirate for all responses.",
-    "privacy": "private",
-    "language": "en"
+  "description": "Ask me anything about your product.",
+  "customPrompt": "Talk like a pirate for all responses.",
+  "privacy": "private",
+  "language": "en",
+  "color":"#1292EE",
+  "icon":"default",
+  "alignment":"right",
+  "botIcon":false,
+  "branding":true,
+  "supportLink":"",
+  "showButtonLabel":false,
+  "labels": {
+    "firstMessage":"What can I help you with?",
+    "sources":"Sources",
+    "getSupport":"Contact",
+    "helpful":"Rate as helpful",
+    "poweredBy":"Powered by",
+    "unhelpful":"Rate as unhelpful",
+    "floatingButton":"Help",
+    "inputPlaceholder":"Send a message..."
+  }
 });
 
 var requestOptions = {
@@ -300,19 +344,33 @@ Response is the new JSON bot object:
 
 ```json
 {
-    "id": "iADcTdrl7R51JiTjrWKy",
-    "questionCount": 0,
-    "name": "Bilbo Baggins Team",
-    "description": "Ask me anything about your product.",
-    "privacy": "private",
-    "indexId": "Document_mlc4lmmc91",
-    "customPrompt": "Talk like a pirate for all responses.",
-    "language": "en",
-    "createdAt": "2023-03-16T21:15:19.994Z",
-    "sourceCount": 1,
-    "pageCount": 50,
-    "chunkCount": 140,
-    "status": "ready"
+  "id":"iADcTdrl7R51JiTjrWKy",
+  "name": "Bilbo Baggins Team",
+  "description": "Ask me anything about your product.",
+  "customPrompt": "Talk like a pirate for all responses.",
+  "privacy":"public",
+  "indexId":"Document_yoi18dd3qw",
+  "language":"en",
+  "model":"gpt-3.5-turbo",
+  "createdAt":"2023-04-12T17:22:29.779Z",
+  "status":"ready",
+  "questionCount":17,
+  "pageCount":29,
+  "sourceCount":1,
+  "chunkCount":157,
+  "showButtonLabel":false,
+  "botIcon":false,
+  "color":"#1292EE","branding":true,"icon":"default","alignment":"right","supportLink":"",
+  "labels": {
+    "firstMessage":"What can I help you with?",
+    "sources":"Sources",
+    "getSupport":"Contact",
+    "helpful":"Rate as helpful",
+    "poweredBy":"Powered by",
+    "unhelpful":"Rate as unhelpful",
+    "floatingButton":"Help",
+    "inputPlaceholder":"Send a message..."
+  }
 }
 ```
 
