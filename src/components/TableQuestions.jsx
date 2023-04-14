@@ -158,16 +158,7 @@ export default function TableQuestions({ questions, changePage }) {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute top-0 right-0 pt-4 pr-4 flex">
-                      {ipFilter === null && question.ip !== undefined && (
-                        <button
-                          type="button"
-                          className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-                          onClick={() => {updateIPFilter(question.ip, question.alias)}}>
-                          <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
-                          <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter</span>
-                        </button>
-                      )}
+                    <div className="absolute top-0 right-0 pt-4 pr-4">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -178,7 +169,18 @@ export default function TableQuestions({ questions, changePage }) {
                       </button>
                     </div>
                     <div className="p-8">
-                      <h2 className="text-md font-medium text-gray-400">{question.alias} said:</h2>
+                      <div className='p-0 flex'>
+                        <h2 className="text-md font-medium text-gray-400">{question.alias} said:</h2>
+                        {ipFilter === null && question.ip !== undefined && (
+                          <button
+                            type="button"
+                            className="ml-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
+                            onClick={() => {updateIPFilter(question.ip, question.alias)}}>
+                            <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
+                            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter by user</span>
+                          </button>
+                        )}
+                      </div>
                       <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
 
                       <div
