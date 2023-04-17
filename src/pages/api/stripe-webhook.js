@@ -6,7 +6,7 @@ const firestore = getFirestore()
 import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
-import { getTeam } from '@/lib/dbQueries'
+import { Mutex } from 'async-mutex'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -14,6 +14,9 @@ export const config = {
     bodyParser: false,
   },
 }
+
+// ensures we're only handling stripe webhooks one at a time
+const stripeMutex = new Mutex()
 
 async function buffer(readable) {
   const chunks = []
@@ -54,225 +57,235 @@ const webhookHandler = async (req, res) => {
       return res.status(400).send(`Webhook Error: ${err.message}`)
     }
 
-    if (relevantEvents.has(event.type)) {
-      try {
-        switch (event.type) {
-          case 'customer.subscription.created':
-          case 'customer.subscription.updated':
-          case 'customer.subscription.deleted':
-            const subscription = event.data.object
-            //get team by customer id
-            const teamsRef = await firestore
-              .collection('teams')
-              .where('stripeCustomerId', '==', subscription.customer)
-              .get()
-            if (teamsRef.empty) {
-              console.log(`❌ Team not found for customer ${subscription.customer}`)
+    // we cannot afford to handle slack hooks out-of-order! having a partially handled slack event is BAD and can lead to very
+    // upset customers (eg. not getting the plan they paid for). so, slack events are handled one at a time via this mutex.
+    await stripeMutex.runExclusive(async () => {
+      if (relevantEvents.has(event.type)) {
+        console.log("got event:", event.type)
+        try {
+          switch (event.type) {
+            case 'customer.subscription.created':
+            case 'customer.subscription.updated':
+            case 'customer.subscription.deleted':
+              await firestore.runTransaction(async (transaction) => {
+                const subscription = event.data.object
+                // get team by customer id
+                const teamsRef = await transaction.get(firestore.collection('teams')
+                  .where('stripeCustomerId', '==', subscription.customer))
+  
+                if (teamsRef.empty) {
+                  console.log(`❌ Team not found for customer ${subscription.customer}`)
+                  return
+                }
+  
+                const teamId = teamsRef.docs[0].id
+                const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
+    
+                // save subscription to team
+                await transaction.update(firestore.collection('teams').doc(teamId),
+                  {
+                    stripeSubscriptionId: subscription.id,
+                    stripeSubscriptionStatus: subscription.status,
+                    stripeSubscriptionProduct: subscription.plan.product,
+                    stripeSubscriptionPlan: subscription.plan.id,
+                    stripeSubscriptionPrice: subscription.plan.amount,
+                    stripeSubscriptionCurrency: subscription.plan.currency,
+                    stripeSubscriptionInterval: subscription.plan.interval,
+                    stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
+                    stripeSubscriptionQuantity: subscription.quantity,
+                  }
+                )
+                console.log(`🔔 Subscription updated for team ${teamId}`)
+    
+                //if scheduled to cancel
+                if (
+                  event.data.previous_attributes?.cancel_at_period_end === false &&
+                  subscription.cancel_at_period_end
+                ) {
+                  // Send the Slack notification
+                  try {
+                    await slack.send({
+                      attachments: [
+                        {
+                          fallback: `DocsBot AI cancellation!`,
+                          color: '#d10014',
+                          title: 'DocsBot AI Subscription Cancelled',
+                          text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
+                          fields: [
+                            {
+                              title: 'Team',
+                              value: `${teamObj.name}`,
+                              short: true,
+                            },
+                            {
+                              title: 'Amount',
+                              value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
+                                subscription.plan.currency
+                              } ${subscription.plan.interval}ly`,
+                              short: true,
+                            },
+                          ],
+                        },
+                      ],
+                    })
+                  } catch (e) {
+                    console.error(e)
+                  }
+    
+                  try {
+                    bentoTrack(teamOwner(teamObj), 'track', {
+                      type: 'subscriptionCancelled',
+                    })
+                  } catch (e) {
+                    console.log('Error sending bento track', e)
+                  }
+                }
+              });
               break
-            }
-            const teamId = teamsRef.docs[0].id
-            const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
-
-            //save subscription to team
-            const botRef = firestore.collection('teams').doc(teamId).set(
-              {
-                stripeSubscriptionId: subscription.id,
-                stripeSubscriptionStatus: subscription.status,
-                stripeSubscriptionProduct: subscription.plan.product,
-                stripeSubscriptionPlan: subscription.plan.id,
-                stripeSubscriptionPrice: subscription.plan.amount,
-                stripeSubscriptionCurrency: subscription.plan.currency,
-                stripeSubscriptionInterval: subscription.plan.interval,
-                stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
-                stripeSubscriptionQuantity: subscription.quantity,
-              },
-              { merge: true }
-            )
-            console.log(`🔔 Subscription updated for team ${teamId}`)
-
-            //if scheduled to cancel
-            if (
-              event.data.previous_attributes?.cancel_at_period_end === false &&
-              subscription.cancel_at_period_end
-            ) {
-              // Send the Slack notification
-              await slack.send({
-                attachments: [
-                  {
-                    fallback: `DocsBot AI cancellation!`,
-                    color: '#d10014',
-                    title: 'DocsBot AI Subscription Cancelled',
-                    text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
-                    fields: [
-                      {
-                        title: 'Team',
-                        value: `${teamObj.name}`,
-                        short: true,
-                      },
-                      {
-                        title: 'Amount',
-                        value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
-                          subscription.plan.currency
-                        } ${subscription.plan.interval}ly`,
-                        short: true,
-                      },
-                    ],
-                  },
-                ],
-              })
-
-              try {
-                bentoTrack(teamOwner(teamObj), 'track', {
-                  type: 'subscriptionCancelled',
-                })
-              } catch (e) {
-                console.log('Error sending bento track', e)
-              }
-            }
-
-            break
-          case 'checkout.session.completed':
-            const checkoutSession = event.data.object
-
-            if (checkoutSession.mode === 'subscription') {
-              // Retrieve the Checkout Session with expand
-              const session = await stripe.checkout.sessions.retrieve(checkoutSession.id, {
-                expand: ['subscription'],
-              })
-              //save subscription to team
-              await firestore.collection('teams').doc(checkoutSession.client_reference_id).set(
-                {
-                  stripeCustomerId: session.customer,
-                  stripeSubscriptionId: session.subscription.id,
-                  stripeSubscriptionStatus: session.subscription.status,
-                  stripeSubscriptionProduct: session.subscription.plan.product,
-                  stripeSubscriptionPlan: session.subscription.plan.id,
-                  stripeSubscriptionPrice: session.subscription.plan.amount,
-                  stripeSubscriptionCurrency: session.subscription.plan.currency,
-                  stripeSubscriptionInterval: session.subscription.plan.interval,
-                  stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
-                  stripeSubscriptionQuantity: session.subscription.quantity,
-                },
-                { merge: true }
-              )
-
-              //add teamid to stripe customer metadata
-              await stripe.customers.update(session.customer, {
-                metadata: { teamId: checkoutSession.client_reference_id },
-              })
-
-              console.log(`🔔 Subscription created for team ${checkoutSession.client_reference_id}`)
-
-              //get plan name with a mock team object
-              const planName = stripePlan({
-                stripeSubscriptionStatus: session.subscription.status,
-                stripeSubscriptionPlan: session.subscription.plan.id,
-                stripeSubscriptionProduct: session.subscription.plan.product,
-              }).name
-
-              // Send the Slack notification
-              await slack.send({
-                attachments: [
-                  {
-                    fallback: `New DocsBot AI signup by ${session.customer_details.name} (${
-                      session.customer_details.email
-                    }) to ${planName} x${session.subscription.quantity} for $${
-                      session.amount_total / 100
-                    } ${session.currency} ${session.subscription.plan.interval}ly!`,
-                    color: '#0891b2',
-                    title: 'New DocsBot AI Subscription Signup',
-                    text: `${planName} x ${session.subscription.quantity}`,
-                    fields: [
-                      {
-                        title: 'Customer',
-                        value: `${session.customer_details.name} (${session.customer_details.email})`,
-                        short: true,
-                      },
-                      {
-                        title: 'Amount',
-                        value: `$${session.amount_total / 100} ${session.currency} ${
-                          session.subscription.plan.interval
-                        }ly`,
-                        short: true,
-                      },
-                    ],
-                  },
-                ],
-              })
-            }
-            break
-          case 'invoice.paid':
-            const invoice = event.data.object
-            //get team by customer id
-            const teamsRef2 = await firestore
-              .collection('teams')
-              .where('stripeCustomerId', '==', invoice.customer)
-              .get()
-            if (teamsRef2.empty) {
-              throw new Error('No matching team found')
-            }
-            const team = { id: teamsRef2.docs[0].id, ...teamsRef2.docs[0].data() }
-
-            //expand invoice to get subscription
-            const invoiceWithSubscription = await stripe.invoices.retrieve(invoice.id, {
-              expand: ['subscription'],
-            })
-
-            //save subscription to team in case this comes before updated webhook
-            await firestore.collection('teams').doc(team.id).set(
-              {
-                stripeSubscriptionId: invoiceWithSubscription.subscription.id,
-                stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
-                stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
-                stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
-                stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
-                stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
-                stripeSubscriptionInterval: invoiceWithSubscription.subscription.plan.interval,
-                stripeSubscriptionCancelAtPeriodEnd:
-                  invoiceWithSubscription.subscription.cancel_at_period_end,
-                stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
-              },
-              { merge: true }
-            )
-
-            //get new team data
-            const newTeam = await getTeam(team.id)
-
-            try {
-              bentoTrack(teamOwner(newTeam), 'trackPurchase', {
-                purchaseDetails: {
-                  unique: { key: invoice.id },
-                  value: { amount: invoice.amount_paid, currency: invoice.currency },
-                },
-                cart: {
-                  abandoned_checkout_url: 'https://docsbot.ai/app/account',
-                  items: [
+            case 'checkout.session.completed':
+              await firestore.runTransaction(async (transaction) => {
+                const checkoutSession = event.data.object
+  
+                if (checkoutSession.mode === 'subscription') {
+                  // Retrieve the Checkout Session with expand
+                  const session = await stripe.checkout.sessions.retrieve(checkoutSession.id, {
+                    expand: ['subscription'],
+                  })
+  
+                  // save subscription to team
+                  await transaction.update(firestore.collection('teams').doc(checkoutSession.client_reference_id),
                     {
-                      product_id: invoiceWithSubscription.lines.data[0].price.id,
-                      product_sku: invoiceWithSubscription.lines.data[0].price.product,
-                      product_name: invoiceWithSubscription.lines.data[0].description,
-                      product_price: invoiceWithSubscription.lines.data[0].price.unit_amount,
-                      quantity: invoiceWithSubscription.lines.data[0].quantity,
-                    },
-                  ],
-                },
+                      stripeCustomerId: session.customer,
+                      stripeSubscriptionId: session.subscription.id,
+                      stripeSubscriptionStatus: session.subscription.status,
+                      stripeSubscriptionProduct: session.subscription.plan.product,
+                      stripeSubscriptionPlan: session.subscription.plan.id,
+                      stripeSubscriptionPrice: session.subscription.plan.amount,
+                      stripeSubscriptionCurrency: session.subscription.plan.currency,
+                      stripeSubscriptionInterval: session.subscription.plan.interval,
+                      stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
+                      stripeSubscriptionQuantity: session.subscription.quantity,
+                    }
+                  )
+  
+                  //add teamid to stripe customer metadata
+                  await stripe.customers.update(session.customer, {
+                    metadata: { teamId: checkoutSession.client_reference_id },
+                  })
+  
+                  console.log(`🔔 Subscription created for team ${checkoutSession.client_reference_id}`)
+  
+                  //get plan name with a mock team object
+                  const planName = stripePlan({
+                    stripeSubscriptionStatus: session.subscription.status,
+                    stripeSubscriptionPlan: session.subscription.plan.id,
+                    stripeSubscriptionProduct: session.subscription.plan.product,
+                  }).name
+  
+                  // Send the Slack notification
+                  try {
+                    await slack.send({
+                      attachments: [
+                        {
+                          fallback: `New DocsBot AI signup by ${session.customer_details.name} (${
+                            session.customer_details.email
+                          }) to ${planName} x${session.subscription.quantity} for $${
+                            session.amount_total / 100
+                          } ${session.currency} ${session.subscription.plan.interval}ly!`,
+                          color: '#0891b2',
+                          title: 'New DocsBot AI Subscription Signup',
+                          text: `${planName} x ${session.subscription.quantity}`,
+                          fields: [
+                            {
+                              title: 'Customer',
+                              value: `${session.customer_details.name} (${session.customer_details.email})`,
+                              short: true,
+                            },
+                            {
+                              title: 'Amount',
+                              value: `$${session.amount_total / 100} ${session.currency} ${
+                                session.subscription.plan.interval
+                              }ly`,
+                              short: true,
+                            },
+                          ],
+                        },
+                      ],
+                    })
+                  } catch (e) {
+                    console.error(e)
+                  }
+                }
               })
-            } catch (e) {
-              console.log('Error sending bento track', e)
-            }
-
-            break
-
-          default:
-            throw new Error('Unhandled relevant event!')
+              break
+            case 'invoice.paid':
+              await firestore.runTransaction(async (transaction) => {
+                const invoice = event.data.object
+                //get team by customer id
+                const teamsRef2 = await transaction.get(firestore.collection('teams')
+                  .where('stripeCustomerId', '==', invoice.customer))
+                if (teamsRef2.empty) {
+                  throw new Error('No matching team found')
+                }
+                const team = { id: teamsRef2.docs[0].id, ...teamsRef2.docs[0].data() }
+  
+                //expand invoice to get subscription
+                const invoiceWithSubscription = await stripe.invoices.retrieve(invoice.id, {
+                  expand: ['subscription'],
+                })
+  
+                //save subscription to team in case this comes before updated webhook
+                await transaction.update(firestore.collection('teams').doc(team.id),
+                  {
+                    stripeSubscriptionId: invoiceWithSubscription.subscription.id,
+                    stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
+                    stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
+                    stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
+                    stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
+                    stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
+                    stripeSubscriptionInterval: invoiceWithSubscription.subscription.plan.interval,
+                    stripeSubscriptionCancelAtPeriodEnd:
+                    invoiceWithSubscription.subscription.cancel_at_period_end,
+                    stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
+                  }
+                )
+  
+                try {
+                  bentoTrack(teamOwner(team), 'trackPurchase', {
+                    purchaseDetails: {
+                      unique: { key: invoice.id },
+                      value: { amount: invoice.amount_paid, currency: invoice.currency },
+                    },
+                    cart: {
+                      abandoned_checkout_url: 'https://docsbot.ai/app/account',
+                      items: [
+                        {
+                          product_id: invoiceWithSubscription.lines.data[0].price.id,
+                          product_sku: invoiceWithSubscription.lines.data[0].price.product,
+                          product_name: invoiceWithSubscription.lines.data[0].description,
+                          product_price: invoiceWithSubscription.lines.data[0].price.unit_amount,
+                          quantity: invoiceWithSubscription.lines.data[0].quantity,
+                        },
+                      ],
+                    },
+                  })
+                } catch (e) {
+                  console.log('Error sending bento track', e)
+                }
+              })
+              break
+            default:
+              throw new Error('Unhandled relevant event!')
+          }
+        } catch (error) {
+          console.log(error)
+          return res.status(400).send('Webhook error: "Webhook handler failed. View logs."')
         }
-      } catch (error) {
-        console.log(error)
-        return res.status(400).send('Webhook error: "Webhook handler failed. View logs."')
+        console.log('event complete!')
       }
-    }
-
-    res.json({ received: true })
+  
+      res.json({ received: true })
+    })
   } else {
     res.setHeader('Allow', 'POST')
     res.status(405).end('Method Not Allowed')
