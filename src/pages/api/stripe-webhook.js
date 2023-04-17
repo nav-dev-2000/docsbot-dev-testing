@@ -57,8 +57,8 @@ const webhookHandler = async (req, res) => {
       return res.status(400).send(`Webhook Error: ${err.message}`)
     }
 
-    // we cannot afford to handle slack hooks out-of-order! having a partially handled slack event is BAD and can lead to very
-    // upset customers (eg. not getting the plan they paid for). so, slack events are handled one at a time via this mutex.
+    // we cannot afford to handle stripe hooks out-of-order! having a partially handled stripe event is BAD and can lead to very
+    // upset customers (eg. not getting the plan they paid for). so, stripe events are handled one at a time via this mutex.
     await stripeMutex.runExclusive(async () => {
       if (relevantEvents.has(event.type)) {
         try {
