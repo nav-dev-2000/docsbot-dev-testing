@@ -74,6 +74,11 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     if (user && 'Beacon' in window && Beacon !== undefined && typeof Beacon === 'function') {
+      //only identify if not already in the queue
+      if (Beacon.readyQueue.find((obj) => obj.method === 'identify')) {
+        return
+      }
+
       const ident = {
         email: user.email,
       }

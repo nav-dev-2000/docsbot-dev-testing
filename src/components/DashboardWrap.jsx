@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
@@ -23,14 +23,14 @@ import { useCallback } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { signOut } from 'firebase/auth'
-
+import { stripePlan } from '@/utils/helpers'
 import { logout } from '@/api/logout'
 import { auth } from '@/config/firebase-ui.config'
 import { routePaths } from '@/constants/routePaths.constants'
 import BreadcrumbHeader from './BreadCrumbHeader'
 import logo from '@/images/docsbot-logo-white.png'
 
-export default function DashboardWrap({ page, title, children }) {
+export default function DashboardWrap({ page, title, team, children }) {
   const router = useRouter()
   const [user] = useAuthState(auth)
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -45,6 +45,38 @@ export default function DashboardWrap({ page, title, children }) {
       })
     })
   }
+
+  useEffect(() => {
+    if (
+      user &&
+      team &&
+      'Beacon' in window &&
+      Beacon !== undefined &&
+      typeof Beacon === 'function'
+    ) {
+      const ident = {
+        email: user.email,
+      }
+      if (user.displayName) {
+        ident.name = user.displayName
+      }
+      if (team) {
+        ident.company = team.name
+        ident['connected-sites'] = `https://docsbot.ai/app/team?switchTeam=${team.id}`
+        if (team.stripeSubscriptionPrice && stripePlan(team).name !== 'Free') {
+          ident['monthly-price'] = '$' + team.stripeSubscriptionPrice / 100
+        }
+        ident['storage-plan'] = stripePlan(team).name
+        if (team.stripeCustomerId) {
+          ident['stripe-customer'] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
+        }
+        if (team.stripeSubscriptionId) {
+          ident['stripe-subscription'] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
+        }
+      }
+      Beacon('identify', ident)
+    }
+  }, [user, team])
 
   const navigation = [
     { name: 'Dashboard', href: '/app', icon: HomeIcon },
@@ -72,9 +104,9 @@ export default function DashboardWrap({ page, title, children }) {
     return (
       <>
         {titles.map((title, index) => (
-          <div key={index} className="ml-1 lg:ml-2 flex flex-inline items-center">
+          <div key={index} className="flex-inline ml-1 flex items-center lg:ml-2">
             <ChevronRightIcon className="h-4 w-4" />
-            <h1 className="ml-1 lg:ml-2 text-xl lg:text-2xl font-medium text-gray-800">{title}</h1>
+            <h1 className="ml-1 text-xl font-medium text-gray-800 lg:ml-2 lg:text-2xl">{title}</h1>
           </div>
         ))}
       </>

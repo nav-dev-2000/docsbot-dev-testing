@@ -49,7 +49,7 @@ function Api({ user, team }) {
   }
 
   return (
-    <DashboardWrap page="API">
+    <DashboardWrap page="API" team={team}>
       <Alert title={errorText} type="error" />
       <ModalOpenAI {...{ team, open, setOpen, onKey: (key) => {team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)} }} />
       <div className="rounded-lg bg-white p-8 shadow">

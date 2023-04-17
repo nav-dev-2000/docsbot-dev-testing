@@ -141,7 +141,7 @@ function Bot({ team, preBot, preSources }) {
   if (!bot) return null
 
   return (
-    <DashboardWrap page="Bots" title={bot.name}>
+    <DashboardWrap page="Bots" title={bot.name} team={team}>
       <Alert title={errorText} type="warning" />
 
       <BotCard team={team} bot={bot} setBot={setBot} />

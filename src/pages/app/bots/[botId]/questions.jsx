@@ -43,7 +43,7 @@ function Questions({ team, bot, preQuestions }) {
   const title = [ bot.name, 'Questions']
 
   return (
-    <DashboardWrap page="Bots" title={title}>
+    <DashboardWrap page="Bots" title={title} team={team}>
       <Alert title={errorText} type="warning" />
 
       <TableQuestions questions={questions} changePage={changePage} />

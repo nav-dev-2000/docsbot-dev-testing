@@ -55,7 +55,7 @@ function Account({ team }) {
   ]
   
   return (
-    <DashboardWrap page="Account">
+    <DashboardWrap page="Account" team={team}>
       <Alert title={errorText} type="error" />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

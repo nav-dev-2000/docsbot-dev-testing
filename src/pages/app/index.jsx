@@ -144,7 +144,7 @@ function Dashboard({ team }) {
   ]
 
   return (
-    <DashboardWrap page="Dashboard">
+    <DashboardWrap page="Dashboard" team={team}>
       <Alert title={errorText} type="warning" />
       <UpgradeNotice team={team} />
 
