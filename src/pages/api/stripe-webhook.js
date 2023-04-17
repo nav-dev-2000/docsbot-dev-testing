@@ -61,7 +61,6 @@ const webhookHandler = async (req, res) => {
     // upset customers (eg. not getting the plan they paid for). so, slack events are handled one at a time via this mutex.
     await stripeMutex.runExclusive(async () => {
       if (relevantEvents.has(event.type)) {
-        console.log("got event:", event.type)
         try {
           switch (event.type) {
             case 'customer.subscription.created':
@@ -281,7 +280,6 @@ const webhookHandler = async (req, res) => {
           console.log(error)
           return res.status(400).send('Webhook error: "Webhook handler failed. View logs."')
         }
-        console.log('event complete!')
       }
   
       res.json({ received: true })
