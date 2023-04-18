@@ -26,5 +26,11 @@
                 }
             ]
         }
+    ],
+    "crons": [
+        {
+            "path": "/cron/reingest?key=iuefhisue24182",
+            "schedule": "0 1 * * *"
+        }
     ]
 }
