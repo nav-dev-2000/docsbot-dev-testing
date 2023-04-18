@@ -15,7 +15,7 @@ function Questions({ team, bot, preQuestions }) {
   const { botId } = router.query
 
   async function changePage(page, ipFilter) {
-    let urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page + ((ipFilter !== null) ? ('&filter=' + ipFilter) : '')]
+    let urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page + ((ipFilter !== null && ipFilter !== undefined) ? ('&filter=' + ipFilter) : '')]
 
     let path = '/api/' + urlParams.join('/')
     console.log(path)
