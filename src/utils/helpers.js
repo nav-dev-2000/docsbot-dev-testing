@@ -36,6 +36,7 @@ export function stripePlan(team) {
       pages: 1000000,
       questions: 1000000000,
       teamMembers: 100000,
+      scheduleInterval: 'daily',
     }
   } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
     // team for sethtstubbs@gmail.com
@@ -59,7 +60,7 @@ export function stripePlan(team) {
     }
   }
 
-  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1 }
+  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none' }
 }
 
 export function isSuperAdmin(userId) {
