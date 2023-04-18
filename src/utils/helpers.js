@@ -38,16 +38,16 @@ export function stripePlan(team) {
       teamMembers: 100000,
       scheduleInterval: 'daily',
     }
-  } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
-    // team for sethtstubbs@gmail.com
-    return {
-      name: 'Staff',
-      bots: 1000,
-      sources: 10000,
-      pages: 1000000,
-      questions: 1000000000,
-      teamMembers: 100000,
-    }
+  // } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
+  //   // team for sethtstubbs@gmail.com
+  //   return {
+  //     name: 'Staff',
+  //     bots: 1000,
+  //     sources: 10000,
+  //     pages: 1000000,
+  //     questions: 1000000000,
+  //     teamMembers: 100000,
+  //   }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
@@ -61,6 +61,28 @@ export function stripePlan(team) {
   }
 
   return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none' }
+}
+
+export function checkSourceScheduledFromInterval(team, interval) {
+  const plan = stripePlan(team)
+
+  let limit = 0;
+  switch (plan.scheduleInterval) {
+    case 'daily': limit = 24 * 60 * 60 * 1000; break;
+    case 'weekly': limit = 7 * 24 * 60 * 60 * 1000; break;
+    case 'monthly': limit = 30 * 24 * 60 * 60 * 1000; break;
+    case 'none': throw new Error('You are not allowed to change the schedule interval for this plan.');
+    default:
+      throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
+  }
+
+  if (interval < limit) {
+    throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}.`)
+  }
+
+  const scheduled = new Date();
+  scheduled.setTime(scheduled.getTime() + interval);
+  return scheduled
 }
 
 export function isSuperAdmin(userId) {

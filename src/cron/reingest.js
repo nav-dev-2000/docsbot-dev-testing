@@ -2,12 +2,13 @@ import { } from '@/lib/dbQueries'
 import { getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceRegest } from '@/lib/service'
-import { stripePlan } from '@/utils/helpers'
+import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
+  // this is a public endpoint, however our 'cron' path is protected by a key; TODO: can this be an env var?
   if (request.query.key !== 'iuefhisue24182') {
     response.status(404).end();
     return;
@@ -26,17 +27,8 @@ export default async function handler(request, response) {
       const teamRef = botRef.parent.parent;
       const teamId = teamRef.id;
 
-      const plan = stripePlan(teamRef.data());
-
       // grab next schedule date
-      let nextSchedule = new Date();
-      switch (plan.scheduleInterval) {
-        case 'daily': nextSchedule.setTime(nextSchedule.getTime() + 24 * 60 * 60 * 1000); break;
-        case 'weekly': nextSchedule.setTime(nextSchedule.getTime() + 7 * 24 * 60 * 60 * 1000); break;
-        case 'monthly': nextSchedule.setTime(nextSchedule.getTime() + 30 * 24 * 60 * 60 * 1000); break;
-        default:
-          throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
-      }
+      const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
 
       // update and reingest source
       doc.ref.update({
