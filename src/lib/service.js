@@ -40,3 +40,17 @@ export const QueueSourceExpel = async (teamId, indexId, sourceId) => {
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
   return messageId
 }
+
+export const QueueSourceRegest = async (teamId, botId, sourceId) => {
+  const dataBuffer = Buffer.from(
+    JSON.stringify({
+      action: 'regest',
+      teamId,
+      botId,
+      sourceId,
+    })
+  )
+  const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
+  console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
+  return messageId
+}
