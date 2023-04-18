@@ -20,13 +20,12 @@ export default function ModalSource({ team, bot, source, setSources, children })
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ selectedInterval }),
+      body: JSON.stringify({ interval: selectedInterval }),
     })
     if (response.ok) {
       const data = await response.json()
       setSubmitting(false)
     } else {
-      console.log('whoops!')
       try {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
@@ -117,16 +116,18 @@ export default function ModalSource({ team, bot, source, setSources, children })
                         <option value="daily">Daily</option>
                       </select>
                     </div>
-                    <button
-                      disabled={submitting}
-                      onClick={updateSource}
-                      className="ml-4 inline-flex items-right justify-right rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                    >
-                      {submitting && (
-                        <LoadingSpinner className="mr-3" />
-                      )}
-                      Save
-                    </button>
+                    <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
+                      <button
+                        disabled={submitting}
+                        onClick={updateSource}
+                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                      >
+                        {submitting && (
+                          <LoadingSpinner className="mr-3" />
+                        )}
+                        Save
+                      </button>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
