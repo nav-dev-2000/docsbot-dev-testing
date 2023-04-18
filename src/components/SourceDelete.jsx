@@ -6,7 +6,6 @@ export default function SourceDelete({
   source,
   setToDelete,
   setErrorText,
-  sources,
   setSources,
 }) {
   const [submitting, setSubmitting] = useState(false)
@@ -24,7 +23,7 @@ export default function SourceDelete({
     if (response.ok) {
       const data = await response.json()
       const deleting = source.id
-      setSources(sources.filter((source) => source.id !== deleting))
+      setSources((sources) => sources.filter((source) => source.id !== deleting))
       setToDelete(null)
       setSubmitting(false)
     } else {

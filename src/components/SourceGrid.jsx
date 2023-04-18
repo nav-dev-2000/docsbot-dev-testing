@@ -5,7 +5,7 @@ import classNames from '@/utils/classNames'
 import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import ModalSource from '@/components/ModalSource'
 
-export default function SourceGrid({ team, bot, sources, setToDelete }) {
+export default function SourceGrid({ team, bot, sources, setSources, setErrorText }) {
   const [fullSources, setFullSources] = useState([])
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function SourceGrid({ team, bot, sources, setToDelete }) {
         className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3"
       >
         {fullSources.map((source) => (
-          <ModalSource key={source.id} team={team} bot={bot} source={source} setToDelete={setToDelete}>
+          <ModalSource key={source.id} team={team} bot={bot} source={source} setSources={setSources} setErrorText={setErrorText}>
             <li key={source.id} className="col-span-1 flex rounded-md shadow-sm">
               <div
                 className={classNames(
@@ -75,22 +75,6 @@ export default function SourceGrid({ team, bot, sources, setToDelete }) {
                         </button>
                       </div>
                     )}
-                  </div>
-                )}
-                {source.status === 'ready' && (
-                  <div className="absolute right-1 top-1">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        setToDelete(source)
-                      }}
-                      className="text-red-400 hover:text-red-200 focus:text-red-200"
-                      title="Delete"
-                    >
-                      <span className="sr-only">Delete</span>
-                      <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-                    </button>
                   </div>
                 )}
                 <div className="flex-1 truncate text-sm">

@@ -1,11 +1,11 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ShareIcon, XMarkIcon, PaperClipIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import classNames from '@/utils/classNames'
+import { XMarkIcon, TrashIcon } from '@heroicons/react/24/outline'
+import SourceDelete from '@/components/SourceDelete'
 
-export default function ModalSource({ team, bot, source, setErrorText, children }) {
+export default function ModalSource({ team, bot, source, setSources, setErrorText, children }) {
   const [open, setOpen] = useState(false)
+  const [toDelete, setToDelete] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
   const updateSource = async () => {
@@ -21,7 +21,6 @@ export default function ModalSource({ team, bot, source, setErrorText, children 
       const data = await response.json()
       const deleting = source.id
       setSources(sources.filter((source) => source.id !== deleting))
-      setToDelete(null)
       setSubmitting(false)
     } else {
       try {
@@ -38,7 +37,7 @@ export default function ModalSource({ team, bot, source, setErrorText, children 
     <>
       <a
         type="button"
-        className="m-0 block cursor-pointer px-3 py-4"
+        className="m-0 block cursor-pointer"
         disabled={source.status !== 'ready'}
         onClick={() => setOpen(true)}
       >
@@ -73,6 +72,14 @@ export default function ModalSource({ team, bot, source, setErrorText, children 
                   <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                     <button
                       type="button"
+                      className="rounded-md bg-white text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={() => setToDelete(source)}
+                    >
+                      <span className="sr-only">Delete</span>
+                      <TrashIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={() => setOpen(false)}
                     >
@@ -83,11 +90,25 @@ export default function ModalSource({ team, bot, source, setErrorText, children 
 
                   <div className="rounded-lg bg-white p-8 shadow">
                     <h3 className="text-2xl font-bold">{source.title ?? source.url}</h3>
+                    <SourceDelete 
+                      team={team}
+                      bot={bot}
+                      source={toDelete}
+                      setToDelete={setToDelete}
+                      setErrorText={setErrorText}
+                      setSources={setSources}
+                    />
                     <p className="text-md mt-2 text-justify text-gray-800">
-                      You can schedule this source to be reingested by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data.
+                      You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data.
                     </p>
-                    <div className="mt-4 flex justify-start space-x-4">
-                      
+                    <div className="mt-4 justify-start space-x-4">
+                      <label for="intervals" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
+                      <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected value="none">Never</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="daily">Daily</option>
+                      </select>
                     </div>
                   </div>
                 </Dialog.Panel>
