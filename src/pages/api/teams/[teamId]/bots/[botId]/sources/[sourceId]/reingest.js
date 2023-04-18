@@ -40,8 +40,17 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     try {
       const { interval } = req.body
-      const scheduled = checkSourceScheduledFromInterval(team, interval);
 
+      // if interval is none, remove the scheduled field
+      if (interval === 'none') {
+        firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
+          scheduled: FieldValue.delete(),
+          scheduleInterval: interval,
+        });
+        return res.status(200).json({ message: 'success' })
+      }
+
+      const scheduled = checkSourceScheduledFromInterval(team, interval);
       firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
         scheduled,
         scheduleInterval: interval,
@@ -50,9 +59,24 @@ export default async function handler(req, res) {
       console.warn('Error setting source interval:', error)
       return res.status(500).json({ message: error?.message })
     }
+
     return res.status(200).json({ message: 'success' })
   } else if (req.method === 'POST') {
+    if (!source.scheduleInterval || source.scheduleInterval === 'none') {
+      QueueSourceRegest(team.id, botId, sourceId);
+      return res.status(200).json({ message: 'success' })
+    }
 
+    // grab next schedule date
+    const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
+
+    // update and reingest source
+    doc.ref.update({
+      'scheduled': nextSchedule,
+    }).then(() => {
+      QueueSourceRegest(team.id, botId, sourceId);
+    })
+    return res.status(200).json({ message: 'success' })
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, TrashIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
@@ -25,6 +25,29 @@ export default function ModalSource({ team, bot, source, setSources, children })
     if (response.ok) {
       const data = await response.json()
       setSubmitting(false)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+      setSubmitting(false)
+    }
+  }
+
+  const refreshSource = async () => {
+    setErrorText('')
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setOpen(false)
+      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, status: 'pending'} : s))
     } else {
       try {
         const data = await response.json()
@@ -117,6 +140,15 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       </select>
                     </div>
                     <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={refreshSource}
+                      disabled={submitting}
+                    >
+                      <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
+                      Refresh
+                    </button>
                       <button
                         disabled={submitting}
                         onClick={updateSource}

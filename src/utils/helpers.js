@@ -71,7 +71,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
     case 'daily': rawInterval = 24 * 60 * 60 * 1000; break;
     case 'weekly': rawInterval = 7 * 24 * 60 * 60 * 1000; break;
     case 'monthly': rawInterval = 30 * 24 * 60 * 60 * 1000; break;
-    case 'none': throw new Error('You are not allowed to change the schedule interval for this plan.');
+    case 'none': throw new Error('Please contact support');
     default:
       throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
   }
@@ -81,7 +81,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
     case 'daily': limit = 24 * 60 * 60 * 1000; break;
     case 'weekly': limit = 7 * 24 * 60 * 60 * 1000; break;
     case 'monthly': limit = 30 * 24 * 60 * 60 * 1000; break;
-    case 'none': throw new Error('You are not allowed to change the schedule interval for this plan.');
+    case 'none': throw new Error('Scheduled refreshes are currently only available to Pro plans and up.');
     default:
       throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
   }
@@ -91,7 +91,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
   }
 
   const scheduled = new Date();
-  scheduled.setTime(scheduled.getTime() + interval);
+  scheduled.setTime(scheduled.getTime() + rawInterval);
   return scheduled
 }
 
