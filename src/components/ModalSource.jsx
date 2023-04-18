@@ -2,27 +2,31 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon, TrashIcon } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
+import Alert from '@/components/Alert'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
-export default function ModalSource({ team, bot, source, setSources, setErrorText, children }) {
+export default function ModalSource({ team, bot, source, setSources, children }) {
   const [open, setOpen] = useState(false)
   const [toDelete, setToDelete] = useState(null)
+  const [errorText, setErrorText] = useState(null)
+  const [selectedInterval, setSelectedInterval] = useState(source.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
 
   const updateSource = async () => {
     setErrorText('')
     setSubmitting(true)
     const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`, {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ selectedInterval }),
     })
     if (response.ok) {
       const data = await response.json()
-      const deleting = source.id
-      setSources(sources.filter((source) => source.id !== deleting))
       setSubmitting(false)
     } else {
+      console.log('whoops!')
       try {
         const data = await response.json()
         setErrorText(data.message || 'Something went wrong, please try again.')
@@ -90,6 +94,7 @@ export default function ModalSource({ team, bot, source, setSources, setErrorTex
 
                   <div className="rounded-lg bg-white p-8 shadow">
                     <h3 className="text-2xl font-bold">{source.title ?? source.url}</h3>
+                    <Alert title={errorText} type="warning" />
                     <SourceDelete 
                       team={team}
                       bot={bot}
@@ -102,14 +107,26 @@ export default function ModalSource({ team, bot, source, setSources, setErrorTex
                       You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data.
                     </p>
                     <div className="mt-4 justify-start space-x-4">
-                      <label for="intervals" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
-                      <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="none">Never</option>
+                      <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
+                      <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={(val) => setSelectedInterval(val.target.value)}
+                        value={selectedInterval}>
+                        <option value="none">Never</option>
                         <option value="monthly">Monthly</option>
                         <option value="weekly">Weekly</option>
                         <option value="daily">Daily</option>
                       </select>
                     </div>
+                    <button
+                      disabled={submitting}
+                      onClick={updateSource}
+                      className="ml-4 inline-flex items-right justify-right rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                    >
+                      {submitting && (
+                        <LoadingSpinner className="mr-3" />
+                      )}
+                      Save
+                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

@@ -1,7 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot, getSource } from '@/lib/dbQueries'
-import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
+import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import userTeamCheck from '@/lib/userTeamCheck'
@@ -48,8 +48,11 @@ export default async function handler(req, res) {
       });
     } catch (error) {
       console.warn('Error setting source interval:', error)
-      return res.status(500).json({ message: error })
+      return res.status(500).json({ message: error?.message })
     }
+    return res.status(200).json({ message: 'success' })
+  } else if (req.method === 'POST') {
+
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

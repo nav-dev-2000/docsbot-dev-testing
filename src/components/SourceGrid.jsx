@@ -5,7 +5,7 @@ import classNames from '@/utils/classNames'
 import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import ModalSource from '@/components/ModalSource'
 
-export default function SourceGrid({ team, bot, sources, setSources, setErrorText }) {
+export default function SourceGrid({ team, bot, sources, setSources }) {
   const [fullSources, setFullSources] = useState([])
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function SourceGrid({ team, bot, sources, setSources, setErrorTex
         className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3"
       >
         {fullSources.map((source) => (
-          <ModalSource key={source.id} team={team} bot={bot} source={source} setSources={setSources} setErrorText={setErrorText}>
+          <ModalSource key={source.id} team={team} bot={bot} source={source} setSources={setSources}>
             <li key={source.id} className="col-span-1 flex rounded-md shadow-sm">
               <div
                 className={classNames(

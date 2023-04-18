@@ -145,7 +145,7 @@ function Bot({ team, preBot, preSources }) {
       <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ team, bot, sources, setSources, setErrorText }} />
+      <SourceGrid {...{ team, bot, sources, setSources }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
     </DashboardWrap>

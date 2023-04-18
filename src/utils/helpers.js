@@ -66,6 +66,16 @@ export function stripePlan(team) {
 export function checkSourceScheduledFromInterval(team, interval) {
   const plan = stripePlan(team)
 
+  let rawInterval = 0;
+  switch(interval) {
+    case 'daily': rawInterval = 24 * 60 * 60 * 1000; break;
+    case 'weekly': rawInterval = 7 * 24 * 60 * 60 * 1000; break;
+    case 'monthly': rawInterval = 30 * 24 * 60 * 60 * 1000; break;
+    case 'none': throw new Error('You are not allowed to change the schedule interval for this plan.');
+    default:
+      throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
+  }
+
   let limit = 0;
   switch (plan.scheduleInterval) {
     case 'daily': limit = 24 * 60 * 60 * 1000; break;
@@ -76,7 +86,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
       throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
   }
 
-  if (interval < limit) {
+  if (rawInterval < limit) {
     throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}.`)
   }
 
