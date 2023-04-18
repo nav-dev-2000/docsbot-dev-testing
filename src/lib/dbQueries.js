@@ -71,7 +71,7 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
     let source = { id: doc.id, ...doc.data() }
     //if createdAt is more than 1 hour ago and indexing is not complete, set error
     if (
-      ['indexing', 'queued'].includes(source.status) &&
+      ['indexing', 'pending'].includes(source.status) &&
       source.createdAt.toDate() < new Date(Date.now() - 60 * 60 * 1000)
     ) {
       source.status = 'failed'
