@@ -156,7 +156,7 @@ function Bot({ team, preBot, preSources }) {
       />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ sources, setToDelete }} />
+      <SourceGrid {...{ team, bot, sources, setToDelete }} />
 
       <SourceForm {...{ team, bot, sources, setSources }} />
     </DashboardWrap>
