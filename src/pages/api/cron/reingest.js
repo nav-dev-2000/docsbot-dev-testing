@@ -8,12 +8,13 @@ export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  console.log("cron reingest")
   // this is a public endpoint, however our 'cron' path is protected by a key; TODO: can this be an env var?
   if (!request.query.key || request.query.key !== 'iuefhisue24182') {
     response.status(404).end();
     return;
   }
+
+  console.log("cron reingest started!")
 
   // select scheduled sources based on current time
   const currentTime = Timestamp.now();
@@ -21,7 +22,7 @@ export default async function handler(request, response) {
   try {
     sourcesRef.forEach(async (doc) => {
       const source = doc.data();
-      console.log(source.scheduled.toDate());
+      console.log("source", doc.id, "is scheduled to be reingested at", source.scheduled.toDate(), " -- reingesting...");
 
       const botRef = doc.ref.parent.parent;
       const botId = botRef.id;
@@ -32,8 +33,6 @@ export default async function handler(request, response) {
       try {
         // grab next schedule date
         const nextSchedule = checkSourceScheduledFromInterval(await getTeam(teamId), source.scheduleInterval)
-
-        console.log('next refresh:', nextSchedule)
 
         // update and reingest source
         doc.ref.update({
