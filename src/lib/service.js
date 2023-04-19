@@ -23,18 +23,18 @@ export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, inde
       file,
     })
   )
-  console.log(JSON.stringify({
-    action: 'ingest',
-    teamId,
-    botId,
-    sourceId,
-    pageLimit,
-    indexId,
-    type,
-    title,
-    url,
-    file,
-  }))
+  // console.log(JSON.stringify({
+  //   action: 'ingest',
+  //   teamId,
+  //   botId,
+  //   sourceId,
+  //   pageLimit,
+  //   indexId,
+  //   type,
+  //   title,
+  //   url,
+  //   file,
+  // }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
   return messageId
