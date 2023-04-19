@@ -25,7 +25,8 @@ export default function ModalSource({ team, bot, source, setSources, children })
       body: JSON.stringify({ interval: selectedInterval }),
     })
     if (response.ok) {
-      const data = await response.json()
+      const { newScheduled } = await response.json()
+      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, scheduled: newScheduled} : s))
       setSubmitting(false)
     } else {
       try {
@@ -47,9 +48,9 @@ export default function ModalSource({ team, bot, source, setSources, children })
       },
     })
     if (response.ok) {
-      const data = await response.json()
+      const { newScheduled } = await response.json()
+      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, status: 'pending', scheduled: newScheduled} : s))
       setOpen(false)
-      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, status: 'pending'} : s))
     } else {
       try {
         const data = await response.json()
@@ -57,7 +58,6 @@ export default function ModalSource({ team, bot, source, setSources, children })
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
-      setSubmitting(false)
     }
   }
 
@@ -152,6 +152,9 @@ export default function ModalSource({ team, bot, source, setSources, children })
                         <option value="weekly">Weekly</option>
                         <option value="daily">Daily</option>
                       </select>
+                      <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
+                        {source.scheduled ? "Currently scheduled to be refreshed at " + new Date(source.scheduled).toLocaleString() : "This source has not been scheduled to be refreshed."}
+                      </h1>
                     </div>
                     <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
                     <button

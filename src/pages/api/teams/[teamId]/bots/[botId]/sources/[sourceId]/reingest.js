@@ -59,12 +59,12 @@ export default async function handler(req, res) {
         scheduled,
         scheduleInterval: interval,
       });
+
+      return res.status(200).json({ newScheduled: scheduled.toJSON() })
     } catch (error) {
       console.warn('Error setting source interval:', error)
       return res.status(500).json({ message: error?.message })
     }
-
-    return res.status(200).json({ message: 'success' })
   } else if (req.method === 'POST') {
     try {
       if (!source.scheduleInterval || source.scheduleInterval === 'none') {
@@ -81,12 +81,13 @@ export default async function handler(req, res) {
       }).then(() => {
         QueueSourceRegest(team.id, botId, sourceId);
       })
+
+      return res.status(200).json({ newScheduled: nextSchedule.toJSON() })
     } catch (error) {
       console.warn('Error setting source interval:', error)
       return res.status(500).json({ message: error?.message })
     }
 
-    return res.status(200).json({ message: 'success' })
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }
