@@ -141,6 +141,12 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">{source.type.toUpperCase()}</h1>
                     </div>
                     <BadgeStatusSource source={source} />
+                    <h1 className="pt-2 text-sm font-medium text-gray-500 flex-end">
+                      {"Page count: " + source.pageCount.toString()}
+                    </h1>
+                    <h1 className="text-sm font-medium text-gray-500 flex-end">
+                      {(showInterval ? "Last updated: " : "Created on: ") + new Date(source.createdAt).toLocaleString()}
+                    </h1>
                     <Alert title={errorText} type="warning" />
                     <SourceDelete 
                       team={team}
