@@ -27,15 +27,20 @@ export default async function handler(request, response) {
       const teamRef = botRef.parent.parent;
       const teamId = teamRef.id;
 
-      // grab next schedule date
-      const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
+      try {
+        // grab next schedule date
+        const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
 
-      // update and reingest source
-      doc.ref.update({
-        'scheduled': nextSchedule,
-      }).then(() => {
-        QueueSourceRegest(teamId, botId, doc.id);
-      })
+        // update and reingest source
+        doc.ref.update({
+          'scheduled': nextSchedule,
+        }).then(() => {
+          QueueSourceRegest(teamId, botId, doc.id);
+        })
+      } catch (error) {
+        // ignore reingestion errors
+        return
+      }
     });
   } catch (error) {
     console.warn('Error getting document:', error);
