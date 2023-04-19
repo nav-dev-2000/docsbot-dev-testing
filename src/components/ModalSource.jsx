@@ -5,6 +5,7 @@ import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
+import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 
 export default function ModalSource({ team, bot, source, setSources, children }) {
   const [open, setOpen] = useState(false)
@@ -12,6 +13,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
   const [errorText, setErrorText] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState(source.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
+  const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
   const [locked, setLocked] = useState(null)
 
   const updateSource = async () => {
@@ -65,9 +67,9 @@ export default function ModalSource({ team, bot, source, setSources, children })
     setLocked(null)
     if (source.status !== 'ready') {
       setLocked('This source is currently being processed. Please wait.')
-    } else if (!["url", "urls", "sitemap", "rss", "youtube"].includes(source.type)) {
-      setLocked('This source type cannot be refreshed.')
     }
+
+    setShowInterval(canSourceTypeSchedule(source.type))
   }, [source])
 
   return (
@@ -140,43 +142,47 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       setErrorText={setErrorText}
                       setSources={setSources}
                     />
-                    <Alert title={locked || "You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data."} type="info" />
-                    <div className="mt-4 justify-start space-x-4">
-                      <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
-                      <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        onChange={(val) => setSelectedInterval(val.target.value)}
-                        value={selectedInterval}
-                        disabled={submitting || locked !== null}>
-                        <option value="none">Never</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="daily">Daily</option>
-                      </select>
-                      <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
-                        {source.scheduled ? "Currently scheduled to be refreshed at " + new Date(source.scheduled).toLocaleString() : "This source has not been scheduled to be refreshed."}
-                      </h1>
-                    </div>
-                    <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      onClick={refreshSource}
-                      disabled={submitting || locked !== null}
-                    >
-                      <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
-                      Refresh
-                    </button>
-                      <button
-                        disabled={submitting || locked !== null}
-                        onClick={updateSource}
-                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                      >
-                        {submitting && (
-                          <LoadingSpinner className="mr-3" />
-                        )}
-                        Save
-                      </button>
-                    </div>
+                    {showInterval && (
+                      <>
+                        <Alert title={locked || "You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data."} type="info" />
+                        <div className="mt-4 justify-start space-x-4">
+                          <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
+                          <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            onChange={(val) => setSelectedInterval(val.target.value)}
+                            value={selectedInterval}
+                            disabled={submitting || locked !== null}>
+                            <option value="none">Never</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="daily">Daily</option>
+                          </select>
+                          <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
+                            {source.scheduled ? "Currently scheduled to be refreshed at " + new Date(source.scheduled).toLocaleString() : "This source has not been scheduled to be refreshed."}
+                          </h1>
+                        </div>
+                        <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
+                          <button
+                            type="button"
+                            className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            onClick={refreshSource}
+                            disabled={submitting || locked !== null}
+                          >
+                            <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
+                            Refresh
+                          </button>
+                          <button
+                            disabled={submitting || locked !== null}
+                            onClick={updateSource}
+                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                          >
+                            {submitting && (
+                              <LoadingSpinner className="mr-3" />
+                            )}
+                            Save
+                          </button>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

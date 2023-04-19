@@ -24,6 +24,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: 'optional',
     fieldFile: false,
+    fieldSchedule: 'optional',
   },
   {
     id: 'document',
@@ -37,6 +38,7 @@ export const sourceTypes = [
     fieldTitle: 'required',
     fieldFile: 'required',
     fileTypes: {txt: 'text/plain', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', eml: 'message/rfc822', html: 'text/html', pdf: 'application/pdf', zip: 'application/zip'},
+    fieldSchedule: false,
   },
   {
     id: 'wp',
@@ -50,6 +52,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: 'required',
     fileTypes: {xml: 'text/xml'},
+    fieldSchedule: false,
   },
   {
     id: 'sitemap',
@@ -62,6 +65,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
+    fieldSchedule: 'optional',
   },
   {
     id: 'urls',
@@ -75,6 +79,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv', txt: 'text/plain'},
+    fieldSchedule: 'optional',
   },
   {
     id: 'csv',
@@ -88,6 +93,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv'},
+    fieldSchedule: false,
   },
   {
     id: 'rss',
@@ -99,6 +105,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
+    fieldSchedule: 'optional',
   },
   {
     id: 'youtube',
@@ -110,5 +117,11 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
+    fieldSchedule: 'optional',
   },
 ]
+
+export const canSourceTypeSchedule = (typeName) => {
+  const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
+  return sourceType.fieldSchedule === 'optional' || sourceType.fieldSchedule === 'required'
+}

@@ -4,6 +4,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
+import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -37,7 +38,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
 
-  if (!["url", "urls", "sitemap", "rss", "youtube"].includes(source.type)) {
+  if (!canSourceTypeSchedule(source.type)) {
     return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
   }
 
