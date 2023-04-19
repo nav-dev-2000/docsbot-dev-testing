@@ -30,7 +30,7 @@
     "crons": [
         {
             "path": "/api/cron/reingest?key=iuefhisue24182",
-            "schedule": "0 1 * * *"
+            "schedule": "0 * * * *"
         }
     ]
 }
