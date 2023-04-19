@@ -24,7 +24,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: 'optional',
     fieldFile: false,
-    fieldSchedule: 'optional',
+    fieldSchedule: true,
   },
   {
     id: 'document',
@@ -65,7 +65,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: 'optional',
+    fieldSchedule: true,
   },
   {
     id: 'urls',
@@ -79,7 +79,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv', txt: 'text/plain'},
-    fieldSchedule: 'optional',
+    fieldSchedule: true,
   },
   {
     id: 'csv',
@@ -105,7 +105,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: 'optional',
+    fieldSchedule: true,
   },
   {
     id: 'youtube',
@@ -117,11 +117,11 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: 'optional',
+    fieldSchedule: true,
   },
 ]
 
 export const canSourceTypeSchedule = (typeName) => {
   const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
-  return sourceType.fieldSchedule === 'optional' || sourceType.fieldSchedule === 'required'
+  return sourceType?.fieldSchedule
 }

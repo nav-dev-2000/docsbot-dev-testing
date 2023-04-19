@@ -18,6 +18,7 @@ import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
 import Link from 'next/link'
+import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 
 export default function SourceForm({ team, bot, sources, setSources }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -35,6 +36,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   const [validated, setValidated] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [urlDescription, setUrlDescription] = useState(null)
+  const [selectedInterval, setSelectedInterval] = useState('none')
 
   useEffect(() => {
     if (
@@ -94,6 +96,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
         title,
         url,
         file,
+        selectedInterval,
       }),
     })
     if (response.ok) {
@@ -389,6 +392,23 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                       </div>
                     </label>
                   )}
+                </div>
+              )}
+              {selectedSourceType?.fieldSchedule && (
+                <div className="mt-4 justify-start">
+                  <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
+                  <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    onChange={(val) => setSelectedInterval(val.target.value)}
+                    value={selectedInterval}
+                    disabled={isUpdating}>
+                    <option value="none">Never</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="daily">Daily</option>
+                  </select>
+                  <p className="mt-2 text-sm text-gray-500" id="title-description">
+                    This will automatically refresh the source at the selected interval.
+                  </p>
                 </div>
               )}
             </div>
