@@ -23,6 +23,18 @@ export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, inde
       file,
     })
   )
+  console.log(JSON.stringify({
+    action: 'ingest',
+    teamId,
+    botId,
+    sourceId,
+    pageLimit,
+    indexId,
+    type,
+    title,
+    url,
+    file,
+  }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
   return messageId
@@ -44,12 +56,19 @@ export const QueueSourceExpel = async (teamId, indexId, sourceId) => {
 
 export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const firestore = getFirestore()
-  
-  // set status to 'pending'
+
+  // check and update status to 'pending'
   const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
-  await sourceRef.update({
-    status: 'pending',
-    createdAt: new Date(),
+  firestore.runTransaction(async (transaction) => {
+    const source = await transaction.get(sourceRef)
+    if (source.status !== 'pending') {
+      throw new Error("Cannot refresh source that is not 'pending'.")
+    }
+
+    transaction.update(sourceRef, {
+      status: 'pending',
+      createdAt: new Date(),
+    })
   })
 
   const dataBuffer = Buffer.from(
