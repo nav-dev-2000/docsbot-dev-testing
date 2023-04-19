@@ -1,25 +1,27 @@
-import { } from '@/lib/dbQueries'
-import { getFirestore } from 'firebase-admin/firestore'
+import { getFirestore, Timestamp } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
+import { getTeam } from '@/lib/dbQueries'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
+  console.log("cron reingest")
   // this is a public endpoint, however our 'cron' path is protected by a key; TODO: can this be an env var?
-  if (request.query.key !== 'iuefhisue24182') {
+  if (!request.query.key || request.query.key !== 'iuefhisue24182') {
     response.status(404).end();
     return;
   }
 
+  // select scheduled sources based on current time
+  const currentTime = Timestamp.now();
+  const sourcesRef = await firestore.collectionGroup('sources').where('scheduled', '<=', currentTime).get();
   try {
-    // select scheduled sources based on current time
-    const sourceRef = await firestore.collectionGroup('sources').where('scheduled', '<=', new Date()).get();
-    sourceRef.forEach((doc) => {
+    sourcesRef.forEach(async (doc) => {
       const source = doc.data();
-      console.log(source);
+      console.log(source.scheduled.toDate());
 
       const botRef = doc.ref.parent.parent;
       const botId = botRef.id;
@@ -29,7 +31,9 @@ export default async function handler(request, response) {
 
       try {
         // grab next schedule date
-        const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
+        const nextSchedule = checkSourceScheduledFromInterval(await getTeam(teamId), source.scheduleInterval)
+
+        console.log('next refresh:', nextSchedule)
 
         // update and reingest source
         doc.ref.update({
@@ -38,6 +42,7 @@ export default async function handler(request, response) {
           QueueSourceRegest(teamId, botId, doc.id);
         })
       } catch (error) {
+        console.log(doc.id, 'refresh error:', error)
         // ignore reingestion errors
         return
       }

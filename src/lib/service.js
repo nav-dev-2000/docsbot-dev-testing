@@ -61,8 +61,8 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
   firestore.runTransaction(async (transaction) => {
     const source = await transaction.get(sourceRef)
-    if (source.status !== 'ready') {
-      throw new Error("Cannot refresh source that is not 'ready'.")
+    if (source.data().status !== 'ready') {
+      throw new Error("Cannot refresh source that is not 'ready'." + source.data().status)
     }
 
     transaction.update(sourceRef, {
