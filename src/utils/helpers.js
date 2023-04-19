@@ -87,7 +87,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
   }
 
   if (rawInterval < limit) {
-    throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}.`)
+    throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`)
   }
 
   const scheduled = new Date();

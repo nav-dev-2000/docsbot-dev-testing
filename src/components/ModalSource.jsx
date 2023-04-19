@@ -5,6 +5,7 @@ import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
+import ModalCheckout from '@/components/ModalCheckout'
 import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 
 export default function ModalSource({ team, bot, source, setSources, children }) {
@@ -15,6 +16,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
   const [submitting, setSubmitting] = useState(false)
   const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
   const [locked, setLocked] = useState(null)
+  const [showUpgrade, setShowUpgrade] = useState(false)
 
   const updateSource = async () => {
     setErrorText('')
@@ -33,7 +35,12 @@ export default function ModalSource({ team, bot, source, setSources, children })
     } else {
       try {
         const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
+        if (data.message.includes('upgrade')) {
+          setShowUpgrade(true)
+          setSelectedInterval(source.scheduleInterval ?? 'none')
+        } else {
+          setErrorText(data.message || 'Something went wrong, please try again.')
+        }
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
@@ -74,6 +81,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
 
   return (
     <>
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <a
         type="button"
         className="m-0 block cursor-pointer"
