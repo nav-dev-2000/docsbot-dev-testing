@@ -39,7 +39,7 @@ export default function SourceGrid({ team, bot, sources, setSources }) {
       >
         {fullSources.map((source) => (
           <ModalSource key={source.id} team={team} bot={bot} source={source} setSources={setSources}>
-            <li key={source.id} className="col-span-1 flex rounded-md shadow-sm">
+            <li key={source.id} className="col-span-1 flex h-full rounded-md shadow-sm">
               <div
                 className={classNames(
                   'flex w-16 flex-shrink-0 items-center justify-center rounded-l-md bg-gradient-to-r from-teal-600 to-cyan-700 text-sm font-medium text-white'
