@@ -114,6 +114,9 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
       })
     }
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
+    if (source.scheduled) {
+      source.scheduled = source.scheduled.toDate().toJSON() //make serializable
+    }
     sources.push(source)
   })
 
@@ -132,6 +135,9 @@ export async function getSource(team, bot, sourceId) {
   if (sourceRef.exists) {
     let source = { id: sourceRef.id, ...sourceRef.data() }
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
+    if (source.scheduled) {
+      source.scheduled = source.scheduled.toDate().toJSON() //make serializable
+    }
     return source
   } else {
     return null
