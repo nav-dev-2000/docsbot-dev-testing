@@ -71,12 +71,12 @@ export default async function handler(req, res) {
         QueueSourceRegest(team.id, botId, sourceId);
         return res.status(200).json({ message: 'success' })
       }
-  
+
       // grab next schedule date
       const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
-  
+
       // update and reingest source
-      doc.ref.update({
+      firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
         'scheduled': nextSchedule,
       }).then(() => {
         QueueSourceRegest(team.id, botId, sourceId);

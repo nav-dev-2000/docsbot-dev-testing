@@ -4,6 +4,7 @@ import { XMarkIcon, TrashIcon, ArrowPathIcon } from '@heroicons/react/24/outline
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import BadgeStatusSource from '@/components/BadgeStatusSource'
 
 export default function ModalSource({ team, bot, source, setSources, children }) {
   const [open, setOpen] = useState(false)
@@ -63,7 +64,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
   useEffect(() => {
     setLocked(null)
     if (source.status !== 'ready') {
-      setLocked('This source is currently being processed. Please try again later.')
+      setLocked('This source is currently being processed. Please wait.')
     } else if (!["url", "urls", "sitemap", "rss", "youtube"].includes(source.type)) {
       setLocked('This source type cannot be refreshed.')
     }
@@ -125,7 +126,11 @@ export default function ModalSource({ team, bot, source, setSources, children })
                   </div>
 
                   <div className="rounded-lg bg-white p-8 shadow">
-                    <h3 className="text-2xl font-bold">{source.title ?? source.url}</h3>
+                    <div className="pb-2">
+                      <h3 className="inline-flex text-2xl font-bold">{source.title ?? source.url}</h3>
+                      <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">{source.type.toUpperCase()}</h1>
+                    </div>
+                    <BadgeStatusSource source={source} />
                     <Alert title={errorText} type="warning" />
                     <SourceDelete 
                       team={team}
