@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon, TrashIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
@@ -11,6 +11,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
   const [errorText, setErrorText] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState(source.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
+  const [locked, setLocked] = useState(null)
 
   const updateSource = async () => {
     setErrorText('')
@@ -58,6 +59,15 @@ export default function ModalSource({ team, bot, source, setSources, children })
       setSubmitting(false)
     }
   }
+
+  useEffect(() => {
+    setLocked(null)
+    if (source.status !== 'ready') {
+      setLocked('This source is currently being processed. Please try again later.')
+    } else if (!["url", "urls", "sitemap", "rss", "youtube"].includes(source.type)) {
+      setLocked('This source type cannot be refreshed.')
+    }
+  }, [source])
 
   return (
     <>
@@ -125,14 +135,13 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       setErrorText={setErrorText}
                       setSources={setSources}
                     />
-                    <p className="text-md mt-2 text-justify text-gray-800">
-                      You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data.
-                    </p>
+                    <Alert title={locked || "You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data."} type="info" />
                     <div className="mt-4 justify-start space-x-4">
                       <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
                       <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         onChange={(val) => setSelectedInterval(val.target.value)}
-                        value={selectedInterval}>
+                        value={selectedInterval}
+                        disabled={submitting || locked !== null}>
                         <option value="none">Never</option>
                         <option value="monthly">Monthly</option>
                         <option value="weekly">Weekly</option>
@@ -144,13 +153,13 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       type="button"
                       className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={refreshSource}
-                      disabled={submitting}
+                      disabled={submitting || locked !== null}
                     >
                       <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
                       Refresh
                     </button>
                       <button
-                        disabled={submitting}
+                        disabled={submitting || locked !== null}
                         onClick={updateSource}
                         className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                       >
