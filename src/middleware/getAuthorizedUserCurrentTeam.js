@@ -10,8 +10,13 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
   const firestore = getFirestore()
   try {
     const { uid, name } = await getAuthorizedUser(context)
+    if (context.query?.switchTeam && isSuperAdmin(uid)) {
+      await firestore.collection('users').doc(uid).update({
+        currentTeam: context.query.switchTeam,
+      });
+    }
+    
     const userRef = await getFirestore().collection('users').doc(uid).get()
-
     if (userRef.exists && userRef.data().currentTeam) {
       //check if user has access to team
       const team = await getTeam(userRef.data().currentTeam)

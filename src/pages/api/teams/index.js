@@ -1,9 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
-import userTeamCheck from '@/lib/userTeamCheck'
-import { isSuperAdmin } from '@/utils/helpers'
-import { getTeams, assignDefaultTeamTransaction, getInvitesFromEmailAndTeamIdTransaction } from '@/lib/dbQueries'
+import { getTeams } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
