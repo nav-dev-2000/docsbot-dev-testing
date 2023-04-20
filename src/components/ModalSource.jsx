@@ -141,14 +141,14 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       <h3 className="inline-flex text-2xl font-bold">{source.title ?? source.url}</h3>
                       <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">{source.type.toUpperCase()}</h1>
                     </div>
-                    <div className="sm:flex items-center justify-between">
-                    <BadgeStatusSource source={source} />
-                    <h1 className="pt-2 text-sm font-medium text-gray-500 flex-end">
-                      {source.pageCount.toString()} Pages
-                    </h1>
-                    <h1 className="text-sm font-medium text-gray-500 flex-end">
-                      {(showInterval ? "Updated: " : "Created: ") + new Date(source.createdAt).toUTCString()}
-                    </h1>
+                    <div className="sm:flex items-center justify-between text-center">
+                      <BadgeStatusSource source={source} />
+                      <h1 className="text-sm font-medium text-gray-500 flex-end">
+                        {source.pageCount.toString()} Pages
+                      </h1>
+                      <h1 className="text-sm font-medium text-gray-500 flex-end">
+                        {(showInterval ? "Updated: " : "Created: ") + new Date(source.createdAt).toUTCString()}
+                      </h1>
                     </div>
                     <Alert title={errorText} type="warning" />
                     <SourceDelete 
