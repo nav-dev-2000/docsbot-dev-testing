@@ -11,6 +11,7 @@ import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
 import { QueueSourceIngest } from '@/lib/service'
+import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -63,7 +64,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file } = req.body
+    let { type, title, url, file, selectedInterval } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -133,22 +134,34 @@ export default async function handler(req, res) {
     }
 
     try {
+      let data = {
+        createdAt: FieldValue.serverTimestamp(),
+        type,
+        title,
+        url,
+        file,
+        status: 'pending',
+        pageCount: 0,
+        chunkCount: 0,
+      }
+
+      if (selectedInterval && selectedInterval !== 'none') {
+        // make sure the source type is supported
+        if (!sourceType.fieldSchedule) {
+          return res.status(400).send({ message: 'This source type does not currently support scheduled refreshes.' })
+        }
+
+        const scheduled = checkSourceScheduledFromInterval(team, selectedInterval)
+        data = {...data, scheduled, scheduleInterval: selectedInterval}
+      }
+
       const docRef = await firestore
         .collection('teams')
         .doc(team.id)
         .collection('bots')
         .doc(botId)
         .collection('sources')
-        .add({
-          createdAt: FieldValue.serverTimestamp(),
-          type,
-          title,
-          url,
-          file,
-          status: 'pending',
-          pageCount: 0,
-          chunkCount: 0,
-        })
+        .add(data)
 
       //increment sourceCounts on team
       try {

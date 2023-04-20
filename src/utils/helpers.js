@@ -36,17 +36,18 @@ export function stripePlan(team) {
       pages: 1000000,
       questions: 1000000000,
       teamMembers: 100000,
+      scheduleInterval: 'daily',
     }
-  } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
-    // team for sethtstubbs@gmail.com
-    return {
-      name: 'Staff',
-      bots: 1000,
-      sources: 10000,
-      pages: 1000000,
-      questions: 1000000000,
-      teamMembers: 100000,
-    }
+  // } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
+  //   // team for sethtstubbs@gmail.com
+  //   return {
+  //     name: 'Staff',
+  //     bots: 1000,
+  //     sources: 10000,
+  //     pages: 1000000,
+  //     questions: 1000000000,
+  //     teamMembers: 100000,
+  //   }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
@@ -59,7 +60,39 @@ export function stripePlan(team) {
     }
   }
 
-  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1 }
+  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none' }
+}
+
+export function checkSourceScheduledFromInterval(team, interval) {
+  const plan = stripePlan(team)
+
+  let rawInterval = 0;
+  switch(interval) {
+    case 'daily': rawInterval = 24 * 60 * 60 * 1000; break;
+    case 'weekly': rawInterval = 7 * 24 * 60 * 60 * 1000; break;
+    case 'monthly': rawInterval = 30 * 24 * 60 * 60 * 1000; break;
+    case 'none': throw new Error('Please contact support');
+    default:
+      throw new Error(`Invalid schedule interval!`);
+  }
+
+  let limit = 0;
+  switch (plan.scheduleInterval) {
+    case 'daily': limit = 24 * 60 * 60 * 1000; break;
+    case 'weekly': limit = 7 * 24 * 60 * 60 * 1000; break;
+    case 'monthly': limit = 30 * 24 * 60 * 60 * 1000; break;
+    case 'none': throw new Error('Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.');
+    default:
+      throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
+  }
+
+  if (rawInterval < limit) {
+    throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`)
+  }
+
+  const scheduled = new Date();
+  scheduled.setTime(scheduled.getTime() + rawInterval);
+  return scheduled
 }
 
 export function isSuperAdmin(userId) {

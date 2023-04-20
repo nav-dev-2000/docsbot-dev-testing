@@ -17,7 +17,7 @@ import { auth, storage } from '@/config/firebase-ui.config'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
-import Link from 'next/link'
+import ScheduleSelect from '@/components/ScheduleSelect'
 
 export default function SourceForm({ team, bot, sources, setSources }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -35,6 +35,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   const [validated, setValidated] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [urlDescription, setUrlDescription] = useState(null)
+  const [selectedInterval, setSelectedInterval] = useState('none')
 
   useEffect(() => {
     if (
@@ -94,6 +95,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
         title,
         url,
         file,
+        selectedInterval,
       }),
     })
     if (response.ok) {
@@ -108,10 +110,15 @@ export default function SourceForm({ team, bot, sources, setSources }) {
       setIsUpdating(false)
       setPercent(0)
       setShowForm(false)
+      setSelectedInterval('none')
     } else {
       try {
         const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
+        if (data.message.includes('upgrade')) {
+          setShowUpgrade(true)
+        } else {
+          setErrorText(data.message || 'Something went wrong, please try again.')
+        }
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
@@ -391,6 +398,14 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                   )}
                 </div>
               )}
+              {selectedSourceType?.fieldSchedule && (
+                <div className="mt-4 justify-start">
+                  <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
+                  <p className="mt-2 text-sm text-gray-500" id="title-description">
+                    This will automatically refresh the source at the selected interval.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
@@ -427,7 +442,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
           <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
           <p className="mt-1 text-sm text-gray-500">
             Add source content to {bot.name} that you want your bot to be able to answer questions
-            about. Don't index the same content multiple times. Periodic scheduled source updates are coming soon for pro plans.
+            about. Don't index the same content multiple times.
           </p>
           <div className="mt-8">
             <button
