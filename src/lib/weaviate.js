@@ -42,7 +42,7 @@ export const createSchema = (indexId) => {
           description: 'The json wrapped metadata of the document',
           moduleConfig: {
             'text2vec-openai': {
-              skip: true,
+              skip: false,
               vectorizePropertyName: false,
             },
           },
