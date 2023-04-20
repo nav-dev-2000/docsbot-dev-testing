@@ -60,7 +60,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
 
   // check and update status to 'pending'
   const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
-  firestore.runTransaction(async (transaction) => {
+  await firestore.runTransaction(async (transaction) => {
     const source = await transaction.get(sourceRef)
     if (source.data().status !== 'ready') {
       throw new Error("Cannot refresh source that is not 'ready'." + source.data().status)
