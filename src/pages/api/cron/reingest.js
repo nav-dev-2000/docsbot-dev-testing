@@ -1,4 +1,4 @@
-import { getFirestore, Timestamp } from 'firebase-admin/firestore'
+import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
@@ -42,6 +42,12 @@ export default async function handler(request, response) {
         })
       } catch (error) {
         console.log(doc.id, 'refresh error:', error)
+
+        // remove schedule
+        doc.ref.update({
+          'scheduled': FieldValue.delete(),
+          'scheduleInterval': 'none'
+        })
         // ignore reingestion errors
         return
       }
