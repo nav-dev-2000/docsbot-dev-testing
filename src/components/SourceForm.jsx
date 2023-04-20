@@ -17,6 +17,7 @@ import { auth, storage } from '@/config/firebase-ui.config'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
+import ScheduleSelect from '@/components/ScheduleSelect'
 
 export default function SourceForm({ team, bot, sources, setSources }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -399,16 +400,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
               )}
               {selectedSourceType?.fieldSchedule && (
                 <div className="mt-4 justify-start">
-                  <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
-                  <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    onChange={(val) => setSelectedInterval(val.target.value)}
-                    value={selectedInterval}
-                    disabled={isUpdating}>
-                    <option value="none">Never</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="daily">Daily</option>
-                  </select>
+                  <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
                   <p className="mt-2 text-sm text-gray-500" id="title-description">
                     This will automatically refresh the source at the selected interval.
                   </p>

@@ -6,6 +6,7 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
+import ScheduleSelect from '@/components/ScheduleSelect'
 import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 
 export default function ModalSource({ team, bot, source, setSources, children }) {
@@ -160,16 +161,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       <>
                         <Alert title={locked || "You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data."} type="info" />
                         <div className="mt-4 justify-start">
-                          <label htmlFor="intervals" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scheduled refresh</label>
-                          <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            onChange={(val) => setSelectedInterval(val.target.value)}
-                            value={selectedInterval}
-                            disabled={submitting || locked !== null}>
-                            <option value="none">Never</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="daily">Daily</option>
-                          </select>
+                          <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
                           <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
                             {source.scheduled ? "Currently scheduled to be refreshed at " + new Date(source.scheduled).toLocaleString() : "This source has not been scheduled to be refreshed."}
                           </h1>
