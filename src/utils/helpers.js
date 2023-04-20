@@ -81,7 +81,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
     case 'daily': limit = 24 * 60 * 60 * 1000; break;
     case 'weekly': limit = 7 * 24 * 60 * 60 * 1000; break;
     case 'monthly': limit = 30 * 24 * 60 * 60 * 1000; break;
-    case 'none': throw new Error('Scheduled refreshes are currently only available to Pro plans and up. Please upgrade your plan to use this feature.');
+    case 'none': throw new Error('Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.');
     default:
       throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
   }

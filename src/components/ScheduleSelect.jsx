@@ -24,9 +24,9 @@ export default function ScheduleSelect({ onSelect, defaultSelected }) {
     }}>
       {({ open }) => (
         <>
-          <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">Scheduled refresh</Listbox.Label>
-          <div className="relative mt-2">
-            <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <Listbox.Label className="block text-sm font-medium text-gray-700">Scheduled refresh</Listbox.Label>
+          <div className="relative mt-1">
+            <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6">
               <span className="block truncate">{selected.title}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -46,7 +46,7 @@ export default function ScheduleSelect({ onSelect, defaultSelected }) {
                     key={interval.value}
                     className={({ active }) =>
                       classNames(
-                        active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                        active ? 'bg-cyan-600 text-white' : 'text-gray-900',
                         'relative cursor-default select-none py-1 pl-3 pr-9'
                       )
                     }
@@ -61,7 +61,7 @@ export default function ScheduleSelect({ onSelect, defaultSelected }) {
                         {selected ? (
                           <span
                             className={classNames(
-                              active ? 'text-white' : 'text-indigo-600',
+                              active ? 'text-white' : 'text-cyan-600',
                               'absolute inset-y-0 right-0 flex items-center pr-4'
                             )}
                           >

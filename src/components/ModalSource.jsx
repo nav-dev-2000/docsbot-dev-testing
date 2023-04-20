@@ -22,16 +22,21 @@ export default function ModalSource({ team, bot, source, setSources, children })
   const updateSource = async () => {
     setErrorText('')
     setSubmitting(true)
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ interval: selectedInterval }),
-    })
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ interval: selectedInterval }),
+      }
+    )
     if (response.ok) {
       const { newScheduled } = await response.json()
-      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, scheduled: newScheduled} : s))
+      setSources((sources) =>
+        sources.map((s) => (s.id === source.id ? { ...source, scheduled: newScheduled } : s))
+      )
       setSubmitting(false)
     } else {
       try {
@@ -51,15 +56,22 @@ export default function ModalSource({ team, bot, source, setSources, children })
 
   const refreshSource = async () => {
     setErrorText('')
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
     if (response.ok) {
       const { newScheduled } = await response.json()
-      setSources((sources) => sources.map((s) => s.id === source.id ? {...source, status: 'pending', scheduled: newScheduled} : s))
+      setSources((sources) =>
+        sources.map((s) =>
+          s.id === source.id ? { ...source, status: 'pending', scheduled: newScheduled } : s
+        )
+      )
       setOpen(false)
     } else {
       try {
@@ -120,14 +132,6 @@ export default function ModalSource({ team, bot, source, setSources, children })
                   <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:flex">
                     <button
                       type="button"
-                      className="rounded-md bg-white text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      onClick={() => setToDelete(source)}
-                    >
-                      <span className="sr-only">Delete</span>
-                      <TrashIcon className="h-4 w-4" aria-hidden="true" />
-                    </button>
-                    <button
-                      type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={() => setOpen(false)}
                     >
@@ -138,57 +142,82 @@ export default function ModalSource({ team, bot, source, setSources, children })
 
                   <div className="rounded-lg bg-white p-8 shadow">
                     <div className="pb-2">
-                      <h3 className="inline-flex text-2xl font-bold">{source.title ?? source.url}</h3>
-                      <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">{source.type.toUpperCase()}</h1>
+                      <h3 className="inline-flex text-2xl font-bold">
+                        {source.title ?? source.url}
+                      </h3>
+                      <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
+                        {source.type.toUpperCase()}
+                      </h1>
                     </div>
-                    <div className="sm:flex items-center justify-between text-center">
+                    <div className="items-center justify-between text-center sm:flex">
                       <BadgeStatusSource source={source} />
-                      <h1 className="text-sm font-medium text-gray-500 flex-end">
+                      <h1 className="flex-end text-sm font-medium text-gray-500">
                         {source.pageCount.toString()} Pages
                       </h1>
-                      <h1 className="text-sm font-medium text-gray-500 flex-end">
-                        {(showInterval ? "Updated: " : "Created: ") + new Date(source.createdAt).toUTCString()}
+                      <h1 className="flex-end text-sm font-medium text-gray-500">
+                        {(showInterval ? 'Updated: ' : 'Created: ') +
+                          new Date(source.createdAt).toUTCString()}
                       </h1>
                     </div>
                     <Alert title={errorText} type="warning" />
-                    <SourceDelete 
-                      team={team}
-                      bot={bot}
-                      source={toDelete}
-                      setToDelete={setToDelete}
-                      setErrorText={setErrorText}
-                      setSources={setSources}
-                    />
                     {showInterval && (
                       <>
-                        <Alert title={locked || "Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any URLs and update the source with the latest data."} type="info" />
+                        <Alert
+                          title={
+                            locked ||
+                            'Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any URLs and update the source with the latest data.'
+                          }
+                          type="info"
+                        />
                         <div className="mt-4 justify-start">
-                          <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
-                          <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
-                            {source.scheduled ? "Refresh scheduled for " + new Date(source.scheduled).toUTCString() : "This source has not been scheduled to be refreshed."}
+                          <ScheduleSelect
+                            onSelect={setSelectedInterval}
+                            defaultSelected={selectedInterval}
+                          />
+                          <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
+                            {source.scheduled
+                              ? 'Refresh scheduled for ' + new Date(source.scheduled).toUTCString()
+                              : 'This source will not be refreshed.'}
                           </h1>
                         </div>
-                        <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
-                          <button
-                            type="button"
-                            className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                            onClick={refreshSource}
-                            disabled={submitting || locked !== null}
-                          >
-                            <ArrowPathIcon className="h-5 w-5 mr-2" aria-hidden="true" />
-                            Refresh
-                          </button>
-                          <button
-                            disabled={submitting || locked !== null}
-                            onClick={updateSource}
-                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                          >
-                            {submitting && (
-                              <LoadingSpinner className="mr-3" />
-                            )}
-                            Save
-                          </button>
-                        </div>
+                        <SourceDelete
+                          team={team}
+                          bot={bot}
+                          source={toDelete}
+                          setToDelete={setToDelete}
+                          setErrorText={setErrorText}
+                          setSources={setSources}
+                        />
+                        {!toDelete && (
+                          <div className="mt-6 mb-2 flex items-end justify-between">
+                            <button
+                              type="button"
+                              className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                              onClick={() => setToDelete(source)}
+                            >
+                              <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                            </button>
+                            <div className="flex flex-shrink-0 items-end justify-end">
+                              <button
+                                type="button"
+                                className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                onClick={refreshSource}
+                                disabled={submitting || locked !== null}
+                              >
+                                <ArrowPathIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+                                Refresh
+                              </button>
+                              <button
+                                disabled={submitting || locked !== null}
+                                onClick={updateSource}
+                                className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                              >
+                                {submitting && <LoadingSpinner className="mr-3" />}
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        )}
                       </>
                     )}
                   </div>
