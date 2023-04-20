@@ -5,4 +5,5 @@ export const routePaths = {
   IMAGES: '/images',
   APP: '/app',
   TEAM: '/app/team',
+  BOTS: '/app/bots',
 }
