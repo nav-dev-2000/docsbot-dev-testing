@@ -253,7 +253,7 @@ Response is am HTTP 201 with the new JSON source object:
 
 ## Delete Source
 
-This endpoint deletes a specific source by its ID. Currently as sources are read only you can only delete sources in a `failed` status. It accepts a DELETE request with the following parameters:
+This endpoint deletes a specific source by its ID. Please note however, that it may take several minutes for the sources to be completely removed from our services, meaning that sources may still be recommended in chat results for several minutes after deleting. It accepts a DELETE request with the following parameters:
 
 `DELETE https://api.docsbot.ai/teams/:teamId/bots/:botId/sources/:sourceId`
 
