@@ -10,8 +10,23 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
   const firestore = getFirestore()
   try {
     const { uid, name } = await getAuthorizedUser(context)
-    const userRef = await getFirestore().collection('users').doc(uid).get()
 
+    // super admin quick team switching
+    if (context.query?.switchTeam && isSuperAdmin(uid)) {
+      await firestore.collection('users').doc(uid).update({
+        currentTeam: context.query.switchTeam,
+      });
+
+      // redirect to team's bot page
+      return {
+        redirect: {
+          destination: routePaths.BOTS,
+          permanent: false,
+        },
+      }
+    }
+    
+    const userRef = await getFirestore().collection('users').doc(uid).get()
     if (userRef.exists && userRef.data().currentTeam) {
       //check if user has access to team
       const team = await getTeam(userRef.data().currentTeam)
