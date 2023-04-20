@@ -117,14 +117,14 @@ export default function ModalSource({ team, bot, source, setSources, children })
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                  <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                  <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:flex">
                     <button
                       type="button"
                       className="rounded-md bg-white text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={() => setToDelete(source)}
                     >
                       <span className="sr-only">Delete</span>
-                      <TrashIcon className="h-6 w-6" aria-hidden="true" />
+                      <TrashIcon className="h-4 w-4" aria-hidden="true" />
                     </button>
                     <button
                       type="button"
@@ -141,13 +141,15 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       <h3 className="inline-flex text-2xl font-bold">{source.title ?? source.url}</h3>
                       <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">{source.type.toUpperCase()}</h1>
                     </div>
+                    <div className="sm:flex items-center justify-between">
                     <BadgeStatusSource source={source} />
                     <h1 className="pt-2 text-sm font-medium text-gray-500 flex-end">
-                      {"Page count: " + source.pageCount.toString()}
+                      {source.pageCount.toString()} Pages
                     </h1>
                     <h1 className="text-sm font-medium text-gray-500 flex-end">
-                      {(showInterval ? "Last updated: " : "Created on: ") + new Date(source.createdAt).toLocaleString()}
+                      {(showInterval ? "Updated: " : "Created: ") + new Date(source.createdAt).toUTCString()}
                     </h1>
+                    </div>
                     <Alert title={errorText} type="warning" />
                     <SourceDelete 
                       team={team}
@@ -159,11 +161,11 @@ export default function ModalSource({ team, bot, source, setSources, children })
                     />
                     {showInterval && (
                       <>
-                        <Alert title={locked || "You can schedule this source to be refreshed by an interval. This will refetch any URLs or files and update the source with the latest data. Useful if you want to keep your bot up to date with the latest version of your data."} type="info" />
+                        <Alert title={locked || "Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any URLs and update the source with the latest data."} type="info" />
                         <div className="mt-4 justify-start">
                           <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
                           <h1 className="inline-flex pl-2 text-sm font-medium text-gray-500 flex-end">
-                            {source.scheduled ? "Currently scheduled to be refreshed at " + new Date(source.scheduled).toLocaleString() : "This source has not been scheduled to be refreshed."}
+                            {source.scheduled ? "Refresh scheduled for " + new Date(source.scheduled).toUTCString() : "This source has not been scheduled to be refreshed."}
                           </h1>
                         </div>
                         <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
