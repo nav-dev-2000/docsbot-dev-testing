@@ -37,13 +37,13 @@ const integrations = [
   {
     name: 'URL & Sitemaps',
     description:
-      'Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh (coming soon).',
+      'Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.',
     icon: MapIcon,
   },
   {
     name: 'Document Files',
     description:
-      'Upload any files in TXT, DOC, PPT, EML, HTML, or PDF format. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
+      'Upload any files in TXT, DOC, PPT, EML, HTML, PDF format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
     icon: DocumentMagnifyingGlassIcon,
   },
   {

@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Can I automatically update my DocsBot sources?",
-    answer: "We are working on scheduled updates for dynamic sources like URLs and Sitemaps. For now, you can manually update your sources by creating a new DocsBot or adding them again."
+    answer: "Yes you can enable scheduled source updates for dynamic sources like URLs, RSS feeds, and Sitemaps. Depending on your plan you can do this monthly, weekly, or daily. You can also manually refresh your sources at any time on all plans."
   },
   {
     question: "What are source 'Pages'?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "Do you have an API I can use?",
-    answer: "Yes! We have a public API that you can use to integrate DocsBot into your own applications. You can find the documentation here: https://api.docsbot.ai/docs. We will also soon release our admin API for managing your DocsBots and sources."
+    answer: "Yes! We have a public API that you can use to integrate DocsBot into your own applications. You can find the documentation here: https://docsbot.ai/docs. We also have our admin API for managing your DocsBots and sources."
   },
   {
     question: "What are your privacy protections?",

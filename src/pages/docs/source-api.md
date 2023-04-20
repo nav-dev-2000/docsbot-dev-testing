@@ -151,7 +151,7 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 
 | Property | Type   | Description                                                                 |
 | -------- | ------ | --------------------------------------------------------------------------- |
-| **type** | string | The source type. Can be `url` or `sitemap` for now. File upload types are coming soon.   |
+| **type** | string | The source type. Can be `url`, `rss`, or `sitemap` for now. File upload types are coming soon.   |
 | **title** | string | The source title. Optional. |
 | **url** | string | The source URL. Required if type is `url` or `sitemap`. |
 
