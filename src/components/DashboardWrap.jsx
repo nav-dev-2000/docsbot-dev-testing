@@ -253,6 +253,9 @@ export default function DashboardWrap({ page, title, team, children }) {
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
+                <p className="flex flex-0 items-center text-sm text-gray-500 overflow-hidden">
+                    {team.name}
+                </p>
                 <div className="ml-4 flex items-center md:ml-6">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
