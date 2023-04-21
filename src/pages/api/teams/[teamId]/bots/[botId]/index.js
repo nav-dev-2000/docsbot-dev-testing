@@ -45,6 +45,7 @@ export default async function handler(req, res) {
         supportLink,
         showButtonLabel,
         labels,
+        questions,
       } = req.body
       const botData = {}
 
@@ -201,6 +202,10 @@ export default async function handler(req, res) {
         }
       
         botData.labels = labels;
+      }
+
+      if (questions !== undefined) {
+        botData.questions = questions
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
