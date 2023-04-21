@@ -170,9 +170,9 @@ export default function TableQuestions({ questions, changePage }) {
                         <h2 className="text-md flex items-center font-medium text-gray-400">
                           <img
                             className="mr-1 inline-block h-6 w-6 rounded-full"
-                            src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FCD0CD,FFD1E1,F9E4FF,DBC3FF,DEE3FF,D6ECFF,D7FBFF,DDFFFA,E2FFE4,FFFCE3,FFEBCD,FFCEBE,E2E2E2,FFFFFF,808080`}
+                            src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
                             alt="User avatar"
-                          />{' '}
+                          />
                           {question.alias} said:
                         </h2>
                         {ipFilter === null && question.ip !== undefined && (
@@ -317,7 +317,7 @@ export default function TableQuestions({ questions, changePage }) {
                           <Answer {...{ question }}>
                             <img
                               className="inline-block h-9 w-9 rounded-full"
-                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FCD0CD,FFD1E1,F9E4FF,DBC3FF,DEE3FF,D6ECFF,D7FBFF,DDFFFA,E2FFE4,FFFCE3,FFEBCD,FFCEBE,E2E2E2,FFFFFF,808080`}
+                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
                               alt="User avatar"
                             />
                             <p className="mt-2 text-xs">{question.alias}</p>
