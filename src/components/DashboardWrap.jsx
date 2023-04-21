@@ -210,7 +210,6 @@ export default function DashboardWrap({ page, title, team, children }) {
                 <Link href="/app" title="Dashboard" className="fill-white">
                   <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
                 </Link>
-                BETA
               </div>
               <div className="flex flex-1 flex-col overflow-y-auto">
                 <nav className="flex-1 space-y-1 px-2 py-4">
