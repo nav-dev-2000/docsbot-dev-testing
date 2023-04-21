@@ -8,7 +8,7 @@ import {
   LinkIcon,
   MinusIcon,
   XMarkIcon,
-  AdjustmentsHorizontalIcon
+  AdjustmentsHorizontalIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -95,10 +95,7 @@ export default function TableQuestions({ questions, changePage }) {
     return (
       <>
         <span className="sr-only">{rating > 0 ? 'Up vote' : 'Down vote'}</span>
-        <ThumbIcon
-          className={clsx(color, 'h-6 w-6')}
-          aria-hidden="true"
-        />
+        <ThumbIcon className={clsx(color, 'h-6 w-6')} aria-hidden="true" />
       </>
     )
   }
@@ -169,15 +166,30 @@ export default function TableQuestions({ questions, changePage }) {
                       </button>
                     </div>
                     <div className="p-8">
-                      <div className='p-0 flex'>
-                        <h2 className="text-md font-medium text-gray-400">{question.alias} said:</h2>
+                      <div className="flex p-0">
+                        <h2 className="text-md flex items-center font-medium text-gray-400">
+                          <img
+                            className="mr-1 inline-block h-6 w-6 rounded-full"
+                            src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FCD0CD,FFD1E1,F9E4FF,DBC3FF,DEE3FF,D6ECFF,D7FBFF,DDFFFA,E2FFE4,FFFCE3,FFEBCD,FFCEBE,E2E2E2,FFFFFF,808080`}
+                            alt="User avatar"
+                          />{' '}
+                          {question.alias} said:
+                        </h2>
                         {ipFilter === null && question.ip !== undefined && (
                           <button
                             type="button"
-                            className="ml-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-                            onClick={() => {updateIPFilter(question.ip, question.alias)}}>
-                            <AdjustmentsHorizontalIcon className="m-auto h-6 w-6" aria-hidden="true" />
-                            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filter by user</span>
+                            className="ml-2 flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            onClick={() => {
+                              updateIPFilter(question.ip, question.alias)
+                            }}
+                          >
+                            <AdjustmentsHorizontalIcon
+                              className="m-auto h-6 w-6"
+                              aria-hidden="true"
+                            />
+                            <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
+                              Filter by user
+                            </span>
                           </button>
                         )}
                       </div>
@@ -243,10 +255,15 @@ export default function TableQuestions({ questions, changePage }) {
         {ipFilter !== null && (
           <button
             type="button"
-            className="rounded-md pt-2 bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 flex"
-            onClick={() => {updateIPFilter(null, null)}}>
+            className="flex rounded-md bg-white pt-2 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            onClick={() => {
+              updateIPFilter(null, null)
+            }}
+          >
             <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
-            <span className="pl-1 m-auto hidden text-xs text-gray-400 sm:block">Filtering by {ipAlias}</span>
+            <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
+              Filtering by {ipAlias}
+            </span>
           </button>
         )}
         <div className="mt-8 flow-root">
@@ -298,7 +315,12 @@ export default function TableQuestions({ questions, changePage }) {
                           )}
                         >
                           <Answer {...{ question }}>
-                            <p className='text-xs'>{question.alias}</p>
+                            <img
+                              className="inline-block h-9 w-9 rounded-full"
+                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FCD0CD,FFD1E1,F9E4FF,DBC3FF,DEE3FF,D6ECFF,D7FBFF,DDFFFA,E2FFE4,FFFCE3,FFEBCD,FFCEBE,E2E2E2,FFFFFF,808080`}
+                              alt="User avatar"
+                            />
+                            <p className="mt-2 text-xs">{question.alias}</p>
                           </Answer>
                         </td>
                         <td
