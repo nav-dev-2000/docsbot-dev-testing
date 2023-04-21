@@ -6,6 +6,7 @@ import {
   HandThumbUpIcon,
   LinkIcon,
   UserCircleIcon,
+  LightBulbIcon,
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -405,6 +406,23 @@ export default function Chat({ teamId, bot }) {
               </div>
             </div>
           </form>
+
+          <div className='flex justify-right pt-2'>
+            {answers.length === 0 && !loading && bot.questions && bot.questions.length > 0 && (
+              bot.questions.map((recommendedQuestion) => (
+                <button
+                  type="button"
+                  className="flex h-7 items-center justify-center rounded-full bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50"
+                  onClick={() => setQuestion(recommendedQuestion)}
+                >
+                  <LightBulbIcon className=" h-5 w-5 text-blue-700" aria-hidden="true" />
+                  <p className='text-xs justify-left h-5 p-1 truncate w-full'>
+                    {recommendedQuestion}
+                  </p>
+                </button>
+              ))
+            )}
+          </div>
 
           <div className="mx-auto mt-8 mb-2 max-w-7xl text-left">
             <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>
