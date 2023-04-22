@@ -79,8 +79,9 @@ If you would like to integrate the DocsBot widget with a support form on your si
 
 If your business uses an existing software product for support tickets or live chat, you can integrate it with our AI widget, allowing your users to click the get support link in the DocsBot Widget to talk to a human! Here are some examples of integrating with the most popular providers:
 
-- [HelpScout Beacon](/docs/helpscout-widget-integration)
-- [Zendesk Web Widget](/docs/zendesk-widget-integration)
+- [HelpScout Beacon](/docs/widget-integrations/helpscout)
+- [Zendesk Web Widget](/docs/widget-integrations/zendesk)
+- [Intercom Messenger](/docs/widget-integrations/intercom)
 
 {% callout title="Other integrations" %}
 If you would like to integrate with a different support widget, please let us know and we'll add it to our docs.
