@@ -28,6 +28,7 @@ const footerNavigation = {
   legal: [
     { name: 'Privacy', href: '/privacy-policy' },
     { name: 'Terms', href: '/terms-of-service' },
+    { name: 'Press', href: '/press' },
   ],
   social: [
     {
@@ -132,7 +133,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="mt-12 md:mt-0">
-              <h3 className="text-base font-medium text-gray-900">Legal</h3>
+              <h3 className="text-base font-medium text-gray-900">Meta</h3>
               <ul role="list" className="mt-4 space-y-4">
                 {footerNavigation.legal.map((item) => (
                   <li key={item.name}>
