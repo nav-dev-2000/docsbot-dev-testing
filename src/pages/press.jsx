@@ -7,7 +7,7 @@ import classNames from '@/utils/classNames'
 const colors = [
   { hex: '#0891B2', rgb: 'rgb(8, 145, 178)', bgColor: 'bg-cyan-600' },
   { hex: '#14B8A6', rgb: 'rgb(20, 184, 166)', bgColor: 'bg-teal-500' },
-  { hex: '#0F172A', rgb: 'rgb(15, 23, 42)', bgColor: 'bg-slate-900' },
+  { hex: '#111827', rgb: 'rgb(17, 24, 39)', bgColor: 'bg-gray-900' },
 ]
 
 export default function Home() {
@@ -99,7 +99,7 @@ export default function Home() {
                   <div className="mt-6 lg:col-span-5 lg:mt-0 xl:col-span-4">
                     <h3 className="text-lg font-medium text-gray-900">White Logo</h3>
                     <p className="mt-2 text-sm text-gray-500">
-                      Use this logo on a dark or #0F172A background.
+                      Use this logo on a dark or #111827 background.
                     </p>
                     <p className="text-md mt-2 flex space-x-2 text-gray-400">
                       <Link href="/branding/docsbot-logo-white.png" target="_blank" download={true}>
@@ -111,7 +111,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex-auto lg:col-span-7 xl:col-span-8">
-                    <div className="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-slate-900">
+                    <div className="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-900">
                       <img
                         src="/branding/docsbot-logo-white.png"
                         alt="White logo"
