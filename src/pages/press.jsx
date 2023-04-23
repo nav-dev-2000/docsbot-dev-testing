@@ -48,7 +48,7 @@ export default function Home() {
                   className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6"
                 >
                   {colors.map((color) => (
-                    <li key={color.name} className="col-span-1 flex rounded-md shadow-sm">
+                    <li key={color.hex} className="col-span-1 flex rounded-md shadow-sm">
                       <div
                         className={classNames(
                           color.bgColor,
