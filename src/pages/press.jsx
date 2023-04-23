@@ -52,7 +52,7 @@ export default function Home() {
                       <div
                         className={classNames(
                           color.bgColor,
-                          'flex w-32 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                          'flex w-32 sm:w-16 lg:w-32 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
                         )}
                       ></div>
                       <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
