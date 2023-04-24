@@ -10,6 +10,7 @@ export const i18n = {
       getSupport: 'Contact support',
       floatingButton: 'Help',
       suggestions: 'Not sure what to ask?',
+      close: 'Close',
     }
   },
   jp: {
@@ -23,6 +24,7 @@ export const i18n = {
       getSupport: 'サポートに連絡',
       floatingButton: 'ヘルプ',
       suggestions: '何を尋ねればいいのかわからない?',
+      close: '閉じる',
     },
   },
 }

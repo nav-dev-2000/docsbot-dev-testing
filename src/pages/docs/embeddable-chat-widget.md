@@ -69,24 +69,41 @@ DocsBotAI.init({
 })
 ```
 
-The `DocsBotAI.init()` function returns a promise that resolves when the widget is loaded and ready to be used. You can use this to safely do stuff with the widget after it's loaded, such registering event listeners to open or close the widget based on user interactions.
+The `DocsBotAI.init()` function returns a promise that resolves when the widget is loaded and ready to be used. You can use this to safely do stuff with the widget after it's loaded, such as registering event listeners to open or close the widget based on user interactions.
 
-### Helpscout Beacon Example
+### Integration with a Support Form
 
-If your business uses [Helpscout](https://helpscout.grsm.io/9cush642f1y3) for support tickets or live chat, here's an example of how you could use the `supportCallback` to open the Helpscout Beacon widget if the user clicks the get support link in the DocsBot Widget.
+If you would like to integrate the DocsBot widget with a support form on your site, you can simply add the url that contains or support form in your widget settings on our bot edit page. When the user clicks the link in the widget, it will open the url in a new tab.
+
+### Integration with other Support Widgets
+
+If your business uses an existing software product for support tickets or live chat, you can integrate it with our AI widget, allowing your users to click the get support link in the DocsBot Widget to talk to a human! Here are some examples of integrating with the most popular providers:
+
+- [HelpScout Beacon](/docs/widget-integrations/helpscout)
+- [Zendesk Web Widget](/docs/widget-integrations/zendesk)
+- [Intercom Messenger](/docs/widget-integrations/intercom)
+
+{% callout title="Other integrations" %}
+If you would like to integrate with a different support widget, please let us know and we'll add it to our docs.
+{% /callout %}
+
+#### Generic Integration Example
 
 ```js
 DocsBotAI.init({
     id: "YOUR_ID_HERE",
     supportCallback: function (event, history) {
         event.preventDefault(); // Prevent default behavior opening the url.
-        DocsBotAI.unmount(); // Hide the widget.
-        // Open the Helpscout Beacon widget.
-        Beacon('init', 'YOUR_BEACON_ID_HERE'); // Replace with your beacon id, assuming you havn't already initialized the beacon.
-        Beacon('open');
+        DocsBotAI.unmount(); // Hide the DocsBot widget.
+        // Run some JS here to open your support widget.
+        
     },
 })
 ```
+
+{% callout type="warning" title="Make sure to add a support url!" %}
+For any of these integrations to work you must add a support url to your bot settings so that it will show the support link in the widget. If you don't want to use the support link, you can simply add a `#` to the url field.
+{% /callout %}
 
 ### Other API Methods
 
