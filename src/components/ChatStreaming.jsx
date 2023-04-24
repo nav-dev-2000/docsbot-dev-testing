@@ -20,14 +20,16 @@ import LoadingDots from './LoadingDots'
 import random from 'random'
 
 const grabQuestions = (bot) => {
-  // grab 3 unique questions from the bot
+  // grab at most 3 unique questions from the bot
   if (bot && bot.questions) {
     const questions = bot.questions
     const randomQuestions = []
-    for (let i = 0; i < 3; i++) {
+    const questionsLimit = questions.length > 3 ? 3 : questions.length
+
+    for (let i = 0; i < questionsLimit; i++) {
       const randomIndex = random.int(0, questions.length - 1)
 
-      // check if question already exists
+      // check if question is already included
       if (randomQuestions.includes(questions[randomIndex])) {
         i--
         continue
