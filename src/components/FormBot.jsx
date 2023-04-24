@@ -309,7 +309,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
           </label>
           {questions !== undefined && (
             questions.map((_, index) => (
-              <QuestionPrompt index={index} />
+              <QuestionPrompt index={index} key={index} />
             ))
           )}
           <div className="flex items-start pt-2">
