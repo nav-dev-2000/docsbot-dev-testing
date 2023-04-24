@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
   HandThumbDownIcon,
-  ChatBubbleLeftEllipsisIcon,
+  LightBulbIcon,
   DocumentTextIcon,
   HandThumbUpIcon,
   LinkIcon,
@@ -11,6 +11,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
+import { grabQuestions } from '@/utils/helpers'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -22,6 +23,7 @@ export default function AskStreaming({ teamId, bot }) {
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
   const [rating, setRating] = useState(0)
+  const [questions, setQuestions] = useState(grabQuestions(bot))
 
   //clear error text when question changes
   useEffect(() => {
@@ -223,47 +225,65 @@ export default function AskStreaming({ teamId, bot }) {
               </div>
             </>
           ) : (
-            <form
-              className="flex justify-center"
-              onSubmit={(e) => {
-                console.log('submit')
-                askQuestion()
-                e.preventDefault()
-              }}
-              disabled={loading}
-            >
-              <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
-                <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
-                  <input
-                    type="text"
-                    name="query"
-                    id="query"
-                    value={question}
-                    maxLength={2000}
-                    minLength={10}
-                    required
-                    onChange={(e) => setQuestion(e.target.value)}
-                    onKeyDown={(e) => {
-                      //submit on enter
-                      if (e.key === 'Enter') {
-                        askQuestion()
-                      }
-                    }}
-                    tabIndex={1}
-                    autoComplete="off"
-                    className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
-                    placeholder="What can I help you with?"
-                  />
+            <>
+              <form
+                className="flex justify-center"
+                onSubmit={(e) => {
+                  console.log('submit')
+                  askQuestion()
+                  e.preventDefault()
+                }}
+                disabled={loading}
+              >
+                <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
+                  <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
+                    <input
+                      type="text"
+                      name="query"
+                      id="query"
+                      value={question}
+                      maxLength={2000}
+                      minLength={10}
+                      required
+                      onChange={(e) => setQuestion(e.target.value)}
+                      onKeyDown={(e) => {
+                        //submit on enter
+                        if (e.key === 'Enter') {
+                          askQuestion()
+                        }
+                      }}
+                      tabIndex={1}
+                      autoComplete="off"
+                      className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
+                      placeholder="What can I help you with?"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    tabIndex={2}
+                    className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:-ml-px sm:mt-0 sm:w-32 sm:rounded-none sm:rounded-r-md sm:text-lg"
+                  >
+                    Ask
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  tabIndex={2}
-                  className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:-ml-px sm:mt-0 sm:w-32 sm:rounded-none sm:rounded-r-md sm:text-lg"
-                >
-                  Ask
-                </button>
+              </form>
+              <div className='flex justify-right pt-2 overflow-hidden hover:overflow-x-auto'>
+                {questions && questions.length > 0 && (
+                  questions.map((recommendedQuestion) => (
+                    <button
+                      type="button"
+                      className="flex h-7 items-center justify-center rounded-md bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50 mr-2"
+                      onClick={() => setQuestion(recommendedQuestion)}
+                    >
+                      <LightBulbIcon className=" h-5 w-5 text-blue-700" aria-hidden="true" />
+                      <p className='text-xs justify-left h-5 p-1 truncate w-full'>
+                        {recommendedQuestion}
+                      </p>
+                    </button>
+                  ))
+                )}
               </div>
-            </form>
+            </>
           )}
 
           {!resultHtml && (

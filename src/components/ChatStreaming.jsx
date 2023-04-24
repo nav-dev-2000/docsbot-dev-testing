@@ -17,32 +17,7 @@ import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
 import LoadingDots from './LoadingDots'
-import random from 'random'
-
-const grabQuestions = (bot) => {
-  // grab at most 3 unique questions from the bot
-  if (bot && bot.questions) {
-    const questions = bot.questions
-    const randomQuestions = []
-    const questionsLimit = questions.length > 3 ? 3 : questions.length
-
-    for (let i = 0; i < questionsLimit; i++) {
-      const randomIndex = random.int(0, questions.length - 1)
-
-      // check if question is already included
-      if (randomQuestions.includes(questions[randomIndex])) {
-        i--
-        continue
-      }
-
-      randomQuestions.push(questions[randomIndex])
-    }
-
-    return randomQuestions
-  }
-
-  return []
-}
+import { grabQuestions } from '@/utils/helpers'
 
 export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')

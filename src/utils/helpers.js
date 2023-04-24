@@ -1,3 +1,5 @@
+import random from 'random'
+
 export const getURL = () => {
   const url =
     process?.env?.VERCEL_ENV && process.env.VERCEL_ENV === 'production'
@@ -29,25 +31,7 @@ export const postData = async ({ url, data }) => {
 
 export function stripePlan(team) {
   if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
-    return {
-      name: 'Staff',
-      bots: 1000,
-      sources: 10000,
-      pages: 1000000,
-      questions: 1000000000,
-      teamMembers: 100000,
-      scheduleInterval: 'daily',
-    }
-  // } else if ('bVVwaRq2Jw1hnGr90XZA' === team.id) {
-  //   // team for sethtstubbs@gmail.com
-  //   return {
-  //     name: 'Staff',
-  //     bots: 1000,
-  //     sources: 10000,
-  //     pages: 1000000,
-  //     questions: 1000000000,
-  //     teamMembers: 100000,
-  //   }
+    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000 }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
@@ -102,6 +86,31 @@ export function isSuperAdmin(userId) {
   }
 
   return false
+}
+
+export const grabQuestions = (bot) => {
+  // grab at most 3 unique questions from the bot
+  if (bot && bot.questions) {
+    const questions = bot.questions
+    const randomQuestions = []
+    const questionsLimit = questions.length > 3 ? 3 : questions.length
+
+    for (let i = 0; i < questionsLimit; i++) {
+      const randomIndex = random.int(0, questions.length - 1)
+
+      // check if question is already included
+      if (randomQuestions.includes(questions[randomIndex])) {
+        i--
+        continue
+      }
+
+      randomQuestions.push(questions[randomIndex])
+    }
+
+    return randomQuestions
+  }
+
+  return []
 }
 
 export const fbPageview = () => {
