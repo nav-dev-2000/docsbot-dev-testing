@@ -305,7 +305,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
       <fieldset>
         <div>
           <label htmlFor="project-name" className="block text-sm font-medium text-gray-900">
-            Recommended questions
+            Suggested questions
           </label>
           {questions !== undefined && (
             questions.map((_, index) => (
