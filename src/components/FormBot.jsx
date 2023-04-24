@@ -68,17 +68,12 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
     const [question, setQuestion] = useState(questions[index])
 
     return (
-      <fieldset
-        id="suggested-questions"
-        aria-describedby="suggested-questions-description"
-        className="flex items-start pt-2"
-      >
+      <div className="flex items-start pt-2">
         <div className="w-full text-sm">
           <input
             type="text"
-            name="project-name"
-            id="project-name"
             value={question}
+            autoComplete="off"
             onChange={(e) => setQuestion(e.target.value)}
             onBlur={(e) => {
               updateQuestion(index, e.target.value)
@@ -97,7 +92,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
             <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
           </button>
         </div>
-      </fieldset>
+      </div>
     )
   }
 
@@ -312,23 +307,24 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
         <div>
-          <label htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
+          <legend htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
             Suggested questions
-          </label>
-          <p id="suggested-questions-description" className="text-gray-500 text-sm">
-            A random selection of these sample questions will be shown to users in the chat interfaces.
+          </legend>
+          <p id="suggested-questions-description" className="text-sm text-gray-500">
+            A random selection of these sample questions will be shown to users in the chat
+            interfaces.
           </p>
           {questions !== undefined &&
             questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
           <div className="mt-2 flex justify-center">
             <button
               type="button"
-              className="flex items-center justify-center rounded-full bg-cyan-50 px-3 py-1 text-cyan-700 hover:bg-cyan-100 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+              className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
               onClick={() => addQuestion()}
             >
-              <PlusIcon className="mr-1 h-5 w-5 text-cyan-700" aria-hidden="true" />
+              <PlusIcon className="h-5 w-5" aria-hidden="true" />
               Add
             </button>
           </div>

@@ -205,7 +205,8 @@ export default async function handler(req, res) {
       }
 
       if (questions !== undefined) {
-        botData.questions = questions
+        //check if questions is valid, array of strings, remove any empty strings
+        botData.questions = questions.filter((q) => q !== '')
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
