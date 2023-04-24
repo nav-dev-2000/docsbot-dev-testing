@@ -39,7 +39,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
       setModel('gpt-3.5-turbo')
     }
   }, [model])
-  
+
   const updateQuestion = (index, newQuestion) => {
     setQuestions((questions) => {
       const newQuestions = [...questions]
@@ -68,17 +68,12 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
     const [question, setQuestion] = useState(questions[index])
 
     return (
-      <div className="flex items-start pt-2">
-        <div className="flex h-5 items-center text-center w-7 m-auto">
-          <button
-            type="button"
-            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            onClick={() => removeQuestion(index)}
-          >
-            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="text-sm w-full">
+      <fieldset
+        id="suggested-questions"
+        aria-describedby="suggested-questions-description"
+        className="flex items-start pt-2"
+      >
+        <div className="w-full text-sm">
           <input
             type="text"
             name="project-name"
@@ -92,7 +87,17 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
           />
         </div>
-      </div>
+        <div className="m-auto flex items-center text-center">
+          <button
+            type="button"
+            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            onClick={() => removeQuestion(index)}
+          >
+            <span className="sr-only">Remove question: {question}</span>
+            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
+          </button>
+        </div>
+      </fieldset>
     )
   }
 
@@ -231,7 +236,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                   checked={model === 'gpt-4'}
                   onChange={() => setModel('gpt-4')}
-                  disabled={disabled || ! team.supportsGPT4}
+                  disabled={disabled || !team.supportsGPT4}
                 />
               </div>
               <div className="pl-7 text-sm">
@@ -244,10 +249,15 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
                   )}
                 </label>
                 <p id="model-private-description" className="text-gray-500">
-                  Most powerful but slower and more expensive (&lt;$0.09/question) model for advanced reasoning or content
-                  creation needs. 
+                  Most powerful but slower and more expensive (&lt;$0.09/question) model for
+                  advanced reasoning or content creation needs.
                   {!team.supportsGPT4 && (
-                    <Link href="/app/api" className='ml-1 inline-block underline hover:text-gray-800'>Request access</Link>
+                    <Link
+                      href="/app/api"
+                      className="ml-1 inline-block underline hover:text-gray-800"
+                    >
+                      Request access
+                    </Link>
                   )}
                 </p>
               </div>
@@ -258,7 +268,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
 
       <fieldset>
         <legend className="text-sm font-medium text-gray-900">Language</legend>
-        <div className="mt-2 space-y-2">
+        <div className="mt-2 flex space-x-8">
           <div className="relative flex items-start">
             <div className="absolute flex h-5 items-center">
               <input
@@ -304,24 +314,23 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
 
       <fieldset>
         <div>
-          <label htmlFor="project-name" className="block text-sm font-medium text-gray-900">
+          <label htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
             Suggested questions
           </label>
-          {questions !== undefined && (
-            questions.map((_, index) => (
-              <QuestionPrompt index={index} key={index} />
-            ))
-          )}
-          <div className="flex items-start pt-2">
-            <div className="flex h-7 items-center text-center w-7 m-auto">
-              <button
-                type="button"
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-green-50 text-green-500 hover:bg-green-100 focus:ring-green-600 focus:ring-offset-green-50"
-                onClick={() => addQuestion()}
-              >
-                <PlusIcon className="h-7 w-7 text-green-700" aria-hidden="true" />
-              </button>
-            </div>
+          <p id="suggested-questions-description" className="text-gray-500 text-sm">
+            A random selection of these sample questions will be shown to users in the chat interfaces.
+          </p>
+          {questions !== undefined &&
+            questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
+          <div className="mt-2 flex justify-center">
+            <button
+              type="button"
+              className="flex items-center justify-center rounded-full bg-cyan-50 px-3 py-1 text-cyan-700 hover:bg-cyan-100 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+              onClick={() => addQuestion()}
+            >
+              <PlusIcon className="mr-1 h-5 w-5 text-cyan-700" aria-hidden="true" />
+              Add
+            </button>
           </div>
         </div>
       </fieldset>
