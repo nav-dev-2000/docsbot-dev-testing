@@ -267,17 +267,20 @@ export default function AskStreaming({ teamId, bot }) {
                   </button>
                 </div>
               </form>
-              <div className='flex justify-right pt-2 overflow-hidden hover:overflow-x-auto'>
+              <div className='sm:flex items-center justify-between space-y-2 mt-2'>
                 {questions && questions.length > 0 && (
                   questions.map((recommendedQuestion) => (
                     <button
                       type="button"
-                      className="flex h-7 items-center justify-center rounded-md bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50 mr-2"
-                      onClick={() => setQuestion(recommendedQuestion)}
+                      className="flex items-center justify-center text-cyan-700 hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50 mr-2"
+                      onClick={() => {
+                        setQuestion(recommendedQuestion)
+                        askQuestion()
+                      }}
                       key={recommendedQuestion}
                     >
-                      <LightBulbIcon className=" h-5 w-5 text-blue-700" aria-hidden="true" />
-                      <p className='text-xs justify-left h-5 p-1 truncate w-full'>
+                      <LightBulbIcon className="h-5 w-5 mr-1 text-cyan-700" aria-hidden="true" />
+                      <p className='text-xs text-left'>
                         {recommendedQuestion}
                       </p>
                     </button>

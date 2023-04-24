@@ -257,7 +257,6 @@ export default function Chat({ teamId, bot }) {
   }
 
   const ChatRow = ({ answer }) => {
-
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
@@ -409,22 +408,23 @@ export default function Chat({ teamId, bot }) {
             </div>
           </form>
 
-          <div className='flex justify-right pt-2 overflow-hidden hover:overflow-x-auto'>
-            {answers.length === 0 && !loading && questions && questions.length > 0 && (
+          <div className="mt-2 items-center justify-between space-y-2 sm:flex">
+            {questions &&
+              questions.length > 0 &&
               questions.map((recommendedQuestion) => (
                 <button
                   type="button"
-                  className="flex h-7 items-center justify-center rounded-md bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50 mr-2"
-                  onClick={() => setQuestion(recommendedQuestion)}
+                  className="mr-2 flex items-center justify-center text-cyan-700 hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                  onClick={() => {
+                    setQuestion(recommendedQuestion)
+                    askQuestion()
+                  }}
                   key={recommendedQuestion}
                 >
-                  <LightBulbIcon className=" h-5 w-5 text-blue-700" aria-hidden="true" />
-                  <p className='text-xs justify-left h-5 p-1 truncate w-full'>
-                    {recommendedQuestion}
-                  </p>
+                  <LightBulbIcon className="mr-1 h-5 w-5 text-cyan-700" aria-hidden="true" />
+                  <p className="text-left text-xs">{recommendedQuestion}</p>
                 </button>
-              ))
-            )}
+              ))}
           </div>
 
           <div className="mx-auto mt-8 mb-2 max-w-7xl text-left">
