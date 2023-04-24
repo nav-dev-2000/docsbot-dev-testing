@@ -274,6 +274,7 @@ export default function AskStreaming({ teamId, bot }) {
                       type="button"
                       className="flex h-7 items-center justify-center rounded-md bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50 mr-2"
                       onClick={() => setQuestion(recommendedQuestion)}
+                      key={recommendedQuestion}
                     >
                       <LightBulbIcon className=" h-5 w-5 text-blue-700" aria-hidden="true" />
                       <p className='text-xs justify-left h-5 p-1 truncate w-full'>
