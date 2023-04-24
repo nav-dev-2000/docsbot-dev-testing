@@ -9,6 +9,7 @@ export const i18n = {
       unhelpful: 'Rate as unhelpful',
       getSupport: 'Contact support',
       floatingButton: 'Help',
+      suggestions: 'Not sure what to ask?',
     }
   },
   jp: {
@@ -21,6 +22,7 @@ export const i18n = {
       unhelpful: '役に立たなかったと評価',
       getSupport: 'サポートに連絡',
       floatingButton: 'ヘルプ',
+      suggestions: '何を尋ねればいいのかわからない?',
     },
   },
 }
