@@ -6,7 +6,7 @@ import { getTeam, getBot } from '@/lib/dbQueries'
 import AskStreaming from '@/components/AskStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, grabQuestions } from '@/utils/helpers'
 
 export function ChatPage({ team, bot }) {
   const pageTitle = `${bot.name} Chatbot`
@@ -56,6 +56,7 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
+  data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {
     return {

@@ -23,7 +23,7 @@ export default function AskStreaming({ teamId, bot }) {
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
   const [rating, setRating] = useState(0)
-  const [questions, setQuestions] = useState(grabQuestions(bot))
+  const [questions, setQuestions] = useState(bot.questions.length > 3 ? grabQuestions(bot) : bot.questions)
 
   //clear error text when question changes
   useEffect(() => {
