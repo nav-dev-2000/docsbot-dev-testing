@@ -17,6 +17,30 @@ import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
 import LoadingDots from './LoadingDots'
+import random from 'random'
+
+const grabQuestions = (bot) => {
+  // grab 3 unique questions from the bot
+  if (bot && bot.questions) {
+    const questions = bot.questions
+    const randomQuestions = []
+    for (let i = 0; i < 3; i++) {
+      const randomIndex = random.int(0, questions.length - 1)
+
+      // check if question already exists
+      if (randomQuestions.includes(questions[randomIndex])) {
+        i--
+        continue
+      }
+
+      randomQuestions.push(questions[randomIndex])
+    }
+
+    return randomQuestions
+  }
+
+  return []
+}
 
 export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -28,6 +52,7 @@ export default function Chat({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
+  const [questions, setQuestions] = useState(grabQuestions(bot))
 
   console.log(bot)
   //clear error text when question changes
@@ -407,9 +432,9 @@ export default function Chat({ teamId, bot }) {
             </div>
           </form>
 
-          <div className='flex justify-right pt-2'>
-            {answers.length === 0 && !loading && bot.questions && bot.questions.length > 0 && (
-              bot.questions.map((recommendedQuestion) => (
+          <div className='flex justify-right pt-2 overflow-hidden hover:overflow-x-auto'>
+            {answers.length === 0 && !loading && questions && questions.length > 0 && (
+              questions.map((recommendedQuestion) => (
                 <button
                   type="button"
                   className="flex h-7 items-center justify-center rounded-full bg-blue-50 text-blue-500 hover:bg-blue-100 focus:ring-blue-600 focus:ring-offset-blue-50"
