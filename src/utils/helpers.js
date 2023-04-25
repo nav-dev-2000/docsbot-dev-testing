@@ -31,7 +31,7 @@ export const postData = async ({ url, data }) => {
 
 export function stripePlan(team) {
   if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
-    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000 }
+    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000, scheduleInterval: 'daily' }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
