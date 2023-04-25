@@ -29,7 +29,7 @@ export default function Chat({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
-  const [questions, setQuestions] = useState(bot.questions.length > 3 ? grabQuestions(bot) : bot.questions)
+  const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
 
   console.log(bot)
   //clear error text when question changes
