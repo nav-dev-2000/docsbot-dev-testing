@@ -119,6 +119,9 @@ export default async function handler(req, res) {
           return res.status(400).send({ message: 'Invalid param "language".' })
         } else {
           botData.language = language
+
+          // reset our labels
+          botData.labels = i18n[language].labels
         }
       }
 
