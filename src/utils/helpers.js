@@ -31,7 +31,7 @@ export const postData = async ({ url, data }) => {
 
 export function stripePlan(team) {
   if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
-    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000, scheduleInterval: 'daily' }
+    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000, scheduleInterval: 'daily', logLimit: 1000000000 }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
@@ -44,7 +44,7 @@ export function stripePlan(team) {
     }
   }
 
-  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none' }
+  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none', logLimit: 6 }
 }
 
 export function checkSourceScheduledFromInterval(team, interval) {

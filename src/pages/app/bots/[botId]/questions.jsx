@@ -65,7 +65,7 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  data.props.preQuestions = await getQuestions(data.props.team.id, botId)
+  data.props.preQuestions = await getQuestions(data.props.team, botId)
 
   return data
 }

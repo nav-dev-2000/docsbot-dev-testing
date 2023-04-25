@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     page = page ? parseInt(page) : 0
     ascending = ascending ? ( ascending === 'true' || ascending === '1' ) : false
     try {
-      const questions = await getQuestions(team.id, botId, perPage, page, ascending, filter)
+      const questions = await getQuestions(team, botId, perPage, page, ascending, filter)
       return res.json(questions)
     } catch (error) {
       console.warn('Error getting document:', error)

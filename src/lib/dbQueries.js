@@ -144,22 +144,27 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascending = false, filter = null) {
+export async function getQuestions(team, botId, perPage = 50, page = 0, ascending = false, filter = null) {
   const offset = page * perPage
   let snapshot = firestore
     .collection('teams')
-    .doc(teamId)
+    .doc(team.id)
     .collection('bots')
     .doc(botId)
     .collection('questions')
 
+  const plan = stripePlan(team)
+  const planLimit = parseInt(plan.logLimit)
+  const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
+
+  console.log('pageLimit', pageLimit)
   if (filter) {
     snapshot = snapshot.where('ip', '==', filter)
   }
 
   const questionsRef = snapshot.orderBy('createdAt', ascending ? 'asc' : 'desc')
     .offset(offset)
-    .limit(perPage)
+    .limit(pageLimit)
 
   const querySnapshot = await questionsRef.get()
   let questions = []
@@ -172,10 +177,11 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
   //get total count
   snapshot = firestore
     .collection('teams')
-    .doc(teamId)
+    .doc(team.id)
     .collection('bots')
     .doc(botId)
     .collection('questions')
+    .limit(planLimit)
 
   if (filter) {
     snapshot = snapshot.where('ip', '==', filter)
@@ -184,12 +190,14 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
   const countSnapshot = await snapshot.count().get()
 
   const totalCount = countSnapshot.data().count
+  console.log("total:", totalCount)
 
   const pagination = {
     perPage,
     page,
     totalCount,
     hasMorePages: offset + perPage < totalCount,
+    logLimit: planLimit,
   }
 
   return { questions, pagination }
