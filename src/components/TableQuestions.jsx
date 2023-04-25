@@ -18,7 +18,7 @@ import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Checkout from '@/components/Checkout'
 
-const BLUR_LIMIT_COUNT = 1; // the amount of questions to blur before the plan limit
+const BLUR_LIMIT_COUNT = 2; // the amount of questions to blur before the plan limit
 
 export default function TableQuestions({ team, questions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
@@ -32,6 +32,10 @@ export default function TableQuestions({ team, questions, changePage }) {
       </ul>
     )
   }
+  // blur is only enabled when we've reached our plan limit
+  const [blurEnabled, setBlurEnabled] = useState(() => {
+    return questions.questions.length + (questions.pagination.perPage * questions.pagination.page) >= questions.pagination.logLimit
+  })
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
@@ -319,7 +323,7 @@ export default function TableQuestions({ team, questions, changePage }) {
                   {questions.questions.map((question, questionIdx) => {
                     return (
                       <tr key={question.id} className={clsx(
-                          questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.logLimit ? "blur-sm" : "hover:bg-gray-50",
+                          questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.logLimit && blurEnabled ? "blur-sm" : "hover:bg-gray-50",
                         )}
                       >
                         <td
@@ -393,11 +397,18 @@ export default function TableQuestions({ team, questions, changePage }) {
                       </tr>
                     )
                   })}
-                  {questions.questions.length + (questions.pagination.perPage * questions.pagination.page) >= questions.pagination.logLimit && (
+                  {blurEnabled && (
                     <div className="absolute bottom-0 left-50 w-full">
                       <div className="py-4">
                         <Checkout team={team} >
-                          <h3 className="text-2xl font-bold mb-4 md:md-16">Upgrade your plan to view more...</h3>
+                          <h3 className="text-3xl font-bold">Manage your Plan</h3>
+                          <p className="mb-8 md:mb-16 text-center text-gray-500">
+                            You've reached the limit of your current plan and must upgrade to view more logs. View{' '}
+                            <Link href="/#pricing" target="_blank" className="underline">
+                              plan details
+                            </Link>
+                            .
+                          </p>
                         </Checkout>
                       </div>
                     </div>
