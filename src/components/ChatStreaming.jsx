@@ -6,6 +6,7 @@ import {
   HandThumbUpIcon,
   LinkIcon,
   UserCircleIcon,
+  LightBulbIcon,
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -16,6 +17,7 @@ import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
 import LoadingDots from './LoadingDots'
+import { grabQuestions } from '@/utils/helpers'
 
 export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -27,6 +29,7 @@ export default function Chat({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
+  const [questions, setQuestions] = useState(bot.questions.length > 3 ? grabQuestions(bot) : bot.questions)
 
   console.log(bot)
   //clear error text when question changes
@@ -254,7 +257,6 @@ export default function Chat({ teamId, bot }) {
   }
 
   const ChatRow = ({ answer }) => {
-
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
@@ -405,6 +407,25 @@ export default function Chat({ teamId, bot }) {
               </div>
             </div>
           </form>
+
+          <div className="mt-2 items-center justify-between space-y-2 sm:flex">
+            {questions &&
+              questions.length > 0 &&
+              questions.map((recommendedQuestion) => (
+                <button
+                  type="button"
+                  className="mr-2 flex items-center justify-center text-cyan-700 hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                  onClick={() => {
+                    setQuestion(recommendedQuestion)
+                    askQuestion()
+                  }}
+                  key={recommendedQuestion}
+                >
+                  <LightBulbIcon className="mr-1 h-5 w-5 text-cyan-700" aria-hidden="true" />
+                  <p className="text-left text-xs">{recommendedQuestion}</p>
+                </button>
+              ))}
+          </div>
 
           <div className="mx-auto mt-8 mb-2 max-w-7xl text-left">
             <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>

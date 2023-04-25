@@ -46,6 +46,15 @@ export default async function handler(req, res) {
           return res.status(409).json({ message: 'Bot is not ready.' })
         }
 
+        // check if bot labels are set
+        if (bot.labels) {
+          // if the bot is missing labels, populate with defaults
+          bot.labels = {
+            ...i18n[bot.language]?.labels,
+            ...bot.labels,
+          }
+        }
+
         const widget = {
           botId: botId,
           teamId: teamId,
@@ -59,6 +68,7 @@ export default async function handler(req, res) {
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
+          questions: bot.questions || [],
         }
 
         return res.json(widget)

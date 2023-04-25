@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import { PlusIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -9,6 +10,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(bot?.model || 'gpt-3.5-turbo')
+  const [questions, setQuestions] = useState(bot?.questions || [])
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   useEffect(() => {
@@ -18,8 +20,9 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
       description: botDescription,
       privacy,
       model,
+      questions,
     })
-  }, [language, botName, botDescription, privacy, model])
+  }, [language, botName, botDescription, privacy, model, questions])
 
   //show upgrade if they change privacy to private
   useEffect(() => {
@@ -36,6 +39,62 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
       setModel('gpt-3.5-turbo')
     }
   }, [model])
+
+  const updateQuestion = (index, newQuestion) => {
+    setQuestions((questions) => {
+      const newQuestions = [...questions]
+      newQuestions[index] = newQuestion
+      return newQuestions
+    })
+  }
+
+  const removeQuestion = (index) => {
+    setQuestions((questions) => {
+      const newQuestions = [...questions]
+      newQuestions.splice(index, 1)
+      return newQuestions
+    })
+  }
+
+  const addQuestion = () => {
+    setQuestions((questions) => {
+      const newQuestions = [...questions]
+      newQuestions.push('')
+      return newQuestions
+    })
+  }
+
+  const QuestionPrompt = ({ index }) => {
+    const [question, setQuestion] = useState(questions[index])
+
+    return (
+      <div className="flex items-start pt-2">
+        <div className="w-full text-sm">
+          <input
+            type="text"
+            value={question}
+            autoComplete="off"
+            onChange={(e) => setQuestion(e.target.value)}
+            onBlur={(e) => {
+              updateQuestion(index, e.target.value)
+            }}
+            placeholder={`What is ${bot.name}?`}
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+          />
+        </div>
+        <div className="m-auto flex items-center text-center">
+          <button
+            type="button"
+            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            onClick={() => removeQuestion(index)}
+          >
+            <span className="sr-only">Remove question: {question}</span>
+            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -172,7 +231,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                   checked={model === 'gpt-4'}
                   onChange={() => setModel('gpt-4')}
-                  disabled={disabled || ! team.supportsGPT4}
+                  disabled={disabled || !team.supportsGPT4}
                 />
               </div>
               <div className="pl-7 text-sm">
@@ -185,10 +244,15 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
                   )}
                 </label>
                 <p id="model-private-description" className="text-gray-500">
-                  Most powerful but slower and more expensive (&lt;$0.09/question) model for advanced reasoning or content
-                  creation needs. 
+                  Most powerful but slower and more expensive (&lt;$0.09/question) model for
+                  advanced reasoning or content creation needs.
                   {!team.supportsGPT4 && (
-                    <Link href="/app/api" className='ml-1 inline-block underline hover:text-gray-800'>Request access</Link>
+                    <Link
+                      href="/app/api"
+                      className="ml-1 inline-block underline hover:text-gray-800"
+                    >
+                      Request access
+                    </Link>
                   )}
                 </p>
               </div>
@@ -199,7 +263,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
 
       <fieldset>
         <legend className="text-sm font-medium text-gray-900">Language</legend>
-        <div className="mt-2 space-y-2">
+        <div className="mt-2 flex space-x-8">
           <div className="relative flex items-start">
             <div className="absolute flex h-5 items-center">
               <input
@@ -239,6 +303,30 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
                 </label>
               </div>
             </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
+        <div>
+          <legend htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
+            Suggested questions
+          </legend>
+          <p id="suggested-questions-description" className="text-sm text-gray-500">
+            A random selection of these sample questions will be shown to users in the chat
+            interfaces.
+          </p>
+          {questions !== undefined &&
+            questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
+          <div className="mt-2 flex justify-center">
+            <button
+              type="button"
+              className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+              onClick={() => addQuestion()}
+            >
+              <PlusIcon className="h-5 w-5" aria-hidden="true" />
+              Add
+            </button>
           </div>
         </div>
       </fieldset>
