@@ -48,9 +48,6 @@ export default async function handler(req, res) {
 
         // check if bot labels are set
         if (bot.labels) {
-          const validLabels = Object.keys(i18n[bot.language]?.labels)
-          const botLabels = Object.keys(bot.labels)
-
           // if the bot is missing labels, populate with defaults
           bot.labels = {
             ...i18n[bot.language]?.labels,
