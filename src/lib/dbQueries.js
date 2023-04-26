@@ -153,11 +153,11 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
     .doc(botId)
     .collection('questions')
 
+  // grab limits
   const plan = stripePlan(team)
   const planLimit = parseInt(plan.logLimit)
   const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
 
-  console.log('pageLimit', pageLimit)
   if (filter) {
     snapshot = snapshot.where('ip', '==', filter)
   }
@@ -166,6 +166,7 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
     .offset(offset)
     .limit(pageLimit)
 
+  // grab questions
   const querySnapshot = await questionsRef.get()
   let questions = []
   querySnapshot.forEach(async (doc) => {
@@ -190,9 +191,7 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
   const totalCount = countSnapshot.data().count
 
   // get plan viewable count
-  const viewableSnapshot = await snapshot.limit(planLimit).count().get()
-  const viewableCount = viewableSnapshot.data().count
-  console.log("total:", viewableCount)
+  const viewableCount = totalCount > planLimit ? planLimit : totalCount
 
   const pagination = {
     perPage,

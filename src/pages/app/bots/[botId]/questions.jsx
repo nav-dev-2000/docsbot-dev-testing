@@ -15,10 +15,9 @@ function Questions({ team, bot, preQuestions }) {
   const { botId } = router.query
 
   async function changePage(page, ipFilter) {
-    let urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page + ((ipFilter !== null && ipFilter !== undefined) ? ('&filter=' + ipFilter) : '')]
+    const urlParams = ['teams', team.id, 'bots', botId, 'questions?page=' + page + ((ipFilter !== null && ipFilter !== undefined) ? ('&filter=' + ipFilter) : '')]
+    const path = '/api/' + urlParams.join('/')
 
-    let path = '/api/' + urlParams.join('/')
-    console.log(path)
     const response = await fetch(path, {
       method: 'GET',
       headers: {
@@ -65,7 +64,21 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  data.props.preQuestions = await getQuestions(data.props.team, botId)
+  if (data.props.team) {
+    data.props.preQuestions = await getQuestions(data.props.team, botId)
+  } else {
+    data.props.preQuestions = {
+      pagination: {
+        perPage: 50,
+        page: 0,
+        viewableCount: 0,
+        totalCount: 0,
+        hasMorePages: false,
+        planLimit: 10,
+      },
+      questions: [],
+    }
+  }
 
   return data
 }
