@@ -144,14 +144,19 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascending = false, filter = null) {
+export async function getQuestions(team, botId, perPage = 50, page = 0, ascending = false, filter = null) {
   const offset = page * perPage
   let snapshot = firestore
     .collection('teams')
-    .doc(teamId)
+    .doc(team.id)
     .collection('bots')
     .doc(botId)
     .collection('questions')
+
+  // grab limits
+  const plan = stripePlan(team)
+  const planLimit = parseInt(plan.logLimit)
+  const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
 
   if (filter) {
     snapshot = snapshot.where('ip', '==', filter)
@@ -159,8 +164,9 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
 
   const questionsRef = snapshot.orderBy('createdAt', ascending ? 'asc' : 'desc')
     .offset(offset)
-    .limit(perPage)
+    .limit(pageLimit)
 
+  // grab questions
   const querySnapshot = await questionsRef.get()
   let questions = []
   querySnapshot.forEach(async (doc) => {
@@ -169,10 +175,9 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
     questions.push(question)
   })
 
-  //get total count
   snapshot = firestore
     .collection('teams')
-    .doc(teamId)
+    .doc(team.id)
     .collection('bots')
     .doc(botId)
     .collection('questions')
@@ -181,15 +186,20 @@ export async function getQuestions(teamId, botId, perPage = 50, page = 0, ascend
     snapshot = snapshot.where('ip', '==', filter)
   }
 
+  // get total count
   const countSnapshot = await snapshot.count().get()
-
   const totalCount = countSnapshot.data().count
+
+  // get plan viewable count
+  const viewableCount = totalCount > planLimit ? planLimit : totalCount
 
   const pagination = {
     perPage,
     page,
+    viewableCount,
     totalCount,
-    hasMorePages: offset + perPage < totalCount,
+    hasMorePages: offset + perPage < viewableCount,
+    planLimit,
   }
 
   return { questions, pagination }

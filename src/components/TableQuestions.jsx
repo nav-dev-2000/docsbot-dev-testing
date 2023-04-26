@@ -9,14 +9,18 @@ import {
   MinusIcon,
   XMarkIcon,
   AdjustmentsHorizontalIcon,
+  CreditCardIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
 import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import Checkout from '@/components/Checkout'
 
-export default function TableQuestions({ questions, changePage }) {
+const BLUR_LIMIT_COUNT = 2; // the amount of questions to blur before the plan limit
+
+export default function TableQuestions({ team, questions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const Sources = ({ sources }) => {
@@ -28,6 +32,10 @@ export default function TableQuestions({ questions, changePage }) {
       </ul>
     )
   }
+  // blur is only enabled when we've reached our plan limit
+  const [blurEnabled, setBlurEnabled] = useState(() => {
+    return questions.questions.length + (questions.pagination.perPage * questions.pagination.page) >= questions.pagination.planLimit
+  })
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
@@ -100,10 +108,13 @@ export default function TableQuestions({ questions, changePage }) {
     )
   }
 
-  const Answer = ({ question, children }) => {
+  const Answer = ({ question, questionIdx, children }) => {
     const [open, setOpen] = useState(false)
     const [answerHtml, setAnswerHtml] = useState(null)
     const [shortAnswer, setShortAnswer] = useState(question.answer)
+    const [disabled, setDisabled] = useState(() => {
+      return questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.planLimit;
+    })
 
     useEffect(() => {
       if (question.answer) {
@@ -124,8 +135,12 @@ export default function TableQuestions({ questions, changePage }) {
       <>
         <a
           type="button"
-          className="m-0 block cursor-pointer px-3 py-4"
-          onClick={() => setOpen(true)}
+          className={(disabled ? "" : "cursor-pointer") + "m-0 block px-3 py-4"}
+          onClick={() => {
+            if (disabled) return;
+            setOpen(true)
+          }}
+          disabled={disabled}
         >
           {children}
         </a>
@@ -246,7 +261,7 @@ export default function TableQuestions({ questions, changePage }) {
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <Paginator
               perPage={questions.pagination.perPage}
-              totalCount={questions.pagination.totalCount}
+              totalCount={questions.pagination.viewableCount}
               page={questions.pagination.page}
               changePage={(page) => changePage(page, ipFilter)}
             />
@@ -307,14 +322,17 @@ export default function TableQuestions({ questions, changePage }) {
                 <tbody>
                   {questions.questions.map((question, questionIdx) => {
                     return (
-                      <tr key={question.id} className="hover:bg-gray-50">
+                      <tr key={question.id} className={clsx(
+                          (questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.planLimit && blurEnabled) ? "blur-sm" : "hover:bg-gray-50",
+                        )}
+                      >
                         <td
                           className={clsx(
                             questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
                             'hidden text-sm text-gray-500 lg:table-cell'
                           )}
                         >
-                          <Answer {...{ question }}>
+                          <Answer {...{ question, questionIdx }}>
                             <img
                               className="inline-block h-9 w-9 rounded-full"
                               src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
@@ -329,7 +347,7 @@ export default function TableQuestions({ questions, changePage }) {
                             'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
                           )}
                         >
-                          <Answer {...{ question }}>
+                          <Answer {...{ question, questionIdx }}>
                             <p>{question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
                               {question.createdAt}
@@ -352,7 +370,7 @@ export default function TableQuestions({ questions, changePage }) {
                             'hidden text-sm text-gray-500 lg:table-cell'
                           )}
                         >
-                          <Answer {...{ question }}>
+                          <Answer {...{ question, questionIdx }}>
                             <ShortAnswer answer={question.answer} />
                           </Answer>
                         </td>
@@ -362,7 +380,7 @@ export default function TableQuestions({ questions, changePage }) {
                             'hidden truncate text-sm text-gray-500 lg:table-cell'
                           )}
                         >
-                          <Answer {...{ question }}>
+                          <Answer {...{ question, questionIdx }}>
                             <Sources sources={question.sources} />
                           </Answer>
                         </td>
@@ -372,7 +390,7 @@ export default function TableQuestions({ questions, changePage }) {
                             'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
                           )}
                         >
-                          <Answer {...{ question }}>
+                          <Answer {...{ question, questionIdx }}>
                             <Rating rating={question.rating} />
                           </Answer>
                         </td>
@@ -380,6 +398,27 @@ export default function TableQuestions({ questions, changePage }) {
                     )
                   })}
                 </tbody>
+                <tfoot className='relative'>
+                  {blurEnabled && (
+                    <div className="absolute bottom-0 left-50 w-full">
+                      <div className="py-4">
+                        <Checkout team={team} >
+                          <p className='mb-4 text-center text-gray-700'>
+                            ... and {questions.pagination.totalCount - questions.pagination.planLimit + BLUR_LIMIT_COUNT} more questions
+                          </p>
+                          <h3 className="text-3xl font-bold">View full chat history</h3>
+                          <p className="mb-8 text-center text-gray-700">
+                            Upgrade to the Premium plan or higher to unlock the full chat history of your users to help you improve your documentation and products. View{' '}
+                            <Link href="/#pricing" target="_blank" className="underline">
+                              plan details
+                            </Link>
+                            .
+                          </p>
+                        </Checkout>
+                      </div>
+                    </div>
+                  )}
+                </tfoot>
               </table>
             </div>
           </div>
@@ -387,7 +426,7 @@ export default function TableQuestions({ questions, changePage }) {
         <div className="mt-6 flex justify-center md:justify-end">
           <Paginator
             perPage={questions.pagination.perPage}
-            totalCount={questions.pagination.totalCount}
+            totalCount={questions.pagination.viewableCount}
             page={questions.pagination.page}
             changePage={changePage}
           />

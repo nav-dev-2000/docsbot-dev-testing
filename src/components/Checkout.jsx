@@ -8,7 +8,7 @@ import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
 
-export default function Checkout({ team }) {
+export default function Checkout({ team, children }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [isStripeCustomer, setIsStripeCustomer] = useState(!!team.stripeCustomerId)
@@ -41,38 +41,55 @@ export default function Checkout({ team }) {
     setOpening(false)
   }
 
+  const Button = () => {
+    return (
+      <button
+        type="button"
+        className="text-md inline-flex w-64 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25"
+        onClick={openPortal}
+        disabled={opening}
+      >
+        {opening ? (
+          <LoadingSpinner />
+        ) : (
+          <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+        )}
+        Billing Portal
+      </button>
+    )
+  }
+
   return (
     <>
       <Alert title={errorText} type="error" />
 
-      <div className="">
-        {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
-        {isStripeCustomer && (
+      { children ? (
+        <>
           <div className="flex justify-center text-center">
             <div className="max-w-2xl">
-              <h3 className="text-3xl font-bold">Manage your Plan</h3>
-              <p className="text-md mt-2 text-gray-800">
-                You are currently on the {stripePlan(team).name} plan. Open our billing portal to
-                change your plan, update payment methods, download invoices, or cancel your
-                subscription.
-              </p>
-              <button
-                type="button"
-                className="text-md mt-8 inline-flex w-64 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25 md:mt-16"
-                onClick={openPortal}
-                disabled={opening}
-              >
-                {opening ? (
-                  <LoadingSpinner />
-                ) : (
-                  <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
-                )}
-                Billing Portal
-              </button>
+              {children}
+              <Button />
             </div>
           </div>
-        )}
-      </div>
+        </>
+      ) : (
+        <div className="">
+          {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
+          {isStripeCustomer && (
+            <div className="flex justify-center text-center">
+              <div className="max-w-2xl">
+                <h3 className="text-3xl font-bold">Manage your Plan</h3>
+                <p className="text-md mt-2 text-gray-800 mb-8 md:mb-16">
+                  You are currently on the {stripePlan(team).name} plan. Open our billing portal to
+                  change your plan, update payment methods, download invoices, or cancel your
+                  subscription.
+                </p>
+                <Button />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </>
   )
 }
