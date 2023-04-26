@@ -174,30 +174,33 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
     questions.push(question)
   })
 
-  //get total count
   snapshot = firestore
     .collection('teams')
     .doc(team.id)
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .limit(planLimit)
 
   if (filter) {
     snapshot = snapshot.where('ip', '==', filter)
   }
 
+  // get total count
   const countSnapshot = await snapshot.count().get()
-
   const totalCount = countSnapshot.data().count
-  console.log("total:", totalCount)
+
+  // get plan viewable count
+  const viewableSnapshot = await snapshot.limit(planLimit).count().get()
+  const viewableCount = viewableSnapshot.data().count
+  console.log("total:", viewableCount)
 
   const pagination = {
     perPage,
     page,
+    viewableCount,
     totalCount,
-    hasMorePages: offset + perPage < totalCount,
-    logLimit: planLimit,
+    hasMorePages: offset + perPage < viewableCount,
+    planLimit,
   }
 
   return { questions, pagination }

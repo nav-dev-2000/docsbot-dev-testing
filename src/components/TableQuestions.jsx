@@ -34,7 +34,7 @@ export default function TableQuestions({ team, questions, changePage }) {
   }
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return questions.questions.length + (questions.pagination.perPage * questions.pagination.page) >= questions.pagination.logLimit
+    return questions.questions.length + (questions.pagination.perPage * questions.pagination.page) >= questions.pagination.planLimit
   })
 
   const Source = ({ source }) => {
@@ -113,7 +113,7 @@ export default function TableQuestions({ team, questions, changePage }) {
     const [answerHtml, setAnswerHtml] = useState(null)
     const [shortAnswer, setShortAnswer] = useState(question.answer)
     const [disabled, setDisabled] = useState(() => {
-      return questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.logLimit;
+      return questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.planLimit;
     })
 
     useEffect(() => {
@@ -261,7 +261,7 @@ export default function TableQuestions({ team, questions, changePage }) {
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <Paginator
               perPage={questions.pagination.perPage}
-              totalCount={questions.pagination.totalCount}
+              totalCount={questions.pagination.viewableCount}
               page={questions.pagination.page}
               changePage={(page) => changePage(page, ipFilter)}
             />
@@ -319,11 +319,11 @@ export default function TableQuestions({ team, questions, changePage }) {
                     </th>
                   </tr>
                 </thead>
-                <tbody className='relative'>
+                <tbody>
                   {questions.questions.map((question, questionIdx) => {
                     return (
                       <tr key={question.id} className={clsx(
-                          questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.logLimit && blurEnabled ? "blur-sm" : "hover:bg-gray-50",
+                          (questionIdx + (questions.pagination.perPage * questions.pagination.page) + BLUR_LIMIT_COUNT >= questions.pagination.planLimit && blurEnabled) ? "blur-sm" : "hover:bg-gray-50",
                         )}
                       >
                         <td
@@ -397,13 +397,18 @@ export default function TableQuestions({ team, questions, changePage }) {
                       </tr>
                     )
                   })}
+                </tbody>
+                <tfoot className='relative'>
                   {blurEnabled && (
                     <div className="absolute bottom-0 left-50 w-full">
                       <div className="py-4">
                         <Checkout team={team} >
-                          <h3 className="text-3xl font-bold">Manage your Plan</h3>
-                          <p className="mb-8 md:mb-16 text-center text-gray-500">
-                            You've reached the limit of your current plan and must upgrade to view more logs. View{' '}
+                          <p className='mb-4 text-center text-gray-700'>
+                            ... and {questions.pagination.totalCount - questions.pagination.planLimit + BLUR_LIMIT_COUNT} more questions
+                          </p>
+                          <h3 className="text-3xl font-bold">View full chat history</h3>
+                          <p className="mb-8 text-center text-gray-700">
+                            Upgrade to the Premium plan or higher to unlock the full chat history of your users to help you improve your documentation and products. View{' '}
                             <Link href="/#pricing" target="_blank" className="underline">
                               plan details
                             </Link>
@@ -413,7 +418,7 @@ export default function TableQuestions({ team, questions, changePage }) {
                       </div>
                     </div>
                   )}
-                </tbody>
+                </tfoot>
               </table>
             </div>
           </div>
@@ -421,7 +426,7 @@ export default function TableQuestions({ team, questions, changePage }) {
         <div className="mt-6 flex justify-center md:justify-end">
           <Paginator
             perPage={questions.pagination.perPage}
-            totalCount={questions.pagination.totalCount}
+            totalCount={questions.pagination.viewableCount}
             page={questions.pagination.page}
             changePage={changePage}
           />
