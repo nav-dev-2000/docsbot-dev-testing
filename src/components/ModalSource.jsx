@@ -171,6 +171,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
                         />
                         <div className="mt-4 justify-start">
                           <ScheduleSelect
+                            team={team}
                             onSelect={setSelectedInterval}
                             defaultSelected={selectedInterval}
                           />

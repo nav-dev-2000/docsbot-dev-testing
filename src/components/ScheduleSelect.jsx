@@ -1,19 +1,37 @@
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { stripePlan } from '@/utils/helpers'
 
 const intervals = [
   {value: 'none', title: 'Never'},
-  {value: 'monthly', title: 'Monthly'},
-  {value: 'weekly', title: 'Weekly'},
-  {value: 'daily', title: 'Daily'},
+  {value: 'monthly', title: 'Monthly', plan: 'Pro'},
+  {value: 'weekly', title: 'Weekly', plan: 'Power'},
+  {value: 'daily', title: 'Daily', plan: 'Enterprise'},
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ScheduleSelect({ onSelect, defaultSelected }) {
+const getTimeInterval = (interval) => {
+  switch(interval) {
+    case 'daily': return 24 * 60 * 60 * 1000;
+    case 'weekly': return 7 * 24 * 60 * 60 * 1000;
+    case 'monthly': return 30 * 24 * 60 * 60 * 1000;
+    default: return 9999999999999999999999999;
+  }
+}
+
+const isAvailable = (team, interval) => {
+  const currentPlan = stripePlan(team)
+  const selectedInterval = getTimeInterval(interval)
+  const planLimit = getTimeInterval(currentPlan.scheduleInterval)
+  console.log(currentPlan.scheduleInterval, selectedInterval, planLimit)
+  return selectedInterval >= planLimit
+}
+
+export default function ScheduleSelect({ team, onSelect, defaultSelected }) {
   const [selected, setSelected] = useState(intervals.filter((interval) => interval.value === defaultSelected)[0])
 
   return (
@@ -54,9 +72,21 @@ export default function ScheduleSelect({ onSelect, defaultSelected }) {
                   >
                     {({ selected, active }) => (
                       <>
-                        <span className={classNames(selected ? 'font-semibold' : 'font-normal', 'block truncate')}>
-                          {interval.title}
-                        </span>
+                        <div className="flex">
+                          <span className={classNames(
+                            selected ? 'font-semibold' : 'font-normal', 
+                            isAvailable(team, interval.value) ? 'text-gray-900' : 'text-gray-400',
+                            'block truncate'
+                          )}>
+                            {interval.title}
+                          </span>
+                          <span className={classNames(
+                            isAvailable(team, interval.value) ? 'text-green-700' : 'text-gray-400',
+                            'ml-2 truncate'
+                          )}>
+                            {interval?.plan}
+                          </span>
+                        </div>
 
                         {selected ? (
                           <span

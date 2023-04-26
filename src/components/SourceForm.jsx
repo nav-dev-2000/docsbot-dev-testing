@@ -400,7 +400,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
               )}
               {selectedSourceType?.fieldSchedule && (
                 <div className="mt-4 justify-start">
-                  <ScheduleSelect onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
+                  <ScheduleSelect team={team} onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
                   <p className="mt-2 text-sm text-gray-500" id="title-description">
                     This will automatically refresh the source at the selected interval.
                   </p>
