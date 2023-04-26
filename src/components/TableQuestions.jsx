@@ -400,7 +400,7 @@ export default function TableQuestions({ team, questions, changePage }) {
                 </tbody>
                 <tfoot className='relative'>
                   {blurEnabled && (
-                    <div className="absolute bottom-0 left-50 w-full mb-0 sm:mb-24 md:mb-24 lg:mb-0">
+                    <div className="absolute bottom-0 left-50 w-full mb-0 sm:mb-24 md:mb-24 lg:mb-20 xl:mb-0">
                       <div className="py-4">
                         <Checkout team={team} >
                           <p className='mb-4 text-center text-gray-700'>
