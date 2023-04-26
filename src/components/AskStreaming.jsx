@@ -267,7 +267,7 @@ export default function AskStreaming({ teamId, bot }) {
                   </button>
                 </div>
               </form>
-              <div className='sm:flex items-center justify-between space-y-2 mt-2'>
+              <div className='sm:flex items-center justify-between mt-3'>
                 {questions && questions.length > 0 && (
                   questions.map((recommendedQuestion) => (
                     <button

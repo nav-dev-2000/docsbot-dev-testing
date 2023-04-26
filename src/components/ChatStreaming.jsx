@@ -408,7 +408,7 @@ export default function Chat({ teamId, bot }) {
             </div>
           </form>
 
-          <div className="mt-2 items-center justify-between space-y-2 sm:flex">
+          <div className="mt-3 items-center justify-between sm:flex">
             {questions &&
               questions.length > 0 &&
               questions.map((recommendedQuestion) => (
