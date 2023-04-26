@@ -155,7 +155,7 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
 
   // grab limits
   const plan = stripePlan(team)
-  const planLimit = parseInt(plan.logLimit)
+  const planLimit = plan.logLimit
   const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
 
   if (filter) {
