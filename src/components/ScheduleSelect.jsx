@@ -5,8 +5,8 @@ import { stripePlan } from '@/utils/helpers'
 
 const intervals = [
   {value: 'none', title: 'Never'},
-  {value: 'monthly', title: 'Monthly', plan: 'Pro'},
-  {value: 'weekly', title: 'Weekly', plan: 'Power'},
+  {value: 'monthly', title: 'Monthly', plan: 'Power'},
+  {value: 'weekly', title: 'Weekly', plan: 'Pro'},
   {value: 'daily', title: 'Daily', plan: 'Enterprise'},
 ]
 
