@@ -20,7 +20,7 @@ import Checkout from '@/components/Checkout'
 
 const BLUR_LIMIT_COUNT = 2; // the amount of questions to blur before the plan limit
 
-export default function TableQuestions({ team, questions, changePage }) {
+export default function TableQuestions({ team, botId, questions, setQuestions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const Sources = ({ sources }) => {
@@ -64,6 +64,45 @@ export default function TableQuestions({ team, questions, changePage }) {
       </li>
     )
   }
+
+  const saveRating = async (questionId, newRating) => {
+    const data = { rating: newRating };
+
+    const headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    };
+
+    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${botId}/rate/${questionId}`;
+    try {
+      const response = await fetch(apiUrl, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        setQuestions((prevQuestions) => {
+          const questionIndex = prevQuestions.questions.findIndex((question) => question.id === questionId);
+          const newQuestions = [...prevQuestions.questions];
+          newQuestions[questionIndex].rating = newRating;
+          return { ...prevQuestions, questions: newQuestions };
+        });
+      } else {
+        try {
+          const data = await response.json();
+          if (data.error) {
+            console.warn(
+              data.error || "Something went wrong, please try again."
+            );
+          }
+        } catch (e) {
+          console.warn(e);
+        }
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  };
 
   const FullSource = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
@@ -171,6 +210,22 @@ export default function TableQuestions({ team, questions, changePage }) {
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
                     <div className="absolute top-0 right-0 pt-4 pr-4">
+                      <button
+                        type="button"
+                        className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mr-2"
+                        onClick={() => saveRating(question.id, 1)}
+                      >
+                        <span className='sr-only'>Up vote</span>
+                        <HandThumbUpIcon className={clsx("h-6 w-6", question.rating > 0 ? 'text-green-600': 'text-gray-600')} aria-hidden="true" />
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mr-2"
+                        onClick={() => saveRating(question.id, -1)}
+                      >
+                        <span className='sr-only'>Up vote</span>
+                        <HandThumbDownIcon className={clsx("h-6 w-6", question.rating < 0 ? 'text-red-600': 'text-gray-600')} aria-hidden="true" />
+                      </button>
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"

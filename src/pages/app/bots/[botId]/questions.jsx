@@ -45,7 +45,7 @@ function Questions({ team, bot, preQuestions }) {
     <DashboardWrap page="Bots" title={title} team={team}>
       <Alert title={errorText} type="warning" />
 
-      <TableQuestions team={team} questions={questions} changePage={changePage} />
+      <TableQuestions team={team} questions={questions} setQuestions={setQuestions} botId={botId} changePage={changePage} />
     </DashboardWrap>
   )
 }
