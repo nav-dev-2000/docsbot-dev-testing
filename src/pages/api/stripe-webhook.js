@@ -271,7 +271,7 @@ const webhookHandler = async (req, res) => {
         }
       } catch (error) {
         console.log(error)
-        return res.status(400).send('Webhook error: ' + error?.message)
+        return res.status(400).send('Webhook error: ' + error?.message + '\n' + error?.stack)
       }
     }
 
