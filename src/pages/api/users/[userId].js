@@ -1,7 +1,7 @@
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getTeam, getTeamUsers } from '@/lib/dbQueries'
+import { getTeam, getTeamUsers, getInvitesFromTeam } from '@/lib/dbQueries'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getAuth } from 'firebase-admin/auth'
 import crypto from 'crypto'
@@ -57,9 +57,10 @@ export default async function handler(req, res) {
       //check if user is already in team
       const users = await getTeamUsers(currentTeam)
       const userInTeam = users.find((user) => user.uid === userId)
+      const invites = await getInvitesFromTeam(currentTeam)
       if (userInTeam || isSuperAdmin(userId)) {
         await firestore.collection('users').doc(userId).update({ currentTeam })
-        return res.json({ users: users, team: await getTeam(currentTeam) })
+        return res.json({ users: users, invites: invites, team: await getTeam(currentTeam) })
       } else {
         return res.status(403).json({ message: 'User not in team' })
       }

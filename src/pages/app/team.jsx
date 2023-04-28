@@ -177,11 +177,12 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
       body: JSON.stringify({ currentTeam: teamId }),
     })
     if (response.ok) {
-      const { users: newUsers, team: newTeam } = await response.json()
+      const { users: newUsers, invites: newInvites, team: newTeam } = await response.json()
       console.info(newUsers, newTeam)
       setCurrTeam(newTeam)
       setNewTeamName(newTeam.name)
       setCurrTeamUsers(newUsers)
+      setCurrTeamInvites(newInvites)
     } else {
       try {
         const data = await response.json()
