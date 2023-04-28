@@ -3,7 +3,9 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { routePaths } from '@/constants/routePaths.constants'
 import { getAuthorizedUser } from './getAuthorizedUser'
 import { isSuperAdmin } from '@/utils/helpers'
+import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.constants'
 import { getTeam } from '@/lib/dbQueries'
+import cookie from 'cookie'
 
 export const getAuthorizedUserCurrentTeam = async (context) => {
   configureFirebaseApp()
@@ -75,9 +77,19 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
     // If session verification fails or token expires (auth/session-cookie-expire),
     // then redirect back to login.
     console.error(error)
+
+    // clear cookie
+    context.res.setHeader(
+      'Set-Cookie',
+      cookie.serialize(
+        authDefaults.COOKIE_NAME,
+        '',
+      )
+    )
+
     return {
       redirect: {
-        destination: routePaths.ROOT,
+        destination: routePaths.LOGIN,
         permanent: false,
       },
     }
