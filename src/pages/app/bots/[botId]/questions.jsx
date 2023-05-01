@@ -64,9 +64,10 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  if (data.props.team) {
+  if (data?.props?.team) {
     data.props.preQuestions = await getQuestions(data.props.team, botId)
   } else {
+    data.props = data.props || {}
     data.props.preQuestions = {
       pagination: {
         perPage: 50,

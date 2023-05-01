@@ -8,8 +8,8 @@ import {
   LinkIcon,
   MinusIcon,
   XMarkIcon,
+  LifebuoyIcon,
   AdjustmentsHorizontalIcon,
-  CreditCardIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -73,7 +73,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
       "Content-Type": "application/json",
     };
 
-    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${botId}/rate/${questionId}`;
+    const apiUrl = `http://localhost:9000/teams/${team.id}/bots/${botId}/rate/${questionId}`;
     try {
       const response = await fetch(apiUrl, {
         method: "PUT",
@@ -135,13 +135,14 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
     )
   }
 
-  const Rating = ({ rating }) => {
-    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon
-    const color = rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500'
+  const Rating = ({ rating, escalation }) => {
+    const ThumbIcon = escalation ? LifebuoyIcon : (rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon)
+    const color = escalation ? 'text-blue-700' : (rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500')
+    const spanText = escalation ? 'Escalated to support' : (rating > 0 ? 'Up vote' : rating < 0 ? 'Down vote' : 'Neutral')
 
     return (
       <>
-        <span className="sr-only">{rating > 0 ? 'Up vote' : 'Down vote'}</span>
+        <span className="sr-only">{spanText}</span>
         <ThumbIcon className={clsx(color, 'h-6 w-6')} aria-hidden="true" />
       </>
     )
@@ -446,7 +447,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <Rating rating={question.rating} />
+                            <Rating rating={question.rating} escalation={question?.escalation} />
                           </Answer>
                         </td>
                       </tr>
