@@ -17,6 +17,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Checkout from '@/components/Checkout'
+import Alert from '@/components/Alert'
 
 const BLUR_LIMIT_COUNT = 2; // the amount of questions to blur before the plan limit
 
@@ -73,7 +74,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
       "Content-Type": "application/json",
     };
 
-    const apiUrl = `http://localhost:9000/teams/${team.id}/bots/${botId}/rate/${questionId}`;
+    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${botId}/rate/${questionId}`;
     try {
       const response = await fetch(apiUrl, {
         method: "PUT",
@@ -210,7 +211,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute top-0 right-0 pt-4 pr-4">
+                    <div className="absolute top-0 right-0 pt-4 pr-4 flex">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mr-2"
@@ -237,6 +238,9 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                       </button>
                     </div>
                     <div className="p-8">
+                      {question?.escalation && (
+                        <Alert title="This user escalated this message to support" type="info" className="rounded-t-lg" />
+                      )}
                       <div className="flex p-0">
                         <h2 className="text-md flex items-center font-medium text-gray-400">
                           <img
