@@ -412,7 +412,10 @@ export default function SourceForm({ team, bot, sources, setSources }) {
             <button
               type="button"
               className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-              onClick={() => setShowForm(false)}
+              onClick={() => {
+                setFile(null)
+                setShowForm(false)
+              }}
               disabled={isUpdating}
             >
               Cancel
