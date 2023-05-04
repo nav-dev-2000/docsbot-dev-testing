@@ -76,6 +76,8 @@ const includedFeatures = [
   'Unlock all source types',
   'Daily source refresh',
   '100k+ questions/mo',
+  'Private bots',
+  'GPT-4 support',
   '50+ team users',
   'Advanced Analytics *',
   'Chat history',
