@@ -172,6 +172,11 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
   querySnapshot.forEach(async (doc) => {
     let question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
     question.createdAt = question.createdAt.toDate().toJSON() //make serializable
+    
+    // question.sources = doc.data().sources || []
+    if (Object.keys(question.sources).length === 0) {
+      question.sources = []
+    }
     questions.push(question)
   })
 
