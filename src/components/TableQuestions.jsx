@@ -8,8 +8,8 @@ import {
   LinkIcon,
   MinusIcon,
   XMarkIcon,
+  LifebuoyIcon,
   AdjustmentsHorizontalIcon,
-  CreditCardIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -17,6 +17,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Checkout from '@/components/Checkout'
+import Alert from '@/components/Alert'
 
 const BLUR_LIMIT_COUNT = 2; // the amount of questions to blur before the plan limit
 
@@ -135,13 +136,14 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
     )
   }
 
-  const Rating = ({ rating }) => {
-    const ThumbIcon = rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon
-    const color = rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500'
+  const Rating = ({ rating, escalation }) => {
+    const ThumbIcon = escalation ? LifebuoyIcon : (rating > 0 ? HandThumbUpIcon : rating < 0 ? HandThumbDownIcon : MinusIcon)
+    const color = escalation ? 'text-blue-700' : (rating > 0 ? 'text-green-600' : rating < 0 ? 'text-red-600' : 'text-gray-500')
+    const spanText = escalation ? 'Escalated to support' : (rating > 0 ? 'Up vote' : rating < 0 ? 'Down vote' : 'Neutral')
 
     return (
       <>
-        <span className="sr-only">{rating > 0 ? 'Up vote' : 'Down vote'}</span>
+        <span className="sr-only">{spanText}</span>
         <ThumbIcon className={clsx(color, 'h-6 w-6')} aria-hidden="true" />
       </>
     )
@@ -209,7 +211,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute top-0 right-0 pt-4 pr-4">
+                    <div className="absolute top-0 right-0 pt-4 pr-4 flex">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 mr-2"
@@ -236,6 +238,9 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                       </button>
                     </div>
                     <div className="p-8">
+                      {question?.escalation && (
+                        <Alert title="This user escalated this message to support" type="info" className="rounded-t-lg" />
+                      )}
                       <div className="flex p-0">
                         <h2 className="text-md flex items-center font-medium text-gray-400">
                           <img
@@ -446,7 +451,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <Rating rating={question.rating} />
+                            <Rating rating={question.rating} escalation={question?.escalation} />
                           </Answer>
                         </td>
                       </tr>
