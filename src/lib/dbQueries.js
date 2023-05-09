@@ -44,6 +44,14 @@ export async function getBot(teamId, botId) {
       bot.signature = `${hmac.digest('hex')}:${expires}`
     }
 
+    // grab the number of questions in the last month
+    const questionsRef = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
+      'createdAt',
+      '>',
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+    ).count().get()
+    bot.questionCount = questionsRef.data().count
+
     if (!bot.model) {
       bot.model = 'gpt-3.5-turbo'
     }
