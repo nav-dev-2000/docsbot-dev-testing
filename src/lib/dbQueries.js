@@ -1,11 +1,10 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore, FieldValue, FieldPath } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 
 import crypto from 'crypto'
-import { tomorrowNightBright } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 configureFirebaseApp()
 const firestore = getFirestore()
 
@@ -35,19 +34,31 @@ export async function getBots(team, resultLimit = 1000) {
 export async function getQuestionCount(teamId, botId = null, timeDelta = 30 * 24 * 60 * 60 * 1000) {
   if (botId !== null) {
     // grab question count for specific bot
-    return await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
+    const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
       'createdAt',
       '>',
       new Date(Date.now() - timeDelta),
-    ).count().get().data().count
+    ).select(FieldPath.documentId()).get()
+    return questions.size
   }
 
-  // grab question count for all bots in a specified team
-  return await firestore.collection('teams').collection_group('questions').where(
+  const teamRef = firestore.doc(`teams/${teamId}`)
+  const questions = await firestore.collectionGroup('attractions')
+  .orderBy(FieldPath.documentId())
+  .startAt(teamRef.path)
+  .endAt(teamRef.path + "\uf8ff")
+  .where(
     'createdAt',
     '>',
     new Date(Date.now() - timeDelta),
-  ).count().get().data().count
+  ).select(FieldPath.documentId()).get()
+  // grab question count for all bots in a specified team
+  // return await firestore.collection('teams').collection_group('questions').where(
+  //   'createdAt',
+  //   '>',
+  //   new Date(Date.now() - timeDelta),
+  // ).count().get().data().count
+  return questions.size
 }
 
 export async function getBot(teamId, botId) {
@@ -259,6 +270,8 @@ export async function getTeam(teamId) {
         : 'sk-*...****'
       : null
     delete team.openAIKeyPreview
+
+    //team.questionCount = await getQuestionCount(teamId)
     return team
   } else {
     return null
