@@ -30,34 +30,13 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
-// if botId is null, return all questions for the team
-export async function getQuestionCount(teamId, botId = null, timeDelta = 30 * 24 * 60 * 60 * 1000) {
-  if (botId !== null) {
-    // grab question count for specific bot
-    const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
-      'createdAt',
-      '>',
-      new Date(Date.now() - timeDelta),
-    ).select(FieldPath.documentId()).get()
-    return questions.size
-  }
-
-  const teamRef = firestore.doc(`teams/${teamId}`)
-  const questions = await firestore.collectionGroup('attractions')
-  .orderBy(FieldPath.documentId())
-  .startAt(teamRef.path)
-  .endAt(teamRef.path + "\uf8ff")
-  .where(
+export async function getQuestionCount(teamId, botId, timeDelta = 30 * 24 * 60 * 60 * 1000) {
+  // grab question count for specific bot
+  const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
     'createdAt',
     '>',
     new Date(Date.now() - timeDelta),
   ).select(FieldPath.documentId()).get()
-  // grab question count for all bots in a specified team
-  // return await firestore.collection('teams').collection_group('questions').where(
-  //   'createdAt',
-  //   '>',
-  //   new Date(Date.now() - timeDelta),
-  // ).count().get().data().count
   return questions.size
 }
 
@@ -270,8 +249,6 @@ export async function getTeam(teamId) {
         : 'sk-*...****'
       : null
     delete team.openAIKeyPreview
-
-    //team.questionCount = await getQuestionCount(teamId)
     return team
   } else {
     return null
