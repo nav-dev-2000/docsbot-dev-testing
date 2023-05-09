@@ -5,6 +5,7 @@ import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 
 import crypto from 'crypto'
+import { tomorrowNightBright } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 configureFirebaseApp()
 const firestore = getFirestore()
 
@@ -30,6 +31,25 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
+// if botId is null, return all questions for the team
+export async function getQuestionCount(teamId, botId = null, timeDelta = 30 * 24 * 60 * 60 * 1000) {
+  if (botId !== null) {
+    // grab question count for specific bot
+    return await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
+      'createdAt',
+      '>',
+      new Date(Date.now() - timeDelta),
+    ).count().get().data().count
+  }
+
+  // grab question count for all bots in a specified team
+  return await firestore.collection('teams').collection_group('questions').where(
+    'createdAt',
+    '>',
+    new Date(Date.now() - timeDelta),
+  ).count().get().data().count
+}
+
 export async function getBot(teamId, botId) {
   const botRef = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).get()
   if (botRef.exists) {
@@ -45,12 +65,7 @@ export async function getBot(teamId, botId) {
     }
 
     // grab the number of questions in the last month
-    const questionsRef = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
-      'createdAt',
-      '>',
-      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
-    ).count().get()
-    bot.questionCount = questionsRef.data().count
+    bot.questionCount = await getQuestionCount(teamId, botId)
 
     if (!bot.model) {
       bot.model = 'gpt-3.5-turbo'
