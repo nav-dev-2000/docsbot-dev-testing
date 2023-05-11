@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore } from 'firebase-admin/firestore'
+import { FieldValue, getFirestore } from 'firebase-admin/firestore'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
@@ -45,6 +45,7 @@ const handler = async (req, res) => {
     res.setHeader('Pragma', 'no-cache')
 
     // write questions to csv file
+    res.write('alias,timestamp,question,answer\n')
     questions.forEach((doc) => {
       const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
       // remove newlines, convert quotes from data
@@ -52,6 +53,21 @@ const handler = async (req, res) => {
       const cleanedAnswer = question.answer.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
       res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${cleanedQuestion}","${cleanedAnswer}"\n`)
     })
+
+    const countSnapshot = await firestore
+      .collection('teams')
+      .doc(team.id)
+      .collection('bots')
+      .doc(botId)
+      .collection('questions')
+      .count()
+      .get()
+
+    // let user know they're missing data, and to upgrade their plan to view full log
+    const totalCount = countSnapshot.data().count
+    if (totalCount > planLimit) {
+      res.write('This log has been truncated. Upgrade your plan to view the full log.\n')
+    }
 
     res.status(200).end()
   } else {
