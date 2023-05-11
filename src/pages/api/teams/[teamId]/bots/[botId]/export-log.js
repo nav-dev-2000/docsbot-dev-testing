@@ -1,3 +1,6 @@
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getFirestore } from 'firebase-admin/firestore'
+import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
 
@@ -44,7 +47,10 @@ const handler = async (req, res) => {
     // write questions to csv file
     questions.forEach((doc) => {
       const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
-      res.write(`${question.alias},${question.createdAt},${question.question},${question.answer}\n`)
+      // remove newlines, convert quotes from data
+      const cleanedQuestion = question.question.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
+      const cleanedAnswer = question.answer.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
+      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${cleanedQuestion}","${cleanedAnswer}"\n`)
     })
 
     res.status(200).end()
