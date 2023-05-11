@@ -40,7 +40,7 @@ const handler = async (req, res) => {
 
     // respond with csv file
     res.setHeader('Content-Type', 'text/csv')
-    res.setHeader('Content-Disposition', 'attachment; filename=\"' + botId + '-questions.csv\"')
+    res.setHeader('Content-Disposition', 'attachment; filename=\"' + bot.name + '-questions.csv\"')
     res.setHeader('Cache-Control', 'no-cache')
     res.setHeader('Pragma', 'no-cache')
 
