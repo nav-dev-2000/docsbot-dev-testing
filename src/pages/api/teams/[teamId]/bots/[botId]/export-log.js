@@ -4,6 +4,10 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
 
+const sanitize = (str) => {
+  return str.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
+}
+
 // this handler will export the question log of a bot to a csv file
 const handler = async (req, res) => {
   configureFirebaseApp()
@@ -40,18 +44,31 @@ const handler = async (req, res) => {
 
     // respond with csv file
     res.setHeader('Content-Type', 'text/csv')
-    res.setHeader('Content-Disposition', 'attachment; filename=\"' + bot.name + '-questions.csv\"')
+    res.setHeader('Content-Disposition', 'attachment; filename=\"' + bot.id + '-questions.csv\"')
     res.setHeader('Cache-Control', 'no-cache')
     res.setHeader('Pragma', 'no-cache')
 
     // write questions to csv file
-    res.write('alias,timestamp,question,answer\n')
+    res.write('alias,timestamp,question,answer,sources\n')
     questions.forEach((doc) => {
       const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
       // remove newlines, convert quotes from data
-      const cleanedQuestion = question.question.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
-      const cleanedAnswer = question.answer.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
-      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${cleanedQuestion}","${cleanedAnswer}"\n`)
+      const cleanedQuestion = sanitize(question.question)
+      const cleanedAnswer = sanitize(question.answer)
+
+      // build sources string
+      let sources = ''
+      if (question.sources) {
+        question.sources.forEach((source) => {
+          sources += `${sanitize(source.title)}`
+          if (source.url) {
+            sources += ` (${source.url})`
+          }
+          sources += '; '
+        })
+      }
+
+      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
     })
 
     const countSnapshot = await firestore
