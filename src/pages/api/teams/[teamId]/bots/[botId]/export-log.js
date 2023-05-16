@@ -1,8 +1,9 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { FieldValue, getFirestore } from 'firebase-admin/firestore'
+import { getFirestore } from 'firebase-admin/firestore'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
+import getFakeUserByIp from '@/utils/fakeUsers'
 
 const sanitize = (str) => {
   return str.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
