@@ -59,7 +59,7 @@ const handler = async (req, res) => {
 
       // build sources string
       let sources = ''
-      if (question.sources) {
+      if (question.sources && Array.isArray(question.sources)) {
         question.sources.forEach((source) => {
           sources += `${sanitize(source.title)}`
           if (source.url) {
