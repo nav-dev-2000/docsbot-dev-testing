@@ -5,7 +5,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot, getQuestions } from '@/lib/dbQueries'
 import TableQuestions from '@/components/TableQuestions'
-import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 
 function Questions({ team, bot, preQuestions }) {
   const [questions, setQuestions] = useState(preQuestions)
@@ -37,6 +37,13 @@ function Questions({ team, bot, preQuestions }) {
     }
   }
 
+  const downloadLogs = async () => {
+    var link = document.createElement("a");
+    link.href = "/api/teams/" + team.id + "/bots/" + botId + "/export-log";
+    link.click();
+    link.remove();
+  }
+
   if (!bot) return null
 
   const title = [ bot.name, 'Questions']
@@ -44,6 +51,13 @@ function Questions({ team, bot, preQuestions }) {
   return (
     <DashboardWrap page="Bots" title={title} team={team}>
       <Alert title={errorText} type="warning" />
+      <button
+        onClick={downloadLogs}
+        type="button"
+        className="mb-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+      >
+        <ArrowDownTrayIcon className='h-6 w-6 mr-2'/> Export Logs
+      </button>
 
       <TableQuestions team={team} questions={questions} setQuestions={setQuestions} botId={botId} changePage={changePage} />
     </DashboardWrap>

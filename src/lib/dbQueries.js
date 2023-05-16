@@ -18,7 +18,7 @@ export async function getBots(team, resultLimit = 1000) {
     .get()
 
   let bots = []
-  querySnapshot.forEach(async (doc) => {
+  querySnapshot.forEach((doc) => {
     let bot = { id: doc.id, ...doc.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
     if (!bot.model) {
@@ -169,7 +169,7 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
   // grab questions
   const querySnapshot = await questionsRef.get()
   let questions = []
-  querySnapshot.forEach(async (doc) => {
+  querySnapshot.forEach((doc) => {
     let question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
     question.createdAt = question.createdAt.toDate().toJSON() //make serializable
     
