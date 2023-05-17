@@ -6,10 +6,10 @@ export default async function handler(request, response) {
   configureFirebaseApp();
   const firestore = getFirestore();
 
-  // if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
-  //   response.status(404).end();
-  //   return;
-  // }
+  if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
+    response.status(404).end();
+    return;
+  }
 
   console.log("cron updateCounts started!");
 
