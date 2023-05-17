@@ -6,10 +6,10 @@ export default async function handler(request, response) {
   configureFirebaseApp();
   const firestore = getFirestore();
 
-  if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
-    response.status(404).end();
-    return;
-  }
+  // if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
+  //   response.status(404).end();
+  //   return;
+  // }
 
   console.log("cron updateCounts started!");
 
@@ -21,26 +21,46 @@ export default async function handler(request, response) {
 
       const botsSnapshot = await teamDoc.ref.collection('bots').get();
       const countPromises = botsSnapshot.docs.map(async (botDoc) => {
-        const count = await getQuestionCount(teamDoc.id, botDoc.id);
-        return count;
+        const questionCount = await getQuestionCount(teamDoc.id, botDoc.id);
+
+        // grab the # of source pages
+        const sourcesSnapshot = await botDoc.ref.collection('sources').get();
+        const sourcePromises = sourcesSnapshot.docs.map(async (sourceDoc) => {
+          const source = sourceDoc.data();
+          return source.pageCount;
+        });
+
+        // wait for each callback to complete, then take and sum the results
+        const sourceCounts = await Promise.all(sourcePromises);
+        const sourceCountTotal = sourceCounts.reduce((accumulator, count) => accumulator + count, 0);
+
+        // update bot count
+        botDoc.ref.update({
+          'questionCount': questionCount,
+          'pageCount': sourceCountTotal,
+        });
+        return {questionCount, sourceCountTotal};
       });
 
       // wait for each callback to complete, then take and sum the results
       const botCounts = await Promise.all(countPromises);
-      const countTotal = botCounts.reduce((accumulator, count) => accumulator + count, 0);
+      const {questionCount: questionTotal, sourceCountTotal: sourcePageTotal} = botCounts.reduce(({questionCount: questionAccumulator, sourceCountTotal: sourceAccumulator}, {questionCount, sourceCountTotal}) => {
+        return {questionCount: (questionCount + questionAccumulator), sourceCountTotal: (sourceCountTotal + sourceAccumulator)}
+      }, {questionCount: 0, sourceCountTotal: 0});
 
-      console.log("team", teamDoc.id, "has", countTotal, "questions");
+      console.log("team", teamDoc.id, "has", questionTotal, "questions,", sourcePageTotal, "source pages");
 
       // update team count && needsUpdate
       teamDoc.ref.update({
-        'questionCount': countTotal,
-        'needsUpdate': false
+        'questionCount': questionTotal,
+        'pageCount': sourcePageTotal,
+        'needsUpdate': false,
       });
     });
 
     await Promise.all(teamsPromises);
   } catch (error) {
-    console.warn('Error getting document:', error);
+    console.warn('Error updating source count:', error);
     response.status(500).json({ message: error });
     return;
   }
