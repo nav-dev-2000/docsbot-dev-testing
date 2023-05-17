@@ -54,9 +54,6 @@ export async function getBot(teamId, botId) {
       bot.signature = `${hmac.digest('hex')}:${expires}`
     }
 
-    // grab the number of questions in the last month
-    bot.questionCount = await getQuestionCount(teamId, botId)
-
     if (!bot.model) {
       bot.model = 'gpt-3.5-turbo'
     }
