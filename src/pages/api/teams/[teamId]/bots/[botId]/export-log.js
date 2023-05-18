@@ -50,7 +50,7 @@ const handler = async (req, res) => {
     res.setHeader('Pragma', 'no-cache')
 
     // write questions to csv file
-    res.write('alias,timestamp,question,answer,sources\n')
+    res.write('alias,timestamp,rating,question,answer,sources\n')
     questions.forEach((doc) => {
       const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
       // remove newlines, convert quotes from data
@@ -69,7 +69,11 @@ const handler = async (req, res) => {
         })
       }
 
-      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
+
+      const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
+      const rating = question?.escalation ? 'Contacted Support' : ratingValue;
+
+      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
     })
 
     const countSnapshot = await firestore
