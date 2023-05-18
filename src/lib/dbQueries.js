@@ -30,6 +30,17 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
+
+export async function getQuestionCountTransaction(transaction, teamId, botId, timeDelta = 30 * 24 * 60 * 60 * 1000) {
+  // grab question count for specific bot
+  const questions = await transaction.get(firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
+    'createdAt',
+    '>',
+    new Date(Date.now() - timeDelta),
+  ).select(FieldPath.documentId()))
+  return questions.size
+}
+
 export async function getQuestionCount(teamId, botId, timeDelta = 30 * 24 * 60 * 60 * 1000) {
   // grab question count for specific bot
   const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
