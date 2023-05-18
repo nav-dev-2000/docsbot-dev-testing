@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Bot not found' })
       }
 
-      const {
+      let {
         name,
         description,
         customPrompt,
@@ -189,18 +189,22 @@ export default async function handler(req, res) {
         const validLabels = Object.keys(i18n.en.labels);
         const labelsKeys = Object.keys(labels);
         const invalidLabels = labelsKeys.filter((label) => !validLabels.includes(label));
-      
+
         if (invalidLabels.length > 0) {
           return res.status(400).send({
             message: `Invalid labels: ${invalidLabels.join(', ')}. Valid labels: ${validLabels.join(', ')}`,
           });
         }
-      
+
         // Check for missing labels
         const missingLabels = validLabels.filter((label) => !labelsKeys.includes(label));
         if (missingLabels.length > 0) {
-          return res.status(400).send({
-            message: `Missing labels: ${missingLabels.join(', ')}. These labels must be set: ${validLabels.join(', ')}`,
+          // return res.status(400).send({
+          //   message: `Missing labels: ${missingLabels.join(', ')}. These labels must be set: ${validLabels.join(', ')}`,
+          // });
+          // populate the missing labels with the default values
+          missingLabels.forEach((label) => {
+            labels[label] = i18n[language || bot.language].labels[label];
           });
         }
       
