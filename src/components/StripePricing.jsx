@@ -1,7 +1,7 @@
 import Script from 'next/script'
 import Alert from '@/components/Alert'
-import Image from 'next/image'
 import { CheckBadgeIcon } from '@heroicons/react/24/solid'
+import { useState } from 'react'
 
 function stripeEmbed(teamId, email, table) {
   return {
@@ -14,6 +14,8 @@ customer-email="${email}">
 }
 
 export function StripePricingTable({ teamId, email }) {
+  const [enterprise, setEnterprise] = useState(false)
+
   return (
     <div>
       <div className="mb-2 text-center">
@@ -41,6 +43,18 @@ export function StripePricingTable({ teamId, email }) {
           process.env.NEXT_PUBLIC_STRIPE_PRICING_TABLE
         )}
       />
+      <div className="mt-4 mb-6 text-center">
+        <p className="text-md text-gray-600">Need more? <button onClick={() => setEnterprise(true)} className="underline hover:text-gray-800">View our Enterprise Options</button></p>
+      </div>
+      {enterprise && (
+        <div
+        dangerouslySetInnerHTML={stripeEmbed(
+          teamId,
+          email,
+          process.env.NEXT_PUBLIC_STRIPE_PRICING_TABLE_ENTERPRISE
+        )}
+      />
+      )}
     </div>
   )
 }
