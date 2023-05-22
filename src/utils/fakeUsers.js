@@ -2,8 +2,8 @@ import {adjectives, nouns} from '@/utils/wordList'
 import random from 'random'
 import seedrandom from 'seedrandom'
 
+const blacklistedAliases = JSON.parse(process.env.BLACKLISTED_ALIASES);
 const getFakeUserByIp = (ip) => {
-  const blacklistedAliases = JSON.parse(process.env.BLACKLISTED_ALIASES);
   let alias;
 
   random.use(seedrandom(ip))
