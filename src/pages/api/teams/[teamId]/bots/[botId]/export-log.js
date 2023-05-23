@@ -1,9 +1,13 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
+import { getStorage } from 'firebase-admin/storage'
+import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getBot } from '@/lib/dbQueries';
+import { getBot, getUser } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
-import getFakeUserByIp from '@/utils/fakeUsers'
+import getFakeUserByIp from '@/utils/fakeUsers';
+import sendEmail from '@/lib/sendEmail';
 
 const sanitize = (str) => {
   return str.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
@@ -13,6 +17,7 @@ const sanitize = (str) => {
 const handler = async (req, res) => {
   configureFirebaseApp()
   const firestore = getFirestore()
+  const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
 
   //check if user has access to team
   let check = null
@@ -43,14 +48,11 @@ const handler = async (req, res) => {
       .limit(planLimit)
       .get()
 
-    // respond with csv file
-    res.setHeader('Content-Type', 'text/csv')
-    res.setHeader('Content-Disposition', 'attachment; filename=\"' + bot.id + '-questions.csv\"')
-    res.setHeader('Cache-Control', 'no-cache')
-    res.setHeader('Pragma', 'no-cache')
+
+    var csvData = [];
 
     // write questions to csv file
-    res.write('alias,timestamp,rating,question,answer,sources\n')
+    csvData.push('alias,timestamp,rating,question,answer,sources\n')
     questions.forEach((doc) => {
       const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
       // remove newlines, convert quotes from data
@@ -73,7 +75,7 @@ const handler = async (req, res) => {
       const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
       const rating = question?.escalation ? 'Contacted Support' : ratingValue;
 
-      res.write(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
+      csvData.push(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
     })
 
     const countSnapshot = await firestore
@@ -88,10 +90,26 @@ const handler = async (req, res) => {
     // let user know they're missing data, and to upgrade their plan to view full log
     const totalCount = countSnapshot.data().count
     if (totalCount > planLimit) {
-      res.write('This log has been truncated. Upgrade your plan to view the full log.\n')
+      csvData.push('This log has been truncated. Upgrade your plan to view the full log.\n')
     }
 
-    res.status(200).end()
+    // upload csv file to storage
+    const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
+    await file.save(csvData.join(''))
+
+    // sign url for 7 days
+    const url = (await file.getSignedUrl({
+      action: 'read',
+      promptSaveAs: `questions-${bot.id}.csv`,
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
+    }))[0];
+
+    // disabled for now
+    // // email user with link to download csv file
+    // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
+    // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
+
+    res.status(200).json({ url: url })
   } else {
     res.setHeader('Allow', ['GET'])
     res.status(405).end(`Method ${req.method} Not Allowed`)
