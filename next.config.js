@@ -6,7 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   api: {
-    responseLimit: '100mb',
+    responseLimit: false,
   },
   experimental: {
     newNextLinkBehavior: true,
