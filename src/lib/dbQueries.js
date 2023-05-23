@@ -30,8 +30,20 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
+const getTimeDeltaFromCalendarMonth = () => {
+  // grab the current month and year
+  let currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
 
-export async function getQuestionCountTransaction(transaction, teamId, botId, timeDelta = 30 * 24 * 60 * 60 * 1000) {
+  // first day of the current month
+  var startDate = new Date(currentYear, currentMonth, 1);
+
+  // calculate the difference in milliseconds
+  return currentDate - startDate;
+}
+
+export async function getQuestionCountTransaction(transaction, teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
   // grab question count for specific bot
   const questions = await transaction.get(firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
     'createdAt',
@@ -41,7 +53,7 @@ export async function getQuestionCountTransaction(transaction, teamId, botId, ti
   return questions.size
 }
 
-export async function getQuestionCount(teamId, botId, timeDelta = 30 * 24 * 60 * 60 * 1000) {
+export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
   // grab question count for specific bot
   const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
     'createdAt',
