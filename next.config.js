@@ -5,6 +5,9 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md'],
   reactStrictMode: true,
   swcMinify: true,
+  api: {
+    responseLimit: '100mb',
+  },
   experimental: {
     newNextLinkBehavior: true,
     scrollRestoration: true,
