@@ -104,8 +104,6 @@ const handler = async (req, res) => {
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
     }))[0];
 
-    console.log('uploaded csv:', url)
-
     // disabled for now
     // // email user with link to download csv file
     // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
