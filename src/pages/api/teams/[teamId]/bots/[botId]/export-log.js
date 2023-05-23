@@ -106,9 +106,10 @@ const handler = async (req, res) => {
 
     console.log('uploaded csv:', url)
 
-    // email user with link to download csv file
-    const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
-    await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
+    // disabled for now
+    // // email user with link to download csv file
+    // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
+    // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
 
     res.status(200).json({ url: url })
   } else {
