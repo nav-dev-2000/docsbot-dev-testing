@@ -22,6 +22,7 @@ export default async function handler(request, response) {
       try {
         // make transaction
         await firestore.runTransaction(async (transaction) => {
+          const teamData = teamDoc.data();
           const botsSnapshot = await transaction.get(teamDoc.ref.collection('bots'));
           const countPromises = botsSnapshot.docs.map(async (botDoc) => {
             const questionCount = await getQuestionCountTransaction(transaction, teamDoc.id, botDoc.id);
@@ -55,11 +56,19 @@ export default async function handler(request, response) {
           );
 
           console.log("team", teamDoc.id, "has", questionTotal, "questions,", sourcePageTotal, "source pages");
+          let currentDate = new Date();
+          let currentMonth = currentDate.getMonth();
+          let currentYear = currentDate.getFullYear();
 
           // update team count && needsUpdate
+          const prevHistory = teamData.questionCountHistory || {};
           transaction.update(teamDoc.ref, {
             'questionCount': questionTotal,
             'pageCount': sourcePageTotal,
+            'questionCountHistory': {
+              ...prevHistory,
+              [`${currentYear}-${currentMonth}`]: questionTotal,
+            },
             'needsUpdate': false,
           });
         });
