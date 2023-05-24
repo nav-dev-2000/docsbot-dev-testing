@@ -1,7 +1,6 @@
 import sendEmail from '@/lib/sendEmail'
 
 const sendInviteEmail = async (user, inviter, team) => {
-  console.log('sending email:', user, inviter, team)
   const name = inviter.name || inviter.email
   const emailBody = `You have been invited by ${name} to join ${team.name} on DocsBot, a powerful platform for managing custom-trained AI chatbots!
   To get started, please follow these simple steps:
