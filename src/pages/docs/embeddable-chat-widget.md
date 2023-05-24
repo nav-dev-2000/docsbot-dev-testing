@@ -16,7 +16,7 @@ We make it super simple to add chats to your site with our simple embed code. Yo
 You can find the full embed code for your bot from the [Bot](/app/bots) page for your specific bot. It looks a bit like this:
 
 ```html
-<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(t){return new Promise((e,n)=>{var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://widget.docsbot.ai/chat.js";const i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i),s.addEventListener("load",()=>{window.DocsBotAI.mount({id:t.id,supportCallback:t.supportCallback});let o;o=function o(t){return new Promise((e)=>{if(document.querySelector(t))return e(document.querySelector(t));const n=new MutationObserver((o)=>{if(document.querySelector(t))return e(document.querySelector(t)),n.disconnect()});n.observe(document.body,{childList:!0,subtree:!0})})},o&&o("#docsbotai-root").then(e).catch(n)}),s.addEventListener("error",(t)=>{n(t.message)})})}</script>
+<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};</script>
 <script type="text/javascript">
     DocsBotAI.init({id: "YOUR_ID_HERE"});
 </script>
@@ -25,6 +25,12 @@ You can find the full embed code for your bot from the [Bot](/app/bots) page for
 ### Adding the Embed Code
 
 Copy the code and paste it into the `<head>` section of your website. If it's simpler you can insert the code anywhere in your site's html before the closing `</body>` tag. The embed code may appear the same but the `{id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy"}`  is unique to your bot, so be sure to copy the proper code from your bot page.
+
+### Privacy and Security
+
+Bots that are set to private cannot use the embed code currently as you would have to expose your API key to the public. We may add an option in the future to allow the widget with a temporary expiring token, please let us know if you need this feature.
+
+We allow you to embed the widget on any domain by default, but you can restrict the domains that the widget can be embedded on in the widget settings on the bot page. This is useful if you want to restrict the widget to only be embedded on your own domains. Note that you will have to add each domain including subdomains separately. Example: `docsbot.ai` and `www.docsbot.ai` are considered separate domains. We do not support wildcards at this time.
 
 ### Performance
 

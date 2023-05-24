@@ -40,6 +40,8 @@ export default function ModalEmbed({ team, bot }) {
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   //bot settings
+  const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
+  const [allowedDomainsText, setAllowedDomainsText] = useState(allowedDomains.join(', '))
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
   const [alignment, setAlignment] = useState(bot.alignment || 'right')
@@ -57,11 +59,12 @@ export default function ModalEmbed({ team, bot }) {
   }, [branding, team])
 
   async function updateBot() {
+    setAllowedDomainsText(allowedDomains.join(', '))
     setErrorText('')
-
     setIsUpdating(true)
 
     const botSettings = {
+      allowedDomains,
       color,
       icon,
       alignment,
@@ -97,7 +100,7 @@ export default function ModalEmbed({ team, bot }) {
     }
   }
 
-  const embed = `<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};</script>
+  const embed = `<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};</script>
 <script type="text/javascript">
   DocsBotAI.init({id: "${team.id}/${bot.id}"});
 </script>`
@@ -194,8 +197,8 @@ export default function ModalEmbed({ team, bot }) {
                       <h3 className="text-2xl font-bold">Customize the Widget</h3>
                       <Alert title={errorText} type="error" />
                       <p className="text-md text-gray-700">
-                        Customize the appearance of your chat widget. Note changes can take a few
-                        minutes to appear on your site.
+                        Customize the behavior and appearance of your chat widget. Changes can take
+                        a few minutes to appear on your site.
                       </p>
 
                       <div className="flex flex-1 flex-col justify-between">
@@ -427,6 +430,40 @@ export default function ModalEmbed({ team, bot }) {
                               setEnabled={setBranding}
                               disabled={isUpdating || stripePlan(team).bots < 10}
                             />
+
+                            <div className="w-full">
+                              <label
+                                htmlFor="domains"
+                                className="block text-sm font-medium text-gray-900"
+                              >
+                                Allowed Domains
+                              </label>
+                              <span className="text-sm text-gray-500">
+                                Enter a comma-separated list of domains that are allowed to embed
+                                this widget. Any subdomains must be listed seperately. Leave blank
+                                to allow all domains.
+                              </span>
+                              <div className="mt-1">
+                                <input
+                                  type="text"
+                                  name="domains"
+                                  id="domains"
+                                  value={allowedDomainsText}
+                                  onChange={(e) => {
+                                    setAllowedDomainsText(e.target.value)
+                                    setAllowedDomains(
+                                      e.target.value
+                                        .split(',')
+                                        .filter((s) => s)
+                                        .map((d) => d.trim().toLowerCase())
+                                    )
+                                  }}
+                                  disabled={isUpdating}
+                                  placeholder="mysite.com, www.mysite.com, anotherdomain.com, etc"
+                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                                />
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

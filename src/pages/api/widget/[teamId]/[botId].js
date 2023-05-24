@@ -60,6 +60,7 @@ export default async function handler(req, res) {
           teamId: teamId,
           botName: bot.name,
           description: bot.description,
+          allowedDomains: bot.allowedDomains || [],
           color: bot.color || '#1292EE',
           icon: bot.icon || 'default',
           alignment: bot.alignment || 'right',
