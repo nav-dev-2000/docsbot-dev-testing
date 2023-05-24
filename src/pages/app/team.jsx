@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { EnvelopeIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { EnvelopeIcon, PlusIcon, XMarkIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getAuth } from 'firebase-admin/auth'
@@ -256,6 +256,35 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
     }
   }
 
+  const resendInvite = async(inviteId) => {
+    setErrorText('')
+    setSuccessText('')
+
+    const teamId = currTeam.id
+    const status = 'retry'
+    const urlParams = ['teams', teamId, 'invite']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ inviteId, teamId, status }),
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setSuccessText('Successfully resent invite!')
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
   useEffect(() => {
     updateTeamUsers()
   }, [currTeam])
@@ -420,14 +449,14 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </div>
             </li>
           ))}
-          {currTeamInvites.map((user) => (
-            <li key={user.email}>
+          {currTeamInvites.map((invite) => (
+            <li key={invite.email}>
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
                   <div className="flex-shrink-0">
                     <Image
                       className="h-12 w-12 rounded-full"
-                      src={user.photoURL}
+                      src={invite.photoURL}
                       width={48}
                       height={48}
                       alt="User avatar"
@@ -443,7 +472,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                           className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
                           aria-hidden="true"
                         />
-                        <span className="truncate">{user.email}</span>
+                        <span className="truncate">{invite.email}</span>
                       </p>
                     </div>
                     <div className="items-center text-right">
@@ -455,11 +484,25 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                   </div>
                 </div>
                 {currTeam.roles[userId] == "owner" && <div className="absolute right-2 top-1">
+                  {!invite.userExists &&
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        resendInvite(invite.inviteId)
+                      }}
+                      className="text-slate-400 hover:text-slate-600 focus:text-slate-600"
+                      title="Resend invite"
+                    >
+                      <span className="sr-only">Resend invite</span>
+                      <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  }
                   <button
                     type="button"
                     onClick={(e) => {
                       e.preventDefault()
-                      setRemoveUser(user)
+                      setRemoveUser(invite)
                     }}
                     className="text-red-400 hover:text-red-200 focus:text-red-200"
                     title="Delete"

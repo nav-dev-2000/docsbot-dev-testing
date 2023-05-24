@@ -4,8 +4,8 @@ import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { getAuth } from 'firebase-admin/auth'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
-import sendEmail from '@/lib/sendEmail'
 import { stripePlan } from '@/utils/helpers'
+import sendInviteEmail from '@/utils/emails'
 import { getTeam } from '@/lib/dbQueries'
 
 const validateEmail = (email) => {
@@ -98,15 +98,7 @@ export default async function handleInvite(req, res) {
           })
 
           const inviter = await getAuth().getUser(userId)
-          const name = inviter.name || inviter.email
-          const emailBody = `You have been invited by ${name} to join ${team.name} on DocsBot, a powerful platform for managing custom-trained AI chatbots!
-          To get started, please follow these simple steps:
-          <ol>
-            <li>Click on the following link to accept your invitation and create your DocsBot account: <a href="https://docsbot.ai/register?redirect=/app/team">https://docsbot.ai/register?redirect=/app/team</a></li>
-            <li>Once you've created your account, you'll be directed to the team's workspace on DocsBot. Here, you'll find all our bots, as well as any relevant documentation and resources.</li>
-            <li>Feel free to explore the platform and familiarize yourself with its features. If you have any questions or need assistance, you can reach out to our support line by clicking on 'help' <a href="https://docsbot.ai/">here</a>.</li>
-          </ol>`
-          await sendEmail(inviteEmail, `You've been invited to ${team.name} on DocsBot`, emailBody)
+          await sendInviteEmail(inviteEmail, inviter, team)
           return res.status(200).send({ message: `An invite email has been sent to ${inviteEmail}`})
         }
       } catch (err) {
@@ -160,7 +152,7 @@ export default async function handleInvite(req, res) {
           })
 
           return res.status(200).send({ message: 'Accepted invite', data: await getTeam(teamId)})
-        } else if (status == 'deny') {
+        } else if (status === 'deny') {
           // remove invite
           await firestore.runTransaction(async (transaction) => {
             const inviteRef = firestore.collection('invites').doc(inviteId)
@@ -173,6 +165,21 @@ export default async function handleInvite(req, res) {
           })
 
           return res.status(200).send({ message: `Declined invite`, data: null})
+        } else if (status === 'retry') {
+          const teamDoc = await firestore.collection('teams').doc(teamId).get()
+          const role = teamDoc.data().roles[uid]
+          if (!role || role !== 'owner') {
+            throw new Error('You are not the owner of this team!')
+          }
+
+          // resend invite email
+          const inviteRef = firestore.collection('invites').doc(inviteId)
+          const inviteDoc = await inviteRef.get()
+          const inviter = await getAuth().getUser(uid)
+          const team = await getTeam(teamId)
+          await sendInviteEmail(inviteDoc.data().email, inviter, team)
+
+          return res.status(200).send({ message: `Resent invite`, data: null})
         }
       } catch (err) {
         console.log(err)
