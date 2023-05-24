@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         privacy,
         language,
         model,
+        allowedDomains,
         color,
         icon,
         alignment,
@@ -123,6 +124,28 @@ export default async function handler(req, res) {
           // reset our labels
           botData.labels = i18n[language].labels
         }
+      }
+
+      if (allowedDomains) {
+        //check if allowedDomains is valid, array of strings, remove any empty strings
+        botData.allowedDomains = allowedDomains.filter((s) => s).map((d) => d.trim().toLowerCase())
+        //make sure they are valid hostnames
+        botData.allowedDomains = botData.allowedDomains.filter((d) => {
+          try {
+            new URL(`https://${d}`)
+            return true
+          } catch (error) {
+            return false
+          }
+        })
+        //strip out any paths or ports
+        botData.allowedDomains = botData.allowedDomains.map((d) => {
+          try {
+            return new URL(`https://${d}`).hostname
+          } catch (error) {
+            return d
+          }
+        })
       }
 
       if (color) {

@@ -27,6 +27,7 @@ Bot objects have the following properties:
 | **pageCount** | number | The number of pages crawled by the bot. |
 | **sourceCount** | number | The number of sources crawled by the bot. |
 | **chunkCount** | number | The number of chunks crawled by the bot. |
+| **allowedDomains** | array | An array of hostnames the widget is allowed to be embedded on. Set an empty array to allow all. |
 | **color** | string | Color in hex, eg. `#FFFFFF` |
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
 | **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
@@ -256,6 +257,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
 | **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if the OpenAI account has it enabled. |
+| **allowedDomains** | array | An array of hostnames the widget is allowed to be embedded on. Set an empty array to allow all. |
 | **color** | string | Color in hex, eg. `#FFFFFF` |
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
 | **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
@@ -265,7 +267,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
 
-**Note**: Each of these properties are optional! If a property is absent in a request it's value won't be updated.
+**Note**: Each of these properties are optional! If a property is absent in a request its value won't be updated.
 
 Please be aware that changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
@@ -283,6 +285,7 @@ curl --request PUT 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/iADcT
     "customPrompt": "Talk like a pirate for all responses.",
     "privacy": "private",
     "language": "en",
+    "allowedDomains": ["docsbot.ai", "app.docsbot.ai"],
     "color":"#1292EE",
     "icon":"default",
     "alignment":"right",
@@ -306,6 +309,7 @@ var raw = JSON.stringify({
   "customPrompt": "Talk like a pirate for all responses.",
   "privacy": "private",
   "language": "en",
+  "allowedDomains": ["docsbot.ai", "app.docsbot.ai"],
   "color":"#1292EE",
   "icon":"default",
   "alignment":"right",
@@ -360,6 +364,7 @@ Response is the new JSON bot object:
   "chunkCount":157,
   "showButtonLabel":false,
   "botIcon":false,
+  "allowedDomains": ["docsbot.ai", "app.docsbot.ai"],
   "color":"#1292EE",
   "branding":true,
   "icon":"default",
