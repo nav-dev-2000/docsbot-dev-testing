@@ -33,6 +33,10 @@ const faqs = [
     question: "What are your privacy protections?",
     answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to privide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. We use Bento (https://bentonow.com/) for usage tracking, email, and marketing. Please see our privacy policy for more details: https://docsbot.ai/privacy-policy.",
   },
+  {
+    question: "Do you have an affiliate program?",
+    answer: "Yes! We have a generous affiliate program that pays out 20% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,000 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://affiliates.reflio.com/invite/docsbot.",
+  },
 ]
 
 export default function Faq() {
