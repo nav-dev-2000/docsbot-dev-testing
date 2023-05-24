@@ -166,18 +166,20 @@ export default async function handleInvite(req, res) {
 
           return res.status(200).send({ message: `Declined invite`, data: null})
         } else if (status === 'retry') {
+          const teamDoc = await firestore.collection('teams').doc(teamId).get()
+          const role = teamDoc.data().roles[uid]
+          if (!role || role !== 'owner') {
+            throw new Error('You are not the owner of this team!')
+          }
+
           // resend invite email
           const inviteRef = firestore.collection('invites').doc(inviteId)
           const inviteDoc = await inviteRef.get()
-          if (inviteDoc.data().email) {
-            const inviter = await getAuth().getUser(userId)
-            const team = await getTeam(teamId)
-            await sendInviteEmail(inviteDoc.data().email, inviter, team)
-          } else {
-            throw new Error('No email found for this invite!')
-          }
+          const inviter = await getAuth().getUser(uid)
+          const team = await getTeam(teamId)
+          await sendInviteEmail(inviteDoc.data().email, inviter, team)
 
-          return res.status(200).send({ message: `Declined invite`, data: null})
+          return res.status(200).send({ message: `Resent invite`, data: null})
         }
       } catch (err) {
         console.log(err)

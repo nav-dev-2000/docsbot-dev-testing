@@ -396,6 +396,12 @@ export async function getInvitesFromTeam(teamId) {
     const hash = crypto.createHash('md5').update(ui.email).digest('hex')
     userInvites[i].photoURL = `https://www.gravatar.com/avatar/${hash}?d=mp`
     userInvites[i].teamName = ref.data().name
+    try {
+      await getAuth().getUserByEmail(ui.email)
+      userInvites[i].userExists = true
+    } catch (error) {
+      userInvites[i].userExists = false
+    }
   }
 
   return userInvites
