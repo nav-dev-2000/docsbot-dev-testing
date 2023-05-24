@@ -17,7 +17,7 @@ This endpoint accepts a POST request with the following parameters:
 
 | Parameter   | Type    | Description                                                                       |
 | ----------- | ------- | --------------------------------------------------------------------------------- |
-| **question**    | string  | The question to ask the bot. 10 to 2000 characters.                                |
+| **question**    | string  | The question to ask the bot. 5 to 2000 characters.                                |
 | **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false` |
 | **history** | array | The chat history array. Optional, defaults to `[]` |
 

@@ -47,7 +47,7 @@ export default function AskStreaming({ teamId, bot }) {
 
   // make api call to ask question
   const askQuestion = async () => {
-    if (!question || question.length < 10) {
+    if (!question || question.length < 5) {
       setErrorText('Please enter a full question.')
       return
     }
@@ -243,7 +243,7 @@ export default function AskStreaming({ teamId, bot }) {
                       id="query"
                       value={question}
                       maxLength={2000}
-                      minLength={10}
+                      minLength={5}
                       required
                       onChange={(e) => setQuestion(e.target.value)}
                       onKeyDown={(e) => {
