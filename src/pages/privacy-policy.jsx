@@ -192,8 +192,8 @@ export default function Home() {
           <h3>Analytics</h3>
           <ul>
             <li>
-              We use Bento for analytics. Bento’s privacy policy
-              is found <a href="https://bentonow.com/legal/privacy">here</a>.
+              We use Bento for analytics. Bento’s privacy policy is found{' '}
+              <a href="https://bentonow.com/legal/privacy">here</a>.
             </li>
           </ul>
           <h3>Marketing</h3>
@@ -214,6 +214,14 @@ export default function Home() {
               activities.
               <br /> We use Bento. Bento privacy policy is found{' '}
               <a href="https://bentonow.com/legal/privacy">here</a>.
+            </li>
+            <li>
+              Our affiliate program is hosted by Reflio, a privacy compliant affiliate network. When
+              you click on a link from one of our affiliates a conversion cookie will be set in your
+              browser. If you are in a jurisdiction that requires it cookie consent will be asked and must be
+              granted before we save that tracking cookie. Reflio processes and may store email addresses and payment amounts for
+              DocsBot customers. <br />
+              Reflio's privacy policy is found <a href="https://reflio.com/terms">here</a>.
             </li>
             <li>
               We may utilize social media and web advertising campaigns. These service providers use
@@ -277,7 +285,8 @@ export default function Home() {
               .
             </li>
             <li>
-              Our services use Weaviate cloud as a database provider. Their privacy policy can be found
+              Our services use Weaviate cloud as a database provider. Their privacy policy can be
+              found
               <span>&nbsp;</span>
               <a rel="noreferrer noopener" href="https://weaviate.io/" target="_blank">
                 here
@@ -285,12 +294,13 @@ export default function Home() {
               .
             </li>
             <li>
-              In order to run our DocsBot AI services, we receive and store sources, questions, answers, and chat history made by you or customers that use
-              the DocsBot service. This data will be passed through the OpenAI APIs.
-              OpenAI's privacy policy can be found{' '}
-              <a href="https://openai.com/policies/privacy-policy">here</a>. Staff may have access to review this
-              data for quality control and terms of service enforcement purposes. We don't recommend that you submit
-              personally identifying information in your questions or source content, but if you do it may be stored in our systems.
+              In order to run our DocsBot AI services, we receive and store sources, questions,
+              answers, and chat history made by you or customers that use the DocsBot service. This
+              data will be passed through the OpenAI APIs. OpenAI's privacy policy can be found{' '}
+              <a href="https://openai.com/policies/privacy-policy">here</a>. Staff may have access
+              to review this data for quality control and terms of service enforcement purposes. We
+              don't recommend that you submit personally identifying information in your questions
+              or source content, but if you do it may be stored in our systems.
             </li>
           </ul>
 
@@ -334,8 +344,8 @@ export default function Home() {
               review and agree, in writing, to all policies and procedures annually.
             </li>
             <li>
-              We only use third-party services, such as Google Cloud and OpenAI that are fully vetted and
-              adhere to the highest levels of privacy and security practices.
+              We only use third-party services, such as Google Cloud and OpenAI that are fully
+              vetted and adhere to the highest levels of privacy and security practices.
             </li>
           </ul>
           <h3>Data Breach Procedures</h3>

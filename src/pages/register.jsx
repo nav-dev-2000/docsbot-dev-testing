@@ -68,6 +68,9 @@ function Register() {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
           }
+          if (window.Reflio !== undefined) {
+            Reflio.signup(user?.user?.email)
+          }
           console.log('on complete')
           router.push(redirectPath)
         },
@@ -83,6 +86,9 @@ function Register() {
       if (window.bento !== undefined) {
         window.bento.identify(googleUser?.user?.email)
         window.bento.updateFields({ name: googleUser?.user?.displayName })
+      }
+      if (window.Reflio !== undefined) {
+        Reflio.signup(googleUser?.user?.email)
       }
       router.push(redirectPath)
     },

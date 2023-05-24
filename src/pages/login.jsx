@@ -81,6 +81,9 @@ function Login() {
         window.bento.identify(googleUser?.user?.email)
         window.bento.updateFields({ name: googleUser?.user?.displayName })
       }
+      if (window.Reflio !== undefined) {
+        Reflio.signup(googleUser?.user?.email)
+      }
       router.push(redirectPath)
     },
   })

@@ -146,6 +146,7 @@ export default function App({ Component, pageProps }) {
               src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
               strategy="afterInteractive"
             />
+            <Script id="reflio" strategy="afterInteractive" src='https://reflio.com/js/reflio.min.js' data-reflio='hsborf9afm060gz' />
           </>
         )}
         <Analytics />
@@ -207,6 +208,7 @@ export default function App({ Component, pageProps }) {
             src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
             strategy="afterInteractive"
           />
+          <Script id="reflio" strategy="afterInteractive" src='https://reflio.com/js/reflio.min.js' data-reflio='hsborf9afm060gz' />
         </>
       )}
       <Analytics />
