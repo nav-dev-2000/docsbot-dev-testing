@@ -484,20 +484,18 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                   </div>
                 </div>
                 {currTeam.roles[userId] == "owner" && <div className="absolute right-2 top-1">
-                  {!invite.userExists &&
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        resendInvite(invite.inviteId)
-                      }}
-                      className="text-slate-400 hover:text-slate-600 focus:text-slate-600"
-                      title="Resend invite"
-                    >
-                      <span className="sr-only">Resend invite</span>
-                      <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
-                    </button>
-                  }
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      resendInvite(invite.inviteId)
+                    }}
+                    className="text-slate-400 hover:text-slate-600 focus:text-slate-600"
+                    title="Resend invite"
+                  >
+                    <span className="sr-only">Resend invite</span>
+                    <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
                   <button
                     type="button"
                     onClick={(e) => {

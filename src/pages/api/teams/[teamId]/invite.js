@@ -55,52 +55,36 @@ export default async function handleInvite(req, res) {
           userRecord = await getAuth().getUserByEmail(inviteEmail)
         } catch {}
 
-        if (userRecord !== null) {
-          // add user to team roles
-          await firestore.runTransaction(async (transaction) => {
-            const teamRef = firestore.collection('teams').doc(team.id)
-            const teamDoc = await transaction.get(teamRef)
-            const alreadyAdded = teamDoc.data().roles[userRecord.uid]
-            if (alreadyAdded !== undefined) {
-              throw new Error('User is already part of the team!')
-            }
-
-            // get invites where the email && the teamId match
-            const inviteRef = firestore.collection('invites')
-            const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
-            if (invites.size >= 1) {
-              throw new Error('User was already invited to the team!')
-            }
-
-            const docRef = await inviteRef.add({
-              createdAt: FieldValue.serverTimestamp(),
-              email: inviteEmail,
-              teamId: team.id, 
-            });
-          })
-
-          return res.status(200).send({ message: `Successfully invited ${inviteEmail} to the team!`})
-        } else {
-          const inviteRef = firestore.collection('invites')
-          const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
-          if (invites.size >= 1) {
-            throw new Error('User was already invited to the team!')
-          }
-
-          // user doesn't exist, add invite!
-          await firestore.runTransaction(async (transaction) => {
-            const inviteRef = firestore.collection('invites')
-            const docRef = await inviteRef.add({
-              createdAt: FieldValue.serverTimestamp(),
-              email: inviteEmail,
-              teamId: team.id, 
-            });
-          })
-
-          const inviter = await getAuth().getUser(userId)
-          await sendInviteEmail(inviteEmail, inviter, team)
-          return res.status(200).send({ message: `An invite email has been sent to ${inviteEmail}`})
+        // get invites where the email && the teamId match
+        const inviteRef = firestore.collection('invites')
+        const invites = await inviteRef.where("email", "==", inviteEmail).where("teamId", "==", team.id).get()
+        if (invites.size >= 1) {
+          throw new Error('User was already invited to the team!')
         }
+
+        if (userRecord !== null) {
+          console.log('user exists, inviting to team...')
+          // check if user is already a part of the team
+          const teamRef = firestore.collection('teams').doc(team.id)
+          const teamDoc = await teamRef.get()
+          const alreadyAdded = teamDoc.data().roles[userRecord.uid]
+          if (alreadyAdded !== undefined) {
+            throw new Error('User is already part of the team!')
+          }
+        }
+
+        // add invite!
+        console.log('adding invite...')
+        await inviteRef.add({
+          createdAt: FieldValue.serverTimestamp(),
+          email: inviteEmail,
+          teamId: team.id, 
+        });
+
+        console.log('sending email...')
+        const inviter = await getAuth().getUser(userId)
+        await sendInviteEmail(inviteEmail, inviter, team)
+        return res.status(200).send({ message: `An invite email has been sent to ${inviteEmail}`})
       } catch (err) {
         console.log(err)
         return res.status(500).json({ message: err?.message })
