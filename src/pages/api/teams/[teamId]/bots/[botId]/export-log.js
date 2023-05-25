@@ -2,7 +2,6 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
-import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot, getUser } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
@@ -52,9 +51,22 @@ const handler = async (req, res) => {
     var csvData = [];
 
     // write questions to csv file
-    csvData.push('alias,timestamp,rating,question,answer,sources\n')
+    csvData.push('alias,timestamp,rating,question,answer,sources,referrer\n')
     questions.forEach((doc) => {
-      const question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
+      let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+      //if we identified the user, use the provided data for alias
+      if (doc.data().identify) {
+        if (doc.data().identify.name) {
+          alias = doc.data().identify.name
+          if (doc.data().identify.email) {
+            alias += ' (' + doc.data().identify.email + ')'
+          }
+        } else if (doc.data().identify.email) {
+          alias = doc.data().identify.email
+        }
+      }
+
+      const question = { id: doc.id, ...doc.data(), alias: alias }
       // remove newlines, convert quotes from data
       const cleanedQuestion = sanitize(question.question)
       const cleanedAnswer = sanitize(question.answer)
@@ -74,8 +86,9 @@ const handler = async (req, res) => {
 
       const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
       const rating = question?.escalation ? 'Contacted Support' : ratingValue;
+      const referrer = question?.identify?.referrer ? sanitize(question.identify.referrer) : '';
 
-      csvData.push(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}"\n`)
+      csvData.push(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}","${referrer}"\n`)
     })
 
     const countSnapshot = await firestore

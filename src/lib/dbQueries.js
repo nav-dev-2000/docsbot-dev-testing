@@ -144,7 +144,14 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-export async function getQuestions(team, botId, perPage = 50, page = 0, ascending = false, filter = null) {
+export async function getQuestions(
+  team,
+  botId,
+  perPage = 50,
+  page = 0,
+  ascending = false,
+  filter = null
+) {
   const offset = page * perPage
   let snapshot = firestore
     .collection('teams')
@@ -162,7 +169,8 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
     snapshot = snapshot.where('ip', '==', filter)
   }
 
-  const questionsRef = snapshot.orderBy('createdAt', ascending ? 'asc' : 'desc')
+  const questionsRef = snapshot
+    .orderBy('createdAt', ascending ? 'asc' : 'desc')
     .offset(offset)
     .limit(pageLimit)
 
@@ -170,9 +178,22 @@ export async function getQuestions(team, botId, perPage = 50, page = 0, ascendin
   const querySnapshot = await questionsRef.get()
   let questions = []
   querySnapshot.forEach((doc) => {
-    let question = { id: doc.id, ...doc.data(), alias: doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'}
+    let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+    //if we identified the user, use the provided data for alias
+    if (doc.data().identify) {
+      if (doc.data().identify.name) {
+        alias = doc.data().identify.name
+        if (doc.data().identify.email) {
+          alias += ' (' + doc.data().identify.email + ')'
+        }
+      } else if (doc.data().identify.email) {
+        alias = doc.data().identify.email
+      }
+    }
+
+    let question = { id: doc.id, ...doc.data(), alias: alias }
     question.createdAt = question.createdAt.toDate().toJSON() //make serializable
-    
+
     // question.sources = doc.data().sources || []
     if (Object.keys(question.sources).length === 0) {
       question.sources = []
@@ -283,9 +304,9 @@ export async function getTeamsTransaction(transaction, userId) {
   //get teams for user list
   let teams = []
   try {
-    const teamsSnapshot = await transaction.get(firestore
-      .collection('teams')
-      .where('roles.' + userId, '!=', null))
+    const teamsSnapshot = await transaction.get(
+      firestore.collection('teams').where('roles.' + userId, '!=', null)
+    )
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
@@ -323,22 +344,22 @@ export async function assignDefaultTeamTransaction(transaction, userId, name) {
   if (teams.length >= 1) {
     teamId = teams[0].id
   } else {
-      // Add team based on user id with 'owner' as default permission
-      const teamRef = firestore.collection('teams').doc()
-      await transaction.set(teamRef, {
-        createdAt: FieldValue.serverTimestamp(),
-        name: `${name.trim()}'s Team`,
-        botCount: 0,
-        sourceCount: 0,
-        pageCount: 0,
-        chunkCount: 0,
-        questionCount: 0,
-        openAIKey: null,
-        roles: {
-          [userId]: 'owner',
-        },
-      })
-      teamId = teamRef.id
+    // Add team based on user id with 'owner' as default permission
+    const teamRef = firestore.collection('teams').doc()
+    await transaction.set(teamRef, {
+      createdAt: FieldValue.serverTimestamp(),
+      name: `${name.trim()}'s Team`,
+      botCount: 0,
+      sourceCount: 0,
+      pageCount: 0,
+      chunkCount: 0,
+      questionCount: 0,
+      openAIKey: null,
+      roles: {
+        [userId]: 'owner',
+      },
+    })
+    teamId = teamRef.id
   }
 
   await transaction.set(firestore.collection('users').doc(userId), {
@@ -348,11 +369,17 @@ export async function assignDefaultTeamTransaction(transaction, userId, name) {
 }
 
 export async function getInvitesFromEmail(email) {
-  const inviteQuery = await firestore.collection('invites').where("email", "==", email).get()
+  const inviteQuery = await firestore.collection('invites').where('email', '==', email).get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
+    userInvites.push({
+      teamId: docData.teamId,
+      email: docData.email,
+      inviteId: doc.id,
+      key: doc.id,
+      uid: doc.id,
+    })
   })
 
   for (const [i, ui] of userInvites.entries()) {
@@ -366,11 +393,19 @@ export async function getInvitesFromEmail(email) {
 }
 
 export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email, teamId) {
-  const inviteQuery = await transaction.get(firestore.collection('invites').where("email", "==", email).where("teamId", "==", teamId))
+  const inviteQuery = await transaction.get(
+    firestore.collection('invites').where('email', '==', email).where('teamId', '==', teamId)
+  )
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
+    userInvites.push({
+      teamId: docData.teamId,
+      email: docData.email,
+      inviteId: doc.id,
+      key: doc.id,
+      uid: doc.id,
+    })
   })
 
   for (const [i, ui] of userInvites.entries()) {
@@ -384,11 +419,17 @@ export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email
 }
 
 export async function getInvitesFromTeam(teamId) {
-  const inviteQuery = await firestore.collection('invites').where("teamId", "==", teamId).get()
+  const inviteQuery = await firestore.collection('invites').where('teamId', '==', teamId).get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
-    userInvites.push({teamId: docData.teamId, email: docData.email, inviteId: doc.id, key: doc.id, uid: doc.id})
+    userInvites.push({
+      teamId: docData.teamId,
+      email: docData.email,
+      inviteId: doc.id,
+      key: doc.id,
+      uid: doc.id,
+    })
   })
 
   for (const [i, ui] of userInvites.entries()) {

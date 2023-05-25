@@ -20,6 +20,7 @@ This endpoint accepts a POST request with the following parameters:
 | **question**    | string  | The question to ask the bot. 5 to 2000 characters.                                |
 | **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false` |
 | **history** | array | The chat history array. Optional, defaults to `[]` |
+| **identify** | object | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
 
 {% callout title="full_source behavior" %}
 If `full_source` is set to `true`, the `content` property of each source will be populated with the full source content. This can be useful if you want to display the full source content in your interface. As source pages are divided into chunks, we normally only return unique source title/urls. But if this parameter is set to true multiple sources may be returned with the same title/url but different content.
@@ -34,7 +35,12 @@ curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFi
 --header 'Content-Type: application/json' \
 --data-raw '{
     "question": "What is WordPress?",
-    "full_source": false
+    "full_source": false,
+    "identify": {
+        "referrer": "https://example.com",
+        "email": "john@doe.com",
+        "name": "John Doe"
+    }
 }'
 ```
 
@@ -180,7 +186,12 @@ curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFi
             "What is WordPress?",
             "WordPress is an open source free software distributed under the GPL license. It is a self-hosted content management system that enables users to create and manage websites."
         ]
-    ]
+    ],
+    "identify": {
+        "referrer": "https://example.com",
+        "email": "john@doe.com",
+        "name": "John Doe"
+    }
 }'
 ```
 
