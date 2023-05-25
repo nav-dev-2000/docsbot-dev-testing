@@ -63,7 +63,6 @@ export default async function handleInvite(req, res) {
         }
 
         if (userRecord !== null) {
-          console.log('user exists, inviting to team...')
           // check if user is already a part of the team
           const teamRef = firestore.collection('teams').doc(team.id)
           const teamDoc = await teamRef.get()
@@ -74,14 +73,12 @@ export default async function handleInvite(req, res) {
         }
 
         // add invite!
-        console.log('adding invite...')
         await inviteRef.add({
           createdAt: FieldValue.serverTimestamp(),
           email: inviteEmail,
           teamId: team.id, 
         });
 
-        console.log('sending email...')
         const inviter = await getAuth().getUser(userId)
         await sendInviteEmail(inviteEmail, inviter, team)
         return res.status(200).send({ message: `An invite email has been sent to ${inviteEmail}`})
