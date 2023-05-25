@@ -60,22 +60,41 @@ You can also interact with the widget using the following API if you want to cre
 
 `DocsBotAI.init()` is used to initialize the widget. It takes an object with the various properties. The only required property is the `id` property which is the unique id of your bot created from your `teamId` and `botId`. You can find this id on the [Bot](/app/bots) page for your specific bot.
 
+### Support Callback
+
 If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event` and `history` objects. The `event` object is the click event and the `history` object is the chat history array. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history. Here's a code example:
+
+### User Identification
+
+If you would like to record the user's name, email, or any other custom variables you can optionally pass an `identify` object with the properties you would like to record. These properties will be recorded in the question `metadata` of the chat history allowing you to view it in the chat logs or export it via the questions API endpoint. This can be useful to identify the user or metadata about them such as their subscription plan or any other custom data you would like to record.
+
+The properties `email`, and `name` if set will be shown in the question history logs of our dashboard instead of a pseudonomous user alias. Make sure that you are using the latest version of our widget embed code to take advantage of the `identify` feature.
+
+{% callout title="Privacy and GDPR Considerations" %}
+If you use the identify feature to record user's personal information, chat logs stored with DocsBot will no longer be anonymous. You should make sure that you have a privacy policy that discloses this to your users. You should also make sure that you are not recording any sensitive information such as credit card numbers or passwords. We do not recommend recording any sensitive information in the chat history metadata.
+{% /callout %}
+
+### Example Code
 
 ```js
 DocsBotAI.init({
     id: "YOUR_ID_HERE",
     supportCallback: function (event, history) {
-        event.preventDefault(); // Prevent default behavior opening the url.
-        console.log(history); // Safely access the chat history and widget API.
+        event.preventDefault(); // Optionally prevent default behavior opening the url.
+        console.log(history); // Safely access the chat history.
         DocsBotAI.close(); // Close the widget.
     },
+    identify: {
+        name: "John Doe", // This will be shown in the chat history logs.
+        email: "john@doe.com", // This will be shown in the chat history logs.
+        customVariable: "customValue", // This will be recorded in the question metadata and accessible via the API.
+    }
 }).then(() => {
     // Safely do stuff here after the widget is loaded.
 })
 ```
 
-The `DocsBotAI.init()` function returns a promise that resolves when the widget is loaded and ready to be used. You can use this to safely do stuff with the widget after it's loaded, such as registering event listeners to open or close the widget based on user interactions.
+The `DocsBotAI.init()` function returns a promise that resolves when the DocsBotAI window global is loaded and ready to be used. You can use this to safely do stuff with the widget after it's loaded, such as registering event listeners to open or close the widget based on user interactions. Note to open the widget immediately after it's loaded you might need to call `DocsBotAI.open()` inside a `setTimeout()` as the widget must be mounted to open it.
 
 ### Integration with a Support Form
 
