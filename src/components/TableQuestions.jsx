@@ -248,7 +248,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                             src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
                             alt="User avatar"
                           />
-                          {question.alias} asked{question.identify?.referrer ? ` from ${question.identify.referrer}` : ''}:
+                          {question.alias} asked{question.metadata?.referrer ? ` from ${question.metadata.referrer}` : ''}:
                         </h2>
                         {ipFilter === null && question.ip !== undefined && (
                           <button

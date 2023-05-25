@@ -55,14 +55,14 @@ const handler = async (req, res) => {
     questions.forEach((doc) => {
       let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
       //if we identified the user, use the provided data for alias
-      if (doc.data().identify) {
-        if (doc.data().identify.name) {
-          alias = doc.data().identify.name
-          if (doc.data().identify.email) {
-            alias += ' (' + doc.data().identify.email + ')'
+      if (doc.data().metadata) {
+        if (doc.data().metadata.name) {
+          alias = doc.data().metadata.name
+          if (doc.data().metadata.email) {
+            alias += ' (' + doc.data().metadata.email + ')'
           }
-        } else if (doc.data().identify.email) {
-          alias = doc.data().identify.email
+        } else if (doc.data().metadata.email) {
+          alias = doc.data().metadata.email
         }
       }
 
@@ -86,7 +86,7 @@ const handler = async (req, res) => {
 
       const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
       const rating = question?.escalation ? 'Contacted Support' : ratingValue;
-      const referrer = question?.identify?.referrer ? sanitize(question.identify.referrer) : '';
+      const referrer = question?.metadata?.referrer ? sanitize(question.metadata.referrer) : '';
 
       csvData.push(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}","${referrer}"\n`)
     })

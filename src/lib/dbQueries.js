@@ -180,14 +180,14 @@ export async function getQuestions(
   querySnapshot.forEach((doc) => {
     let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
     //if we identified the user, use the provided data for alias
-    if (doc.data().identify) {
-      if (doc.data().identify.name) {
-        alias = doc.data().identify.name
-        if (doc.data().identify.email) {
-          alias += ' (' + doc.data().identify.email + ')'
+    if (doc.data().metadata) {
+      if (doc.data().metadata.name) {
+        alias = doc.data().metadata.name
+        if (doc.data().metadata.email) {
+          alias += ' (' + doc.data().metadata.email + ')'
         }
-      } else if (doc.data().identify.email) {
-        alias = doc.data().identify.email
+      } else if (doc.data().metadata.email) {
+        alias = doc.data().metadata.email
       }
     }
 
