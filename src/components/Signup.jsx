@@ -88,7 +88,7 @@ export default function Signup() {
                   Subscribe to product updates
                 </h2>
                 <p className="mx-auto mt-6 max-w-2xl text-lg text-white">
-                  Signup for news updates as we quickly launch new features. We are hard at work on new source importers and embeddable widgets.
+                  Signup for news updates as we launch exciting new features almost daily, you don't want to miss them!
                 </p>
               </div>
               {submitted ? (

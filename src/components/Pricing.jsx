@@ -225,8 +225,8 @@ export default function Pricing() {
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
               Try DocsBot free for personal use. No credit card required. Import document files or
-              urls with up to 50 pages of content and chat with your bot within our website. Bots
-              will be deleted after 30 days.
+              urls with up to 50 pages of content and start chatting with your bot. Free bots will
+              be deleted after 30 days.
             </p>
           </div>
           <Link
@@ -241,9 +241,10 @@ export default function Pricing() {
           <div className="p-8 sm:p-10 lg:flex-auto">
             <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
             <p className="mt-6 text-base leading-7 text-gray-600">
-              For serious traffic and custom integrations. Identify gaps in your documentation with
-              automated AI analysis. Get priority support & integration help to create specialized
-              bots for your unique business needs.
+              For serious traffic and custom integrations. Identify problem areas in your product
+              and gaps in your documentation with automated AI analysis of user questions. Get
+              priority support & integration help to create specialized bots for your unique
+              business needs.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
@@ -268,7 +269,7 @@ export default function Pricing() {
               <div className="mx-auto max-w-xs px-8">
                 <p className="text-base font-semibold text-gray-600">Plans starting at</p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$499/mo</span>
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$416/mo</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
                     USD
                   </span>
@@ -288,7 +289,7 @@ export default function Pricing() {
                   Contact us
                 </a>
                 <p className="mt-6 text-xs leading-5 text-gray-600">
-                  Invoices and receipts available for easy company reimbursement
+                  Custom invoices and pay by ACH or wire transfer
                 </p>
               </div>
             </div>
