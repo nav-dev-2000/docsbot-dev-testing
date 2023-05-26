@@ -1,5 +1,6 @@
 import { PubSub } from '@google-cloud/pubsub'
 import { getFirestore } from 'firebase-admin/firestore'
+import { getTeam } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 
 const SERVICE_ACCOUNT = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
@@ -73,7 +74,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   })
 
   // grab pageLimit
-  const team = (await firestore.collection('teams').doc(teamId).get()).data()
+  const team = await getTeam(teamId)
   const pageLimit = stripePlan(team).pages - team.pageCount
 
   const dataBuffer = Buffer.from(
