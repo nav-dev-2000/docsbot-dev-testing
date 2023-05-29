@@ -7,10 +7,7 @@ import { getBot, getUser } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
 import getFakeUserByIp from '@/utils/fakeUsers';
 import sendEmail from '@/lib/sendEmail';
-
-const sanitize = (str) => {
-  return str.replace(/(\r\n|\n|\r)/gm, '').replace(/"/g, '""')
-}
+import { stringify } from '@vanillaes/csv'
 
 // this handler will export the question log of a bot to a csv file
 const handler = async (req, res) => {
@@ -51,7 +48,7 @@ const handler = async (req, res) => {
     var csvData = [];
 
     // write questions to csv file
-    csvData.push('alias,timestamp,rating,question,answer,sources,referrer\n')
+    csvData.push(['alias','timestamp','rating','question','answer','sources','referrer'])
     questions.forEach((doc) => {
       let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
       //if we identified the user, use the provided data for alias
@@ -68,27 +65,28 @@ const handler = async (req, res) => {
 
       const question = { id: doc.id, ...doc.data(), alias: alias }
       // remove newlines, convert quotes from data
-      const cleanedQuestion = sanitize(question.question)
-      const cleanedAnswer = sanitize(question.answer)
+      const cleanedQuestion = question.question
+      const cleanedAnswer = question.answer
 
       // build sources string
       let sources = ''
       if (question.sources && Array.isArray(question.sources)) {
         question.sources.forEach((source) => {
-          sources += `${sanitize(source.title)}`
-          if (source.url) {
-            sources += ` (${source.url})`
+          if (source.title) {
+            sources += source.title
+            if (source.url) {
+              sources += ` (${source.url})`
+            }
+            sources += '; '
           }
-          sources += '; '
         })
       }
 
-
       const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
       const rating = question?.escalation ? 'Contacted Support' : ratingValue;
-      const referrer = question?.metadata?.referrer ? sanitize(question.metadata.referrer) : '';
+      const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
 
-      csvData.push(`"${question.alias}","${question.createdAt.toDate().toJSON()}","${rating}","${cleanedQuestion}","${cleanedAnswer}","${sources}","${referrer}"\n`)
+      csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
     })
 
     const countSnapshot = await firestore
@@ -103,12 +101,12 @@ const handler = async (req, res) => {
     // let user know they're missing data, and to upgrade their plan to view full log
     const totalCount = countSnapshot.data().count
     if (totalCount > planLimit) {
-      csvData.push('This log has been truncated. Upgrade your plan to view the full log.\n')
+      csvData.push(['This log has been truncated. Upgrade your plan to view the full log.'])
     }
 
     // upload csv file to storage
     const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
-    await file.save(csvData.join(''))
+    await file.save(stringify(csvData))
 
     // sign url for 7 days
     const url = (await file.getSignedUrl({
