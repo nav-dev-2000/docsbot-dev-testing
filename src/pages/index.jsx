@@ -32,6 +32,7 @@ import a8cLogo from '@/images/logos/logo-automattic.png'
 import plaidLogo from '@/images/logos/logo-plaid.png'
 import extendifyLogo from '@/images/logos/logo-extendify.png'
 import conversionLogo from '@/images/logos/logo-conversion.svg'
+import { Testimonials } from '@/components/Testimonials'
 
 const integrations = [
   {
@@ -325,6 +326,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <Testimonials />
 
             {/* Pricing section */}
             <Pricing />
