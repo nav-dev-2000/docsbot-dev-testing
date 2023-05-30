@@ -137,6 +137,7 @@ export default async function handler(req, res) {
             sourceCount: newTeamSourceCount,
             chunkCount: newTeamChunkCount,
             pageCount: newTeamPageCount,
+            needsUpdate: true,
           })
   
           // decrement bot counts
