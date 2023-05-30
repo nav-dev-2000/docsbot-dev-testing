@@ -80,7 +80,7 @@ router.post(async (req, res) => {
     const indexId = `Document_${Math.random().toString(36).substr(2, 10)}`
 
     //create schema in weaviate
-    createSchema(team.id, indexId)
+    createSchema(team, indexId)
 
     //create bot in db
     const docRef = await firestore.collection('teams').doc(team.id).collection('bots').add({

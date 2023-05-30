@@ -10,14 +10,14 @@ export const weaviateClient = weaviate.client({
   }),
 })
 
-export const createSchema = (teamId, indexId) => {
-  const team = getTeam(teamId)
+export const createSchema = (team, indexId) => {
   let text2vecConfig = {
     skip: false,
     vectorizePropertyName: false,
   }
 
   if (team["AzureDeploymentBase"]) {
+    console.log("!!!!!!!!!!!!!!!!! Using Azure Deployment")
     text2vecConfig["resourceName"] = team["AzureDeploymentBase"]
     text2vecConfig["deploymentId"] = team["AzureDeploymentName"]
   }
