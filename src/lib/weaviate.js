@@ -1,4 +1,5 @@
 import weaviate from 'weaviate-client'
+import { getTeam } from '@/lib/dbQueries'
 
 export const weaviateClient = weaviate.client({
   scheme: 'https',
@@ -9,7 +10,18 @@ export const weaviateClient = weaviate.client({
   }),
 })
 
-export const createSchema = (indexId) => {
+export const createSchema = (teamId, indexId) => {
+  const team = getTeam(teamId)
+  let text2vecConfig = {
+    skip: false,
+    vectorizePropertyName: false,
+  }
+
+  if (team["AzureDeploymentBase"]) {
+    text2vecConfig["resourceName"] = team["AzureDeploymentBase"]
+    text2vecConfig["deploymentId"] = team["AzureDeploymentName"]
+  }
+
   //create a weaviate schema for the bot
   return weaviateClient.schema
     .classCreator()
@@ -30,10 +42,7 @@ export const createSchema = (indexId) => {
           dataType: ['text'],
           description: 'The content of the paragraph',
           moduleConfig: {
-            'text2vec-openai': {
-              skip: false,
-              vectorizePropertyName: false,
-            },
+            'text2vec-openai': text2vecConfig,
           },
           name: 'content',
         },
