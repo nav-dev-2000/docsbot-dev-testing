@@ -68,16 +68,14 @@ export default function Home() {
           <p>We will send multiple warning emails before data is archived.</p>
 
           <h3>API Services</h3>
-          <p>DocsBot AI services provides an API to integrate with other applications.</p>
+          <p>DocsBot AI services provides an API to integrate with other applications or provide whitelabeled services to your own customers.</p>
           <p>If you are using our connected API Services, the following applies:</p>
           <ul>
             <li>
               You must maintain an active subscription with DocsBot AI to make use of API services.
             </li>
             <li>
-              API services use an assigned an API key to connect. You may only use your API key on
-              sites that belong to you or those of your clients. You may not resell, share, or
-              publish your API key.
+              API services use an assigned API key to connect. It is your responsibility to keep this key secure. Any usage of our services with your API key will be considered your usage and you are responsible for any charges incurred with it.
             </li>
             <li>
               Violation of any of these terms may result in the immediate termination of API access
@@ -86,6 +84,9 @@ export default function Home() {
             <li>
               We reserve the right to suspend API access to users that use an unusual amount of API
               requests or resources that we feel may impact the services to other members.
+            </li>
+            <li>
+              If you resell or provide whitelabeled services to your own customers, their usage must abide by our Terms of Service.
             </li>
           </ul>
 
@@ -126,7 +127,6 @@ export default function Home() {
               not limited to phone numbers, residential addresses, social security numbers, drivers
               license numbers, account numbers, etc.
             </li>
-            <li>See full usage restrictions for DocsBot below.</li>
           </ul>
 
           <h3>Payments &amp; Subscriptions</h3>
@@ -168,23 +168,23 @@ export default function Home() {
             team help resolve the issue by submitting your request.
           </p>
           <p>
+            Our 14-day money back guarantee will be honored if it's been less than 14 days from signing up for our services. Refunds under our guarantee will be provided on request, are available only once per person or entity, and will not apply if your account is in
+            violation of these Terms of Service. If you request a refund under our guarantee, you will loose paid access to your account and all data will be deleted.
+          </p>
+          <p>
             Refunds requested are issued at the discretion of our support staff based on product
             usage. No refunds whatsoever will be given for scheduled subscription payments after 30
             days, except in the rare case that it is due to billing errors on our end.
           </p>
           <p>
             If you contact your bank or credit card company to decline or reverse the charge of fees
-            for Paid Services, we will not provide a refund and we may revoke current and future access to our
+            for Paid Services instead of working with our team to resolve your billing issue, we will not provide a refund and we may revoke current and future access to our
             Services in general.
-          </p>
-          <p>
-            Refunds are available once per person or entity and will not apply if your account is in
-            violation of these Terms.
           </p>
 
           <h3>Free Trials</h3>
           <p>
-            Your membership may include a free trial. We require you to provide your payment details
+            In some cases our plans may include a free trial. We require you to provide your payment details
             to start a free trial. You will not be charged until the end of your free trial period.
           </p>
           <p>Free trials are regulated by a few simple rules outlined below:</p>
@@ -195,7 +195,7 @@ export default function Home() {
             </li>
             <li>
               When your free trial has ended, we will automatically withdraw payment for the
-              membership associated with your free trial. Payment will continue on a recurring
+              team associated with your free trial. Payment will continue on a recurring
               monthly basis until such time you cancel.
             </li>
             <li>
@@ -226,7 +226,7 @@ export default function Home() {
           <h3>Security</h3>
           <p>
             You will be solely responsible and liable for any activity that occurs under your
-            username. You are responsible for keeping your password secure and you must immediately
+            username or with your API keys. You are responsible for keeping your password secure and you must immediately
             notify DocsBot AI of any unauthorized uses of its services, its account, or any other
             breaches of security.
           </p>
