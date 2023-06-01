@@ -191,6 +191,16 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       setErrorText={setErrorText}
                       setSources={setSources}
                     />
+                    {source.warnsList?.length > 0 && (
+                      <>
+                        <h1 className="mt-6 text-sm font-medium text-gray-600 pb-2">Warnings:</h1>
+                        <div className="rounded-md bg-slate-100 border-solid border-2 border-slate-200">
+                          <pre className="p-2 text-sm font-mono text-orange-600 whitespace-pre-wrap">
+                              {source.warnsList.join('\n')}
+                          </pre>
+                        </div>
+                      </>
+                    )}
                     {!toDelete && (
                       <div className="mt-6 mb-2 flex items-end justify-between">
                         <button

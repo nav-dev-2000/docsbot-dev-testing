@@ -67,7 +67,7 @@ export default function Alert({ title, type, children, onClose = noop }) {
     >
       <div className="flex">
         <div className="flex-shrink-0">{icon}</div>
-        <div className="ml-3">
+        <div className="ml-3 w-full">
           <h3
             className={
               'text-md font-semibold ' +
