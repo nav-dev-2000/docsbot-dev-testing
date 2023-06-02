@@ -70,7 +70,7 @@ const tiers = [
   },
 ]
 
-const includedFeatures = [
+const enterpriseFeatures = [
   '100+ DocsBots',
   '100k+ Source Pages',
   'Unlock all source types',
@@ -84,6 +84,8 @@ const includedFeatures = [
   'Unbranded chat widgets',
   'AI reports *',
   'Prompt customization',
+  'Azure OpenAI Support',
+  'Self-hosted options',
 ]
 
 export default function Pricing() {
@@ -242,9 +244,7 @@ export default function Pricing() {
             <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
             <p className="mt-6 text-base leading-7 text-gray-600">
               For serious traffic and custom integrations. Identify problem areas in your product
-              and gaps in your documentation with automated AI analysis of user questions. Get
-              priority support & integration help to create specialized bots for your unique
-              business needs.
+              and gaps in your documentation with automated AI analysis of user questions. Get priority support & integration help to create specialized bots for your unique business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security with role-based access control (RBAC), private networks, and region restrictions. Self-hosted options are available to satisfy any data protection requirements.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
@@ -256,7 +256,7 @@ export default function Pricing() {
               role="list"
               className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
             >
-              {includedFeatures.map((feature) => (
+              {enterpriseFeatures.map((feature) => (
                 <li key={feature} className="flex gap-x-3">
                   <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
                   {feature}
