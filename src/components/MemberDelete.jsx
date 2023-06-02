@@ -19,7 +19,6 @@ export default function MemberDelete({
     setErrorText('')
     setSubmitting(true)
     const body = (removeUser.inviteId) ? {removeUserEmail: removeUser.email} : {removeUserId: removeUser.uid}
-    console.log('sending', body)
     const response = await fetch(`/api/teams/${team.id}/members`, {
       method: 'DELETE',
       headers: {

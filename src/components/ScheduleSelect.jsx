@@ -27,7 +27,6 @@ const isAvailable = (team, interval) => {
   const currentPlan = stripePlan(team)
   const selectedInterval = getTimeInterval(interval)
   const planLimit = getTimeInterval(currentPlan.scheduleInterval)
-  console.log(currentPlan.scheduleInterval, selectedInterval, planLimit)
   return selectedInterval >= planLimit
 }
 
@@ -36,7 +35,6 @@ export default function ScheduleSelect({ team, onSelect, defaultSelected }) {
 
   return (
     <Listbox value={selected} onChange={(val) => {
-      console.log(val)
       setSelected(val)
       onSelect(val.value)
     }}>

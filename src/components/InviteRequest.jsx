@@ -6,7 +6,6 @@ export default function InviteRequest({ teamId, teamName, inviteId, setInviteLis
 
   async function submitInvite(status) {
     setErrorText('')
-    console.log(inviteId)
     setSubmitting(true)
     const response = await fetch(`/api/teams/${teamId}/invite`, {
       method: 'PUT',

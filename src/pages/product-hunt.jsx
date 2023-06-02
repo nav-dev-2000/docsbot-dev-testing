@@ -50,7 +50,6 @@ export function ChatPage() {
     // Send message to server when connection is established
     ws.onopen = function (event) {
       setLoadingMessage('Thinking...')
-      console.log(question)
       const req = { question: question, markdown: true }
       ws.send(JSON.stringify(req))
     }
@@ -157,7 +156,6 @@ export function ChatPage() {
                 <form
                   className="flex justify-center"
                   onSubmit={(e) => {
-                    console.log('submit')
                     askQuestion()
                     e.preventDefault()
                   }}

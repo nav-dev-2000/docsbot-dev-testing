@@ -197,7 +197,6 @@ export default function Ask({ team, bot }) {
             <form
               className="flex justify-center"
               onSubmit={(e) => {
-                console.log('submit')
                 askQuestion()
                 e.preventDefault()
               }}

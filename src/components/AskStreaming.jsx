@@ -229,7 +229,6 @@ export default function AskStreaming({ teamId, bot }) {
               <form
                 className="flex justify-center"
                 onSubmit={(e) => {
-                  console.log('submit')
                   askQuestion()
                   e.preventDefault()
                 }}
@@ -288,20 +287,6 @@ export default function AskStreaming({ teamId, bot }) {
                 )}
               </div>
             </>
-          )}
-
-          {!resultHtml && (
-            <div className="mx-auto mt-8 max-w-7xl text-left">
-              <h3 className="text-xl font-medium leading-6 text-gray-900">Tips:</h3>
-              <ul className="mt-4 ml-6 list-disc text-left">
-                <li className="text-md text-gray-500">
-                  Ask me full questions, I'm not a search engine!
-                </li>
-                <li className="text-md text-gray-500">
-                  Tell me how to respond, like "with code examples", "as a list", or "as a table".
-                </li>
-              </ul>
-            </div>
           )}
         </div>
 
