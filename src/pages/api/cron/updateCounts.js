@@ -20,6 +20,10 @@ export default async function handler(request, response) {
       console.log("team", teamDoc.id, "is scheduled to have the counts updated...");
 
       try {
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
         // make transaction
         await firestore.runTransaction(async (transaction) => {
           const teamData = teamDoc.data();
@@ -37,11 +41,16 @@ export default async function handler(request, response) {
             // wait for each callback to complete, then take and sum the results
             const sourceCounts = await Promise.all(sourcePromises);
             const sourceCountTotal = sourceCounts.reduce((accumulator, count) => accumulator + count, 0);
+            const prevHistory = botDoc.data().questionCountHistory || {};
 
             // update bot count
             botDoc.ref.update({
               'questionCount': questionCount,
               'pageCount': sourceCountTotal,
+              'questionCountHistory': {
+                ...prevHistory,
+                [`${currentYear}-${currentMonth}`]: questionCount,
+              },
             });
             return {questionCount, sourceCountTotal};
           });
@@ -56,9 +65,6 @@ export default async function handler(request, response) {
           );
 
           console.log("team", teamDoc.id, "has", questionTotal, "questions,", sourcePageTotal, "source pages");
-          let currentDate = new Date();
-          let currentMonth = currentDate.getMonth();
-          let currentYear = currentDate.getFullYear();
 
           // update team count && needsUpdate
           const prevHistory = teamData.questionCountHistory || {};
