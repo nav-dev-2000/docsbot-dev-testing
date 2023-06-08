@@ -241,8 +241,8 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                       {question?.escalation && (
                         <Alert title="This user escalated this message to support" type="info" className="rounded-t-lg" />
                       )}
-                      <div className="flex p-0">
-                        <h2 className="text-sm flex items-center font-medium text-gray-400">
+                      <div className="flex-inline p-0">
+                        <h2 className="text-sm flex items-center font-medium text-gray-400 text-wrap">
                           <img
                             className="mr-1 inline-block h-5 w-5 rounded-full"
                             src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
