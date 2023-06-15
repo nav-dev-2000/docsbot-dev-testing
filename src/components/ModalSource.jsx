@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon, TrashIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, TrashIcon, ArrowPathIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
@@ -12,12 +12,42 @@ import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 export default function ModalSource({ team, bot, source, setSources, children }) {
   const [open, setOpen] = useState(false)
   const [toDelete, setToDelete] = useState(null)
+  const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState(source.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
   const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
   const [locked, setLocked] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
+
+  const downloadSource = async () => {
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/download`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    if (response.ok) {
+      // we get a signed url back
+      const { url } = await response.json();
+      var link = document.createElement("a");
+      link.href = url;
+      link.click();
+      link.remove();
+
+      setInfoText('Successfully exported logs! Your download should start soon.')
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
 
   const updateSource = async () => {
     setErrorText('')
@@ -160,6 +190,7 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       </h1>
                     </div>
                     <Alert title={errorText} type="warning" />
+                    <Alert title={infoText} type="info" />
                     {showInterval && (
                       <>
                         <Alert
@@ -203,13 +234,22 @@ export default function ModalSource({ team, bot, source, setSources, children })
                     )}
                     {!toDelete && (
                       <div className="mt-6 mb-2 flex items-end justify-between">
-                        <button
-                          type="button"
-                          className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                          onClick={() => setToDelete(source)}
-                        >
-                          <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
-                        </button>
+                        <div className="flex flex-shrink-0 items-end justify-end">
+                          <button
+                            type="button"
+                            className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                            onClick={() => setToDelete(source)}
+                          >
+                            <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                          </button>
+                          <button
+                            type="button"
+                            className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+                            onClick={downloadSource}
+                          >
+                            <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Download
+                          </button>
+                        </div>
                         {showInterval && (
                           <div className="flex flex-shrink-0 items-end justify-end">
                             <button

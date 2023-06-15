@@ -125,3 +125,7 @@ export const canSourceTypeSchedule = (typeName) => {
   const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
   return sourceType?.fieldSchedule
 }
+export const canSourceTypeDownload = (typeName) => {
+  const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
+  return sourceType?.fieldFile
+}
