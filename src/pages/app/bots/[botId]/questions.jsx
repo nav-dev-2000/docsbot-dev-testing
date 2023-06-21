@@ -7,8 +7,10 @@ import { getBot, getQuestions } from '@/lib/dbQueries'
 import TableQuestions from '@/components/TableQuestions'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner';
+import ModalExport from '@/components/ModalExport';
 
 function Questions({ team, bot, preQuestions }) {
+  const [exportOpen, setExportOpen] = useState(false)
   const [questions, setQuestions] = useState(preQuestions)
   const [errorText, setErrorText] = useState(null)
   const [infoText, setInfoText] = useState(null)
@@ -82,7 +84,7 @@ function Questions({ team, bot, preQuestions }) {
       <Alert title={infoText} type="info" />
       <Alert title={errorText} type="warning" />
       <button
-        onClick={downloadLogs}
+        onClick={() => setExportOpen((prev) => !prev)}
         disabled={isProcessing}
         type="button"
         className="mb-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
@@ -90,6 +92,7 @@ function Questions({ team, bot, preQuestions }) {
         {isProcessing ? <LoadingSpinner className='h-6 w-6 mr-2' /> : <ArrowDownTrayIcon className='h-6 w-6 mr-2'/>}
         Export Logs
       </button>
+      <ModalExport open={exportOpen} setOpen={setExportOpen} />
 
       <TableQuestions team={team} questions={questions} setQuestions={setQuestions} botId={botId} changePage={changePage} />
     </DashboardWrap>
