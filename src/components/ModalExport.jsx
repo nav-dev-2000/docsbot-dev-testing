@@ -1,18 +1,57 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
+import LoadingSpinner from '@/components/LoadingSpinner';
 import Datepicker from "react-tailwindcss-datepicker";
+import Alert from '@/components/Alert'
 
-
-export default function ModalExport({ open, setOpen }) {
+export default function ModalExport({ team, bot, open, setOpen }) {
+  const [isProcessing, setIsProcessing] = useState(false)
+  const [errorText, setErrorText] = useState(null)
+  const [infoText, setInfoText] = useState(null)
   const [value, setValue] = useState({
-    startDate: new Date(),
-    endDate: new Date().setMonth(11)
+    startDate: bot.createdAt,
+    endDate: new Date()
   });
 
   const handleValueChange = (newValue) => {
     console.log("newValue:", newValue);
     setValue(newValue);
+  }
+
+  const downloadLogs = async () => {
+    if (isProcessing) {
+      return
+    }
+    setIsProcessing(true)
+
+    // ask api to generate logs
+    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log`;
+    try {
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        // we get a signed url back
+        const { url } = await response.json();
+        var link = document.createElement("a");
+        link.href = url;
+        link.click();
+        link.remove();
+
+        setInfoText('Successfully exported logs! Your download should start soon.')
+      } else {
+        setErrorText('Something went wrong, please try again.')
+      }
+    } catch (e) {
+      console.warn(e);
+      setErrorText('Something went wrong, please try again.')
+    }
+    setIsProcessing(false)
   }
 
   return (
@@ -52,6 +91,8 @@ export default function ModalExport({ open, setOpen }) {
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
+                <Alert title={infoText} type="info" />
+                <Alert title={errorText} type="warning" />
                 <div className="overflow-visible p-6 mt-6">
                   <label className="block text-sm font-medium text-gray-700">
                     Date range
@@ -61,6 +102,17 @@ export default function ModalExport({ open, setOpen }) {
                       primaryColor="cyan"
                       onChange={handleValueChange}
                   />
+                </div>
+                <div className="flex flex-shrink-0 items-end justify-end px-6 pb-6 w-full">
+                  <button
+                    onClick={downloadLogs}
+                    disabled={isProcessing}
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                  >
+                    {isProcessing ? <LoadingSpinner className='h-6 w-6 mr-2' /> : <ArrowDownTrayIcon className='h-6 w-6 mr-2'/>}
+                    Export Logs
+                  </button>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
