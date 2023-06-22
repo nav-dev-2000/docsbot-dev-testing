@@ -20,10 +20,6 @@ export default function ModalExport({ team, bot, open, setOpen }) {
       return
     }
     setIsProcessing(true)
-    console.log(JSON.stringify({
-      startDate: value.startDate.toString(),
-      endDate: value.endDate.toString(),
-    }))
 
     // ask api to generate logs
     const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log`;
@@ -85,6 +81,7 @@ export default function ModalExport({ team, bot, open, setOpen }) {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative transform rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                <h3 className="pt-8 px-8 inline-flex text-2xl font-bold">Export {bot.name}'s logs</h3>
                 <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                   <button
                     type="button"
@@ -97,7 +94,7 @@ export default function ModalExport({ team, bot, open, setOpen }) {
                 </div>
                 <Alert title={infoText} type="info" />
                 <Alert title={errorText} type="warning" />
-                <div className="overflow-visible p-6 mt-6">
+                <div className="overflow-visible p-6">
                   <label className="block text-sm font-medium text-gray-700">
                     Date range
                   </label>

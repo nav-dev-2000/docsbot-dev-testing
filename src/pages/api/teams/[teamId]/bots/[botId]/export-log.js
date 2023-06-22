@@ -43,6 +43,8 @@ const handler = async (req, res) => {
     try {
       const start = new Date(startDate)
       const end = new Date(endDate)
+      start.setHours(0, 0, 0)
+      end.setHours(23, 59, 59)
 
       // grab questions
       const planLimit = stripePlan(team).logLimit
