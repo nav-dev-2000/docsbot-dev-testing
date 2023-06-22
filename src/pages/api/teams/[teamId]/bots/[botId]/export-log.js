@@ -25,105 +25,122 @@ const handler = async (req, res) => {
   const { userId, team } = check
   const { botId } = req.query
 
-  if (req.method === 'GET') {
+  if (req.method === 'POST') {
     // grab bot
     const bot = await getBot(team.id, botId)
     if (!bot) {
       return res.status(404).json({ message: 'Bot not found' })
     }
 
-    // grab questions
-    const planLimit = stripePlan(team).logLimit
-    const questions = await firestore
-      .collection('teams')
-      .doc(team.id)
-      .collection('bots')
-      .doc(botId)
-      .collection('questions')
-      .orderBy('createdAt', 'desc')
-      .limit(planLimit)
-      .get()
+    const { startDate, endDate } = req.body
 
-
-    var csvData = [];
-
-    // write questions to csv file
-    csvData.push(['alias','timestamp','rating','question','answer','sources','referrer'])
-    questions.forEach((doc) => {
-      let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
-      //if we identified the user, use the provided data for alias
-      if (doc.data().metadata) {
-        if (doc.data().metadata.name) {
-          alias = doc.data().metadata.name
-          if (doc.data().metadata.email) {
-            alias += ' (' + doc.data().metadata.email + ')'
-          }
-        } else if (doc.data().metadata.email) {
-          alias = doc.data().metadata.email
-        }
-      }
-
-      const question = { id: doc.id, ...doc.data(), alias: alias }
-      // remove newlines, convert quotes from data
-      const cleanedQuestion = question.question
-      const cleanedAnswer = question.answer
-
-      // build sources string
-      let sources = ''
-      if (question.sources && Array.isArray(question.sources)) {
-        question.sources.forEach((source) => {
-          if (source.title) {
-            sources += source.title
-            if (source.url) {
-              sources += ` (${source.url})`
-            }
-            sources += '; '
-          }
-        })
-      }
-
-      const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
-      const rating = question?.escalation ? 'Contacted Support' : ratingValue;
-      const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
-
-      csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
-    })
-
-    const countSnapshot = await firestore
-      .collection('teams')
-      .doc(team.id)
-      .collection('bots')
-      .doc(botId)
-      .collection('questions')
-      .count()
-      .get()
-
-    // let user know they're missing data, and to upgrade their plan to view full log
-    const totalCount = countSnapshot.data().count
-    if (totalCount > planLimit) {
-      csvData.push(['This log has been truncated. Upgrade your plan to view the full log.'])
+    if (!startDate || !endDate) {
+      console.log('Missing startDate or endDate', startDate, endDate)
+      return res.status(400).json({ message: 'Missing startDate or endDate' })
     }
 
-    // upload csv file to storage
-    const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
-    await file.save(stringify(csvData))
+    // make sure startDate and endDate are valid dates
+    try {
+      const start = new Date(startDate)
+      const end = new Date(endDate)
 
-    // sign url for 7 days
-    const url = (await file.getSignedUrl({
-      action: 'read',
-      promptSaveAs: `questions-${bot.id}.csv`,
-      expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
-    }))[0];
+      // grab questions
+      const planLimit = stripePlan(team).logLimit
+      const questions = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('questions')
+        .orderBy('createdAt', 'desc')
+        .where('createdAt', '>=', start)
+        .where('createdAt', '<=', end)
+        .limit(planLimit)
+        .get()
+      var csvData = [];
 
-    // disabled for now
-    // // email user with link to download csv file
-    // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
-    // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
+      // write questions to csv file
+      csvData.push(['alias','timestamp','rating','question','answer','sources','referrer'])
+      questions.forEach((doc) => {
+        let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+        //if we identified the user, use the provided data for alias
+        if (doc.data().metadata) {
+          if (doc.data().metadata.name) {
+            alias = doc.data().metadata.name
+            if (doc.data().metadata.email) {
+              alias += ' (' + doc.data().metadata.email + ')'
+            }
+          } else if (doc.data().metadata.email) {
+            alias = doc.data().metadata.email
+          }
+        }
 
-    res.status(200).json({ url: url })
+        const question = { id: doc.id, ...doc.data(), alias: alias }
+        // remove newlines, convert quotes from data
+        const cleanedQuestion = question.question
+        const cleanedAnswer = question.answer
+
+        // build sources string
+        let sources = ''
+        if (question.sources && Array.isArray(question.sources)) {
+          question.sources.forEach((source) => {
+            if (source.title) {
+              sources += source.title
+              if (source.url) {
+                sources += ` (${source.url})`
+              }
+              sources += '; '
+            }
+          })
+        }
+
+        const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
+        const rating = question?.escalation ? 'Contacted Support' : ratingValue;
+        const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
+
+        csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
+      })
+
+      const countSnapshot = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('questions')
+        .where('createdAt', '>=', start)
+        .where('createdAt', '<=', end)
+        .count()
+        .get()
+
+      // let user know they're missing data, and to upgrade their plan to view full log
+      const totalCount = countSnapshot.data().count
+      if (totalCount > planLimit) {
+        csvData.push(['This log has been truncated. Upgrade your plan to view the full log.'])
+      }
+
+      // upload csv file to storage
+      const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
+      await file.save(stringify(csvData))
+
+      // sign url for 7 days
+      const url = (await file.getSignedUrl({
+        action: 'read',
+        promptSaveAs: `questions-${bot.id}.csv`,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
+      }))[0];
+
+      // disabled for now
+      // // email user with link to download csv file
+      // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
+      // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
+
+      return res.status(200).json({ url: url })
+    } catch (error) {
+      return res.status(400).json({ message: error?.message })
+    }
   } else {
     res.setHeader('Allow', ['GET'])
-    res.status(405).end(`Method ${req.method} Not Allowed`)
+    return res.status(405).end(`Method ${req.method} Not Allowed`)
   }
 }
 

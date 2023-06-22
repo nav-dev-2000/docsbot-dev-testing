@@ -15,25 +15,29 @@ export default function ModalExport({ team, bot, open, setOpen }) {
     endDate: new Date()
   });
 
-  const handleValueChange = (newValue) => {
-    console.log("newValue:", newValue);
-    setValue(newValue);
-  }
-
   const downloadLogs = async () => {
     if (isProcessing) {
       return
     }
     setIsProcessing(true)
+    console.log(JSON.stringify({
+      startDate: value.startDate.toString(),
+      endDate: value.endDate.toString(),
+    }))
 
     // ask api to generate logs
     const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log`;
     try {
       const response = await fetch(apiUrl, {
-        method: "GET",
+        method: "POST",
         headers: {
           Accept: "application/json",
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          startDate: value.startDate.toString(),
+          endDate: value.endDate.toString(),
+        }),
       });
       if (response.ok) {
         // we get a signed url back
@@ -100,7 +104,7 @@ export default function ModalExport({ team, bot, open, setOpen }) {
                   <Datepicker
                       value={value}
                       primaryColor="cyan"
-                      onChange={handleValueChange}
+                      onChange={setValue}
                   />
                 </div>
                 <div className="flex flex-shrink-0 items-end justify-end px-6 pb-6 w-full">
