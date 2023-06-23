@@ -22,18 +22,13 @@ export default function ModalExport({ team, bot, open, setOpen }) {
     setIsProcessing(true)
 
     // ask api to generate logs
-    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log`;
+    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log?startDate=${value.startDate.toString()}&endDate=${value.endDate.toString()}`;
     try {
       const response = await fetch(apiUrl, {
-        method: "POST",
+        method: "GET",
         headers: {
           Accept: "application/json",
-          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          startDate: value.startDate.toString(),
-          endDate: value.endDate.toString(),
-        }),
       });
       if (response.ok) {
         // we get a signed url back

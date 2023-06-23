@@ -25,14 +25,14 @@ const handler = async (req, res) => {
   const { userId, team } = check
   const { botId } = req.query
 
-  if (req.method === 'POST') {
+  if (req.method === 'GET') {
     // grab bot
     const bot = await getBot(team.id, botId)
     if (!bot) {
       return res.status(404).json({ message: 'Bot not found' })
     }
 
-    const { startDate, endDate } = req.body
+    const { startDate, endDate } = req.query
 
     if (!startDate || !endDate) {
       console.log('Missing startDate or endDate', startDate, endDate)
