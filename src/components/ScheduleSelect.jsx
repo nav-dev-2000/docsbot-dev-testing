@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { stripePlan } from '@/utils/helpers'
+import classNames from '@/utils/classNames'
 
 const intervals = [
   {value: 'none', title: 'Never'},
@@ -9,10 +10,6 @@ const intervals = [
   {value: 'weekly', title: 'Weekly', plan: 'Pro'},
   {value: 'daily', title: 'Daily', plan: 'Enterprise'},
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const getTimeInterval = (interval) => {
   switch(interval) {

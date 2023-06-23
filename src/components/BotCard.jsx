@@ -5,6 +5,7 @@ import {
   DocumentDuplicateIcon,
   LanguageIcon,
   QueueListIcon,
+  ChartBarIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -42,7 +43,7 @@ export default function BotCard({ team, bot, setBot }) {
               <p className="text-xl font-bold text-gray-900 sm:text-2xl">{bot.name}</p>
               <p className="text-sm text-gray-600">{bot.description}</p>
               <div className="mt-2 flex-wrap md:flex md:space-x-3">
-              <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
@@ -85,6 +86,14 @@ export default function BotCard({ team, bot, setBot }) {
                   <QueueListIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
                   Log
                 </Link>
+                <Link
+                  href={`/app/bots/${bot.id}/reports`}
+                  className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  disabled={bot.questionCount <= 0}
+                >
+                  <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+                  Reports
+                </Link>
               </div>
             </div>
             <div className="mt-4 flex justify-between space-x-4 sm:mt-1 sm:justify-end">
@@ -94,7 +103,7 @@ export default function BotCard({ team, bot, setBot }) {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
+      <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span className="text-gray-900">{bot.sourceCount}</span>{' '}

@@ -309,7 +309,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
   }
 
   return (
-    <div className="mx-0 rounded-lg bg-white p-4 shadow-lg lg:p-8">
+    <div className="mt-4 mx-0 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-2 sm:px-4 lg:px-6">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
