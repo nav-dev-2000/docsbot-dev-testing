@@ -89,7 +89,7 @@ export default function ModalExport({ team, bot, open, setOpen }) {
                 </div>
                 <Alert title={infoText} type="info" />
                 <Alert title={errorText} type="warning" />
-                <div className="overflow-visible p-6">
+                <div className="overflow-visible p-6 light">
                   <label className="block text-sm font-medium text-gray-700">
                     Date range
                   </label>

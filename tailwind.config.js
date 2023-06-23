@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{js,jsx}', './node_modules/react-tailwindcss-datepicker/dist/index.esm.js'],
   theme: {
     fontSize: {
