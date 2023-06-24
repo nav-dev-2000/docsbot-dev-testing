@@ -1,11 +1,10 @@
 import {
-  CodeBracketIcon,
-  VideoCameraIcon,
   ShieldCheckIcon,
   MapIcon,
   DocumentMagnifyingGlassIcon,
   TableCellsIcon,
   RssIcon,
+  CursorArrowRippleIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChatBubbleLeftRightIcon,
@@ -60,10 +59,10 @@ const integrations = [
     icon: TableCellsIcon,
   },
   {
-    name: 'YouTube Transcripts',
+    name: 'Zapier Integration',
     description:
-      'Create DocsBots trained on the transcripts of a YouTube video or channel! Surface that valuable content in your support responses (coming soon).',
-    icon: VideoCameraIcon,
+      'Connect DocsBot to thousands of apps via Zapier. Pass your trained bots questions and route answers to your favorite apps.',
+    icon: CursorArrowRippleIcon,
   },
   {
     name: 'API',
