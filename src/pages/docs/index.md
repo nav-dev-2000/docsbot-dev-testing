@@ -26,6 +26,10 @@ There are many ways to integrate DocsBot into your product. You can use our simp
 
 The fastest way to integrate DocsBot into your product is to use our embeddable chat widget. You can embed the widget in your website and customize it to match your brand colors and preferences. You can read more about configuring the widget in the [Chat Widget](/docs/embeddable-chat-widget) section.
 
+## Integrations
+
+We've partnered with Zapier so you can link your DocsBot with a multitude of different apps and services. This opens up a world of possibilities for your DocsBot, allowing you to integrate with thousands of other tools in the Zapier ecosystem. You can read more about the Zapier integration in the [Zapier Integration](/docs/integrations/zapier) section.
+
 ## Chat APIs
 
 If you want to create your own Q/A and chat interfaces in your product, you can use our chat APIs. You can read more about the chat APIs in the [Chat APIs](/docs/chat-api-overview) section.
