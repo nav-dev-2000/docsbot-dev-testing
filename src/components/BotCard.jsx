@@ -84,7 +84,7 @@ export default function BotCard({ team, bot, setBot }) {
                   disabled={bot.questionCount <= 0}
                 >
                   <QueueListIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                  Log
+                  Logs
                 </Link>
                 <Link
                   href={`/app/bots/${bot.id}/reports`}

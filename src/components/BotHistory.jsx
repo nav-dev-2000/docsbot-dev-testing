@@ -6,9 +6,9 @@ import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
 
 const intervals = [
-  { value: 90, title: 'Past Quarter' },
-  { value: 30, title: 'Past Month' },
-  { value: 7, title: 'Past Week' },
+  { value: 7, title: 'Week' },
+  { value: 30, title: 'Month' },
+  { value: 90, title: 'Quarter' },
 ]
 
 const defaultSelected = 30
@@ -83,18 +83,34 @@ export default function BotHistory({ team, botId }) {
           {
             label: 'Questions',
             data: countData,
+            borderColor: '#36A2EB',
+            backgroundColor: 'rgba(54, 162, 235, 0.1)',
+            tension: 0.3,
+            fill: true,
           },
           {
             label: 'Positive',
             data: positiveData,
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            tension: 0.3,
+            fill: true,
           },
           {
             label: 'Negative',
             data: negativeData,
+            borderColor: '#EF4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            tension: 0.3,
+            fill: true,
           },
           {
             label: 'Escalations',
             data: escalatedData,
+            borderColor: '#F59E0B',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            tension: 0.3,
+            fill: true,
           },
         ],
       },
@@ -107,6 +123,7 @@ export default function BotHistory({ team, botId }) {
         datasets: [
           {
             data: percentageData,
+            backgroundColor: ['#36A2EB', '#10B981', '#EF4444', '#F59E0B'],
           },
         ],
       },
@@ -133,7 +150,7 @@ export default function BotHistory({ team, botId }) {
 
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
-      <div className="mb-12 px-2 sm:px-4 lg:px-6">
+      <div className="mb-12">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold leading-6 text-gray-900">Bot Statistics</h1>
@@ -141,7 +158,7 @@ export default function BotHistory({ team, botId }) {
               Statistics about the questions you or users have asked your bot.
             </p>
           </div>
-          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <div className="mt-4 w-28 sm:mt-0 sm:flex-none">
             <Listbox
               value={selected}
               onChange={(val) => {
@@ -219,12 +236,12 @@ export default function BotHistory({ team, botId }) {
       </div>
 
       {isProcessing && (
-        <div className="flex items-center justify-center h-24">
+        <div className="flex h-24 items-center justify-center">
           <LoadingSpinner large={true} className="mr-4" />
           Loading...
         </div>
       )}
-      <div className="md:flex align-middle">
+      <div className="align-middle md:flex">
         <div className="flex-auto">
           <canvas id="line-chart"></canvas>
         </div>

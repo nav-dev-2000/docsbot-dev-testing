@@ -5,10 +5,9 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot, getQuestions } from '@/lib/dbQueries'
 import TableQuestions from '@/components/TableQuestions'
-import { ArrowDownTrayIcon, ChartBarIcon } from '@heroicons/react/24/outline'
-import LoadingSpinner from '@/components/LoadingSpinner'
+import { ChevronLeftIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import ModalExport from '@/components/ModalExport';
+import ModalExport from '@/components/ModalExport'
 
 function Questions({ team, bot, preQuestions }) {
   const [exportOpen, setExportOpen] = useState(false)
@@ -81,7 +80,6 @@ function Questions({ team, bot, preQuestions }) {
     }
     setIsProcessing(false)
   }
-  
 
   if (!bot) return null
 
@@ -90,23 +88,34 @@ function Questions({ team, bot, preQuestions }) {
   return (
     <DashboardWrap page="Bots" title={title} team={team}>
       <Alert title={errorText} type="warning" />
-      
-      <div className="mb-4 flex justify-between">
-        <button
-          onClick={() => setExportOpen((prev) => !prev)}
-          type="button"
-          className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-        >
-          Export Logs
-        </button>
 
+      <div className="mb-4 flex justify-between">
         <Link
-          href={`/app/bots/${bot.id}/reports`}
-          className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+          href={`/app/bots/${bot.id}`}
+          className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
         >
-          <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-          Reports
+          <ChevronLeftIcon
+            className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
+            aria-hidden="true"
+          />
+          Back
         </Link>
+        <div className="flex items-center justify-center space-x-2">
+          <Link
+            href={`/app/bots/${bot.id}/reports`}
+            className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+            Reports
+          </Link>
+          <button
+            onClick={() => setExportOpen((prev) => !prev)}
+            type="button"
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+          >
+            Export Logs
+          </button>
+        </div>
       </div>
       <ModalExport team={team} bot={bot} open={exportOpen} setOpen={setExportOpen} />
 

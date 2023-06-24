@@ -8,6 +8,8 @@ import BotCard from '@/components/BotCard'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
+import Link from 'next/link'
+import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 
 function Bot({ team, preBot, preSources }) {
   const [sources, setSources] = useState(preSources)
@@ -141,7 +143,18 @@ function Bot({ team, preBot, preSources }) {
   return (
     <DashboardWrap page="Bots" title={bot.name} team={team}>
       <Alert title={errorText} type="warning" />
-
+      <div className="mb-4 flex justify-start">
+        <Link
+          href={`/app/bots`}
+          className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
+        >
+          <ChevronLeftIcon
+            className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
+            aria-hidden="true"
+          />
+          Back
+        </Link>
+      </div>
       <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
