@@ -31,7 +31,7 @@ Team objects have the following properties:
 
 This endpoint lists all teams that the API key user has a role for. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams`
+`GET https://docsbot.ai/api/teams`
 
 ### Examples
 
@@ -119,7 +119,7 @@ Response is a JSON array of team objects:
 
 This endpoint fetches a specific team by its ID. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId`
+`GET https://docsbot.ai/api/teams/:teamId`
 
 ### Examples
 
@@ -183,7 +183,7 @@ Response is a JSON team object:
 
 This endpoint updates specific fields for a specific team by its ID. It accepts a PUT request with the following parameters:
 
-`PUT https://api.docsbot.ai/teams/:teamId`
+`PUT https://docsbot.ai/api/teams/:teamId`
 
 ### Editable Parameters
 

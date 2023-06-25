@@ -28,7 +28,7 @@ Source objects have the following properties:
 
 This endpoint lists all sources for the given team and bot. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId/bots/:botId/sources`
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/sources`
 
 ### Examples
 
@@ -62,7 +62,7 @@ fetch('https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzY
 
 ### Response
 
-Response is a JSON array of team objects:
+Response is a JSON array of source objects:
 
 ```json
 [
@@ -86,7 +86,7 @@ Response is a JSON array of team objects:
 
 This endpoint fetches a specific source by its ID. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId/bots/:botId/sources/:sourceId`
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/sources/:sourceId`
 
 ### Examples
 
@@ -145,7 +145,7 @@ Response is a JSON source object:
 
 This endpoint creates a new source for a bot. It accepts a POST request with the following parameters:
 
-`POST https://api.docsbot.ai/teams/:teamId/bots/:botId/sources`
+`POST https://docsbot.ai/api/teams/:teamId/bots/:botId/sources`
 
 ### Parameters
 
@@ -153,7 +153,7 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 | -------- | ------ | --------------------------------------------------------------------------- |
 | **type** | string | The source type. Can be `url`, `rss`, or `sitemap` for now. File upload types are coming soon.   |
 | **title** | string | The source title. Optional. |
-| **url** | string | The source URL. Required if type is `url` or `sitemap`. |
+| **url** | string | The source URL. Required if type is `url`, `sitemap`, or `rss`. |
 
 ### Examples
 
@@ -220,7 +220,7 @@ Response is a HTTP 201 with a JSON source object:
 
 Sources are read only. However if a source fails it is possible to trigger an index retry. It accepts a PUT request with no parameters:
 
-`PUT https://api.docsbot.ai/teams/:teamId/bots/:botId/sources/:sourceId`
+`PUT https://docsbot.ai/api/teams/:teamId/bots/:botId/sources/:sourceId`
 
 ### Examples
 
@@ -255,7 +255,7 @@ Response is am HTTP 201 with the new JSON source object:
 
 This endpoint deletes a specific source by its ID. Please note however, that it may take several minutes for the sources to be completely removed from our services, meaning that sources may still be recommended in chat results for several minutes after deleting. It accepts a DELETE request with the following parameters:
 
-`DELETE https://api.docsbot.ai/teams/:teamId/bots/:botId/sources/:sourceId`
+`DELETE https://docsbot.ai/api/teams/:teamId/bots/:botId/sources/:sourceId`
 
 ### Examples
 

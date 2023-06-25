@@ -13,6 +13,8 @@ We've partnered with Zapier so you can link your DocsBot with a multitude of dif
 
 Our user-friendly Zapier app grants you the power to ask your DocsBot a question and receive an answer, complete with references or sources. Plus, you have complete control over how to input and output your question and answer.
 
+We also have a Create Source action that allows you to add new content to your DocsBot via url, sitemap, or RSS feed.
+
 ### 1. Login or Signup to Zapier
 
 Create a [free Zapier account](https://zapier.com/sign-up) if you don't already have one.
@@ -42,6 +44,8 @@ You've successfully established a connection between your DocsBot and Zapier.
 ## Looking for some innovative ideas to get started?
 
 1. **Instant Customer Support**: Use DocsBot to automatically answer support tickets in your CRM or helpdesk software with relevant information from your internal knowledge base or FAQ documents.
+
+1. **Train on Newly Published Documentation**: When you publish new documentation to your CMS or website, have DocsBot automatically train on it, so it can answer questions about the new content.
 
 1. **Content Ideas Generation**: Ask DocsBot to generate new content ideas for your blog or social media, based on trending questions or topics in your industry. Feed this output to a Trello board or Asana project.
 

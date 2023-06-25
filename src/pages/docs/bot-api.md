@@ -43,7 +43,7 @@ Bot objects have the following properties:
 
 This endpoint lists all bots for a specific team. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId/bots`
+`GET https://docsbot.ai/api/teams/:teamId/bots`
 
 ### Examples
 
@@ -103,7 +103,7 @@ Response is a JSON array of bot objects:
 
 This endpoint fetches a specific bot by its ID. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId/bots/:botId`
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId`
 
 ### Examples
 
@@ -161,7 +161,7 @@ Response is a JSON bot object:
 
 This endpoint creates a new bot in a team. It accepts a POST request with the following parameters:
 
-`POST https://api.docsbot.ai/teams/:teamId/bots`
+`POST https://docsbot.ai/api/teams/:teamId/bots`
 
 ### Parameters
 
@@ -389,7 +389,7 @@ Response is the new JSON bot object:
 
 This endpoint deletes a specific bot by its ID. It accepts a DELETE request with the following parameters:
 
-`DELETE https://api.docsbot.ai/teams/:teamId/bots/:botId`
+`DELETE https://docsbot.ai/api/teams/:teamId/bots/:botId`
 
 ### Examples
 

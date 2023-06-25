@@ -41,7 +41,7 @@ Source objects found in the `sources` array have the following properties:
 
 This endpoint lists all questions asked of a given team and bot. It accepts a GET request with the following parameters:
 
-`GET https://api.docsbot.ai/teams/:teamId/bots/:botId/questions?ascending=false&page=0&perPage=50`
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/questions?ascending=false&page=0&perPage=50`
 
 ### Optional URL Parameters
 
