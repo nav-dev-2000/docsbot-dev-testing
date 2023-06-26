@@ -71,7 +71,7 @@ router.post(async (req, res) => {
       return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
     }
 
-    const languages = ['en', 'jp']
+    const languages = ['en', 'jp', 'de']
     if (!languages.includes(language)) {
       return res.status(400).send({ message: 'Invalid param "language".' })
     }

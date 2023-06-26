@@ -115,7 +115,7 @@ export default async function handler(req, res) {
       }
 
       if (language) {
-        const languages = ['en', 'jp']
+        const languages = ['en', 'jp', 'de']
         if (!languages.includes(language)) {
           return res.status(400).send({ message: 'Invalid param "language".' })
         } else {
