@@ -253,7 +253,7 @@ export default function DashboardWrap({ page, title, team, children }) {
                   <Breadcrumbs title={title} />
                 </div>
                 <p className="flex flex-0 items-center text-sm text-gray-500 overflow-hidden">
-                    {team.name}
+                    {team?.name || ''}
                 </p>
                 <div className="ml-4 flex items-center md:ml-6">
                   {/* Profile dropdown */}
