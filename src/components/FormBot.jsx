@@ -4,7 +4,7 @@ import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 
-export default function FormBot({ team, bot, setBotSettings, disabled }) {
+export default function FormBot({ team, bot, setBotSettings, disabled, hideSuggestQuestions = false }) {
   const [language, setLanguage] = useState(bot?.language || 'en')
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
@@ -307,29 +307,31 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
         </div>
       </fieldset>
 
-      <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
-        <div>
-          <legend htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
-            Suggested questions
-          </legend>
-          <p id="suggested-questions-description" className="text-sm text-gray-500">
-            A random selection of these sample questions will be shown to users in the chat
-            interfaces.
-          </p>
-          {questions !== undefined &&
-            questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
-          <div className="mt-2 flex justify-center">
-            <button
-              type="button"
-              className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
-              onClick={() => addQuestion()}
-            >
-              <PlusIcon className="h-5 w-5" aria-hidden="true" />
-              Add
-            </button>
+      {!hideSuggestQuestions && (
+        <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
+          <div>
+            <legend htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
+              Suggested questions
+            </legend>
+            <p id="suggested-questions-description" className="text-sm text-gray-500">
+              A random selection of these sample questions will be shown to users in the chat
+              interfaces.
+            </p>
+            {questions !== undefined &&
+              questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
+            <div className="mt-2 flex justify-center">
+              <button
+                type="button"
+                className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                onClick={() => addQuestion()}
+              >
+                <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                Add
+              </button>
+            </div>
           </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      )}
     </>
   )
 }
