@@ -11,8 +11,194 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function StatsPage({ userId, teams }) {
+function StatsPage({ userId, stats, steps }) {
   const [errorText, setErrorText] = useState(null)
+
+  return (
+    <DashboardWrap page="Dashboard">
+      <Alert title={errorText} type="error" />
+
+      <div className="my-8">
+        <h3 className="text-3xl font-medium leading-6 text-gray-900">DocsBot Superadmin Stats</h3>
+        <p className="mb-0 mt-2 text-sm text-gray-500">Staff view of DocsBot usage.</p>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="text-base font-semibold leading-6 text-gray-900">Stats</h3>
+        <dl className="mt-5 grid grid-cols-1 divide-x divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-2 lg:grid-cols-4">
+          {stats.map((item) => (
+            <div key={item.name} className="px-4 py-5 sm:p-6">
+              <dt className="text-base font-normal text-gray-900">{item.name}</dt>
+              <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
+                <div className="flex items-baseline text-2xl font-semibold text-cyan-600">
+                  {item.stat}
+
+                  {item.previousStat && (
+                    <span className="ml-2 text-sm font-medium text-gray-500">
+                      ({item.previousStat})
+                    </span>
+                  )}
+                </div>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <h3 className="mt-16 text-base font-semibold leading-6 text-gray-900">Conversion Funnel</h3>
+      <div className="mb-8 mt-4 overflow-hidden bg-white py-4 shadow sm:rounded-md">
+        <div className="lg:border-b lg:border-t lg:border-gray-200">
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Progress">
+            <ol
+              role="list"
+              className="overflow-hidden rounded-md lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"
+            >
+              {steps.map((step, stepIdx) => (
+                <li key={step.id} className="relative overflow-hidden lg:flex-1">
+                  <div
+                    className={classNames(
+                      stepIdx === 0 ? 'rounded-t-md border-b-0' : '',
+                      stepIdx === steps.length - 1 ? 'rounded-b-md border-t-0' : '',
+                      'overflow-hidden border border-gray-200 lg:border-0'
+                    )}
+                  >
+                    {step.status === 'complete' ? (
+                      <a href={step.href} className="group">
+                        <span
+                          className="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
+                          aria-hidden="true"
+                        />
+                        <span
+                          className={classNames(
+                            stepIdx !== 0 ? 'lg:pl-9' : '',
+                            'flex items-start px-6 py-5 text-sm font-medium'
+                          )}
+                        >
+                          <span className="flex-shrink-0">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600">
+                              <CheckIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                            </span>
+                          </span>
+                          <span className="ml-4 mt-0.5 flex min-w-0 flex-col">
+                            <span className="text-sm font-medium">{step.name}</span>
+                            <span className="text-sm font-medium text-gray-500">
+                              {step.description}
+                            </span>
+                          </span>
+                        </span>
+                      </a>
+                    ) : step.status === 'current' ? (
+                      <a href={step.href} aria-current="step">
+                        <span
+                          className="absolute left-0 top-0 h-full w-1 bg-indigo-600 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
+                          aria-hidden="true"
+                        />
+                        <span
+                          className={classNames(
+                            stepIdx !== 0 ? 'lg:pl-9' : '',
+                            'flex items-start px-6 py-5 text-sm font-medium'
+                          )}
+                        >
+                          <span className="flex-shrink-0">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-indigo-600">
+                              <span className="text-indigo-600">{step.id}</span>
+                            </span>
+                          </span>
+                          <span className="ml-4 mt-0.5 flex min-w-0 flex-col">
+                            <span className="text-sm font-medium text-indigo-600">{step.name}</span>
+                            <span className="text-sm font-medium text-gray-500">
+                              {step.description}
+                            </span>
+                          </span>
+                        </span>
+                      </a>
+                    ) : (
+                      <a href={step.href} className="group">
+                        <span
+                          className="absolute left-0 top-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
+                          aria-hidden="true"
+                        />
+                        <span
+                          className={classNames(
+                            stepIdx !== 0 ? 'lg:pl-9' : '',
+                            'flex items-start px-6 py-5 text-sm font-medium'
+                          )}
+                        >
+                          <span className="flex-shrink-0">
+                            <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-teal-300">
+                              <span className="font-semibold text-cyan-700">{step.id}</span>
+                            </span>
+                          </span>
+                          <span className="ml-4 mt-0.5 flex min-w-0 flex-col">
+                            <span className="text-sm font-medium text-gray-700">{step.name}</span>
+                            <span className="text-sm font-medium text-gray-500">
+                              {step.description}
+                            </span>
+                          </span>
+                        </span>
+                      </a>
+                    )}
+
+                    {stepIdx !== 0 ? (
+                      <>
+                        {/* Separator */}
+                        <div
+                          className="absolute inset-0 left-0 top-0 hidden w-3 lg:block"
+                          aria-hidden="true"
+                        >
+                          <svg
+                            className="h-full w-full text-gray-300"
+                            viewBox="0 0 12 82"
+                            fill="none"
+                            preserveAspectRatio="none"
+                          >
+                            <path
+                              d="M0.5 0V31L10.5 41L0.5 51V82"
+                              stroke="currentcolor"
+                              vectorEffect="non-scaling-stroke"
+                            />
+                          </svg>
+                        </div>
+                      </>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </DashboardWrap>
+  )
+}
+
+export const getServerSideProps = async (context) => {
+  const data = await getAuthorizedUserCurrentTeam(context)
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  //if not super admin, redirect to dashboard
+  if (!isSuperAdmin(data?.props?.userId)) {
+    return {
+      redirect: {
+        destination: '/app',
+        permanent: false,
+      },
+    }
+  }
+
+  const teamsSnapshot = await firestore.collection('teams').get()
+  let teams = []
+  teamsSnapshot.forEach(async (doc) => {
+    let team = { id: doc.id, ...doc.data() }
+    if (team.createdAt) {
+      team.createdAt = team.createdAt.toDate().toJSON() //make serializable
+    }
+    if (team.id !== '9oh1D8on7okSdakT1Ywn') {
+      //skip staff team
+      teams.push(team)
+    }
+  })
 
   const teamCount = teams.length
   const botCount = teams.reduce((acc, team) => acc + team.botCount, 0)
@@ -82,7 +268,9 @@ function StatsPage({ userId, teams }) {
     { name: 'Questions per Account', stat: questionsPerAccount },
   ]
 
-  const steps = [
+  data.props.stats = stats
+
+  data.props.steps = [
     {
       id: '100%',
       name: 'Signup',
@@ -112,191 +300,6 @@ function StatsPage({ userId, teams }) {
       status: 'upcoming',
     },
   ]
-
-  return (
-    <DashboardWrap page="Dashboard">
-      <Alert title={errorText} type="error" />
-
-      <div className="my-8">
-        <h3 className="text-3xl font-medium leading-6 text-gray-900">DocsBot Superadmin Stats</h3>
-        <p className="mt-2 mb-0 text-sm text-gray-500">Staff view of DocsBot usage.</p>
-      </div>
-
-      <div className="mt-8">
-        <h3 className="text-base font-semibold leading-6 text-gray-900">Stats</h3>
-        <dl className="mt-5 grid grid-cols-1 divide-y divide-x divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-2 lg:grid-cols-4">
-          {stats.map((item) => (
-            <div key={item.name} className="px-4 py-5 sm:p-6">
-              <dt className="text-base font-normal text-gray-900">{item.name}</dt>
-              <dd className="mt-1 flex items-baseline justify-between md:block lg:flex">
-                <div className="flex items-baseline text-2xl font-semibold text-cyan-600">
-                  {item.stat}
-
-                  {item.previousStat && (
-                    <span className="ml-2 text-sm font-medium text-gray-500">
-                      ({item.previousStat})
-                    </span>
-                  )}
-                </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <h3 className="mt-16 text-base font-semibold leading-6 text-gray-900">Conversion Funnel</h3>
-      <div className="mb-8 mt-4 overflow-hidden bg-white py-4 shadow sm:rounded-md">
-        <div className="lg:border-t lg:border-b lg:border-gray-200">
-          <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Progress">
-            <ol
-              role="list"
-              className="overflow-hidden rounded-md lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"
-            >
-              {steps.map((step, stepIdx) => (
-                <li key={step.id} className="relative overflow-hidden lg:flex-1">
-                  <div
-                    className={classNames(
-                      stepIdx === 0 ? 'rounded-t-md border-b-0' : '',
-                      stepIdx === steps.length - 1 ? 'rounded-b-md border-t-0' : '',
-                      'overflow-hidden border border-gray-200 lg:border-0'
-                    )}
-                  >
-                    {step.status === 'complete' ? (
-                      <a href={step.href} className="group">
-                        <span
-                          className="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            stepIdx !== 0 ? 'lg:pl-9' : '',
-                            'flex items-start px-6 py-5 text-sm font-medium'
-                          )}
-                        >
-                          <span className="flex-shrink-0">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600">
-                              <CheckIcon className="h-6 w-6 text-white" aria-hidden="true" />
-                            </span>
-                          </span>
-                          <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
-                            <span className="text-sm font-medium">{step.name}</span>
-                            <span className="text-sm font-medium text-gray-500">
-                              {step.description}
-                            </span>
-                          </span>
-                        </span>
-                      </a>
-                    ) : step.status === 'current' ? (
-                      <a href={step.href} aria-current="step">
-                        <span
-                          className="absolute top-0 left-0 h-full w-1 bg-indigo-600 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            stepIdx !== 0 ? 'lg:pl-9' : '',
-                            'flex items-start px-6 py-5 text-sm font-medium'
-                          )}
-                        >
-                          <span className="flex-shrink-0">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-indigo-600">
-                              <span className="text-indigo-600">{step.id}</span>
-                            </span>
-                          </span>
-                          <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
-                            <span className="text-sm font-medium text-indigo-600">{step.name}</span>
-                            <span className="text-sm font-medium text-gray-500">
-                              {step.description}
-                            </span>
-                          </span>
-                        </span>
-                      </a>
-                    ) : (
-                      <a href={step.href} className="group">
-                        <span
-                          className="absolute top-0 left-0 h-full w-1 bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            stepIdx !== 0 ? 'lg:pl-9' : '',
-                            'flex items-start px-6 py-5 text-sm font-medium'
-                          )}
-                        >
-                          <span className="flex-shrink-0">
-                            <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-teal-300">
-                              <span className="font-semibold text-cyan-700">{step.id}</span>
-                            </span>
-                          </span>
-                          <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
-                            <span className="text-sm font-medium text-gray-700">{step.name}</span>
-                            <span className="text-sm font-medium text-gray-500">
-                              {step.description}
-                            </span>
-                          </span>
-                        </span>
-                      </a>
-                    )}
-
-                    {stepIdx !== 0 ? (
-                      <>
-                        {/* Separator */}
-                        <div
-                          className="absolute inset-0 top-0 left-0 hidden w-3 lg:block"
-                          aria-hidden="true"
-                        >
-                          <svg
-                            className="h-full w-full text-gray-300"
-                            viewBox="0 0 12 82"
-                            fill="none"
-                            preserveAspectRatio="none"
-                          >
-                            <path
-                              d="M0.5 0V31L10.5 41L0.5 51V82"
-                              stroke="currentcolor"
-                              vectorEffect="non-scaling-stroke"
-                            />
-                          </svg>
-                        </div>
-                      </>
-                    ) : null}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </nav>
-        </div>
-      </div>
-    </DashboardWrap>
-  )
-}
-
-export const getServerSideProps = async (context) => {
-  const data = await getAuthorizedUserCurrentTeam(context)
-  configureFirebaseApp()
-  const firestore = getFirestore()
-
-  //if not super admin, redirect to dashboard
-  if (!isSuperAdmin(data?.props?.userId)) {
-    return {
-      redirect: {
-        destination: '/app',
-        permanent: false,
-      },
-    }
-  }
-
-  const teamsSnapshot = await firestore.collection('teams').get()
-  let teams = []
-  teamsSnapshot.forEach(async (doc) => {
-    let team = { id: doc.id, ...doc.data() }
-    team.createdAt = team.createdAt.toDate().toJSON() //make serializable
-    if (team.id !== '9oh1D8on7okSdakT1Ywn') { //skip staff team
-      teams.push(team)
-    }
-  })
-
-  data.props.teams = teams
 
   return data
 }
