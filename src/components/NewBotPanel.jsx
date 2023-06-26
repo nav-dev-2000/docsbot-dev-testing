@@ -119,7 +119,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
                           <div className="divide-y divide-gray-200 px-4 sm:px-6">
                             <Alert title={errorText} type="error" />
                             <div className="space-y-6 pt-6 pb-5">
-                            <FormBot {...{team, setBotSettings }} disabled={isUpdating} />
+                            <FormBot {...{team, setBotSettings }} disabled={isUpdating} hideSuggestQuestions={true} />
                           </div>
                             <div className=" pt-4 pb-6">
                               <div className="mt-4 flex text-sm">
