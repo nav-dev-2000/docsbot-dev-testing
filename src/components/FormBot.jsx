@@ -304,6 +304,25 @@ export default function FormBot({ team, bot, setBotSettings, disabled }) {
               </div>
             </div>
           </div>
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="language-german"
+                name="language"
+                value="en"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={language === 'de'}
+                onChange={() => setLanguage('de')}
+                disabled={disabled}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label htmlFor="language-german" className="font-medium text-gray-900">
+                Deutsch
+              </label>
+            </div>
+          </div>
         </div>
       </fieldset>
 

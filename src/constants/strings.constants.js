@@ -27,4 +27,18 @@ export const i18n = {
       close: '閉じる',
     },
   },
+  de: {
+    labels: {
+      poweredBy: 'Bereitgestellt von',
+      inputPlaceholder: 'Eine Nachricht schicken...',
+      firstMessage: 'Womit kann ich dir helfen?',
+      sources: 'Quellen',
+      helpful: 'Als hilfreich bewerten',
+      unhelpful: 'Als nicht hilfreich bewerten',
+      getSupport: 'Kontaktieren Sie Support',
+      floatingButton: 'Hilfe',
+      suggestions: 'Sie wissen nicht, was Sie fragen sollen?',
+      close: 'Schließen',
+    },
+  }
 }
