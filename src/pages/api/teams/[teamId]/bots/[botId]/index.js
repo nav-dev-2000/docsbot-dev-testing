@@ -119,10 +119,12 @@ export default async function handler(req, res) {
         if (!languages.includes(language)) {
           return res.status(400).send({ message: 'Invalid param "language".' })
         } else {
-          botData.language = language
-
           // reset our labels
-          botData.labels = i18n[language].labels
+          if (botData.language !== language) {
+            botData.labels = i18n[language].labels
+          }
+
+          botData.language = language
         }
       }
 
