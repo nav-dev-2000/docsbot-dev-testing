@@ -7,7 +7,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
 import ScheduleSelect from '@/components/ScheduleSelect'
-import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
+import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 
 export default function ModalSource({ team, bot, source, setSources, children }) {
   const [open, setOpen] = useState(false)
@@ -242,13 +242,15 @@ export default function ModalSource({ team, bot, source, setSources, children })
                           >
                             <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
                           </button>
-                          <button
-                            type="button"
-                            className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-                            onClick={downloadSource}
-                          >
-                            <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Download
-                          </button>
+                          {canSourceTypeDownload(source.type) && (
+                            <button
+                              type="button"
+                              className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+                              onClick={downloadSource}
+                            >
+                              <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Download
+                            </button>
+                          )}
                         </div>
                         {showInterval && (
                           <div className="flex flex-shrink-0 items-end justify-end">
