@@ -120,7 +120,7 @@ export default async function handler(req, res) {
           return res.status(400).send({ message: 'Invalid param "language".' })
         } else {
           // reset our labels
-          if (botData.language !== language) {
+          if (bot.language !== language) {
             botData.labels = i18n[language].labels
           }
 
@@ -232,7 +232,6 @@ export default async function handler(req, res) {
             labels[label] = bot?.labels[label] || i18n[language || bot.language].labels[label];
           });
         }
-      
         botData.labels = labels;
       }
 
@@ -241,6 +240,7 @@ export default async function handler(req, res) {
         botData.questions = questions.filter((q) => q !== '')
       }
 
+      console.log('botData', botData)
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
       return res.status(200).json(await getBot(team.id, botId))
