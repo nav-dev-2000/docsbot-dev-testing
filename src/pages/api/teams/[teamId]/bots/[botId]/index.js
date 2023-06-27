@@ -229,7 +229,7 @@ export default async function handler(req, res) {
           // });
           // populate the missing labels with the default values
           missingLabels.forEach((label) => {
-            labels[label] = i18n[language || bot.language].labels[label];
+            labels[label] = bot?.labels[label] || i18n[language || bot.language].labels[label];
           });
         }
       
