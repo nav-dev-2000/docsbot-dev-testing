@@ -58,7 +58,7 @@ export default async function handler(req, res) {
           dateCounts[dateKey].negative++
         }
 
-        if (data.escalated) {
+        if (data?.escalation) {
           dateCounts[dateKey].escalated++
         }
       })
@@ -98,7 +98,7 @@ export default async function handler(req, res) {
         Math.round(totalNegative / totalCount * 100),
         Math.round(totalEscalated / totalCount * 100),
       ];
-      
+
       let percentageLabels = [
         `${percentageData[0]}% Unrated`,
         `${percentageData[1]}% Positive`,
