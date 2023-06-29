@@ -64,7 +64,10 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   return (
     <>
-      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {team.openAIKey = key}}/>
+      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {
+        team.openAIKey = key
+        setOpen(true)
+      }}/>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
