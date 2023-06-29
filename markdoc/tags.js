@@ -1,5 +1,6 @@
 import { Callout } from '@/components/docs/Callout'
 import { QuickLink, QuickLinks } from '@/components/docs/QuickLinks'
+import { ZapierEmbed } from '@/components/docs/ZapierEmbed'
 
 const tags = {
   callout: {
@@ -41,6 +42,10 @@ const tags = {
       icon: { type: String },
       href: { type: String },
     },
+  },
+  'zapier': {
+    render: ZapierEmbed,
+    selfClosing: true,
   },
 }
 

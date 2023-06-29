@@ -11,25 +11,23 @@ We've partnered with Zapier so you can link your DocsBot with a multitude of dif
 
 ## Connecting with Zapier
 
-Our user-friendly Zapier app grants you the power to ask your DocsBot a question and receive an answer, complete with references or sources. Plus, you have complete control over how to input and output your question and answer.
+Our user-friendly Zapier integration grants you the power to ask your DocsBot a question and receive an answer, complete with references or sources. Plus, you have complete control over how to input and output your question and answer.
 
 We also have a Create Source action that allows you to add new content to your DocsBot via url, sitemap, or RSS feed.
 
 ### 1. Login or Signup to Zapier
 
-Create a [free Zapier account](https://zapier.com/sign-up) if you don't already have one.
+Create a [free Zapier account](https://zapier.com/apps/docsbot-ai/integrations) if you don't already have one.
 
-### 2. Create a Zap
+### 2. Create a Zap and Trigger
 
-DocsBot can answer questions or write content in response to any trigger in your Zap. You ask a question, DocsBot delivers an answer. Triggers can be from any app or service in the Zapier ecosystem.
+DocsBot can answer questions or write content in response to any trigger in your Zap. You ask a question, DocsBot delivers an answer. Or use the Create Source action to train your bot with new source content. Triggers can be from any app or service in the Zapier ecosystem.
+
+[Connect DocsBot to 5,000+ apps](https://zapier.com/webintent/create-zap?create=true&entry-point-location=explore&entry-point-method=connect_call_to_action&steps%5B0%5D%5Bapp%5D=DocsBotAiCLIAPI%401.0.0)
 
 ### 3. Add DocsBot as an Action
 
-Within the Zapier environment, you can add DocsBot as an Action to your Zap.
-
-{% callout title="Integration Invitation" %}
-While we await the Zapier review process to make our integration public, you can use this [private invitation link](https://zapier.com/developer/public-invite/186297/b80fa62d0b4802100d3074c61e6f6743/) to enable DocsBot in your Zapier account.
-{% /callout %}
+Within the Zapier environment, you can search for "DocsBot AI" to add it as an Action to your Zap.
 
 ### 4. Establish a Connection with Your DocsBot
 
@@ -40,8 +38,9 @@ Next, simply copy and paste your DocsBot's API Key, Team ID, and Bot ID by [sele
 Congratulations, You're All Set!
 You've successfully established a connection between your DocsBot and Zapier.
 
+{% zapier /%}
 
-## Looking for some innovative ideas to get started?
+## Looking for more innovative ideas to get started?
 
 1. **Instant Customer Support**: Use DocsBot to automatically answer support tickets in your CRM or helpdesk software with relevant information from your internal knowledge base or FAQ documents.
 
@@ -77,4 +76,4 @@ Remember, all of these zaps require that you've appropriately trained DocsBot an
 
 ## Zapier Templates
 
-We will soon be publishing a library of ready-to-use templates designed to kickstart your DocsBot + Zapier Zap creation.
+We also have a full [library of ready-to-use templates](https://zapier.com/apps/docsbot-ai/integrations) designed to kickstart your DocsBot + Zapier Zap creation.
