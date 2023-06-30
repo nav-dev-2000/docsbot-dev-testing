@@ -51,7 +51,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
       setBotSettings({})
       setIsUpdating(false)
       setOpen(false)
-      va.track('botCreated')
+      va.track('Bot Created')
       router.push(`/app/bots/${data.id}`)
     } else {
       try {

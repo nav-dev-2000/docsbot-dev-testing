@@ -48,7 +48,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
       setOpenAIKey('')
       setIsUpdating(false)
       setOpen(false)
-      va.track('openAIKeyUpdated')
+      va.track('OpenAI Key Updated')
     } else {
       try {
         const data = await response.json()
