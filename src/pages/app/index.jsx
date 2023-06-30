@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-
+import { stripe } from '@/utils/stripe'
+import va from '@vercel/analytics'
 import {
   AcademicCapIcon,
   CreditCardIcon,
@@ -32,10 +33,9 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
             <dl>
               <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
               <dd>
-                <div className="text-lg font-medium text-gray-900">{stat}
-                {limit && (
-                  <span className="text-sm text-gray-500"> / {limit}</span>
-                )}
+                <div className="text-lg font-medium text-gray-900">
+                  {stat}
+                  {limit && <span className="text-sm text-gray-500"> / {limit}</span>}
                 </div>
               </dd>
             </dl>
@@ -47,7 +47,7 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
           <div className="text-sm">
             <Link href={href} className="font-medium text-cyan-700 hover:text-cyan-900">
               {linkText}
-              <ArrowRightIcon className="ml-1 -mr-0.5 inline h-3 w-3" aria-hidden="true" />
+              <ArrowRightIcon className="-mr-0.5 ml-1 inline h-3 w-3" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -56,9 +56,15 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   )
 }
 
-function Dashboard({ team }) {
+function Dashboard({ team, purchase }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (purchase) {
+      va.track('Purchase', purchase)
+    }
+  }, [purchase])
 
   useEffect(() => {
     if (!team.botCount) {
@@ -151,7 +157,15 @@ function Dashboard({ team }) {
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
-          <Card key={card.name} name={card.name} href={card.href} linkText={card.linkText} CardIcon={card.icon} stat={card.stat} limit={card.limit} />
+          <Card
+            key={card.name}
+            name={card.name}
+            href={card.href}
+            linkText={card.linkText}
+            CardIcon={card.icon}
+            stat={card.stat}
+            limit={card.limit}
+          />
         ))}
       </div>
 
@@ -206,7 +220,7 @@ function Dashboard({ team }) {
               <p className="mt-2 text-sm text-gray-500">{action.description}</p>
             </div>
             <span
-              className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+              className="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
               aria-hidden="true"
             >
               <svg
@@ -231,17 +245,23 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
 
   if (data?.props?.team) {
-    /*
-    //redirect new users to account page to checkout
-    if (data?.props?.team.stripeSubscriptionStatus !== 'active') {
-      return {
-        redirect: {
-          permanent: false,
-          destination: '/app/account',
-        },
+    //check for session_id in query params
+    if (context.query.session_id) {
+      //get checkout session data from stripe
+      try {
+        const session = await stripe.checkout.sessions.retrieve(context.query.session_id, {
+          expand: ['line_items'],
+        })
+        console.log(session)
+        data.props.purchase = {
+          productName: session.line_items.data[0].description,
+          price: session.amount_total / 100,
+          currency: session.currency,
+        }
+      } catch (error) {
+        console.warn(error)
       }
     }
-    */
   }
 
   return data

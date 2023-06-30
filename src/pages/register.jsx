@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import va from '@vercel/analytics'
 
 import { useEffect, useState, useCallback } from 'react'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
@@ -71,6 +72,7 @@ function Register() {
           if (window.Reflio !== undefined) {
             Reflio.signup(user?.user?.email)
           }
+          va.track('Signup')
           console.log('on complete')
           router.push(redirectPath)
         },
@@ -90,6 +92,7 @@ function Register() {
       if (window.Reflio !== undefined) {
         Reflio.signup(googleUser?.user?.email)
       }
+      va.track('Signup')
       router.push(redirectPath)
     },
   })

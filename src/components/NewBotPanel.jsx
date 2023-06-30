@@ -7,6 +7,7 @@ import { stripePlan } from '@/utils/helpers'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import FormBot from '@/components/FormBot'
 import ModalCheckout from '@/components/ModalCheckout'
+import va from '@vercel/analytics'
 
 export default function NewBotPanel({ team, open, setOpen }) {
   const [errorText, setErrorText] = useState(null)
@@ -50,6 +51,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
       setBotSettings({})
       setIsUpdating(false)
       setOpen(false)
+      va.track('botCreated')
       router.push(`/app/bots/${data.id}`)
     } else {
       try {

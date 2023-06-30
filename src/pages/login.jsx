@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import va from '@vercel/analytics'
 
 import { useEffect, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
@@ -84,6 +85,7 @@ function Login() {
       if (window.Reflio !== undefined) {
         Reflio.signup(googleUser?.user?.email)
       }
+      va.track('Signup')
       router.push(redirectPath)
     },
   })
@@ -136,7 +138,7 @@ function Login() {
               required
             />
             {hasAuthenticationError(authError) && (
-              <span className="mt-1 mb-1 inline-flex items-center rounded-md bg-red-100 p-3 text-sm font-medium text-red-800">
+              <span className="mb-1 mt-1 inline-flex items-center rounded-md bg-red-100 p-3 text-sm font-medium text-red-800">
                 Username or password is incorrect.{' '}
                 <button
                   className="ml-1 underline"
