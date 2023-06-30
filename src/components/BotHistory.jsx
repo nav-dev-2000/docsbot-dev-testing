@@ -4,6 +4,9 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import Chart from 'chart.js/auto'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { stripePlan } from '@/utils/helpers'
+import Checkout from '@/components/Checkout'
+import Link from 'next/link'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -25,6 +28,10 @@ export default function BotHistory({ team, botId }) {
   const [percentageData, setPercentageData] = useState(null)
   const [percentageLabels, setPercentageLabels] = useState(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  // blur is only enabled when we've reached our plan limit
+  const [blurEnabled, setBlurEnabled] = useState(() => {
+    return stripePlan(team).bots < 10
+  })
 
   const updateData = async (timeDelta) => {
     if (isProcessing) return
@@ -241,7 +248,24 @@ export default function BotHistory({ team, botId }) {
           Loading...
         </div>
       )}
-      <div className="align-middle md:flex">
+
+      {blurEnabled && (
+        <div className="z-10 mt-32 -mb-72 w-full relative">
+          <div className="py-4">
+            <Checkout team={team}>
+              <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
+              <p className="mb-8 text-center text-gray-700">
+                Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
+                <Link href="/#pricing" target="_blank" className="underline">
+                  plan details
+                </Link>
+                .
+              </p>
+            </Checkout>
+          </div>
+        </div>
+      )}
+      <div className={classNames('align-middle md:flex', blurEnabled ? 'blur-lg' : '')}>
         <div className="flex-auto">
           <canvas id="line-chart"></canvas>
         </div>
