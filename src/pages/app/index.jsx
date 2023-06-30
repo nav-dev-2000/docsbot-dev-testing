@@ -256,7 +256,6 @@ export const getServerSideProps = async (context) => {
         data.props.purchase = {
           productName: session.line_items.data[0].description,
           price: session.amount_total / 100,
-          currency: session.currency,
         }
       } catch (error) {
         console.warn(error)
