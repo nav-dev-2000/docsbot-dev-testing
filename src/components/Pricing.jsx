@@ -45,7 +45,7 @@ const tiers = [
       'Zapier integration',
       'Chat history',
     ],
-    mostPopular: true,
+    mostPopular: false,
   },
   {
     name: 'Pro',
@@ -68,7 +68,7 @@ const tiers = [
       'Unbranded chat widgets',
       'Prompt customization',
     ],
-    mostPopular: false,
+    mostPopular: true,
   },
 ]
 
@@ -85,7 +85,7 @@ const enterpriseFeatures = [
   'Zapier integration',
   'Chat history',
   'Unbranded chat widgets',
-  'AI reports *',
+  'AI reports (coming soon)',
   'Prompt customization',
   'Azure OpenAI Service',
   'Self-hosted options',
@@ -139,7 +139,7 @@ export default function Pricing() {
                 className={({ checked }) =>
                   classNames(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-full py-1 px-2.5'
+                    'cursor-pointer rounded-full px-2.5 py-1'
                   )
                 }
               >
@@ -169,7 +169,7 @@ export default function Pricing() {
                   {tier.name}
                 </h3>
                 {tier.mostPopular ? (
-                  <p className="rounded-full bg-cyan-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-cyan-600">
+                  <p className="rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600">
                     Most popular
                   </p>
                 ) : null}
@@ -203,7 +203,7 @@ export default function Pricing() {
                   tier.mostPopular
                     ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
                     : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
-                  'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800'
+                  'mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800'
                 )}
               >
                 Get started
@@ -222,8 +222,7 @@ export default function Pricing() {
         <p className="mx-auto mt-4 text-center text-sm text-gray-600">
           Does not include OpenAI API costs (roughly $0.003/question)
         </p>
-        <p className="mx-auto mt-1 text-center text-xs text-gray-600">* coming soon</p>
-        <div className="mt-12 flex flex-col items-start gap-y-6 gap-x-8 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
+        <div className="mt-12 flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">
               Personal
@@ -247,7 +246,11 @@ export default function Pricing() {
             <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
             <p className="mt-6 text-base leading-7 text-gray-600">
               For serious traffic and custom integrations. Identify problem areas in your product
-              and gaps in your documentation with automated AI analysis of user questions. Get priority support & integration help to create specialized bots for your unique business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security with role-based access control (RBAC), private networks, and region restrictions. Self-hosted options are available to satisfy any data protection requirements.
+              and gaps in your documentation with automated AI analysis of user questions. Get
+              priority support & integration help to create specialized bots for your unique
+              business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security
+              with role-based access control (RBAC), private networks, and region restrictions.
+              Self-hosted options are available to satisfy any data protection requirements.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
