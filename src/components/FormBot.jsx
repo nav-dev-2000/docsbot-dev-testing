@@ -3,8 +3,15 @@ import { PlusIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
+import { i18n } from '@/constants/strings.constants'
 
-export default function FormBot({ team, bot, setBotSettings, disabled, hideSuggestQuestions = false }) {
+export default function FormBot({
+  team,
+  bot,
+  setBotSettings,
+  disabled,
+  hideSuggestQuestions = false,
+}) {
   const [language, setLanguage] = useState(bot?.language || 'en')
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
@@ -215,7 +222,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, hideSugge
                 GPT 3.5 (Original ChatGPT)
               </label>
               <p id="model-public-description" className="text-gray-500">
-                The fastest and cheapest (&lt;$0.005/question) model good for most use cases.
+                The fastest and cheapest (&lt;$0.004/question) model good for most use cases.
               </p>
             </div>
           </div>
@@ -261,75 +268,31 @@ export default function FormBot({ team, bot, setBotSettings, disabled, hideSugge
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend className="text-sm font-medium text-gray-900">Language</legend>
-        <div className="mt-2 flex space-x-8">
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="language-english"
-                name="language"
-                value="en"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={language === 'en'}
-                onChange={() => setLanguage('en')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="language-english" className="font-medium text-gray-900">
-                English
-              </label>
-            </div>
-          </div>
-          <div>
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="language-japanese"
-                  name="language"
-                  value="jp"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={language === 'jp'}
-                  onChange={() => setLanguage('jp')}
-                  disabled={disabled}
-                />
-              </div>
-              <div className="pl-7 text-sm">
-                <label htmlFor="language-japanese" className="font-medium text-gray-900">
-                  Japanese (日本語)
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="language-german"
-                name="language"
-                value="en"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={language === 'de'}
-                onChange={() => setLanguage('de')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="language-german" className="font-medium text-gray-900">
-                Deutsch
-              </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
+      <div>
+        <label htmlFor="language" className="text-sm font-medium text-gray-900">
+          Language
+        </label>
+        <select
+          id="language"
+          name="language"
+          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          defaultValue={language}
+          onChange={(e) => setLanguage(e.target.value)}
+          disabled={disabled}
+        >
+          {Object.keys(i18n).map((key) => (
+            <option value={key}>{i18n[key].name}</option>
+          ))}
+        </select>
+      </div>
 
       {!hideSuggestQuestions && (
         <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
           <div>
-            <legend htmlFor="suggested-questions" className="block text-sm font-medium text-gray-900">
+            <legend
+              htmlFor="suggested-questions"
+              className="block text-sm font-medium text-gray-900"
+            >
               Suggested questions
             </legend>
             <p id="suggested-questions-description" className="text-sm text-gray-500">

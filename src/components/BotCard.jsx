@@ -18,6 +18,7 @@ import RobotIcon from '@/components/RobotIcon'
 import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
 import GPTModel from '@/components/GPTModel'
+import { i18n } from '@/constants/strings.constants'
 
 export default function BotCard({ team, bot, setBot }) {
   if (!bot || !bot.id) {
@@ -63,7 +64,7 @@ export default function BotCard({ team, bot, setBot }) {
                     className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
-                  {bot.language === 'jp' ? <p>Japanese</p> : <p>English</p>}
+                  <p>{i18n[bot.language] ? i18n[bot.language].name : 'English'}</p>
                 </div>
                 <ModalPrompt team={team} bot={bot} />
                 <ModalBotEdit team={team} bot={bot} setBot={setBot} />

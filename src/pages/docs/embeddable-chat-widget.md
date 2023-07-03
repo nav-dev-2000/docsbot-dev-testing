@@ -48,7 +48,11 @@ You can customize the widget to match your brand and desired behaviour on your b
 - **Button Text** - Choose the text that will appear in the floating button if any.
 - **Bot avatar** - Choose the avatar icon that will appear for your bot, or none at all.
 - **Custom support link** - Choose a custom support link that will appear in the widget for user's to contact you directly if they need to.
-- **Language** - Choose the language that the widget will be displayed in. Currently we support English and Japanese. We will soon allow you to eaily translate the widget into your own language or customize any text strings.
+- **Language** - Choose the language that the widget will be displayed in.
+
+Here is a list of the languages we currently support, if you would like to see another language added please let us know:
+
+>English, 日本語 (Japanese), العربية (Arabic), 简体中文 (Chinese Simplified), Čeština (Czech), Dansk (Danish), Nederlands (Dutch), Filipino, Suomi (Finnish), Français (French), Deutsch (German), Ελληνικά (Greek), עברית (Hebrew), हिन्दी (Hindi), Magyar (Hungarian), Bahasa Indonesia (Indonesian), Italiano (Italian), 한국어 (Korean), Norsk (Norwegian), Polski (Polish), Português (Portuguese), Română (Romanian), Русский (Russian), Српски (Serbian), Español (Spanish), Kiswahili (Swahili), Svenska (Swedish), ไทย (Thai), Türkçe (Turkish)
 
 **Note**: Changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
