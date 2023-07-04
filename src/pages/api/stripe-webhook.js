@@ -93,7 +93,8 @@ const webhookHandler = async (req, res) => {
   
               //if changing plan
               if (
-                event.data.previous_attributes?.items.data[0].plan.id !== subscription.plan.id
+                event.data.previous_attributes?.items?.data[0]?.plan?.id &&
+                event.data.previous_attributes?.items?.data[0]?.plan?.id !== subscription.plan.id
               ) {
                 // Send the Slack notification
                 try {
