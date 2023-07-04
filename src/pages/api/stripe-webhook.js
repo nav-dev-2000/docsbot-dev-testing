@@ -85,10 +85,55 @@ const webhookHandler = async (req, res) => {
                   stripeSubscriptionInterval: subscription.plan.interval,
                   stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
                   stripeSubscriptionQuantity: subscription.quantity,
+                  stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
+                  stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
                 }
               )
               console.log(`🔔 Subscription updated for team ${teamId}`)
   
+              //if changing plan
+              if (
+                event.data.previous_attributes?.items.data[0].plan.id !== subscription.plan.id
+              ) {
+                // Send the Slack notification
+                try {
+                  await slack.send({
+                    attachments: [
+                      {
+                        fallback: `DocsBot AI plan changed!`,
+                        color: '#0891b2',
+                        title: 'DocsBot AI Subscription Plan Changed',
+                        text: `New plan ${stripePlan(teamObj).name} x ${subscription.quantity}`,
+                        fields: [
+                          {
+                            title: 'Team',
+                            value: `${teamObj.name}`,
+                            short: false,
+                          },
+
+                          {
+                            title: 'Old Amount',
+                            value: `$${(subscription.previous_attributes.items.data[0].plan.amount * subscription.previous_attributes.items.data[0].quantity) / 100} ${
+                              subscription.previous_attributes.items.data[0].plan.currency
+                            } ${subscription.previous_attributes.items.data[0].plan.interval}ly`,
+                            short: true,
+                          },
+                          {
+                            title: 'New Amount',
+                            value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
+                              subscription.plan.currency
+                            } ${subscription.plan.interval}ly`,
+                            short: true,
+                          },
+                        ],
+                      },
+                    ],
+                  })
+                } catch (e) {
+                  console.error(e)
+                }
+              }
+
               //if scheduled to cancel
               if (
                 event.data.previous_attributes?.cancel_at_period_end === false &&
@@ -102,7 +147,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI cancellation!`,
                         color: '#d10014',
                         title: 'DocsBot AI Subscription Cancelled',
-                        text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
+                        text: `${stripePlan(teamObj).name} x ${subscription.quantity}: ${subscription.cancellation_details.feedback} ${subscription.cancellation_details.comment}`,
                         fields: [
                           {
                             title: 'Team',
