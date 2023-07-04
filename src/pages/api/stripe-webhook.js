@@ -147,7 +147,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI cancellation!`,
                         color: '#d10014',
                         title: 'DocsBot AI Subscription Cancelled',
-                        text: `${stripePlan(teamObj).name} x ${subscription.quantity} ${subscription.cancellation_details.feedback} ${subscription.cancellation_details.comment}`,
+                        text: `${stripePlan(teamObj).name} x ${subscription.quantity} - ${subscription.cancellation_details.feedback || 'By staff'} ${subscription.cancellation_details.comment || ''}`,
                         fields: [
                           {
                             title: 'Team',
