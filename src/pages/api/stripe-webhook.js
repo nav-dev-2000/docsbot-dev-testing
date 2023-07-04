@@ -110,12 +110,11 @@ const webhookHandler = async (req, res) => {
                             value: `${teamObj.name}`,
                             short: false,
                           },
-
                           {
                             title: 'Old Amount',
-                            value: `$${(subscription.previous_attributes.items.data[0].plan.amount * subscription.previous_attributes.items.data[0].quantity) / 100} ${
-                              subscription.previous_attributes.items.data[0].plan.currency
-                            } ${subscription.previous_attributes.items.data[0].plan.interval}ly`,
+                            value: `$${(event.data.previous_attributes.items.data[0].plan.amount * event.data.previous_attributes.items.data[0].quantity) / 100} ${
+                              event.data.previous_attributes.items.data[0].plan.currency
+                            } ${event.data.previous_attributes.items.data[0].plan.interval}ly`,
                             short: true,
                           },
                           {
@@ -147,7 +146,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI cancellation!`,
                         color: '#d10014',
                         title: 'DocsBot AI Subscription Cancelled',
-                        text: `${stripePlan(teamObj).name} x ${subscription.quantity}: ${subscription.cancellation_details.feedback} ${subscription.cancellation_details.comment}`,
+                        text: `${stripePlan(teamObj).name} x ${subscription.quantity} ${subscription.cancellation_details.feedback} ${subscription.cancellation_details.comment}`,
                         fields: [
                           {
                             title: 'Team',
