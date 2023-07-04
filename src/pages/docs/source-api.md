@@ -151,9 +151,10 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 
 | Property | Type   | Description                                                                 |
 | -------- | ------ | --------------------------------------------------------------------------- |
-| **type** | string | The source type. Can be `url`, `rss`, or `sitemap` for now. File upload types are coming soon.   |
+| **type** | string | The source type. Can be `url`, `rss`,`sitemap`, `urls`, `csv`, `document` or `wp`. |
 | **title** | string | The source title. Optional. |
-| **url** | string | The source URL. Required if type is `url`, `sitemap`, or `rss`. |
+| **url** | string | The source URL. Required if type is `url` or `sitemap`, or `rss`. |
+| **file** | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
 
 ### Examples
 
@@ -212,6 +213,75 @@ Response is a HTTP 201 with a JSON source object:
     "chunkCount": 0,
     "status": "pending"
 }
+```
+
+## Upload Source Document
+
+You'll first need to request a presigned upload URL from the upload-url endpoint.
+
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/upload-url?fileName=FILENAME`
+
+The endpoint returns the following response:
+
+```json
+{
+  "url": "https://storage.googleapis.com/docsbot-test-c2482.appspot.com/user/14D4jUo51sMuSjWQg9MDe5naM9i2/team/0NZfVRlrjJ6d4YdwUGHt/bot/yR5EwAGpINpmp7XzT9qL/test.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-74lpp%40docsbot-test-c2482.iam.gserviceaccount.com%2F20230627%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230627T205900Z&X-Goog-Expires=1801&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Signature=66a8d1eaa398a0bc404a0a67f3c608003279fb5fa2ag5f89b344b359b7ecf6fd132665ce736e3070d9701c66c8f825aa3c7823b93fe82c203d9a6b8fd119d6c3dce0e51df08d41690c007ba0be44e37b25d9f7c5fcde3bca34d388b6263ebe0b04dd84765b5d9ca35af0688d2f2c4e3edba906399e6b44f8d1526d0f89c89b4de70d2e1b581cfe880eb0ddb571dd0d618a7e6f87966137c773dd6853d36f501251a1f8179a729c5a3bde9a324103e4de625cfe9615c18cdcf4576c8e0ce092fc0a58d8e8297a5f767999f9f0ee06c34ace8386bec13eb5cc26a4e259b022f9c2b53d7468669c53328aa8c8d69962f0a8632a0a8c7db68e3ad9fd15045c70e6e9",
+  "file": "user/14D4jUo51sMuSjWQg9MDe5naM9i2/team/0NZfVRlrjJ6d4YdwUGHt/bot/yR5EwAGpINpmp7XzT9qL/test.csv"
+}
+```
+
+Now, you'll be able to PUT to the sent url the file you want to upload:
+
+```
+curl -X PUT -H 'Content-Type: application/octet-stream' --upload-file test.csv https://storage.googleapis.com/docsbot-test-c2482.appspot.com/user/14D4jUo51sMuSjWQg9MDe5naM9i2/team/0NZfVRlrjJ6d4YdwUGHt/bot/yR5EwAGpINpmp7XzT9qL/test.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-74lpp%40docsbot-test-c2482.iam.gserviceaccount.com%2F20230627%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230627T205900Z&X-Goog-Expires=1801&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Signature=66a8d1eaa398a0bc404a0a67f3c608003279fb5fa2ag5f89b344b359b7ecf6fd132665ce736e3070d9701c66c8f825aa3c7823b93fe82c203d9a6b8fd119d6c3dce0e51df08d41690c007ba0be44e37b25d9f7c5fcde3bca34d388b6263ebe0b04dd84765b5d9ca35af0688d2f2c4e3edba906399e6b44f8d1526d0f89c89b4de70d2e1b581cfe880eb0ddb571dd0d618a7e6f87966137c773dd6853d36f501251a1f8179a729c5a3bde9a324103e4de625cfe9615c18cdcf4576c8e0ce092fc0a58d8e8297a5f767999f9f0ee06c34ace8386bec13eb5cc26a4e259b022f9c2b53d7468669c53328aa8c8d69962f0a8632a0a8c7db68e3ad9fd15045c70e6e9
+```
+
+Then finally, you can create your source using the normal source API. A full example of this looks like:
+
+```js
+const teamId = "0NZfVRlrjJ6d4YdwUGHt";
+const botId = "yR5EwAGpINpmp7XzT9qL";
+const authToken = "8656f848949372c090cd455cc39c158b5b8bd9a00d0c9807f832bec30b1735a1";
+
+// Get upload URL
+fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/upload-url?fileName=test.csv`, {
+  headers: {
+    'Authorization': `Bearer ${authToken}`
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    const url = data.url;
+    const file = data.file;
+
+    console.log("Uploading to ", url)
+
+    // Upload file to URL
+    fetch(url, {
+      method: 'PUT',
+      body: require('fs').createReadStream('test.csv'),
+      headers: {
+        'Content-Type': 'application/octet-stream'
+      }
+    });
+
+    console.log("Creating source...")
+
+    // Upload source
+    fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/sources`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${authToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        type: 'csv',
+        title: 'test',
+        file: file,
+        url: 'https://www.google.com'
+      })
+    });
+  });
 ```
 
 ---

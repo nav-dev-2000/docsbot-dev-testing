@@ -281,7 +281,7 @@ export default function FormBot({
           disabled={disabled}
         >
           {Object.keys(i18n).map((key) => (
-            <option value={key}>{i18n[key].name}</option>
+            <option key={key} value={key}>{i18n[key].name}</option>
           ))}
         </select>
       </div>
