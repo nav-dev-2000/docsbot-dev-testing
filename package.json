@@ -53,6 +53,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "react-tailwindcss-datepicker": "^1.6.3",
     "remark": "^14.0.2",
+    "remark-external-links": "^9.0.1",
     "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.2",
     "seed-random": "^2.2.0",

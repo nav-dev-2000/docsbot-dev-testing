@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
 
@@ -38,6 +39,7 @@ export default function AskStreaming({ teamId, bot }) {
       remark()
         .use(html)
         .use(remarkGfm)
+        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
         .process(answer)
         .then((html) => {
           setResultHtml(html.toString())

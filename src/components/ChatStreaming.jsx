@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { remark } from 'remark'
 import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
@@ -44,6 +45,7 @@ export default function Chat({ teamId, bot }) {
       remark()
         .use(html)
         .use(remarkGfm)
+        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
         .process(currentAnswer)
         .then((html) => {
           setAnswerHtml(html.toString())
