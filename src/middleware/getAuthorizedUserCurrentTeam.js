@@ -80,10 +80,14 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
 
     // clear cookie
     context.res.setHeader(
-      'Set-Cookie',
+      'set-cookie',
       cookie.serialize(
         authDefaults.COOKIE_NAME,
         '',
+        {
+          ...authDefaults.COOKIE_OPTIONS,
+          maxAge: 0,
+        }
       )
     )
 
