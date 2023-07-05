@@ -7,6 +7,9 @@ import image3 from '@/images/avatars/testimony3.jpeg'
 import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony5.jpeg'
 import image6 from '@/images/avatars/testimony6.png'
+import image7 from '@/images/avatars/testimony-sg.png'
+import image8 from '@/images/avatars/avatar-default.jpg'
+import image9 from '@/images/avatars/chatgpt-logo.png'
 
 const testimonials = [
   [
@@ -19,7 +22,15 @@ const testimonials = [
         image: image3,
       },
     },
-    
+    {
+      content:
+        'DocsBot is amazing! I want to thank you for your great work on this product. I have tried a few others, and nothing compares.',
+      author: {
+        name: 'Gareth P.',
+        role: 'IT & Marketing Manager',
+        image: image8,
+      },
+    },
     {
       content:
         "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
@@ -49,11 +60,19 @@ const testimonials = [
         image: image1,
       },
     },
+    {
+      content: "I just wanted to say THANK YOU for jumping on a call with us. It was super helpful and it gave us a lot of ideas of what we can do to get DocsBot more relevant and accurate. I've most certainly appreciated the quick support from y'all the past couple of weeks!",
+      author: {
+        name: 'Sarah Gantert',
+        role: 'Happiness Engineer - WooCommerce/Automattic',
+        image: image7,
+      },
+    }
   ],
   [
     {
       content:
-        'While there seem to be a ton of these types of "bots" getting launched all the time, few of them are so well designed from a UI perspective, and a useability perspective. The ability to train the bot on your own content library in really intuitive ways sets Docsbot apart. Love it!',
+        'While there seem to be a ton of these types of "bots" getting launched all the time, few of them are so well designed from a UI and a usability perspective. The ability to train the bot on your own content library in really intuitive ways sets DocsBot apart. Love it!',
       author: {
         name: 'Matt Cromwell',
         role: 'Customer Experience at StellarWP',
@@ -62,11 +81,19 @@ const testimonials = [
     },
     {
       content:
-        'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff. I plan to use this once I get paying customers for my SaaS :D',
+        'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
       author: {
         name: 'Igor Benić',
         role: 'Soloprenuer/Web Developer',
         image: image5,
+      },
+    },
+    {
+      content: "DocsBot has truly revolutionized our customer support experience. With its AI-powered chatbots trained on our documentation, our customers now receive instant and accurate answers to their most detailed questions, saving us time and enhancing their satisfaction.",
+      author: {
+        name: 'ChatGPT',
+        role: 'Chief Hallucination Officer',
+        image: image9,
       },
     },
   ],
