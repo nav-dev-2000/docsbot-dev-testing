@@ -62,8 +62,9 @@ const webhookHandler = async (req, res) => {
             await firestore.runTransaction(async (transaction) => {
               const subscription = event.data.object
               // get team by customer id
-              const teamsRef = await transaction.get(firestore.collection('teams')
-                .where('stripeCustomerId', '==', subscription.customer))
+              const teamsRef = await transaction.get(
+                firestore.collection('teams').where('stripeCustomerId', '==', subscription.customer)
+              )
 
               if (teamsRef.empty) {
                 console.log(`❌ Team not found for customer ${subscription.customer}`)
@@ -72,25 +73,23 @@ const webhookHandler = async (req, res) => {
 
               const teamId = teamsRef.docs[0].id
               const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
-  
+
               // save subscription to team
-              await transaction.update(firestore.collection('teams').doc(teamId),
-                {
-                  stripeSubscriptionId: subscription.id,
-                  stripeSubscriptionStatus: subscription.status,
-                  stripeSubscriptionProduct: subscription.plan.product,
-                  stripeSubscriptionPlan: subscription.plan.id,
-                  stripeSubscriptionPrice: subscription.plan.amount,
-                  stripeSubscriptionCurrency: subscription.plan.currency,
-                  stripeSubscriptionInterval: subscription.plan.interval,
-                  stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
-                  stripeSubscriptionQuantity: subscription.quantity,
-                  stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
-                  stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
-                }
-              )
+              await transaction.update(firestore.collection('teams').doc(teamId), {
+                stripeSubscriptionId: subscription.id,
+                stripeSubscriptionStatus: subscription.status,
+                stripeSubscriptionProduct: subscription.plan.product,
+                stripeSubscriptionPlan: subscription.plan.id,
+                stripeSubscriptionPrice: subscription.plan.amount,
+                stripeSubscriptionCurrency: subscription.plan.currency,
+                stripeSubscriptionInterval: subscription.plan.interval,
+                stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
+                stripeSubscriptionQuantity: subscription.quantity,
+                stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
+                stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
+              })
               console.log(`🔔 Subscription updated for team ${teamId}`)
-  
+
               //if changing plan
               if (
                 event.data.previous_attributes?.items?.data[0]?.plan?.id &&
@@ -113,9 +112,13 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Old Amount',
-                            value: `$${(event.data.previous_attributes.items.data[0].plan.amount * event.data.previous_attributes.items.data[0].quantity) / 100} ${
-                              event.data.previous_attributes.items.data[0].plan.currency
-                            } ${event.data.previous_attributes.items.data[0].plan.interval}ly`,
+                            value: `$${
+                              (event.data.previous_attributes.items.data[0].plan.amount *
+                                event.data.previous_attributes.items.data[0].quantity) /
+                              100
+                            } ${event.data.previous_attributes.items.data[0].plan.currency} ${
+                              event.data.previous_attributes.items.data[0].plan.interval
+                            }ly`,
                             short: true,
                           },
                           {
@@ -168,7 +171,7 @@ const webhookHandler = async (req, res) => {
                 } catch (e) {
                   console.error(e)
                 }
-  
+
                 try {
                   bentoTrack(teamOwner(teamObj), 'track', {
                     type: 'subscriptionCancelled',
@@ -177,40 +180,42 @@ const webhookHandler = async (req, res) => {
                   console.log('Error sending bento track', e)
                 }
               }
-            });
 
-            //if cancel feedback added
-            if (
-              event.data.previous_attributes?.cancellation_details?.feedback === null &&
-              subscription.cancellation_details?.feedback
-            ) {
-              // Send the Slack notification
-              try {
-                await slack.send({
-                  attachments: [
-                    {
-                      fallback: `DocsBot AI Cancel Feedback`,
-                      color: '#d10014',
-                      title: 'DocsBot AI Cancel Feedback',
-                      fields: [
-                        {
-                          title: 'Team',
-                          value: `${teamObj.name}`,
-                          short: true,
-                        },
-                        {
-                          title: 'Reason',
-                          value: `${subscription.cancellation_details.feedback || ''} ${subscription.cancellation_details.comment || ''}`,
-                          short: true,
-                        },
-                      ],
-                    },
-                  ],
-                })
-              } catch (e) {
-                console.error(e)
+              //if cancel feedback added
+              if (
+                event.data.previous_attributes?.cancellation_details?.feedback === null &&
+                subscription.cancellation_details?.feedback
+              ) {
+                // Send the Slack notification
+                try {
+                  await slack.send({
+                    attachments: [
+                      {
+                        fallback: `DocsBot AI Cancel Feedback`,
+                        color: '#d10014',
+                        title: 'DocsBot AI Cancel Feedback',
+                        fields: [
+                          {
+                            title: 'Team',
+                            value: `${teamObj.name}`,
+                            short: true,
+                          },
+                          {
+                            title: 'Reason',
+                            value: `${subscription.cancellation_details.feedback || ''} ${
+                              subscription.cancellation_details.comment || ''
+                            }`,
+                            short: true,
+                          },
+                        ],
+                      },
+                    ],
+                  })
+                } catch (e) {
+                  console.error(e)
+                }
               }
-            }
+            })
 
             break
           case 'checkout.session.completed':
@@ -224,7 +229,8 @@ const webhookHandler = async (req, res) => {
                 })
 
                 // save subscription to team
-                await transaction.update(firestore.collection('teams').doc(checkoutSession.client_reference_id),
+                await transaction.update(
+                  firestore.collection('teams').doc(checkoutSession.client_reference_id),
                   {
                     stripeCustomerId: session.customer,
                     stripeSubscriptionId: session.subscription.id,
@@ -244,7 +250,9 @@ const webhookHandler = async (req, res) => {
                   metadata: { teamId: checkoutSession.client_reference_id },
                 })
 
-                console.log(`🔔 Subscription created for team ${checkoutSession.client_reference_id}`)
+                console.log(
+                  `🔔 Subscription created for team ${checkoutSession.client_reference_id}`
+                )
 
                 //get plan name with a mock team object
                 const planName = stripePlan({
@@ -293,8 +301,9 @@ const webhookHandler = async (req, res) => {
             await firestore.runTransaction(async (transaction) => {
               const invoice = event.data.object
               //get team by customer id
-              const teamsRef2 = await transaction.get(firestore.collection('teams')
-                .where('stripeCustomerId', '==', invoice.customer))
+              const teamsRef2 = await transaction.get(
+                firestore.collection('teams').where('stripeCustomerId', '==', invoice.customer)
+              )
               if (teamsRef2.empty) {
                 throw new Error('No matching team found')
               }
@@ -306,20 +315,18 @@ const webhookHandler = async (req, res) => {
               })
 
               //save subscription to team in case this comes before updated webhook
-              await transaction.update(firestore.collection('teams').doc(team.id),
-                {
-                  stripeSubscriptionId: invoiceWithSubscription.subscription.id,
-                  stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
-                  stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
-                  stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
-                  stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
-                  stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
-                  stripeSubscriptionInterval: invoiceWithSubscription.subscription.plan.interval,
-                  stripeSubscriptionCancelAtPeriodEnd:
+              await transaction.update(firestore.collection('teams').doc(team.id), {
+                stripeSubscriptionId: invoiceWithSubscription.subscription.id,
+                stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
+                stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
+                stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
+                stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
+                stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
+                stripeSubscriptionInterval: invoiceWithSubscription.subscription.plan.interval,
+                stripeSubscriptionCancelAtPeriodEnd:
                   invoiceWithSubscription.subscription.cancel_at_period_end,
-                  stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
-                }
-              )
+                stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
+              })
 
               try {
                 bentoTrack(teamOwner(team), 'trackPurchase', {
