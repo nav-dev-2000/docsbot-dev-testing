@@ -201,10 +201,10 @@ export const getServerSideProps = async (context) => {
   })
 
   const teamCount = teams.length
-  const botCount = teams.reduce((acc, team) => acc + team.botCount, 0)
-  const sourceCount = teams.reduce((acc, team) => acc + team.sourceCount, 0)
-  const pageCount = teams.reduce((acc, team) => acc + team.pageCount, 0)
-  const questionCount = teams.reduce((acc, team) => acc + team.questionCount, 0)
+  const botCount = teams.reduce((acc, team) => acc + (team.botCount || 0), 0)
+  const sourceCount = teams.reduce((acc, team) => acc + (team.sourceCount || 0), 0)
+  const pageCount = teams.reduce((acc, team) => acc + (team.pageCount || 0), 0)
+  const questionCount = teams.reduce((acc, team) => acc + (team.questionCount || 0), 0)
   //teams with at least one question
   const teamBots = teams.reduce((acc, team) => {
     return team.botCount ? acc + 1 : acc
@@ -267,7 +267,7 @@ export const getServerSideProps = async (context) => {
     { name: 'Pages per Account', stat: pagesPerAccount },
     { name: 'Questions per Account', stat: questionsPerAccount },
   ]
-
+console.log('stats', stats)
   data.props.stats = stats
 
   data.props.steps = [
