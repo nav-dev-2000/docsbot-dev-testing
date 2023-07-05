@@ -104,7 +104,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI plan changed!`,
                         color: '#0891b2',
                         title: 'DocsBot AI Subscription Plan Changed',
-                        text: `New plan ${stripePlan(teamObj).name} x ${subscription.quantity}`,
+                        text: `Old plan ${stripePlan(teamObj).name} x ${subscription.quantity}`,
                         fields: [
                           {
                             title: 'Team',
@@ -147,7 +147,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI cancellation!`,
                         color: '#d10014',
                         title: 'DocsBot AI Subscription Cancelled',
-                        text: `${stripePlan(teamObj).name} x ${subscription.quantity} - ${subscription.cancellation_details.feedback || 'By staff'} ${subscription.cancellation_details.comment || ''}`,
+                        text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
                         fields: [
                           {
                             title: 'Team',
@@ -178,6 +178,40 @@ const webhookHandler = async (req, res) => {
                 }
               }
             });
+
+            //if cancel feedback added
+            if (
+              event.data.previous_attributes?.cancellation_details?.feedback === null &&
+              subscription.cancellation_details?.feedback
+            ) {
+              // Send the Slack notification
+              try {
+                await slack.send({
+                  attachments: [
+                    {
+                      fallback: `DocsBot AI Cancel Feedback`,
+                      color: '#d10014',
+                      title: 'DocsBot AI Cancel Feedback',
+                      fields: [
+                        {
+                          title: 'Team',
+                          value: `${teamObj.name}`,
+                          short: true,
+                        },
+                        {
+                          title: 'Reason',
+                          value: `${subscription.cancellation_details.feedback || ''} ${subscription.cancellation_details.comment || ''}`,
+                          short: true,
+                        },
+                      ],
+                    },
+                  ],
+                })
+              } catch (e) {
+                console.error(e)
+              }
+            }
+
             break
           case 'checkout.session.completed':
             await firestore.runTransaction(async (transaction) => {
