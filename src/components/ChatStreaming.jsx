@@ -261,7 +261,7 @@ export default function Chat({ teamId, bot }) {
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-          <div className="absolute -inset-7 flex h-28 items-center text-2xl font-extrabold tracking-tighter">
+          <div className="absolute -inset-7 flex h-28 items-center text-2xl font-extrabold tracking-tighter w-12">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <UserCircleIcon className="h-7 w-7 text-white" aria-hidden="true" />
             </span>
@@ -275,7 +275,7 @@ export default function Chat({ teamId, bot }) {
           className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg"
           id={answer.id || null}
         >
-          <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter">
+          <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter w-12">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
             </span>
