@@ -7,7 +7,7 @@ import image3 from '@/images/avatars/testimony3.jpeg'
 import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony5.jpeg'
 import image6 from '@/images/avatars/testimony6.png'
-import image7 from '@/images/avatars/testimony-sg.png'
+import image7 from '@/images/avatars/testimony-sg.jpeg'
 import image8 from '@/images/avatars/avatar-default.jpg'
 import image9 from '@/images/avatars/chatgpt-logo.png'
 

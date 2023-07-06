@@ -6,6 +6,9 @@ import image3 from '@/images/avatars/testimony3.jpeg'
 import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony5.jpeg'
 import image6 from '@/images/avatars/testimony6.png'
+import dollieLogo from '@/images/logos/logo-dollie.png'
+import a8cLogo from '@/images/logos/logo-automattic.png'
+import image7 from '@/images/avatars/testimony-sg.jpeg'
 
 const testimonials = [
   [
@@ -59,12 +62,17 @@ function QuoteIcon(props) {
   )
 }
 
-export function Testimonials({ teamCount }) {
+export function Example({ teamCount }) {
   return (
-    <section id="testimonials" aria-label="What our customers are saying" className="p-12 hidden lg:block my-auto">
+    <section
+      id="testimonials"
+      aria-label="What our customers are saying"
+      className="my-auto hidden p-12 lg:block"
+    >
       <div className="mx-auto max-w-2xl text-white md:text-center">
         <h2 className="font-display text-xl tracking-tight sm:text-3xl">
-          Join <span className="font-medium text-teal-100">{teamCount}+</span> other happy DocsBot users!
+          Join <span className="font-medium text-teal-100">{teamCount}+</span> other happy DocsBot
+          users!
         </h2>
       </div>
       <Container>
@@ -111,6 +119,76 @@ export function Testimonials({ teamCount }) {
           ))}
         </ul>
       </Container>
+    </section>
+  )
+}
+
+export function Testimonials({ teamCount }) {
+  return (
+    <section className="my-auto hidden lg:block">
+      <div className="mx-auto mb-10 max-w-2xl text-white md:text-center">
+        <h2 className="font-display text-xl tracking-tight sm:text-3xl">
+          Join <span className="font-medium text-teal-100">{teamCount}+</span> other happy
+          users!
+        </h2>
+      </div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none xl:grid-cols-2">
+          <div className="flex flex-col pb-8 pr-0 xl:pb-0 xl:pr-16">
+            <Image
+              className="self-start"
+              src={dollieLogo}
+              alt="Dollie Logo"
+              width={125}
+              height={32}
+            />
+            <figure className="mt-10 flex flex-auto flex-col justify-between">
+              <blockquote className="text-lg leading-8 text-white">
+                <p>
+                  “Huge fan of this... We're using it for our product Dollie, to index our knowledge
+                  base and our site to provide first line of support for our customers and help them
+                  get started faster with our product using the embedded widget.”
+                </p>
+              </blockquote>
+              <figcaption className="mt-10 flex items-center gap-x-6">
+                <Image className="h-14 w-14 rounded-full bg-gray-400" src={image3} alt="" />
+                <div className="text-base">
+                  <div className="font-semibold text-white">Bowe Frankema</div>
+                  <div className="mt-1 text-gray-100">Founder Dollie</div>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+          <div className="flex flex-col border-t border-white/10 pt-8 xl:border-l xl:border-t-0 xl:pl-16 xl:pt-0">
+            <Image
+              className="self-start object-contain"
+              src={a8cLogo}
+              alt="Automattic Logo"
+              width={250}
+              height={64}
+            />
+            <figure className="mt-10 flex flex-auto flex-col justify-between">
+              <blockquote className="text-lg leading-8 text-white">
+                <p>
+                  “I just wanted to say THANK YOU for jumping on a call with us. It was super
+                  helpful and it gave us a lot of ideas of what we can do to get DocsBot more
+                  relevant and accurate. I've most certainly appreciated the quick support from
+                  y'all the past couple of weeks!”
+                </p>
+              </blockquote>
+              <figcaption className="mt-10 flex items-center gap-x-6">
+                <Image className="h-14 w-14 rounded-full bg-gray-400" src={image7} alt="" />
+                <div className="text-base">
+                  <div className="font-semibold text-white">Sarah Gantert</div>
+                  <div className="mt-1 text-gray-100">
+                    Happiness Engineer - WooCommerce/Automattic
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
