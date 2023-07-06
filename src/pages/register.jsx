@@ -12,13 +12,17 @@ import { routePaths } from '@/constants/routePaths.constants'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import { hasRegistrationError } from '@/utils/firebase.utils'
 import { nonProtectedRouteRedirect } from '@/middleware/nonProtectedRouteRedirect'
-import { AuthLayout } from '@/components/AuthLayout'
+import { RegisterLayout } from '@/components/RegisterLayout'
 import { Button } from '@/components/Button'
 import { TextField } from '@/components/Fields'
 import { GoogleLogo } from '@/components/GoogleLogo'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import FieldRadioCards from '@/components/FieldRadioCards'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getFirestore } from 'firebase-admin/firestore'
+import { updateProfile } from 'firebase/auth'
 
-function Register() {
+function Register({ teamCount }) {
   const router = useRouter()
   const { register, handleSubmit, watch } = useForm()
   const [authError, setAuthError] = useState('')
@@ -26,6 +30,13 @@ function Register() {
   const [authLoading, setAuthLoading] = useState(false)
   const [notCheckedError, setNotCheckedError] = useState(false)
   const [site, setSite] = useState('')
+  const [name, setName] = useState('')
+  const [userType, setUserType] = useState(null)
+
+  const userTypes = [
+    { value: 'business', title: 'Business', description: 'Create chatbots for your company.' },
+    { value: 'personal', title: 'Personal', description: 'Create chatbots for your personal use.' },
+  ]
 
   //set redirect path from query param
   useEffect(() => {
@@ -60,20 +71,24 @@ function Register() {
   const authorizeUser = useCallback(postAuth, [])
   useEffect(() => {
     if (user && !userAuthLoading) {
+      //update user profile with name
+      updateProfile(user?.user, {
+        displayName: name,
+      })
       setAuthLoading(true)
       authorizeUser({
         accessToken: user?.user?.accessToken,
-        name: user?.user?.email,
+        name: name,
         isNewUser: true,
         onComplete: () => {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
-            window.bento.updateFields({ website: site })
+            window.bento.updateFields({ website: site, user_type: userType, name: name })
           }
           if (window.Reflio !== undefined) {
             Reflio.signup(user?.user?.email)
           }
-          va.track('Signup')
+          va.track('Signup', { provider: 'email', user_type: userType })
           router.push(redirectPath)
         },
       })
@@ -87,12 +102,12 @@ function Register() {
     onComplete: () => {
       if (window.bento !== undefined) {
         window.bento.identify(googleUser?.user?.email)
-        window.bento.updateFields({ name: googleUser?.user?.displayName, website: site })
+        window.bento.updateFields({ name: googleUser?.user?.displayName, user_type: userType, website: site })
       }
       if (window.Reflio !== undefined) {
         Reflio.signup(googleUser?.user?.email)
       }
-      va.track('Signup')
+      va.track('Signup', { provider: 'google', user_type: userType })
       router.push(redirectPath)
     },
   })
@@ -100,20 +115,9 @@ function Register() {
   return (
     <>
       <Head>
-        <title key="title">Sign Up - DocsBot</title>
+        <title key="title">Sign Up - DocsBot AI</title>
       </Head>
-      <AuthLayout
-        title="Get started now"
-        subtitle={
-          <>
-            Already registered?{' '}
-            <Link href={routePaths.LOGIN} className="font-medium text-teal-100 hover:underline">
-              Sign in
-            </Link>{' '}
-            to your account.
-          </>
-        }
-      >
+      <RegisterLayout teamCount={teamCount}>
         {isAnyAuthMethodLoading ? (
           <div className="flex h-64 items-center justify-center text-2xl">
             <LoadingSpinner large={true} /> <span className="ml-3">Loading...</span>
@@ -121,7 +125,7 @@ function Register() {
         ) : (
           <form
             action="#"
-            className="mt-4 grid grid-cols-1 gap-x-6 sm:grid-cols-2"
+            className="mt-4 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2"
             onSubmit={handleSubmit(({ email, password }) => {
               setNotCheckedError(false)
               if (!checked) {
@@ -131,125 +135,187 @@ function Register() {
               createUserWithEmailAndPassword(email, password)
             })}
           >
-            <TextField
-              className="col-span-full mb-2"
-              label="Business website (optional)"
-              id="site"
-              name="site"
-              type="url"
-              placeholder="https://mycompany.com"
-              value={site}
-              onChange={(e) => setSite(e.target.value)}
-            />
-            <p className="col-span-full mb-6 text-sm text-gray-500">
-              If your company has a website, please provide the URL. This will help us better train
-              your bot for your business.
-            </p>
+            <div className="col-span-full">
+
+            <p className="col-span-full text-sm mb-2 text-gray-500">
+                Please select your planned usage for DocsBot so we can better serve you.
+              </p>
+              <FieldRadioCards
+                options={userTypes}
+                selected={userType}
+                setSelected={setUserType}
+              />
+            </div>
+            {userType === 'business' && (
+              <>
+                <TextField
+                  className="col-span-full"
+                  label="Business website"
+                  id="site"
+                  name="site"
+                  type="url"
+                  placeholder="https://mycompany.com"
+                  value={site}
+                  onChange={(e) => setSite(e.target.value)}
+                />
+                <p className="col-span-full -mt-4 text-sm text-gray-500">
+                  If your company has a website, please provide the URL. This will help us better
+                  train your bot for your business.
+                </p>
+              </>
+            )}
 
             {hasRegistrationError(authError) && (
-              <div className="col-span-full mb-6">
+              <div className="col-span-full">
                 <span className="mb-1 mt-1 inline-flex items-center rounded-md bg-red-100 p-3 text-sm font-medium text-red-800">
-                  There is already a user associated with this account
+                  There is already a user associated with this account. Please sign in.
                 </span>
               </div>
             )}
-            <TextField
-              className="col-span-full mb-6"
-              label="Email address"
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Work email"
-              autoComplete="email"
-              required
-              {...register('email')}
-            />
-            <TextField
-              className="col-span-full mb-6"
-              label="Password"
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="new-password"
-              required
-              {...register('password')}
-            />
-            <div className="col-span-full mb-6">
-              <label>
-                <input
-                  type="checkbox"
-                  id="terms"
-                  name="terms"
-                  className="mr-2"
-                  onChange={handleTos}
-                />
-                I agree to the{' '}
-                <Link
-                  href="/terms-of-service"
-                  target="_blank"
-                  className="underline hover:text-gray-400"
-                >
-                  Terms of Service
-                </Link>{' '}
-                &{' '}
-                <Link
-                  href="/privacy-policy"
-                  target="_blank"
-                  className="underline hover:text-gray-400"
-                >
-                  Privacy Policy
-                </Link>
-              </label>
-            </div>
+
             {notCheckedError && (
-              <div className="col-span-full mb-6">
+              <div className="col-span-full">
                 <span className="mb-1 mt-1 inline-flex items-center rounded-md bg-red-100 p-3 text-sm font-medium text-red-800">
                   Please agree to the Terms of Service and Privacy Policy
                 </span>
               </div>
             )}
-            <div className="col-span-full mb-2">
-              <Button
-                type="submit"
-                variant="solid"
-                color="blue"
-                className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-                disabled={isAnyAuthMethodLoading}
-              >
-                <span>
-                  Sign up <span aria-hidden="true">&rarr;</span>
-                </span>
-              </Button>
-            </div>
-            <div className="col-span-full">
-              <Button
-                variant="outline"
-                color="slate"
-                className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-                disabled={isAnyAuthMethodLoading}
-                onClick={(e) => {
-                  e.preventDefault()
-                  setNotCheckedError(false)
-                  if (!checked) {
-                    setNotCheckedError(true)
-                    return
-                  }
-                  signInWithGoogle()
-                }}
-              >
-                <span className="mr-3">
-                  <GoogleLogo />
-                </span>
-                <span>Sign up with Google</span>
-              </Button>
-            </div>
+
+            {userType && (
+              <>
+                <div className="col-span-full">
+                  <label>
+                    <input
+                      type="checkbox"
+                      id="terms"
+                      name="terms"
+                      className="mr-2"
+                      onChange={handleTos}
+                    />
+                    I agree to the{' '}
+                    <Link
+                      href="/terms-of-service"
+                      target="_blank"
+                      className="underline hover:text-gray-400"
+                    >
+                      Terms of Service
+                    </Link>{' '}
+                    &{' '}
+                    <Link
+                      href="/privacy-policy"
+                      target="_blank"
+                      className="underline hover:text-gray-400"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </label>
+                </div>
+
+                <div className="col-span-full">
+                  <Button
+                    variant="outline"
+                    color="slate"
+                    className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
+                    disabled={isAnyAuthMethodLoading}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setNotCheckedError(false)
+                      if (!checked) {
+                        setNotCheckedError(true)
+                        return
+                      }
+                      signInWithGoogle()
+                    }}
+                  >
+                    <span className="mr-3">
+                      <GoogleLogo />
+                    </span>
+                    <span>Sign up with Google</span>
+                  </Button>
+                </div>
+
+                <div className="relative col-span-full">
+                  <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                    <div className="w-full border-t border-gray-200" />
+                  </div>
+                  <div className="relative flex justify-center text-sm font-medium leading-6">
+                    <span className="bg-white px-6 text-gray-900">or create a password</span>
+                  </div>
+                </div>
+
+                <TextField
+                  className="col-span-full"
+                  label="Full name"
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <TextField
+                  className="col-span-full"
+                  label={userType === 'business' ? 'Work email' : 'Email address'}
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  {...register('email')}
+                />
+                <TextField
+                  className="col-span-full mb-6"
+                  label="Password"
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="new-password"
+                  required
+                  {...register('password')}
+                />
+
+                <div className="col-span-full">
+                  <Button
+                    type="submit"
+                    variant="solid"
+                    color="blue"
+                    className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
+                    disabled={isAnyAuthMethodLoading}
+                  >
+                    <span>
+                      Sign up <span aria-hidden="true">&rarr;</span>
+                    </span>
+                  </Button>
+                </div>
+              </>
+            )}
           </form>
         )}
-      </AuthLayout>
+      </RegisterLayout>
     </>
   )
 }
 
-export const getServerSideProps = nonProtectedRouteRedirect
+export const getServerSideProps = async (context) => {
+  const data = await nonProtectedRouteRedirect(context)
+
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=72000, stale-while-revalidate=600'
+  )
+
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  //get team count from firestore
+  const collectionRef = firestore.collection('teams')
+  const snapshot = await collectionRef.count().get()
+  const teamCount = snapshot.data().count
+
+  data.props.teamCount = teamCount
+
+  return data
+}
 
 export default Register

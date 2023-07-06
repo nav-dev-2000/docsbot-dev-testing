@@ -1,15 +1,11 @@
 import Image from 'next/future/image'
-
 import { Container } from '@/components/Container'
 import image1 from '@/images/avatars/testimony1.jpeg'
-import image2 from '@/images/avatars/testimony2.jpeg'
+import image2 from '@/images/avatars/avatar-default.jpg'
 import image3 from '@/images/avatars/testimony3.jpeg'
 import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony5.jpeg'
 import image6 from '@/images/avatars/testimony6.png'
-import image7 from '@/images/avatars/testimony-sg.png'
-import image8 from '@/images/avatars/avatar-default.jpg'
-import image9 from '@/images/avatars/chatgpt-logo.png'
 
 const testimonials = [
   [
@@ -22,21 +18,13 @@ const testimonials = [
         image: image3,
       },
     },
+
     {
       content:
         'DocsBot is amazing! I want to thank you for your great work on this product. I have tried a few others, and nothing compares.',
       author: {
         name: 'Gareth P.',
         role: 'IT & Marketing Manager',
-        image: image8,
-      },
-    },
-    {
-      content:
-        "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
-      author: {
-        name: 'Gobinda Tarafdar',
-        role: 'Senior Digital Strategist - Product Co-Ordinator',
         image: image2,
       },
     },
@@ -53,49 +41,11 @@ const testimonials = [
     },
     {
       content:
-        "Really excited to see what this can do for WordPress support. The chat responses are already saving us time, I'm looking forward to getting it integrated with HelpScout as well. Very promising, worth a watch!",
-      author: {
-        name: 'Jack Arturo',
-        role: 'Founder and CEO of Very Good Plugins',
-        image: image1,
-      },
-    },
-    {
-      content:
-        "I just wanted to say THANK YOU for jumping on a call with us. It was super helpful and it gave us a lot of ideas of what we can do to get DocsBot more relevant and accurate. I've most certainly appreciated the quick support from y'all the past couple of weeks!",
-      author: {
-        name: 'Sarah Gantert',
-        role: 'Happiness Engineer - WooCommerce/Automattic',
-        image: image7,
-      },
-    },
-  ],
-  [
-    {
-      content:
         'While there seem to be a ton of these types of "bots" getting launched all the time, few of them are so well designed from a UI and a usability perspective. The ability to train the bot on your own content library in really intuitive ways sets DocsBot apart. Love it!',
       author: {
         name: 'Matt Cromwell',
         role: 'Customer Experience at StellarWP',
         image: image4,
-      },
-    },
-    {
-      content:
-        'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
-      author: {
-        name: 'Igor Benić',
-        role: 'Soloprenuer/Web Developer',
-        image: image5,
-      },
-    },
-    {
-      content:
-        'DocsBot has truly revolutionized our customer support experience. With its AI-powered chatbots trained on our documentation, our customers now receive instant and accurate answers to their most detailed questions, saving us time and enhancing their satisfaction.',
-      author: {
-        name: 'ChatGPT',
-        role: 'Chief Hallucination Officer',
-        image: image9,
       },
     },
   ],
@@ -109,25 +59,18 @@ function QuoteIcon(props) {
   )
 }
 
-export function Testimonials() {
+export function Testimonials({ teamCount }) {
   return (
-    <section
-      id="testimonials"
-      aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32"
-    >
+    <section id="testimonials" aria-label="What our customers are saying" className="p-12 hidden lg:block my-auto">
+      <div className="mx-auto max-w-2xl text-white md:text-center">
+        <h2 className="font-display text-xl tracking-tight sm:text-3xl">
+          Join <span className="font-medium text-teal-100">{teamCount}+</span> other happy DocsBot users!
+        </h2>
+      </div>
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Don&apos;t just take our word for it!
-          </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Here&apos;s what some of our customers have to say about DocsBot.
-          </p>
-        </div>
         <ul
           role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-12 grid grid-cols-1 gap-6 xl:mt-14 xl:max-w-none xl:grid-cols-2"
         >
           {testimonials.map((column, columnIndex) => (
             <li key={columnIndex}>
@@ -141,7 +84,7 @@ export function Testimonials() {
                           {testimonial.content}
                         </p>
                       </blockquote>
-                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                      <figcaption className="relative mt-4 flex items-center justify-between border-t border-slate-100 pt-4">
                         <div>
                           <div className="font-display text-base text-slate-900">
                             {testimonial.author.name}
