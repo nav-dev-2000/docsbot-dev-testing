@@ -27,7 +27,7 @@ export default function Ask({ team, bot }) {
 
   // make api call to ask question
   const askQuestion = async () => {
-    if (!question || question.length < 5) {
+    if (!question || question.length < 2) {
       setErrorText('Please enter a full question.')
       return
     }
@@ -210,7 +210,7 @@ export default function Ask({ team, bot }) {
                     id="query"
                     value={question}
                     maxLength={2000}
-                    minLength={5}
+                    minLength={2}
                     required
                     onChange={(e) => setQuestion(e.target.value)}
                     onDoubleClick={() => {

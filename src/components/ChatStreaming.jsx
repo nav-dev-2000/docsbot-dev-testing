@@ -69,7 +69,7 @@ export default function Chat({ teamId, bot }) {
 
   // make api call to ask question
   const askQuestion = async () => {
-    if (!question || question.length < 5) {
+    if (!question || question.length < 2) {
       setErrorText('Please enter a full question.')
       return
     }
@@ -301,7 +301,7 @@ export default function Chat({ teamId, bot }) {
 
           {answer.sources?.length > 0 && (
             <div className="relative px-6 pb-4 pr-4 sm:px-8 sm:pr-4">
-              <div className="text-sm font-semibold text-gray-800">Sources:</div>
+              <div className="text-sm font-semibold text-gray-800">{bot.labels.sources}</div>
               <div className="items-end justify-between sm:flex">
                 <div
                   className={classNames(
@@ -323,7 +323,7 @@ export default function Chat({ teamId, bot }) {
                       disabled={ratings[answer.id] === 1}
                       className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                     >
-                      <span className="sr-only">Unhelpful</span>
+                      <span className="sr-only">{bot.labels.helpful}</span>
                       <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
                     </button>
                     <button
@@ -332,7 +332,7 @@ export default function Chat({ teamId, bot }) {
                       disabled={ratings[answer.id] === -1}
                       className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                     >
-                      <span className="sr-only">Helpful</span>
+                      <span className="sr-only">{bot.labels.unhelpful}</span>
                       <HandThumbDownIcon className="h-5 w-5" aria-hidden="true" />
                     </button>
                   </div>
@@ -378,13 +378,13 @@ export default function Chat({ teamId, bot }) {
                   id="query"
                   value={question}
                   maxLength={2000}
-                  minLength={5}
+                  minLength={2}
                   required
                   onChange={(e) => setQuestion(e.target.value)}
                   tabIndex={1}
                   autoComplete="off"
                   className="block w-full rounded-md border-gray-300 py-4 pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white disabled:opacity-50 sm:py-2 sm:pl-6 sm:pr-12 sm:text-lg"
-                  placeholder={answers.length ? '' : 'What can I help you with?'}
+                  placeholder={answers.length ? '' : bot.labels.firstMessage}
                 />
 
                 <button
@@ -393,7 +393,7 @@ export default function Chat({ teamId, bot }) {
                   disabled={loading}
                   className="absolute right-0 mr-3 text-cyan-600  hover:text-cyan-700 focus:ring-cyan-400"
                 >
-                  <span className="sr-only">Ask</span>
+                  <span className="sr-only">{bot.labels.inputPlaceholder}</span>
                   {loading ? (
                     <div className="flex items-center justify-center">
                       <div className="relative w-5">

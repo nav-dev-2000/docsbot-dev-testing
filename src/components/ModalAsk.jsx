@@ -49,7 +49,7 @@ export default function ModalAsk({ team, bot }) {
                       className="rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={() => setOpen(false)}
                     >
-                      <span className="sr-only">Close</span>
+                      <span className="sr-only">{bot.labels.close}</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>

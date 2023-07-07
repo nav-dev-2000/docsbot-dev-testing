@@ -9,7 +9,6 @@ import {
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
-import ModalAsk from '@/components/ModalAsk'
 import ModalAPI from '@/components/ModalAPI'
 import ModalEmbed from '@/components/ModalEmbed'
 import PrivacyStatus from '@/components/PrivacyStatus'
@@ -78,7 +77,6 @@ export default function BotCard({ team, bot, setBot }) {
               </div>
               <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
                 <ModalChat team={team} bot={bot} />
-                <ModalAsk team={team} bot={bot} />
                 <Link
                   href={`/app/bots/${bot.id}/questions`}
                   className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"

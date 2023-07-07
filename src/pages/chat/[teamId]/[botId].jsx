@@ -7,6 +7,7 @@ import ChatStreaming from '@/components/ChatStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { stripePlan, grabQuestions } from '@/utils/helpers'
+import { i18n } from '@/constants/strings.constants'
 
 export function ChatPage({ team, bot }) {
   const pageTitle = `${bot.name} Chatbot`
@@ -33,7 +34,7 @@ export function ChatPage({ team, bot }) {
       {stripePlan(team).bots < 10 && (
         <div className="mt-32 mb-4 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
-            <span className="mb-2 block">Powered by</span>
+            <span className="mb-2 block">{bot.labels.poweredBy}</span>
             <Link href="/" target="_blank" className="ml-1 block">
               <span className="sr-only">DocsBot AI</span>
               <Image
@@ -47,7 +48,7 @@ export function ChatPage({ team, bot }) {
           </p>
           <p>
             <Link href="/" target="_blank" className="text-sm text-gray-500 underline hover:text-gray-600">
-              Create your own!
+              {bot.labels.create}
             </Link>
           </p>
         </div>
@@ -62,6 +63,14 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
+  // check if bot labels are set
+  if (data.props.bot.labels) {
+    // if the bot is missing labels, populate with defaults
+    data.props.bot.labels = {
+      ...i18n[data.props.bot.language]?.labels,
+      ...data.props.bot.labels,
+    }
+  }
   data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {

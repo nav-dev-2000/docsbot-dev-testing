@@ -13,6 +13,8 @@ import remarkGfm from 'remark-gfm'
 import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
+import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
+import { i18n } from '@/constants/strings.constants'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -49,7 +51,7 @@ export default function AskStreaming({ teamId, bot }) {
 
   // make api call to ask question
   const askQuestion = async () => {
-    if (!question || question.length < 5) {
+    if (!question || question.length < 2) {
       setErrorText('Please enter a full question.')
       return
     }
@@ -60,7 +62,7 @@ export default function AskStreaming({ teamId, bot }) {
     setSources([])
     setRating(0)
     setAnswerId(null)
-    setLoadingMessage('Sending...')
+    setLoadingMessage(bot.labels.thinking)
 
     //get apiBase from env
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_WEBSOCKET}/teams/${teamId}/bots/${bot.id}/chat`
@@ -68,7 +70,7 @@ export default function AskStreaming({ teamId, bot }) {
 
     // Send message to server when connection is established
     ws.onopen = function (event) {
-      setLoadingMessage('Thinking...')
+      setLoadingMessage(bot.labels.thinking)
       const req = { question: question, markdown: true }
       if (bot.privacy === 'private') {
         //add token to request
@@ -97,9 +99,9 @@ export default function AskStreaming({ teamId, bot }) {
       const data = JSON.parse(event.data)
       if (data.sender === 'bot') {
         if (data.type === 'start') {
-          setLoadingMessage('Checking my sources...')
+          setLoadingMessage(bot.labels.thinking)
         } else if (data.type === 'stream') {
-          setLoadingMessage('Answering...')
+          setLoadingMessage(bot.labels.thinking)
           //append to answer
           setAnswer((prev) => prev + data.message)
         } else if (data.type === 'info') {
@@ -244,7 +246,7 @@ export default function AskStreaming({ teamId, bot }) {
                       id="query"
                       value={question}
                       maxLength={2000}
-                      minLength={5}
+                      minLength={2}
                       required
                       onChange={(e) => setQuestion(e.target.value)}
                       onKeyDown={(e) => {
@@ -256,15 +258,16 @@ export default function AskStreaming({ teamId, bot }) {
                       tabIndex={1}
                       autoComplete="off"
                       className="block w-full rounded-md border-gray-300 py-4  pl-4 pr-10 text-sm focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:rounded-none sm:rounded-l-md sm:py-0 sm:pl-6 sm:pr-12 sm:text-lg"
-                      placeholder="What can I help you with?"
+                      placeholder={bot.labels.firstMessage}
                     />
                   </div>
                   <button
                     type="submit"
                     tabIndex={2}
-                    className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:-ml-px sm:mt-0 sm:w-32 sm:rounded-none sm:rounded-r-md sm:text-lg"
+                    className="relative mt-4 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:-ml-px sm:mt-0 sm:w-16 sm:rounded-none sm:rounded-r-md sm:text-lg"
                   >
-                    Ask
+                    <span className="sr-only">{bot.labels.inputPlaceholder}</span>
+                    <PaperAirplaneIcon className="h-6 w-6" />
                   </button>
                 </div>
               </form>
@@ -295,7 +298,7 @@ export default function AskStreaming({ teamId, bot }) {
         {resultHtml && (
           <>
             <div className="relative mt-16 rounded-sm bg-white text-left shadow-sm sm:rounded-lg ">
-              <div className="absolute -inset-6 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
+              <div className="absolute -inset-4 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
                 <svg
                   className="mr-2 h-8 w-8"
                   fill="currentColor"
@@ -304,7 +307,7 @@ export default function AskStreaming({ teamId, bot }) {
                 >
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                 </svg>
-                Answer:
+               
               </div>
               <div
                 className="wpchat-code prose min-w-full p-4 pb-2 sm:p-8 sm:pb-4"
@@ -318,7 +321,7 @@ export default function AskStreaming({ teamId, bot }) {
                     disabled={rating === 1}
                     className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                   >
-                    <span className="sr-only">Downvote</span>
+                    <span className="sr-only">{bot.labels.helpful}</span>
                     <HandThumbUpIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                   <button
@@ -327,7 +330,7 @@ export default function AskStreaming({ teamId, bot }) {
                     disabled={rating === -1}
                     className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                   >
-                    <span className="sr-only">Upvote</span>
+                    <span className="sr-only">{bot.labels.unhelpful}</span>
                     <HandThumbDownIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
@@ -337,7 +340,7 @@ export default function AskStreaming({ teamId, bot }) {
             {sources?.length > 0 && (
               <div className="relative mt-16 pt-1">
                 <div className="absolute -inset-6 ml-8 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
-                  Sources:
+                  {bot.labels.sources}
                 </div>
                 <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {sources.map((source, index) => (

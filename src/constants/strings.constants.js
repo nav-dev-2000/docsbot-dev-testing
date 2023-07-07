@@ -12,6 +12,8 @@ export const i18n = {
       floatingButton: 'Help',
       suggestions: 'Not sure what to ask?',
       close: 'Close',
+      create: 'Create your own!',
+      thinking: 'Thinking...',
     },
   },
   jp: {
@@ -27,6 +29,8 @@ export const i18n = {
       floatingButton: 'ヘルプ',
       suggestions: '何を尋ねればいいのかわからない?',
       close: '閉じる',
+      create: '自分自身を作成する！',
+      thinking: '考え中...',
     },
   },
   ar: {
@@ -43,6 +47,8 @@ export const i18n = {
       floatingButton: 'مساعدة',
       suggestions: 'غير متأكد من ما تريد أن تسأل؟',
       close: 'إغلاق',
+      create: 'أنشئ خاصتك!',
+      thinking: 'فكر...',
     },
   },
   zh: {
@@ -58,6 +64,8 @@ export const i18n = {
       floatingButton: '帮助',
       suggestions: '不确定要问什么？',
       close: '关闭',
+      create: '创建你自己的！',
+      thinking: '思考中...',
     },
   },
   cs: {
@@ -73,6 +81,8 @@ export const i18n = {
       floatingButton: 'Pomoc',
       suggestions: 'Nejste si jisti, co se zeptat?',
       close: 'Zavřít',
+      create: 'Vytvořte si vlastní!',
+      thinking: 'Myšlení...',
     },
   },
   da: {
@@ -88,6 +98,8 @@ export const i18n = {
       floatingButton: 'Hjælp',
       suggestions: 'Ikke sikker på hvad du skal spørge om?',
       close: 'Luk',
+      create: 'Opret din egen!',
+      thinking: 'Tænker...',
     },
   },
   nl: {
@@ -103,6 +115,8 @@ export const i18n = {
       floatingButton: 'Help',
       suggestions: 'Weet je niet zeker wat je moet vragen?',
       close: 'Sluiten',
+      create: 'Maak je eigen!',
+      thinking: 'Denken...',
     },
   },
   fil: {
@@ -118,6 +132,8 @@ export const i18n = {
       floatingButton: 'Tulong',
       suggestions: 'Hindi sigurado kung ano ang itatanong?',
       close: 'Isara',
+      create: 'Lumikha ng iyong sarili!',
+      thinking: 'Nag-iisip...',
     },
   },
   fi: {
@@ -133,6 +149,8 @@ export const i18n = {
       floatingButton: 'Apua',
       suggestions: 'Etkö ole varma, mitä kysyä?',
       close: 'Sulje',
+      create: 'Luo oma!',
+      thinking: 'Ajattelee...',
     },
   },
   fr: {
@@ -148,6 +166,8 @@ export const i18n = {
       floatingButton: 'Aide',
       suggestions: 'Vous ne savez pas quoi demander?',
       close: 'Fermer',
+      create: 'Créez le vôtre !',
+      thinking: 'Réflexion...',
     },
   },
   de: {
@@ -163,6 +183,8 @@ export const i18n = {
       floatingButton: 'Hilfe',
       suggestions: 'Sie wissen nicht, was Sie fragen sollen?',
       close: 'Schließen',
+      create: 'Erstelle dein eigenes!',
+      thinking: 'Denken...',
     },
   },
   el: {
@@ -178,6 +200,8 @@ export const i18n = {
       floatingButton: 'Βοήθεια',
       suggestions: 'Δεν είστε σίγουροι τι να ρωτήσετε;',
       close: 'Κλείσιμο',
+      create: 'Δημιούργησε το δικό σου!',
+      thinking: 'Σκέψη...',
     },
   },
   he: {
@@ -194,6 +218,8 @@ export const i18n = {
       floatingButton: 'עזרה',
       suggestions: 'לא בטוח מה לשאול?',
       close: 'סגור',
+      create: 'צור את שלך!',
+      thinking: 'חושב...',
     },
   },
   hi: {
@@ -209,6 +235,8 @@ export const i18n = {
       floatingButton: 'मदद',
       suggestions: 'निश्चित नहीं कि क्या पूछना है?',
       close: 'बंद करें',
+      create: 'अपना खुद का बनाएं!',
+      thinking: 'सोच रहा हूँ...',
     },
   },
   hu: {
@@ -224,6 +252,8 @@ export const i18n = {
       floatingButton: 'Segítség',
       suggestions: 'Nem biztos, mit kérdezzen?',
       close: 'Bezár',
+      create: 'Hozzon létre sajátot!',
+      thinking: 'Gondolkodás...',
     },
   },
   id: {
@@ -239,6 +269,8 @@ export const i18n = {
       floatingButton: 'Bantuan',
       suggestions: 'Tidak yakin apa yang harus ditanyakan?',
       close: 'Tutup',
+      create: 'Buat milikmu sendiri!',
+      thinking: 'Berpikir...',
     },
   },
   it: {
@@ -254,6 +286,8 @@ export const i18n = {
       floatingButton: 'Aiuto',
       suggestions: 'Non sei sicuro di cosa chiedere?',
       close: 'Chiudi',
+      create: 'Crea il tuo!',
+      thinking: 'Pensando...',
     },
   },
   ko: {
@@ -269,6 +303,8 @@ export const i18n = {
       floatingButton: '도움말',
       suggestions: '무엇을 물어봐야 할지 모르겠나요?',
       close: '닫기',
+      create: '직접 만드세요!',
+      thinking: '생각 중...',
     },
   },
   no: {
@@ -284,6 +320,8 @@ export const i18n = {
       floatingButton: 'Hjelp',
       suggestions: 'Ikke sikker på hva du skal spørre om?',
       close: 'Lukk',
+      create: 'Lag din egen!',
+      thinking: 'Tenker...',
     },
   },
   pl: {
@@ -299,6 +337,8 @@ export const i18n = {
       floatingButton: 'Pomoc',
       suggestions: 'Nie wiesz, co zapytać?',
       close: 'Zamknij',
+      create: 'Stwórz swój własny!',
+      thinking: 'Myślenie...',
     },
   },
   pt: {
@@ -314,6 +354,8 @@ export const i18n = {
       floatingButton: 'Ajuda',
       suggestions: 'Não tem certeza do que perguntar?',
       close: 'Fechar',
+      create: 'Crie o seu próprio!',
+      thinking: 'Pensando...',
     },
   },
   ro: {
@@ -329,6 +371,8 @@ export const i18n = {
       floatingButton: 'Ajutor',
       suggestions: 'Nu ești sigur ce să întrebi?',
       close: 'Închide',
+      create: 'Creează-ți propriul!',
+      thinking: 'Gândire...',
     },
   },
   ru: {
@@ -344,6 +388,8 @@ export const i18n = {
       floatingButton: 'Помощь',
       suggestions: 'Не уверены, что спросить?',
       close: 'Закрыть',
+      create: 'Создайте свой собственный!',
+      thinking: 'Думаю...',
     },
   },
   sr: {
@@ -359,6 +405,8 @@ export const i18n = {
       floatingButton: 'Помоћ',
       suggestions: 'Нисте сигурни шта да питате?',
       close: 'Затвори',
+      create: 'Napravite svoj!',
+      thinking: 'Razmišljanje...',
     },
   },
   es: {
@@ -374,6 +422,8 @@ export const i18n = {
       floatingButton: 'Ayuda',
       suggestions: '¿No estás seguro de qué preguntar?',
       close: 'Cerrar',
+      create: '¡Crea el tuyo!',
+      thinking: 'Pensando...',
     },
   },
   sw: {
@@ -389,6 +439,8 @@ export const i18n = {
       floatingButton: 'Msaada',
       suggestions: 'Hujui cha kuuliza?',
       close: 'Funga',
+      create: 'Unda yako mwenyewe!',
+      thinking: 'Kufikiri...',
     },
   },
   sv: {
@@ -404,6 +456,8 @@ export const i18n = {
       floatingButton: 'Hjälp',
       suggestions: 'Inte säker på vad du ska fråga?',
       close: 'Stäng',
+      create: 'Skapa din egen!',
+      thinking: 'Tänker...',
     },
   },
   th: {
@@ -419,6 +473,8 @@ export const i18n = {
       floatingButton: 'ช่วยเหลือ',
       suggestions: 'ไม่แน่ใจว่าจะถามอะไร?',
       close: 'ปิด',
+      create: 'สร้างของคุณเอง!',
+      thinking: 'คิด...',
     },
   },
   tr: {
@@ -434,6 +490,8 @@ export const i18n = {
       floatingButton: 'Yardım',
       suggestions: 'Ne sormak gerektiğinden emin değil misiniz?',
       close: 'Kapat',
+      create: 'Kendi oluşturun!',
+      thinking: 'Düşünme...',
     },
   },
 }
