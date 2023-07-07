@@ -97,6 +97,19 @@ export default function ModalSource({ team, bot, source, setSources, children, d
   }
 
   const patchSource = async () => {
+    if (questions.length === 0) {
+      setErrorText('Please add at least one question and answer.')
+      return
+    }
+
+    // make sure they have content
+    for (const q of questions) {
+      if (!q.question || !q.answer || q.question.length === 0 || q.answer.length === 0) {
+        setErrorText('Please fill out all questions and answers.')
+        return
+      }
+    }
+
     setErrorText('')
     setSubmitting(true)
     const response = await fetch(
