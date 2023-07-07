@@ -61,13 +61,14 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
-  data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {
     return {
       notFound: true,
     }
   }
+
+  data.props.bot.questions = grabQuestions(data.props.bot)
 
   return data
 }
