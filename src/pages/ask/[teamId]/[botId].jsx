@@ -11,7 +11,7 @@ import { i18n } from '@/constants/strings.constants'
 
 export function ChatPage({ team, bot }) {
   const pageTitle = `${bot.name} Chatbot`
-  
+
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export function ChatPage({ team, bot }) {
       </Head>
       <main className="mx-auto my-16 max-w-6xl">
         {bot.privacy === 'private' ? (
-          <div className="mt-64 mb-32 text-center">
+          <div className="mb-32 mt-64 text-center">
             <EyeSlashIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
             <h3 className="mt-2 text-2xl font-semibold text-gray-700">Private Bot</h3>
             <p className="mt-4 text-lg text-gray-500">
@@ -32,7 +32,7 @@ export function ChatPage({ team, bot }) {
         )}
       </main>
       {stripePlan(team).bots < 10 && (
-        <div className="mt-32 mb-4 text-center">
+        <div className="mb-4 mt-32 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">{bot.labels.poweredBy}</span>
             <Link href="/" target="_blank" className="ml-1 block">
@@ -41,7 +41,11 @@ export function ChatPage({ team, bot }) {
             </Link>
           </p>
           <p>
-            <Link href="/" target="_blank" className="text-sm text-gray-500 underline hover:text-gray-600">
+            <Link
+              href="/"
+              target="_blank"
+              className="text-sm text-gray-500 underline hover:text-gray-600"
+            >
               {bot.labels.create}
             </Link>
           </p>
@@ -57,14 +61,14 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
-    // check if bot labels are set
-    if (data.props.bot.labels) {
-      // if the bot is missing labels, populate with defaults
-      data.props.bot.labels = {
-        ...i18n[data.props.bot.language]?.labels,
-        ...data.props.bot.labels,
-      }
+  // check if bot labels are set
+  if (data.props.bot.labels) {
+    // if the bot is missing labels, populate with defaults
+    data.props.bot.labels = {
+      ...i18n[data.props.bot.language]?.labels,
+      ...data.props.bot.labels,
     }
+  }
   data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {

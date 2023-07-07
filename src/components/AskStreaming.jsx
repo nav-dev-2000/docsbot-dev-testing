@@ -14,7 +14,6 @@ import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
-import { i18n } from '@/constants/strings.constants'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')

@@ -3,6 +3,7 @@ import { getFirestore, FieldValue, FieldPath } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
+import { i18n } from '@/constants/strings.constants'
 
 import crypto from 'crypto'
 configureFirebaseApp()
@@ -24,6 +25,11 @@ export async function getBots(team, resultLimit = 1000) {
     if (!bot.model) {
       bot.model = 'gpt-3.5-turbo'
     }
+    // if the bot is missing labels, populate with defaults
+    bot.labels = {
+      ...i18n[bot.language]?.labels,
+      ...(bot.labels || {}),
+    }
     bots.push(bot)
   })
 
@@ -32,34 +38,48 @@ export async function getBots(team, resultLimit = 1000) {
 
 const getTimeDeltaFromCalendarMonth = () => {
   // grab the current month and year
-  let currentDate = new Date();
-  let currentMonth = currentDate.getMonth();
-  let currentYear = currentDate.getFullYear();
+  let currentDate = new Date()
+  let currentMonth = currentDate.getMonth()
+  let currentYear = currentDate.getFullYear()
 
   // first day of the current month
-  var startDate = new Date(currentYear, currentMonth, 1);
+  var startDate = new Date(currentYear, currentMonth, 1)
 
   // calculate the difference in milliseconds
-  return currentDate - startDate;
+  return currentDate - startDate
 }
 
-export async function getQuestionCountTransaction(transaction, teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
+export async function getQuestionCountTransaction(
+  transaction,
+  teamId,
+  botId,
+  timeDelta = getTimeDeltaFromCalendarMonth()
+) {
   // grab question count for specific bot
-  const questions = await transaction.get(firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
-    'createdAt',
-    '>',
-    new Date(Date.now() - timeDelta),
-  ).select(FieldPath.documentId()))
+  const questions = await transaction.get(
+    firestore
+      .collection('teams')
+      .doc(teamId)
+      .collection('bots')
+      .doc(botId)
+      .collection('questions')
+      .where('createdAt', '>', new Date(Date.now() - timeDelta))
+      .select(FieldPath.documentId())
+  )
   return questions.size
 }
 
 export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
   // grab question count for specific bot
-  const questions = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('questions').where(
-    'createdAt',
-    '>',
-    new Date(Date.now() - timeDelta),
-  ).select(FieldPath.documentId()).get()
+  const questions = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('questions')
+    .where('createdAt', '>', new Date(Date.now() - timeDelta))
+    .select(FieldPath.documentId())
+    .get()
   return questions.size
 }
 
@@ -79,6 +99,12 @@ export async function getBot(teamId, botId) {
 
     if (!bot.model) {
       bot.model = 'gpt-3.5-turbo'
+    }
+
+    // if the bot is missing labels, populate with defaults
+    bot.labels = {
+      ...i18n[bot.language]?.labels,
+      ...(bot.labels || {}),
     }
 
     return bot
