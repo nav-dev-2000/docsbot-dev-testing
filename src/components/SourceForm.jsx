@@ -18,8 +18,9 @@ import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
+import QAForm from '@/components/QAForm'
 
-export default function SourceForm({ team, bot, sources, setSources }) {
+export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
   const [selectedSourceType, setSelectedSourceType] = useState(null)
   const [user] = useAuthState(auth)
@@ -36,12 +37,10 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [urlDescription, setUrlDescription] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState('none')
+  const [questions, setQuestions] = useState([{ question: '', answer: '' }])
 
   useEffect(() => {
-    if (
-      showForm &&
-      (stripePlan(team).pages <= team.pageCount)
-    ) {
+    if (showForm && stripePlan(team).pages <= team.pageCount) {
       setShowForm(false)
       setShowUpgrade(true)
     }
@@ -60,6 +59,28 @@ export default function SourceForm({ team, bot, sources, setSources }) {
       if (selectedSourceType.fieldTitle === 'required' && !title) {
         valid = false
       }
+
+      if (selectedSourceType.fieldQA === 'required') {
+        // sanity check faqs
+        if (questions.length) {
+          if (!Array.isArray(questions)) {
+            valid = false
+          }
+
+          try {
+            questions.forEach((QA) => {
+              if (!QA.question || !QA.answer) {
+                throw new Error()
+              }
+            })
+          } catch (error) {
+            valid = false
+          }
+        } else {
+          valid = false
+        }
+      }
+
       setValidated(valid)
     } else {
       setValidated(false)
@@ -72,7 +93,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
     } else {
       setUrlDescription('Clickable URL of source link displayed with answers.')
     }
-  }, [selectedSourceType, url, file, title])
+  }, [selectedSourceType, url, file, title, questions])
 
   async function createSource() {
     if (!validated) {
@@ -96,11 +117,22 @@ export default function SourceForm({ team, bot, sources, setSources }) {
         url,
         file,
         selectedInterval,
+        faqs: questions,
       }),
     })
     if (response.ok) {
       const data = await response.json()
-      setSources([data, ...sources])
+      // check if sent source is already in our sources
+      //  (this can happen if we added a QA source and we already have a QA source for example)
+      const existingSource = sources.find((s) => s.id === data.id)
+      if (existingSource) {
+        // if so, replace it and open the modal!
+        setSources([data, ...sources.filter((s) => s.id !== data.id)])
+        // sike, don't open the modal actually
+        // setOpenSourceID(data.id)
+      } else {
+        setSources([data, ...sources])
+      }
       setFile(null)
       setFileName(null)
       setUrl(null)
@@ -149,7 +181,9 @@ export default function SourceForm({ team, bot, sources, setSources }) {
         },
         (err) => () => {
           console.warn(err)
-          setErrorText('Error uploading file, please try again. If the problem persists, try logging out then back in again.')
+          setErrorText(
+            'Error uploading file, please try again. If the problem persists, try logging out then back in again.'
+          )
           setIsUploading(false)
           setFileName(null)
         },
@@ -164,8 +198,8 @@ export default function SourceForm({ team, bot, sources, setSources }) {
   if (showForm) {
     return (
       <>
-      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-        <p className="text-md mt-8 mb-2 ml-2 text-gray-800">
+        <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+        <p className="text-md mb-2 ml-2 mt-8 text-gray-800">
           Add any content sources you want your bot to be able to answer questions about. You can
           always add more later on.
         </p>
@@ -213,11 +247,13 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                             className="block text-sm font-medium text-gray-900"
                           >
                             {sourceType.title}
-                            {sourceType.isPro && !sourceType.coming && stripePlan(team).name === 'Free' && (
-                              <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                Paid
-                              </span>
-                            )}
+                            {sourceType.isPro &&
+                              !sourceType.coming &&
+                              stripePlan(team).name === 'Free' && (
+                                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                                  Paid
+                                </span>
+                              )}
                             {sourceType.coming && (
                               <span className="ml-4 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
                                 Coming soon
@@ -336,6 +372,10 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                 </div>
               )}
 
+              {selectedSourceType?.fieldQA && (
+                <QAForm questions={questions} setQuestions={setQuestions} />
+              )}
+
               {selectedSourceType?.fieldFile && (
                 <div>
                   <div className="flex justify-between">
@@ -370,7 +410,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
                     <label
                       htmlFor="file-upload"
                       className={classNames(
-                        'mt-1 flex cursor-pointer justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 text-center hover:border-gray-400'
+                        'mt-1 flex cursor-pointer justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pb-6 pt-5 text-center hover:border-gray-400'
                       )}
                     >
                       <div className="space-y-1 text-center">
@@ -400,7 +440,11 @@ export default function SourceForm({ team, bot, sources, setSources }) {
               )}
               {selectedSourceType?.fieldSchedule && (
                 <div className="mt-4 justify-start">
-                  <ScheduleSelect team={team} onSelect={setSelectedInterval} defaultSelected={selectedInterval} />
+                  <ScheduleSelect
+                    team={team}
+                    onSelect={setSelectedInterval}
+                    defaultSelected={selectedInterval}
+                  />
                   <p className="mt-2 text-sm text-gray-500" id="title-description">
                     This will automatically refresh the source at the selected interval.
                   </p>
@@ -408,10 +452,10 @@ export default function SourceForm({ team, bot, sources, setSources }) {
               )}
             </div>
           </div>
-          <div className="mt-6 mb-2 flex flex-shrink-0 items-end justify-end">
+          <div className="mb-2 mt-6 flex flex-shrink-0 items-end justify-end">
             <button
               type="button"
-              className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               onClick={() => {
                 setFile(null)
                 setShowForm(false)
@@ -423,7 +467,7 @@ export default function SourceForm({ team, bot, sources, setSources }) {
             <button
               disabled={isUpdating || !validated}
               onClick={createSource}
-              className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+              className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
             >
               {isUpdating ? (
                 <LoadingSpinner className="mr-3" />

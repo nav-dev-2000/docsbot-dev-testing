@@ -11,11 +11,12 @@ import SourceFailed from '@/components/SourceFailed'
 import Link from 'next/link'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 
-function Bot({ team, preBot, preSources }) {
+function Bot({ team, preBot, preSources, autoOpenSourceId }) {
   const [sources, setSources] = useState(preSources)
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
+  const [autoOpenSourceIdState, setAutoOpenSourceIdState] = useState(autoOpenSourceId)
   const router = useRouter()
   const { botId } = router.query
 
@@ -158,9 +159,9 @@ function Bot({ team, preBot, preSources }) {
       <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ team, bot, sources, setSources }} />
+      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState }} />
 
-      <SourceForm {...{ team, bot, sources, setSources }} />
+      <SourceForm {...{ team, bot, sources, setSources, setOpenSourceID: setAutoOpenSourceIdState }} />
     </DashboardWrap>
   )
 }
@@ -168,6 +169,7 @@ function Bot({ team, preBot, preSources }) {
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
   const { botId } = context.params
+  const { sourceId } = context.query
 
   if (data?.props?.team) {
     data.props.preBot = await getBot(data.props.team.id, botId)
@@ -179,6 +181,7 @@ export const getServerSideProps = async (context) => {
     }
 
     data.props.preSources = await getSources(data.props.team.id, data.props.preBot)
+    data.props.autoOpenSourceId = sourceId ? sourceId : null
   }
 
   return data

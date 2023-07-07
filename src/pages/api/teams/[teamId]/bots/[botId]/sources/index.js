@@ -10,7 +10,7 @@ import { bentoTrack } from '@/lib/bento'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
-import { QueueSourceIngest } from '@/lib/service'
+import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 
 export default async function handler(req, res) {
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, selectedInterval } = req.body
+    let { type, title, url, file, selectedInterval, faqs } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -105,6 +105,27 @@ export default async function handler(req, res) {
       return res.status(400).send({ message: 'Invalid or missing parameter "file".' })
     }
 
+    if (sourceType.fieldQA === 'required' && !faqs) {
+      return res.status(400).send({ message: 'Invalid or missing parameter "faqs".' })
+    }
+
+    // sanity check faqs
+    if (faqs && sourceType.fieldQA === 'required') {
+      if (!Array.isArray(faqs)) {
+        return res.status(400).send({ message: 'Invalid parameter "faqs".' })
+      }
+
+      try {
+        faqs.forEach((QA) => {
+          if (!QA.question || !QA.answer) {
+            throw new Error()
+          }
+        })
+      } catch(error) {
+        return res.status(400).send({ message: 'Invalid parameter "faqs".' })
+      }
+    }
+
     //check file type, mostly for sanity
     if (file) {
       const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
@@ -143,6 +164,7 @@ export default async function handler(req, res) {
         status: 'pending',
         pageCount: 0,
         chunkCount: 0,
+        faqs,
       }
 
       if (selectedInterval && selectedInterval !== 'none') {
@@ -153,6 +175,37 @@ export default async function handler(req, res) {
 
         const scheduled = checkSourceScheduledFromInterval(team, selectedInterval)
         data = {...data, scheduled, scheduleInterval: selectedInterval}
+      }
+
+      // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
+      // if it does, we'll need to add our faqs to it and queue a regest
+      if (type === 'qa') {
+        const sources = await getSources(team.id, bot)
+        const qaSources = sources.filter((source) => source.type === 'qa')
+        if (qaSources.length > 0) {
+          // add the faqs to the existing qa source
+          const existingSource = qaSources[0]
+          const existingFaqs = existingSource.faqs || []
+
+          // loop through and remove old conflicting faqs
+          const newFaqs = existingFaqs.filter((newFaq) => {
+            const existingFaq = faqs.find((faq) => faq.question === newFaq.question)
+            if (existingFaq) {
+              return false
+            }
+            return true
+          })
+
+          // append our new faqs
+          newFaqs.push(...faqs)
+
+          await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(existingSource.id).update({
+            faqs: newFaqs,
+          })
+
+          await QueueSourceRegest(team.id, botId, existingSource.id)
+          return res.status(201).json(await getSource(team, bot, existingSource.id))
+        }
       }
 
       const docRef = await firestore
@@ -196,7 +249,7 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      await QueueSourceIngest(team.id, botId, docRef.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file)
+      await QueueSourceIngest(team.id, botId, docRef.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file, faqs)
 
       //send bento track
       try {
@@ -211,6 +264,7 @@ export default async function handler(req, res) {
       //done, return source object
       return res.status(201).json(await getSource(team, bot, docRef.id))
     } catch (error) {
+      console.log('Error creating source', error, error?.stack)
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {

@@ -9,6 +9,7 @@ import {
   RssIcon,
   TableCellsIcon,
   VideoCameraIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
 
@@ -108,6 +109,20 @@ export const sourceTypes = [
     fieldSchedule: true,
   },
   {
+    id: 'qa',
+    title: 'Q&A',
+    description: 'Finetune your bot by providing common questions and answers',
+    fullDescription: 'Manually write a list of FAQs. This is a great way to teach your bot how to answer common questions about your product or service, or to finetune the answers for specific problematic questions. You can also create these FAQs by editing previous answers directly from your question logs.',
+    icon: QuestionMarkCircleIcon,
+    isPro: false,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: 'required',
+  },/*
+  {
     id: 'youtube',
     title: 'YouTube',
     description: 'Answer questions based on the transcripts of a YouTube video or channel',
@@ -119,6 +134,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
   },
+  */
 ]
 
 export const canSourceTypeSchedule = (typeName) => {

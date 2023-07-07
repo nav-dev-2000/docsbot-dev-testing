@@ -99,7 +99,7 @@ export default async function handler(req, res) {
       }
 
       //add source event to pub/sub queue for processing
-      await QueueSourceIngest(team.id, botId, sourceId, stripePlan(team).pages - team.pageCount, bot.indexId, source.type, source.title, source.url, source.file)
+      await QueueSourceIngest(team.id, botId, sourceId, stripePlan(team).pages - team.pageCount, bot.indexId, source.type, source.title, source.url, source.file, source.faqs)
 
       //done, return source object
       return res.status(201).json(await getSource(team, bot, sourceId))

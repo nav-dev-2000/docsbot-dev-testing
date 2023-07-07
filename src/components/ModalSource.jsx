@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon, TrashIcon, ArrowPathIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
@@ -8,9 +8,10 @@ import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
+import QAForm from '@/components/QAForm'
 
-export default function ModalSource({ team, bot, source, setSources, children }) {
-  const [open, setOpen] = useState(false)
+export default function ModalSource({ team, bot, source, setSources, children, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
@@ -19,6 +20,17 @@ export default function ModalSource({ team, bot, source, setSources, children })
   const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
   const [locked, setLocked] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [changed, setChanged] = useState(false)
+  const [questions, setQuestions] = useState(source.faqs ?? [])
+
+  useEffect(() => {
+    console.log('open state:', defaultOpen)
+    setOpen(defaultOpen)
+  }, [defaultOpen])
+
+  useEffect(() => {
+    setQuestions(source.faqs ?? [])
+  }, [source, source.faqs])
 
   const downloadSource = async () => {
     const response = await fetch(
@@ -77,6 +89,37 @@ export default function ModalSource({ team, bot, source, setSources, children })
         } else {
           setErrorText(data.message || 'Something went wrong, please try again.')
         }
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+      setSubmitting(false)
+    }
+  }
+
+  const patchSource = async () => {
+    setErrorText('')
+    setSubmitting(true)
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ faqs: questions }),
+      }
+    )
+    if (response.ok) {
+      const { message } = await response.json()
+      setSources((sources) =>
+        sources.map((s) => (s.id === source.id ? { ...source, status: 'pending' } : s))
+      )
+      setSubmitting(false)
+      setOpen(false)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
@@ -190,6 +233,24 @@ export default function ModalSource({ team, bot, source, setSources, children })
                       </h1>
                     </div>
                     <Alert title={errorText} type="warning" />
+                    {source?.faqs && (
+                      <>
+                        <QAForm questions={questions} setQuestions={(v) => {
+                          setChanged(true)
+                          setQuestions(v)
+                        }} />
+                        <div className="flex flex-shrink-0 items-end justify-end">
+                          <button
+                            disabled={submitting || !changed}
+                            onClick={patchSource}
+                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                          >
+                            {submitting && <LoadingSpinner className="mr-3" />}
+                            Save
+                          </button>
+                        </div>
+                      </>
+                    )}
                     <Alert title={infoText} type="info" />
                     {showInterval && (
                       <>

@@ -38,11 +38,11 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
 
-  if (!canSourceTypeSchedule(source.type)) {
-    return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
-  }
-
   if (req.method === 'PUT') {
+    if (!canSourceTypeSchedule(source.type)) {
+      return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
+    }
+
     try {
       const { interval } = req.body
 
@@ -66,7 +66,30 @@ export default async function handler(req, res) {
       console.warn('Error setting source interval:', error)
       return res.status(500).json({ message: error?.message })
     }
+  } else if (req.method === 'PATCH') {
+    try {
+      const { faqs } = req.body
+
+      if (source.type !== 'qa') {
+        return res.status(403).json({ message: "Only sources of type 'QA' can be updated!" })
+      }
+
+      firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
+        faqs,
+      }).then(() => {
+        QueueSourceRegest(team.id, botId, sourceId);
+      })
+
+      return res.status(200).json({ message: 'success' })
+    } catch (error) {
+      console.warn('Error updating source:', error)
+      return res.status(500).json({ message: error?.message })
+    }
   } else if (req.method === 'POST') {
+    if (!canSourceTypeSchedule(source.type)) {
+      return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
+    }
+
     try {
       if (!source.scheduleInterval || source.scheduleInterval === 'none') {
         QueueSourceRegest(team.id, botId, sourceId);

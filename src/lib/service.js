@@ -10,7 +10,7 @@ const PUBSUB_CLIENT = new PubSub({
 })
 const PUBSUB_TOPIC = 'docsbot-ingest'
 
-export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, indexId, type, title, url, file) => {
+export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, indexId, type, title, url, file, faqs) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'ingest',
@@ -23,6 +23,7 @@ export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, inde
       title,
       url,
       file,
+      faqs,
     })
   )
   // console.log(JSON.stringify({
@@ -63,8 +64,9 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
   await firestore.runTransaction(async (transaction) => {
     const source = await transaction.get(sourceRef)
-    if (source.data().status !== 'ready') {
-      throw new Error("Cannot refresh source that is not 'ready'." + source.data().status)
+    const sourceData = source.data()
+    if (sourceData.status !== 'ready') {
+      throw new Error("Cannot refresh source that is not 'ready'." + sourceData.status)
     }
 
     transaction.update(sourceRef, {
@@ -83,7 +85,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
       teamId,
       botId,
       sourceId,
-      pageLimit,
+      pageLimit
     })
   )
 
