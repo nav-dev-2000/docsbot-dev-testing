@@ -102,7 +102,11 @@ function Register({ teamCount }) {
     onComplete: () => {
       if (window.bento !== undefined) {
         window.bento.identify(googleUser?.user?.email)
-        window.bento.updateFields({ name: googleUser?.user?.displayName, user_type: userType, website: site })
+        window.bento.updateFields({
+          name: googleUser?.user?.displayName,
+          user_type: userType,
+          website: site,
+        })
       }
       if (window.Reflio !== undefined) {
         Reflio.signup(googleUser?.user?.email)
@@ -136,15 +140,10 @@ function Register({ teamCount }) {
             })}
           >
             <div className="col-span-full">
-
-              <p className="col-span-full text-sm mb-2 text-gray-500">
+              <p className="col-span-full mb-2 text-sm text-gray-500">
                 Please select your planned usage for DocsBot so we can better serve you.
               </p>
-              <FieldRadioCards
-                options={userTypes}
-                selected={userType}
-                setSelected={setUserType}
-              />
+              <FieldRadioCards options={userTypes} selected={userType} setSelected={setUserType} />
             </div>
             {userType === 'business' && (
               <>
@@ -299,11 +298,10 @@ function Register({ teamCount }) {
 
 export const getServerSideProps = async (context) => {
   const data = await nonProtectedRouteRedirect(context)
-  if (data.redirect) { return data }
-  context.res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=72000, stale-while-revalidate=600'
-  )
+  if (data.redirect) {
+    return data
+  }
+  context.res.setHeader('Cache-Control', 'public, s-maxage=72000, stale-while-revalidate=600')
 
   configureFirebaseApp()
   const firestore = getFirestore()
