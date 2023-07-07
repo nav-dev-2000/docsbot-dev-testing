@@ -7,7 +7,6 @@ import ChatStreaming from '@/components/ChatStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { stripePlan, grabQuestions } from '@/utils/helpers'
-import { i18n } from '@/constants/strings.constants'
 
 export function ChatPage({ team, bot }) {
   const pageTitle = `${bot.name} Chatbot`
@@ -63,14 +62,6 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
-  // check if bot labels are set
-  if (data.props.bot.labels) {
-    // if the bot is missing labels, populate with defaults
-    data.props.bot.labels = {
-      ...i18n[data.props.bot.language]?.labels,
-      ...data.props.bot.labels,
-    }
-  }
   data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {

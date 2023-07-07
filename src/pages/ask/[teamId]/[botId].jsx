@@ -61,14 +61,6 @@ export const getServerSideProps = async (context) => {
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
   data.props.bot = await getBot(teamId, botId)
-  // check if bot labels are set
-  if (data.props.bot.labels) {
-    // if the bot is missing labels, populate with defaults
-    data.props.bot.labels = {
-      ...i18n[data.props.bot.language]?.labels,
-      ...data.props.bot.labels,
-    }
-  }
   data.props.bot.questions = grabQuestions(data.props.bot)
   //return 404 if bot doesn't exist
   if (!data.props.bot) {
