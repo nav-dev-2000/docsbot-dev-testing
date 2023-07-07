@@ -16,7 +16,7 @@ const placeholders = [
       'Our product will definitely make you more attractive to people who value a person with excellent taste in tech.',
   },
   {
-    question: 'Why does TaxPal need access to my camera?',
+    question: 'Why do you need access to my camera?',
     answer: "We don't really, but sometimes we get lonely and it's nice to see people.",
   },
   {
@@ -33,22 +33,18 @@ const placeholders = [
     answer: 'We get our kids to draw beautiful charts for you using only the finest crayons.',
   },
   {
-    question: 'Do you handle taxes?',
+    question: 'Do you handle sales tax?',
     answer: 'Well no, but if you move your company offshore you can probably ignore it.',
   },
   {
     question: 'How do I apply for a job?',
     answer:
-      'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
+      'We only hire our customers, so subscribe for a minimum of 100 years and then let’s talk.',
   },
   {
     question: 'Your product sounds horrible but why do I still feel compelled to purchase?',
     answer:
       'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
-  },
-  {
-    question: 'Can we expect more features?',
-    answer: 'In life it’s really better to never expect anything at all.',
   },
   {
     question: 'What happens if your site goes down?',
