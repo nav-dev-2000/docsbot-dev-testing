@@ -74,13 +74,23 @@ export default async function handler(req, res) {
         return res.status(403).json({ message: "Only sources of type 'QA' can be updated!" })
       }
 
-      firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
+      // validate request body
+      if (!faqs || !Array.isArray(faqs)) {
+        return res.status(400).json({ message: "Invalid request body" })
+      }
+
+      for (const faq of faqs) {
+        if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
+          return res.status(400).json({ message: "Invalid request body" })
+        }
+      }
+
+      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
         faqs,
-      }).then(() => {
-        QueueSourceRegest(team.id, botId, sourceId);
       })
 
-      return res.status(200).json({ message: 'success' })
+      await QueueSourceRegest(team.id, botId, sourceId);
+      return res.status(200).json(await getSource(team, bot, sourceId))
     } catch (error) {
       console.warn('Error updating source:', error)
       return res.status(500).json({ message: error?.message })

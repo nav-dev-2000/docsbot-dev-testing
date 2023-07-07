@@ -123,9 +123,11 @@ export default function ModalSource({ team, bot, source, setSources, children, d
       }
     )
     if (response.ok) {
-      const { message } = await response.json()
+      const data = await response.json()
+
+      // update source
       setSources((sources) =>
-        sources.map((s) => (s.id === source.id ? { ...source, status: 'pending' } : s))
+        sources.map((s) => (s.id === data.id ? data : s))
       )
       setSubmitting(false)
       setOpen(false)

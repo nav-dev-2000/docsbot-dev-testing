@@ -116,7 +116,13 @@ export default async function handler(req, res) {
     // sanity check faqs
     if (faqs) {
       if (!Array.isArray(faqs)) {
-        return res.status(400).send({ message: 'Invalid parameter "faqs".' })
+        return res.status(400).json({ message: "Invalid parameter \"faqs\"." })
+      }
+
+      for (const faq of faqs) {
+        if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
+          return res.status(400).json({ message: "Invalid parameter \"faqs\"." })
+        }
       }
 
       try {
