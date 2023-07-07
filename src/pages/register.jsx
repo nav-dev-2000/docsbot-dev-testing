@@ -137,7 +137,7 @@ function Register({ teamCount }) {
           >
             <div className="col-span-full">
 
-            <p className="col-span-full text-sm mb-2 text-gray-500">
+              <p className="col-span-full text-sm mb-2 text-gray-500">
                 Please select your planned usage for DocsBot so we can better serve you.
               </p>
               <FieldRadioCards
@@ -299,7 +299,7 @@ function Register({ teamCount }) {
 
 export const getServerSideProps = async (context) => {
   const data = await nonProtectedRouteRedirect(context)
-
+  if (data.redirect) { return data }
   context.res.setHeader(
     'Cache-Control',
     'public, s-maxage=72000, stale-while-revalidate=600'
