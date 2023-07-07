@@ -109,8 +109,12 @@ export default async function handler(req, res) {
       return res.status(400).send({ message: 'Invalid or missing parameter "faqs".' })
     }
 
+    if (sourceType.fieldQA !== 'required' && faqs) {
+      faqs = null
+    }
+
     // sanity check faqs
-    if (faqs && sourceType.fieldQA === 'required') {
+    if (faqs) {
       if (!Array.isArray(faqs)) {
         return res.status(400).send({ message: 'Invalid parameter "faqs".' })
       }
