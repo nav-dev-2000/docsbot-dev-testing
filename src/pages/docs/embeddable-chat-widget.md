@@ -16,15 +16,47 @@ We make it super simple to add chats to your site with our simple embed code. Yo
 You can find the full embed code for your bot from the [Bot](/app/bots) page for your specific bot. It looks a bit like this:
 
 ```html
-<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};</script>
 <script type="text/javascript">
-    DocsBotAI.init({id: "YOUR_ID_HERE"});
+  ;(window.DocsBotAI = window.DocsBotAI || {}),
+    (DocsBotAI.init = function (c) {
+      return new Promise(function (e, o) {
+        var t = document.createElement('script')
+        ;(t.type = 'text/javascript'), (t.async = !0), (t.src = 'https://widget.docsbot.ai/chat.js')
+        var n = document.getElementsByTagName('script')[0]
+        n.parentNode.insertBefore(t, n),
+          t.addEventListener('load', function () {
+            window.DocsBotAI.mount({
+              id: c.id,
+              supportCallback: c.supportCallback,
+              identify: c.identify,
+              options: c.options,
+            })
+            var t
+            ;(t = function (n) {
+              return new Promise(function (e) {
+                if (document.querySelector(n)) return e(document.querySelector(n))
+                var o = new MutationObserver(function (t) {
+                  document.querySelector(n) && (e(document.querySelector(n)), o.disconnect())
+                })
+                o.observe(document.body, { childList: !0, subtree: !0 })
+              })
+            }),
+              t && t('#docsbotai-root').then(e).catch(o)
+          }),
+          t.addEventListener('error', function (t) {
+            o(t.message)
+          })
+      })
+    })
+</script>
+<script type="text/javascript">
+  DocsBotAI.init({ id: 'YOUR_ID_HERE' })
 </script>
 ```
 
 ### Adding the Embed Code
 
-Copy the code and paste it into the `<head>` section of your website. If it's simpler you can insert the code anywhere in your site's html before the closing `</body>` tag. The embed code may appear the same but the `{id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy"}`  is unique to your bot, so be sure to copy the proper code from your bot page.
+Copy the code and paste it into the `<head>` section of your website. If it's simpler you can insert the code anywhere in your site's html before the closing `</body>` tag. The embed code may appear the same but the `{id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy"}` is unique to your bot, so be sure to copy the proper code from your bot page.
 
 ### Privacy and Security
 
@@ -52,7 +84,7 @@ You can customize the widget to match your brand and desired behaviour on your b
 
 Here is a list of the languages we currently support, if you would like to see another language added please let us know:
 
->English, 日本語 (Japanese), العربية (Arabic), 简体中文 (Chinese Simplified), Čeština (Czech), Dansk (Danish), Nederlands (Dutch), Filipino, Suomi (Finnish), Français (French), Deutsch (German), Ελληνικά (Greek), עברית (Hebrew), हिन्दी (Hindi), Magyar (Hungarian), Bahasa Indonesia (Indonesian), Italiano (Italian), 한국어 (Korean), Norsk (Norwegian), Polski (Polish), Português (Portuguese), Română (Romanian), Русский (Russian), Српски (Serbian), Español (Spanish), Kiswahili (Swahili), Svenska (Swedish), ไทย (Thai), Türkçe (Turkish)
+> English, 日本語 (Japanese), العربية (Arabic), 简体中文 (Chinese Simplified), Čeština (Czech), Dansk (Danish), Nederlands (Dutch), Filipino, Suomi (Finnish), Français (French), Deutsch (German), Ελληνικά (Greek), עברית (Hebrew), हिन्दी (Hindi), Magyar (Hungarian), Bahasa Indonesia (Indonesian), Italiano (Italian), 한국어 (Korean), Norsk (Norwegian), Polski (Polish), Português (Portuguese), Română (Romanian), Русский (Russian), Српски (Serbian), Español (Spanish), Kiswahili (Swahili), Svenska (Swedish), ไทย (Thai), Türkçe (Turkish)
 
 **Note**: Changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
@@ -82,23 +114,79 @@ If you use the identify feature to record user's personal information, chat logs
 
 ```js
 DocsBotAI.init({
-    id: "YOUR_ID_HERE",
-    supportCallback: function (event, history) {
-        event.preventDefault(); // Optionally prevent default behavior opening the url.
-        console.log(history); // Safely access the chat history.
-        DocsBotAI.close(); // Close the widget.
-    },
-    identify: {
-        name: "John Doe", // This will be shown in the chat history logs.
-        email: "john@doe.com", // This will be shown in the chat history logs.
-        customVariable: "customValue", // This will be recorded in the question metadata and accessible via the API.
-    }
+  id: 'YOUR_ID_HERE',
+  supportCallback: function (event, history) {
+    event.preventDefault() // Optionally prevent default behavior opening the url.
+    console.log(history) // Safely access the chat history.
+    DocsBotAI.close() // Close the widget.
+  },
+  identify: {
+    name: 'John Doe', // This will be shown in the chat history logs.
+    email: 'john@doe.com', // This will be shown in the chat history logs.
+    customVariable: 'customValue', // This will be recorded in the question metadata and accessible via the API.
+  },
 }).then(() => {
-    // Safely do stuff here after the widget is loaded.
+  // Safely do stuff here after the widget is loaded.
 })
 ```
 
 The `DocsBotAI.init()` function returns a promise that resolves when the DocsBotAI window global is loaded and ready to be used. You can use this to safely do stuff with the widget after it's loaded, such as registering event listeners to open or close the widget based on user interactions. Note to open the widget immediately after it's loaded you might need to call `DocsBotAI.open()` inside a `setTimeout()` as the widget must be mounted to open it.
+
+### Option Overrides
+
+If you would like override the widget settings optionally pass an `options` object with the properties to override. Here is an example of the properties you can override:
+
+```js
+options: {
+  botName: "DocsBot", //name of the bot.
+  description: "Ask our AI support assistant your questions about our services.", //description of the bot.
+  allowedDomains: [
+    "docsbot.ai"
+  ], // Array of domains that the widget is allowed to be embedded on. If empty, any domain is allowed.
+  color: "#0891b8", //color of the widget can be any hex color code.
+  icon: "default", //icon for button can be "default" (comments), "robot", "life-ring", "question", or "book".
+  alignment: "left", //alignment of the widget can be "left" or "right".
+  botIcon: false, //icon for button can be "comment", "robot", "life-ring", "info", or "book". Default is false.
+  supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
+  showButtonLabel: true, // Show the button text label or not.
+  labels: {
+    poweredBy: "Powered by",
+    inputPlaceholder: "Send a message...",
+    firstMessage: "What can I help you with? If I can't answer your question I'll help you open a support ticket with our team!",
+    sources: "Sources",
+    helpful: "Rate as helpful",
+    unhelpful: "Rate as unhelpful",
+    getSupport: "Contact support",
+    floatingButton: "Help",
+    suggestions: "Not sure what to ask?",
+    close: "Close",
+    create: "Create your own!",
+    thinking: "Thinking..."
+  }, // Override all the default labels for your own language.
+  horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
+  verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
+  questions: [
+    "What is DocsBot?",
+    "What services does DocsBot offer?",
+    "How do I embed the DocsBot chat widget?",
+    "Can I view the question and answer history of my DocsBot interactions?"
+  ] // Array of example questions to show in the widget. Three are picked at random.
+}
+```
+
+### Adjusting the Widget Position
+
+For example if you need to change the margin/padding/position of the floating button and widget for your specific website embed you can do so like this:
+
+```js
+DocsBotAI.init({
+  id: 'YOUR_ID_HERE',
+  options: {
+    horizontalMargin: 40,
+    verticalMargin: 30,
+  },
+})
+```
 
 ### Integration with a Support Form
 
@@ -120,13 +208,12 @@ If you would like to integrate with a different support widget, please let us kn
 
 ```js
 DocsBotAI.init({
-    id: "YOUR_ID_HERE",
-    supportCallback: function (event, history) {
-        event.preventDefault(); // Prevent default behavior opening the url.
-        DocsBotAI.unmount(); // Hide the DocsBot widget.
-        // Run some JS here to open your support widget.
-        
-    },
+  id: 'YOUR_ID_HERE',
+  supportCallback: function (event, history) {
+    event.preventDefault() // Prevent default behavior opening the url.
+    DocsBotAI.unmount() // Hide the DocsBot widget.
+    // Run some JS here to open your support widget.
+  },
 })
 ```
 
