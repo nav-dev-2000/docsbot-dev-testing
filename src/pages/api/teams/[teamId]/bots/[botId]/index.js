@@ -116,7 +116,9 @@ export default async function handler(req, res) {
 
       if (language) {
         if (!i18n[language]) {
-          return res.status(400).send({ message: 'Invalid param "language". Should be one of: ' + Object.keys(i18n).join(', ') })
+          return res.status(400).send({
+            message: 'Invalid param "language". Should be one of: ' + Object.keys(i18n).join(', '),
+          })
         } else {
           // reset our labels
           if (bot.language !== language) {
@@ -173,7 +175,9 @@ export default async function handler(req, res) {
         //check if icon is valid
         const valid = ['left', 'right']
         if (!valid.includes(alignment)) {
-          return res.status(400).send({ message: 'Invalid param "alignment". Should be "left" or "right".' })
+          return res
+            .status(400)
+            .send({ message: 'Invalid param "alignment". Should be "left" or "right".' })
         } else {
           botData.alignment = alignment
         }
@@ -210,28 +214,30 @@ export default async function handler(req, res) {
 
       if (labels) {
         // Check that all labels are present in i18n.en.labels
-        const validLabels = Object.keys(i18n.en.labels);
-        const labelsKeys = Object.keys(labels);
-        const invalidLabels = labelsKeys.filter((label) => !validLabels.includes(label));
+        const validLabels = Object.keys(i18n.en.labels)
+        const labelsKeys = Object.keys(labels)
+        const invalidLabels = labelsKeys.filter((label) => !validLabels.includes(label))
 
         if (invalidLabels.length > 0) {
           return res.status(400).send({
-            message: `Invalid labels: ${invalidLabels.join(', ')}. Valid labels: ${validLabels.join(', ')}`,
-          });
+            message: `Invalid labels: ${invalidLabels.join(', ')}. Valid labels: ${validLabels.join(
+              ', '
+            )}`,
+          })
         }
 
         // Check for missing labels
-        const missingLabels = validLabels.filter((label) => !labelsKeys.includes(label));
+        const missingLabels = validLabels.filter((label) => !labelsKeys.includes(label))
         if (missingLabels.length > 0) {
           // return res.status(400).send({
           //   message: `Missing labels: ${missingLabels.join(', ')}. These labels must be set: ${validLabels.join(', ')}`,
           // });
           // populate the missing labels with the default values
           missingLabels.forEach((label) => {
-            labels[label] = bot?.labels[label] || i18n[language || bot.language].labels[label];
-          });
+            labels[label] = bot?.labels[label] || i18n[language || bot.language].labels[label]
+          })
         }
-        botData.labels = labels;
+        botData.labels = labels
       }
 
       if (questions !== undefined) {
@@ -260,13 +266,21 @@ export default async function handler(req, res) {
         .doc(botId)
         .collection('sources')
         .get()
+
       // Once we get the results, begin a batch
+      let counter = 0
       const batch = firestore.batch()
-      querySnapshot.forEach(function (doc) {
+      querySnapshot.forEach(async function (doc) {
         // For each doc, add a delete operation to the batch
         batch.delete(doc.ref)
+        counter++
+        // Commit the batch every 500 operations
+        if (counter % 500 === 0) {
+          await batch.commit()
+          batch = firestore.batch()
+        }
       })
-      // Commit the batch
+      // Commit the remaining batch
       await batch.commit()
 
       // Delete all questions for bot
@@ -278,12 +292,19 @@ export default async function handler(req, res) {
         .collection('questions')
         .get()
       // Once we get the results, begin a batch
+      counter = 0
       const questionsBatch = firestore.batch()
-      questionsSnapshot.forEach(function (doc) {
+      questionsSnapshot.forEach(async function (doc) {
         // For each doc, add a delete operation to the batch
         questionsBatch.delete(doc.ref)
+        counter++
+        // Commit the batch every 500 operations
+        if (counter % 500 === 0) {
+          await questionsBatch.commit()
+          questionsBatch = firestore.batch()
+        }
       })
-      // Commit the batch
+      // Commit the remaining batch
       await questionsBatch.commit()
 
       //delete bot
