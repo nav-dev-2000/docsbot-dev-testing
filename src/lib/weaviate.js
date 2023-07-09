@@ -1,14 +1,15 @@
 import weaviate from 'weaviate-client'
-import { getTeam } from '@/lib/dbQueries'
 
-export const weaviateClient = weaviate.client({
-  scheme: 'https',
-  host: process.env.WEAVIATE_URL,
-  authClientSecret: new weaviate.AuthUserPasswordCredentials({
-    username: process.env.WEAVIATE_USERNAME,
-    password: process.env.WEAVIATE_PASSWORD,
-  }),
-})
+const weaviateClient = () => {
+  return weaviate.client({
+    scheme: 'https',
+    host: process.env.WEAVIATE_URL,
+    authClientSecret: new weaviate.AuthUserPasswordCredentials({
+      username: process.env.WEAVIATE_USERNAME,
+      password: process.env.WEAVIATE_PASSWORD,
+    }),
+  })
+}
 
 export const createSchema = (team, indexId) => {
   let text2vecConfig = {
@@ -16,14 +17,14 @@ export const createSchema = (team, indexId) => {
     vectorizePropertyName: false,
   }
 
-  if (team["AzureDeploymentBase"]) {
-    console.log("!!!!!!!!!!!!!!!!! Using Azure Deployment")
-    text2vecConfig["resourceName"] = team["AzureDeploymentBase"]
-    text2vecConfig["deploymentId"] = team["AzureDeploymentName"]
+  if (team['AzureDeploymentBase']) {
+    console.log('!!!!!!!!!!!!!!!!! Using Azure Deployment')
+    text2vecConfig['resourceName'] = team['AzureDeploymentBase']
+    text2vecConfig['deploymentId'] = team['AzureDeploymentName']
   }
 
   //create a weaviate schema for the bot
-  return weaviateClient.schema
+  return weaviateClient().schema
     .classCreator()
     .withClass({
       class: indexId,
@@ -88,10 +89,10 @@ export const createSchema = (team, indexId) => {
 
 export const getSchema = (indexId) => {
   //get a weaviate schema for the bot
-  return weaviateClient.schema.classGetter().withClassName(indexId).do()
+  return weaviateClient().schema.classGetter().withClassName(indexId).do()
 }
 
 export const deleteSchema = (indexId) => {
   //delete a weaviate schema for the bot
-  return weaviateClient.schema.classDeleter().withClassName(indexId).do()
+  return weaviateClient().schema.classDeleter().withClassName(indexId).do()
 }

@@ -77,14 +77,22 @@ export default async function handler(req, res) {
           .doc(botId)
           .collection('sources')
           .get()
+
         // Once we get the results, begin a batch
-        const batch = firestore.batch()
-        querySnapshot.forEach(function (doc) {
+        let counter = 0
+        let batch = firestore.batch()
+        querySnapshot.forEach(async function (doc) {
           // For each doc, add a delete operation to the batch
           batch.delete(doc.ref)
+          counter++
+          // Commit the batch every 500 operations
+          if (counter % 500 === 0) {
+            await batch.commit()
+            batch = firestore.batch()
+          }
         })
-        // Commit the batch
-        batch.commit()
+        // Commit the remaining batch
+        await batch.commit()
 
         // Delete all questions for bot
         const questionsSnapshot = await firestore
@@ -95,13 +103,24 @@ export default async function handler(req, res) {
           .collection('questions')
           .get()
         // Once we get the results, begin a batch
-        const questionsBatch = firestore.batch()
+        let toDelete = []
         questionsSnapshot.forEach(function (doc) {
-          // For each doc, add a delete operation to the batch
-          questionsBatch.delete(doc.ref)
+          toDelete.push(doc.ref)
         })
-        // Commit the batch
-        questionsBatch.commit()
+        //loop through toDelete and delete in batches of 500
+        counter = 0
+        let questionsBatch = firestore.batch()
+        for (let i = 0; i < toDelete.length; i++) {
+          questionsBatch.delete(toDelete[i])
+          counter++
+          // Commit the batch every 500 operations
+          if (counter % 500 === 0) {
+            await questionsBatch.commit()
+            questionsBatch = firestore.batch()
+          }
+        }
+        // Commit the remaining batch
+        await questionsBatch.commit()
 
         //delete schema in weaviate
         if (doc.indexId) {

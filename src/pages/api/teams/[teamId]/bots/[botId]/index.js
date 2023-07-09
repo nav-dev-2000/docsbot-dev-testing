@@ -292,12 +292,12 @@ export default async function handler(req, res) {
         .collection('questions')
         .get()
       // Once we get the results, begin a batch
-      counter = 0
       let toDelete = []
-      questionsSnapshot.forEach(async function (doc) {
+      questionsSnapshot.forEach(function (doc) {
         toDelete.push(doc.ref)
       })
       //loop through toDelete and delete in batches of 500
+      counter = 0
       let questionsBatch = firestore.batch()
       for (let i = 0; i < toDelete.length; i++) {
         questionsBatch.delete(toDelete[i])
