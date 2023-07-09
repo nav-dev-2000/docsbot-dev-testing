@@ -1,14 +1,18 @@
 import weaviate from 'weaviate-client'
 
 const weaviateClient = () => {
-  return weaviate.client({
-    scheme: 'https',
-    host: process.env.WEAVIATE_URL,
-    authClientSecret: new weaviate.AuthUserPasswordCredentials({
-      username: process.env.WEAVIATE_USERNAME,
-      password: process.env.WEAVIATE_PASSWORD,
-    }),
-  })
+  try {
+    return weaviate.client({
+      scheme: 'https',
+      host: process.env.WEAVIATE_URL,
+      authClientSecret: new weaviate.AuthUserPasswordCredentials({
+        username: process.env.WEAVIATE_USERNAME,
+        password: process.env.WEAVIATE_PASSWORD,
+      }),
+    })
+  } catch (e) {
+    console.warn('Error creating weaviate client', e)
+  }
 }
 
 export const createSchema = (team, indexId) => {
@@ -24,8 +28,8 @@ export const createSchema = (team, indexId) => {
   }
 
   //create a weaviate schema for the bot
-  return weaviateClient().schema
-    .classCreator()
+  return weaviateClient()
+    .schema.classCreator()
     .withClass({
       class: indexId,
       description: 'A text document chunk',
