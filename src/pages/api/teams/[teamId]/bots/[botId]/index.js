@@ -269,7 +269,7 @@ export default async function handler(req, res) {
 
       // Once we get the results, begin a batch
       let counter = 0
-      const batch = firestore.batch()
+      let batch = firestore.batch()
       querySnapshot.forEach(async function (doc) {
         // For each doc, add a delete operation to the batch
         batch.delete(doc.ref)
@@ -293,7 +293,7 @@ export default async function handler(req, res) {
         .get()
       // Once we get the results, begin a batch
       counter = 0
-      const questionsBatch = firestore.batch()
+      let questionsBatch = firestore.batch()
       questionsSnapshot.forEach(async function (doc) {
         // For each doc, add a delete operation to the batch
         questionsBatch.delete(doc.ref)
