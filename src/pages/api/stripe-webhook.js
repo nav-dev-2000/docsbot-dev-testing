@@ -171,14 +171,6 @@ const webhookHandler = async (req, res) => {
                 } catch (e) {
                   console.error(e)
                 }
-
-                try {
-                  bentoTrack(teamOwner(teamObj), 'track', {
-                    type: 'subscriptionCancelled',
-                  })
-                } catch (e) {
-                  console.log('Error sending bento track', e)
-                }
               }
 
               //if cancel feedback added
@@ -213,6 +205,17 @@ const webhookHandler = async (req, res) => {
                   })
                 } catch (e) {
                   console.error(e)
+                }
+                try {
+                  bentoTrack(teamOwner(teamObj), 'track', {
+                    type: 'subscriptionCancelled',
+                    details: {
+                      reason: subscription.cancellation_details.feedback || '',
+                      comment: subscription.cancellation_details.comment || '',
+                    },
+                  })
+                } catch (e) {
+                  console.log('Error sending bento track', e)
                 }
               }
             })
