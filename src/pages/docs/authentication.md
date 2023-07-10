@@ -21,17 +21,17 @@ API keys are unique to each user account and their permissions mirror that of yo
 
 ### Getting your API key
 
-To use our APIs, you need to get an API key. You can get your API key from the [API Keys](https://docsbot.ai/app/api) section of your dashboard. This is the key associated to your user account, and will be the same no matter which team you dashboard you are in. You can create or change your API key at any time by clicking the "Change" button. When you change your key, all previous API requests will stop working until your configure them to use the new key.
+To use our APIs, you need to get an API key. You can get your API key from the [API Keys](https://docsbot.ai/app/api) section of your dashboard. This is the key associated with your user account and will be the same no matter which team dashboard you are in. You can create or change your API key at any time by clicking the "Change" button. When you change your key, all previous API requests will stop working until you configure them to use the new key.
 
 {% callout type="warning" title="Don't forget to copy!" %}
-API keys are only shown once as we store them safely hashed, so make sure you copy it to a safe place. If you loose or forget your key you will have to recreate it.
+API keys are only shown once as we store them safely hashed, so make sure you copy it to a safe place. If you lose or forget your key you will have to create a new one.
 {% /callout %}
 
 ### Authenticating requests
 
 #### REST API endpoints
 
-DocsBot for all it's REST APIs uses the standard `Authorization` header to authenticate requests with a Bearer token. You can authenticate requests by including your API key in the `Authorization` header prefixed with the "Bearer" keyword. For example, if your API key is `1234567890`, you would include the following header in your request:
+DocsBot for all its REST APIs uses the standard `Authorization` header to authenticate requests with a Bearer token. You can authenticate requests by including your API key in the `Authorization` header prefixed with the "Bearer" keyword. For example, if your API key is `1234567890`, you would include the following header in your request:
 
 ```http
 Authorization: Bearer 1234567890
