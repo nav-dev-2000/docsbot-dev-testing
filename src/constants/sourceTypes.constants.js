@@ -26,6 +26,7 @@ export const sourceTypes = [
     fieldTitle: 'optional',
     fieldFile: false,
     fieldSchedule: true,
+    fieldQA: false,
   },
   {
     id: 'document',
@@ -40,6 +41,7 @@ export const sourceTypes = [
     fieldFile: 'required',
     fileTypes: {txt: 'text/plain', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', eml: 'message/rfc822', html: 'text/html', pdf: 'application/pdf', zip: 'application/zip'},
     fieldSchedule: false,
+    fieldQA: false,
   },
   {
     id: 'wp',
@@ -54,6 +56,7 @@ export const sourceTypes = [
     fieldFile: 'required',
     fileTypes: {xml: 'text/xml'},
     fieldSchedule: false,
+    fieldQA: false,
   },
   {
     id: 'sitemap',
@@ -67,6 +70,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
+    fieldQA: false,
   },
   {
     id: 'urls',
@@ -81,6 +85,7 @@ export const sourceTypes = [
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv', txt: 'text/plain'},
     fieldSchedule: true,
+    fieldQA: false,
   },
   {
     id: 'csv',
@@ -95,6 +100,7 @@ export const sourceTypes = [
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv'},
     fieldSchedule: false,
+    fieldQA: false,
   },
   {
     id: 'rss',
@@ -107,6 +113,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
+    fieldQA: false,
   },
   {
     id: 'qa',
@@ -133,6 +140,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
+    fieldQA: false,
   },
   */
 ]
