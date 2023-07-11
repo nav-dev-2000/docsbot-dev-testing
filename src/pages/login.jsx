@@ -94,6 +94,7 @@ function Login() {
     <>
       <Head>
         <title key="title">Sign In - DocsBot</title>
+        <meta name="robots" content="noindex" />
       </Head>
       <AuthLayout
         title="Sign in to account"

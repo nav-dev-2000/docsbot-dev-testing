@@ -120,6 +120,7 @@ function Register({ teamCount }) {
     <>
       <Head>
         <title key="title">Sign Up - DocsBot AI</title>
+        <meta name="robots" content="noindex" />
       </Head>
       <RegisterLayout teamCount={teamCount}>
         {isAnyAuthMethodLoading ? (
