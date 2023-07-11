@@ -90,9 +90,9 @@ function Api({ user, team }) {
                 href="https://openai.com/waitlist/gpt-4-api"
                 target="_blank"
               >
-                Request GPT-4 access
+                GPT-4 access details
               </Link>
-              <p className="mt-1 text-xs italic">Optional - Once approved update your OpenAI API key to enable</p>
+              <p className="mt-1 text-xs italic">Optional - Once approved update your OpenAI API key to enable GPT-4</p>
               </>
             )}
           </div>
