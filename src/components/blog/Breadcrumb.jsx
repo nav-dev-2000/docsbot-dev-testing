@@ -29,9 +29,8 @@ export default function Breadcrumb({ post }) {
               href={post.link}
               className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
               aria-current="page"
-            >
-              {post.title.rendered}
-            </Link>
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            />
           </div>
         </li>
       </ol>
