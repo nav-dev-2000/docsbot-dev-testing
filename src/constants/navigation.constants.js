@@ -3,4 +3,5 @@ export const NAVIGATION = [
   { name: 'Pricing', href: '/#pricing' },
   { name: 'FAQ', href: '/#faq' },
   { name: 'Documentation', href: '/docs' },
+  { name: 'Blog', href: '/articles' },
 ]

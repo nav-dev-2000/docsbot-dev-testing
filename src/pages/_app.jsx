@@ -11,6 +11,8 @@ import { slugifyWithCounter } from '@sindresorhus/slugify'
 import { Layout } from '@/components/docs/Layout'
 import { Analytics } from '@vercel/analytics/react'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { HeadlessApp } from '@headstartwp/next'
+import { Link } from '@/components/blog/Link'
 
 function getNodeText(node) {
   let text = ''
@@ -55,6 +57,9 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [user] = useAuthState(auth)
+
+  // eslint-disable-next-line react/prop-types, no-unused-vars
+  const { fallback = {}, themeJson = {}, ...props } = pageProps
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -146,7 +151,12 @@ export default function App({ Component, pageProps }) {
               src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
               strategy="afterInteractive"
             />
-            <Script id="reflio" strategy="afterInteractive" src='https://reflio.com/js/reflio.min.js' data-reflio='hsborf9afm060gz' />
+            <Script
+              id="reflio"
+              strategy="afterInteractive"
+              src="https://reflio.com/js/reflio.min.js"
+              data-reflio="hsborf9afm060gz"
+            />
           </>
         )}
         <Analytics />
@@ -155,7 +165,28 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <HeadlessApp
+      pageProps={pageProps}
+      settings={{
+        // instruct the framework to use Next.js link component or your own version
+        linkComponent: Link,
+      }}
+      swrConfig={{
+        /**
+         * Setting this to true will refetch content whenever the tab is refocused
+         */
+        revalidateOnFocus: false,
+        /**
+         * Settings this to true will refetch content whenever the connection is reestablished
+         */
+        revalidateOnReconnect: false,
+        /**
+         * Setting this to true will refetch content after initial load
+         */
+        revalidateOnMount: false,
+      }}
+      useYoastHtml
+    >
       <Head>
         <title key="title">
           DocsBot AI - Custom chatbots and content generation from your documentation
@@ -188,7 +219,7 @@ export default function App({ Component, pageProps }) {
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
       <div className="h-screen">
-        <Component {...pageProps} />
+        <Component {...props} />
       </div>
       {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && (
         <>
@@ -208,10 +239,15 @@ export default function App({ Component, pageProps }) {
             src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
             strategy="afterInteractive"
           />
-          <Script id="reflio" strategy="afterInteractive" src='https://reflio.com/js/reflio.min.js' data-reflio='hsborf9afm060gz' />
+          <Script
+            id="reflio"
+            strategy="afterInteractive"
+            src="https://reflio.com/js/reflio.min.js"
+            data-reflio="hsborf9afm060gz"
+          />
         </>
       )}
       <Analytics />
-    </>
+    </HeadlessApp>
   )
 }

@@ -16,13 +16,30 @@ async function generateSitemap() {
   const pages = await globby([
     'src/pages/**/*{.js,.jsx,.mdx,.md}',
     '!src/pages/_*{.jsx,.js}',
-    '!src/pages/{api,app,ask,chat}/{**/*,*}',
+    '!src/pages/**/[*{.jsx,.js}',
+    '!src/pages/{api,app,ask,chat,404,register}{**/*,*}',
   ])
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(addPage).join('\n')}
 </urlset>`
 
-  fs.writeFileSync('public/sitemap.xml', sitemap)
+  fs.writeFileSync('public/sitemap_next.xml', sitemap)
+
+  const axios = require('axios');
+
+// Fetch the external sitemap and merge it with the existing sitemap
+const response = await axios.get('https://blog.docsbot.ai/sitemap_index.xml');
+let externalSitemap = response.data;
+  externalSitemap = externalSitemap.replace(
+    '</sitemapindex>',
+    `\t<sitemap>
+\t\t<loc>https://docsbot.ai/sitemap-next.xml</loc>
+\t\t<lastmod>${new Date().toISOString()}</lastmod>
+\t</sitemap>
+</sitemapindex>`
+  )
+
+  fs.writeFileSync('public/sitemap.xml', externalSitemap)
 }
 
 generateSitemap()

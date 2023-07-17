@@ -2,6 +2,9 @@
 @import './fonts.css';
 @import './docsearch.css';
 @import './prism.css';
+/* this should match the WordPress version you're supporting
+ take this from wp-includes/css/dist/block-library/style.css */
+@import './wp-block-library.css';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 

@@ -1,4 +1,7 @@
 const withMarkdoc = require('@markdoc/next.js')
+const { withHeadlessConfig } = require('@headstartwp/next/config');
+const headlessConfig = require('./headless.config');
+
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -33,7 +36,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.wpmudev.host',
+        hostname: '**.tempurl.host',
       },
     ],
   },
@@ -55,4 +58,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withMarkdoc()(nextConfig)
+module.exports = withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig);
