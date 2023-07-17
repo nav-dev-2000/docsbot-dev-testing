@@ -23,7 +23,7 @@ async function generateSitemap() {
 ${pages.map(addPage).join('\n')}
 </urlset>`
 
-  fs.writeFileSync('public/sitemap_next.xml', sitemap)
+  fs.writeFileSync('public/sitemap-next.xml', sitemap)
 
   const axios = require('axios');
 
