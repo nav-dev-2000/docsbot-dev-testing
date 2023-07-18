@@ -14,7 +14,7 @@ export function ChatPage({ team, bot }) {
 
   return (
     <>
-      <NextSeo title={pageTitle} description={bot.description} />
+      <NextSeo title={pageTitle} description={bot.description} noindex={true} nofollow={true} />
       <main className="mx-auto my-16 max-w-6xl">
         {bot.privacy === 'private' ? (
           <div className="mb-32 mt-64 text-center">
