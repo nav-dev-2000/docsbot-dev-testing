@@ -52,7 +52,7 @@ const navigation = [
       { title: 'Overview', href: '/docs/chat-api-overview' },
       { title: 'Chat', href: '/docs/chat-api' },
       { title: 'Streaming Chat', href: '/docs/streaming-chat-api' },
-      { title: 'Answer Rating', href: '/docs/answer-rating' },
+      { title: 'Answer Rating & Escalation', href: '/docs/answer-rating' },
     ],
   },
   {

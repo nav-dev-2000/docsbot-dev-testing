@@ -11,16 +11,16 @@ Sources are how your train your bots. They can be urls, files, sitemaps, and man
 
 Source objects have the following properties:
 
-| Property       | Type   | Description                                                                                                           |
-| -------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
-| **id**         | string | The source id.                                                                                                        |
-| **type**       | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`. All but url and sitemap require uploading a formatted file. |
-| **title**      | string | The source title. Required except for `url` and `sitemap` types.                                                      |
-| **url**        | string | The source url. Optional except for `url` and `sitemap` types.                                                        |
-| **file**       | string | The source file path in our cloud storage.                                                                            |
-| **createdAt**  | string | The source creation date.                                                                                             |
-| **pageCount**  | number | The number of pages indexed from the source.                                                                          |
-| **chunkCount** | number | The number of chunks indexed from the source.                                                                         |
+| Property       | Type   | Description                                                                                                                                                |
+| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**         | string | The source id.                                                                                                                                             |
+| **type**       | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`. All but url and sitemap require uploading a formatted file.                         |
+| **title**      | string | The source title. Required only for `document` type.                                                                                                       |
+| **url**        | string | The source url. Optional except for `url`, `sitemap`, and `rss` types.                                                                                     |
+| **file**       | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
+| **createdAt**  | string | The source creation date.                                                                                                                                  |
+| **pageCount**  | number | The number of pages indexed from the source.                                                                                                               |
+| **chunkCount** | number | The number of chunks indexed from the source.                                                                                                              |
 
 ---
 
@@ -54,7 +54,10 @@ var requestOptions = {
   redirect: 'follow',
 }
 
-fetch('https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources', requestOptions)
+fetch(
+  'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources',
+  requestOptions
+)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log('error', error))
@@ -66,17 +69,17 @@ Response is a JSON array of source objects:
 
 ```json
 [
-    {
-        "id": "qGDSDhbdxtqmifTZQrYs",
-        "file": null,
-        "type": "url",
-        "url": "https://wordpress.org/plugins/infinite-uploads/",
-        "createdAt": "2023-03-09T22:07:24.442Z",
-        "pageCount": 3,
-        "chunkCount": 10,
-        "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
-        "status": "ready"
-    }
+  {
+    "id": "qGDSDhbdxtqmifTZQrYs",
+    "file": null,
+    "type": "url",
+    "url": "https://wordpress.org/plugins/infinite-uploads/",
+    "createdAt": "2023-03-09T22:07:24.442Z",
+    "pageCount": 3,
+    "chunkCount": 10,
+    "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
+    "status": "ready"
+  }
 ]
 ```
 
@@ -127,15 +130,15 @@ Response is a JSON source object:
 
 ```json
 {
-    "id": "qGDSDhbdxtqmifTZQrYs",
-    "file": null,
-    "type": "url",
-    "url": "https://wordpress.org/plugins/infinite-uploads/",
-    "createdAt": "2023-03-09T22:07:24.442Z",
-    "pageCount": 3,
-    "chunkCount": 10,
-    "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
-    "status": "ready"
+  "id": "qGDSDhbdxtqmifTZQrYs",
+  "file": null,
+  "type": "url",
+  "url": "https://wordpress.org/plugins/infinite-uploads/",
+  "createdAt": "2023-03-09T22:07:24.442Z",
+  "pageCount": 3,
+  "chunkCount": 10,
+  "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
+  "status": "ready"
 }
 ```
 
@@ -149,12 +152,12 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 
 ### Parameters
 
-| Property | Type   | Description                                                                 |
-| -------- | ------ | --------------------------------------------------------------------------- |
-| **type** | string | The source type. Can be `url`, `rss`,`sitemap`, `urls`, `csv`, `document` or `wp`. |
-| **title** | string | The source title. Optional. |
-| **url** | string | The source URL. Required if type is `url` or `sitemap`, or `rss`. |
-| **file** | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
+| Property  | Type   | Description                                                                                                                                                |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **type**  | string | The source type. Can be `url`, `rss`,`sitemap`, `urls`, `csv`, `document` or `wp`.                                                                         |
+| **title** | string | The source title. Optional except for `document`.                                                                                                          |
+| **url**   | string | The source URL. Required if type is `url` or `sitemap`, or `rss`.                                                                                          |
+| **file**  | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
 
 ### Examples
 
@@ -174,27 +177,33 @@ curl --request POST 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV
 #### JavaScript (Fetch)
 
 ```js
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673");
-myHeaders.append("Content-Type", "application/json");
+var myHeaders = new Headers()
+myHeaders.append(
+  'Authorization',
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+)
+myHeaders.append('Content-Type', 'application/json')
 
 var raw = JSON.stringify({
-    "type": "url",
-    "title": "Infinite Uploads",
-    "url": "https://infiniteuploads.com"
-});
+  type: 'url',
+  title: 'Infinite Uploads',
+  url: 'https://infiniteuploads.com',
+})
 
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
   body: raw,
-  redirect: 'follow'
-};
+  redirect: 'follow',
+}
 
-fetch("https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+fetch(
+  'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources',
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log('error', error))
 ```
 
 ### Response
@@ -203,19 +212,21 @@ Response is a HTTP 201 with a JSON source object:
 
 ```json
 {
-    "id": "qGDSDhbdxtqmifTZQrYs",
-    "file": null,
-    "type": "url",
-    "title": "Infinite Uploads",
-    "url": "https://infiniteuploads.com",
-    "createdAt": "2023-03-09T22:07:24.442Z",
-    "pageCount": 0,
-    "chunkCount": 0,
-    "status": "pending"
+  "id": "qGDSDhbdxtqmifTZQrYs",
+  "file": null,
+  "type": "url",
+  "title": "Infinite Uploads",
+  "url": "https://infiniteuploads.com",
+  "createdAt": "2023-03-09T22:07:24.442Z",
+  "pageCount": 0,
+  "chunkCount": 0,
+  "status": "pending"
 }
 ```
 
-## Upload Source Document
+## Handling Source Uploads
+
+We do not support POSTing binary files directly with the create source endpoint. Instead you can upload even very large files directly to our temporary cloud storage then provide that path to the create source API call.
 
 You'll first need to request a presigned upload URL from the upload-url endpoint.
 
@@ -239,56 +250,56 @@ curl -X PUT -H 'Content-Type: application/octet-stream' --upload-file test.csv h
 Then finally, you can create your source using the normal source API. A full example of this looks like:
 
 ```js
-const teamId = "0NZfVRlrjJ6d4YdwUGHt";
-const botId = "yR5EwAGpINpmp7XzT9qL";
-const authToken = "8656f848949372c090cd455cc39c158b5b8bd9a00d0c9807f832bec30b1735a1";
+const teamId = '0NZfVRlrjJ6d4YdwUGHt'
+const botId = 'yR5EwAGpINpmp7XzT9qL'
+const authToken = '8656f848949372c090cd455cc39c158b5b8bd9a00d0c9807f832bec30b1735a1'
 
 // Get upload URL
 fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/upload-url?fileName=test.csv`, {
   headers: {
-    'Authorization': `Bearer ${authToken}`
-  }
+    Authorization: `Bearer ${authToken}`,
+  },
 })
-  .then(response => response.json())
-  .then(data => {
-    const url = data.url;
-    const file = data.file;
+  .then((response) => response.json())
+  .then((data) => {
+    const url = data.url
+    const file = data.file
 
-    console.log("Uploading to ", url)
+    console.log('Uploading to ', url)
 
     // Upload file to URL
     fetch(url, {
       method: 'PUT',
       body: require('fs').createReadStream('test.csv'),
       headers: {
-        'Content-Type': 'application/octet-stream'
-      }
-    });
+        'Content-Type': 'application/octet-stream',
+      },
+    })
 
-    console.log("Creating source...")
+    console.log('Creating source...')
 
     // Upload source
     fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/sources`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${authToken}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${authToken}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         type: 'csv',
         title: 'test',
         file: file,
-        url: 'https://www.google.com'
-      })
-    });
-  });
+        url: 'https://www.google.com',
+      }),
+    })
+  })
 ```
 
 ---
 
 ## Retry Source
 
-Sources are read only. However if a source fails it is possible to trigger an index retry. It accepts a PUT request with no parameters:
+If a source fails or is status indexed it is possible to trigger an index retry. It accepts a PUT request with no parameters:
 
 `PUT https://docsbot.ai/api/teams/:teamId/bots/:botId/sources/:sourceId`
 
@@ -307,15 +318,15 @@ Response is am HTTP 201 with the new JSON source object:
 
 ```json
 {
-    "id": "qGDSDhbdxtqmifTZQrYs",
-    "file": null,
-    "type": "url",
-    "url": "https://wordpress.org/plugins/infinite-uploads/",
-    "createdAt": "2023-03-09T22:07:24.442Z",
-    "pageCount": 3,
-    "chunkCount": 10,
-    "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
-    "status": "ready"
+  "id": "qGDSDhbdxtqmifTZQrYs",
+  "file": null,
+  "type": "url",
+  "url": "https://wordpress.org/plugins/infinite-uploads/",
+  "createdAt": "2023-03-09T22:07:24.442Z",
+  "pageCount": 3,
+  "chunkCount": 10,
+  "title": "Infinite Uploads – Offload Media and Video to Cloud Storage – WordPress plugin | WordPress.org",
+  "status": "ready"
 }
 ```
 
