@@ -7,17 +7,14 @@ import AskStreaming from '@/components/AskStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { stripePlan, grabQuestions } from '@/utils/helpers'
-import { i18n } from '@/constants/strings.constants'
+import { NextSeo } from 'next-seo'
 
 export function ChatPage({ team, bot }) {
   const pageTitle = `${bot.name} Chatbot`
 
   return (
     <>
-      <Head>
-        <title key="title">{pageTitle}</title>
-        <meta name="description" content={bot.description} key="description" />
-      </Head>
+      <NextSeo title={pageTitle} description={bot.description} />
       <main className="mx-auto my-16 max-w-6xl">
         {bot.privacy === 'private' ? (
           <div className="mb-32 mt-64 text-center">

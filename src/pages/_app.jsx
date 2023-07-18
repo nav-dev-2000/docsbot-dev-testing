@@ -13,6 +13,7 @@ import { Analytics } from '@vercel/analytics/react'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { HeadlessApp } from '@headstartwp/next'
 import { Link } from '@/components/blog/Link'
+import { DefaultSeo } from 'next-seo'
 
 function getNodeText(node) {
   let text = ''
@@ -98,7 +99,7 @@ export default function App({ Component, pageProps }) {
     let title = pageProps.markdoc?.frontmatter.title
 
     let pageTitle =
-      pageProps.markdoc?.frontmatter.pageTitle || `${pageProps.markdoc?.frontmatter.title} - Docs`
+      pageProps.markdoc?.frontmatter.pageTitle || `${pageProps.markdoc?.frontmatter.title} - DocsBot Documentation`
 
     let description = pageProps.markdoc?.frontmatter.description
 
@@ -108,27 +109,74 @@ export default function App({ Component, pageProps }) {
 
     return (
       <>
-        <Head>
-          <title>{pageTitle}</title>
-          {description && <meta name="description" content={description} />}
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@docsbotai" />
-          <meta name="twitter:creator" content="@docsbotai" />
-          <meta property="twitter:domain" content="docsbot.ai" />
-          <meta name="twitter:image" content="https://docsbot.ai/social-card.png" />
-          <meta property="og:url" content={'https://docsbot.ai' + router.asPath} key="ogurl" />
-          <meta property="og:title" content="DocsBot AI" key="ogtitle" />
-          <meta property="og:description" content={description} key="ogdesc" />
-          <meta property="og:image" content="https://docsbot.ai/social-card.png" key="ogimage" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff"></meta>
-        </Head>
+        <DefaultSeo
+          title={pageTitle}
+          description={description}
+          openGraph={{
+            type: 'website',
+            locale: 'en_US',
+            url: 'https://docsbot.ai' + router.asPath,
+            siteName: 'DocsBot AI',
+            images: [
+              {
+                url: 'https://docsbot.ai/social-card.png',
+                width: 1200,
+                height: 630,
+                alt: 'DocsBot AI',
+              },
+            ],
+          }}
+          twitter={{
+            handle: '@docsbotai',
+            site: '@docsbotai',
+            cardType: 'summary_large_image',
+          }}
+          additionalLinkTags={[
+            {
+              rel: 'apple-touch-icon',
+              href: '/apple-touch-icon.png',
+              sizes: '180x180',
+            },
+            {
+              rel: 'manifest',
+              href: '/site.webmanifest',
+            },
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '16x16',
+              href: '/favicon-16x16.png',
+            },
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '32x32',
+              href: '/favicon-32x32.png',
+            },
+            {
+              rel: 'mask-icon',
+              href: '/safari-pinned-tab.svg',
+              color: '#5bbad5',
+            },
+          ]}
+          additionalMetaTags={[
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+            },
+            {
+              charSet: 'utf-8',
+            },
+            {
+              name: 'msapplication-TileColor',
+              content: '#da532c',
+            },
+            {
+              name: 'theme-color',
+              content: '#ffffff',
+            },
+          ]}
+        />
         <Layout title={title} tableOfContents={tableOfContents}>
           <Component {...pageProps} />
         </Layout>
@@ -185,39 +233,76 @@ export default function App({ Component, pageProps }) {
          */
         revalidateOnMount: false,
       }}
-      useYoastHtml
+      useYoastHtml={true}
     >
-      <Head>
-        <title key="title">
-          DocsBot AI - Custom chatbots and content generation from your documentation
-        </title>
-        <meta
-          name="description"
-          content="Custom ChatGPT bots trained on your documentation and content."
-          key="description"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@docsbotai" />
-        <meta name="twitter:creator" content="@docsbotai" />
-        <meta property="twitter:domain" content="docsbot.ai" />
-        <meta name="twitter:image" content="https://docsbot.ai/social-card.png" />
-        <meta property="og:url" content={'https://docsbot.ai' + router.asPath} key="ogurl" />
-        <meta property="og:title" content="DocsBot AI" key="ogtitle" />
-        <meta
-          property="og:description"
-          content="Custom ChatGPT bots trained on your documentation and content."
-          key="ogdesc"
-        />
-        <meta property="og:image" content="https://docsbot.ai/social-card.png" key="ogimage" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff"></meta>
-      </Head>
+      <DefaultSeo
+        title="DocsBot AI - Custom chatbots and content generation from your documentation"
+        description="Custom ChatGPT bots trained on your documentation and content."
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://docsbot.ai' + router.asPath,
+          siteName: 'DocsBot AI',
+          images: [
+            {
+              url: 'https://docsbot.ai/social-card.png',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
+        }}
+        additionalLinkTags={[
+          {
+            rel: 'apple-touch-icon',
+            href: '/apple-touch-icon.png',
+            sizes: '180x180',
+          },
+          {
+            rel: 'manifest',
+            href: '/site.webmanifest',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '16x16',
+            href: '/favicon-16x16.png',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '32x32',
+            href: '/favicon-32x32.png',
+          },
+          {
+            rel: 'mask-icon',
+            href: '/safari-pinned-tab.svg',
+            color: '#5bbad5',
+          },
+        ]}
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+          },
+          {
+            charSet: 'utf-8',
+          },
+          {
+            name: 'msapplication-TileColor',
+            content: '#da532c',
+          },
+          {
+            name: 'theme-color',
+            content: '#ffffff',
+          },
+        ]}
+      />
       <div className="h-screen">
         <Component {...props} />
       </div>

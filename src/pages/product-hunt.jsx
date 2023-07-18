@@ -8,6 +8,7 @@ import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import Alert from '@/components/Alert'
 import phImage from '@/images/logos/product-hunt-logo-horizontal-orange.png'
+import { NextSeo } from 'next-seo'
 
 export function ChatPage() {
   const [answer, setAnswer] = useState('')
@@ -99,17 +100,13 @@ export function ChatPage() {
 
   return (
     <>
-      <Head>
-        <title key="title">Product Hunt Comment Generator - DocsBot</title>
-        <meta
-          name="description"
-          content="A DocsBot created page to generate potential reviews and questions for a Product Hunt launch."
-          key="description"
-        />
-      </Head>
+      <NextSeo
+        title="Product Hunt Comment Generator - DocsBot AI"
+        description="A DocsBot created page to generate potential reviews and questions for a Product Hunt launch."
+      />
       <Header />
       <main className="mx-auto my-16 max-w-6xl">
-        <div className="relative py-8 px-4">
+        <div className="relative px-4 py-8">
           <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
             <div>
               <Link
@@ -165,7 +162,7 @@ export function ChatPage() {
                     <button
                       type="submit"
                       tabIndex={2}
-                      className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-lg"
+                      className="relative mt-4 inline-flex w-full items-center justify-center space-x-2 rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 px-4 py-3 text-sm font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:text-lg"
                     >
                       Generate Comments
                     </button>
@@ -223,7 +220,7 @@ export function ChatPage() {
                       to support us!
                     </p>
                   </div>
-                  <p className="mx-auto mt-12 mb-24 max-w-5xl text-lg text-gray-500">
+                  <p className="mx-auto mb-24 mt-12 max-w-5xl text-lg text-gray-500">
                     Thank you so much for your support of DocsBot! We can't wait to show you whats
                     next!
                   </p>

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -16,7 +15,6 @@ import {
   ArrowRightIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import classNames from '@/utils/classNames'
 
 import { useCallback } from 'react'
@@ -27,8 +25,8 @@ import { stripePlan } from '@/utils/helpers'
 import { logout } from '@/api/logout'
 import { auth } from '@/config/firebase-ui.config'
 import { routePaths } from '@/constants/routePaths.constants'
-import BreadcrumbHeader from './BreadCrumbHeader'
 import logo from '@/images/docsbot-logo-white.png'
+import { NextSeo } from 'next-seo'
 
 export default function DashboardWrap({ page, title, team, children }) {
   const router = useRouter()
@@ -115,10 +113,11 @@ export default function DashboardWrap({ page, title, team, children }) {
 
   return (
     <>
-      <Head>
-        <title key="title">{pageTitle}</title>
-        <meta name="description" content="DocsBot Dashboard" key="description" />
-      </Head>
+      <NextSeo
+        title={pageTitle}
+        description="DocsBot AI Dashboard"
+        noindex={true}
+      />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>

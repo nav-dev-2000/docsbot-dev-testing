@@ -21,6 +21,7 @@ import FieldRadioCards from '@/components/FieldRadioCards'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { updateProfile } from 'firebase/auth'
+import { NextSeo } from 'next-seo'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -118,10 +119,11 @@ function Register({ teamCount }) {
 
   return (
     <>
-      <Head>
-        <title key="title">Sign Up - DocsBot AI</title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <NextSeo
+        title="Sign Up - DocsBot AI"
+        description="Register for a free DocsBot AI account."
+        noindex={true}
+      />
       <RegisterLayout teamCount={teamCount}>
         {isAnyAuthMethodLoading ? (
           <div className="flex h-64 items-center justify-center text-2xl">

@@ -14,10 +14,11 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import ContentSection from '@/components/ContentSection'
 import { resolveBatch } from '@/utils/promises'
+import { NextSeo } from 'next-seo'
 
 const params = { postType: ['page', 'post'] }
 
-const SinglePage = () => {
+const SinglePage = ({seo}) => {
   const { loading, error, data } = usePost(params)
 
   if (loading) {
@@ -26,21 +27,39 @@ const SinglePage = () => {
 
   return (
     <>
-      <Head>{data?.post?.yoast_head}</Head>
+      {seo.yoast_head_json && (
+        <NextSeo
+          title={seo.yoast_head_json.title}
+          description={seo.yoast_head_json.description}
+          openGraph={{
+            type: seo.yoast_head_json.og_type,
+            locale: seo.yoast_head_json.og_locale,
+            siteName: seo.yoast_head_json.og_site_name,
+            images: seo.yoast_head_json.og_image,
+            title: seo.yoast_head_json.og_title,
+            description: seo.yoast_head_json.og_description,
+            article: {
+              publishedTime: seo.yoast_head_json.article_published_time,
+              modifiedTime: seo.yoast_head_json.article_modified_time,
+              authors: [seo.yoast_head_json.article_author],
+            },
+          }}
+        />
+      )}
       <Header />
       <main>
         <ContentSection title={data.post.title.rendered} post={data.post}>
           <BlocksRenderer html={data.post.contentReplaced} />
           {data.post.terms?.category && (
-          <div className="mt-8 flex items-center gap-x-4 text-xs border-t border-gray-200 pt-4">
-            <a
-              href={data.post.terms.category[0]?.link}
-              className="relative z-10 no-underline rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-            >
-              {data.post.terms.category[0]?.name}
-            </a>
-          </div>
-        )}
+            <div className="mt-8 flex items-center gap-x-4 border-t border-gray-200 pt-4 text-xs">
+              <a
+                href={data.post.terms.category[0]?.link}
+                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 no-underline hover:bg-gray-100"
+              >
+                {data.post.terms.category[0]?.name}
+              </a>
+            </div>
+          )}
         </ContentSection>
       </main>
       <Footer />
@@ -104,10 +123,13 @@ export async function getStaticProps(context) {
       { func: fetchHookData(useAppSettings.fetcher(), context), throw: false },
     ])
 
-    settledPromises[0].data.result.link = replaceUrls(settledPromises[0].data.result.link).replace(/\/$/, '')
-    settledPromises[0].data.result.yoast_head = replaceUrls(
-      settledPromises[0].data.result.yoast_head
+    settledPromises[0].data.result.link = replaceUrls(settledPromises[0].data.result.link).replace(
+      /\/$/,
+      ''
     )
+    //settledPromises[0].data.result.yoast_head = replaceUrls(
+    //  settledPromises[0].data.result.yoast_head
+    //)
     settledPromises[0].data.result.contentReplaced = replaceATagsWithLinks(
       settledPromises[0].data.result.content.rendered
     )

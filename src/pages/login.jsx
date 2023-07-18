@@ -21,6 +21,7 @@ import { Logo } from '@/components/Logo'
 import { GoogleLogo } from '@/components/GoogleLogo'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { NextSeo } from 'next-seo'
 
 function Login() {
   const router = useRouter()
@@ -92,10 +93,7 @@ function Login() {
 
   return (
     <>
-      <Head>
-        <title key="title">Sign In - DocsBot</title>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <NextSeo title="Sign In - DocsBot AI" description="Login to your DocsBot AI account." />
       <AuthLayout
         title="Sign in to account"
         subtitle={

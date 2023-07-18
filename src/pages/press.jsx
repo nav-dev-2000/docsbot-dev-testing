@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
+import { NextSeo } from 'next-seo'
 
 const colors = [
   { hex: '#0891B2', rgb: 'rgb(8, 145, 178)', bgColor: 'bg-cyan-600' },
@@ -13,14 +14,10 @@ const colors = [
 export default function Home() {
   return (
     <>
-      <Head>
-        <title key="title">DocsBot AI - Press & Branding Assets</title>
-        <meta
-          name="description"
-          content="Logos and media assets for DocsBot AI"
-          key="description"
-        />
-      </Head>
+      <NextSeo
+        title="Press & Branding Assets - DocsBot AI"
+        description="Logos and media assets for DocsBot AI."
+      />
       <Header />
       <main>
         <div className="bg-white">
@@ -43,16 +40,13 @@ export default function Home() {
 
               <div className="mt-10 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
                 <h3 className="text-lg font-medium text-gray-900">Colors</h3>
-                <ul
-                  role="list"
-                  className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6"
-                >
+                <ul role="list" className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-6">
                   {colors.map((color) => (
                     <li key={color.hex} className="col-span-1 flex rounded-md shadow-sm">
                       <div
                         className={classNames(
                           color.bgColor,
-                          'flex w-32 sm:w-16 lg:w-32 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white'
+                          'flex w-32 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white sm:w-16 lg:w-32'
                         )}
                       ></div>
                       <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">

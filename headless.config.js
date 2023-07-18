@@ -17,7 +17,7 @@ module.exports = {
   },
   integrations: {
     yoastSEO: {
-      enable: true,
+      enable: false,
     },
   },
 }

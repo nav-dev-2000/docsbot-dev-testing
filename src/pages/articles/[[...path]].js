@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Pagination from '@/components/blog/Pagination'
+import { NextSeo } from 'next-seo'
 
 const params = {
   postType: 'post',
@@ -15,16 +16,30 @@ const ArchivePage = ({ seo }) => {
 
   return (
     <>
-      <Head>
-        {data?.queriedObject?.term ? (
-          data?.queriedObject?.term.yoast_head
-        ) : (
-          <>
-            <title key="title">Blog - DocsBot AI</title>
-            <meta name="description" content="DocsBot AI news, tutorials, case studies, and articles" key="description" />
-          </>
+    {seo.yoast_head_json.title ? (
+        <NextSeo
+          title={seo.yoast_head_json.title}
+          description={seo.yoast_head_json.description}
+          openGraph={{
+            type: seo.yoast_head_json.og_type,
+            locale: seo.yoast_head_json.og_locale,
+            siteName: seo.yoast_head_json.og_site_name,
+            images: seo.yoast_head_json.og_image,
+            title: seo.yoast_head_json.og_title,
+            description: seo.yoast_head_json.og_description,
+            article: {
+              publishedTime: seo.yoast_head_json.article_published_time,
+              modifiedTime: seo.yoast_head_json.article_modified_time,
+              authors: [seo.yoast_head_json.article_author],
+            },
+          }}
+        />
+      ) : (
+        <NextSeo
+          title="Blog - DocsBot AI"
+          description="DocsBot AI news, tutorials, case studies, and articles."
+        />
         )}
-      </Head>
       <Header />
       <main>
         <div className="py-18 bg-white sm:py-24">
@@ -59,7 +74,7 @@ const ArchivePage = ({ seo }) => {
                   </a>
                   <div className="max-w-xl">
                     <div className="group relative mt-8">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <h3 className="mt-3 text-lg align-top font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         <a href={post.link}>
                           <span className="absolute inset-0" />
                           <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
