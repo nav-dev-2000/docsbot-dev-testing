@@ -30,7 +30,9 @@ ${pages.map(addPage).join('\n')}
 // Fetch the external sitemap and merge it with the existing sitemap
 const response = await axios.get('https://blog.docsbot.ai/sitemap_index.xml');
 let externalSitemap = response.data;
-  externalSitemap = externalSitemap.replace(
+  externalSitemap = externalSitemap
+  .replace('//blog.docsbot.ai/wp-content/plugins/wordpress-seo/css/main-sitemap.xsl', '/main-sitemap.xsl')
+  .replace(
     '</sitemapindex>',
     `\t<sitemap>
 \t\t<loc>https://docsbot.ai/sitemap-next.xml</loc>
