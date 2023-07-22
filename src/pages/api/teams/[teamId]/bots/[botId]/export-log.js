@@ -39,6 +39,13 @@ const handler = async (req, res) => {
       return res.status(400).json({ message: 'Missing startDate or endDate' })
     }
 
+    if (stripePlan(team).bots !== 1) {
+      console.log(stripePlan(team))
+      return res.status(402).json({
+        message: 'Please upgrade to a paid plan to export logs.',
+      })
+    }
+
     // make sure startDate and endDate are valid dates
     try {
       const start = new Date(startDate)
@@ -47,7 +54,6 @@ const handler = async (req, res) => {
       end.setHours(23, 59, 59)
 
       // grab questions
-      const planLimit = stripePlan(team).logLimit
       const questions = await firestore
         .collection('teams')
         .doc(team.id)
@@ -57,10 +63,11 @@ const handler = async (req, res) => {
         .orderBy('createdAt', 'desc')
         .where('createdAt', '>=', start)
         .where('createdAt', '<=', end)
-        .limit(planLimit)
+        .limit(5000)
         .get()
       var csvData = [];
 
+      console.log('questions', questions.size)
       // write questions to csv file
       csvData.push(['alias','timestamp','rating','question','answer','sources','referrer'])
       questions.forEach((doc) => {
@@ -102,23 +109,6 @@ const handler = async (req, res) => {
 
         csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
       })
-
-      const countSnapshot = await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('questions')
-        .where('createdAt', '>=', start)
-        .where('createdAt', '<=', end)
-        .count()
-        .get()
-
-      // let user know they're missing data, and to upgrade their plan to view full log
-      const totalCount = countSnapshot.data().count
-      if (totalCount > planLimit) {
-        csvData.push(['This log has been truncated. Upgrade your plan to view the full log.'])
-      }
 
       // upload csv file to storage
       const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
