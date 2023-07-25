@@ -39,10 +39,10 @@ const handler = async (req, res) => {
       return res.status(400).json({ message: 'Missing startDate or endDate' })
     }
 
-    if (stripePlan(team).bots !== 1) {
+    if (stripePlan(team).bots === 1) {
       console.log(stripePlan(team))
       return res.status(402).json({
-        message: 'Please upgrade to a paid plan to export logs.',
+        message: 'Please upgrade your plan to enable log exporting.',
       })
     }
 
