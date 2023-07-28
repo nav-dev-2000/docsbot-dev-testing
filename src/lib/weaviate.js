@@ -1,4 +1,4 @@
-import weaviate from 'weaviate-client'
+import weaviate from 'weaviate-ts-client'
 
 const weaviateClient = () => {
   try {
@@ -99,4 +99,52 @@ export const getSchema = (indexId) => {
 export const deleteSchema = (indexId) => {
   //delete a weaviate schema for the bot
   return weaviateClient().schema.classDeleter().withClassName(indexId).do()
+}
+
+export const importChunks = (indexId, type, sourceId, data) => {
+  // Prepare a batcher
+  let batcher = weaviateClient().batch.objectsBatcher()
+  let counter = 0
+  let batchSize = 40
+
+  data.forEach((chunk) => {
+    const obj = {
+      class: indexId,
+      properties: {
+        content: chunk.text,
+        metadata: JSON.stringify({title: chunk.title, source: chunk.url}),
+        type,
+        sourceId,
+      },
+      vector: chunk.vector,
+    }
+
+    // add the object to the batch queue
+    batcher = batcher.withObject(obj)
+
+    // When the batch counter reaches batchSize, push the objects to Weaviate
+    if (counter++ == batchSize) {
+      // flush the batch queue
+      batcher
+        .do()
+        .then((res) => {
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+
+      // restart the batch queue
+      counter = 0
+      batcher = weaviateClient().batch.objectsBatcher()
+    }
+  })
+
+  // Flush the remaining objects
+  return batcher
+    .do()
+    .then((res) => {
+    })
+    .catch((err) => {
+      console.error(err)
+    })
 }

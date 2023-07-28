@@ -3,7 +3,6 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
-import { PubSub } from '@google-cloud/pubsub'
 import { getBot, getSources, getSource } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
@@ -60,11 +59,14 @@ export default async function handler(req, res) {
       const test = await getSchema(bot.indexId)
     } catch (error) {
       console.warn('Error getting weaviate schema:', error)
-      return res.status(409).json({ message: 'Whoops, your bot is not quite ready to train. Try again in a minute or two, or if it has been a while delete and recreate this bot.' })
+      return res.status(409).json({
+        message:
+          'Whoops, your bot is not quite ready to train. Try again in a minute or two, or if it has been a while delete and recreate this bot.',
+      })
     }
 
     //data validation
-    let { type, title, url, file, selectedInterval, faqs } = req.body
+    let { type, title, url, file, selectedInterval, faqs, carbonId, carbonFiles } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -116,12 +118,12 @@ export default async function handler(req, res) {
     // sanity check faqs
     if (faqs) {
       if (!Array.isArray(faqs)) {
-        return res.status(400).json({ message: "Invalid parameter \"faqs\"." })
+        return res.status(400).json({ message: 'Invalid parameter "faqs".' })
       }
 
       for (const faq of faqs) {
         if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
-          return res.status(400).json({ message: "Invalid parameter \"faqs\"." })
+          return res.status(400).json({ message: 'Invalid parameter "faqs".' })
         }
       }
 
@@ -131,7 +133,7 @@ export default async function handler(req, res) {
             throw new Error()
           }
         })
-      } catch(error) {
+      } catch (error) {
         return res.status(400).send({ message: 'Invalid parameter "faqs".' })
       }
     }
@@ -164,6 +166,30 @@ export default async function handler(req, res) {
       file = null
     }
 
+    let pageCount = 0
+
+    if (sourceType.isCarbon) {
+      // check carbonId
+      if (!carbonId) {
+        return res.status(400).json({ message: 'Invalid or missing parameter "carbonId".' })
+      }
+
+      // check carbonFiles
+      if (!carbonFiles || !Array.isArray(carbonFiles)) {
+        return res.status(400).json({ message: 'Invalid parameter "carbonFiles".' })
+      }
+      pageCount = carbonFiles.length
+
+      //check plan credits for carbon imports
+      if (stripePlan(team).pages < team.pageCount + pageCount) {
+        return res.status(402).json({
+          message: 'Exceeds source page limit. Please upgrade your plan.',
+        })
+      }
+    } else {
+      carbonFiles = null
+    }
+
     try {
       let data = {
         createdAt: FieldValue.serverTimestamp(),
@@ -172,19 +198,23 @@ export default async function handler(req, res) {
         url,
         file,
         status: 'pending',
-        pageCount: 0,
+        pageCount: pageCount,
         chunkCount: 0,
         faqs,
+        carbonId,
+        carbonFiles,
       }
 
       if (selectedInterval && selectedInterval !== 'none') {
         // make sure the source type is supported
         if (!sourceType.fieldSchedule) {
-          return res.status(400).send({ message: 'This source type does not currently support scheduled refreshes.' })
+          return res
+            .status(400)
+            .send({ message: 'This source type does not currently support scheduled refreshes.' })
         }
 
         const scheduled = checkSourceScheduledFromInterval(team, selectedInterval)
-        data = {...data, scheduled, scheduleInterval: selectedInterval}
+        data = { ...data, scheduled, scheduleInterval: selectedInterval }
       }
 
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
@@ -209,9 +239,16 @@ export default async function handler(req, res) {
           // append our new faqs
           newFaqs.push(...faqs)
 
-          await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(existingSource.id).update({
-            faqs: newFaqs,
-          })
+          await firestore
+            .collection('teams')
+            .doc(team.id)
+            .collection('bots')
+            .doc(botId)
+            .collection('sources')
+            .doc(existingSource.id)
+            .update({
+              faqs: newFaqs,
+            })
 
           await QueueSourceRegest(team.id, botId, existingSource.id)
           return res.status(201).json(await getSource(team, bot, existingSource.id))
@@ -258,8 +295,21 @@ export default async function handler(req, res) {
         console.warn('Increment transaction failed: ', e)
       }
 
-      //add source event to pub/sub queue for processing
-      await QueueSourceIngest(team.id, botId, docRef.id, stripePlan(team).pages - team.pageCount, bot.indexId, type, title, url, file, faqs)
+      //add source event to pub/sub queue for processing (carbon handled by cron)
+      if (!sourceType.isCarbon) {
+        await QueueSourceIngest(
+          team.id,
+          botId,
+          docRef.id,
+          stripePlan(team).pages - team.pageCount,
+          bot.indexId,
+          type,
+          title,
+          url,
+          file,
+          faqs
+        )
+      }
 
       //send bento track
       try {

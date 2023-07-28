@@ -10,7 +10,14 @@ import ScheduleSelect from '@/components/ScheduleSelect'
 import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 
-export default function ModalSource({ team, bot, source, setSources, children, defaultOpen = false }) {
+export default function ModalSource({
+  team,
+  bot,
+  source,
+  setSources,
+  children,
+  defaultOpen = false,
+}) {
   const [open, setOpen] = useState(defaultOpen)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
@@ -24,7 +31,6 @@ export default function ModalSource({ team, bot, source, setSources, children, d
   const [questions, setQuestions] = useState(source.faqs ?? [])
 
   useEffect(() => {
-    console.log('open state:', defaultOpen)
     setOpen(defaultOpen)
   }, [defaultOpen])
 
@@ -44,11 +50,11 @@ export default function ModalSource({ team, bot, source, setSources, children, d
     )
     if (response.ok) {
       // we get a signed url back
-      const { url } = await response.json();
-      var link = document.createElement("a");
-      link.href = url;
-      link.click();
-      link.remove();
+      const { url } = await response.json()
+      var link = document.createElement('a')
+      link.href = url
+      link.click()
+      link.remove()
 
       setInfoText('Successfully exported logs! Your download should start soon.')
     } else {
@@ -126,9 +132,7 @@ export default function ModalSource({ team, bot, source, setSources, children, d
       const data = await response.json()
 
       // update source
-      setSources((sources) =>
-        sources.map((s) => (s.id === data.id ? data : s))
-      )
+      setSources((sources) => sources.map((s) => (s.id === data.id ? data : s)))
       setSubmitting(false)
       setOpen(false)
     } else {
@@ -217,7 +221,7 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                  <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:flex">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:flex">
                     <button
                       type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -250,15 +254,18 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                     <Alert title={errorText} type="warning" />
                     {source?.faqs && (
                       <>
-                        <QAForm questions={questions} setQuestions={(v) => {
-                          setChanged(true)
-                          setQuestions(v)
-                        }} />
+                        <QAForm
+                          questions={questions}
+                          setQuestions={(v) => {
+                            setChanged(true)
+                            setQuestions(v)
+                          }}
+                        />
                         <div className="flex flex-shrink-0 items-end justify-end">
                           <button
                             disabled={submitting || !changed}
                             onClick={patchSource}
-                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                           >
                             {submitting && <LoadingSpinner className="mr-3" />}
                             Save
@@ -272,7 +279,7 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                         <Alert
                           title={
                             locked ||
-                            'Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any URLs and update the source with the latest data.'
+                            'Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any items and update the source with the latest data.'
                           }
                           type="info"
                         />
@@ -300,31 +307,34 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                     />
                     {source.warnsList?.length > 0 && (
                       <>
-                        <h1 className="mt-6 text-sm font-medium text-gray-600 pb-2">Warnings:</h1>
-                        <div className="rounded-md bg-slate-100 border-solid border-2 border-slate-200">
-                          <pre className="p-2 text-sm font-mono text-orange-600 whitespace-pre-wrap">
-                              {source.warnsList.join('\n')}
+                        <h1 className="mt-6 pb-2 text-sm font-medium text-gray-600">Warnings:</h1>
+                        <div className="rounded-md border-2 border-solid border-slate-200 bg-slate-100">
+                          <pre className="whitespace-pre-wrap p-2 font-mono text-sm text-orange-600">
+                            {source.warnsList.join('\n')}
                           </pre>
                         </div>
                       </>
                     )}
                     {!toDelete && (
-                      <div className="mt-6 mb-2 flex items-end justify-between">
+                      <div className="mb-2 mt-6 flex items-end justify-between">
                         <div className="flex flex-shrink-0 items-end justify-end">
-                          <button
-                            type="button"
-                            className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                            onClick={() => setToDelete(source)}
-                          >
-                            <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
-                          </button>
+                          {source.status === 'ready' && (
+                            <button
+                              type="button"
+                              className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                              onClick={() => setToDelete(source)}
+                            >
+                              <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                            </button>
+                          )}
                           {canSourceTypeDownload(source.type) && (
                             <button
                               type="button"
                               className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
                               onClick={downloadSource}
                             >
-                              <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Download
+                              <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" />{' '}
+                              Download
                             </button>
                           )}
                         </div>
@@ -332,7 +342,7 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                           <div className="flex flex-shrink-0 items-end justify-end">
                             <button
                               type="button"
-                              className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                              className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                               onClick={refreshSource}
                               disabled={submitting || locked !== null}
                             >
@@ -342,7 +352,7 @@ export default function ModalSource({ team, bot, source, setSources, children, d
                             <button
                               disabled={submitting || locked !== null}
                               onClick={updateSource}
-                              className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                              className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                             >
                               {submitting && <LoadingSpinner className="mr-3" />}
                               Save

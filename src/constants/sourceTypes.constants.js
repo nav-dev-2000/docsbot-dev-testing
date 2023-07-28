@@ -1,8 +1,5 @@
 import {
-  CodeBracketSquareIcon,
-  CubeTransparentIcon,
   DocumentTextIcon,
-  GlobeAltIcon,
   LinkIcon,
   MapIcon,
   QueueListIcon,
@@ -10,8 +7,11 @@ import {
   TableCellsIcon,
   VideoCameraIcon,
   QuestionMarkCircleIcon,
+  DocumentIcon,
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
+import NotionLogo from '@/components/NotionLogo'
+import IntercomLogo from '../components/IntercomLogo'
 
 export const sourceTypes = [
   {
@@ -33,7 +33,7 @@ export const sourceTypes = [
     title: 'Document',
     description: 'Upload document files containing text (Text, Office, PDF, HTML, EML, ZIP, etc)',
     fullDescription: 'Upload a document file containing text to learn from. Some examples are product documentation, slide decks, research papers, employee handbooks, an ebook, or any content you can convert to a text file. We will parse the content, and add it to this bot. Currently we support adding .txt, .docx, .pptx, .eml, .html, and .pdf documents. Paid users can also add .zip files containing multiple documents!',
-    icon: DocumentTextIcon,
+    icon: DocumentIcon,
     isPro: false,
     coming: false,
     fieldUrl: 'optional',
@@ -128,7 +128,53 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: 'required',
-  },/*
+  },
+  {
+    id: 'notion',
+    title: 'Notion',
+    description: 'Answer questions from the content of Notion pages (BETA)',
+    fullDescription: 'Connect to Notion via our partner Carbon and select which pages to learn from. We will download the pages, parse the content, and add them to this bot. Note that you can only have one Notion account source per bot. If you create a new Notion source for the same Notion user and account, it will replace the previous one with the selected pages.',
+    icon: NotionLogo,
+    isCarbon: 'NOTION',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'google_docs',
+    title: 'Google Docs',
+    description: 'Answer questions from the content of Google Docs (BETA)',
+    fullDescription: 'Connect to Google Docs via our partner Carbon and select which documents to learn from. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Docs account source per bot. If you create a new Google Docs source for the same Google user, it will replace the previous one with the selected documents.',
+    icon: DocumentTextIcon,
+    isCarbon: 'GOOGLE_DOCS',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'intercom',
+    title: 'Intercom',
+    description: 'Answer questions from Intercom Help Center articles (BETA)',
+    fullDescription: 'Connect to Intercom via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
+    icon: IntercomLogo,
+    isCarbon: 'INTERCOM',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  /*
   {
     id: 'youtube',
     title: 'YouTube',
@@ -153,4 +199,10 @@ export const canSourceTypeSchedule = (typeName) => {
 export const canSourceTypeDownload = (typeName) => {
   const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
   return sourceType?.fieldFile
+}
+
+//is carbon source
+export const isCarbonSourceType = (typeName) => {
+  const sourceType = sourceTypes.find((sourceType) => sourceType.id === typeName)
+  return sourceType?.isCarbon || false
 }

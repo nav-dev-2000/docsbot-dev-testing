@@ -5,6 +5,8 @@ import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import { deleteSource } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -98,8 +100,22 @@ export default async function handler(req, res) {
         console.warn('Increment transaction failed: ', e)
       }
 
-      //add source event to pub/sub queue for processing
-      await QueueSourceIngest(team.id, botId, sourceId, stripePlan(team).pages - team.pageCount, bot.indexId, source.type, source.title, source.url, source.file, source.faqs)
+      //skip pubsub if carbon, as it uses NextJS Vercel cron
+      if (!isCarbonSourceType(source.type)) {
+        //add source event to pub/sub queue for processing
+        await QueueSourceIngest(
+          team.id,
+          botId,
+          sourceId,
+          stripePlan(team).pages - team.pageCount,
+          bot.indexId,
+          source.type,
+          source.title,
+          source.url,
+          source.file,
+          source.faqs
+        )
+      }
 
       //done, return source object
       return res.status(201).json(await getSource(team, bot, sourceId))
@@ -108,54 +124,16 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    //if source is in a ready state, we need to delete it from weaviate\
-    if (source.status === 'ready' || source.status === 'failed') {
-      QueueSourceExpel(team.id, bot.indexId, source.id)
-    } else {
-      return res.status(409).json({ message: 'Please wait until indexing is complete before deleting this source.' })
+    //if source is in a ready state, we need to delete it from weaviate
+    if (source.status !== 'ready' && source.status !== 'failed') {
+      return res
+        .status(409)
+        .json({ message: 'Please wait until indexing is complete before deleting this source.' })
     }
 
     //delete source from db
     try {
-      await firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(team.id)
-        const botRef = teamRef.collection('bots').doc(botId)
-        const sourceRef = botRef.collection('sources').doc(sourceId)
-        const teamDoc = await transaction.get(teamRef)
-        const botDoc = await transaction.get(botRef)
-        const sourceDoc = await transaction.get(sourceRef)
-        if (!teamDoc.exists) {
-          throw 'Team does not exist!'
-        }
-
-        // decrement team counts (if the source was ingested)
-        if (sourceDoc.data().status == 'ready') {
-          const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
-          const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-          const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-          transaction.update(teamRef, {
-            sourceCount: newTeamSourceCount,
-            chunkCount: newTeamChunkCount,
-            pageCount: newTeamPageCount,
-            needsUpdate: true,
-          })
-  
-          // decrement bot counts
-          const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
-          const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-          const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
-          const newBotStatus = (newBotSourceCount == 0 ? 'pending' : 'ready')
-          transaction.update(botRef, {
-            sourceCount: newBotSourceCount,
-            chunkCount: newBotChunkCount,
-            pageCount: newBotPageCount,
-            status: newBotStatus,
-          })
-        }
-
-        // remove source
-        transaction.delete(sourceRef)
-      })
+      await deleteSource(team.id, bot, sourceId)
 
       //track custom prompt
       try {
@@ -170,7 +148,7 @@ export default async function handler(req, res) {
       return res.status(200).json({ message: 'Source deleted successfully' })
     } catch (error) {
       console.warn('Error deleting source doc:', error)
-      return res.status(500).json({ message: error?.message })
+      return res.status(500).json({ message: error })
     }
   } else if (req.method === 'GET') {
     return res.json(source)

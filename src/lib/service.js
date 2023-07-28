@@ -2,6 +2,7 @@ import { PubSub } from '@google-cloud/pubsub'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getTeam } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
+import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 
 const SERVICE_ACCOUNT = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
 const PUBSUB_CLIENT = new PubSub({
@@ -61,6 +62,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const firestore = getFirestore()
 
   // check and update status to 'pending'
+  let isCarbon = false
   const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
   await firestore.runTransaction(async (transaction) => {
     const source = await transaction.get(sourceRef)
@@ -69,11 +71,24 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
       throw new Error("Cannot refresh source that is not 'ready'." + sourceData.status)
     }
 
-    transaction.update(sourceRef, {
+    const data = {
       status: 'pending',
       createdAt: new Date(),
-    })
+    }
+
+    // if carbon, set refreshing to true so we don't increment counts
+    isCarbon = isCarbonSourceType(sourceData.type)
+    if (isCarbon) {
+      data.refreshing = true
+    }
+    
+    transaction.update(sourceRef, data)
   })
+
+  //skip pubsub if carbon, as it uses NextJS Vercel cron that just looks for pending
+  if (isCarbon) {
+    return true
+  }
 
   // grab pageLimit
   const team = await getTeam(teamId)

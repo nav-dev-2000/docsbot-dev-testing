@@ -174,7 +174,6 @@ export default function Home() {
                         className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                         src={qaHeader}
                         alt="DocsBot Illustration"
-                        priority
                       />
                     </div>
                   </div>

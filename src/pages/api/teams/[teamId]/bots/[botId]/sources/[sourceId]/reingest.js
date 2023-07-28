@@ -71,7 +71,7 @@ export default async function handler(req, res) {
       const { faqs } = req.body
 
       if (source.type !== 'qa') {
-        return res.status(403).json({ message: "Only sources of type 'QA' can be updated!" })
+        return res.status(403).json({ message: "Only sources of type 'qa' can be updated!" })
       }
 
       // validate request body
