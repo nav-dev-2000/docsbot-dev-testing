@@ -14,7 +14,7 @@ export default async function handler(request, response) {
   console.log("cron updateCounts started!");
 
   try {
-    const teamsSnapshot = await firestore.collection('teams').where('needsUpdate', '==', true).get();
+    const teamsSnapshot = await firestore.collection('teams').where('needsUpdate', '==', true).limit(5).get();
 
     const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
       console.log("team", teamDoc.id, "is scheduled to have the counts updated...");
