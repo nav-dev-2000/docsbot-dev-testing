@@ -3,94 +3,125 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionCountTransaction } from '@/lib/dbQueries'
 
 export default async function handler(request, response) {
-  configureFirebaseApp();
-  const firestore = getFirestore();
+  configureFirebaseApp()
+  const firestore = getFirestore()
 
   if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
-    response.status(404).end();
-    return;
+    response.status(404).end()
+    return
   }
 
-  console.log("cron updateCounts started!");
+  console.log('cron updateCounts started!')
 
   try {
-    const teamsSnapshot = await firestore.collection('teams').where('needsUpdate', '==', true).limit(5).get();
+    const teamsSnapshot = await firestore
+      .collection('teams')
+      .where('needsUpdate', '==', true)
+      .limit(5)
+      .get()
 
     const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
-      console.log("team", teamDoc.id, "is scheduled to have the counts updated...");
+      if ('TqTdebbGjJeUjrmBIFjh' !== teamDoc.id) {
+        console.log('team', teamDoc.id, 'is scheduled to have the counts updated...')
+      } else {
+        console.log('Skipping team ', teamDoc.id)
+        return
+      }
 
       try {
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
+        let currentDate = new Date()
+        let currentMonth = currentDate.getMonth()
+        let currentYear = currentDate.getFullYear()
 
         // make transaction
         await firestore.runTransaction(async (transaction) => {
-          const teamData = teamDoc.data();
-          const botsSnapshot = await transaction.get(teamDoc.ref.collection('bots'));
+          const teamData = teamDoc.data()
+          const botsSnapshot = await transaction.get(teamDoc.ref.collection('bots'))
           const countPromises = botsSnapshot.docs.map(async (botDoc) => {
-            const questionCount = await getQuestionCountTransaction(transaction, teamDoc.id, botDoc.id);
+            const questionCount = await getQuestionCountTransaction(
+              transaction,
+              teamDoc.id,
+              botDoc.id
+            )
 
             // grab the # of source pages
-            const sourcesSnapshot = await transaction.get(botDoc.ref.collection('sources'));
+            const sourcesSnapshot = await transaction.get(botDoc.ref.collection('sources'))
             const sourcePromises = sourcesSnapshot.docs.map(async (sourceDoc) => {
-              const source = sourceDoc.data();
-              return source.pageCount;
-            });
+              const source = sourceDoc.data()
+              return source.pageCount
+            })
 
             // wait for each callback to complete, then take and sum the results
-            const sourceCounts = await Promise.all(sourcePromises);
-            const sourceCountTotal = sourceCounts.reduce((accumulator, count) => accumulator + count, 0);
-            const prevHistory = botDoc.data().questionCountHistory || {};
+            const sourceCounts = await Promise.all(sourcePromises)
+            const sourceCountTotal = sourceCounts.reduce(
+              (accumulator, count) => accumulator + count,
+              0
+            )
+            const prevHistory = botDoc.data().questionCountHistory || {}
 
             // update bot count
             botDoc.ref.update({
-              'questionCount': questionCount,
-              'pageCount': sourceCountTotal,
-              'questionCountHistory': {
+              questionCount: questionCount,
+              pageCount: sourceCountTotal,
+              questionCountHistory: {
                 ...prevHistory,
                 [`${currentYear}-${currentMonth}`]: questionCount,
               },
-            });
-            return {questionCount, sourceCountTotal};
-          });
+            })
+            return { questionCount, sourceCountTotal }
+          })
 
           // wait for each callback to complete, then take and sum the results
-          const botCounts = await Promise.all(countPromises);
-          const {questionCount: questionTotal, sourceCountTotal: sourcePageTotal} = botCounts.reduce(
-            ({questionCount: questionAccumulator, sourceCountTotal: sourceAccumulator}, {questionCount, sourceCountTotal}) => {
-              return {questionCount: (questionCount + questionAccumulator), sourceCountTotal: (sourceCountTotal + sourceAccumulator)}
-            },
-            {questionCount: 0, sourceCountTotal: 0}
-          );
+          const botCounts = await Promise.all(countPromises)
+          const { questionCount: questionTotal, sourceCountTotal: sourcePageTotal } =
+            botCounts.reduce(
+              (
+                { questionCount: questionAccumulator, sourceCountTotal: sourceAccumulator },
+                { questionCount, sourceCountTotal }
+              ) => {
+                return {
+                  questionCount: questionCount + questionAccumulator,
+                  sourceCountTotal: sourceCountTotal + sourceAccumulator,
+                }
+              },
+              { questionCount: 0, sourceCountTotal: 0 }
+            )
 
-          console.log("team", teamDoc.id, "has", questionTotal, "questions,", sourcePageTotal, "source pages");
+          console.log(
+            'team',
+            teamDoc.id,
+            'has',
+            questionTotal,
+            'questions,',
+            sourcePageTotal,
+            'source pages'
+          )
 
           // update team count && needsUpdate
-          const prevHistory = teamData.questionCountHistory || {};
+          const prevHistory = teamData.questionCountHistory || {}
           transaction.update(teamDoc.ref, {
-            'questionCount': questionTotal,
-            'pageCount': sourcePageTotal,
-            'questionCountHistory': {
+            questionCount: questionTotal,
+            pageCount: sourcePageTotal,
+            questionCountHistory: {
               ...prevHistory,
               [`${currentYear}-${currentMonth}`]: questionTotal,
             },
-            'needsUpdate': false,
-          });
-        });
+            needsUpdate: false,
+          })
+        })
       } catch (error) {
-        console.warn(`Error updating team ${teamDoc.id} counts:`, error);
-        response.status(500).json({ message: error });
-        return;
+        console.warn(`Error updating team ${teamDoc.id} counts:`, error)
+        response.status(500).json({ message: error })
+        return
       }
-    });
+    })
 
-    await Promise.all(teamsPromises);
+    await Promise.all(teamsPromises)
   } catch (error) {
-    console.warn('Error updating counts:', error);
-    response.status(500).json({ message: error });
-    return;
+    console.warn('Error updating counts:', error)
+    response.status(500).json({ message: error })
+    return
   }
 
-  response.status(200).json({ success: true });
+  response.status(200).json({ success: true })
 }

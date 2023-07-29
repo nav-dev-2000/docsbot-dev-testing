@@ -34,7 +34,7 @@
         },
         {
             "path": "/api/cron/updateCounts?key=aowidjaowd3721",
-            "schedule": "* * * * *"
+            "schedule": "*/10 * * * *"
         },
         {
             "path": "/api/cron/carbon?key=efjlnczww7236912",
