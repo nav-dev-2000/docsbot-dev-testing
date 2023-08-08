@@ -128,10 +128,10 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
   let sources = []
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
-    //if createdAt is more than 1 hour ago and indexing is not complete, set error
+    //if createdAt is more than 4 hour ago and indexing is not complete, set error
     if (
-      ['indexing', 'pending'].includes(source.status) &&
-      source.createdAt.toDate() < new Date(Date.now() - 60 * 60 * 1000)
+      ['indexing', 'pending', 'processing'].includes(source.status) &&
+      source.createdAt.toDate() < new Date(Date.now() - 4 * 60 * 60 * 1000)
     ) {
       source.status = 'failed'
       source.error = 'Processing timed out, please try again'

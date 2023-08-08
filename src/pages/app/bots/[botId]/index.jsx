@@ -88,7 +88,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
 
   useEffect(() => {
     //set processing if there are any sources with status 'indexing'
-    if (sources.some((source) => ['pending', 'indexing'].includes(source.status))) {
+    if (sources.some((source) => ['pending', 'indexing', 'processing'].includes(source.status))) {
       setIsProcessing(true)
     } else {
       setIsProcessing(false)

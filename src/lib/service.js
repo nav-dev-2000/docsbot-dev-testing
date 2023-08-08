@@ -11,7 +11,7 @@ const PUBSUB_CLIENT = new PubSub({
 })
 const PUBSUB_TOPIC = 'docsbot-ingest'
 
-export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, indexId, type, title, url, file, faqs) => {
+export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, indexId, type, title, url, file, faqs, runId = null) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'ingest',
@@ -25,6 +25,7 @@ export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, inde
       url,
       file,
       faqs,
+      runId,
     })
   )
   // console.log(JSON.stringify({
