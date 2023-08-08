@@ -209,6 +209,7 @@ If your business uses an existing software product for support tickets or live c
 - [HelpScout Beacon](/docs/widget-integrations/helpscout)
 - [Zendesk Web Widget](/docs/widget-integrations/zendesk)
 - [Intercom Messenger](/docs/widget-integrations/intercom)
+- [Freshdesk Widget](/docs/widget-integrations/freshdesk)
 
 {% callout title="Other integrations" %}
 If you would like to integrate with a different support widget, please let us know and we'll add it to our docs.
