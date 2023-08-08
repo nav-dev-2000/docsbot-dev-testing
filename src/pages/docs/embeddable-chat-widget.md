@@ -11,7 +11,7 @@ Learn how to embed and customize our chat widget in your website. {% .lead %}
 
 We make it super simple to add chats to your site with our simple embed code. You can customize the widget to match your brand and embed it on your website with a single line of code.
 
-![](/images/widget.png)
+![Widget screenshot](/images/widget.png)
 
 You can find the full embed code for your bot from the [Bot](/app/bots) page for your specific bot. It looks a bit like this:
 
@@ -98,7 +98,22 @@ You can also interact with the widget using the following API if you want to cre
 
 ### Support Callback
 
-If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event` and `history` objects. The `event` object is the click event and the `history` object is the chat history array. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history. Here's a code example:
+If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event` and `history` objects. The `event` object is the click event and the `history` object is the chat history array. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history.
+
+### Example Code
+
+```js
+DocsBotAI.init({
+  id: 'YOUR_ID_HERE',
+  supportCallback: function (event, history) {
+    event.preventDefault() // Optionally prevent default behavior opening the url.
+    console.log(history) // Safely access the chat history.
+    DocsBotAI.close() // Close the widget.
+  },
+}).then(() => {
+  // Safely do stuff here after the widget is loaded.
+})
+```
 
 ### User Identification
 
@@ -115,11 +130,6 @@ If you use the identify feature to record user's personal information, chat logs
 ```js
 DocsBotAI.init({
   id: 'YOUR_ID_HERE',
-  supportCallback: function (event, history) {
-    event.preventDefault() // Optionally prevent default behavior opening the url.
-    console.log(history) // Safely access the chat history.
-    DocsBotAI.close() // Close the widget.
-  },
   identify: {
     name: 'John Doe', // This will be shown in the chat history logs.
     email: 'john@doe.com', // This will be shown in the chat history logs.
