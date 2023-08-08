@@ -116,7 +116,7 @@ export function StripePricingTable({ teamId, email }) {
         <p className="text-md text-gray-600">
           Need more?{' '}
           <button onClick={() => setEnterprise(true)} className="underline hover:text-gray-800">
-            View our Enterprise Options
+            View our Business and Enterprise Options
           </button>
         </p>
       </div>

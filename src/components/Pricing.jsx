@@ -52,7 +52,7 @@ const tiers = [
     id: 'tier-pro',
     href: '/register',
     price: { monthly: 99, annually: 996 },
-    description: 'For businesses who want to save time and money on support and copywriting.',
+    description: 'For small businesses who want to save time and money on support and copywriting.',
     features: [
       '10 DocsBots',
       '10k Source Pages',
@@ -70,17 +70,42 @@ const tiers = [
     ],
     mostPopular: true,
   },
+  {
+    name: 'Business',
+    id: 'tier-business',
+    href: '/register',
+    price: { monthly: 499, annually: 4992 },
+    description: 'For serious traffic, priority support, and AI reports to improve your product & docs.',
+    features: [
+      '100 DocsBots',
+      '100k Source Pages',
+      'Unlock all source types',
+      'Daily source refresh',
+      '100k questions/mo',
+      'Private bots',
+      'GPT-4 support',
+      '50 team users',
+      'Advanced Analytics',
+      'Zapier integration',
+      'Chat history',
+      'Unbranded chat widgets',
+      'AI reports (coming soon)',
+      'Prompt customization',
+      'Priority support',
+    ],
+    mostPopular: false,
+  },
 ]
 
 const enterpriseFeatures = [
-  '100+ DocsBots',
-  '100k+ Source Pages',
+  'Custom DocsBot limit',
+  'Custom Source Pages',
   'Unlock all source types',
   'Daily source refresh',
-  '100k+ questions/mo',
+  'Custom questions/mo',
   'Private bots',
   'GPT-4 support',
-  '50+ team users',
+  'Custom team users',
   'Advanced Analytics',
   'Zapier integration',
   'Chat history',
@@ -149,7 +174,7 @@ export default function Pricing() {
           </RadioGroup>
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
           {tiers.map((tier) => (
             <div
               key={tier.id}
@@ -275,7 +300,7 @@ export default function Pricing() {
               <div className="mx-auto max-w-xs px-8">
                 <p className="text-base font-semibold text-gray-600">Plans starting at</p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$416/mo</span>
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$899/mo</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
                     USD
                   </span>
