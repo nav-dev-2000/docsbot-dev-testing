@@ -22,7 +22,7 @@ Bot objects have the following properties:
 | **customPrompt** | string | Any custom prompt for the bot. |
 | **language** | string | The bot language. Currently supports `en` and `jp`. |
 | **createdAt** | string | The date and time the bot was created.                                     |
-| **status**   | string | The bot status. Can be `ready` once at least one bot is trained or `pending` or `indexing`. |
+| **status**   | string | The bot status. Can be `ready` once at least one bot is trained or `pending` or `indexing` or `processing`. |
 | **questionCount** | number | The number of questions asked to the bot. |
 | **pageCount** | number | The number of pages crawled by the bot. |
 | **sourceCount** | number | The number of sources crawled by the bot. |
