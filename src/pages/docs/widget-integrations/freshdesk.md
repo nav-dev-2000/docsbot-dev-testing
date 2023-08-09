@@ -9,11 +9,11 @@ Learn how to embed and integrate our AI chat widget with Freshdesk. {% .lead %}
 
 ## Overview
 
-[Freshworks' Freshdesk](https://www.freshworks.com/freshdesk/) is a widely used support desk software that businesses may embed via a support widget on their websites. With DocsBot you can add an AI frontline support agent via our widget. This agent can answer common questions about your product or service in any language. Then if users require further assistance, they can simply click the support link within the widget to access your [Freshdesk Help Widget](https://www.freshworks.com/freshdesk/customer-engagement/help-widget/) contact form and connect with a human representative.
+[Freshworks' Freshdesk](https://affiliatepartner.freshdesk.com/docsbot) is a widely used support desk software that businesses may embed via a support widget on their websites. With DocsBot you can add an AI frontline support agent via our widget. This agent can answer common questions about your product or service in any language. Then if users require further assistance, they can simply click the support link within the widget to access your [Freshdesk Help Widget](https://affiliatepartner.freshdesk.com/docsbot-widget) contact form and connect with a human representative.
 
 ## Freshdesk Help Widget Integration
 
-If your business uses the [Freshdesk Help Widget](https://www.freshworks.com/freshdesk/customer-engagement/help-widget/) for support tickets or live chat, here's an example of how you could use the `supportCallback` argument to open the Web Widget if the user clicks the get support link in the DocsBot Widget.
+If your business uses the [Freshdesk Help Widget](https://affiliatepartner.freshdesk.com/docsbot-widget) for support tickets or live chat, here's an example of how you could use the `supportCallback` argument to open the Web Widget if the user clicks the get support link in the DocsBot Widget.
 
 Your existing Web Widget embed code may look something like this:
 
