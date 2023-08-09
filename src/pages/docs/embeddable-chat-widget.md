@@ -154,18 +154,18 @@ options: {
     "docsbot.ai"
   ], // Array of domains that the widget is allowed to be embedded on. If empty, any domain is allowed.
   color: "#0891b8", //color of the widget can be any hex color code.
-  icon: "default", //icon for button can be "default" (comments), "robot", "life-ring", "question", or "book".
+  icon: "default", //icon for floating button can be "default" (comments), "robot", "life-ring", "question", "book", or an image url.
   alignment: "left", //alignment of the widget can be "left" or "right".
-  botIcon: false, //icon for button can be "comment", "robot", "life-ring", "info", or "book". Default is false.
+  botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
+  hideSources: false, // Hide the sources in answers. Default is false.
   labels: {
     poweredBy: "Powered by",
     inputPlaceholder: "Send a message...",
     firstMessage: "What can I help you with? If I can't answer your question I'll help you open a support ticket with our team!",
     sources: "Sources",
-    helpful: "Rate as helpful",
-    unhelpful: "Rate as unhelpful",
+    unhelpful: "Report as innacurate",
     getSupport: "Contact support",
     floatingButton: "Help",
     suggestions: "Not sure what to ask?",
@@ -194,6 +194,20 @@ DocsBotAI.init({
   options: {
     horizontalMargin: 40,
     verticalMargin: 30,
+  },
+})
+```
+
+### Customizing Widget Icons
+
+You can customize the icons that appear in the widget and floating button by passing the `icon` or `botIcon` properties in the `options` object. Here are the available options:
+
+```js
+DocsBotAI.init({
+  id: 'YOUR_ID_HERE',
+  options: {
+    icon: 'https://docsbot.ai/docsbot-icon-sq.svg', // floating button
+    botIcon: 'https://infiniteuploads.com/wp-content/uploads/2020/06/ui-logo-150px.png', // bot avatar
   },
 })
 ```
