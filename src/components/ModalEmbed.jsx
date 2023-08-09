@@ -149,7 +149,7 @@ export default function ModalEmbed({ team, bot }) {
                       updateBot()
                     }}
                   >
-                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -172,9 +172,9 @@ export default function ModalEmbed({ team, bot }) {
                       >
                         {embed}
                       </div>
-                      <div className="mx-auto mt-4 mb-8 items-end justify-between sm:flex">
+                      <div className="mx-auto mb-8 mt-4 items-end justify-between sm:flex">
                         <button
-                          className="rounded bg-cyan-600 py-2 px-4 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
+                          className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
                           onClick={(e) => {
                             e.preventDefault()
                             navigator.clipboard.writeText(embed)
@@ -203,7 +203,7 @@ export default function ModalEmbed({ team, bot }) {
 
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
-                          <div className="space-y-6 pt-6 pb-5">
+                          <div className="space-y-6 pb-5 pt-6">
                             <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                               <div className="flex w-full items-center justify-between">
                                 <div>
@@ -405,7 +405,14 @@ export default function ModalEmbed({ team, bot }) {
                               </label>
                               <span className="text-sm text-gray-500">
                                 This text will appear as the first message from the bot displayed to
-                                the user. Optional, leave blank to disable.
+                                the user. Supports{' '}
+                                <Link
+                                  href="https://www.markdownguide.org/basic-syntax/"
+                                  target="_blank"
+                                >
+                                  Markdown
+                                </Link>
+                                . Optional, leave blank to disable.
                               </span>
                               <div className="mt-1">
                                 <input
