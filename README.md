@@ -20,7 +20,7 @@ Finally, open [http://localhost:3000](http://localhost:3000) in your browser to 
 
 ## Development
 
-There are a set of required environment variables that need to be set in order to run the site locally. You can find these in the `.env.example` file. Copy this file to `.env.local` and fill in the values.
+There are a set of required environment variables that need to be set in order to run the site locally. You can find these in the `.env.example` file. Copy this file to `.env.local` and fill in the values. Most importantly the FIREBASE_SERVICE_ACCOUNT_KEY environment variable needs to be set to the contents of the Firebase service account key JSON file. You can create this file in the Firebase console.
 
 You can start editing this site by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
 
@@ -34,6 +34,10 @@ The frontend is located in the `/src/pages` folder.
 
 The documentation is located in the `/src/pages/docs` folder. Each file in this folder represents a single page in the documentation. They are written in Markdown and use Markdoc to generate the HTML. You can learn more about Markdoc in the [Markdoc documentation](https://markdoc.dev). Components can be added to the documentation by creating a new file in the `/src/components/docs` folder.
 
+### Blog
+
+The blog is located in the `/src/pages/articles/[[...path]].js` folder and `/src/pages/[...path].js`. The blog is a headless WordPress setup, pulling posts and details from the https://blog.docsbot.ai backend. It uses the [HeadstartWP](https://headstartwp.10up.com/) framework for this. Components can be added to the blog by creating a new file in the `/src/components/blog` folder.
+
 ### Application
 
 The application is located in the `/src/pages/app` folder. Each file in this folder represents a single page in the application. Most app pages use SSR to fetch data from the database and are powered by Vercel functions. The `/src/pages/api` folder contains the API endpoints used by the application.
@@ -41,6 +45,10 @@ The application is located in the `/src/pages/app` folder. Each file in this fol
 ### API
 
 The API is located in the `/src/pages/api` folder. Each file in this folder represents a single API endpoint. The API is powered by [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction). API endpoints use the Firebase authentication cookie to authenticate users, and fallback to the `Authorization: Bearer APIKEY` header if the cookie is not present.
+
+### Crons
+
+We use [Vercel cron jobs](https://vercel.com/docs/v2/serverless-functions/introduction#cron-jobs) to run scheduled tasks. These are located in the `/src/pages/api/crons` folder and defined in the `vercel.json` file.
 
 ## Deploying
 
