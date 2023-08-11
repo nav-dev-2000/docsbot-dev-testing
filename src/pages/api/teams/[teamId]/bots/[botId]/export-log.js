@@ -114,13 +114,14 @@ const handler = async (req, res) => {
       console.log('Export Query done',new Date().toISOString())
 
       // upload csv file to storage
-      const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
+      const filename = `docsbot_questions_${bot.id}_${start.toISOString().slice(0, 10)}_${end.toISOString().slice(0, 10)}.csv`;
+      const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/${filename}`)
       await file.save(stringify(csvData))
 
       // sign url for 7 days
       const url = (await file.getSignedUrl({
         action: 'read',
-        promptSaveAs: `questions-${bot.id}.csv`,
+        promptSaveAs: filename,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
       }))[0];
 
