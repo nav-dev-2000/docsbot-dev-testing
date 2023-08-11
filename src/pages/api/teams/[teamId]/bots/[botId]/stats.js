@@ -39,7 +39,7 @@ export default async function handler(req, res) {
         'createdAt',
         '>',
         new Date(currDate - timeDelta * 24 * 60 * 60 * 1000),
-      ).get()
+      ).select('createdAt', 'rating', 'escalation').get()
   
       questions.docs.map((question) => {
         const data = question.data()
