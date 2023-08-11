@@ -1,6 +1,5 @@
 import { fetchHookData, addHookData, handleError, usePosts } from '@headstartwp/next'
 import { getWPUrl, getHostUrl } from '@headstartwp/core'
-import Head from 'next/head'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Pagination from '@/components/blog/Pagination'
@@ -42,7 +41,7 @@ const ArchivePage = ({ seo }) => {
         )}
       <Header />
       <main>
-        <div className="py-18 bg-white sm:py-24">
+        <div className="py-12 bg-white sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

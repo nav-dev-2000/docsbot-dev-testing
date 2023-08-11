@@ -9,12 +9,13 @@ import {
 import { BlocksRenderer } from '@headstartwp/core/react'
 import { getWPUrl, getHostUrl, removeSourceUrl } from '@headstartwp/core'
 import { replaceUrls, replaceATagsWithLinks } from '@/utils/replaceUrls'
-import Head from 'next/head'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import ContentSection from '@/components/ContentSection'
 import { resolveBatch } from '@/utils/promises'
 import { NextSeo } from 'next-seo'
+import RegisterCTA from '@/components/RegisterCTA'
+import Signup from '@/components/Signup'
 
 const params = { postType: ['page', 'post'] }
 
@@ -61,6 +62,9 @@ const SinglePage = ({seo}) => {
             </div>
           )}
         </ContentSection>
+        {data.post.type === 'post' && (
+        <RegisterCTA />
+        )}
       </main>
       <Footer />
     </>

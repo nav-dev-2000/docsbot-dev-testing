@@ -2,7 +2,7 @@ import Breadcrumb from '@/components/blog/Breadcrumb'
 
 export default function ContentSection({ pretitle, title, intro, post, children, ...props }) {
   return (
-    <div className="relative overflow-hidden bg-white pb-16 pt-8" {...props}>
+    <div className="relative overflow-hidden bg-white pb-12 pt-8" {...props}>
       <div className="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]">
         <div className="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
           <svg
