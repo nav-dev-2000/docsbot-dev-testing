@@ -243,7 +243,6 @@ export default async function handler(req, res) {
         botData.questions = questions.filter((q) => q !== '')
       }
 
-      console.log('botData', botData)
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
       return res.status(200).json(await getBot(team.id, botId))

@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore } from 'firebase-admin/firestore'
+import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
@@ -108,6 +108,7 @@ export const deleteBot = async (teamId, botId) => {
     .collection('bots')
     .doc(botId)
     .collection('sources')
+    .select(FieldPath.documentId()) //less data to retrieve
     .get()
 
   // Once we get the results, begin a batch
@@ -138,6 +139,7 @@ export const deleteBot = async (teamId, botId) => {
     .collection('bots')
     .doc(botId)
     .collection('questions')
+    .select(FieldPath.documentId()) //less data to retrieve
     .get()
   // Once we get the results, begin a batch
   toDelete = []

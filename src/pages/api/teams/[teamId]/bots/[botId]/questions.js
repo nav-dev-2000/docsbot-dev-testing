@@ -1,11 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getStorage } from 'firebase-admin/storage'
 import { getBot, getQuestions } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { bentoTrack } from '@/lib/bento'
-import { deleteSchema } from '@/lib/weaviate'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()

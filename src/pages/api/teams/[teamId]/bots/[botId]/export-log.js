@@ -52,6 +52,7 @@ const handler = async (req, res) => {
       const end = new Date(endDate)
       start.setHours(0, 0, 0)
       end.setHours(23, 59, 59)
+      console.log('Export Start',new Date().toISOString())
 
       // grab questions
       const questions = await firestore
@@ -63,7 +64,8 @@ const handler = async (req, res) => {
         .orderBy('createdAt', 'desc')
         .where('createdAt', '>=', start)
         .where('createdAt', '<=', end)
-        .limit(5000)
+        .select('ip', 'metadata', 'question', 'answer', 'sources', 'rating', 'escalation', 'createdAt') // only select fields we need is faster
+        .limit(15000)
         .get()
       var csvData = [];
 
@@ -110,6 +112,8 @@ const handler = async (req, res) => {
         csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
       })
 
+      console.log('Export Query done',new Date().toISOString())
+
       // upload csv file to storage
       const file = bucket.file(`user/${userId}/team/${team.id}/bot/${bot.id}/export/questions.csv`)
       await file.save(stringify(csvData))
@@ -120,6 +124,8 @@ const handler = async (req, res) => {
         promptSaveAs: `questions-${bot.id}.csv`,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
       }))[0];
+
+      console.log('Export Uploaded',new Date().toISOString())
 
       // disabled for now
       // // email user with link to download csv file

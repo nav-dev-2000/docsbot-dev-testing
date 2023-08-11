@@ -64,9 +64,9 @@ export async function getQuestionCountTransaction(
       .doc(botId)
       .collection('questions')
       .where('createdAt', '>', new Date(Date.now() - timeDelta))
-      .select(FieldPath.documentId())
+      .count()
   )
-  return questions.size
+  return questions.data().count
 }
 
 export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
@@ -78,9 +78,9 @@ export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFr
     .doc(botId)
     .collection('questions')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .select(FieldPath.documentId())
+    .count()
     .get()
-  return questions.size
+  return questions.data().count
 }
 
 export async function getBot(teamId, botId) {
@@ -218,6 +218,7 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
+    .select(FieldPath.documentId(), 'createdAt', 'ip', 'question', 'sources', 'answer', 'rating', 'escalation', 'metadata') //skip the vector as it's huge
 
   // grab limits
   const plan = stripePlan(team)
