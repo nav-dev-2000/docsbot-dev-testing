@@ -65,7 +65,6 @@ const handler = async (req, res) => {
         .where('createdAt', '>=', start)
         .where('createdAt', '<=', end)
         .select('ip', 'metadata', 'question', 'answer', 'sources', 'rating', 'escalation', 'createdAt') // only select fields we need is faster
-        .limit(15000)
         .get()
       var csvData = [];
 
