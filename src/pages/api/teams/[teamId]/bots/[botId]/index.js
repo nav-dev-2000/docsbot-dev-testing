@@ -1,13 +1,11 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
-import { deleteSchema } from '@/lib/weaviate'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
+import { deleteBot } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -254,103 +252,12 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    const bot = await getBot(team.id, botId)
-
-    //delete bot from db
     try {
-      // Delete all sources for bot
-      const querySnapshot = await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('sources')
-        .get()
-
-      // Once we get the results, begin a batch
-      let counter = 0
-      let batch = firestore.batch()
-      querySnapshot.forEach(async function (doc) {
-        // For each doc, add a delete operation to the batch
-        batch.delete(doc.ref)
-        counter++
-        // Commit the batch every 500 operations
-        if (counter % 500 === 0) {
-          await batch.commit()
-          batch = firestore.batch()
-        }
-      })
-      // Commit the remaining batch
-      await batch.commit()
-
-      // Delete all questions for bot
-      const questionsSnapshot = await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('questions')
-        .get()
-      // Once we get the results, begin a batch
-      let toDelete = []
-      questionsSnapshot.forEach(function (doc) {
-        toDelete.push(doc.ref)
-      })
-      //loop through toDelete and delete in batches of 500
-      counter = 0
-      let questionsBatch = firestore.batch()
-      for (let i = 0; i < toDelete.length; i++) {
-        questionsBatch.delete(toDelete[i])
-        counter++
-        // Commit the batch every 500 operations
-        if (counter % 500 === 0) {
-          await questionsBatch.commit()
-          questionsBatch = firestore.batch()
-        }
-      }
-      // Commit the remaining batch
-      await questionsBatch.commit()
-
-      //delete bot
-      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
-
-      //decrement botCounts on team
-      await firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(team.id)
-        const sfDoc = await transaction.get(teamRef)
-        if (!sfDoc.exists) {
-          throw 'Team does not exist!'
-        }
-
-        const newBotCount = Math.max(0, (sfDoc.data().botCount || 0) - 1)
-        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - (bot.sourceCount || 0))
-        const newPageCount = Math.max(0, (sfDoc.data().pageCount || 0) - (bot.pageCount || 0))
-        const newChunkCount = Math.max(0, (sfDoc.data().chunkCount || 0) - (bot.chunkCount || 0))
-        transaction.update(teamRef, {
-          botCount: newBotCount,
-          sourceCount: newSourceCount,
-          pageCount: newPageCount,
-          chunkCount: newChunkCount,
-        })
-      })
-
-      //delete all bot data from bucket
-      const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
-      await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}` })
-
-      //delete schema in weaviate async
-      if (bot.indexId) {
-        try {
-          deleteSchema(bot.indexId)
-        } catch (error) {
-          console.warn('Error deleting Weaviate Schema:', error)
-        }
-      }
+      await deleteBot(team.id, botId)
 
       try {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
-          botName: bot.name,
         })
       } catch (e) {
         console.log('Error sending bento track', e)

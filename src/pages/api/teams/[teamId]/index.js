@@ -6,8 +6,8 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import { encryptKey } from '@/lib/encryption'
-import { deleteSchema } from '@/lib/weaviate'
 import { Configuration, OpenAIApi } from 'openai'
+import { deleteBot } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -62,78 +62,9 @@ export default async function handler(req, res) {
     try {
       //delete all bots
       const botsSnapshot = await firestore.collection('teams').doc(team.id).collection('bots').get()
-
-      // Once we get the results, begin a batch
-      const botBatch = firestore.batch()
-      botsSnapshot.forEach(async function (doc) {
-        const botId = doc.id
-        botBatch.delete(doc.ref)
-
-        // Delete all sources for bot
-        const querySnapshot = await firestore
-          .collection('teams')
-          .doc(team.id)
-          .collection('bots')
-          .doc(botId)
-          .collection('sources')
-          .get()
-
-        // Once we get the results, begin a batch
-        let counter = 0
-        let batch = firestore.batch()
-        querySnapshot.forEach(async function (doc) {
-          // For each doc, add a delete operation to the batch
-          batch.delete(doc.ref)
-          counter++
-          // Commit the batch every 500 operations
-          if (counter % 500 === 0) {
-            await batch.commit()
-            batch = firestore.batch()
-          }
-        })
-        // Commit the remaining batch
-        await batch.commit()
-
-        // Delete all questions for bot
-        const questionsSnapshot = await firestore
-          .collection('teams')
-          .doc(team.id)
-          .collection('bots')
-          .doc(botId)
-          .collection('questions')
-          .get()
-        // Once we get the results, begin a batch
-        let toDelete = []
-        questionsSnapshot.forEach(function (doc) {
-          toDelete.push(doc.ref)
-        })
-        //loop through toDelete and delete in batches of 500
-        counter = 0
-        let questionsBatch = firestore.batch()
-        for (let i = 0; i < toDelete.length; i++) {
-          questionsBatch.delete(toDelete[i])
-          counter++
-          // Commit the batch every 500 operations
-          if (counter % 500 === 0) {
-            await questionsBatch.commit()
-            questionsBatch = firestore.batch()
-          }
-        }
-        // Commit the remaining batch
-        await questionsBatch.commit()
-
-        //delete schema in weaviate
-        if (doc.indexId) {
-          try {
-            deleteSchema(doc.indexId)
-          } catch (error) {
-            console.warn('Error deleting Weaviate Schema:', error)
-          }
-        }
+      botsSnapshot.forEach(function (doc) {
+        deleteBot(team.id, doc.id)
       })
-
-      // Commit the batch
-      botBatch.commit()
 
       //delete all team data from bucket
       const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
