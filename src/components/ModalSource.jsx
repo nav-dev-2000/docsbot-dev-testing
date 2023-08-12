@@ -9,6 +9,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
+import Link from 'next/link'
 
 export default function ModalSource({
   team,
@@ -276,20 +277,14 @@ export default function ModalSource({
                     <Alert title={infoText} type="info" />
                     {showInterval && (
                       <>
-                        <Alert
-                          title={
-                            locked ||
-                            'Optionally enable refreshing to keep your bot updated with your latest documentation. This will refetch any items and update the source with the latest data.'
-                          }
-                          type="info"
-                        />
-                        <div className="mt-4 justify-start">
+                        <Alert title={locked} type="info" />
+                        <div className="mt-4 max-w-sm justify-start">
                           <ScheduleSelect
                             team={team}
                             onSelect={setSelectedInterval}
                             defaultSelected={selectedInterval}
                           />
-                          <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
+                          <h1 className="flex-end inline-flex text-sm font-medium text-gray-500">
                             {source.scheduled
                               ? 'Refresh scheduled for ' + new Date(source.scheduled).toUTCString()
                               : 'This source will not be refreshed.'}
@@ -317,7 +312,7 @@ export default function ModalSource({
                     )}
                     {!toDelete && (
                       <div className="mb-2 mt-6 flex items-end justify-between">
-                        <div className="flex flex-shrink-0 items-end justify-end">
+                        <div className="items-middle flex flex-shrink-0 justify-end">
                           {source.status === 'ready' && (
                             <button
                               type="button"
@@ -326,6 +321,15 @@ export default function ModalSource({
                             >
                               <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
                             </button>
+                          )}
+                          {source.type === 'url' && (
+                            <Link
+                              target="_blank"
+                              href={source.url}
+                              className="my-1 ml-4 text-xs text-slate-600 hover:underline"
+                            >
+                              {source.url}
+                            </Link>
                           )}
                           {canSourceTypeDownload(source.type) && (
                             <button
