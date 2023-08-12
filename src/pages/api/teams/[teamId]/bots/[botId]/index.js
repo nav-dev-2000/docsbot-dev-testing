@@ -210,6 +210,10 @@ export default async function handler(req, res) {
         botData.showButtonLabel = !!showButtonLabel
       }
 
+      if (hideSources !== undefined) {
+        botData.hideSources = !!hideSources
+      }
+
       if (labels) {
         // Check that all labels are present in i18n.en.labels
         const validLabels = Object.keys(i18n.en.labels)

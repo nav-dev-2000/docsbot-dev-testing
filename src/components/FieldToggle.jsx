@@ -4,7 +4,7 @@ import classNames from '@/utils/classNames'
 export default function FieldToggle({label, description, enabled, setEnabled, disabled}) {
 
   return (
-    <Switch.Group as="div" className="flex items-center justify-between w-full">
+    <Switch.Group as="div" className="flex items-center justify-between w-full space-x-2">
       <span className="flex flex-grow flex-col">
         <Switch.Label as="span" className="text-sm font-medium leading-6 text-gray-900" passive>
           {label}

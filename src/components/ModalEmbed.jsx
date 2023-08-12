@@ -50,6 +50,7 @@ export default function ModalEmbed({ team, bot }) {
   const [supportLink, setSupportLink] = useState(bot.supportLink || '')
   const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
   const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
+  const [hideSources, setHideSources] = useState(bot.hideSources)
 
   useEffect(() => {
     if (!branding && stripePlan(team).bots < 10) {
@@ -73,6 +74,7 @@ export default function ModalEmbed({ team, bot }) {
       supportLink,
       showButtonLabel,
       labels,
+      hideSources,
     }
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -430,13 +432,22 @@ export default function ModalEmbed({ team, bot }) {
                               </div>
                             </div>
 
-                            <FieldToggle
-                              label="Show Branding"
-                              description="If your plan allows you can disable the DocsBot branding in your widget footer."
-                              enabled={branding}
-                              setEnabled={setBranding}
-                              disabled={isUpdating || stripePlan(team).bots < 10}
-                            />
+                            <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
+                              <FieldToggle
+                                label="Show Sources"
+                                description="Show sources titles and links after answers."
+                                enabled={!hideSources}
+                                setEnabled={() => setHideSources(!hideSources)}
+                                disabled={isUpdating}
+                              />
+                              <FieldToggle
+                                label="Show Branding"
+                                description="If your plan allows you can disable the DocsBot branding in your widget footer."
+                                enabled={branding}
+                                setEnabled={setBranding}
+                                disabled={isUpdating || stripePlan(team).bots < 10}
+                              />
+                            </div>
 
                             <div className="w-full">
                               <label
