@@ -284,7 +284,7 @@ export default function ModalSource({
                             onSelect={setSelectedInterval}
                             defaultSelected={selectedInterval}
                           />
-                          <h1 className="flex-end inline-flex text-sm font-medium text-gray-500">
+                          <h1 className="flex-end inline-flex text-sm pl-0.5 font-medium text-gray-500">
                             {source.scheduled
                               ? 'Refresh scheduled for ' + new Date(source.scheduled).toUTCString()
                               : 'This source will not be refreshed.'}

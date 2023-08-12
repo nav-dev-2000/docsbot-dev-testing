@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
-import { ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, ClockIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import ModalSource from '@/components/ModalSource'
 
 export default function SourceGrid({ team, bot, sources, setSources, autoOpenSourceId = null }) {
@@ -38,7 +38,14 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
         className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3"
       >
         {fullSources.map((source) => (
-          <ModalSource key={source.id} team={team} bot={bot} source={source} setSources={setSources} defaultOpen={source.id === autoOpenSourceId}>
+          <ModalSource
+            key={source.id}
+            team={team}
+            bot={bot}
+            source={source}
+            setSources={setSources}
+            defaultOpen={source.id === autoOpenSourceId}
+          >
             <li key={source.id} className="col-span-1 flex h-full rounded-md shadow-sm">
               <div
                 className={classNames(
@@ -47,7 +54,7 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
               >
                 <source.icon className="h-6 w-6 text-cyan-100" aria-hidden="true" />
               </div>
-              <div className="relative w-full truncate rounded-r-md border-t border-r border-b border-gray-200 bg-white px-3 py-2 first-letter:truncate">
+              <div className="relative w-full truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white px-3 py-2 first-letter:truncate">
                 <div className="flex flex-1 items-center justify-between ">
                   <div className="flex items-center text-sm">
                     <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
@@ -81,6 +88,12 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
                   <p className="truncate text-xs text-gray-600">{source.title}</p>
                   <p className="truncate text-xs text-gray-500">{source.url}</p>
                 </div>
+                {source.scheduled && (
+                  <ClockIcon
+                    className="absolute right-2 top-2 h-3 w-3 text-gray-400"
+                    title="Scheduled"
+                  />
+                )}
               </div>
             </li>
           </ModalSource>
