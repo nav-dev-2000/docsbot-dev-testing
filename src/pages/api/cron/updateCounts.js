@@ -1,6 +1,6 @@
-import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getQuestionCountTransaction } from '@/lib/dbQueries'
+import { getQuestionCount } from '@/lib/dbQueries'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -17,101 +17,79 @@ export default async function handler(request, response) {
     const teamsSnapshot = await firestore
       .collection('teams')
       .where('needsUpdate', '==', true)
-      .limit(5)
+      //.limit(5)
       .get()
 
     const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
-      if ('TqTdebbGjJeUjrmBIFjh' !== teamDoc.id) {
-        console.log('team', teamDoc.id, 'is scheduled to have the counts updated...')
-      } else {
-        console.log('Skipping team ', teamDoc.id)
-        return
-      }
+      console.log('team', teamDoc.id, 'is scheduled to have the counts updated...')
 
       try {
         let currentDate = new Date()
         let currentMonth = currentDate.getMonth()
         let currentYear = currentDate.getFullYear()
 
-        // make transaction
-        await firestore.runTransaction(async (transaction) => {
-          const teamData = teamDoc.data()
-          const botsSnapshot = await transaction.get(teamDoc.ref.collection('bots'))
-          const countPromises = botsSnapshot.docs.map(async (botDoc) => {
-            const questionCount = await getQuestionCountTransaction(
-              transaction,
-              teamDoc.id,
-              botDoc.id
-            )
+        const teamData = teamDoc.data()
+        const botsSnapshot = await teamDoc.ref.collection('bots').select('questionCountHistory').get()
 
-            // grab the # of source pages
-            const sourcesSnapshot = await transaction.get(botDoc.ref.collection('sources'))
-            const sourcePromises = sourcesSnapshot.docs.map(async (sourceDoc) => {
-              const source = sourceDoc.data()
-              return source.pageCount
-            })
+        let questionTotal = 0
+        let sourcePageTotal = 0
+        const botCounts = []
 
-            // wait for each callback to complete, then take and sum the results
-            const sourceCounts = await Promise.all(sourcePromises)
-            const sourceCountTotal = sourceCounts.reduce(
-              (accumulator, count) => accumulator + count,
-              0
-            )
-            const prevHistory = botDoc.data().questionCountHistory || {}
-
-            // update bot count
-            botDoc.ref.update({
-              questionCount: questionCount,
-              pageCount: sourceCountTotal,
-              questionCountHistory: {
-                ...prevHistory,
-                [`${currentYear}-${currentMonth}`]: questionCount,
-              },
-            })
-            return { questionCount, sourceCountTotal }
-          })
-
-          // wait for each callback to complete, then take and sum the results
-          const botCounts = await Promise.all(countPromises)
-          const { questionCount: questionTotal, sourceCountTotal: sourcePageTotal } =
-            botCounts.reduce(
-              (
-                { questionCount: questionAccumulator, sourceCountTotal: sourceAccumulator },
-                { questionCount, sourceCountTotal }
-              ) => {
-                return {
-                  questionCount: questionCount + questionAccumulator,
-                  sourceCountTotal: sourceCountTotal + sourceAccumulator,
-                }
-              },
-              { questionCount: 0, sourceCountTotal: 0 }
-            )
-
-          console.log(
-            'team',
+        for (const botDoc of botsSnapshot.docs) {
+          const questionCount = await getQuestionCount(
             teamDoc.id,
-            'has',
-            questionTotal,
-            'questions,',
-            sourcePageTotal,
-            'source pages'
+            botDoc.id
           )
 
-          // update team count && needsUpdate
-          const prevHistory = teamData.questionCountHistory || {}
-          transaction.update(teamDoc.ref, {
-            questionCount: questionTotal,
-            pageCount: sourcePageTotal,
+          // grab the # of source pages
+          const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
+          const sourceCounts = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
+          const sourceCountTotal = sourceCounts.reduce((accumulator, count) => accumulator + count, 0)
+
+          const prevHistory = botDoc.data().questionCountHistory || {}
+
+          // update bot count
+          await botDoc.ref.update({
+            questionCount: questionCount,
+            pageCount: sourceCountTotal,
             questionCountHistory: {
               ...prevHistory,
-              [`${currentYear}-${currentMonth}`]: questionTotal,
+              [`${currentYear}-${currentMonth}`]: questionCount,
             },
-            needsUpdate: false,
           })
+
+          botCounts.push({ questionCount, sourceCountTotal })
+        }
+
+        // take and sum the results
+        for (const { questionCount, sourceCountTotal } of botCounts) {
+          questionTotal += questionCount
+          sourcePageTotal += sourceCountTotal
+        }
+
+        console.log(
+          'team',
+          teamDoc.id,
+          'has',
+          questionTotal,
+          'questions,',
+          sourcePageTotal,
+          'source pages'
+        )
+
+        // update team count && needsUpdate
+        const prevHistory = teamData.questionCountHistory || {}
+        await teamDoc.ref.update({
+          questionCount: questionTotal,
+          pageCount: sourcePageTotal,
+          questionCountHistory: {
+            ...prevHistory,
+            [`${currentYear}-${currentMonth}`]: questionTotal,
+          },
+          needsUpdate: false,
         })
       } catch (error) {
         console.warn(`Error updating team ${teamDoc.id} counts:`, error)
-        response.status(500).json({ message: error })
         return
       }
     })

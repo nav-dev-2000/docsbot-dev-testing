@@ -49,26 +49,6 @@ const getTimeDeltaFromCalendarMonth = () => {
   return currentDate - startDate
 }
 
-export async function getQuestionCountTransaction(
-  transaction,
-  teamId,
-  botId,
-  timeDelta = getTimeDeltaFromCalendarMonth()
-) {
-  // grab question count for specific bot
-  const questions = await transaction.get(
-    firestore
-      .collection('teams')
-      .doc(teamId)
-      .collection('bots')
-      .doc(botId)
-      .collection('questions')
-      .where('createdAt', '>', new Date(Date.now() - timeDelta))
-      .count()
-  )
-  return questions.data().count
-}
-
 export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
   // grab question count for specific bot
   const questions = await firestore
