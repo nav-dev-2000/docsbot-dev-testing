@@ -300,9 +300,32 @@ export default function ModalSource({
                       setErrorText={setErrorText}
                       setSources={setSources}
                     />
+                    {source.indexedUrls?.length > 0 && (
+                      <>
+                        <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
+                          Indexed URLs <em className="text-slate-500 text-sm">({source.indexedUrls.length})</em>:
+                        </h2>
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                          <ul role="list" className="space-y-2">
+                            {source.indexedUrls.map((item) => (
+                              <li
+                                key={item.source}
+                                className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-4 py-1 shadow"
+                              >
+                                <Link href={item.source} target="_blank" className="block w-full text-sm">
+                                  <em className="text-slate-600">{item.source}</em>
+                                  <br />
+                                  {item.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
                     {source.warnsList?.length > 0 && (
                       <>
-                        <h1 className="mt-6 pb-2 text-sm font-medium text-gray-600">Warnings:</h1>
+                        <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">Warnings:</h2>
                         <div className="rounded-md border-2 border-solid border-slate-200 bg-slate-100">
                           <pre className="whitespace-pre-wrap p-2 font-mono text-sm text-orange-600">
                             {source.warnsList.join('\n')}
