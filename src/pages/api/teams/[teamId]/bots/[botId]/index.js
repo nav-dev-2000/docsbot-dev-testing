@@ -45,6 +45,7 @@ export default async function handler(req, res) {
         showButtonLabel,
         labels,
         questions,
+        hideSources,
       } = req.body
       const botData = {}
 
