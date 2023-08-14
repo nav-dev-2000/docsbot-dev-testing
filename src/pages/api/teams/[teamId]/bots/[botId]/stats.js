@@ -109,11 +109,8 @@ export default async function handler(req, res) {
         `${percentageData[1]}% Escalated`,
       ]
 
-      const resolutionRate = (
-        ((totalCount - (totalNegative + totalEscalated)) / totalCount) *
-        100
-      ).toFixed(1)
-      const deflectionRate = (((totalCount - totalEscalated) / totalCount) * 100).toFixed(1)
+      const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
+      const deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
       const timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
       return res

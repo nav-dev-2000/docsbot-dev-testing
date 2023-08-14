@@ -213,25 +213,25 @@ export default function BotHistory({ team, botId }) {
       {stats && (
         <>
           <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col bg-gray-400/5 p-8">
+            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8">
               <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 <LocalStringNum value={stats.totalCount} />
               </dd>
             </div>
-            <div className="flex flex-col bg-gray-400/5 p-8">
+            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Answers with no negative rating or support escalation">
               <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 {stats.resolutionRate}%
               </dd>
             </div>
-            <div className="flex flex-col bg-gray-400/5 p-8">
+            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Answers with no support escalation">
               <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 {stats.deflectionRate}%
               </dd>
             </div>
-            <div className="flex flex-col bg-gray-400/5 p-8">
+            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Assuming an average of 5mins/ticket">
               <dt className="text-sm font-semibold leading-6 text-gray-600">
                 Support staff time saved
               </dt>
