@@ -20,6 +20,7 @@ import UpgradeNotice from '@/components/UpgradeNotice'
 import { stripePlan } from '@/utils/helpers'
 import NewBotPanel from '@/components/NewBotPanel'
 import classNames from '@/utils/classNames'
+import LocalStringNum from '@/components/LocalStringNum'
 
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   return (
@@ -34,8 +35,8 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
               <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
               <dd>
                 <div className="text-lg font-medium text-gray-900">
-                  {stat}
-                  {limit && <span className="text-sm text-gray-500"> / {limit}</span>}
+                  <LocalStringNum value={stat} />
+                  {limit && <span className="text-sm text-gray-500"> / <LocalStringNum value={limit} /></span>}
                 </div>
               </dd>
             </dl>

@@ -24,6 +24,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'storage.cloud.google.com',
+      },
+      {
+        protocol: 'https',
         hostname: '**.docsbot.ai',
       },
       {

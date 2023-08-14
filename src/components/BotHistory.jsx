@@ -2,11 +2,13 @@ import { Listbox, Transition } from '@headlessui/react'
 import { useEffect, Fragment, useState } from 'react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import Chart from 'chart.js/auto'
+import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
 import Link from 'next/link'
+import LocalStringNum from '@/components/LocalStringNum'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -20,13 +22,9 @@ export default function BotHistory({ team, botId }) {
   const [selected, setSelected] = useState(
     intervals.filter((interval) => interval.value === defaultSelected)[0]
   )
-  const [labels, setLabels] = useState(null)
-  const [countData, setCountData] = useState(null)
-  const [negativeData, setNegativeData] = useState(null)
-  const [positiveData, setPositiveData] = useState(null)
-  const [escalatedData, setEscalatedData] = useState(null)
-  const [percentageData, setPercentageData] = useState(null)
-  const [percentageLabels, setPercentageLabels] = useState(null)
+  const [stats, setStats] = useState(null)
+  const [lineData, setLineData] = useState(null)
+  const [pieData, setPieData] = useState(null)
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
@@ -35,6 +33,8 @@ export default function BotHistory({ team, botId }) {
 
   const updateData = async (timeDelta) => {
     if (isProcessing) return
+    setStats(null)
+
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -49,22 +49,8 @@ export default function BotHistory({ team, botId }) {
       })
       setIsProcessing(false)
       if (response.ok) {
-        const {
-          countData,
-          positiveData,
-          negativeData,
-          escalatedData,
-          labels,
-          percentageData,
-          percentageLabels,
-        } = await response.json()
-        setLabels(labels)
-        setCountData(countData)
-        setNegativeData(negativeData)
-        setPositiveData(positiveData)
-        setEscalatedData(escalatedData)
-        setPercentageData(percentageData)
-        setPercentageLabels(percentageLabels)
+        const data = await response.json()
+        setStats(data)
       } else {
         try {
           const data = await response.json()
@@ -81,75 +67,48 @@ export default function BotHistory({ team, botId }) {
   }
 
   useEffect(() => {
-    if (!countData || !labels) return
-    let lineChart = new Chart(document.getElementById('line-chart'), {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Questions',
-            data: countData,
-            borderColor: '#36A2EB',
-            backgroundColor: 'rgba(54, 162, 235, 0.1)',
-            tension: 0.3,
-            fill: true,
-          },
-          {
-            label: 'Positive',
-            data: positiveData,
-            borderColor: '#10B981',
-            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-            tension: 0.3,
-            fill: true,
-          },
-          {
-            label: 'Negative',
-            data: negativeData,
-            borderColor: '#EF4444',
-            backgroundColor: 'rgba(239, 68, 68, 0.1)',
-            tension: 0.3,
-            fill: true,
-          },
-          {
-            label: 'Escalations',
-            data: escalatedData,
-            borderColor: '#F59E0B',
-            backgroundColor: 'rgba(245, 158, 11, 0.1)',
-            tension: 0.3,
-            fill: true,
-          },
-        ],
-      },
+    if (!stats) return
+
+    setLineData({
+      labels: stats.labels,
+      datasets: [
+        {
+          label: 'All Questions',
+          data: stats.countData,
+          borderColor: '#76B7B2',
+          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Inaccurate',
+          data: stats.negativeData,
+          borderColor: '#E15759',
+          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Escalations',
+          data: stats.escalatedData,
+          borderColor: '#EDC948',
+          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+      ],
     })
 
-    let pieChart = new Chart(document.getElementById('pie-chart'), {
-      type: 'pie',
-      data: {
-        labels: percentageLabels,
-        datasets: [
-          {
-            data: percentageData,
-            backgroundColor: ['#36A2EB', '#10B981', '#EF4444', '#F59E0B'],
-          },
-        ],
-      },
+    setPieData({
+      labels: stats.percentageLabels,
+      datasets: [
+        {
+          data: stats.percentageData,
+          backgroundColor: ['#76B7B2', '#E15759', '#EDC948'],
+        },
+      ],
     })
-
-    // cleanup
-    return () => {
-      lineChart.destroy()
-      pieChart.destroy()
-    }
-  }, [
-    labels,
-    countData,
-    positiveData,
-    negativeData,
-    escalatedData,
-    percentageData,
-    percentageLabels,
-  ])
+  }, [stats])
 
   useEffect(() => {
     updateData(selected.value)
@@ -157,11 +116,13 @@ export default function BotHistory({ team, botId }) {
 
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
-      <div className="mb-12">
+      <div className="mb-4">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
-            <h1 className="text-xl font-semibold leading-6 text-gray-900">Bot Statistics</h1>
-            <p className="mt-2 text-sm text-gray-700">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Bot Statistics
+            </h2>
+            <p className="mt-4 text-gray-500">
               Statistics about the questions you or users have asked your bot.
             </p>
           </div>
@@ -243,36 +204,80 @@ export default function BotHistory({ team, botId }) {
       </div>
 
       {isProcessing && (
-        <div className="flex h-24 items-center justify-center">
-          <LoadingSpinner large={true} className="mr-4" />
-          Loading...
+        <div className="flex h-48 items-center justify-center text-xl space-x-2">
+          <LoadingSpinner large={true} />
+          <div>Loading...</div>
         </div>
       )}
 
-      {blurEnabled && (
-        <div className="z-10 mt-32 -mb-72 w-full relative">
-          <div className="py-4">
-            <Checkout team={team}>
-              <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
-              <p className="mb-8 text-center text-gray-700">
-                Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
-                <Link href="/#pricing" target="_blank" className="underline">
-                  plan details
-                </Link>
-                .
-              </p>
-            </Checkout>
+      {stats && (
+        <>
+          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col bg-gray-400/5 p-8">
+              <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                <LocalStringNum value={stats.totalCount} />
+              </dd>
+            </div>
+            <div className="flex flex-col bg-gray-400/5 p-8">
+              <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                {stats.resolutionRate}%
+              </dd>
+            </div>
+            <div className="flex flex-col bg-gray-400/5 p-8">
+              <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                {stats.deflectionRate}%
+              </dd>
+            </div>
+            <div className="flex flex-col bg-gray-400/5 p-8">
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                Support staff time saved
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                <LocalStringNum value={stats.timeSaved} /> Mins
+              </dd>
+            </div>
+          </dl>
+
+          {blurEnabled && (
+            <div className="relative z-10 -mb-72 mt-32 w-full">
+              <div className="py-4">
+                <Checkout team={team}>
+                  <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
+                  <p className="mb-8 text-center text-gray-700">
+                    Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
+                    <Link href="/#pricing" target="_blank" className="underline">
+                      plan details
+                    </Link>
+                    .
+                  </p>
+                </Checkout>
+              </div>
+            </div>
+          )}
+
+          <div className={classNames('align-middle lg:flex space-x-4 items-center', blurEnabled ? 'blur-lg' : '')}>
+            <div className="flex-auto h-96 mt-6">
+              {lineData && (
+                <Line data={lineData} options={{ maintainAspectRatio: false, responsive: true }} />
+              )}
+            </div>
+            <div className="flex-none h-80 mt-6">
+              {pieData && (
+                <Pie
+                  data={pieData}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
-      <div className={classNames('align-middle md:flex', blurEnabled ? 'blur-lg' : '')}>
-        <div className="flex-auto">
-          <canvas id="line-chart"></canvas>
-        </div>
-        <div className="flex-none">
-          <canvas id="pie-chart"></canvas>
-        </div>
-      </div>
     </div>
   )
 }
