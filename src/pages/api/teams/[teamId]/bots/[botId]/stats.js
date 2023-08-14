@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     let { timeDelta } = req.query
 
     // check if timeDelta is valid and a number
-    if (!timeDelta || isNaN(timeDelta) || timeDelta < 0 || timeDelta > 30) {
+    if (!timeDelta || isNaN(timeDelta) || timeDelta < 0 || timeDelta > 90) {
       timeDelta = 30
     }
 
@@ -31,30 +31,32 @@ export default async function handler(req, res) {
         // doc.data() will be undefined in this case
         return res.status(404).json({ message: "botId doesn't exist." })
       }
-  
+
       let dateCounts = {}
       const currDate = new Date()
       // grab questions within the last week
-      const questions = await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('questions').where(
-        'createdAt',
-        '>',
-        new Date(currDate - timeDelta * 24 * 60 * 60 * 1000),
-      ).select('createdAt', 'rating', 'escalation').get()
-  
+      const questions = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('questions')
+        .where('createdAt', '>', new Date(currDate - timeDelta * 24 * 60 * 60 * 1000))
+        .select('createdAt', 'rating', 'escalation')
+        .get()
+
       questions.docs.map((question) => {
         const data = question.data()
         const date = data.createdAt.toDate()
         const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-  
+
         if (dateCounts[dateKey]) {
           dateCounts[dateKey].count++
         } else {
-          dateCounts[dateKey] = {count: 1, positive: 0, negative: 0, escalated: 0}
+          dateCounts[dateKey] = { count: 1, negative: 0, escalated: 0 }
         }
 
-        if (data.rating > 0) {
-          dateCounts[dateKey].positive++
-        } else if (data.rating < 0) {
+        if (data.rating < 0) {
           dateCounts[dateKey].negative++
         }
 
@@ -68,23 +70,26 @@ export default async function handler(req, res) {
         const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
         const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         if (!dateCounts[dateKey]) {
-          dateCounts[dateKey] = {count: 0, positive: 0, negative: 0, escalated: 0}
+          dateCounts[dateKey] = { count: 0, negative: 0, escalated: 0 }
         }
       }
 
       // split data and labels
-      let totalCount = 0, totalPositive= 0, totalNegative = 0, totalEscalated = 0;
-      let countData = [], positiveData = [], negativeData = [], escalatedData = [], labels = [];
+      let totalCount = 0,
+        totalNegative = 0,
+        totalEscalated = 0
+      let countData = [],
+        negativeData = [],
+        escalatedData = [],
+        labels = []
       for (let i = timeDelta - 1; i >= 0; i--) {
         const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
         const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         countData.push(dateCounts[dateKey].count)
-        positiveData.push(dateCounts[dateKey].positive)
         negativeData.push(dateCounts[dateKey].negative)
         escalatedData.push(dateCounts[dateKey].escalated)
 
         totalCount += dateCounts[dateKey].count
-        totalPositive += dateCounts[dateKey].positive
         totalNegative += dateCounts[dateKey].negative
         totalEscalated += dateCounts[dateKey].escalated
 
@@ -93,25 +98,39 @@ export default async function handler(req, res) {
 
       // calculate percentages
       let percentageData = [
-        Math.round((totalCount - (totalPositive + totalNegative + totalEscalated)) / totalCount * 100),
-        Math.round(totalPositive / totalCount * 100),
-        Math.round(totalNegative / totalCount * 100),
-        Math.round(totalEscalated / totalCount * 100),
-      ];
+        Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100),
+        Math.round((totalNegative / totalCount) * 100),
+        Math.round((totalEscalated / totalCount) * 100),
+      ]
 
       let percentageLabels = [
-        `${percentageData[0]}% Unrated`,
-        `${percentageData[1]}% Positive`,
-        `${percentageData[2]}% Negative`,
-        `${percentageData[3]}% Escalated`,
-      ];
+        `${percentageData[0]}% Answered`,
+        `${percentageData[1]}% Inaccurate`,
+        `${percentageData[1]}% Escalated`,
+      ]
 
-      return res.status(200).json({ countData, positiveData, negativeData, escalatedData, labels, percentageData, percentageLabels })
+      const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
+      const deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
+      const timeSaved = Math.round((totalCount - totalEscalated) * 5)
+
+      return res
+        .status(200)
+        .json({
+          countData,
+          negativeData,
+          escalatedData,
+          labels,
+          percentageData,
+          percentageLabels,
+          totalCount,
+          resolutionRate,
+          deflectionRate,
+          timeSaved,
+        })
     } catch (error) {
       console.warn('Error getting document:', error)
       return res.status(500).json({ message: error })
     }
-    
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

@@ -17,6 +17,7 @@ import Alert from '@/components/Alert'
 import { stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
+import LocalStringNum from '@/components/LocalStringNum'
 
 function Account({ team }) {
   const [user] = useAuthState(auth)
@@ -36,21 +37,21 @@ function Account({ team }) {
       href: false,
       linkText: 'View all',
       icon: ServerStackIcon,
-      stat: stripePlan(team).bots,
+      stat: <LocalStringNum value={stripePlan(team).bots} />,
     },
     {
       name: 'Source Page Limit',
       href: false,
       linkText: 'Get more',
       icon: Square3Stack3DIcon,
-      stat: stripePlan(team).pages,
+      stat: <LocalStringNum value={stripePlan(team).pages} />,
     },
     {
       name: 'Question Limit',
       href: false,
       linkText: 'Get more',
       icon: QuestionMarkCircleIcon,
-      stat: stripePlan(team).questions,
+      stat: <LocalStringNum value={stripePlan(team).questions} />,
     },
   ]
   

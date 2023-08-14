@@ -18,6 +18,7 @@ import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
 import GPTModel from '@/components/GPTModel'
 import { i18n } from '@/constants/strings.constants'
+import LocalStringNum from '@/components/LocalStringNum'
 
 export default function BotCard({ team, bot, setBot }) {
   if (!bot || !bot.id) {
@@ -105,12 +106,12 @@ export default function BotCard({ team, bot, setBot }) {
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{bot.sourceCount}</span>{' '}
+          <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
           <span className="text-gray-600">Sources</span>
         </div>
         <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{bot.pageCount}</span>{' '}
+          <span className="text-gray-900"><LocalStringNum value={bot.pageCount} /></span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
         <Link
@@ -119,7 +120,7 @@ export default function BotCard({ team, bot, setBot }) {
           title="View Questions"
         >
           <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900">{bot.questionCount}</span>{' '}
+          <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
           <span className="text-gray-600">Questions</span>
         </Link>
       </div>
