@@ -4,7 +4,7 @@ import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { getAuth } from 'firebase-admin/auth'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import sendInviteEmail from '@/utils/emails'
 import { getTeam } from '@/lib/dbQueries'
 
@@ -29,7 +29,7 @@ export default async function handleInvite(req, res) {
 
       // sanity check stripe plan
       const plan = stripePlan(team)
-      if (Object.keys(team.roles).length >= plan.teamMembers) {
+      if (Object.keys(team.roles).length >= plan.teamMembers && !isSuperAdmin(team, userId)) {
         // the user copy here isn't actually read by the user, the 403 status code is handled by showing the upgrade modal
         return res.status(403).send({ message: `You've reached your team member limit, please upgrade to our enterprise plan!`})
       }
