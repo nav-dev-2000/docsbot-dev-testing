@@ -20,8 +20,6 @@ import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { CarbonConnect } from 'carbon-connect'
-import Image from 'next/image'
-import NotionLogo from '@/components/NotionLogo'
 
 export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources

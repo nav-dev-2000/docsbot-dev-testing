@@ -8,6 +8,7 @@ import {
   faQuestion,
   faInfo,
   faBook,
+  faUpload,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
@@ -20,6 +21,7 @@ const iconMap = {
   'life-ring': { icon: faLifeRing, label: 'Life Ring' },
   question: { icon: faQuestion, label: 'Question Mark' },
   book: { icon: faBook, label: 'Book' },
+  custom: { icon: faUpload, label: 'Custom Icon' },
 }
 
 const botIconMap = {
@@ -29,6 +31,7 @@ const botIconMap = {
   'life-ring': { icon: faLifeRing, label: 'Life Ring' },
   info: { icon: faInfo, label: 'Info' },
   book: { icon: faBook, label: 'Book' },
+  custom: { icon: faUpload, label: 'Custom Icon' },
 }
 
 export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, props }) {
@@ -52,6 +55,7 @@ export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, p
                   checked ? 'text-cyan-700' : 'text-gray-400',
                   active && checked ? 'ring ring-offset-1' : '',
                   !active && checked ? 'ring-2' : '',
+                  key === 'custom' ? 'border-dashed border-2 hover:text-gray-500' : '',
                   'relative -m-0.5 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-black border-opacity-10 p-0.5 focus:outline-none'
                 )
               }

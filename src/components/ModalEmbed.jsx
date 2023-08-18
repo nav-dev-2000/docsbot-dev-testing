@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CodeBracketSquareIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -21,6 +21,8 @@ import classNames from '@/utils/classNames'
 import { decideTextColor } from '@/utils/colors'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import { ref, uploadBytes } from 'firebase/storage'
+import { storage } from '@/config/firebase-ui.config'
 
 //icon can be default, robot, life-ring, or question-circle
 const iconMap = {
@@ -51,6 +53,15 @@ export default function ModalEmbed({ team, bot }) {
   const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
   const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
   const [hideSources, setHideSources] = useState(bot.hideSources)
+  const fileRef = useRef(null)
+
+  useEffect(() => {
+    if (window.DocsBotAI === undefined) return
+
+    if (open) {
+      //DocsBotAI.unmount()
+    }
+  }, [open])
 
   useEffect(() => {
     if (!branding && stripePlan(team).bots < 10) {
@@ -58,6 +69,33 @@ export default function ModalEmbed({ team, bot }) {
       setBranding(true)
     }
   }, [branding, team])
+
+  useEffect(() => {
+    if (icon === 'custom') {
+      //open file picker
+      fileRef.current.click()
+    }
+  }, [icon])
+
+  function handleFileChange(e) {
+    const file = e.target.files[0]
+    if (file) {
+      //upload to firebase cloud storage
+      const filepath = `teams/${team.id}/bots/${bot.id}/images/${file.name}`
+      const storageRef = ref(storage, filepath)
+
+      uploadBytes(storageRef, file)
+        .then((snapshot) => {
+          console.log(snapshot, storageRef)
+        })
+        .catch((error) => {
+          console.warn(error)
+          setErrorText(
+            'Error uploading file, please try again. If the problem persists, try logging out then back in again.'
+          )
+        })
+    }
+  }
 
   async function updateBot() {
     setAllowedDomainsText(allowedDomains.join(', '))
@@ -247,7 +285,11 @@ export default function ModalEmbed({ team, bot }) {
                                     color: decideTextColor(color),
                                   }}
                                 >
-                                  <FontAwesomeIcon icon={iconMap[icon]} size="xl" />
+                                  {iconMap[icon] ? (
+                                    <FontAwesomeIcon icon={iconMap[icon]} size="xl" />
+                                  ) : (
+                                    <img src={icon} alt="icon" />
+                                  )}
                                   {showButtonLabel && (
                                     <span className="text-md ml-3 font-normal">
                                       {labels.floatingButton}
@@ -262,6 +304,13 @@ export default function ModalEmbed({ team, bot }) {
                                   icon={icon}
                                   setIcon={setIcon}
                                   disabled={isUpdating}
+                                />
+                                <input
+                                  ref={fileRef}
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={handleFileChange}
+                                  className="sr-only"
                                 />
                                 <div>
                                   <label className="block text-sm font-medium text-gray-900">
