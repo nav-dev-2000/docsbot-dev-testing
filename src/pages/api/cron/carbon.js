@@ -21,7 +21,7 @@ export default async function handler(request, response) {
   // grab all carbon sources
   const sourcesRef = await firestore
     .collectionGroup('sources')
-    .where('type', 'in', ['notion', 'google_docs', 'intercom'])
+    .where('type', 'in', ['notion', 'google_docs', 'intercom', 'dropbox'])
     .where('status', '==', 'pending')
     .get()
 
@@ -53,7 +53,10 @@ export default async function handler(request, response) {
           `https://api.carbon.ai/user_files_v2`,
           {
             filters: {
-              external_file_id: [source.carbonId],
+              external_file_id: source.carbonFiles.map((file) => file.id), //BUG this seems to always return all files
+            },
+            pagination: {
+              limit: 10000,
             },
           },
           headers
@@ -79,12 +82,12 @@ export default async function handler(request, response) {
         if (ready) {
           const chunks = []
 
-          for (const file of response.data.results) {
+          for (const file of newCarbonFiles) {
             const response = await axios.post(
               `https://api.carbon.ai/text_chunks`,
               {
                 filters: {
-                  user_file_id: file.id,
+                  user_file_id: file.fileId,
                 },
                 include_vectors: true,
               },
@@ -112,7 +115,9 @@ export default async function handler(request, response) {
           }
 
           //import chunks into weaviate
-          await importChunks(bot.indexId, source.type, sourceId, chunks)
+          if (chunks.length) {
+            await importChunks(bot.indexId, source.type, sourceId, chunks)
+          }
 
           //update source
           doc.ref.update({

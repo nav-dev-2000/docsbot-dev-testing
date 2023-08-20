@@ -8,10 +8,13 @@ import {
   VideoCameraIcon,
   QuestionMarkCircleIcon,
   DocumentIcon,
+  CircleStackIcon,
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
 import NotionLogo from '@/components/NotionLogo'
-import IntercomLogo from '../components/IntercomLogo'
+import IntercomLogo from '@/components/IntercomLogo'
+import DriveLogo from '@/components/DriveLogo'
+import DropboxLogo from '@/components/DropboxLogo'
 
 export const sourceTypes = [
   {
@@ -89,10 +92,10 @@ export const sourceTypes = [
   },
   {
     id: 'csv',
-    title: 'CSV',
-    description: 'Bulk upload via a formatted CSV file',
+    title: 'Raw Data',
+    description: 'Bulk upload raw data via a specially formatted CSV file',
     fullDescription: 'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to learn from.',
-    icon: TableCellsIcon,
+    icon: CircleStackIcon,
     isPro: true,
     coming: false,
     fieldUrl: false,
@@ -146,13 +149,13 @@ export const sourceTypes = [
   },
   {
     id: 'google_docs',
-    title: 'Google Docs',
-    description: 'Answer questions from the content of Google Docs (BETA)',
-    fullDescription: 'Connect to Google Docs via our partner Carbon and select which documents to learn from. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Docs account source per bot. If you create a new Google Docs source for the same Google user, it will replace the previous one with the selected documents.',
-    icon: DocumentTextIcon,
-    isCarbon: 'GOOGLE_DOCS',
+    title: 'Google Drive',
+    description: 'Answer questions from the content of document files in Google Drive (BETA)',
+    fullDescription: 'Connect to Google Drive via our partner Carbon and select which documents to learn from. We support Docs, Slides, Sheets, and pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Drive account source per bot. If you create a new Google Drive source for the same Google user, it will replace the previous one with the selected documents.',
+    icon: DriveLogo,
+    isCarbon: 'GOOGLE_DRIVE',
     isPro: true,
-    coming: false,
+    coming: true,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
@@ -168,6 +171,21 @@ export const sourceTypes = [
     isCarbon: 'INTERCOM',
     isPro: true,
     coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'dropbox',
+    title: 'Dropbox',
+    description: 'Answer questions from the content of document files in Dropbox (BETA)',
+    fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    icon: DropboxLogo,
+    isCarbon: 'DROPBOX',
+    isPro: true,
+    coming: true,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
