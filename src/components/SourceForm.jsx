@@ -112,14 +112,12 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     if (!response.data[0].objects || !response.data[0].objects.length) {
       return
     }
-
+    
+    const carbon = response.data[0].data_source_external_id.split('|')
     setTitle(
-      response.data[0].data_source_external_id.replace(
-        /(NOTION|GOOGLE_DOCS|INTERCOM)-/,
-        'Account: '
-      )
+      'Account: ' + carbon[1]
     )
-    setCarbonId(response.data[0].data_source_external_id)
+    setCarbonId(carbon[2])
     setCarbonFiles(response.data[0].objects)
     setCarbonOpen(false)
   }
