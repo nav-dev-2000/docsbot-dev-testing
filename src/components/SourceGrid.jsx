@@ -88,7 +88,7 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
                   <p className="truncate text-xs text-gray-600">{source.title}</p>
                   <p className="truncate text-xs text-gray-500">{source.url}</p>
                 </div>
-                {source.scheduled && (
+                {source.scheduled && source.status === 'ready' && (
                   <ClockIcon
                     className="absolute right-2 top-2 h-3 w-3 text-gray-400"
                     title="Scheduled"
