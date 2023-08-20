@@ -31,7 +31,7 @@ export default async function handleInvite(req, res) {
       const plan = stripePlan(team)
       if (Object.keys(team.roles).length >= plan.teamMembers && !isSuperAdmin(userId)) {
         // the user copy here isn't actually read by the user, the 403 status code is handled by showing the upgrade modal
-        return res.status(403).send({ message: `You've reached your team member limit, please upgrade to our enterprise plan!`})
+        return res.status(403).send({ message: `You've reached your team member limit, please upgrade your plan!`})
       }
 
       try {

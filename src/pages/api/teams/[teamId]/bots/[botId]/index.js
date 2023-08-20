@@ -163,7 +163,7 @@ export default async function handler(req, res) {
       if (icon) {
         //check if icon is valid
         const validIcon = ['default', 'comments', 'robot', 'life-ring', 'question', 'book']
-        if (!validIcon.includes(icon)) {
+        if (!validIcon.includes(icon) && !icon.includes('://')) {
           return res.status(400).send({ message: 'Invalid param "icon".' })
         } else {
           botData.icon = icon
@@ -185,7 +185,7 @@ export default async function handler(req, res) {
       if (botIcon !== undefined) {
         //check if icon is valid
         const validIcon = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
-        if (!validIcon.includes(botIcon)) {
+        if (!validIcon.includes(botIcon) && !botIcon.includes('://')) {
           return res.status(400).send({ message: 'Invalid param "botIcon".' })
         } else {
           botData.botIcon = botIcon
