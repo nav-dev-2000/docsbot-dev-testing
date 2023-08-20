@@ -28,7 +28,7 @@ import { routePaths } from '@/constants/routePaths.constants'
 import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 
-export default function DashboardWrap({ page, title, team, children }) {
+export default function DashboardWrap({ page, title, team, fullWidth = false, children }) {
   const router = useRouter()
   const [user] = useAuthState(auth)
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -338,7 +338,12 @@ export default function DashboardWrap({ page, title, team, children }) {
 
             <main className="flex-1">
               <div className="py-4 sm:py-8">
-                <div className="mx-auto max-w-7xl px-2 sm:px-6 md:px-8">{children}</div>
+                <div className={
+                  classNames(
+                    'mx-auto px-4 sm:px-6 md:px-8',
+                    fullWidth ? '' : 'max-w-7xl'
+                  )
+                }>{children}</div>
               </div>
             </main>
           </div>
