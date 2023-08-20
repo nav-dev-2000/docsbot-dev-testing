@@ -18,11 +18,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
-import { decideTextColor } from '@/utils/colors'
+import { decideTextColor, getLighterColor } from '@/utils/colors'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
+import { uuidv4 } from '@firebase/util'
 
 //icon can be default, robot, life-ring, or question-circle
 const iconMap = {
@@ -53,7 +54,8 @@ export default function ModalEmbed({ team, bot }) {
   const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
   const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
   const [hideSources, setHideSources] = useState(bot.hideSources)
-  const fileRef = useRef(null)
+  const iconRef = useRef(null)
+  const avatarRef = useRef(null)
 
   useEffect(() => {
     if (window.DocsBotAI === undefined) return
@@ -73,20 +75,31 @@ export default function ModalEmbed({ team, bot }) {
   useEffect(() => {
     if (icon === 'custom') {
       //open file picker
-      fileRef.current.click()
+      iconRef.current.click()
     }
-  }, [icon])
+    if (botIcon === 'custom') {
+      //open file picker
+      avatarRef.current.click()
+    }
+  }, [icon, botIcon])
 
-  function handleFileChange(e) {
+  function handleFileChange(e, type) {
     const file = e.target.files[0]
     if (file) {
       //upload to firebase cloud storage
-      const filepath = `teams/${team.id}/bots/${bot.id}/images/${file.name}`
+      //generate uuid for file name with same extension
+      const uuid = uuidv4()
+      const extension = file.name.split('.').pop()
+      //move the file to the correct location in bucket
+      const filepath = `teams/${team.id}/bots/${bot.id}/images/${uuid}.${extension}`
       const storageRef = ref(storage, filepath)
 
       uploadBytes(storageRef, file)
         .then((snapshot) => {
-          console.log(snapshot, storageRef)
+          //get public url for file
+          const url = 'https://cdn.docsbot.ai/' + encodeURIComponent(filepath) + '?alt=media'
+          if (type === 'icon') setIcon(url)
+          if (type === 'avatar') setBotIcon(url)
         })
         .catch((error) => {
           console.warn(error)
@@ -212,7 +225,7 @@ export default function ModalEmbed({ team, bot }) {
                       >
                         {embed}
                       </div>
-                      <div className="mx-auto mb-8 mt-4 items-end justify-between sm:flex">
+                      <div className="mx-auto mb-8 mt-4 items-start justify-between sm:flex">
                         <button
                           className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
                           onClick={(e) => {
@@ -277,8 +290,8 @@ export default function ModalEmbed({ team, bot }) {
                                 <span
                                   className={classNames(
                                     alignment === 'right' ? 'ml-auto' : 'mx-auto',
-                                    showButtonLabel ? '' : 'w-14',
-                                    'inline-flex h-14 items-center justify-center rounded-full px-5 text-lg font-medium text-white shadow-lg hover:opacity-90'
+                                    showButtonLabel ? 'px-5' : 'w-14',
+                                    'inline-flex h-14 items-center justify-center rounded-full text-lg font-medium text-white shadow-lg hover:opacity-90'
                                   )}
                                   style={{
                                     backgroundColor: color,
@@ -287,8 +300,10 @@ export default function ModalEmbed({ team, bot }) {
                                 >
                                   {iconMap[icon] ? (
                                     <FontAwesomeIcon icon={iconMap[icon]} size="xl" />
+                                  ) : icon.includes('://') ? (
+                                    <img src={icon} alt="icon" className="w-7 h-7 object-scale-down" />
                                   ) : (
-                                    <img src={icon} alt="icon" />
+                                    null
                                   )}
                                   {showButtonLabel && (
                                     <span className="text-md ml-3 font-normal">
@@ -304,12 +319,13 @@ export default function ModalEmbed({ team, bot }) {
                                   icon={icon}
                                   setIcon={setIcon}
                                   disabled={isUpdating}
+                                  customColor={color}
                                 />
                                 <input
-                                  ref={fileRef}
+                                  ref={iconRef}
                                   type="file"
-                                  accept="image/*"
-                                  onChange={handleFileChange}
+                                  accept="image/png, image/jpeg, image/gif, image/webp"
+                                  onChange={(e)=>handleFileChange(e, 'icon')}
                                   className="sr-only"
                                 />
                                 <div>
@@ -392,6 +408,14 @@ export default function ModalEmbed({ team, bot }) {
                               icon={botIcon}
                               setIcon={setBotIcon}
                               disabled={isUpdating}
+                              customColor={getLighterColor(color, 0.6)}
+                            />
+                            <input
+                              ref={avatarRef}
+                              type="file"
+                              accept="image/png, image/jpeg, image/gif, image/webp"
+                              onChange={(e)=>handleFileChange(e, 'avatar')}
+                              className="sr-only"
                             />
 
                             <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
