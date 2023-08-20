@@ -86,7 +86,7 @@ function Questions({ team, bot, preQuestions }) {
   const title = [bot.name, 'Questions']
 
   return (
-    <DashboardWrap page="Bots" title={title} team={team}>
+    <DashboardWrap page="Bots" title={title} team={team} fullWidth={true}>
       <Alert title={errorText} type="warning" />
 
       <div className="mb-4 flex justify-between">
