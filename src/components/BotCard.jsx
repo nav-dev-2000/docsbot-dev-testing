@@ -6,11 +6,11 @@ import {
   LanguageIcon,
   QueueListIcon,
   ChartBarIcon,
+  CodeBracketSquareIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
 import ModalAPI from '@/components/ModalAPI'
-import ModalEmbed from '@/components/ModalEmbed'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
 import RobotIcon from '@/components/RobotIcon'
@@ -97,7 +97,14 @@ export default function BotCard({ team, bot, setBot }) {
               </div>
             </div>
             <div className="mt-4 flex justify-between space-x-4 sm:mt-1 sm:justify-end">
-              <ModalEmbed team={team} bot={bot} />
+              <Link
+                type="button"
+                className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+                href={`/app/bots/${bot.id}/widget`}
+              >
+                <CodeBracketSquareIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                Widget Embed
+              </Link>
               <ModalAPI team={team} bot={bot} />
             </div>
           </div>
@@ -106,12 +113,16 @@ export default function BotCard({ team, bot, setBot }) {
       <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <DocumentDuplicateIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
+          <span className="text-gray-900">
+            <LocalStringNum value={bot.sourceCount} />
+          </span>{' '}
           <span className="text-gray-600">Sources</span>
         </div>
         <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
           <Square3Stack3DIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900"><LocalStringNum value={bot.pageCount} /></span>{' '}
+          <span className="text-gray-900">
+            <LocalStringNum value={bot.pageCount} />
+          </span>{' '}
           <span className="text-gray-600">Indexed pages</span>
         </div>
         <Link
@@ -120,7 +131,9 @@ export default function BotCard({ team, bot, setBot }) {
           title="View Questions"
         >
           <QuestionMarkCircleIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-          <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
+          <span className="text-gray-900">
+            <LocalStringNum value={bot.questionCount} />
+          </span>{' '}
           <span className="text-gray-600">Questions</span>
         </Link>
       </div>

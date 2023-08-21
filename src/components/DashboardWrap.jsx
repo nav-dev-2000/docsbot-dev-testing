@@ -103,8 +103,8 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
       <>
         {titles.map((title, index) => (
           <div key={index} className="flex-inline ml-1 flex items-center lg:ml-2">
-            <ChevronRightIcon className="h-4 w-4" />
-            <h1 className="ml-1 text-xl font-medium text-gray-800 lg:ml-2 lg:text-2xl">{title}</h1>
+            <ChevronRightIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+            <h1 className="ml-1 text-sm leading-tight font-medium text-gray-800 lg:ml-2 lg:text-xl">{title}</h1>
           </div>
         ))}
       </>
@@ -246,15 +246,15 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               </button>
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
-                  <h1 className="ml-4 text-2xl font-semibold text-gray-900">
+                  <h1 className="lg:ml-4 text-md lg:text-xl font-semibold text-gray-900">
                     <Link href={currentPageLink}>{page}</Link>
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
-                <p className="flex flex-0 items-center text-sm text-gray-500 overflow-hidden">
+                <p className="ml-2 flex leading-tight items-center text-xs md:text-sm text-gray-500 overflow-hidden">
                     {team?.name || ''}
                 </p>
-                <div className="ml-4 flex items-center md:ml-6">
+                <div className="ml-2 flex flex-none items-center md:ml-6">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>

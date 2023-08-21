@@ -34,7 +34,7 @@ const botIconMap = {
   custom: { icon: faPlus, label: 'Custom Icon' },
 }
 
-export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, customColor, props }) {
+export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, props }) {
   const list = type === 'bot' ? botIconMap : iconMap
   const selectedIcon = list[icon] ? icon : 'custom'
   return (
@@ -42,7 +42,7 @@ export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, c
       <RadioGroup.Label className="block text-sm font-medium leading-6 text-gray-900">
         {label}
       </RadioGroup.Label>
-      <div className="mt-4 flex items-center space-x-3">
+      <div className="mt-4 flex flex-wrap items-center space-x-3">
         {list &&
           Object.keys(list).map((key) => (
             <RadioGroup.Option
@@ -56,11 +56,8 @@ export default function FieldRadioIcon({ type, label, icon, disabled, setIcon, c
                   active && checked ? 'ring ring-offset-2' : '',
                   !active && checked ? 'ring-2 ring-offset-1' : '',
                   key === 'custom' ? 'border-dashed border-2 hover:text-gray-500' : '',
-                  'relative -m-0.5 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-black border-opacity-10 p-0.5 focus:outline-none'
+                  'relative mb-3 -m-0.5 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-black border-opacity-10 p-0.5 focus:outline-none'
                 )
-              }
-              style={
-                key === 'custom' && icon.includes('://') ? { backgroundColor: customColor } : {}
               }
             >
               <RadioGroup.Label as="span" className="sr-only">
