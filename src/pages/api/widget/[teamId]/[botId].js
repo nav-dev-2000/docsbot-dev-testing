@@ -62,6 +62,8 @@ export default async function handler(req, res) {
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
           questions: bot.questions || [],
           hideSources: bot.hideSources || false,
+          logo: bot.logo || false,
+          logoAlignment: bot.logoAlignment || 'center',
         }
 
         return res.json(widget)

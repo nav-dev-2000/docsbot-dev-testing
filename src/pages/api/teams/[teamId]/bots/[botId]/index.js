@@ -6,6 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { deleteBot } from '@/lib/apiFunctions'
+import e from 'cors'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -46,6 +47,8 @@ export default async function handler(req, res) {
         labels,
         questions,
         hideSources,
+        logo,
+        logoAlignment,
       } = req.body
       const botData = {}
 
@@ -189,6 +192,27 @@ export default async function handler(req, res) {
           return res.status(400).send({ message: 'Invalid param "botIcon".' })
         } else {
           botData.botIcon = botIcon
+        }
+      }
+
+      if (logo !== undefined) {
+        //check if logo is valid
+        if (logo.includes('://')) {
+          botData.logo = logo
+        } else {
+          botData.logo = false
+        }
+      }
+
+      if (logoAlignment !== undefined) {
+        //check if icon is valid
+        const valid = ['left', 'center']
+        if (!valid.includes(logoAlignment)) {
+          return res
+            .status(400)
+            .send({ message: 'Invalid param "logoAlignment". Should be "left" or "center".' })
+        } else {
+          botData.logoAlignment = logoAlignment
         }
       }
 
