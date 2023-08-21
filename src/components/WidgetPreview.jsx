@@ -117,6 +117,7 @@ export default function WidgetPreview({
               <a
                 href={supportLink}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="hove:opacity-100 relative text-xs text-gray-500 opacity-80 hover:border-b-2 hover:border-gray-600"
                 style={{
                   color: decideTextColor(getLighterColor(color || '#1292EE', 0.93)),
@@ -240,7 +241,7 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
                 <FontAwesomeIcon icon={faChevronDown} size="sm" />
               </button>
             )}
-            <div class="">
+            <div>
               <button title={labels.unhelpful} className="text-gray-500 hover:text-red-600">
                 <FlagIcon className="h-3 w-3" />
               </button>
