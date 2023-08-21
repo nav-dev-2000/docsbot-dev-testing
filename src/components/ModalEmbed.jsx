@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CodeBracketSquareIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { CodeBracketSquareIcon, PhotoIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
@@ -45,6 +45,8 @@ export default function ModalEmbed({ team, bot }) {
   //bot settings
   const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
   const [allowedDomainsText, setAllowedDomainsText] = useState(allowedDomains.join(', '))
+  const [logo, setLogo] = useState(bot.logo || null)
+  const [logoAlignment, setLogoAlignment] = useState(bot.logoAlignment || 'center')
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
   const [alignment, setAlignment] = useState(bot.alignment || 'right')
@@ -56,14 +58,7 @@ export default function ModalEmbed({ team, bot }) {
   const [hideSources, setHideSources] = useState(bot.hideSources)
   const iconRef = useRef(null)
   const avatarRef = useRef(null)
-
-  useEffect(() => {
-    if (window.DocsBotAI === undefined) return
-
-    if (open) {
-      //DocsBotAI.unmount()
-    }
-  }, [open])
+  const logoRef = useRef(null)
 
   useEffect(() => {
     if (!branding && stripePlan(team).bots < 10) {
@@ -98,8 +93,10 @@ export default function ModalEmbed({ team, bot }) {
         .then((snapshot) => {
           //get public url for file
           const url = 'https://cdn.docsbot.ai/' + encodeURIComponent(filepath) + '?alt=media'
+          //const url = 'https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/' + encodeURIComponent(filepath) + '?alt=media'
           if (type === 'icon') setIcon(url)
           if (type === 'avatar') setBotIcon(url)
+          if (type === 'logo') setLogo(url)
         })
         .catch((error) => {
           console.warn(error)
@@ -126,6 +123,8 @@ export default function ModalEmbed({ team, bot }) {
       showButtonLabel,
       labels,
       hideSources,
+      logo,
+      logoAlignment,
     }
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -301,10 +300,12 @@ export default function ModalEmbed({ team, bot }) {
                                   {iconMap[icon] ? (
                                     <FontAwesomeIcon icon={iconMap[icon]} size="xl" />
                                   ) : icon.includes('://') ? (
-                                    <img src={icon} alt="icon" className="w-7 h-7 object-scale-down" />
-                                  ) : (
-                                    null
-                                  )}
+                                    <img
+                                      src={icon}
+                                      alt="icon"
+                                      className="h-7 w-7 object-scale-down"
+                                    />
+                                  ) : null}
                                   {showButtonLabel && (
                                     <span className="text-md ml-3 font-normal">
                                       {labels.floatingButton}
@@ -325,7 +326,7 @@ export default function ModalEmbed({ team, bot }) {
                                   ref={iconRef}
                                   type="file"
                                   accept="image/png, image/jpeg, image/gif, image/webp"
-                                  onChange={(e)=>handleFileChange(e, 'icon')}
+                                  onChange={(e) => handleFileChange(e, 'icon')}
                                   className="sr-only"
                                 />
                                 <div>
@@ -414,9 +415,138 @@ export default function ModalEmbed({ team, bot }) {
                               ref={avatarRef}
                               type="file"
                               accept="image/png, image/jpeg, image/gif, image/webp"
-                              onChange={(e)=>handleFileChange(e, 'avatar')}
+                              onChange={(e) => handleFileChange(e, 'avatar')}
                               className="sr-only"
                             />
+                            <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
+                              <div className="w-full">
+                                <label
+                                  htmlFor="logo"
+                                  className="block text-sm font-medium text-gray-900"
+                                >
+                                  Header Logo
+                                </label>
+                                <div className="relative mt-2 flex items-center gap-x-3">
+                                  {logo ? (
+                                    <div className="flex">
+                                      <img
+                                        src={logo}
+                                        alt="logo"
+                                        className="max-h-9 w-auto group-hover:opacity-75"
+                                      />
+                                      <button
+                                        type="button"
+                                        onClick={() => setLogo(null)}
+                                        className="focus:outline-none"
+                                      >
+                                        <XMarkIcon
+                                          className="h-4 w-4 text-gray-400 hover:text-gray-500"
+                                          aria-hidden="true"
+                                        />
+                                        <span className="sr-only">Remove logo</span>
+                                      </button>
+                                    </div>
+                                  ) : (
+                                    <PhotoIcon
+                                      className="h-12 w-12 text-gray-300"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                  <input
+                                    ref={logoRef}
+                                    type="file"
+                                    id="logo"
+                                    accept="image/png, image/jpeg, image/gif, image/webp"
+                                    onChange={(e) => handleFileChange(e, 'logo')}
+                                    className="sr-only"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => logoRef.current.click()}
+                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                  >
+                                    {logo ? 'Change' : 'Upload'}
+                                  </button>
+                                </div>
+                              </div>
+                              <div className="w-full">
+                                <label className="block text-sm font-medium text-gray-900">
+                                  Logo Alignment
+                                </label>
+                                <fieldset className="mt-4">
+                                  <legend className="sr-only">Alignment</legend>
+                                  <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+                                    <div className="flex items-center">
+                                      <input
+                                        id="logo-left"
+                                        name="logoAlignment"
+                                        type="radio"
+                                        checked={logoAlignment === 'left'}
+                                        onChange={() => setLogoAlignment('left')}
+                                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                      />
+                                      <label
+                                        htmlFor="logo-left"
+                                        className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                      >
+                                        Left
+                                      </label>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <input
+                                        id="logo-center"
+                                        name="logoAlignment"
+                                        type="radio"
+                                        checked={logoAlignment === 'center'}
+                                        onChange={() => setLogoAlignment('center')}
+                                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                      />
+                                      <label
+                                        htmlFor="logo-center"
+                                        className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                      >
+                                        Center
+                                      </label>
+                                    </div>
+                                  </div>
+                                </fieldset>
+                              </div>
+                            </div>
+
+                            <div className="w-full">
+                              <label
+                                htmlFor="message-label"
+                                className="block text-sm font-medium text-gray-900"
+                              >
+                                First Message
+                              </label>
+                              <span className="text-sm text-gray-500">
+                                This text will appear as the first message from the bot displayed to
+                                the user. Supports{' '}
+                                <Link
+                                  href="https://www.markdownguide.org/basic-syntax/"
+                                  target="_blank"
+                                  className="text-cyan-600 underline hover:font-semibold"
+                                >
+                                  Markdown
+                                </Link>
+                                . Optional, leave blank to disable.
+                              </span>
+                              <div className="mt-1">
+                                <input
+                                  type="text"
+                                  name="message-label"
+                                  id="message-label"
+                                  value={labels.firstMessage}
+                                  onChange={(e) =>
+                                    setLabels({ ...labels, firstMessage: e.target.value })
+                                  }
+                                  disabled={isUpdating}
+                                  placeholder="Enter your message here..."
+                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                                />
+                              </div>
+                            </div>
 
                             <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                               <div className="w-full">
@@ -468,40 +598,6 @@ export default function ModalEmbed({ team, bot }) {
                                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
                                   />
                                 </div>
-                              </div>
-                            </div>
-
-                            <div className="w-full">
-                              <label
-                                htmlFor="message-label"
-                                className="block text-sm font-medium text-gray-900"
-                              >
-                                First Message
-                              </label>
-                              <span className="text-sm text-gray-500">
-                                This text will appear as the first message from the bot displayed to
-                                the user. Supports{' '}
-                                <Link
-                                  href="https://www.markdownguide.org/basic-syntax/"
-                                  target="_blank"
-                                >
-                                  Markdown
-                                </Link>
-                                . Optional, leave blank to disable.
-                              </span>
-                              <div className="mt-1">
-                                <input
-                                  type="text"
-                                  name="message-label"
-                                  id="message-label"
-                                  value={labels.firstMessage}
-                                  onChange={(e) =>
-                                    setLabels({ ...labels, firstMessage: e.target.value })
-                                  }
-                                  disabled={isUpdating}
-                                  placeholder="Enter your message here..."
-                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
-                                />
                               </div>
                             </div>
 
