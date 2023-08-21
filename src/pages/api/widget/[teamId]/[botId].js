@@ -63,7 +63,7 @@ export default async function handler(req, res) {
           questions: bot.questions || [],
           hideSources: bot.hideSources || false,
           logo: bot.logo || false,
-          logoAlignment: bot.logoAlignment || 'center',
+          headerAlignment: bot.headerAlignment || 'center',
         }
 
         return res.json(widget)

@@ -1,4 +1,10 @@
-import { ArrowPathIcon, ChevronLeftIcon, XMarkIcon, PhotoIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowPathIcon,
+  ChevronLeftIcon,
+  XMarkIcon,
+  PhotoIcon,
+  FlagIcon,
+} from '@heroicons/react/24/outline'
 import {
   faComment,
   faComments,
@@ -44,7 +50,7 @@ export default function WidgetPreview({
   bot,
   color,
   logo,
-  logoAlignment,
+  headerAlignment,
   alignment,
   branding,
   icon,
@@ -55,7 +61,7 @@ export default function WidgetPreview({
   supportLink,
 }) {
   return (
-    <div className="sticky top-16">
+    <div className="sticky top-20">
       <h3 className="mb-4 text-2xl font-bold">Preview</h3>
       <div className="overflow-hidden rounded-xl bg-gray-50 shadow-xl">
         <div
@@ -72,12 +78,12 @@ export default function WidgetPreview({
             >
               <ArrowPathIcon className="h-4 w-4" />
             </button>
-            <div className="text-center">
+            <div className={classNames(headerAlignment === 'left' ? 'text-left' : 'text-center')}>
               {logo ? (
                 <div
                   className="flex items-center justify-center"
                   style={{
-                    justifyContent: logoAlignment === 'left' ? 'start' : 'center',
+                    justifyContent: headerAlignment === 'left' ? 'start' : 'center',
                   }}
                 >
                   <img src={logo} alt={bot.name} className="max-h-9 w-auto" />
@@ -95,23 +101,23 @@ export default function WidgetPreview({
         <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
           <BotMessage text={labels.firstMessage} {...{ botIcon, iconMap, labels, color }} />
 
-          <div className="mb-3 self-end rounded-xl rounded-tr-none border bg-white px-3 py-2 text-sm text-gray-700">
-            What do you do?
+          <div className="mb-3 self-end rounded-2xl rounded-tr-none border bg-white px-3 py-2 text-sm text-gray-700">
+            Why are you so amazing?
           </div>
 
           <BotMessage
             text={
-              'DocsBot AI is a service that allows you to create custom chatbots from your documentation.\n\nYou can find more details and information on how to use DocsBot AI on their [official website](https://docsbot.ai).'
+              "Thank you for the compliment! As an AI assistant, I strive to provide helpful and accurate information about your business or products to the best of my abilities. Is there anything specific you would like to know about DocsBot AI or the [Embeddable Chat Widget](https://docsbot.ai/docs/embeddable-chat-widget)? I'm here to assist you!"
             }
             {...{ botIcon, iconMap, labels, color, sources: true, hideSources }}
           />
 
           {supportLink && (
-            <div className="flex justify-end mt-6 mb-4">
+            <div className="mb-4 mt-6 flex justify-end">
               <a
                 href={supportLink}
                 target="_blank"
-                className='relative text-xs text-gray-500 opacity-80 hove:opacity-100 hover:border-b-2 hover:border-gray-600'
+                className="hove:opacity-100 relative text-xs text-gray-500 opacity-80 hover:border-b-2 hover:border-gray-600"
                 style={{
                   color: decideTextColor(getLighterColor(color || '#1292EE', 0.93)),
                 }}
@@ -130,16 +136,14 @@ export default function WidgetPreview({
 
           {branding && (
             <div className="mb-3 mt-8 flex w-full items-center justify-center text-center">
-              <button
-                className="flex items-center justify-center text-xs text-gray-400 hover:text-gray-600"
-              >
+              <button className="flex items-center justify-center text-xs text-gray-400 hover:text-gray-600">
                 {bot.labels.poweredBy} DocsBot
               </button>
             </div>
           )}
         </div>
 
-        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-3 py-3 text-xs">
+        <div className="flex items-center justify-between border-t border-gray-300 bg-white px-3 py-3 text-xs">
           <div className="text-gray-400">{labels.inputPlaceholder}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +157,7 @@ export default function WidgetPreview({
           </svg>
         </div>
       </div>
-      <div className="mt-8 flex">
+      <div className="mt-6 flex">
         <div
           className={classNames(
             alignment === 'right' ? 'ml-auto' : 'mr-auto',
@@ -216,7 +220,7 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
         </div>
       )}
       <div
-        className="prose rounded-xl rounded-tl-none px-3 py-2 text-sm leading-snug text-gray-700 first:prose-p:my-0"
+        className="prose rounded-2xl rounded-tl-none border px-3 py-2 text-sm leading-snug text-gray-700 first:prose-p:my-0"
         style={{
           backgroundColor: bgColor,
           color: fontColor,
@@ -227,18 +231,18 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
           <div
             className={classNames(
               hideSources ? 'justify-end' : 'justify-between',
-              'flex items-center'
+              'mt-2 flex items-center'
             )}
           >
             {!hideSources && (
-              <button className="font-semibold">
+              <button className="text-sm font-semibold">
                 {labels.sources}
-                <FontAwesomeIcon icon={faChevronDown} />
+                <FontAwesomeIcon icon={faChevronDown} size="sm" />
               </button>
             )}
             <div class="">
-              <button title={labels.unhelpful} className="text-gray-500">
-                <FontAwesomeIcon icon={faFlag} size="sm" />
+              <button title={labels.unhelpful} className="text-gray-500 hover:text-red-600">
+                <FlagIcon className="h-3 w-3" />
               </button>
             </div>
           </div>

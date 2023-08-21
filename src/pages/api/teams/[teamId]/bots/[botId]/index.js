@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         questions,
         hideSources,
         logo,
-        logoAlignment,
+        headerAlignment,
       } = req.body
       const botData = {}
 
@@ -204,15 +204,15 @@ export default async function handler(req, res) {
         }
       }
 
-      if (logoAlignment !== undefined) {
+      if (headerAlignment !== undefined) {
         //check if icon is valid
         const valid = ['left', 'center']
-        if (!valid.includes(logoAlignment)) {
+        if (!valid.includes(headerAlignment)) {
           return res
             .status(400)
-            .send({ message: 'Invalid param "logoAlignment". Should be "left" or "center".' })
+            .send({ message: 'Invalid param "headerAlignment". Should be "left" or "center".' })
         } else {
-          botData.logoAlignment = logoAlignment
+          botData.headerAlignment = headerAlignment
         }
       }
 

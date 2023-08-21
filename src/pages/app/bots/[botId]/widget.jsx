@@ -47,7 +47,7 @@ function Widget({ team, bot }) {
   const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
   const [allowedDomainsText, setAllowedDomainsText] = useState(allowedDomains.join(', '))
   const [logo, setLogo] = useState(bot.logo || null)
-  const [logoAlignment, setLogoAlignment] = useState(bot.logoAlignment || 'center')
+  const [headerAlignment, setHeaderAlignment] = useState(bot.headerAlignment || 'center')
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
   const [alignment, setAlignment] = useState(bot.alignment || 'right')
@@ -125,7 +125,7 @@ function Widget({ team, bot }) {
       labels,
       hideSources,
       logo,
-      logoAlignment,
+      headerAlignment,
     }
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -412,7 +412,7 @@ function Widget({ team, bot }) {
                       </div>
                       <div className="w-full">
                         <label className="block text-sm font-medium text-gray-900">
-                          Logo Alignment
+                          Header Alignment
                         </label>
                         <fieldset className="mt-4">
                           <legend className="sr-only">Alignment</legend>
@@ -420,10 +420,10 @@ function Widget({ team, bot }) {
                             <div className="flex items-center">
                               <input
                                 id="logo-left"
-                                name="logoAlignment"
+                                name="headerAlignment"
                                 type="radio"
-                                checked={logoAlignment === 'left'}
-                                onChange={() => setLogoAlignment('left')}
+                                checked={headerAlignment === 'left'}
+                                onChange={() => setHeaderAlignment('left')}
                                 className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
                               />
                               <label
@@ -436,10 +436,10 @@ function Widget({ team, bot }) {
                             <div className="flex items-center">
                               <input
                                 id="logo-center"
-                                name="logoAlignment"
+                                name="headerAlignment"
                                 type="radio"
-                                checked={logoAlignment === 'center'}
-                                onChange={() => setLogoAlignment('center')}
+                                checked={headerAlignment === 'center'}
+                                onChange={() => setHeaderAlignment('center')}
                                 className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
                               />
                               <label
@@ -607,8 +607,8 @@ function Widget({ team, bot }) {
             </div>
           </form>
         </div>
-        <div className="w-96 xl:w-80 mt-8 xl:mt-0 flex-none mx-auto xl:ml-8 min-h-screen">
-          <WidgetPreview {...{ bot, color, logo, logoAlignment, alignment, branding, icon, botIcon, showButtonLabel, labels, hideSources, supportLink }} />
+        <div className="w-80 mt-8 xl:mt-0 flex-none mx-auto xl:ml-8 min-h-screen">
+          <WidgetPreview {...{ bot, color, logo, headerAlignment, alignment, branding, icon, botIcon, showButtonLabel, labels, hideSources, supportLink }} />
         </div>
       </div>
     </DashboardWrap>

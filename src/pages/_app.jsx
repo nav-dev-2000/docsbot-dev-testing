@@ -306,7 +306,7 @@ export default function App({ Component, pageProps }) {
       <div className="h-screen">
         <Component {...props} />
       </div>
-      {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && !router.pathname.endsWith('/widget') && (
+      {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && (
         <>
           <Script id="helpscout">
             {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
@@ -325,13 +325,13 @@ export default function App({ Component, pageProps }) {
             src="https://reflio.com/js/reflio.min.js"
             data-reflio="hsborf9afm060gz"
           />
+          <Script
+            id="bento-script"
+            src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+            strategy="afterInteractive"
+          />
         </>
       )}
-      <Script
-        id="bento-script"
-        src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
-        strategy="afterInteractive"
-      />
       <Analytics />
     </HeadlessApp>
   )
