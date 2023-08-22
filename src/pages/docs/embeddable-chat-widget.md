@@ -124,6 +124,8 @@ options: {
   color: "#0891b8", //color of the widget can be any hex color code.
   icon: "default", //icon for floating button can be "default" (comments), "robot", "life-ring", "question", "book", or an image url.
   alignment: "left", //alignment of the widget can be "left" or "right".
+  headerAlignment: "center", //alignment of the header can be "left" or "center". Default is "center".
+  logo: "https://yourdomain.com/imageurl.png", //logo for the header can be null, or a public image url. Recommended max height is 36px.
   botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
@@ -131,7 +133,7 @@ options: {
   labels: {
     poweredBy: "Powered by",
     inputPlaceholder: "Send a message...",
-    firstMessage: "What can I help you with? If I can't answer your question I'll help you open a support ticket with our team!",
+    firstMessage: "What can I help you with?", //supports markdown
     sources: "Sources",
     unhelpful: "Report as innacurate",
     getSupport: "Contact support",
@@ -162,20 +164,6 @@ DocsBotAI.init({
   options: {
     horizontalMargin: 40,
     verticalMargin: 30,
-  },
-})
-```
-
-### Customizing Widget Icons
-
-You can customize the icons that appear in the widget and floating button by passing the `icon` or `botIcon` properties in the `options` object. Here are the available options:
-
-```js
-DocsBotAI.init({
-  id: 'YOUR_ID_HERE',
-  options: {
-    icon: 'https://docsbot.ai/docsbot-icon-sq.svg', // floating button
-    botIcon: 'https://infiniteuploads.com/wp-content/uploads/2020/06/ui-logo-150px.png', // bot avatar
   },
 })
 ```

@@ -5,12 +5,12 @@ import {
   TableCellsIcon,
   RssIcon,
   CursorArrowRippleIcon,
+  CloudArrowDownIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChatBubbleLeftRightIcon,
   PencilSquareIcon,
   Cog6ToothIcon,
-  CogIcon,
   LifebuoyIcon,
   ChatBubbleLeftEllipsisIcon,
 } from '@heroicons/react/20/solid'
@@ -29,15 +29,17 @@ import iuLogo from '@/images/logos/iu-logo-words.svg'
 import dollieLogo from '@/images/logos/logo-dollie.png'
 import a8cLogo from '@/images/logos/logo-automattic.png'
 import plaidLogo from '@/images/logos/logo-plaid.png'
-import extendifyLogo from '@/images/logos/logo-extendify.png'
+//import extendifyLogo from '@/images/logos/logo-extendify.png'
 import conversionLogo from '@/images/logos/logo-conversion.svg'
+import sonyLogo from '@/images/logos/logo-sony.svg'
+import fujitecLogo from '@/images/logos/logo-fujitec.svg'
 import { Testimonials } from '@/components/Testimonials'
 
 const integrations = [
   {
     name: 'URL & Sitemaps',
     description:
-      'Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.',
+      'Index a webpage, your support docs, or an entire website including inline images in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.',
     icon: MapIcon,
   },
   {
@@ -53,7 +55,7 @@ const integrations = [
     icon: RssIcon,
   },
   {
-    name: 'CSV Import',
+    name: 'Bulk Import',
     description:
       'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index.',
     icon: TableCellsIcon,
@@ -65,10 +67,10 @@ const integrations = [
     icon: CursorArrowRippleIcon,
   },
   {
-    name: 'API',
+    name: 'Cloud Sources',
     description:
-      'Build your own data ingestion pipelines for any use case with our powerful admin API.',
-    icon: CogIcon,
+      'Connect your Notion, Google Drive, Dropbox, Intercom, or OneDrive account to DocsBot and we will index your files & content automatically.',
+    icon: CloudArrowDownIcon,
   },
 ]
 
@@ -119,7 +121,7 @@ export default function Home() {
         <div className="relative overflow-hidden">
           <Header />
           <main>
-            <div className="bg-gray-900 pt-4 sm:pt-10 lg:overflow-hidden lg:pt-2 lg:pb-14">
+            <div className="bg-gray-900 pt-4 sm:pt-10 lg:overflow-hidden lg:pb-14 lg:pt-2">
               <div className="mx-auto max-w-7xl lg:px-8">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-8">
                   <div className="mx-auto max-w-md px-6 sm:max-w-2xl sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
@@ -138,7 +140,7 @@ export default function Home() {
                             <svg
                               aria-hidden="true"
                               viewBox="0 0 418 42"
-                              className="absolute top-2/3 left-0 h-[0.58em] w-full fill-cyan-400/70"
+                              className="absolute left-0 top-2/3 h-[0.58em] w-full fill-cyan-400/70"
                               preserveAspectRatio="none"
                             >
                               <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z" />
@@ -158,7 +160,7 @@ export default function Home() {
                         <Link
                           href="/register"
                           type="button"
-                          className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                          className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 px-4 py-3 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                         >
                           Create your own free DocsBot
                         </Link>
@@ -168,7 +170,7 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                  <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
+                  <div className="-mb-16 mt-12 sm:-mb-48 lg:relative lg:m-0">
                     <div className="mx-auto max-w-md px-6 sm:max-w-2xl lg:max-w-none lg:px-0">
                       <Image
                         className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
@@ -183,43 +185,68 @@ export default function Home() {
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
                   Trusted by
                 </h2>
-                <div className="flex flex-wrap items-center justify-center space-y-4 space-x-4 sm:space-y-0 md:justify-between">
-                  <Link href="https://wpdocs.chat" target="_blank" title="ChatWP">
+                <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none xl:grid-cols-8">
+                  <Link
+                    href="https://wpdocs.chat"
+                    target="_blank"
+                    title="ChatWP"
+                    className="flex justify-center"
+                  >
                     <Image
-                      className="max-h-8 w-full object-contain"
+                      className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                       src={chatwpLogo}
                       alt="ChatWP Logo"
                       width={125}
                       height={32}
                     />
                   </Link>
-                  <Link href="https://infiniteuploads.com" target="_blank" title="Infinite Uploads">
+                  <Link
+                    href="https://infiniteuploads.com"
+                    target="_blank"
+                    title="Infinite Uploads"
+                    className="flex justify-center"
+                  >
                     <Image
-                      className="max-h-8 w-full object-contain"
+                      className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                       src={iuLogo}
                       alt="Infinite Uploads Logo"
                       width={125}
                       height={32}
                     />
                   </Link>
+
                   <Image
-                    className="max-h-8 w-full object-contain"
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+                    src={sonyLogo}
+                    alt="Sony Logo"
+                    width={125}
+                    height={26}
+                  />
+
+                  <Image
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                     src={a8cLogo}
                     alt="Automattic Logo"
                     width={125}
                     height={32}
                   />
-
                   <Image
-                    className="max-h-8 w-full object-contain"
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+                    src={plaidLogo}
+                    alt="Plaid Logo"
+                    width={125}
+                    height={32}
+                  />
+                  <Image
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                     src={conversionLogo}
                     alt="Conversion Logo"
                     width={125}
                     height={32}
                   />
-                  
+
                   <Image
-                    className="max-h-8 w-full object-contain"
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                     src={dollieLogo}
                     alt="Dollie Logo"
                     width={125}
@@ -227,11 +254,11 @@ export default function Home() {
                   />
 
                   <Image
-                    className="max-h-8 w-full object-contain"
-                    src={extendifyLogo}
-                    alt="Extendify Logo"
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+                    src={fujitecLogo}
+                    alt="Fujitech Logo"
                     width={125}
-                    height={32}
+                    height={26}
                   />
                 </div>
               </div>
@@ -274,7 +301,7 @@ export default function Home() {
                     <div key={feature.name} className="relative pl-9">
                       <dt className="inline font-semibold text-gray-900">
                         <feature.icon
-                          className="absolute top-1 left-1 h-5 w-5 text-cyan-600"
+                          className="absolute left-1 top-1 h-5 w-5 text-cyan-600"
                           aria-hidden="true"
                         />
                         {feature.name}
@@ -287,7 +314,7 @@ export default function Home() {
             </div>
 
             {/* Feature section with grid */}
-            <div className="relative bg-white pt-16 pb-12 sm:pt-24 lg:pt-32">
+            <div className="relative bg-white pb-12 pt-16 sm:pt-24 lg:pt-32">
               <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
                 <h2 className="text-lg font-semibold text-cyan-600">
                   A simple managed chatbot service
