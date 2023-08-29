@@ -196,7 +196,7 @@ function Register({ teamCount }) {
                     />
                     I agree to the{' '}
                     <Link
-                      href="/terms-of-service"
+                      href="/legal/terms-of-service"
                       target="_blank"
                       className="underline hover:text-gray-400"
                     >
@@ -204,7 +204,7 @@ function Register({ teamCount }) {
                     </Link>{' '}
                     &{' '}
                     <Link
-                      href="/privacy-policy"
+                      href="/legal/privacy-policy"
                       target="_blank"
                       className="underline hover:text-gray-400"
                     >

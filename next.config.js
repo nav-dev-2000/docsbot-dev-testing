@@ -1,7 +1,6 @@
 const withMarkdoc = require('@markdoc/next.js')
-const { withHeadlessConfig } = require('@headstartwp/next/config');
-const headlessConfig = require('./headless.config');
-
+const { withHeadlessConfig } = require('@headstartwp/next/config')
+const headlessConfig = require('./headless.config')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -51,6 +50,16 @@ const nextConfig = {
         destination: '/#features',
         permanent: true,
       },
+      {
+        source: '/privacy-policy',
+        destination: '/legal/privacy-policy',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service',
+        destination: '/legal/terms-of-service',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { isServer }) => {
@@ -62,4 +71,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig);
+module.exports = withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig)

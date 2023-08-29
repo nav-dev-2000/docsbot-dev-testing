@@ -26,8 +26,9 @@ const footerNavigation = {
     },
   ],
   legal: [
-    { name: 'Privacy', href: '/privacy-policy' },
-    { name: 'Terms', href: '/terms-of-service' },
+    { name: 'Privacy', href: '/legal/privacy-policy' },
+    { name: 'Terms', href: '/legal/terms-of-service' },
+    { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
     { name: 'Affiliate Program', href: 'https://affiliates.reflio.com/invite/docsbot' },
   ],
