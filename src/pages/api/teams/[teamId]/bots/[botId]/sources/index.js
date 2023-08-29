@@ -66,7 +66,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, selectedInterval, faqs, carbonId, carbonFiles } = req.body
+    let { type, title, url, file, selectedInterval, faqs, carbonId } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -173,22 +173,8 @@ export default async function handler(req, res) {
       if (!carbonId) {
         return res.status(400).json({ message: 'Invalid or missing parameter "carbonId".' })
       }
-
-      // check carbonFiles
-      if (!carbonFiles || !Array.isArray(carbonFiles)) {
-        return res.status(400).json({ message: 'Invalid parameter "carbonFiles".' })
-      }
-      pageCount = carbonFiles.length
-
-      //check plan credits for carbon imports
-      if (stripePlan(team).pages < team.pageCount + pageCount) {
-        return res.status(402).json({
-          message: 'Exceeds source page limit. Please upgrade your plan.',
-        })
-      }
     } else {
       carbonId = null
-      carbonFiles = null
     }
 
     try {
@@ -203,7 +189,6 @@ export default async function handler(req, res) {
         chunkCount: 0,
         faqs,
         carbonId,
-        carbonFiles,
       }
 
       if (selectedInterval && selectedInterval !== 'none') {

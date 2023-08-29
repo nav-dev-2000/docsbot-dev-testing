@@ -34,7 +34,7 @@ const footerNavigation = {
   ],
   social: [
     {
-      name: 'Twitter',
+      name: 'X/Twitter',
       href: 'https://twitter.com/UglyRobotDev/',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>

@@ -39,7 +39,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [urlDescription, setUrlDescription] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState('none')
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
-  const [carbonOpen, setCarbonOpen] = useState(false)
   const [carbonId, setCarbonId] = useState(null)
   const [carbonFiles, setCarbonFiles] = useState(null)
 
@@ -109,25 +108,27 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
   const carbonOnSuccess = async (response) => {
     console.log('OnSuccess callback called!', response)
-    if (!response.data[0].objects || !response.data[0].objects.length) {
+    if (!response.data || !response.data.files.length) {
       return
     }
-    
-    const carbon = response.data[0].data_source_external_id.split('|')
-    setTitle(
-      'Account: ' + carbon[1]
-    )
-    setCarbonId(carbon[2])
-    setCarbonFiles(response.data[0].objects)
-    setCarbonOpen(false)
+
+    let carbon;
+    if (response.data.data_source_external_id.includes('|')) { //new format
+      carbon = response.data.data_source_external_id.split('|');
+    } else if (response.data.data_source_external_id.includes('-')) {
+      carbon = response.data.data_source_external_id.split('-');
+    }
+    setTitle('Account: ' + carbon[1]);
+    setCarbonId(carbon[1]);
+    setCarbonFiles(response.data.files)
   }
 
   // create carbon source automatically
   useEffect(() => {
-    if (carbonFiles && carbonFiles.length && title) {
+    if (carbonId && title) {
       createSource()
     }
-  }, [carbonFiles, title])
+  }, [carbonId, title])
 
   async function createSource() {
     if (!validated) {
@@ -153,7 +154,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         selectedInterval,
         faqs: questions,
         carbonId,
-        carbonFiles,
       }),
     })
     if (response.ok) {
@@ -524,31 +524,27 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
             </button>
 
             {selectedSourceType?.isCarbon ? (
-              <>
-                <CarbonConnect
-                  tokenFetcher={carbonTokenFetcher}
-                  orgName="DocsBot AI"
-                  brandIcon="/.well-known/logo.png"
-                  primaryBackgroundColor="#0891B2"
-                  primaryTextColor="#FFFFFF"
-                  secondaryBackgroundColor="#FFFFFF"
-                  onSuccess={carbonOnSuccess}
-                  onError={(error) => console.warn(error)}
-                  tags={{ botId: bot.id, teamId: team.id }}
-                  entryPoint={selectedSourceType?.isCarbon}
-                  enabledIntegrations={[
-                    {
-                      id: selectedSourceType?.isCarbon,
-                      chunkSize: 500,
-                      overlapSize: 50,
-                    },
-                  ]}
-                  open={carbonOpen}
-                  setOpen={setCarbonOpen}
-                />
+              <CarbonConnect
+                tokenFetcher={carbonTokenFetcher}
+                orgName="DocsBot AI"
+                brandIcon="/.well-known/logo.png"
+                primaryBackgroundColor="#0891B2"
+                primaryTextColor="#FFFFFF"
+                secondaryBackgroundColor="#FFFFFF"
+                onSuccess={carbonOnSuccess}
+                onError={(error) => console.warn(error)}
+                tags={{ botId: bot.id, teamId: team.id }}
+                entryPoint={selectedSourceType?.isCarbon}
+                enabledIntegrations={[
+                  {
+                    id: selectedSourceType?.isCarbon,
+                    chunkSize: 500,
+                    overlapSize: 50,
+                  },
+                ]}
+              >
                 <button
                   disabled={isUpdating}
-                  onClick={() => setCarbonOpen(true)}
                   className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                 >
                   {isUpdating ? (
@@ -563,7 +559,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                     </>
                   )}
                 </button>
-              </>
+              </CarbonConnect>
             ) : (
               <button
                 disabled={isUpdating || !validated}

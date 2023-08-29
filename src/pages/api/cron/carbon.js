@@ -11,6 +11,7 @@ export default async function handler(request, response) {
   const firestore = getFirestore()
 
   // this is a public endpoint, however our 'cron' path is protected by a key; TODO: can this be an env var?
+  // To test: curl "http://localhost:3000/api/cron/carbon?key=efjlnczww7236912"
   if (!request.query.key || request.query.key !== 'efjlnczww7236912') {
     response.status(404).end()
     return
@@ -47,13 +48,20 @@ export default async function handler(request, response) {
           },
         }
 
-        // check with carbon if source is ready
-        // https://api.carbon.ai/redoc#tag/user_files/operation/user_files_v2_user_files_v2_post
+        const sourceFilters = {
+          notion: ['NOTION', 'NOTION_DATABASE'],
+          google_docs: ['GOOGLE_DRIVE'],
+          intercom: ['INTERCOM'],
+          dropbox: ['DROPBOX'],
+        }
+
+        const carbonFiles = []
+
         const response = await axios.post(
           `https://api.carbon.ai/user_files_v2`,
           {
             filters: {
-              external_file_id: source.carbonFiles.map((file) => file.id), //BUG this seems to always return all files
+              source: sourceFilters[source.type],
             },
             pagination: {
               limit: 10000,
@@ -66,18 +74,36 @@ export default async function handler(request, response) {
           throw new Error(`Carbon API returned status ${response.status}`)
         }
 
+        carbonFiles.push(...response.data.results)
+
         let newCarbonFiles = []
         let ready = true
-        for (const result of response.data.results) {
-          if (source.carbonFiles.find((file) => file.id === result.external_file_id)) {
-            // Do something with the result
-            if (result.sync_status !== 'READY') {
-              ready = false
-            }
+        for (const file of carbonFiles) {
+          // Do something with the file
+          if (file.sync_status !== 'READY' && file.sync_status !== 'SYNC_ERROR') {
+            ready = false
+          }
 
-            newCarbonFiles.push({fileId: result.id, ...source.carbonFiles.find((file) => file.id === result.external_file_id)})
+          if (file.sync_status !== 'SYNC_ERROR') {
+            newCarbonFiles.push({
+              id: file.id,
+              name: file.name || file.title || 'DB Item', //gdocs has name, others have title
+              url: file.external_url,
+              type: file.file_statistics?.file_format || file.source,
+              status: file.sync_status,
+            })
           }
         }
+
+        //update source
+        doc.ref.update({
+          pageCount: newCarbonFiles.length,
+          carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
+        })
+
+        console.log('newCarbonFiles', newCarbonFiles)
+
+        //TODO if plan page count is exceeded, fail and return
 
         if (ready) {
           const chunks = []
@@ -87,9 +113,12 @@ export default async function handler(request, response) {
               `https://api.carbon.ai/text_chunks`,
               {
                 filters: {
-                  user_file_id: file.fileId,
+                  user_file_id: file.id,
                 },
                 include_vectors: true,
+                pagination: {
+                  limit: 10000,
+                },
               },
               headers
             )
@@ -100,17 +129,12 @@ export default async function handler(request, response) {
 
             //create chunks
             for (const chunk of response.data.results) {
-              const carbonFile = source.carbonFiles.find(
-                (cFile) => cFile.id === file.external_file_id
-              )
-              if (carbonFile) {
-                chunks.push({
-                  text: chunk.source_content,
-                  title: carbonFile.title || carbonFile.name || 'Documentation', //gdocs has name, others have title
-                  url: carbonFile.url || null,
-                  vector: chunk.embedding,
-                })
-              }
+              chunks.push({
+                text: chunk.source_content,
+                title: file.name, //gdocs has name, others have title
+                url: file.url || null,
+                vector: chunk.embedding,
+              })
             }
           }
 
@@ -123,9 +147,7 @@ export default async function handler(request, response) {
           doc.ref.update({
             status: 'ready',
             chunkCount: chunks.length,
-            pageCount: source.carbonFiles.length,
             refreshing: FieldValue.delete(),
-            carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
           })
 
           // increment only if not doing a scheduled refresh
@@ -135,7 +157,7 @@ export default async function handler(request, response) {
               const botDoc = await transaction.get(botRef)
               const bot = botDoc.data()
               transaction.update(botRef, {
-                pageCount: bot.pageCount + source.carbonFiles.length,
+                pageCount: bot.pageCount + newCarbonFiles.length,
                 chunkCount: bot.chunkCount + chunks.length,
                 status: 'ready',
               })
@@ -146,23 +168,29 @@ export default async function handler(request, response) {
               const teamDoc = await transaction.get(teamRef)
               const team = teamDoc.data()
               transaction.update(teamRef, {
-                pageCount: team.pageCount + source.carbonFiles.length,
+                pageCount: team.pageCount + newCarbonFiles.length,
                 chunkCount: team.chunkCount + chunks.length,
                 status: 'ready',
               })
             })
           }
 
-          // we only allow unique carbon cloud login sources per bot, so we'll need to check if a carbon external_file_id exists in any sources already.
+          // we only allow unique carbon type sources per bot, so we'll need to check if a carbon type.
           // if it does, we'll need to delete it
           const sources = await getSources(teamId, bot)
           const existingSources = sources.filter(
-            (oldSource) => oldSource.carbonId === source.carbonId && oldSource.id !== sourceId
+            (oldSource) => oldSource.type === source.type && oldSource.id !== sourceId
           )
           // loop through existing sources and delete them
+          const newIds = [source.carbonId]
           await existingSources.forEach(async (existingSource) => {
+            newIds.push(existingSource.carbonId)
             console.log('Deleting old existing source', existingSource.id)
             await deleteSource(teamId, bot, existingSource.id, false) //don't delete files from carbon as they might be resused
+          })
+          //update source with list of cloud logins
+          doc.ref.update({
+            carbonId: newIds.join(', '),
           })
         }
       } catch (error) {

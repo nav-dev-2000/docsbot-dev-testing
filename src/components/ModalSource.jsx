@@ -1,6 +1,16 @@
 import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon, TrashIcon, ArrowPathIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'
+import {
+  XMarkIcon,
+  TrashIcon,
+  ArrowPathIcon,
+  ArrowDownTrayIcon,
+  DocumentIcon,
+  CircleStackIcon,
+  DocumentTextIcon,
+  PresentationChartBarIcon,
+  TableCellsIcon,
+} from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
@@ -185,6 +195,27 @@ export default function ModalSource({
     setShowInterval(canSourceTypeSchedule(source.type))
   }, [source])
 
+  const carbonIcon = (type) => {
+    switch (type) {
+      case 'NOTION':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'NOTION_DATABASE':
+        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_DOCS':
+        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SLIDES':
+        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SHEETS':
+        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'INTERCOM':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'DROPBOX':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      default:
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+    }
+  }
+
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
@@ -284,7 +315,7 @@ export default function ModalSource({
                             onSelect={setSelectedInterval}
                             defaultSelected={selectedInterval}
                           />
-                          <h1 className="flex-end inline-flex text-sm pl-0.5 font-medium text-gray-500">
+                          <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
                             {source.scheduled
                               ? 'Refresh scheduled for ' + new Date(source.scheduled).toUTCString()
                               : 'This source will not be refreshed.'}
@@ -303,7 +334,8 @@ export default function ModalSource({
                     {source.indexedUrls?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
-                          Indexed URLs <em className="text-slate-500 text-sm">({source.indexedUrls.length})</em>:
+                          Indexed URLs{' '}
+                          <em className="text-sm text-slate-500">({source.indexedUrls.length})</em>:
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="space-y-2">
@@ -312,10 +344,40 @@ export default function ModalSource({
                                 key={item.source}
                                 className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-4 py-1 shadow"
                               >
-                                <Link href={item.source} target="_blank" className="block w-full text-sm">
+                                <Link
+                                  href={item.source}
+                                  target="_blank"
+                                  className="block w-full text-sm"
+                                >
                                   <em className="text-slate-600">{item.source}</em>
                                   <br />
                                   {item.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    )}
+                    {source.carbonFiles && source.carbonFiles?.length > 0 && (
+                      <>
+                        <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
+                          Indexed Documents{' '}
+                          <em className="text-sm text-slate-500">({source.carbonFiles.length})</em>:
+                        </h2>
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                          <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
+                            {source.carbonFiles.map((item) => (
+                              <li
+                                key={item.id}
+                                className=" rounded-md bg-white px-4 shadow first:ml-2 first:mt-2"
+                              >
+                                <Link
+                                  href={item.url}
+                                  target="_blank"
+                                  className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm"
+                                >
+                                  {carbonIcon(item.type)} {item.name}
                                 </Link>
                               </li>
                             ))}
