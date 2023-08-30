@@ -200,7 +200,6 @@ export default async function handler(request, response) {
           status: 'failed',
           error: error.message,
         })
-        response.status(500).json({ message: error.message })
       }
     })
   } catch (error) {
