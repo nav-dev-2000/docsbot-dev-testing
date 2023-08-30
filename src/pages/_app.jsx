@@ -2,7 +2,6 @@ import 'focus-visible'
 import '@/styles/tailwind.css'
 import '@/styles/overrides.css'
 import Script from 'next/script'
-import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter, Router } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -99,7 +98,8 @@ export default function App({ Component, pageProps }) {
     let title = pageProps.markdoc?.frontmatter.title
 
     let pageTitle =
-      pageProps.markdoc?.frontmatter.pageTitle || `${pageProps.markdoc?.frontmatter.title} - DocsBot Documentation`
+      pageProps.markdoc?.frontmatter.pageTitle ||
+      `${pageProps.markdoc?.frontmatter.title} - DocsBot Documentation`
 
     let description = pageProps.markdoc?.frontmatter.description
 
@@ -180,33 +180,29 @@ export default function App({ Component, pageProps }) {
         <Layout title={title} tableOfContents={tableOfContents}>
           <Component {...pageProps} />
         </Layout>
-        {!router.pathname.startsWith('/chat/') && !router.pathname.startsWith('/ask/') && (
-          <>
-            <Script id="helpscout">
-              {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
-            </Script>
-            <Script id="docsbot">
-              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};
-              DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
-      event.preventDefault();
-      DocsBotAI.unmount();
-      Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
-      Beacon('open');
-  },});`}
-            </Script>
-            <Script
-              id="bento-script"
-              src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
-              strategy="afterInteractive"
-            />
-            <Script
-              id="reflio"
-              strategy="afterInteractive"
-              src="https://reflio.com/js/reflio.min.js"
-              data-reflio="hsborf9afm060gz"
-            />
-          </>
-        )}
+        <Script id="helpscout">
+          {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
+        </Script>
+        <Script id="docsbot">
+          {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};
+          DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
+  event.preventDefault();
+  DocsBotAI.unmount();
+  Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
+  Beacon('open');
+},});`}
+        </Script>
+        <Script
+          id="bento-script"
+          src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="reflio"
+          strategy="afterInteractive"
+          src="https://reflio.com/js/reflio.min.js"
+          data-reflio="hsborf9afm060gz"
+        />
         <Analytics />
       </>
     )
@@ -330,9 +326,9 @@ export default function App({ Component, pageProps }) {
             src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
             strategy="afterInteractive"
           />
+          <Analytics />
         </>
       )}
-      <Analytics />
     </HeadlessApp>
   )
 }
