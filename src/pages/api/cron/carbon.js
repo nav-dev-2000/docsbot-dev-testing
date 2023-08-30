@@ -198,9 +198,9 @@ export default async function handler(request, response) {
 
         doc.ref.update({
           status: 'failed',
-          error: error,
+          error: error.message,
         })
-        return
+        response.status(500).json({ message: error.message })
       }
     })
   } catch (error) {
