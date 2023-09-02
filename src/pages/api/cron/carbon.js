@@ -101,7 +101,7 @@ export default async function handler(request, response) {
           carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
         })
 
-        console.log('newCarbonFiles', newCarbonFiles)
+        console.log('newCarbonFiles', newCarbonFiles.length, 'ready', ready)
 
         //TODO if plan page count is exceeded, fail and return
 

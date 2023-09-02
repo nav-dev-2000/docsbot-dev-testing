@@ -19,12 +19,13 @@ This endpoint accepts a websocket request with the following parameters in the i
 
 ### Parameters
 
-| Parameter       | Type    | Description                                                                       |
-| --------------- | ------- | --------------------------------------------------------------------------------- |
-| **question**    | string  | The question to ask the bot. 5 to 2000 characters.                                |
-| **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false` |
-| **history**     | array   | The chat history array. Optional, defaults to `[]`                                |
-| **auth**        | string  | The API key. Required only for private bots.                                      |
+| Parameter       | Type    | Description                                                                             |
+| --------------- | ------- | --------------------------------------------------------------------------------------- |
+| **question**    | string  | The question to ask the bot. 2 to 2000 characters.                                      |
+| **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false`       |
+| **format**      | string  | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown` |
+| **history**     | array   | The chat history array. Optional, defaults to `[]`                                      |
+| **auth**        | string  | The API key. Required only for private bots.                                            |
 
 {% callout title="full_source behavior" %}
 If `full_source` is set to `true`, the `content` property of each source will be populated with the full source content. This can be useful if you want to display the full source content in your interface. As source pages are divided into chunks, we normally only return unique source title/urls. But if this parameter is set to true multiple sources may be returned with the same title/url but different content.
@@ -130,6 +131,7 @@ ws.onopen = function (event) {
   ws.send(JSON.stringify(req))
 }
 ```
+
 ### Handle the response messages
 
 ```javascript
