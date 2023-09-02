@@ -316,10 +316,16 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           </button>
                         )}
                       </div>
-                      <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
-
+                      <h2 className="text-xl font-medium text-gray-900">
+                        {question.standaloneQuestion || question.question}
+                      </h2>
+                      {question.standaloneQuestion && (
+                        <h3 className="mt-1 mb-1 text-sm text-gray-800">
+                          Original Question: <span className="text-gray-900 font-semibold">{question.question}</span>
+                        </h3>
+                      )}
                       <div
-                        className="prose mt-2 w-full max-w-none"
+                        className="prose mt-2 w-full max-w-none border-t border-gray-200 pt-2"
                         dangerouslySetInnerHTML={{ __html: answerHtml }}
                       />
 
@@ -471,7 +477,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <p>{question.question}</p>
+                            <p>{question.standaloneQuestion || question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
                               {question.createdAt}
                             </span>

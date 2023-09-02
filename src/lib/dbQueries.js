@@ -198,7 +198,7 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .select(FieldPath.documentId(), 'createdAt', 'ip', 'question', 'sources', 'answer', 'rating', 'escalation', 'metadata') //skip the vector as it's huge
+    .select(FieldPath.documentId(), 'createdAt', 'ip', 'question', 'standaloneQuestion', 'sources', 'answer', 'rating', 'escalation', 'metadata') //skip the vector as it's huge
 
   // grab limits
   const plan = stripePlan(team)

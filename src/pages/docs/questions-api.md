@@ -13,17 +13,18 @@ Once you've deployed your bot to production, you can view the questions and answ
 
 Question objects have the following properties:
 
-| Property      | Type    | Description                                                                                                                                      |
-| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **id**        | string  | The question id.                                                                                                                                 |
-| **createdAt** | string  | The question creation date.                                                                                                                      |
-| **alias**     | string  | An anonymous username generate from user IP or name/email from metadata metadata.                                                                |
-| **question**  | string  | The question the user asked.                                                                                                                     |
-| **answer**    | string  | The answer text as returned to user in Markdown.                                                                                                 |
-| **sources**   | array   | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
-| **ip**        | string  | A SHA256 hash of the user or caller IP address. Can help to metadata questions from the same user.                                               |
-| **rating**    | integer | -1, 0, or 1 for rating up, neutral, or down.                                                                                                     |
-| **metadata**  | object  | A user identification object with arbitrary metadata about the the user that was sent with the chat request.                                     |
+| Property               | Type        | Description                                                                                                                                      |
+| ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **id**                 | string      | The question id.                                                                                                                                 |
+| **createdAt**          | string      | The question creation date.                                                                                                                      |
+| **alias**              | string      | An anonymous username generated from user IP or name/email from metadata metadata.                                                               |
+| **question**           | string      | The question the user asked.                                                                                                                     |
+| **standaloneQuestion** | string/null | The full contextual question generated from chat history used for context search. `null` if no history.                                            |
+| **answer**             | string      | The answer text as returned to user in Markdown.                                                                                                 |
+| **sources**            | array       | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
+| **ip**                 | string      | A SHA256 hash of the user or caller IP address. Can help to metadata questions from the same user.                                               |
+| **rating**             | integer     | -1, 0, or 1 for rating up, neutral, or down.                                                                                                     |
+| **metadata**           | object      | A user identification object with arbitrary metadata about the the user that was sent with the chat request.                                     |
 
 ### The Source object
 

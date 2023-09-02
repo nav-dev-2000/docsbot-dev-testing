@@ -47,40 +47,6 @@ function Questions({ team, bot, preQuestions }) {
     }
   }
 
-  const downloadLogs = async () => {
-    if (isProcessing) {
-      return
-    }
-    setIsProcessing(true)
-
-    // ask api to generate logs
-    const apiUrl = `/api/teams/${team.id}/bots/${botId}/export-log`
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      if (response.ok) {
-        // we get a signed url back
-        const { url } = await response.json()
-        var link = document.createElement('a')
-        link.href = url
-        link.click()
-        link.remove()
-
-        setInfoText('Successfully exported logs! Your download should start soon.')
-      } else {
-        setErrorText('Something went wrong, please try again.')
-      }
-    } catch (e) {
-      console.warn(e)
-      setErrorText('Something went wrong, please try again.')
-    }
-    setIsProcessing(false)
-  }
-
   if (!bot) return null
 
   const title = [bot.name, 'Questions']

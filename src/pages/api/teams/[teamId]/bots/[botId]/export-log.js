@@ -64,13 +64,13 @@ const handler = async (req, res) => {
         .orderBy('createdAt', 'desc')
         .where('createdAt', '>=', start)
         .where('createdAt', '<=', end)
-        .select('ip', 'metadata', 'question', 'answer', 'sources', 'rating', 'escalation', 'createdAt') // only select fields we need is faster
+        .select('ip', 'metadata', 'question', 'standaloneQuestion', 'answer', 'sources', 'rating', 'escalation', 'createdAt') // only select fields we need is faster
         .get()
       var csvData = [];
 
       console.log('questions', questions.size)
       // write questions to csv file
-      csvData.push(['alias','timestamp','rating','question','answer','sources','referrer'])
+      csvData.push(['alias','timestamp','rating','question','standaloneQuestion','answer','sources','referrer'])
       questions.forEach((doc) => {
         let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
         //if we identified the user, use the provided data for alias
@@ -108,7 +108,7 @@ const handler = async (req, res) => {
         const rating = question?.escalation ? 'Contacted Support' : ratingValue;
         const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
 
-        csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, cleanedAnswer, sources, referrer])
+        csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer])
       })
 
       console.log('Export Query done',new Date().toISOString())
