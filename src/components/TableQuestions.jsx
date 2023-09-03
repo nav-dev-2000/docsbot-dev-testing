@@ -319,11 +319,13 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                       <h2 className="text-xl font-medium text-gray-900">
                         {question.standaloneQuestion || question.question}
                       </h2>
-                      {question.standaloneQuestion && (
-                        <h3 className="mt-1 mb-1 text-sm text-gray-800">
-                          Original Question: <span className="text-gray-900 font-semibold">{question.question}</span>
-                        </h3>
-                      )}
+                      {question.standaloneQuestion &&
+                        question.standaloneQuestion !== question.question && (
+                          <h3 className="mb-1 mt-1 text-sm text-gray-800">
+                            Original Question:{' '}
+                            <span className="font-semibold text-gray-900">{question.question}</span>
+                          </h3>
+                        )}
                       <div
                         className="prose mt-2 w-full max-w-none border-t border-gray-200 pt-2"
                         dangerouslySetInnerHTML={{ __html: answerHtml }}
