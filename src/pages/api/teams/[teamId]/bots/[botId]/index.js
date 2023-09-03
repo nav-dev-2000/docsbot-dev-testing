@@ -6,7 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { deleteBot } from '@/lib/apiFunctions'
-import e from 'cors'
+import crypto from 'crypto'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -49,6 +49,7 @@ export default async function handler(req, res) {
         hideSources,
         logo,
         headerAlignment,
+        resetkey,
       } = req.body
       const botData = {}
 
@@ -237,6 +238,12 @@ export default async function handler(req, res) {
 
       if (hideSources !== undefined) {
         botData.hideSources = !!hideSources
+      }
+
+      // reset the bot embed key or add if missing
+      if (resetkey !== undefined || !bot.signatureKey) {
+        //create a random string for the bot embed key
+        botData.signatureKey = crypto.randomBytes(32).toString('hex')
       }
 
       if (labels) {

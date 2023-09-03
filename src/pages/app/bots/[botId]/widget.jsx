@@ -3,7 +3,14 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
-import { ArrowPathIcon, ChevronLeftIcon, XMarkIcon, PhotoIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowPathIcon,
+  ChevronLeftIcon,
+  XMarkIcon,
+  PhotoIcon,
+  ClipboardIcon,
+  ClipboardDocumentIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import FieldToggle from '@/components/FieldToggle'
@@ -200,7 +207,7 @@ function Widget({ team, bot }) {
               >
                 {embed}
               </div>
-              <div className="mx-auto mb-8 mt-4 items-start justify-between sm:flex">
+              <div className="mx-auto mb-8 mt-4 items-center justify-between space-x-0 space-y-2 lg:flex lg:space-x-2 lg:space-y-0">
                 <button
                   className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
                   onClick={(e) => {
@@ -214,6 +221,34 @@ function Widget({ team, bot }) {
                 >
                   {copied ? 'Copied!' : 'Copy to Clipboard'}
                 </button>
+                {bot.privacy === 'private' && (
+                  <div className="relative flex h-10 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md lg:w-1/3">
+                    <span className="flex select-none items-center pl-3 text-xs text-gray-500">
+                      Signing Key
+                    </span>
+                    <input
+                      type="text"
+                      id="embedding-key"
+                      className="block flex-1 overflow-hidden border-0 bg-transparent py-1.5 pl-1 pr-8 text-xs text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:leading-6"
+                      value={bot.signatureKey}
+                      readOnly
+                    />
+                    <button
+                      className="absolute inset-y-0 right-0 flex items-center pr-2 text-gray-400 hover:text-gray-600"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        navigator.clipboard.writeText(bot.signatureKey)
+                        setCopied(true)
+                        setTimeout(() => {
+                          setCopied(false)
+                        }, 2000)
+                      }}
+                    >
+                      <ClipboardDocumentIcon className="h-5 w-5" aria-hidden="true" />
+                      <span className="sr-only">Copy key</span>
+                    </button>
+                  </div>
+                )}
                 <Link
                   href="/docs/embeddable-chat-widget"
                   className="mt-4 block text-cyan-800 underline sm:mt-0"
@@ -233,35 +268,34 @@ function Widget({ team, bot }) {
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
                     <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-
-                        <div className="flex-none">
-                          <label className="mb-2 block text-sm font-medium text-gray-900">
-                            Widget Color
-                          </label>
-                          <SketchPicker
-                            color={color}
-                            onChange={(color) => setColor(color.hex)}
-                            disableAlpha={true}
-                            presetColors={[
-                              '#F44336',
-                              '#E91E63',
-                              '#9C27B0',
-                              '#673AB7',
-                              '#3F51B5',
-                              '#2196F3',
-                              '#03A9F4',
-                              '#00BCD4',
-                              '#009688',
-                              '#4CAF50',
-                              '#FFEB3B',
-                              '#FF9800',
-                              '#FF5722',
-                              '#607D8B',
-                              '#FFFFFF',
-                              '#000000',
-                            ]}
-                          />
-                        </div>
+                      <div className="flex-none">
+                        <label className="mb-2 block text-sm font-medium text-gray-900">
+                          Widget Color
+                        </label>
+                        <SketchPicker
+                          color={color}
+                          onChange={(color) => setColor(color.hex)}
+                          disableAlpha={true}
+                          presetColors={[
+                            '#F44336',
+                            '#E91E63',
+                            '#9C27B0',
+                            '#673AB7',
+                            '#3F51B5',
+                            '#2196F3',
+                            '#03A9F4',
+                            '#00BCD4',
+                            '#009688',
+                            '#4CAF50',
+                            '#FFEB3B',
+                            '#FF9800',
+                            '#FF5722',
+                            '#607D8B',
+                            '#FFFFFF',
+                            '#000000',
+                          ]}
+                        />
+                      </div>
                       <div className="flex flex-col justify-between space-y-4 sm:space-y-0">
                         <FieldRadioIcon
                           type="icon"
@@ -607,8 +641,23 @@ function Widget({ team, bot }) {
             </div>
           </form>
         </div>
-        <div className="w-80 mt-8 xl:mt-0 flex-none mx-auto xl:ml-8 min-h-screen">
-          <WidgetPreview {...{ bot, color, logo, headerAlignment, alignment, branding, icon, botIcon, showButtonLabel, labels, hideSources, supportLink }} />
+        <div className="mx-auto mt-8 min-h-screen w-80 flex-none xl:ml-8 xl:mt-0">
+          <WidgetPreview
+            {...{
+              bot,
+              color,
+              logo,
+              headerAlignment,
+              alignment,
+              branding,
+              icon,
+              botIcon,
+              showButtonLabel,
+              labels,
+              hideSources,
+              supportLink,
+            }}
+          />
         </div>
       </div>
     </DashboardWrap>

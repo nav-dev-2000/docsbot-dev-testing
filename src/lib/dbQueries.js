@@ -64,15 +64,21 @@ export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFr
 }
 
 export async function getBot(teamId, botId) {
-  const botRef = await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).get()
-  if (botRef.exists) {
-    let bot = { id: botRef.id, ...botRef.data() }
+  const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId)
+  const botSnapshot = await botRef.get()
+  if (botSnapshot.exists) {
+    let bot = { id: botSnapshot.id, ...botSnapshot.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
 
     //create an expiring hmac token for the bot so that it can be used to authenticate with the API
     if (bot.privacy === 'private') {
-      const hmac = crypto.createHmac('sha256', process.env.HMAC_SECRET)
-      const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 24 //expires in 24 hours
+      if (!bot.signatureKey) {
+        bot.signatureKey = crypto.randomBytes(32).toString('hex')
+        botRef.update({ signatureKey: bot.signatureKey })
+      }
+
+      const hmac = crypto.createHmac('sha256', bot.signatureKey)
+      const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 12 //expires in 12 hours
       hmac.update(`${botId}:${expires}`)
       bot.signature = `${hmac.digest('hex')}:${expires}`
     }

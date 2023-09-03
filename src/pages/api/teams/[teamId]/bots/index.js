@@ -6,6 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createSchema } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
+import crypto from 'crypto'
 
 const router = createRouter()
 
@@ -97,6 +98,7 @@ router.post(async (req, res) => {
       pageCount: 0,
       chunkCount: 0,
       questionCount: 0,
+      signatureKey: crypto.randomBytes(32).toString('hex'),
     })
 
     const botId = docRef.id
