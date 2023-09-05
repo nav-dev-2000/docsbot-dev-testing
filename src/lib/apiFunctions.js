@@ -123,8 +123,8 @@ export const deleteBot = async (teamId, botId) => {
   for (let i = 0; i < toDelete.length; i++) {
     sourcesBatch.delete(toDelete[i])
     counter++
-    // Commit the batch every 100 operations
-    if (counter % 100 === 0) {
+    // Commit the batch every 50 operations
+    if (counter % 50 === 0) {
       await sourcesBatch.commit()
       sourcesBatch = firestore.batch()
     }
@@ -152,8 +152,8 @@ export const deleteBot = async (teamId, botId) => {
   for (let i = 0; i < toDelete.length; i++) {
     questionsBatch.delete(toDelete[i])
     counter++
-    // Commit the batch every 100 operations
-    if (counter % 100 === 0) {
+    // Commit the batch every 50 operations
+    if (counter % 50 === 0) {
       await questionsBatch.commit()
       questionsBatch = firestore.batch()
     }

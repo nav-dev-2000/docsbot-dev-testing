@@ -29,7 +29,7 @@ import iuLogo from '@/images/logos/iu-logo-words.svg'
 import dollieLogo from '@/images/logos/logo-dollie.png'
 import a8cLogo from '@/images/logos/logo-automattic.png'
 import plaidLogo from '@/images/logos/logo-plaid.png'
-//import extendifyLogo from '@/images/logos/logo-extendify.png'
+import extendifyLogo from '@/images/logos/logo-extendify.png'
 import conversionLogo from '@/images/logos/logo-conversion.svg'
 import sonyLogo from '@/images/logos/logo-sony.svg'
 import fujitecLogo from '@/images/logos/logo-fujitec.svg'
@@ -222,14 +222,6 @@ export default function Home() {
                     width={125}
                     height={26}
                   />
-
-                  <Image
-                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
-                    src={a8cLogo}
-                    alt="Automattic Logo"
-                    width={125}
-                    height={32}
-                  />
                   <Image
                     className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                     src={plaidLogo}
@@ -237,6 +229,14 @@ export default function Home() {
                     width={125}
                     height={32}
                   />
+                  <Image
+                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+                    src={extendifyLogo}
+                    alt="Extendify Logo"
+                    width={125}
+                    height={32}
+                  />
+                  
                   <Image
                     className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
                     src={conversionLogo}

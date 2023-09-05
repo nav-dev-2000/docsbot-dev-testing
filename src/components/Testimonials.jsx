@@ -31,15 +31,6 @@ const testimonials = [
         image: image8,
       },
     },
-    {
-      content:
-        "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
-      author: {
-        name: 'Gobinda Tarafdar',
-        role: 'Senior Digital Strategist - Product Co-Ordinator',
-        image: image2,
-      },
-    },
   ],
   [
     {
@@ -62,11 +53,11 @@ const testimonials = [
     },
     {
       content:
-        "I just wanted to say THANK YOU for jumping on a call with us. It was super helpful and it gave us a lot of ideas of what we can do to get DocsBot more relevant and accurate. I've most certainly appreciated the quick support from y'all the past couple of weeks!",
+        "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
       author: {
-        name: 'Sarah Gantert',
-        role: 'Happiness Engineer - WooCommerce/Automattic',
-        image: image7,
+        name: 'Gobinda Tarafdar',
+        role: 'Senior Digital Strategist - Product Co-Ordinator',
+        image: image2,
       },
     },
   ],
@@ -89,6 +80,7 @@ const testimonials = [
         image: image5,
       },
     },
+    /*
     {
       content:
         'DocsBot has truly revolutionized our customer support experience. With its AI-powered chatbots trained on our documentation, our customers now receive instant and accurate answers to their most detailed questions, saving us time and enhancing their satisfaction.',
@@ -97,7 +89,7 @@ const testimonials = [
         role: 'Chief Hallucination Officer',
         image: image9,
       },
-    },
+    },*/
   ],
 ]
 

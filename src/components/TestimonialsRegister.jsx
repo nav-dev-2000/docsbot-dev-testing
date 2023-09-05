@@ -160,28 +160,18 @@ export function Testimonials({ teamCount }) {
             </figure>
           </div>
           <div className="flex flex-col border-t border-white/10 pt-8 xl:border-l xl:border-t-0 xl:pl-16 xl:pt-0">
-            <Image
-              className="self-start object-contain"
-              src={a8cLogo}
-              alt="Automattic Logo"
-              width={250}
-              height={64}
-            />
             <figure className="mt-10 flex flex-auto flex-col justify-between">
               <blockquote className="text-lg leading-8 text-white">
                 <p>
-                  “I just wanted to say THANK YOU for jumping on a call with us. It was super
-                  helpful and it gave us a lot of ideas of what we can do to get DocsBot more
-                  relevant and accurate. I've most certainly appreciated the quick support from
-                  y'all the past couple of weeks!”
+                  “AIチャットボット系のツールでNo.1ですね。テキスト、ファイル、URLを読み込んで簡単にチャットボットが作れます。LINEの連携もできて非常に便利です！！”
                 </p>
               </blockquote>
               <figcaption className="mt-10 flex items-center gap-x-6">
-                <Image className="h-14 w-14 rounded-full bg-gray-400" src={image7} alt="" />
+                <Image className="h-14 w-14 rounded-full bg-gray-400" src={image6} alt="" />
                 <div className="text-base">
-                  <div className="font-semibold text-white">Sarah Gantert</div>
+                  <div className="font-semibold text-white">MASAHIRO CHAEN</div>
                   <div className="mt-1 text-gray-100">
-                    Happiness Engineer - WooCommerce/Automattic
+                  チャエン | 重要AIニュースを毎日発信
                   </div>
                 </div>
               </figcaption>
