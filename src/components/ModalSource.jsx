@@ -66,8 +66,6 @@ export default function ModalSource({
       link.href = url
       link.click()
       link.remove()
-
-      setInfoText('Successfully exported logs! Your download should start soon.')
     } else {
       try {
         const data = await response.json()
