@@ -7,8 +7,8 @@ const footerNavigation = {
   pages: NAVIGATION,
   tools2: [
     {
-      name: 'Imajinn WordPress Plugin',
-      href: 'https://wordpress.org/plugins/imajinn-ai/',
+      name: 'OpenAI API Calculator',
+      href: '/tools/gpt-openai-api-pricing-calculator',
     },
     {
       name: 'Product Photo Visualizer',
@@ -20,14 +20,8 @@ const footerNavigation = {
     { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
     { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
-    {
-      name: 'Big File Uploads',
-      href: 'https://wordpress.org/plugins/tuxedo-big-file-uploads/',
-    },
   ],
   legal: [
-    { name: 'Privacy', href: '/legal/privacy-policy' },
-    { name: 'Terms', href: '/legal/terms-of-service' },
     { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
     { name: 'Affiliate Program', href: 'https://affiliates.reflio.com/invite/docsbot' },
