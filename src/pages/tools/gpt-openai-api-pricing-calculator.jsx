@@ -5,6 +5,7 @@ import classNames from '@/utils/classNames'
 import { Fragment, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
+import RadioCardSmall from '@/components/RadioCardSmall'
 
 const pricing = {
   'Chat Models': [
@@ -36,6 +37,34 @@ const pricing = {
       input_token_cost_per_thousand: 0.06,
       output_token_cost_per_thousand: 0.12,
     },
+    {
+      model_name: 'Claude Instant',
+      context: '100K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.00163,
+      output_token_cost_per_thousand: 0.00551,
+    },
+    {
+      model_name: 'Claude 2',
+      context: '100K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.01102,
+      output_token_cost_per_thousand: 0.03268,
+    },
+    {
+      model_name: 'Llama 2 70b',
+      context: '4K',
+      provider: 'Meta',
+      input_token_cost_per_thousand: 0.001,
+      output_token_cost_per_thousand: 0.001,
+    },
+    {
+      model_name: 'Command',
+      context: '4K',
+      provider: 'Cohere',
+      input_token_cost_per_thousand: 0.015,
+      output_token_cost_per_thousand: 0.015,
+    },
   ],
   'Fine-tuning models': [
     {
@@ -51,31 +80,43 @@ const pricing = {
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.0001,
     },
+    {
+      model_name: 'Embed',
+      provider: 'Cohere',
+      input_token_cost_per_thousand: 0.0004,
+    },
   ],
 }
+
+const radioOptions = [
+  { name: 'Tokens', multiplier: 1 },
+  { name: 'Words', multiplier: 1.3333333333 },
+  { name: 'Characters', multiplier: 0.25 },
+]
 
 export default function Calculate() {
   const [inputTokens, setInputTokens] = useState(100)
   const [outputTokens, setOutputTokens] = useState(500)
   const [apiCalls, setAPICalls] = useState(100)
+  const [type, setType] = useState(radioOptions[0])
 
   const getCost = (model) => {
     return (
-      (model.input_token_cost_per_thousand || 0) * (inputTokens / 1000) +
-      (model.output_token_cost_per_thousand || 0) * (outputTokens / 1000)
+      (model.input_token_cost_per_thousand || 0) * ((inputTokens * type.multiplier) / 1000) +
+      (model.output_token_cost_per_thousand || 0) * ((outputTokens * type.multiplier) / 1000)
     )
   }
 
   return (
     <>
       <NextSeo
-        title="OpenAI API Pricing Calculator - DocsBot AI"
+        title="OpenAI & LLM API Pricing Calculator - DocsBot AI"
         description="Calculate the cost of using the OpenAI API and other LLMs for your AI project with our simple and powerful free calculator."
         openGraph={{
           images: [
             {
               url: 'https://docsbot.ai/og-openai-pricing.png',
-              alt: 'OpenAI API Pricing Calculator',
+              alt: 'LLM API Pricing Calculator',
             },
           ],
         }}
@@ -99,7 +140,7 @@ export default function Calculate() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  OpenAI API Pricing Calculator
+                  OpenAI & LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate the cost of using the OpenAI API and other LLMs for your AI project with
@@ -112,7 +153,7 @@ export default function Calculate() {
                         htmlFor="input-tokens"
                         className="block text-sm font-medium leading-6 text-white"
                       >
-                        Input Tokens
+                        Input {type.name}
                       </label>
                       <div className="mt-2">
                         <input
@@ -134,7 +175,7 @@ export default function Calculate() {
                         htmlFor="output-tokens"
                         className="block text-sm font-medium leading-6 text-white"
                       >
-                        Output Tokens
+                        Output {type.name}
                       </label>
                       <div className="mt-2">
                         <input
@@ -170,6 +211,15 @@ export default function Calculate() {
                         />
                       </div>
                     </div>
+
+                    <div className="text-white sm:col-span-9">
+                      <RadioCardSmall
+                        options={radioOptions}
+                        title="Calculate by"
+                        value={type}
+                        setValue={setType}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -193,7 +243,7 @@ export default function Calculate() {
                           <tr>
                             <th
                               scope="col"
-                              className="hidden py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:table-cell sm:pl-3"
+                              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
                             >
                               Provider
                             </th>
@@ -211,7 +261,7 @@ export default function Calculate() {
                             </th>
                             <th
                               scope="col"
-                              className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                              className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell"
                             >
                               Input/1k Tokens
                             </th>
@@ -257,7 +307,7 @@ export default function Calculate() {
                                       'border-t'
                                     )}
                                   >
-                                    <td className="hidden whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:table-cell sm:pl-3">
+                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
                                       {model.provider}
                                     </td>
                                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
@@ -266,7 +316,7 @@ export default function Calculate() {
                                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                       {model.context}
                                     </td>
-                                    <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                    <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 pl-6 text-sm text-gray-500 sm:table-cell">
                                       ${model.input_token_cost_per_thousand}
                                     </td>
                                     <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
@@ -308,19 +358,19 @@ export default function Calculate() {
 
           <div className="prose relative mx-auto max-w-5xl px-4 pb-32 text-white sm:px-6 lg:px-8">
             <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              OpenAI Model Pricing: A Comprehensive Overview
+              AI Model Pricing: A Comprehensive Overview
             </h2>
             <p>
-              OpenAI offers a diverse range of models, each tailored to specific tasks and
-              capabilities. Understanding the pricing structure is crucial for businesses and
-              developers looking to integrate these models into their applications. Here&#39;s a
-              detailed look at how OpenAI structures its pricing.
+              OpenAI, Anthropic, Cohere, and Meta offer a diverse range of models, each tailored to
+              specific tasks and capabilities. Understanding the pricing structure is crucial for
+              businesses and developers looking to integrate these models into their applications.
+              Here&#39;s a detailed look at how they structure their pricing.
             </p>
             <h3 className="text-white" id="1-tokens-the-fundamental-unit-of-pricing-">
               Tokens: The Fundamental Unit of Pricing
             </h3>
             <p>
-              OpenAI&#39;s pricing revolves around the concept of &quot;tokens.&quot; A token can be
+              LLM pricing usually revolves around the concept of &quot;tokens.&quot; A token can be
               thought of as a piece of a word. To give you a perspective, 1,000 tokens equate to
               approximately 750 words. For instance, the sentence &quot;This paragraph is 5
               tokens&quot; itself is 5 tokens long.
@@ -328,8 +378,8 @@ export default function Calculate() {
             <p>
               A useful guideline to remember when working with tokens is that, for typical English
               text, one token usually equates to approximately four characters. This means that a
-              token represents about three-quarters of a word. Therefore, if you have 100 tokens,
-              you're essentially looking at an equivalent of around 75 words.
+              token represents about three-quarters of a word. Non-English languages like Japanese
+              can change this calculation significantly.
             </p>
 
             <h3 className="text-white" id="1-tokens-the-fundamental-unit-of-pricing-">
@@ -346,8 +396,8 @@ export default function Calculate() {
               Context length refers to the amount of information or the number of tokens a model can
               consider or "remember" from a given input at one time. It's essentially the model's
               "working memory" when processing a request. For instance, if a model has a context
-              length of 8,000 (8K) tokens, it can consider up to 8,000 tokens from the input in a
-              single pass.
+              length of 8,000 (8K) tokens, it can consider up to 8,000 tokens from the input and
+              output in a single pass.
             </p>
             <h4 className="text-white">Why Does Context Length Matter?</h4>
             <ul>
@@ -373,13 +423,13 @@ export default function Calculate() {
               Language Models: Chat, Text Generation, and Reasoning
             </h3>
             <p>
-              OpenAI offers multiple language models, each with distinct capabilities and price
-              points. The pricing for these models is typically per 1,000 tokens.
+              OpenAI and others offer multiple language models, each with distinct capabilities and
+              price points. The pricing for these models is typically per 1,000 tokens.
             </p>
             <ul>
               <li>
                 <p>
-                  <strong className="text-white">GPT-4</strong>: Known for its broad general
+                  <strong className="text-white">OpenAI GPT-4</strong>: Known for its broad general
                   knowledge and domain expertise, GPT-4 is adept at following intricate instructions
                   in natural language and solving challenging problems with precision. It's also
                   slower and more expensive than other models.
@@ -387,9 +437,30 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  <strong className="text-white">GPT-3.5 Turbo</strong>: This model is optimized for
-                  dialogue, making it ideal for chatbot applications and conversational interfaces.
-                  It is also the fastest and most cost-effective model for generating text.
+                  <strong className="text-white">OpenAI GPT-3.5 Turbo</strong>: This model is
+                  optimized for dialogue, making it ideal for chatbot applications and
+                  conversational interfaces. It is also the fastest and most cost-effective model
+                  for generating text.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">Anthropic's Claude 2</strong>: This model is known
+                  for it's huge 100k context length. This makes it great for summarization or Q&A
+                  over large documents. However it's fairly slow and expensive because of this.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">Llama 2</strong>: Llama 2 is an open-source large
+                  language model (LLM) developed by Meta, the parent company of Facebook. It stands
+                  as Meta's answer to OpenAI's GPT series and Google's AI models such as PaLM 2.
+                  However, it distinguishes itself by being freely accessible for both research and
+                  commercial endeavors. Generally similar to GPT-3.5 Turbo in performace, Llama 2 is
+                  a powerful model that can be used for a variety of tasks, including text
+                  generation, summarization, and question answering. It is also at a comparable
+                  level to GPT-4 for English text summarization for 30x less cost. One downside it
+                  Llama 2 is an English only model.
                 </p>
               </li>
             </ul>
