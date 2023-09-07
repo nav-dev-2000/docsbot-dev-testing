@@ -114,10 +114,11 @@ export async function getSources(teamId, bot, resultLimit = 1000, ascending = fa
   let sources = []
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
-    //if createdAt is more than 4 hour ago and indexing is not complete, set error
+    //if createdAt is more than X hour ago and indexing is not complete, set error
+    const expireHours = ['urls', 'sitemap'].includes(source.type) ? 4 : 0.5 //APIFY has 4hr timeout, cloud funtions has 30mins
     if (
       ['indexing', 'pending', 'processing'].includes(source.status) &&
-      source.createdAt.toDate() < new Date(Date.now() - 4 * 60 * 60 * 1000)
+      source.createdAt.toDate() < new Date(Date.now() - expireHours * 60 * 60 * 1000)
     ) {
       source.status = 'failed'
       source.error = 'Processing timed out, please try again'
