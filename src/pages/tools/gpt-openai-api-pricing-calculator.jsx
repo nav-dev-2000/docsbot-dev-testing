@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -71,6 +70,14 @@ export default function Calculate() {
       <NextSeo
         title="OpenAI API Pricing Calculator - DocsBot AI"
         description="Calculate the cost of using the OpenAI API and other LLMs for your AI project with our simple and powerful free calculator."
+        openGraph={{
+          images: [
+            {
+              url: 'https://docsbot.ai/og-openai-pricing.png',
+              alt: 'OpenAI API Pricing Calculator',
+            },
+          ],
+        }}
       />
       <Header />
       <main>
@@ -165,7 +172,7 @@ export default function Calculate() {
                   </div>
                 </div>
               </div>
-              <div className="-mx-6 mt-16 max-w-7xl rounded-md bg-white p-4 px-2 shadow-2xl ring-1 ring-white/10 sm:mt-24 sm:p-6 lg:p-8">
+              <div className="-mx-6 sm:mx-6 mt-16 max-w-7xl sm:rounded-lg bg-white p-4 px-2 shadow-2xl ring-1 ring-white/10 sm:mt-24 sm:p-6 lg:p-8">
                 <div className="sm:flex sm:items-center">
                   <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">
