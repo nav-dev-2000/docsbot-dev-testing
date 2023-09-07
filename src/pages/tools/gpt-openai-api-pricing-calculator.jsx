@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
 import { Fragment, useState } from 'react'
 import { NextSeo } from 'next-seo'
+import RegisterCTA from '@/components/RegisterCTA'
 
 const pricing = {
   'Chat Models': [
@@ -59,10 +60,10 @@ export default function Calculate() {
   const [apiCalls, setAPICalls] = useState(100)
 
   const getCost = (model) => {
-    return ((model.input_token_cost_per_thousand ||
-      0) * (inputTokens / 1000)) +
-      ((model.output_token_cost_per_thousand ||
-        0) * (outputTokens / 1000))
+    return (
+      (model.input_token_cost_per_thousand || 0) * (inputTokens / 1000) +
+      (model.output_token_cost_per_thousand || 0) * (outputTokens / 1000)
+    )
   }
 
   return (
@@ -172,7 +173,7 @@ export default function Calculate() {
                   </div>
                 </div>
               </div>
-              <div className="-mx-6 sm:mx-6 mt-16 max-w-7xl sm:rounded-lg bg-white p-4 px-2 shadow-2xl ring-1 ring-white/10 sm:mt-24 sm:p-6 lg:p-8">
+              <div className="-mx-6 mt-16 max-w-7xl bg-white p-4 px-2 shadow-2xl ring-1 ring-white/10 sm:mx-6 sm:mt-24 sm:rounded-lg sm:p-6 lg:p-8">
                 <div className="sm:flex sm:items-center">
                   <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">
@@ -419,6 +420,7 @@ export default function Calculate() {
               .
             </p>
           </div>
+          <RegisterCTA />
         </div>
       </main>
       <Footer />
