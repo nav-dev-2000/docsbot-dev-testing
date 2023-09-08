@@ -59,6 +59,13 @@ const pricing = {
       output_token_cost_per_thousand: 0.001,
     },
     {
+      model_name: 'PaLM 2',
+      context: '8K',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.002,
+      output_token_cost_per_thousand: 0.002,
+    },
+    {
       model_name: 'Command',
       context: '4K',
       provider: 'Cohere',
@@ -73,12 +80,24 @@ const pricing = {
       input_token_cost_per_thousand: 0.012,
       output_token_cost_per_thousand: 0.016,
     },
+    {
+      model_name: 'PaLM 2',
+      context: '8K',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.002,
+      output_token_cost_per_thousand: 0.002,
+    },
   ],
   'Embedding models': [
     {
       model_name: 'Ada v2',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.0001,
+    },
+    {
+      model_name: 'PaLM 2',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.0004,
     },
     {
       model_name: 'Embed',
@@ -461,6 +480,11 @@ export default function Calculate() {
                   generation, summarization, and question answering. It is also at a comparable
                   level to GPT-4 for English text summarization for 30x less cost. One downside it
                   Llama 2 is an English only model.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is the latest state-of-the-art language model from Google boasting enhanced multilingual, reasoning, and coding capabilities. Trained on multilingual text from over 100 languages, it excels in understanding and translating intricate text forms like idioms and poems. Its dataset, rich with scientific papers and web content, empowers it with superior logic, reasoning, and mathematical skills. Additionally, its proficiency in coding is evident from its training on vast source code datasets, making it adept in languages from Python to Fortran.
                 </p>
               </li>
             </ul>
