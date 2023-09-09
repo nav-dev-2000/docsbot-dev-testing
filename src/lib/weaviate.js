@@ -1,15 +1,20 @@
-import weaviate from 'weaviate-ts-client'
+import weaviate, { ApiKey } from 'weaviate-ts-client';
 
 const weaviateClient = () => {
   try {
-    return weaviate.client({
+    const args = {
       scheme: 'https',
       host: process.env.WEAVIATE_URL,
-      authClientSecret: new weaviate.AuthUserPasswordCredentials({
+    }
+    if (process.env.WEAVIATE_API_KEY) {
+      args['apiKey'] = new ApiKey(process.env.WEAVIATE_API_KEY)
+    } else {
+      args['authClientSecret'] = new weaviate.AuthUserPasswordCredentials({
         username: process.env.WEAVIATE_USERNAME,
         password: process.env.WEAVIATE_PASSWORD,
-      }),
-    })
+      })
+    }
+    return weaviate.client(args)
   } catch (e) {
     console.warn('Error creating weaviate client', e)
   }

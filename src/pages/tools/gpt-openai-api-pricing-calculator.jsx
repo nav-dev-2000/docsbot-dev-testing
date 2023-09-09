@@ -76,6 +76,7 @@ const pricing = {
   'Fine-tuning models': [
     {
       model_name: 'GPT-3.5 Turbo',
+      context: '4K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.012,
       output_token_cost_per_thousand: 0.016,

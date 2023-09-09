@@ -14,6 +14,7 @@ export const i18n = {
       close: 'Close',
       create: 'Create your own!',
       thinking: 'Thinking...',
+      rateLimitMessage: 'You are sending messages too fast. Please slow down.',
     },
   },
   jp: {
@@ -31,6 +32,7 @@ export const i18n = {
       close: '閉じる',
       create: '自分自身を作成する！',
       thinking: '考え中...',
+      rateLimitMessage: 'メッセージを送信しすぎです。速度を落としてください。',
     },
   },
   ar: {
@@ -49,6 +51,7 @@ export const i18n = {
       close: 'إغلاق',
       create: 'أنشئ خاصتك!',
       thinking: 'فكر...',
+      rateLimitMessage: 'أنت ترسل الرسائل بسرعة كبيرة. يرجى التباطؤ.',
     },
   },
   zh: {
@@ -66,6 +69,7 @@ export const i18n = {
       close: '关闭',
       create: '创建你自己的！',
       thinking: '思考中...',
+      rateLimitMessage: '您发送消息太快了。请放慢速度。',
     },
   },
   cs: {
@@ -83,6 +87,7 @@ export const i18n = {
       close: 'Zavřít',
       create: 'Vytvořte si vlastní!',
       thinking: 'Myšlení...',
+      rateLimitMessage: 'Posíláte zprávy příliš rychle. Zpomalte prosím.',
     },
   },
   da: {
@@ -100,6 +105,7 @@ export const i18n = {
       close: 'Luk',
       create: 'Opret din egen!',
       thinking: 'Tænker...',
+      rateLimitMessage: 'Du sender beskeder for hurtigt. Vær venlig at sætte farten ned.',
     },
   },
   nl: {
@@ -117,6 +123,7 @@ export const i18n = {
       close: 'Sluiten',
       create: 'Maak je eigen!',
       thinking: 'Denken...',
+      rateLimitMessage: 'U stuurt berichten te snel. Vertraag alstublieft.',
     },
   },
   fil: {
@@ -134,6 +141,7 @@ export const i18n = {
       close: 'Isara',
       create: 'Lumikha ng iyong sarili!',
       thinking: 'Nag-iisip...',
+      rateLimitMessage: 'Masyado kang mabilis magpadala ng mga mensahe. Paki bagalan po.',
     },
   },
   fi: {
@@ -151,6 +159,7 @@ export const i18n = {
       close: 'Sulje',
       create: 'Luo oma!',
       thinking: 'Ajattelee...',
+      rateLimitMessage: 'Lähetät viestejä liian nopeasti. Hidasta ole hyvä.',
     },
   },
   fr: {
@@ -168,6 +177,7 @@ export const i18n = {
       close: 'Fermer',
       create: 'Créez le vôtre !',
       thinking: 'Réflexion...',
+      rateLimitMessage: 'Vous envoyez des messages trop rapidement. Veuillez ralentir.',
     },
   },
   de: {
@@ -185,6 +195,7 @@ export const i18n = {
       close: 'Schließen',
       create: 'Erstelle dein eigenes!',
       thinking: 'Denken...',
+      rateLimitMessage: 'Sie senden Nachrichten zu schnell. Bitte verlangsamen Sie sich.',
     },
   },
   el: {
@@ -202,6 +213,7 @@ export const i18n = {
       close: 'Κλείσιμο',
       create: 'Δημιούργησε το δικό σου!',
       thinking: 'Σκέψη...',
+      rateLimitMessage: 'Στέλνετε μηνύματα πολύ γρήγορα. Παρακαλώ επιβραδύνετε.',
     },
   },
   he: {
@@ -220,6 +232,7 @@ export const i18n = {
       close: 'סגור',
       create: 'צור את שלך!',
       thinking: 'חושב...',
+      rateLimitMessage: 'אתה שולח הודעות מהר מדי. אנא האט.',
     },
   },
   hi: {
@@ -237,6 +250,7 @@ export const i18n = {
       close: 'बंद करें',
       create: 'अपना खुद का बनाएं!',
       thinking: 'सोच रहा हूँ...',
+      rateLimitMessage: 'आप संदेश बहुत तेज़ भेज रहे हैं। कृपया धीमा करें।',
     },
   },
   hu: {
@@ -254,6 +268,7 @@ export const i18n = {
       close: 'Bezár',
       create: 'Hozzon létre sajátot!',
       thinking: 'Gondolkodás...',
+      rateLimitMessage: 'Túl gyorsan küld üzeneteket. Kérjük, lassítson.',
     },
   },
   id: {
@@ -271,6 +286,7 @@ export const i18n = {
       close: 'Tutup',
       create: 'Buat milikmu sendiri!',
       thinking: 'Berpikir...',
+      rateLimitMessage: 'Anda mengirim pesan terlalu cepat. Harap perlahan.',
     },
   },
   it: {
@@ -288,6 +304,7 @@ export const i18n = {
       close: 'Chiudi',
       create: 'Crea il tuo!',
       thinking: 'Pensando...',
+      rateLimitMessage: 'Stai inviando messaggi troppo velocemente. Per favore rallenta.',
     },
   },
   ko: {
@@ -305,6 +322,7 @@ export const i18n = {
       close: '닫기',
       create: '직접 만드세요!',
       thinking: '생각 중...',
+      rateLimitMessage: '메시지를 너무 빨리 보내고 있습니다. 느리게 해주세요.',
     },
   },
   no: {
@@ -322,6 +340,7 @@ export const i18n = {
       close: 'Lukk',
       create: 'Lag din egen!',
       thinking: 'Tenker...',
+      rateLimitMessage: 'Du sender meldinger for fort. Vennligst ro ned.',
     },
   },
   pl: {
@@ -339,6 +358,7 @@ export const i18n = {
       close: 'Zamknij',
       create: 'Stwórz swój własny!',
       thinking: 'Myślenie...',
+      rateLimitMessage: 'Wysyłasz wiadomości zbyt szybko. Proszę zwolnić.',
     },
   },
   pt: {
@@ -356,6 +376,7 @@ export const i18n = {
       close: 'Fechar',
       create: 'Crie o seu próprio!',
       thinking: 'Pensando...',
+      rateLimitMessage: 'Você está enviando mensagens muito rápido. Por favor, desacelere.',
     },
   },
   ro: {
@@ -373,6 +394,7 @@ export const i18n = {
       close: 'Închide',
       create: 'Creează-ți propriul!',
       thinking: 'Gândire...',
+      rateLimitMessage: 'Trimiteți mesaje prea repede. Vă rugăm să încetiniți.',
     },
   },
   ru: {
@@ -390,6 +412,7 @@ export const i18n = {
       close: 'Закрыть',
       create: 'Создайте свой собственный!',
       thinking: 'Думаю...',
+      rateLimitMessage: 'Вы отправляете сообщения слишком быстро. Пожалуйста, замедлите.',
     },
   },
   sr: {
@@ -407,6 +430,7 @@ export const i18n = {
       close: 'Затвори',
       create: 'Napravite svoj!',
       thinking: 'Razmišljanje...',
+      rateLimitMessage: 'Шаљете поруке пребрзо. Молимо вас да успорите.',
     },
   },
   es: {
@@ -424,6 +448,7 @@ export const i18n = {
       close: 'Cerrar',
       create: '¡Crea el tuyo!',
       thinking: 'Pensando...',
+      rateLimitMessage: 'Estás enviando mensajes demasiado rápido. Por favor, reduce la velocidad.',
     },
   },
   sw: {
@@ -441,6 +466,7 @@ export const i18n = {
       close: 'Funga',
       create: 'Unda yako mwenyewe!',
       thinking: 'Kufikiri...',
+      rateLimitMessage: 'Unatuma ujumbe haraka sana. Tafadhali polepole.',
     },
   },
   sv: {
@@ -458,6 +484,7 @@ export const i18n = {
       close: 'Stäng',
       create: 'Skapa din egen!',
       thinking: 'Tänker...',
+      rateLimitMessage: 'Du skickar meddelanden för snabbt. Var snäll och sakta ner.',
     },
   },
   th: {
@@ -475,6 +502,7 @@ export const i18n = {
       close: 'ปิด',
       create: 'สร้างของคุณเอง!',
       thinking: 'คิด...',
+      rateLimitMessage: 'คุณส่งข้อความเร็วเกินไป โปรดช้าลง',
     },
   },
   tr: {
@@ -492,6 +520,7 @@ export const i18n = {
       close: 'Kapat',
       create: 'Kendi oluşturun!',
       thinking: 'Düşünme...',
+      rateLimitMessage: 'Mesajları çok hızlı gönderiyorsunuz. Lütfen yavaşlayın.',
     },
   },
 }
