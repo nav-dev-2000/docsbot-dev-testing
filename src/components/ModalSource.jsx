@@ -33,7 +33,7 @@ export default function ModalSource({
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
-  const [selectedInterval, setSelectedInterval] = useState(source.scheduleInterval ?? 'none')
+  const [scheduleInterval, setScheduleInterval] = useState(source.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
   const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
   const [locked, setLocked] = useState(null)
@@ -86,7 +86,7 @@ export default function ModalSource({
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ interval: selectedInterval }),
+        body: JSON.stringify({ scheduleInterval }),
       }
     )
     if (response.ok) {
@@ -100,7 +100,7 @@ export default function ModalSource({
         const data = await response.json()
         if (data.message.includes('upgrade')) {
           setShowUpgrade(true)
-          setSelectedInterval(source.scheduleInterval ?? 'none')
+          setScheduleInterval(source.scheduleInterval ?? 'none')
         } else {
           setErrorText(data.message || 'Something went wrong, please try again.')
         }
@@ -310,8 +310,8 @@ export default function ModalSource({
                         <div className="mt-4 max-w-sm justify-start">
                           <ScheduleSelect
                             team={team}
-                            onSelect={setSelectedInterval}
-                            defaultSelected={selectedInterval}
+                            onSelect={setScheduleInterval}
+                            defaultSelected={scheduleInterval}
                           />
                           <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
                             {source.scheduled

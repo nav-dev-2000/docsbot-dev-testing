@@ -64,7 +64,7 @@ export default function ModalQA({ team, botId, question, open, setOpen }) {
         title: null,
         url: null,
         file: null,
-        selectedInterval: 'none',
+        scheduleInterval: 'none',
         faqs: questions,
       }),
     })

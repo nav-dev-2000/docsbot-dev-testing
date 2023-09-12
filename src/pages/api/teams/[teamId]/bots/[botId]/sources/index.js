@@ -66,7 +66,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, selectedInterval, faqs, carbonId } = req.body
+    let { type, title, url, file, scheduleInterval, faqs, carbonId } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -191,7 +191,7 @@ export default async function handler(req, res) {
         carbonId,
       }
 
-      if (selectedInterval && selectedInterval !== 'none') {
+      if (scheduleInterval && scheduleInterval !== 'none') {
         // make sure the source type is supported
         if (!sourceType.fieldSchedule) {
           return res
@@ -199,8 +199,9 @@ export default async function handler(req, res) {
             .send({ message: 'This source type does not currently support scheduled refreshes.' })
         }
 
-        const scheduled = checkSourceScheduledFromInterval(team, selectedInterval)
-        data = { ...data, scheduled, scheduleInterval: selectedInterval }
+        //this will throw an error if the interval is invalid or not allowed for plan
+        const scheduled = checkSourceScheduledFromInterval(team, scheduleInterval)
+        data = { ...data, scheduled, scheduleInterval }
       }
 
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.

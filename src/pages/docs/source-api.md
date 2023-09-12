@@ -11,17 +11,19 @@ Sources are how your train your bots. They can be urls, files, sitemaps, and man
 
 Source objects have the following properties:
 
-| Property       | Type   | Description                                                                                                                                                |
-| -------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**         | string | The source id.                                                                                                                                             |
-| **type**       | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`. All but url and sitemap require uploading a formatted file.                         |
-| **title**      | string | The source title. Required only for `document` type.                                                                                                       |
-| **url**        | string | The source url. Optional except for `url`, `sitemap`, and `rss` types.                                                                                     |
-| **file**       | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
-| **createdAt**  | string | The source creation date.                                                                                                                                  |
-| **pageCount**  | number | The number of pages indexed from the source.                                                                                                               |
-| **chunkCount** | number | The number of chunks indexed from the source.                                                                                                              |
-| **faqs**  | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`                                                |
+| Property             | Type   | Description                                                                                                                                                |
+| -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**               | string | The source id.                                                                                                                                             |
+| **type**             | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`. All but url and sitemap require uploading a formatted file.                         |
+| **status**           | string | The source status. Can be `pending`, `indexing`, `processing`, `ready`, or `failed`.                                                                       |
+| **title**            | string | The source title. Required only for `document` type.                                                                                                       |
+| **url**              | string | The source url. Optional except for `url`, `sitemap`, and `rss` types.                                                                                     |
+| **file**             | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
+| **createdAt**        | string | The source creation date.                                                                                                                                  |
+| **pageCount**        | number | The number of pages indexed from the source.                                                                                                               |
+| **chunkCount**       | number | The number of chunks indexed from the source.                                                                                                              |
+| **scheduleInterval** | string | The source schedule interval. Can be `daily`, `weekly`, `monthly`, or `none`.                                                                              |
+| **faqs**             | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`                                                |
 
 ---
 
@@ -160,6 +162,7 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 | **url**   | string | The source URL. Required if type is `url`, `sitemap`, or `rss`.                                                                                            |
 | **file**  | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
 | **faqs**  | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`                                                |
+| **scheduleInterval** | string | The source refresh scheduled interval. Can be `daily`, `weekly`, `monthly`, or `none` depending on your plan. Optional, defaults to `none`.                                                                            |
 
 ### Examples
 
@@ -258,12 +261,13 @@ curl -X PUT -H 'Content-Type: application/octet-stream' --upload-file test.csv h
 #### JavaScript (NodeJS Fetch)
 
 ```js
-const fetch = require('node-fetch');
-const fs = require('fs');
+const fetch = require('node-fetch')
+const fs = require('fs')
 
-const file = fs.readFileSync('test.csv');
+const file = fs.readFileSync('test.csv')
 
-const url = 'https://storage.googleapis.com/docsbot-test-c2482.appspot.com/user/14D4jUo51sMuSjWQg9MDe5naM9i2/team/0NZfVRlrjJ6d4YdwUGHt/bot/yR5EwAGpINpmp7XzT9qL/test.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-74lpp%40docsbot-test-c2482.iam.gserviceaccount.com%2F20230627%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230627T205900Z&X-Goog-Expires=1801&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Signature=66...';
+const url =
+  'https://storage.googleapis.com/docsbot-test-c2482.appspot.com/user/14D4jUo51sMuSjWQg9MDe5naM9i2/team/0NZfVRlrjJ6d4YdwUGHt/bot/yR5EwAGpINpmp7XzT9qL/test.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=firebase-adminsdk-74lpp%40docsbot-test-c2482.iam.gserviceaccount.com%2F20230627%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230627T205900Z&X-Goog-Expires=1801&X-Goog-SignedHeaders=content-type%3Bhost&X-Goog-Signature=66...'
 
 fetch(url, {
   method: 'PUT',
@@ -273,11 +277,11 @@ fetch(url, {
   body: file,
 })
   .then(() => {
-    console.log('File uploaded successfully');
+    console.log('File uploaded successfully')
   })
   .catch((error) => {
-    console.error('Error uploading file:', error);
-  });
+    console.error('Error uploading file:', error)
+  })
 ```
 
 ### Create Source with the File Path

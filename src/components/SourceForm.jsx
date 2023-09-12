@@ -37,7 +37,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [validated, setValidated] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [urlDescription, setUrlDescription] = useState(null)
-  const [selectedInterval, setSelectedInterval] = useState('none')
+  const [scheduleInterval, setScheduleInterval] = useState('none')
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
   const [carbonId, setCarbonId] = useState(null)
   const [carbonFiles, setCarbonFiles] = useState(null)
@@ -151,7 +151,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         title,
         url,
         file,
-        selectedInterval,
+        scheduleInterval,
         faqs: questions,
         carbonId,
       }),
@@ -178,7 +178,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       setIsUpdating(false)
       setPercent(0)
       setShowForm(false)
-      setSelectedInterval('none')
+      setScheduleInterval('none')
     } else {
       try {
         const data = await response.json()
@@ -492,8 +492,8 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   <div className="mt-4 justify-start">
                     <ScheduleSelect
                       team={team}
-                      onSelect={setSelectedInterval}
-                      defaultSelected={selectedInterval}
+                      onSelect={setScheduleInterval}
+                      defaultSelected={scheduleInterval}
                       disabled={isUpdating}
                     />
                     <p className="mt-2 text-sm text-gray-500" id="title-description">

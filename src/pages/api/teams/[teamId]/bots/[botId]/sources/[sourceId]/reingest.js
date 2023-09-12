@@ -44,21 +44,21 @@ export default async function handler(req, res) {
     }
 
     try {
-      const { interval } = req.body
+      const { scheduleInterval } = req.body
 
       // if interval is none, remove the scheduled field
-      if (interval === 'none') {
+      if (scheduleInterval === 'none') {
         firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
           scheduled: FieldValue.delete(),
-          scheduleInterval: interval,
+          scheduleInterval: scheduleInterval,
         });
         return res.status(200).json({ message: 'success' })
       }
 
-      const scheduled = checkSourceScheduledFromInterval(team, interval);
+      const scheduled = checkSourceScheduledFromInterval(team, scheduleInterval);
       firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
         scheduled,
-        scheduleInterval: interval,
+        scheduleInterval: scheduleInterval,
       });
 
       return res.status(200).json({ newScheduled: scheduled.toJSON() })
