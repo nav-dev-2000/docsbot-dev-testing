@@ -84,7 +84,7 @@ const tiers = [
       '100k questions/mo',
       'Private bots',
       'GPT-4 support',
-      '50 team users',
+      '15 team users',
       'Advanced Analytics',
       'Zapier integration',
       'Chat history',
