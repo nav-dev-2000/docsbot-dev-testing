@@ -51,7 +51,9 @@ export default function ModalSource({
 
   const downloadSource = async () => {
     const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/download`,
+      source.type == 'qa'
+        ? `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/export-qa`
+        : `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/download`,
       {
         method: 'GET',
         headers: {
@@ -414,7 +416,7 @@ export default function ModalSource({
                               {source.url}
                             </Link>
                           )}
-                          {canSourceTypeDownload(source.type) && (
+                          {(canSourceTypeDownload(source.type) || 'qa' == source.type) && (
                             <button
                               type="button"
                               className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
