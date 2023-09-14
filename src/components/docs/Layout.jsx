@@ -111,6 +111,13 @@ function Header({ navigation }) {
           : 'bg-transparent'
       )}
     >
+      <style jsx global>
+        {`
+          body {
+            background-color: rgb(15 23 42) !important;
+          }
+        `}
+      </style>
       <div className="mr-6 flex lg:hidden">
         <MobileNavigation navigation={navigation} />
       </div>
