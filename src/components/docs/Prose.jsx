@@ -17,7 +17,9 @@ export function Prose({ as: Component = 'div', className, ...props }) {
         // pre
         'prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:bg-slate-800/60 prose-pre:shadow-none prose-pre:ring-1 prose-pre:ring-slate-300/10',
         // hr
-        'prose-hr:border-slate-800'
+        'prose-hr:border-slate-800',
+        // images
+        'prose-img:rounded-lg prose-img:mx-auto',
       )}
       {...props}
     />

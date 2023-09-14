@@ -26,6 +26,18 @@ You can find the full embed code for your bot from the [Bot](/app/bots) page for
 
 Copy the code and paste it into the `<head>` section of your website. If it's simpler you can insert the code anywhere in your site's html before the closing `</body>` tag. The embed code may appear the same but the `{id: "ZrbLG98bbxZ9EFqiPvyl/SQMV36O8xi43xbZRzYLy"}` is unique to your bot, so be sure to copy the proper code from your bot page.
 
+### Embedding Into the Page Content
+
+![Embedded page widget example](/images/widget-in-page.png)
+
+You may not desire to have the widget floating on the page, but instead embedded into the page similar to an iframe. You can do this by adding an element anywhere in your site page with the id `docsbot-widget-embed`. The widget will be mounted into and fill this element. Here is an example:
+
+```html
+<div id="docsbot-widget-embed" style="max-width:600px;height:650px;margin:20px auto;"></div>
+```
+
+If an element with the id `docsbot-widget-embed` is not found, the widget will be mounted as a floating button by default. If you only want to embed the widget into a specific page and not have a floating button, only include the JavaScript embed code and element on that page. When embeding into a page, you can choose to hide the widget header by setting the `hideHeader` option to `true` in the widget JavaScript embed code, as detailed below.
+
 ### Performance
 
 The widget is loaded asynchronously after the initial pageload is complete, so it should not block the loading of your site or affect your pagespeed scores. The widget will load and open as soon as the user interacts with it.
@@ -196,6 +208,7 @@ options: {
   alignment: "left", //alignment of the widget can be "left" or "right".
   headerAlignment: "center", //alignment of the header can be "left" or "center". Default is "center".
   logo: "https://yourdomain.com/imageurl.png", //logo for the header can be null, or a public image url. Recommended max height is 36px.
+  hideHeader: false, //hide the header of the widget. Only works when embedded into a page. Default is false.
   botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
