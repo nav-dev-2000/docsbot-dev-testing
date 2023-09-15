@@ -4,11 +4,9 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
 import {
-  ArrowPathIcon,
   ChevronLeftIcon,
   XMarkIcon,
   PhotoIcon,
-  ClipboardIcon,
   ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -25,7 +23,6 @@ import {
   faQuestion,
   faBook,
 } from '@fortawesome/free-solid-svg-icons'
-import { decideTextColor, getLighterColor } from '@/utils/colors'
 import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { ref, uploadBytes } from 'firebase/storage'
@@ -47,6 +44,8 @@ function Widget({ team, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [copied, setCopied] = useState(false)
+  const [copiedIframe, setCopiedIframe] = useState(false)
+  const [copiedKey, setCopiedKey] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
 
@@ -163,6 +162,7 @@ function Widget({ team, bot }) {
 <script type="text/javascript">
   DocsBotAI.init({id: "${team.id}/${bot.id}"});
 </script>`
+  const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`
 
   if (!bot) return null
 
@@ -198,18 +198,28 @@ function Widget({ team, bot }) {
             <div className="rounded-lg bg-white p-8 shadow">
               <h3 className="text-2xl font-bold">Chat Widget Embed Code</h3>
               <p className="text-md mt-2 text-justify text-gray-800">
-                You can embed this DocsBot on your website by adding the following code to your HTML
-                page before the closing `&lt;/body&gt;` tag.
+                You can embed this DocsBot as a floating widget on your website by adding the following code to your HTML
+                page anywhere before the closing &lt;/body&gt; tag.
               </p>
-              <div
-                className="mx-auto mt-4 block h-36 overflow-scroll whitespace-pre-wrap break-all rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-sm text-white"
+              <pre
+                className="mx-auto w-full mt-2 block text-xs overflow-scroll whitespace-prewrap rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-white"
                 disabled
               >
                 {embed}
-              </div>
+              </pre>
+              <p className="text-md mt-4 text-justify text-gray-800">
+                Or embed as an iframe into a page in your website or many cloud services.
+              </p>
+              <pre
+                className="mx-auto w-full mt-2 block text-xs overflow-scroll whitespace-prewrap rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-white"
+                disabled
+              >
+                {iframe}
+              </pre>
               <div className="mx-auto mb-8 mt-4 items-center justify-between space-x-0 space-y-2 lg:flex lg:space-x-2 lg:space-y-0">
-                <button
-                  className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80 sm:w-1/3"
+              <div className="items-center justify-between space-x-1 flex">
+              <button
+                  className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
                   onClick={(e) => {
                     e.preventDefault()
                     navigator.clipboard.writeText(embed)
@@ -219,12 +229,26 @@ function Widget({ team, bot }) {
                     }, 2000)
                   }}
                 >
-                  {copied ? 'Copied!' : 'Copy to Clipboard'}
+                  {copied ? 'Copied!' : 'Copy embed'}
                 </button>
+                <button
+                  className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigator.clipboard.writeText(iframe)
+                    setCopiedIframe(true)
+                    setTimeout(() => {
+                      setCopiedIframe(false)
+                    }, 2000)
+                  }}
+                >
+                  {copiedIframe ? 'Copied!' : 'Copy iframe'}
+                </button>
+                </div>
                 {bot.privacy === 'private' && (
                   <div className="relative flex h-10 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md lg:w-1/3">
                     <span className="flex select-none items-center pl-3 text-xs text-gray-500">
-                      Signing Key
+                      {copiedKey ? 'Copied!' : 'Signing Key'}
                     </span>
                     <input
                       type="text"
@@ -238,11 +262,12 @@ function Widget({ team, bot }) {
                       onClick={(e) => {
                         e.preventDefault()
                         navigator.clipboard.writeText(bot.signatureKey)
-                        setCopied(true)
+                        setCopiedKey(true)
                         setTimeout(() => {
-                          setCopied(false)
+                          setCopiedKey(false)
                         }, 2000)
                       }}
+                      disabled={copiedKey}
                     >
                       <ClipboardDocumentIcon className="h-5 w-5" aria-hidden="true" />
                       <span className="sr-only">Copy key</span>
