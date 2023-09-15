@@ -111,7 +111,7 @@ function Header({ navigation }) {
           : 'bg-transparent'
       )}
     >
-      <style jsx global>
+      <style>
         {`
           body {
             background-color: rgb(15 23 42) !important;

@@ -8,7 +8,7 @@ export function ChatPage({ team, bot }) {
 
   return (
     <>
-      <style jsx global>
+      <style>
         {`
           body {
             background-color: transparent !important;
