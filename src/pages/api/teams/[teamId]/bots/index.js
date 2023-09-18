@@ -6,6 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createSchema } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
+import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
 
 const router = createRouter()
@@ -72,9 +73,10 @@ router.post(async (req, res) => {
       return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
     }
 
-    const languages = ['en', 'jp', 'de']
-    if (!languages.includes(language)) {
-      return res.status(400).send({ message: 'Invalid param "language".' })
+    if (!i18n[language]) {
+      return res.status(400).send({
+        message: 'Invalid param "language". Should be one of: ' + Object.keys(i18n).join(', '),
+      })
     }
 
     //create classname with a random string
