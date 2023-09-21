@@ -688,6 +688,7 @@
 }
 .wp-block-embed iframe{
   max-width:100%;
+  margin: auto;
 }
 
 .wp-block-embed__wrapper{

@@ -185,8 +185,8 @@ export default function Home() {
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
                   Trusted by
                 </h2>
-                <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 lg:mx-0 lg:max-w-none xl:grid-cols-8">
-                  <Link
+                <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 lg:mx-0 lg:max-w-none xl:grid-cols-6">
+                  {/*<Link
                     href="https://wpdocs.chat"
                     target="_blank"
                     title="ChatWP"
@@ -199,7 +199,7 @@ export default function Home() {
                       width={125}
                       height={32}
                     />
-                  </Link>
+                  </Link>*/}
                   <Link
                     href="https://infiniteuploads.com"
                     target="_blank"
@@ -251,14 +251,6 @@ export default function Home() {
                     alt="Dollie Logo"
                     width={125}
                     height={32}
-                  />
-
-                  <Image
-                    className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
-                    src={fujitecLogo}
-                    alt="Fujitech Logo"
-                    width={125}
-                    height={26}
                   />
                 </div>
               </div>
