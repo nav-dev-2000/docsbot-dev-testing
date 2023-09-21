@@ -65,7 +65,7 @@ export default async function handler(request, response) {
             source.faqs, //null
             source.crawlId
           )
-          await doc.ref.update({ status: 'processing' }) // mark the source as processing to prevent multiple crawler ingests
+          //await doc.ref.update({ status: 'processing' }) // the Cloud funciton marks the source as processing to prevent multiple crawler ingests
           console.log('source', doc.id, 'ingest queued')
         } else if (result.data.status === 'FAILED') { // if the run failed, mark the source as failed
           await doc.ref.update({ status: 'failed' })
