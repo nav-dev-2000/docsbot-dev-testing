@@ -66,6 +66,8 @@ export default function ModalSource({
       const { url } = await response.json()
       var link = document.createElement('a')
       link.href = url
+      link.download = url.substring(url.lastIndexOf('/') + 1).split('?')[0]
+      link.target = '_blank'
       link.click()
       link.remove()
     } else {
