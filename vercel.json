@@ -46,14 +46,14 @@
         }
     ],
     "functions": {
-        "api/bento-webhook": {
+        "pages/api/bento-webhook/index.js": {
             "maxDuration": 90
         },
-        "api/teams/[teamId]/bots/[botId]/export-log": {
+        "pages/api/teams/[teamId]/bots/[botId]/export-log.js": {
             "memory": 3008,
             "maxDuration": 300
         },
-        "api/teams/[teamId]/bots/[botId]/stats": {
+        "pages/api/teams/[teamId]/bots/[botId]/stats.js": {
             "memory": 2048,
             "maxDuration": 120
         }
