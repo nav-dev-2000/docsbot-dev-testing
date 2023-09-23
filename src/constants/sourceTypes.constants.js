@@ -9,12 +9,15 @@ import {
   QuestionMarkCircleIcon,
   DocumentIcon,
   CircleStackIcon,
+  CloudIcon
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
 import NotionLogo from '@/components/NotionLogo'
 import IntercomLogo from '@/components/IntercomLogo'
 import DriveLogo from '@/components/DriveLogo'
 import DropboxLogo from '@/components/DropboxLogo'
+import BoxLogo from '@/components/BoxLogo'
+import ZendeskLogo from '@/components/ZendeskLogo'
 
 export const sourceTypes = [
   {
@@ -169,6 +172,51 @@ export const sourceTypes = [
     fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: DropboxLogo,
     isCarbon: 'DROPBOX',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'onedrive',
+    title: 'OneDrive',
+    description: 'Answer questions from the content of document files in Microsoft OneDrive (BETA)',
+    fullDescription: 'Connect to Microsoft OneDrive via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    icon: CloudIcon,
+    isCarbon: 'ONEDRIVE',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'box',
+    title: 'Box',
+    description: 'Answer questions from the content of document files in Box cloud storage (BETA)',
+    fullDescription: 'Connect to Box cloud storage via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    icon: BoxLogo,
+    isCarbon: 'BOX',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'zendesk',
+    title: 'Zendesk',
+    description: 'Answer questions from Zendesk Help Center articles (BETA)',
+    fullDescription: 'Connect to Zendesk via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
+    icon: ZendeskLogo,
+    isCarbon: 'ZENDESK',
     isPro: true,
     coming: false,
     fieldUrl: false,
