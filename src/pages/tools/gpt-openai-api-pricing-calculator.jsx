@@ -12,28 +12,28 @@ const pricing = {
     {
       model_name: 'GPT-3.5 Turbo',
       context: '4K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0015,
       output_token_cost_per_thousand: 0.002,
     },
     {
       model_name: 'GPT-3.5 Turbo',
       context: '16K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.003,
       output_token_cost_per_thousand: 0.004,
     },
     {
       model_name: 'GPT-4',
       context: '8K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.03,
       output_token_cost_per_thousand: 0.06,
     },
     {
       model_name: 'GPT-4',
       context: '32K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.06,
       output_token_cost_per_thousand: 0.12,
     },
@@ -92,7 +92,7 @@ const pricing = {
   'Embedding models': [
     {
       model_name: 'Ada v2',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0001,
     },
     {
@@ -131,7 +131,7 @@ export default function Calculate() {
     <>
       <NextSeo
         title="OpenAI & other LLM API Pricing Calculator - DocsBot AI"
-        description="Calculate and compare the cost of using OpenAI, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with our simple and powerful free calculator."
+        description="Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere APIs with our powerful FREE pricing calculator."
         openGraph={{
           images: [
             {
@@ -163,7 +163,7 @@ export default function Calculate() {
                   OpenAI & other LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate and compare the cost of using OpenAI, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with
+                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with
                   our simple and powerful free calculator.
                 </p>
                 <div className="mt-10 text-left max-w-xl mx-auto">
@@ -452,7 +452,7 @@ export default function Calculate() {
                   <strong className="text-white">OpenAI GPT-4</strong>: Known for its broad general
                   knowledge and domain expertise, GPT-4 is adept at following intricate instructions
                   in natural language and solving challenging problems with precision. It's also
-                  slower and more expensive than other models.
+                  slower and more expensive than other models. Also available via Microsoft's Azure OpenAI Service.
                 </p>
               </li>
               <li>
@@ -460,7 +460,7 @@ export default function Calculate() {
                   <strong className="text-white">OpenAI GPT-3.5 Turbo</strong>: This model is
                   optimized for dialogue, making it ideal for chatbot applications and
                   conversational interfaces. It is also the fastest and most cost-effective model
-                  for generating text.
+                  for generating text. Also available via Microsoft's Azure OpenAI Service.
                 </p>
               </li>
               <li>
