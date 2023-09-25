@@ -130,8 +130,8 @@ export default function Calculate() {
   return (
     <>
       <NextSeo
-        title="OpenAI & LLM API Pricing Calculator - DocsBot AI"
-        description="Calculate the cost of using the OpenAI API and other LLMs for your AI project with our simple and powerful free calculator."
+        title="OpenAI & other LLM API Pricing Calculator - DocsBot AI"
+        description="Calculate and compare the cost of using OpenAI, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with our simple and powerful free calculator."
         openGraph={{
           images: [
             {
@@ -158,15 +158,15 @@ export default function Calculate() {
           </div>
           <div className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  OpenAI & LLM API Pricing Calculator
+                  OpenAI & other LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate the cost of using the OpenAI API and other LLMs for your AI project with
+                  Calculate and compare the cost of using OpenAI, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with
                   our simple and powerful free calculator.
                 </p>
-                <div className="mt-10 text-left">
+                <div className="mt-10 text-left max-w-xl mx-auto">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
                     <div className="sm:col-span-3">
                       <label
@@ -378,10 +378,10 @@ export default function Calculate() {
 
           <div className="prose relative mx-auto max-w-5xl px-4 pb-32 text-white sm:px-6 lg:px-8">
             <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              AI Model Pricing: A Comprehensive Overview
+              AI LLM Model Pricing: A Comprehensive Overview
             </h2>
             <p>
-              OpenAI, Anthropic, Cohere, and Meta offer a diverse range of models, each tailored to
+              OpenAI, Anthropic, Google, Cohere, and Meta offer a diverse range of models, each tailored to
               specific tasks and capabilities. Understanding the pricing structure is crucial for
               businesses and developers looking to integrate these models into their applications.
               Here&#39;s a detailed look at how they structure their pricing.

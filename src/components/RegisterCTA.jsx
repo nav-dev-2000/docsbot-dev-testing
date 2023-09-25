@@ -6,7 +6,7 @@ export default function RegisterCTA() {
 
   // a list of random CTA titles
   const titles = [
-    'Get Started with DocsBot Today!',
+    'Get Started with DocsBot AI Today!',
     'Your Documentation, AI-Enhanced',
     'Try DocsBot AI Free!',
     'Unleash the Power of AI Chatbots for Your Business',
