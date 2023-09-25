@@ -94,7 +94,7 @@ export default function App({ Component, pageProps }) {
     }
   }, [user])
 
-  if (router.pathname.startsWith('/docs')) {
+  if (router.pathname.startsWith('/documentation/developer')) {
     let title = pageProps.markdoc?.frontmatter.title
 
     let pageTitle =

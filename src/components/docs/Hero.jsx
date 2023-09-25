@@ -9,11 +9,10 @@ import blurCyanImage from '@/images/blur-cyan.png'
 import blurIndigoImage from '@/images/blur-cyan.png'
 
 const codeLanguage = 'bash'
-const code = `curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFiXuQsakcqyEdpLvCB/ask' \\
+const code = `curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFiXuQsakcqyEdpLvCB/chat' \\
 --header 'Content-Type: application/json' \\
 --data-raw '{
-    "question": "What is WordPress?",
-    "full_source": false
+    "question": "What is WordPress?"
 }'
 
 {
@@ -27,8 +26,10 @@ const code = `curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqi
 }`
 
 const tabs = [
-  { name: 'Q / A', isActive: true },
-  { name: 'Chat', isActive: false },
+  { name: 'Chat', isActive: true },
+  { name: 'Streaming Chat', isActive: false },
+  { name: 'Rating', isActive: false },
+  { name: 'Escalation', isActive: false },
 ]
 
 function TrafficLightsIcon(props) {
@@ -43,7 +44,7 @@ function TrafficLightsIcon(props) {
 
 export function Hero() {
   return (
-    <div className="overflow-hidden bg-slate-900 -mb-32 mt-[-4.5rem] pb-32 pt-[4.5rem] lg:mt-[-4.75rem] lg:pt-[4.75rem]">
+    <div className="overflow-hidden bg-slate-900 -mb-32 mt-[-6rem] pb-32 pt-[4.5rem] lg:mt-[-6rem] lg:pt-[4.75rem]">
       <div className="py-16 sm:px-2 lg:relative lg:py-20 lg:px-0">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-y-16 gap-x-4 px-4 lg:grid-cols-2 xl:gap-x-8">
           <div className="relative z-10 md:text-center lg:text-left">
@@ -66,7 +67,7 @@ export function Hero() {
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <Button href="#start">View Docs</Button>
                 <Button href="/register" variant="secondary">
-                  Signup
+                  Get started for free
                 </Button>
               </div>
             </div>

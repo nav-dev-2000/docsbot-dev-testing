@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
-
 import { Hero } from '@/components/docs/Hero'
 import { MobileNavigation } from '@/components/docs/MobileNavigation'
 import { Navigation } from '@/components/docs/Navigation'
@@ -16,6 +15,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { logout } from '@/api/logout'
 import { signOut } from 'firebase/auth'
 import { routePaths } from '@/constants/routePaths.constants'
+import { NAVIGATION } from '@/constants/navigation.constants'
 
 const navigation = [
   {
@@ -27,43 +27,43 @@ const navigation = [
   {
     title: 'Core concepts',
     links: [
-      { title: 'Authentication', href: '/docs/authentication' },
-      { title: 'API Errors', href: '/docs/api-errors' },
+      { title: 'Authentication', href: '/documentation/developer/authentication' },
+      { title: 'API Errors', href: '/documentation/developer/api-errors' },
     ],
   },
   {
     title: 'Chat Widget',
     links: [
-      { title: 'Embedding', href: '/docs/embeddable-chat-widget' },
-      { title: 'HelpScout Integration', href: '/docs/widget-integrations/helpscout' },
-      { title: 'Zendesk Integration', href: '/docs/widget-integrations/zendesk' },
-      { title: 'Intercom Integration', href: '/docs/widget-integrations/intercom' },
-      { title: 'Freshdesk Integration', href: '/docs/widget-integrations/freshdesk' },
+      { title: 'Embedding', href: '/documentation/developer/embeddable-chat-widget' },
+      { title: 'HelpScout Integration', href: '/documentation/developer/widget-integrations/helpscout' },
+      { title: 'Zendesk Integration', href: '/documentation/developer/widget-integrations/zendesk' },
+      { title: 'Intercom Integration', href: '/documentation/developer/widget-integrations/intercom' },
+      { title: 'Freshdesk Integration', href: '/documentation/developer/widget-integrations/freshdesk' },
     ]
   },
   {
     title: 'Integrations',
     links: [
-      { title: 'Zapier Integration', href: '/docs/integrations/zapier' },
+      { title: 'Zapier Integration', href: '/documentation/developer/integrations/zapier' },
     ]
   },
   {
     title: 'Chat API',
     links: [
-      { title: 'Overview', href: '/docs/chat-api-overview' },
-      { title: 'Chat', href: '/docs/chat-api' },
-      { title: 'Streaming Chat', href: '/docs/streaming-chat-api' },
-      { title: 'Answer Rating & Escalation', href: '/docs/answer-rating' },
+      { title: 'Overview', href: '/documentation/developer/chat-api-overview' },
+      { title: 'Chat', href: '/documentation/developer/chat-api' },
+      { title: 'Streaming Chat', href: '/documentation/developer/streaming-chat-api' },
+      { title: 'Answer Rating & Escalation', href: '/documentation/developer/answer-rating' },
     ],
   },
   {
     title: 'Admin API',
     links: [
-      { title: 'Overview', href: '/docs/admin-api-overview' },
-      { title: 'Teams', href: '/docs/team-api' },
-      { title: 'Bots', href: '/docs/bot-api' },
-      { title: 'Sources', href: '/docs/source-api' },
-      { title: 'Question History', href: '/docs/questions-api' },
+      { title: 'Overview', href: '/documentation/developer/admin-api-overview' },
+      { title: 'Teams', href: '/documentation/developer/team-api' },
+      { title: 'Bots', href: '/documentation/developer/bot-api' },
+      { title: 'Sources', href: '/documentation/developer/source-api' },
+      { title: 'Question History', href: '/documentation/developer/questions-api' },
     ],
   },
 ]
@@ -127,9 +127,22 @@ function Header({ navigation }) {
           <Image className="h-9 w-auto" src={docsbotLogo} alt="DocsBot Logo" />
         </Link>
       </div>
-      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
-        <Search />
-      </div>
+      <div className="hidden space-x-8 md:ml-10 md:flex md:flex-grow -my-5 mr-6 sm:mr-8 md:mr-0">
+              {NAVIGATION.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={clsx(
+                    'text-base font-medium text-white pb-0.5 hover:pb-0 hover:border-b-2 border-solid border-teal-500',
+                    item.href === '/documentation/developer'
+                      ? 'border-b-2'
+                      : ''
+                  )}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
       {user ? (
             <div className="flex items-center">
@@ -299,7 +312,7 @@ function useTableOfContents(tableOfContents) {
 
 export function Layout({ children, title, tableOfContents }) {
   let router = useRouter()
-  let isHomePage = router.pathname === '/docs'
+  let isHomePage = router.pathname === '/documentation/developer'
   let allLinks = navigation.flatMap((section) => section.links)
   let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
   let previousPage = allLinks[linkIndex - 1]

@@ -275,7 +275,7 @@ function Widget({ team, bot }) {
                   </div>
                 )}
                 <Link
-                  href="/docs/embeddable-chat-widget"
+                  href="/documentation/developer/embeddable-chat-widget"
                   className="mt-4 block text-cyan-800 underline sm:mt-0"
                 >
                   Full widget documentation

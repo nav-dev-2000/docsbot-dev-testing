@@ -21,7 +21,7 @@ The chat API is more complex and is used to create a full chat interface in your
 
 The Chat API is stateless, meaning we don't track chat sessions between requests via a cookie or any other method. It's the responsibility of your code to do any session tracking by saving the returned chat history to send with the next request. This makes it a bit more complex to implement, but it also makes it more flexible and allows you to use the API in any way you want. 
 
-[Read more about the Chat API](/docs/chat-api)
+[Read more about the Chat API](/documentation/developer/chat-api)
 
 ---
 

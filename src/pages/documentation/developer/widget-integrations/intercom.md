@@ -37,7 +37,7 @@ window.intercomSettings = {
 };
 ```
 
-Then you'll need to add the DocsBot widget embed code to your website. You can find the embed code by clicking the "Widget Embed" link on your bot. You can find more information about the widget embed code [here](/docs/embeddable-chat-widget).
+Then you'll need to add the DocsBot widget embed code to your website. You can find the embed code by clicking the "Widget Embed" link on your bot. You can find more information about the widget embed code [here](/documentation/developer/embeddable-chat-widget).
 
 Finally adjust the DocsBoc initialization code to open the Intercom Messenger when the user clicks the support link in the DocsBot widget:
 

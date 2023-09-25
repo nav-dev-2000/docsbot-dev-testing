@@ -7,13 +7,17 @@ module.exports = {
   sourceUrl: process.env.NEXT_PUBLIC_HEADLESS_WP_URL,
   hostUrl: process.env.HOST_URL,
   useWordPressPlugin: true,
+  customPostTypes: [
+    {
+      slug: 'docs',
+      endpoint: '/wp-json/wp/v2/docs',
+      // these should match your file-system routing
+      single: '/documentation/doc',
+      archive: '/documentation',
+    },
+  ],
   debug: {
-    requests: process.env?.ENABLE_REQUEST_DEBUG === 'true',
-    redirects: process.env?.ENABLE_REDIRECT_DEBUG === 'true',
-    /**
-     * devMode logs additional stuff that can be helpful for debugging
-     */
-    devMode: process.env?.ENABLE_DEV_MODE === 'true',
+    requests: true,
   },
   integrations: {
     yoastSEO: {

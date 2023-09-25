@@ -60,6 +60,16 @@ const nextConfig = {
         destination: '/legal/terms-of-service',
         permanent: true,
       },
+      {
+        source: '/docs',
+        destination: '/documentation/developer',
+        permanent: true,
+      },
+      {
+        source: '/docs/:slug*',
+        destination: '/documentation/developer/:slug*',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { isServer }) => {

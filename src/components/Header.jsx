@@ -9,7 +9,7 @@ import { logout } from '@/api/logout'
 import { signOut } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { routePaths } from '@/constants/routePaths.constants'
-import classNames from '@/utils/classNames'
+import clsx from 'clsx'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
 
@@ -52,7 +52,10 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-base font-medium text-white hover:text-gray-300"
+                  className={clsx(
+                    'text-base font-medium text-white pb-0.5 hover:pb-0 hover:border-b-2 border-solid border-teal-500',
+                    router.asPath === item.href && 'border-b-2'
+                  )}
                 >
                   {item.name}
                 </a>
@@ -111,7 +114,7 @@ export default function Header() {
                       {({ active }) => (
                         <Link
                           href="/app"
-                          className={classNames(
+                          className={clsx(
                             active ? 'bg-gray-100' : '',
                             'block border-b border-solid border-gray-200 px-4 py-2 text-sm text-gray-700'
                           )}
@@ -124,7 +127,7 @@ export default function Header() {
                       {({ active }) => (
                         <Link
                           href="/app/team"
-                          className={classNames(
+                          className={clsx(
                             active ? 'bg-gray-100' : '',
                             'block border-b border-solid border-gray-200 px-4 py-2 text-sm text-gray-700'
                           )}
@@ -137,7 +140,7 @@ export default function Header() {
                       {({ active }) => (
                         <Link
                           href="/app/account"
-                          className={classNames(
+                          className={clsx(
                             active ? 'bg-gray-100' : '',
                             'block border-b border-solid border-gray-200 px-4 py-2 text-sm text-gray-700'
                           )}
@@ -150,7 +153,7 @@ export default function Header() {
                       {({ active }) => (
                         <Link
                           href="/#"
-                          className={classNames(
+                          className={clsx(
                             active ? 'bg-gray-100' : '',
                             'block p-2 px-4 text-sm text-gray-700'
                           )}
@@ -191,7 +194,7 @@ export default function Header() {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top transform p-2 transition md:hidden"
+          className="absolute inset-x-0 top-0 origin-top transform p-2 transition md:hidden z-10"
         >
           <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
             <div className="flex items-center justify-between px-5 pt-4">

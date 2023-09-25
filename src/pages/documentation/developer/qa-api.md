@@ -8,7 +8,7 @@ The Q/A API is the simplest and is used to get answers to questions. You pass it
 ---
 
 {% callout type="warning" title="This endpoint is Deprecated" %}
-This is an older endpoint that still works, but we recommend using the [Chat API](/docs/chat-api) instead. The Chat API is more flexible and allows you to create Q/A interfaces as well as full chat interfaces.
+This is an older endpoint that still works, but we recommend using the [Chat API](/documentation/developer/chat-api) instead. The Chat API is more flexible and allows you to create Q/A interfaces as well as full chat interfaces.
 {% /callout %}
 
 ## Request

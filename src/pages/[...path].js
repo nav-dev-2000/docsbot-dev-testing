@@ -1,11 +1,4 @@
-import {
-  usePost,
-  fetchHookData,
-  addHookData,
-  handleError,
-  usePosts,
-  useAppSettings,
-} from '@headstartwp/next'
+import { usePost, fetchHookData, addHookData, handleError, usePosts } from '@headstartwp/next'
 import { BlocksRenderer } from '@headstartwp/core/react'
 import { getWPUrl, getHostUrl, removeSourceUrl } from '@headstartwp/core'
 import { replaceUrls, replaceATagsWithLinks } from '@/utils/replaceUrls'
@@ -15,20 +8,16 @@ import ContentSection from '@/components/ContentSection'
 import { resolveBatch } from '@/utils/promises'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
-import Signup from '@/components/Signup'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 const params = { postType: ['page', 'post'] }
 
-const SinglePage = ({seo}) => {
+const SinglePage = ({ seo }) => {
   const { loading, error, data } = usePost(params)
-
-  if (loading) {
-    return 'Loading...'
-  }
 
   return (
     <>
-      {seo.yoast_head_json && (
+      {seo?.yoast_head_json && (
         <NextSeo
           title={seo.yoast_head_json.title}
           description={seo.yoast_head_json.description}
@@ -49,21 +38,34 @@ const SinglePage = ({seo}) => {
       )}
       <Header />
       <main>
-        <ContentSection title={data.post.title.rendered} post={data.post}>
-          <BlocksRenderer html={data.post.contentReplaced} />
-          {data.post.terms?.category && (
-            <div className="mt-8 flex items-center gap-x-4 border-t border-gray-200 pt-4 text-xs">
-              <a
-                href={data.post.terms.category[0]?.link}
-                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 no-underline hover:bg-gray-100"
-              >
-                {data.post.terms.category[0]?.name}
-              </a>
+        {loading ? (
+          <div className="bg-white py-12 sm:py-24">
+            <div className="mx-auto max-w-7xl px-16 lg:px-24">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex items-center space-x-2 justify-center">
+                  <LoadingSpinner large={true} />
+                  <span>Loading...</span>
+                </h2>
+              </div>
             </div>
-          )}
-        </ContentSection>
-        {data.post.type === 'post' && (
-        <RegisterCTA />
+          </div>
+        ) : (
+          <>
+            <ContentSection title={data.post.title.rendered} post={data.post}>
+              <BlocksRenderer html={data.post.contentReplaced} />
+              {data.post.terms?.category && (
+                <div className="mt-8 flex items-center gap-x-4 border-t border-gray-200 pt-4 text-xs">
+                  <a
+                    href={data.post.terms.category[0]?.link}
+                    className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 no-underline hover:bg-gray-100"
+                  >
+                    {data.post.terms.category[0]?.name}
+                  </a>
+                </div>
+              )}
+            </ContentSection>
+            {data.post.type === 'post' && <RegisterCTA />}
+          </>
         )}
       </main>
       <Footer />
@@ -78,8 +80,6 @@ const SinglePage = ({seo}) => {
  * @returns {Promise<*>}
  */
 export async function getStaticPaths() {
-  const settings = await useAppSettings.fetcher().get()
-  const frontPage = settings?.result?.home?.slug ?? ''
   const postsData = await usePosts.fetcher().get({ postType: 'post', per_page: 50 })
 
   const postsPath = postsData.result.map(({ link }) => {
@@ -97,7 +97,7 @@ export async function getStaticPaths() {
   const pagePaths = pagesData.result
     .map(({ link }) => {
       const normalizedLink = removeSourceUrl({ link, backendUrl: getWPUrl() })
-      if (normalizedLink === '/' || normalizedLink === frontPage) {
+      if (normalizedLink === '/') {
         return false
       }
 
@@ -124,7 +124,6 @@ export async function getStaticProps(context) {
       {
         func: fetchHookData(usePost.fetcher(), context, { params: params }),
       },
-      { func: fetchHookData(useAppSettings.fetcher(), context), throw: false },
     ])
 
     settledPromises[0].data.result.link = replaceUrls(settledPromises[0].data.result.link).replace(

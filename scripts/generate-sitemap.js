@@ -17,7 +17,7 @@ async function generateSitemap() {
     'src/pages/**/*{.js,.jsx,.mdx,.md}',
     '!src/pages/_*{.jsx,.js}',
     '!src/pages/**/[*{.jsx,.js}',
-    '!src/pages/{api,app,ask,chat,404,register}{**/*,*}',
+    '!src/pages/{api,app,ask,chat,iframe,404,register}{**/*,*}',
   ])
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(addPage).join('\n')}
