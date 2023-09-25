@@ -53,7 +53,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className={clsx(
-                    'text-base font-medium text-white pb-0.5 hover:pb-0 hover:border-b-2 border-solid border-teal-500',
+                    'text-base font-medium text-white hover:border-b-2 border-solid border-teal-500',
                     router.asPath === item.href && 'border-b-2'
                   )}
                 >

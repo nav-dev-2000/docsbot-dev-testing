@@ -32,7 +32,7 @@ The frontend is located in the `/src/pages` folder.
 
 ### Documentation
 
-The documentation is located in the `/src/pages/docs` folder. Each file in this folder represents a single page in the documentation. They are written in Markdown and use Markdoc to generate the HTML. You can learn more about Markdoc in the [Markdoc documentation](https://markdoc.dev). Components can be added to the documentation by creating a new file in the `/src/components/docs` folder.
+The documentation is located in the `/src/pages/documentation/developer` folder. Each file in this folder represents a single page in the documentation. They are written in Markdown and use Markdoc to generate the HTML. You can learn more about Markdoc in the [Markdoc documentation](https://markdoc.dev). Components can be added to the documentation by creating a new file in the `/src/components/docs` folder.
 
 ### Blog
 
