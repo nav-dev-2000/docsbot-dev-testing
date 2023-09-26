@@ -209,7 +209,9 @@ function StatsPage({ userId, stats, steps, cancelReasons, cancelReasonsList }) {
                 maintainAspectRatio: false,
                 plugins: {
                   legend: {
-                    display: false,
+                    position: 'bottom',
+                    align: 'start',
+                    textAlign: 'left',
                   },
                 },
               }}
