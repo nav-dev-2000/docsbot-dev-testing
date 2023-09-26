@@ -137,6 +137,7 @@ const webhookHandler = async (req, res) => {
                 }
               }
 
+              /*
               //if scheduled to cancel
               if (
                 event.data.previous_attributes?.cancel_at_period_end === false &&
@@ -172,20 +173,21 @@ const webhookHandler = async (req, res) => {
                   console.error(e)
                 }
               }
+              */
 
               //if cancel feedback added
               if (
                 event.data.previous_attributes?.cancellation_details?.feedback === null &&
-                subscription.cancellation_details?.feedback
+                subscription.cancel_at_period_end
               ) {
                 // Send the Slack notification
                 try {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `DocsBot AI Cancel Feedback`,
+                        fallback: `DocsBot AI cancellation!`,
                         color: '#d10014',
-                        title: 'DocsBot AI Cancel Feedback',
+                        title: 'DocsBot AI Subscription Cancelled!',
                         fields: [
                           {
                             title: 'Team',
@@ -193,11 +195,18 @@ const webhookHandler = async (req, res) => {
                             short: true,
                           },
                           {
+                            title: 'Amount',
+                            value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
+                              subscription.plan.currency
+                            } ${subscription.plan.interval}ly`,
+                            short: true,
+                          },
+                          {
                             title: 'Reason',
                             value: `${subscription.cancellation_details.feedback || ''} ${
                               subscription.cancellation_details.comment || ''
                             }`,
-                            short: true,
+                            short: false,
                           },
                         ],
                       },

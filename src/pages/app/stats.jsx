@@ -6,13 +6,39 @@ import { isSuperAdmin } from '@/utils/helpers'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { CheckIcon } from '@heroicons/react/24/solid'
+import { Pie } from 'react-chartjs-2'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function StatsPage({ userId, stats, steps }) {
+const feedbackReasons = {
+  too_expensive: 'It’s too expensive',
+  missing_features: 'Some features are missing',
+  switched_service: 'I’m switching to a different service',
+  unused: 'I don’t use the service enough',
+  customer_service: 'Customer service was less than expected',
+  too_complex: 'Ease of use was less than expected',
+  low_quality: 'Quality was less than expected',
+  other: 'Other reason',
+}
+
+function StatsPage({ userId, stats, steps, cancelReasons, cancelReasonsList }) {
   const [errorText, setErrorText] = useState(null)
+  const [pieData, setPieData] = useState(null)
+
+  useEffect(() => {
+    if (!Object.keys(cancelReasons).length) return
+
+    setPieData({
+      labels: Object.keys(cancelReasons).map((key) => feedbackReasons[key]),
+      datasets: [
+        {
+          data: Object.values(cancelReasons),
+        },
+      ],
+    })
+  }, [cancelReasons])
 
   return (
     <DashboardWrap page="Dashboard">
@@ -168,6 +194,35 @@ function StatsPage({ userId, stats, steps }) {
           </nav>
         </div>
       </div>
+
+      <h3 className="mt-16 text-base font-semibold leading-6 text-gray-900">
+        Cancellation Reasons
+      </h3>
+      <div className="mt-4 items-center space-x-4 align-middle lg:flex bg-white rounded-lg">
+        <div className="h-80 flex-none">
+          {pieData && (
+            <Pie
+              data={pieData}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+              }}
+            />
+          )}
+        </div>
+        <div className="flex-auto">
+          <h4 className="text-base font-semibold leading-6 text-gray-900">Comments</h4>
+          <ul className="divide-y divide-gray-200">
+            {cancelReasonsList.map((reason) => (
+              <li key={reason} className="flex py-4">
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-gray-900">{reason}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </DashboardWrap>
   )
 }
@@ -189,14 +244,25 @@ export const getServerSideProps = async (context) => {
 
   const teamsSnapshot = await firestore.collection('teams').get()
   let teams = []
+  const cancelReasons = {}
+  const cancelReasonsList = []
   teamsSnapshot.forEach(async (doc) => {
     let team = { id: doc.id, ...doc.data() }
-    if (team.createdAt) {
+    if (team.createdAt && team.createdAt instanceof Date) {
       team.createdAt = team.createdAt.toDate().toJSON() //make serializable
     }
     if (team.id !== '9oh1D8on7okSdakT1Ywn') {
       //skip staff team
       teams.push(team)
+
+      //cancel feedback
+      if (team.stripeSubscriptionCancelFeedback) {
+        cancelReasons[team.stripeSubscriptionCancelFeedback] =
+          cancelReasons[team.stripeSubscriptionCancelFeedback] + 1 || 1
+      }
+      if (team.stripeSubscriptionCancelComment) {
+        cancelReasonsList.push(team.stripeSubscriptionCancelComment)
+      }
     }
   })
 
@@ -267,7 +333,7 @@ export const getServerSideProps = async (context) => {
     { name: 'Pages per Account', stat: pagesPerAccount },
     { name: 'Questions per Account', stat: questionsPerAccount },
   ]
-console.log('stats', stats)
+  console.log('stats', stats)
   data.props.stats = stats
 
   data.props.steps = [
@@ -300,6 +366,9 @@ console.log('stats', stats)
       status: 'upcoming',
     },
   ]
+
+  data.props.cancelReasons = cancelReasons
+  data.props.cancelReasonsList = cancelReasonsList
 
   return data
 }
