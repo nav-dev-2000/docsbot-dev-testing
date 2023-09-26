@@ -7,6 +7,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { CheckIcon } from '@heroicons/react/24/solid'
 import { Pie } from 'react-chartjs-2'
+import 'chart.js/auto' // ADD THIS
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -198,14 +199,19 @@ function StatsPage({ userId, stats, steps, cancelReasons, cancelReasonsList }) {
       <h3 className="mt-16 text-base font-semibold leading-6 text-gray-900">
         Cancellation Reasons
       </h3>
-      <div className="mt-4 items-center space-x-4 align-middle lg:flex bg-white rounded-lg">
-        <div className="h-80 flex-none">
+      <div className="mt-4 items-start justify-between space-x-16 rounded-lg bg-white p-8 align-middle lg:flex">
+        <div className="h-96 flex-none">
           {pieData && (
             <Pie
               data={pieData}
               options={{
                 responsive: true,
                 maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
+                },
               }}
             />
           )}
