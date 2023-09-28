@@ -20,6 +20,7 @@ import remarkGfm from 'remark-gfm'
 import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
+import LocalTime from '@/components/LocalTime'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -201,9 +202,8 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
 
     return (
       <>
-        <a
-          type="button"
-          className={(disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4'}
+        <button
+          className={(disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'}
           onClick={() => {
             if (disabled) return
             setOpen(true)
@@ -211,7 +211,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
           disabled={disabled}
         >
           {children}
-        </a>
+        </button>
         <Transition.Root show={open} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpen}>
             <Transition.Child
@@ -338,11 +338,16 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                         open={qaOpen}
                         setOpen={setQAOpen}
                       />
-
-                      <h3 className="mt-2 text-base font-medium text-gray-700">Used Sources:</h3>
-                      {question.sources.map((source, index) => (
-                        <FullSource key={index} source={source} />
-                      ))}
+                      {question.sources.length > 0 && (
+                        <>
+                          <h3 className="mt-2 text-base font-medium text-gray-700">
+                            Used Sources:
+                          </h3>
+                          {question.sources.map((source, index) => (
+                            <FullSource key={index} source={source} />
+                          ))}
+                        </>
+                      )}
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>
@@ -475,13 +480,13 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                         <td
                           className={clsx(
                             questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
+                            'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell break-words'
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
                             <p>{question.standaloneQuestion || question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
-                              {question.createdAt}
+                              <LocalTime date={question.createdAt} />
                             </span>
                             <dl className="font-normal lg:hidden">
                               <dt className="sr-only">Answer</dt>
@@ -498,7 +503,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                         <td
                           className={clsx(
                             questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden text-sm text-gray-500 lg:table-cell'
+                            'hidden text-sm text-gray-500 lg:table-cell break-words'
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
