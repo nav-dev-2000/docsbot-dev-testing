@@ -283,7 +283,12 @@ export default async function handler(req, res) {
       }
 
       if (rateLimitMessages !== undefined) {
-        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
+        if (
+          rateLimitMessages != bot.rateLimitMessages &&
+          rateLimitMessages != 10 &&
+          stripePlan(team).bots < 100 &&
+          !isSuperAdmin(userId)
+        ) {
           return res.status(402).json({
             message: 'Rate limiting is not available at your plan level.',
           })
@@ -296,7 +301,12 @@ export default async function handler(req, res) {
       }
 
       if (rateLimitSeconds !== undefined) {
-        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
+        if (
+          rateLimitSeconds != bot.rateLimitSeconds &&
+          rateLimitSeconds != 60 &&
+          stripePlan(team).bots < 100 &&
+          !isSuperAdmin(userId)
+        ) {
           return res.status(402).json({
             message: 'Rate limiting is not available at your plan level.',
           })
@@ -309,20 +319,18 @@ export default async function handler(req, res) {
       }
 
       if (rateLimitIPAllowlist !== undefined) {
-        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
-          return res.status(402).json({
-            message: 'Rate limiting is not available at your plan level.',
-          })
-        }
         //check if rateLimitIPAllowlist is valid, array of IPv4 or IPv6 addresses, remove any empty strings
-        botData.rateLimitIPAllowlist = rateLimitIPAllowlist.map((ip) => ip.trim()).filter((ip) => {
-          if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
-            return true
-          } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) { //does not support shorthand notation
-            return true
-          }
-          return false
-        })
+        botData.rateLimitIPAllowlist = rateLimitIPAllowlist
+          .map((ip) => ip.trim())
+          .filter((ip) => {
+            if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
+              return true
+            } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) {
+              //does not support shorthand notation
+              return true
+            }
+            return false
+          })
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
