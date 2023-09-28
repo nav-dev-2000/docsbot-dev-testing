@@ -92,6 +92,7 @@ const tiers = [
       'AI reports (coming soon)',
       'Prompt customization',
       'Priority support',
+      'Rate limiting',
     ],
     mostPopular: false,
   },
@@ -114,6 +115,7 @@ const enterpriseFeatures = [
   'Prompt customization',
   'Azure OpenAI Service',
   'Self-hosted options',
+  'Rate limiting',
 ]
 
 export default function Pricing() {

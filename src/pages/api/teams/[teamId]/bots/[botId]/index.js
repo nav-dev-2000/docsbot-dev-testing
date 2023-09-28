@@ -46,6 +46,9 @@ export default async function handler(req, res) {
         showButtonLabel,
         labels,
         questions,
+        rateLimitMessages,
+        rateLimitSeconds,
+        rateLimitIPAllowlist,
         hideSources,
         logo,
         headerAlignment,
@@ -189,7 +192,7 @@ export default async function handler(req, res) {
       if (botIcon !== undefined) {
         //check if icon is valid
         const validIcon = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
-        if (!validIcon.includes(botIcon) && (botIcon && !botIcon.includes('://'))) {
+        if (!validIcon.includes(botIcon) && botIcon && !botIcon.includes('://')) {
           return res.status(400).send({ message: 'Invalid param "botIcon".' })
         } else {
           botData.botIcon = botIcon
@@ -277,6 +280,49 @@ export default async function handler(req, res) {
       if (questions !== undefined) {
         //check if questions is valid, array of strings, remove any empty strings
         botData.questions = questions.filter((q) => q !== '')
+      }
+
+      if (rateLimitMessages !== undefined) {
+        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
+          return res.status(402).json({
+            message: 'Rate limiting is not available at your plan level.',
+          })
+        }
+        rateLimitMessages = parseInt(rateLimitMessages)
+        if (isNaN(rateLimitMessages) || rateLimitMessages < 1) {
+          return res.status(400).send({ message: 'Invalid param "rateLimitMessages".' })
+        }
+        botData.rateLimitMessages = rateLimitMessages
+      }
+
+      if (rateLimitSeconds !== undefined) {
+        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
+          return res.status(402).json({
+            message: 'Rate limiting is not available at your plan level.',
+          })
+        }
+        rateLimitSeconds = parseInt(rateLimitSeconds)
+        if (isNaN(rateLimitSeconds) || rateLimitSeconds < 1) {
+          return res.status(400).send({ message: 'Invalid param "rateLimitSeconds".' })
+        }
+        botData.rateLimitSeconds = rateLimitSeconds
+      }
+
+      if (rateLimitIPAllowlist !== undefined) {
+        if (stripePlan(team).bots < 100 && !isSuperAdmin(userId)) {
+          return res.status(402).json({
+            message: 'Rate limiting is not available at your plan level.',
+          })
+        }
+        //check if rateLimitIPAllowlist is valid, array of IPv4 or IPv6 addresses, remove any empty strings
+        botData.rateLimitIPAllowlist = rateLimitIPAllowlist.map((ip) => ip.trim()).filter((ip) => {
+          if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
+            return true
+          } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) { //does not support shorthand notation
+            return true
+          }
+          return false
+        })
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)

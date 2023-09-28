@@ -4,20 +4,19 @@ import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
+import e from 'cors'
 
-export default function FormBot({
-  team,
-  bot,
-  setBotSettings,
-  disabled,
-  hideSuggestQuestions = false,
-}) {
+export default function FormBot({ team, bot, setBotSettings, disabled, short = false }) {
   const [language, setLanguage] = useState(bot?.language || 'en')
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(bot?.model || 'gpt-3.5-turbo')
   const [questions, setQuestions] = useState(bot?.questions || [])
+  const [rateLimitMessages, setRateLimitMessages] = useState(bot?.rateLimitMessages || 10)
+  const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
+  const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
+  const [rateLimitIPField, setRateLimitIPField] = useState(bot?.rateLimitIPAllowlist?.join(', ') || '')
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   useEffect(() => {
@@ -28,8 +27,11 @@ export default function FormBot({
       privacy,
       model,
       questions,
+      rateLimitMessages,
+      rateLimitSeconds,
+      rateLimitIPAllowlist,
     })
-  }, [language, botName, botDescription, privacy, model, questions])
+  }, [language, botName, botDescription, privacy, model, questions, rateLimitMessages, rateLimitSeconds, rateLimitIPAllowlist])
 
   //show upgrade if they change privacy to private
   useEffect(() => {
@@ -71,6 +73,19 @@ export default function FormBot({
     })
   }
 
+  useEffect(() => {
+    //check for valid IPv4 and IPv6 addresses
+    const ipArray = rateLimitIPField.split(',').map((ip) => ip.trim()).filter((ip) => {
+      if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
+        return true
+      } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) { //does not support shorthand notation
+        return true
+      }
+      return false
+    })
+    setRateLimitIPAllowlist(ipArray)
+  }, [rateLimitIPField])
+
   const QuestionPrompt = ({ index }) => {
     const [question, setQuestion] = useState(questions[index])
 
@@ -86,7 +101,7 @@ export default function FormBot({
               updateQuestion(index, e.target.value)
             }}
             placeholder={`What is ${bot.name}?`}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
           />
         </div>
         <div className="m-auto flex items-center text-center">
@@ -119,7 +134,7 @@ export default function FormBot({
             onChange={(e) => setBotName(e.target.value)}
             disabled={disabled}
             placeholder="What would you like to call your bot?"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
           />
         </div>
       </div>
@@ -133,7 +148,7 @@ export default function FormBot({
             name="description"
             placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
             rows={4}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
             value={botDescription}
             disabled={disabled}
             onChange={(e) => setBotDescription(e.target.value)}
@@ -275,44 +290,138 @@ export default function FormBot({
         <select
           id="language"
           name="language"
-          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="mt-2 block w-1/2 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6"
           defaultValue={language}
           onChange={(e) => setLanguage(e.target.value)}
           disabled={disabled}
         >
           {Object.keys(i18n).map((key) => (
-            <option key={key} value={key}>{i18n[key].name}</option>
+            <option key={key} value={key}>
+              {i18n[key].name}
+            </option>
           ))}
         </select>
       </div>
 
-      {!hideSuggestQuestions && (
-        <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
-          <div>
-            <legend
-              htmlFor="suggested-questions"
-              className="block text-sm font-medium text-gray-900"
-            >
-              Suggested questions
-            </legend>
-            <p id="suggested-questions-description" className="text-sm text-gray-500">
-              A random selection of these sample questions will be shown to users in the chat
-              interfaces.
-            </p>
-            {questions !== undefined &&
-              questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
-            <div className="mt-2 flex justify-center">
-              <button
-                type="button"
-                className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
-                onClick={() => addQuestion()}
+      {!short && (
+        <>
+          <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
+            <div>
+              <legend
+                htmlFor="suggested-questions"
+                className="block text-sm font-medium text-gray-900"
               >
-                <PlusIcon className="h-5 w-5" aria-hidden="true" />
-                Add
-              </button>
+                Suggested questions
+              </legend>
+              <p id="suggested-questions-description" className="text-sm text-gray-500">
+                A random selection of these sample questions will be shown to users in the chat
+                interfaces.
+              </p>
+              {questions !== undefined &&
+                questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
+              <div className="mt-2 flex justify-center">
+                <button
+                  type="button"
+                  className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                  onClick={() => addQuestion()}
+                >
+                  <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                  Add
+                </button>
+              </div>
+            </div>
+          </fieldset>
+
+          <div className="border-t border-gray-900/10 pt-6">
+            <h2 className="text-base font-semibold leading-7 text-gray-900">
+              Rate Limiting
+              {stripePlan(team).bots < 100 && (
+                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                  Business Plan
+                </span>
+              )}
+            </h2>
+            <p className="mt-1 text-sm leading-6 text-gray-600">
+              Rate limiting is a way to prevent abuse of your bot and excessive OpenAI usage costs.
+            </p>
+
+            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div className="sm:col-span-1 sm:col-start-1">
+                <label
+                  htmlFor="rateLimitMessages"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Messages
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="number"
+                    min={1}
+                    name="rateLimitMessages"
+                    id="rateLimitMessages"
+                    value={rateLimitMessages}
+                    onChange={(e) => setRateLimitMessages(e.target.value)}
+                    disabled={disabled || stripePlan(team).bots < 100}
+                    aria-describedby="rateLimitMessages-description"
+                    className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+                <p className="mt-2 text-sm text-gray-500" id="rateLimitMessages-description">
+                {rateLimitMessages} Messages (questions)
+                </p>
+              </div>
+
+              <div className="sm:col-span-1">
+                <label
+                  htmlFor="rateLimitSeconds"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Seconds
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="number"
+                    min={1}
+                    name="rateLimitSeconds"
+                    id="rateLimitSeconds"
+                    value={rateLimitSeconds}
+                    onChange={(e) => setRateLimitSeconds(e.target.value)}
+                    disabled={disabled || stripePlan(team).bots < 100}
+                    aria-describedby="rateLimitSeconds-description"
+                    className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+                <p className="mt-2 text-sm text-gray-500" id="rateLimitSeconds-description">
+                  Per {rateLimitSeconds} seconds
+                </p>
+              </div>
+
+              <div className="sm:col-span-4">
+                <label
+                  htmlFor="rateLimitIPAllowlist"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  IP Allowlist
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="text"
+                    name="rateLimitIPAllowlist"
+                    id="rateLimitIPAllowlist"
+                    value={rateLimitIPField}
+                    onChange={(e) => setRateLimitIPField(e.target.value)}
+                    disabled={disabled || stripePlan(team).bots < 100}
+                    aria-describedby="rateLimitMessages-description"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+                <p className="mt-2 text-sm text-gray-500" id="rateLimitIPAllowlist-description">
+                  Comma-separated IPs that should be exempt from rate limiting.
+                </p>
+              </div>
             </div>
           </div>
-        </fieldset>
+        </>
       )}
     </>
   )
