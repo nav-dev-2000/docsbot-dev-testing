@@ -10,7 +10,6 @@ import {
   XMarkIcon,
   LifebuoyIcon,
   AdjustmentsHorizontalIcon,
-  PencilSquareIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
