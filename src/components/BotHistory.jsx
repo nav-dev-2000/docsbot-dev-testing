@@ -204,7 +204,7 @@ export default function BotHistory({ team, botId }) {
       </div>
 
       {isProcessing && (
-        <div className="flex h-48 items-center justify-center text-xl space-x-2">
+        <div className="flex h-48 items-center justify-center space-x-2 text-xl">
           <LoadingSpinner large={true} />
           <div>Loading...</div>
         </div>
@@ -212,34 +212,45 @@ export default function BotHistory({ team, botId }) {
 
       {stats && (
         <>
-          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                <LocalStringNum value={stats.totalCount} />
-              </dd>
-            </div>
-            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Answers with no negative rating or support escalation">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.resolutionRate}%
-              </dd>
-            </div>
-            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Answers with no support escalation">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.deflectionRate}%
-              </dd>
-            </div>
-            <div className="flex flex-col bg-gray-400/5 hover:bg-gray-400/10 p-8" title="Assuming an average of 5mins/ticket">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">
-                Support staff time saved
-              </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                <LocalStringNum value={stats.timeSaved} /> Mins
-              </dd>
-            </div>
-          </dl>
+          {stats.totalCount && (
+            <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={stats.totalCount} />
+                </dd>
+              </div>
+              <div
+                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+                title="Answers with no negative rating or support escalation"
+              >
+                <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  {stats.resolutionRate}%
+                </dd>
+              </div>
+              <div
+                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+                title="Answers with no support escalation"
+              >
+                <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  {stats.deflectionRate}%
+                </dd>
+              </div>
+              <div
+                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+                title="Assuming an average of 5mins/ticket"
+              >
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Support staff time saved
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={stats.timeSaved} /> Mins
+                </dd>
+              </div>
+            </dl>
+          )}
 
           {blurEnabled && (
             <div className="relative z-10 -mb-72 mt-32 w-full">
@@ -258,13 +269,18 @@ export default function BotHistory({ team, botId }) {
             </div>
           )}
 
-          <div className={classNames('align-middle lg:flex space-x-4 items-center', blurEnabled ? 'blur-lg' : '')}>
-            <div className="flex-auto h-96 mt-6">
+          <div
+            className={classNames(
+              'items-center space-x-4 align-middle lg:flex',
+              blurEnabled ? 'blur-lg' : ''
+            )}
+          >
+            <div className="mt-6 h-96 flex-auto">
               {lineData && (
                 <Line data={lineData} options={{ maintainAspectRatio: false, responsive: true }} />
               )}
             </div>
-            <div className="flex-none h-80 mt-6">
+            <div className="mt-6 h-80 flex-none">
               {pieData && (
                 <Pie
                   data={pieData}
