@@ -62,6 +62,8 @@ Here is a list of the languages we currently support, if you would like to see a
 
 **Note**: Changes to your widget settings will not be reflected on your site until you reload the page as long as five minutes after you save your changes. For best performance we cache the widget settings for five minutes on our CDN.
 
+If you need to customize the widget appearance at a deeper level than our settings provide, see the [Custom CSS](#custom-css) section below for more details.
+
 ## Security
 
 ### Restricting Domains
@@ -228,6 +230,7 @@ options: {
   }, // Override all the default labels for your own language.
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
+  customCSS: '', // Custom CSS to override the default styles.
   questions: [
     "What is DocsBot?",
     "What services does DocsBot offer?",
@@ -251,6 +254,26 @@ DocsBotAI.init({
 })
 ```
 
+### Custom CSS
+
+If you need to override the default styles of the widget you can pass a `customCSS` string with your custom styles. Note that you may need to use `!important` to override some element styles. Here is an example:
+
+```js
+DocsBotAI.init({
+  id: 'YOUR_ID_HERE',
+  options: {
+    customCSS: `
+      .docsbot-chat-inner-container {
+        border-radius: 0;
+      }
+      .docsbot-user-chat-message {
+        background-color: #00BCD4;
+        color: #fff;
+      }
+    `,
+  },
+})
+```
 
 ### Integration with a Support Form
 
