@@ -332,6 +332,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     recordIP,
     classify,
     embeddingModel,
+    temperature,
   } = req.body
 
   const botData = {}
@@ -620,6 +621,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (classify !== undefined) {
     botData.classify = Boolean(classify)
+  }
+
+  if (temperature !== undefined) {
+    // Validate temperature is between 0 and 1
+    const temp = parseFloat(temperature)
+    if (isNaN(temp) || temp < 0 || temp > 1) {
+      throw new Error('Temperature must be a number between 0 and 1.')
+    }
+    botData.temperature = temp
+  } else if (!isUpdate) {
+    botData.temperature = 0 // Default to 0 for most precise responses
   }
 
   if (!isUpdate) { //Only can set embedding model on new bots

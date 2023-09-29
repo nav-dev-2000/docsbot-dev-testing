@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from 'react'
 import { PlusIcon, XMarkIcon } from '@heroicons/react/20/solid'
+import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
 import FieldToggle from '@/components/FieldToggle'
+import Tooltip from '@/components/Tooltip'
 
 export default function FormBot({
   team,
@@ -44,6 +46,7 @@ export default function FormBot({
   )
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [recordIP, setRecordIP] = useState(bot?.recordIP || false)
+  const [temperature, setTemperature] = useState(bot?.temperature || 0)
 
   useEffect(() => {
     setBotSettings({
@@ -60,6 +63,7 @@ export default function FormBot({
       labels,
       recordIP,
       classify: classifySwitch,
+      temperature,
     })
   }, [
     language,
@@ -75,6 +79,7 @@ export default function FormBot({
     labels,
     recordIP,
     classifySwitch,
+    temperature,
   ])
 
   useEffect(() => {
@@ -785,24 +790,57 @@ export default function FormBot({
         </div>
       </fieldset>
 
-      <div>
-        <label htmlFor="language" className="text-sm font-medium text-gray-900">
-          Language
-        </label>
-        <select
-          id="language"
-          name="language"
-          className="mt-2 block w-1/2 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6"
-          defaultValue={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          disabled={disabled}
-        >
-          {Object.keys(i18n).map((key) => (
-            <option key={key} value={key}>
-              {i18n[key].name}
-            </option>
-          ))}
-        </select>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="language" className="flex items-center gap-1.5 text-sm font-medium text-gray-900">
+            Language
+            <Tooltip content="Sets the default language for prompts and widget labels. The bot will still detect and respond in the language used in questions.">
+              <InformationCircleIcon className="h-4 w-4 text-gray-500" />
+            </Tooltip>
+          </label>
+          <select
+            id="language"
+            name="language"
+            className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6"
+            defaultValue={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            disabled={disabled}
+          >
+            {Object.keys(i18n).map((key) => (
+              <option key={key} value={key}>
+                {i18n[key].name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="temperature" className="flex items-center gap-1.5 text-sm font-medium text-gray-900">
+            Temperature
+            <Tooltip content="Controls how creative vs precise the bot's responses are. Lower values (closer to 0) make responses more focused and predictable, while higher values make them more creative and varied.">
+              <InformationCircleIcon className="h-4 w-4 text-gray-500" />
+            </Tooltip>
+          </label>
+          <div className="mt-2">
+            <input
+              type="range"
+              name="temperature"
+              id="temperature"
+              min="0"
+              max="1"
+              step="0.1"
+              value={temperature}
+              onChange={(e) => setTemperature(parseFloat(e.target.value))}
+              disabled={disabled}
+              className="transparent h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600"
+            />
+            <div className="mt-1 flex justify-between text-xs text-gray-500">
+              <span>Reserved</span>
+              <span className="text-center font-semibold">{temperature === Math.floor(temperature) ? temperature.toFixed(0) : temperature.toFixed(1)}</span>
+              <span>Creative</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {!short && (
