@@ -19,7 +19,7 @@ import remarkGfm from 'remark-gfm'
 import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
-import LocalTime from '@/components/LocalTime'
+import LocaleDateTime from '@/components/LocaleDateTime'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -485,7 +485,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           <Answer {...{ question, questionIdx }}>
                             <p>{question.standaloneQuestion || question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
-                              <LocalTime date={question.createdAt} />
+                              <LocaleDateTime date={question.createdAt} />
                             </span>
                             <dl className="font-normal lg:hidden">
                               <dt className="sr-only">Answer</dt>
