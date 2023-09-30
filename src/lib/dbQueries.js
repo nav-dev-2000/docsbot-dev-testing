@@ -195,8 +195,11 @@ export async function getQuestions(
   botId,
   perPage = 50,
   page = 0,
-  ascending = false,
-  filter = null
+  ip = null,
+  rating = null,
+  escalated = null,
+  startTime = null,
+  endTime = null
 ) {
   const offset = page * perPage
   let snapshot = firestore
@@ -205,19 +208,54 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .select(FieldPath.documentId(), 'createdAt', 'ip', 'question', 'standaloneQuestion', 'sources', 'answer', 'rating', 'escalation', 'metadata') //skip the vector as it's huge
+    .select(
+      FieldPath.documentId(),
+      'createdAt',
+      'ip',
+      'question',
+      'standaloneQuestion',
+      'sources',
+      'answer',
+      'rating',
+      'escalation',
+      'metadata'
+    ) //skip the vector as it's huge
 
   // grab limits
   const plan = stripePlan(team)
   const planLimit = plan.logLimit
   const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
 
-  if (filter) {
-    snapshot = snapshot.where('ip', '==', filter)
+  if (ip) {
+    snapshot = snapshot.where('ip', '==', ip)
+  }
+
+  if (escalated !== null) {
+    snapshot = snapshot.where('escalation', '==', escalated)
+  } 
+
+  if (rating !== null) {
+    snapshot = snapshot.where('rating', '==', rating || 0)
+  }
+
+  if (startTime) {
+    const start = new Date(startTime)
+    if (isNaN(start.getTime())) {
+      throw new Error('Invalid parameter "startTime".')
+    }
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    if (isNaN(end.getTime())) {
+      throw new Error('Invalid parameter "endTime".')
+    }
+    snapshot = snapshot.where('createdAt', '<=', end)
   }
 
   const questionsRef = snapshot
-    .orderBy('createdAt', ascending ? 'asc' : 'desc')
+    .orderBy('createdAt', 'desc')
     .offset(offset)
     .limit(pageLimit)
 
@@ -255,8 +293,26 @@ export async function getQuestions(
     .doc(botId)
     .collection('questions')
 
-  if (filter) {
-    snapshot = snapshot.where('ip', '==', filter)
+  if (ip) {
+    snapshot = snapshot.where('ip', '==', ip)
+  }
+
+  if (escalated !== null) {
+    snapshot = snapshot.where('escalation', '==', escalated)
+  } 
+  
+  if (rating !== null) {
+    snapshot = snapshot.where('rating', '==', rating || 0)
+  }
+  
+  if (startTime) {
+    const start = new Date(startTime)
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    snapshot = snapshot.where('createdAt', '<=', end)
   }
 
   // get total count

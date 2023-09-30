@@ -19,22 +19,24 @@ Question objects have the following properties:
 | **createdAt**          | string      | The question creation date.                                                                                                                      |
 | **alias**              | string      | An anonymous username generated from user IP or name/email from metadata metadata.                                                               |
 | **question**           | string      | The question the user asked.                                                                                                                     |
-| **standaloneQuestion** | string/null | The full contextual question generated from chat history used for context search. `null` if no history.                                            |
+| **standaloneQuestion** | string/null | The full contextual question generated from chat history used for context search. `null` if no history.                                          |
 | **answer**             | string      | The answer text as returned to user in Markdown.                                                                                                 |
 | **sources**            | array       | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
 | **ip**                 | string      | A SHA256 hash of the user or caller IP address. Can help to metadata questions from the same user.                                               |
 | **rating**             | integer     | -1, 0, or 1 for rating up, neutral, or down.                                                                                                     |
-| **metadata**           | object      | A user identification object with arbitrary metadata about the the user that was sent with the chat request.                                     |
+| **escalation**         | boolean     | Whether the question was escalated to support.                                                                                                   |
+| **metadata**           | object      | A user identification object with arbitrary metadata about the the user if it was sent with the chat request.                                    |
 
 ### The Source object
 
 Source objects found in the `sources` array have the following properties:
 
-| Property  | Type        | Description                                                    |
-| --------- | ----------- | -------------------------------------------------------------- |
-| **type**  | string      | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, etc. |
-| **title** | string      | The source title.                                              |
-| **url**   | string/null | The url for the source as set during indexing. May be null.    |
+| Property  | Type         | Description                                                    |
+| --------- | ------------ | -------------------------------------------------------------- |
+| **type**  | string       | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, etc. |
+| **title** | string       | The source title.                                              |
+| **url**   | string/null  | The url for the source as set during indexing. May be null.    |
+| **page**  | integer/null | The page number for the source if set during indexing.         |
 
 ---
 
@@ -46,11 +48,15 @@ This endpoint lists all questions asked of a given team and bot. It accepts a GE
 
 ### Optional URL Parameters
 
-| Property      | Type    | Description                                                                                   |
-| ------------- | ------- | --------------------------------------------------------------------------------------------- |
-| **page**      | number  | The page number to return. Pages are 0-indexed. Defaults to 0.                                |
-| **perPage**   | number  | The number of questions to return per page. Defaults to 50.                                   |
-| **ascending** | boolean | Whether to return questions in ascending order by `createAt`. Defaults to false (descending). |
+| Property      | Type    | Description                                                                                                 |
+| ------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| **page**      | number  | The page number to return. Pages are 0-indexed. Defaults to 0.                                              |
+| **perPage**   | number  | The number of questions to return per page. Defaults to 50.                                                 |
+| **ip**        | string  | Filter questions by sha256 IP hash.                                                                         |
+| **rating**    | integer | Filter questions by rating. Can be -1, 0, or 1 for rating down, neutral, or up. Default `null` (all).       |
+| **escalated** | boolean | Filter questions if escalated. Can be `true` or `false`. Default `null` (all).                              |
+| **startTime** | string  | Filter questions by start time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z". |
+| **endTime**   | string  | Filter questions by end time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z".   |
 
 ### Examples
 

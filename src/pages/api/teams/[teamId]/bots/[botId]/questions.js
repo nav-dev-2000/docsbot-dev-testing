@@ -29,16 +29,17 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    let { page, perPage, ascending, filter } = req.query
+    let { page, perPage, ip, rating, escalated, startTime, endTime } = req.query
     perPage = perPage ? parseInt(perPage) : 50
     page = page ? parseInt(page) : 0
-    ascending = ascending ? ( ascending === 'true' || ascending === '1' ) : false
+    escalated = typeof escalated === "undefined" ? null : escalated ? ( escalated === 'true' || escalated === '1' ) : false
+    rating = typeof rating === "undefined" ? null : rating ? parseInt(rating) : 0
     try {
-      const questions = await getQuestions(team, botId, perPage, page, ascending, filter)
+      const questions = await getQuestions(team, botId, perPage, page, ip, rating, escalated, startTime, endTime)
       return res.json(questions)
     } catch (error) {
       console.warn('Error getting document:', error)
-      return res.status(500).json({ message: error })
+      return res.status(500).json({ message: error.message })
     }
   } else if (req.method === 'PUT') {
     let { questionId } = req.query
