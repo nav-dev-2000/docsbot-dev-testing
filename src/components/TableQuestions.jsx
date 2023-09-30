@@ -10,6 +10,7 @@ import {
   XMarkIcon,
   LifebuoyIcon,
   AdjustmentsHorizontalIcon,
+  UserCircleIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -20,12 +21,78 @@ import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
 import LocaleDateTime from '@/components/LocaleDateTime'
+import QuestionFilters from '@/components/QuestionFilters'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
+
+const filterOptions = [
+  {
+    id: 'rating',
+    name: 'Rating',
+    options: [
+      { value: null, label: 'All' },
+      {
+        value: 1,
+        label: (
+          <span className="flex items-center">
+            <HandThumbUpIcon className="mr-1 h-4 w-4 text-green-600" /> Up
+          </span>
+        ),
+      },
+      {
+        value: 0,
+        label: (
+          <span className="flex items-center">
+            <MinusIcon className="mr-1 h-4 w-4 text-gray-500" /> Neutral
+          </span>
+        ),
+      },
+      {
+        value: -1,
+        label: (
+          <span className="flex items-center">
+            <HandThumbDownIcon className="mr-1 h-4 w-4 text-red-600" /> Down
+          </span>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'escalated',
+    name: 'Escalated',
+    options: [
+      { value: null, label: 'All' },
+      {
+        value: true,
+        label: (
+          <span className="flex items-center">
+            <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Escalated
+          </span>
+        ),
+      },
+      /* Add this in Nov 2023 once enough logs have been collected with this feature
+      {
+        value: false,
+        label: (
+          <span className="flex items-center">
+            <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Escalated
+          </span>
+        ),
+      },
+      */
+    ],
+  },
+]
 
 export default function TableQuestions({ team, botId, questions, setQuestions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
+  const [filters, setFilters] = useState({rating: null, escalated: null})
+
+  useEffect(() => {
+    changePage(0, ipFilter, filters.rating, filters.escalated)
+  }, [ipFilter, filters.rating, filters.escalated])
+
   const Sources = ({ sources }) => {
     return (
       <ul className="my-0 list-none py-0">
@@ -373,44 +440,77 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
   const updateIPFilter = (ip, alias) => {
     setIPFilter(ip)
     setIPAlias(alias)
-    changePage(0, ip)
   }
 
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
-      <div className="px-2 sm:px-4 lg:px-6">
-        <div className="sm:flex sm:items-center">
+      <div className="px-0">
+        <div className="lg:flex lg:items-end space-y-4 space-x-0 lg:space-x-8">
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold leading-6 text-gray-900">Questions</h1>
             <p className="mt-2 text-sm text-gray-700">
-              A list of all the questions you or users have asked your bot.
+              A log of the recent questions you or users have asked your bot.
             </p>
           </div>
-          <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <QuestionFilters filters={filters} setFilters={setFilters} filterOptions={filterOptions} />
             <Paginator
               perPage={questions.pagination.perPage}
               totalCount={questions.pagination.viewableCount}
               page={questions.pagination.page}
-              changePage={(page) => changePage(page, ipFilter)}
+              changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated)}
             />
-          </div>
         </div>
+        <div className="flex items-center space-x-4 mt-4 lg:mt-2">
         {ipFilter !== null && (
           <button
             type="button"
-            className="flex rounded-md bg-white pt-2 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
             onClick={() => {
               updateIPFilter(null, null)
             }}
           >
-            <XMarkIcon className="m-auto h-6 w-6" aria-hidden="true" />
-            <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
-              Filtering by {ipAlias}
+            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+            <span className="m-auto flex pl-1 text-xs text-gray-400">
+              <UserCircleIcon className='w-4 h-4 mr-1' /> {ipAlias}
             </span>
           </button>
         )}
+        {filters.rating !== null && (
+          <button
+            type="button"
+            className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            onClick={() => {
+              setFilters((prevFilters) => {
+                return { ...prevFilters, rating: null }
+              })
+            }}
+          >
+            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+            <span className="m-auto flex pl-1 text-xs text-gray-400">
+              {filterOptions[0].options.find((option) => option.value === filters.rating).label}
+            </span>
+          </button>
+        )}
+        {filters.escalated !== null && (
+          <button
+            type="button"
+            className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            onClick={() => {
+              setFilters((prevFilters) => {
+                return { ...prevFilters, escalated: null }
+              })
+            }}
+          >
+            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+            <span className="m-auto flex pl-1 text-xs text-gray-400">
+              {filterOptions[1].options.find((option) => option.value === filters.escalated).label}
+            </span>
+          </button>
+        )}
+        </div>
+
         <div className="mt-8 flow-root">
-          <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
+          <div className="-mx-2 -my-2">
             <div className="inline-block min-w-full py-2 align-middle">
               <table className="min-w-full border-separate border-spacing-0">
                 <thead>
