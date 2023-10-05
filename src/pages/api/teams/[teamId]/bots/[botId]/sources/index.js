@@ -315,7 +315,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {
-    const sourceLimit = parseInt(req.query.limit) || 10000
+    const sourceLimit = parseInt(req.query.limit) || 100
     const ascending = req.query.ascending || false
     try {
       return res.json(await getSources(team.id, bot, sourceLimit, ascending))

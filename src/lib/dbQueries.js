@@ -99,7 +99,7 @@ export async function getBot(teamId, botId) {
   }
 }
 
-export async function getSources(teamId, bot, resultLimit = 1000, ascending = false) {
+export async function getSources(teamId, bot, resultLimit = 100, ascending = false) {
   const sourcesRef = firestore
     .collection('teams')
     .doc(teamId)

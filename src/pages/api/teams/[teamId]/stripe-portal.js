@@ -19,6 +19,18 @@ export default async function createCheckoutSession(req, res) {
 
       if (!team.stripeCustomerId) throw Error('No Customer ID found.')
 
+      /*
+      const { url } = await stripe.checkout.sessions.create({
+        success_url: `${getURL()}/app/account`,
+        cancel_url: `${getURL()}/app/account`,
+        line_items: [
+          {price: 'price_1MhLooDdpfaJ8tM4FYXi4osM', quantity: 1},
+        ],
+        customer: team.stripeCustomerId,
+        mode: 'subscription',
+      });
+      */
+
       const { url } = await stripe.billingPortal.sessions.create({
         customer: team.stripeCustomerId,
         return_url: `${getURL()}/app/account`,

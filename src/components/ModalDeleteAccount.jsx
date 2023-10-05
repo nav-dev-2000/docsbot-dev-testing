@@ -59,8 +59,9 @@ export default function ModalDeleteAccount({ team }) {
     <>
       <button
         type="button"
-        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto disabled:opacity-25 disabled:cursor-not-allowed"
         onClick={() => setOpen(true)}
+        disabled={['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)}
       >
         Delete
       </button>
