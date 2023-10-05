@@ -15,7 +15,7 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({inviteEmail, teamId: team.id})
+      body: JSON.stringify({inviteEmail:inviteEmail.toLowerCase(), teamId: team.id})
     })
     setSubmitting(false)
     if (response.ok) {
