@@ -20,7 +20,7 @@ Finally, open [http://localhost:3000](http://localhost:3000) in your browser to 
 
 ## Development
 
-There are a set of required environment variables that need to be set in order to run the site locally. You can find these in the `.env.example` file. Copy this file to `.env.local` and fill in the values. Most importantly the FIREBASE_SERVICE_ACCOUNT_KEY environment variable needs to be set to the contents of the Firebase service account key JSON file. You can create this file in the Firebase console.
+There are a set of required environment variables that need to be set in order to run the site locally. You can find these in the `.env.example` file. Copy this file to `.env.local` and fill in the values. Most importantly the FIREBASE_SERVICE_ACCOUNT_KEY environment variable needs to be set to the contents of the Firebase service account key JSON file. After being invited to our Firebase test project (auth/db), you can visit [https://console.firebase.google.com/u/0/project/docsbot-test-c2482/settings/serviceaccounts/adminsdk](https://console.firebase.google.com/u/0/project/docsbot-test-c2482/settings/serviceaccounts/adminsdk) to generate a new private key. Take the json from this file, condense it to a single line, and set it as the FIREBASE_SERVICE_ACCOUNT_KEY environment variable in your .env.local file.
 
 You can start editing this site by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
 
@@ -40,7 +40,7 @@ The blog is located in the `/src/pages/articles/[[...path]].js` folder and `/src
 
 ### Application
 
-The application is located in the `/src/pages/app` folder. Each file in this folder represents a single page in the application. Most app pages use SSR to fetch data from the database and are powered by Vercel functions. The `/src/pages/api` folder contains the API endpoints used by the application.
+The application is located in the `/src/pages/app` folder. Each file in this folder represents a single page in the application. Most app pages use SSR to check auth cookies, fetch data from the database, and are powered by Vercel functions. 
 
 ### API
 
@@ -52,7 +52,7 @@ We use [Vercel cron jobs](https://vercel.com/docs/v2/serverless-functions/introd
 
 ## Deploying
 
-The site is hosted on [Vercel](https://vercel.com). It is linked to the GitHub repository and automatically deploys when changes are pushed to the `main` branch.
+The site is hosted on [Vercel](https://vercel.com). It is linked to the GitHub repository and automatically deploys when changes are pushed to the `main` branch. Only members of the Vercel account can deploy to the production site.
 
 ## Learn more
 
