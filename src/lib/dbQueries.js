@@ -163,6 +163,9 @@ export async function getSources(teamId, bot, resultLimit = 100, ascending = fal
     if (source.scheduled) {
       source.scheduled = source.scheduled.toDate().toJSON() //make serializable
     }
+    if (source.indexedUrls && source.indexedUrls.length > 500) {
+      source.indexedUrls = []
+    }
     sources.push(source)
   })
 
