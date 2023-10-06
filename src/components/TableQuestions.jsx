@@ -383,13 +383,13 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                         )}
                       </div>
                       <h2 className="text-xl font-medium text-gray-900">
-                        {question.standaloneQuestion || question.question}
+                        {question.question}
                       </h2>
                       {question.standaloneQuestion &&
-                        question.standaloneQuestion !== question.question && (
+                        question.standaloneQuestion !== question.answer && (
                           <h3 className="mb-1 mt-1 text-sm text-gray-800">
-                            Original Question:{' '}
-                            <span className="font-semibold text-gray-900">{question.question}</span>
+                            Standalone Question:{' '}
+                            <span className="font-semibold text-gray-900">{question.standaloneQuestion}</span>
                           </h3>
                         )}
                       <div
@@ -583,7 +583,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <p>{question.standaloneQuestion || question.question}</p>
+                            <p>{question.standaloneQuestion && question.standaloneQuestion != question.answer ? question.standaloneQuestion : question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
                               <LocaleDateTime date={question.createdAt} />
                             </span>
