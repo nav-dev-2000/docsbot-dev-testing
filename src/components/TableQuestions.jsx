@@ -84,7 +84,7 @@ const filterOptions = [
   },
 ]
 
-export default function TableQuestions({ team, botId, questions, setQuestions, changePage }) {
+export default function TableQuestions({ team, bot, questions, setQuestions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const [filters, setFilters] = useState({rating: null, escalated: null})
@@ -146,7 +146,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
       'Content-Type': 'application/json',
     }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${botId}/rate/${questionId}`
+    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/rate/${questionId}`
     try {
       const response = await fetch(apiUrl, {
         method: 'PUT',
@@ -399,7 +399,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
 
                       <ModalQA
                         team={team}
-                        botId={botId}
+                        botId={bot.id}
                         question={question}
                         open={qaOpen}
                         setOpen={setQAOpen}
@@ -583,7 +583,7 @@ export default function TableQuestions({ team, botId, questions, setQuestions, c
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <p>{question.standaloneQuestion && question.standaloneQuestion != question.answer ? question.standaloneQuestion : question.question}</p>
+                            <p>{question.standaloneQuestion && question.standaloneQuestion != question.answer && bot.language == 'en' ? question.standaloneQuestion : question.question}</p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
                               <LocaleDateTime date={question.createdAt} />
                             </span>

@@ -92,7 +92,7 @@ function Questions({ team, bot, preQuestions }) {
         team={team}
         questions={questions}
         setQuestions={setQuestions}
-        botId={botId}
+        bot={bot}
         changePage={changePage}
       />
     </DashboardWrap>
