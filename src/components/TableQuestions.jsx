@@ -323,7 +323,6 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         type="button"
                         className="mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                         onClick={() => {
-                          setQAOpen(true)
                           saveRating(question.id, -1)
                         }}
                       >
