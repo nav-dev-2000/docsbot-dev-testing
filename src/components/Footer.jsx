@@ -24,7 +24,7 @@ const footerNavigation = {
   legal: [
     { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
-    { name: 'Affiliate Program', href: 'https://affiliates.reflio.com/invite/docsbot' },
+    { name: 'Affiliate Program', href: 'https://affiliates.uglyrobot.com/signup?campaign=docsbot-ai' },
   ],
   social: [
     {
