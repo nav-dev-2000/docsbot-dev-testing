@@ -8,7 +8,6 @@ import { Hero } from '@/components/docs/Hero'
 import { MobileNavigation } from '@/components/docs/MobileNavigation'
 import { Navigation } from '@/components/docs/Navigation'
 import { Prose } from '@/components/docs/Prose'
-import { Search } from '@/components/docs/Search'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -21,7 +20,7 @@ const navigation = [
   {
     title: 'Introduction',
     links: [
-      { title: 'Getting started', href: '/docs' },
+      { title: 'Getting started', href: '/documentation/developer#start' },
     ],
   },
   {
