@@ -1,32 +1,45 @@
-import Script from 'next/script'
 import Image from 'next/future/image'
 import Alert from '@/components/Alert'
 import { CheckBadgeIcon, StarIcon, CheckIcon } from '@heroicons/react/24/solid'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
-import { frequencies, pricingTiers, currencies } from '@/constants/pricing.constants'
+import {
+  frequencies,
+  pricingTiers,
+  currencies,
+  enterpriseFeatures,
+} from '@/constants/pricing.constants'
 import image1 from '@/images/avatars/testimony6.png'
 import image2 from '@/images/avatars/testimony2.jpeg'
 import image3 from '@/images/avatars/testimony3.jpeg'
 import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony-sg.jpeg'
 
-function stripeEmbed(teamId, email, table) {
-  return {
-    __html: `<stripe-pricing-table pricing-table-id="${table}"
-publishable-key="${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}"
-client-reference-id="${teamId}"
-customer-email="${email}">
-</stripe-pricing-table>`,
-  }
-}
-
 export function StripePricingTable({ team, email, setErrorText }) {
+  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(frequencies[0])
-  const [currency, setCurrency] = useState('USD')
+  const [currency, setCurrency] = useState(team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD')
   const [opening, setOpening] = useState(false)
+
+  useEffect(() => {
+    //set default currency if they had a previous subscription
+    if (team.stripeSubscriptionPlan) {
+      let oldCurrency = "USD"
+      for (const planKey in plans) {
+        const plan = plans[planKey]
+        for (const currency in plan.prices) {
+          for (const frequency in plan.prices[currency]) {
+            if (plan.prices[currency][frequency] === team.stripeSubscriptionPlan) {
+              oldCurrency = currency
+            }
+          }
+        }
+      }
+      setCurrency(oldCurrency)
+    }
+  }, [team.stripeSubscriptionPlan])
 
   async function openPortal(tier) {
     setErrorText(null)
@@ -74,7 +87,6 @@ export function StripePricingTable({ team, email, setErrorText }) {
           <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back guarantee!
         </p>
       </div>
-      <Script src="https://js.stripe.com/v3/pricing-table.js" />
 
       <div className="mx-auto my-10">
         <div className="flex justify-center">
@@ -101,7 +113,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
           </RadioGroup>
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="flex justify-center mt-4 lg:justify-end lg:-mt-4">
+        <div className="mt-4 flex justify-center lg:-mt-4 lg:justify-end">
           <RadioGroup
             value={currency}
             onChange={setCurrency}
@@ -151,7 +163,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   </p>
                 ) : null}
               </div>
-              <p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
+              <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
               {frequency?.value === 'monthly' ? (
                 <p className="mt-6 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-900">
@@ -186,7 +198,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
               >
                 Subscribe
               </button>
-              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 columns-2 xl:columns-1">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
@@ -260,22 +272,78 @@ export function StripePricingTable({ team, email, setErrorText }) {
       <p className="mt-1 text-center text-sm text-gray-500">
         Thousands of people & companies have created custom chatbots with DocsBot!
       </p>
-      <div className="mb-6 mt-6 text-center">
-        <p className="text-md text-gray-600">
-          Need more?{' '}
-          <button onClick={() => setEnterprise(true)} className="underline hover:text-gray-800">
-            View our Business and Enterprise Options
-          </button>
-        </p>
-      </div>
+      {!enterprise && (
+        <div className="mb-6 mt-6 text-center">
+          <p className="text-md text-gray-600">
+            Need more?{' '}
+            <button onClick={() => setEnterprise(true)} className="underline hover:text-gray-800">
+              View our Enterprise Options
+            </button>
+          </p>
+        </div>
+      )}
       {enterprise && (
-        <div
-          dangerouslySetInnerHTML={stripeEmbed(
-            team.id,
-            email,
-            process.env.NEXT_PUBLIC_STRIPE_PRICING_TABLE_ENTERPRISE
-          )}
-        />
+        <div className="mx-auto mt-8 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-10 lg:mx-0 lg:flex lg:max-w-none">
+          <div className="p-8 sm:p-10 lg:flex-auto">
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
+            <p className="mt-6 text-base leading-7 text-gray-600">
+              For serious traffic and custom integrations. Identify problem areas in your product
+              and gaps in your documentation with automated AI analysis of user questions. Get
+              priority support & integration help to create specialized bots for your unique
+              business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security
+              with role-based access control (RBAC), private networks, and region restrictions.
+              Self-hosted options are available to satisfy any data protection requirements.
+            </p>
+            <div className="mt-10 flex items-center gap-x-4">
+              <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
+                What’s included
+              </h4>
+              <div className="h-px flex-auto bg-gray-100" />
+            </div>
+            <ul
+              role="list"
+              className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
+            >
+              {enterpriseFeatures.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+            <div className="h-full rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
+              <div className="mx-auto max-w-xs px-8">
+                <p className="text-base font-semibold text-gray-600">Plans starting at</p>
+                <p className="mt-6 flex items-baseline justify-center gap-x-2">
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">$899/mo</span>
+                  <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
+                    USD
+                  </span>
+                </p>
+                <p className="text-xs leading-6 tracking-wide text-gray-500">(paid annually)</p>
+                <a
+                  href="mailto:human@docsbot.ai"
+                  onClick={(e) => {
+                    if (Beacon !== undefined) {
+                      e.preventDefault()
+                      DocsBotAI.unmount()
+                      Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
+                      Beacon('open')
+                    }
+                  }}
+                  className="mt-10 block w-full rounded-md bg-cyan-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                >
+                  Contact us
+                </a>
+                <p className="mt-6 text-xs leading-5 text-gray-600">
+                  Custom invoices and pay by ACH or wire transfer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )

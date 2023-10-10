@@ -45,7 +45,10 @@ export default async function createCheckoutSession(req, res) {
           bentoTrack(userId, 'track', {
             type: 'openCheckout',
           })
-          mpTrack(userId, 'Started checkout', { ip: req.headers['x-forwarded-for'] })
+          mpTrack(userId, 'Started checkout', { ip: req.headers['x-forwarded-for'],
+            tier,
+            frequency,
+            currency })
         } catch (e) {
           console.log('Error sending bento track', e)
         }

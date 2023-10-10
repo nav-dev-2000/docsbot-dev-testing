@@ -97,3 +97,23 @@ export const pricingTiers = [
     mostPopular: false,
   },
 ]
+
+export const enterpriseFeatures = [
+  'Custom DocsBot limit',
+  'Custom Source Pages',
+  'Unlock all source types',
+  'Daily source refresh',
+  'Custom questions/mo',
+  'Private bots',
+  'GPT-4 support',
+  'Custom team users',
+  'Advanced Analytics',
+  'Zapier integration',
+  'Chat history',
+  'Unbranded chat widgets',
+  'AI reports (coming soon)',
+  'Prompt customization',
+  'Azure OpenAI Service',
+  'Self-hosted options',
+  'Rate limiting',
+]

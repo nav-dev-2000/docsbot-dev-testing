@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { CreditCardIcon } from '@heroicons/react/24/outline'
@@ -11,8 +11,17 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 export default function Checkout({ team, children }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
-  const [isStripeCustomer, setIsStripeCustomer] = useState(!!team.stripeCustomerId && ['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus))
+  const [isStripeCustomer, setIsStripeCustomer] = useState(
+    !!team.stripeCustomerId &&
+      ['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)
+  )
   const [opening, setOpening] = useState(false)
+
+  useEffect(() => {
+    if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
+      setErrorText('There is a problem with your subscription. Please check your payment method in the billing portal.')
+    }
+  }, [team.stripeSubscriptionStatus])
 
   async function openPortal() {
     setErrorText(null)
@@ -63,7 +72,7 @@ export default function Checkout({ team, children }) {
     <>
       <Alert title={errorText} type="error" />
 
-      { children ? (
+      {children ? (
         <>
           <div className="flex justify-center text-center">
             <div className="max-w-2xl">
@@ -74,18 +83,30 @@ export default function Checkout({ team, children }) {
         </>
       ) : (
         <div className="">
-          {!isStripeCustomer && <StripePricingTable team={team} email={user?.email} setErrorText={setErrorText} />}
-          {isStripeCustomer && (
+          {!isStripeCustomer && (
+            <StripePricingTable team={team} email={user?.email} setErrorText={setErrorText} />
+          )}
+          {!!team.stripeCustomerId && (
             <div className="flex justify-center text-center">
-              <div className="max-w-2xl">
-                <h3 className="text-3xl font-bold">Manage your Plan</h3>
-                <p className="text-md mt-2 text-gray-800 mb-8 md:mb-16">
-                  You are currently on the {stripePlan(team).name} plan. Open our billing portal to
-                  change your plan, update payment methods, download invoices, or cancel your
-                  subscription.
-                </p>
-                <Button />
-              </div>
+              {isStripeCustomer ? (
+                <div className="max-w-2xl">
+                  <h3 className="text-3xl font-bold">Manage your Plan</h3>
+                  <p className="text-md mb-8 mt-2 text-gray-800 md:mb-16">
+                    You are currently on the {stripePlan(team).name} plan. Open your billing portal
+                    to change your plan, update payment methods, download invoices, or cancel your
+                    subscription.
+                  </p>
+                  <Button />
+                </div>
+              ) : (
+                <div className="max-w-2xl">
+                  <h3 className="text-3xl font-bold">Billing History</h3>
+                  <p className="text-md mb-6 mt-2 text-gray-800 md:mb-16">
+                    Open your billing portal to view billing history and download invoices.
+                  </p>
+                  <Button />
+                </div>
+              )}
             </div>
           )}
         </div>
