@@ -19,6 +19,7 @@ export const i18n = {
       leadCollectConfirmation: "Your details has been saved successfully!",
       feedbackYes: "YES",
       feedbackNo: "No",
+      resetChat: "Reset conversation",
     },
   },
   jp: {
@@ -41,6 +42,7 @@ export const i18n = {
       leadCollectConfirmation: "あなたの詳細は正常に保存されました！",
       feedbackYes: "はい",
       feedbackNo: "いいえ",
+      resetChat: "会話をリセット",
     },
   },
   ar: {
@@ -64,6 +66,7 @@ export const i18n = {
       leadCollectConfirmation: "تم حفظ تفاصيلك بنجاح!",
       feedbackYes: "نعم",
       feedbackNo: "لا",
+      resetChat: "إعادة المحادثة",
     },
   },
   zh: {
@@ -86,6 +89,7 @@ export const i18n = {
       leadCollectConfirmation: "您的信息已成功保存！",
       feedbackYes: "是",
       feedbackNo: "否",
+      resetChat: "重置对话",
     },
   },
   cs: {
@@ -108,6 +112,7 @@ export const i18n = {
       leadCollectConfirmation: "Vaše údaje byly úspěšně uloženy!",
       feedbackYes: "Ano",
       feedbackNo: "Ne",
+      resetChat: "Resetovat konverzaci",
     },
   },
   da: {
@@ -130,6 +135,7 @@ export const i18n = {
       leadCollectConfirmation: "Dine oplysninger er blevet gemt succesfuldt!",
       feedbackYes: "Ja",
       feedbackNo: "Nej",
+      resetChat: "Nulstil samtalen",
     },
   },
   nl: {
@@ -152,6 +158,7 @@ export const i18n = {
       leadCollectConfirmation: "Uw gegevens zijn succesvol opgeslagen!",
       feedbackYes: "Ja",
       feedbackNo: "Nee",
+      resetChat: "Gesprek resetten",
     },
   },
   fil: {
@@ -174,6 +181,7 @@ export const i18n = {
       leadCollectConfirmation: "Ang iyong mga detalye ay matagumpay na na-save!",
       feedbackYes: "Oo",
       feedbackNo: "Hindi",
+      resetChat: "I-reset ang usapan",
     },
   },
   fi: {
@@ -196,6 +204,7 @@ export const i18n = {
       leadCollectConfirmation: "Tietosi on tallennettu onnistuneesti!",
       feedbackYes: "Kyllä",
       feedbackNo: "Ei",
+      resetChat: "Nollaa keskustelu",
     },
   },
   fr: {
@@ -218,6 +227,7 @@ export const i18n = {
       leadCollectConfirmation: "Vos détails ont été enregistrés avec succès !",
       feedbackYes: "Oui",
       feedbackNo: "Non",
+      resetChat: "Réinitialiser la conversation",
     },
   },
   de: {
@@ -240,6 +250,7 @@ export const i18n = {
       leadCollectConfirmation: "Ihre Angaben wurden erfolgreich gespeichert!",
       feedbackYes: "Ja",
       feedbackNo: "Nein",
+      resetChat: "Konversation zurücksetzen",
     },
   },
   el: {
@@ -262,6 +273,7 @@ export const i18n = {
       leadCollectConfirmation: "Τα στοιχεία σας αποθηκεύτηκαν με επιτυχία!",
       feedbackYes: "Ναι",
       feedbackNo: "Όχι",
+      resetChat: "Επαναφορά συνομιλίας",
     },
   },
   he: {
@@ -285,6 +297,7 @@ export const i18n = {
       leadCollectConfirmation: "הפרטים שלך נשמרו בהצלחה!",
       feedbackYes: "כן",
       feedbackNo: "לא",
+      resetChat: "איפוס שיחה",
     },
   },
   hi: {
@@ -307,6 +320,7 @@ export const i18n = {
       leadCollectConfirmation: "आपका विवरण सफलतापूर्वक सहेजा गया है!",
       feedbackYes: "हाँ",
       feedbackNo: "नहीं",
+      resetChat: "बातचीत को रीसेट करें",
     },
   },
   hu: {
@@ -329,6 +343,7 @@ export const i18n = {
       leadCollectConfirmation: "Az Ön adatai sikeresen mentve!",
       feedbackYes: "Igen",
       feedbackNo: "Nem",
+      resetChat: "Beszélgetés visszaállítása",
     },
   },
   id: {
@@ -351,6 +366,7 @@ export const i18n = {
       leadCollectConfirmation: "Rincian Anda telah berhasil disimpan!",
       feedbackYes: "Ya",
       feedbackNo: "Tidak",
+      resetChat: "Atur ulang percakapan",
     },
   },
   it: {
@@ -373,6 +389,7 @@ export const i18n = {
       leadCollectConfirmation: "I tuoi dettagli sono stati salvati con successo!",
       feedbackYes: "Sì",
       feedbackNo: "No",
+      resetChat: "Ripristina conversazione",
     },
   },
   ko: {
@@ -395,6 +412,7 @@ export const i18n = {
       leadCollectConfirmation: "귀하의 세부 정보가 성공적으로 저장되었습니다!",
       feedbackYes: "예",
       feedbackNo: "아니요",
+      resetChat: "대화 재설정",
     },
   },
   no: {
@@ -417,6 +435,7 @@ export const i18n = {
       leadCollectConfirmation: "Dine detaljer har blitt lagret!",
       feedbackYes: "Ja",
       feedbackNo: "Nei",
+      resetChat: "Tilbakestill samtalen",
     },
   },
   pl: {
@@ -439,6 +458,7 @@ export const i18n = {
       leadCollectConfirmation: "Twoje dane zostały pomyślnie zapisane!",
       feedbackYes: "Tak",
       feedbackNo: "Nie",
+      resetChat: "Zresetuj rozmowę",
     },
   },
   pt: {
@@ -461,6 +481,7 @@ export const i18n = {
       leadCollectConfirmation: "Suas informações foram salvas com sucesso!",
       feedbackYes: "Sim",
       feedbackNo: "Não",
+      resetChat: "Redefinir conversa",
     },
   },
   ro: {
@@ -483,6 +504,7 @@ export const i18n = {
       leadCollectConfirmation: "Detaliile dvs. au fost salvate cu succes!",
       feedbackYes: "Da",
       feedbackNo: "Nu",
+      resetChat: "Resetați conversația",
     },
   },
   ru: {
@@ -505,6 +527,7 @@ export const i18n = {
       leadCollectConfirmation: "Ваши данные успешно сохранены!",
       feedbackYes: "Да",
       feedbackNo: "Нет",
+      resetChat: "Сбросить беседу",
     },
   },
   sr: {
@@ -527,6 +550,7 @@ export const i18n = {
       leadCollectConfirmation: "Vaši podaci su uspešno sačuvani!",
       feedbackYes: "Da",
       feedbackNo: "Ne",
+      resetChat: "Resetuj razgovor",
     },
   },
   es: {
@@ -549,6 +573,7 @@ export const i18n = {
       leadCollectConfirmation: "¡Sus detalles han sido guardados exitosamente!",
       feedbackYes: "Sí",
       feedbackNo: "No",
+      resetChat: "Restablecer conversación",
     },
   },
   sw: {
@@ -571,6 +596,7 @@ export const i18n = {
       leadCollectConfirmation: "Maelezo yako yamehifadhiwa kwa mafanikio!",
       feedbackYes: "Ndio",
       feedbackNo: "Hapana",
+      resetChat: "Rudisha mazungumzo",
     },
   },
   sv: {
@@ -593,6 +619,7 @@ export const i18n = {
       leadCollectConfirmation: "Dina uppgifter har sparats framgångsrikt!",
       feedbackYes: "Ja",
       feedbackNo: "Nej",
+      resetChat: "Återställ samtalet",
     },
   },
   th: {
@@ -615,6 +642,7 @@ export const i18n = {
       leadCollectConfirmation: "ข้อมูลของคุณถูกบันทึกเรียบร้อยแล้ว!",
       feedbackYes: "ใช่",
       feedbackNo: "ไม่",
+      resetChat: "รีเซ็ตบทสนทนา",
     },
   },
   tr: {
@@ -637,6 +665,7 @@ export const i18n = {
       leadCollectConfirmation: "Bilgileriniz başarıyla kaydedildi!",
       feedbackYes: "Evet",
       feedbackNo: "Hayır",
+      resetChat: "Konuşmayı sıfırla",
     },
   },
 }
