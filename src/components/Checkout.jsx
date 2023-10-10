@@ -11,7 +11,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 export default function Checkout({ team, children }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
-  const [isStripeCustomer, setIsStripeCustomer] = useState(!!team.stripeCustomerId)
+  const [isStripeCustomer, setIsStripeCustomer] = useState(!!team.stripeCustomerId && ['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus))
   const [opening, setOpening] = useState(false)
 
   async function openPortal() {
@@ -74,7 +74,7 @@ export default function Checkout({ team, children }) {
         </>
       ) : (
         <div className="">
-          {!isStripeCustomer && <StripePricingTable teamId={team?.id} email={user?.email} />}
+          {!isStripeCustomer && <StripePricingTable team={team} email={user?.email} setErrorText={setErrorText} />}
           {isStripeCustomer && (
             <div className="flex justify-center text-center">
               <div className="max-w-2xl">

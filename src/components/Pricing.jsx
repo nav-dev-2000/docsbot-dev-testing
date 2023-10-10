@@ -3,100 +3,7 @@ import { RadioGroup } from '@headlessui/react'
 import { CheckIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
-
-const frequencies = [
-  { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
-  { value: 'annually', label: 'Annual', priceSuffix: '/year' },
-]
-const tiers = [
-  {
-    name: 'Hobby',
-    id: 'tier-hobby',
-    href: '/register',
-    price: { monthly: 19, annually: 192 },
-    description: 'Create your own basic DocsBot for quick answers and copywriting.',
-    features: [
-      '1 DocsBot',
-      '1k Source Pages',
-      'Unlock all source types',
-      '1k questions/mo',
-      'Private bot',
-      'GPT-4 support',
-      '1 user',
-    ],
-    mostPopular: false,
-  },
-  {
-    name: 'Power',
-    id: 'tier-power',
-    href: '/register',
-    price: { monthly: 49, annually: 492 },
-    description: 'For power users and small businesses just getting started.',
-    features: [
-      '3 DocsBots',
-      '5k Source Pages',
-      'Unlock all source types',
-      'Monthly source refresh',
-      '5k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '1 user',
-      'Basic Analytics',
-      'Zapier integration',
-      'Chat history',
-    ],
-    mostPopular: false,
-  },
-  {
-    name: 'Pro',
-    id: 'tier-pro',
-    href: '/register',
-    price: { monthly: 99, annually: 996 },
-    description: 'For small businesses who want to save time and money on support and copywriting.',
-    features: [
-      '10 DocsBots',
-      '10k Source Pages',
-      'Unlock all source types',
-      'Weekly source refresh',
-      '10k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '5 team users',
-      'Advanced Analytics',
-      'Zapier integration',
-      'Chat history',
-      'Unbranded chat widgets',
-      'Prompt customization',
-    ],
-    mostPopular: true,
-  },
-  {
-    name: 'Business',
-    id: 'tier-business',
-    href: '/register',
-    price: { monthly: 499, annually: 4992 },
-    description: 'For serious traffic, priority support, and AI reports to improve your product & docs.',
-    features: [
-      '100 DocsBots',
-      '100k Source Pages',
-      'Unlock all source types',
-      'Daily source refresh',
-      '100k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '15 team users',
-      'Advanced Analytics',
-      'Zapier integration',
-      'Chat history',
-      'Unbranded chat widgets',
-      'AI reports (coming soon)',
-      'Prompt customization',
-      'Priority support',
-      'Rate limiting',
-    ],
-    mostPopular: false,
-  },
-]
+import { frequencies, pricingTiers } from '@/constants/pricing.constants'
 
 const enterpriseFeatures = [
   'Custom DocsBot limit',
@@ -177,7 +84,7 @@ export default function Pricing() {
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
         <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
-          {tiers.map((tier) => (
+          {pricingTiers.map((tier) => (
             <div
               key={tier.id}
               className={classNames(

@@ -31,51 +31,94 @@ export const postData = async ({ url, data }) => {
 
 export function stripePlan(team) {
   if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
-    return { name: 'Staff', bots: 1000, sources: 10000, pages: 1000000, questions: 1000000000, teamMembers: 100000, scheduleInterval: 'daily', logLimit: 1000000000 }
+    return {
+      name: 'Staff',
+      bots: 1000,
+      sources: 10000,
+      pages: 1000000,
+      questions: 1000000000,
+      teamMembers: 100000,
+      scheduleInterval: 'daily',
+      logLimit: 1000000000,
+    }
   }
 
   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
     const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-    if (
-      ['active', 'trialing'].includes(team?.stripeSubscriptionStatus) &&
-      plans[team.stripeSubscriptionPlan]
-    ) {
-      return plans[team.stripeSubscriptionPlan]
+
+    if (['active', 'trialing'].includes(team?.stripeSubscriptionStatus)) {
+      for (const planKey in plans) {
+        const plan = plans[planKey]
+        for (const currency in plan.prices) {
+          for (const frequency in plan.prices[currency]) {
+            if (plan.prices[currency][frequency] === team.stripeSubscriptionPlan) {
+              return plan
+            }
+          }
+        }
+      }
     }
   }
 
-  return { name: 'Free', bots: 1, sources: 3, pages: 50, questions: 100, teamMembers: 1, scheduleInterval: 'none', logLimit: 6 }
+  return {
+    name: 'Free',
+    bots: 1,
+    sources: 3,
+    pages: 50,
+    questions: 100,
+    teamMembers: 1,
+    scheduleInterval: 'none',
+    logLimit: 6,
+  }
 }
 
 export function checkSourceScheduledFromInterval(team, interval) {
   const plan = stripePlan(team)
 
-  let rawInterval = 0;
-  switch(interval) {
-    case 'daily': rawInterval = 24 * 60 * 60 * 1000; break;
-    case 'weekly': rawInterval = 7 * 24 * 60 * 60 * 1000; break;
-    case 'monthly': rawInterval = 30 * 24 * 60 * 60 * 1000; break;
-    case 'none': throw new Error('Please contact support');
+  let rawInterval = 0
+  switch (interval) {
+    case 'daily':
+      rawInterval = 24 * 60 * 60 * 1000
+      break
+    case 'weekly':
+      rawInterval = 7 * 24 * 60 * 60 * 1000
+      break
+    case 'monthly':
+      rawInterval = 30 * 24 * 60 * 60 * 1000
+      break
+    case 'none':
+      throw new Error('Please contact support')
     default:
-      throw new Error(`Invalid schedule interval!`);
+      throw new Error(`Invalid schedule interval!`)
   }
 
-  let limit = 0;
+  let limit = 0
   switch (plan.scheduleInterval) {
-    case 'daily': limit = 24 * 60 * 60 * 1000; break;
-    case 'weekly': limit = 7 * 24 * 60 * 60 * 1000; break;
-    case 'monthly': limit = 30 * 24 * 60 * 60 * 1000; break;
-    case 'none': throw new Error('Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.');
+    case 'daily':
+      limit = 24 * 60 * 60 * 1000
+      break
+    case 'weekly':
+      limit = 7 * 24 * 60 * 60 * 1000
+      break
+    case 'monthly':
+      limit = 30 * 24 * 60 * 60 * 1000
+      break
+    case 'none':
+      throw new Error(
+        'Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.'
+      )
     default:
-      throw new Error(`Invalid schedule interval for plan ${plan.name}!`);
+      throw new Error(`Invalid schedule interval for plan ${plan.name}!`)
   }
 
   if (rawInterval < limit) {
-    throw new Error(`The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`)
+    throw new Error(
+      `The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`
+    )
   }
 
-  const scheduled = new Date();
-  scheduled.setTime(scheduled.getTime() + rawInterval);
+  const scheduled = new Date()
+  scheduled.setTime(scheduled.getTime() + rawInterval)
   return scheduled
 }
 
