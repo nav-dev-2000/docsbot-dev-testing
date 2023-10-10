@@ -2,6 +2,7 @@ import { stripe } from '@/utils/stripe'
 import { getURL } from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack, teamOwner } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
 
 export default async function createCheckoutSession(req, res) {
   let check = null
@@ -40,6 +41,7 @@ export default async function createCheckoutSession(req, res) {
         bentoTrack(userId, 'track', {
           type: 'openBillingPortal',
         })
+        mpTrack(userId, 'Opened Billing Portal', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

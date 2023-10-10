@@ -4,6 +4,7 @@ import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getTeamsTransaction, getInvitesFromEmailAndTeamIdTransaction, getTeamUsers } from '@/lib/dbQueries'
+import { mpTrack } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -98,6 +99,11 @@ export default async function handler(req, res) {
         }
       })
 
+      mpTrack(userId, 'Removed team user', {
+        "Team name": team.name,
+        ip: req.headers['x-forwarded-for'],
+      })
+      
       return res.status(200).send({ message: `Removed user successfully`})
     } catch (error) {
       console.log(error)

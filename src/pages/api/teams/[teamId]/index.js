@@ -8,6 +8,7 @@ import { getTeam } from '@/lib/dbQueries'
 import { encryptKey } from '@/lib/encryption'
 import { Configuration, OpenAIApi } from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
+import { mpTrack } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -27,6 +28,8 @@ export default async function handler(req, res) {
     if (name) {
       newTeam.name = name
       newTeam.name.trim()
+
+      mpTrack(userId, 'Updated Team Name', { ip: req.headers['x-forwarded-for'] })
     }
     if (openAIKey) {
       if (!/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
@@ -46,6 +49,9 @@ export default async function handler(req, res) {
         newTeam.openAIKey = encryptKey(openAIKey)
         newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
         newTeam.supportsGPT4 = isGPT4
+
+        mpTrack(userId, 'Updated OpenAI Key', { ip: req.headers['x-forwarded-for'] })
+
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
@@ -82,6 +88,11 @@ export default async function handler(req, res) {
           .doc(userId)
           .update({ currentTeam: 'ZrbLG98bbxZ9EFqiPvyl' })
       }
+
+      mpTrack(userId, 'Deleted team', {
+        "Team name": team.name,
+        ip: req.headers['x-forwarded-for'],
+      })
 
       return res.status(200).json({ message: 'Team deleted' })
     } catch (error) {

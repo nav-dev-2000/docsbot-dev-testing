@@ -5,6 +5,7 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot, getSource } from '@/lib/dbQueries'
 import { canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { mpTrack } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -50,6 +51,8 @@ export default async function handler(req, res) {
       action: 'read',
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
     }))[0];
+
+    mpTrack(userId, 'Downloaded Source File', { ip: req.headers['x-forwarded-for'] })
 
     return res.status(200).json({ url })
   } else {

@@ -8,6 +8,7 @@ import { stripePlan } from '@/utils/helpers';
 import getFakeUserByIp from '@/utils/fakeUsers';
 import sendEmail from '@/lib/sendEmail';
 import { stringify } from '@vanillaes/csv'
+import { mpTrack } from '@/lib/mixpanel'
 
 // this handler will export the question log of a bot to a csv file
 const handler = async (req, res) => {
@@ -131,6 +132,8 @@ const handler = async (req, res) => {
       // // email user with link to download csv file
       // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
       // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
+
+      mpTrack(userId, 'Exported Question Log', { "Bot name": bot.name, ip: req.headers['x-forwarded-for'] })
 
       return res.status(200).json({ url: url })
     } catch (error) {

@@ -22,6 +22,7 @@ import { GoogleLogo } from '@/components/GoogleLogo'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { NextSeo } from 'next-seo'
+import { Mixpanel } from '@/lib/mixpanel-web'
 
 function Login() {
   const router = useRouter()
@@ -68,6 +69,7 @@ function Login() {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
           }
+          Mixpanel.identify(user.user.uid)
           router.push(redirectPath)
         },
       })
@@ -87,6 +89,7 @@ function Login() {
         Reflio.signup(googleUser?.user?.email)
       }
       va.track('Signup')
+      Mixpanel.identify(googleUser.user.uid)
       router.push(redirectPath)
     },
   })

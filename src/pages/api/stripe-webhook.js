@@ -6,6 +6,8 @@ const firestore = getFirestore()
 import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
+import { getTeam } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -223,6 +225,10 @@ const webhookHandler = async (req, res) => {
                       comment: subscription.cancellation_details.comment || '',
                     },
                   })
+                  mpTrack(teamOwner(teamObj), 'Subscription Canceled', {
+                    "Cancel Reason": subscription.cancellation_details.feedback || '',
+                    "Cancel Comment": subscription.cancellation_details.comment || '',
+                  })
                 } catch (e) {
                   console.log('Error sending bento track', e)
                 }
@@ -302,6 +308,14 @@ const webhookHandler = async (req, res) => {
                         ],
                       },
                     ],
+                  })
+
+                  const team = await getTeam(checkoutSession.client_reference_id)
+                  mpTrack(teamOwner(team), 'Subscribed', {
+                    plan: planName,
+                    amount: session.amount_total / 100,
+                    currency: session.currency,
+                    interval: session.subscription.plan.interval,
                   })
                 } catch (e) {
                   console.error(e)

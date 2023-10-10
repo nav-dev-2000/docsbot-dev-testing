@@ -12,6 +12,7 @@ import { routePaths } from '@/constants/routePaths.constants'
 import clsx from 'clsx'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
+import { Mixpanel } from '@/lib/mixpanel-web'
 
 export default function Header() {
   const [user] = useAuthState(auth)
@@ -21,6 +22,7 @@ export default function Header() {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
+          Mixpanel.reset()
           router.push(routePaths.ROOT)
         },
       })

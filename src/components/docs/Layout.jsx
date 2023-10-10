@@ -15,6 +15,7 @@ import { logout } from '@/api/logout'
 import { signOut } from 'firebase/auth'
 import { routePaths } from '@/constants/routePaths.constants'
 import { NAVIGATION } from '@/constants/navigation.constants'
+import { Mixpanel } from '@/lib/mixpanel-web'
 
 const navigation = [
   {
@@ -84,6 +85,7 @@ function Header({ navigation }) {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
+          Mixpanel.reset()
           router.push(routePaths.ROOT)
         },
       })

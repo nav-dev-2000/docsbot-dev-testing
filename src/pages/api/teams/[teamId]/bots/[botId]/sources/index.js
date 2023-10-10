@@ -6,6 +6,7 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot, getSources, getSource } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
@@ -304,6 +305,7 @@ export default async function handler(req, res) {
           type: 'addSource',
           sourceType: type,
         })
+        mpTrack(userId, 'Added Source', { "Source type": type, ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
