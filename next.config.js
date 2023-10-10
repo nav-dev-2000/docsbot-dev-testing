@@ -89,7 +89,7 @@ const nextConfig = {
       {
         source: "/mp/:slug",
         // use "api-eu.mixpanel.com" if you need to use EU servers
-        destination: "https://api.mixpanel.com/:slug",
+        destination: "https://api-eu.mixpanel.com/:slug",
       },
     ];
   },
