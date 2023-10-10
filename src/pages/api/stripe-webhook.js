@@ -105,7 +105,7 @@ const webhookHandler = async (req, res) => {
                         fallback: `DocsBot AI plan changed!`,
                         color: '#0891b2',
                         title: 'DocsBot AI Subscription Plan Changed',
-                        text: `Old plan ${stripePlan(teamObj).name} x ${subscription.quantity}`,
+                        text: `Old plan ${stripePlan(teamObj).name}`,
                         fields: [
                           {
                             title: 'Team',
@@ -114,20 +114,24 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Old Amount',
-                            value: `$${
-                              (event.data.previous_attributes.items.data[0].plan.amount *
-                                event.data.previous_attributes.items.data[0].quantity) /
-                              100
-                            } ${event.data.previous_attributes.items.data[0].plan.currency} ${
+                            value: `${
+                              event.data.previous_attributes.items.data[0].plan.currency == 'jpy'
+                                ? event.data.previous_attributes.items.data[0].plan.amount
+                                : event.data.previous_attributes.items.data[0].plan.amount / 100
+                            } ${event.data.previous_attributes.items.data[0].plan.currency.toUpperCase()} ${
                               event.data.previous_attributes.items.data[0].plan.interval
                             }ly`,
                             short: true,
                           },
                           {
                             title: 'New Amount',
-                            value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
-                              subscription.plan.currency
-                            } ${subscription.plan.interval}ly`,
+                            value: `${
+                              subscription.plan.currency == 'jpy'
+                                ? subscription.plan.amount
+                                : subscription.plan.amount / 100
+                            } ${subscription.plan.currency.toUpperCase()} ${
+                              subscription.plan.interval
+                            }ly`,
                             short: true,
                           },
                         ],
@@ -198,9 +202,13 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Amount',
-                            value: `$${(subscription.plan.amount * subscription.quantity) / 100} ${
-                              subscription.plan.currency
-                            } ${subscription.plan.interval}ly`,
+                            value: `${
+                              subscription.plan.currency == 'jpy'
+                                ? subscription.plan.amount
+                                : subscription.plan.amount / 100
+                            } ${subscription.plan.currency.toUpperCase()} ${
+                              subscription.plan.interval
+                            }ly`,
                             short: true,
                           },
                           {
@@ -226,8 +234,8 @@ const webhookHandler = async (req, res) => {
                     },
                   })
                   mpTrack(teamOwner(teamObj), 'Subscription Canceled', {
-                    "Cancel Reason": subscription.cancellation_details.feedback || '',
-                    "Cancel Comment": subscription.cancellation_details.comment || '',
+                    'Cancel Reason': subscription.cancellation_details.feedback || '',
+                    'Cancel Comment': subscription.cancellation_details.comment || '',
                   })
                 } catch (e) {
                   console.log('Error sending bento track', e)
@@ -281,17 +289,30 @@ const webhookHandler = async (req, res) => {
 
                 // Send the Slack notification
                 try {
+                  const team = await getTeam(checkoutSession.client_reference_id)
+                  mpTrack(teamOwner(team), 'Subscribed', {
+                    plan: planName,
+                    amount:
+                      session.currency == 'jpy' ? session.amount_total : session.amount_total / 100,
+                    currency: session.currency,
+                    interval: session.subscription.plan.interval,
+                  })
+
                   await slack.send({
                     attachments: [
                       {
                         fallback: `New DocsBot AI signup by ${session.customer_details.name} (${
                           session.customer_details.email
-                        }) to ${planName} x${session.subscription.quantity} for $${
-                          session.amount_total / 100
-                        } ${session.currency} ${session.subscription.plan.interval}ly!`,
+                        }) to ${planName} for ${
+                          session.currency == 'jpy'
+                            ? session.amount_total
+                            : session.amount_total / 100
+                        } ${session.currency.toUpperCase()} ${
+                          session.subscription.plan.interval
+                        }ly!`,
                         color: '#0891b2',
                         title: 'New DocsBot AI Subscription Signup',
-                        text: `${planName} x ${session.subscription.quantity}`,
+                        text: `${planName}`,
                         fields: [
                           {
                             title: 'Customer',
@@ -300,7 +321,11 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Amount',
-                            value: `$${session.amount_total / 100} ${session.currency} ${
+                            value: `${
+                              session.currency == 'jpy'
+                                ? session.amount_total
+                                : session.amount_total / 100
+                            } ${session.currency.toUpperCase()} ${
                               session.subscription.plan.interval
                             }ly`,
                             short: true,
@@ -308,14 +333,6 @@ const webhookHandler = async (req, res) => {
                         ],
                       },
                     ],
-                  })
-
-                  const team = await getTeam(checkoutSession.client_reference_id)
-                  mpTrack(teamOwner(team), 'Subscribed', {
-                    plan: planName,
-                    amount: session.amount_total / 100,
-                    currency: session.currency,
-                    interval: session.subscription.plan.interval,
                   })
                 } catch (e) {
                   console.error(e)

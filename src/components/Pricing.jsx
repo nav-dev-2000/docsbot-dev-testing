@@ -2,124 +2,13 @@ import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import classNames from '@/utils/classNames'
+import clsx from 'clsx'
+import { frequencies, pricingTiers, enterpriseFeatures, currencies } from '@/constants/pricing.constants'
 
-const frequencies = [
-  { value: 'monthly', label: 'Monthly', priceSuffix: '/month' },
-  { value: 'annually', label: 'Annual', priceSuffix: '/year' },
-]
-const tiers = [
-  {
-    name: 'Hobby',
-    id: 'tier-hobby',
-    href: '/register',
-    price: { monthly: 19, annually: 192 },
-    description: 'Create your own basic DocsBot for quick answers and copywriting.',
-    features: [
-      '1 DocsBot',
-      '1k Source Pages',
-      'Unlock all source types',
-      '1k questions/mo',
-      'Private bot',
-      'GPT-4 support',
-      '1 user',
-    ],
-    mostPopular: false,
-  },
-  {
-    name: 'Power',
-    id: 'tier-power',
-    href: '/register',
-    price: { monthly: 49, annually: 492 },
-    description: 'For power users and small businesses just getting started.',
-    features: [
-      '3 DocsBots',
-      '5k Source Pages',
-      'Unlock all source types',
-      'Monthly source refresh',
-      '5k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '1 user',
-      'Basic Analytics',
-      'Zapier integration',
-      'Chat history',
-    ],
-    mostPopular: false,
-  },
-  {
-    name: 'Pro',
-    id: 'tier-pro',
-    href: '/register',
-    price: { monthly: 99, annually: 996 },
-    description: 'For small businesses who want to save time and money on support and copywriting.',
-    features: [
-      '10 DocsBots',
-      '10k Source Pages',
-      'Unlock all source types',
-      'Weekly source refresh',
-      '10k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '5 team users',
-      'Advanced Analytics',
-      'Zapier integration',
-      'Chat history',
-      'Unbranded chat widgets',
-      'Prompt customization',
-    ],
-    mostPopular: true,
-  },
-  {
-    name: 'Business',
-    id: 'tier-business',
-    href: '/register',
-    price: { monthly: 499, annually: 4992 },
-    description: 'For serious traffic, priority support, and AI reports to improve your product & docs.',
-    features: [
-      '100 DocsBots',
-      '100k Source Pages',
-      'Unlock all source types',
-      'Daily source refresh',
-      '100k questions/mo',
-      'Private bots',
-      'GPT-4 support',
-      '15 team users',
-      'Advanced Analytics',
-      'Zapier integration',
-      'Chat history',
-      'Unbranded chat widgets',
-      'AI reports (coming soon)',
-      'Prompt customization',
-      'Priority support',
-      'Rate limiting',
-    ],
-    mostPopular: false,
-  },
-]
-
-const enterpriseFeatures = [
-  'Custom DocsBot limit',
-  'Custom Source Pages',
-  'Unlock all source types',
-  'Daily source refresh',
-  'Custom questions/mo',
-  'Private bots',
-  'GPT-4 support',
-  'Custom team users',
-  'Advanced Analytics',
-  'Zapier integration',
-  'Chat history',
-  'Unbranded chat widgets',
-  'AI reports (coming soon)',
-  'Prompt customization',
-  'Azure OpenAI Service',
-  'Self-hosted options',
-  'Rate limiting',
-]
 
 export default function Pricing() {
   const [frequency, setFrequency] = useState(frequencies[0])
+  const [currency, setCurrency] = useState('USD')
 
   return (
     <div className="bg-white py-24 sm:py-32" id="pricing">
@@ -152,11 +41,11 @@ export default function Pricing() {
         <p className="flex items-center justify-center text-lg font-bold text-teal-500">
           <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back guarantee!
         </p>
-        <div className="mt-16 flex justify-center">
+        <div className="flex mt-16 justify-center">
           <RadioGroup
             value={frequency}
             onChange={setFrequency}
-            className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+            className="grid grid-cols-2 gap-x-1 rounded-lg bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
           >
             <RadioGroup.Label className="sr-only">Payment frequency</RadioGroup.Label>
             {frequencies.map((option) => (
@@ -164,9 +53,9 @@ export default function Pricing() {
                 key={option.value}
                 value={option}
                 className={({ checked }) =>
-                  classNames(
+                  clsx(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-full px-2.5 py-1'
+                    'cursor-pointer rounded-lg px-8 py-2'
                   )
                 }
               >
@@ -176,19 +65,44 @@ export default function Pricing() {
           </RadioGroup>
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
-          {tiers.map((tier) => (
+        <div className="mt-4 flex justify-center lg:-mt-4 lg:justify-end">
+          <RadioGroup
+            value={currency}
+            onChange={setCurrency}
+            className="grid grid-cols-2 gap-x-1 rounded-full bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          >
+            <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
+            {Object.keys(currencies).map((option) => (
+              <RadioGroup.Option
+                key={option}
+                value={option}
+                className={({ checked }) =>
+                  clsx(
+                    checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
+                    'cursor-pointer rounded-full px-2.5 py-1'
+                  )
+                }
+              >
+                <span>
+                  {currencies[option].symbol} {currencies[option].label}
+                </span>
+              </RadioGroup.Option>
+            ))}
+          </RadioGroup>
+        </div>
+        <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
+          {pricingTiers.map((tier) => (
             <div
               key={tier.id}
-              className={classNames(
+              className={clsx(
                 tier.mostPopular ? 'ring-2 ring-cyan-600' : 'ring-1 ring-gray-200',
-                'rounded-3xl p-8 xl:p-10'
+                'rounded-3xl p-6 xl:p-8'
               )}
             >
               <div className="flex items-center justify-between gap-x-4">
                 <h3
                   id={tier.id}
-                  className={classNames(
+                  className={clsx(
                     tier.mostPopular ? 'text-cyan-600' : 'text-gray-900',
                     'text-lg font-semibold leading-8'
                   )}
@@ -201,32 +115,32 @@ export default function Pricing() {
                   </p>
                 ) : null}
               </div>
-              <p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
+              <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
               {frequency?.value === 'monthly' ? (
                 <p className="mt-6 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-900">
-                    ${tier.price[frequency.value]}
+                    {currencies[currency].symbol}
+                    {tier.price[currency][frequency.value]}
                   </span>
-                  <span className="text-sm font-semibold leading-6 text-gray-600">
+                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                     {frequency.priceSuffix}
                   </span>
                 </p>
               ) : (
                 <p className="mt-6 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-900">
-                    ${tier.price[frequency.value] / 12}
+                    {currencies[currency].symbol}
+                    {(tier.price[currency][frequency.value] / 12).toFixed(0)}
                   </span>
-                  <span className="text-sm font-semibold leading-6 text-gray-600">/month</span>
-                  <span className="ml-2 text-sm font-semibold leading-6 text-gray-600">
-                    (${tier.price[frequency.value]}
-                    {frequency.priceSuffix})
+                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                    /month
                   </span>
                 </p>
               )}
               <Link
                 href={tier.href}
                 aria-describedby={tier.id}
-                className={classNames(
+                className={clsx(
                   tier.mostPopular
                     ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
                     : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
@@ -235,7 +149,7 @@ export default function Pricing() {
               >
                 Get started
               </Link>
-              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
+              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 columns-2 xl:columns-1">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
@@ -307,6 +221,7 @@ export default function Pricing() {
                     USD
                   </span>
                 </p>
+                <p className="text-xs leading-6 tracking-wide text-gray-500">(paid annually)</p>
                 <a
                   href="mailto:human@docsbot.ai"
                   onClick={(e) => {

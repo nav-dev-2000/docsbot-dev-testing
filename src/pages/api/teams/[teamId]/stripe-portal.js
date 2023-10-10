@@ -16,37 +16,63 @@ export default async function createCheckoutSession(req, res) {
   //TODO check if their role has billing access
 
   if (req.method === 'POST') {
+    const { tier, frequency, currency, email } = req.body
+
     try {
+      if (tier) {
+        const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+        const price = plans[tier]?.prices?.[currency]?.[frequency]
 
-      if (!team.stripeCustomerId) throw Error('No Customer ID found.')
+        if (!price) throw Error('Please select a valid plan.')
 
-      /*
-      const { url } = await stripe.checkout.sessions.create({
-        success_url: `${getURL()}/app/account`,
-        cancel_url: `${getURL()}/app/account`,
-        line_items: [
-          {price: 'price_1MhLooDdpfaJ8tM4FYXi4osM', quantity: 1},
-        ],
-        customer: team.stripeCustomerId,
-        mode: 'subscription',
-      });
-      */
+        const params = {
+          success_url: `${getURL()}/app/account`,
+          cancel_url: `${getURL()}/app/account`,
+          line_items: [{ price, quantity: 1 }],
+          client_reference_id: team.id,
+          allow_promotion_codes: true,
+          mode: 'subscription',
+        }
+        if (team.stripeSubscriptionId) {
+          params.customer = team.stripeCustomerId
+        } else {
+          params.customer_email = email
+        }
+        
+        const { url } = await stripe.checkout.sessions.create(params)
 
-      const { url } = await stripe.billingPortal.sessions.create({
-        customer: team.stripeCustomerId,
-        return_url: `${getURL()}/app/account`,
-      })
+        try {
+          bentoTrack(userId, 'track', {
+            type: 'openCheckout',
+          })
+          mpTrack(userId, 'Started checkout', { ip: req.headers['x-forwarded-for'],
+            tier,
+            frequency,
+            currency })
+        } catch (e) {
+          console.log('Error sending bento track', e)
+        }
 
-      try {
-        bentoTrack(userId, 'track', {
-          type: 'openBillingPortal',
+        return res.json({ url })
+      } else {
+        if (!team.stripeCustomerId) throw Error('No Customer ID found.')
+
+        const { url } = await stripe.billingPortal.sessions.create({
+          customer: team.stripeCustomerId,
+          return_url: `${getURL()}/app/account`,
         })
-        mpTrack(userId, 'Opened Billing Portal', { ip: req.headers['x-forwarded-for'] })
-      } catch (e) {
-        console.log('Error sending bento track', e)
-      }
 
-      return res.json({ url })
+        try {
+          bentoTrack(userId, 'track', {
+            type: 'openBillingPortal',
+          })
+          mpTrack(userId, 'Opened Billing Portal', { ip: req.headers['x-forwarded-for'] })
+        } catch (e) {
+          console.log('Error sending bento track', e)
+        }
+
+        return res.json({ url })
+      }
     } catch (err) {
       console.log(err)
       return res.status(500).json({ message: err?.message })
