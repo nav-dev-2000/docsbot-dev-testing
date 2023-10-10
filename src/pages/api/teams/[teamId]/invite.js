@@ -7,6 +7,7 @@ import { bentoTrack } from '@/lib/bento'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import sendInviteEmail from '@/utils/emails'
 import { getTeam } from '@/lib/dbQueries'
+import { mpTrack } from '@/lib/mixpanel'
 
 const validateEmail = (email) => {
   return email.match(
@@ -38,6 +39,7 @@ export default async function handleInvite(req, res) {
         bentoTrack(userId, 'track', {
           type: 'inviteUser',
         })
+        mpTrack(userId, 'Invited Team Member', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
@@ -89,14 +91,6 @@ export default async function handleInvite(req, res) {
     } else if (req.method === 'PUT') {
       const { uid, email } = await getAuthorizedUser({ req, res })
 
-      try {
-        bentoTrack(uid, 'track', {
-          type: 'acceptInvite',
-        })
-      } catch (e) {
-        console.log('Error sending bento track', e)
-      }
-
       // user is accepting/denying an invite request
       const { status, teamId, inviteId } = req.body
       try {
@@ -132,6 +126,15 @@ export default async function handleInvite(req, res) {
             await transaction.delete(inviteRef)
           })
 
+          try {
+            bentoTrack(uid, 'track', {
+              type: 'acceptInvite',
+            })
+            mpTrack(userId, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
+          } catch (e) {
+            console.log('Error sending bento track', e)
+          }
+
           return res.status(200).send({ message: 'Accepted invite', data: await getTeam(teamId)})
         } else if (status === 'deny') {
           // remove invite
@@ -144,6 +147,15 @@ export default async function handleInvite(req, res) {
 
             await transaction.delete(inviteRef)
           })
+
+          try {
+            bentoTrack(uid, 'track', {
+              type: 'denyInvite',
+            })
+            mpTrack(userId, 'Declined Team Invite', { ip: req.headers['x-forwarded-for'] })
+          } catch (e) {
+            console.log('Error sending bento track', e)
+          }
 
           return res.status(200).send({ message: `Declined invite`, data: null})
         } else if (status === 'retry') {

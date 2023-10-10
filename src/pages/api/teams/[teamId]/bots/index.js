@@ -8,6 +8,7 @@ import { createSchema } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
+import { mpTrack } from '@/lib/mixpanel'
 
 const router = createRouter()
 
@@ -124,6 +125,7 @@ router.post(async (req, res) => {
         type: 'createBot',
         botName: name,
       })
+      mpTrack(userId, 'Created Bot', { "Bot name": name, ip: req.headers['x-forwarded-for'] })
     } catch (e) {
       console.log('Error sending bento track', e)
     }

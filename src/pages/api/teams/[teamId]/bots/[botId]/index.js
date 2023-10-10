@@ -3,6 +3,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { deleteBot } from '@/lib/apiFunctions'
@@ -112,6 +113,7 @@ export default async function handler(req, res) {
               type: 'addCustomPrompt',
               botName: bot.name,
             })
+            mpTrack(userId, 'Added Custom Prompt', { ip: req.headers['x-forwarded-for'] })
           } catch (e) {
             console.log('Error sending bento track', e)
           }
@@ -335,6 +337,8 @@ export default async function handler(req, res) {
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
+      mpTrack(userId, 'Updated Bot', { "Bot name": bot.name, ip: req.headers['x-forwarded-for'] })
+
       return res.status(200).json(await getBot(team.id, botId))
     } catch (error) {
       console.warn('Error:', error)
@@ -348,6 +352,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
         })
+        mpTrack(userId, 'Deleted Bot', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

@@ -13,6 +13,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { HeadlessApp } from '@headstartwp/next'
 import { Link } from '@/components/blog/Link'
 import { DefaultSeo } from 'next-seo'
+import { Mixpanel } from '@/lib/mixpanel-web'
 
 function getNodeText(node) {
   let text = ''
@@ -69,6 +70,7 @@ export default function App({ Component, pageProps }) {
         }
         window.bento.view()
       }
+      Mixpanel.pageview()
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)

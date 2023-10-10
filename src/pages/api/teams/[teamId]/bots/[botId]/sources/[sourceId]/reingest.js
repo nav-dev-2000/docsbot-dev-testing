@@ -4,6 +4,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
 import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
 
@@ -61,6 +62,8 @@ export default async function handler(req, res) {
         scheduleInterval: scheduleInterval,
       });
 
+      mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
+
       return res.status(200).json({ newScheduled: scheduled.toJSON() })
     } catch (error) {
       console.warn('Error setting source interval:', error)
@@ -90,6 +93,9 @@ export default async function handler(req, res) {
       })
 
       await QueueSourceRegest(team.id, botId, sourceId);
+
+      mpTrack(userId, 'Q&A Source Updated', { ip: req.headers['x-forwarded-for'] })
+
       return res.status(200).json(await getSource(team, bot, sourceId))
     } catch (error) {
       console.warn('Error updating source:', error)
@@ -115,6 +121,8 @@ export default async function handler(req, res) {
       }).then(() => {
         QueueSourceRegest(team.id, botId, sourceId);
       })
+
+      mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
 
       return res.status(200).json({ newScheduled: nextSchedule.toJSON() })
     } catch (error) {

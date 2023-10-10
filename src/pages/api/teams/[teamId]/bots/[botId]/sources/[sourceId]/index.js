@@ -4,6 +4,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
@@ -64,6 +65,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'retrySource',
         })
+        mpTrack(userId, 'Retried Source', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
@@ -140,6 +142,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'deleteSource',
         })
+        mpTrack(userId, 'Deleted Source', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }

@@ -22,6 +22,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
+import { Mixpanel } from '@/lib/mixpanel-web'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -90,6 +91,8 @@ function Register({ teamCount }) {
             Reflio.signup(user?.user?.email)
           }
           va.track('Signup', { provider: 'email', user_type: userType })
+          Mixpanel.identify(user.user.uid)
+          Mixpanel.track('Signup', { provider: 'email', user_type: userType })
           router.push(redirectPath)
         },
       })
@@ -113,6 +116,8 @@ function Register({ teamCount }) {
         Reflio.signup(googleUser?.user?.email)
       }
       va.track('Signup', { provider: 'google', user_type: userType })
+      Mixpanel.identify(user.user.uid)
+      Mixpanel.track('Signup', { provider: 'google', user_type: userType })
       router.push(redirectPath)
     },
   })
