@@ -5,18 +5,16 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
-  ChartBarIcon,
   HomeIcon,
   UsersIcon,
   XMarkIcon,
   ServerStackIcon,
   CreditCardIcon,
   ChevronRightIcon,
-  ArrowRightIcon,
+  ChevronUpDownIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
-
 import { useCallback } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -254,8 +252,12 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                   <Breadcrumbs title={title} />
                 </div>
                 <p className="ml-2 flex leading-tight items-center text-xs md:text-sm text-gray-500 overflow-hidden">
-                    {team?.name || ''}
+                  {team?.name || ''}
                 </p>
+                <Link className='ml-1 flex leading-tight items-center text-xs md:text-sm text-gray-500 overflow-hidden' href={'/app/team'} title="Switch Team">
+                  <ChevronUpDownIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                  <span className="sr-only">Switch Team</span>
+                </Link>
                 <div className="ml-2 flex flex-none items-center md:ml-6">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
