@@ -224,8 +224,8 @@ export default function Home() {
                   />
                   <Image
                     className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
-                    src={plaidLogo}
-                    alt="Plaid Logo"
+                    src={chatwpLogo}
+                    alt="ChatWP Logo"
                     width={125}
                     height={32}
                   />
