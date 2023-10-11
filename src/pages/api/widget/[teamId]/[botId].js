@@ -38,9 +38,6 @@ export default async function handler(req, res) {
       const team = await getTeam(teamId)
       const bot = await getBot(teamId, botId)
       if (bot) {
-        if (bot.privacy === 'private') {
-          return res.status(403).json({ message: 'Bot is private.' })
-        }
 
         if (bot.status !== 'ready') {
           return res.status(409).json({ message: 'Bot is not ready.' })
