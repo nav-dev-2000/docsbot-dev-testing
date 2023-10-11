@@ -70,6 +70,11 @@ function Login() {
             window.bento.identify(user?.user?.email)
           }
           Mixpanel.identify(user.user.uid)
+          Mixpanel.profile({
+            $email: user.user.email,
+            $name: user.user.displayName,
+            "Login Method": "Email"
+          })
           router.push(redirectPath)
         },
       })
@@ -90,6 +95,12 @@ function Login() {
       }
       va.track('Signup')
       Mixpanel.identify(googleUser.user.uid)
+      Mixpanel.profile({
+        $email: googleUser.user.email,
+        $name: googleUser.user.displayName,
+        $avatar: googleUser.user.photoURL,
+        "Login Method": "Google"
+      })
       router.push(redirectPath)
     },
   })

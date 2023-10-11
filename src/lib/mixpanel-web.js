@@ -19,6 +19,10 @@ export const Mixpanel = {
     mixpanel.reset()
   },
 
+  profile: (props) => {
+    mixpanel.people.set(props)
+  },
+
   track: (name, props) => {
     mixpanel.track(name, props)
   },

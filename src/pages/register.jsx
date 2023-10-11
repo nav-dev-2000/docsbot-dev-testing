@@ -93,6 +93,12 @@ function Register({ teamCount }) {
           va.track('Signup', { provider: 'email', user_type: userType })
           Mixpanel.identify(user.user.uid)
           Mixpanel.track('Signup', { provider: 'email', user_type: userType })
+          Mixpanel.profile({
+            $email: user.user.email,
+            $name: user.user.displayName,
+            "User Type": userType,
+            "Login Method": "Email"
+          })
           router.push(redirectPath)
         },
       })
@@ -118,6 +124,13 @@ function Register({ teamCount }) {
       va.track('Signup', { provider: 'google', user_type: userType })
       Mixpanel.identify(user.user.uid)
       Mixpanel.track('Signup', { provider: 'google', user_type: userType })
+      Mixpanel.profile({
+        $email: googleUser.user.email,
+        $name: googleUser.user.displayName,
+        $avatar: googleUser.user.photoURL,
+        "User Type": userType,
+        "Login Method": "Google"
+      })
       router.push(redirectPath)
     },
   })

@@ -7,6 +7,7 @@ import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.consta
 import { bentoTrack } from '@/lib/bento'
 import { stripePlan } from '@/utils/helpers'
 import { assignDefaultTeamTransaction } from '@/lib/dbQueries'
+import { mpProfile } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -29,6 +30,11 @@ export default async function handler(req, res) {
   )
 
   const { name, isNewUser } = req.body
+
+  mpProfile(userId, {
+    $email: decodedJwt?.email,
+    $name: name,
+  })
 
   if (isNewUser) {
     const firestore = getFirestore()
