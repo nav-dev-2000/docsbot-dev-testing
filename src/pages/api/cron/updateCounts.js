@@ -1,6 +1,8 @@
 import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionCount } from '@/lib/dbQueries'
+import { mpTrack } from '@/lib/mixpanel'
+import { teamOwner, bentoTrack } from '@/lib/bento'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -29,34 +31,54 @@ export default async function handler(request, response) {
         let currentYear = currentDate.getFullYear()
 
         const teamData = teamDoc.data()
-        const botsSnapshot = await teamDoc.ref.collection('bots').select('questionCountHistory').get()
+        const botsSnapshot = await teamDoc.ref
+          .collection('bots')
+          .select('questionCountHistory')
+          .get()
 
         let questionTotal = 0
         let sourcePageTotal = 0
         const botCounts = []
 
         for (const botDoc of botsSnapshot.docs) {
-          const questionCount = await getQuestionCount(
-            teamDoc.id,
-            botDoc.id
-          )
+          const questionCount = await getQuestionCount(teamDoc.id, botDoc.id)
 
           // grab the # of source pages
           const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
           const sourceCounts = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
-          const sourceCountTotal = sourceCounts.reduce((accumulator, count) => accumulator + count, 0)
+          const sourceCountTotal = sourceCounts.reduce(
+            (accumulator, count) => accumulator + count,
+            0
+          )
 
           const prevHistory = botDoc.data().questionCountHistory || {}
 
-          // update bot count
-          await botDoc.ref.update({
+          const botData = {
             questionCount: questionCount,
             pageCount: sourceCountTotal,
             questionCountHistory: {
               ...prevHistory,
               [`${currentYear}-${currentMonth}`]: questionCount,
             },
-          })
+          }
+
+          //handle tracking if the bot was used
+          const embedded = botDoc.data().embedded || false
+          if (embedded == 'yes') {
+            try {
+              bentoTrack(teamOwner(teamData), 'track', {
+                type: 'botUsed',
+                botName: botDoc.data().name,
+              })
+              mpTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name })
+            } catch (error) {
+              console.warn('Error tracking bot used:', error)
+            }
+            botData.embedded = 'recorded'
+          }
+
+          // update bot count
+          await botDoc.ref.update(botData)
 
           botCounts.push({ questionCount, sourceCountTotal })
         }

@@ -19,6 +19,9 @@ import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
 import LoadingDots from './LoadingDots'
 import { grabQuestions } from '@/utils/helpers'
+import { Mixpanel } from '@/lib/mixpanel-web'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 export default function Chat({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -30,7 +33,10 @@ export default function Chat({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
-  const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
+  const [questions, setQuestions] = useState(
+    bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : []
+  )
+  const [user] = useAuthState(auth)
 
   //clear error text when question changes
   useEffect(() => {
@@ -92,12 +98,32 @@ export default function Chat({ teamId, bot }) {
       })
       setQuestion('')
 
-      const req = { question: question, markdown: true, history: chatHistory }
+      //get name and email
+      const metadata = {}
+      let testing = false
+      if (user) {
+        metadata.name = user.displayName
+        metadata.email = user.email
+        testing = true
+      }
+      const req = {
+        question: question,
+        history: chatHistory,
+        testing,
+        metadata,
+      }
       if (bot.privacy === 'private') {
         //add token to request
         req.auth = bot.signature
       }
       ws.send(JSON.stringify(req))
+
+      if (testing) {
+        Mixpanel.track('Bot Tested', { 'Bot name': bot.name })
+        if (window.bento !== undefined) {
+          window.bento.track('botTested', { botName: bot.name })
+        }
+      }
     }
 
     ws.onerror = function (event) {
@@ -261,7 +287,7 @@ export default function Chat({ teamId, bot }) {
     if (answer.type === 'question') {
       return (
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-          <div className="absolute -inset-7 flex h-28 items-center text-2xl font-extrabold tracking-tighter w-12">
+          <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <UserCircleIcon className="h-7 w-7 text-white" aria-hidden="true" />
             </span>
@@ -275,7 +301,7 @@ export default function Chat({ teamId, bot }) {
           className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg"
           id={answer.id || null}
         >
-          <div className="absolute -inset-7 flex h-32 items-center text-2xl font-extrabold tracking-tighter w-12">
+          <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
             </span>
@@ -346,7 +372,7 @@ export default function Chat({ teamId, bot }) {
   }
 
   return (
-    <div className="relative py-8 px-4">
+    <div className="relative px-4 py-8">
       <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -427,7 +453,6 @@ export default function Chat({ teamId, bot }) {
                 </button>
               ))}
           </div>
-
         </div>
       </div>
     </div>

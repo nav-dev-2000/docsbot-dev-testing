@@ -14,6 +14,9 @@ import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
+import { Mixpanel } from '@/lib/mixpanel-web'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -26,6 +29,7 @@ export default function AskStreaming({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [rating, setRating] = useState(0)
   const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
+  const [user] = useAuthState(auth)
 
   //clear error text when question changes
   useEffect(() => {
@@ -70,12 +74,32 @@ export default function AskStreaming({ teamId, bot }) {
     // Send message to server when connection is established
     ws.onopen = function (event) {
       setLoadingMessage(bot.labels.thinking)
-      const req = { question: question, markdown: true }
+      //get name and email
+      const metadata = {}
+      let testing = false
+      if (user) {
+        metadata.name = user.displayName
+        metadata.email = user.email
+        testing = true
+      }
+      const req = {
+        question: question,
+        history: chatHistory,
+        testing,
+        metadata,
+      }
       if (bot.privacy === 'private') {
         //add token to request
         req.auth = bot.signature
       }
       ws.send(JSON.stringify(req))
+
+      if (testing) {
+        Mixpanel.track('Bot Tested', { 'Bot name': bot.name })
+        if (window.bento !== undefined) {
+          window.bento.track('botTested', { botName: bot.name })
+        }
+      }
     }
 
     ws.onerror = function (event) {

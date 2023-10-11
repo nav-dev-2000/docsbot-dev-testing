@@ -221,7 +221,8 @@ export async function getQuestions(
       'answer',
       'rating',
       'escalation',
-      'metadata'
+      'metadata',
+      'testing',
     ) //skip the vector as it's huge
 
   // grab limits

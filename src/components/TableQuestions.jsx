@@ -11,6 +11,7 @@ import {
   LifebuoyIcon,
   AdjustmentsHorizontalIcon,
   UserCircleIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -87,7 +88,7 @@ const filterOptions = [
 export default function TableQuestions({ team, bot, questions, setQuestions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
-  const [filters, setFilters] = useState({rating: null, escalated: null})
+  const [filters, setFilters] = useState({ rating: null, escalated: null })
 
   useEffect(() => {
     changePage(0, ipFilter, filters.rating, filters.escalated)
@@ -144,7 +145,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${bot?.signatureKey}`
+      Authorization: `Bearer ${bot?.signatureKey}`,
     }
 
     const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/rate/${questionId}`
@@ -382,14 +383,14 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                           </button>
                         )}
                       </div>
-                      <h2 className="text-xl font-medium text-gray-900">
-                        {question.question}
-                      </h2>
+                      <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
                       {question.standaloneQuestion &&
                         question.standaloneQuestion !== question.answer && (
                           <h3 className="mb-1 mt-1 text-sm text-gray-800">
                             Standalone Question:{' '}
-                            <span className="font-semibold text-gray-900">{question.standaloneQuestion}</span>
+                            <span className="font-semibold text-gray-900">
+                              {question.standaloneQuestion}
+                            </span>
                           </h3>
                         )}
                       <div
@@ -445,68 +446,75 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-0">
-        <div className="lg:flex lg:items-end space-y-4 space-x-0 lg:space-x-8">
+        <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold leading-6 text-gray-900">Questions</h1>
             <p className="mt-2 text-sm text-gray-700">
               A log of the recent questions you or users have asked your bot.
             </p>
           </div>
-          <QuestionFilters filters={filters} setFilters={setFilters} filterOptions={filterOptions} />
-            <Paginator
-              perPage={questions.pagination.perPage}
-              totalCount={questions.pagination.viewableCount}
-              page={questions.pagination.page}
-              changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated)}
-            />
+          <QuestionFilters
+            filters={filters}
+            setFilters={setFilters}
+            filterOptions={filterOptions}
+          />
+          <Paginator
+            perPage={questions.pagination.perPage}
+            totalCount={questions.pagination.viewableCount}
+            page={questions.pagination.page}
+            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated)}
+          />
         </div>
-        <div className="flex items-center space-x-4 mt-4 lg:mt-2">
-        {ipFilter !== null && (
-          <button
-            type="button"
-            className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-            onClick={() => {
-              updateIPFilter(null, null)
-            }}
-          >
-            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-            <span className="m-auto flex pl-1 text-xs text-gray-400">
-              <UserCircleIcon className='w-4 h-4 mr-1' /> {ipAlias}
-            </span>
-          </button>
-        )}
-        {filters.rating !== null && (
-          <button
-            type="button"
-            className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-            onClick={() => {
-              setFilters((prevFilters) => {
-                return { ...prevFilters, rating: null }
-              })
-            }}
-          >
-            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-            <span className="m-auto flex pl-1 text-xs text-gray-400">
-              {filterOptions[0].options.find((option) => option.value === filters.rating).label}
-            </span>
-          </button>
-        )}
-        {filters.escalated !== null && (
-          <button
-            type="button"
-            className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-            onClick={() => {
-              setFilters((prevFilters) => {
-                return { ...prevFilters, escalated: null }
-              })
-            }}
-          >
-            <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-            <span className="m-auto flex pl-1 text-xs text-gray-400">
-              {filterOptions[1].options.find((option) => option.value === filters.escalated).label}
-            </span>
-          </button>
-        )}
+        <div className="mt-4 flex items-center space-x-4 lg:mt-2">
+          {ipFilter !== null && (
+            <button
+              type="button"
+              className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              onClick={() => {
+                updateIPFilter(null, null)
+              }}
+            >
+              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+              <span className="m-auto flex pl-1 text-xs text-gray-400">
+                <UserCircleIcon className="mr-1 h-4 w-4" /> {ipAlias}
+              </span>
+            </button>
+          )}
+          {filters.rating !== null && (
+            <button
+              type="button"
+              className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              onClick={() => {
+                setFilters((prevFilters) => {
+                  return { ...prevFilters, rating: null }
+                })
+              }}
+            >
+              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+              <span className="m-auto flex pl-1 text-xs text-gray-400">
+                {filterOptions[0].options.find((option) => option.value === filters.rating).label}
+              </span>
+            </button>
+          )}
+          {filters.escalated !== null && (
+            <button
+              type="button"
+              className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              onClick={() => {
+                setFilters((prevFilters) => {
+                  return { ...prevFilters, escalated: null }
+                })
+              }}
+            >
+              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+              <span className="m-auto flex pl-1 text-xs text-gray-400">
+                {
+                  filterOptions[1].options.find((option) => option.value === filters.escalated)
+                    .label
+                }
+              </span>
+            </button>
+          )}
         </div>
 
         <div className="mt-8 flow-root">
@@ -558,7 +566,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                             BLUR_LIMIT_COUNT >=
                             questions.pagination.planLimit && blurEnabled
                             ? 'blur-sm'
-                            : 'hover:bg-gray-50'
+                            : 'hover:bg-gray-50',
+                          question.testing ? 'bg-gray-50' : ''
                         )}
                       >
                         <td
@@ -568,22 +577,35 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <img
-                              className="inline-block h-9 w-9 rounded-full"
-                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
-                              alt="User avatar"
-                            />
+                            <div className="flex items-center">
+                              <img
+                                className="inline-block h-9 w-9 rounded-full"
+                                src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
+                                alt="User avatar"
+                              />
+                              {question.testing && (
+                                <span className="ml-2 text-xs text-gray-400 flex items-center">
+                                <UserGroupIcon className="mr-1 h-4 w-4 text-gray-500" title="Staff testing" />
+                                Staff</span>
+                              )}
+                            </div>
                             <p className="mt-2 text-xs">{question.alias}</p>
                           </Answer>
                         </td>
                         <td
                           className={clsx(
                             questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'max-w-xs overflow-hidden text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell break-words'
+                            'max-w-xs overflow-hidden break-words text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>
-                            <p>{question.standaloneQuestion && question.standaloneQuestion != question.answer && bot.language == 'en' ? question.standaloneQuestion : question.question}</p>
+                            <p>
+                              {question.standaloneQuestion &&
+                              question.standaloneQuestion != question.answer &&
+                              bot.language == 'en'
+                                ? question.standaloneQuestion
+                                : question.question}
+                            </p>
                             <span className="mt-2 hidden text-xs text-gray-400 sm:block">
                               <LocaleDateTime date={question.createdAt} />
                             </span>
@@ -602,7 +624,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         <td
                           className={clsx(
                             questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden text-sm text-gray-500 lg:table-cell break-words'
+                            'hidden break-words text-sm text-gray-500 lg:table-cell'
                           )}
                         >
                           <Answer {...{ question, questionIdx }}>

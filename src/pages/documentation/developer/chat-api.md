@@ -22,6 +22,7 @@ This endpoint accepts a POST request with the following parameters:
 | **format**      | string  | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown`                                                                                                                                   |
 | **history**     | array   | The chat history array. Optional, defaults to `[]`                                                                                                                                                                        |
 | **metadata**    | object  | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
+| **testing**     | boolean | Whether to mark question logs as by staff. Optional, defaults to `false`                                                                                                                                                  |
 
 {% callout title="full_source behavior" %}
 If `full_source` is set to `true`, the `content` property of each source will be populated with the full source content. This can be useful if you want to display the full source content in your interface. As source pages are divided into chunks, we normally only return unique source title/urls. But if this parameter is set to true multiple sources may be returned with the same title/url but different content.
