@@ -1,2 +1,24 @@
-Content (required),Title,URL (optional, can be blank),Page # (optional, can be blank)
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",Source Name,https://yourdomain.com,1
+"Content (required)","Title","URL (optional, can be blank)","Page # (optional, can be blank)"
+Answer text,Question Text,,
+"Question text
+Answer text",Source title,https://linktofaqorsomething.com,
+A long text article with thousands of words,Article title,https://articleurl.com,
+A page of a document to see page numbers,Document title,,1
+A page of a document to see page numbers,Document title,,2
+"## This is markdown document
+
+It may contain **formatted** text or lists:
+
+- item one
+- item two
+
+[Links](https://docsbot.ai) or even images!
+
+![Sunset](https://images.unsplash.com/photo-1490730141103-6cac27aaab94)",Document title,,
+"A row from a spreadsheet with column name + data:
+Name: John Smith
+Email: john@smith.com
+Age: 32
+City: Chicago
+State: Illinois
+Revenue: $1231.00",Customers,,
