@@ -11,8 +11,13 @@ import SourceFailed from '@/components/SourceFailed'
 import Link from 'next/link'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 
+const sourcePerPage = 30
+
 function Bot({ team, preBot, preSources, autoOpenSourceId }) {
-  const [sources, setSources] = useState(preSources)
+  const [sources, setSources] = useState(preSources?.sources)
+  const [paginationData, setPaginationData] = useState(preSources?.pagination)
+  const [page, setPage] = useState(preSources?.pagination?.page || 0)
+  const [perPage] = useState(sourcePerPage)
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
@@ -47,7 +52,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
   async function refreshSources() {
 
     const urlParams = ['teams', team.id, 'bots', botId, 'sources']
-    let path = '/api/' + urlParams.join('/')
+    let path = '/api/' + urlParams.join('/') + `?page=${page}&limit=${perPage}`
     const response = await fetch(path, {
       method: 'GET',
       headers: {
@@ -56,7 +61,8 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
     })
     if (response.ok) {
       const data = await response.json()
-      setSources(data)
+      setSources(data.sources)
+      setPaginationData(data.pagination)
     } else {
       try {
         const data = await response.json()
@@ -66,6 +72,15 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
       }
     }
   }
+
+  const handleChangePage = (page) => {
+    setPage(page)
+  }
+
+  useEffect(() => {
+    refreshSources()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page])
 
   //restart polling when sources change
   useEffect(() => {
@@ -97,7 +112,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
     refreshBot()
   }, [sources])
 
-  const deleteSource = async(id) => {
+  const deleteSource = async (id) => {
     setErrorText('')
     const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
       method: 'DELETE',
@@ -118,7 +133,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
     }
   }
 
-  const retrySource = async(id) => {
+  const retrySource = async (id) => {
     setErrorText('')
     const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
       method: 'PUT',
@@ -159,7 +174,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
       <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState }} />
+      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage }} />
 
       <SourceForm {...{ team, bot, sources, setSources, setOpenSourceID: setAutoOpenSourceIdState }} />
     </DashboardWrap>
@@ -180,7 +195,7 @@ export const getServerSideProps = async (context) => {
       }
     }
 
-    data.props.preSources = await getSources(data.props.team.id, data.props.preBot)
+    data.props.preSources = await getSources(data.props.team.id, data.props.preBot, 0, sourcePerPage)
     data.props.autoOpenSourceId = sourceId ? sourceId : null
   }
 

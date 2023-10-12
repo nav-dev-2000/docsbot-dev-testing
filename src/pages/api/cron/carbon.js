@@ -177,7 +177,7 @@ export default async function handler(request, response) {
 
           // we only allow unique carbon type sources per bot, so we'll need to check if a carbon type.
           // if it does, we'll need to delete it
-          const sources = await getSources(teamId, bot)
+          const sources = await getSources(teamId, bot, 0, 1000)
           const existingSources = sources.filter(
             (oldSource) => oldSource.type === source.type && oldSource.id !== sourceId
           )

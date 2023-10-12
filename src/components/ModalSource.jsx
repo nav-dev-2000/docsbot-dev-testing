@@ -341,9 +341,9 @@ export default function ModalSource({
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="space-y-2">
-                            {source.indexedUrls.map((item) => (
+                            {source.indexedUrls.map((item, index) => (
                               <li
-                                key={item.source}
+                                key={index+item.source}
                                 className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-4 py-1 shadow"
                               >
                                 <Link

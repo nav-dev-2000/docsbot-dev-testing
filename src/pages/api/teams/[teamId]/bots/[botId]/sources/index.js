@@ -208,7 +208,7 @@ export default async function handler(req, res) {
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
       // if it does, we'll need to add our faqs to it and queue a regest
       if (type === 'qa') {
-        const sources = await getSources(team.id, bot)
+        const sources = await getSources(team.id, bot, 0, 1000)
         const qaSources = sources.filter((source) => source.type === 'qa')
         if (qaSources.length > 0) {
           // add the faqs to the existing qa source
@@ -317,10 +317,11 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {
+    const page = parseInt(req.query.page) || 0
     const sourceLimit = parseInt(req.query.limit) || 100
     const ascending = req.query.ascending || false
     try {
-      return res.json(await getSources(team.id, bot, sourceLimit, ascending))
+      return res.json(await getSources(team.id, bot, page, sourceLimit, ascending))
     } catch (e) {
       return res.status(500).json({ message: e?.message })
     }

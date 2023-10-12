@@ -99,7 +99,8 @@ export async function getBot(teamId, botId) {
   }
 }
 
-export async function getSources(teamId, bot, resultLimit = 100, ascending = false) {
+export async function getSources(teamId, bot, page = 0, pageSize = 100, ascending = false) {
+  const offset = page * pageSize
   const sourcesRef = firestore
     .collection('teams')
     .doc(teamId)
@@ -107,7 +108,8 @@ export async function getSources(teamId, bot, resultLimit = 100, ascending = fal
     .doc(bot.id)
     .collection('sources')
     .orderBy('createdAt', ascending ? 'asc' : 'desc')
-    .limit(resultLimit)
+    .offset(offset)
+    .limit(pageSize)
 
   //TODO add pagination
   const querySnapshot = await sourcesRef.get()
@@ -163,13 +165,31 @@ export async function getSources(teamId, bot, resultLimit = 100, ascending = fal
     if (source.scheduled) {
       source.scheduled = source.scheduled.toDate().toJSON() //make serializable
     }
+    //TODO remove this once we have a better way to handle large lists
     if (source.indexedUrls && source.indexedUrls.length > 500) {
       source.indexedUrls = []
     }
     sources.push(source)
   })
 
-  return sources
+  // get total counts efficiently
+  const snapshot = firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(bot.id)
+    .collection('sources')
+  const countSnapshot = await snapshot.count().get()
+  const totalCount = countSnapshot.data().count
+  const hasMorePages = offset + pageSize < totalCount
+
+  const pagination = {
+    perPage: pageSize,
+    page: page,
+    totalCount: totalCount,
+    hasMorePages: hasMorePages,
+  }
+  return { sources, pagination }
 }
 
 export async function getSource(team, bot, sourceId) {
@@ -222,7 +242,7 @@ export async function getQuestions(
       'rating',
       'escalation',
       'metadata',
-      'testing',
+      'testing'
     ) //skip the vector as it's huge
 
   // grab limits
@@ -236,7 +256,7 @@ export async function getQuestions(
 
   if (escalated !== null) {
     snapshot = snapshot.where('escalation', '==', escalated)
-  } 
+  }
 
   if (rating !== null) {
     snapshot = snapshot.where('rating', '==', rating || 0)
@@ -258,10 +278,7 @@ export async function getQuestions(
     snapshot = snapshot.where('createdAt', '<=', end)
   }
 
-  const questionsRef = snapshot
-    .orderBy('createdAt', 'desc')
-    .offset(offset)
-    .limit(pageLimit)
+  const questionsRef = snapshot.orderBy('createdAt', 'desc').offset(offset).limit(pageLimit)
 
   // grab questions
   const querySnapshot = await questionsRef.get()
@@ -303,12 +320,12 @@ export async function getQuestions(
 
   if (escalated !== null) {
     snapshot = snapshot.where('escalation', '==', escalated)
-  } 
-  
+  }
+
   if (rating !== null) {
     snapshot = snapshot.where('rating', '==', rating || 0)
   }
-  
+
   if (startTime) {
     const start = new Date(startTime)
     snapshot = snapshot.where('createdAt', '>=', start)

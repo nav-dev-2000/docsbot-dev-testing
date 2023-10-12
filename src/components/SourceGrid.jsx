@@ -4,8 +4,17 @@ import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
 import { ArrowPathIcon, ClockIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import ModalSource from '@/components/ModalSource'
+import Paginator from '@/components/Paginator'
 
-export default function SourceGrid({ team, bot, sources, setSources, autoOpenSourceId = null }) {
+export default function SourceGrid({
+  team,
+  bot,
+  sources,
+  setSources,
+  autoOpenSourceId = null,
+  paginationData,
+  handleChangePage,
+}) {
   const [fullSources, setFullSources] = useState([])
 
   useEffect(() => {
@@ -32,10 +41,18 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
 
   return (
     <div>
-      <h2 className="mt-8 text-xl font-semibold text-gray-800">Sources</h2>
+      <div className="mt-8 flex items-center justify-between">
+        <h2 className="text-xl font-semibold text-gray-800">Sources</h2>
+        <Paginator
+          page={paginationData.page}
+          totalCount={paginationData.totalCount}
+          perPage={paginationData.perPage}
+          changePage={handleChangePage}
+        />
+      </div>
       <ul
         role="list"
-        className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3"
+        className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3"
       >
         {fullSources.map((source) => (
           <ModalSource
@@ -99,6 +116,14 @@ export default function SourceGrid({ team, bot, sources, setSources, autoOpenSou
           </ModalSource>
         ))}
       </ul>
+      <div className="mt-6 flex items-center justify-center">
+        <Paginator
+          page={paginationData.page}
+          totalCount={paginationData.totalCount}
+          perPage={paginationData.perPage}
+          changePage={handleChangePage}
+        />
+      </div>
     </div>
   )
 }
