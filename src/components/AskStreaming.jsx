@@ -84,7 +84,6 @@ export default function AskStreaming({ teamId, bot }) {
       }
       const req = {
         question: question,
-        history: chatHistory,
         testing,
         metadata,
       }
