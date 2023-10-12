@@ -7,17 +7,17 @@ import BadgeStatus from '@/components/BadgeStatus'
 import {
   CalendarIcon,
   XMarkIcon,
-  BookOpenIcon,
   DocumentDuplicateIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { getBots } from '@/lib/dbQueries'
 import BotDelete from '@/components/BotDelete'
 import NewBotPanel from '@/components/NewBotPanel'
-import ModalOpenAI from '@/components/ModalOpenAI'
 import classNames from '@/utils/classNames'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import RobotIcon from '@/components/RobotIcon'
+import LocalStringNum from '@/components/LocalStringNum'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
@@ -74,11 +74,11 @@ function Bots({ preBots, team }) {
                 <h3 className="truncate text-lg font-medium text-gray-900">{bot.name}</h3>
               </div>
               <p className="mt-1 truncate text-sm text-gray-700">{bot.description}</p>
-              <div className="mt-2 md:space-x-4 md:flex">
-                <div className="sm:flex">
+              <div className="mt-2 md:flex md:flex-wrap">
+                <div className="sm:flex mr-4">
                   <PrivacyStatus bot={bot} />
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex mr-4 items-center text-sm text-gray-500">
                   <CalendarIcon
                     className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
@@ -87,14 +87,24 @@ function Bots({ preBots, team }) {
                     <time dateTime={bot.createdAt}>{bot.createdAt.substr(0, 10)}</time>
                   </p>
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex mr-4 items-center text-sm text-gray-500">
                   <DocumentDuplicateIcon
                     className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
                     aria-hidden="true"
                   />
                   <p>
-                  <span className="text-gray-900">{bot.sourceCount}</span>{' '}
+                  <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
                   Sources
+                  </p>
+                </div>
+                <div className="flex items-center text-sm text-gray-500">
+                  <QuestionMarkCircleIcon
+                    className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <p>
+                  <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
+                  Questions
                   </p>
                 </div>
               </div>
