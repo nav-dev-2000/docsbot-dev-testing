@@ -11,7 +11,7 @@ import SourceFailed from '@/components/SourceFailed'
 import Link from 'next/link'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 
-const sourcePerPage = 30
+const sourcePerPage = 60
 
 function Bot({ team, preBot, preSources, autoOpenSourceId }) {
   const [sources, setSources] = useState(preSources?.sources)
