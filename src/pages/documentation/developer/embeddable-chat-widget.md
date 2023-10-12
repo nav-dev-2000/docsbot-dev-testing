@@ -231,6 +231,7 @@ options: {
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
   customCSS: '', // Custom CSS to override the default styles.
+  inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000.
   questions: [
     "What is DocsBot?",
     "What services does DocsBot offer?",
