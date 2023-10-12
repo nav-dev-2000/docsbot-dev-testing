@@ -533,8 +533,7 @@ function Widget({ team, bot }) {
                         . Optional, leave blank to disable.
                       </span>
                       <div className="mt-1">
-                        <input
-                          type="text"
+                        <textarea
                           name="message-label"
                           id="message-label"
                           value={labels.firstMessage}
