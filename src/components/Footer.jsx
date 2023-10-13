@@ -54,104 +54,95 @@ const footerNavigation = {
 
 export default function Footer() {
   return (
-
     <footer className="bg-gray-50" aria-labelledby="footer-heading">
-    <h2 id="footer-heading" className="sr-only">
-      Footer
-    </h2>
-    <div className="mx-auto max-w-md px-6 pt-12 sm:max-w-7xl lg:px-8 lg:pt-16">
-      <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-        <div className="space-y-8 text-left xl:col-span-1">
-          <Image className="mr-auto h-10 w-auto" src={docsbotLogo} alt="DocsBot Logo" />
-          <p className="text-base text-gray-500">
-            An <Link href="https://uglyrobot.com">UglyRobot</Link> thing.
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto max-w-md px-6 pt-12 sm:max-w-7xl lg:px-8 lg:pt-16">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8 text-left xl:col-span-1">
+            <Image className="mr-auto h-10 w-auto" src={docsbotLogo} alt="DocsBot Logo" />
+            <p className="text-base text-gray-500">
+              An <Link href="https://uglyrobot.com">UglyRobot</Link> thing.
+            </p>
+            <div className="flex space-x-6">
+              {footerNavigation.social.map((item) => (
+                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <iframe
+              src="https://docsbot.instatus.com/embed-status/e21b573c/light-md"
+              width="240"
+              height="61"
+              frameBorder="0"
+              scrolling="no"
+              className="border-none"
+            ></iframe>
+          </div>
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-base font-medium text-gray-900">Pages</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.pages.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-base font-medium text-gray-900">Other Products</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.tools.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-base font-medium text-gray-900">AI Tools</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.tools2.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-base font-medium text-gray-900">Meta</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 border-t border-gray-200 py-8">
+          <p className="text-base text-gray-400 xl:text-center">
+            &copy; 2023 UglyRobot, LLC. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            {footerNavigation.social.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-          <div className="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3 className="text-base font-medium text-gray-900">Pages</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {footerNavigation.pages.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-base text-gray-500 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-base font-medium text-gray-900">Other Products</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {footerNavigation.tools.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-base text-gray-500 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="md:grid md:grid-cols-2 md:gap-8">
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-base font-medium text-gray-900">AI Tools</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {footerNavigation.tools2.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-base text-gray-500 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-base font-medium text-gray-900">Meta</h3>
-              <ul role="list" className="mt-4 space-y-4">
-                {footerNavigation.legal.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-base text-gray-500 hover:text-gray-900"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
-      <div className="mt-12 border-t border-gray-200 py-8">
-        <p className="text-base text-gray-400 xl:text-center">
-          &copy; 2023 UglyRobot, LLC. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
+    </footer>
   )
 }

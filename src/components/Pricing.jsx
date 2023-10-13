@@ -3,8 +3,12 @@ import { RadioGroup } from '@headlessui/react'
 import { CheckIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { frequencies, pricingTiers, enterpriseFeatures, currencies } from '@/constants/pricing.constants'
-
+import {
+  frequencies,
+  pricingTiers,
+  enterpriseFeatures,
+  currencies,
+} from '@/constants/pricing.constants'
 
 export default function Pricing() {
   const [frequency, setFrequency] = useState(frequencies[0])
@@ -41,7 +45,7 @@ export default function Pricing() {
         <p className="flex items-center justify-center text-lg font-bold text-teal-500">
           <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back guarantee!
         </p>
-        <div className="flex mt-16 justify-center">
+        <div className="mt-16 flex justify-center">
           <RadioGroup
             value={frequency}
             onChange={setFrequency}
@@ -149,7 +153,10 @@ export default function Pricing() {
               >
                 Get started
               </Link>
-              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 columns-2 xl:columns-1">
+              <ul
+                role="list"
+                className="mt-8 columns-2 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 xl:columns-1"
+              >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
@@ -163,7 +170,7 @@ export default function Pricing() {
         <p className="mx-auto mt-4 text-center text-sm text-gray-600">
           Does not include OpenAI API costs (roughly $0.003/question)
         </p>
-        <div className="mt-12 flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
+        <div className="mx-auto mt-12 flex max-w-2xl flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:max-w-none lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
             <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">
               Personal
