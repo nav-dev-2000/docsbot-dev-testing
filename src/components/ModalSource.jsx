@@ -27,33 +27,56 @@ export default function ModalSource({
   source,
   setSources,
   children,
-  defaultOpen = false,
+  defaultOpen = false
 }) {
   const [open, setOpen] = useState(defaultOpen)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
-  const [scheduleInterval, setScheduleInterval] = useState(source.scheduleInterval ?? 'none')
+  const [scheduleInterval, setScheduleInterval] = useState(source?.scheduleInterval ?? 'none')
   const [submitting, setSubmitting] = useState(false)
-  const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source.type))
+  const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source?.type))
   const [locked, setLocked] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [changed, setChanged] = useState(false)
-  const [questions, setQuestions] = useState(source.faqs ?? [])
+  const [questions, setQuestions] = useState(source?.faqs ?? [])
 
+  const fetchSourceDetails = async () => {
+    if (source.id) {
+      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+      if (response.ok) {
+        const sourceData = await response.json()
+        setSources((sources) => sources.map((s) => (s.id === sourceData.id ? sourceData : s)))
+      }
+    }
+  }
+
+  //when opening modal, fetch source details
+  useEffect(() => {
+    if (open) {
+      fetchSourceDetails()
+    }
+  }, [open])
+  
   useEffect(() => {
     setOpen(defaultOpen)
   }, [defaultOpen])
 
   useEffect(() => {
-    setQuestions(source.faqs ?? [])
-  }, [source, source.faqs])
+    setQuestions(source?.faqs ?? [])
+  }, [source, source?.faqs])
 
   const downloadSource = async () => {
     const response = await fetch(
-      source.type == 'qa'
-        ? `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/export-qa`
-        : `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/download`,
+      source?.type == 'qa'
+        ? `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/export-qa`
+        : `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/download`,
       {
         method: 'GET',
         headers: {
@@ -84,7 +107,7 @@ export default function ModalSource({
     setErrorText('')
     setSubmitting(true)
     const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
       {
         method: 'PUT',
         headers: {
@@ -96,7 +119,7 @@ export default function ModalSource({
     if (response.ok) {
       const { newScheduled } = await response.json()
       setSources((sources) =>
-        sources.map((s) => (s.id === source.id ? { ...source, scheduled: newScheduled } : s))
+        sources.map((s) => (s.id === source?.id ? { ...source, scheduled: newScheduled } : s))
       )
       setSubmitting(false)
     } else {
@@ -104,7 +127,7 @@ export default function ModalSource({
         const data = await response.json()
         if (data.message.includes('upgrade')) {
           setShowUpgrade(true)
-          setScheduleInterval(source.scheduleInterval ?? 'none')
+          setScheduleInterval(source?.scheduleInterval ?? 'none')
         } else {
           setErrorText(data.message || 'Something went wrong, please try again.')
         }
@@ -132,7 +155,7 @@ export default function ModalSource({
     setErrorText('')
     setSubmitting(true)
     const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
       {
         method: 'PATCH',
         headers: {
@@ -162,7 +185,7 @@ export default function ModalSource({
   const refreshSource = async () => {
     setErrorText('')
     const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}/reingest`,
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
       {
         method: 'POST',
         headers: {
@@ -174,7 +197,7 @@ export default function ModalSource({
       const { newScheduled } = await response.json()
       setSources((sources) =>
         sources.map((s) =>
-          s.id === source.id ? { ...source, status: 'pending', scheduled: newScheduled } : s
+          s.id === source?.id ? { ...source, status: 'pending', scheduled: newScheduled } : s
         )
       )
       setOpen(false)
@@ -190,11 +213,11 @@ export default function ModalSource({
 
   useEffect(() => {
     setLocked(null)
-    if (source.status !== 'ready') {
+    if (source?.status !== 'ready') {
       setLocked('This source is currently being processed. Please wait.')
     }
 
-    setShowInterval(canSourceTypeSchedule(source.type))
+    setShowInterval(canSourceTypeSchedule(source?.type))
   }, [source])
 
   const carbonIcon = (type) => {
@@ -224,13 +247,15 @@ export default function ModalSource({
       <a
         type="button"
         className="m-0 block cursor-pointer"
-        disabled={source.status !== 'ready'}
+        disabled={source?.status !== 'ready'}
         onClick={() => setOpen(true)}
       >
         {children}
       </a>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setOpen}>
+        <Dialog as="div" className="relative z-10" onClose={() => {
+          setOpen(false)
+        }}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -259,7 +284,9 @@ export default function ModalSource({
                     <button
                       type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        setOpen(false)
+                      }}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -269,20 +296,22 @@ export default function ModalSource({
                   <div className="rounded-lg bg-white p-8 shadow">
                     <div className="pb-2">
                       <h3 className="inline-flex text-2xl font-bold">
-                        {source.title ?? source.url}
+                        {source?.title ?? source?.url}
                       </h3>
                       <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
-                        {source.type.toUpperCase()}
+                        {source?.type.toUpperCase()}
                       </h1>
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
-                      <BadgeStatusSource source={source} />
+                      {
+                        source && <BadgeStatusSource source={source} />
+                      }
                       <h1 className="flex-end text-sm font-medium text-gray-500">
-                        {source.pageCount.toString()} Pages
+                        {source?.pageCount.toString()} Pages
                       </h1>
                       <h1 className="flex-end text-sm font-medium text-gray-500">
                         {(showInterval ? 'Updated: ' : 'Created: ') +
-                          new Date(source.createdAt).toUTCString()}
+                          new Date(source?.createdAt).toUTCString()}
                       </h1>
                     </div>
                     <Alert title={errorText} type="warning" />
@@ -318,8 +347,8 @@ export default function ModalSource({
                             defaultSelected={scheduleInterval}
                           />
                           <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
-                            {source.scheduled
-                              ? 'Refresh scheduled for ' + new Date(source.scheduled).toUTCString()
+                            {source?.scheduled
+                              ? 'Refresh scheduled for ' + new Date(source?.scheduled).toUTCString()
                               : 'This source will not be refreshed.'}
                           </h1>
                         </div>
@@ -333,21 +362,21 @@ export default function ModalSource({
                       setErrorText={setErrorText}
                       setSources={setSources}
                     />
-                    {source.indexedUrls?.length > 0 && (
+                    {source?.indexedUrls?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed URLs{' '}
-                          <em className="text-sm text-slate-500">({source.indexedUrls.length})</em>:
+                          <em className="text-sm text-slate-500">({source?.indexedUrls.length})</em>:
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="space-y-2">
-                            {source.indexedUrls.map((item, index) => (
+                            {source?.indexedUrls.map((item, index) => (
                               <li
-                                key={index+item.source}
+                                key={index + item.source}
                                 className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-4 py-1 shadow"
                               >
                                 <Link
-                                  href={item.source}
+                                  href={item.source || ''}
                                   target="_blank"
                                   className="block w-full text-sm"
                                 >
@@ -361,15 +390,15 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source.carbonFiles && source.carbonFiles?.length > 0 && (
+                    {source?.carbonFiles && source?.carbonFiles?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Documents{' '}
-                          <em className="text-sm text-slate-500">({source.carbonFiles.length})</em>:
+                          <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>:
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
-                            {source.carbonFiles.map((item) => (
+                            {source?.carbonFiles.map((item) => (
                               <li
                                 key={item.id}
                                 className=" rounded-md bg-white px-4 shadow first:ml-2 first:mt-2"
@@ -387,12 +416,12 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source.warnsList?.length > 0 && (
+                    {source?.warnsList?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">Warnings:</h2>
                         <div className="rounded-md border-2 border-solid border-slate-200 bg-slate-100">
                           <pre className="whitespace-pre-wrap p-2 font-mono text-sm text-orange-600">
-                            {source.warnsList.join('\n')}
+                            {source?.warnsList.join('\n')}
                           </pre>
                         </div>
                       </>
@@ -400,7 +429,7 @@ export default function ModalSource({
                     {!toDelete && (
                       <div className="mb-2 mt-6 flex items-end justify-between">
                         <div className="items-middle flex flex-shrink-0 justify-end">
-                          {source.status === 'ready' && (
+                          {source?.status === 'ready' && (
                             <button
                               type="button"
                               className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
@@ -409,16 +438,16 @@ export default function ModalSource({
                               <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
                             </button>
                           )}
-                          {source.type === 'url' && (
+                          {source?.type === 'url' && (
                             <Link
                               target="_blank"
-                              href={source.url}
+                              href={source?.url}
                               className="my-1 ml-4 text-xs text-slate-600 hover:underline"
                             >
-                              {source.url}
+                              {source?.url}
                             </Link>
                           )}
-                          {(canSourceTypeDownload(source.type) || 'qa' == source.type) && (
+                          {(canSourceTypeDownload(source?.type) || 'qa' == source?.type) && (
                             <button
                               type="button"
                               className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"

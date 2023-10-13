@@ -208,8 +208,8 @@ export default async function handler(req, res) {
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
       // if it does, we'll need to add our faqs to it and queue a regest
       if (type === 'qa') {
-        const sources = await getSources(team.id, bot, 0, 1000)
-        const qaSources = sources.filter((source) => source.type === 'qa')
+        const data = await getSources(team.id, bot, 0, 1000)
+        const qaSources = data.sources.filter((source) => source.type === 'qa')
         if (qaSources.length > 0) {
           // add the faqs to the existing qa source
           const existingSource = qaSources[0]

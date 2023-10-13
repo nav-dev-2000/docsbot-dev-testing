@@ -108,6 +108,23 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
     .doc(bot.id)
     .collection('sources')
     .orderBy('createdAt', ascending ? 'asc' : 'desc')
+    .select(
+      FieldPath.documentId(),
+      'id',
+      'file',
+      'carbonId',
+      'type',
+      'title',
+      'url',
+      //'faqs',
+      //'indexedUrls',
+      //'warnsList',
+      //'carbonFiles',
+      'createdAt',
+      'pageCount',
+      'chunkCount',
+      'status'
+    )
     .offset(offset)
     .limit(pageSize)
 
@@ -164,10 +181,6 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
     if (source.scheduled) {
       source.scheduled = source.scheduled.toDate().toJSON() //make serializable
-    }
-    //TODO remove this once we have a better way to handle large lists
-    if (source.indexedUrls && source.indexedUrls.length > 500) {
-      source.indexedUrls = []
     }
     sources.push(source)
   })
