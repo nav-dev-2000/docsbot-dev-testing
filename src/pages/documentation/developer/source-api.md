@@ -93,7 +93,7 @@ Response is a JSON array of partial source objects. The full source object conta
 
 ## Get Source
 
-This endpoint fetches a specific source by its ID. It accepts a GET request with the following parameters:
+This endpoint fetches a specific source by its ID. This will return the full source object unlike listing. It accepts a GET request with the following parameters:
 
 `GET https://docsbot.ai/api/teams/:teamId/bots/:botId/sources/:sourceId`
 
