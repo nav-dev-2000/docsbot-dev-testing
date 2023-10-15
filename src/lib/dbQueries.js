@@ -118,7 +118,7 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'url',
       //'faqs',
       //'indexedUrls',
-      //'warnsList',
+      'warnsList',
       //'carbonFiles',
       'createdAt',
       'pageCount',

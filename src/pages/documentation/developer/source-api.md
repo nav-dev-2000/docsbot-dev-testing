@@ -25,7 +25,7 @@ Source objects have the following properties:
 | **scheduleInterval** | string | The source schedule interval. Can be `daily`, `weekly`, `monthly`, or `none`.                                                                                          |
 | **faqs**             | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`. Ommitted when listing sources.                            |
 | **indexedUrls**      | array  | An array of indexed url objects `[{"source":"https://url.com", "title":"Page title"}]` for some source types like `urls` and `sitemap`. Ommitted when listing sources. |
-| **warnsList**        | array  | An array of warning strings encountered when training. Ommitted when listing sources.                                                                                  |
+| **warnsList**        | array  | An array of warning strings encountered when training.                                                                                  |
 | **carbonFiles**      | array  | An array of file objects for cloud source types. May include `id`, `type`, `name`, `url`. Ommitted when listing sources.                                               |
 
 ---
