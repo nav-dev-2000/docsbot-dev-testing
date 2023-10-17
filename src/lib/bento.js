@@ -1,5 +1,5 @@
 import { getAuth } from 'firebase-admin/auth'
-import { Analytics } from '@bentonow/bento-node-sdk';
+import { Analytics } from '@bentonow/bento-node-sdk'
 
 export const bento = new Analytics({
   authentication: {
@@ -8,7 +8,7 @@ export const bento = new Analytics({
   },
   logErrors: false, // Set to true to see the HTTP errors logged
   siteUuid: process.env.NEXT_PUBLIC_BENTO_SITE,
-});
+})
 
 export async function bentoTrack(userId, command, data) {
   //get user email from firebase auth
@@ -23,8 +23,8 @@ export async function bentoTrack(userId, command, data) {
 
     //send to bento
     bento.V1[command](data)
-      .then(result => console.log(result))
-      .catch(error => console.error(error));
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error))
   } catch (error) {
     console.error(error)
   }
@@ -32,5 +32,5 @@ export async function bentoTrack(userId, command, data) {
 
 //returns uid of team owner
 export function teamOwner(team) {
-  return Object.keys(team.roles).find(key => team.roles[key] === 'owner')
+  return Object.keys(team.roles).find((key) => team.roles[key] === 'owner')
 }

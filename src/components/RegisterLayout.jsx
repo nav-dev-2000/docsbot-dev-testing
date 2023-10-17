@@ -50,7 +50,7 @@ export function RegisterLayout({ teamCount, children }) {
   return (
     <>
       <div className="relative flex min-h-full justify-center md:px-12 lg:px-0">
-        <div className="relative z-10 flex flex-1 flex-col bg-white px-4 py-10 shadow-2xl md:flex-none md:px-28">
+        <div className="relative z-10 flex flex-1 flex-col bg-white px-4 py-10 shadow-2xl md:flex-none md:px-24">
           <Link href="/" aria-label="Home" className="mx-auto">
             <Image src={docsbotLogo} alt="Docsbot" />
           </Link>
@@ -67,7 +67,7 @@ export function RegisterLayout({ teamCount, children }) {
               to your account.
             </p>
           </div>
-          <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
+          <div className="mx-auto w-full max-w-md sm:px-4 md:max-w-md md:px-0">
             {children}
           </div>
         </div>
@@ -75,7 +75,7 @@ export function RegisterLayout({ teamCount, children }) {
           <div className="my-auto hidden lg:block">
             <div className="mx-auto max-w-2xl text-white md:text-center">
               <h2 className="font-display text-xl tracking-tight sm:text-3xl">
-                Transform your business with DocsBot
+                Transform your business with DocsBot AI
               </h2>
             </div>
             <div className="mx-auto mt-10 mb-20 max-w-7xl">

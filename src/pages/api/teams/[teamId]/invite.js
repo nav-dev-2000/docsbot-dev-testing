@@ -130,7 +130,7 @@ export default async function handleInvite(req, res) {
             bentoTrack(uid, 'track', {
               type: 'acceptInvite',
             })
-            mpTrack(userId, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
+            mpTrack(uid, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
           } catch (e) {
             console.log('Error sending bento track', e)
           }
@@ -152,7 +152,7 @@ export default async function handleInvite(req, res) {
             bentoTrack(uid, 'track', {
               type: 'denyInvite',
             })
-            mpTrack(userId, 'Declined Team Invite', { ip: req.headers['x-forwarded-for'] })
+            mpTrack(uid, 'Declined Team Invite', { ip: req.headers['x-forwarded-for'] })
           } catch (e) {
             console.log('Error sending bento track', e)
           }

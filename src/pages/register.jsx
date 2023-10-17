@@ -23,6 +23,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { PencilIcon } from '@heroicons/react/24/outline'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -34,10 +35,18 @@ function Register({ teamCount }) {
   const [site, setSite] = useState('')
   const [name, setName] = useState('')
   const [userType, setUserType] = useState(null)
+  const [usageType, setUsageType] = useState(null)
 
   const userTypes = [
     { value: 'business', title: 'Business', description: 'Create chatbots for your company.' },
     { value: 'personal', title: 'Personal', description: 'Create chatbots for your personal use.' },
+  ]
+
+  const usageTypes = [
+    { value: 'support', title: 'Support & Presales', description: 'Customer support & presales 24/7 in 95 languages.' },
+    { value: 'internal', title: 'Internal Knowledge', description: 'Give your team answers from your company knowledge base.' },
+    { value: 'research', title: 'Document Q&A', description: 'Chat with your docs & files for research or education.' },
+    { value: 'content', title: 'Content Creation', description: 'Generate custom content for your blog or social media.' },
   ]
 
   //set redirect path from query param
@@ -85,17 +94,18 @@ function Register({ teamCount }) {
         onComplete: () => {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
-            window.bento.updateFields({ website: site, user_type: userType, name: name })
+            window.bento.updateFields({ website: site, user_type: userType, name: name, usage_type: usageType })
           }
           if (window.Reflio !== undefined) {
             Reflio.signup(user?.user?.email)
           }
-          va.track('Signup', { provider: 'email', user_type: userType })
+          va.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           Mixpanel.identify(user.user.uid)
-          Mixpanel.track('Signup', { provider: 'email', user_type: userType })
+          Mixpanel.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           Mixpanel.profile({
             $email: user.user.email,
             $name: user.user.displayName,
+            "Usage Type": usageType,
             "User Type": userType,
             "Login Method": "Email"
           })
@@ -115,19 +125,21 @@ function Register({ teamCount }) {
         window.bento.updateFields({
           name: googleUser?.user?.displayName,
           user_type: userType,
+          usage_type: usageType,
           website: site,
         })
       }
       if (window.Reflio !== undefined) {
         Reflio.signup(googleUser?.user?.email)
       }
-      va.track('Signup', { provider: 'google', user_type: userType })
+      va.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       Mixpanel.identify(user.user.uid)
-      Mixpanel.track('Signup', { provider: 'google', user_type: userType })
+      Mixpanel.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       Mixpanel.profile({
         $email: googleUser.user.email,
         $name: googleUser.user.displayName,
         $avatar: googleUser.user.photoURL,
+        "Usage Type": usageType,
         "User Type": userType,
         "Login Method": "Google"
       })
@@ -164,7 +176,17 @@ function Register({ teamCount }) {
               <p className="col-span-full mb-2 text-sm text-gray-500">
                 Please select your planned usage for DocsBot so we can better serve you.
               </p>
+              {!userType && !usageType && (
+              <FieldRadioCards options={usageTypes} selected={usageType} setSelected={setUsageType} />
+              )}
+              {usageType && (
+                <>
+              <p className="col-span-full mb-2 font-medium text-md text-gray-800">
+                Usage: {usageTypes.find((x) => x.value === usageType).title} <button onClick={() => setUsageType(null)} className="underline text-sm text-gray-500" title="Change"><PencilIcon className='h-3 w-3' /></button>
+              </p>
               <FieldRadioCards options={userTypes} selected={userType} setSelected={setUserType} />
+              </>
+              )}
             </div>
             {userType === 'business' && (
               <>
@@ -201,7 +223,7 @@ function Register({ teamCount }) {
               </div>
             )}
 
-            {userType && (
+            {userType && usageType && (
               <>
                 <div className="col-span-full">
                   <label>
