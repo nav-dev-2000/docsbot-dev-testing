@@ -17,29 +17,10 @@ import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony-sg.jpeg'
 
 export function StripePricingTable({ team, email, setErrorText }) {
-  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState(team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD')
   const [opening, setOpening] = useState(false)
-
-  useEffect(() => {
-    //set default currency if they had a previous subscription
-    if (team.stripeSubscriptionPlan) {
-      let oldCurrency = "USD"
-      for (const planKey in plans) {
-        const plan = plans[planKey]
-        for (const currency in plan.prices) {
-          for (const frequency in plan.prices[currency]) {
-            if (plan.prices[currency][frequency] === team.stripeSubscriptionPlan) {
-              oldCurrency = currency
-            }
-          }
-        }
-      }
-      setCurrency(oldCurrency)
-    }
-  }, [team.stripeSubscriptionPlan])
 
   async function openPortal(tier) {
     setErrorText(null)
@@ -49,7 +30,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ tier, frequency: frequency.value, currency, email }),
+      body: JSON.stringify({ tier, frequency: frequency.value, email }),
     })
     if (response.ok) {
       const data = await response.json()
@@ -113,11 +94,11 @@ export function StripePricingTable({ team, email, setErrorText }) {
           </RadioGroup>
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="mt-4 flex justify-center lg:-mt-4 lg:justify-end">
+        <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
           <RadioGroup
             value={currency}
             onChange={setCurrency}
-            className="grid grid-cols-2 gap-x-1 rounded-full bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+            className="grid grid-cols-5 gap-x-1 rounded-md bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
           >
             <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
             {Object.keys(currencies).map((option) => (
@@ -127,7 +108,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                 className={({ checked }) =>
                   clsx(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-full px-2.5 py-1'
+                    'cursor-pointer rounded-md px-2.5 py-1'
                   )
                 }
               >

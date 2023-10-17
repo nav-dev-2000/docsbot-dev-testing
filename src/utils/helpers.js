@@ -34,7 +34,6 @@ export function stripePlan(team) {
     return {
       name: 'Staff',
       bots: 1000,
-      sources: 10000,
       pages: 1000000,
       questions: 1000000000,
       teamMembers: 100000,
@@ -49,9 +48,14 @@ export function stripePlan(team) {
     if (['active', 'trialing'].includes(team?.stripeSubscriptionStatus)) {
       for (const planKey in plans) {
         const plan = plans[planKey]
-        for (const currency in plan.prices) {
-          for (const frequency in plan.prices[currency]) {
-            if (plan.prices[currency][frequency] === team.stripeSubscriptionPlan) {
+        for (const frequency in plan.prices.current) {
+          if (plan.prices.current[frequency] === team.stripeSubscriptionPlan) {
+            return plan
+          }
+        }
+        if (plan.prices.old) {
+          for (const price of plan.prices.old) {
+            if (price === team.stripeSubscriptionPlan) {
               return plan
             }
           }
@@ -63,7 +67,6 @@ export function stripePlan(team) {
   return {
     name: 'Free',
     bots: 1,
-    sources: 3,
     pages: 50,
     questions: 100,
     teamMembers: 1,

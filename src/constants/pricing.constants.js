@@ -6,6 +6,9 @@ export const frequencies = [
 export const currencies = {
   USD: { label: 'USD', symbol: '$' },
   JPY: { label: 'JPY', symbol: '¥' },
+  EUR: { label: 'EUR', symbol: '€' },
+  GBP: { label: 'GBP', symbol: '£' },
+  AUD: { label: 'AUD', symbol: '$' },
 }
 
 export const pricingTiers = [
@@ -13,7 +16,13 @@ export const pricingTiers = [
     name: 'Hobby',
     id: 'hobby',
     href: '/register',
-    price: { USD: { monthly: 19, annually: 192 }, JPY: { monthly: 3000, annually: 30000 } },
+    price: {
+      USD: { monthly: 19, annually: 192 },
+      JPY: { monthly: 3000, annually: 30000 },
+      AUD: { monthly: 32, annually: 324 },
+      EUR: { monthly: 19, annually: 192 },
+      GBP: { monthly: 17, annually: 168 },
+    },
     description: 'Create your own basic DocsBot for quick answers from your docs.',
     features: [
       '1 DocsBot',
@@ -30,7 +39,28 @@ export const pricingTiers = [
     name: 'Power',
     id: 'power',
     href: '/register',
-    price: { USD: { monthly: 49, annually: 492 }, JPY: { monthly: 7500, annually: 75000 } },
+    price: {
+      USD: {
+        monthly: 49,
+        annually: 492,
+      },
+      JPY: {
+        monthly: 7500,
+        annually: 75000,
+      },
+      AUD: {
+        monthly: 82,
+        annually: 828,
+      },
+      EUR: {
+        monthly: 49,
+        annually: 492,
+      },
+      GBP: {
+        monthly: 42,
+        annually: 420,
+      },
+    },
     description: 'For power users and small businesses just getting started.',
     features: [
       '3 DocsBots',
@@ -51,7 +81,28 @@ export const pricingTiers = [
     name: 'Pro',
     id: 'pro',
     href: '/register',
-    price: { USD: { monthly: 99, annually: 996 }, JPY: { monthly: 15000, annually: 150000 } },
+    price: {
+      USD: {
+        monthly: 99,
+        annually: 996,
+      },
+      JPY: {
+        monthly: 15000,
+        annually: 150000,
+      },
+      AUD: {
+        monthly: 162,
+        annually: 1620,
+      },
+      EUR: {
+        monthly: 98,
+        annually: 984,
+      },
+      GBP: {
+        monthly: 85,
+        annually: 852,
+      },
+    },
     description: 'For small businesses who want to save time and money on support.',
     features: [
       '10 DocsBots',
@@ -74,7 +125,28 @@ export const pricingTiers = [
     name: 'Business',
     id: 'business',
     href: '/register',
-    price: { USD: { monthly: 499, annually: 4992 }, JPY: { monthly: 76000, annually: 760000 } },
+    price: {
+      USD: {
+        monthly: 499,
+        annually: 4992,
+      },
+      JPY: {
+        monthly: 76000,
+        annually: 760000,
+      },
+      AUD: {
+        monthly: 818,
+        annually: 8184,
+      },
+      EUR: {
+        monthly: 492,
+        annually: 4992,
+      },
+      GBP: {
+        monthly: 425,
+        annually: 4260,
+      },
+    },
     description: 'For serious traffic, priority support, and AI reports to improve your docs.',
     features: [
       '100 DocsBots',

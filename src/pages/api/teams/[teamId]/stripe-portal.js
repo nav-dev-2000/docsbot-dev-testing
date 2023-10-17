@@ -16,12 +16,12 @@ export default async function createCheckoutSession(req, res) {
   //TODO check if their role has billing access
 
   if (req.method === 'POST') {
-    const { tier, frequency, currency, email } = req.body
+    const { tier, frequency, email } = req.body
 
     try {
       if (tier) {
         const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-        const price = plans[tier]?.prices?.[currency]?.[frequency]
+        const price = plans[tier]?.prices?.current?.[frequency]
 
         if (!price) throw Error('Please select a valid plan.')
 
@@ -33,7 +33,7 @@ export default async function createCheckoutSession(req, res) {
           allow_promotion_codes: true,
           mode: 'subscription',
         }
-        if (team.stripeSubscriptionId) {
+        if (team.stripeCustomerId) {
           params.customer = team.stripeCustomerId
         } else {
           params.customer_email = email

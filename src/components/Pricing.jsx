@@ -69,11 +69,11 @@ export default function Pricing() {
           </RadioGroup>
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="mt-4 flex justify-center lg:-mt-4 lg:justify-end">
+        <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
           <RadioGroup
             value={currency}
             onChange={setCurrency}
-            className="grid grid-cols-2 gap-x-1 rounded-full bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+            className="grid grid-cols-5 gap-x-1 rounded-md bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
           >
             <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
             {Object.keys(currencies).map((option) => (
@@ -83,7 +83,7 @@ export default function Pricing() {
                 className={({ checked }) =>
                   clsx(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-full px-2.5 py-1'
+                    'cursor-pointer rounded-md px-2.5 py-1'
                   )
                 }
               >
