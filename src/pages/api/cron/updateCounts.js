@@ -33,7 +33,7 @@ export default async function handler(request, response) {
         const teamData = teamDoc.data()
         const botsSnapshot = await teamDoc.ref
           .collection('bots')
-          .select('questionCountHistory')
+          .select('questionCountHistory', 'name', 'embedded')
           .get()
 
         let questionTotal = 0
