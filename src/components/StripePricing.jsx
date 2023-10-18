@@ -21,6 +21,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
   const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState(team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD')
   const [opening, setOpening] = useState(false)
+  const [plans] = useState(JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [])
 
   async function openPortal(tier) {
     setErrorText(null)
@@ -48,6 +49,15 @@ export function StripePricingTable({ team, email, setErrorText }) {
       }
     }
     setOpening(false)
+  }
+
+  const isDisableSelectPlanButton = (id) => {
+    const planLimits = plans[id]
+    let isDisableButton = false;
+    if (team?.botCount >= planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+      isDisableButton = true
+    }
+    return isDisableButton;
   }
 
   return (
@@ -169,7 +179,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
               <button
                 aria-describedby={tier.id}
                 onClick={() => openPortal(tier.id)}
-                disabled={opening}
+                disabled={opening || isDisableSelectPlanButton(tier.id)}
                 className={clsx(
                   tier.mostPopular
                     ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'

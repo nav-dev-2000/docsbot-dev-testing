@@ -25,6 +25,11 @@ export default async function createCheckoutSession(req, res) {
 
         if (!price) throw Error('Please select a valid plan.')
 
+        const planLimits = plans[tier]
+        if (team?.botCount >= planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+          throw Error('This plan does not fit your current usage.')
+        }
+        
         const params = {
           success_url: `${getURL()}/app/account`,
           cancel_url: `${getURL()}/app/account`,
@@ -38,17 +43,20 @@ export default async function createCheckoutSession(req, res) {
         } else {
           params.customer_email = email
         }
-        
+
         const { url } = await stripe.checkout.sessions.create(params)
 
         try {
           bentoTrack(userId, 'track', {
             type: 'openCheckout',
-          })
-          mpTrack(userId, 'Started checkout', { ip: req.headers['x-forwarded-for'],
             tier,
-            frequency,
-            currency })
+            frequency
+          })
+          mpTrack(userId, 'Started checkout', {
+            ip: req.headers['x-forwarded-for'],
+            tier,
+            frequency
+          })
         } catch (e) {
           console.log('Error sending bento track', e)
         }
@@ -56,6 +64,8 @@ export default async function createCheckoutSession(req, res) {
         return res.json({ url })
       } else {
         if (!team.stripeCustomerId) throw Error('No Customer ID found.')
+
+        //TODO set a specific portal config to prevent downgrading to incompatible plans
 
         const { url } = await stripe.billingPortal.sessions.create({
           customer: team.stripeCustomerId,
