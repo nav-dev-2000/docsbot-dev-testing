@@ -54,6 +54,7 @@ const navigation = [
       { title: 'Chat', href: '/documentation/developer/chat-api' },
       { title: 'Streaming Chat', href: '/documentation/developer/streaming-chat-api' },
       { title: 'Answer Rating & Escalation', href: '/documentation/developer/answer-rating' },
+      { title: 'Semantic Search', href: '/documentation/developer/semantic-search-api' },
     ],
   },
   {

@@ -1,6 +1,6 @@
 ---
 title: Chat API
-description: The chat API is used to create Q/A or chat interface in your productduct.
+description: The chat API is used to create Q/A or chat interface in your product.
 ---
 
 The chat API is used to create a Question/Answer and chat bots in your product. You pass it a question plus optional chat history, and it returns the next answer along with its sources. It also returns the new chat history array to pass back with the next response. This is the endpoint you should use if you want to create any Q/A or chat interface in your product.
