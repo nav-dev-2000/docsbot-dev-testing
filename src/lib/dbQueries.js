@@ -190,7 +190,7 @@ export async function getSource(team, bot, sourceId) {
     .get()
   if (sourceRef.exists) {
     let source = { id: sourceRef.id, ...sourceRef.data() }
-    source.createdAt = source.createdAt.toDate().toJSON() //make serializable
+    source.createdAt = source.createdAt.toDate().toJSON() // Make serializable
     if (source.scheduled) {
       source.scheduled = source.scheduled.toDate().toJSON() //make serializable
     }

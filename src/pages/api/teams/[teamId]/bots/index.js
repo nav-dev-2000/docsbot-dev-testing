@@ -6,9 +6,9 @@ import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createSchema } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
-import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
 import { mpTrack } from '@/lib/mixpanel'
+import { validateBotParams } from '@/lib/apiFunctions'
 
 const router = createRouter()
 
@@ -16,7 +16,7 @@ router.post(async (req, res) => {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  //check if user has access to team
+  // Check if user has access to the team
   let check = null
   try {
     check = await userTeamCheck(req, res)
@@ -26,87 +26,53 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
-    //check plan credits
+    // Check plan credits
     if (stripePlan(team).bots <= team.botCount) {
       return res.status(402).json({
         message: 'Bot limit exceeded. Please upgrade your plan.',
       })
     }
 
-    //must have an openai key
+    // Must have an OpenAI key
     if (!team.openAIKey) {
       return res.status(402).json({
         message: 'Please add an OpenAI key to create bots.',
       })
     }
 
-    //data validation
-    let { name, description, privacy, model, language } = req.body
-
-    name = name.trim()
-    if (!name) {
-      return res.status(400).send({ message: 'Invalid name' })
+    // Data validation
+    let botData = {}
+    try {
+      botData = await validateBotParams(req, team, userId, false, null)
+    } catch (error) {
+      return res.status(400).json({ message: error?.message })
     }
 
-    description = description.trim()
-
-    if (privacy !== 'public' && privacy !== 'private') {
-      return res.status(400).send({ message: 'Invalid param "privacy".' })
-    }
-
-    if ('private' === privacy && stripePlan(team).name === 'Free') {
-      return res.status(402).json({
-        message: 'Private bots are not available at your plan level.',
-      })
-    }
-
-    if (model !== 'gpt-3.5-turbo' && model !== 'gpt-4') {
-      return res.status(400).send({ message: 'Invalid param "model".' })
-    }
-
-    if ('gpt-4' === model && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
-      return res.status(402).json({
-        message: 'GPT-4 is not available at your plan level.',
-      })
-    }
-
-    if (!team.supportsGPT4 && model === 'gpt-4') {
-      return res.status(400).send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
-    }
-
-    if (!i18n[language]) {
-      return res.status(400).send({
-        message: 'Invalid param "language". Should be one of: ' + Object.keys(i18n).join(', '),
-      })
-    }
-
-    //create classname with a random string
+    // Create classname with a random string
     const indexId = `Document_${Math.random().toString(36).substr(2, 10)}`
 
-    //create schema in weaviate
+    // Create schema in weaviate
     createSchema(team, indexId)
 
-    //create bot in db
-    const docRef = await firestore.collection('teams').doc(team.id).collection('bots').add({
-      createdAt: FieldValue.serverTimestamp(),
-      name,
-      description,
-      privacy,
-      language,
-      status: 'pending',
-      indexId: indexId,
-      customPrompt: '',
-      model,
-      sourceCount: 0,
-      pageCount: 0,
-      chunkCount: 0,
-      questionCount: 0,
-      signatureKey: crypto.randomBytes(32).toString('hex'),
-    })
+    // Create bot in db
+    const docRef = await firestore
+      .collection('teams')
+      .doc(team.id)
+      .collection('bots')
+      .add({
+        ...botData,
+        createdAt: FieldValue.serverTimestamp(),
+        status: 'pending',
+        indexId: indexId,
+        sourceCount: 0,
+        pageCount: 0,
+        chunkCount: 0,
+        questionCount: 0,
+      })
 
     const botId = docRef.id
 
-    //increment botCounts on team
+    // Increment botCounts on team
     await firestore.runTransaction(async (transaction) => {
       const teamRef = firestore.collection('teams').doc(team.id)
       const sfDoc = await transaction.get(teamRef)
@@ -123,11 +89,11 @@ router.post(async (req, res) => {
     try {
       bentoTrack(userId, 'track', {
         type: 'createBot',
-        botName: name,
+        botName: botData.name,
       })
-      mpTrack(userId, 'Created Bot', { "Bot name": name, ip: req.headers['x-forwarded-for'] })
+      mpTrack(userId, 'Created Bot', { 'Bot name': botData.name, ip: req.headers['x-forwarded-for'] })
     } catch (e) {
-      console.log('Error sending bento track', e)
+      console.log('Error sending tracking', e)
     }
 
     return res.status(201).json(await getBot(team.id, botId))
@@ -138,7 +104,7 @@ router.post(async (req, res) => {
 })
 
 router.get(async (req, res) => {
-  //check if user has access to team
+  // Check if user has access to the team
   let check = null
   try {
     check = await userTeamCheck(req, res)
@@ -147,7 +113,7 @@ router.get(async (req, res) => {
   }
   const { userId, team } = check
 
-  //TODO add pagination
+  // TODO add pagination
   try {
     const recentSources = await getBots(team, req.params?.resultLimit || 1000)
     return res.json(recentSources)

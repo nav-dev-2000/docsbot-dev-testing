@@ -8,6 +8,9 @@ import { QueueSourceExpel } from '@/lib/service'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { getCarbonCustomerID } from '@/lib/carbon'
 import axios from 'axios'
+import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { i18n } from '@/constants/strings.constants'
+import crypto from 'crypto'
 
 export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) => {
   configureFirebaseApp()
@@ -198,4 +201,212 @@ export const deleteBot = async (teamId, botId) => {
   }
 
   return true
+}
+
+export function validateBotParams(req, team, userId, isUpdate, bot) {
+  const {
+    name,
+    description,
+    privacy,
+    model,
+    language,
+    customPrompt,
+    allowedDomains,
+    color,
+    icon,
+    alignment,
+    botIcon,
+    branding,
+    supportLink,
+    showButtonLabel,
+    labels,
+    questions,
+    rateLimitMessages,
+    rateLimitSeconds,
+    rateLimitIPAllowlist,
+    hideSources,
+    logo,
+    headerAlignment,
+    resetkey,
+  } = req.body
+
+  const botData = {}
+
+  if (name !== undefined) {
+    if (name.trim().length > 0) {
+      botData.name = name.trim()
+    } else {
+      throw new Error('Bot name is required.')
+    }
+  } else if (!isUpdate) {
+    throw new Error('Bot name is required.')
+  }
+
+  if (description !== undefined || !isUpdate) {
+    botData.description = description ? description.trim() : ''
+  }
+
+  if (privacy !== undefined) {
+    if (privacy === 'private') {
+      if (stripePlan(team).name === 'Free') {
+        throw new Error('Private bots are not available at your plan level.')
+      }
+      botData.privacy = privacy
+    } else {
+      botData.privacy = 'public'
+    }
+  } else if (!isUpdate) {
+    botData.privacy = 'public'
+  }
+
+  if (model !== undefined) {
+    if (model === 'gpt-4') {
+      if (!team.supportsGPT4) {
+        throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
+      } else if (model === 'gpt-4' && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
+        throw new Error('GPT-4 is not available at your plan level.')
+      }
+    }
+    //check if model is valid
+    const validModels = ['gpt-3.5-turbo', 'gpt-4']
+    if (!validModels.includes(model)) {
+      throw new Error('Invalid model name.')
+    }
+    botData.model = model
+  } else if (!isUpdate) {
+    botData.model = 'gpt-3.5-turbo'
+  }
+
+  if (language !== undefined || !isUpdate) {
+    botData.language = language ? language : 'en'
+    // reset our labels
+    if (bot?.language !== botData.language) {
+      botData.labels = i18n[botData.language].labels
+    }
+  }
+
+  if (customPrompt !== undefined) {
+    // Check if their plan allows custom prompts
+    if (customPrompt && stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
+      throw new Error('Custom prompts are not available at your plan level.')
+    }
+    botData.customPrompt = customPrompt
+  }
+
+  if (allowedDomains !== undefined) {
+    botData.allowedDomains = allowedDomains
+      ? allowedDomains
+          .filter((s) => s)
+          .map((d) => d.trim().toLowerCase())
+          .filter(Boolean)
+      : []
+  }
+
+  if (color !== undefined) {
+    botData.color = color ? (/#[0-9A-F]{6}/i.test(color) ? color : '') : ''
+  }
+
+  if (icon !== undefined) {
+    const validIconOptions = ['default', 'comments', 'robot', 'life-ring', 'question', 'book']
+    botData.icon = icon && (validIconOptions.includes(icon) || icon.includes('://')) ? icon : ''
+  }
+
+  if (alignment !== undefined) {
+    if (alignment === 'left' || alignment === 'right') {
+      botData.alignment = alignment
+    }
+  }
+
+  if (botIcon !== undefined) {
+    const validBotIconOptions = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
+    botData.botIcon = validBotIconOptions.includes(botIcon) ? botIcon : ''
+  }
+
+  if (logo !== undefined) {
+    botData.logo = logo && logo.includes('://') ? logo : false
+  }
+
+  if (headerAlignment !== undefined) {
+    if (headerAlignment === 'left' || headerAlignment === 'center') {
+      botData.headerAlignment = headerAlignment
+    }
+  }
+
+  if (branding !== undefined) {
+    if (branding === false && stripePlan(team).bots < 10) {
+      throw new Error('Disabling branding is not available at your plan level.')
+    }
+    botData.branding = !!branding
+  }
+
+  if (supportLink !== undefined) {
+    botData.supportLink = supportLink || ''
+  }
+
+  if (showButtonLabel !== undefined) {
+    botData.showButtonLabel = !!showButtonLabel
+  }
+
+  if (hideSources !== undefined) {
+    botData.hideSources = !!hideSources
+  }
+
+  if (resetkey !== undefined || !bot?.signatureKey) {
+    botData.signatureKey = crypto.randomBytes(32).toString('hex')
+  }
+
+  if (labels !== undefined) {
+    botData.labels = labels || {}
+    const validLabels = Object.keys(i18n.en.labels)
+    Object.keys(botData.labels).forEach((label) => {
+      if (!validLabels.includes(label)) {
+        delete botData.labels[label]
+      }
+    })
+  }
+
+  if (questions !== undefined) {
+    botData.questions = questions || []
+  }
+
+  if (
+    rateLimitMessages !== undefined &&
+    rateLimitMessages != bot?.rateLimitMessages &&
+    rateLimitMessages != 10 &&
+    stripePlan(team).bots < 100 &&
+    !isSuperAdmin(userId)
+  ) {
+    throw new Error('Rate limiting is not available at your plan level.')
+  }
+  if (rateLimitMessages !== undefined) {
+    botData.rateLimitMessages = rateLimitMessages ? parseInt(rateLimitMessages) : 10
+  }
+
+  if (
+    rateLimitSeconds !== undefined &&
+    rateLimitSeconds != bot?.rateLimitSeconds &&
+    rateLimitSeconds != 60 &&
+    stripePlan(team).bots < 100 &&
+    !isSuperAdmin(userId)
+  ) {
+    throw new Error('Rate limiting is not available at your plan level.')
+  }
+  if (rateLimitSeconds !== undefined) {
+    botData.rateLimitSeconds = rateLimitSeconds ? parseInt(rateLimitSeconds) : 60
+  }
+
+  if (rateLimitIPAllowlist !== undefined) {
+    botData.rateLimitIPAllowlist = rateLimitIPAllowlist
+      ? rateLimitIPAllowlist
+          .map((ip) => ip.trim())
+          .filter((ip) => {
+            return (
+              ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) ||
+              ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)
+            )
+          })
+      : []
+  }
+
+  return botData
 }

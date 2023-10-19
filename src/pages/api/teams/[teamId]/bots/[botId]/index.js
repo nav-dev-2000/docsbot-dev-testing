@@ -4,16 +4,13 @@ import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
-import { i18n } from '@/constants/strings.constants'
 import { deleteBot } from '@/lib/apiFunctions'
-import crypto from 'crypto'
+import { validateBotParams } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  //check if user has access to team
   let check = null
   try {
     check = await userTeamCheck(req, res)
@@ -30,314 +27,27 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: 'Bot not found' })
       }
 
-      let {
-        name,
-        description,
-        customPrompt,
-        privacy,
-        language,
-        model,
-        allowedDomains,
-        color,
-        icon,
-        alignment,
-        botIcon,
-        branding,
-        supportLink,
-        showButtonLabel,
-        labels,
-        questions,
-        rateLimitMessages,
-        rateLimitSeconds,
-        rateLimitIPAllowlist,
-        hideSources,
-        logo,
-        headerAlignment,
-        resetkey,
-      } = req.body
-      const botData = {}
-
-      if (name) {
-        botData.name = name.trim()
-      }
-
-      if (description) {
-        botData.description = description.trim()
-      }
-
-      if (privacy) {
-        if (privacy !== 'public' && privacy !== 'private') {
-          return res.status(400).send({ message: 'Invalid param "privacy".' })
-        } else {
-          if (privacy === 'private' && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
-            return res.status(402).json({
-              message: 'Private bots are not available at your plan level.',
-            })
-          }
-
-          botData.privacy = privacy
-        }
-      }
-
-      if (model) {
-        if (model !== 'gpt-3.5-turbo' && model !== 'gpt-4') {
-          return res.status(400).send({ message: 'Invalid param "model".' })
-        } else if (!team.supportsGPT4 && model === 'gpt-4') {
-          return res
-            .status(400)
-            .send({ message: 'Your OpenAI account is not approved for GPT-4 yet.' })
-        } else {
-          if ('gpt-4' === model && stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
-            return res.status(402).json({
-              message: 'GPT-4 is not available at your plan level.',
-            })
-          }
-
-          botData.model = model
-        }
-      }
-
-      if (customPrompt !== undefined) {
-        //if setting not empty
-        if (customPrompt) {
-          //check if their plan allows custom prompts
-          if (stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
-            return res.status(402).json({
-              message: 'Custom prompts are not available at your plan level.',
-            })
-          }
-
-          //track custom prompt
-          try {
-            bentoTrack(userId, 'track', {
-              type: 'addCustomPrompt',
-              botName: bot.name,
-            })
-            mpTrack(userId, 'Added Custom Prompt', { ip: req.headers['x-forwarded-for'] })
-          } catch (e) {
-            console.log('Error sending bento track', e)
-          }
-        }
-
-        botData.customPrompt = customPrompt
-      }
-
-      if (language) {
-        if (!i18n[language]) {
-          return res.status(400).send({
-            message: 'Invalid param "language". Should be one of: ' + Object.keys(i18n).join(', '),
-          })
-        } else {
-          // reset our labels
-          if (bot.language !== language) {
-            botData.labels = i18n[language].labels
-          }
-
-          botData.language = language
-        }
-      }
-
-      if (allowedDomains) {
-        //check if allowedDomains is valid, array of strings, remove any empty strings
-        botData.allowedDomains = allowedDomains.filter((s) => s).map((d) => d.trim().toLowerCase())
-        //make sure they are valid hostnames
-        botData.allowedDomains = botData.allowedDomains.filter((d) => {
-          try {
-            new URL(`https://${d}`)
-            return true
-          } catch (error) {
-            return false
-          }
-        })
-        //strip out any paths or ports
-        botData.allowedDomains = botData.allowedDomains.map((d) => {
-          try {
-            return new URL(`https://${d}`).hostname
-          } catch (error) {
-            return d
-          }
-        })
-      }
-
-      if (color) {
-        //check if color is valid hex
-        const validHex = /^#[0-9A-F]{6}$/i.test(color)
-        if (!validHex) {
-          return res.status(400).send({ message: 'Invalid param "color".' })
-        } else {
-          botData.color = color
-        }
-      }
-
-      if (icon) {
-        //check if icon is valid
-        const validIcon = ['default', 'comments', 'robot', 'life-ring', 'question', 'book']
-        if (!validIcon.includes(icon) && !icon.includes('://')) {
-          return res.status(400).send({ message: 'Invalid param "icon".' })
-        } else {
-          botData.icon = icon
-        }
-      }
-
-      if (alignment) {
-        //check if icon is valid
-        const valid = ['left', 'right']
-        if (!valid.includes(alignment)) {
-          return res
-            .status(400)
-            .send({ message: 'Invalid param "alignment". Should be "left" or "right".' })
-        } else {
-          botData.alignment = alignment
-        }
-      }
-
-      if (botIcon !== undefined) {
-        //check if icon is valid
-        const validIcon = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
-        if (!validIcon.includes(botIcon) && botIcon && !botIcon.includes('://')) {
-          return res.status(400).send({ message: 'Invalid param "botIcon".' })
-        } else {
-          botData.botIcon = botIcon
-        }
-      }
-
-      if (logo !== undefined) {
-        //check if logo is valid
-        if (logo && logo.includes('://')) {
-          botData.logo = logo
-        } else {
-          botData.logo = false
-        }
-      }
-
-      if (headerAlignment !== undefined) {
-        //check if icon is valid
-        const valid = ['left', 'center']
-        if (!valid.includes(headerAlignment)) {
-          return res
-            .status(400)
-            .send({ message: 'Invalid param "headerAlignment". Should be "left" or "center".' })
-        } else {
-          botData.headerAlignment = headerAlignment
-        }
-      }
-
-      if (branding !== undefined) {
-        //check if branding is valid
-        if (branding === false && stripePlan(team).bots < 10) {
-          return res.status(402).json({
-            message: 'Disabling branding is not available at your plan level.',
-          })
-        }
-        botData.branding = !!branding
-      }
-
-      if (supportLink !== undefined) {
-        //check if support link is valid
-        botData.supportLink = supportLink
-      }
-
-      if (showButtonLabel !== undefined) {
-        botData.showButtonLabel = !!showButtonLabel
-      }
-
-      if (hideSources !== undefined) {
-        botData.hideSources = !!hideSources
-      }
-
-      // reset the bot embed key or add if missing
-      if (resetkey !== undefined || !bot.signatureKey) {
-        //create a random string for the bot embed key
-        botData.signatureKey = crypto.randomBytes(32).toString('hex')
-      }
-
-      if (labels) {
-        // Check that all labels are present in i18n.en.labels
-        const validLabels = Object.keys(i18n.en.labels)
-        const labelsKeys = Object.keys(labels)
-        const invalidLabels = labelsKeys.filter((label) => !validLabels.includes(label))
-
-        if (invalidLabels.length > 0) {
-          return res.status(400).send({
-            message: `Invalid labels: ${invalidLabels.join(', ')}. Valid labels: ${validLabels.join(
-              ', '
-            )}`,
-          })
-        }
-
-        // Check for missing labels
-        const missingLabels = validLabels.filter((label) => !labelsKeys.includes(label))
-        if (missingLabels.length > 0) {
-          // return res.status(400).send({
-          //   message: `Missing labels: ${missingLabels.join(', ')}. These labels must be set: ${validLabels.join(', ')}`,
-          // });
-          // populate the missing labels with the default values
-          missingLabels.forEach((label) => {
-            labels[label] = bot?.labels[label] || i18n[language || bot.language].labels[label]
-          })
-        }
-        botData.labels = labels
-      }
-
-      if (questions !== undefined) {
-        //check if questions is valid, array of strings, remove any empty strings
-        botData.questions = questions.filter((q) => q !== '')
-      }
-
-      if (rateLimitMessages !== undefined) {
-        if (
-          rateLimitMessages != bot.rateLimitMessages &&
-          rateLimitMessages != 10 &&
-          stripePlan(team).bots < 100 &&
-          !isSuperAdmin(userId)
-        ) {
-          return res.status(402).json({
-            message: 'Rate limiting is not available at your plan level.',
-          })
-        }
-        rateLimitMessages = parseInt(rateLimitMessages)
-        if (isNaN(rateLimitMessages) || rateLimitMessages < 1) {
-          return res.status(400).send({ message: 'Invalid param "rateLimitMessages".' })
-        }
-        botData.rateLimitMessages = rateLimitMessages
-      }
-
-      if (rateLimitSeconds !== undefined) {
-        if (
-          rateLimitSeconds != bot.rateLimitSeconds &&
-          rateLimitSeconds != 60 &&
-          stripePlan(team).bots < 100 &&
-          !isSuperAdmin(userId)
-        ) {
-          return res.status(402).json({
-            message: 'Rate limiting is not available at your plan level.',
-          })
-        }
-        rateLimitSeconds = parseInt(rateLimitSeconds)
-        if (isNaN(rateLimitSeconds) || rateLimitSeconds < 1) {
-          return res.status(400).send({ message: 'Invalid param "rateLimitSeconds".' })
-        }
-        botData.rateLimitSeconds = rateLimitSeconds
-      }
-
-      if (rateLimitIPAllowlist !== undefined) {
-        //check if rateLimitIPAllowlist is valid, array of IPv4 or IPv6 addresses, remove any empty strings
-        botData.rateLimitIPAllowlist = rateLimitIPAllowlist
-          .map((ip) => ip.trim())
-          .filter((ip) => {
-            if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
-              return true
-            } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) {
-              //does not support shorthand notation
-              return true
-            }
-            return false
-          })
+      let botData = {}
+      try {
+        botData = await validateBotParams(req, team, userId, true, bot)
+      } catch (error) {
+        return res.status(400).json({ message: error?.message })
       }
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
-      mpTrack(userId, 'Updated Bot', { "Bot name": bot.name, ip: req.headers['x-forwarded-for'] })
+      try {
+        bentoTrack(userId, 'track', {
+          type: 'updateBot',
+          botName: botData.name || bot.name,
+        })
+        mpTrack(userId, 'Updated Bot', {
+          'Bot name': botData.name || bot.name,
+          ip: req.headers['x-forwarded-for'],
+        })
+      } catch (e) {
+        console.log('Error sending tracking', e)
+      }
 
       return res.status(200).json(await getBot(team.id, botId))
     } catch (error) {
