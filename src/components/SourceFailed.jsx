@@ -11,7 +11,8 @@ export default function SourceFailed({ sources, deleteSource, retrySource }) {
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
-      if (source.status === 'failed') {
+      if (source.status === 'failed' && ! source.refreshing) {
+        console.log(source)
         newSources.push(source)
       }
     })
@@ -33,7 +34,7 @@ export default function SourceFailed({ sources, deleteSource, retrySource }) {
       <h2 className="mt-8 text-xl font-semibold text-gray-800">Indexing Errors</h2>
 
       {fullSources.map((source) => (
-        <Alert key={source.id} type="warning" title={source.name + ": " + source.error} onClose={() => deleteSource(source.id)}>
+        <Alert key={source.id} type="warning" title={source.name + ": " + (source.error || 'Unknown error')} onClose={() => deleteSource(source.id)}>
             <div className="w-full flex-1 text-sm mb-2">
               <p className="truncate text-xs text-gray-600">{source.title}</p>
               <p className="truncate text-xs text-gray-500">{source.url}</p>

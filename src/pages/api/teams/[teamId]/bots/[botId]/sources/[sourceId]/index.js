@@ -42,8 +42,8 @@ export default async function handler(req, res) {
 
   if (req.method === 'PUT') {
     //error if source is not in failed state
-    if (source.status !== 'failed') {
-      return res.status(409).json({ message: 'Only failed sources can be retried currently.' })
+    if (source.status !== 'failed' || source.refreshing) {
+      return res.status(409).json({ message: 'Only new failed sources can be retried currently.' })
     }
 
     //update source status in db
@@ -68,38 +68,6 @@ export default async function handler(req, res) {
         mpTrack(userId, 'Retried Source', { ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
-      }
-
-      //increment sourceCounts on team
-      try {
-        await firestore.runTransaction(async (transaction) => {
-          const teamRef = firestore.collection('teams').doc(team.id)
-          const sfDoc = await transaction.get(teamRef)
-          if (!sfDoc.exists) {
-            throw 'Team does not exist!'
-          }
-
-          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
-          transaction.update(teamRef, {
-            sourceCount: newSourceCount,
-          })
-        })
-
-        //increment source counts on bot
-        await firestore.runTransaction(async (transaction) => {
-          const botRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId)
-          const sfDoc = await transaction.get(botRef)
-          if (!sfDoc.exists) {
-            throw 'Bot does not exist!'
-          }
-
-          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
-          transaction.update(botRef, {
-            sourceCount: newSourceCount,
-          })
-        })
-      } catch (e) {
-        console.warn('Increment transaction failed: ', e)
       }
 
       //skip pubsub if carbon, as it uses NextJS Vercel cron

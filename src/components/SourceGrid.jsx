@@ -22,7 +22,7 @@ export default function SourceGrid({
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
-      if (source.status !== 'failed') {
+      if (source.status !== 'failed' || source.refreshing) {
         newSources.push(source)
       }
     })
@@ -83,22 +83,6 @@ export default function SourceGrid({
                 {source.status !== 'ready' && (
                   <div className="absolute right-2 top-2">
                     <BadgeStatusSource source={source} small={true} />
-                    {source.status === 'failed' && (
-                      <div className="mt-1 flex justify-end space-x-2 text-xs text-gray-400">
-                        <button
-                          className="hover:text-gray-600 focus:text-gray-500"
-                          type="button"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            retrySource(source.id)
-                          }}
-                          title="Retry"
-                        >
-                          <span className="sr-only">Retry</span>
-                          <ArrowPathIcon className="h-4 w-4" aria-hidden="true" />
-                        </button>
-                      </div>
-                    )}
                   </div>
                 )}
                 <div className="flex-1 truncate text-sm">

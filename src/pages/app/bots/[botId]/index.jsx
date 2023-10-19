@@ -174,7 +174,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
       <BotCard team={team} bot={bot} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage }} />
+      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage, retrySource }} />
 
       <SourceForm {...{ team, bot, sources, setSources, setOpenSourceID: setAutoOpenSourceIdState }} />
     </DashboardWrap>

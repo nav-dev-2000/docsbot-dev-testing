@@ -213,7 +213,9 @@ export default function ModalSource({
 
   useEffect(() => {
     setLocked(null)
-    if (source?.status !== 'ready') {
+    if (source?.status === 'failed') {
+      setErrorText('Refresh Failed: ' + (source?.error || 'Unknown error'))
+    } else if (source?.status !== 'ready') {
       setLocked('This source is currently being processed. Please wait.')
     }
 
@@ -429,7 +431,7 @@ export default function ModalSource({
                     {!toDelete && (
                       <div className="mb-2 mt-6 flex items-end justify-between">
                         <div className="items-middle flex flex-shrink-0 justify-end">
-                          {source?.status === 'ready' && (
+                          {(source?.status === 'ready' || source?.status === 'failed') && (
                             <button
                               type="button"
                               className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"

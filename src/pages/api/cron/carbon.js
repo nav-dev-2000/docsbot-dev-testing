@@ -147,7 +147,7 @@ export default async function handler(request, response) {
           doc.ref.update({
             status: 'ready',
             chunkCount: chunks.length,
-            refreshing: FieldValue.delete(),
+            refreshing: false,
           })
 
           // increment only if not doing a scheduled refresh

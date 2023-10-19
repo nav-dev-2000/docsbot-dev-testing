@@ -41,7 +41,9 @@ export default async function handler(req, res) {
 
   if (req.method === 'PUT') {
     if (!canSourceTypeSchedule(source.type)) {
-      return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
+      return res
+        .status(403)
+        .json({ message: 'Only sources of a dynamic type (URLs) can be refreshed!' })
     }
 
     try {
@@ -49,18 +51,32 @@ export default async function handler(req, res) {
 
       // if interval is none, remove the scheduled field
       if (scheduleInterval === 'none') {
-        firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
-          scheduled: FieldValue.delete(),
-          scheduleInterval: scheduleInterval,
-        });
+        firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('sources')
+          .doc(sourceId)
+          .update({
+            scheduled: FieldValue.delete(),
+            scheduleInterval: scheduleInterval,
+          })
         return res.status(200).json({ message: 'success' })
       }
 
-      const scheduled = checkSourceScheduledFromInterval(team, scheduleInterval);
-      firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
-        scheduled,
-        scheduleInterval: scheduleInterval,
-      });
+      const scheduled = checkSourceScheduledFromInterval(team, scheduleInterval)
+      firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+          scheduled,
+          scheduleInterval: scheduleInterval,
+        })
 
       mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
 
@@ -79,20 +95,27 @@ export default async function handler(req, res) {
 
       // validate request body
       if (!faqs || !Array.isArray(faqs)) {
-        return res.status(400).json({ message: "Invalid request body" })
+        return res.status(400).json({ message: 'Invalid request body' })
       }
 
       for (const faq of faqs) {
         if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
-          return res.status(400).json({ message: "Invalid request body" })
+          return res.status(400).json({ message: 'Invalid request body' })
         }
       }
 
-      await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
-        faqs,
-      })
+      await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+          faqs,
+        })
 
-      await QueueSourceRegest(team.id, botId, sourceId);
+      await QueueSourceRegest(team.id, botId, sourceId)
 
       mpTrack(userId, 'Q&A Source Updated', { ip: req.headers['x-forwarded-for'] })
 
@@ -103,12 +126,14 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'POST') {
     if (!canSourceTypeSchedule(source.type)) {
-      return res.status(403).json({ message: "Only sources of a dynamic type (URLs) can be refreshed!" })
+      return res
+        .status(403)
+        .json({ message: 'Only sources of a dynamic type (URLs) can be refreshed!' })
     }
 
     try {
       if (!source.scheduleInterval || source.scheduleInterval === 'none') {
-        QueueSourceRegest(team.id, botId, sourceId);
+        await QueueSourceRegest(team.id, botId, sourceId)
         return res.status(200).json({ message: 'success' })
       }
 
@@ -116,11 +141,18 @@ export default async function handler(req, res) {
       const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
 
       // update and reingest source
-      firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('sources').doc(sourceId).update({
-        'scheduled': nextSchedule,
-      }).then(() => {
-        QueueSourceRegest(team.id, botId, sourceId);
-      })
+      await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+          scheduled: nextSchedule,
+        })
+
+      await QueueSourceRegest(team.id, botId, sourceId)
 
       mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
 
@@ -129,7 +161,6 @@ export default async function handler(req, res) {
       console.warn('Error setting source interval:', error)
       return res.status(500).json({ message: error?.message })
     }
-
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

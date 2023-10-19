@@ -124,7 +124,10 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'createdAt',
       'pageCount',
       'chunkCount',
-      'status'
+      'status',
+      'refreshing',
+      'scheduled',
+      'scheduleInterval',
     )
     .offset(offset)
     .limit(pageSize)
@@ -152,6 +155,7 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
         .doc(doc.id)
         .update({ status: source.status, error: source.error })
     }
+
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
     if (source.scheduled) {
       source.scheduled = source.scheduled.toDate().toJSON() //make serializable

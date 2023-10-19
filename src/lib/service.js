@@ -1,5 +1,5 @@
 import { PubSub } from '@google-cloud/pubsub'
-import { getFirestore } from 'firebase-admin/firestore'
+import { FieldValue, getFirestore } from 'firebase-admin/firestore'
 import { getTeam } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
@@ -11,7 +11,19 @@ const PUBSUB_CLIENT = new PubSub({
 })
 const PUBSUB_TOPIC = 'docsbot-ingest'
 
-export const QueueSourceIngest = async (teamId, botId, sourceId, pageLimit, indexId, type, title, url, file, faqs, runId = null) => {
+export const QueueSourceIngest = async (
+  teamId,
+  botId,
+  sourceId,
+  pageLimit,
+  indexId,
+  type,
+  title,
+  url,
+  file,
+  faqs,
+  runId = null
+) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'ingest',
@@ -64,27 +76,26 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
 
   // check and update status to 'pending'
   let isCarbon = false
-  const sourceRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId).collection('sources').doc(sourceId)
-  await firestore.runTransaction(async (transaction) => {
-    const source = await transaction.get(sourceRef)
-    const sourceData = source.data()
-    if (sourceData.status !== 'ready') {
-      throw new Error("Cannot refresh source that is not 'ready'." + sourceData.status)
-    }
+  const sourceRef = firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('sources')
+    .doc(sourceId)
+  const source = await sourceRef.get()
+  const sourceData = source.data()
+  if (sourceData.status !== 'ready' && sourceData.status !== 'failed') {
+    throw new Error("Cannot refresh source that is not 'ready' or 'failed.")
+  }
 
-    const data = {
-      status: 'pending',
-      createdAt: new Date(),
-    }
+  const data = {
+    status: 'pending',
+    createdAt: FieldValue.serverTimestamp(),
+    refreshing: true,
+  }
 
-    // if carbon, set refreshing to true so we don't increment counts
-    isCarbon = isCarbonSourceType(sourceData.type)
-    if (isCarbon) {
-      data.refreshing = true
-    }
-    
-    transaction.update(sourceRef, data)
-  })
+  sourceRef.update(data)
 
   //skip pubsub if carbon, as it uses NextJS Vercel cron that just looks for pending
   if (isCarbon) {
@@ -101,7 +112,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
       teamId,
       botId,
       sourceId,
-      pageLimit
+      pageLimit,
     })
   )
 
