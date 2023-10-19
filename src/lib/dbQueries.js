@@ -151,33 +151,6 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
         .collection('sources')
         .doc(doc.id)
         .update({ status: source.status, error: source.error })
-      //decrement botCounts on team
-      firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(teamId)
-        const sfDoc = await transaction.get(teamRef)
-        if (!sfDoc.exists) {
-          throw 'Team does not exist!'
-        }
-
-        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
-        transaction.update(teamRef, {
-          sourceCount: newSourceCount,
-        })
-      })
-
-      //increment source counts on bot
-      firestore.runTransaction(async (transaction) => {
-        const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(bot.id)
-        const sfDoc = await transaction.get(botRef)
-        if (!sfDoc.exists) {
-          throw 'Bot does not exist!'
-        }
-
-        const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - 1)
-        transaction.update(botRef, {
-          sourceCount: newSourceCount,
-        })
-      })
     }
     source.createdAt = source.createdAt.toDate().toJSON() //make serializable
     if (source.scheduled) {
