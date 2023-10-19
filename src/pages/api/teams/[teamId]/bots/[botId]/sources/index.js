@@ -208,11 +208,17 @@ export default async function handler(req, res) {
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
       // if it does, we'll need to add our faqs to it and queue a regest
       if (type === 'qa') {
-        const data = await getSources(team.id, bot, 0, 1000)
-        const qaSources = data.sources.filter((source) => source.type === 'qa')
-        if (qaSources.length > 0) {
+        const qaSources = await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('sources')
+          .where('type', '==', 'qa')
+          .get()
+        if (!qaSources.empty) {
           // add the faqs to the existing qa source
-          const existingSource = qaSources[0]
+          const existingSource = { id: qaSources.docs[0].id, ...qaSources.docs[0].data() }
           const existingFaqs = existingSource.faqs || []
 
           // loop through and remove old conflicting faqs
@@ -239,6 +245,21 @@ export default async function handler(req, res) {
             })
 
           await QueueSourceRegest(team.id, botId, existingSource.id)
+
+          //send bento track
+          try {
+            bentoTrack(userId, 'track', {
+              type: 'addFAQ',
+              sourceType: type,
+            })
+            mpTrack(userId, 'Added FAQ', {
+              'Source type': type,
+              ip: req.headers['x-forwarded-for'],
+            })
+          } catch (e) {
+            console.log('Error sending bento track', e)
+          }
+
           return res.status(201).json(await getSource(team, bot, existingSource.id))
         }
       }
@@ -305,7 +326,7 @@ export default async function handler(req, res) {
           type: 'addSource',
           sourceType: type,
         })
-        mpTrack(userId, 'Added Source', { "Source type": type, ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Added Source', { 'Source type': type, ip: req.headers['x-forwarded-for'] })
       } catch (e) {
         console.log('Error sending bento track', e)
       }
