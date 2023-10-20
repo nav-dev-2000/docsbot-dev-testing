@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
-import { getTeamsTransaction, getInvitesFromEmailAndTeamIdTransaction, getTeamUsers } from '@/lib/dbQueries'
+import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
@@ -46,18 +46,15 @@ export default async function handler(req, res) {
     const { removeUserId, removeUserEmail } = req.body
 
     try {
-      await firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(team.id)
-        const teamDoc = await transaction.get(teamRef)
 
         // sanity check that only owners can remove members
-        if (teamDoc.data().roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+        if (team.roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
           throw new Error('Only team owners can remove members!')
         }
 
         // remove member from teamRoles
         if (removeUserId !== undefined) {
-          const isAdded = teamDoc.data().roles[removeUserId]
+          const isAdded = team.roles[removeUserId]
   
           // sanity check that they're not removing themselves lol
           if (userId === removeUserId) {
@@ -69,10 +66,10 @@ export default async function handler(req, res) {
           }
 
           // grab the first non-'this team' and assign it to the removed user's current team
-          const userTeams = await getTeamsTransaction(transaction, removeUserId)
+          const userTeams = await getUserTeams(removeUserId)
           for (const removedUserTeam of userTeams) {
             if (removedUserTeam.id !== team.id) {
-              await transaction.update(firestore.collection('users').doc(removeUserId), {
+              await firestore.collection('users').doc(removeUserId).update({
                 currentTeam: removedUserTeam.id
               })
               break
@@ -80,24 +77,23 @@ export default async function handler(req, res) {
           }
 
           // remove from team roles
-          let newRoles = teamDoc.data().roles
+          let newRoles = team.roles
           delete newRoles[removeUserId]
-          await transaction.update(teamRef, {
+          await firestore.collection('teams').doc(team.id).update({
               roles: newRoles
           })
         } else if (removeUserEmail !== undefined) { // remove invite
-          const invites = await getInvitesFromEmailAndTeamIdTransaction(transaction, removeUserEmail, team.id)
+          const invites = await getInvitesFromEmailAndTeamId(removeUserEmail, team.id)
           if (invites.length <= 0) {
             throw new Error('Email was not invited!')
           }
           const invite = invites[0];
 
-          await transaction.delete(firestore.collection('invites').doc(invite.uid))
+          await firestore.collection('invites').doc(invite.uid).delete()
         } else {
             // something's wrong
             return res.status(500).json({ message: "Something went wrong, please try again" })
         }
-      })
 
       mpTrack(userId, 'Removed team user', {
         "Team name": team.name,

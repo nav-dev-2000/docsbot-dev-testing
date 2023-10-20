@@ -415,13 +415,11 @@ export async function getTeams(userId) {
   return teams
 }
 
-export async function getTeamsTransaction(transaction, userId) {
+export async function getUserTeams(userId) {
   //get teams for user list
   let teams = []
   try {
-    const teamsSnapshot = await transaction.get(
-      firestore.collection('teams').where('roles.' + userId, '!=', null)
-    )
+    const teamsSnapshot = await firestore.collection('teams').where('roles.' + userId, '!=', null).get()
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
@@ -452,16 +450,15 @@ export async function getTeamsTransaction(transaction, userId) {
 }
 
 // creates a team if one doesn't exist
-export async function assignDefaultTeamTransaction(transaction, userId, name) {
-  let teams = await getTeamsTransaction(transaction, userId)
+export async function assignDefaultTeam(userId, name) {
+  let teams = await getUserTeams(userId)
 
   let teamId = ''
   if (teams.length >= 1) {
     teamId = teams[0].id
   } else {
     // Add team based on user id with 'owner' as default permission
-    const teamRef = firestore.collection('teams').doc()
-    await transaction.set(teamRef, {
+    const teamRef = await firestore.collection('teams').add({
       createdAt: FieldValue.serverTimestamp(),
       name: `${name.trim()}'s Team`,
       botCount: 0,
@@ -477,7 +474,7 @@ export async function assignDefaultTeamTransaction(transaction, userId, name) {
     teamId = teamRef.id
   }
 
-  await transaction.set(firestore.collection('users').doc(userId), {
+  await firestore.collection('users').doc(userId).set({
     createdAt: FieldValue.serverTimestamp(),
     currentTeam: teamId,
   })
@@ -507,10 +504,8 @@ export async function getInvitesFromEmail(email) {
   return userInvites
 }
 
-export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email, teamId) {
-  const inviteQuery = await transaction.get(
-    firestore.collection('invites').where('email', '==', email).where('teamId', '==', teamId)
-  )
+export async function getInvitesFromEmailAndTeamId(email, teamId) {
+  const inviteQuery = await firestore.collection('invites').where('email', '==', email).where('teamId', '==', teamId).get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
@@ -524,10 +519,10 @@ export async function getInvitesFromEmailAndTeamIdTransaction(transaction, email
   })
 
   for (const [i, ui] of userInvites.entries()) {
-    const ref = await transaction.get(firestore.collection('teams').doc(ui.teamId))
+    const ref = await getTeam(ui.teamId)
     const hash = crypto.createHash('md5').update(ui.email).digest('hex')
     userInvites[i].photoURL = `https://www.gravatar.com/avatar/${hash}?d=mp`
-    userInvites[i].teamName = ref.data().name
+    userInvites[i].teamName = ref.name
   }
 
   return userInvites
@@ -561,6 +556,48 @@ export async function getInvitesFromTeam(teamId) {
   }
 
   return userInvites
+}
+
+export async function acceptInvite(teamId, userId, inviteId) {
+  // add user to team roles
+  let teamName = null
+  await firestore.runTransaction(async (transaction) => {
+    const teamRef = firestore.collection('teams').doc(teamId)
+    const inviteRef = firestore.collection('invites').doc(inviteId)
+    const teamDoc = await transaction.get(teamRef)
+    const inviteDoc = await transaction.get(inviteRef)
+    if (inviteDoc.data().teamId !== teamId) {
+      throw new Error('You were not invited to this team!')
+    }
+    teamName = teamDoc.data().name
+
+    console.log('data:', teamDoc.data().roles, typeof teamDoc.data().roles)
+    const isAdded = teamDoc.data().roles[userId]
+    if (isAdded === undefined) {
+        transaction.update(teamRef, {
+          roles: {
+            [userId]: 'admin',
+            ...teamDoc.data().roles
+          }
+        })
+
+        // set the user's currentTeam to the newly joined team
+        transaction.update(firestore.collection('users').doc(userId), {
+          currentTeam: teamId
+        })
+    }
+
+    transaction.delete(inviteRef)
+  })
+
+  try {
+    bentoTrack(uid, 'track', {
+      type: 'acceptInvite',
+    })
+    mpTrack(uid, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
+  } catch (e) {
+    console.log('Error sending bento track', e)
+  }
 }
 
 export async function getTeamUsers(teamId) {

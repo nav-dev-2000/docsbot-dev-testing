@@ -6,7 +6,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.constants'
 import { bentoTrack } from '@/lib/bento'
 import { stripePlan } from '@/utils/helpers'
-import { assignDefaultTeamTransaction, getInvitesFromEmail } from '@/lib/dbQueries'
+import { assignDefaultTeam, getInvitesFromEmail, acceptInvite } from '@/lib/dbQueries'
 import { mpProfile } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
@@ -31,7 +31,8 @@ export default async function handler(req, res) {
 
   const { name, isNewUser } = req.body
 
-  const invited = isNewUser && getInvitesFromEmail(decodedJwt?.email).length > 0
+  const invites = await getInvitesFromEmail(decodedJwt?.email.toLowerCase())
+  const invited = isNewUser && invites.length > 0
 
   const mpData = {
     $email: decodedJwt?.email,
@@ -45,12 +46,14 @@ export default async function handler(req, res) {
   mpProfile(userId, mpData)
 
   if (isNewUser) {
-    const firestore = getFirestore()
 
     try {
-      await firestore.runTransaction(
-        async (transaction) => await assignDefaultTeamTransaction(transaction, userId, name)
-      )
+      await assignDefaultTeam(userId, name)
+
+      // if the new user is invited to just one team, accept the invite on registration, no confirmation needed
+      if (invited && invites.length === 1) {
+        await acceptInvite(invites[0].teamId, userId, invites[0].inviteId)
+      }
 
       //track with bento
       bentoTrack(userId, 'addSubscriber', {

@@ -6,7 +6,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import sendInviteEmail from '@/utils/emails'
-import { getTeam } from '@/lib/dbQueries'
+import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 
 const validateEmail = (email) => {
@@ -96,44 +96,7 @@ export default async function handleInvite(req, res) {
       try {
         if (status === 'accept') {
           // add user to team roles
-          let teamName = null
-          await firestore.runTransaction(async (transaction) => {
-            const teamRef = firestore.collection('teams').doc(teamId)
-            const inviteRef = firestore.collection('invites').doc(inviteId)
-            const teamDoc = await transaction.get(teamRef)
-            const inviteDoc = await transaction.get(inviteRef)
-            if (inviteDoc.data().email !== email || inviteDoc.data().teamId !== teamId) {
-              throw new Error('You were not invited to this team!')
-            }
-            teamName = teamDoc.data().name
-
-            console.log('data:', teamDoc.data().roles, typeof teamDoc.data().roles)
-            const isAdded = teamDoc.data().roles[uid]
-            if (isAdded === undefined) {
-                await transaction.update(teamRef, {
-                  roles: {
-                    [uid]: 'admin',
-                    ...teamDoc.data().roles
-                  }
-                })
-
-                // set the user's currentTeam to the newly joined team
-                await transaction.update(firestore.collection('users').doc(uid), {
-                  currentTeam: teamId
-                })
-            }
-
-            await transaction.delete(inviteRef)
-          })
-
-          try {
-            bentoTrack(uid, 'track', {
-              type: 'acceptInvite',
-            })
-            mpTrack(uid, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
-          } catch (e) {
-            console.log('Error sending bento track', e)
-          }
+          await acceptInvite(teamId, uid, inviteId)
 
           return res.status(200).send({ message: 'Accepted invite', data: await getTeam(teamId)})
         } else if (status === 'deny') {
