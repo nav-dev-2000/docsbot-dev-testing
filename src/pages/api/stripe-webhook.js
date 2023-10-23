@@ -76,17 +76,20 @@ const webhookHandler = async (req, res) => {
               const teamId = teamsRef.docs[0].id
               const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
 
+              //multi-price subscriptions don't have plan on subscription object
+              const plan = subscription.plan || subscription.items.data[0].plan
+
               // save subscription to team
               await transaction.update(firestore.collection('teams').doc(teamId), {
                 stripeSubscriptionId: subscription.id,
                 stripeSubscriptionStatus: subscription.status,
-                stripeSubscriptionProduct: subscription.plan.product,
-                stripeSubscriptionPlan: subscription.plan.id,
-                stripeSubscriptionPrice: subscription.plan.amount,
-                stripeSubscriptionCurrency: subscription.plan.currency,
-                stripeSubscriptionInterval: subscription.plan.interval,
+                stripeSubscriptionProduct: plan.product,
+                stripeSubscriptionPlan: plan.id,
+                stripeSubscriptionPrice: plan.amount,
+                stripeSubscriptionCurrency: plan.currency,
+                stripeSubscriptionInterval: plan.interval,
                 stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
-                stripeSubscriptionQuantity: subscription.quantity,
+                stripeSubscriptionQuantity: subscription.quantity || subscription.items.data[0].quantity,
                 stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
                 stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
               })
@@ -95,7 +98,7 @@ const webhookHandler = async (req, res) => {
               //if changing plan
               if (
                 event.data.previous_attributes?.items?.data[0]?.plan?.id &&
-                event.data.previous_attributes?.items?.data[0]?.plan?.id !== subscription.plan.id
+                event.data.previous_attributes?.items?.data[0]?.plan?.id !== plan.id
               ) {
                 // Send the Slack notification
                 try {
@@ -126,11 +129,11 @@ const webhookHandler = async (req, res) => {
                           {
                             title: 'New Amount',
                             value: `${
-                              subscription.plan.currency == 'jpy'
-                                ? subscription.plan.amount
-                                : subscription.plan.amount / 100
-                            } ${subscription.plan.currency.toUpperCase()} ${
-                              subscription.plan.interval
+                              plan.currency == 'jpy'
+                                ? plan.amount
+                                : plan.amount / 100
+                            } ${plan.currency.toUpperCase()} ${
+                              plan.interval
                             }ly`,
                             short: true,
                           },
@@ -203,11 +206,11 @@ const webhookHandler = async (req, res) => {
                           {
                             title: 'Amount',
                             value: `${
-                              subscription.plan.currency == 'jpy'
-                                ? subscription.plan.amount
-                                : subscription.plan.amount / 100
-                            } ${subscription.plan.currency.toUpperCase()} ${
-                              subscription.plan.interval
+                              plan.currency == 'jpy'
+                                ? plan.amount
+                                : plan.amount / 100
+                            } ${plan.currency.toUpperCase()} ${
+                              plan.interval
                             }ly`,
                             short: true,
                           },
@@ -254,6 +257,9 @@ const webhookHandler = async (req, res) => {
                   expand: ['subscription'],
                 })
 
+                //multi-price subscriptions don't have plan on subscription object
+                const plan = session.subscription.plan || session.subscription.items.data[0].plan
+
                 // save subscription to team
                 await transaction.update(
                   firestore.collection('teams').doc(checkoutSession.client_reference_id),
@@ -261,13 +267,13 @@ const webhookHandler = async (req, res) => {
                     stripeCustomerId: session.customer,
                     stripeSubscriptionId: session.subscription.id,
                     stripeSubscriptionStatus: session.subscription.status,
-                    stripeSubscriptionProduct: session.subscription.plan.product,
-                    stripeSubscriptionPlan: session.subscription.plan.id,
-                    stripeSubscriptionPrice: session.subscription.plan.amount,
-                    stripeSubscriptionCurrency: session.subscription.plan.currency,
-                    stripeSubscriptionInterval: session.subscription.plan.interval,
+                    stripeSubscriptionProduct: plan.product,
+                    stripeSubscriptionPlan: plan.id,
+                    stripeSubscriptionPrice: plan.amount,
+                    stripeSubscriptionCurrency: plan.currency,
+                    stripeSubscriptionInterval: plan.interval,
                     stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
-                    stripeSubscriptionQuantity: session.subscription.quantity,
+                    stripeSubscriptionQuantity: session.subscription.quantity || session.subscription.items.data[0].quantity,
                   }
                 )
 
@@ -283,8 +289,8 @@ const webhookHandler = async (req, res) => {
                 //get plan name with a mock team object
                 const planName = stripePlan({
                   stripeSubscriptionStatus: session.subscription.status,
-                  stripeSubscriptionPlan: session.subscription.plan.id,
-                  stripeSubscriptionProduct: session.subscription.plan.product,
+                  stripeSubscriptionPlan: plan.id,
+                  stripeSubscriptionProduct: plan.product,
                 }).name
 
                 // Send the Slack notification
@@ -295,7 +301,7 @@ const webhookHandler = async (req, res) => {
                     amount:
                       session.currency == 'jpy' ? session.amount_total : session.amount_total / 100,
                     currency: session.currency,
-                    interval: session.subscription.plan.interval,
+                    interval: plan.interval,
                   })
 
                   await slack.send({
@@ -308,7 +314,7 @@ const webhookHandler = async (req, res) => {
                             ? session.amount_total
                             : session.amount_total / 100
                         } ${session.currency.toUpperCase()} ${
-                          session.subscription.plan.interval
+                          plan.interval
                         }ly!`,
                         color: '#0891b2',
                         title: 'New DocsBot AI Subscription Signup',
@@ -326,7 +332,7 @@ const webhookHandler = async (req, res) => {
                                 ? session.amount_total
                                 : session.amount_total / 100
                             } ${session.currency.toUpperCase()} ${
-                              session.subscription.plan.interval
+                              plan.interval
                             }ly`,
                             short: true,
                           },
@@ -357,15 +363,18 @@ const webhookHandler = async (req, res) => {
                 expand: ['subscription'],
               })
 
+              //multi-price subscriptions don't have plan on subscription object
+              const plan = invoiceWithSubscription.subscription.plan || invoiceWithSubscription.subscription.items.data[0].plan
+
               //save subscription to team in case this comes before updated webhook
               await transaction.update(firestore.collection('teams').doc(team.id), {
                 stripeSubscriptionId: invoiceWithSubscription.subscription.id,
                 stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
-                stripeSubscriptionProduct: invoiceWithSubscription.subscription.plan.product,
-                stripeSubscriptionPlan: invoiceWithSubscription.subscription.plan.id,
-                stripeSubscriptionPrice: invoiceWithSubscription.subscription.plan.amount,
-                stripeSubscriptionCurrency: invoiceWithSubscription.subscription.plan.currency,
-                stripeSubscriptionInterval: invoiceWithSubscription.subscription.plan.interval,
+                stripeSubscriptionProduct: plan.product,
+                stripeSubscriptionPlan: plan.id,
+                stripeSubscriptionPrice: plan.amount,
+                stripeSubscriptionCurrency: plan.currency,
+                stripeSubscriptionInterval: plan.interval,
                 stripeSubscriptionCancelAtPeriodEnd:
                   invoiceWithSubscription.subscription.cancel_at_period_end,
                 stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
