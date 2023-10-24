@@ -106,7 +106,7 @@ export default function ModalAPI({ team, bot }) {
                     <h3 className="mt-8 text-2xl font-bold">API Documentation</h3>
                     <p className="text-md mt-2 text-justify text-gray-800">
                       You can find the full{' '}
-                      <Link href="/docs" className="text-cyan-800 underline">
+                      <Link href="/documentation/developer" className="text-cyan-800 underline">
                         DocsBot API documentation here
                       </Link>
                       . You will use the Team ID and Bot ID below for the admin API and chat APIs

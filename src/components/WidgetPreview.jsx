@@ -107,7 +107,7 @@ export default function WidgetPreview({
 
           <BotMessage
             text={
-              "Thank you for the compliment! As an AI assistant, I strive to provide helpful and accurate information about your business or products to the best of my abilities. Is there anything specific you would like to know about DocsBot AI or the [Embeddable Chat Widget](https://docsbot.ai/docs/embeddable-chat-widget)? I'm here to assist you!"
+              "Thank you for the compliment! As an AI assistant, I strive to provide helpful and accurate information about your business or products to the best of my abilities. Is there anything specific you would like to know about DocsBot AI or the [Embeddable Chat Widget](https://docsbot.ai/documentation/developer/embeddable-chat-widget)? I'm here to assist you!"
             }
             {...{ botIcon, iconMap, labels, color, sources: true, hideSources }}
           />

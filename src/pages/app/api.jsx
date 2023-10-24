@@ -127,7 +127,7 @@ function Api({ user, team }) {
         <h3 className="text-2xl font-bold">API Documentation</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
           You can find the full{' '}
-          <Link href="/docs" className="text-cyan-800 underline">
+          <Link href="/documentation/developer" className="text-cyan-800 underline">
             DocsBot API documentation here
           </Link>
           . You can use the API key above to access the admin API and query private bots. You will
