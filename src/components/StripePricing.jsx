@@ -54,7 +54,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
   const isDisableSelectPlanButton = (id) => {
     const planLimits = plans[id]
     let isDisableButton = false;
-    if (team?.botCount >= planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+    if (team?.botCount > planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
       isDisableButton = true
     }
     return isDisableButton;

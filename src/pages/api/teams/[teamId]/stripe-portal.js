@@ -26,7 +26,7 @@ export default async function createCheckoutSession(req, res) {
         if (!price) throw Error('Please select a valid plan.')
 
         const planLimits = plans[tier]
-        if (team?.botCount >= planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+        if (team?.botCount > planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
           throw Error('This plan does not fit your current usage.')
         }
         
