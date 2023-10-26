@@ -319,7 +319,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (botIcon !== undefined) {
     const validBotIconOptions = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
-    botData.botIcon = validBotIconOptions.includes(botIcon) ? botIcon : ''
+    botData.botIcon = (validBotIconOptions.includes(botIcon) || botIcon.includes('://')) ? botIcon : ''
   }
 
   if (logo !== undefined) {
