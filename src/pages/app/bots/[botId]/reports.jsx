@@ -4,6 +4,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
 import BotHistory from '@/components/BotHistory'
+import BotReport from '@/components/BotReport'
 import { QueueListIcon, ChevronLeftIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
@@ -38,6 +39,8 @@ function Reports({ team, bot }) {
       </div>
 
       <BotHistory team={team} botId={bot.id} />
+
+      <BotReport team={team} bot={bot} />
     </DashboardWrap>
   )
 }

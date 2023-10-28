@@ -10,6 +10,7 @@ const PUBSUB_CLIENT = new PubSub({
   credentials: SERVICE_ACCOUNT,
 })
 const PUBSUB_TOPIC = 'docsbot-ingest'
+const PUBSUB_REPORTS_TOPIC = 'docsbot-report'
 
 export const QueueSourceIngest = async (
   teamId,
@@ -118,5 +119,18 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
 
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
+  return messageId
+}
+
+export const QueueReport = async (teamId, botId) => {
+  const dataBuffer = Buffer.from(
+    JSON.stringify({
+      action: 'report',
+      teamId,
+      botId,
+    })
+  )
+  const messageId = await PUBSUB_CLIENT.topic(PUBSUB_REPORTS_TOPIC).publishMessage({ data: dataBuffer })
+  console.log(`Message ${messageId} published to ${PUBSUB_REPORTS_TOPIC}.`)
   return messageId
 }

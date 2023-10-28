@@ -1,12 +1,13 @@
 import { Listbox, Transition } from '@headlessui/react'
 import { useEffect, Fragment, useState } from 'react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { CreditCardIcon } from '@heroicons/react/24/outline'
 import Chart from 'chart.js/auto'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { stripePlan } from '@/utils/helpers'
-import Checkout from '@/components/Checkout'
+import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
 
@@ -30,6 +31,7 @@ export default function BotHistory({ team, botId }) {
   const [blurEnabled, setBlurEnabled] = useState(() => {
     return stripePlan(team).bots < 10
   })
+  const [showUpgrade, setShowUpgrade] = useState(false)
 
   const updateData = async (timeDelta) => {
     if (isProcessing) return
@@ -254,9 +256,9 @@ export default function BotHistory({ team, botId }) {
 
           {blurEnabled && (
             <div className="relative z-10 -mb-72 mt-32 w-full">
-              <div className="py-4">
-                <Checkout team={team}>
-                  <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
+              <div className="flex justify-center py-4 text-center">
+              <div className="max-w-3xl">
+              <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
                   <p className="mb-8 text-center text-gray-700">
                     Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
                     <Link href="/#pricing" target="_blank" className="underline">
@@ -264,8 +266,17 @@ export default function BotHistory({ team, botId }) {
                     </Link>
                     .
                   </p>
-                </Checkout>
+                <button
+                  type="button"
+                  className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
+                  onClick={(e) => setShowUpgrade(true)}
+                >
+                  <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                  Upgrade Plan
+                </button>
+                <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
               </div>
+            </div>
             </div>
           )}
 
