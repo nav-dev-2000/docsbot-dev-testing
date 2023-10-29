@@ -53,23 +53,13 @@ export default async function handler(request, response) {
             !bot.questionCountHistory[historyKey] ||
             bot.questionCountHistory[historyKey] < 100
           ) {
-            console.log(
-              'Skipping bot',
-              teamDoc.id,
-              botDoc.id,
-              'has no question count for',
-              reportId
-            )
+            //console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
             return
           }
 
           const report = await botDoc.ref.collection('reports').doc(reportId).get()
           if (report.exists) {
             //console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
-            //return
-          }
-          if (bot.language == 'en') {
-            console.log('Skipping bot', teamDoc.id, botDoc.id, 'is English')
             return
           }
 
