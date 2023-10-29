@@ -17,8 +17,10 @@ export default async function handler(request, response) {
   let currentDate = new Date()
   currentDate.setMonth(currentDate.getMonth() - 1)
   let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0')
+  let statsMonth = currentDate.getMonth()
   let currentYear = currentDate.getFullYear()
   const reportId = `${currentYear}-${currentMonth}`
+  const historyKey = `${currentYear}-${statsMonth}`
 
   console.log('Cron reports started for month', reportId)
 
@@ -30,8 +32,7 @@ export default async function handler(request, response) {
       .where('stripeSubscriptionStatus', '==', 'active')
       .get()
 
-    teamLoop:
-    for (const teamDoc of teamsSnapshot.docs) {
+    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
       try {
         const team = teamDoc.data()
         //check if team is Business
@@ -40,40 +41,37 @@ export default async function handler(request, response) {
           return
         }
 
-        //console.log('Checking team', teamDoc.id, 'for bots with no report for', reportId)
-
         const botsSnapshot = await teamDoc.ref
           .collection('bots')
           .select('questionCountHistory', 'status')
           .get()
-        for (const botDoc of botsSnapshot.docs) {
-          if (queuedCount >= 4) {
-            console.log('Bailing till next cron run to avoid OpenAI rate limit')
-            break teamLoop
+
+        const botPromises = botsSnapshot.docs.map(async (botDoc) => {
+          if (queuedCount >= 5) {
+            //console.log('Bailing till next cron run to avoid OpenAI rate limit')
+            return
           }
           const bot = botDoc.data()
           //check basic question counts
-          if (!bot.questionCountHistory || bot.status !== 'ready') {
-            console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId)
-            continue
+          if (
+            bot.status !== 'ready' ||
+            !bot.questionCountHistory ||
+            !bot.questionCountHistory[historyKey] ||
+            bot.questionCountHistory[historyKey] < 100
+          ) {
+            console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
+          } else {
+            console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
+            QueueReport(teamDoc.id, botDoc.id)
+            queuedCount++
           }
-
-          const report = await botDoc.ref.collection('reports').doc(reportId).get()
-          if (report.exists) {
-            console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
-            continue
-          }
-
-          console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
-          await QueueReport(teamDoc.id, botDoc.id)
-          queuedCount++
-        }
+        })
+        await Promise.all(botPromises)
       } catch (error) {
-        console.warn(`Error queuing reports team ${teamDoc.id}:`, error)
-        return
+        console.error('Error processing team', teamDoc.id, error)
       }
-    }
-
+    })
+    await Promise.all(teamsPromises)
   } catch (error) {
     console.warn('Error queuing reports:', error)
     response.status(500).json({ message: error })
