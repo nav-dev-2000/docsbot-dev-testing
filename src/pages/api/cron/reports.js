@@ -37,36 +37,36 @@ export default async function handler(request, response) {
         if (stripePlan(team).bots < 100) {
           //console.log('Skipping team', teamDoc.id, 'is not Business+')
           return
+        } else {
+          const botsSnapshot = await teamDoc.ref
+            .collection('bots')
+            .select('questionCountHistory', 'status')
+            .get()
+
+          const botPromises = botsSnapshot.docs.map(async (botDoc) => {
+            const bot = botDoc.data()
+            //check basic question counts
+            if (
+              bot.status !== 'ready' ||
+              !bot.questionCountHistory ||
+              !bot.questionCountHistory[historyKey] ||
+              bot.questionCountHistory[historyKey] < 100
+            ) {
+              //console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
+              return
+            } else {
+              const report = await botDoc.ref.collection('reports').doc(reportId).get()
+              if (report.exists) {
+                //console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
+                return
+              } else {
+                console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
+                QueueReport(teamDoc.id, botDoc.id)
+              }
+            }
+          })
+          await Promise.all(botPromises)
         }
-
-        const botsSnapshot = await teamDoc.ref
-          .collection('bots')
-          .select('questionCountHistory', 'status')
-          .get()
-
-        const botPromises = botsSnapshot.docs.map(async (botDoc) => {
-          const bot = botDoc.data()
-          //check basic question counts
-          if (
-            bot.status !== 'ready' ||
-            !bot.questionCountHistory ||
-            !bot.questionCountHistory[historyKey] ||
-            bot.questionCountHistory[historyKey] < 100
-          ) {
-            //console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
-            return
-          }
-
-          const report = await botDoc.ref.collection('reports').doc(reportId).get()
-          if (report.exists) {
-            //console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
-            return
-          }
-
-          console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
-          QueueReport(teamDoc.id, botDoc.id)
-        })
-        await Promise.all(botPromises)
       } catch (error) {
         console.error('Error processing team', teamDoc.id, error)
       }
