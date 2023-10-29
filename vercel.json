@@ -60,6 +60,9 @@
         "pages/api/teams/[teamId]/bots/[botId]/stats.js": {
             "memory": 2048,
             "maxDuration": 120
+        },
+        "pages/api/cron/reports.js": {
+            "maxDuration": 600
         }
     }
 }
