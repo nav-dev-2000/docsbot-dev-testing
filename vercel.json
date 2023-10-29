@@ -62,7 +62,7 @@
             "maxDuration": 120
         },
         "pages/api/cron/reports.js": {
-            "maxDuration": 600
+            "maxDuration": 300
         }
     }
 }
