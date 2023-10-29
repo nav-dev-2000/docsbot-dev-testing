@@ -24,8 +24,6 @@ export default async function handler(request, response) {
 
   console.log('Cron reports started for month', reportId)
 
-  let queuedCount = 0
-
   try {
     const teamsSnapshot = await firestore
       .collection('teams')
@@ -47,10 +45,6 @@ export default async function handler(request, response) {
           .get()
 
         const botPromises = botsSnapshot.docs.map(async (botDoc) => {
-          if (queuedCount >= 5) {
-            //console.log('Bailing till next cron run to avoid OpenAI rate limit')
-            return
-          }
           const bot = botDoc.data()
           //check basic question counts
           if (
@@ -71,11 +65,14 @@ export default async function handler(request, response) {
 
           const report = await botDoc.ref.collection('reports').doc(reportId).get()
           if (report.exists) {
-            console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
+            //console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
+            //return
+          }
+          if (bot.language == 'en') {
+            console.log('Skipping bot', teamDoc.id, botDoc.id, 'is English')
             return
           }
 
-          queuedCount++
           console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
           QueueReport(teamDoc.id, botDoc.id)
         })
