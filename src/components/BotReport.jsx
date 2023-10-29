@@ -91,7 +91,7 @@ export function MainTopic({ topic }) {
                     className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-600 font-bold text-white"
                     style={{ backgroundColor: colors[index] }}
                   >
-                    {theme.proportion * 100}%
+                    {(theme.proportion * 100).toFixed(0)}%
                   </div>
                   {theme.subTheme}
                 </dt>

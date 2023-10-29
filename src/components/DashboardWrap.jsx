@@ -121,7 +121,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
-            <Dialog as="div" className="relative z-40 md:hidden" onClose={setSidebarOpen}>
+            <Dialog as="div" className="relative z-40 md:hidden print:hidden" onClose={setSidebarOpen}>
               <Transition.Child
                 as={Fragment}
                 enter="transition-opacity ease-linear duration-300"
@@ -202,7 +202,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
           </Transition.Root>
 
           {/* Static sidebar for desktop */}
-          <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+          <div className="hidden md:fixed md:inset-y-0 md:flex md:w-48 md:flex-col print:!hidden">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800">
               <div className="flex h-16 flex-shrink-0 items-center justify-between bg-cyan-800 px-4 text-white">
@@ -234,8 +234,8 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:pl-64">
-            <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
+          <div className="flex flex-col print:!pl-0 md:pl-48">
+            <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
               <button
                 type="button"
                 className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 md:hidden"
