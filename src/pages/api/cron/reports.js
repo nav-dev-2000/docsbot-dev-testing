@@ -65,7 +65,7 @@ export default async function handler(request, response) {
           }
 
           console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
-          QueueReport(teamDoc.id, botDoc.id)
+          await QueueReport(teamDoc.id, botDoc.id)
           queuedCount++
         }
       } catch (error) {
