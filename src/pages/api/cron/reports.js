@@ -59,12 +59,25 @@ export default async function handler(request, response) {
             !bot.questionCountHistory[historyKey] ||
             bot.questionCountHistory[historyKey] < 100
           ) {
-            console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
-          } else {
-            console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
-            QueueReport(teamDoc.id, botDoc.id)
-            queuedCount++
+            console.log(
+              'Skipping bot',
+              teamDoc.id,
+              botDoc.id,
+              'has no question count for',
+              reportId
+            )
+            return
           }
+
+          const report = await botDoc.ref.collection('reports').doc(reportId).get()
+          if (report.exists) {
+            console.log('Skipping bot', teamDoc.id, botDoc.id, 'already has report for', reportId)
+            return
+          }
+
+          queuedCount++
+          console.log('Queueing report for', teamDoc.id, botDoc.id, 'for', reportId)
+          QueueReport(teamDoc.id, botDoc.id)
         })
         await Promise.all(botPromises)
       } catch (error) {
