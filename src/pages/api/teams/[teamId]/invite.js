@@ -5,7 +5,7 @@ import { getAuth } from 'firebase-admin/auth'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
-import sendInviteEmail from '@/utils/emails'
+import { sendInviteEmail } from '@/utils/emails'
 import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 
