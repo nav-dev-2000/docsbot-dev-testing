@@ -45,7 +45,7 @@ export const sendReportEmail = async (userId, reportName, report) => {
 
   await sendEmail(
     userId,
-    `Your ${reportName} AI Question Insights Reports for ${report.name} are ready!`,
+    `Your ${reportName} AI Question Insight Reports for ${report.name} are ready!`,
     emailBody
   )
 }

@@ -202,7 +202,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
 *   Zapier integration
 *   Chat history
 *   Unbranded chat widgets
-*   AI reports (coming soon)
+*   AI quesiton reports
 *   Prompt customization
 *   Azure OpenAI Service
 *   Self-hosted options
