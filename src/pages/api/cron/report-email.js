@@ -66,7 +66,7 @@ export default async function handler(request, response) {
         console.error('Error processing team', teamDoc.id, error)
       }
     })
-    const reports = (await Promise.all(teamsPromises)).filter((team) => team.reports.length > 0)
+    const reports = (await Promise.all(teamsPromises)).filter((team) => team && team.reports && team.reports.length > 0)
     console.log(reports.length, 'teams with reports to email')
 
     reports.forEach(async (report) => {
