@@ -54,21 +54,21 @@
         }
     ],
     "functions": {
-        "pages/api/bento-webhook/index.js": {
+        "api/bento-webhook/index.js": {
             "maxDuration": 90
         },
-        "pages/api/teams/[teamId]/bots/[botId]/export-log.js": {
+        "api/teams/[teamId]/bots/[botId]/export-log.js": {
             "memory": 3008,
             "maxDuration": 300
         },
-        "pages/api/teams/[teamId]/bots/[botId]/stats.js": {
+        "api/teams/[teamId]/bots/[botId]/stats.js": {
             "memory": 2048,
             "maxDuration": 120
         },
-        "pages/api/cron/reports.js": {
+        "api/cron/reports.js": {
             "maxDuration": 300
         },
-        "pages/api/cron/carbon.js": {
+        "api/cron/carbon.js": {
             "memory": 2048,
             "maxDuration": 300
         }
