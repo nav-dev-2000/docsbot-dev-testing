@@ -23,11 +23,11 @@ export default async function handler(request, response) {
   const sourcesRef = await firestore
     .collectionGroup('sources')
     .where('type', 'in', ['notion', 'google_docs', 'intercom', 'dropbox'])
-    .where('status', '==', 'pending')
+    .where('status', '==', 'indexing')
     .get()
 
   try {
-    sourcesRef.forEach(async (doc) => {
+    const sourcePromises = sourcesRef.docs.map(async (doc) => {
       const source = doc.data()
       const sourceId = doc.id
 
@@ -38,7 +38,7 @@ export default async function handler(request, response) {
       const teamRef = botRef.parent.parent
       const teamId = teamRef.id
 
-      console.log('Importing', teamId, botId, sourceId)
+      console.log('Checking Carbon status', teamId, botId, sourceId)
       try {
         const headers = {
           headers: {
@@ -97,6 +97,7 @@ export default async function handler(request, response) {
 
         //update source
         doc.ref.update({
+          status: ready ? 'processing' : 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
           pageCount: newCarbonFiles.length,
           carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
         })
@@ -106,6 +107,7 @@ export default async function handler(request, response) {
         //TODO if plan page count is exceeded, fail and return
 
         if (ready) {
+          console.log('Importing', teamId, botId, sourceId)
           const chunks = []
 
           for (const file of newCarbonFiles) {
@@ -192,6 +194,8 @@ export default async function handler(request, response) {
           doc.ref.update({
             carbonId: newIds.join(', '),
           })
+        } else {
+          console.log('Source not ready yet', teamId, botId, sourceId)
         }
       } catch (error) {
         console.log(doc.id, 'refresh error:', error)
@@ -202,6 +206,7 @@ export default async function handler(request, response) {
         })
       }
     })
+    await Promise.all(sourcePromises)
   } catch (error) {
     console.warn('Error getting document:', error)
     response.status(500).json({ message: error })

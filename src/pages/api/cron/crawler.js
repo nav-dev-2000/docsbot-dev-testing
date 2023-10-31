@@ -13,8 +13,6 @@ export default async function handler(request, response) {
     return
   }
 
-  console.log('cron Crawler started!')
-
   // select sources being crawled by apify
   const sourcesRef = await firestore
     .collectionGroup('sources')
@@ -22,7 +20,8 @@ export default async function handler(request, response) {
     .where('status', '==', 'indexing')
     .get()
   try {
-    sourcesRef.forEach(async (doc) => {
+    console.log(sourcesRef.size, 'sources found indexing')
+    const sourcePromises = sourcesRef.docs.map(async (doc) => {
       const source = doc.data()
       console.log('source', doc.id, 'checking if apify crawler is done')
 
@@ -49,7 +48,7 @@ export default async function handler(request, response) {
           throw new Error(`Apify API returned status ${response.status}`)
         }
 
-        console.log('source', doc.id, 'apify crawler status:', result.data.data.statusMessage)
+        console.log('Source', doc.id, 'apify crawler status:', result.data.data.statusMessage)
         // if the run is finished, trigger an ingest pub/sub message
         if (result.data.data.status === 'SUCCEEDED') {
           await QueueSourceIngest(
@@ -67,15 +66,16 @@ export default async function handler(request, response) {
           )
           //await doc.ref.update({ status: 'processing' }) // the Cloud funciton marks the source as processing to prevent multiple crawler ingests
           console.log('source', doc.id, 'ingest queued')
-        } else if (result.data.status === 'FAILED') { // if the run failed, mark the source as failed
+        } else if (result.data.status === 'FAILED') {
+          // if the run failed, mark the source as failed
           await doc.ref.update({ status: 'failed' })
           console.log('source', doc.id, 'failed')
         }
-
       } catch (error) {
         console.log(doc.id, 'Cron error:', error)
       }
     })
+    await Promise.all(sourcePromises)
   } catch (error) {
     console.warn('Error getting document:', error)
     response.status(500).json({ message: error })

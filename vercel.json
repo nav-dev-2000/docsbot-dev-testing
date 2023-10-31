@@ -67,6 +67,10 @@
         },
         "pages/api/cron/reports.js": {
             "maxDuration": 300
+        },
+        "pages/api/cron/carbon.js": {
+            "memory": 2048,
+            "maxDuration": 300
         }
     }
 }
