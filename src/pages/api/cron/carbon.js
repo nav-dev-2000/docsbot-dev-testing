@@ -22,8 +22,8 @@ export default async function handler(request, response) {
   // grab all carbon sources
   const sourcesRef = await firestore
     .collectionGroup('sources')
-    .where('type', 'in', ['notion', 'google_docs', 'intercom', 'dropbox'])
-    .where('status', '==', 'indexing')
+    .where('type', 'in', ['notion', 'google_docs', 'intercom', 'dropbox', 'box', 'zendesk'])
+    .where('status', 'in', ['pending', 'indexing'])
     .get()
 
   try {
