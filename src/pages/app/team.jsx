@@ -290,7 +290,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   }, [currTeam])
 
   return (
-    <DashboardWrap page="Team" team={team}>
+    <DashboardWrap page="Team" team={currTeam}>
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 

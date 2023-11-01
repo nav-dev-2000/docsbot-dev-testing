@@ -31,7 +31,9 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
   const router = useRouter()
   const [user] = useAuthState(auth)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
+  const [currentRole, setCurrentRole] = useState('')
+  const [dashboardNavigation, setDashboardNavigation] = useState([])
+  const [currentPageLink, setCurrentPageLink] = useState('')
   const logoutUser = useCallback(logout, [])
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -74,6 +76,10 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
       }
       Beacon('identify', ident)
     }
+    if (user && team) {
+      const role = team?.roles[user.uid]
+      setCurrentRole(role)
+    }
   }, [user, team])
 
   const navigation = [
@@ -84,9 +90,20 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
     { name: 'API', href: '/app/api', icon: ServerStackIcon },
     //{ name: 'Reports', href: '/app/reports', icon: ChartBarIcon, current: false },
   ]
-  const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
-  const currentPageLink = navigation.find((nav) => nav.name === page).href
+  useEffect(() => {
+    if (currentRole?.toLowerCase() === 'editor' || currentRole?.toLowerCase() === "viewer") {
+      const filteredNavigation = navigation.filter(nav => !nav.name.toLowerCase().includes('account') && !nav.name.toLowerCase().includes('api'));
+      setCurrentPageLink(filteredNavigation.find((nav) => nav.name === page)?.href)
+      setDashboardNavigation(filteredNavigation)
+    }
+    else {
+      setCurrentPageLink(navigation.find((nav) => nav.name === page)?.href)
+      setDashboardNavigation(navigation)
+    }
+  }, [currentRole])
+
+  const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
   const pageTitle = `${page} ${title ? ` | ${title}` : ''}`
 
@@ -172,7 +189,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                     </div>
                     <div className="mt-5 h-0 flex-1 overflow-y-auto">
                       <nav className="space-y-1 px-2">
-                        {navigation.map((item) => (
+                        {dashboardNavigation.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
@@ -212,7 +229,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               </div>
               <div className="flex flex-1 flex-col overflow-y-auto">
                 <nav className="flex-1 space-y-1 px-2 py-4">
-                  {navigation.map((item) => (
+                  {dashboardNavigation.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
