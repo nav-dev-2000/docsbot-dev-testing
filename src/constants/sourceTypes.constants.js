@@ -18,6 +18,7 @@ import DriveLogo from '@/components/DriveLogo'
 import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
+import SharepointLogo from '@/components/SharepointLogo'
 
 export const sourceTypes = [
   {
@@ -154,7 +155,7 @@ export const sourceTypes = [
     id: 'google_docs',
     title: 'Google Drive',
     description: 'Answer questions from the content of document files in Google Drive (BETA)',
-    fullDescription: 'Connect to Google Drive via our partner Carbon and select which documents to learn from. We support Docs, Slides, Sheets, and pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Drive account source per bot. If you create a new Google Drive source for the same Google user, it will replace the previous one with the selected documents.',
+    fullDescription: 'Connect to Google Drive via our partner Carbon and select which documents to learn from. We support Docs, Slides, Sheets, and pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Drive account source per bot. If you create a new Google Drive source for the same Google user, it will replace the previous one with the selected documents.',
     icon: DriveLogo,
     isCarbon: 'GOOGLE_DRIVE',
     isPro: true,
@@ -169,7 +170,7 @@ export const sourceTypes = [
     id: 'dropbox',
     title: 'Dropbox',
     description: 'Answer questions from the content of document files in Dropbox (BETA)',
-    fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: DropboxLogo,
     isCarbon: 'DROPBOX',
     isPro: true,
@@ -184,7 +185,7 @@ export const sourceTypes = [
     id: 'onedrive',
     title: 'OneDrive',
     description: 'Answer questions from the content of document files in Microsoft OneDrive (BETA)',
-    fullDescription: 'Connect to Microsoft OneDrive via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    fullDescription: 'Connect to Microsoft OneDrive via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: CloudIcon,
     isCarbon: 'ONEDRIVE',
     isPro: true,
@@ -199,9 +200,24 @@ export const sourceTypes = [
     id: 'box',
     title: 'Box',
     description: 'Answer questions from the content of document files in Box cloud storage (BETA)',
-    fullDescription: 'Connect to Box cloud storage via our partner Carbon and select which documents to learn from. We support pdf, csv, docx, txt, md and pptx files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    fullDescription: 'Connect to Box cloud storage via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: BoxLogo,
     isCarbon: 'BOX',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'sharepoint',
+    title: 'SharePoint',
+    description: 'Answer questions from the content of document files in Microsoft SharePoint (BETA)',
+    fullDescription: 'Connect to Microsoft SharePoint via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Sharepoint source per bot. If you create a new Sharepoint source for the same user, it will replace the previous one with the selected documents. When asked for your Sharepoint tenant and site name, you can get them from the SharePoint site URL. Example for https://uglyrobot.sharepoint.com/sites/docsbot, "uglyrobot" is the tenant and "docsbot" is the site name.',
+    icon: SharepointLogo,
+    isCarbon: 'SHAREPOINT',
     isPro: true,
     coming: false,
     fieldUrl: false,
@@ -239,7 +255,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
-  },
+  }
   /*
   {
     id: 'youtube',

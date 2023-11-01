@@ -258,7 +258,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 Source type
               </RadioGroup.Label>
 
-              <div className="mt-2 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              <div className="mt-2 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-4">
                 {sourceTypes.map((sourceType) => (
                   <RadioGroup.Option
                     key={sourceType.id}
