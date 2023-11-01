@@ -4,6 +4,25 @@ import ModalCheckout from '@/components/ModalCheckout'
 export default function InviteMember({ team, invite, setToInvite, setErrorText, setSuccessText }) {
   const [submitting, setSubmitting] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
+  const [selectedRole, setSelectedRole] = useState('admin')
+  const [roles] = useState([
+    {
+      name: "Admin",
+      value: 'admin'
+    },
+    {
+      name: "Owner",
+      value: 'owner'
+    },
+    {
+      name: "Editor",
+      value: 'editor'
+    },
+    {
+      name: "Viewer",
+      value: 'viewer'
+    },
+  ])
   const [showUpgrade, setShowUpgrade] = useState(false)
   const alertRef = useRef(null);
 
@@ -15,7 +34,7 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({inviteEmail:inviteEmail.toLowerCase(), teamId: team.id})
+      body: JSON.stringify({ inviteEmail: inviteEmail.toLowerCase(), teamId: team.id, role: selectedRole })
     })
     setSubmitting(false)
     if (response.ok) {
@@ -61,6 +80,20 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
                 className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                 placeholder="john@example.com"
               />
+            </div>
+            <div className="text-md mt-2 text-gray-500">
+              <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
+                <select
+                  id="team_role"
+                  value={selectedRole}
+                  onChange={(e) => setSelectedRole(e.target.value)}
+                  className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                >
+                  {
+                    roles.map((role, index) => <option key={index} value={role.value}>{role.name}</option>)
+                  }
+                </select>
+              </div>
             </div>
           </div>
           <div className="mt-5">

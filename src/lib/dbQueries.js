@@ -554,6 +554,7 @@ export async function getInvitesFromEmail(email) {
     userInvites.push({
       teamId: docData.teamId,
       email: docData.email,
+      role: docData.role,
       inviteId: doc.id,
       key: doc.id,
       uid: doc.id,
@@ -628,7 +629,7 @@ export async function getInvitesFromTeam(teamId) {
   return userInvites
 }
 
-export async function acceptInvite(teamId, userId, inviteId) {
+export async function acceptInvite(teamId, userId, inviteId, role) {
   // add user to team roles
   let teamName = null
   await firestore.runTransaction(async (transaction) => {
@@ -646,9 +647,9 @@ export async function acceptInvite(teamId, userId, inviteId) {
     if (isAdded === undefined) {
       transaction.update(teamRef, {
         roles: {
-          [userId]: 'admin',
-          ...teamDoc.data().roles,
-        },
+          [userId]: role || 'admin',
+          ...teamDoc.data().roles
+        }
       })
 
       // set the user's currentTeam to the newly joined team

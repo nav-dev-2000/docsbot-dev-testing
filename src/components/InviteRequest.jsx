@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function InviteRequest({ teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam }) {
+export default function InviteRequest({ teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam, role }) {
   const [submitting, setSubmitting] = useState(false)
   const alertRef = useRef(null);
 
@@ -12,7 +12,7 @@ export default function InviteRequest({ teamId, teamName, inviteId, setInviteLis
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({status, teamId, inviteId})
+      body: JSON.stringify({status, teamId, inviteId, role})
     })
     if (response.ok) {
       const { message, data } = await response.json()
