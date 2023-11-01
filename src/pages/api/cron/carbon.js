@@ -2,9 +2,10 @@ import { FieldValue, getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getCarbonCustomerID } from '@/lib/carbon'
 import axios from 'axios'
-import { importChunks } from '@/lib/weaviate'
 import { getSources } from '@/lib/dbQueries'
 import { deleteSource } from '@/lib/apiFunctions'
+import { stripePlan } from '@/utils/helpers'
+import { QueueSourceIngest } from '@/lib/service'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -16,8 +17,6 @@ export default async function handler(request, response) {
     response.status(404).end()
     return
   }
-
-  console.log('cron carbon started!')
 
   // grab all carbon sources
   const sourcesRef = await firestore
@@ -37,6 +36,7 @@ export default async function handler(request, response) {
 
       const teamRef = botRef.parent.parent
       const teamId = teamRef.id
+      const team = { id: teamId, ...(await teamRef.get()).data() }
 
       console.log('Checking Carbon status', teamId, botId, sourceId)
       try {
@@ -53,6 +53,8 @@ export default async function handler(request, response) {
           google_docs: ['GOOGLE_DRIVE'],
           intercom: ['INTERCOM'],
           dropbox: ['DROPBOX'],
+          box: ['BOX'],
+          zendesk: ['ZENDESK'],
         }
 
         const carbonFiles = []
@@ -95,88 +97,37 @@ export default async function handler(request, response) {
           }
         }
 
+        //if this will exceed the page count, fail and return
+        if (newCarbonFiles.length + team.pageCount > stripePlan(team).pages) {
+          throw new Error( `This source has ${newCarbonFiles.length} pages, exceeding the remaining plan limit of ${stripePlan(team).pages - team.pageCount}. Please upgrade your plan.`)
+        }
+
         //update source
         doc.ref.update({
-          status: ready ? 'processing' : 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
+          status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
           pageCount: newCarbonFiles.length,
           carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
         })
 
-        console.log('newCarbonFiles', newCarbonFiles.length, 'ready', ready)
-
-        //TODO if plan page count is exceeded, fail and return
+        console.log(newCarbonFiles.length, 'Carbon files, ready:', ready, teamId, botId, sourceId)
 
         if (ready) {
-          console.log('Importing', teamId, botId, sourceId)
-          const chunks = []
 
-          for (const file of newCarbonFiles) {
-            const response = await axios.post(
-              `https://api.carbon.ai/text_chunks`,
-              {
-                filters: {
-                  user_file_id: file.id,
-                },
-                include_vectors: true,
-                pagination: {
-                  limit: 10000,
-                },
-              },
-              headers
-            )
+          await QueueSourceIngest(
+            teamId,
+            botId,
+            sourceId,
+            stripePlan(team).pages - team.pageCount,
+            bot.indexId,
+            'carbon',
+            source.title, //null
+            source.url,
+            source.file, //null
+            source.faqs //null
+          )
+          console.log('Source', teamId, botId, sourceId, 'queued for ingest')
 
-            if (response.status !== 200) {
-              throw new Error(`Carbon API returned status ${response.status}`)
-            }
-
-            //create chunks
-            for (const chunk of response.data.results) {
-              chunks.push({
-                text: chunk.source_content,
-                title: file.name, //gdocs has name, others have title
-                url: file.url || null,
-                vector: chunk.embedding,
-              })
-            }
-          }
-
-          //import chunks into weaviate
-          if (chunks.length) {
-            await importChunks(bot.indexId, source.type, sourceId, chunks)
-          }
-
-          //update source
-          doc.ref.update({
-            status: 'ready',
-            chunkCount: chunks.length,
-            refreshing: false,
-          })
-
-          // increment only if not doing a scheduled refresh
-          if (!source.refreshing) {
-            //increment bot with a transaction
-            await firestore.runTransaction(async (transaction) => {
-              const botDoc = await transaction.get(botRef)
-              const bot = botDoc.data()
-              transaction.update(botRef, {
-                pageCount: bot.pageCount + newCarbonFiles.length,
-                chunkCount: bot.chunkCount + chunks.length,
-                status: 'ready',
-              })
-            })
-
-            //increment team with a transaction
-            await firestore.runTransaction(async (transaction) => {
-              const teamDoc = await transaction.get(teamRef)
-              const team = teamDoc.data()
-              transaction.update(teamRef, {
-                pageCount: team.pageCount + newCarbonFiles.length,
-                chunkCount: team.chunkCount + chunks.length,
-                status: 'ready',
-              })
-            })
-          }
-
+          //TODO ideally we should wait for the ingest to complete before deleting the source
           // we only allow unique carbon type sources per bot, so we'll need to check if a carbon type.
           // if it does, we'll need to delete it
           const data = await getSources(teamId, bot, 0, 1000)
@@ -195,10 +146,10 @@ export default async function handler(request, response) {
             carbonId: newIds.join(', '),
           })
         } else {
-          console.log('Source not ready yet', teamId, botId, sourceId)
+          console.log('Source not ready yet in Carbon', teamId, botId, sourceId)
         }
       } catch (error) {
-        console.log(doc.id, 'refresh error:', error)
+        console.log(doc.id, 'carbon cron error:', error)
 
         doc.ref.update({
           status: 'failed',
