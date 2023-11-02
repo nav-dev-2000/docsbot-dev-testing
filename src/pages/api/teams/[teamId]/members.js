@@ -35,7 +35,59 @@ export default async function handler(req, res) {
       console.log(error)
       return res.status(500).json({ message: error?.message })
     }
-  } else if (req.method === 'DELETE') {
+  } 
+  else if(req.method === "PUT"){
+    let check = null
+    try {
+      check = await userTeamCheck(req, res)
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({ message: error?.message })
+    }
+    const { team } = check
+    const { memberId , role } = req.body
+    try {
+      //check that only owners can change the role of members
+      if (team.roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+        throw new Error('Only team owners can change the role of members!')
+      }
+
+      if (memberId !== undefined && role !==undefined) {
+        const isAdded = team.roles[memberId]
+
+        if (userId === memberId) {
+          throw new Error('You cannot change the role of yourself!')
+        }
+
+        if (isAdded === undefined) {
+          throw new Error('User is not part of this team!')
+        }
+
+        const userTeams = await getUserTeams(memberId)
+        const memberCurrentTeam = userTeams?.find(item=>item.id === team.id)
+        let newRoles = memberCurrentTeam.roles
+        newRoles[memberId] = role
+        await firestore.collection('teams').doc(team.id).update({
+            roles: newRoles
+        })
+
+      } else {
+          // something's wrong
+          return res.status(500).json({ message: "Something went wrong, please try again" })
+      }
+
+    mpTrack(userId, 'Changed the role of team user', {
+      "Team name": team.name,
+      ip: req.headers['x-forwarded-for'],
+    })
+    return res.status(200).send({ message: `User role has been changed successfully`, teamUsers: await getTeamUsers(team.id)})
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({ message: error?.message })
+  }
+
+  }
+  else if (req.method === 'DELETE') {
     let check = null
     try {
       check = await userTeamCheck(req, res)

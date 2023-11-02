@@ -1,28 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import ModalCheckout from '@/components/ModalCheckout'
+import { teamMembersRoles } from '@/constants/permissions.constants'
 
 export default function InviteMember({ team, invite, setToInvite, setErrorText, setSuccessText }) {
   const [submitting, setSubmitting] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
   const [selectedRole, setSelectedRole] = useState('admin')
-  const [roles] = useState([
-    {
-      name: "Admin",
-      value: 'admin'
-    },
-    {
-      name: "Owner",
-      value: 'owner'
-    },
-    {
-      name: "Editor",
-      value: 'editor'
-    },
-    {
-      name: "Viewer",
-      value: 'viewer'
-    },
-  ])
+  const [roles] = useState(teamMembersRoles)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const alertRef = useRef(null);
 

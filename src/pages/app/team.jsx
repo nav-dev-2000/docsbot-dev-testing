@@ -16,6 +16,7 @@ import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
+import { teamMembersRoles } from '@/constants/permissions.constants'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -157,6 +158,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [newTeam, setNewTeam] = useState(null)
   const [newTeamName, setNewTeamName] = useState(team.name)
   const [isUpdating, setIsUpdating] = useState(false)
+  // const [selectedRole, setSelectedRole] = useState(null)
+  const [selectedMemberId, setSelectedMemberId] = useState(null)
+  const [roles] = useState(teamMembersRoles)
 
   const changeTeam = async(teamId) => {
     setErrorText('')
@@ -191,6 +195,23 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
         setErrorText('Error ' + response.status + ', please try again.')
       }
     }
+  }
+
+  const changeMemberRole = async(role) =>{
+
+    const response = await fetch(`/api/teams/${team.id}/members`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ memberId: selectedMemberId, role: role }),
+    })
+    if (response.ok) {
+      setSelectedMemberId('')
+      const { teamUsers } = await response.json()
+      setCurrTeamUsers(teamUsers)
+    }
+
   }
 
   const updateTeam = async() => {
@@ -422,11 +443,41 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                         <span className="truncate">{user.email}</span>
                       </p>
                     </div>
-                    <div className="items-center text-right">
+                    <div className="items-center text-right relative">
                       <p className="mb-1 truncate text-sm text-gray-400">Role</p>
-                      <p className="text-md m-0 font-medium capitalize text-gray-900">
-                        {user.role}
-                      </p>
+                        {selectedMemberId === user.uid ?
+                          <div className="text-md mt-2 text-gray-500">
+                            <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
+                              <select
+                                id="team_role"
+                                defaultValue={user.role}
+                                 onChange={(e) => changeMemberRole(e.target.value)}
+                                className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                              >
+                                {
+                                  roles.map((role, index) => <option key={index} value={role.value}>{role.name}</option>)
+                                }
+                              </select>
+                            </div>
+                          </div>
+                          : 
+                          <div>
+                          <p className="text-md m-0 font-medium capitalize text-gray-900">{user.role}
+                          </p>
+                          {userId !== user.uid && currTeam.roles[userId] == "owner" && 
+                          <div className="absolute top-1 left-14">
+                          <button
+                            type="button"
+                            onClick={()=>setSelectedMemberId(user.uid)}
+                            title="Change Role"
+                          >
+                            <span className="sr-only">Change role</span>
+                            <ChevronUpDownIcon className="h-4 w-4" aria-hidden="true" />
+                          </button>
+                        </div>
+                          }
+                          </div>
+                          }
                     </div>
                   </div>
                 </div>
