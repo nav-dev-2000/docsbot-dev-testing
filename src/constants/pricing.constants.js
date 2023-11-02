@@ -152,7 +152,7 @@ export const pricingTiers = [
       '100 DocsBots',
       '100k Source Pages',
       'Unlock all source types',
-      'Daily source refresh',
+      'Weekly source refresh',
       '100k questions/mo',
       'Private bots',
       'GPT-4 support',
