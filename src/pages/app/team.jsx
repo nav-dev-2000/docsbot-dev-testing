@@ -9,7 +9,7 @@ import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam } from 
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, ChevronUpDownIcon, PencilIcon } from '@heroicons/react/20/solid'
 import Router from 'next/router'
 import { isSuperAdmin } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
@@ -465,14 +465,14 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                           <p className="text-md m-0 font-medium capitalize text-gray-900">{user.role}
                           </p>
                           {userId !== user.uid && currTeam.roles[userId] == "owner" && 
-                          <div className="absolute top-1 left-14">
+                          <div className="absolute top-0 left-14">
                           <button
                             type="button"
                             onClick={()=>setSelectedMemberId(user.uid)}
                             title="Change Role"
                           >
                             <span className="sr-only">Change role</span>
-                            <ChevronUpDownIcon className="h-4 w-4" aria-hidden="true" />
+                            <PencilIcon className="h-4 w-4 text-green-500" aria-hidden="true" />
                           </button>
                         </div>
                           }

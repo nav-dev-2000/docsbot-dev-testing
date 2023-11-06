@@ -18,18 +18,29 @@ import classNames from '@/utils/classNames'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import RobotIcon from '@/components/RobotIcon'
 import LocalStringNum from '@/components/LocalStringNum'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
   const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
+  const [currentRole, setCurrentRole] = useState('')
+  const [user] = useAuthState(auth)
 
   useEffect(() => {
     if (!team.botCount || bots.length == 0) {
       setOpen(true)
     }
   }, [bots])
+
+  useEffect(() => {
+    if (user && team) {
+      const role = team?.roles[user.uid]
+      setCurrentRole(role)
+    }
+  }, [team, user])
 
   const BotsGrid = ({ bots }) => {
     if (!bots || bots.length === 0) {
@@ -93,8 +104,8 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                  <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
-                  Sources
+                    <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
+                    Sources
                   </p>
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
@@ -103,8 +114,8 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                  <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
-                  Questions
+                    <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
+                    Questions
                   </p>
                 </div>
               </div>
@@ -155,7 +166,9 @@ function Bots({ preBots, team }) {
 
       <BotsGrid bots={bots} />
 
-      <BotCTA {...{ setOpen }} />
+      {
+        currentRole !== 'viewer' && <BotCTA {...{ setOpen }} />
+      }
 
       <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>

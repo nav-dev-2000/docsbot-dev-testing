@@ -55,7 +55,7 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
         <div className="px-4 py-5 sm:p-6">
           <h3 className="text-lg font-medium leading-6 text-gray-900">Invite a team member</h3>
           <div className="text-md mt-2 text-gray-500">
-            <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
+            <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm gap-4">
               <input
                 type="text"
                 id="team_name"
@@ -64,20 +64,20 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
                 className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                 placeholder="john@example.com"
               />
+              <select
+                id="team_role"
+                value={selectedRole}
+                onChange={(e) => setSelectedRole(e.target.value)}
+                className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+              >
+                {
+                  roles.map((role, index) => <option key={index} value={role.value}>{role.name}</option>)
+                }
+              </select>
             </div>
             <div className="text-md mt-2 text-gray-500">
-              <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
-                <select
-                  id="team_role"
-                  value={selectedRole}
-                  onChange={(e) => setSelectedRole(e.target.value)}
-                  className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                >
-                  {
-                    roles.map((role, index) => <option key={index} value={role.value}>{role.name}</option>)
-                  }
-                </select>
-              </div>
+              {/* <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm"> */}
+              {/* </div> */}
             </div>
           </div>
           <div className="mt-5">
