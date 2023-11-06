@@ -26,6 +26,14 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
+    //check user is allowed to create bot or not
+    const userRole = team.roles[userId]
+    if(userRole==='editor' || userRole==='viewer'){
+      return res.status(402).json({
+        message: 'You are not allowed to create bot.',
+      })
+    }
+
     // Check plan credits
     if (stripePlan(team).bots <= team.botCount) {
       return res.status(402).json({

@@ -41,6 +41,14 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
+    //check user is allowed to edit bot or not
+    const userRole = team.roles[userId]
+    if (userRole === 'viewer') {
+      return res.status(402).json({
+        message: 'You are not allowed to add sources in this bot.',
+      })
+    }
+
     //check plan credits
     if (stripePlan(team).pages <= team.pageCount) {
       return res.status(402).json({

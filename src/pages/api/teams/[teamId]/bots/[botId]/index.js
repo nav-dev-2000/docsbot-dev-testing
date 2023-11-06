@@ -21,6 +21,13 @@ export default async function handler(req, res) {
   const { botId } = req.query
 
   if (req.method === 'PUT') {
+    //check user is allowed to edit bot or not
+    const userRole = team.roles[userId]
+    if (userRole === 'viewer') {
+      return res.status(402).json({
+        message: 'You are not allowed to edit this bot.',
+      })
+    }
     try {
       const bot = await getBot(team.id, botId)
       if (!bot) {
@@ -55,6 +62,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    //check user is allowed to delete bot or not
+    const userRole = team.roles[userId]
+    if (userRole === 'editor' || userRole === 'viewer') {
+      return res.status(402).json({
+        message: 'You are not allowed to delete bot.',
+      })
+    }
     try {
       await deleteBot(team.id, botId)
 

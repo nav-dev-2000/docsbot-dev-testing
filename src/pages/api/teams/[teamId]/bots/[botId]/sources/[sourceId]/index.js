@@ -41,6 +41,13 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
+    //check user is allowed to edit this source or not
+    const userRole = team.roles[userId]
+    if (userRole === 'viewer') {
+      return res.status(402).json({
+        message: 'You are not allowed to edit this source',
+      })
+    }
     //error if source is not in failed state
     if (source.status !== 'failed' || source.refreshing) {
       return res.status(409).json({ message: 'Only new failed sources can be retried currently.' })
@@ -94,6 +101,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    //check user is allowed to delete this source or not
+    const userRole = team.roles[userId]
+    if (userRole === 'viewer') {
+      return res.status(402).json({
+        message: 'You are not allowed to delete this source',
+      })
+    }
     //if source is in a ready state, we need to delete it from weaviate
     if (source.status !== 'ready' && source.status !== 'failed') {
       return res
