@@ -405,7 +405,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </p>
             </div>
             {
-              // (currTeam.roles[userId] === 'owner'|| currTeam.roles[userId] === 'admin')  && 
+              (currTeam.roles[userId] === 'owner'|| currTeam.roles[userId] === 'admin')  && 
               <div className="ml-4 mt-4 flex-shrink-0">
               <button
                 type="button"
