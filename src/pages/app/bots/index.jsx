@@ -167,7 +167,7 @@ function Bots({ preBots, team }) {
       <BotsGrid bots={bots} />
 
       {
-        currentRole !== 'viewer' && <BotCTA {...{ setOpen }} />
+        currentRole !== 'viewer' && currentRole !== 'editor' && <BotCTA {...{ setOpen }} />
       }
 
       <NewBotPanel {...{ team, open, setOpen }} />
