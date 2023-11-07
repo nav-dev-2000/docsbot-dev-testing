@@ -55,7 +55,7 @@ function Account({ team }) {
       stat: <LocalStringNum value={stripePlan(team).questions} />,
     },
   ]
-  
+
   return (
     <DashboardWrap page="Account" team={team}>
       <Alert title={errorText} type="error" />
@@ -84,7 +84,7 @@ function Account({ team }) {
                 <div className="text-sm">
                   <Link href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
                     {card.linkText}
-                    <ArrowRightIcon className="ml-1 -mr-0.5 inline h-3 w-3" aria-hidden="true" />
+                    <ArrowRightIcon className="-mr-0.5 ml-1 inline h-3 w-3" aria-hidden="true" />
                   </Link>
                 </div>
               </div>
@@ -98,7 +98,7 @@ function Account({ team }) {
         <Cancel team={team} />
       </div>
 
-      <div className="mt-6 md:grid md:grid-cols-2 gap-6">
+      <div className="mt-6 gap-6 md:grid md:grid-cols-2">
         <div className="rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">Update your email address</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
@@ -146,11 +146,13 @@ function Account({ team }) {
         <div className="rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">Delete Team Account</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can delete your team account here. This will delete all of your bots, sources, questions, keys, any other data, and remove all team members. This action cannot be undone and you should cancel any subscriptions before deleting your team account.
+            You can delete your team account here. This will delete all of your bots, sources,
+            questions, keys, any other data, and remove all team members. This action cannot be
+            undone and you should cancel any subscriptions before deleting your team account.
           </p>
           <div className="mt-5 flex justify-end">
-          <ModalDeleteAccount team={team} />
-        </div>
+            <ModalDeleteAccount team={team} />
+          </div>
         </div>
       </div>
     </DashboardWrap>
