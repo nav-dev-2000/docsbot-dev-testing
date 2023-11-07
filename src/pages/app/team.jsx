@@ -445,6 +445,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     </div>
                     <div className="items-center text-right relative">
                       <p className="mb-1 truncate text-sm text-gray-400">Role</p>
+                      <div className='flex gap-2'>
                         {selectedMemberId === user.uid ?
                           <div className="text-md mt-2 text-gray-500">
                             <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
@@ -464,20 +465,30 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                           <div>
                           <p className="text-md m-0 font-medium capitalize text-gray-900">{user.role}
                           </p>
-                          {userId !== user.uid && currTeam.roles[userId] == "owner" && 
-                          <div className="absolute top-0 left-14">
+                          </div>
+                          }
+
+                          {userId !== user.uid && currTeam.roles[userId] == "owner" && !selectedMemberId && 
                           <button
                             type="button"
                             onClick={()=>setSelectedMemberId(user.uid)}
                             title="Change Role"
                           >
                             <span className="sr-only">Change role</span>
-                            <PencilIcon className="h-4 w-4 text-green-500" aria-hidden="true" />
+                            <PencilIcon className="h-4 w-4 text-gray-500" aria-hidden="true" />
                           </button>
-                        </div>
+                          }
+                          {userId !== user.uid && currTeam.roles[userId] == "owner" && selectedMemberId === user.uid  && selectedMemberId && 
+                          <button
+                            type="button"
+                            onClick={()=>setSelectedMemberId("")}
+                            title="Cancel"
+                          >
+                            <span className="sr-only">Cancel</span>
+                            <XMarkIcon className="h-4 w-4 text-gray-500" aria-hidden="true" />
+                          </button>
                           }
                           </div>
-                          }
                     </div>
                   </div>
                 </div>
