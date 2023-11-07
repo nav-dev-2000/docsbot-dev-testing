@@ -28,6 +28,11 @@ export default async function handleInvite(req, res) {
       }
       const { userId, team } = check
 
+      //check user is allowed to add members or not
+      const currentRole = team.roles[userId]
+      if(currentRole!=='owner' || currentRole!=='admin'){
+        return res.status(401).send({ message: `You are not allowed to invite new member into this team!`})
+      }
       // sanity check stripe plan
       const plan = stripePlan(team)
       if (Object.keys(team.roles).length >= plan.teamMembers && !isSuperAdmin(userId)) {

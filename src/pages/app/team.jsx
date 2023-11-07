@@ -404,7 +404,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                 View and manage the members of this team.
               </p>
             </div>
-            <div className="ml-4 mt-4 flex-shrink-0">
+            {
+              // (currTeam.roles[userId] === 'owner'|| currTeam.roles[userId] === 'admin')  && 
+              <div className="ml-4 mt-4 flex-shrink-0">
               <button
                 type="button"
                 onClick={() => {setToInvite(true)}}
@@ -414,6 +416,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                 Add member
               </button>
             </div>
+            }
           </div>
         </div>
         <ul role="list" className="divide-y divide-gray-200">
