@@ -4,7 +4,6 @@ import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
-import e from 'cors'
 
 export default function FormBot({ team, bot, setBotSettings, disabled, short = false }) {
   const [language, setLanguage] = useState(bot?.language || 'en')
@@ -14,9 +13,12 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
   const [model, setModel] = useState(bot?.model || 'gpt-3.5-turbo')
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [rateLimitMessages, setRateLimitMessages] = useState(bot?.rateLimitMessages || 10)
+  const [labels, setLabels] = useState(bot?.labels || i18n[bot?.language]?.labels || null)
   const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
   const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
-  const [rateLimitIPField, setRateLimitIPField] = useState(bot?.rateLimitIPAllowlist?.join(', ') || '')
+  const [rateLimitIPField, setRateLimitIPField] = useState(
+    bot?.rateLimitIPAllowlist?.join(', ') || ''
+  )
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   useEffect(() => {
@@ -30,8 +32,20 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
       rateLimitMessages,
       rateLimitSeconds,
       rateLimitIPAllowlist,
+      labels,
     })
-  }, [language, botName, botDescription, privacy, model, questions, rateLimitMessages, rateLimitSeconds, rateLimitIPAllowlist])
+  }, [
+    language,
+    botName,
+    botDescription,
+    privacy,
+    model,
+    questions,
+    rateLimitMessages,
+    rateLimitSeconds,
+    rateLimitIPAllowlist,
+    labels,
+  ])
 
   //show upgrade if they change privacy to private
   useEffect(() => {
@@ -75,14 +89,18 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
 
   useEffect(() => {
     //check for valid IPv4 and IPv6 addresses
-    const ipArray = rateLimitIPField.split(',').map((ip) => ip.trim()).filter((ip) => {
-      if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
-        return true
-      } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) { //does not support shorthand notation
-        return true
-      }
-      return false
-    })
+    const ipArray = rateLimitIPField
+      .split(',')
+      .map((ip) => ip.trim())
+      .filter((ip) => {
+        if (ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/)) {
+          return true
+        } else if (ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)) {
+          //does not support shorthand notation
+          return true
+        }
+        return false
+      })
     setRateLimitIPAllowlist(ipArray)
   }, [rateLimitIPField])
 
@@ -384,7 +402,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               Rate limiting is a way to prevent abuse of your bot and excessive OpenAI usage costs.
             </p>
 
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-1 sm:col-start-1">
                 <label
                   htmlFor="rateLimitMessages"
@@ -406,7 +424,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   />
                 </div>
                 <p className="mt-2 text-sm text-gray-500" id="rateLimitMessages-description">
-                {rateLimitMessages} Messages (questions)
+                  {rateLimitMessages} Messages (questions)
                 </p>
               </div>
 
@@ -457,6 +475,26 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 <p className="mt-2 text-sm text-gray-500" id="rateLimitIPAllowlist-description">
                   Comma-separated IPs that should be exempt from rate limiting.
                 </p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="rateLimitMessage"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Warning Message
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="rateLimitMessage"
+                  id="rateLimitMessage"
+                  value={labels?.rateLimitMessage}
+                  onChange={(e) =>
+                    setLabels({ ...labels, rateLimitMessage: e.target.value })
+                  }
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                />
               </div>
             </div>
           </div>
