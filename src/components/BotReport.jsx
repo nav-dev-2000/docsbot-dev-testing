@@ -371,9 +371,26 @@ export default function BotReport({ team, bot }) {
         </div>
       )}
 
+      {blurEnabled && report && (
+        <div className="lg:flex justify-between items-center p-4 bg-gray-50 border rounded-lg border-cyan-600 shadow-sm space-y-4 lg:space-y-0 lg:space-x-2 text-center lg:text-left">
+          <h3 className="text-2xl font-bold">Access future advanced AI reports</h3>
+          <p className="mb-2 text-gray-700">
+            Upgrade to the Business plan or higher to unlock monthly advanced AI question topic
+            reports. This report is a one-time sample from a previous month.
+          </p>
 
-
-      {blurEnabled ? (
+          <button
+            type="button"
+            className="text-md whitespace-nowrap inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-3 py-2 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
+            onClick={(e) => setShowUpgrade(true)}
+          >
+            <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            Upgrade Plan
+          </button>
+          <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+        </div>
+      )}
+      {blurEnabled && !report ? (
         <div className="">
           <div className="relative z-10 -mb-72 mt-32 w-full">
             <div className="flex justify-center py-4 text-center">
@@ -409,44 +426,46 @@ export default function BotReport({ team, bot }) {
           <Image
             src={reportSample}
             alt="Sample Report"
-            width={1213}
-            height={3575}
+            width={2454 / 2}
+            height={9225 / 2}
             className="blur-md"
           />
         </div>
-      ) : report && (
-        <Tab.Group as="div" className="mt-4">
-          <div className="-mx-4 flex overflow-x-auto sm:mx-0">
-            <div className="flex-auto border-b border-gray-200 px-4 sm:px-0">
-              <Tab.List className="-mb-px flex space-x-10">
-                {tabs.map((tab) => (
-                  <Tab
-                    key={tab.name}
-                    className={({ selected }) =>
-                      classNames(
-                        selected
-                          ? 'border-cyan-500 text-cyan-600'
-                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                        'text-md whitespace-nowrap border-b-2 py-6 font-medium'
-                      )
-                    }
-                  >
-                    {tab.name}
-                  </Tab>
-                ))}
-              </Tab.List>
+      ) : (
+        report && (
+          <Tab.Group as="div" className="mt-4">
+            <div className="-mx-4 flex overflow-x-auto sm:mx-0">
+              <div className="flex-auto border-b border-gray-200 px-4 sm:px-0">
+                <Tab.List className="-mb-px flex space-x-10">
+                  {tabs.map((tab) => (
+                    <Tab
+                      key={tab.name}
+                      className={({ selected }) =>
+                        classNames(
+                          selected
+                            ? 'border-cyan-500 text-cyan-600'
+                            : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                          'text-md whitespace-nowrap border-b-2 py-6 font-medium'
+                        )
+                      }
+                    >
+                      {tab.name}
+                    </Tab>
+                  ))}
+                </Tab.List>
+              </div>
             </div>
-          </div>
 
-          <Tab.Panels as={Fragment}>
-            <Tab.Panel key={tabs[0].name} className="">
-              <TopicTab tabReport={report.allQuestions} tab={tabs[0]} />
-            </Tab.Panel>
-            <Tab.Panel key={tabs[1].name} className="">
-              <TopicTab tabReport={report.poorQuestions} tab={tabs[1]} />
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
+            <Tab.Panels as={Fragment}>
+              <Tab.Panel key={tabs[0].name} className="">
+                <TopicTab tabReport={report.allQuestions} tab={tabs[0]} />
+              </Tab.Panel>
+              <Tab.Panel key={tabs[1].name} className="">
+                <TopicTab tabReport={report.poorQuestions} tab={tabs[1]} />
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+        )
       )}
     </div>
   )
