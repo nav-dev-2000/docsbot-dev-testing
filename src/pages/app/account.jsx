@@ -16,6 +16,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
+import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 
@@ -94,6 +95,7 @@ function Account({ team }) {
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
         <Checkout team={team} />
+        <Cancel team={team} />
       </div>
 
       <div className="mt-6 md:grid md:grid-cols-2 gap-6">

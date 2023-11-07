@@ -87,6 +87,36 @@ export default async function createCheckoutSession(req, res) {
       console.log(err)
       return res.status(500).json({ message: err?.message })
     }
+  } else if (req.method === 'DELETE') {
+    if (!team.stripeCustomerId || !team.stripeSubscriptionId) {
+      return res.status(400).json({ message: 'No subscription found.' })
+    }
+
+    const { reason, details } = req.body
+
+    try {
+      await stripe.subscriptions.update(team.stripeSubscriptionId, {
+        cancel_at_period_end: true,
+        cancellation_details: {
+          feedback: reason,
+          comment: details
+        }
+      }); 
+
+      try {
+        bentoTrack(userId, 'track', {
+          type: 'cancelSubscription',
+        })
+        mpTrack(userId, 'Canceled subscription', { ip: req.headers['x-forwarded-for'] })
+      } catch (e) {
+        console.log('Error sending bento track', e)
+      }
+
+      return res.status(200).json({ message: 'Subscription canceled' })
+    } catch (err) {
+      console.log(err)
+      return res.status(500).json({ message: err?.message })
+    }
   } else {
     res.setHeader('Allow', 'POST')
     res.status(405).end('Method Not Allowed')
