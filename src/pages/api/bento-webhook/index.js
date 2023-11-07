@@ -213,7 +213,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
       })
       const openai = new OpenAIApi(configuration)
       const chat_completion = await openai.createChatCompletion({
-        model: 'gpt-4',
+        model: 'gpt-4-1106-preview',
         messages: [
           {
             role: 'system',
@@ -261,7 +261,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
         console.log('JSON parse error, trying again.')
         //invalid JSON, send to openai to fix the json response
         const json_completion = await openai.createChatCompletion({
-          model: 'gpt-4',
+          model: 'gpt-4-1106-preview',
           messages: [
             {
               role: 'system',

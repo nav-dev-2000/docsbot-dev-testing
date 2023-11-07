@@ -8,20 +8,27 @@ import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
 
 const pricing = {
-  'Chat Models': [
+  'Chat/Completion Models': [
     {
       model_name: 'GPT-3.5 Turbo',
+      context: '16K',
+      provider: 'OpenAI / Azure',
+      input_token_cost_per_thousand: 0.001,
+      output_token_cost_per_thousand: 0.002,
+    },
+    {
+      model_name: 'GPT-3.5 Turbo Instruct',
       context: '4K',
       provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0015,
       output_token_cost_per_thousand: 0.002,
     },
     {
-      model_name: 'GPT-3.5 Turbo',
-      context: '16K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.003,
-      output_token_cost_per_thousand: 0.004,
+      model_name: 'GPT-4 Turbo',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.01,
+      output_token_cost_per_thousand: 0.03,
     },
     {
       model_name: 'GPT-4',
@@ -163,10 +170,11 @@ export default function Calculate() {
                   OpenAI & other LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2, Google PaLM 2, and Cohere LLM APIs for your AI project with
-                  our simple and powerful free calculator.
+                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2,
+                  Google PaLM 2, and Cohere LLM APIs for your AI project with our simple and
+                  powerful free calculator. Latest numbers as of November 2023 (including GPT-4 Turbo).
                 </p>
-                <div className="mt-10 text-left max-w-xl mx-auto">
+                <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
                     <div className="sm:col-span-3">
                       <label
@@ -381,10 +389,10 @@ export default function Calculate() {
               AI LLM Model Pricing: A Comprehensive Overview
             </h2>
             <p>
-              OpenAI, Anthropic, Google, Cohere, and Meta offer a diverse range of models, each tailored to
-              specific tasks and capabilities. Understanding the pricing structure is crucial for
-              businesses and developers looking to integrate these models into their applications.
-              Here&#39;s a detailed look at how they structure their pricing.
+              OpenAI, Anthropic, Google, Cohere, and Meta offer a diverse range of models, each
+              tailored to specific tasks and capabilities. Understanding the pricing structure is
+              crucial for businesses and developers looking to integrate these models into their
+              applications. Here&#39;s a detailed look at how they structure their pricing.
             </p>
             <h3 className="text-white" id="1-tokens-the-fundamental-unit-of-pricing-">
               Tokens: The Fundamental Unit of Pricing
@@ -452,7 +460,9 @@ export default function Calculate() {
                   <strong className="text-white">OpenAI GPT-4</strong>: Known for its broad general
                   knowledge and domain expertise, GPT-4 is adept at following intricate instructions
                   in natural language and solving challenging problems with precision. It's also
-                  slower and more expensive than other models. Also available via Microsoft's Azure OpenAI Service.
+                  slower and more expensive than other models. The recently released GPT-4 Turbo
+                  (gpt-4-1106-preview) is 3x more affordable and supports an amazing 128K context
+                  limit! Also available via Microsoft's Azure OpenAI Service.
                 </p>
               </li>
               <li>
@@ -485,7 +495,14 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is the latest state-of-the-art language model from Google boasting enhanced multilingual, reasoning, and coding capabilities. Trained on multilingual text from over 100 languages, it excels in understanding and translating intricate text forms like idioms and poems. Its dataset, rich with scientific papers and web content, empowers it with superior logic, reasoning, and mathematical skills. Additionally, its proficiency in coding is evident from its training on vast source code datasets, making it adept in languages from Python to Fortran.
+                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is the latest
+                  state-of-the-art language model from Google boasting enhanced multilingual,
+                  reasoning, and coding capabilities. Trained on multilingual text from over 100
+                  languages, it excels in understanding and translating intricate text forms like
+                  idioms and poems. Its dataset, rich with scientific papers and web content,
+                  empowers it with superior logic, reasoning, and mathematical skills. Additionally,
+                  its proficiency in coding is evident from its training on vast source code
+                  datasets, making it adept in languages from Python to Fortran.
                 </p>
               </li>
             </ul>

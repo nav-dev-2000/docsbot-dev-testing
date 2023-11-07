@@ -43,7 +43,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
 
   //show upgrade if they change model to gpt-4
   useEffect(() => {
-    if (model === 'gpt-4' && stripePlan(team).name === 'Free') {
+    if ((model === 'gpt-4' || model === 'gpt-4-1106-preview') && stripePlan(team).name === 'Free') {
       setShowUpgrade(true)
       setModel('gpt-3.5-turbo')
     }
@@ -221,10 +221,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
           <div className="relative flex items-start">
             <div className="absolute flex h-5 items-center">
               <input
-                id="model-public"
+                id="gpt-3.5-turbo"
                 name="model"
                 value="gpt-3.5-turbo"
-                aria-describedby="model-public-description"
+                aria-describedby="gpt-3.5-turbo-description"
                 type="radio"
                 className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                 checked={model === 'gpt-3.5-turbo'}
@@ -233,11 +233,11 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               />
             </div>
             <div className="pl-7 text-sm">
-              <label htmlFor="model-public" className="font-medium text-gray-900">
+              <label htmlFor="gpt-3.5-turbo" className="font-medium text-gray-900">
                 GPT 3.5 (Original ChatGPT)
               </label>
-              <p id="model-public-description" className="text-gray-500">
-                The fastest and cheapest (&lt;$0.004/question) model good for most use cases.
+              <p id="gpt-3.5-turbo-description" className="text-gray-500">
+                The fastest and cheapest (&lt;$0.003/question) model good for most use cases.
               </p>
             </div>
           </div>
@@ -245,10 +245,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
-                  id="model-private"
+                  id="gpt-4"
                   name="model"
                   value="gpt-4"
-                  aria-describedby="model-private-to-project-description"
+                  aria-describedby="gpt-4-description"
                   type="radio"
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                   checked={model === 'gpt-4'}
@@ -257,7 +257,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 />
               </div>
               <div className="pl-7 text-sm">
-                <label htmlFor="model-private" className="font-medium text-gray-900">
+                <label htmlFor="gpt-4" className="font-medium text-gray-900">
                   GPT-4
                   {stripePlan(team).name === 'Free' && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
@@ -265,9 +265,48 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     </span>
                   )}
                 </label>
-                <p id="model-private-description" className="text-gray-500">
-                  Most powerful but slower and more expensive (&lt;$0.09/question) model for
+                <p id="gpt-4-description" className="text-gray-500">
+                  Most powerful but slower and more expensive (&lt;$0.07/question) model for
                   advanced reasoning or content creation needs.
+                  {!team.supportsGPT4 && (
+                    <Link
+                      href="/app/api"
+                      className="ml-1 inline-block underline hover:text-gray-800"
+                    >
+                      Request access
+                    </Link>
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="relative flex items-start">
+              <div className="absolute flex h-5 items-center">
+                <input
+                  id="gpt-4-1106-preview"
+                  name="model"
+                  value="gpt-4-1106-preview"
+                  aria-describedby="gpt-4-1106-preview-description"
+                  type="radio"
+                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                  checked={model === 'gpt-4-1106-preview'}
+                  onChange={() => setModel('gpt-4-1106-preview')}
+                  disabled={disabled || !team.supportsGPT4}
+                />
+              </div>
+              <div className="pl-7 text-sm">
+                <label htmlFor="gpt-4-1106-preview" className="font-medium text-gray-900">
+                  GPT-4 Turbo (Preview)
+                  {stripePlan(team).name === 'Free' && (
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                      Paid
+                    </span>
+                  )}
+                </label>
+                <p id="gpt-4-1106-preview-description" className="text-gray-500">
+                  Newest (&lt;$0.03/question) model for
+                  advanced reasoning or content creation needs. Has low rate limits right now so don't use for busy bots yet.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"

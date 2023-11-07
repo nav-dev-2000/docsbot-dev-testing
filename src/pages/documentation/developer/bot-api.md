@@ -18,7 +18,7 @@ Bot objects have the following properties:
 | **description** | string | The bot description. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **indexId** | string | Used internally. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4`. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview`. |
 | **customPrompt** | string | Any custom prompt for the bot. |
 | **language** | string | The bot language. Currently supports `en` and `jp`. |
 | **createdAt** | string | The date and time the bot was created.                                     |
@@ -171,7 +171,7 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **description** | string | The bot description. Shown by default in embeds and share links. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if your OpenAI account has access. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview` if your OpenAI account has access. |
 
 ### Examples
 
@@ -256,7 +256,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **customPrompt** | string | Optional custom prompt instructions. Only editible on Pro plan and higher. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default) and `gpt-4` if the OpenAI account has it enabled. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview` if the OpenAI account has it enabled. |
 | **allowedDomains** | array | An array of hostnames the widget is allowed to be embedded on. Set an empty array to allow all. |
 | **color** | string | Color in hex, eg. `#FFFFFF` |
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
