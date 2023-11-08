@@ -234,8 +234,8 @@ export default function App({ Component, pageProps }) {
       useYoastHtml={true}
     >
       <DefaultSeo
-        title="DocsBot AI - Custom chatbots and content generation from your documentation"
-        description="Custom ChatGPT bots trained on your documentation and content."
+        title="DocsBot AI - Custom chatbots from your documentation"
+        description="Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more."
         openGraph={{
           type: 'website',
           locale: 'en_US',

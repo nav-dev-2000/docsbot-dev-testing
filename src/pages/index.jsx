@@ -129,7 +129,7 @@ export default function Home() {
                       <div className="inline-flex items-center rounded-full bg-black p-1 pl-3 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base">
                         <span className="pr-1 text-sm">Powered by</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
-                          ChatGPT & GPT-4!
+                          ChatGPT & GPT-4 Turbo!
                         </span>
                       </div>
                       <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
