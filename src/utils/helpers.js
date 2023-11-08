@@ -5,8 +5,8 @@ export const getURL = () => {
     process?.env?.VERCEL_ENV && process.env.VERCEL_ENV === 'production'
       ? 'https://docsbot.ai'
       : process?.env?.VERCEL_URL && process.env.VERCEL_URL !== ''
-      ? process.env.VERCEL_URL
-      : 'http://localhost:3000'
+        ? process.env.VERCEL_URL
+        : 'http://localhost:3000'
   return url.includes('http') ? url : `https://${url}`
 }
 
@@ -166,4 +166,57 @@ export const fbPageview = () => {
 // https://developers.facebook.com/docs/facebook-pixel/advanced/
 export const fbEvent = (name, options = {}) => {
   window.fbq('track', name, options)
+}
+
+export const getNeededStripeProduct = (team) => {
+  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+
+  if (team) {
+    const hobbyPlanLimit = plans['hobby']
+    const powerPlanLimit = plans['power']
+    const proPlanLimit = plans['pro']
+    const businessPlanLimit = plans['business']
+
+    const plansArray = Object.values(plans)
+
+
+    if (hobbyPlanLimit.bots >= team?.botCount && hobbyPlanLimit.pages >= team?.pageCount && hobbyPlanLimit.questions >= team?.questionCount) {
+      return ""
+    }
+
+    else if (powerPlanLimit.bots >= team?.botCount && powerPlanLimit.pages >= team?.pageCount && powerPlanLimit.questions >= team?.questionCount) {
+      const prices = []
+      plansArray.map(item => {
+        if (item.name?.toLowerCase() !== 'hobby') {
+          const priceList = Object.values(item?.prices?.current)
+          prices.push(priceList)
+        }
+      })
+      return prices
+    }
+
+    else if (proPlanLimit.bots >= team?.botCount && proPlanLimit.pages >= team?.pageCount && proPlanLimit.questions >= team?.questionCount) {
+      const prices = []
+      plansArray.map(item => {
+        if (item.name?.toLowerCase() !== 'hobby' && item.name?.toLowerCase() !== 'power') {
+          const priceList = Object.values(item?.prices?.current)
+          prices.push(priceList)
+        }
+      })
+      return prices
+    }
+
+    else if (businessPlanLimit.bots >= team?.botCount && businessPlanLimit.pages >= team?.pageCount && businessPlanLimit.questions >= team?.questionCount) {
+      const prices = []
+      plansArray.map(item => {
+        if (item.name?.toLowerCase() !== 'hobby' && item.name?.toLowerCase() !== 'power' && item.name?.toLowerCase() !== 'pro') {
+          const priceList = Object.values(item?.prices?.current)
+          prices.push(priceList)
+        }
+      })
+      return prices
+    }
+    else return ""
+  }
+  return ""
 }
