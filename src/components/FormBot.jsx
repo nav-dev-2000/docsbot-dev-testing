@@ -252,13 +252,38 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
             </div>
             <div className="pl-7 text-sm">
               <label htmlFor="gpt-3.5-turbo" className="font-medium text-gray-900">
-                GPT 3.5 (Original ChatGPT)
+                GPT 3.5 Turbo (Latest)
               </label>
               <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                The fastest and cheapest (&lt;$0.003/question) model good for most use cases.
+                The fastest and cheapest (&lt;$0.0025/question) model with April 2023 knowledge cutoff good for most use cases.
               </p>
             </div>
           </div>
+          {!short && (
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="gpt-3.5-turbo-0613"
+                name="model"
+                value="gpt-3.5-turbo-0613"
+                aria-describedby="gpt-3.5-turbo-0613-description"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={model === 'gpt-3.5-turbo-0613'}
+                onChange={() => setModel('gpt-3.5-turbo-0613')}
+                disabled={disabled}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label htmlFor="gpt-3.5-turbo-0613" className="font-medium text-gray-900">
+                GPT 3.5 Turbo (Old June 2023 Version)
+              </label>
+              <p id="gpt-3.5-turbo-0613-description" className="text-gray-500">
+                The previous (&lt;$0.003/question) model retiring June 2024.
+              </p>
+            </div>
+          </div>
+          )}
           <div>
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
@@ -323,7 +348,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   )}
                 </label>
                 <p id="gpt-4-1106-preview-description" className="text-gray-500">
-                  Newest (&lt;$0.03/question) model for
+                  Newest (&lt;$0.03/question) model with April 2023 knowledge cutoff for
                   advanced reasoning or content creation needs. Has low rate limits right now so don't use for busy bots yet.
                   {!team.supportsGPT4 && (
                     <Link
