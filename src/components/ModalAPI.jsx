@@ -127,13 +127,14 @@ export default function ModalAPI({ team, bot }) {
                     <pre className="block">
                       https://docsbot.ai/api/teams/{team.id}/bots/{bot.id}/openapi
                     </pre>
+                    
+                    <h4 className="mt-4 text-lg font-bold">Privacy Policy URL</h4>
                     <p className="text-md mt-2 text-justify text-gray-800">
                       To publish your GPT to the public, you will need to enter this privacy policy
                       url in the Action:
                     </p>
-                    <h4 className="mt-4 text-lg font-bold">Privacy Policy URL</h4>
                     <pre className="block">https://docsbot.ai/legal/privacy-policy</pre>
-                    <p className="text-md mt-2 text-justify text-gray-800">
+                    <p className="text-md mt-4 text-justify text-gray-800">
                       If this DocsBot is private, you will need to enter your{' '}
                       <Link href="/app/api" className="text-cyan-800 underline">
                         DocsBot API key
