@@ -385,7 +385,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       </div>
                       <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
                       {question.standaloneQuestion &&
-                        question.standaloneQuestion !== question.answer && (
+                        question.standaloneQuestion.trim() !== question.answer.trim() && 
+                        question.standaloneQuestion.trim() !== question.question.trim() && (
                           <h3 className="mb-1 mt-1 text-sm text-gray-800">
                             Standalone Question:{' '}
                             <span className="font-semibold text-gray-900">
