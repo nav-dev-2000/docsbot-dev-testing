@@ -12,6 +12,7 @@ import {
   AdjustmentsHorizontalIcon,
   UserCircleIcon,
   UserGroupIcon,
+  ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -246,6 +247,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const [answerHtml, setAnswerHtml] = useState(null)
     const [shortAnswer, setShortAnswer] = useState(question.answer)
     const [qaOpen, setQAOpen] = useState(false)
+    const [copied, setCopied] = useState(false)
     const [disabled, setDisabled] = useState(() => {
       return (
         questionIdx + questions.pagination.perPage * questions.pagination.page + BLUR_LIMIT_COUNT >=
@@ -307,6 +309,24 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
                     <div className="absolute right-0 top-0 flex pr-4 pt-4">
+                      {question.run_id && (
+                        <button
+                          className="flex items-center text-gray-400 hover:text-gray-600 text-xs mr-8"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            navigator.clipboard.writeText(question.run_id)
+                            setCopied(true)
+                            setTimeout(() => {
+                              setCopied(false)
+                            }, 2000)
+                          }}
+                          disabled={copied}
+                          title='Copy this question ID to provide to the support team.'
+                        >
+                          <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                          {copied ? 'Copied!' : 'Copy ID'}
+                        </button>
+                      )}
                       <button
                         type="button"
                         className="mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -385,7 +405,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       </div>
                       <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
                       {question.standaloneQuestion &&
-                        question.standaloneQuestion.trim() !== question.answer.trim() && 
+                        question.standaloneQuestion.trim() !== question.answer.trim() &&
                         question.standaloneQuestion.trim() !== question.question.trim() && (
                           <h3 className="mb-1 mt-1 text-sm text-gray-800">
                             Standalone Question:{' '}
@@ -585,9 +605,13 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                                 alt="User avatar"
                               />
                               {question.testing && (
-                                <span className="ml-2 text-xs text-gray-400 flex items-center">
-                                <UserGroupIcon className="mr-1 h-4 w-4 text-gray-500" title="Staff testing" />
-                                Staff</span>
+                                <span className="ml-2 flex items-center text-xs text-gray-400">
+                                  <UserGroupIcon
+                                    className="mr-1 h-4 w-4 text-gray-500"
+                                    title="Staff testing"
+                                  />
+                                  Staff
+                                </span>
                               )}
                             </div>
                             <p className="mt-2 text-xs">{question.alias}</p>
