@@ -1,13 +1,17 @@
 import { BookOpenIcon, PaintBrushIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Countdown from 'react-countdown'
+import Image from 'next/image'
+import logo from '@/images/logos/openai-docsbot.png'
 
 export function HeaderBanner() {
 
   return (
     <div className="flex items-center gap-x-6 bg-animation px-6 py-2 sm:px-3.5 justify-center">
+      <Image src={logo} alt="DocsBot + OpenAI" width={60} height={20} className="inline" />
       <p className="text-md leading-6 text-white">
         <Link href="https://docsbot.ai/documentation/doc/how-to-create-openai-gpt-chatbots-with-access-to-your-trained-documentation">
+          
           <strong className="font-semibold">NEW</strong>
           <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
             <circle cx={1} cy={1} r={1} />
