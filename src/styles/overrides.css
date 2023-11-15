@@ -52,3 +52,28 @@
       transform: translate(24px, 0);
   }
 }
+
+.bg-animation {
+  background: linear-gradient(326deg, #14b8a6, #0891b2);
+  background-size: 400% 400%;
+
+  -webkit-animation: Banner 11s ease infinite;
+  -moz-animation: Banner 11s ease infinite;
+  animation: Banner 11s ease infinite;
+}
+
+@-webkit-keyframes Banner {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes Banner {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes Banner {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}

@@ -13,6 +13,7 @@ import clsx from 'clsx'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { HeaderBanner, HeaderBannerSale } from '@/components/HeaderBanners'
 
 export default function Header() {
   const [user] = useAuthState(auth)
@@ -30,6 +31,8 @@ export default function Header() {
   }
 
   return (
+    <>
+    <HeaderBanner />
     <Popover as="header" className="relative">
       <div className="bg-gray-900 py-6">
         <nav
@@ -243,5 +246,6 @@ export default function Header() {
         </Popover.Panel>
       </Transition>
     </Popover>
+    </>
   )
 }
