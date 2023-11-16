@@ -37,7 +37,8 @@ export default async function handler(request, response) {
           .get()
 
         let questionTotal = 0
-        let sourcePageTotal = 0
+        let pageTotal = 0
+        let sourceTotal = 0
         const botCounts = []
 
         for (const botDoc of botsSnapshot.docs) {
@@ -45,8 +46,9 @@ export default async function handler(request, response) {
 
           // grab the # of source pages
           const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
-          const sourceCounts = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
-          const sourceCountTotal = sourceCounts.reduce(
+          const sourceCount = sourcesSnapshot.size
+          const sourcePages = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
+          const pageCount = sourcePages.reduce(
             (accumulator, count) => accumulator + count,
             0
           )
@@ -55,7 +57,8 @@ export default async function handler(request, response) {
 
           const botData = {
             questionCount: questionCount,
-            pageCount: sourceCountTotal,
+            pageCount: pageCount,
+            sourceCount: sourceCount,
             questionCountHistory: {
               ...prevHistory,
               [`${currentYear}-${currentMonth}`]: questionCount,
@@ -80,13 +83,14 @@ export default async function handler(request, response) {
           // update bot count
           await botDoc.ref.update(botData)
 
-          botCounts.push({ questionCount, sourceCountTotal })
+          botCounts.push({ questionCount, pageCount, sourceCount })
         }
 
         // take and sum the results
-        for (const { questionCount, sourceCountTotal } of botCounts) {
+        for (const { questionCount, pageCount, sourceCount } of botCounts) {
           questionTotal += questionCount
-          sourcePageTotal += sourceCountTotal
+          pageTotal += pageCount
+          sourceTotal += sourceCount
         }
 
         console.log(
@@ -95,7 +99,9 @@ export default async function handler(request, response) {
           'has',
           questionTotal,
           'questions,',
-          sourcePageTotal,
+          sourceTotal,
+          'sources,',
+          pageTotal,
           'source pages'
         )
 
@@ -103,7 +109,8 @@ export default async function handler(request, response) {
         const prevHistory = teamData.questionCountHistory || {}
         await teamDoc.ref.update({
           questionCount: questionTotal,
-          pageCount: sourcePageTotal,
+          pageCount: pageTotal,
+          sourceCount: sourceTotal,
           questionCountHistory: {
             ...prevHistory,
             [`${currentYear}-${currentMonth}`]: questionTotal,
