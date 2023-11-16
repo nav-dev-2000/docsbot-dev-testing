@@ -11,7 +11,7 @@ import LoadingDots from '@/components/LoadingDots'
 import Alert from '@/components/Alert'
 import { Mixpanel } from '@/lib/mixpanel-web'
 
-export default function Cancel({ team }) {
+export default function Cancel({ team, bots }) {
   const [open, setOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
   const [reason, setReason] = useState(null)
@@ -35,13 +35,31 @@ export default function Cancel({ team }) {
 
   useEffect(() => {
     if (currentStep === 3 && reason && details) {
-      askQuestion(
-        `Cancelation reason: ${
+      let prompt = `Cancelation reason: ${
           reasons.find((item) => item.id === reason).value
         }\nFollowup question: ${
           reasons.find((item) => item.id === reason).followup_question
         }\nAnswer: ${details}`
-      )
+      if (user.displayName) {
+        prompt += `\nCustomer name: ${user.displayName}`
+      }
+      if (!team.name.includes(user.displayName)) {
+        prompt += `\nTeam/organization name: ${team.name}`
+      }
+
+      //loop through bots and get the name and description of each, adding to prompt
+      prompt += `\n\nThe following bots were being used by the user:`
+      for (let i = 0; i < bots.length; i++) {
+        const bot = bots[i]
+        prompt += `\n---`
+        prompt += `\nBot name: ${bot.name}`
+        prompt += `\nBot description: ${bot.description}`
+        prompt += `\nBot question count: ${bot.questionCount}`
+      }
+      //cut the prompt to 2000 characters
+      prompt = prompt.substring(0, 2000)
+
+      askQuestion(prompt)
     }
   }, [currentStep])
 
@@ -430,7 +448,11 @@ export default function Cancel({ team }) {
                             : false
                         }
                       >
-                        {currentStep === steps.length - 1 ? 'Confirm Cancellation' : currentStep === 3 ? 'Cancel' : 'Next'}
+                        {currentStep === steps.length - 1
+                          ? 'Confirm Cancellation'
+                          : currentStep === 3
+                          ? 'I still want to cancel'
+                          : 'Next'}
                       </button>
                     </div>
                   </div>

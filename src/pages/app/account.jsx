@@ -19,8 +19,9 @@ import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
+import { getBots } from '@/lib/dbQueries'
 
-function Account({ team }) {
+function Account({ team, bots }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
@@ -95,7 +96,7 @@ function Account({ team }) {
 
       <div className="mt-6 rounded-lg bg-white p-8 shadow">
         <Checkout team={team} />
-        <Cancel team={team} />
+        <Cancel team={team} bots={bots} />
       </div>
 
       <div className="mt-6 gap-6 md:grid md:grid-cols-2">
@@ -159,6 +160,14 @@ function Account({ team }) {
   )
 }
 
-export const getServerSideProps = getAuthorizedUserCurrentTeam
+export const getServerSideProps = async (context) => {
+  const data = await getAuthorizedUserCurrentTeam(context)
+
+  if (data?.props?.team) {
+    data.props.bots = await getBots(data.props.team)
+  }
+
+  return data
+}
 
 export default Account
