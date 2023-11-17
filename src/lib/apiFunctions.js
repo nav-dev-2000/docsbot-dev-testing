@@ -35,7 +35,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
     source = sourceDoc.data()
 
     // decrement team counts (if the source was ingested)
-    if (sourceDoc.data().status == 'ready') {
+    if (sourceDoc.data().status == 'ready' || sourceDoc.data().status == 'failed') {
       const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
       const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
       const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
