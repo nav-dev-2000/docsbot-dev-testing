@@ -228,6 +228,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     logo,
     headerAlignment,
     resetkey,
+    recordIP,
   } = req.body
 
   const botData = {}
@@ -319,7 +320,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (botIcon !== undefined) {
     const validBotIconOptions = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
-    botData.botIcon = (validBotIconOptions.includes(botIcon) || botIcon.includes('://')) ? botIcon : ''
+    botData.botIcon =
+      validBotIconOptions.includes(botIcon) || botIcon.includes('://') ? botIcon : ''
   }
 
   if (logo !== undefined) {
@@ -406,6 +408,16 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
             )
           })
       : []
+  }
+
+  if (recordIP !== undefined) {
+    if (stripePlan(team).bots >= 100) {
+      botData.recordIP = Boolean(recordIP)
+    } else if (recordIP && bot?.recordIP !== true) {
+      throw new Error('Recording IPs is not available at your plan level.')
+    } else {
+      botData.recordIP = false
+    }
   }
 
   return botData

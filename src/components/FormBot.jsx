@@ -4,6 +4,7 @@ import { stripePlan } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
+import FieldToggle from '@/components/FieldToggle'
 
 export default function FormBot({ team, bot, setBotSettings, disabled, short = false }) {
   const [language, setLanguage] = useState(bot?.language || 'en')
@@ -20,6 +21,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     bot?.rateLimitIPAllowlist?.join(', ') || ''
   )
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [recordIP, setRecordIP] = useState(bot?.recordIP || false)
 
   useEffect(() => {
     setBotSettings({
@@ -33,6 +35,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
       rateLimitSeconds,
       rateLimitIPAllowlist,
       labels,
+      recordIP,
     })
   }, [
     language,
@@ -45,6 +48,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     rateLimitSeconds,
     rateLimitIPAllowlist,
     labels,
+    recordIP,
   ])
 
   //show upgrade if they change privacy to private
@@ -255,34 +259,35 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 GPT 3.5 Turbo (Latest)
               </label>
               <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                The fastest and cheapest (&lt;$0.0025/question) model with April 2023 knowledge cutoff good for most use cases.
+                The fastest and cheapest (&lt;$0.0025/question) model with April 2023 knowledge
+                cutoff good for most use cases.
               </p>
             </div>
           </div>
           {!short && (
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="gpt-3.5-turbo-0613"
-                name="model"
-                value="gpt-3.5-turbo-0613"
-                aria-describedby="gpt-3.5-turbo-0613-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={model === 'gpt-3.5-turbo-0613'}
-                onChange={() => setModel('gpt-3.5-turbo-0613')}
-                disabled={disabled}
-              />
+            <div className="relative flex items-start">
+              <div className="absolute flex h-5 items-center">
+                <input
+                  id="gpt-3.5-turbo-0613"
+                  name="model"
+                  value="gpt-3.5-turbo-0613"
+                  aria-describedby="gpt-3.5-turbo-0613-description"
+                  type="radio"
+                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                  checked={model === 'gpt-3.5-turbo-0613'}
+                  onChange={() => setModel('gpt-3.5-turbo-0613')}
+                  disabled={disabled}
+                />
+              </div>
+              <div className="pl-7 text-sm">
+                <label htmlFor="gpt-3.5-turbo-0613" className="font-medium text-gray-900">
+                  GPT 3.5 Turbo (Old June 2023 Version)
+                </label>
+                <p id="gpt-3.5-turbo-0613-description" className="text-gray-500">
+                  The previous (&lt;$0.003/question) model retiring June 2024.
+                </p>
+              </div>
             </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="gpt-3.5-turbo-0613" className="font-medium text-gray-900">
-                GPT 3.5 Turbo (Old June 2023 Version)
-              </label>
-              <p id="gpt-3.5-turbo-0613-description" className="text-gray-500">
-                The previous (&lt;$0.003/question) model retiring June 2024.
-              </p>
-            </div>
-          </div>
           )}
           <div>
             <div className="relative flex items-start">
@@ -348,8 +353,9 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   )}
                 </label>
                 <p id="gpt-4-1106-preview-description" className="text-gray-500">
-                  Newest (&lt;$0.03/question) model with April 2023 knowledge cutoff for
-                  advanced reasoning or content creation needs. Has low rate limits right now so don't use for busy bots yet.
+                  Newest (&lt;$0.03/question) model with April 2023 knowledge cutoff for advanced
+                  reasoning or content creation needs. Has low rate limits right now so don't use
+                  for busy bots yet.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -502,6 +508,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 </p>
               </div>
             </div>
+
             <div className="mt-4">
               <label
                 htmlFor="rateLimitMessage"
@@ -515,12 +522,19 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   name="rateLimitMessage"
                   id="rateLimitMessage"
                   value={labels?.rateLimitMessage}
-                  onChange={(e) =>
-                    setLabels({ ...labels, rateLimitMessage: e.target.value })
-                  }
+                  onChange={(e) => setLabels({ ...labels, rateLimitMessage: e.target.value })}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                 />
               </div>
+            </div>
+            <div className="mt-4">
+              <FieldToggle
+                label="Record IP Addresses"
+                description="Record unhashed IP addresses of users to help monitor abuse. Has privacy implications."
+                enabled={recordIP}
+                setEnabled={setRecordIP}
+                disabled={!stripePlan(team).bots >= 100}
+              />
             </div>
           </div>
         </>

@@ -72,6 +72,11 @@ const handler = async (req, res) => {
       console.log('questions', questions.size)
       // write questions to csv file
       csvData.push(['alias','timestamp','rating','question','standaloneQuestion','answer','sources','referrer'])
+
+      if(bot?.recordIP){
+        csvData[0].push('ip')
+      }
+
       questions.forEach((doc) => {
         let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
         //if we identified the user, use the provided data for alias
@@ -108,7 +113,11 @@ const handler = async (req, res) => {
         const ratingValue = question.rating == 0 ? 'N/A' : (question.rating > 0 ? 'Positive' : 'Negative');
         const rating = question?.escalation ? 'Contacted Support' : ratingValue;
         const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
-
+        const ip = question?.ip
+        
+        if(bot?.recordIP){
+         csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer, ip])
+        }
         csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer])
       })
 
