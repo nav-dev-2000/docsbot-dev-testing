@@ -54,12 +54,12 @@
 }
 
 .bg-animation {
-  background: linear-gradient(326deg, #14b8a6, #0891b2);
+  background: linear-gradient(326deg, rgb(21, 94, 117), #14b8a6, #0891b2);
   background-size: 400% 400%;
 
-  -webkit-animation: Banner 11s ease infinite;
-  -moz-animation: Banner 11s ease infinite;
-  animation: Banner 11s ease infinite;
+  -webkit-animation: Banner 7s ease infinite;
+  -moz-animation: Banner 7s ease infinite;
+  animation: Banner 7s ease infinite;
 }
 
 @-webkit-keyframes Banner {

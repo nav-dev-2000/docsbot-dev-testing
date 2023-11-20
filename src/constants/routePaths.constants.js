@@ -6,4 +6,5 @@ export const routePaths = {
   APP: '/app',
   TEAM: '/app/team',
   BOTS: '/app/bots',
+  ACCOUNT: '/app/account',
 }

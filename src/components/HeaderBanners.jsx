@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Countdown from 'react-countdown'
 import Image from 'next/image'
 import logo from '@/images/logos/openai-docsbot.png'
+import { stripePlan } from '@/utils/helpers'
 
 export function HeaderBanner() {
 
@@ -23,7 +24,10 @@ export function HeaderBanner() {
   )
 }
 
-export function HeaderBannerSale() {
+export function HeaderBannerSale({team}) {
+  if (team && stripePlan(team).name !== 'Free') {
+    return null
+  }
 
   return (
     <div className="flex items-center gap-x-6 px-6 py-2.5 sm:px-3.5 bg-animation justify-center">
@@ -34,7 +38,7 @@ export function HeaderBannerSale() {
             <circle cx={1} cy={1} r={1} />
           </svg>
           Lock-in an amazing price for any new annual plan. Ends in{' '}
-        <Countdown date={new Date('2023-11-25T00:00:00')} zeroPadDays={0} />!
+        <Countdown date={new Date('2023-11-25T00:00:00')} renderer={DayCounter} />!
         </p>
         <Link
           href="/register?redirect=/app/account"
@@ -45,4 +49,29 @@ export function HeaderBannerSale() {
       </div>
     </div>
   )
+}
+
+export function BannerSale() {
+  return (
+    <div className="flex items-center gap-x-6 my-4 px-6 py-2.5 sm:px-3.5 bg-animation justify-center rounded-md">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <p className="text-lg font-semibold leading-6 text-white text-center">
+          Black Friday sale: Save 40% on Annual plans! Ends in{' '}
+        <Countdown date={new Date('2023-11-25T00:00:00')} renderer={DayCounter} />!
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export function DayCounter({ days, hours, minutes, seconds, completed }) {
+  if (completed) {
+    return <span className="text-white">Sale ended!</span>
+  } else {
+    return (
+      <span className="text-white">
+        {days}d {hours}h {minutes}m {seconds}s
+      </span>
+    )
+  }
 }

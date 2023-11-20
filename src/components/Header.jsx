@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <>
-    <HeaderBanner />
+    {user ? <HeaderBanner /> : <HeaderBannerSale />}
     <Popover as="header" className="relative">
       <div className="bg-gray-900 py-6">
         <nav
