@@ -69,7 +69,7 @@ export const sourceTypes = [
     id: 'sitemap',
     title: 'Sitemap',
     description: 'Answer from all content on a website refrenced by its XML sitemap',
-    fullDescription: 'Add the URL of a website with a sitemap to learn from. We will parse all sitemaps on the doamin, download all html pages in the sitemap, parse the content, and add it to this bot index.',
+    fullDescription: 'Add the URL of a website with a sitemap to learn from. We will parse all sitemaps on the domain, download all html pages in the sitemap, parse the content, and add it to this bot index.',
     icon: MapIcon,
     isPro: true,
     coming: false,
