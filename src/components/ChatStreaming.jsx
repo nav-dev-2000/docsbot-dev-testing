@@ -23,7 +23,7 @@ import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
-export default function Chat({ teamId, bot }) {
+export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
   const [answers, setAnswers] = useState([])
   const [currentAnswer, setCurrentAnswer] = useState('')
@@ -33,6 +33,8 @@ export default function Chat({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
   const [ratings, setRatings] = useState({})
+  const [isResearchMode, setIsResearchMode] = useState(false)
+  const [researchDisabled, setResearchDisabled] = useState(bot.model === 'gpt-3.5-turbo-0613')
   const [questions, setQuestions] = useState(
     bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : []
   )
@@ -115,6 +117,9 @@ export default function Chat({ teamId, bot }) {
       if (bot.privacy === 'private') {
         //add token to request
         req.auth = bot.signature
+      }
+      if (isResearchMode) {
+        req.context_items = 16
       }
       ws.send(JSON.stringify(req))
 
@@ -379,7 +384,29 @@ export default function Chat({ teamId, bot }) {
             {bot.name}
           </p>
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{bot.description}</p>
+          {showResearchMode && (
+            <label className="relative mt-2 inline-flex cursor-pointer items-center">
+              <input
+                type="checkbox"
+                value={isResearchMode}
+                checked={isResearchMode}
+                onChange={() => setIsResearchMode((prevOpen) => !prevOpen)}
+                className="peer sr-only"
+                disabled={researchDisabled}
+              />
+              <div className="peer h-6 w-11 rounded-full bg-gray-200 disabled:opacity-25 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-600 peer-focus:ring-offset-2 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700"></div>
+              <span className="ms-3 text-sm text-gray-700 dark:text-gray-300">
+                Research mode
+              </span>
+            </label>
+          )}
         </div>
+        {isResearchMode && showResearchMode && (
+          <p className="mx-auto mt-2 max-w-prose text-xs text-gray-500">
+            Note: Enabling Research Mode passes more source context in order to answer detailed
+            questions at the expense of more token usage.
+          </p>
+        )}
         <div className="mt-12">
           {answers.map((answer, index) => (
             <ChatRow key={index} answer={answer} />

@@ -53,7 +53,7 @@ export default function ModalChat({ team, bot }) {
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <Chat teamId={team.id} bot={bot} />
+                  <Chat teamId={team.id} bot={bot} showResearchMode={true} />
                 </Dialog.Panel>
               </Transition.Child>
             </div>
