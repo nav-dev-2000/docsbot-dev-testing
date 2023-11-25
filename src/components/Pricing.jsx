@@ -14,7 +14,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
 export default function Pricing() {
-  const [frequency, setFrequency] = useState(frequencies[0])
+  const [frequency, setFrequency] = useState(frequencies[1])
   const [currency, setCurrency] = useState('USD')
   const [user] = useAuthState(auth)
 
@@ -135,16 +135,47 @@ export default function Pricing() {
                     {frequency.priceSuffix}
                   </span>
                 </p>
+              ) : user ? (
+                <>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-4xl font-bold tracking-tight text-gray-900">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly']).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /month
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
+                    <span className="text-xl font-semibold tracking-tight ">
+                      ({currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 12).toFixed(0)}
+                    </span> 
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/year)</span>
+                  </p>
+                </>
               ) : (
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-4xl font-bold tracking-tight text-gray-900">
-                    {currencies[currency].symbol}
-                    {(tier.price[currency][frequency.value] / 12).toFixed(0)}
-                  </span>
-                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                    /month
-                  </span>
-                </p>
+                <>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                      {currencies[currency].symbol}
+                      {tier.price[currency]['monthly'].toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /mo
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight ">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 0.6).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/mo</span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 40% for Black Friday!
+                  </div>
+                </>
               )}
               <Link
                 href={tier.href}
