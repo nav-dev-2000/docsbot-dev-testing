@@ -193,7 +193,7 @@ export default function Cancel({ team, bots }) {
     {
       id: 'too_expensive',
       value: 'It’s too expensive',
-      followup_question: 'How much would you be willing to pay for your use case?',
+      followup_question: 'What features would provide enough value to be worth the cost?',
       suggestion:
         "We understand that cost can be a concern. Did you know we offer a variety of pricing plans? Let's find one that fits your budget. Would you be interested in exploring our [discounted/lesser-priced] plans?",
     },
