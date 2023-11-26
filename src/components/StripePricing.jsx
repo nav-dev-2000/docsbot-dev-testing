@@ -181,14 +181,14 @@ export function StripePricingTable({ team, email, setErrorText }) {
                 <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
                 <span className="text-4xl font-bold tracking-tight ">
                   {currencies[currency].symbol}
-                  {(tier.price[currency]['monthly']*.6).toFixed(0)}
+                  {(tier.price[currency]['monthly']*.5).toFixed(0)}
                 </span>
                 <span className="-ml-0.5 text-sm font-semibold leading-6 ">
                   /mo
                 </span>
               </p>
                 <div className="text-xs font-bold leading-6 rounded-full bg-animation text-white text-center">
-                  Save 40% for Black Friday!
+                  Save 50% for Cyber Monday!
                 </div>
               </>
               )}
