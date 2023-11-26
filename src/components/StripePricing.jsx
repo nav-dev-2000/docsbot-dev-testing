@@ -20,7 +20,9 @@ import { BannerSale } from '@/components/HeaderBanners'
 export function StripePricingTable({ team, email, setErrorText }) {
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(frequencies[1])
-  const [currency, setCurrency] = useState(team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD')
+  const [currency, setCurrency] = useState(
+    team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD'
+  )
   const [opening, setOpening] = useState(false)
   const [plans] = useState(JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [])
 
@@ -54,11 +56,15 @@ export function StripePricingTable({ team, email, setErrorText }) {
 
   const isDisableSelectPlanButton = (id) => {
     const planLimits = plans[id]
-    let isDisableButton = false;
-    if (team?.botCount > planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+    let isDisableButton = false
+    if (
+      team?.botCount > planLimits.bots ||
+      team?.pageCount >= planLimits.pages ||
+      team?.questionCount >= planLimits.questions
+    ) {
       isDisableButton = true
     }
-    return isDisableButton;
+    return isDisableButton
   }
 
   return (
@@ -158,39 +164,49 @@ export function StripePricingTable({ team, email, setErrorText }) {
               </div>
               <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
               {frequency?.value === 'monthly' ? (
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-4xl font-bold tracking-tight text-gray-900">
-                    {currencies[currency].symbol}
-                    {tier.price[currency][frequency.value]}
-                  </span>
-                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                    {frequency.priceSuffix}
-                  </span>
-                </p>
+                <>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                      {currencies[currency].symbol}
+                      {tier.price[currency]['monthly'].toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /mo
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight ">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 0.75).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/mo</span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 25% for Cyber Monday!
+                  </div>
+                </>
               ) : (
                 <>
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-2xl line-through font-bold tracking-tight text-gray-600">
-                    {currencies[currency].symbol}
-                    {(tier.price[currency]['monthly']).toFixed(0)}
-                  </span>
-                <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                  /mo
-                </span>
-                </p>
-                <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                <span className="text-4xl font-bold tracking-tight ">
-                  {currencies[currency].symbol}
-                  {(tier.price[currency]['monthly']*.5).toFixed(0)}
-                </span>
-                <span className="-ml-0.5 text-sm font-semibold leading-6 ">
-                  /mo
-                </span>
-              </p>
-                <div className="text-xs font-bold leading-6 rounded-full bg-animation text-white text-center">
-                  Save 50% for Cyber Monday!
-                </div>
-              </>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                      {currencies[currency].symbol}
+                      {tier.price[currency]['monthly'].toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /mo
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight ">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 0.5).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/mo</span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 50% for Cyber Monday!
+                  </div>
+                </>
               )}
               <button
                 aria-describedby={tier.id}
@@ -205,7 +221,10 @@ export function StripePricingTable({ team, email, setErrorText }) {
               >
                 Subscribe
               </button>
-              <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 columns-2 xl:columns-1">
+              <ul
+                role="list"
+                className="mt-8 columns-2 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 xl:columns-1"
+              >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />

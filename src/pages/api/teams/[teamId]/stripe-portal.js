@@ -46,6 +46,9 @@ export default async function createCheckoutSession(req, res) {
         if (frequency === 'annually') {
           delete params.allow_promotion_codes
           params.discounts = [{coupon: 'HJ8JpsQs'}]
+        } else {
+          delete params.allow_promotion_codes
+          params.discount = {coupon: 'ZeLNT6yj'}
         }
 
         const { url } = await stripe.checkout.sessions.create(params)

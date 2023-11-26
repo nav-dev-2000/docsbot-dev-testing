@@ -36,7 +36,7 @@ export function HeaderBannerSale({ team }) {
     <div className="bg-animation flex items-center justify-center gap-x-6 px-6 py-2.5 sm:px-3.5">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-center text-lg leading-6 text-white xl:text-left">
-          <strong className="font-semibold">Save 50% for Cyber Monday!</strong>
+          <strong className="font-semibold">Save up to 50% for Cyber Monday!</strong>
           <svg
             viewBox="0 0 2 2"
             className="mx-2 inline h-0.5 w-0.5 fill-current"
@@ -44,7 +44,7 @@ export function HeaderBannerSale({ team }) {
           >
             <circle cx={1} cy={1} r={1} />
           </svg>
-          Lock-in an amazing price for any new annual plan. Ends in{' '}
+          Lock-in an amazing price for any plan. Ends in{' '}
           <Countdown date={new Date('2023-11-28T00:00:00')} renderer={DayCounter} />!
         </p>
         <Link
@@ -63,7 +63,7 @@ export function BannerSale() {
     <div className="bg-animation my-4 flex items-center justify-center gap-x-6 rounded-md px-6 py-2.5 sm:px-3.5">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-center text-lg font-semibold leading-6 text-white">
-          Cyber Monday sale: Save 50% on Annual plans! Ends in{' '}
+          Cyber Monday sale: Save up to 50% on all plans! Ends in{' '}
           <Countdown date={new Date('2023-11-28T00:00:00')} renderer={DayCounter} />!
         </p>
       </div>
