@@ -125,34 +125,46 @@ export default function Pricing() {
                 ) : null}
               </div>
               <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
-              {frequency?.value === 'monthly' ? (
+              {frequency?.value === 'monthly' && !user ? (
                 <>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                      {currencies[currency].symbol}
+                      {tier.price[currency]['monthly'].toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /mo
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight ">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 0.75).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">
+                      {frequency.priceSuffix}
+                    </span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 25% for Cyber Monday!
+                  </div>
+                </>
+              ) : frequency?.value === 'monthly' ? (
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                  <span className="text-4xl font-bold tracking-tight text-gray-600">
                     {currencies[currency].symbol}
                     {tier.price[currency]['monthly'].toFixed(0)}
                   </span>
                   <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                    /mo
+                    {frequency.priceSuffix}
                   </span>
                 </p>
-                <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                  <span className="text-4xl font-bold tracking-tight ">
-                    {currencies[currency].symbol}
-                    {(tier.price[currency]['monthly'] * 0.75).toFixed(0)}
-                  </span>
-                  <span className="-ml-0.5 text-sm font-semibold leading-6 ">{frequency.priceSuffix}</span>
-                </p>
-                <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
-                  Save 25% for Cyber Monday!
-                </div>
-              </>
               ) : user ? (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
                     <span className="text-4xl font-bold tracking-tight text-gray-900">
                       {currencies[currency].symbol}
-                      {(tier.price[currency]['monthly']).toFixed(0)}
+                      {tier.price[currency]['monthly'].toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                       /month
@@ -162,7 +174,7 @@ export default function Pricing() {
                     <span className="text-xl font-semibold tracking-tight ">
                       ({currencies[currency].symbol}
                       {(tier.price[currency]['monthly'] * 12).toFixed(0)}
-                    </span> 
+                    </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 ">/year)</span>
                   </p>
                 </>
