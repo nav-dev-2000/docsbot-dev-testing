@@ -45,7 +45,7 @@ export function HeaderBannerSale({ team }) {
             <circle cx={1} cy={1} r={1} />
           </svg>
           Lock-in an amazing price for any plan. Ends in{' '}
-          <Countdown date={new Date('2023-11-28T00:00:00')} renderer={DayCounter} />!
+          <Countdown date={new Date('2023-11-29T00:00:00')} renderer={DayCounter} />!
         </p>
         <Link
           href="/register?redirect=/app/account"
@@ -64,7 +64,7 @@ export function BannerSale() {
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-center text-lg font-semibold leading-6 text-white">
           Cyber Monday sale: Save up to 50% on all plans! Ends in{' '}
-          <Countdown date={new Date('2023-11-28T00:00:00')} renderer={DayCounter} />!
+          <Countdown date={new Date('2023-11-29T00:00:00')} renderer={DayCounter} />!
         </p>
       </div>
     </div>
@@ -77,7 +77,7 @@ export function DayCounter({ days, hours, minutes, seconds, completed }) {
   } else {
     return (
       <span className="text-white">
-        {days}d {hours}h {minutes}m {seconds}s
+        {hours}h {minutes}m {seconds}s
       </span>
     )
   }
