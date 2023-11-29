@@ -43,6 +43,7 @@ export default async function createCheckoutSession(req, res) {
         } else {
           params.customer_email = email
         }
+        /*
         if (frequency === 'annually') {
           delete params.allow_promotion_codes
           params.discounts = [{coupon: 'HJ8JpsQs'}]
@@ -50,6 +51,7 @@ export default async function createCheckoutSession(req, res) {
           delete params.allow_promotion_codes
           params.discounts = [{coupon: 'ZeLNT6yj'}]
         }
+        */
 
         const { url } = await stripe.checkout.sessions.create(params)
 

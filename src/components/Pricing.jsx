@@ -9,7 +9,6 @@ import {
   enterpriseFeatures,
   currencies,
 } from '@/constants/pricing.constants'
-import { BannerSale } from '@/components/HeaderBanners'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
@@ -27,7 +26,6 @@ export default function Pricing() {
             Pricing plans for any usage
           </p>
         </div>
-        {!user && <BannerSale />}
         <p className="mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
           Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a
           custom plan?{' '}
@@ -73,7 +71,7 @@ export default function Pricing() {
             ))}
           </RadioGroup>
         </div>
-        {/*<p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>*/}
+        <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
         <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
           <RadioGroup
             value={currency}
@@ -125,80 +123,36 @@ export default function Pricing() {
                 ) : null}
               </div>
               <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
-              {frequency?.value === 'monthly' && !user ? (
-                <>
-                  <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
-                      {currencies[currency].symbol}
-                      {tier.price[currency]['monthly'].toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /mo
-                    </span>
-                  </p>
-                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                    <span className="text-4xl font-bold tracking-tight ">
-                      {currencies[currency].symbol}
-                      {(tier.price[currency]['monthly'] * 0.75).toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">
-                      {frequency.priceSuffix}
-                    </span>
-                  </p>
-                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
-                    Save 25% for Cyber Monday!
-                  </div>
-                </>
-              ) : frequency?.value === 'monthly' ? (
+              {frequency?.value === 'monthly' ? (
                 <p className="mt-6 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-600">
                     {currencies[currency].symbol}
-                    {tier.price[currency]['monthly'].toFixed(0)}
+                    {tier.price[currency][frequency?.value].toFixed(0)}
                   </span>
                   <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                     {frequency.priceSuffix}
                   </span>
                 </p>
-              ) : user ? (
+              ) : (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-4xl font-bold tracking-tight text-gray-900">
+                    <span className="text-4xl font-bold tracking-tight text-gray-600">
                       {currencies[currency].symbol}
-                      {tier.price[currency]['monthly'].toFixed(0)}
+                      {(tier.price[currency][frequency?.value] / 12).toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                       /month
                     </span>
                   </p>
                   <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
-                    <span className="text-xl font-semibold tracking-tight ">
-                      ({currencies[currency].symbol}
-                      {(tier.price[currency]['monthly'] * 12).toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/year)</span>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                    (
+                    <span className="text-xl font-bold tracking-tight ">
                       {currencies[currency].symbol}
-                      {tier.price[currency]['monthly'].toFixed(0)}
+                      {(tier.price[currency][frequency?.value]).toFixed(0)}
                     </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /mo
-                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/annually</span>
+                    )
                   </p>
-                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                    <span className="text-4xl font-bold tracking-tight ">
-                      {currencies[currency].symbol}
-                      {(tier.price[currency]['monthly'] * 0.5).toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/mo</span>
-                  </p>
-                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
-                    Save 50% for Cyber Monday!
-                  </div>
                 </>
               )}
               <Link
