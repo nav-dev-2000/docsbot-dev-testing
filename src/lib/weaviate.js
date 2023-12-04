@@ -1,4 +1,4 @@
-import weaviate, { ApiKey } from 'weaviate-ts-client';
+import weaviate, { ApiKey } from 'weaviate-ts-client'
 
 const weaviateClient = () => {
   try {
@@ -26,10 +26,17 @@ export const createSchema = (team, indexId) => {
     vectorizePropertyName: false,
   }
 
+  let moduleConfig = {
+    model: 'ada',
+    modelVersion: '002',
+    type: 'text',
+    vectorizeClassName: false,
+  }
+
   if (team['AzureDeploymentBase']) {
     console.log('!!!!!!!!!!!!!!!!! Using Azure Deployment')
-    text2vecConfig['resourceName'] = team['AzureDeploymentBase']
-    text2vecConfig['deploymentId'] = team['AzureDeploymentName']
+    moduleConfig['resourceName'] = team['AzureDeploymentBase']
+    moduleConfig['deploymentId'] = team['AzureDeploymentName']
   }
 
   //create a weaviate schema for the bot
@@ -40,12 +47,7 @@ export const createSchema = (team, indexId) => {
       description: 'A text document chunk',
       vectorizer: 'text2vec-openai',
       moduleConfig: {
-        'text2vec-openai': {
-          model: 'ada',
-          modelVersion: '002',
-          type: 'text',
-          vectorizeClassName: false,
-        },
+        'text2vec-openai': moduleConfig,
       },
       properties: [
         {
@@ -117,7 +119,7 @@ export const importChunks = (indexId, type, sourceId, data) => {
       class: indexId,
       properties: {
         content: chunk.text,
-        metadata: JSON.stringify({title: chunk.title, source: chunk.url}),
+        metadata: JSON.stringify({ title: chunk.title, source: chunk.url }),
         type,
         sourceId,
       },
@@ -132,8 +134,7 @@ export const importChunks = (indexId, type, sourceId, data) => {
       // flush the batch queue
       batcher
         .do()
-        .then((res) => {
-        })
+        .then((res) => {})
         .catch((err) => {
           console.error(err)
         })
@@ -147,8 +148,7 @@ export const importChunks = (indexId, type, sourceId, data) => {
   // Flush the remaining objects
   return batcher
     .do()
-    .then((res) => {
-    })
+    .then((res) => {})
     .catch((err) => {
       console.error(err)
     })
