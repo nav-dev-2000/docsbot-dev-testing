@@ -35,7 +35,10 @@ export const createSchema = (team, indexId) => {
 
   if (team['AzureDeploymentBase']) {
     console.log('!!!!!!!!!!!!!!!!! Using Azure Deployment')
-    moduleConfig['resourceName'] = team['AzureDeploymentBase']
+    let url = new URL(team['AzureDeploymentBase']);
+    let hostname = url.hostname;
+    let shortHostname = hostname.split('.')[0];
+    moduleConfig['resourceName'] = shortHostname
     moduleConfig['deploymentId'] = team['AzureDeploymentName']
   }
 
