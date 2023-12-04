@@ -32,26 +32,30 @@ export default async function handler(req, res) {
       mpTrack(userId, 'Updated Team Name', { ip: req.headers['x-forwarded-for'] })
     }
     if (openAIKey) {
-      if (!/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
+      if (!team.AzureDeploymentBase && !/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
         return res.status(400).json({ message: 'Invalid OpenAI Key' })
       }
 
       try {
-        //check if key is valid
-        const configuration = new Configuration({
-          apiKey: openAIKey,
-        })
-        const openai = new OpenAIApi(configuration)
-        //list models available
-        const models = await openai.listModels()
-        const isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4')
+        let isGPT4 = false
+        if (!team.AzureDeploymentBase) {
+          //check if key is valid
+          const configuration = new Configuration({
+            apiKey: openAIKey,
+          })
+          const openai = new OpenAIApi(configuration)
+          //list models available
+          const models = await openai.listModels()
+          isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4')
+        } else {
+          isGPT4 = true
+        }
 
         newTeam.openAIKey = encryptKey(openAIKey)
         newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
         newTeam.supportsGPT4 = isGPT4
 
         mpTrack(userId, 'Updated OpenAI Key', { ip: req.headers['x-forwarded-for'] })
-
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
@@ -90,7 +94,7 @@ export default async function handler(req, res) {
       }
 
       mpTrack(userId, 'Deleted team', {
-        "Team name": team.name,
+        'Team name': team.name,
         ip: req.headers['x-forwarded-for'],
       })
 

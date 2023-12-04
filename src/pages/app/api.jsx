@@ -51,21 +51,59 @@ function Api({ user, team }) {
   return (
     <DashboardWrap page="API" team={team}>
       <Alert title={errorText} type="error" />
-      <ModalOpenAI {...{ team, open, setOpen, onKey: (key) => {team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)} }} />
+      <ModalOpenAI
+        {...{
+          team,
+          open,
+          setOpen,
+          onKey: (key) => {
+            team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)
+          },
+        }}
+      />
       <div className="rounded-lg bg-white p-8 shadow">
-        <h3 className="text-2xl font-bold">OpenAI API Key</h3>
-        <p className="text-md mt-2 text-justify text-gray-800">
-          You can update your API key here. You must have a valid API key with billing enabled in
-          your OpenAI account for DocsBot to function.{' '}
-          <Link
-            className="text-cyan-800 underline"
-            href="https://beta.openai.com/account/api-keys"
-            target="_blank"
-          >
-            Get my OpenAI key
-          </Link>
-          .
-        </p>
+        <h3 className="text-2xl font-bold">{team.AzureDeploymentBase && 'Azure '}OpenAI API Key</h3>
+
+        {team.AzureDeploymentBase ? (
+          <>
+            <p className="text-md mt-2 text-justify text-gray-800">
+              Your team is configured to use an Azure custom endpoint. You should enter your Azure
+              API key here.{' '}
+              <Link
+                className="text-cyan-800 underline"
+                href="https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python#retrieve-key-and-endpoint"
+                target="_blank"
+              >
+                Get my Azure key
+              </Link>
+              . To change your deployment settings, please contact support.
+            </p>
+            <ul>
+              <li className="text-md mt-2 text-justify text-gray-800">
+                <strong>Endpoint:</strong> {team.AzureDeploymentBase}
+              </li>
+              <li className="text-md mt-2 text-justify text-gray-800">
+                <strong>Deployment Name:</strong> {team.AzureDeploymentName}
+              </li>
+              <li className="text-md mt-2 text-justify text-gray-800">
+                <strong>API Version:</strong> {team.AzureDeploymentVersion}
+              </li>
+            </ul>
+          </>
+        ) : (
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can update your API key here. You must have a valid API key with billing enabled in
+            your OpenAI account for DocsBot to function.{' '}
+            <Link
+              className="text-cyan-800 underline"
+              href="https://platform.openai.com/api-keys"
+              target="_blank"
+            >
+              Get my OpenAI key
+            </Link>
+            .
+          </p>
+        )}
         <div className="mt-4 flex justify-between">
           <div>
             <div className="mt-4 flex items-center justify-start">
@@ -85,14 +123,16 @@ function Api({ user, team }) {
               <p className="mt-4 text-sm italic">GPT-4 Support Enabled</p>
             ) : (
               <>
-              <Link
-                className="mt-4 block text-sm underline hover:text-gray-500"
-                href="https://openai.com/waitlist/gpt-4-api"
-                target="_blank"
-              >
-                GPT-4 access details
-              </Link>
-              <p className="mt-1 text-xs italic">Optional - Once approved update your OpenAI API key to enable GPT-4</p>
+                <Link
+                  className="mt-4 block text-sm underline hover:text-gray-500"
+                  href="https://openai.com/waitlist/gpt-4-api"
+                  target="_blank"
+                >
+                  GPT-4 access details
+                </Link>
+                <p className="mt-1 text-xs italic">
+                  Optional - Once approved update your OpenAI API key to enable GPT-4
+                </p>
               </>
             )}
           </div>
