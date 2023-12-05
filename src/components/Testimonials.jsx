@@ -10,6 +10,8 @@ import image6 from '@/images/avatars/testimony6.png'
 import image7 from '@/images/avatars/testimony-sg.jpeg'
 import image8 from '@/images/avatars/avatar-default.jpg'
 import image9 from '@/images/avatars/chatgpt-logo.png'
+import wingarc from '@/images/avatars/wingarc.png'
+import sentry from '@/images/avatars/sentry.png'
 
 const testimonials = [
   [
@@ -24,6 +26,15 @@ const testimonials = [
     },
     {
       content:
+        'AIチャットボット系のツールでNo.1ですね。テキスト、ファイル、URLを読み込んで簡単にチャットボットが作れます。LINEの連携もできて非常に便利です！！',
+      author: {
+        name: 'MASAHIRO CHAEN',
+        role: 'チャエン | 重要AIニュースを毎日発信',
+        image: image6,
+      },
+    },
+    {
+      content:
         'DocsBot is amazing! I want to thank you for your great work on this product. I have tried a few others, and nothing compares.',
       author: {
         name: 'Gareth P.',
@@ -31,15 +42,23 @@ const testimonials = [
         image: image8,
       },
     },
+    {
+      content:
+        'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
+      author: {
+        name: 'Igor Benić',
+        role: 'Soloprenuer/Web Developer',
+        image: image5,
+      },
+    },
   ],
   [
     {
-      content:
-        'AIチャットボット系のツールでNo.1ですね。テキスト、ファイル、URLを読み込んで簡単にチャットボットが作れます。LINEの連携もできて非常に便利です！！',
+      content: '企業のビジネスにとって、運用ループを構築することは非常に重要です。AIボットにおいても同様であり、そこには回答を提供するだけでなく、顧客の質問を素早くキャッチして、質問の細部にまで目を通すことが含まれます。DocsBotは、AIボット運用における私たちのニーズを完璧に把握し、信じられないほどの速さで新機能を追加しています。この素晴らしいパートナーシップに心から感謝します！',
       author: {
-        name: 'MASAHIRO CHAEN',
-        role: 'チャエン | 重要AIニュースを毎日発信',
-        image: image6,
+        name: 'Yukitoshi Aoyagi',
+        role: 'Customer Success 部長 @ ウイングアーク1st株式会社',
+        image: wingarc,
       },
     },
     {
@@ -64,6 +83,15 @@ const testimonials = [
   [
     {
       content:
+        "We've had DocsBot on our docs site for the last couple of months and our users are definitely engaging with it. It's been a great tool for understanding what our users are interested in learning from our docs!",
+      author: {
+        name: 'Liza Mock',
+        role: 'Manager Docs & Technical Writing @ Sentry.io',
+        image: sentry,
+      },
+    },
+    {
+      content:
         'While there seem to be a ton of these types of "bots" getting launched all the time, few of them are so well designed from a UI and a usability perspective. The ability to train the bot on your own content library in really intuitive ways sets DocsBot apart. Love it!',
       author: {
         name: 'Matt Cromwell',
@@ -72,12 +100,11 @@ const testimonials = [
       },
     },
     {
-      content:
-        'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
+      content: 'For businesses, constructing an operational loop is extremely important. The same applies to AI bots, which involves not only providing answers but also quickly catching customer questions and paying attention to the details of those questions. DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!',
       author: {
-        name: 'Igor Benić',
-        role: 'Soloprenuer/Web Developer',
-        image: image5,
+        name: 'Yukitoshi Aoyagi',
+        role: 'GM, Customer Success @ WingArc1st Inc.',
+        image: wingarc,
       },
     },
     /*
@@ -142,7 +169,7 @@ export function Testimonials() {
                             {testimonial.author.role}
                           </div>
                         </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
+                        <div className="overflow-hidden rounded-full bg-slate-50 flex-shrink-0">
                           <Image
                             className="h-14 w-14 object-cover"
                             src={testimonial.author.image}

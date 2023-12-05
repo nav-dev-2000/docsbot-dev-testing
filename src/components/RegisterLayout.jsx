@@ -28,22 +28,6 @@ const features = [
     description: 'Easily integrate DocsBot to your website with customizable widgets.',
     icon: ChatBubbleLeftRightIcon,
   },
-
-  {
-    name: 'Custom Copywriting',
-    description: 'Generate high-quality content with a customized ChatGPT.',
-    icon: PencilSquareIcon,
-  },
-  {
-    name: 'Reply to Support Tickets',
-    description: 'Automatically reply to support tickets using your existing documentation.',
-    icon: LifebuoyIcon,
-  },
-  {
-    name: 'Powerful API',
-    description: 'Integrate AI chat into your products using our powerful API.',
-    icon: Cog6ToothIcon,
-  },
 ]
 
 export function RegisterLayout({ teamCount, children }) {
