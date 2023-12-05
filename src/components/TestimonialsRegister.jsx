@@ -2,7 +2,7 @@ import Image from 'next/future/image'
 import image3 from '@/images/avatars/testimony3.jpeg'
 import dollieLogo from '@/images/logos/logo-dollie.png'
 import wingarcLogo from '@/images/logos/logo-wingarc.png'
-import wingarc from '@/images/avatars/wingarc.png'
+import aoyagi from '@/images/avatars/aoyagi.jpg'
 
 export function Testimonials({ teamCount }) {
   return (
@@ -55,7 +55,7 @@ export function Testimonials({ teamCount }) {
                 </p>
               </blockquote>
               <figcaption className="mt-10 flex items-center gap-x-6">
-                <Image className="h-14 w-14 rounded-full bg-gray-400" src={wingarc} alt="" />
+                <Image className="h-14 w-14 rounded-full bg-gray-400" src={aoyagi} alt="" />
                 <div className="text-base">
                   <div className="font-semibold text-white">Yukitoshi Aoyagi</div>
                   <div className="mt-1 text-gray-100">

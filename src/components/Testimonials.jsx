@@ -12,6 +12,7 @@ import image8 from '@/images/avatars/avatar-default.jpg'
 import image9 from '@/images/avatars/chatgpt-logo.png'
 import wingarc from '@/images/avatars/wingarc.png'
 import sentry from '@/images/avatars/sentry.png'
+import aoyagi from '@/images/avatars/aoyagi.jpg'
 
 const testimonials = [
   [
@@ -100,11 +101,11 @@ const testimonials = [
       },
     },
     {
-      content: 'For businesses, constructing an operational loop is extremely important. The same applies to AI bots, which involves not only providing answers but also quickly catching customer questions and paying attention to the details of those questions. DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!',
+      content: 'DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!',
       author: {
         name: 'Yukitoshi Aoyagi',
         role: 'GM, Customer Success @ WingArc1st Inc.',
-        image: wingarc,
+        image: aoyagi,
       },
     },
     /*
