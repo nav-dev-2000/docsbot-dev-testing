@@ -24,7 +24,7 @@ const pricing = {
       output_token_cost_per_thousand: 0.002,
     },
     {
-      model_name: 'GPT-4 Turbo',
+      model_name: 'GPT-4 Turbo / Azure',
       context: '128K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.01,
@@ -48,15 +48,15 @@ const pricing = {
       model_name: 'Claude Instant',
       context: '100K',
       provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.00163,
-      output_token_cost_per_thousand: 0.00551,
+      input_token_cost_per_thousand: 0.0008,
+      output_token_cost_per_thousand: 0.0024,
     },
     {
-      model_name: 'Claude 2',
-      context: '100K',
+      model_name: 'Claude 2.1',
+      context: '200K',
       provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.01102,
-      output_token_cost_per_thousand: 0.03268,
+      input_token_cost_per_thousand: 0.008,
+      output_token_cost_per_thousand: 0.024,
     },
     {
       model_name: 'Llama 2 70b',
@@ -76,8 +76,8 @@ const pricing = {
       model_name: 'Command',
       context: '4K',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.015,
-      output_token_cost_per_thousand: 0.015,
+      input_token_cost_per_thousand: 0.01,
+      output_token_cost_per_thousand: 0.02,
     },
   ],
   'Fine-tuning models': [
@@ -110,7 +110,7 @@ const pricing = {
     {
       model_name: 'Embed',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.0004,
+      input_token_cost_per_thousand: 0.0001,
     },
   ],
 }
@@ -172,7 +172,7 @@ export default function Calculate() {
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2,
                   Google PaLM 2, and Cohere LLM APIs for your AI project with our simple and
-                  powerful free calculator. Latest numbers as of November 2023 (including GPT-4 Turbo).
+                  powerful free calculator. Latest numbers as of Dec. 2023 (including GPT-4 Turbo).
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
