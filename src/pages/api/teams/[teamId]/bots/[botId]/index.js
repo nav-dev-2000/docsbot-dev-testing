@@ -6,6 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
 import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
+import { getUserRole } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -19,10 +20,10 @@ export default async function handler(req, res) {
   }
   const { userId, team } = check
   const { botId } = req.query
+  const userRole = getUserRole(team, userId)
 
   if (req.method === 'PUT') {
     //check user is allowed to edit bot or not
-    const userRole = team.roles[userId]
     if (userRole === 'viewer') {
       return res.status(402).json({
         message: 'You are not allowed to edit this bot.',
@@ -63,7 +64,6 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'DELETE') {
     //check user is allowed to delete bot or not
-    const userRole = team.roles[userId]
     if (userRole === 'editor' || userRole === 'viewer') {
       return res.status(402).json({
         message: 'You are not allowed to delete bot.',

@@ -8,6 +8,7 @@ import { mpTrack } from '@/lib/mixpanel'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
+import { getUserRole } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -25,6 +26,7 @@ export default async function handler(req, res) {
 
   let bot = null
   let source = null
+  const userRole = getUserRole(team, userId)
   try {
     bot = await getBot(team.id, botId)
     if (!bot) {
@@ -42,7 +44,6 @@ export default async function handler(req, res) {
 
   if (req.method === 'PUT') {
     //check user is allowed to edit this source or not
-    const userRole = team.roles[userId]
     if (userRole === 'viewer') {
       return res.status(402).json({
         message: 'You are not allowed to edit this source',
@@ -102,7 +103,6 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'DELETE') {
     //check user is allowed to delete this source or not
-    const userRole = team.roles[userId]
     if (userRole === 'viewer') {
       return res.status(402).json({
         message: 'You are not allowed to delete this source',

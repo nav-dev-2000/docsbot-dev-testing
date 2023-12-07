@@ -22,18 +22,10 @@ import { i18n } from '@/constants/strings.constants'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { useEffect, useState } from 'react'
+import { getUserRole } from '@/utils/function.utils'
 
 export default function BotCard({ team, bot, setBot }) {
-  const [currentRole, setCurrentRole] = useState('')
   const [user] = useAuthState(auth)
-
-  useEffect(() => {
-    if (user && team) {
-      const role = team?.roles[user.uid]
-      setCurrentRole(role)
-    }
-  }, [team, user])
 
   if (!bot || !bot.id) {
     return null
@@ -82,7 +74,7 @@ export default function BotCard({ team, bot, setBot }) {
                 </div>
                 <ModalPrompt team={team} bot={bot} />
                 {
-                  currentRole !== 'viewer' && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                  getUserRole(team, user?.uid) !== 'viewer' && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
                 }
               </div>
             </div>

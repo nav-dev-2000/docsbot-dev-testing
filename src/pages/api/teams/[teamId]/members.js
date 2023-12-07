@@ -5,6 +5,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
+import { getUserRole } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -48,7 +49,7 @@ export default async function handler(req, res) {
     const { memberId , role } = req.body
     try {
       //check that only owners can change the role of members
-      if (team.roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+      if (getUserRole(team, userId) !== 'owner' && !isSuperAdmin(userId)) {
         throw new Error('Only team owners can change the role of members!')
       }
 

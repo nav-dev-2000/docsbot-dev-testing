@@ -26,6 +26,7 @@ import { routePaths } from '@/constants/routePaths.constants'
 import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { getUserRole } from '@/utils/function.utils'
 
 export default function DashboardWrap({ page, title, team, fullWidth = false, children }) {
   const router = useRouter()
@@ -77,7 +78,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
       Beacon('identify', ident)
     }
     if (user && team) {
-      const role = team?.roles[user.uid]
+      const role = getUserRole(team, user?.uid)
       setCurrentRole(role)
     }
   }, [user, team])

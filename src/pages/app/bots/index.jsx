@@ -20,13 +20,13 @@ import RobotIcon from '@/components/RobotIcon'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { getUserRole } from '@/utils/function.utils'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
   const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
-  const [currentRole, setCurrentRole] = useState('')
   const [user] = useAuthState(auth)
 
   useEffect(() => {
@@ -34,13 +34,6 @@ function Bots({ preBots, team }) {
       setOpen(true)
     }
   }, [bots])
-
-  useEffect(() => {
-    if (user && team) {
-      const role = team?.roles[user.uid]
-      setCurrentRole(role)
-    }
-  }, [team, user])
 
   const BotsGrid = ({ bots }) => {
     if (!bots || bots.length === 0) {
@@ -167,7 +160,7 @@ function Bots({ preBots, team }) {
       <BotsGrid bots={bots} />
 
       {
-        currentRole !== 'viewer' && currentRole !== 'editor' && <BotCTA {...{ setOpen }} />
+        getUserRole(team, user?.uid) !== 'viewer' && getUserRole(team, user?.uid) !== 'editor' && <BotCTA {...{ setOpen }} />
       }
 
       <NewBotPanel {...{ team, open, setOpen }} />

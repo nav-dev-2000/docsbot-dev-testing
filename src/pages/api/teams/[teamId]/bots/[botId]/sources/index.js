@@ -12,6 +12,7 @@ import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
+import { getUserRole } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -42,8 +43,7 @@ export default async function handler(req, res) {
   //create source
   if (req.method === 'POST') {
     //check user is allowed to edit bot or not
-    const userRole = team.roles[userId]
-    if (userRole === 'viewer') {
+    if (getUserRole(team, userId) === 'viewer') {
       return res.status(402).json({
         message: 'You are not allowed to add sources in this bot.',
       })
