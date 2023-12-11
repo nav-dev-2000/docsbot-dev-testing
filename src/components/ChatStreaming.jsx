@@ -296,12 +296,10 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
   const FullSource = () => {
     const [content, setContent] = useState(null)
-    const page = currentSource.page ? ` - Page ${currentSource.page}` : ''
-    const SourceIcon = currentSource.url ? LinkIcon : DocumentTextIcon
 
     //convert markdown to html when answer changes or is appended to
     useEffect(() => {
-      if (currentSource.content) {
+      if (currentSource?.content) {
         remark()
           .use(html)
           .use(remarkGfm)
@@ -314,6 +312,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     }, [currentSource])
 
     if (!currentSource) return null
+
+    const page = currentSource?.page ? ` - Page ${currentSource?.page}` : ''
+    const SourceIcon = currentSource?.url ? LinkIcon : DocumentTextIcon
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
