@@ -296,9 +296,6 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
   const FullSource = () => {
     const [content, setContent] = useState(null)
-
-    if (!currentSource) return null
-
     const page = currentSource.page ? ` - Page ${currentSource.page}` : ''
     const SourceIcon = currentSource.url ? LinkIcon : DocumentTextIcon
 
@@ -315,6 +312,8 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           })
       }
     }, [currentSource])
+
+    if (!currentSource) return null
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
