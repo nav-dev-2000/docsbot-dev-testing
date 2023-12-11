@@ -139,7 +139,7 @@ export const grabQuestions = (bot) => {
   if (bot && bot.questions) {
     const questions = bot.questions
     const randomQuestions = []
-    const questionsLimit = questions.length > 3 ? 3 : questions.length
+    const questionsLimit = questions.length > 4 ? 4 : questions.length
 
     for (let i = 0; i < questionsLimit; i++) {
       const randomIndex = random.int(0, questions.length - 1)
