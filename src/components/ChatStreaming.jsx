@@ -42,7 +42,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [showQuestion, setShowQuestion] = useState(true)
   const [researchDisabled, setResearchDisabled] = useState(bot.model === 'gpt-3.5-turbo-0613')
   const [questions, setQuestions] = useState(
-    bot.questions ? (bot.questions.length > 4 ? grabQuestions(bot) : bot.questions.slice(0, 2)) : []
+    bot.questions ? (bot.questions.length >= 4 ? grabQuestions(bot) : bot.questions.slice(0, 2)) : []
   )
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
@@ -574,7 +574,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   return (
     <div className="relative flex justify-center py-8">
       <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12">
-        <div className="my-auto h-[200px]">
+        <div className="my-auto">
           {bot.logo && !showResearchMode && (
             <div className="flex items-center justify-center">
               <img src={bot.logo} alt={bot.name} className="max-h-9 w-auto" />
@@ -584,31 +584,11 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
             {bot.name}
           </p>
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{bot.description}</p>
-          {showResearchMode && (
-            <label className="relative mt-2 inline-flex cursor-pointer items-center">
-              <input
-                type="checkbox"
-                value={isResearchMode}
-                checked={isResearchMode}
-                onChange={() => setIsResearchMode((prevOpen) => !prevOpen)}
-                className="peer sr-only"
-                disabled={researchDisabled}
-              />
-              <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] disabled:opacity-25 peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-600 peer-focus:ring-offset-2 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700"></div>
-              <span className="ms-3 text-sm text-gray-700 dark:text-gray-300">Research mode</span>
-            </label>
-          )}
-          {isResearchMode && showResearchMode && (
-            <p className="mx-auto mt-2 max-w-prose text-xs text-gray-500">
-              Note: Enabling Research Mode passes more source context in order to answer detailed
-              questions at the expense of more token usage.
-            </p>
-          )}
         </div>
 
         <FullSource />
 
-        <div className="mt-12">
+        <div className="mt-16">
           {answers.map((answer, index) => (
             <ChatRow key={index} answer={answer} />
           ))}
@@ -616,7 +596,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           <Alert title={errorText} type="warning" />
 
           {showQuestion && (
-            <div className="mx-auto mt-5 grid w-full grid-rows-4 gap-3 sm:grid-cols-2 sm:grid-rows-2">
+            <div className="mx-auto mt-5 grid w-full gap-3 grid-cols-1 md:grid-cols-2">
               {questions &&
                 questions.length > 0 &&
                 questions.map((recommendedQuestion) => (
@@ -674,7 +654,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                   }}
                   tabIndex={1}
                   autoComplete="off"
-                  className="text-md block max-h-48 w-full resize-none rounded-md border border-gray-300 py-4 pl-2 pr-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:py-2 sm:pl-4 sm:pr-12 sm:text-lg"
+                  className="text-lg block max-h-48 w-full resize-none rounded-md border border-gray-300 py-4 pl-2 pr-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:py-2 sm:pl-4 sm:pr-12 sm:text-lg"
                   placeholder={answers.length ? '' : bot.labels.firstMessage}
                 />
 
@@ -699,22 +679,48 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               </div>
             </div>
           </form>
-          <div className="mt-2 flex justify-center items-center text-xs text-gray-500">
-            <span>Use Shift + Enter to skip to a new line.</span>
-            {!showQuestion && (
-            <button
-              type="button"
-              className="ml-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
-              onClick={() => {
-                setAnswers([])
-                setShowQuestion(true)
-                setQuestion('')
-              }}
-            >
-              <ArrowPathIcon className="h-3 w-3 mr-0.5" aria-hidden="true" />
-              Reset
-            </button>
-            )}
+          <div className="mt-2 flex items-start justify-between">
+            <div className="text-left">
+              {showResearchMode && (
+                <label className="relative inline-flex cursor-pointer justify-start items-center">
+                  <input
+                    type="checkbox"
+                    value={isResearchMode}
+                    checked={isResearchMode}
+                    onChange={() => setIsResearchMode((prevOpen) => !prevOpen)}
+                    className="peer sr-only"
+                    disabled={researchDisabled}
+                  />
+                  <div className="peer h-4 w-7 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-3 after:w-3 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] disabled:opacity-25 peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-600 peer-focus:ring-offset-2 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700"></div>
+                  <span className="ms-3 text-xs text-gray-600 dark:text-gray-300">
+                    Research mode
+                  </span>
+                </label>
+              )}
+              {isResearchMode && showResearchMode && (
+                <p className="mx-auto mt-1 max-w-prose text-left text-xs text-gray-500">
+                  Note: Enabling Research Mode passes more source context in order to answer
+                  detailed questions at the expense of more token usage.
+                </p>
+              )}
+            </div>
+            <div className="flex items-center justify-center text-xs text-gray-500">
+              <span>Use Shift + Enter to skip to a new line.</span>
+              {!showQuestion && (
+                <button
+                  type="button"
+                  className="ml-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
+                  onClick={() => {
+                    setAnswers([])
+                    setShowQuestion(true)
+                    setQuestion('')
+                  }}
+                >
+                  <ArrowPathIcon className="mr-0.5 h-3 w-3" aria-hidden="true" />
+                  Reset
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
