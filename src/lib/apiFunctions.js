@@ -278,14 +278,6 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.model = 'gpt-3.5-turbo'
   }
 
-  if (language !== undefined || !isUpdate) {
-    botData.language = language ? language : 'en'
-    // reset our labels
-    if (bot?.language !== botData.language) {
-      botData.labels = i18n[botData.language].labels
-    }
-  }
-
   if (customPrompt !== undefined) {
     // Check if their plan allows custom prompts
     if (customPrompt && stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
@@ -297,9 +289,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (allowedDomains !== undefined) {
     botData.allowedDomains = allowedDomains
       ? allowedDomains
-          .filter((s) => s)
-          .map((d) => d.trim().toLowerCase())
-          .filter(Boolean)
+        .filter((s) => s)
+        .map((d) => d.trim().toLowerCase())
+        .filter(Boolean)
       : []
   }
 
@@ -367,6 +359,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     })
   }
 
+  if (language !== undefined || !isUpdate) {
+    botData.language = language ? language : 'en'
+    // reset our labels
+    if (bot?.language !== botData.language) {
+      botData.labels = i18n[botData.language].labels
+    }
+  }
+
   if (questions !== undefined) {
     botData.questions = questions || []
   }
@@ -400,13 +400,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (rateLimitIPAllowlist !== undefined) {
     botData.rateLimitIPAllowlist = rateLimitIPAllowlist
       ? rateLimitIPAllowlist
-          .map((ip) => ip.trim())
-          .filter((ip) => {
-            return (
-              ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) ||
-              ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)
-            )
-          })
+        .map((ip) => ip.trim())
+        .filter((ip) => {
+          return (
+            ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) ||
+            ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)
+          )
+        })
       : []
   }
 
