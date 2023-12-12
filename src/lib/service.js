@@ -58,11 +58,12 @@ export const QueueSourceIngest = async (
   return messageId
 }
 
-export const QueueSourceExpel = async (teamId, indexId, sourceId) => {
+export const QueueSourceExpel = async (teamId, indexId, botId, sourceId) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'expel',
       teamId,
+      botId,
       indexId,
       sourceId,
     })

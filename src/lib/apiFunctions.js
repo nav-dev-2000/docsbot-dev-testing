@@ -17,7 +17,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
   const firestore = getFirestore()
 
   //if source is in a ready state, we need to delete it from weaviate
-  QueueSourceExpel(teamId, bot.indexId, sourceId)
+  QueueSourceExpel(teamId, bot.indexId, bot.id, sourceId)
 
   //delete source from db
   let source = null
