@@ -18,7 +18,7 @@ import image5 from '@/images/avatars/testimony-sg.jpeg'
 
 export function StripePricingTable({ team, email, setErrorText }) {
   const [enterprise, setEnterprise] = useState(false)
-  const [frequency, setFrequency] = useState(frequencies[1])
+  const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState(
     team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD'
   )
