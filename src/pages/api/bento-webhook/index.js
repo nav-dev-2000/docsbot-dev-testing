@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       return res.status(403).json({ message: 'Invalid key.' })
     }
 
-    const { event_type, visitor_id, website, name } = req.body
+    const { event_type, visitor_id, website, name, usage_type } = req.body
 
     if (!event_type || !visitor_id) {
       return res.status(400).json({ message: 'Invalid parameters.' })
@@ -37,16 +37,18 @@ export default async function handler(req, res) {
       //log the response body content
       const crawlData = await crawlResponse.json()
       let scrape = ''
+      let languageCode = 'en'
       if (crawlData[0]?.text) {
         scrape = crawlData[0].metadata.title
+        languageCode = crawlData[0].metadata.languageCode || 'en'
         if (crawlData[0].metadata.description) {
           scrape += '\n' + crawlData[0].metadata.description
         }
         scrape += '\n\n' + crawlData[0].text
 
-        //crop to max 20k characters around 4k tokens
-        if (scrape.length > 20000) {
-          scrape = scrape.substring(0, 20000)
+        //crop to max 30k characters around 6k tokens
+        if (scrape.length > 30000) {
+          scrape = scrape.substring(0, 30000)
         }
       } else {
         console.warn('Crawl data error:', crawlData)
@@ -98,7 +100,7 @@ URL & Sitemaps
 Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.
 
 Document Files
-Upload any files in TXT, DOC, PPT, EML, HTML, PDF format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.
+Upload any files in TXT, DOC, PPT, EML, HTML, PDF, MD format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.
 
 Blog Posts
 Quickly train your DocsBot on your blog content via WordPress export files or RSS feeds. It's a simple way to surface your best content to those looking for answers.
@@ -208,6 +210,13 @@ For serious traffic and custom integrations. Identify problem areas in your prod
 *   Self-hosted options
 `
 
+      const usageTypes = {
+        support: 'Support & Presales - Customer support & presales, 24/7 in 95 languages.',
+        internal: 'Internal Knowledge - Give your team answers from your company knowledge base.',
+        research: 'Document Q&A - Chat with your docs & files for research or education.',
+        content: 'Content Creation - Generate custom content for your blog or social media.',
+      };
+
       const configuration = new Configuration({
         apiKey: process.env.OPENAI_API_KEY,
       })
@@ -223,23 +232,24 @@ For serious traffic and custom integrations. Identify problem areas in your prod
           { role: 'system', content: `DocsBot AI context:\n${docsbot}` },
           { role: 'user', content: `Customer name: ${name}\nWebsite: ${website}` },
           { role: 'user', content: `Company information from website:\n${scrape}` },
+          { role: 'user', content: `They are most interested in using DocsBot for: ${usageTypes[usage_type] || 'whatever you suggest'}` },
         ],
         functions: [
           {
             name: 'email_content',
             description:
-              'Extracts the email subject and body. Escape all parameters for valid json.',
+              'Extracts the email subject and body as valid JSON.',
             parameters: {
               type: 'object',
               properties: {
                 subject: {
                   type: 'string',
-                  description: 'The plaintext JSON escaped subject of the email.',
+                  description: 'The plaintext subject of the email.',
                 },
                 body: {
                   type: 'string',
                   description:
-                    'The properly formatted and JSON escaped HTML body of the email content.',
+                    'The HTML body of the email content, properly formatted with paragraph and other tags.',
                 },
               },
               required: ['subject', 'body'],
@@ -258,27 +268,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
       try {
         emailContent = JSON.parse(chat_completion.data.choices[0].message.function_call.arguments)
       } catch (error) {
-        console.log('JSON parse error, trying again.')
-        //invalid JSON, send to openai to fix the json response
-        const json_completion = await openai.createChatCompletion({
-          model: 'gpt-4-1106-preview',
-          messages: [
-            {
-              role: 'system',
-              content:
-                'The user will provide you with an invalid JSON object that is not properly escaped with the properties "subject" and "body". Reply with a valid and properly escaped JSON object.',
-            },
-            {
-              role: 'user',
-              content: chat_completion.data.choices[0].message.function_call.arguments,
-            },
-          ],
-        })
-        try {
-          emailContent = JSON.parse(json_completion.data.choices[0].message.content)
-        } catch (error) {
-          res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
-        }
+        res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
       }
 
       console.log('Email content:', emailContent)
