@@ -9,7 +9,7 @@ import { stripePlan } from '@/utils/helpers'
 import crypto from 'crypto'
 import { mpTrack } from '@/lib/mixpanel'
 import { validateBotParams } from '@/lib/apiFunctions'
-import { getUserRole } from '@/utils/function.utils'
+import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
 const router = createRouter()
 
@@ -28,8 +28,7 @@ router.post(async (req, res) => {
 
   try {
     //check user is allowed to create bot or not
-    const userRole = getUserRole(team, userId)
-    if(userRole==='editor' || userRole==='viewer'){
+    if (!canUserCreateDeleteBot(team, userId)) {
       return res.status(402).json({
         message: 'You are not allowed to create bot.',
       })

@@ -20,6 +20,7 @@ import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { CarbonConnect } from 'carbon-connect'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -590,13 +591,16 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
             about. Don't index the same content multiple times.
           </p>
           <div className="mt-8">
-            <button
-              className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
-              onClick={() => setShowForm(true)}
-            >
-              <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-              New Source
-            </button>
+            {
+              canUserModifySources(team, user?.uid) &&
+              <button
+                className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
+                onClick={() => setShowForm(true)}
+              >
+                <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                New Source
+              </button>
+            }
           </div>
         </div>
       </>

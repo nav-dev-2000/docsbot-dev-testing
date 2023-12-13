@@ -22,7 +22,7 @@ import { i18n } from '@/constants/strings.constants'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { getUserRole } from '@/utils/function.utils'
+import { canUserEditBot } from '@/utils/function.utils'
 
 export default function BotCard({ team, bot, setBot }) {
   const [user] = useAuthState(auth)
@@ -74,7 +74,7 @@ export default function BotCard({ team, bot, setBot }) {
                 </div>
                 <ModalPrompt team={team} bot={bot} />
                 {
-                  getUserRole(team, user?.uid) !== 'viewer' && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                  canUserEditBot(team, user?.uid) && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
                 }
               </div>
             </div>

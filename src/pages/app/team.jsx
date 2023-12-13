@@ -17,6 +17,7 @@ import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
 import { teamMembersRoles } from '@/constants/permissions.constants'
+import { canUserInvite, canUserModifyMembers} from '@/utils/function.utils'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -405,7 +406,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </p>
             </div>
             {
-              (currTeam.roles[userId] === 'owner'|| currTeam.roles[userId] === 'admin')  && 
+              canUserInvite(currTeam, userId)  && 
               <div className="ml-4 mt-4 flex-shrink-0">
               <button
                 type="button"
@@ -471,7 +472,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                           </div>
                           }
 
-                          {userId !== user.uid && currTeam.roles[userId] == "owner" && !selectedMemberId && 
+                          {userId !== user.uid && canUserModifyMembers(currTeam, userId) && !selectedMemberId && 
                           <button
                             type="button"
                             onClick={()=>setSelectedMemberId(user.uid)}
@@ -481,7 +482,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                             <PencilIcon className="h-4 w-4 text-gray-500" aria-hidden="true" />
                           </button>
                           }
-                          {userId !== user.uid && currTeam.roles[userId] == "owner" && selectedMemberId === user.uid  && selectedMemberId && 
+                          {userId !== user.uid && canUserModifyMembers(currTeam, userId) && selectedMemberId === user.uid  && selectedMemberId && 
                           <button
                             type="button"
                             onClick={()=>setSelectedMemberId("")}
@@ -495,7 +496,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     </div>
                   </div>
                 </div>
-                {userId !== user.uid && currTeam.roles[userId] == "owner" && (
+                {userId !== user.uid && canUserModifyMembers(currTeam, userId) && (
                   <div className="absolute right-2 top-1">
                     <button
                       type="button"
@@ -548,7 +549,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                     </div>
                   </div>
                 </div>
-                {currTeam.roles[userId] == "owner" && <div className="absolute right-2 top-1">
+                {canUserModifyMembers(currTeam, userId) && <div className="absolute right-2 top-1">
                   <button
                     type="button"
                     onClick={(e) => {

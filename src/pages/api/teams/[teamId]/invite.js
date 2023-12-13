@@ -8,7 +8,7 @@ import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { sendInviteEmail } from '@/utils/emails'
 import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
-import { getUserRole } from '@/utils/function.utils'
+import { canUserInvite } from '@/utils/function.utils'
 
 const validateEmail = (email) => {
   return email.match(
@@ -30,8 +30,7 @@ export default async function handleInvite(req, res) {
       const { userId, team } = check
 
       //check user is allowed to add members or not
-      const currentRole = getUserRole(team, userId)
-      if(currentRole!=='owner' && currentRole!=='admin'){
+      if(!canUserInvite(team, userId)){
         return res.status(401).send({ message: `You are not allowed to invite new member into this team!`})
       }
       // sanity check stripe plan

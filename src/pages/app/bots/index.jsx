@@ -20,7 +20,7 @@ import RobotIcon from '@/components/RobotIcon'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { getUserRole } from '@/utils/function.utils'
+import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
@@ -125,18 +125,22 @@ function Bots({ preBots, team }) {
               </div>
             </div>
             <div className="absolute right-2 top-2">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setToDelete(bot)
-                }}
-                className=" text-red-400 hover:text-red-200 focus:text-red-200"
-                title="Delete"
-              >
-                <span className="sr-only">Delete</span>
-                <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-              </button>
+              {
+                canUserCreateDeleteBot(team, user?.uid) ?
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setToDelete(bot)
+                    }}
+                    className=" text-red-400 hover:text-red-200 focus:text-red-200"
+                    title="Delete"
+                  >
+                    <span className="sr-only">Delete</span>
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                  : null
+              }
             </div>
           </div>
         </Link>
@@ -160,7 +164,7 @@ function Bots({ preBots, team }) {
       <BotsGrid bots={bots} />
 
       {
-        getUserRole(team, user?.uid) !== 'viewer' && getUserRole(team, user?.uid) !== 'editor' && <BotCTA {...{ setOpen }} />
+        canUserCreateDeleteBot(team, user?.uid) && <BotCTA {...{ setOpen }} />
       }
 
       <NewBotPanel {...{ team, open, setOpen }} />
