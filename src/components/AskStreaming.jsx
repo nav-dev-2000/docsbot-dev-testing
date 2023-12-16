@@ -168,7 +168,12 @@ export default function AskStreaming({ teamId, bot }) {
       'Content-Type': 'application/json',
     }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/rate/${answerId}`
+    if (bot.privacy === 'private') {
+      //add token to request
+      headers['Authorization'] = 'Bearer ' + bot.signature
+    }
+
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${teamId}/bots/${bot.id}/rate/${answerId}`
     try {
       const response = await fetch(apiUrl, {
         method: 'PUT',

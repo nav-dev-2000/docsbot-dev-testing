@@ -242,8 +242,12 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     }
+    if (bot.privacy === 'private') {
+      //add token to request
+      headers['Authorization'] = 'Bearer ' + bot.signature
+    }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${teamId}/bots/${bot.id}/rate/${answerId}`
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${teamId}/bots/${bot.id}/rate/${answerId}`
     try {
       const response = await fetch(apiUrl, {
         method: 'PUT',

@@ -7,6 +7,7 @@ import {
   QueueListIcon,
   ChartBarIcon,
   CodeBracketSquareIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -79,20 +80,27 @@ export default function BotCard({ team, bot, setBot }) {
               <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
                 <ModalChat team={team} bot={bot} />
                 <Link
+                  href={`/app/bots/${bot.id}/search`}
+                  className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <span className="hidden xl:inline">Search</span>
+                </Link>
+                <Link
                   href={`/app/bots/${bot.id}/questions`}
-                  className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                   disabled={bot.questionCount <= 0}
                 >
-                  <QueueListIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                  Logs
+                  <QueueListIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <span className="hidden xl:inline">Logs</span>
                 </Link>
                 <Link
                   href={`/app/bots/${bot.id}/reports`}
-                  className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                   disabled={bot.questionCount <= 0}
                 >
-                  <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                  Reports
+                  <ChartBarIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <span className="hidden xl:inline">Reports</span>
                 </Link>
               </div>
             </div>
