@@ -92,10 +92,10 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   }, [selectedCardData])
 
   return (
-    <div className={clsx('grid grid-cols-1 gap-4', selectedCardData ? 'lg:grid-cols-2' : "max-w-4xl")}>
+    <div className={clsx('grid grid-cols-1 gap-4', selectedCardData ? 'lg:grid-cols-2' : "max-w-4xl mx-auto")}>
       <div className="w-full">
         <form className="w-full" onSubmit={handleSearch}>
-          <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
+          <div className="w-full rounded-md sm:flex sm:shadow-sm">
             <div className="relative flex w-full flex-grow items-end shadow-sm sm:shadow-inherit">
               <textarea
                 ref={textareaRef}

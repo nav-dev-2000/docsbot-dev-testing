@@ -33,7 +33,7 @@ function Search({ team, bot }) {
                     Back
                 </Link>
             </div>
-            <p className="text-md mb-4 sm:text-base text-gray-500">
+            <p className="text-sm mb-8 sm:text-md text-gray-500">
             Search your bot's training data. This is a great way to test what documentation source chunks are being used to answer specific questions.
             </p>
             <BotSearch team={team} bot={bot} setErrorText={setErrorText}/>
