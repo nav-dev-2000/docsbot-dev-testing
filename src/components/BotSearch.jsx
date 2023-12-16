@@ -92,7 +92,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   }, [selectedCardData])
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div className={clsx('grid grid-cols-1 gap-4', selectedCardData ? 'lg:grid-cols-2' : "max-w-4xl")}>
       <div className="w-full">
         <form className="w-full" onSubmit={handleSearch}>
           <div className="mt-1 w-full rounded-md sm:flex sm:shadow-sm">
@@ -226,9 +226,13 @@ const BotSearch = ({ team, bot, setErrorText }) => {
         <div className="w-full divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
           <div className="flex items-center gap-x-2 px-4 py-5 sm:px-6">
             <SourceIcon source={selectedCardData} />
-            <Link href={selectedCardData.url} target="_blank">
-              {selectedCardData.title}
-            </Link>
+            {selectedCardData.url ? (
+              <Link href={selectedCardData.url} target="_blank">
+                {selectedCardData.title}
+              </Link>
+            ) : (
+              <span>{selectedCardData.title}</span>
+            )}
           </div>
           <div
             className="prose min-w-full px-4 py-5 sm:p-6"
