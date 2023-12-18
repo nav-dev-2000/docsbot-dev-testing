@@ -44,7 +44,7 @@
     "jose": "^4.10.4",
     "mixpanel": "^0.18.0",
     "mixpanel-browser": "^2.47.0",
-    "next": "^12.3.1",
+    "next": "^12.3.4",
     "next-connect": "^1.0.0-next.3",
     "next-seo": "^6.1.0",
     "node-mailjet": "^5.1.1",
