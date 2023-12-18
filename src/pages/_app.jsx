@@ -199,11 +199,15 @@ export default function App({ Component, pageProps }) {
           src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
           strategy="afterInteractive"
         />
+        <Script id="firstpromoter1">
+          {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
+fpr("init", {cid:"08y4co6f"}); 
+fpr("click");`}
+        </Script>
         <Script
-          id="reflio"
+          id="firstpromoter2"
           strategy="afterInteractive"
-          src="https://reflio.com/js/reflio.min.js"
-          data-reflio="hsborf9afm060gz"
+          src="https://cdn.firstpromoter.com/fpr.js"
         />
         <Analytics />
       </>
@@ -319,11 +323,15 @@ export default function App({ Component, pageProps }) {
       Beacon('open');
   },});`}
             </Script>
+            <Script id="firstpromoter1">
+              {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
+fpr("init", {cid:"08y4co6f"}); 
+fpr("click");`}
+            </Script>
             <Script
-              id="reflio"
+              id="firstpromoter2"
               strategy="afterInteractive"
-              src="https://reflio.com/js/reflio.min.js"
-              data-reflio="hsborf9afm060gz"
+              src="https://cdn.firstpromoter.com/fpr.js"
             />
             <Script
               id="bento-script"
