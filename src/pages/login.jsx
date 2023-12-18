@@ -90,8 +90,8 @@ function Login() {
         window.bento.identify(googleUser?.user?.email)
         window.bento.updateFields({ name: googleUser?.user?.displayName })
       }
-      if (window.Reflio !== undefined) {
-        Reflio.signup(googleUser?.user?.email)
+      if (window.fpr !== undefined) {
+        window.fpr("referral",{email: googleUser?.user?.email})
       }
       va.track('Signup')
       Mixpanel.identify(googleUser.user.uid)

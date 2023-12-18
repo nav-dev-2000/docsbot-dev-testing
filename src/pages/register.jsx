@@ -96,8 +96,8 @@ function Register({ teamCount }) {
             window.bento.identify(user?.user?.email)
             window.bento.updateFields({ website: site, user_type: userType, name: name, usage_type: usageType })
           }
-          if (window.Reflio !== undefined) {
-            Reflio.signup(user?.user?.email)
+          if (window.fpr !== undefined) {
+            window.fpr("referral",{email: user?.user?.email})
           }
           va.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           Mixpanel.identify(user.user.uid)
@@ -129,8 +129,8 @@ function Register({ teamCount }) {
           website: site,
         })
       }
-      if (window.Reflio !== undefined) {
-        Reflio.signup(googleUser?.user?.email)
+      if (window.fpr !== undefined) {
+        window.fpr("referral",{email: googleUser?.user?.email})
       }
       va.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       Mixpanel.identify(user.user.uid)

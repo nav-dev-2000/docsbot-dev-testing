@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     question: "Do you have an affiliate program?",
-    answer: "Yes! We have a generous affiliate program that pays out 20% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,200 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://affiliates.reflio.com/invite/docsbot.",
+    answer: "Yes! We have a generous affiliate program that pays out 20% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,200 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://docsbot.firstpromoter.com/.",
   },
 ]
 
