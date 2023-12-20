@@ -68,7 +68,7 @@ export function Section({ section }) {
             </h2>
           </div>
           <div className="mt-8 lg:col-span-9 lg:mt-0">
-            <dl className="space-y-6">
+            <dl className="space-y-2">
               {section.children.map((doc) => (
                 <Link
                   key={doc.name}
@@ -79,10 +79,6 @@ export function Section({ section }) {
                     className="text-base font-semibold leading-7 text-gray-900"
                     dangerouslySetInnerHTML={{ __html: doc.name }}
                   />
-                  <dd
-                    className="mt-2 text-base leading-7 text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: doc.excerpt }}
-                  ></dd>
                 </Link>
               ))}
             </dl>
