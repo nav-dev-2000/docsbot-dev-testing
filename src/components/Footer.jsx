@@ -11,10 +11,13 @@ const footerNavigation = {
       href: '/tools/gpt-openai-api-pricing-calculator',
     },
     {
+      name: 'Support Savings Calculator',
+      href: '/tools/ai-support-savings-calculator',
+    },
+    {
       name: 'Product Photo Visualizer',
       href: 'https://imajinn.ai/product-visualizer',
     },
-    { name: 'AI Photobooth', href: 'https://imajinn.ai/photobooth' },
   ],
   tools: [
     { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
@@ -111,7 +114,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div className="mt-12 md:mt-0">
-                <h3 className="text-base font-medium text-gray-900">AI Tools</h3>
+                <h3 className="text-base font-medium text-gray-900">Free AI Tools</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools2.map((item) => (
                     <li key={item.name}>

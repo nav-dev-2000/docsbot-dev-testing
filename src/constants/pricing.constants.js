@@ -161,7 +161,7 @@ export const pricingTiers = [
       'Zapier integration',
       'Chat history',
       'Unbranded chat widgets',
-      'AI quesiton reports',
+      'AI question reports',
       'Prompt customization',
       'Priority support',
       'Rate limiting',
