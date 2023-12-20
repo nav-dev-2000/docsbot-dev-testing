@@ -20,25 +20,25 @@ const features = [
   {
     name: '24/7 Availability and Real-Time Responses',
     description:
-      "DocsBot AI's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances the brand's reputation for reliable service.",
+      "DocsBot AI's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances your brand's reputation for reliable service.",
     icon: ClockIcon,
   },
   {
     name: 'Multilingual Support',
     description:
-      'DocsBot AI can perform real-time translations across more than 95 languages, ensuring that customers receive support in their native language without delays.',
+      'DocsBot AI can perform real-time conversations in more than 95 languages, ensuring that customers receive support in their native language without delays, no matter the language of your training documentation.',
     icon: GlobeAltIcon,
   },
   {
     name: 'Consistent Service',
     description:
-      'AI-powered chatbots ensure consistent customer interactions, eliminating the risk of human error or variability in service quality.',
+      'AI-powered chatbots ensure consistent customer interactions and answers, eliminating the risk of human error or variability in service quality.',
     icon: CheckCircleIcon,
   },
   {
     name: 'Improved Customer Experience',
     description:
-      'With access to a comprehensive knowledge base, DocsBot AI chatbots can quickly provide accurate and personalized answers and recommendations, improving the overall customer experience.',
+      'With access to your knowledge base, DocsBot AI chatbots can quickly provide accurate and personalized answers and recommendations, improving the overall customer experience.',
     icon: UserIcon,
   },
   {
@@ -62,7 +62,7 @@ const features = [
   {
     name: 'Continuous Learning',
     description:
-      'The scheduled source refresh feature in DocsBot AI ensures that your bot is regularly updated with your latest documentation. This allows it to provide accurate and up-to-date answers to customer queries.',
+      'The scheduled source refresh feature in DocsBot AI ensures that your bot is regularly updated with your latest documentation changes. This allows it to provide accurate and up-to-date answers to customer queries.',
     icon: ArrowPathIcon,
   },
   {
@@ -74,13 +74,13 @@ const features = [
   {
     name: 'Powerful API and Integrations',
     description:
-      "The API allows for seamless integration of AI chat into products, websites, apps, or plugins, providing answers from the company's own content sources.",
+      "The API, widget, and no-code connection via Zapier and more allows for seamless integration of AI chat into products, websites, apps, or plugins, providing answers from your company's own content sources.",
     icon: Cog6ToothIcon,
   },
 ]
 
 export const AiSupportSavingsCalculator = () => {
-  const [supportTickets, setSupportTickets] = useState(300)
+  const [supportTickets, setSupportTickets] = useState(600)
   const [timePerTicket, setTimePerTicket] = useState(10)
   const [hourlyRate, setHourlyRate] = useState(18)
   const closeRate = 0.75
@@ -104,7 +104,7 @@ export const AiSupportSavingsCalculator = () => {
 
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <div className="py-12">
+      <div className="py-12 pb-0">
         <div className=" mx-auto rounded-xl bg-white px-6 py-10 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
           <div className=" mx-auto sm:text-center">
             <h2 className="text-primary mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -192,6 +192,14 @@ export default function Calculate() {
       <NextSeo
         title="AI-Powered Support Chatbot Savings Calculator - DocsBot AI"
         description="Calculate how much you can save in support hours and cost by automating your customer support using a custom GPT chatbot powered by DocsBot AI."
+        openGraph={{
+          images: [
+            {
+              url: 'https://docsbot.ai/og-support-calc.png',
+              alt: 'AI-Powered Support Chatbot Savings Calculator',
+            },
+          ],
+        }}
       />
       <Header />
       <main>
@@ -208,7 +216,7 @@ export default function Calculate() {
               }}
             />
           </div>
-          <div className="py-8 sm:py-12">
+          <div className="py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
@@ -238,13 +246,13 @@ export default function Calculate() {
           <div className="py-8 sm:py-12">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
-                <h2 className="text-base font-semibold leading-7 text-cyan-400">
+                <h2 className="text-base font-semibold leading-7 text-cyan-600">
                   Automate Your Customer Support with DocsBot AI
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   GPT-Powered Customer Support
                 </p>
-                <p className="mt-6 text-lg leading-8 text-gray-300">
+                <p className="mt-6 text-lg leading-8 text-gray-300 text-justify sm:text-center">
                   Experience instant, accurate, and 24/7 multilingual support with DocsBot AI. Train
                   your chatbot from your existing content and documentation in minutes to start
                   delighting your customers and saving on support costs today.
@@ -255,7 +263,7 @@ export default function Calculate() {
                   <div key={feature.name} className="relative pl-9">
                     <dt className="inline font-semibold text-white">
                       <feature.icon
-                        className="absolute left-1 top-1 h-5 w-5 text-cyan-500"
+                        className="absolute left-1 top-1 h-5 w-5 text-cyan-600"
                         aria-hidden="true"
                       />
                       {feature.name}
