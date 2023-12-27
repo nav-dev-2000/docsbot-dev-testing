@@ -83,7 +83,10 @@ function Api({ user, team }) {
                 <strong>Endpoint:</strong> {team.AzureDeploymentBase}
               </li>
               <li className="text-md mt-2 text-justify text-gray-800">
-                <strong>Deployment Name:</strong> {team.AzureDeploymentName}
+                <strong>Chat Deployment Name:</strong> {team.AzureDeploymentName}
+              </li>
+              <li className="text-md mt-2 text-justify text-gray-800">
+                <strong>Embeddings Deployment Name:</strong> {team.AzureDeploymentNameEmbed}
               </li>
               <li className="text-md mt-2 text-justify text-gray-800">
                 <strong>API Version:</strong> {team.AzureDeploymentVersion}
