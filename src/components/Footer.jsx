@@ -5,6 +5,14 @@ import { NAVIGATION } from '@/constants/navigation.constants'
 
 const footerNavigation = {
   pages: NAVIGATION,
+  tools: [
+    { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
+    { name: 'Imajinn AI', href: 'https://imajinn.ai' },
+    { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
+  ],
+  comparisons: [
+    { name: 'Chatbase Alternative', href: '/comparisons/chatbase-alternative' },
+  ],
   tools2: [
     {
       name: 'OpenAI API Calculator',
@@ -18,11 +26,6 @@ const footerNavigation = {
       name: 'Product Photo Visualizer',
       href: 'https://imajinn.ai/product-visualizer',
     },
-  ],
-  tools: [
-    { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
-    { name: 'Imajinn AI', href: 'https://imajinn.ai' },
-    { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
   ],
   legal: [
     { name: 'Legal', href: '/legal' },
@@ -40,6 +43,15 @@ const footerNavigation = {
       ),
     },
     {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/docsbot-ai',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 20" {...props}>
+          <path d="M17.0391667,17.0433333 L14.0775,17.0433333 L14.0775,12.4025 C14.0775,11.2958333 14.055,9.87166667 12.5341667,9.87166667 C10.99,9.87166667 10.7541667,11.0758333 10.7541667,12.3208333 L10.7541667,17.0433333 L7.7925,17.0433333 L7.7925,7.5 L10.6375,7.5 L10.6375,8.80083333 L10.6758333,8.80083333 C11.0733333,8.05083333 12.04,7.25916667 13.4841667,7.25916667 C16.485,7.25916667 17.04,9.23416667 17.04,11.805 L17.04,17.0433333 L17.0391667,17.0433333 Z M4.4475,6.19416667 C3.49416667,6.19416667 2.72833333,5.4225 2.72833333,4.47333333 C2.72833333,3.525 3.495,2.75416667 4.4475,2.75416667 C5.3975,2.75416667 6.1675,3.525 6.1675,4.47333333 C6.1675,5.4225 5.39666667,6.19416667 4.4475,6.19416667 Z M5.9325,17.0433333 L2.9625,17.0433333 L2.9625,7.5 L5.9325,7.5 L5.9325,17.0433333 Z M18.5208333,0 L1.47583333,0 C0.66,0 0,0.645 0,1.44083333 L0,18.5591667 C0,19.3558333 0.66,20 1.47583333,20 L18.5183333,20 C19.3333333,20 20,19.3558333 20,18.5591667 L20,1.44083333 C20,0.645 19.3333333,0 18.5183333,0 L18.5208333,0 Z"/>
+        </svg>
+      ),
+    },
+    {
       name: 'GitHub',
       href: 'https://github.com/uglyrobot/',
       icon: (props) => (
@@ -51,7 +63,7 @@ const footerNavigation = {
           />
         </svg>
       ),
-    },
+    }
   ],
 }
 
@@ -103,6 +115,16 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-gray-900">Other Products</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <h3 className="mt-6 text-base font-medium text-gray-900">Alternatives</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.comparisons.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}

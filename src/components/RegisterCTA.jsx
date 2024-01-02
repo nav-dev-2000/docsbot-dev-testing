@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
 import { Mixpanel } from '@/lib/mixpanel-web'
 
-export default function RegisterCTA() {
+export default function RegisterCTA({ customTitle = false, description = false, button = 'Get started'}) {
 
   // a list of random CTA titles
   const titles = [
@@ -16,7 +16,7 @@ export default function RegisterCTA() {
     'Streamline Your Business with AI',
   ]
 
-  const [title, setTitle] = useState(titles[0])
+  const [title, setTitle] = useState(customTitle || titles[0])
   const Title = ({title}) => {
     return title
   }
@@ -26,8 +26,8 @@ export default function RegisterCTA() {
 
   // set the title on the client-side only
   useEffect(() => {
-    setTitle(titles[Math.floor(Math.random() * titles.length)])
-  }, [])
+    setTitle(customTitle || titles[Math.floor(Math.random() * titles.length)])
+  }, [customTitle])
 
   return (
     <div className="bg-white pb-8">
@@ -91,8 +91,7 @@ export default function RegisterCTA() {
                   <DynamicTitle title={title} />
                 </h2>
                 <p className="mx-auto mt-6 max-w-4xl text-lg text-white">
-                  Sign up for DocsBot AI today and empower your customers and team with AI-driven
-                  solutions. Train your first chatbot completely free, no credit card required.
+                  {description || 'Sign up for DocsBot AI today and empower your workflows, your customers, and team with a cutting-edge AI-driven solution. Train your first chatbot completely free, no credit card required.'}
                 </p>
               </div>
               <div className="mt-8 sm:mx-auto sm:flex sm:max-w-lg">
@@ -101,13 +100,13 @@ export default function RegisterCTA() {
                   href="/register"
                   onClick={(e) => {
                     if (window.bento !== undefined) {
-                      window.bento.track('cta_click', { cta: 'blog_register', title: title })
-                      Mixpanel.track('CTA Click', { cta: 'Blog Register', title: title })
+                      window.bento.track('cta_click', { cta: 'register', title: title })
+                      Mixpanel.track('CTA Click', { cta: 'Register', title: title })
                     }
                   }}
                   className="block w-full rounded-md border border-cyan-600 bg-gradient-to-b from-teal-300 to-cyan-400 px-5 py-3  text-center text-base font-medium text-cyan-900 shadow hover:bg-teal-200 hover:from-teal-200 hover:to-cyan-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-600 sm:px-10"
                 >
-                  Get started
+                  {button}
                 </Link>
               </div>
             </div>
