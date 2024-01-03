@@ -122,7 +122,7 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-                <h3 className="mt-6 text-base font-medium text-gray-900">Alternatives</h3>
+                <h3 className="mt-6 text-base font-medium text-gray-900">Comparisons</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.comparisons.map((item) => (
                     <li key={item.name}>

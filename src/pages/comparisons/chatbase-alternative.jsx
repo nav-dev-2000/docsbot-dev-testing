@@ -2,7 +2,7 @@ import AlternativePage from '@/components/AlternativePage'
 
 const name = 'Chatbase'
 
-const description = "Are you looking for an alternative to Chatbase? While Chatbase launched 5 days before us, businesses are switching to DocsBot because we have more (auto-refreshing) training source options, a better, more-customizable widget, and a powerful API. They also benefit from our multilingual optimization and specialized tools for both customer support and research."
+const description = "Are you looking for an alternative to Chatbase? While Chatbase launched 5 days before us, we've focused on creating the professional tools businesses need. They are switching to DocsBot for more (auto-refreshing) training source options, a beautiful more-customizable widget, and unmatched analytics and reports. They also benefit from multiple language support and specialized tools for both customer support and research use cases."
 
 const support = `Unlike ${name}, DocsBot is optimized with specialized tools to automate your customer support to get instant, accurate, 24/7, multilingual answers for your customers. Train your chatbot from your existing content and documentation in minutes to start delighting your customers and saving on support costs today.`
 

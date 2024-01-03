@@ -193,7 +193,7 @@ export default function AlternativePage({
     <>
       <NextSeo
         title={`${name} Alternative - DocsBot AI`}
-        description="Discover why DocsBot AI is the preferred choice for businesses looking for a Chatbase alternative."
+        description={`Compare the differences between DocsBot AI and ${name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
       />
       <Header />
       <main>
@@ -244,7 +244,7 @@ export default function AlternativePage({
               <div className="lg:ml-auto lg:pl-4 lg:pt-4">
                 <div className="lg:max-w-lg">
                   <p className="mt-2 text-3xl font-bold tracking-tight text-cyan-600 sm:text-4xl">
-                  AI Customer Support
+                    AI Customer Support
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">{support}</p>
                   <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
@@ -264,7 +264,7 @@ export default function AlternativePage({
                 </div>
               </div>
               <div className="flex items-center justify-end lg:order-first">
-              <Image
+                <Image
                   src={conversationImg}
                   alt="Conversation screenshot"
                   className="w-[32rem] max-w-none rounded-xl shadow-xl sm:w-[41rem] md:-ml-4 lg:-ml-0"
@@ -282,7 +282,7 @@ export default function AlternativePage({
               <div className="lg:pr-8 lg:pt-4">
                 <div className="lg:max-w-lg">
                   <p className="mt-2 text-3xl font-bold tracking-tight text-cyan-600 sm:text-4xl">
-                  Document Q&A/Research
+                    Document Q&A/Research
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">{research}</p>
                   <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
@@ -302,7 +302,7 @@ export default function AlternativePage({
                 </div>
               </div>
               <div className="flex items-center justify-start lg:order-last">
-              <Image
+                <Image
                   src={researchImg}
                   alt="Research mode screenshot"
                   className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
@@ -323,7 +323,8 @@ export default function AlternativePage({
               </p>
             </div>
             <p className="ma x-w-2xl mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
-              Here is a detailed comparison table between DocsBot AI and {name} features.
+              Compare the differences between DocsBot AI and {name} with our detailed feature
+              comparison table.
             </p>
 
             {/* xs to md */}
@@ -560,8 +561,11 @@ export default function AlternativePage({
             </div>
           </div>
         </div>
-        
-        <RegisterCTA customTitle={`Try the Best ${name} Alternative`} button="Switch now, it's free!" />
+
+        <RegisterCTA
+          customTitle={`Try the Best ${name} Alternative`}
+          button="Switch now, it's free!"
+        />
       </main>
       <Footer />
     </>
