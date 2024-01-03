@@ -194,6 +194,14 @@ export default function AlternativePage({
       <NextSeo
         title={`${name} Alternative - DocsBot AI`}
         description={`Compare the differences between DocsBot AI and ${name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
+        openGraph={{
+          images: [
+            {
+              url: 'https://docsbot.ai/og-alternative.png',
+              alt: 'Chatbot builder alternative',
+            },
+          ],
+        }}
       />
       <Header />
       <main>
