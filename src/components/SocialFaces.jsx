@@ -72,7 +72,7 @@ export default function SocialFaces({ isDark = false, props }) {
             <StarIcon className="h-5 w-5 text-yellow-400" />
           </div>
         </div>
-        <span className={clsx('text-xs font-medium', isDark ? 'text-white' : 'text-gray-900')}>Loved by 1,000+ customers</span>
+        <span className={clsx('text-xs font-medium', isDark ? 'text-white' : 'text-gray-900')}>Loved by 25k+ users</span>
       </div>
     </div>
   )
