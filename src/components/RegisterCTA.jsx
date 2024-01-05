@@ -2,6 +2,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import SocialFaces from '@/components/SocialFaces'
 
 export default function RegisterCTA({ customTitle = false, description = false, button = 'Get started'}) {
 
@@ -94,6 +95,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
                   {description || 'Sign up for DocsBot AI today and empower your workflows, your customers, and team with a cutting-edge AI-driven solution. Train your first chatbot completely free, no credit card required.'}
                 </p>
               </div>
+              <div className="mt-5"><SocialFaces isDark={true} /></div>
               <div className="mt-8 sm:mx-auto sm:flex sm:max-w-lg">
                 <Link
                   type="button"
@@ -109,6 +111,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
                   {button}
                 </Link>
               </div>
+              
             </div>
           </div>
         </div>

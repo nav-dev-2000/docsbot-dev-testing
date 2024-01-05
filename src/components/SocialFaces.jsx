@@ -18,7 +18,7 @@ export default function SocialFaces({ isDark = false, props }) {
           height={40}
           className={clsx(
             'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-gray-900' : 'ring-white'
+            isDark ? 'ring-cyan-600' : 'ring-white'
           )}
         />
         <Image
@@ -28,7 +28,7 @@ export default function SocialFaces({ isDark = false, props }) {
           height={40}
           className={clsx(
             'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-gray-900' : 'ring-white'
+            isDark ? 'ring-cyan-600' : 'ring-white'
           )}
         />
         <Image
@@ -38,7 +38,7 @@ export default function SocialFaces({ isDark = false, props }) {
           height={40}
           className={clsx(
             'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-gray-900' : 'ring-white'
+            isDark ? 'ring-cyan-600' : 'ring-white'
           )}
         />
         <Image
@@ -48,7 +48,7 @@ export default function SocialFaces({ isDark = false, props }) {
           height={40}
           className={clsx(
             'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-gray-900' : 'ring-white'
+            isDark ? 'ring-cyan-600' : 'ring-white'
           )}
         />
         <Image
@@ -58,18 +58,21 @@ export default function SocialFaces({ isDark = false, props }) {
           height={40}
           className={clsx(
             'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-gray-900' : 'ring-white'
+            isDark ? 'ring-cyan-600' : 'ring-white'
           )}
         />
       </div>
-      <div className="flex">
-        <div className="flex items-center">
-          <StarIcon className="h-6 w-6 text-yellow-400" />
-          <StarIcon className="h-6 w-6 text-yellow-400" />
-          <StarIcon className="h-6 w-6 text-yellow-400" />
-          <StarIcon className="h-6 w-6 text-yellow-400" />
-          <StarIcon className="h-6 w-6 text-yellow-400" />
+      <div>
+        <div className="flex">
+          <div className="flex items-center">
+            <StarIcon className="h-5 w-5 text-yellow-400" />
+            <StarIcon className="h-5 w-5 text-yellow-400" />
+            <StarIcon className="h-5 w-5 text-yellow-400" />
+            <StarIcon className="h-5 w-5 text-yellow-400" />
+            <StarIcon className="h-5 w-5 text-yellow-400" />
+          </div>
         </div>
+        <span className={clsx('text-xs font-medium', isDark ? 'text-white' : 'text-gray-900')}>Loved by 1,000+ customers</span>
       </div>
     </div>
   )

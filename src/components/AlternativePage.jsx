@@ -268,6 +268,7 @@ export default function AlternativePage({
                         <dd className="inline">{feature.description}</dd>
                       </div>
                     ))}
+
                   </dl>
                 </div>
               </div>
@@ -283,7 +284,15 @@ export default function AlternativePage({
             </div>
           </div>
         </div>
-
+        <div className="mt-10 flex bg-white justify-center items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+          <Link href='/register' className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">
+            <span>Automate Your Customer Support</span>
+          </Link>
+          <Link href="/tools/ai-support-savings-calculator" className="text-sm font-semibold leading-6 text-gray-900">
+            Learn more <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="bg-white pt-5"><SocialFaces /></div>
         <div id="qa" className="overflow-hidden bg-white py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -309,6 +318,7 @@ export default function AlternativePage({
                   </dl>
                 </div>
               </div>
+
               <div className="flex items-center justify-start lg:order-last">
                 <Image
                   src={researchImg}
@@ -321,7 +331,14 @@ export default function AlternativePage({
             </div>
           </div>
         </div>
-
+        <div className="mt-10 flex bg-white justify-center items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+          <Link href='/register' className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">
+            <span>Start Researching Now</span>
+          </Link>
+          <Link href="/#features" className="text-sm font-semibold leading-6 text-gray-900">
+            Learn more <span aria-hidden="true">→</span>
+          </Link>
+        </div>
         <div className="bg-white py-16 sm:py-24" id="comparison">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
