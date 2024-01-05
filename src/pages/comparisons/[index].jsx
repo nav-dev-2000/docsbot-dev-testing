@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -20,6 +19,7 @@ import researchImg from '@/images/research-mode.png'
 import Image from 'next/future/image'
 import TrustedBy from '@/components/TrustedBy'
 import RegisterCTA from '@/components//RegisterCTA'
+import { ALTERNATIVES } from '@/constants/alternatives.constants'
 
 const docsbotFeatures = [
   {
@@ -251,7 +251,7 @@ export default function AlternativePage({
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
               <div className="lg:ml-auto lg:pl-4 lg:pt-4">
                 <div className="lg:max-w-lg">
-                  <p className="mt-2 text-3xl font-bold tracking-tight text-cyan-600 sm:text-4xl">
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     AI Customer Support
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">{support}</p>
@@ -268,7 +268,6 @@ export default function AlternativePage({
                         <dd className="inline">{feature.description}</dd>
                       </div>
                     ))}
-
                   </dl>
                 </div>
               </div>
@@ -283,22 +282,31 @@ export default function AlternativePage({
               </div>
             </div>
           </div>
+          <div className="mt-20 flex items-center justify-center gap-x-6 bg-white lg:flex-shrink-0">
+            <Link
+              href="/register"
+              className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+            >
+              <span>Automate Your Customer Support</span>
+            </Link>
+            <Link
+              href="/tools/ai-support-savings-calculator"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Learn more <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
-        <div className="mt-10 flex bg-white justify-center items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-          <Link href='/register' className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">
-            <span>Automate Your Customer Support</span>
-          </Link>
-          <Link href="/tools/ai-support-savings-calculator" className="text-sm font-semibold leading-6 text-gray-900">
-            Learn more <span aria-hidden="true">→</span>
-          </Link>
+
+        <div className="bg-white pt-5">
+          <SocialFaces />
         </div>
-        <div className="bg-white pt-5"><SocialFaces /></div>
         <div id="qa" className="overflow-hidden bg-white py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
               <div className="lg:pr-8 lg:pt-4">
                 <div className="lg:max-w-lg">
-                  <p className="mt-2 text-3xl font-bold tracking-tight text-cyan-600 sm:text-4xl">
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                     Document Q&A/Research
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">{research}</p>
@@ -330,15 +338,19 @@ export default function AlternativePage({
               </div>
             </div>
           </div>
+          <div className="mt-20 flex items-center justify-center gap-x-6 bg-white lg:flex-shrink-0">
+            <Link
+              href="/register"
+              className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+            >
+              <span>Start researching now</span>
+            </Link>
+            <Link href="/#features" className="text-sm font-semibold leading-6 text-gray-900">
+              Learn more <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
-        <div className="mt-10 flex bg-white justify-center items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-          <Link href='/register' className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600">
-            <span>Start Researching Now</span>
-          </Link>
-          <Link href="/#features" className="text-sm font-semibold leading-6 text-gray-900">
-            Learn more <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+
         <div className="bg-white py-16 sm:py-24" id="comparison">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
@@ -591,8 +603,39 @@ export default function AlternativePage({
           customTitle={`Try the Best ${name} Alternative`}
           button="Switch now, it's free!"
         />
+        <div className="mx-auto bg-white py-16 text-center">
+          <h2 className="mx-auto max-w-2xl text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Discover why DocsBot AI is the best alternative to
+          </h2>
+          <div className="mt-10 flex justify-center gap-x-8 gap-y-6 bg-white text-xl font-semibold leading-7 text-gray-900 md:flex lg:gap-x-10">
+            {ALTERNATIVES.map((item) => (
+              <Link
+                key={item.slug}
+                className="underline-offset-2 hover:underline"
+                href={`/comparisons/${item.slug}-alternative`}
+              >
+                {item.name} <span aria-hidden="true">&rarr;</span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </main>
       <Footer />
     </>
   )
+}
+export async function getStaticPaths() {
+  let paths = ALTERNATIVES.map((item) => {
+    return { params: { index: `${item.slug}-alternative` } }
+  })
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: { ...ALTERNATIVES.find((e) => `${e.slug}-alternative` == context.params.index) },
+  }
 }

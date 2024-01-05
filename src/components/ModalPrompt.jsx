@@ -88,14 +88,14 @@ export default function ModalPrompt({ team, bot }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-6xl sm:p-6">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault()
                       updatePrompt()
                     }}
                   >
-                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -118,49 +118,54 @@ export default function ModalPrompt({ team, bot }) {
                         )}
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
-                      <p className="text-md text-gray-700">
-                        Add some custom instructions to your prompt to adjust your bot's answer
-                        output to your specific use case. You can use this powerful tool to make
-                        highly specific changes to your bot's output.
-                      </p>
-                      <h3 className="mt-4 text-lg font-medium text-gray-800">Examples</h3>
-                      <ul className="mt-2 ml-4 list-disc text-sm text-gray-700">
-                        <li className="text-sm text-gray-700">
-                          "Politely refuse to answer questions unrelated to {bot.name}."
-                        </li>
-                        <li className="text-sm text-gray-700">
-                          "Begin each answer with the phrase 'I think...'."
-                        </li>
-                        <li className="text-sm text-gray-700">
-                          "End each answer with the phrase 'I hope that helps!'."
-                        </li>
-                        <li className="text-sm text-gray-700">
-                          "If the answer is not in the provided context, recommend they contact the{' '}
-                          {bot.name} support team and provide a link to https://mysite.com/support/"
-                        </li>
-                        <li className="text-sm text-gray-700">
-                          "Always answer in the form of a rhyming couplet."
-                        </li>
-                      </ul>
-                      <div className="mt-4 text-left">
-                        <label
-                          htmlFor="prompt"
-                          className="block text-left text-sm font-medium text-gray-700"
-                        >
-                          Custom Prompt
-                        </label>
-                        <div className="mt-1">
-                          <textarea
-                            id="prompt"
-                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                            placeholder="Enter any custom prompt here..."
-                            value={prompt}
-                            onChange={(e) => setPrompt(e.target.value)}
-                            disabled={isUpdating}
-                          />
+                      <div className="grid lg:grid-cols-2 gap-x-8 grid-cols-1">
+                        <div className=''>
+                          <p className="text-md text-gray-700">
+                            Add some custom instructions to your prompt to adjust your bot's answer
+                            output to your specific use case. You can use this powerful tool to make
+                            highly specific changes to your bot's output.
+                          </p>
+                          <h3 className="mt-4 text-lg font-medium text-gray-800">Examples</h3>
+                          <ul className="ml-4 mt-2 list-disc text-sm text-gray-700">
+                            <li className="text-sm text-gray-700">
+                              "Politely refuse to answer questions unrelated to {bot.name}."
+                            </li>
+                            <li className="text-sm text-gray-700">
+                              "Begin each answer with the phrase 'I think...'."
+                            </li>
+                            <li className="text-sm text-gray-700">
+                              "End each answer with the phrase 'I hope that helps!'."
+                            </li>
+                            <li className="text-sm text-gray-700">
+                              "If the answer is not in the provided context, recommend they contact
+                              the {bot.name} support team and provide a link to
+                              https://mysite.com/support/"
+                            </li>
+                            <li className="text-sm text-gray-700">
+                              "Always answer in the form of a rhyming couplet."
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="text-left mt-4 lg:mt-0 h-full">
+                          <label
+                            htmlFor="prompt"
+                            className="block text-left text-sm font-medium text-gray-700"
+                          >
+                            Custom Prompt
+                          </label>
+                          <div className="mt-1 h-full">
+                            <textarea
+                              id="prompt"
+                              className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                              placeholder="Enter any custom prompt here..."
+                              value={prompt}
+                              onChange={(e) => setPrompt(e.target.value)}
+                              disabled={isUpdating}
+                            />
+                          </div>
                         </div>
                       </div>
-                      <div className="mt-5 flex justify-end sm:mt-6">
+                      <div className="mt-14 flex justify-end sm:mt-12">
                         <button
                           type="submit"
                           name="submit-form"

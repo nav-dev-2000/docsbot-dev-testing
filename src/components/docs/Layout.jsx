@@ -42,12 +42,6 @@ const navigation = [
     ]
   },
   {
-    title: 'Integrations',
-    links: [
-      { title: 'Zapier Integration', href: '/documentation/developer/integrations/zapier' },
-    ]
-  },
-  {
     title: 'Chat API',
     links: [
       { title: 'Overview', href: '/documentation/developer/chat-api-overview' },

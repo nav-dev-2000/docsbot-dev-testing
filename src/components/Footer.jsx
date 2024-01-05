@@ -2,6 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
+import { ALTERNATIVES } from '@/constants/alternatives.constants'
+
+const comparisons = ALTERNATIVES.map((item) => ({
+  name: `${item.name} Alternative`,
+  href: `/comparisons/${item.slug}-alternative`,
+}))
 
 const footerNavigation = {
   pages: NAVIGATION,
@@ -10,9 +16,7 @@ const footerNavigation = {
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
     { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
   ],
-  comparisons: [
-    { name: 'Chatbase Alternative', href: '/comparisons/chatbase-alternative' },
-  ],
+  comparisons: comparisons,
   tools2: [
     {
       name: 'OpenAI API Calculator',

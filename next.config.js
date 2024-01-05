@@ -70,6 +70,11 @@ const nextConfig = {
         destination: '/documentation/developer/:slug*',
         permanent: true,
       },
+      {
+        source: '/documentation/developer/integrations/zapier',
+        destination: '/documentation/doc/zapier-integration',
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
