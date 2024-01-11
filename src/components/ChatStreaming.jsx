@@ -11,6 +11,7 @@ import {
   ClipboardIcon,
   CheckIcon,
   XMarkIcon,
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
@@ -383,7 +384,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                     <div className="mt-1 text-center sm:mt-2">
                       <Dialog.Title
                         as="h3"
-                        className="flex items-center justify-center text-xl font-semibold leading-6 text-gray-900"
+                        className="flex items-center justify-start text-xl font-semibold leading-6 text-gray-900"
                       >
                         <SourceIcon
                           className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-800"
@@ -393,12 +394,13 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                           <Link
                             href={currentSource.url}
                             target="_blank"
-                            className="focus:outline-none"
+                            className="focus:outline-none flex items-center space-x-2 hover:underline"
                           >
                             <p className="text-left">
                               {currentSource.title}
                               {page}
                             </p>
+                            <ArrowTopRightOnSquareIcon className="h-4 w-4 flex-shrink-0 text-gray-800" />
                           </Link>
                         ) : (
                           <p className="text-left">
