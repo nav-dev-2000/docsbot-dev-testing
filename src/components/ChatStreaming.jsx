@@ -46,8 +46,30 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   )
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
+  const [screenWidth, setScreenWidth] = useState(null);
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
+
+  useEffect(() => {
+    const handleScreenChange = () => {
+      setScreenWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleScreenChange);
+    return () => {
+      window.removeEventListener('resize', handleScreenChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    let timeoutId = null;
+    timeoutId = setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 500)
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [screenWidth])
 
   useEffect(() => {
     const textarea = textareaRef.current
