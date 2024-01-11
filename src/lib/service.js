@@ -91,6 +91,10 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
     throw new Error("Cannot refresh source that is not 'ready' or 'failed.")
   }
 
+  if (sourceData?.type && isCarbonSourceType(sourceData.type)) {
+    isCarbon = true
+  }
+
   const data = {
     status: 'pending',
     createdAt: FieldValue.serverTimestamp(),
