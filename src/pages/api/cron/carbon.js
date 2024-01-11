@@ -5,7 +5,7 @@ import axios from 'axios'
 import { getSources } from '@/lib/dbQueries'
 import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
-import { QueueSourceIngest } from '@/lib/service'
+import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
