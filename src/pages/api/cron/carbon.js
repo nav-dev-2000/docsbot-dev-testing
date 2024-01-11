@@ -114,6 +114,12 @@ export default async function handler(request, response) {
 
         if (ready) {
 
+          //if refreshing via regest, expel first so we don't get duplicates (TODO could cause race condition)
+          if ( source.refreshing ) {
+            QueueSourceExpel(teamId, bot.indexId, botId, sourceId)
+            console.log('Source', teamId, botId, sourceId, 'queued for expel')
+          }
+
           await QueueSourceIngest(
             teamId,
             botId,
