@@ -118,7 +118,7 @@ export default async function handler(request, response) {
           throw new Error( `This source has ${newCarbonFiles.length} pages, exceeding the remaining plan limit of ${stripePlan(team).pages - team.pageCount}. Please upgrade your plan.`)
         }
 
-        //TODO if too many files we will get an error saving to document (1MB limit)
+        //TODO: if too many files we will get an error saving to document (1MB limit)
         
         //update source
         doc.ref.update({
