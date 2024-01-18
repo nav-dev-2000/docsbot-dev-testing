@@ -59,25 +59,40 @@ export default async function handler(request, response) {
         }
 
         const carbonFiles = []
+        const perPage = 250;
+        let offset = 0;
 
-        const response = await axios.post(
-          `https://api.carbon.ai/user_files_v2`,
-          {
-            filters: {
-              source: sourceFilters[source.type],
+        while (true) {
+          const response = await axios.post(
+            `https://api.carbon.ai/user_files_v2`,
+            {
+              filters: {
+                source: sourceFilters[source.type],
+              },
+              pagination: {
+                limit: perPage,
+                offset: offset,
+              },
             },
-            pagination: {
-              limit: 10000,
-            },
-          },
-          headers
-        )
+            headers
+          );
 
-        if (response.status !== 200) {
-          throw new Error(`Carbon API returned status ${response.status}`)
+          if (response.status !== 200) {
+            throw new Error(`Carbon API returned status ${response.status}`);
+          }
+
+          carbonFiles.push(...response.data.results);
+
+          // Process the files as needed
+
+          // Check if there are more pages to fetch
+          if (response.data.count <= offset + perPage) {
+            break;
+          }
+
+          // Update the offset for the next iteration
+          offset += perPage;
         }
-
-        carbonFiles.push(...response.data.results)
 
         let newCarbonFiles = []
         let ready = true
@@ -103,6 +118,8 @@ export default async function handler(request, response) {
           throw new Error( `This source has ${newCarbonFiles.length} pages, exceeding the remaining plan limit of ${stripePlan(team).pages - team.pageCount}. Please upgrade your plan.`)
         }
 
+        //TODO if too many files we will get an error saving to document (1MB limit)
+        
         //update source
         doc.ref.update({
           status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
