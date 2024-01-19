@@ -1,7 +1,11 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ChatBubbleLeftEllipsisIcon, ChatBubbleLeftRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  ChatBubbleLeftRightIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
 import Chat from '@/components/ChatStreaming'
+import TipsTooltip from './TipsTooltip'
 
 export default function ModalChat({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -42,8 +46,9 @@ export default function ModalChat({ team, bot }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-50 text-left shadow-xl transition-all sm:my-8 pb-8 sm:w-full sm:max-w-7xl">
-                  <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block z-20">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-50 pb-8 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-7xl">
+                  <TipsTooltip />
+                  <div className="absolute right-0 top-0 z-20 hidden pr-4 pt-4 sm:block">
                     <button
                       type="button"
                       className="rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
