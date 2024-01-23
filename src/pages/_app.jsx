@@ -209,8 +209,8 @@ fpr("click");`}
           strategy="afterInteractive"
           src="https://cdn.firstpromoter.com/fpr.js"
         />
-        <Script id="gtag" src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
-        <Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
+        <Script id="gtag">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -347,8 +347,8 @@ fpr("click");`}
               src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
               strategy="afterInteractive"
             />
-            <Script id="gtag" src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
-            <Script>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
+            <Script id="gtag">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
