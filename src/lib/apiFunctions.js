@@ -11,6 +11,7 @@ import axios from 'axios'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
+import { carbonSourceFilters } from '@/constants/carbon.constants'
 
 export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) => {
   configureFirebaseApp()
@@ -64,7 +65,6 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
   })
 
   // for Carbon sources we need to delete the files from the Carbon API
-  /*
   if (deleteCarbon && isCarbonSourceType(source.type)) {
     try {
       const headers = {
@@ -75,24 +75,58 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
         },
       }
 
-      await Promise.all(
-        source.carbonFiles.map(async (file) => {
-          if (file.fileId) {
-            // https://api.carbon.ai/redoc#tag/user_files/operation/del_file_deletefile__file_id__delete
-            const resp = await axios.delete(
-              `https://api.carbon.ai/deletefile/${file.fileId}`,
-              {},
-              headers
-            )
-            console.log('Deleted file from Carbon API', resp.status)
-          }
-        })
+      const carbonFiles = []
+      const perPage = 250
+      let offset = 0
+
+      while (true) {
+        const response = await axios.post(
+          `https://api.carbon.ai/user_files_v2`,
+          {
+            filters: {
+              source: carbonSourceFilters[source.type],
+            },
+            pagination: {
+              limit: perPage,
+              offset: offset,
+            },
+          },
+          headers
+        )
+
+        if (response.status !== 200) {
+          throw new Error(`Carbon API returned status ${response.status}`)
+        }
+
+        for (const file of response.data.results) {
+          carbonFiles.push(file.id)
+        }
+
+        // Check if there are more pages to fetch
+        if (response.data.count <= offset + perPage) {
+          break
+        }
+
+        // Update the offset for the next iteration
+        offset += perPage
+      }
+
+      console.log('Deleting %d files from Carbon API', carbonFiles.length)
+      const resp = await axios.post(
+        `https://api.carbon.ai/delete_files`,
+        {
+          file_ids: carbonFiles,
+        },
+        headers
       )
+      if (resp.status !== 200) {
+        throw new Error(`Carbon API returned status ${response.status}`)
+      }
+      console.log('Deleted files from Carbon API', resp.status)
     } catch (e) {
       console.log('Error deleting file from Carbon API', e)
     }
   }
-  */
 
   return true
 }
@@ -164,6 +198,37 @@ export const deleteBot = async (teamId, botId) => {
   // Commit the remaining batch
   await questionsBatch.commit()
 
+  // Delete all reports for bot
+  const reportsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('reports')
+    .select(FieldPath.documentId()) //less data to retrieve
+    .get()
+
+  // Once we get the results, begin a batch
+  toDelete = []
+  reportsSnapshot.forEach(function (doc) {
+    toDelete.push(doc.ref)
+  })
+
+  // Loop through toDelete and delete in batches of 500
+  counter = 0
+  let reportsBatch = firestore.batch()
+  for (let i = 0; i < toDelete.length; i++) {
+    reportsBatch.delete(toDelete[i])
+    counter++
+    // Commit the batch every 50 operations
+    if (counter % 50 === 0) {
+      await reportsBatch.commit()
+      reportsBatch = firestore.batch()
+    }
+  }
+  // Commit the remaining batch
+  await reportsBatch.commit()
+
   //delete bot
   await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).delete()
 
@@ -198,6 +263,96 @@ export const deleteBot = async (teamId, botId) => {
     } catch (error) {
       console.warn('Error deleting Weaviate Schema:', error)
     }
+  }
+
+  //delete any data and connections in Carbon
+  try {
+    const headers = {
+      headers: {
+        'Content-Type': 'application/json',
+        'customer-id': getCarbonCustomerID(teamId, botId),
+        authorization: `Bearer ${process.env.CARBON_API_KEY}`,
+      },
+    }
+
+    const carbonFiles = []
+    const perPage = 250
+    let offset = 0
+
+    while (true) {
+      const response = await axios.post(
+        `https://api.carbon.ai/user_files_v2`,
+        {
+          pagination: {
+            limit: perPage,
+            offset: offset,
+          },
+        },
+        headers
+      )
+
+      if (response.status !== 200) {
+        throw new Error(`Carbon API returned status ${response.status}`)
+      }
+
+      for (const file of response.data.results) {
+        carbonFiles.push(file.id)
+      }
+
+      // Check if there are more pages to fetch
+      if (response.data.count <= offset + perPage) {
+        break
+      }
+
+      // Update the offset for the next iteration
+      offset += perPage
+    }
+
+    console.log('Deleting %d files from Carbon API', carbonFiles.length)
+    const resp = await axios.post(
+      `https://api.carbon.ai/delete_files`,
+      {
+        file_ids: carbonFiles,
+      },
+      headers
+    )
+    if (resp.status !== 200) {
+      throw new Error(`Carbon API returned status ${response.status}`)
+    }
+    console.log('Deleted files from Carbon API', resp.status)
+
+    //now revoke Cloud connections
+    const response = await axios.post(
+      `https://api.carbon.ai/user_data_sources`,
+      {
+        pagination: {
+          limit: 250,
+          offset: 0,
+        },
+      },
+      headers
+    )
+
+    if (response.status !== 200) {
+      throw new Error(`Carbon API returned status ${response.status} for user_data_sources`)
+    }
+
+    for (const connection of response.data.results) {
+      const resp = await axios.post(
+        `https://api.carbon.ai/revoke_access_token`,
+        {
+          data_source_id: connection.id,
+        },
+        headers
+      )
+      if (resp.status !== 200) {
+        throw new Error(`Carbon API returned status ${response.status} revoking connection access token`)
+      } else {
+        console.log('Revoked Carbon access for connection', connection.data_source_type, connection.data_source_external_id)
+      }
+    }
+  } catch (e) {
+    console.log('Error clearing data from Carbon API', e)
   }
 
   return true
@@ -289,9 +444,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (allowedDomains !== undefined) {
     botData.allowedDomains = allowedDomains
       ? allowedDomains
-        .filter((s) => s)
-        .map((d) => d.trim().toLowerCase())
-        .filter(Boolean)
+          .filter((s) => s)
+          .map((d) => d.trim().toLowerCase())
+          .filter(Boolean)
       : []
   }
 
@@ -400,13 +555,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (rateLimitIPAllowlist !== undefined) {
     botData.rateLimitIPAllowlist = rateLimitIPAllowlist
       ? rateLimitIPAllowlist
-        .map((ip) => ip.trim())
-        .filter((ip) => {
-          return (
-            ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) ||
-            ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)
-          )
-        })
+          .map((ip) => ip.trim())
+          .filter((ip) => {
+            return (
+              ip.match(/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/) ||
+              ip.match(/^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/)
+            )
+          })
       : []
   }
 

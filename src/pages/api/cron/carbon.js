@@ -6,6 +6,7 @@ import { getSources } from '@/lib/dbQueries'
 import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
 import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
+import { carbonSourceFilters } from '@/constants/carbon.constants'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -48,16 +49,6 @@ export default async function handler(request, response) {
           },
         }
 
-        const sourceFilters = {
-          notion: ['NOTION', 'NOTION_DATABASE'],
-          google_docs: ['GOOGLE_DRIVE'],
-          intercom: ['INTERCOM'],
-          dropbox: ['DROPBOX'],
-          box: ['BOX'],
-          zendesk: ['ZENDESK'],
-          sharepoint: ['SHAREPOINT'],
-        }
-
         const carbonFiles = []
         const perPage = 250;
         let offset = 0;
@@ -67,7 +58,7 @@ export default async function handler(request, response) {
             `https://api.carbon.ai/user_files_v2`,
             {
               filters: {
-                source: sourceFilters[source.type],
+                source: carbonSourceFilters[source.type],
               },
               pagination: {
                 limit: perPage,
