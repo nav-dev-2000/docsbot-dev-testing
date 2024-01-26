@@ -93,7 +93,9 @@ export default async function handler(request, response) {
             ready = false
           }
 
-          if (file.sync_status !== 'SYNC_ERROR') {
+          console.log(file.file_metadata)
+
+          if (file.sync_status !== 'SYNC_ERROR' && !file.file_metadata?.is_folder) {
             newCarbonFiles.push({
               id: file.id,
               name: file.name || file.title || 'DB Item', //gdocs has name, others have title
