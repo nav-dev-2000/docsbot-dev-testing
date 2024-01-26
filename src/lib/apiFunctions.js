@@ -524,6 +524,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (questions !== undefined) {
     botData.questions = questions || []
+    if (Array.isArray(botData.questions)) {
+      botData.questions = botData.questions.filter(question => question?.trim() !== '')
+    }
   }
 
   if (
