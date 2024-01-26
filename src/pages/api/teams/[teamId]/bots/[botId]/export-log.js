@@ -78,6 +78,8 @@ const handler = async (req, res) => {
       }
 
       questions.forEach((doc) => {
+        if (doc.data().deleted) return // skip deleted questions
+        
         let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
         //if we identified the user, use the provided data for alias
         if (doc.data().metadata) {

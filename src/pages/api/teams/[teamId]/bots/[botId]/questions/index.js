@@ -41,20 +41,6 @@ export default async function handler(req, res) {
       console.warn('Error getting document:', error)
       return res.status(500).json({ message: error.message })
     }
-  } else if (req.method === 'PUT') {
-    let { questionId } = req.query
-    const { revised } = req.body
-
-    // save sourceId to question
-    try {
-      const questionRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('questions').doc(questionId)
-      await questionRef.update({ revised })
-
-      return res.json({ message: 'success' })
-    } catch (error) {
-      console.warn('Error updating document:', error)
-      return res.status(500).json({ message: error })
-    }
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })
   }

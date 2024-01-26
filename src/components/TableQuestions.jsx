@@ -13,6 +13,7 @@ import {
   UserCircleIcon,
   UserGroupIcon,
   ClipboardDocumentIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -180,6 +181,42 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     }
   }
 
+  const deleteQuestion = async (questionId) => {
+    const urlParams = [
+      'teams',
+      team.id,
+      'bots',
+      bot.id,
+      'questions',
+      questionId,
+    ]
+    const path = '/api/' + urlParams.join('/')
+
+    const response = await fetch(path, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      setQuestions((prevQuestions) => {
+        const questionIndex = prevQuestions.questions.findIndex(
+          (question) => question.id === questionId
+        )
+        const newQuestions = [...prevQuestions.questions]
+        newQuestions[questionIndex].deleted = true
+        return { ...prevQuestions, questions: newQuestions }
+      })
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
   const FullSource = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
     const page = source.page ? ` - Page ${source.page}` : ''
@@ -309,9 +346,16 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
                     <div className="absolute right-0 top-0 flex pr-4 pt-4">
+                      <button
+                        type="button"
+                        className="mr-10 flex items-center rounded-md text-xs text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                        onClick={() => deleteQuestion(question.id)}
+                      >
+                        <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                      </button>
                       {question.run_id && (
                         <button
-                          className="flex items-center text-gray-400 hover:text-gray-600 text-xs mr-8"
+                          className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
                           onClick={(e) => {
                             e.preventDefault()
                             navigator.clipboard.writeText(question.run_id)
@@ -321,12 +365,13 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                             }, 2000)
                           }}
                           disabled={copied}
-                          title='Copy this question ID to provide to the support team.'
+                          title="Copy this question ID to provide to the support team."
                         >
                           <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
                           {copied ? 'Copied!' : 'Copy ID'}
                         </button>
                       )}
+
                       <button
                         type="button"
                         className="mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -578,6 +623,11 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                 </thead>
                 <tbody>
                   {questions.questions.map((question, questionIdx) => {
+                    // if the question is deleted, show a row with a message
+                    if (question.deleted) {
+                      return null
+                    }
+
                     return (
                       <tr
                         key={question.id}

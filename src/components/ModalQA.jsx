@@ -15,7 +15,7 @@ export default function ModalQA({ team, botId, question, open, setOpen }) {
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   const saveQuestion = async () => {
-    const urlParams = ['teams', team.id, 'bots', botId, 'questions?questionId=' + question.id]
+    const urlParams = ['teams', team.id, 'bots', botId, 'questions', question.id]
     const urlPath = '/api/' + urlParams.join('/')
 
     const response = await fetch(urlPath, {

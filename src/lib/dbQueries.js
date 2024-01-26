@@ -294,7 +294,7 @@ export async function getQuestions(
     question.createdAt = question.createdAt.toDate().toJSON() //make serializable
 
     // question.sources = doc.data().sources || []
-    if (Object.keys(question.sources).length === 0) {
+    if (!question.sources || Object.keys(question.sources).length === 0) {
       question.sources = []
     }
     questions.push(question)
