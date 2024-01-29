@@ -1,6 +1,6 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getBot, getQuestionCount } from '@/lib/dbQueries'
+import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {

@@ -49,18 +49,67 @@ const getTimeDeltaFromCalendarMonth = () => {
   return currentDate - startDate
 }
 
-export async function getQuestionCount(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
-  // grab question count for specific bot
-  const questions = await firestore
+export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
+  // grab question stats for specific bot
+  const questionsSnapshot = await firestore
     .collection('teams')
     .doc(teamId)
     .collection('bots')
     .doc(botId)
     .collection('questions')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .count()
+    .select('rating', 'escalation', 'createdAt')
     .get()
-  return questions.data().count
+
+  const monthly = {
+    upVotes: 0,
+    downVotes: 0,
+    escalations: 0,
+    questions: 0,
+  }
+  const daily = {}
+
+  questionsSnapshot.forEach((questionDoc) => {
+    const questionData = questionDoc.data()
+    const createdDate = questionData?.createdAt?.toDate()
+    //get year-month-day for object key
+    const day =
+      createdDate?.getFullYear() +
+      '-' +
+      (createdDate?.getMonth() + 1) +
+      '-' +
+      createdDate?.getDate()
+
+    daily[day] = daily[day] || {
+      upVotes: 0,
+      downVotes: 0,
+      escalations: 0,
+      questions: 0,
+    }
+
+    // Assuming 'rating' key is present in the question document
+    const rating = questionData?.rating || 0
+
+    if (rating === -1) {
+      monthly.downVotes += 1
+      daily[day].downVotes += 1
+    } else if (rating === 1) {
+      monthly.upVotes += 1
+      daily[day].upVotes += 1
+    }
+
+    if (questionData?.escalation) {
+      monthly.escalations += 1
+      daily[day].escalations += 1
+    }
+    monthly.questions += 1
+    daily[day].questions += 1
+  })
+
+  return {
+    monthly,
+    daily,
+  }
 }
 
 export async function getBot(teamId, botId) {
@@ -127,7 +176,7 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'status',
       'refreshing',
       'scheduled',
-      'scheduleInterval',
+      'scheduleInterval'
     )
     .offset(offset)
     .limit(pageSize)
@@ -138,7 +187,19 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
     //if createdAt is more than X hour ago and indexing is not complete, set error
-    const expireHours = ['urls', 'sitemap', 'notion', 'google_docs', 'intercom', 'dropbox', 'box', 'zendesk', 'sharepoint'].includes(source.type) ? 6 : 1 //APIFY has 6hr timeout, cloud funtions has 60mins
+    const expireHours = [
+      'urls',
+      'sitemap',
+      'notion',
+      'google_docs',
+      'intercom',
+      'dropbox',
+      'box',
+      'zendesk',
+      'sharepoint',
+    ].includes(source.type)
+      ? 6
+      : 1 //APIFY has 6hr timeout, cloud funtions has 60mins
     if (
       ['indexing', 'pending', 'processing'].includes(source.status) &&
       source.createdAt.toDate() < new Date(Date.now() - expireHours * 60 * 60 * 1000)
@@ -421,7 +482,10 @@ export async function getUserTeams(userId) {
   //get teams for user list
   let teams = []
   try {
-    const teamsSnapshot = await firestore.collection('teams').where('roles.' + userId, '!=', null).get()
+    const teamsSnapshot = await firestore
+      .collection('teams')
+      .where('roles.' + userId, '!=', null)
+      .get()
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
@@ -507,7 +571,11 @@ export async function getInvitesFromEmail(email) {
 }
 
 export async function getInvitesFromEmailAndTeamId(email, teamId) {
-  const inviteQuery = await firestore.collection('invites').where('email', '==', email).where('teamId', '==', teamId).get()
+  const inviteQuery = await firestore
+    .collection('invites')
+    .where('email', '==', email)
+    .where('teamId', '==', teamId)
+    .get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
@@ -576,17 +644,17 @@ export async function acceptInvite(teamId, userId, inviteId) {
     console.log('data:', teamDoc.data().roles, typeof teamDoc.data().roles)
     const isAdded = teamDoc.data().roles[userId]
     if (isAdded === undefined) {
-        transaction.update(teamRef, {
-          roles: {
-            [userId]: 'admin',
-            ...teamDoc.data().roles
-          }
-        })
+      transaction.update(teamRef, {
+        roles: {
+          [userId]: 'admin',
+          ...teamDoc.data().roles,
+        },
+      })
 
-        // set the user's currentTeam to the newly joined team
-        transaction.update(firestore.collection('users').doc(userId), {
-          currentTeam: teamId
-        })
+      // set the user's currentTeam to the newly joined team
+      transaction.update(firestore.collection('users').doc(userId), {
+        currentTeam: teamId,
+      })
     }
 
     transaction.delete(inviteRef)

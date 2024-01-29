@@ -1,6 +1,6 @@
 import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getQuestionCount } from '@/lib/dbQueries'
+import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 
@@ -27,45 +27,52 @@ export default async function handler(request, response) {
 
       try {
         let currentDate = new Date()
-        let currentMonth = currentDate.getMonth()
+        let currentDay = currentDate.getDate()
+        let currentMonth = currentDate.getMonth() + 1
         let currentYear = currentDate.getFullYear()
 
         const teamData = teamDoc.data()
         const botsSnapshot = await teamDoc.ref
           .collection('bots')
-          .select('questionCountHistory', 'name', 'embedded')
+          .select('questionHistory', 'questionHistoryDaily', 'name', 'embedded')
           .get()
 
         let questionTotal = 0
         let pageTotal = 0
         let sourceTotal = 0
+        let upVotesTotal = 0
+        let downVotesTotal = 0
+        let escalationsTotal = 0
+        let questionHistoryDailyNew = {}
+
         const botCounts = []
 
         for (const botDoc of botsSnapshot.docs) {
-          const questionCount = await getQuestionCount(teamDoc.id, botDoc.id)
+          const { monthly, daily } = await getQuestionStats(teamDoc.id, botDoc.id)
 
           // grab the # of source pages
           const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
           const sourceCount = sourcesSnapshot.size
           const sourcePages = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
-          const pageCount = sourcePages.reduce(
-            (accumulator, count) => accumulator + count,
-            0
-          )
+          const pageCount = sourcePages.reduce((accumulator, count) => accumulator + count, 0)
 
-          const prevHistory = botDoc.data().questionCountHistory || {}
+          const prevHistory = botDoc.data().questionHistory || {}
+          const prevHistoryDaily = botDoc.data().questionHistoryDaily || {}
 
           const botData = {
-            questionCount: questionCount,
+            questionCount: monthly.questions,
             pageCount: pageCount,
             sourceCount: sourceCount,
-            questionCountHistory: {
+            questionHistory: {
               ...prevHistory,
-              [`${currentYear}-${currentMonth}`]: questionCount,
+              [`${currentYear}-${currentMonth}`]: monthly,
+            },
+            questionHistoryDaily: {
+              ...prevHistoryDaily,
+              ...daily,
             },
           }
 
-          //handle tracking if the bot was used
           const embedded = botDoc.data().embedded || false
           if (embedded == 'yes') {
             try {
@@ -83,14 +90,31 @@ export default async function handler(request, response) {
           // update bot count
           await botDoc.ref.update(botData)
 
-          botCounts.push({ questionCount, pageCount, sourceCount })
+          botCounts.push({ pageCount, sourceCount, monthly, daily })
         }
 
         // take and sum the results
-        for (const { questionCount, pageCount, sourceCount } of botCounts) {
-          questionTotal += questionCount
+        for (const { pageCount, sourceCount, monthly, daily } of botCounts) {
+          questionTotal += monthly.questions
           pageTotal += pageCount
           sourceTotal += sourceCount
+          upVotesTotal += monthly.upVotes
+          downVotesTotal += monthly.downVotes
+          escalationsTotal += monthly.escalations
+
+          //loop through daily
+          for (const [day, value] of Object.entries(daily)) {
+            questionHistoryDailyNew[day] = questionHistoryDailyNew[day] || {
+              questions: 0,
+              upVotes: 0,
+              downVotes: 0,
+              escalations: 0,
+            }
+            questionHistoryDailyNew[day].questions += value.questions
+            questionHistoryDailyNew[day].upVotes += value.upVotes
+            questionHistoryDailyNew[day].downVotes += value.downVotes
+            questionHistoryDailyNew[day].escalations += value.escalations
+          }
         }
 
         console.log(
@@ -106,14 +130,24 @@ export default async function handler(request, response) {
         )
 
         // update team count && needsUpdate
-        const prevHistory = teamData.questionCountHistory || {}
+        const prevHistory = teamData.questionHistory || {}
+        const prevHistoryDaily = teamData.questionHistoryDaily || {}
         await teamDoc.ref.update({
           questionCount: questionTotal,
           pageCount: pageTotal,
           sourceCount: sourceTotal,
-          questionCountHistory: {
+          questionHistory: {
             ...prevHistory,
-            [`${currentYear}-${currentMonth}`]: questionTotal,
+            [`${currentYear}-${currentMonth}`]: {
+              questions: questionTotal,
+              upVotes: upVotesTotal,
+              downVotes: downVotesTotal,
+              escalations: escalationsTotal,
+            },
+          },
+          questionHistoryDaily: {
+            ...prevHistoryDaily,
+            ...questionHistoryDailyNew,
           },
           needsUpdate: false,
         })

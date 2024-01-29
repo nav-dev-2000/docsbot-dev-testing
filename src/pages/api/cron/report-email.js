@@ -42,7 +42,7 @@ export default async function handler(request, response) {
         } else {
           const botsSnapshot = await teamDoc.ref
             .collection('bots')
-            .select('questionCountHistory', 'status', 'name')
+            .select('status', 'name')
             .get()
 
           const botPromises = botsSnapshot.docs.map(async (botDoc) => {
