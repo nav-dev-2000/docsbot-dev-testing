@@ -10,7 +10,7 @@ import clsx from 'clsx'
 
 const BotSearch = ({ team, bot, setErrorText }) => {
   const [searchInput, setSearchInput] = useState('')
-  const [searchSize] = useState(5)
+  const [searchSize] = useState(16)
   const [searchData, setSearchData] = useState([])
   const [selectedButton, setSelectedButton] = useState(-1)
   const [selectedCardData, setSelectedCardData] = useState('')
