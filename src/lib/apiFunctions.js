@@ -416,7 +416,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (model !== undefined) {
-    if (model === 'gpt-4' || model === 'gpt-4-1106-preview') {
+    if (model === 'gpt-4' || model === 'gpt-4-turbo') {
       if (!team.supportsGPT4) {
         throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
       } else if (stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
@@ -424,7 +424,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       }
     }
     //check if model is valid
-    const validModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-0613', 'gpt-4', 'gpt-4-1106-preview']
+    const validModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-0613', 'gpt-4', 'gpt-4-turbo']
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
