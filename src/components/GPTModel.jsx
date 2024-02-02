@@ -1,13 +1,13 @@
 import { CubeIcon } from '@heroicons/react/24/outline'
 
 export default function GPTModel({ bot }) {
-  let label;
+  let label
   if (bot.model === 'gpt-4') {
-    label = 'GPT-4';
-  } else if (bot.model === 'gpt-4-1106-preview') {
-    label = 'GPT-4 Turbo (Preview)';
+    label = 'GPT-4'
+  } else if (bot.model.includes('gpt-4')) {
+    label = 'GPT-4 Turbo (Preview)'
   } else {
-    label = 'GPT-3.5';
+    label = 'GPT-3.5'
   }
   return (
     <p className="flex items-center text-sm capitalize text-gray-500">
