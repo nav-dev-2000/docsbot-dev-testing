@@ -180,7 +180,7 @@ For businesses who want to save time and money on support and copywriting.
 *   Unbranded chat widgets
 *   Prompt customization
 
-Does not include OpenAI API costs (roughly $0.003/question)
+Does not include OpenAI API costs (less than $0.002/question)
 
 ### Personal
 

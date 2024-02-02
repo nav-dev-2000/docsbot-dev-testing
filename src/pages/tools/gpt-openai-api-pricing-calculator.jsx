@@ -13,8 +13,8 @@ const pricing = {
       model_name: 'GPT-3.5 Turbo',
       context: '16K',
       provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.001,
-      output_token_cost_per_thousand: 0.002,
+      input_token_cost_per_thousand: 0.0005,
+      output_token_cost_per_thousand: 0.0015,
     },
     {
       model_name: 'GPT-4 Turbo',
@@ -179,7 +179,7 @@ export default function Calculate() {
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2,
                   Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple and
-                  powerful free calculator. Latest numbers as of Dec. 2023.
+                  powerful free calculator. Latest numbers as of Feb. 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
