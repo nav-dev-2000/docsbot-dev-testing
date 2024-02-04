@@ -424,7 +424,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       }
     }
     //check if model is valid
-    const validModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-0613', 'gpt-4', 'gpt-4-turbo']
+    const validModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-0613', 'gpt-4', 'gpt-4-turbo', 'gpt-4-1106-preview']
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
