@@ -17,7 +17,7 @@ export default async function handler(request, response) {
   let currentDate = new Date()
   currentDate.setMonth(currentDate.getMonth() - 1)
   let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0')
-  let statsMonth = currentDate.getMonth()
+  let statsMonth = currentDate.getMonth() + 1
   let currentYear = currentDate.getFullYear()
   const reportId = `${currentYear}-${currentMonth}`
   const historyKey = `${currentYear}-${statsMonth}`
@@ -40,7 +40,7 @@ export default async function handler(request, response) {
         } else {
           const botsSnapshot = await teamDoc.ref
             .collection('bots')
-            .select('questionCountHistory', 'status')
+            .select('questionHistory', 'status')
             .get()
 
           const botPromises = botsSnapshot.docs.map(async (botDoc) => {
@@ -48,9 +48,9 @@ export default async function handler(request, response) {
             //check basic question counts
             if (
               bot.status !== 'ready' ||
-              !bot.questionCountHistory ||
-              !bot.questionCountHistory[historyKey] ||
-              bot.questionCountHistory[historyKey] < 100
+              !bot.questionHistory ||
+              !bot.questionHistory[historyKey] ||
+              bot.questionHistory[historyKey] < 100
             ) {
               //console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
               return
