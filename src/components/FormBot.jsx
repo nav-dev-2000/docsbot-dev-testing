@@ -306,7 +306,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
               <div className="pl-7 text-sm">
                 <label htmlFor="gpt-4-turbo" className="font-medium text-gray-900">
-                  GPT-4 Turbo (Preview)
+                  GPT-4 Turbo
                   {stripePlan(team).name === 'Free' && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
