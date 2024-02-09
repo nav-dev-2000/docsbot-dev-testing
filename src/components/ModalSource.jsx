@@ -27,7 +27,7 @@ export default function ModalSource({
   source,
   setSources,
   children,
-  defaultOpen = false
+  defaultOpen = false,
 }) {
   const [open, setOpen] = useState(defaultOpen)
   const [toDelete, setToDelete] = useState(null)
@@ -43,13 +43,12 @@ export default function ModalSource({
 
   const fetchSourceDetails = async () => {
     if (source.id) {
-      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
+      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
       if (response.ok) {
         const sourceData = await response.json()
         setSources((sources) => sources.map((s) => (s.id === sourceData.id ? sourceData : s)))
@@ -63,7 +62,7 @@ export default function ModalSource({
       fetchSourceDetails()
     }
   }, [open])
-  
+
   useEffect(() => {
     setOpen(defaultOpen)
   }, [defaultOpen])
@@ -255,9 +254,13 @@ export default function ModalSource({
         {children}
       </a>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => {
-          setOpen(false)
-        }}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => {
+            setOpen(false)
+          }}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -305,9 +308,7 @@ export default function ModalSource({
                       </h1>
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
-                      {
-                        source && <BadgeStatusSource source={source} />
-                      }
+                      {source && <BadgeStatusSource source={source} />}
                       <h1 className="flex-end text-sm font-medium text-gray-500">
                         {source?.pageCount.toString()} Pages
                       </h1>
@@ -368,7 +369,8 @@ export default function ModalSource({
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed URLs{' '}
-                          <em className="text-sm text-slate-500">({source?.indexedUrls.length})</em>:
+                          <em className="text-sm text-slate-500">({source?.indexedUrls.length})</em>
+                          :
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="space-y-2">
@@ -396,7 +398,8 @@ export default function ModalSource({
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Documents{' '}
-                          <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>:
+                          <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
+                          :
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
@@ -405,13 +408,19 @@ export default function ModalSource({
                                 key={item.id}
                                 className=" rounded-md bg-white px-4 shadow first:ml-2 first:mt-2"
                               >
-                                <Link
-                                  href={item.url}
-                                  target="_blank"
-                                  className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm"
-                                >
-                                  {carbonIcon(item.type)} {item.name}
-                                </Link>
+                                {item.url ? (
+                                  <Link
+                                    href={item.url}
+                                    target="_blank"
+                                    className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm"
+                                  >
+                                    {carbonIcon(item.type)} {item.name}
+                                  </Link>
+                                ) : (
+                                  <div className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">
+                                    {carbonIcon(item.type)} {item.name}
+                                  </div>
+                                )}
                               </li>
                             ))}
                           </ul>
