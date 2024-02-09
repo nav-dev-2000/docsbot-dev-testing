@@ -91,9 +91,8 @@ export default async function handler(request, response) {
           // Do something with the file
           if (file.sync_status !== 'READY' && file.sync_status !== 'SYNC_ERROR') {
             ready = false
+            console.log('File not ready yet:', file.sync_status, file.name)
           }
-
-          console.log(file.file_metadata)
 
           if (file.sync_status !== 'SYNC_ERROR' && !file.file_metadata?.is_folder) {
             newCarbonFiles.push({
