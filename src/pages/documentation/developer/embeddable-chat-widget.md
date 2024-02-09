@@ -288,6 +288,7 @@ If your business uses an existing software product for support tickets or live c
 - [Zendesk Web Widget](/documentation/developer/widget-integrations/zendesk)
 - [Intercom Messenger](/documentation/developer/widget-integrations/intercom)
 - [Freshdesk Widget](/documentation/developer/widget-integrations/freshdesk)
+- [HubSpot Live Chat](/documentation/developer/widget-integrations/hubspot)
 
 {% callout title="Other integrations" %}
 If you would like to integrate with a different support widget, please let us know and we'll add it to our docs.

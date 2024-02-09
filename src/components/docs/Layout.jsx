@@ -36,6 +36,7 @@ const navigation = [
     links: [
       { title: 'Embedding', href: '/documentation/developer/embeddable-chat-widget' },
       { title: 'HelpScout Integration', href: '/documentation/developer/widget-integrations/helpscout' },
+      { title: 'HubSpot Integration', href: '/documentation/developer/widget-integrations/hubspot' },
       { title: 'Zendesk Integration', href: '/documentation/developer/widget-integrations/zendesk' },
       { title: 'Intercom Integration', href: '/documentation/developer/widget-integrations/intercom' },
       { title: 'Freshdesk Integration', href: '/documentation/developer/widget-integrations/freshdesk' },
