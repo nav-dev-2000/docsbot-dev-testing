@@ -87,11 +87,18 @@ export default async function handler(request, response) {
 
         let newCarbonFiles = []
         let ready = true
+        const statuses = carbonFiles.map((file) => file.sync_status)
+        //count by status
+        const statusCounts = statuses.reduce((acc, status) => {
+          acc[status] = (acc[status] || 0) + 1
+          return acc
+        }, {})
+        console.log('Carbon file statuses:', statusCounts)
+
         for (const file of carbonFiles) {
           // Do something with the file
-          if (file.sync_status !== 'READY' && file.sync_status !== 'SYNC_ERROR') {
+          if (file.sync_status !== 'READY' && file.sync_status !== 'SYNC_ERROR' && file.sync_status !== 'EVALUATING_RESYNC') {
             ready = false
-            console.log('File not ready yet:', file.sync_status, file.name)
           }
 
           if (file.sync_status !== 'SYNC_ERROR' && !file.file_metadata?.is_folder) {
