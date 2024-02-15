@@ -26,7 +26,11 @@ export default async function createCheckoutSession(req, res) {
         if (!price) throw Error('Please select a valid plan.')
 
         const planLimits = plans[tier]
-        if (team?.botCount > planLimits.bots || team?.pageCount >= planLimits.pages || team?.questionCount >= planLimits.questions) {
+        if (
+          team?.botCount > planLimits.bots ||
+          team?.pageCount >= planLimits.pages ||
+          team?.questionCount >= planLimits.questions
+        ) {
           throw Error('This plan does not fit your current usage.')
         }
 
@@ -42,7 +46,11 @@ export default async function createCheckoutSession(req, res) {
           params.customer = team.stripeCustomerId
         } else {
           params.customer_email = email
+          if (team.canTrial) {
+            params.trial_period_days = 7
+          }
         }
+
         /*
         if (frequency === 'annually') {
           delete params.allow_promotion_codes
@@ -59,12 +67,12 @@ export default async function createCheckoutSession(req, res) {
           bentoTrack(userId, 'track', {
             type: 'openCheckout',
             tier,
-            frequency
+            frequency,
           })
           mpTrack(userId, 'Started checkout', {
             ip: req.headers['x-forwarded-for'],
             tier,
-            frequency
+            frequency,
           })
         } catch (e) {
           console.log('Error sending bento track', e)
@@ -78,7 +86,7 @@ export default async function createCheckoutSession(req, res) {
           expand: ['data.features.subscription_update.products'],
           active: true,
           is_default: false,
-          limit: 100
+          limit: 100,
         })
 
         const neededProducts = getNeededStripeProduct(team)
@@ -86,13 +94,17 @@ export default async function createCheckoutSession(req, res) {
         //This command will disable non-default portal configs: stripe billing_portal configurations list --active=true --is-default=false | jq -r '.data[].id' | xargs -I {} stripe billing_portal configurations update {} --active=false
 
         const getConfigId = async (currentConfigs, neededProducts) => {
-          let configId = ""
+          let configId = ''
           if (neededProducts) {
-            currentConfigs.map(item => {
-              if (item?.features?.subscription_update?.products?.length === neededProducts?.length) {
-                const isPriceAvailable = item?.features?.subscription_update?.products?.map((product, index) => {
-                  return product.prices?.every(item => neededProducts?.flat().includes(item));
-                }).every(value => value === true)
+            currentConfigs.map((item) => {
+              if (
+                item?.features?.subscription_update?.products?.length === neededProducts?.length
+              ) {
+                const isPriceAvailable = item?.features?.subscription_update?.products
+                  ?.map((product, index) => {
+                    return product.prices?.every((item) => neededProducts?.flat().includes(item))
+                  })
+                  .every((value) => value === true)
                 if (isPriceAvailable) {
                   configId = item.id
                 }
@@ -101,11 +113,11 @@ export default async function createCheckoutSession(req, res) {
             if (!configId) {
               const { data } = await stripe.billingPortal.configurations.list({
                 expand: ['data.features.subscription_update.products', 'data.business_profile'],
-                is_default: true
+                is_default: true,
               })
               let existingConfig = JSON.parse(JSON.stringify(data[0]))
               const newProducts = []
-              existingConfig.features?.subscription_update?.products.map(product => {
+              existingConfig.features?.subscription_update?.products.map((product) => {
                 if (neededProducts.flat()?.includes(product.prices[0])) {
                   newProducts.push(product)
                 }
@@ -116,9 +128,9 @@ export default async function createCheckoutSession(req, res) {
               const newConfig = await stripe.billingPortal.configurations?.create({
                 business_profile: {
                   privacy_policy_url: 'https://docsbot.ai/legal/privacy-policy',
-                  terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service'
+                  terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service',
                 },
-                features: existingConfig.features
+                features: existingConfig.features,
               })
               configId = newConfig?.id
               console.log('New portal config created', configId)
@@ -127,7 +139,6 @@ export default async function createCheckoutSession(req, res) {
             }
           }
           return configId
-
         }
 
         const configId = await getConfigId(data, neededProducts)
@@ -168,9 +179,9 @@ export default async function createCheckoutSession(req, res) {
         cancel_at_period_end: true,
         cancellation_details: {
           feedback: reason,
-          comment: details
-        }
-      });
+          comment: details,
+        },
+      })
 
       try {
         bentoTrack(userId, 'track', {
@@ -194,7 +205,7 @@ export default async function createCheckoutSession(req, res) {
     try {
       await stripe.subscriptions.update(team.stripeSubscriptionId, {
         cancel_at_period_end: false,
-      });
+      })
 
       try {
         bentoTrack(userId, 'track', {
