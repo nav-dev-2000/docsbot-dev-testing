@@ -46,7 +46,7 @@ export default async function createCheckoutSession(req, res) {
           params.customer = team.stripeCustomerId
         } else {
           params.customer_email = email
-          if (team.canTrial) {
+          if (team.canTrial && 'business' !== tier) {
             params.trial_period_days = 7
           }
         }
