@@ -7,6 +7,7 @@ import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
 import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 import { carbonSourceFilters } from '@/constants/carbon.constants'
+import e from 'cors'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -22,7 +23,15 @@ export default async function handler(request, response) {
   // grab all carbon sources
   const sourcesRef = await firestore
     .collectionGroup('sources')
-    .where('type', 'in', ['notion', 'google_docs', 'intercom', 'dropbox', 'box', 'zendesk', 'sharepoint'])
+    .where('type', 'in', [
+      'notion',
+      'google_docs',
+      'intercom',
+      'dropbox',
+      'box',
+      'zendesk',
+      'sharepoint',
+    ])
     .where('status', 'in', ['pending', 'indexing'])
     .get()
 
@@ -50,39 +59,46 @@ export default async function handler(request, response) {
         }
 
         const carbonFiles = []
-        const perPage = 250;
-        let offset = 0;
-
+        const perPage = 250
+        let offset = 0
+        let errorCount = 0
         while (true) {
-          const response = await axios.post(
-            `https://api.carbon.ai/user_files_v2`,
-            {
-              filters: {
-                source: carbonSourceFilters[source.type],
+          try {
+            const response = await axios.post(
+              `https://api.carbon.ai/user_files_v2`,
+              {
+                filters: {
+                  source: carbonSourceFilters[source.type],
+                },
+                pagination: {
+                  limit: perPage,
+                  offset: offset,
+                },
               },
-              pagination: {
-                limit: perPage,
-                offset: offset,
-              },
-            },
-            headers
-          );
+              headers
+            )
+            errorCount = 0
+            carbonFiles.push(...response.data.results)
 
-          if (response.status !== 200) {
-            throw new Error(`Carbon API returned status ${response.status}`);
+            // Check if there are more pages to fetch
+            if (response.data.count <= offset + perPage) {
+              break
+            }
+
+            // Update the offset for the next iteration
+            offset += perPage
+
+          } catch (error) {
+            // If the status code is 502 and we haven't reached the maximum number of attempts, retry the request
+            if (error.response && error.response.status === 502 && errorCount < 3) {
+              console.log('Retrying request', error.response.status, errorCount)
+              errorCount++
+            } else {
+              // Update the offset for the next iteration
+              console.log('Skipping page', error.response.status)
+              offset += perPage
+            }
           }
-
-          carbonFiles.push(...response.data.results);
-
-          // Process the files as needed
-
-          // Check if there are more pages to fetch
-          if (response.data.count <= offset + perPage) {
-            break;
-          }
-
-          // Update the offset for the next iteration
-          offset += perPage;
         }
 
         let newCarbonFiles = []
@@ -97,7 +113,11 @@ export default async function handler(request, response) {
 
         for (const file of carbonFiles) {
           // Do something with the file
-          if (file.sync_status !== 'READY' && file.sync_status !== 'SYNC_ERROR' && file.sync_status !== 'EVALUATING_RESYNC') {
+          if (
+            file.sync_status !== 'READY' &&
+            file.sync_status !== 'SYNC_ERROR' &&
+            file.sync_status !== 'EVALUATING_RESYNC'
+          ) {
             ready = false
           }
 
@@ -114,11 +134,17 @@ export default async function handler(request, response) {
 
         //if this will exceed the page count, fail and return
         if (newCarbonFiles.length + team.pageCount > stripePlan(team).pages) {
-          throw new Error( `This source has ${newCarbonFiles.length} pages, exceeding the remaining plan limit of ${stripePlan(team).pages - team.pageCount}. Please upgrade your plan.`)
+          throw new Error(
+            `This source has ${
+              newCarbonFiles.length
+            } pages, exceeding the remaining plan limit of ${
+              stripePlan(team).pages - team.pageCount
+            }. Please upgrade your plan.`
+          )
         }
 
         //TODO: if too many files we will get an error saving to document (1MB limit)
-        
+
         //update source
         doc.ref.update({
           status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
@@ -129,9 +155,8 @@ export default async function handler(request, response) {
         console.log(newCarbonFiles.length, 'Carbon files, ready:', ready, teamId, botId, sourceId)
 
         if (ready) {
-
           //if refreshing via regest, expel first so we don't get duplicates (TODO could cause race condition)
-          if ( source.refreshing ) {
+          if (source.refreshing) {
             QueueSourceExpel(teamId, bot.indexId, botId, sourceId)
             console.log('Source', teamId, botId, sourceId, 'queued for expel')
           }
