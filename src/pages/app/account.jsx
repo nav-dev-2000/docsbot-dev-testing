@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { stripe } from '@/utils/stripe'
+import Script from 'next/script'
 import {
   ServerStackIcon,
   ArrowRightIcon,
@@ -21,7 +23,7 @@ import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 import { getBots } from '@/lib/dbQueries'
 
-function Account({ team, bots }) {
+function Account({ team, bots, checkout }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
@@ -59,6 +61,19 @@ function Account({ team, bots }) {
 
   return (
     <DashboardWrap page="Account" team={team}>
+      {checkout && (
+        <Script id="gtag-conversion" strategy='lazyOnload'>
+          {`
+        gtag('event', 'conversion', {
+            'send_to': 'AW-412141971/oMEgCP3e7JMZEJOTw8QB',
+            'value': ${checkout.value},
+            'currency': '${checkout.currency}',
+            'transaction_id': '${checkout.id}'
+        });
+        `}
+        </Script>
+      )}
+
       <Alert title={errorText} type="error" />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -165,6 +180,25 @@ export const getServerSideProps = async (context) => {
 
   if (data?.props?.team) {
     data.props.bots = await getBots(data.props.team)
+  }
+
+  // Check if session_id is present in the query parameters
+  if (context.query.session_id) {
+    try {
+      // Retrieve the session details from Stripe
+      const session = await stripe.checkout.sessions.retrieve(context.query.session_id)
+
+      data.props.checkout = {
+        id: session.id,
+        value: session.amount_total / 100,
+        currency: session.currency.toUpperCase(),
+      }
+      console.log(data.props.checkout)
+    }
+    // Catch any errors and log them to the console
+    catch (err) {
+      console.error('Error retrieving checkout session:', err.message)
+    }
   }
 
   return data

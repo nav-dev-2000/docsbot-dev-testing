@@ -35,7 +35,7 @@ export default async function createCheckoutSession(req, res) {
         }
 
         const params = {
-          success_url: `${getURL()}/app/account`,
+          success_url: `${getURL()}/app/account?session_id={CHECKOUT_SESSION_ID}`,
           cancel_url: `${getURL()}/app/account`,
           line_items: [{ price, quantity: 1 }],
           client_reference_id: team.id,
