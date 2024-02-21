@@ -52,11 +52,11 @@ const pricing = {
       output_token_cost_per_thousand: 0.001,
     },
     {
-      model_name: 'Gemini Pro',
+      model_name: 'Gemini 1.0 Pro',
       context: '32K',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.001,
-      output_token_cost_per_thousand: 0.002,
+      input_token_cost_per_thousand: 0.0005,
+      output_token_cost_per_thousand: 0.0015,
     },
     {
       model_name: 'PaLM 2',
