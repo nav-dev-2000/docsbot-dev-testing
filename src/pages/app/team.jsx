@@ -517,7 +517,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
           ))}
           {currTeamInvites.map((invite) => (
             <li key={invite.email}>
-              <div className="relative flex items-center px-4 py-4 sm:px-6">
+              <div className="relative flex items-center px-4 py-4 sm:px-6 bg-gray-50">
                 <div className="flex min-w-0 flex-1 items-center">
                   <div className="flex-shrink-0">
                     <Image
@@ -541,10 +541,15 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                         <span className="truncate">{invite.email}</span>
                       </p>
                     </div>
+                    <div className="items-center">
+                      <p className="text-md m-0 font-medium text-gray-700">
+                      Pending...
+                      </p>
+                    </div>
                     <div className="items-center text-right">
-                      <p className="mb-1 truncate text-sm text-gray-400">Role</p>
+                      <p className="mb-0 truncate text-sm text-gray-400">Role</p>
                       <p className="text-md m-0 font-medium capitalize text-gray-900">
-                        Pending...
+                      {invite.role}
                       </p>
                     </div>
                   </div>
