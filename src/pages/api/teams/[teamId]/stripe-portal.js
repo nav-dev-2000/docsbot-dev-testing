@@ -48,7 +48,7 @@ export default async function createCheckoutSession(req, res) {
           params.customer_email = email
           if (team.canTrial && 'business' !== tier) {
             params.subscription_data = { 
-              trial_period_days: 7,
+              trial_period_days: 14,
             }
           }
         }
