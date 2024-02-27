@@ -88,9 +88,6 @@ function Api({ user, team }) {
               <li className="text-md mt-2 text-justify text-gray-800">
                 <strong>Embeddings Deployment Name:</strong> {team.AzureDeploymentNameEmbed}
               </li>
-              <li className="text-md mt-2 text-justify text-gray-800">
-                <strong>API Version:</strong> {team.AzureDeploymentVersion}
-              </li>
             </ul>
           </>
         ) : (
