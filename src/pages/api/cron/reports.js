@@ -50,7 +50,7 @@ export default async function handler(request, response) {
               bot.status !== 'ready' ||
               !bot.questionHistory ||
               !bot.questionHistory[historyKey] ||
-              bot.questionHistory[historyKey] < 100
+              bot.questionHistory[historyKey].questions < 100
             ) {
               //console.log('Skipping bot', teamDoc.id, botDoc.id, 'has no question count for', reportId);
               return
