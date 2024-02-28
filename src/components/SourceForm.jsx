@@ -422,7 +422,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 )}
 
                 {selectedSourceType?.fieldQA && (
-                  <QAForm questions={questions} setQuestions={setQuestions} />
+                  <QAForm questions={questions} setQuestions={setQuestions} canChange={true} />
                 )}
 
                 {selectedSourceType?.fieldFile && (

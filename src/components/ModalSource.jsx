@@ -326,6 +326,7 @@ export default function ModalSource({
                             setChanged(true)
                             setQuestions(v)
                           }}
+                          canChange={true}
                         />
                         <div className="flex flex-shrink-0 items-end justify-end">
                           <button

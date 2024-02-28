@@ -151,7 +151,7 @@ export default function ModalQA({ team, botId, question, open, setOpen }) {
                     {!submitted && (
                       <>
                         <Alert type="info" title="This will create or update a Q&A source for your bot. If an existing question exists with a conflicting answer your bot may get confused, so make sure you're only adding questions you haven't answered before." />
-                        <QAForm questions={questions} setQuestions={setQuestions} hideAdd={true} />
+                        <QAForm questions={questions} setQuestions={setQuestions} hideAdd={true} canChange={true} />
                         <div className="mt-4 flex flex-shrink-0 items-end justify-end">
                           <button
                             disabled={submitting}
