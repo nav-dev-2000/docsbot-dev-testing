@@ -96,10 +96,10 @@ const ALTERNATIVES = [
     },
   },
   {
-    name: 'OpenAI Custom GPTs',
+    name: 'OpenAI GPTs',
     slug: 'openai-gpts',
     description:
-      "OpenAI's GPTs offer a simple platform for creating chatbots ideal for personal use. DocsBot, on the other hand, is tailored for more complex business needs, supporting an extensive array of data sources, integration capabilities, and continuous bot training on a wide range of documentation. It provides detailed analytics, user chat logs for performance optimization, and enhanced privacy for user data, making it suitable for businesses looking for in-depth, customizable chatbot solutions beyond the basics offered by GPTs.",
+      "OpenAI's custom GPTs offer a simple platform for creating chatbots ideal for personal use. DocsBot, on the other hand, is tailored for more complex business needs, supporting an extensive array of data sources, integration capabilities, and continuous bot training on a wide range of documentation. It provides detailed analytics, user chat logs for performance optimization, and enhanced privacy for user data, making it suitable for businesses looking for in-depth, customizable chatbot solutions beyond the basics offered by GPTs.",
     support:
       "DocsBot stands out for customer support with accurate answers with anti-hallucination and TrueURL protections, and unique features such as human escalation, detailed logs, response rating, analytics, and topic reports. It also offers robust platform integration through embeddable widgets and an extensive API, facilitating embedding in almost any platform without per-user fees, unlike OpenAI's GPTs, which require a ChatGPT Plus subscription for broader access. This makes DocsBot a comprehensive solution for businesses prioritizing advanced support capabilities.",
     research:
@@ -335,6 +335,55 @@ const ALTERNATIVES = [
       research_mode: false,
       anti_hallucination: false,
     },
+  },
+  {
+    name: 'DocsBot',
+    slug: 'docsbot',
+    description:
+      "DocsBot differentiates itself from competitors by offering a comprehensive AI chatbot builder tailored for businesses, emphasizing versatility in training sources, customization, and advanced analytics. DocsBot provides a beautiful, customizable widget and supports a wide array of languages, making it an optimal choice for global businesses. Its specialized tools for both customer support and research use cases address the specific needs of businesses, ensuring efficient, accurate, and 24/7 multilingual customer service. Moreover, DocsBot's unique features like auto-refreshing training source options, unmatched analytics, and reports, as well as its advanced research mode, make it a superior choice for businesses aiming for in-depth analysis and support.",
+    support:
+      "DocsBot excels in customer support with its ability to automate services, offering instant, accurate, and round-the-clock answers in multiple languages. It stands out from competitors by allowing businesses to train their chatbot with the widest array of existing content and documentation swiftly, enhancing customer satisfaction and reducing support costs. Additionally, DocsBot's seamless integration capabilities and specialized tools cater to the specific needs of customer support, making it continually more effective and versatile in handling customer inquiries compared to its counterparts.",
+    research:
+      'DocsBot is not just for customer support! It has an advanced research mode, transforming data sources from websites, files & PDFs, and cloud sources like Google Drive into a dynamic, intelligent knowledge base. This feature is notably absent in many competitors, providing users with precise, customized responses to complex queries, complete with inline source context. Ideal for in-depth research, analysis, and internal company inquiries, DocsBot simplifies and accelerates the search for accurate information across extensive text and media repositories, making it an invaluable tool for businesses that rely on thorough and reliable data analysis. It even has an advance semantic search API for developers to use in their own applications.',
+      competitorFeatures: {
+        cloud_sources: '?',
+        websites: '?',
+        q_a: '?',
+        raw_data: '?',
+        document_files: '?',
+        images: '?',
+        audio: '?',
+        continuous_training: '?',
+        customizable: '?',
+        widget_languages: '?',
+        human_escalation: '?',
+        answer_rating: '?',
+        customer_metadata: '?',
+        recommended_questions: '?',
+        show_sources: '?',
+        remove_branding: '?',
+        chat_logs: '?',
+        advanced_analytics: '?',
+        ai_question_reports: '?',
+        widget: '?',
+        share_link: '?',
+        api: '?',
+        gpts: '?',
+        zapier: '?',
+        pabbly_connect: '?',
+        pipedream: '?',
+        helpscout: '?',
+        private_bots: '?',
+        domain_restrictions: '?',
+        rate_limiting: '?',
+        invite_team_members: '?',
+        assign_user_roles: '?',
+        custom_prompt: '?',
+        multilingual: '?',
+        search: '?',
+        research_mode: '?',
+        anti_hallucination: '?',
+      },
   },
 ]
 

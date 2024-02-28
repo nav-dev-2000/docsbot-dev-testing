@@ -193,7 +193,7 @@ export default function AlternativePage({
     <>
       <NextSeo
         title={`${name} Alternative - DocsBot AI`}
-        description={`Compare the differences between DocsBot AI and ${name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
+        description={`Compare the differences between DocsBot AI and ${name == 'DocsBot' ? 'Competitors' : name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
         openGraph={{
           images: [
             {
@@ -218,7 +218,7 @@ export default function AlternativePage({
               }}
             />
           </div>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-6xl text-center">
             <p className="mb-2 text-xl font-semibold leading-7 text-teal-500">DocsBot AI</p>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               The {name} alternative you've been looking for
@@ -356,11 +356,11 @@ export default function AlternativePage({
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-base font-semibold leading-7 text-cyan-600">Comparison</h2>
               <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                DocsBot AI vs {name}
+                DocsBot AI vs {name == 'DocsBot' ? 'Competitors' : name}
               </p>
             </div>
             <p className="ma x-w-2xl mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
-              Compare the differences between DocsBot AI and {name} with our detailed feature
+              Compare the differences between DocsBot AI and {name == 'DocsBot' ? 'Competitors' : name} with our detailed feature
               comparison table.
             </p>
 
@@ -416,7 +416,7 @@ export default function AlternativePage({
                 </ul>
               </section>
 
-              {/* competitor */}
+              {name !== 'DocsBot' && (
               <section className="p-8">
                 <h3 className="text-center text-xl font-semibold leading-6 text-gray-900">
                   {name}
@@ -465,6 +465,7 @@ export default function AlternativePage({
                   ))}
                 </ul>
               </section>
+              )}
             </div>
 
             {/* md+ */}
@@ -492,7 +493,7 @@ export default function AlternativePage({
                       </th>
                       <th scope="col" className="px-6 pt-6 xl:px-8 xl:pt-8">
                         <div className="text-center text-2xl font-semibold leading-7 text-gray-900">
-                          {name}
+                          {name == 'DocsBot' ? 'Competitors' : name}
                         </div>
                       </th>
                     </tr>
@@ -608,7 +609,7 @@ export default function AlternativePage({
             Discover why DocsBot AI is the best alternative to
           </h2>
           <div className="mt-10 flex-wrap justify-center bg-white text-xl font-semibold leading-7 text-gray-900">
-            {ALTERNATIVES.map((item) => (
+            {ALTERNATIVES.filter((item) => item.slug !== 'docsbot').map((item) => (
               <Link
                 key={item.slug}
                 className="underline-offset-2 hover:underline m-4 inline-block"
