@@ -115,13 +115,15 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
     const [question, setQuestion] = useState(questions[index].question)
     const [answer, setAnswer] = useState(questions[index].answer)
     const [isModified, setIsModified] = useState(false)
+    const [isMultiple, setIsMultiple] = useState(questions.length > 1)
 
     useEffect(() => {
       setQuestion(questions[index].question)
       setAnswer(questions[index].answer)
+      setIsMultiple(questions.length > 1)
     }, [questions])
 
-    function getPlaceholder(index) {
+    const getPlaceholder = (index) => {
       const objectIndex = index % placeholders.length
       return placeholders[objectIndex]
     }
@@ -187,7 +189,7 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
               />
             </div>
           </div>
-          {!hideAdd && index > 0 && (
+          {!hideAdd && isMultiple && (
             <div className="absolute right-0 top-0">
               <button
                 type="button"
