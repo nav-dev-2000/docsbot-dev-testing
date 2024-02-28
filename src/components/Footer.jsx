@@ -34,7 +34,7 @@ const footerNavigation = {
   legal: [
     { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
-    { name: 'Affiliate Program', href: 'https://docsbot.firstpromoter.com/' },
+    { name: 'Affiliate Program', href: '/affiliates' },
   ],
   social: [
     {
