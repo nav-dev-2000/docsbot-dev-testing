@@ -16,7 +16,7 @@ const footerNavigation = {
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
     { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
   ],
-  comparisons: comparisons,
+  comparisons: comparisons.slice(0, 5),
   tools2: [
     {
       name: 'OpenAI API Calculator',

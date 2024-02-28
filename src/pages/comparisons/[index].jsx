@@ -607,11 +607,11 @@ export default function AlternativePage({
           <h2 className="mx-auto max-w-2xl text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Discover why DocsBot AI is the best alternative to
           </h2>
-          <div className="mt-10 flex justify-center gap-x-8 gap-y-6 bg-white text-xl font-semibold leading-7 text-gray-900 md:flex lg:gap-x-10">
+          <div className="mt-10 flex-wrap justify-center bg-white text-xl font-semibold leading-7 text-gray-900">
             {ALTERNATIVES.map((item) => (
               <Link
                 key={item.slug}
-                className="underline-offset-2 hover:underline"
+                className="underline-offset-2 hover:underline m-4 inline-block"
                 href={`/comparisons/${item.slug}-alternative`}
               >
                 {item.name} <span aria-hidden="true">&rarr;</span>
