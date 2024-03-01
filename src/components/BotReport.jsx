@@ -85,7 +85,7 @@ export function MainTopic({ topic }) {
           </div>
           <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
             {topic.subThemes.map((theme, index) => (
-              <div key={theme.title}>
+              <div key={index}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
                   <div
                     className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-600 font-bold text-white"
@@ -201,7 +201,7 @@ export function TopicTab({ tabReport, tab }) {
         <p className="mt-2 max-w-4xl text-sm text-gray-500">{tab.subDescription}</p>
       </div>
       {tabReport.topics.map((topic, index) => (
-        <MainTopic key={topic.mainTheme.description} topic={topic} />
+        <MainTopic key={topic.mainTheme.description+index} topic={topic} />
       ))}
     </>
   )

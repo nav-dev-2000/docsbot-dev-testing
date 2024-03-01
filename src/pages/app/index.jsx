@@ -21,6 +21,7 @@ import { stripePlan } from '@/utils/helpers'
 import NewBotPanel from '@/components/NewBotPanel'
 import classNames from '@/utils/classNames'
 import LocalStringNum from '@/components/LocalStringNum'
+import TeamHistory from '@/components/TeamHistory'
 
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   return (
@@ -36,7 +37,12 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
               <dd>
                 <div className="text-lg font-medium text-gray-900">
                   <LocalStringNum value={stat} />
-                  {limit && <span className="text-sm text-gray-500"> / <LocalStringNum value={limit} /></span>}
+                  {limit && (
+                    <span className="text-sm text-gray-500">
+                      {' '}
+                      / <LocalStringNum value={limit} />
+                    </span>
+                  )}
                 </div>
               </dd>
             </dl>
@@ -236,6 +242,8 @@ function Dashboard({ team, purchase }) {
           </div>
         ))}
       </div>
+
+      <TeamHistory team={team} />
 
       <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>
