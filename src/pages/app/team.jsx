@@ -216,6 +216,10 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   }
 
   const updateTeam = async() => {
+    if (!canUserModifyMembers(currTeam, userId)) {
+      return
+    }
+
     setErrorText('')
     setIsUpdating(true)
 
@@ -322,7 +326,8 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
 
       <div className="flex flex-wrap items-center justify-between rounded-lg bg-white p-4 py-6 shadow gap-4">
         <TeamSelect {...{ team: currTeam, userId, userTeams: currUserTeams, changeTeam }} />
-        <div>
+        {canUserModifyMembers(currTeam, userId) && (
+          <div>
             <label htmlFor="team_name" className="block text-sm font-medium text-gray-700">
               Rename Team
             </label>
@@ -350,6 +355,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </button>
             </div>
           </div>
+        )}
       </div>
 
       {isSuperAdmin(userId) && (
@@ -402,7 +408,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                 {currTeam.name}: Members
               </h3>
               <p className="mt-1 mb-0 text-sm text-gray-500">
-                View and manage the members of this team.
+                {
+                  canUserInvite(currTeam, userId) ? "View and manage the members of this team." : "View the members of this team."
+                }
               </p>
             </div>
             {
