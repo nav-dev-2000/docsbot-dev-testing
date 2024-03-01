@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CommandLineIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
@@ -7,6 +7,7 @@ import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { canUserEditBot } from '@/utils/function.utils'
 
 export default function ModalPrompt({ team, bot }) {
   const [open, setOpen] = useState(false)
@@ -15,6 +16,12 @@ export default function ModalPrompt({ team, bot }) {
   const [prompt, setPrompt] = useState(bot.customPrompt || '')
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [user] = useAuthState(auth)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserEditBot(team, user.uid))
+  }, [team, user])
 
   async function updatePrompt() {
     setErrorText('')
@@ -160,7 +167,7 @@ export default function ModalPrompt({ team, bot }) {
                               placeholder="Enter any custom prompt here..."
                               value={prompt}
                               onChange={(e) => setPrompt(e.target.value)}
-                              disabled={isUpdating}
+                              disabled={isUpdating || !canModify}
                             />
                           </div>
                         </div>
@@ -169,8 +176,9 @@ export default function ModalPrompt({ team, bot }) {
                         <button
                           type="submit"
                           name="submit-form"
-                          className="inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm"
-                          disabled={isUpdating}
+                          className={"inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm" +
+                            (canModify ? '' : ' hidden')}
+                          disabled={isUpdating || !canModify}
                         >
                           {!isUpdating ? (
                             <span>Save</span>
