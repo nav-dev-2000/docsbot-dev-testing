@@ -554,7 +554,7 @@ export async function getInvitesFromEmail(email) {
     userInvites.push({
       teamId: docData.teamId,
       email: docData.email,
-      role: docData.role,
+      role: docData.role || 'viewer',
       inviteId: doc.id,
       key: doc.id,
       uid: doc.id,
