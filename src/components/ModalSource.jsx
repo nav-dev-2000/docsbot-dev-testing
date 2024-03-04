@@ -22,7 +22,7 @@ import QAForm from '@/components/QAForm'
 import Link from 'next/link'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { canUserModifySources } from '../utils/function.utils'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default function ModalSource({
   team,
