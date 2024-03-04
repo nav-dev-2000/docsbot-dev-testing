@@ -25,6 +25,10 @@ import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
 import LocaleDateTime from '@/components/LocaleDateTime'
 import QuestionFilters from '@/components/QuestionFilters'
+import { auth } from '@/config/firebase-ui.config'
+import { useAuthState } from 'react-firebase-hooks/auth'
+
+import { canUserEditBot } from '@/utils/function.utils'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -91,6 +95,13 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const [filters, setFilters] = useState({ rating: null, escalated: null })
+  const [canModify, setModify] = useState(false)
+  const [user] = useAuthState(auth)
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserEditBot(team, user.uid))
+  }, [team, user])
 
   useEffect(() => {
     changePage(0, ipFilter, filters.rating, filters.escalated)
@@ -348,7 +359,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                     <div className="absolute right-0 top-0 flex pr-4 pt-4">
                       <button
                         type="button"
-                        className="mr-10 flex items-center rounded-md text-xs text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                        disabled={!canModify}
+                        className={"mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" +
+                        (canModify ? " text-red-400 hover:text-red-500" : " text-gray-300 cursor-not-allowed")}
                         onClick={() => deleteQuestion(question.id)}
                       >
                         <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
@@ -374,7 +387,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
 
                       <button
                         type="button"
-                        className="mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                        disabled={!canModify}
+                        className={"mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" +
+                        (canModify ? " " : " cursor-not-allowed")}
                         onClick={() => saveRating(question.id, 1)}
                       >
                         <span className="sr-only">Up vote</span>
@@ -388,10 +403,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       </button>
                       <button
                         type="button"
-                        className="mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                        onClick={() => {
-                          saveRating(question.id, -1)
-                        }}
+                        disabled={!canModify}
+                        className={"mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" +
+                        (canModify ? " " : " cursor-not-allowed")}
+                        onClick={() => saveRating(question.id, -1)}
                       >
                         <span className="sr-only">Up vote</span>
                         <HandThumbDownIcon
