@@ -479,13 +479,15 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         dangerouslySetInnerHTML={{ __html: answerHtml }}
                       />
 
-                      <ModalQA
-                        team={team}
-                        botId={bot.id}
-                        question={question}
-                        open={qaOpen}
-                        setOpen={setQAOpen}
-                      />
+                      {canModify && (
+                        <ModalQA
+                          team={team}
+                          botId={bot.id}
+                          question={question}
+                          open={qaOpen}
+                          setOpen={setQAOpen}
+                        />
+                      )}
                       {question.sources.length > 0 && (
                         <>
                           <h3 className="mt-2 text-base font-medium text-gray-700">
