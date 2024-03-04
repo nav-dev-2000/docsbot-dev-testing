@@ -8,6 +8,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import openAILogo from '@/images/logos/openai-logo.svg'
+import { getUserRole } from '@/utils/function.utils'
 
 function Api({ user, team }) {
   const [errorText, setErrorText] = useState(null)
@@ -185,6 +186,20 @@ export const getServerSideProps = async (context) => {
 
   // get user data
   data.props.user = await getUser(data.props.userId)
+
+  if (data?.props?.team) {
+    const role = getUserRole(data.props.team, data.props.userId)
+
+    // redirect non-owners to dashboard
+    if (role !== 'owner' ) {
+      return {
+        redirect: {
+          destination: '/app',
+          permanent: false,
+        },
+      }
+    }
+  }
 
   return data
 }

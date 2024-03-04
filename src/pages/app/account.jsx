@@ -22,6 +22,7 @@ import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 import { getBots } from '@/lib/dbQueries'
+import { getUserRole } from '@/utils/function.utils'
 
 function Account({ team, bots, checkout }) {
   const [user] = useAuthState(auth)
@@ -177,8 +178,19 @@ function Account({ team, bots, checkout }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
-
+  
   if (data?.props?.team) {
+    const role = getUserRole(data.props.team, data.props.userId)
+
+    // redirect non-owners to dashboard
+    if (role !== 'owner' ) {
+      return {
+        redirect: {
+          destination: '/app',
+          permanent: false,
+        },
+      }
+    }
     data.props.bots = await getBots(data.props.team)
   }
 
