@@ -20,6 +20,9 @@ import ScheduleSelect from '@/components/ScheduleSelect'
 import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 import Link from 'next/link'
+import { auth } from '@/config/firebase-ui.config'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { canUserModifySources } from '../utils/function.utils'
 
 export default function ModalSource({
   team,
@@ -40,6 +43,13 @@ export default function ModalSource({
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [changed, setChanged] = useState(false)
   const [questions, setQuestions] = useState(source?.faqs ?? [])
+  const [user] = useAuthState(auth)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserModifySources(team, user.uid))
+  }, [team, user])
 
   const fetchSourceDetails = async () => {
     if (source.id) {
@@ -326,13 +336,14 @@ export default function ModalSource({
                             setChanged(true)
                             setQuestions(v)
                           }}
-                          canChange={true}
+                          canChange={canModify}
                         />
                         <div className="flex flex-shrink-0 items-end justify-end">
                           <button
                             disabled={submitting || !changed}
                             onClick={patchSource}
-                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                            className={"ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75" +
+                              (canModify ? "" : " hidden")}
                           >
                             {submitting && <LoadingSpinner className="mr-3" />}
                             Save
