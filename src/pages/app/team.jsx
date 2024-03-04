@@ -17,7 +17,7 @@ import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
 import { teamMembersRoles } from '@/constants/permissions.constants'
-import { canUserInvite, canUserModifyMembers} from '@/utils/function.utils'
+import { canUserInvite, canUserModifyMembers } from '@/utils/function.utils'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
