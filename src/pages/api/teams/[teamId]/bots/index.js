@@ -9,6 +9,7 @@ import { stripePlan } from '@/utils/helpers'
 import crypto from 'crypto'
 import { mpTrack } from '@/lib/mixpanel'
 import { validateBotParams } from '@/lib/apiFunctions'
+import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
 const router = createRouter()
 
@@ -26,6 +27,13 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
+    //check user is allowed to create bot or not
+    if (!canUserCreateDeleteBot(team, userId)) {
+      return res.status(402).json({
+        message: 'You are not allowed to create bot.',
+      })
+    }
+
     // Check plan credits
     if (stripePlan(team).bots <= team.botCount) {
       return res.status(402).json({

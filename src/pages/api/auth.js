@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
       // if the new user is invited to just one team, accept the invite on registration, no confirmation needed
       if (invited && invites.length === 1) {
-        await acceptInvite(invites[0].teamId, userId, invites[0].inviteId)
+        await acceptInvite(invites[0].teamId, userId, invites[0].inviteId, invites[0].role)
       }
 
       //track with bento

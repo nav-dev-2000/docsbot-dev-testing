@@ -8,6 +8,7 @@ import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { sendInviteEmail } from '@/utils/emails'
 import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
+import { canUserInvite } from '@/utils/function.utils'
 
 const validateEmail = (email) => {
   return email.match(
@@ -28,6 +29,10 @@ export default async function handleInvite(req, res) {
       }
       const { userId, team } = check
 
+      //check user is allowed to add members or not
+      if(!canUserInvite(team, userId)){
+        return res.status(401).send({ message: `You are not allowed to invite new member into this team!`})
+      }
       // sanity check stripe plan
       const plan = stripePlan(team)
       if (Object.keys(team.roles).length >= plan.teamMembers && !isSuperAdmin(userId)) {
@@ -46,7 +51,7 @@ export default async function handleInvite(req, res) {
 
       try {
         // grab user and invite them (or send an email if they haven't signed up)
-        const { inviteEmail } = req.body
+        const { inviteEmail, role } = req.body
 
         if (!validateEmail(inviteEmail)) {
           throw new Error("Please make sure the email is valid!")
@@ -79,6 +84,7 @@ export default async function handleInvite(req, res) {
           createdAt: FieldValue.serverTimestamp(),
           email: inviteEmail,
           teamId: team.id, 
+          role: role
         });
 
         const inviter = await getAuth().getUser(userId)
@@ -92,11 +98,11 @@ export default async function handleInvite(req, res) {
       const { uid, email } = await getAuthorizedUser({ req, res })
 
       // user is accepting/denying an invite request
-      const { status, teamId, inviteId } = req.body
+      const { status, teamId, inviteId, role } = req.body
       try {
         if (status === 'accept') {
           // add user to team roles
-          await acceptInvite(teamId, uid, inviteId)
+          await acceptInvite(teamId, uid, inviteId, role)
 
           return res.status(200).send({ message: 'Accepted invite', data: await getTeam(teamId)})
         } else if (status === 'deny') {

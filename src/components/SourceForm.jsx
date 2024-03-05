@@ -20,6 +20,7 @@ import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { CarbonConnect } from 'carbon-connect'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -41,6 +42,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
   const [carbonId, setCarbonId] = useState(null)
   const [carbonFiles, setCarbonFiles] = useState(null)
+  const [canModifySources, setCanModifySources] = useState(() => canUserModifySources(team, user?.uid))
 
   useEffect(() => {
     if (showForm && stripePlan(team).pages <= team.pageCount) {
@@ -421,7 +423,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 )}
 
                 {selectedSourceType?.fieldQA && (
-                  <QAForm questions={questions} setQuestions={setQuestions} />
+                  <QAForm questions={questions} setQuestions={setQuestions} canChange={true} />
                 )}
 
                 {selectedSourceType?.fieldFile && (
@@ -582,6 +584,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     return (
       <>
         <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+        {canModifySources ? (
         <div className="mx-auto mt-16 max-w-2xl text-center">
           <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
           <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
@@ -590,15 +593,26 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
             about. Don't index the same content multiple times.
           </p>
           <div className="mt-8">
-            <button
-              className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
-              onClick={() => setShowForm(true)}
-            >
-              <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-              New Source
-            </button>
+            {
+              <button
+                className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
+                onClick={() => setShowForm(true)}
+              >
+                <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                New Source
+              </button>
+            }
           </div>
         </div>
+        ) : (
+        <div className="mx-auto mt-16 max-w-2xl text-center">
+          <DocumentPlusIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
+          <h3 className="mt-2 text-sm font-medium text-gray-900">Add source</h3>
+          <p className="mt-1 text-sm text-gray-500">
+            Ask your team admin for permissions to add sources to this bot.
+          </p>
+        </div>
+        )}
       </>
     )
   }

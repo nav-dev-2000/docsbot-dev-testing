@@ -3,6 +3,8 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { getBot, getQuestions } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 
+import { canUserEditBot } from '@/utils/function.utils'
+
 export default async function handler(req, res) {
   configureFirebaseApp()
   const firestore = getFirestore()
@@ -26,6 +28,10 @@ export default async function handler(req, res) {
   } catch (error) {
     console.warn('Error getting document:', error)
     return res.status(500).json({ message: error })
+  }
+
+  if (!canUserEditBot(team, userId)) {
+    return res.status(403).json({ message: 'User does not have permission to edit bot' })
   }
 
   if (req.method === 'DELETE') {

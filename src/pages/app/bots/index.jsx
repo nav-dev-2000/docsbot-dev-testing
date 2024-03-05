@@ -18,12 +18,23 @@ import classNames from '@/utils/classNames'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import RobotIcon from '@/components/RobotIcon'
 import LocalStringNum from '@/components/LocalStringNum'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
+import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
   const [errorText, setErrorText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
+  const [user] = useAuthState(auth)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (team && user) {
+      setModify(canUserCreateDeleteBot(team, user?.uid))
+    }
+  }, [team, user])
 
   useEffect(() => {
     if (!team.botCount || bots.length == 0) {
@@ -93,8 +104,8 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                  <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
-                  Sources
+                    <span className="text-gray-900"><LocalStringNum value={bot.sourceCount} /></span>{' '}
+                    Sources
                   </p>
                 </div>
                 <div className="flex items-center text-sm text-gray-500">
@@ -103,8 +114,8 @@ function Bots({ preBots, team }) {
                     aria-hidden="true"
                   />
                   <p>
-                  <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
-                  Questions
+                    <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
+                    Questions
                   </p>
                 </div>
               </div>
@@ -121,18 +132,22 @@ function Bots({ preBots, team }) {
               </div>
             </div>
             <div className="absolute right-2 top-2">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setToDelete(bot)
-                }}
-                className=" text-red-400 hover:text-red-200 focus:text-red-200"
-                title="Delete"
-              >
-                <span className="sr-only">Delete</span>
-                <XMarkIcon className="h-4 w-4" aria-hidden="true" />
-              </button>
+              {
+                canModify ?
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setToDelete(bot)
+                    }}
+                    className=" text-red-400 hover:text-red-200 focus:text-red-200"
+                    title="Delete"
+                  >
+                    <span className="sr-only">Delete</span>
+                    <XMarkIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                  : null
+              }
             </div>
           </div>
         </Link>
@@ -155,9 +170,13 @@ function Bots({ preBots, team }) {
 
       <BotsGrid bots={bots} />
 
-      <BotCTA {...{ setOpen }} />
+      {
+        canModify && <>
+          <BotCTA {...{ setOpen }} />
+          <NewBotPanel {...{ team, open, setOpen }} />
+        </>
+      }
 
-      <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>
   )
 }

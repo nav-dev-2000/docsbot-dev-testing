@@ -20,8 +20,13 @@ import ModalBotEdit from '@/components/ModalBotEdit'
 import GPTModel from '@/components/GPTModel'
 import { i18n } from '@/constants/strings.constants'
 import LocalStringNum from '@/components/LocalStringNum'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
+import { canUserEditBot } from '@/utils/function.utils'
 
 export default function BotCard({ team, bot, setBot }) {
+  const [user] = useAuthState(auth)
+
   if (!bot || !bot.id) {
     return null
   }
@@ -68,7 +73,9 @@ export default function BotCard({ team, bot, setBot }) {
                   <p>{i18n[bot.language] ? i18n[bot.language].name : 'English'}</p>
                 </div>
                 <ModalPrompt team={team} bot={bot} />
-                <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                {
+                  canUserEditBot(team, user?.uid) && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                }
               </div>
             </div>
           </div>

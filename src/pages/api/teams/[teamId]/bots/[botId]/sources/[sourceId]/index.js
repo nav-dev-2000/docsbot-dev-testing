@@ -8,6 +8,7 @@ import { mpTrack } from '@/lib/mixpanel'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -25,7 +26,8 @@ export default async function handler(req, res) {
 
   let bot = null
   let source = null
-  try {
+
+ try {
     bot = await getBot(team.id, botId)
     if (!bot) {
       // doc.data() will be undefined in this case
@@ -41,6 +43,12 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
+    //check user is allowed to edit this source or not
+    if (!canUserModifySources(team, userId)) {
+      return res.status(402).json({
+        message: 'You are not allowed to edit this source',
+      })
+    }
     //error if source is not in failed state
     if (source.status !== 'failed' || source.refreshing) {
       return res.status(409).json({ message: 'Only new failed sources can be retried currently.' })
@@ -94,6 +102,12 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    //check user is allowed to delete this source or not
+    if (!canUserModifySources(team, userId)) {
+      return res.status(402).json({
+        message: 'You are not allowed to delete this source',
+      })
+    }
     //if source is in a ready state, we need to delete it from weaviate
     if (source.status !== 'ready' && source.status !== 'failed') {
       return res

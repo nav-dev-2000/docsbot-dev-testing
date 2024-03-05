@@ -12,6 +12,7 @@ import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -41,6 +42,13 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
+    //check user is allowed to edit bot or not
+    if (!canUserModifySources(team, userId)) {
+      return res.status(402).json({
+        message: 'You are not allowed to add sources in this bot.',
+      })
+    }
+
     //check plan credits
     if (stripePlan(team).pages <= team.pageCount) {
       return res.status(402).json({

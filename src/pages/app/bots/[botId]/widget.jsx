@@ -15,6 +15,9 @@ import FieldToggle from '@/components/FieldToggle'
 import FieldRadioIcon from '@/components/FieldRadioIcon'
 import { i18n } from '@/constants/strings.constants'
 import { SketchPicker } from 'react-color'
+import { auth } from '@/config/firebase-ui.config'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { canUserEditBot } from '@/utils/function.utils'
 import {
   faComment,
   faComments,
@@ -41,6 +44,7 @@ const iconMap = {
 }
 
 function Widget({ team, bot }) {
+  const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [copied, setCopied] = useState(false)
@@ -48,6 +52,7 @@ function Widget({ team, bot }) {
   const [copiedKey, setCopiedKey] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [canModify, setModify] = useState(false)
 
   //bot settings
   const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
@@ -66,6 +71,11 @@ function Widget({ team, bot }) {
   const iconRef = useRef(null)
   const avatarRef = useRef(null)
   const logoRef = useRef(null)
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserEditBot(team, user.uid))
+  }, [team, user])
 
   useEffect(() => {
     if (!branding && stripePlan(team).bots < 10) {
@@ -650,8 +660,9 @@ function Widget({ team, bot }) {
                 <button
                   type="submit"
                   name="submit-form"
-                  className="inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm"
-                  disabled={isUpdating}
+                  className={"inline-flex w-1/4 items-center justify-center inline-flex rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm" +
+                  (canModify ? " bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" : " bg-gray-300 cursor-not-allowed")}
+                  disabled={isUpdating || !canModify}
                 >
                   {!isUpdating ? (
                     <span>Save</span>

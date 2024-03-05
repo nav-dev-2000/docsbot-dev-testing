@@ -75,7 +75,7 @@ const placeholders = [
   },
 ]
 
-export default function QAForm({ setQuestions, questions, hideAdd }) {
+export default function QAForm({ setQuestions, questions, hideAdd, canChange }) {
   const addQuestion = () => {
     setQuestions((questions) => {
       const newQuestions = [...questions]
@@ -150,6 +150,7 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
                 type="text"
                 value={question}
                 autoComplete="off"
+                disabled={!canChange}
                 onChange={(e) => {
                   if (e.target.value !== question) {
                     setQuestion(e.target.value)
@@ -163,7 +164,7 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
                 }}
                 tabIndex={(index * 2 + 1).toString()}
                 placeholder={getPlaceholder(index).question}
-                className="block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                className={"block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm" + (!canChange ? " cursor-not-allowed" : "")}
               />
             </div>
             <div className="mt-2">
@@ -172,6 +173,7 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
                 type="text"
                 value={answer}
                 autoComplete="off"
+                disabled={!canChange}
                 onChange={(e) => {
                   if (e.target.value !== answer) {
                     setAnswer(e.target.value)
@@ -185,7 +187,7 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
                 }}
                 tabIndex={(index * 2 + 2).toString()}
                 placeholder={getPlaceholder(index).answer}
-                className="block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                className={"block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm" + (!canChange ? " cursor-not-allowed" : "")}
               />
             </div>
           </div>
@@ -193,7 +195,8 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
             <div className="absolute right-0 top-0">
               <button
                 type="button"
-                className="flex h-5 w-5 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                disabled={!canChange}
+                className={"flex h-5 w-5 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" + (!canChange ? " cursor-not-allowed" : "")}
                 onClick={() => removeQuestion(index)}
               >
                 <span className="sr-only">Remove question: {question}</span>
@@ -219,7 +222,9 @@ export default function QAForm({ setQuestions, questions, hideAdd }) {
           <div className="relative flex justify-center">
             <button
               type="button"
-              className="inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              disabled={!canChange}
+              className={"inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" 
+                + (canChange ? " text-gray-900" : " cursor-not-allowed text-gray-400")}
               onClick={() => addQuestion()}
             >
               <PlusIcon className="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" aria-hidden="true" />

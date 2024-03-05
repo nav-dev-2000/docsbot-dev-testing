@@ -9,13 +9,15 @@ import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam } from 
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, ChevronUpDownIcon, PencilIcon } from '@heroicons/react/20/solid'
 import Router from 'next/router'
 import { isSuperAdmin } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
+import { teamMembersRoles } from '@/constants/permissions.constants'
+import { canUserInvite, canUserModifyMembers } from '@/utils/function.utils'
 
 function TeamSelect({ team, userId, userTeams, changeTeam }) {
   const [selected, setSelected] = useState(team)
@@ -157,6 +159,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [newTeam, setNewTeam] = useState(null)
   const [newTeamName, setNewTeamName] = useState(team.name)
   const [isUpdating, setIsUpdating] = useState(false)
+  // const [selectedRole, setSelectedRole] = useState(null)
+  const [selectedMemberId, setSelectedMemberId] = useState(null)
+  const [roles] = useState(teamMembersRoles)
 
   const changeTeam = async(teamId) => {
     setErrorText('')
@@ -193,7 +198,28 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
     }
   }
 
+  const changeMemberRole = async(role) =>{
+
+    const response = await fetch(`/api/teams/${team.id}/members`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ memberId: selectedMemberId, role: role }),
+    })
+    if (response.ok) {
+      setSelectedMemberId('')
+      const { teamUsers } = await response.json()
+      setCurrTeamUsers(teamUsers)
+    }
+
+  }
+
   const updateTeam = async() => {
+    if (!canUserModifyMembers(currTeam, userId)) {
+      return
+    }
+
     setErrorText('')
     setIsUpdating(true)
 
@@ -290,17 +316,18 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   }, [currTeam])
 
   return (
-    <DashboardWrap page="Team" team={team}>
+    <DashboardWrap page="Team" team={currTeam}>
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 
-      {inviteList.map(({ teamId, teamName, inviteId }) => (
-        <InviteRequest key={inviteId} {...{teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam }} />
+      {inviteList.map(({ teamId, teamName, inviteId, role }) => (
+        <InviteRequest key={inviteId} {...{teamId, teamName, inviteId, setInviteList, setErrorText, setCurrTeam, role }} />
       ))}
 
       <div className="flex flex-wrap items-center justify-between rounded-lg bg-white p-4 py-6 shadow gap-4">
         <TeamSelect {...{ team: currTeam, userId, userTeams: currUserTeams, changeTeam }} />
-        <div>
+        {canUserModifyMembers(currTeam, userId) && (
+          <div>
             <label htmlFor="team_name" className="block text-sm font-medium text-gray-700">
               Rename Team
             </label>
@@ -328,6 +355,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               </button>
             </div>
           </div>
+        )}
       </div>
 
       {isSuperAdmin(userId) && (
@@ -380,10 +408,14 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                 {currTeam.name}: Members
               </h3>
               <p className="mt-1 mb-0 text-sm text-gray-500">
-                View and manage the members of this team.
+                {
+                  canUserInvite(currTeam, userId) ? "View and manage the members of this team." : "View the members of this team."
+                }
               </p>
             </div>
-            <div className="ml-4 mt-4 flex-shrink-0">
+            {
+              canUserInvite(currTeam, userId)  && 
+              <div className="ml-4 mt-4 flex-shrink-0">
               <button
                 type="button"
                 onClick={() => {setToInvite(true)}}
@@ -393,6 +425,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                 Add member
               </button>
             </div>
+            }
           </div>
         </div>
         <ul role="list" className="divide-y divide-gray-200">
@@ -422,15 +455,56 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                         <span className="truncate">{user.email}</span>
                       </p>
                     </div>
-                    <div className="items-center text-right">
+                    <div className="items-center text-right relative">
                       <p className="mb-1 truncate text-sm text-gray-400">Role</p>
-                      <p className="text-md m-0 font-medium capitalize text-gray-900">
-                        {user.role}
-                      </p>
+                      <div className='flex gap-2'>
+                        {selectedMemberId === user.uid ?
+                          <div className="text-md mt-2 text-gray-500">
+                            <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm">
+                              <select
+                                id="team_role"
+                                defaultValue={user.role}
+                                 onChange={(e) => changeMemberRole(e.target.value)}
+                                className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                              >
+                                {
+                                  roles.map((role, index) => <option key={index} value={role.value}>{role.name}</option>)
+                                }
+                              </select>
+                            </div>
+                          </div>
+                          : 
+                          <div>
+                          <p className="text-md m-0 font-medium capitalize text-gray-900">{user.role}
+                          </p>
+                          </div>
+                          }
+
+                          {userId !== user.uid && canUserModifyMembers(currTeam, userId) && !selectedMemberId && 
+                          <button
+                            type="button"
+                            onClick={()=>setSelectedMemberId(user.uid)}
+                            title="Change Role"
+                          >
+                            <span className="sr-only">Change role</span>
+                            <PencilIcon className="h-4 w-4 text-gray-500" aria-hidden="true" />
+                          </button>
+                          }
+                          {userId !== user.uid && canUserModifyMembers(currTeam, userId) && selectedMemberId === user.uid  && selectedMemberId && 
+                          <button
+                            type="button"
+                            onClick={()=>setSelectedMemberId("")}
+                            title="Cancel"
+                          >
+                            <span className="sr-only">Cancel</span>
+                            <XMarkIcon className="h-4 w-4 text-gray-500" aria-hidden="true" />
+                          </button>
+                          }
+                          </div>
                     </div>
                   </div>
                 </div>
-                {userId !== user.uid && currTeam.roles[userId] == "owner" && (
+                {userId !== user.uid && canUserModifyMembers(currTeam, userId) && (
                   <div className="absolute right-2 top-1">
                     <button
                       type="button"
@@ -451,7 +525,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
           ))}
           {currTeamInvites.map((invite) => (
             <li key={invite.email}>
-              <div className="relative flex items-center px-4 py-4 sm:px-6">
+              <div className="relative flex items-center px-4 py-4 sm:px-6 bg-gray-50">
                 <div className="flex min-w-0 flex-1 items-center">
                   <div className="flex-shrink-0">
                     <Image
@@ -475,15 +549,20 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
                         <span className="truncate">{invite.email}</span>
                       </p>
                     </div>
+                    <div className="items-center">
+                      <p className="text-md m-0 font-medium text-gray-700">
+                      Pending...
+                      </p>
+                    </div>
                     <div className="items-center text-right">
-                      <p className="mb-1 truncate text-sm text-gray-400">Role</p>
+                      <p className="mb-0 truncate text-sm text-gray-400">Role</p>
                       <p className="text-md m-0 font-medium capitalize text-gray-900">
-                        Pending...
+                      {invite.role}
                       </p>
                     </div>
                   </div>
                 </div>
-                {currTeam.roles[userId] == "owner" && <div className="absolute right-2 top-1">
+                {canUserModifyMembers(currTeam, userId) && <div className="absolute right-2 top-1">
                   <button
                     type="button"
                     onClick={(e) => {
