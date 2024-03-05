@@ -369,14 +369,16 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    <SourceDelete
-                      team={team}
-                      bot={bot}
-                      source={toDelete}
-                      setToDelete={setToDelete}
-                      setErrorText={setErrorText}
-                      setSources={setSources}
-                    />
+                    {canModify && 
+                      <SourceDelete
+                        team={team}
+                        bot={bot}
+                        source={toDelete}
+                        setToDelete={setToDelete}
+                        setErrorText={setErrorText}
+                        setSources={setSources}
+                      />
+                    }
                     {source?.indexedUrls?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
@@ -455,8 +457,10 @@ export default function ModalSource({
                           {(source?.status === 'ready' || source?.status === 'failed') && (
                             <button
                               type="button"
-                              className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                              className={"flex items-center rounded-md bg-white text-sm "
+                              + (canModify ? " text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" : " text-gray-400 cursor-not-allowed")}
                               onClick={() => setToDelete(source)}
+                              disabled={!canModify}
                             >
                               <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
                             </button>
