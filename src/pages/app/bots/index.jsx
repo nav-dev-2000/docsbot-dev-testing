@@ -28,6 +28,13 @@ function Bots({ preBots, team }) {
   const [toDelete, setToDelete] = useState(null)
   const [open, setOpen] = useState(false)
   const [user] = useAuthState(auth)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (team && user) {
+      setModify(canUserCreateDeleteBot(team, user?.uid))
+    }
+  }, [team, user])
 
   useEffect(() => {
     if (!team.botCount || bots.length == 0) {
@@ -126,7 +133,7 @@ function Bots({ preBots, team }) {
             </div>
             <div className="absolute right-2 top-2">
               {
-                canUserCreateDeleteBot(team, user?.uid) ?
+                canModify ?
                   <button
                     type="button"
                     onClick={(e) => {
@@ -164,10 +171,12 @@ function Bots({ preBots, team }) {
       <BotsGrid bots={bots} />
 
       {
-        canUserCreateDeleteBot(team, user?.uid) && <BotCTA {...{ setOpen }} />
+        canModify && <>
+          <BotCTA {...{ setOpen }} />
+          <NewBotPanel {...{ team, open, setOpen }} />
+        </>
       }
 
-      <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>
   )
 }
