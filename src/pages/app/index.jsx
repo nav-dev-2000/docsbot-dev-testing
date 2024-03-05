@@ -21,6 +21,9 @@ import { stripePlan } from '@/utils/helpers'
 import NewBotPanel from '@/components/NewBotPanel'
 import classNames from '@/utils/classNames'
 import LocalStringNum from '@/components/LocalStringNum'
+import { auth } from '@/config/firebase-ui.config'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   return (
@@ -60,6 +63,14 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
 function Dashboard({ team, purchase }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
+  const [user] = useAuthState(auth)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (team && user) {
+      setModify(canUserCreateDeleteBot(team, user.uid))
+    }
+  }, [team, user])
 
   useEffect(() => {
     if (purchase) {
@@ -122,15 +133,17 @@ function Dashboard({ team, purchase }) {
       icon: ServerStackIcon,
       iconForeground: 'text-indigo-700',
       iconBackground: 'bg-indigo-50',
+      disabled: false,
     },
     {
       title: 'New Bot',
-      description: 'Train a new knowledge base with your custom documentation and content.',
+      description: canModify ? 'Train a new knowledge base with your custom documentation and content.' : 'Ask an admin to create a new bot for you.',
       href: '/app/bots',
       click: setOpen,
       icon: AcademicCapIcon,
       iconForeground: 'text-cyan-700',
       iconBackground: 'bg-cyan-50',
+      disabled: !canModify,
     },
     {
       title: 'Plan & Billing',
@@ -139,6 +152,7 @@ function Dashboard({ team, purchase }) {
       icon: CreditCardIcon,
       iconForeground: 'text-green-700',
       iconBackground: 'bg-green-50',
+      disabled: false,
     },
     {
       title: 'Team Management',
@@ -147,7 +161,8 @@ function Dashboard({ team, purchase }) {
       icon: UsersIcon,
       iconForeground: 'text-yellow-700',
       iconBackground: 'bg-yellow-50',
-    },
+      disabled: false,
+    }
   ]
 
   return (
@@ -181,6 +196,7 @@ function Dashboard({ team, purchase }) {
               actionIdx === actions.length - 1
                 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
                 : '',
+              action.disabled ? 'opacity-50' : '',
               'group relative bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500'
             )}
           >
@@ -200,10 +216,10 @@ function Dashboard({ team, purchase }) {
                 {action.click ? (
                   <Link
                     href={action.href}
-                    onClick={(e) => {
+                    onClick={!action.disabled ? (e) => {
                       e.preventDefault()
                       action.click(true)
-                    }}
+                    } : null}
                     className="focus:outline-none"
                   >
                     {/* Extend touch target to entire panel */}
