@@ -662,7 +662,7 @@ function Widget({ team, bot }) {
                   name="submit-form"
                   className={"inline-flex w-1/4 items-center justify-center inline-flex rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm" +
                   (canModify ? " bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" : " bg-gray-300 cursor-not-allowed")}
-                  disabled={isUpdating}
+                  disabled={isUpdating || !canModify}
                 >
                   {!isUpdating ? (
                     <span>Save</span>
