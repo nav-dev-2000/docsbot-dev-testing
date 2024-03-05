@@ -59,13 +59,6 @@ const pricing = {
       output_token_cost_per_thousand: 0.0015,
     },
     {
-      model_name: 'PaLM 2',
-      context: '8K',
-      provider: 'Google',
-      input_token_cost_per_thousand: 0.002,
-      output_token_cost_per_thousand: 0.002,
-    },
-    {
       model_name: 'Command',
       context: '4K',
       provider: 'Cohere',
@@ -73,19 +66,26 @@ const pricing = {
       output_token_cost_per_thousand: 0.02,
     },
     {
-      model_name: 'Mistral-Small (Mixtral)',
+      model_name: 'Mixtral 8x7B',
       context: '32K',
       provider: 'Mistral AI (via Anyscale)',
       input_token_cost_per_thousand: 0.0005,
       output_token_cost_per_thousand: 0.0005,
     },
     {
-      model_name: 'Mistral-Medium',
+      model_name: 'Mistral Small',
       context: '32K',
       provider: 'Mistral AI',
-      input_token_cost_per_thousand: 0.00275,
-      output_token_cost_per_thousand: 0.00825,
-    }
+      input_token_cost_per_thousand: 0.002,
+      output_token_cost_per_thousand: 0.006,
+    },
+    {
+      model_name: 'Mistral Large',
+      context: '32K',
+      provider: 'Mistral AI',
+      input_token_cost_per_thousand: 0.008,
+      output_token_cost_per_thousand: 0.024,
+    },
   ],
   'Fine-tuning models': [
     {
@@ -178,8 +178,8 @@ export default function Calculate() {
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2,
-                  Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple and
-                  powerful free calculator. Latest numbers as of Feb. 2024.
+                  Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple
+                  and powerful free calculator. Latest numbers as of March 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -502,23 +502,34 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Gemini</strong>: Gemini is the newest family of multimodal large language models developed by Google, serving as the successor to PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano, it was announced on December 6, 2023. Gemini Ultra is positioned as the first contender to OpenAI's GPT-4, while Gemini Pro is closer in performance to GPT-3.5.
+                  <strong className="text-white">Gemini</strong>: Gemini is the newest family of
+                  multimodal large language models developed by Google, serving as the successor to
+                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano, it was announced on
+                  December 6, 2023. Gemini Ultra is positioned as the first contender to OpenAI's
+                  GPT-4, while Gemini Pro is closer in performance to GPT-3.5.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is an older language model from Google boasting enhanced multilingual,
-                  reasoning, and coding capabilities. Trained on multilingual text from over 100
-                  languages, it excels in understanding and translating intricate text forms like
-                  idioms and poems. Its dataset, rich with scientific papers and web content,
-                  empowers it with superior logic, reasoning, and mathematical skills. Additionally,
-                  its proficiency in coding is evident from its training on vast source code
-                  datasets, making it adept in languages from Python to Fortran.
+                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is an older language model
+                  from Google boasting enhanced multilingual, reasoning, and coding capabilities.
+                  Trained on multilingual text from over 100 languages, it excels in understanding
+                  and translating intricate text forms like idioms and poems. Its dataset, rich with
+                  scientific papers and web content, empowers it with superior logic, reasoning, and
+                  mathematical skills. Additionally, its proficiency in coding is evident from its
+                  training on vast source code datasets, making it adept in languages from Python to
+                  Fortran.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Mistral</strong>: Mistral AI is a new exciting startup that has released a number of small open source models that are very fast and cheap to use. Mistral 7B and Mixtral 8x7B (Mixtral) are two of their most popular models. Mixtral beats Llama 2 and compares in performance to GPT-3.5 Turbo and is 2.5x cheaper to use. Mistral medium is a private model with slightly better benchmarks than GPT-3.5 Turbo.
+                  <strong className="text-white">Mistral</strong>: Mistral AI is a new exciting
+                  startup that has released a number of small open source models that are very fast
+                  and cheap to use. Mistral 7B and Mixtral 8x7B (Mixtral) are two of their most
+                  popular open models. Mixtral beats Llama 2 and compares in performance to GPT-3.5
+                  Turbo and is 2.5x cheaper to use. Mistral Large is a private model with benchmarks
+                  approaching GPT-4 level for reasoning tasks in English, Spanish, French, German,
+                  and Italian.
                 </p>
               </li>
             </ul>

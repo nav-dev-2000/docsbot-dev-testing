@@ -75,6 +75,92 @@ export function stripePlan(team) {
   }
 }
 
+export function getStats(doc, timeDelta) {
+  const millisecondDelta = timeDelta * 24 * 60 * 60 * 1000 // convert to milliseconds
+
+  /*
+    NOTE: currently positive is ignored, the frontend doesn't use it
+  */
+  let dateCounts = {}
+  const currDate = new Date()
+  if (doc?.questionHistoryDaily) {
+    for (const dateKey in doc.questionHistoryDaily) {
+      // if date is within the timeDelta, add to our dateCounts
+      const date = new Date(dateKey);
+      if (date.getTime() > currDate.getTime() - millisecondDelta) {
+        const data = doc.questionHistoryDaily[dateKey]
+        dateCounts[dateKey] = {
+          count: data.questions,
+          negative: data.downVotes,
+          positive: data.upVotes,
+          escalated: data.escalations
+        }
+      }
+    }
+  }
+
+  // fill in missing dates
+  for (let i = 0; i < timeDelta; i++) {
+    const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    if (!dateCounts[dateKey]) {
+      dateCounts[dateKey] = { count: 0, negative: 0, positive: 0, escalated: 0 }
+    }
+  }
+
+  // split data and labels
+  let totalCount = 0,
+    totalNegative = 0,
+    totalEscalated = 0
+  let countData = [],
+    negativeData = [],
+    escalatedData = [],
+    labels = []
+  for (let i = timeDelta - 1; i >= 0; i--) {
+    const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    countData.push(dateCounts[dateKey].count)
+    negativeData.push(dateCounts[dateKey].negative)
+    escalatedData.push(dateCounts[dateKey].escalated)
+
+    totalCount += dateCounts[dateKey].count
+    totalNegative += dateCounts[dateKey].negative
+    totalEscalated += dateCounts[dateKey].escalated
+
+    labels.push(`${date.getMonth() + 1}/${date.getDate()}`)
+  }
+
+  // calculate percentages
+  let percentageData = [
+    Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100),
+    Math.round((totalNegative / totalCount) * 100),
+    Math.round((totalEscalated / totalCount) * 100),
+  ]
+
+  let percentageLabels = [
+    `${percentageData[0]}% Answered`,
+    `${percentageData[1]}% Inaccurate`,
+    `${percentageData[2]}% Escalated`,
+  ]
+
+  const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  const deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  const timeSaved = Math.round((totalCount - totalEscalated) * 5)
+
+  return {
+    countData,
+    negativeData,
+    escalatedData,
+    labels,
+    percentageData,
+    percentageLabels,
+    totalCount,
+    resolutionRate,
+    deflectionRate,
+    timeSaved,
+  }
+}
+
 export function checkSourceScheduledFromInterval(team, interval) {
   const plan = stripePlan(team)
 
