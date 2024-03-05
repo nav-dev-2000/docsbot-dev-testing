@@ -118,7 +118,7 @@ function Dashboard({ team, purchase }) {
     },
     {
       name: 'Current Plan',
-      href: '/app/account',
+      href: canModify ? '/app/account' : false,
       linkText: 'Manage',
       icon: CheckBadgeIcon,
       stat: stripePlan(team).name,
