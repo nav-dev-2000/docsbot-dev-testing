@@ -197,9 +197,10 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'box',
       'zendesk',
       'sharepoint',
+      'confluence',
     ].includes(source.type)
       ? 6
-      : 1 //APIFY has 6hr timeout, cloud funtions has 60mins
+      : 1 //APIFY has 6hr timeout, cloud functions has 60mins
     if (
       ['indexing', 'pending', 'processing'].includes(source.status) &&
       source.createdAt.toDate() < new Date(Date.now() - expireHours * 60 * 60 * 1000)

@@ -19,6 +19,7 @@ import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
 import SharepointLogo from '@/components/SharepointLogo'
+import ConfluenceLogo from '@/components/ConfluenceLogo'
 
 export const sourceTypes = [
   {
@@ -248,6 +249,21 @@ export const sourceTypes = [
     fullDescription: 'Connect to Intercom via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
     icon: IntercomLogo,
     isCarbon: 'INTERCOM',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'confluence',
+    title: 'Confluence',
+    description: 'Retrieve information from Confluence pages and spaces seamlessly (BETA)',
+    fullDescription: 'Integrate with Confluence through our partner Carbon, and effortlessly import content from Confluence pages and spaces. Please note that each bot can only be linked to one Confluence account source. Creating a new Confluence source for the same account will overwrite the existing one.',
+    icon: ConfluenceLogo,
+    isCarbon: 'CONFLUENCE',
     isPro: true,
     coming: false,
     fieldUrl: false,
