@@ -78,12 +78,29 @@ export function stripePlan(team) {
 export function getStats(doc, timeDelta) {
   const millisecondDelta = timeDelta * 24 * 60 * 60 * 1000 // convert to milliseconds
 
-  /*
-    NOTE: currently positive is ignored, the frontend doesn't use it
-  */
   let dateCounts = {}
+  let isMonthly = false
   const currDate = new Date()
-  if (doc?.questionHistoryDaily) {
+  if (timeDelta > 30 && doc?.questionHistory) {
+    // scrape monthly data
+    for (const dateKey in doc.questionHistory) {
+      // if date is within the timeDelta, add to our dateCounts
+      const date = new Date(`${dateKey}-1`)
+      if (date.getTime() > currDate.getTime() - millisecondDelta) {
+        const data = doc.questionHistory[dateKey]
+        dateCounts[dateKey] = {
+          count: data.questions,
+          negative: data.downVotes,
+          positive: data.upVotes,
+          escalated: data.escalations,
+        }
+      }
+    }
+
+    isMonthly = true
+    timeDelta = Math.floor(timeDelta / 30)
+  } else if (doc?.questionHistoryDaily) {
+    // scrape daily data
     for (const dateKey in doc.questionHistoryDaily) {
       // if date is within the timeDelta, add to our dateCounts
       const date = new Date(dateKey);
@@ -101,8 +118,8 @@ export function getStats(doc, timeDelta) {
 
   // fill in missing dates
   for (let i = 0; i < timeDelta; i++) {
-    const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
-    const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    const date = isMonthly ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000) : new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = isMonthly ? `${date.getFullYear()}-${date.getMonth() + 1}` : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     if (!dateCounts[dateKey]) {
       dateCounts[dateKey] = { count: 0, negative: 0, positive: 0, escalated: 0 }
     }
@@ -111,36 +128,42 @@ export function getStats(doc, timeDelta) {
   // split data and labels
   let totalCount = 0,
     totalNegative = 0,
+    totalPositive = 0,
     totalEscalated = 0
   let countData = [],
     negativeData = [],
+    positiveData = [],
     escalatedData = [],
     labels = []
   for (let i = timeDelta - 1; i >= 0; i--) {
-    const date = new Date(currDate - i * 24 * 60 * 60 * 1000)
-    const dateKey = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    const date = isMonthly ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000) : new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = isMonthly ? `${date.getFullYear()}-${date.getMonth() + 1}` : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     countData.push(dateCounts[dateKey].count)
     negativeData.push(dateCounts[dateKey].negative)
+    positiveData.push(dateCounts[dateKey].positive)
     escalatedData.push(dateCounts[dateKey].escalated)
 
     totalCount += dateCounts[dateKey].count
     totalNegative += dateCounts[dateKey].negative
+    totalPositive += dateCounts[dateKey].positive
     totalEscalated += dateCounts[dateKey].escalated
 
-    labels.push(`${date.getMonth() + 1}/${date.getDate()}`)
+    labels.push(isMonthly ? `${date.getMonth() + 1}/${date.getFullYear()}` : `${date.getMonth() + 1}/${date.getDate()}`)
   }
 
   // calculate percentages
-  let percentageData = [
+  const percentageData = [
     Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100),
     Math.round((totalNegative / totalCount) * 100),
+    Math.round((totalPositive / totalCount) * 100),
     Math.round((totalEscalated / totalCount) * 100),
   ]
 
-  let percentageLabels = [
+  const percentageLabels = [
     `${percentageData[0]}% Answered`,
-    `${percentageData[1]}% Inaccurate`,
-    `${percentageData[2]}% Escalated`,
+    `${percentageData[1]}% Rated Negative`,
+    `${percentageData[2]}% Rated Positive`,
+    `${percentageData[3]}% Escalated`,
   ]
 
   const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
@@ -150,6 +173,7 @@ export function getStats(doc, timeDelta) {
   return {
     countData,
     negativeData,
+    positiveData,
     escalatedData,
     labels,
     percentageData,

@@ -30,33 +30,9 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: "botId doesn't exist." })
       }
 
-      const {
-        countData,
-        negativeData,
-        escalatedData,
-        labels,
-        percentageData,
-        percentageLabels,
-        totalCount,
-        resolutionRate,
-        deflectionRate,
-        timeSaved,
-      } = getStats(bot, timeDelta)
-
       return res
         .status(200)
-        .json({
-          countData,
-          negativeData,
-          escalatedData,
-          labels,
-          percentageData,
-          percentageLabels,
-          totalCount,
-          resolutionRate,
-          deflectionRate,
-          timeSaved,
-        })
+        .json(getStats(bot, timeDelta))
     } catch (error) {
       console.warn('Error getting document:', error)
       return res.status(500).json({ message: error })

@@ -50,10 +50,18 @@ export default function TeamHistory({ team }) {
           fill: true,
         },
         {
-          label: 'Inaccurate',
+          label: 'Rated Negative',
           data: stats.negativeData,
           borderColor: '#E15759',
           backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Rated Positive',
+          data: stats.positiveData,
+          borderColor: '#00cc66',
+          backgroundColor: 'rgba(0, 204, 102, 0.1)',
           tension: 0.3,
           fill: true,
         },
@@ -73,7 +81,7 @@ export default function TeamHistory({ team }) {
       datasets: [
         {
           data: stats.percentageData,
-          backgroundColor: ['#76B7B2', '#E15759', '#EDC948'],
+          backgroundColor: ['#76B7B2', '#E15759', '#00cc66', '#EDC948'],
         },
       ],
     })
