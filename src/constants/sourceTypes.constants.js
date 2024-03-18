@@ -19,6 +19,7 @@ import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
 import SharepointLogo from '@/components/SharepointLogo'
+import SalesforceLogo from '../components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 
 export const sourceTypes = [
@@ -234,6 +235,21 @@ export const sourceTypes = [
     fullDescription: 'Connect to Zendesk via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
     icon: ZendeskLogo,
     isCarbon: 'ZENDESK',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+  },
+  {
+    id: 'salesforce',
+    title: 'Salesforce',
+    description: 'Answer questions from the content of your published Salesforce Knowledge articles (BETA)',
+    fullDescription: 'Connect to Salesforce via our partner Carbon and we will import all Knowledge articles. We will import the articles, parse the content, and add them to this bot. Note that you can only have one Salesforce connection source per bot. If you create a new Salesforce source for the same user, it will replace the previous one.',
+    icon: SalesforceLogo,
+    isCarbon: 'SALESFORCE',
     isPro: true,
     coming: false,
     fieldUrl: false,

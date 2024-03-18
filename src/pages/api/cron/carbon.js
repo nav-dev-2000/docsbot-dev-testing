@@ -31,6 +31,7 @@ export default async function handler(request, response) {
       'box',
       'zendesk',
       'sharepoint',
+      'salesforce',
       'confluence',
     ])
     .where('status', 'in', ['pending', 'indexing'])

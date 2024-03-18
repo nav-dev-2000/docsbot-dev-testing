@@ -7,4 +7,5 @@ export const carbonSourceFilters = {
   zendesk: ['ZENDESK'],
   sharepoint: ['SHAREPOINT'],
   confluence: ['CONFLUENCE'],
+  salesforce: ['SALESFORCE'],
 }

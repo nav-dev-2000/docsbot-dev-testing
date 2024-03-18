@@ -197,6 +197,7 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'box',
       'zendesk',
       'sharepoint',
+      'salesforce',
       'confluence',
     ].includes(source.type)
       ? 6
