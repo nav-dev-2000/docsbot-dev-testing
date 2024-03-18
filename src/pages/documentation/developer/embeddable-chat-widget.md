@@ -130,6 +130,7 @@ hmac = OpenSSL::HMAC.hexdigest(digest, embed_key, data)
 
 signature = "#{hmac}:#{expires}"
 ```
+> NOTE: `bot_id` in these examples is DIFFERENT from the id passed to your widget. Your bot ID will be the 2nd uuid in the `id` parameter of your widget, eg. `ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW`'s bot ID would be `UMADr9eozeBQ8sZKr0GW`.
 
 Once you have generated the signature on the server side, you can pass it to the widget embed code via the `signature` parameter like this:
 
