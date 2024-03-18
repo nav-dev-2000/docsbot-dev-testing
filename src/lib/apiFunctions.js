@@ -270,87 +270,22 @@ export const deleteBot = async (teamId, botId) => {
     const headers = {
       headers: {
         'Content-Type': 'application/json',
-        'customer-id': getCarbonCustomerID(teamId, botId),
         authorization: `Bearer ${process.env.CARBON_API_KEY}`,
       },
     }
 
-    const carbonFiles = []
-    const perPage = 250
-    let offset = 0
-
-    while (true) {
-      const response = await axios.post(
-        `https://api.carbon.ai/user_files_v2`,
-        {
-          pagination: {
-            limit: perPage,
-            offset: offset,
-          },
-        },
-        headers
-      )
-
-      if (response.status !== 200) {
-        throw new Error(`Carbon API returned status ${response.status}`)
-      }
-
-      for (const file of response.data.results) {
-        carbonFiles.push(file.id)
-      }
-
-      // Check if there are more pages to fetch
-      if (response.data.count <= offset + perPage) {
-        break
-      }
-
-      // Update the offset for the next iteration
-      offset += perPage
-    }
-
-    console.log('Deleting %d files from Carbon API', carbonFiles.length)
     const resp = await axios.post(
-      `https://api.carbon.ai/delete_files`,
+      `https://api.carbon.ai/delete_users`,
       {
-        file_ids: carbonFiles,
+        customer_ids: [getCarbonCustomerID(teamId, botId)],
       },
       headers
     )
     if (resp.status !== 200) {
       throw new Error(`Carbon API returned status ${response.status}`)
     }
-    console.log('Deleted files from Carbon API', resp.status)
 
-    //now revoke Cloud connections
-    const response = await axios.post(
-      `https://api.carbon.ai/user_data_sources`,
-      {
-        pagination: {
-          limit: 250,
-          offset: 0,
-        },
-      },
-      headers
-    )
-
-    if (response.status !== 200) {
-      throw new Error(`Carbon API returned status ${response.status} for user_data_sources`)
-    }
-
-    for (const connection of response.data.results) {
-      const resp = await axios.post(
-        `https://api.carbon.ai/revoke_access_token`,
-        {
-          data_source_id: connection.id,
-        },
-        headers
-      )
-      if (resp.status !== 200) {
-        throw new Error(`Carbon API returned status ${response.status} revoking connection access token`)
-      } else {
-        console.log('Revoked Carbon access for connection', connection.data_source_type, connection.data_source_external_id)
-      }
-    }
+    console.log(`Deleted ${getCarbonCustomerID(teamId, botId)} from Carbon`)
   } catch (e) {
     console.log('Error clearing data from Carbon API', e)
   }
