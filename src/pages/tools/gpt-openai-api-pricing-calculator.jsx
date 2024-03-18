@@ -45,6 +45,27 @@ const pricing = {
       output_token_cost_per_thousand: 0.024,
     },
     {
+      model_name: 'Claude 3 Haiku',
+      context: '200K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.00025,
+      output_token_cost_per_thousand: 0.00125,
+    },
+    {
+      model_name: 'Claude 3 Sonnet',
+      context: '200K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.003,
+      output_token_cost_per_thousand: 0.015,
+    },
+    {
+      model_name: 'Claude 3 Opus',
+      context: '200K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.015,
+      output_token_cost_per_thousand: 0.075,
+    },
+    {
       model_name: 'Llama 2 70b',
       context: '4K',
       provider: 'Meta (via Anyscale)',
