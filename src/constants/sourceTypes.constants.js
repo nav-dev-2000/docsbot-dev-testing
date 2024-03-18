@@ -19,8 +19,10 @@ import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
 import SharepointLogo from '@/components/SharepointLogo'
-import SalesforceLogo from '../components/SalesforceLogo'
+import GitBookLogo from '@/components/GitBookLogo'
+import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
+import FreshdeskLogo from '@/components/FreshdeskLogo'
 
 export const sourceTypes = [
   {
@@ -180,7 +182,7 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
   },
   {
@@ -195,7 +197,7 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
   },
   {
@@ -210,7 +212,7 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
   },
   {
@@ -225,7 +227,7 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
   },
   {
@@ -235,21 +237,6 @@ export const sourceTypes = [
     fullDescription: 'Connect to Zendesk via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
     icon: ZendeskLogo,
     isCarbon: 'ZENDESK',
-    isPro: true,
-    coming: false,
-    fieldUrl: false,
-    fieldTitle: false,
-    fieldFile: false,
-    fieldSchedule: true,
-    fieldQA: false,
-  },
-  {
-    id: 'salesforce',
-    title: 'Salesforce',
-    description: 'Answer questions from the content of your published Salesforce Knowledge articles (BETA)',
-    fullDescription: 'Connect to Salesforce via our partner Carbon and we will import all Knowledge articles. We will import the articles, parse the content, and add them to this bot. Note that you can only have one Salesforce connection source per bot. If you create a new Salesforce source for the same user, it will replace the previous one.',
-    icon: SalesforceLogo,
-    isCarbon: 'SALESFORCE',
     isPro: true,
     coming: false,
     fieldUrl: false,
@@ -274,10 +261,25 @@ export const sourceTypes = [
     fieldQA: false,
   },
   {
+    id: 'freshdesk',
+    title: 'Freshdesk',
+    description: 'Answer questions from Freshdesk articles (BETA)',
+    fullDescription: 'Connect to Freshdesk via our partner Carbon and we will import all Published articles. Note that you can only have one Freshdesk account source per bot. If you create a new Freshdesk source for the same account, it will replace the previous one.',
+    icon: FreshdeskLogo,
+    isCarbon: 'FRESHDESK',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+  },
+  {
     id: 'confluence',
     title: 'Confluence',
-    description: 'Retrieve information from Confluence pages and spaces seamlessly (BETA)',
-    fullDescription: 'Integrate with Confluence through our partner Carbon, and effortlessly import content from Confluence pages and spaces. Please note that each bot can only be linked to one Confluence account source. Creating a new Confluence source for the same account will overwrite the existing one.',
+    description: 'Answer questions from all Confluence pages (BETA)',
+    fullDescription: 'Integrate with Confluence through our partner Carbon, and effortlessly import content from all Confluence pages. Please note that each bot can only be linked to one Confluence account source. Creating a new Confluence source for the same account will overwrite the existing one.',
     icon: ConfluenceLogo,
     isCarbon: 'CONFLUENCE',
     isPro: true,
@@ -285,9 +287,39 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
-  }
+  },
+  {
+    id: 'salesforce',
+    title: 'Salesforce',
+    description: 'Answer questions from the content of your published Salesforce Knowledge articles (BETA)',
+    fullDescription: 'Connect to Salesforce via our partner Carbon and we will import all Knowledge articles. We will import the articles, parse the content, and add them to this bot. Note that you can only have one Salesforce connection source per bot. If you create a new Salesforce source for the same user, it will replace the previous one.',
+    icon: SalesforceLogo,
+    isCarbon: 'SALESFORCE',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+  },
+  {
+    id: 'gitbook',
+    title: 'GitBook',
+    description: 'Answer questions from the content of GitBook pages for any public or private space (BETA)',
+    fullDescription: 'Connect to GitBook via our partner Carbon. We will download the pages, parse the content, and add them to this bot. Note that you can only have one GitBook account source per bot. If you create a new GitBook source for the same user, it will replace the previous one with the newly provided organization.',
+    icon: GitBookLogo,
+    isCarbon: 'GITBOOK',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+  },
   /*
   {
     id: 'youtube',

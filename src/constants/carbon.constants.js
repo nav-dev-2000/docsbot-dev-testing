@@ -8,4 +8,6 @@ export const carbonSourceFilters = {
   sharepoint: ['SHAREPOINT'],
   confluence: ['CONFLUENCE'],
   salesforce: ['SALESFORCE'],
+  gitbook: ['GITBOOK'],
+  freshdesk: ['FRESHDESK'],
 }

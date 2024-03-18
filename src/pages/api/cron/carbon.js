@@ -30,7 +30,9 @@ export default async function handler(request, response) {
       'dropbox',
       'box',
       'zendesk',
+      'freshdesk',
       'sharepoint',
+      'gitbook',
       'salesforce',
       'confluence',
     ])

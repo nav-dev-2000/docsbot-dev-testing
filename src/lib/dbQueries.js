@@ -196,7 +196,9 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'dropbox',
       'box',
       'zendesk',
+      'freshdesk',
       'sharepoint',
+      'gitbook',
       'salesforce',
       'confluence',
     ].includes(source.type)
