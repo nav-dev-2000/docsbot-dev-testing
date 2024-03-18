@@ -152,18 +152,22 @@ export function getStats(doc, timeDelta) {
   }
 
   // calculate percentages
-  const percentageData = [
-    Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100),
-    Math.round((totalNegative / totalCount) * 100),
-    Math.round((totalPositive / totalCount) * 100),
-    Math.round((totalEscalated / totalCount) * 100),
+  const counts = [
+    (totalCount - (totalNegative + totalEscalated)),
+    totalNegative,
+    totalPositive,
+    totalEscalated,
   ]
 
+  const answered = Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100)
+  const ratedNegative = Math.round((totalNegative / totalCount) * 100)
+  const ratedPositive = Math.round((totalPositive / totalCount) * 100)
+  const escalated = Math.round((totalEscalated / totalCount) * 100)
   const percentageLabels = [
-    `${percentageData[0]}% Answered`,
-    `${percentageData[1]}% Rated Negative`,
-    `${percentageData[2]}% Rated Positive`,
-    `${percentageData[3]}% Escalated`,
+    `${answered}% Answered`,
+    `${ratedNegative}% Rated Negative`,
+    `${ratedPositive}% Rated Positive`,
+    `${escalated}% Escalated`,
   ]
 
   const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
@@ -176,7 +180,7 @@ export function getStats(doc, timeDelta) {
     positiveData,
     escalatedData,
     labels,
-    percentageData,
+    counts,
     percentageLabels,
     totalCount,
     resolutionRate,

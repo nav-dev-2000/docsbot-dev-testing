@@ -60,7 +60,7 @@ export default function TeamHistory({ team }) {
         {
           label: 'Rated Positive',
           data: stats.positiveData,
-          borderColor: '#00cc66',
+          borderColor: '#59A14F',
           backgroundColor: 'rgba(0, 204, 102, 0.1)',
           tension: 0.3,
           fill: true,
@@ -80,8 +80,8 @@ export default function TeamHistory({ team }) {
       labels: stats.percentageLabels,
       datasets: [
         {
-          data: stats.percentageData,
-          backgroundColor: ['#76B7B2', '#E15759', '#00cc66', '#EDC948'],
+          data: stats.counts,
+          backgroundColor: ['#76B7B2', '#E15759', '#59A14F', '#EDC948'],
         },
       ],
     })
