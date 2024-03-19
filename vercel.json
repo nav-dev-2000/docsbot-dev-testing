@@ -34,7 +34,7 @@
         },
         {
             "path": "/api/cron/updateCounts?key=aowidjaowd3721",
-            "schedule": "0 * * * *"
+            "schedule": "0 0 * * *"
         },
         {
             "path": "/api/cron/carbon?key=efjlnczww7236912",
@@ -70,6 +70,9 @@
         },
         "src/pages/api/cron/carbon.js": {
             "memory": 2048,
+            "maxDuration": 300
+        },
+        "src/pages/api/cron/updateCounts.js": {
             "maxDuration": 300
         }
     }
