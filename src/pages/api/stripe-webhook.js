@@ -1,13 +1,15 @@
+import { getAuth } from 'firebase-admin/auth'
 import { stripe } from '@/utils/stripe'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 configureFirebaseApp()
 const firestore = getFirestore()
+const auth = getAuth()
 import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
-import { getTeam } from '@/lib/dbQueries'
+import { getTeam, getUser } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -189,6 +191,21 @@ const webhookHandler = async (req, res) => {
                 event.data.previous_attributes?.cancellation_details?.feedback === null &&
                 subscription.cancel_at_period_end
               ) {
+                // grab owner email
+                let owner = null;
+                for (let uid in teamObj.roles) {
+                  const role = teamObj.roles[uid]
+                  if (role === 'owner') {
+                    const user = await auth.getUser(userId)
+                    if (!user?.email) break;
+                    owner = user.email
+                    break;
+                  }
+                }
+
+                // default to this if we failed to grab an email (unlikely!)
+                owner = owner ? owner : 'unknown-email@nomail.com'
+
                 // Send the Slack notification
                 try {
                   await slack.send({
@@ -198,6 +215,11 @@ const webhookHandler = async (req, res) => {
                         color: '#d10014',
                         title: 'DocsBot AI Subscription Cancelled!',
                         fields: [
+                          {
+                            title: 'Email',
+                            value: `${owner}`,
+                            short: true,
+                          },
                           {
                             title: 'Team',
                             value: `${teamObj.name}`,
