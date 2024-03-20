@@ -9,6 +9,7 @@ import { encryptKey } from '@/lib/encryption'
 import { Configuration, OpenAIApi } from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
 import { mpTrack } from '@/lib/mixpanel'
+import { canUserModifyMembers } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -23,6 +24,11 @@ export default async function handler(req, res) {
   const { userId, team } = check
 
   if (req.method === 'PUT') {
+    // sanity check user permissions
+    if (!canUserModifyMembers(team, userId) && !isSuperAdmin(userId)) {
+      return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
+    }
+
     let { name, openAIKey } = req.body
     let newTeam = {}
     if (name) {
@@ -68,6 +74,11 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    // sanity check user permissions
+    if (!canUserModifyMembers(team, userId) && !isSuperAdmin(userId)) {
+      return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
+    }
+
     //delete team from db
     try {
       //delete all bots
