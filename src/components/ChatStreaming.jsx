@@ -48,6 +48,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
   const [screenWidth, setScreenWidth] = useState(null);
+  const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
 
@@ -538,7 +539,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                   !showResearchMode ? 'justify-between' : 'justify-end'
                 )}
               >
-                {answer.sources?.length > 0 && !showResearchMode && !bot?.hideSources (
+                {answer.sources?.length > 0 && !showResearchMode && !hideSources && (
                   <div className="text-left">
                     <div className="text-sm font-semibold text-gray-800">{bot.labels.sources}</div>
                     <ul className="mt-2">

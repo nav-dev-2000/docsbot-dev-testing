@@ -29,6 +29,7 @@ export default function AskStreaming({ teamId, bot }) {
   const [errorText, setErrorText] = useState(null)
   const [rating, setRating] = useState(0)
   const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
+  const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
   const [user] = useAuthState(auth)
 
   //clear error text when question changes
@@ -364,7 +365,7 @@ export default function AskStreaming({ teamId, bot }) {
               )}
             </div>
 
-            {sources?.length > 0 && !bot?.hideSources && (
+            {sources?.length > 0 && !hideSources && (
               <div className="relative mt-16 pt-1">
                 <div className="absolute -inset-6 ml-8 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
                   {bot.labels.sources}
