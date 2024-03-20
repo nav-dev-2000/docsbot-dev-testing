@@ -538,7 +538,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                   !showResearchMode ? 'justify-between' : 'justify-end'
                 )}
               >
-                {answer.sources?.length > 0 && !showResearchMode && (
+                {answer.sources?.length > 0 && !showResearchMode && !bot.hideSources (
                   <div className="text-left">
                     <div className="text-sm font-semibold text-gray-800">{bot.labels.sources}</div>
                     <ul className="mt-2">
