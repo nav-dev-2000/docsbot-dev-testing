@@ -30,7 +30,7 @@ export const postData = async ({ url, data }) => {
 }
 
 export function stripePlan(team) {
-  if ('ZrbLG98bbxZ9EFqiPvyl' === team.id) {
+  if ('ZrbLG98bbxZ9EFqiPvyl' === team.id || 'FVasEcNLTWpySb5ZNlF3' === team.id) {
     return {
       name: 'Staff',
       bots: 1000,
@@ -90,9 +90,9 @@ export function getStats(doc, timeDelta) {
         const data = doc.questionHistory[dateKey]
         dateCounts[dateKey] = {
           count: data.questions,
-          negative: data.downVotes,
-          positive: data.upVotes,
-          escalated: data.escalations,
+          negative: data?.downVotes || 0,
+          positive: data?.upVotes || 0,
+          escalated: data?.escalations || 0,
         }
       }
     }
@@ -108,9 +108,9 @@ export function getStats(doc, timeDelta) {
         const data = doc.questionHistoryDaily[dateKey]
         dateCounts[dateKey] = {
           count: data.questions,
-          negative: data.downVotes,
-          positive: data.upVotes,
-          escalated: data.escalations
+          negative: data?.downVotes || 0,
+          positive: data?.upVotes || 0,
+          escalated: data?.escalations || 0
         }
       }
     }
