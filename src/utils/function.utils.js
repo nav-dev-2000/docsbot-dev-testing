@@ -1,3 +1,5 @@
+import { teamMembersRoles } from '@/constants/permissions.constants'
+
 export const noop = (f) => f;
 
 export const getUserRole = (team, userId) => {
@@ -31,9 +33,17 @@ export const canUserInvite = (team, userId) => {
     return false
 }
 
-export const canUserModifyMembers = (team, userId) => {
+export const canUserModifyTeam = (team, userId) => {
     const role = getUserRole(team, userId)
-    if (role === 'owner') {
+    if (role === 'owner' || role === 'admin') {
+        return true
+    }
+    return false
+}
+
+export const canUserDeleteTeam = (team, userId) => {
+    const role = getUserRole(team, userId)
+    if (role === 'owner' || role === 'admin') {
         return true
     }
     return false

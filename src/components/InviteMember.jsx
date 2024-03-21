@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import ModalCheckout from '@/components/ModalCheckout'
 import { teamMembersRoles } from '@/constants/permissions.constants'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 export default function InviteMember({ team, invite, setToInvite, setErrorText, setSuccessText }) {
   const [submitting, setSubmitting] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
-  const [selectedRole, setSelectedRole] = useState('admin')
+  const [selectedRole, setSelectedRole] = useState('editor')
+  const [user] = useAuthState(auth)
   const [roles] = useState(teamMembersRoles)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const alertRef = useRef(null);

@@ -5,7 +5,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
-import { canUserModifyMembers } from '@/utils/function.utils'
+import { canUserModifyTeam } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -48,9 +48,9 @@ export default async function handler(req, res) {
     const { team } = check
     const { memberId , role } = req.body
     try {
-      //check that only owners can change the role of members
-      if (!canUserModifyMembers(team, userId) && !isSuperAdmin(userId)) {
-        throw new Error('Only team owners can change the role of members!')
+      //check that only admins can change the role of members
+      if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
+        throw new Error('Only team admins can change the role of members!')
       }
 
       if (memberId !== undefined && role !==undefined) {
@@ -67,7 +67,14 @@ export default async function handler(req, res) {
         const userTeams = await getUserTeams(memberId)
         const memberCurrentTeam = userTeams?.find(item=>item.id === team.id)
         let newRoles = memberCurrentTeam.roles
-        newRoles[memberId] = role
+
+        // sanity check
+        const currRole = newRoles[memberId]
+        if (currRole !== 'owner') {
+          newRoles[memberId] = role
+        } else {
+          throw new Error('Cannot change the role of the team owner!')
+        }
         await firestore.collection('teams').doc(team.id).update({
             roles: newRoles
         })
@@ -101,13 +108,17 @@ export default async function handler(req, res) {
     try {
 
         // sanity check that only owners can remove members
-        if (team.roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+        if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
           throw new Error('Only team owners can remove members!')
         }
 
         // remove member from teamRoles
         if (removeUserId !== undefined) {
           const isAdded = team.roles[removeUserId]
+
+          if (isAdded === 'owner') {
+            throw new Error('You cannot remove the team owner!')
+          }
   
           // sanity check that they're not removing themselves lol
           if (userId === removeUserId) {
