@@ -4,7 +4,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
-import { createSchema } from '@/lib/weaviate'
+import { createTenant } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
 import crypto from 'crypto'
 import { mpTrack } from '@/lib/mixpanel'
@@ -56,12 +56,6 @@ router.post(async (req, res) => {
       return res.status(400).json({ message: error?.message })
     }
 
-    // Create classname with a random string
-    const indexId = `Document_${Math.random().toString(36).substr(2, 10)}`
-
-    // Create schema in weaviate
-    createSchema(team, indexId)
-
     // Create bot in db
     const docRef = await firestore
       .collection('teams')
@@ -71,7 +65,7 @@ router.post(async (req, res) => {
         ...botData,
         createdAt: FieldValue.serverTimestamp(),
         status: 'pending',
-        indexId: indexId,
+        indexId: 'TenantDocument',
         sourceCount: 0,
         pageCount: 0,
         chunkCount: 0,
@@ -80,7 +74,18 @@ router.post(async (req, res) => {
 
     const botId = docRef.id
 
-    // Increment botCounts on team
+    try {
+      createTenant(botId)
+    } catch (error) {
+      console.error('Error creating bot DB', error)
+      if (botId) {
+        // Delete bot object
+        await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
+      }
+      return res.status(500).json({ message: error?.message })
+    }
+
+    //increment botCounts on team
     await firestore.runTransaction(async (transaction) => {
       const teamRef = firestore.collection('teams').doc(team.id)
       const sfDoc = await transaction.get(teamRef)
@@ -99,7 +104,10 @@ router.post(async (req, res) => {
         type: 'createBot',
         botName: botData.name,
       })
-      mpTrack(userId, 'Created Bot', { 'Bot name': botData.name, ip: req.headers['x-forwarded-for'] })
+      mpTrack(userId, 'Created Bot', {
+        'Bot name': botData.name,
+        ip: req.headers['x-forwarded-for'],
+      })
     } catch (e) {
       console.log('Error sending tracking', e)
     }
