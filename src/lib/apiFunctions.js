@@ -292,7 +292,11 @@ export const deleteBot = async (teamId, botId) => {
 
   //delete all bot data from bucket
   const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
-  await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}` })
+  try {
+    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}` })
+  } catch (error) {
+    console.warn('Error deleting bot data from bucket:', error)
+  }
 
   //delete schema in weaviate async
   if (bot.indexId === 'TenantDocument') {
