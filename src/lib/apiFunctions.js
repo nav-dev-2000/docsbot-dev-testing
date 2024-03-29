@@ -135,7 +135,10 @@ export const deleteBot = async (teamId, botId) => {
   configureFirebaseApp()
   const firestore = getFirestore()
   const bot = await getBot(teamId, botId)
-
+  if (!bot) {
+    return false
+  }
+  
   //delete bot from db
 
   //---------------------------

@@ -69,7 +69,10 @@ export default async function handler(req, res) {
       })
     }
     try {
-      await deleteBot(team.id, botId)
+      const deleteResult = await deleteBot(team.id, botId)
+      if (!deleteResult) {
+        return res.status(404).json({ message: 'Bot not found' })
+      }
 
       try {
         bentoTrack(userId, 'track', {
