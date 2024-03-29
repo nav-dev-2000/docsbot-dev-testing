@@ -138,6 +138,7 @@ export const deleteBot = async (teamId, botId) => {
 
   //delete bot from db
 
+  //---------------------------
   // Delete all sources for bot
   const querySnapshot = await firestore
     .collection('teams')
@@ -169,6 +170,7 @@ export const deleteBot = async (teamId, botId) => {
   // Commit the remaining batch
   await sourcesBatch.commit()
 
+  //---------------------------
   // Delete all questions for bot
   const questionsSnapshot = await firestore
     .collection('teams')
@@ -198,6 +200,7 @@ export const deleteBot = async (teamId, botId) => {
   // Commit the remaining batch
   await questionsBatch.commit()
 
+  //---------------------------
   // Delete all reports for bot
   const reportsSnapshot = await firestore
     .collection('teams')
@@ -214,7 +217,7 @@ export const deleteBot = async (teamId, botId) => {
     toDelete.push(doc.ref)
   })
 
-  // Loop through toDelete and delete in batches of 500
+  // Loop through toDelete and delete in batches of 50
   counter = 0
   let reportsBatch = firestore.batch()
   for (let i = 0; i < toDelete.length; i++) {
@@ -228,6 +231,38 @@ export const deleteBot = async (teamId, botId) => {
   }
   // Commit the remaining batch
   await reportsBatch.commit()
+
+  //---------------------------
+  // Delete all conversations for bot
+  const conversationsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('conversations')
+    .select(FieldPath.documentId()) //less data to retrieve
+    .get()
+
+  // Once we get the results, begin a batch
+  toDelete = []
+  conversationsSnapshot.forEach(function (doc) {
+    toDelete.push(doc.ref)
+  })
+
+  // Loop through toDelete and delete in batches of 50
+  counter = 0
+  let conversationsBatch = firestore.batch()
+  for (let i = 0; i < toDelete.length; i++) {
+    conversationsBatch.delete(toDelete[i])
+    counter++
+    // Commit the batch every 50 operations
+    if (counter % 50 === 0) {
+      await conversationsBatch.commit()
+      conversationsBatch = firestore.batch()
+    }
+  }
+  // Commit the remaining batch
+  await conversationsBatch.commit()
 
   //delete bot
   await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).delete()
@@ -265,7 +300,7 @@ export const deleteBot = async (teamId, botId) => {
     }
   } else {
     try {
-      deleteSchema(bot.indexId)
+      //deleteSchema(bot.indexId)
     } catch (error) {
       console.warn('Error deleting Weaviate Schema:', error)
     }
@@ -365,7 +400,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       }
     }
     //check if model is valid
-    const validModels = ['gpt-3.5-turbo', 'gpt-3.5-turbo-0613', 'gpt-4', 'gpt-4-turbo', 'gpt-4-1106-preview']
+    const validModels = [
+      'gpt-3.5-turbo',
+      'gpt-3.5-turbo-0613',
+      'gpt-4',
+      'gpt-4-turbo',
+      'gpt-4-1106-preview',
+    ]
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
@@ -466,7 +507,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (questions !== undefined) {
     botData.questions = questions || []
     if (Array.isArray(botData.questions)) {
-      botData.questions = botData.questions.filter(question => question?.trim() !== '')
+      botData.questions = botData.questions.filter((question) => question?.trim() !== '')
     }
   }
 
