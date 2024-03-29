@@ -196,12 +196,12 @@ export const deleteBot = async (teamId, botId) => {
     counter++
     // Commit the batch every 50 operations
     if (counter % 50 === 0) {
-      await questionsBatch.commit()
+      questionsBatch.commit()
       questionsBatch = firestore.batch()
     }
   }
   // Commit the remaining batch
-  await questionsBatch.commit()
+  questionsBatch.commit()
 
   //---------------------------
   // Delete all reports for bot
