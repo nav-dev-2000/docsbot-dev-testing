@@ -138,7 +138,7 @@ export const deleteBot = async (teamId, botId) => {
   if (!bot) {
     return false
   }
-  
+
   //delete bot from db
 
   //---------------------------
@@ -196,12 +196,12 @@ export const deleteBot = async (teamId, botId) => {
     counter++
     // Commit the batch every 50 operations
     if (counter % 50 === 0) {
-      questionsBatch.commit()
+      await questionsBatch.commit()
       questionsBatch = firestore.batch()
     }
   }
   // Commit the remaining batch
-  questionsBatch.commit()
+  await questionsBatch.commit()
 
   //---------------------------
   // Delete all reports for bot
@@ -291,8 +291,8 @@ export const deleteBot = async (teamId, botId) => {
   })
 
   //delete all bot data from bucket
-  const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
   try {
+    const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
     await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}` })
   } catch (error) {
     console.warn('Error deleting bot data from bucket:', error)
