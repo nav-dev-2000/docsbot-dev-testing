@@ -11,7 +11,7 @@ async function getLatestNews() {
   //only keep the data we need: title, link
   const { title, slug } = latestPost[0]
 
-  fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: title?.rendered, link: "./article/" + slug }))
+  fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: title?.rendered, link: "/article/" + slug }))
 }
 
 getLatestNews()

@@ -80,7 +80,7 @@ const SinglePage = ({ seo }) => {
  * @returns {Promise<*>}
  */
 export async function getStaticPaths() {
-  const postsData = await usePosts.fetcher().get({ postType: 'post', per_page: 50 })
+  const postsData = await usePosts.fetcher().get({ postType: 'post', per_page: 60 })
 
   const postsPath = postsData.result.map(({ link }) => {
     return {
