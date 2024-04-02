@@ -1,5 +1,5 @@
 @import 'tailwindcss/base';
-@import './fonts.css';
+/*@import './fonts.css';*/
 @import './docsearch.css';
 @import './prism.css';
 /* this should match the WordPress version you're supporting
