@@ -4,10 +4,12 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Pagination from '@/components/blog/Pagination'
 import { NextSeo } from 'next-seo'
+import clsx from 'clsx'
+import Link from 'next/link'
 
 const params = {
   postType: 'post',
-  per_page: 9,
+  per_page: 12,
 }
 
 const ArchivePage = ({ seo }) => {
@@ -15,7 +17,7 @@ const ArchivePage = ({ seo }) => {
 
   return (
     <>
-    {seo.yoast_head_json.title ? (
+      {seo.yoast_head_json.title ? (
         <NextSeo
           title={seo.yoast_head_json.title}
           description={seo.yoast_head_json.description}
@@ -38,10 +40,10 @@ const ArchivePage = ({ seo }) => {
           title="Blog - DocsBot AI"
           description="DocsBot AI news, tutorials, case studies, and articles."
         />
-        )}
+      )}
       <Header />
       <main>
-        <div className="py-12 bg-white sm:py-24">
+        <div className="bg-white py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -52,12 +54,48 @@ const ArchivePage = ({ seo }) => {
                 )}
               </h2>
               <p className="mt-2 text-lg leading-8 text-gray-600">
-                DocsBot AI news, tutorials, case studies, and articles.
+                DocsBot AI{' '}
+                <Link
+                  href="./category/news"
+                  className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"
+                >
+                  news
+                </Link>
+                ,{' '}
+                <Link
+                  href="./category/tutorials"
+                  className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"
+                >
+                  tutorials
+                </Link>
+                ,{' '}
+                <Link
+                  href="./category/case-studies"
+                  className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"
+                >
+                  case studies
+                </Link>
+                , and{' '}
+                <Link
+                  href="./category/articles"
+                  className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"
+                >
+                  articles
+                </Link>
+                .
               </p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {data?.posts?.map((post) => (
-                <article key={post.id} className="flex flex-col items-start justify-between">
+                <article
+                  key={post.id}
+                  className={clsx(
+                    'flex flex-col items-start justify-between p-4',
+                    post.terms.category.some((term) => term.slug == 'news') &&
+                      !data?.queriedObject?.term &&
+                      'rounded-2xl border border-cyan-500 shadow-lg'
+                  )}
+                >
                   <a href={post.link} className="relative w-full">
                     <img
                       src={
@@ -73,7 +111,7 @@ const ArchivePage = ({ seo }) => {
                   </a>
                   <div className="max-w-xl">
                     <div className="group relative mt-8">
-                      <h3 className="mt-3 text-lg align-top font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                      <h3 className="mt-3 align-top text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         <a href={post.link}>
                           <span className="absolute inset-0" />
                           <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -85,18 +123,21 @@ const ArchivePage = ({ seo }) => {
                       ></div>
                     </div>
                     <div className="mt-8 flex items-center gap-x-4 text-xs">
-                      <a
-                        href={post.terms.category[0]?.link}
-                        className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                      >
-                        {post.terms.category[0]?.name}
-                      </a>
+                      {post.terms.category.map((category) => (
+                        <a
+                          key={category.id}
+                          href={category.link}
+                          className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                        >
+                          {category.name}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </article>
               ))}
             </div>
-            <Pagination pageInfo={data?.pageInfo} />
+            <Pagination queriedObject={data?.queriedObject} pageInfo={data?.pageInfo} />
           </div>
         </div>
       </main>
@@ -116,6 +157,8 @@ export async function getStaticPaths() {
       { params: { path: ['page', '4'] } },
       { params: { path: ['page', '5'] } },
       { params: { path: ['category', 'news'] } },
+      { params: { path: ['category', 'news', 'page', '2'] } },
+      { params: { path: ['category', 'news', 'page', '3'] } },
       { params: { path: ['category', 'tutorials'] } },
       { params: { path: ['category', 'case-studies'] } },
     ],

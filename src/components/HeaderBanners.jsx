@@ -1,16 +1,17 @@
-import { BookOpenIcon, PaintBrushIcon } from '@heroicons/react/24/outline'
+import { MegaphoneIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Countdown from 'react-countdown'
-import Image from 'next/image'
-import logo from '@/images/logos/openai-docsbot.png'
 import { stripePlan } from '@/utils/helpers'
+import news from '/public/latest-news.json'
 
 export function HeaderBanner() {
+  if (!news) return null
+
   return (
-    <div className="bg-animation flex items-center justify-center gap-x-6 px-6 py-2 sm:px-3.5">
-      <Image src={logo} alt="DocsBot + OpenAI" width={60} height={20} className="inline" />
+    <div className="bg-animation flex items-center justify-center gap-x-2 px-6 py-2 sm:px-3.5">
+      <SparklesIcon className="h-5 w-5 text-white" aria-hidden="true" />
       <p className="text-md leading-6 text-white">
-        <Link href="https://docsbot.ai/documentation/doc/how-to-create-openai-gpt-chatbots-with-access-to-your-trained-documentation">
+        <Link href={news.link}>
           <strong className="font-semibold">NEW</strong>
           <svg
             viewBox="0 0 2 2"
@@ -19,7 +20,8 @@ export function HeaderBanner() {
           >
             <circle cx={1} cy={1} r={1} />
           </svg>
-          Supercharge your GPTs on OpenAI with our custom Action&nbsp;
+          <span dangerouslySetInnerHTML={{ __html: news.title }} />
+          &nbsp;
           <span aria-hidden="true">&rarr;</span>
         </Link>
       </p>

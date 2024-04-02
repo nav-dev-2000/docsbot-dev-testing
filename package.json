@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "sitemap": "node scripts/generate-sitemap.js",
+    "news": "node scripts/latest-news.js"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
