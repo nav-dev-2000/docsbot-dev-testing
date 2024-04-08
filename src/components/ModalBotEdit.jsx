@@ -13,7 +13,6 @@ export default function ModalBotEdit({ team, bot, setBot }) {
 
   async function updateBot() {
     setErrorText('')
-
     setIsUpdating(true)
 
     const urlParams = ['teams', team.id, 'bots', bot.id]

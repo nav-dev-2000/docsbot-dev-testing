@@ -13,30 +13,33 @@ Once you've deployed your bot to production, you can view the questions and answ
 
 Question objects have the following properties:
 
-| Property               | Type        | Description                                                                                                                                      |
-| ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **id**                 | string      | The question id.                                                                                                                                 |
-| **createdAt**          | string      | The question creation date.                                                                                                                      |
-| **alias**              | string      | An anonymous username generated from user IP or name/email from metadata metadata.                                                               |
-| **question**           | string      | The question the user asked.                                                                                                                     |
-| **standaloneQuestion** | string/null | The full contextual question generated from chat history used for context search. `null` if no history.                                          |
-| **answer**             | string      | The answer text as returned to user in Markdown.                                                                                                 |
-| **sources**            | array       | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
-| **ip**                 | string      | A SHA256 hash of the user or caller IP address. Can help to metadata questions from the same user.                                               |
-| **rating**             | integer     | -1, 0, or 1 for rating up, neutral, or down.                                                                                                     |
-| **escalation**         | boolean     | Whether the question was escalated to support.                                                                                                   |
-| **metadata**           | object      | A user identification object with arbitrary metadata about the the user if it was sent with the chat request.                                    |
+| Property               | Type         | Description                                                                                                           |
+| ---------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| **id**                 | string       | The question id.                                                                                                      |
+| **createdAt**          | string       | The question creation date.                                                                                           |
+| **alias**              | string       | An anonymous username generated from user IP or name/email from metadata metadata.                                    |
+| **question**           | string       | The question the user asked.                                                                                          |
+| **standaloneQuestion** | string/null  | The full contextual question generated from chat history used for context search. `null` if no history.               |
+| **answer**             | string       | The answer text as returned to user in Markdown.                                                                      |
+| **sources**            | array        | An array of source objects. Each source object contains the source type, title and optionally url, page, and content. |
+| **ip**                 | string       | A SHA256 hash of the user or caller IP address. Can help to metadata questions from the same user.                    |
+| **rating**             | integer      | -1, 0, or 1 for rating up, neutral, or down.                                                                          |
+| **escalation**         | boolean      | Whether the question was escalated to support.                                                                        |
+| **metadata**           | object       | A user identification object with arbitrary metadata about the the user if it was sent with the chat request.         |
+| **couldAnswer**        | boolean/null | Whether the bot could answer the question if classify is enabled for the bot.                                         |
 
 ### The Source object
 
 Source objects found in the `sources` array have the following properties:
 
-| Property  | Type         | Description                                                    |
-| --------- | ------------ | -------------------------------------------------------------- |
-| **type**  | string       | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, etc. |
-| **title** | string       | The source title.                                              |
-| **url**   | string/null  | The url for the source as set during indexing. May be null.    |
-| **page**  | integer/null | The page number for the source if set during indexing.         |
+| Property    | Type         | Description                                                                 |
+| ----------- | ------------ | --------------------------------------------------------------------------- |
+| **type**    | string       | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, etc.              |
+| **title**   | string       | The source title.                                                           |
+| **url**     | string/null  | The url for the source as set during indexing. May be null.                 |
+| **page**    | integer/null | The page number for the source if set during indexing.                      |
+| **content** | string       | The content of the source.                                                  |
+| **used**    | boolean      | Whether the source was used to answer the question if classify was enabled. |
 
 ---
 

@@ -301,6 +301,7 @@ export async function getQuestions(
       'testing',
       'run_id',
       'deleted',
+      'couldAnswer',
     ) //skip the vector as it's huge
 
   // grab limits

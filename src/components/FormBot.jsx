@@ -17,6 +17,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
   const [labels, setLabels] = useState(bot?.labels || i18n[bot?.language]?.labels || null)
   const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
   const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
+  const [classifySwitch, setClassifySwitch] = useState(bot?.classify || false)
   const [rateLimitIPField, setRateLimitIPField] = useState(
     bot?.rateLimitIPAllowlist?.join(', ') || ''
   )
@@ -36,6 +37,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
       rateLimitIPAllowlist,
       labels,
       recordIP,
+      classify: classifySwitch,
     })
   }, [
     language,
@@ -49,6 +51,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     rateLimitIPAllowlist,
     labels,
     recordIP,
+    classifySwitch,
   ])
 
   //show upgrade if they change privacy to private
@@ -395,6 +398,15 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
 
       {!short && (
         <>
+          <div className="mt-4">
+            <FieldToggle
+              label="Classify Answers (BETA)"
+              description="Classify if the bot could answer the user question in logs. This is a BETA feature and could change answer output slightly."
+              enabled={classifySwitch}
+              setEnabled={setClassifySwitch}
+              disabled={disabled}
+            />
+          </div>
           <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
             <div>
               <legend

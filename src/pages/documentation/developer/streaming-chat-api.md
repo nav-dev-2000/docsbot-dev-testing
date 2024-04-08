@@ -19,13 +19,16 @@ This endpoint accepts a websocket request with the following parameters in the i
 
 ### Parameters
 
-| Parameter       | Type    | Description                                                                             |
-| --------------- | ------- | --------------------------------------------------------------------------------------- |
-| **question**    | string  | The question to ask the bot. 2 to 2000 characters.                                      |
-| **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false`       |
-| **format**      | string  | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown` |
-| **history**     | array   | The chat history array. Optional, defaults to `[]`                                      |
-| **auth**        | string  | The API key. Required only for private bots.                                            |
+| Parameter         | Type    | Description                                                                                                                                                                                                               |
+| ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **question**      | string  | The question to ask the bot. 2 to 2000 characters.                                                                                                                                                                        |
+| **full_source**   | boolean | Whether the full source content should be returned. Optional, defaults to `false`                                                                                                                                         |
+| **format**        | string  | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown`                                                                                                                                   |
+| **history**       | array   | The chat history array. Optional, defaults to `[]`                                                                                                                                                                        |
+| **auth**          | string  | The API key. Required only for private bots.                                                                                                                                                                              |
+| **metadata**      | object  | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
+| **testing**       | boolean | Whether to mark question logs as by staff. Optional, defaults to `false`                                                                                                                                                  |
+| **context_items** | integer | Number of sources to lookup for the bot to answer from. Optional, default is 5. Research mode uses 16 (more expensive token usage).                                                                                       |
 
 {% callout title="full_source behavior" %}
 If `full_source` is set to `true`, the `content` property of each source will be populated with the full source content. This can be useful if you want to display the full source content in your interface. As source pages are divided into chunks, we normally only return unique source title/urls. But if this parameter is set to true multiple sources may be returned with the same title/url but different content.
@@ -74,43 +77,49 @@ When the `message` property JSON is parsed, the result is an object like:
       "title": "Introduction to Open-Source | Learn WordPress",
       "url": "https://learn.wordpress.org/tutorial/introduction-to-open-source/",
       "page": null,
-      "content": null
+      "content": null,
+      "used": false
     },
     {
       "type": "urls",
       "title": "WordPress.org and WordPress.com – WordPress.org Documentation",
       "url": "https://wordpress.org/documentation/article/wordpress-org-and-wordpress-com/",
       "page": null,
-      "content": null
+      "content": null,
+      "used": true
     },
     {
       "type": "urls",
       "title": "What is Open Source? | Learn WordPress ",
       "url": "https://learn.wordpress.org/lesson-plan/what-is-open-source/",
       "page": null,
-      "content": null
+      "content": null,
+      "used": false
     },
     {
       "type": "urls",
       "title": "High-Level Overview | Learn WordPress ",
       "url": "https://learn.wordpress.org/lesson-plan/high-level-overview/",
       "page": null,
-      "content": null
+      "content": null,
+      "used": true
     }
   ],
   "id": "O0avZ8ffTiAMRyjNrZpU",
-  "history": []
+  "history": [],
+  "couldAnswer": true
 }
 ```
 
 The message is a JSON string with the following properties:
 
-| Property    | Type   | Description                                                                                                                                      |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **answer**  | string | The answer to the question in Markdown format.                                                                                                   |
-| **sources** | array  | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
-| **id**      | string | The unique ID of the answer. Use for the rating API.                                                                                             |
-| **history** | array  | The chat history array. Save this and send it with the next question to continue the conversation.                                               |
+| Property        | Type         | Description                                                                                                                                      |
+| --------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **answer**      | string       | The answer to the question in Markdown format.                                                                                                   |
+| **sources**     | array        | An array of source objects. Each source object contains the source type, title and optionally url, page, or content if `full_source` was `true`. |
+| **id**          | string       | The unique ID of the answer. Use for the rating API.                                                                                             |
+| **history**     | array        | The chat history array. Save this and send it with the next question to continue the conversation.                                               |
+| **couldAnswer** | boolean/null | Whether the bot could answer the question if classify is enabled for the bot.                                                                    |
 
 ## Example
 

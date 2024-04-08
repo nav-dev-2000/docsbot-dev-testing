@@ -13,7 +13,10 @@ import {
   UserCircleIcon,
   UserGroupIcon,
   ClipboardDocumentIcon,
+  CheckBadgeIcon,
   TrashIcon,
+  CheckCircleIcon,
+  MinusCircleIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -193,14 +196,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   const deleteQuestion = async (questionId) => {
-    const urlParams = [
-      'teams',
-      team.id,
-      'bots',
-      bot.id,
-      'questions',
-      questionId,
-    ]
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'questions', questionId]
     const path = '/api/' + urlParams.join('/')
 
     const response = await fetch(path, {
@@ -233,8 +229,19 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const page = source.page ? ` - Page ${source.page}` : ''
 
     return (
-      <>
+      <div
+        className={clsx(
+          'px-1',
+          source?.used ? ' my-2 rounded-md border border-gray-300 shadow-sm bg-cyan-50' : ''
+        )}
+      >
         <h4 className="mb-2 flex items-center text-sm text-gray-500">
+          {source?.used && (
+            <CheckBadgeIcon
+              className="mr-1 h-4 w-4 text-cyan-700"
+              aria-hidden="true"
+            />
+          )}
           <SourceIcon className="mr-1 h-3 w-3 text-gray-400" aria-hidden="true" />
           {source.url ? (
             <Link
@@ -255,7 +262,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           )}
         </h4>
         <p className="mb-4 text-left text-xs text-gray-500">{source.content}</p>
-      </>
+      </div>
     )
   }
 
@@ -281,6 +288,19 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
       : rating < 0
       ? 'Down vote'
       : 'Neutral'
+
+    return (
+      <>
+        <span className="sr-only">{spanText}</span>
+        <ThumbIcon className={clsx(color, 'h-6 w-6')} aria-hidden="true" />
+      </>
+    )
+  }
+
+  const CouldAnswer = ({ answered, exists }) => {
+    const ThumbIcon = answered ? CheckCircleIcon : exists ? MinusCircleIcon : MinusIcon
+    const color = answered ? 'text-green-600' : exists ? 'text-red-600' : 'text-gray-500'
+    const spanText = answered ? 'Answered' : exists ? 'Unanswered' : 'Unknown'
 
     return (
       <>
@@ -360,8 +380,12 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       <button
                         type="button"
                         disabled={!canModify}
-                        className={"mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" +
-                        (canModify ? " text-red-400 hover:text-red-500" : " text-gray-300 cursor-not-allowed")}
+                        className={
+                          'mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2' +
+                          (canModify
+                            ? ' text-red-400 hover:text-red-500'
+                            : ' cursor-not-allowed text-gray-300')
+                        }
                         onClick={() => deleteQuestion(question.id)}
                       >
                         <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
@@ -388,8 +412,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       <button
                         type="button"
                         disabled={!canModify}
-                        className={"mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" +
-                        (canModify ? " " : " cursor-not-allowed")}
+                        className={
+                          'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
+                          (canModify ? ' ' : ' cursor-not-allowed')
+                        }
                         onClick={() => saveRating(question.id, 1)}
                       >
                         <span className="sr-only">Up vote</span>
@@ -404,8 +430,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       <button
                         type="button"
                         disabled={!canModify}
-                        className={"mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" +
-                        (canModify ? " " : " cursor-not-allowed")}
+                        className={
+                          'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
+                          (canModify ? ' ' : ' cursor-not-allowed')
+                        }
                         onClick={() => saveRating(question.id, -1)}
                       >
                         <span className="sr-only">Up vote</span>
@@ -636,6 +664,14 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                     >
                       Rating
                     </th>
+                    {bot?.classify && (
+                      <th
+                        scope="col"
+                        className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      >
+                        Could Answer
+                      </th>
+                    )}
                   </tr>
                 </thead>
                 <tbody>
@@ -743,6 +779,23 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                             <Rating rating={question.rating} escalation={question?.escalation} />
                           </Answer>
                         </td>
+                        {bot?.classify && (
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
+                            )}
+                          >
+                            <Answer {...{ question, questionIdx }}>
+                              <CouldAnswer
+                                answered={question?.couldAnswer}
+                                exists={question.couldAnswer !== null}
+                              />
+                            </Answer>
+                          </td>
+                        )}
                       </tr>
                     )
                   })}

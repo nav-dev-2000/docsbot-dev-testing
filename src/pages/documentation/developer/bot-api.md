@@ -18,9 +18,14 @@ Bot objects have the following properties:
 | **description** | string | The bot description. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **indexId** | string | Used internally. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview`. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-turbo`. |
 | **customPrompt** | string | Any custom prompt for the bot. |
-| **language** | string | The bot language. Currently supports `en` and `jp`. |
+| **language** | string | The bot language. Supports many languages such as `en`, `es`, and `jp`. |
+| **rateLimitMessages** | number | The maximum number of messages a user can send in a given time period. |
+| **rateLimitSeconds** | number | The time period (in seconds) for the rate limit. |
+| **rateLimitIPAllowlist** | array | An array of IP addresses that are exempt from the rate limit. |
+| **recordIP** | boolean | If true, the bot will record the IP addresses of users. |
+| **classify** | boolean | If true, the bot will classify if it could answer a user question. |
 | **createdAt** | string | The date and time the bot was created.                                     |
 | **status**   | string | The bot status. Can be `ready` once at least one bot is trained or `pending` or `indexing` or `processing`. |
 | **questionCount** | number | The number of questions asked to the bot. |
@@ -35,6 +40,7 @@ Bot objects have the following properties:
 | **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/#pricing) for more information |
 | **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
+| **hideSources** | boolean | If true, the widget will not display the sources of its answers. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
 
 ---

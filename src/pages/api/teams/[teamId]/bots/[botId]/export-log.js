@@ -65,18 +65,23 @@ const handler = async (req, res) => {
         .orderBy('createdAt', 'desc')
         .where('createdAt', '>=', start)
         .where('createdAt', '<=', end)
-        .select('ip', 'metadata', 'question', 'standaloneQuestion', 'answer', 'sources', 'rating', 'escalation', 'createdAt') // only select fields we need is faster
+        .select('ip', 'metadata', 'question', 'standaloneQuestion', 'answer', 'sources', 'rating', 'escalation', 'createdAt', 'couldAnswer') // only select fields we need is faster
         .get()
       var csvData = [];
 
       console.log('questions', questions.size)
-      // write questions to csv file
-      csvData.push(['alias','timestamp','rating','question','standaloneQuestion','answer','sources','referrer'])
 
-      if(bot?.recordIP){
-        csvData[0].push('ip')
+      let headers = ['alias','timestamp','rating','question','standaloneQuestion','answer','sources','referrer']
+      if (bot?.recordIP) {
+        headers.push('ip')
       }
 
+      if (bot?.classify) {
+        headers.push('couldAnswer')
+      }
+
+      // write questions to csv file
+      csvData.push(headers)
       questions.forEach((doc) => {
         if (doc.data().deleted) return // skip deleted questions
         
@@ -116,11 +121,16 @@ const handler = async (req, res) => {
         const rating = question?.escalation ? 'Contacted Support' : ratingValue;
         const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
         const ip = question?.ip
-        
-        if(bot?.recordIP){
-         csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer, ip])
+
+        let entry = [question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer]
+        if (bot?.recordIP) {
+         entry.push(ip)
         }
-        csvData.push([question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer])
+
+        if (bot?.classify) {
+          entry.push(question.couldAnswer !== null ? (question.couldAnswer ? 'True' : 'False') : 'Unknown')
+        }
+        csvData.push(entry)
       })
 
       console.log('Export Query done',new Date().toISOString())

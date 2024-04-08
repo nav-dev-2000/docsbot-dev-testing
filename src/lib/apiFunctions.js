@@ -367,6 +367,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     headerAlignment,
     resetkey,
     recordIP,
+    classify,
   } = req.body
 
   const botData = {}
@@ -565,6 +566,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     } else {
       botData.recordIP = false
     }
+  }
+
+  if (!isUpdate) { //set true for new bots
+    botData.classify = true
+  } else if (classify !== undefined) {
+    botData.classify = Boolean(classify)
   }
 
   return botData
