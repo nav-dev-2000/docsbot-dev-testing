@@ -191,20 +191,17 @@ const webhookHandler = async (req, res) => {
                 event.data.previous_attributes?.cancellation_details?.feedback === null &&
                 subscription.cancel_at_period_end
               ) {
-                // grab owner email
-                let owner = null;
+                // grab owner email; default to this if we failed to grab an email (unlikely!)
+                let owner = 'unknown-email@nomail.com';
                 for (let uid in teamObj.roles) {
                   const role = teamObj.roles[uid]
                   if (role === 'owner') {
-                    const user = await auth.getUser(userId)
+                    const user = await auth.getUser(uid)
                     if (!user?.email) break;
                     owner = user.email
                     break;
                   }
                 }
-
-                // default to this if we failed to grab an email (unlikely!)
-                owner = owner ? owner : 'unknown-email@nomail.com'
 
                 // Send the Slack notification
                 try {
