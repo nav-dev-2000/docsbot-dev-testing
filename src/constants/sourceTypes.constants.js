@@ -107,7 +107,7 @@ export const sourceTypes = [
     isPro: true,
     coming: false,
     fieldUrl: false,
-    fieldTitle: false,
+    fieldTitle: 'optional',
     fieldFile: 'required',
     fileTypes: {csv: 'text/csv'},
     fieldSchedule: false,
