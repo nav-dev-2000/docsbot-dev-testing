@@ -182,45 +182,43 @@ export default function TeamHistory({ team }) {
 
       {stats && (
         <>
-          {stats.totalCount && (
-            <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
-                <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                  <LocalStringNum value={stats.totalCount} />
-                </dd>
-              </div>
-              <div
-                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-                title="Answers with no negative rating or support escalation"
-              >
-                <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                  {stats.resolutionRate}%
-                </dd>
-              </div>
-              <div
-                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-                title="Answers with no support escalation"
-              >
-                <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                  {stats.deflectionRate}%
-                </dd>
-              </div>
-              <div
-                className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-                title="Assuming an average of 5mins/ticket"
-              >
-                <dt className="text-sm font-semibold leading-6 text-gray-600">
-                  Support staff time saved
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                  <LocalStringNum value={stats.timeSaved} /> Mins
-                </dd>
-              </div>
-            </dl>
-          )}
+          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
+              <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                <LocalStringNum value={stats.totalCount} />
+              </dd>
+            </div>
+            <div
+              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+              title="Answers with no negative rating or support escalation"
+            >
+              <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                {stats.resolutionRate}%
+              </dd>
+            </div>
+            <div
+              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+              title="Answers with no support escalation"
+            >
+              <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                {stats.deflectionRate}%
+              </dd>
+            </div>
+            <div
+              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+              title="Assuming an average of 5mins/ticket"
+            >
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                Support staff time saved
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                <LocalStringNum value={stats.timeSaved} /> Mins
+              </dd>
+            </div>
+          </dl>
 
           {blurEnabled && (
             <div className="relative z-10 -mb-72 mt-32 w-full">

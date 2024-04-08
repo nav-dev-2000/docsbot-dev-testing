@@ -159,6 +159,28 @@ export function getStats(doc, timeDelta) {
     totalEscalated,
   ]
 
+  // fix 'NaN' strings
+  if (totalCount === 0) {
+    return {
+      countData,
+      negativeData,
+      positiveData,
+      escalatedData,
+      labels,
+      counts,
+      percentageLabels: [
+        `0% Answered`,
+        `0% Rated Negative`,
+        `0% Rated Positive`,
+        `0% Escalated`,
+      ],
+      totalCount: 0,
+      resolutionRate: "0",
+      deflectionRate: "0",
+      timeSaved: 0,
+    }
+  }
+
   const answered = Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100)
   const ratedNegative = Math.round((totalNegative / totalCount) * 100)
   const ratedPositive = Math.round((totalPositive / totalCount) * 100)
@@ -170,10 +192,23 @@ export function getStats(doc, timeDelta) {
     `${escalated}% Escalated`,
   ]
 
-  const resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
-  const deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
-  const timeSaved = Math.round((totalCount - totalEscalated) * 5)
+  let resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  let deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
+  console.log({
+    countData,
+    negativeData,
+    positiveData,
+    escalatedData,
+    labels,
+    counts,
+    percentageLabels,
+    totalCount,
+    resolutionRate,
+    deflectionRate,
+    timeSaved,
+  })
   return {
     countData,
     negativeData,
