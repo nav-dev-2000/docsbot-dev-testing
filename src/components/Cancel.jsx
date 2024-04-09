@@ -97,6 +97,7 @@ export default function Cancel({ team, bots }) {
       const req = {
         question: prompt,
         metadata,
+        context_items: 16,
       }
       ws.send(JSON.stringify(req))
     }
