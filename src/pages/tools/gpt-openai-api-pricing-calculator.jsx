@@ -87,6 +87,20 @@ const pricing = {
       output_token_cost_per_thousand: 0.02,
     },
     {
+      model_name: 'Command R',
+      context: '128K IN/4K OUT',
+      provider: 'Cohere',
+      input_token_cost_per_thousand: 0.0005,
+      output_token_cost_per_thousand: 0.0015,
+    },
+    {
+      model_name: 'Command R+',
+      context: '128K',
+      provider: 'Cohere',
+      input_token_cost_per_thousand: 0.003,
+      output_token_cost_per_thousand: 0.015,
+    },
+    {
       model_name: 'Mixtral 8x7B',
       context: '32K',
       provider: 'Mistral AI (via Anyscale)',
@@ -106,6 +120,13 @@ const pricing = {
       provider: 'Mistral AI',
       input_token_cost_per_thousand: 0.008,
       output_token_cost_per_thousand: 0.024,
+    },
+    {
+      model_name: 'DBRX',
+      context: '32K',
+      provider: 'DataBricks',
+      input_token_cost_per_thousand: 0.00225,
+      output_token_cost_per_thousand: 0.00675,
     },
   ],
   'Fine-tuning models': [
