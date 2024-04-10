@@ -19,19 +19,24 @@ This endpoint accepts a websocket request with the following parameters in the i
 
 ### Parameters
 
-| Parameter         | Type    | Description                                                                                                                                                                                                               |
-| ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **question**      | string  | The question to ask the bot. 2 to 2000 characters.                                                                                                                                                                        |
-| **full_source**   | boolean | Whether the full source content should be returned. Optional, defaults to `false`                                                                                                                                         |
-| **format**        | string  | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown`                                                                                                                                   |
-| **history**       | array   | The chat history array. Optional, defaults to `[]`                                                                                                                                                                        |
-| **auth**          | string  | The API key. Required only for private bots.                                                                                                                                                                              |
-| **metadata**      | object  | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
-| **testing**       | boolean | Whether to mark question logs as by staff. Optional, defaults to `false`                                                                                                                                                  |
-| **context_items** | integer | Number of sources to lookup for the bot to answer from. Optional, default is 5. Research mode uses 16 (more expensive token usage).                                                                                       |
+| Parameter         | Type          | Description                                                                                                                                                                                                               |
+| ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **question**      | string        | The question to ask the bot. 2 to 2000 characters.                                                                                                                                                                        |
+| **full_source**   | boolean       | Whether the full source content should be returned. Optional, defaults to `false`                                                                                                                                         |
+| **format**        | string        | How to format the answer. Can be `markdown` or `text`. Optional, defaults to `markdown`                                                                                                                                   |
+| **history**       | array         | The chat history array. Optional, defaults to `[]`                                                                                                                                                                        |
+| **auth**          | string        | The API key. Required only for private bots.                                                                                                                                                                              |
+| **metadata**      | object        | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
+| **testing**       | boolean       | Whether to mark question logs as by staff. Optional, defaults to `false`                                                                                                                                                  |
+| **context_items** | integer       | Number of sources to lookup for the bot to answer from. Optional, default is 5. Research mode uses 16 (more expensive token usage).                                                                                       |
+| **autocut**       | integer/false | Autocut results to num groups. Optional, defaults to `false`                                                                                                                                                              |
 
 {% callout title="full_source behavior" %}
 If `full_source` is set to `true`, the `content` property of each source will be populated with the full source content. This can be useful if you want to display the full source content in your interface. As source pages are divided into chunks, we normally only return unique source title/urls. But if this parameter is set to true multiple sources may be returned with the same title/url but different content.
+{% /callout %}
+
+{% callout title="autocut behavior" %}
+Autocut introduces a maximum result counts. This method organizes results into groups based on significant distance jumps, offering a more intuitive way to segregate relevant from irrelevant data. Autocut addresses the reduction of irrelevant information fed into generative searches. Research by highlights the negative impact of irrelevant content on large language models, underscoring the importance of precision in search results. Autocut's design is rooted in the concept of intuitively "cutting" search results at natural breaks, improving AI-driven search efficiencies. When enabled, autocut will return the top num groups of results trimmed by the `context_items` parameter.
 {% /callout %}
 
 {% callout type="warning" title="Do not expose your API key!" %}

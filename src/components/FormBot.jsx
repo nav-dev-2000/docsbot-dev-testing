@@ -317,7 +317,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   )}
                 </label>
                 <p id="gpt-4-turbo-description" className="text-gray-500">
-                  Newest (&lt;$0.03/question) model with April 2023 knowledge cutoff for advanced
+                  Newest (&lt;$0.03/question) model with Dec 2023 knowledge cutoff for advanced
                   reasoning or content creation needs. Check your rate limits before using for busy
                   bots.
                   {!team.supportsGPT4 && (
