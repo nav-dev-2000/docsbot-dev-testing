@@ -201,6 +201,8 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       setFileName(file.name)
       if (!title) {
         setTitle(file.name)
+      } else {
+        setUrl(file.name)
       }
 
       //upload to firebase cloud storage
