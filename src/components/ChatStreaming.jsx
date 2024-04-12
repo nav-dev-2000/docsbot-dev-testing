@@ -429,6 +429,8 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
     const page = source.page ? ` - Page ${source.page}` : ''
 
+    if (source.used === false) return null
+
     return (
       <li className="my-1 flex cursor-pointer items-center">
         <button
