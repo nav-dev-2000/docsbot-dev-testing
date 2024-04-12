@@ -24,7 +24,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
 
-export default function BotCard({ team, bot, setBot }) {
+export default function BotCard({ team, bot, integrations, setBot }) {
   const [user] = useAuthState(auth)
 
   if (!bot || !bot.id) {
@@ -120,7 +120,7 @@ export default function BotCard({ team, bot, setBot }) {
                 <CodeBracketSquareIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
                 Widget Embed
               </Link>
-              <ModalAPI team={team} bot={bot} />
+              <ModalAPI team={team} bot={bot} integrations={integrations} />
             </div>
           </div>
         </div>

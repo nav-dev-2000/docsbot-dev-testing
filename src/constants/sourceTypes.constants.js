@@ -1,5 +1,6 @@
 import {
   DocumentTextIcon,
+  LifebuoyIcon,
   LinkIcon,
   MapIcon,
   QueueListIcon,
@@ -124,7 +125,6 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
-    fieldQA: false,
   },
   {
     id: 'qa',

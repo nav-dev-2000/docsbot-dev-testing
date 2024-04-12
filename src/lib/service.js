@@ -41,18 +41,18 @@ export const QueueSourceIngest = async (
       runId,
     })
   )
-  // console.log(JSON.stringify({
-  //   action: 'ingest',
-  //   teamId,
-  //   botId,
-  //   sourceId,
-  //   pageLimit,
-  //   indexId,
-  //   type,
-  //   title,
-  //   url,
-  //   file,
-  // }))
+  console.log(JSON.stringify({
+    action: 'ingest',
+    teamId,
+    botId,
+    sourceId,
+    pageLimit,
+    indexId,
+    type,
+    title,
+    url,
+    file,
+  }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
   return messageId
@@ -67,6 +67,21 @@ export const QueueSourceExpel = async (teamId, indexId, botId, sourceId) => {
       indexId,
       sourceId,
     })
+  )
+  const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
+  console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
+  return messageId
+}
+
+export const QueueIntegration = async (teamId, type, appID, appSecret) => {
+  const dataBuffer = Buffer.from(
+    JSON.stringify({
+      action: 'integration',
+      teamId,
+      type,
+      appID,
+      appSecret,
+     })
   )
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
@@ -122,6 +137,13 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
     })
   )
 
+  console.log(JSON.stringify({
+    action: 'regest',
+    teamId,
+    botId,
+    sourceId,
+    pageLimit,
+  }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
   return messageId

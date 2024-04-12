@@ -3,7 +3,7 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
-import { getBot, getSources, getSource } from '@/lib/dbQueries'
+import { getBot, getSources, getSource, getTeamIntegrations } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
@@ -149,6 +149,29 @@ export default async function handler(req, res) {
       }
     }
 
+    // if (sourceType.fieldMailboxID === 'required' && !req.body.mailboxID) {
+    //   return res.status(400).send({ message: 'Invalid or missing parameter "mailboxID".' })
+    // }
+
+    // // verify the helpscout integration exists
+    // if (mailboxID) {
+    //   const integrations = await getTeamIntegrations(team.id)
+    //   const integration = integrations.find((integration) => integration.id === 'helpscout')
+    //   if (!integration || integration.status !== 'ready') {
+    //     return res.status(400).send({ message: 'Helpscout integration not found. Please connect a Helpscout app via your API dashboard' })
+    //   }
+
+    //   const mailbox = integration.mailboxes.find((mailbox) => mailbox.id === mailboxID)
+    //   if (!mailbox) {
+    //     return res.status(400).send({ message: 'Helpscout mailbox not found.' })
+    //   }
+
+    //   // set the title to the mailbox name if not provided
+    //   if (!title) {
+    //     title = mailbox.name + ' support tickets'
+    //   }
+    // }
+
     //check file type, mostly for sanity
     if (file) {
       const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
@@ -173,6 +196,7 @@ export default async function handler(req, res) {
       const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
       await fileRef.move(newFile)
       file = newFile
+      console.log(newFile, "created!")
     } else {
       file = null
     }
@@ -326,7 +350,7 @@ export default async function handler(req, res) {
           title,
           url,
           file,
-          faqs
+          faqs,
         )
       }
 

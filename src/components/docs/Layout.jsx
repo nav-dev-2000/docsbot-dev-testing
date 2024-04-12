@@ -62,6 +62,12 @@ const navigation = [
       { title: 'Question History', href: '/documentation/developer/questions-api' },
     ],
   },
+  {
+    title: 'Integrations',
+    links: [
+      { title: 'Helpscout Integration', href: '/docs/integrations/helpscout' },
+    ],
+  },
 ]
 
 function GitHubIcon(props) {

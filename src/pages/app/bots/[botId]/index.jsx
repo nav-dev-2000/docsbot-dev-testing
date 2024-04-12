@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import { getBot, getSources } from '@/lib/dbQueries'
+import { getBot, getSources, getTeamIntegrations } from '@/lib/dbQueries'
 import BotCard from '@/components/BotCard'
 import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
@@ -13,7 +13,7 @@ import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 
 const sourcePerPage = 60
 
-function Bot({ team, preBot, preSources, autoOpenSourceId }) {
+function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   const [sources, setSources] = useState(preSources?.sources)
   const [paginationData, setPaginationData] = useState(preSources?.pagination)
   const [page, setPage] = useState(preSources?.pagination?.page || 0)
@@ -171,7 +171,8 @@ function Bot({ team, preBot, preSources, autoOpenSourceId }) {
           Back
         </Link>
       </div>
-      <BotCard team={team} bot={bot} setBot={setBot} />
+
+      <BotCard team={team} bot={bot} integrations={integrations} setBot={setBot} />
       <SourceFailed {...{ sources, deleteSource, retrySource }} />
 
       <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage, retrySource }} />
@@ -196,6 +197,7 @@ export const getServerSideProps = async (context) => {
     }
 
     data.props.preSources = await getSources(data.props.team.id, data.props.preBot, 0, sourcePerPage)
+    data.props.integrations = await getTeamIntegrations(data.props.team.id)
     data.props.autoOpenSourceId = sourceId ? sourceId : null
   }
 

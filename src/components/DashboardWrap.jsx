@@ -88,7 +88,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
     { name: 'Bots', href: '/app/bots', icon: RobotIcon },
     { name: 'Team', href: '/app/team', icon: UsersIcon },
     { name: 'Account', href: '/app/account', icon: CreditCardIcon },
-    { name: 'API', href: '/app/api', icon: ServerStackIcon },
+    { name: 'API/Integrations', href: '/app/api', icon: ServerStackIcon },
     //{ name: 'Reports', href: '/app/reports', icon: ChartBarIcon, current: false },
   ]
 

@@ -4,7 +4,8 @@ import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 import { i18n } from '@/constants/strings.constants'
-
+import bentoTrack from '@/lib/bento'
+import mpTrack from '@/lib/mixpanel'
 import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -706,4 +707,16 @@ export async function getTeamUsers(teamId) {
   }
 
   return users
+}
+
+export async function getTeamIntegrations(teamId) {
+  const integrations = []
+
+  const integrationsSnapshot = await firestore.collection('teams').doc(teamId).collection('integrations').get()
+  integrationsSnapshot.forEach((doc) => {
+    const docData = doc.data()
+    integrations.push({id: doc.id, ...docData})
+  })
+
+  return integrations
 }

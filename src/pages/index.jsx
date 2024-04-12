@@ -68,34 +68,34 @@ const integrations = [
 
 const features = [
   {
-    name: 'Question/Answer Bots',
-    description:
-      'Make your documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
-    icon: ChatBubbleLeftEllipsisIcon,
-  },
-  {
     name: 'Embeddable Widgets',
     description:
       'We make it simple to add DocsBot to your website in minute with fully customizable widgets. Just add a script tag or WordPress plugin (coming soon) and you are ready to go.',
     icon: ChatBubbleLeftRightIcon,
   },
   {
-    name: 'Custom Copywriting',
-    description:
-      'Need help writing marketing copy and blog posts? With DocsBot, you can do that too. Use a customized ChatGPT that knows everything about your product, so it can help you generate high-quality content in no time.',
-    icon: PencilSquareIcon,
-  },
-  {
     name: 'Reply to Support Tickets',
     description:
-      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money!',
+      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money! Enable our HelpScout integration or create your own.',
     icon: LifebuoyIcon,
+  },
+  {
+    name: 'Question/Answer Bots',
+    description:
+      'Make your documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
+    icon: ChatBubbleLeftEllipsisIcon,
   },
   {
     name: 'Internal Knowledge Bots',
     description:
       'Employees spend too much time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.',
     icon: ShieldCheckIcon,
+  },
+  {
+    name: 'Custom Copywriting',
+    description:
+      'Need help writing marketing copy and blog posts? With DocsBot, you can do that too. Use a customized ChatGPT that knows everything about your product, so it can help you generate high-quality content in no time.',
+    icon: PencilSquareIcon,
   },
   {
     name: 'Powerful API',

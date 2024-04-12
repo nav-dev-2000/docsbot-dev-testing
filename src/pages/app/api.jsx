@@ -1,16 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState, useRef } from 'react'
-import { ArrowPathIcon, ArrowRightCircleIcon, PencilIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+import { ArrowPathIcon, PencilIcon } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
-import { getUser } from '@/lib/dbQueries'
+import { getUser, getBots, getTeamIntegrations } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import openAILogo from '@/images/logos/openai-logo.svg'
 import { getUserRole } from '@/utils/function.utils'
+import HelpscoutIntegration from '@/components/integrations/helpscout'
 
-function Api({ user, team }) {
+function Api({ user, team, bots, integrations }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(team.openAIKey ? false : true)
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
@@ -22,7 +23,7 @@ function Api({ user, team }) {
     }
   }, [open])
 
-  async function updateKey() {
+  const updateKey = async () => {
     setErrorText('')
 
     const urlParams = ['users', user.id]
@@ -50,7 +51,7 @@ function Api({ user, team }) {
   }
 
   return (
-    <DashboardWrap page="API" team={team}>
+    <DashboardWrap page="API/Integrations" team={team}>
       <Alert title={errorText} type="error" />
       <ModalOpenAI
         {...{
@@ -62,6 +63,7 @@ function Api({ user, team }) {
           },
         }}
       />
+
       <div className="rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">{team.AzureDeploymentBase && 'Azure '}OpenAI API Key</h3>
 
@@ -137,7 +139,6 @@ function Api({ user, team }) {
               </>
             )}
           </div>
-          <Image src={openAILogo} alt="OpenAI logo" width={130} height={90} />
         </div>
       </div>
 
@@ -145,8 +146,8 @@ function Api({ user, team }) {
         <h3 className="text-2xl font-bold">DocsBot API Key</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
           You can get your DocsBot API key here that can be used for the admin API and querying
-          private bots. This key is is tied to your user account and can be used to access all teams
-          that you have a role for.
+          private bots. This key is is tied to your user account and can be used to access all
+          teams that you have a role for.
         </p>
         <div className="mt-4 flex items-center justify-start">
           <pre className="block">{apiKey}</pre>
@@ -177,6 +178,15 @@ function Api({ user, team }) {
         <h3 className="mt-8 text-xl font-bold">Team ID</h3>
         <pre className="block">{team.id}</pre>
       </div>
+
+      <h2 className="mt-12 text-3xl font-bold">
+        Integrations
+        <span className="ml-2 inline-flex items-center align-top rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+          Paid
+        </span>
+      </h2>
+
+      <HelpscoutIntegration {...{ team, integrations, bots, setErrorText }} />
     </DashboardWrap>
   )
 }
@@ -186,6 +196,8 @@ export const getServerSideProps = async (context) => {
 
   // get user data
   data.props.user = await getUser(data.props.userId)
+  data.props.integrations = await getTeamIntegrations(data.props.team.id)
+  data.props.bots = await getBots(data.props.team)
 
   if (data?.props?.team) {
     const role = getUserRole(data.props.team, data.props.userId)

@@ -1,13 +1,100 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ShareIcon, XMarkIcon, PaperClipIcon } from '@heroicons/react/24/outline'
+import {
+  EyeIcon,
+  EyeSlashIcon,
+  LifebuoyIcon,
+  ShareIcon,
+  XMarkIcon,
+  PaperClipIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
 import openAILogo from '@/images/logos/openai-logo.svg'
 import Image from 'next/image'
 
-export default function ModalAPI({ team, bot }) {
+export default function ModalAPI({ team, bot, integrations }) {
   const [open, setOpen] = useState(false)
+  const helpScoutIntegration = integrations.find((i) => i.id === 'helpscout')
+  const [subscribedTags, setSubscribedTags] = useState([])
+
+  useEffect(() => {
+    if (!helpScoutIntegration || !helpScoutIntegration?.tags) {
+      return
+    }
+
+    // scrape tags for tags assigned to this bot
+    let tags = []
+    for (const tag of helpScoutIntegration.tags) {
+      const assignedId = tag?.assignedBot
+      if (assignedId === bot.id) {
+        tags.push(tag)
+      }
+    }
+
+    setSubscribedTags(tags)
+  }, [helpScoutIntegration])
+  
+  const HelpScoutInfo = () => {
+    if (!helpScoutIntegration || !helpScoutIntegration.webhookSecret) {
+      return (
+        <p className="text-md mt-2 text-gray-800">
+          If you use HelpScout, you can use our Auto-drafts feature to generate a draft reply to
+          customer support tickets. This can save your support staff precious time and guide them by
+          pre-writing answers to common issues. Please configure the{' '}
+          <Link href="/app/api" className="underline">
+            HelpScout integration
+          </Link>{' '}
+          to get started.
+        </p>
+      )
+    }
+
+    return (
+      <div className="mt-2">
+        <div className="text-gray-800">
+          {subscribedTags.length > 0 ? (
+            <table className="min-w-full border-separate border-spacing-0">
+              <thead>
+                <tr>
+                  <th
+                    scope="col"
+                    className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+                  >
+                    Assigned Tag
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {subscribedTags.map((tag) => {
+                  return (
+                    <tr
+                      key={tag.id}
+                      className="hover:bg-gray-50"
+                    >
+                      <td className="text-sm px-3 py-1 text-gray-500">
+                        {tag.name}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          ) : (
+            <pre className="black text-sm font-medium text-gray-700">
+              This bot is not subscribed to any helpscout tags
+            </pre>
+          )}
+          <p className="text-md">
+            You can edit subscribed tags in your{' '}
+            <Link href="/app/api" className="underline">
+              Integrations tab
+            </Link>{' '}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -151,10 +238,20 @@ export default function ModalAPI({ team, bot }) {
                       . You will use the Team ID and Bot ID below for the admin API and chat APIs
                       for this bot.
                     </p>
-                    <h3 className="mt-8 text-xl font-bold">Team ID</h3>
-                    <pre className="block">{team.id}</pre>
-                    <h3 className="mt-8 text-xl font-bold">Bot ID</h3>
-                    <pre className="block">{bot.id}</pre>
+
+                    <div className="flex">
+                      <div className="w-full lg:w-1/2">
+                        <h3 className="mt-8 text-xl font-bold">Team ID</h3>
+                        <pre className="block">{team.id}</pre>
+                      </div>
+                      <div className="w-full lg:w-1/2">
+                        <h3 className="mt-8 text-xl font-bold">Bot ID</h3>
+                        <pre className="block">{bot.id}</pre>
+                      </div>
+                    </div>
+
+                    <h2 className="mt-8 text-2xl font-bold">HelpScout Auto-drafts</h2>
+                    <HelpScoutInfo />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

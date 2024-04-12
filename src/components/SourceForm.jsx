@@ -153,9 +153,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         title,
         url,
         file,
-        scheduleInterval,
-        faqs: questions,
-        carbonId,
       }),
     })
     if (response.ok) {
