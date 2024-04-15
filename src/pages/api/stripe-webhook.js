@@ -1,7 +1,7 @@
 import { getAuth } from 'firebase-admin/auth'
 import { stripe } from '@/utils/stripe'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore } from 'firebase-admin/firestore'
 configureFirebaseApp()
 const firestore = getFirestore()
 const auth = getAuth()
@@ -9,7 +9,7 @@ import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
-import { getTeam, getUser } from '@/lib/dbQueries'
+import { getTeam, getTeamEmail } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -191,17 +191,8 @@ const webhookHandler = async (req, res) => {
                 event.data.previous_attributes?.cancellation_details?.feedback === null &&
                 subscription.cancel_at_period_end
               ) {
-                // grab owner email; default to this if we failed to grab an email (unlikely!)
-                let owner = 'unknown-email@nomail.com';
-                for (let uid in teamObj.roles) {
-                  const role = teamObj.roles[uid]
-                  if (role === 'owner') {
-                    const user = await auth.getUser(uid)
-                    if (!user?.email) break;
-                    owner = user.email
-                    break;
-                  }
-                }
+                // grab owner email
+                let owner = await getTeamEmail(teamObj);
 
                 // Send the Slack notification
                 try {
