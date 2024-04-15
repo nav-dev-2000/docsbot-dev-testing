@@ -153,6 +153,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         title,
         url,
         file,
+        carbonId,
       }),
     })
     if (response.ok) {
