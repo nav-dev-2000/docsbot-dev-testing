@@ -3,6 +3,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
+import { sendErrorEmail } from '../../../utils/emails'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -153,6 +154,42 @@ export default async function handler(request, response) {
         })
       } catch (error) {
         console.warn(`Error updating team ${teamDoc.id} counts:`, error)
+        return
+      }
+    })
+
+    await Promise.all(teamsPromises)
+  } catch (error) {
+    console.warn('Error updating counts:', error)
+    response.status(500).json({ message: error })
+    return
+  }
+
+  // collect and send error-related emails
+  try {
+    const teamsSnapshot = await firestore
+      .collection('teams')
+      .where('lastError.emailSent', '==', false)
+      //.limit(5)
+      .get()
+
+    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
+      try {
+        const teamData = teamDoc.data()
+        const lastError = teamData.lastError
+
+        // send email
+        await sendErrorEmail(teamData, lastError)
+
+        // update lastError.emailSent state
+        await teamDoc.ref.update({
+          lastError: {
+            ...lastError,
+            emailSent: true,
+          }
+        })
+      } catch (error) {
+        console.warn(`Error sending team ${teamDoc.id} error email:`, error)
         return
       }
     })
