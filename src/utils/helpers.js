@@ -10,6 +10,10 @@ export const getURL = () => {
   return url.includes('http') ? url : `https://${url}`
 }
 
+export const validateOpenAIKey = (team, key) => {
+  return team.AzureDeploymentBase || /^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$/.test(key)
+}
+
 export const postData = async ({ url, data }) => {
   console.log('posting,', url, data)
 

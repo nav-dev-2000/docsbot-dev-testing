@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Alert from '@/components/Alert'
 import openAILogo from '@/images/logos/openai-logo.svg'
 import va from '@vercel/analytics'
+import { validateOpenAIKey } from '@/utils/helpers'
 
 export default function ModalOpenAI({ team, open, setOpen, onKey }) {
   //const [open, setOpen] = useState(team.openAIKey ? false : true)
@@ -19,7 +20,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
   const [hasPaymentCard, setHasPaymentCard] = useState(false)
 
   async function updateTeam() {
-    if (!openAIKey || (!team.AzureDeploymentBase && !/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey))) {
+    if (!openAIKey || !validateOpenAIKey(team, openAIKey)) {
       setErrorText('Please enter your OpenAI API key.')
       return
     }
@@ -139,7 +140,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                           value={openAIKey}
                           onChange={(e) => setOpenAIKey(e.target.value)}
                           disabled={isUpdating}
-                          pattern={team.AzureDeploymentBase ? false : "sk-[a-zA-Z0-9]{48}"}
+                          pattern={team.AzureDeploymentBase ? false : "^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$"}
                         />
                       </div>
                       <p

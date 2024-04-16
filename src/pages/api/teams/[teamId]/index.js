@@ -10,6 +10,7 @@ import { Configuration, OpenAIApi } from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
 import { mpTrack } from '@/lib/mixpanel'
 import { canUserModifyTeam, canUserDeleteTeam } from '@/utils/function.utils'
+import { validateOpenAIKey } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -38,7 +39,7 @@ export default async function handler(req, res) {
       mpTrack(userId, 'Updated Team Name', { ip: req.headers['x-forwarded-for'] })
     }
     if (openAIKey) {
-      if (!team.AzureDeploymentBase && !/^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$/.test(openAIKey)) {
+      if (!validateOpenAIKey(team, openAIKey)) {
         return res.status(400).json({ message: 'Invalid OpenAI Key' })
       }
 
