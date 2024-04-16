@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       mpTrack(userId, 'Updated Team Name', { ip: req.headers['x-forwarded-for'] })
     }
     if (openAIKey) {
-      if (!team.AzureDeploymentBase && !/^sk\-[a-zA-Z0-9]{48}$/.test(openAIKey)) {
+      if (!team.AzureDeploymentBase && !/^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$/.test(openAIKey)) {
         return res.status(400).json({ message: 'Invalid OpenAI Key' })
       }
 
