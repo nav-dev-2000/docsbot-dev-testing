@@ -15,10 +15,10 @@ export const sendInviteEmail = async (user, inviter, team) => {
 
 export const sendErrorEmail = async (team, lastError) => {
   const email = await getTeamEmail(team)
-  const emailBody = `Looks like <a href="https://docsbot.ai/app/bots/${lastError.botId}">${lastError.botName}</a> is failing with the following error:
-  ${lastError.descriptive}
-
-  If you think this is an error, please <a href="https://docsbot.ai/">contact support</a>.`
+  const emailBody = `<p>Looks like <a href="https://docsbot.ai/app/bots/${lastError.botId}">${lastError.botName}</a> is failing with the following error:</p>
+  <pre>${lastError.descriptive}</pre>
+  <br/>
+  <p>If you think this is an error, please <a href="https://docsbot.ai/">contact support</a>.</p>`
   await sendEmail(email, `Whoops! ${lastError.botName} is failing on Docsbot AI!`, emailBody)
 }
 
