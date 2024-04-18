@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   const helpscout = integrations.find((i) => i.id === 'helpscout')
 
   if (req.method === 'POST') {
-    const { assignedBots, globalBotListener } = req.body
+    const { assignedBots, assignedMailboxes } = req.body
 
     // sanity check user permissions
     if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
@@ -64,15 +64,23 @@ export default async function handler(req, res) {
       })
     }
 
-    if (globalBotListener) {
-      let newGlobalBotListener = globalBotListener === 'none' ? FieldValue.delete() : globalBotListener
+    let newAssignedMailboxes = helpscout?.assignedMailboxes
+    if (assignedMailboxes) {
+      newAssignedMailboxes = {}
+
+      // verify mailboxes exist
+      for (let mb of helpscout.mailboxes) {
+        const newBotId = assignedMailboxes[mb.id]
+        if (newBotId && newBotId !== 'none') {
+          newAssignedMailboxes[mb.id] = newBotId
+        }
+      }
+
       await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
-        globalBotListener: newGlobalBotListener,
+        assignedMailboxes: newAssignedMailboxes
       })
     }
 
-    return res.status(200).json({ integration: {...helpscout, tags: newTags, globalBotListener: globalBotListener ?
-      (globalBotListener === 'none' ? undefined : globalBotListener) :
-      helpscout?.globalBotListener}})
+    return res.status(200).json({ integration: {...helpscout, tags: newTags, assignedMailboxes: newAssignedMailboxes}})
   }
 }

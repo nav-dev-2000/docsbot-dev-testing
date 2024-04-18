@@ -204,7 +204,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     }
   }
 
-  const updateHelpScoutGlobalListener = async (botId) => {
+  const updateHelpScoutMailbox = async (mailboxId, botId) => {
     setErrorText('')
 
     const urlParams = ['teams', team.id, 'integrations', 'helpscout']
@@ -216,7 +216,9 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        globalBotListener: botId,
+        assignedMailboxes: {
+          [mailboxId]: botId
+        },
       }),
     })
 
@@ -257,15 +259,6 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     if (!helpScoutIntegration || !helpScoutIntegration?.tags) return null
     return (
       <div className="inline-block min-w-full py-2 align-middle">
-        <button
-          type="button"
-          className={
-            'mr-10 flex items-center rounded-md text-xs text-gray-500 hover:text-gray-900 focus:outline-none'
-          }
-          onClick={() => refreshTags()}
-        >
-          <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Refresh
-        </button>
         <table className="min-w-full border-separate border-spacing-0">
           <thead>
             <tr>
@@ -292,6 +285,63 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                     <BotSelect
                       onChange={(e) => updateHelpScoutTag(tag, e.target.value)}
                       value={tag?.assignedBot || 'none'}
+                    />
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  const checkAssignedMailbox = (mailboxId) => {
+    if (!helpScoutIntegration || !helpScoutIntegration?.mailboxes || !helpScoutIntegration?.assignedMailboxes) {
+      return null
+    }
+
+    const lookup = helpScoutIntegration.assignedMailboxes[mailboxId]
+    if (!lookup) {
+      return null
+    }
+
+    return lookup;
+  }
+
+  const MailboxTable = () => {
+    if (!helpScoutIntegration || !helpScoutIntegration?.mailboxes) return null
+    return (
+      <div className="inline-block min-w-full py-2 align-middle">
+        <table className="min-w-full border-separate border-spacing-0">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+              >
+                Mailbox
+              </th>
+              <th
+                scope="col"
+                className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+              >
+                Default Bot
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {helpScoutIntegration.mailboxes.map((mb) => {
+              return (
+                <tr key={mb.id} className="hover:bg-gray-50">
+                  <td className="px-3 py-1 text-sm text-gray-500">
+                    <span className="text-sm text-gray-500">{mb.name}</span>
+                    <span className="ml-2 text-sm text-gray-400">{mb.slug}</span>
+                  </td>
+                  <td className="px-3 py-1 text-sm text-gray-500">
+                    <BotSelect
+                      onChange={(e) => updateHelpScoutMailbox(mb.id, e.target.value)}
+                      value={checkAssignedMailbox(mb.id) || 'none'}
                     />
                   </td>
                 </tr>
@@ -484,40 +534,38 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                 </pre>
               </div>
             </div>
-            {/* <AddTagListener /> */}
-            <div className="text-md mb-4 text-gray-800">
-              <label className="block text-sm font-bold text-gray-700">Default Responder:</label>
-              <p className="mb-2">
-                Helpscout conversations will be sent to this bot if the conversation isn't tagged
-                with a set tag listed below.
-              </p>
-              <BotSelect
-                onChange={(e) => updateHelpScoutGlobalListener(e.target.value)}
-                value={helpScoutIntegration.globalBotListener || 'none'}
-              />
-            </div>
             <div className="mb-4">
               <label className="block text-sm font-bold text-gray-700">Active tags:</label>
               <TagTable />
             </div>
             <div className="mb-4">
               <label className="block text-sm font-bold text-gray-700">Mailboxes:</label>
-              <div className="ml-2 mt-2">
+              <MailboxTable />
+              {/* <div className="ml-2 mt-2">
                 {helpScoutIntegration.mailboxes.map((mailbox) => (
                   <div key={mailbox.id} className="flex items-center">
                     <span className="text-sm text-gray-500">{mailbox.name}</span>
                     <span className="ml-2 text-sm text-gray-400">{mailbox.slug}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
-            <div>
+            <div className="flex justify-between">
               <button
                 type="button"
                 className="flex items-center rounded-md bg-white text-sm text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 onClick={deleteHelpscout}
               >
                 <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+              </button>
+              <button
+                type="button"
+                className={
+                  'mr-10 flex items-center rounded-md text-xs text-gray-500 hover:text-gray-900 focus:outline-none'
+                }
+                onClick={() => refreshTags()}
+              >
+                <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Refresh
               </button>
             </div>
           </>
