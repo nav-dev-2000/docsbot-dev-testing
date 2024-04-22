@@ -26,6 +26,23 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
 
+const LastError = ({ lastError }) => {
+  if (!lastError)
+    return null;
+
+  return (
+    <Alert title={lastError.type === 'chat' ?
+                'A bot received an error!' :
+                'A bot has a failing source!'
+    } type="warning">
+      {lastError.type === 'chat' ?
+        (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><pre>{lastError.message}</pre></p>) :
+        (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><pre>{lastError.message}</pre></p>)
+      }
+    </Alert>
+  )
+} 
+
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   return (
     <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
@@ -174,6 +191,7 @@ function Dashboard({ team, purchase }) {
   return (
     <DashboardWrap page="Dashboard" team={team}>
       <Alert title={errorText} type="warning" />
+      <LastError lastError={team?.lastError} />
       <UpgradeNotice team={team} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
