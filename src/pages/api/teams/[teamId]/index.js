@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           const openai = new OpenAIApi(configuration)
           //list models available
           const models = await openai.listModels()
-          isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4')
+          isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4-turbo')
         } else {
           isGPT4 = true
         }
