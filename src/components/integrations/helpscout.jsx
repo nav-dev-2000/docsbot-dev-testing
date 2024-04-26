@@ -236,7 +236,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     }
   }
 
-  const updateHelpscoutNoteResponse = async (noteResponse) => {
+  const updateHelpscoutSourceResponse = async (sourceResponse) => {
     setErrorText('')
 
     const urlParams = ['teams', team.id, 'integrations', 'helpscout']
@@ -248,7 +248,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        noteResponse
+        sourceResponse
       }),
     })
 
@@ -567,10 +567,10 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             </div>
             <div className="mb-4">
               <FieldToggle
-                label="Always respond"
+                label="Source response"
                 description="If the bot cannot fully answer the question, a note will be made showing relevant sources."
-                enabled={helpScoutIntegration.noteResponse || false}
-                setEnabled={updateHelpscoutNoteResponse}
+                enabled={helpScoutIntegration.sourceResponse || false}
+                setEnabled={updateHelpscoutSourceResponse}
               />
             </div>
             <div className="mb-4">
