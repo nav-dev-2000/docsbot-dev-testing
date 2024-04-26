@@ -174,7 +174,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     }
   }, [helpScoutIntegration])
 
-  const updateHelpScoutTag = async (tag, botId) => {
+  const updateHelpscout = async (data) => {
     setErrorText('')
 
     const urlParams = ['teams', team.id, 'integrations', 'helpscout']
@@ -185,11 +185,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        assignedBots: {
-          [tag.id]: botId,
-        },
-      }),
+      body: JSON.stringify(data),
     })
 
     if (response.ok) {
@@ -203,68 +199,35 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
         setErrorText('Error ' + response.status + ', please try again.')
       }
     }
+  } 
+
+  const updateHelpScoutTag = async (tag, botId) => {
+    await updateHelpscout({
+      assignedBots: {
+        [tag.id]: botId,
+      },
+    })
   }
 
   const updateHelpScoutMailbox = async (mailboxId, botId) => {
-    setErrorText('')
-
-    const urlParams = ['teams', team.id, 'integrations', 'helpscout']
-    const apiPath = '/api/' + urlParams.join('/')
-
-    const response = await fetch(apiPath, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    await updateHelpscout({
+      assignedMailboxes: {
+        [mailboxId]: botId
       },
-      body: JSON.stringify({
-        assignedMailboxes: {
-          [mailboxId]: botId
-        },
-      }),
     })
-
-    if (response.ok) {
-      const { integration } = await response.json()
-      setHelpScoutIntegration(integration)
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again.')
-      }
-    }
   }
 
   const updateHelpscoutSourceResponse = async (sourceResponse) => {
-    setErrorText('')
-
-    const urlParams = ['teams', team.id, 'integrations', 'helpscout']
-    const apiPath = '/api/' + urlParams.join('/')
-
-    const response = await fetch(apiPath, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        sourceResponse
-      }),
+    await updateHelpscout({
+      sourceResponse
     })
-
-    if (response.ok) {
-      const { integration } = await response.json()
-      setHelpScoutIntegration(integration)
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again.')
-      }
-    }
   }
 
+  const updateHelpscoutNoteResponse = async (noteResponse) => {
+    await updateHelpscout({
+      noteResponse
+    })
+  }
 
   const BotSelect = ({ onChange, value }) => {
     return (
@@ -567,9 +530,17 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             </div>
             <div className="mb-4">
               <FieldToggle
+                label="Reply as draft"
+                description="If enabled, helpscout responses will be saved as a note, otherwise it will be saved as a draft."
+                enabled={helpScoutIntegration?.noteResponse || false}
+                setEnabled={updateHelpscoutNoteResponse}
+              />
+            </div>
+            <div className="mb-4">
+              <FieldToggle
                 label="Source response"
                 description="If the bot cannot fully answer the question, a note will be made showing relevant sources."
-                enabled={helpScoutIntegration.sourceResponse || false}
+                enabled={helpScoutIntegration?.sourceResponse || false}
                 setEnabled={updateHelpscoutSourceResponse}
               />
             </div>
