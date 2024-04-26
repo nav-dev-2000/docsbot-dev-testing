@@ -12,6 +12,7 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
 import { stripePlan } from '@/utils/helpers'
+import FieldToggle from '@/components/FieldToggle'
 
 const generateWebhookURL = (teamId) => `https://api.docsbot.ai/teams/${teamId}/helpscout`
 
@@ -234,6 +235,36 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
       }
     }
   }
+
+  const updateHelpscoutNoteResponse = async (noteResponse) => {
+    setErrorText('')
+
+    const urlParams = ['teams', team.id, 'integrations', 'helpscout']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        noteResponse
+      }),
+    })
+
+    if (response.ok) {
+      const { integration } = await response.json()
+      setHelpScoutIntegration(integration)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
 
   const BotSelect = ({ onChange, value }) => {
     return (
@@ -533,6 +564,14 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                   Callback URL: {generateWebhookURL(team.id)}
                 </pre>
               </div>
+            </div>
+            <div className="mb-4">
+              <FieldToggle
+                label="Always respond"
+                description="If the bot cannot fully answer the question, a note will be made showing relevant sources."
+                enabled={helpScoutIntegration.noteResponse || false}
+                setEnabled={updateHelpscoutNoteResponse}
+              />
             </div>
             <div className="mb-4">
               <label className="block text-sm font-bold text-gray-700">Active tags:</label>
