@@ -188,7 +188,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           value: true,
           label: (
             <span className="flex items-center">
-              <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Answered
+              <CheckCircleIcon className="mr-1 h-4 w-4 text-green-600" /> Answered
             </span>
           ),
         },
@@ -196,7 +196,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           value: false,
           label: (
             <span className="flex items-center">
-              <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Answered
+              <MinusCircleIcon className="mr-1 h-4 w-4 text-red-600" /> Not Answered
             </span>
           ),
         },
