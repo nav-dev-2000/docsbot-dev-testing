@@ -31,13 +31,6 @@ const pricing = {
       output_token_cost_per_thousand: 0.06,
     },
     {
-      model_name: 'Claude Instant',
-      context: '100K',
-      provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.0008,
-      output_token_cost_per_thousand: 0.0024,
-    },
-    {
       model_name: 'Claude 2.1',
       context: '200K',
       provider: 'Anthropic',
@@ -66,11 +59,18 @@ const pricing = {
       output_token_cost_per_thousand: 0.075,
     },
     {
+      model_name: 'Llama 3 70b',
+      context: '8K',
+      provider: 'Meta (via Deepinfra)',
+      input_token_cost_per_thousand: 0.00059,
+      output_token_cost_per_thousand: 0.00079,
+    },
+    {
       model_name: 'Llama 2 70b',
       context: '4K',
-      provider: 'Meta (via Anyscale)',
-      input_token_cost_per_thousand: 0.001,
-      output_token_cost_per_thousand: 0.001,
+      provider: 'Meta (via Deepinfra)',
+      input_token_cost_per_thousand: 0.00064,
+      output_token_cost_per_thousand: 0.0008,
     },
     {
       model_name: 'Gemini 1.0 Pro',
@@ -78,6 +78,13 @@ const pricing = {
       provider: 'Google',
       input_token_cost_per_thousand: 0.0005,
       output_token_cost_per_thousand: 0.0015,
+    },
+    {
+      model_name: 'Gemini 1.5 Pro',
+      context: '1M',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.007,
+      output_token_cost_per_thousand: 0.021,
     },
     {
       model_name: 'Command',
@@ -147,6 +154,16 @@ const pricing = {
   ],
   'Embedding models': [
     {
+      model_name: '3 Small',
+      provider: 'OpenAI / Azure',
+      input_token_cost_per_thousand: 0.00002,
+    },
+    {
+      model_name: '3 Large',
+      provider: 'OpenAI / Azure',
+      input_token_cost_per_thousand: 0.00013,
+    },
+    {
       model_name: 'Ada v2',
       provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0001,
@@ -157,7 +174,7 @@ const pricing = {
       input_token_cost_per_thousand: 0.0004,
     },
     {
-      model_name: 'Embed',
+      model_name: 'Embed v3.0',
       provider: 'Cohere',
       input_token_cost_per_thousand: 0.0001,
     },
@@ -187,7 +204,7 @@ export default function Calculate() {
     <>
       <NextSeo
         title="OpenAI & other LLM API Pricing Calculator - DocsBot AI"
-        description="Calculate and compare the cost of using OpenAI, Azure, Anthropic, Llama 2, Google Gemini, Mistral, and Cohere APIs with our powerful FREE pricing calculator."
+        description="Calculate and compare the cost of using OpenAI, Azure, Anthropic, Llama 3, Google Gemini, Mistral, and Cohere APIs with our powerful FREE pricing calculator."
         openGraph={{
           images: [
             {
@@ -219,9 +236,9 @@ export default function Calculate() {
                   OpenAI & other LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 2,
+                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 3,
                   Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple
-                  and powerful free calculator. Latest numbers as of March 2024.
+                  and powerful free calculator. Latest numbers as of April 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -524,31 +541,39 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Anthropic's Claude 2</strong>: This model is known
-                  for it's huge 100k context length. This makes it great for summarization or Q&A
-                  over large documents. However it's fairly slow and expensive because of this.
+                  <strong className="text-white">Anthropic's Claude 3</strong>: Claude 3 includes
+                  three state-of-the-art models in ascending order of capability: Claude 3 Haiku,
+                  Claude 3 Sonnet, and Claude 3 Opus. Each successive model offers increasingly
+                  powerful performance, allowing users to select the optimal balance of
+                  intelligence, speed, and cost for their specific application. Opus is comparable
+                  to GPT-4 in performance, while Haiku is the most cost-effective model, while still
+                  beating GPT-3.5 Turbo in many benchmarks. Claude 3 has a huge 200K context window
+                  and is available via Anthropic's API and claud.ai.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Llama 2</strong>: Llama 2 is an open-source large
-                  language model (LLM) developed by Meta, the parent company of Facebook. It stands
-                  as Meta's answer to OpenAI's GPT series and Google's AI models such as PaLM 2.
-                  However, it distinguishes itself by being freely accessible for both research and
-                  commercial endeavors. Generally similar to GPT-3.5 Turbo in performace, Llama 2 is
-                  a powerful model that can be used for a variety of tasks, including text
-                  generation, summarization, and question answering. It is also at a comparable
-                  level to GPT-4 for English text summarization for 30x less cost. One downside it
-                  Llama 2 is an English only model.
+                  <strong className="text-white">Llama 3</strong>: Llama 3 is the latest open-source
+                  large language model (LLM) developed by Meta, the parent company of Facebook. It
+                  stands as Meta's answer to OpenAI's GPT-4 series and Google's AI models such as
+                  Gemini. However, it distinguishes itself by being freely accessible for both
+                  research and commercial endeavors. Generally similar to GPT-3.5 Turbo in
+                  performace, Llama 3 is a powerful model that can be used for a variety of tasks,
+                  including text generation, summarization, and question answering. It is also
+                  approaching the level of GPT-4 on many benchmarks for substantially less cost. One
+                  downside it Llama 3 is primarily an English only model.
                 </p>
               </li>
               <li>
                 <p>
                   <strong className="text-white">Gemini</strong>: Gemini is the newest family of
                   multimodal large language models developed by Google, serving as the successor to
-                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano, it was announced on
-                  December 6, 2023. Gemini Ultra is positioned as the first contender to OpenAI's
-                  GPT-4, while Gemini Pro is closer in performance to GPT-3.5.
+                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano in 1.0 and 1.5
+                  versions, it was announced on December 6, 2023. Gemini Ultra is positioned as the
+                  first contender to OpenAI's GPT-4, while Gemini Pro is closer in performance to
+                  GPT-3.5. Gemini Pro 1.5 is the latest publically available version, with an
+                  industry-leading 1M context window multimodal support for video, audio, images,
+                  and text. Gemini models are available via Google's Vertex AI Platform.
                 </p>
               </li>
               <li>
