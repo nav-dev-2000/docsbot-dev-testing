@@ -349,6 +349,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     model,
     language,
     customPrompt,
+    helpscoutPrompt,
     allowedDomains,
     color,
     icon,
@@ -429,6 +430,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.customPrompt = customPrompt
+  }
+
+  if (helpscoutPrompt !== undefined) {
+    if (helpscoutPrompt && stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
+      throw new Error('Custom helpscout prompts are not available at your plan level.')
+    }
+    botData.helpscoutPrompt = helpscoutPrompt
   }
 
   if (allowedDomains !== undefined) {
