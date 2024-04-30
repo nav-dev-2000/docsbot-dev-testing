@@ -72,7 +72,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                   />
                   <p>{i18n[bot.language] ? i18n[bot.language].name : 'English'}</p>
                 </div>
-                <ModalPrompt team={team} bot={bot} />
+                <ModalPrompt team={team} bot={bot} integrations={integrations} />
                 {
                   canUserEditBot(team, user?.uid) && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
                 }

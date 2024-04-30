@@ -8,15 +8,18 @@ import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
+import HelpscoutIntegration from './integrations/helpscout'
 
-export default function ModalPrompt({ team, bot }) {
+export default function ModalPrompt({ team, integrations, bot }) {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [prompt, setPrompt] = useState(bot.customPrompt || '')
+  const [hsPrompt, setHSPrompt] = useState(bot.helpscoutPrompt || '')
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
+  const helpScoutIntegration = integrations.find((i) => i.id === 'helpscout')
 
   useEffect(() => {
     if (!team || !user) return
@@ -37,12 +40,18 @@ export default function ModalPrompt({ team, bot }) {
     const urlParams = ['teams', team.id, 'bots', bot.id]
     const apiPath = '/api/' + urlParams.join('/')
 
+    let data = {}
+    data.customPrompt = prompt;
+    if (helpScoutIntegration) {
+      data.helpscoutPrompt = hsPrompt;
+    }
+
     const response = await fetch(apiPath, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ customPrompt: prompt }),
+      body: JSON.stringify(data),
     })
     if (response.ok) {
       const data = await response.json()
@@ -153,23 +162,45 @@ export default function ModalPrompt({ team, bot }) {
                             </li>
                           </ul>
                         </div>
-                        <div className="text-left mt-4 lg:mt-0 h-full">
-                          <label
-                            htmlFor="prompt"
-                            className="block text-left text-sm font-medium text-gray-700"
-                          >
-                            Custom Prompt
-                          </label>
-                          <div className="mt-1 h-full">
-                            <textarea
-                              id="prompt"
-                              className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                              placeholder="Enter any custom prompt here..."
-                              value={prompt}
-                              onChange={(e) => setPrompt(e.target.value)}
-                              disabled={isUpdating || !canModify}
-                            />
+                        <div className="flex">
+                          <div className="mt-4 lg:mt-0 mr-2 w-full h-full">
+                            <label
+                              htmlFor="prompt"
+                              className="block text-left text-sm font-medium text-gray-700"
+                            >
+                              Custom Prompt
+                            </label>
+                            <div className="mt-1 h-full">
+                              <textarea
+                                id="prompt"
+                                className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                placeholder="Enter any custom prompt here..."
+                                value={prompt}
+                                onChange={(e) => setPrompt(e.target.value)}
+                                disabled={isUpdating || !canModify}
+                              />
+                            </div>
                           </div>
+                          {helpScoutIntegration && (
+                            <div className="mt-4 lg:mt-0 w-full h-full">
+                              <label
+                                htmlFor="helpscoutPrompt"
+                                className="block text-left text-sm font-medium text-gray-700"
+                              >
+                                Custom Helpscout Prompt
+                              </label>
+                              <div className="mt-1 h-full">
+                                <textarea
+                                  id="helpscoutPrompt"
+                                  className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                  placeholder="Enter any custom prompt here, this will be used for helpscout responses."
+                                  value={hsPrompt}
+                                  onChange={(e) => setHSPrompt(e.target.value)}
+                                  disabled={isUpdating || !canModify}
+                                />
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                       <div className="mt-14 flex justify-end sm:mt-12">
