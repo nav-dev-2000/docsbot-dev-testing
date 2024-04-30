@@ -121,6 +121,88 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
   const [canModify, setModify] = useState(false)
   const [user] = useAuthState(auth)
+  const filterOptions = [
+    {
+      id: 'rating',
+      name: 'Rating',
+      options: [
+        { value: null, label: 'All' },
+        {
+          value: 1,
+          label: (
+            <span className="flex items-center">
+              <HandThumbUpIcon className="mr-1 h-4 w-4 text-green-600" /> Up
+            </span>
+          ),
+        },
+        {
+          value: 0,
+          label: (
+            <span className="flex items-center">
+              <MinusIcon className="mr-1 h-4 w-4 text-gray-500" /> Neutral
+            </span>
+          ),
+        },
+        {
+          value: -1,
+          label: (
+            <span className="flex items-center">
+              <HandThumbDownIcon className="mr-1 h-4 w-4 text-red-600" /> Down
+            </span>
+          ),
+        },
+      ],
+    },
+    {
+      id: 'escalated',
+      name: 'Escalated',
+      options: [
+        { value: null, label: 'All' },
+        {
+          value: true,
+          label: (
+            <span className="flex items-center">
+              <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Escalated
+            </span>
+          ),
+        },
+        {
+          value: false,
+          label: (
+            <span className="flex items-center">
+              <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Escalated
+            </span>
+          ),
+        },
+      ],
+    },
+  ]
+
+  if (bot?.classify) {
+    filterOptions.push({
+      id: 'couldAnswer',
+      name: 'Could Answer',
+      options: [
+        { value: null, label: 'All' },
+        {
+          value: true,
+          label: (
+            <span className="flex items-center">
+              <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Answered
+            </span>
+          ),
+        },
+        {
+          value: false,
+          label: (
+            <span className="flex items-center">
+              <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Answered
+            </span>
+          ),
+        },
+      ],
+    })
+  }
 
   useEffect(() => {
     if (!team || !user) return
