@@ -51,15 +51,16 @@ This endpoint lists all questions asked of a given team and bot. It accepts a GE
 
 ### Optional URL Parameters
 
-| Property      | Type    | Description                                                                                                 |
-| ------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| **page**      | number  | The page number to return. Pages are 0-indexed. Defaults to 0.                                              |
-| **perPage**   | number  | The number of questions to return per page. Defaults to 50.                                                 |
-| **ip**        | string  | Filter questions by sha256 IP hash.                                                                         |
-| **rating**    | integer | Filter questions by rating. Can be -1, 0, or 1 for rating down, neutral, or up. Default `null` (all).       |
-| **escalated** | boolean | Filter questions if escalated. Can be `true` or `false`. Default `null` (all).                              |
-| **startTime** | string  | Filter questions by start time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z". |
-| **endTime**   | string  | Filter questions by end time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z".   |
+| Property        | Type    | Description                                                                                                 |
+| --------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| **page**        | number  | The page number to return. Pages are 0-indexed. Defaults to 0.                                              |
+| **perPage**     | number  | The number of questions to return per page. Defaults to 50.                                                 |
+| **ip**          | string  | Filter questions by sha256 IP hash.                                                                         |
+| **rating**      | integer | Filter questions by rating. Can be -1, 0, or 1 for rating down, neutral, or up. Default `null` (all).       |
+| **escalated**   | boolean | Filter questions if escalated. Can be `true` or `false`. Default `null` (all).                              |
+| **couldAnswer** | boolean | Filter questions that bot could/could not answer. Can be `true` or `false`. Default `null` (all).           |
+| **startTime**   | string  | Filter questions by start time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z". |
+| **endTime**     | string  | Filter questions by end time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z".   |
 
 ### Examples
 
@@ -133,7 +134,8 @@ Response is a JSON object with `questions` as an array of question objects, and 
       "rating": 0,
       "metadata": {
         "referrer": "https://somesite.com"
-      }
+      },
+      "couldAnswer": true
     }
   ],
   "pagination": {
