@@ -278,6 +278,7 @@ export async function getQuestions(
   ip = null,
   rating = null,
   escalated = null,
+  couldAnswer = null,
   startTime = null,
   endTime = null
 ) {
@@ -316,6 +317,10 @@ export async function getQuestions(
 
   if (escalated !== null) {
     snapshot = snapshot.where('escalation', '==', escalated)
+  }
+
+  if (couldAnswer !== null) {
+    snapshot = snapshot.where('couldAnswer', '==', couldAnswer)
   }
 
   if (rating !== null) {
