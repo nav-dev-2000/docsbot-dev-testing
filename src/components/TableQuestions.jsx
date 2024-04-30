@@ -80,7 +80,6 @@ const filterOptions = [
           </span>
         ),
       },
-      /* Add this in Nov 2023 once enough logs have been collected with this feature
       {
         value: false,
         label: (
@@ -89,7 +88,29 @@ const filterOptions = [
           </span>
         ),
       },
-      */
+    ],
+  },
+  {
+    id: 'couldAnswer',
+    name: 'Could Answer',
+    options: [
+      { value: null, label: 'All' },
+      {
+        value: true,
+        label: (
+          <span className="flex items-center">
+            <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Answered
+          </span>
+        ),
+      },
+      {
+        value: false,
+        label: (
+          <span className="flex items-center">
+            <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Answered
+          </span>
+        ),
+      },
     ],
   },
 ]
@@ -97,7 +118,7 @@ const filterOptions = [
 export default function TableQuestions({ team, bot, questions, setQuestions, changePage }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
-  const [filters, setFilters] = useState({ rating: null, escalated: null })
+  const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
   const [canModify, setModify] = useState(false)
   const [user] = useAuthState(auth)
 
@@ -107,8 +128,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }, [team, user])
 
   useEffect(() => {
-    changePage(0, ipFilter, filters.rating, filters.escalated)
-  }, [ipFilter, filters.rating, filters.escalated])
+    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)
+  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer])
 
   const Sources = ({ sources }) => {
     return (
@@ -573,7 +594,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
             perPage={questions.pagination.perPage}
             totalCount={questions.pagination.viewableCount}
             page={questions.pagination.page}
-            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated)}
+            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)}
           />
         </div>
         <div className="mt-4 flex items-center space-x-4 lg:mt-2">

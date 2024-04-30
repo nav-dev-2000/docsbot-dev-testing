@@ -16,7 +16,7 @@ function Questions({ team, bot, preQuestions }) {
   const router = useRouter()
   const { botId } = router.query
 
-  async function changePage(page, ipFilter, rating, escalated) {
+  async function changePage(page, ipFilter, rating, escalated, couldAnswer) {
     setErrorText(null)
     const urlParams = [
       'teams',
@@ -27,6 +27,7 @@ function Questions({ team, bot, preQuestions }) {
         page +
         (ipFilter !== null && ipFilter !== undefined ? '&ip=' + ipFilter : '') +
         (rating !== null && rating !== undefined ? '&rating=' + rating : '') +
+        (couldAnswer !== null && couldAnswer !== undefined ? '&couldAnswer=' + couldAnswer : '') +
         (escalated !== null && escalated !== undefined ? '&escalated=' + escalated : ''),
     ]
     const path = '/api/' + urlParams.join('/')
