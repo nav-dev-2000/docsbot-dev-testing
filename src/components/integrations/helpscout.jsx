@@ -530,8 +530,8 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             </div>
             <div className="mb-4">
               <FieldToggle
-                label="Reply as draft"
-                description="If enabled, helpscout responses will be saved as a note, otherwise it will be saved as a draft."
+                label="Reply with Note"
+                description="If enabled, your bot will add responses as a note instead of a draft reply."
                 enabled={helpScoutIntegration?.noteResponse || false}
                 setEnabled={updateHelpscoutNoteResponse}
               />
