@@ -96,6 +96,8 @@ export function getStats(doc, timeDelta) {
           count: data.questions,
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
+          couldAnswer: data?.couldAnswer || null,
+          couldNotAnswer: data?.couldNotAnswer || null,
           escalated: data?.escalations || 0,
         }
       }
@@ -114,6 +116,8 @@ export function getStats(doc, timeDelta) {
           count: data.questions,
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
+          couldAnswer: data?.couldAnswer || null,
+          couldNotAnswer: data?.couldNotAnswer || null,
           escalated: data?.escalations || 0
         }
       }
@@ -125,7 +129,7 @@ export function getStats(doc, timeDelta) {
     const date = isMonthly ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000) : new Date(currDate - i * 24 * 60 * 60 * 1000)
     const dateKey = isMonthly ? `${date.getFullYear()}-${date.getMonth() + 1}` : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     if (!dateCounts[dateKey]) {
-      dateCounts[dateKey] = { count: 0, negative: 0, positive: 0, escalated: 0 }
+      dateCounts[dateKey] = { count: 0, negative: 0, positive: 0, couldAnswer: null, couldNotAnswer: null, escalated: 0 }
     }
   }
 
@@ -133,10 +137,14 @@ export function getStats(doc, timeDelta) {
   let totalCount = 0,
     totalNegative = 0,
     totalPositive = 0,
+    totalCouldAnswer = 0,
+    totalCouldNotAnswer = 0,
     totalEscalated = 0
   let countData = [],
     negativeData = [],
     positiveData = [],
+    couldAnswerData = [],
+    couldNotAnswerData = [],
     escalatedData = [],
     labels = []
   for (let i = timeDelta - 1; i >= 0; i--) {
@@ -145,11 +153,15 @@ export function getStats(doc, timeDelta) {
     countData.push(dateCounts[dateKey].count)
     negativeData.push(dateCounts[dateKey].negative)
     positiveData.push(dateCounts[dateKey].positive)
+    couldAnswerData.push(dateCounts[dateKey].couldAnswer)
+    couldNotAnswerData.push(dateCounts[dateKey].couldNotAnswer)
     escalatedData.push(dateCounts[dateKey].escalated)
 
     totalCount += dateCounts[dateKey].count
     totalNegative += dateCounts[dateKey].negative
     totalPositive += dateCounts[dateKey].positive
+    totalCouldAnswer += dateCounts[dateKey].couldAnswer || 0
+    totalCouldNotAnswer += dateCounts[dateKey].couldNotAnswer || 0
     totalEscalated += dateCounts[dateKey].escalated
 
     labels.push(isMonthly ? `${date.getMonth() + 1}/${date.getFullYear()}` : `${date.getMonth() + 1}/${date.getDate()}`)
@@ -157,46 +169,81 @@ export function getStats(doc, timeDelta) {
 
   // calculate percentages
   const counts = [
-    (totalCount - (totalNegative + totalEscalated)),
+    (totalCount - (totalPositive + totalNegative)),
     totalNegative,
     totalPositive,
-    totalEscalated,
   ]
 
+  const escalatedCounts = [
+    totalEscalated,
+    totalCount - totalEscalated,
+  ]
+
+  const answerCounts = [
+    totalCouldAnswer,
+    totalCouldNotAnswer,
+  ]
+
+  const totalClassifiedCount = totalCouldAnswer + totalCouldNotAnswer
+  
   // fix 'NaN' strings
   if (totalCount === 0) {
     return {
       countData,
       negativeData,
       positiveData,
+      couldAnswerData,
+      couldNotAnswerData,
       escalatedData,
       labels,
       counts,
       percentageLabels: [
-        `0% Answered`,
+        `0% Unrated`,
         `0% Rated Negative`,
         `0% Rated Positive`,
+      ],
+      escalatedCounts,
+      escalatedLabels: [
         `0% Escalated`,
+        `0% Deflected`,
+      ],
+      answerCounts,
+      answerLabels: [
+        `0% Answered`,
+        `0% Unanswered`,
       ],
       totalCount: 0,
       resolutionRate: "0",
       deflectionRate: "0",
+      couldAnswerRate: "0",
       timeSaved: 0,
     }
   }
 
-  const answered = Math.round(((totalCount - (totalNegative + totalEscalated)) / totalCount) * 100)
+  const unrated = Math.round(((totalCount - (totalPositive + totalNegative)) / totalCount) * 100)
   const ratedNegative = Math.round((totalNegative / totalCount) * 100)
   const ratedPositive = Math.round((totalPositive / totalCount) * 100)
   const escalated = Math.round((totalEscalated / totalCount) * 100)
+  const unescalated = Math.round(((totalCount - totalEscalated) / totalCount) * 100)
   const percentageLabels = [
-    `${answered}% Answered`,
+    `${unrated}% Unrated`,
     `${ratedNegative}% Rated Negative`,
     `${ratedPositive}% Rated Positive`,
-    `${escalated}% Escalated`,
   ]
 
-  let resolutionRate = ((totalCount - (totalNegative + totalEscalated)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated)) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  const escalatedLabels = [
+    `${escalated}% Escalated`,
+    `${unescalated}% Deflected`,
+  ]
+  
+  const couldAnswer = Math.round((totalCouldAnswer / totalClassifiedCount) * 100) || 0
+  const couldNotAnswer = Math.round((totalCouldNotAnswer / totalClassifiedCount) * 100) || 0
+  const answerLabels = [
+    `${couldAnswer}% Answered`,
+    `${couldNotAnswer}% Unanswered`,
+  ]
+
+  let resolutionRate = ((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) / totalCount * 100 % 1 === 0 ? 0 : 1);
   let deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
   let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
@@ -204,26 +251,38 @@ export function getStats(doc, timeDelta) {
     countData,
     negativeData,
     positiveData,
+    couldAnswerData,
     escalatedData,
     labels,
     counts,
     percentageLabels,
+    escalatedCounts,
+    escalatedLabels,
+    answerCounts,
+    answerLabels,
     totalCount,
     resolutionRate,
     deflectionRate,
+    couldAnswerRate: couldAnswer,
     timeSaved,
   })
   return {
     countData,
     negativeData,
     positiveData,
+    couldAnswerData,
     escalatedData,
     labels,
     counts,
     percentageLabels,
+    escalatedCounts,
+    escalatedLabels,
+    answerCounts,
+    answerLabels,
     totalCount,
     resolutionRate,
     deflectionRate,
+    couldAnswerRate: couldAnswer,
     timeSaved,
   }
 }
