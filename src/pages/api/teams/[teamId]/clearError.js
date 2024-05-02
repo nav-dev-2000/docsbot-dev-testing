@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
     try {
       await clearLastError(team)
-      return res.json(await getTeam(team.id))
+      return res.status(200).json({ success: true })
     } catch (error) {
       return res.status(500).json({ message: error?.message })
     }

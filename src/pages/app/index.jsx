@@ -26,23 +26,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
 
-const LastError = ({ lastError }) => {
-  if (!lastError)
-    return null;
-
-  return (
-    <Alert title={lastError.type === 'chat' ?
-                'A bot received an error!' :
-                'A bot has a failing source!'
-    } type="warning">
-      {lastError.type === 'chat' ?
-        (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><pre>{lastError.message}</pre></p>) :
-        (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><pre>{lastError.message}</pre></p>)
-      }
-    </Alert>
-  )
-} 
-
 const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
   return (
     <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
@@ -187,6 +170,42 @@ function Dashboard({ team, purchase }) {
       disabled: false,
     }
   ]
+
+  const removeLastError = async () => {
+    const urlParams = ['teams', team.id, 'clearError']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'POST',
+    })
+    if (response.ok) {
+      const data = await response.json()
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
+  const LastError = ({ lastError }) => {
+    if (!lastError)
+      return null;
+  
+    return (
+      <Alert title={lastError.type === 'chat' ?
+                  'A bot received an error!' :
+                  'A bot has a failing source!'
+      } type="warning" onClose={removeLastError}>
+        {lastError.type === 'chat' ?
+          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><pre>{lastError.message}</pre></p>) :
+          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><pre>{lastError.message}</pre></p>)
+        }
+      </Alert>
+    )
+  } 
 
   return (
     <DashboardWrap page="Dashboard" team={team}>
