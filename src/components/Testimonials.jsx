@@ -64,7 +64,7 @@ const testimonials = [
     },
     {
       content:
-        "Really excited to see what this can do for WordPress support. The chat responses are already saving us time, I'm looking forward to getting it integrated with HelpScout as well. Very promising, worth a watch!",
+        "Really excited to see what this can do for WordPress support. The chat responses are already saving us time, I'm looking forward to getting it integrated with Help Scout as well. Very promising, worth a watch!",
       author: {
         name: 'Jack Arturo',
         role: 'Founder and CEO of Very Good Plugins',

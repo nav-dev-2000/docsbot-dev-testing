@@ -39,11 +39,11 @@ export default function ModalAPI({ team, bot, integrations }) {
     if (!helpScoutIntegration || !helpScoutIntegration.webhookSecret) {
       return (
         <p className="text-md mt-2 text-gray-800">
-          If you use HelpScout, you can use our Auto-drafts feature to generate a draft reply to
+          If you use Help Scout, you can use our Auto-drafts feature to generate a draft reply to
           customer support tickets. This can save your support staff precious time and guide them by
           pre-writing answers to common issues. Please configure the{' '}
           <Link href="/app/api" className="underline">
-            HelpScout integration
+            Help Scout integration
           </Link>{' '}
           to get started.
         </p>
@@ -250,7 +250,7 @@ export default function ModalAPI({ team, bot, integrations }) {
                       </div>
                     </div>
 
-                    <h2 className="mt-8 text-2xl font-bold">HelpScout Auto-drafts</h2>
+                    <h2 className="mt-8 text-2xl font-bold">Help Scout Auto-drafts</h2>
                     <HelpScoutInfo />
                   </div>
                 </Dialog.Panel>

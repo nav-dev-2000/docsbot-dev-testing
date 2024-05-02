@@ -391,7 +391,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             />
           </div>
           <p className="mt-2 text-sm text-gray-500" id="helpscout_app_id-description">
-            App ID of your created Helpscout app.
+            App ID of your created Help Scout app.
           </p>
         </div>
 
@@ -416,7 +416,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             />
           </div>
           <p className="mt-2 text-sm text-gray-500" id="helpscout_app_secret-description">
-            App Secret of your created Helpscout app.
+            App Secret of your created Help Scout app.
           </p>
         </div>
 
@@ -431,7 +431,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             ) : (
               <PlusIcon className="-ml-1 mr-2 h-6 w-6" aria-hidden="true" />
             )}
-            Add HelpScout App
+            Add Help Scout App
           </button>
         </div>
       </>
@@ -476,7 +476,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             <div className="text-md mb-4 text-gray-800">
               <label className="block text-sm font-bold text-gray-700">Auto-Reply:</label>
               <p className="mb-2">
-                To enable Auto-drafts, you'll need to create a webhook in HelpScout.
+                To enable Auto-drafts, you'll need to create a webhook in Help Scout.
               </p>
               <ol className="ml-2 list-inside list-decimal">
                 <li>
@@ -486,7 +486,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                     target="_blank"
                     className="text-cyan-800 underline"
                   >
-                    Webhooks App in your HelpScout dashboard
+                    Webhooks App in your Help Scout dashboard
                   </Link>{' '}
                   or create a new webhook and paste the Webhook Secret and Callback URL from below
                   into the relevant fields.
@@ -624,16 +624,16 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             d="M9.9 97.2l48.6-48.6c6.3-6.2 10.2-14.9 10.2-24.4 0-9.4-3.8-18-9.9-24.2L10.2 48.6C3.9 54.8 0 63.5 0 73c0 9.5 3.8 18 9.9 24.2zM127.6 68.8L79 117.4c-6.3 6.2-10.2 14.9-10.2 24.4 0 9.4 3.8 18 9.9 24.2l48.6-48.6c6.3-6.2 10.2-14.9 10.2-24.4 0-9.5-3.8-18-9.9-24.2zM127.3 48.7s0-.1 0 0c6.3-6.2 10.2-14.9 10.2-24.4 0-9.4-3.8-18-9.9-24.2L10.2 117.4C3.9 123.6 0 132.3 0 141.8c0 9.4 3.8 18 9.9 24.2L127.3 48.7z"
           ></path>
         </svg>
-        HelpScout Integration <span className="text-sm text-gray-400">BETA</span>
+        Help Scout Integration <span className="text-sm text-gray-400">BETA</span>
       </h3>
 
       {blurEnabled && (
         <div className="relative z-10 -mb-72 mt-32 w-full">
           <div className="flex justify-center py-4 text-center">
           <div className="max-w-3xl">
-          <h3 className="text-3xl font-bold">Setup Helpscout Auto replying</h3>
+          <h3 className="text-3xl font-bold">Setup Help Scout Auto replying</h3>
               <p className="mb-8 text-center text-gray-700">
-                Upgrade to the Pro plan or higher to reduce support queues and speed up Helpscout responses! View{' '}
+                Upgrade to the Pro plan or higher to reduce support queues and speed up Help Scout responses! View{' '}
                 <Link href="/#pricing" target="_blank" className="underline">
                   plan details
                 </Link>

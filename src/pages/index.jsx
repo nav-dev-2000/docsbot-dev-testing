@@ -76,7 +76,7 @@ const features = [
   {
     name: 'Reply to Support Tickets',
     description:
-      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money! Enable our HelpScout integration or create your own.',
+      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money! Enable our Help Scout integration or create your own.',
     icon: LifebuoyIcon,
   },
   {

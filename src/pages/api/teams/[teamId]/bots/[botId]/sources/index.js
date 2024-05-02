@@ -158,12 +158,12 @@ export default async function handler(req, res) {
     //   const integrations = await getTeamIntegrations(team.id)
     //   const integration = integrations.find((integration) => integration.id === 'helpscout')
     //   if (!integration || integration.status !== 'ready') {
-    //     return res.status(400).send({ message: 'Helpscout integration not found. Please connect a Helpscout app via your API dashboard' })
+    //     return res.status(400).send({ message: 'Help Scout integration not found. Please connect a Help Scout app via your API dashboard' })
     //   }
 
     //   const mailbox = integration.mailboxes.find((mailbox) => mailbox.id === mailboxID)
     //   if (!mailbox) {
-    //     return res.status(400).send({ message: 'Helpscout mailbox not found.' })
+    //     return res.status(400).send({ message: 'Help Scout mailbox not found.' })
     //   }
 
     //   // set the title to the mailbox name if not provided

@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   const helpscout = integrations.find((i) => i.id === 'helpscout')
 
   if (!helpscout) {
-    return res.status(403).json({ message: "No Helpscout integration set!"})
+    return res.status(403).json({ message: "No Help Scout integration set!"})
   }
 
   if (req.method === 'POST') {
