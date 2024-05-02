@@ -1,5 +1,4 @@
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getTeam } from '@/lib/dbQueries'
 import { clearLastError } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {

@@ -11,6 +11,7 @@ import { deleteBot } from '@/lib/apiFunctions'
 import { mpTrack } from '@/lib/mixpanel'
 import { canUserModifyTeam, canUserDeleteTeam } from '@/utils/function.utils'
 import { validateOpenAIKey } from '@/utils/helpers'
+import { clearLastError } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -62,6 +63,7 @@ export default async function handler(req, res) {
         newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
         newTeam.supportsGPT4 = isGPT4
 
+        await clearLastError(team)
         mpTrack(userId, 'Updated OpenAI Key', { ip: req.headers['x-forwarded-for'] })
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
