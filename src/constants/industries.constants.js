@@ -2568,91 +2568,84 @@ const INDUSTRIES = [
     industry: 'Business & Information',
     image:
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ5Nzl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
-    title: 'AI Chatbots for IT Infrastruktur Management',
+    title: 'AI Chatbots for IT Infrastructure Management',
     mainContentIntro:
-      'In the fast-paced world of IT infrastructure management, staying ahead requires innovative solutions. Enter DocsBot - your AI-powered assistant designed to streamline operations, enhance customer support, and optimize documentation management. With{',
+      'In the fast-paced world of IT infrastructure management, staying ahead requires innovative solutions. Enter DocsBot - your AI-powered assistant designed to streamline operations, enhance customer support, and optimize documentation management.',
     supportSection: {
       preHeading: 'Customer Care',
       heading: 'Enhance Your Support Operations',
-      paragraph: 'Transform your IT Supports',
-      image: 'infrastructure',
-      supportSection: {
-        preHeading: 'Customer Care',
-        heading: 'Enhance Your Support Operations',
-        paragraph:
-          'Transform your IT Support with DocsBot. Automatically and intelligently manage queries about network configurations, server status, and software updates with our AI-driven solutions. This not only reduces response times but also allows your support staff to concentrate on more complex issues, improving overall efficiency.',
-        features: {
-          item1: {
-            icon: 'ChatBubbleLeftIcon',
-            name: '24/7 Query Handling',
-            description: 'Provide round-the-clock',
-          },
-          item2: {
-            icon: 'AdjustmentsHorizontalIcon',
-            name: 'Multilingual Support',
-            description:
-              'DocsBot is capable of communicating in over 95 languages, ensuring global accessibility.',
-          },
-          item3: {
-            icon: 'ChatBubbleBottomCenterTextIcon',
-            name: 'Customer Self-Service',
-            description:
-              'Enable customers to find answers themselves through interactive chat, reducing workload for your team.',
-          },
-          item4: {
-            icon: 'ArrowPathIcon',
-            name: 'Seamless Integration',
-            description:
-              'Integrate DocsBot effortlessly into your existing systems whether it\u2019s your website, mobile app, or internal platforms.',
-          },
+      paragraph:
+        'Transform your IT Support with DocsBot. Automatically and intelligently manage queries about network configurations, server status, and software updates with our AI-driven solutions. This not only reduces response times but also allows your support staff to concentrate on more complex issues, improving overall efficiency.',
+      features: {
+        item1: {
+          icon: 'ChatBubbleLeftIcon',
+          name: '24/7 Query Handling',
+          description: 'Provide round-the-clock',
         },
-      },
-      usesSection: {
-        preHeading: 'Streamline Tasks',
-        heading: 'AI-Driven IT Management',
-        paragraph:
-          'Leverage the power of AI to manage and automate tasks within your IT infrastructure efficiently with DocsBot. From updating system documentation to providing real-time answers on technical issues, our tool enhances accuracy and speeds up operations.',
-        uses: {
-          item1: {
-            icon: 'DocumentMagnifyingGlassIcon',
-            name: 'Documentation Auto-Updates',
-            description:
-              'Automatically keep your system documentations up-to-date with the latest changes in your infrastructure.',
-          },
-          item2: {
-            icon: 'ClipboardIcon',
-            name: 'Quick Reference Guides',
-            description:
-              'Generate quick reference guides for systems and protocols based on the most up-to-date information.',
-          },
-          item3: {
-            icon: 'FolderIcon',
-            name: 'Organized Document Access',
-            description:
-              'Ensure all team members have easy and secure access to necessary documentation.',
-          },
-          item4: {
-            icon: 'CloudArrowUpIcon',
-            name: 'Cloud Sync',
-            description:
-              'Keep your documentation synchronized across all platforms with cloud integration.',
-          },
-          item5: {
-            icon: 'ClipboardDocumentCheckIcon',
-            name: 'Compliance Checks',
-            description:
-              'Utilize DocsBot to ensure documentation and procedures meet industry regulations and standards.',
-          },
-          item6: {
-            icon: 'DocumentTextIcon',
-            name: 'Detailed Report Generation',
-            description:
-              'Produce detailed and customized reports on infrastructure status and errors automatically.',
-          },
+        item2: {
+          icon: 'AdjustmentsHorizontalIcon',
+          name: 'Multilingual Support',
+          description:
+            'DocsBot is capable of communicating in over 95 languages, ensuring global accessibility.',
+        },
+        item3: {
+          icon: 'ChatBubbleBottomCenterTextIcon',
+          name: 'Customer Self-Service',
+          description:
+            'Enable customers to find answers themselves through interactive chat, reducing workload for your team.',
+        },
+        item4: {
+          icon: 'ArrowPathIcon',
+          name: 'Seamless Integration',
+          description:
+            'Integrate DocsBot effortlessly into your existing systems whether it\u2019s your website, mobile app, or internal platforms.',
         },
       },
     },
-    Industry: 'Business & Information',
+    usesSection: {
+      preHeading: 'Streamline Tasks',
+      heading: 'AI-Driven IT Management',
+      paragraph:
+        'Leverage the power of AI to manage and automate tasks within your IT infrastructure efficiently with DocsBot. From updating system documentation to providing real-time answers on technical issues, our tool enhances accuracy and speeds up operations.',
+      uses: {
+        item1: {
+          icon: 'DocumentMagnifyingGlassIcon',
+          name: 'Documentation Auto-Updates',
+          description:
+            'Automatically keep your system documentations up-to-date with the latest changes in your infrastructure.',
+        },
+        item2: {
+          icon: 'ClipboardIcon',
+          name: 'Quick Reference Guides',
+          description:
+            'Generate quick reference guides for systems and protocols based on the most up-to-date information.',
+        },
+        item3: {
+          icon: 'FolderIcon',
+          name: 'Organized Document Access',
+          description:
+            'Ensure all team members have easy and secure access to necessary documentation.',
+        },
+        item4: {
+          icon: 'CloudArrowUpIcon',
+          name: 'Cloud Sync',
+          description:
+            'Keep your documentation synchronized across all platforms with cloud integration.',
+        },
+        item5: {
+          icon: 'ClipboardDocumentCheckIcon',
+          name: 'Compliance Checks',
+          description:
+            'Utilize DocsBot to ensure documentation and procedures meet industry regulations and standards.',
+        },
+        item6: {
+          icon: 'DocumentTextIcon',
+          name: 'Detailed Report Generation',
+          description:
+            'Produce detailed and customized reports on infrastructure status and errors automatically.',
+        },
+      },
+    },
   },
   {
     slug: 'ux-ui-design',
@@ -23056,81 +23049,75 @@ const INDUSTRIES = [
       preHeading: 'Instant Support',
       heading: 'Enhance Customer Service with AI',
       paragraph:
-        'With DocsBot, bicyc...  - [json continued]    - [json continued] - [json continued] - [json continued] - [json continued] - [json continued] - [json continued] (HIDDEN)',
-      supportSection: {
-        preHeading: 'Instant Support',
-        heading: 'Enhance Customer Service with AI',
-        paragraph:
-          'With DocsBot, bicycle courier businesses can automate customer interactions, reducing response times and enhancing customer satisfaction. Equip your business with 24/7 support provided by our AI-powered chatbots trained on your specific logistics and delivery protocols. This means no customer query goes unanswered, even during off-peak hours.',
-        features: {
-          item1: {
-            icon: 'ChatBubbleBottomCenterIcon',
-            name: '24/7 Customer Queries',
-            description:
-              'Enable round-the-clock customer support with AI chatbots that can handle queries about delivery statuses, booking issues, and general information, all in real-time.',
-          },
-          item2: {
-            icon: 'BellIcon',
-            name: 'Instant Notifications',
-            description:
-              'Set up instant notifications for important delivery updates or changes, keeping both your customers and courier staff always in the loop.',
-          },
-          item3: {
-            icon: 'MagnifyingGlassIcon',
-            name: 'Quick Information Retrieval',
-            description:
-              'Leverage DocsBot to quickly find and relay information such as customer addresses, package details, and optimal delivery routes.',
-          },
-          item4: {
-            icon: 'ArrowRightIcon',
-            name: 'Efficient Route Guidance',
-            description:
-              'Use DocsBot to guide your couriers through the most efficient routes, ensuring faster delivery times and improved service reliability.',
-          },
+        'With DocsBot, bicycle courier businesses can automate customer interactions, reducing response times and enhancing customer satisfaction. Equip your business with 24/7 support provided by our AI-powered chatbots trained on your specific logistics and delivery protocols. This means no customer query goes unanswered, even during off-peak hours.',
+      features: {
+        item1: {
+          icon: 'ChatBubbleBottomCenterIcon',
+          name: '24/7 Customer Queries',
+          description:
+            'Enable round-the-clock customer support with AI chatbots that can handle queries about delivery statuses, booking issues, and general information, all in real-time.',
         },
-        usesSection: {
-          preHeading: 'Delivery Optimization',
-          heading: 'Revolutionize Your Delivery Process',
-          paragraph:
-            'Discover how DocsBot can transform your bicycle courier service with tailored solutions designed for the unique challenges of urban transportation. Our AI chatbots are able to analyze documentation and optimize routes, enhancing the efficiency of your delivery operations. From handling complex queries about package statuses to providing step-by-step navigation for couriers, DocsBot ensures a streamlined delivery process every time.',
-          uses: {
-            item1: {
-              icon: 'MapIcon',
-              name: 'Real-time Route Optimization',
-              description:
-                'DocsBot can analyze current traffic conditions and weather reports to suggest the most timely routes for your couriers.',
-            },
-            item2: {
-              icon: 'ArrowPathIcon',
-              name: 'Dynamic Navigation Assistance',
-              description:
-                'Gain a dynamic navigation system that provides real-time updates and alternative route suggestions in cases of sudden changes or obstacles.',
-            },
-            item3: {
-              icon: 'DocumentTextIcon',
-              name: 'Smart Document Handling',
-              description:
-                "Streamline digital document handling such as order receipts, delivery details, and customer communications through DocsBot's intelligent systems.",
-            },
-            item4: {
-              icon: 'ClipboardDocumentIcon',
-              name: 'Optimized Delivery Scheduling',
-              description:
-                'With DocsBot, efficiently manage and schedule deliveries based on capacity, urgency, and location priorities, reducing delays and increasing throughput.',
-            },
-            item5: {
-              icon: 'Bars3Icon',
-              name: 'Customer Interaction Management',
-              description:
-                'Manage and enhance customer interactions with automated responses and intelligent query resolution, improving customer satisfaction.',
-            },
-            item6: {
-              icon: 'AdjustmentsVerticalIcon',
-              name: 'Team Coordination and Updates',
-              description:
-                'Ensure that your courier team is always updated with the latest delivery changes or customer feedback, enabling better coordination and service delivery.',
-            },
-          },
+        item2: {
+          icon: 'BellIcon',
+          name: 'Instant Notifications',
+          description:
+            'Set up instant notifications for important delivery updates or changes, keeping both your customers and courier staff always in the loop.',
+        },
+        item3: {
+          icon: 'MagnifyingGlassIcon',
+          name: 'Quick Information Retrieval',
+          description:
+            'Leverage DocsBot to quickly find and relay information such as customer addresses, package details, and optimal delivery routes.',
+        },
+        item4: {
+          icon: 'ArrowRightIcon',
+          name: 'Efficient Route Guidance',
+          description:
+            'Use DocsBot to guide your couriers through the most efficient routes, ensuring faster delivery times and improved service reliability.',
+        },
+      },
+    },
+    usesSection: {
+      preHeading: 'Delivery Optimization',
+      heading: 'Revolutionize Your Delivery Process',
+      paragraph:
+        'Discover how DocsBot can transform your bicycle courier service with tailored solutions designed for the unique challenges of urban transportation. Our AI chatbots are able to analyze documentation and optimize routes, enhancing the efficiency of your delivery operations. From handling complex queries about package statuses to providing step-by-step navigation for couriers, DocsBot ensures a streamlined delivery process every time.',
+      uses: {
+        item1: {
+          icon: 'MapIcon',
+          name: 'Real-time Route Optimization',
+          description:
+            'DocsBot can analyze current traffic conditions and weather reports to suggest the most timely routes for your couriers.',
+        },
+        item2: {
+          icon: 'ArrowPathIcon',
+          name: 'Dynamic Navigation Assistance',
+          description:
+            'Gain a dynamic navigation system that provides real-time updates and alternative route suggestions in cases of sudden changes or obstacles.',
+        },
+        item3: {
+          icon: 'DocumentTextIcon',
+          name: 'Smart Document Handling',
+          description:
+            "Streamline digital document handling such as order receipts, delivery details, and customer communications through DocsBot's intelligent systems.",
+        },
+        item4: {
+          icon: 'ClipboardDocumentIcon',
+          name: 'Optimized Delivery Scheduling',
+          description:
+            'With DocsBot, efficiently manage and schedule deliveries based on capacity, urgency, and location priorities, reducing delays and increasing throughput.',
+        },
+        item5: {
+          icon: 'Bars3Icon',
+          name: 'Customer Interaction Management',
+          description:
+            'Manage and enhance customer interactions with automated responses and intelligent query resolution, improving customer satisfaction.',
+        },
+        item6: {
+          icon: 'AdjustmentsVerticalIcon',
+          name: 'Team Coordination and Updates',
+          description:
+            'Ensure that your courier team is always updated with the latest delivery changes or customer feedback, enabling better coordination and service delivery.',
         },
       },
     },
