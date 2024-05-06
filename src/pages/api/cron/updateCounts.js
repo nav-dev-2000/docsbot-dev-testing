@@ -178,8 +178,10 @@ export default async function handler(request, response) {
         const teamData = teamDoc.data()
         const lastError = teamData.lastError
 
-        // send email
-        await sendErrorEmail(teamData, lastError)
+        // send email (only send for staff account for now)
+        if (['ZrbLG98bbxZ9EFqiPvyl'].includes(teamDoc.id)) {
+          await sendErrorEmail(teamData, lastError)
+        }
 
         // update lastError.emailSent state
         await teamDoc.ref.update({
