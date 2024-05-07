@@ -705,10 +705,10 @@ const INDUSTRIES = [
             'Keep your team constantly trained with new updates and procedures by using DocsBot to serve updated information from a central knowledge base.',
         },
         item3: {
-          icon: 'BellIcon',
-          name: 'Alerts on Updates',
+          icon: 'ClockIcon',
+          name: 'Automatic Updates',
           description:
-            'Get real-time notifications and updates on your documentation to keep pace with changing plant care demands.',
+            'Refresh your bot with updates from your documentation to keep pace with changing plant care demands.',
         },
         item4: {
           icon: 'DevicePhoneMobileIcon',
@@ -2230,9 +2230,9 @@ const INDUSTRIES = [
         },
         item4: {
           icon: 'BellIcon',
-          name: 'Proactive Notifications',
+          name: 'Proactive Information',
           description:
-            'Send timely updates and notifications about Blockchain developments directly to your users, keeping them informed and engaged.',
+            'Update your bot with the latest Blockchain developments, keeping your users informed and engaged.',
         },
       },
     },
@@ -3367,9 +3367,9 @@ const INDUSTRIES = [
         },
         item4: {
           icon: 'BellIcon',
-          name: 'Immediate Notifications',
+          name: 'Relevant Notifications',
           description:
-            'Send real-time notifications about emergencies or incidents, keeping parents informed instantly.',
+            'Keep your bot updated with the latest announcements and notifications from your website, keeping parents informed instantly.',
         },
       },
     },
@@ -4530,7 +4530,13 @@ const INDUSTRIES = [
         item3: {
           icon: 'BellIcon',
           name: 'Service Alerts',
-          description: 'Instant alerts and updates on the maintenance status of rented equipment.',
+          description: 'Instant updates and documentation on the maintenance of rented equipment.',
+        },
+        item4: {
+          icon: 'ClipboardDocumentIcon',
+          name: 'Equipment Availability',
+          description:
+            'Provide real-time information on equipment availability and delivery schedules.',
         },
       },
     },
@@ -6225,7 +6231,7 @@ const INDUSTRIES = [
       preHeading: 'Practical Uses',
       heading: 'Optimize Operations with Targeted AI Applications',
       paragraph:
-        'Utilize DocsBot to revolutionize the way your travel agency operates. From automating the dissemination of travel alerts and notifications to providing thorough destination guides, our chatbots can manage multiple facets of travel planning efficiently. Engage travelers with bespoke itinerary suggestions and leverage real-time translation features to assist international clients without language barriers.',
+        'Utilize DocsBot to revolutionize the way your travel agency operates. From answering detailed questions about travel and your services, to providing thorough destination guides, our chatbots can manage multiple facets of travel planning efficiently. Engage travelers with bespoke itinerary suggestions and leverage real-time translation features to assist international clients without language barriers.',
       uses: {
         item1: {
           icon: 'DocumentMagnifyingGlassIcon',
@@ -7940,7 +7946,7 @@ const INDUSTRIES = [
           icon: 'BellIcon',
           name: 'Instant Claim Updates',
           description:
-            'Automate notifications and responses for claim status updates, reducing manual tracking and communication efforts.',
+            'Automate responses for the latest claim status updates, reducing manual tracking and communication efforts.',
         },
         item3: {
           icon: 'MagnifyingGlassIcon',
@@ -8467,9 +8473,9 @@ const INDUSTRIES = [
         },
         item3: {
           icon: 'BellIcon',
-          name: 'Instant Notifications',
+          name: 'Manage Bookings',
           description:
-            'Sends instant updates and notifications to guests about their bookings or changes in schedule.',
+            'Let guests query info about their bookings or changes in schedule by integrating with your scheduling system.',
         },
         item4: {
           icon: 'ComputerDesktopIcon',
@@ -8698,10 +8704,10 @@ const INDUSTRIES = [
             'Instantly share information about the ingredients and dietary options available, catering to health-conscious and allergic customers.',
         },
         item4: {
-          icon: 'BellIcon',
-          name: 'Event and Special Alerts',
+          icon: 'CalendarIcon',
+          name: 'Events',
           description:
-            'Keep your patrons updated about upcoming events or special flavor launches through automatic notifications.',
+            'Keep your patrons updated about upcoming events or special flavor launches via our automated training data refreshing.',
         },
       },
     },
@@ -9472,12 +9478,6 @@ const INDUSTRIES = [
           description:
             'Rapidly disseminate critical updates and emergency protocols to ensure swift, coordinated responses to any situation.',
         },
-        item6: {
-          icon: 'BellIcon',
-          name: 'Real-Time Alerts',
-          description:
-            'Set up real-time alerts for system malfunctions or maintenance needs, maintaining uninterrupted production lines.',
-        },
       },
     },
   },
@@ -9630,7 +9630,7 @@ const INDUSTRIES = [
         item6: {
           icon: 'InformationCircleIcon',
           name: 'Proactive Alerts',
-          description: 'Instantly alert customers about safety recalls or urgent store updates.',
+          description: 'Alert customers about safety recalls or urgent store updates.',
         },
       },
     },
@@ -11548,8 +11548,9 @@ const INDUSTRIES = [
         },
         item3: {
           icon: 'BellIcon',
-          name: 'Appointment Reminders',
-          description: 'Send timely notifications for upcoming appointments or health check-ups.',
+          name: 'Appointment Information',
+          description:
+            'Integrate with your booking system so patients can quickly access info about upcoming appointments or health check-ups.',
         },
         item4: {
           icon: 'MagnifyingGlassIcon',
@@ -12310,10 +12311,10 @@ const INDUSTRIES = [
             'Automatically answer frequent patient queries, freeing up staff for more complex tasks.',
         },
         item2: {
-          icon: 'BellIcon',
-          name: 'Instant Notifications',
+          icon: 'QuestionIcon',
+          name: 'Relevant Answers',
           description:
-            'Send immediate and automatic notifications regarding health tips, office updates, or policy changes.',
+            'Provide patients with quick access to health tips, office updates, or policy changes.',
         },
         item3: {
           icon: 'DocumentTextIcon',
@@ -12839,9 +12840,9 @@ const INDUSTRIES = [
         },
         item5: {
           icon: 'BellIcon',
-          name: 'Instant Notifications',
+          name: 'Patient Followup',
           description:
-            'Send notifications and reminders about post-care and follow-up appointments.',
+            "Provide quick information to patient's questions about post-care and follow-up appointments.",
         },
         item6: {
           icon: 'EnvelopeIcon',
@@ -15888,7 +15889,7 @@ const INDUSTRIES = [
           icon: 'ArrowPathRoundedSquareIcon',
           name: 'Policy Updates',
           description:
-            'Keep your team and stakeholders updated with the latest policy and regulatory changes by disseminating information quickly through AI-powered notifications.',
+            'Keep your team and stakeholders updated with the latest policy and regulatory changes by keeping your bot automatically updated with our auto-refresh feature.',
         },
         item6: {
           icon: 'CloudIcon',
@@ -16777,9 +16778,9 @@ const INDUSTRIES = [
         },
         item4: {
           icon: 'BellIcon',
-          name: 'Real-time Notifications',
+          name: 'Real-time Updates',
           description:
-            'Send real-time updates and notifications about order statuses and dispatch details directly to customers.',
+            'Provide real-time updates about order statuses and dispatch details directly to customers.',
         },
       },
     },
@@ -16905,7 +16906,10 @@ const INDUSTRIES = [
             'Optimize your supply chain with smart, AI-enhanced tracking and management tools.',
         },
         item6: {
-          icon: 'Buildi...    1. Provide real-time answers to technical compliance and safety standards, enabling employees to remain focused on key priorities without interruptions. 2. Instantly access critical documentation for operations and compliance, ensuring that all information is at your fingertips, boosting efficiency. 3. Automate notifications and updates about crucial safety alerts directly to relevant personnel, streamlining communication. 4. Enable quick access to maintenance schedules and updates, reducing downtime.',
+          icon: 'LightBulbIcon',
+          name: 'Maintenance Scheduling',
+          description:
+            'Enable quick access to maintenance schedules and updates, reducing downtime.',
         },
       },
     },
@@ -17582,7 +17586,7 @@ const INDUSTRIES = [
           icon: 'EnvelopeIcon',
           name: 'Client Notifications',
           description:
-            'Send automated notifications about upcoming appointments and special offers.',
+            'Provide easy access to the latest information about upcoming appointments and special offers.',
         },
         item6: {
           icon: 'InformationCircleIcon',
@@ -18049,9 +18053,9 @@ const INDUSTRIES = [
         },
         item3: {
           icon: 'LightBulbIcon',
-          name: 'Health Update Notifications',
+          name: 'Health Updates',
           description:
-            "Use custom notifications to keep pet owners updated on their pets' health status during their stay.",
+            "Integrate with your systems to keep pet owners updated on their pets' health status during their stay.",
         },
         item4: {
           icon: 'MagnifyingGlassIcon',
@@ -18242,12 +18246,6 @@ const INDUSTRIES = [
           icon: 'MegaphoneIcon',
           name: 'Marketing Assistance',
           description: 'Generate and spread the word about new services or products.',
-        },
-        item5: {
-          icon: 'BellIcon',
-          name: 'Real-time Notifications',
-          description:
-            'Keep customers updated with real-time notifications for any changes or updates in appointments or services.',
         },
         item6: {
           icon: 'HomeIcon',
@@ -20053,7 +20051,7 @@ const INDUSTRIES = [
           icon: 'ChatBubbleBottomCenterTextIcon',
           name: 'Client Engagement',
           description:
-            'Maintain continuous engagement with clients through automated updates and notifications about their property interests.',
+            'Maintain continuous engagement with clients through automated updates about their property interests.',
         },
       },
     },
@@ -20161,7 +20159,8 @@ const INDUSTRIES = [
         item3: {
           icon: 'CogIcon',
           name: 'Lease Agreement Updates',
-          description: 'Automate notifications and updates regarding lease terms and renewals.',
+          description:
+            'Integrate with existing systems to provide updates regarding lease terms and renewals.',
         },
         item4: {
           icon: 'HomeIcon',
@@ -20291,9 +20290,9 @@ const INDUSTRIES = [
         },
         item2: {
           icon: 'BellIcon',
-          name: 'Real-Time Notifications',
+          name: 'Real-Time Data',
           description:
-            'Receive instant updates and notifications about client interactions, ensuring no query goes unnoticed.',
+            'Receive instant updates and logs of client interactions, ensuring no query goes unnoticed.',
         },
         item3: {
           icon: 'ClockIcon',
@@ -22008,7 +22007,7 @@ const INDUSTRIES = [
         item2: {
           icon: 'ClockIcon',
           name: 'Court Updates',
-          description: 'Keep clients informed with timely notifications about court appearances.',
+          description: 'Keep clients informed with timely information about court appearances.',
         },
         item3: {
           icon: 'BellIcon',
@@ -22486,15 +22485,14 @@ const INDUSTRIES = [
         },
         item3: {
           icon: 'BellAlertIcon',
-          name: 'Emergency Alerts',
+          name: 'Updated Information',
           description:
-            'Rapidly relay crucial security alerts and notifications to the relevant personnel or customers.',
+            'Rapidly relay crucial security information to the relevant personnel or customers.',
         },
         item4: {
           icon: 'CogIcon',
           name: 'Maintenance Updates',
-          description:
-            'Automatically inform clients of upcoming maintenance and any required system updates.',
+          description: 'Inform clients of upcoming maintenance and any required system updates.',
         },
       },
     },
@@ -23021,12 +23019,6 @@ const INDUSTRIES = [
           description:
             'Use artificial intelligence to manage inventory records and optimize storage solutions.',
         },
-        item5: {
-          icon: 'BellIcon',
-          name: 'Real-time Alerts',
-          description:
-            'Keep teams updated with automated notifications on status changes and critical updates.',
-        },
         item6: {
           icon: 'AdjustmentsHorizontalIcon',
           name: 'Custom Workflow Integration',
@@ -23059,9 +23051,9 @@ const INDUSTRIES = [
         },
         item2: {
           icon: 'BellIcon',
-          name: 'Instant Notifications',
+          name: 'Information Updates',
           description:
-            'Set up instant notifications for important delivery updates or changes, keeping both your customers and courier staff always in the loop.',
+            'Provide the latest information of important delivery updates or changes, keeping both your customers and courier staff always in the loop.',
         },
         item3: {
           icon: 'MagnifyingGlassIcon',
