@@ -52,7 +52,8 @@ export const BotCopyModal = ({ team, bot }) => {
       const rdata = await response.json()
       setIsUpdating(false)
       setOpen(false)
-      router.reload(`/app/bots/${rdata.id}`)
+      await router.push(`/app/bots/${rdata.id}`)
+      router.reload()
     } else {
       try {
         const rdata = await response.json()
