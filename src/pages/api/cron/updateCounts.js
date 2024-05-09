@@ -1,4 +1,4 @@
-import { getFirestore, FieldPath } from 'firebase-admin/firestore'
+import { getFirestore, Filter } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
@@ -19,7 +19,12 @@ export default async function handler(request, response) {
   try {
     const teamsSnapshot = await firestore
       .collection('teams')
-      .where('needsUpdate', '==', true)
+      .where(
+        Filter.or(
+          Filter.where('needsUpdate', '==', true),
+          Filter.where('lastError.emailSent', '==', false)
+        )
+      )
       //.limit(5)
       .get()
 
@@ -33,6 +38,26 @@ export default async function handler(request, response) {
         let currentYear = currentDate.getFullYear()
 
         const teamData = teamDoc.data()
+
+        if (teamData?.lastError && teamData.lastError?.emailSent == false) {
+          const lastError = teamData.lastError
+
+          // send email (only send for staff account for now)
+          if (['ZrbLG98bbxZ9EFqiPvyl'].includes(teamDoc.id)) {
+            await sendErrorEmail(teamData, lastError)
+          }
+
+          // update lastError.emailSent state
+          await teamDoc.ref.update({
+            lastError: {
+              ...lastError,
+              emailSent: true,
+            }
+          })
+
+          return
+        }
+
         const botsSnapshot = await teamDoc.ref
           .collection('bots')
           .select('questionHistory', 'questionHistoryDaily', 'name', 'embedded')
@@ -164,44 +189,5 @@ export default async function handler(request, response) {
     response.status(500).json({ message: error })
     return
   }
-
-  // collect and send error-related emails
-  try {
-    const teamsSnapshot = await firestore
-      .collection('teams')
-      .where('lastError.emailSent', '==', false)
-      //.limit(5)
-      .get()
-
-    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
-      try {
-        const teamData = teamDoc.data()
-        const lastError = teamData.lastError
-
-        // send email (only send for staff account for now)
-        if (['ZrbLG98bbxZ9EFqiPvyl'].includes(teamDoc.id)) {
-          await sendErrorEmail(teamData, lastError)
-        }
-
-        // update lastError.emailSent state
-        await teamDoc.ref.update({
-          lastError: {
-            ...lastError,
-            emailSent: true,
-          }
-        })
-      } catch (error) {
-        console.warn(`Error sending team ${teamDoc.id} error email:`, error)
-        return
-      }
-    })
-
-    await Promise.all(teamsPromises)
-  } catch (error) {
-    console.warn('Error updating counts:', error)
-    response.status(500).json({ message: error })
-    return
-  }
-
   response.status(200).json({ success: true })
 }
