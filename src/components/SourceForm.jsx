@@ -110,7 +110,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
   const carbonOnSuccess = async (response) => {
     console.log('OnSuccess callback called!', response)
-    if (!response.data || !response.data?.files || !response.data?.files?.length) {
+    if (response.action !== "ADD") return;
+
+    if (!response.data || !response.data?.data_source_external_id) {
       return
     }
 
@@ -120,9 +122,10 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     } else if (response.data.data_source_external_id.includes('-')) {
       carbon = response.data.data_source_external_id.split('-');
     }
+    console.log(carbon, response)
     setTitle('Account: ' + carbon[1]);
     setCarbonId(carbon[1]);
-    setCarbonFiles(response.data.files)
+    // setCarbonFiles(response.data.files)
   }
 
   // create carbon source automatically
@@ -540,6 +543,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 tags={{ botId: bot.id, teamId: team.id }}
                 entryPoint={selectedSourceType?.isCarbon}
                 showFilesTab={true}
+                filePickerMode={"FILES"}
                 enabledIntegrations={[
                   {
                     id: selectedSourceType?.isCarbon,
@@ -555,7 +559,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   {isUpdating ? (
                     <>
                       <LoadingSpinner className="mr-3" />
-                      <span>Adding {carbonFiles.length} pages</span>
+                      <span>Adding {carbonFiles ? carbonFiles.length : 0} pages</span>
                     </>
                   ) : (
                     <>
