@@ -4,6 +4,8 @@ export default function GPTModel({ bot }) {
   let label
   if (bot.model === 'gpt-4') {
     label = 'GPT-4'
+  } else if (bot.model === 'gpt-4o') {
+    label = 'GPT-4o'
   } else if (bot.model.includes('gpt-4')) {
     label = 'GPT-4 Turbo'
   } else {
