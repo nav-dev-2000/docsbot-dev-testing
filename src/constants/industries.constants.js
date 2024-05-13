@@ -2268,41 +2268,82 @@ const INDUSTRIES = [
     business: 'Big Data Analytics',
     industry: 'Business & Information',
     image:
-      'https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ5MDl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
+      'https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3N8ZW58MHwwfHx8MTcxNTYxODMwNHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
     title: 'AI Chatbots for Big Data Analytics',
     mainContentIntro:
-      "Unleash the power of AI to optimize your Big Data Analytics processes with DocsBot. Whether you're looking to improve customer support, enhance team productivity, or generate high-quality content, DocsBot is your go-to solution. Powered by advanced AI, DocsBot transforms your business documentation into a dynamic tool that answers queries, streamlines operations, and drives innovation.",
+      'Unlock the full potential of your big data analytics with DocsBot. Our AI-driven chatbot solution is tailored to help your business leverage vast amounts of data efficiently. By automating customer support and internal queries, DocsBot ensures that your team can focus on analysis rather than routine tasks. With our state-of-the-art technology, enhance your data handling capabilities and boost your operational efficiency.',
     supportSection: {
       preHeading: 'Customer Care',
-      heading: 'Enhance Support with AI',
+      heading: 'Transform Your Customer Support',
       paragraph:
-        'Transform your customer support with DocsBot, an AI-driven solution tailored for Big Data Analytics firms. By training bots with your specific content, DocsBot ensures accurate, real-time responses that reduce wait times and boost customer satisfaction.',
+        'Improve your customer service drastically with DocsBot. Our AI-powered chatbots are designed to handle complex queries related to big data analytics, providing precise and accurate responses instantly, 24/7. This leads to increased customer satisfaction and loyalty, by consistently delivering the right information at the right time.',
       features: {
         item1: {
           icon: 'ChatBubbleBottomCenterTextIcon',
           name: 'Instant Responses',
           description:
-            'Provide immediate, detailed answers to customer inquiries, reducing response times and boosting efficiency.',
+            'Offer real-time answers to support queries, reducing wait times and enhancing user satisfaction.',
         },
         item2: {
-          icon: 'BookOpenIcon',
-          name: 'Custom Integrations',
+          icon: 'DocumentMagnifyingGlassIcon',
+          name: 'Complex Query Handling',
           description:
-            'Seamlessly integrate DocsBot into your existing systems such as websites, apps, or Slack channels.',
+            'Efficiently manage intricate and technical inquiries with AI-powered precision.',
+        },
+        item3: {
+          icon: 'LightBulbIcon',
+          name: 'Proactive Support',
+          description:
+            'Predict common queries using AI insights and provide proactive support to users.',
+        },
+        item4: {
+          icon: 'CubeIcon',
+          name: 'Data-Driven Insights',
+          description:
+            'Utilize chatbot interactions to gather insights on user needs and behaviors.',
         },
       },
     },
     usesSection: {
-      preHeading: 'Advanced Applications',
-      heading: 'Powerful Use Cases for Big Data Analytics',
+      preHeading: 'Advanced Uses',
+      heading: 'Leverage Cutting-Edge Technology',
       paragraph:
-        "DocsBot is more than just a chatbot; it's an integral tool for any Big Data Analytics operation looking to leverage AI for better insights and efficiency. Dive into our specific use cases to see how DocsBot can transform your business processes.",
+        "With DocsBot's adaptable AI, tailor your chatbot's intelligence to meet the specific demands of big data analytics. From automating reports to providing insights on data trends, DocsBot can transform how you process and interpret large datasets.",
       uses: {
         item1: {
-          icon: 'ArrowPathRoundedSquareIcon',
-          name: 'Client Interaction Enhancement',
+          icon: 'ClipboardDocumentIcon',
+          name: 'Automated Data Summaries',
+          description: 'Generate concise reports and summaries from large datasets effortlessly.',
+        },
+        item2: {
+          icon: 'MagnifyingGlassIcon',
+          name: 'Data Exploration',
           description:
-            'Improve how you engage with clients using AI to provide tailored data analyses and insights, enhancing client interaction and satisfaction.',
+            'Enable users to ask complex datasets-related questions and get detailed insights.',
+        },
+        item3: {
+          icon: 'CloudIcon',
+          name: 'Cloud Data Access',
+          description:
+            'Seamlessly integrate with cloud storage solutions to provide instant data access.',
+        },
+        item4: {
+          icon: 'CodeBracketIcon',
+          name: 'Code Snippet Generation',
+          description:
+            'Help users retrieve and understand specific code snippets relevant to their data queries.',
+        },
+        item5: {
+          icon: 'ChartPieIcon',
+          name: 'Trend Analysis',
+          description:
+            'Analyze chat interactions to identify trends and enhance data-driven strategies.',
+        },
+        item6: {
+          icon: 'CpuChipIcon',
+          name: 'Optimize Computing Resources',
+          description:
+            'Recommend best practices for resource allocation based on user interaction data.',
         },
       },
     },
@@ -6904,52 +6945,40 @@ const INDUSTRIES = [
           icon: 'DocumentIcon',
           name: 'Compliance Queries',
           description:
-            'Quickly address standard and complex regulatory ... [Truncated for brevity] :  {',
+            'Quickly address standard and complex regulatory questions with precision, reducing compliance risks.',
         },
-        uses: {
-          item1: {
-            icon: 'DocumentIcon',
-            name: 'Compliance Queries',
-            description:
-              'Quickly address standard and complex regulatory questions with precision, reducing compliance risks.',
-          },
-          item2: {
-            icon: 'BanknotesIcon',
-            name: 'Risk Management Advice',
-            description:
-              'Offer instant risk assessment and management advice, empowering clients to make informed decisions faster.',
-          },
-          item3: {
-            icon: 'BuildingLibraryIcon',
-            name: 'Product Education',
-            description:
-              'Educate clients on financial products with detailed, accurate information directly from your DocsBot.',
-          },
-          item4: {
-            icon: 'MagnifyingGlassCircleIcon',
-            name: 'Client Onboarding',
-            description:
-              'Accelerate new client onboarding with seamless FAQ assistance and documentation navigation.',
-          },
-          item5: {
-            icon: 'FileIcon',
-            name: 'Document Retrieval',
-            description:
-              'Provide clients with instant access to their financial reports and documents securely stored and easily retrievable via DocsBot.',
-          },
-          item6: {
-            icon: 'CpuChipIcon',
-            name: 'Technical Support',
-            description:
-              'Integrate DocsBot to assist with technical queries related to financial tools and platforms efficiently.',
-          },
+        item2: {
+          icon: 'BanknotesIcon',
+          name: 'Risk Management Advice',
+          description:
+            'Offer instant risk assessment and management advice, empowering clients to make informed decisions faster.',
+        },
+        item3: {
+          icon: 'BuildingLibraryIcon',
+          name: 'Product Education',
+          description:
+            'Educate clients on financial products with detailed, accurate information directly from your DocsBot.',
+        },
+        item4: {
+          icon: 'MagnifyingGlassCircleIcon',
+          name: 'Client Onboarding',
+          description:
+            'Accelerate new client onboarding with seamless FAQ assistance and documentation navigation.',
+        },
+        item5: {
+          icon: 'FileIcon',
+          name: 'Document Retrieval',
+          description:
+            'Provide clients with instant access to their financial reports and documents securely stored and easily retrievable via DocsBot.',
+        },
+        item6: {
+          icon: 'CpuChipIcon',
+          name: 'Technical Support',
+          description:
+            'Integrate DocsBot to assist with technical queries related to financial tools and platforms efficiently.',
         },
       },
     },
-    icon: 'ArrowDownCircleIcon',
-    name: 'Additional Use Case',
-    description:
-      'Ensure client satisfaction with reliable and timely information, minimizing the need for repetitive calls and emails.',
   },
   {
     slug: 'investment-advisory',
