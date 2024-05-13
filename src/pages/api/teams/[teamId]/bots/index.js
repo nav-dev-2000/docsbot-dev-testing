@@ -8,6 +8,7 @@ import { createTenant } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
 import { QueueBotCopy } from '@/lib/service'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
@@ -112,10 +113,11 @@ router.post(async (req, res) => {
         type: 'createBot',
         botName: botData.name,
       })
-      mpTrack(userId, 'Created Bot', {
+      mpTrack(userId, 'Bot Created', {
         'Bot name': botData.name,
         ip: req.headers['x-forwarded-for'],
       })
+      phTrack(userId, 'Bot Created', { 'Bot name': botData.name }, team.id)
     } catch (e) {
       console.log('Error sending tracking', e)
     }

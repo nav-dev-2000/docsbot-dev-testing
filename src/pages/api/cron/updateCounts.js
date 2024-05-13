@@ -3,6 +3,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
+import { phTrack } from '@/lib/posthog'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -83,6 +84,7 @@ export default async function handler(request, response) {
                 botName: botDoc.data().name,
               })
               mpTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name })
+              phTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name }, teamDoc.id)
             } catch (error) {
               console.warn('Error tracking bot used:', error)
             }

@@ -27,6 +27,7 @@ import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import { getUserRole } from '@/utils/function.utils'
+import { usePostHog } from 'posthog-js/react'
 
 export default function DashboardWrap({ page, title, team, fullWidth = false, children }) {
   const router = useRouter()
@@ -35,17 +36,28 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
   const [currentRole, setCurrentRole] = useState('')
   const [dashboardNavigation, setDashboardNavigation] = useState([])
   const [currentPageLink, setCurrentPageLink] = useState('')
+  const posthog = usePostHog()
   const logoutUser = useCallback(logout, [])
   const signUserOut = () => {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
           Mixpanel.reset()
+          posthog?.reset()
           router.push(routePaths.LOGIN)
         },
       })
     })
   }
+
+  useEffect(() => {
+    if (posthog && team && router.asPath === '/app') {
+      posthog?.group('team', team.id, {
+        name: team.name,
+        plan: stripePlan(team).name,
+      })
+    }
+  }, [posthog, team, router])
 
   useEffect(() => {
     if (
@@ -69,10 +81,14 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
         }
         ident['storage-plan'] = stripePlan(team).name
         if (team.stripeCustomerId) {
-          ident['stripe-customer'] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
+          ident[
+            'stripe-customer'
+          ] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
         }
         if (team.stripeSubscriptionId) {
-          ident['stripe-subscription'] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
+          ident[
+            'stripe-subscription'
+          ] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
         }
       }
       Beacon('identify', ident)
@@ -93,12 +109,14 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
   ]
 
   useEffect(() => {
-    if (currentRole?.toLowerCase() === 'editor' || currentRole?.toLowerCase() === "viewer") {
-      const filteredNavigation = navigation.filter(nav => !nav.name.toLowerCase().includes('account') && !nav.name.toLowerCase().includes('api'));
+    if (currentRole?.toLowerCase() === 'editor' || currentRole?.toLowerCase() === 'viewer') {
+      const filteredNavigation = navigation.filter(
+        (nav) =>
+          !nav.name.toLowerCase().includes('account') && !nav.name.toLowerCase().includes('api')
+      )
       setCurrentPageLink(filteredNavigation.find((nav) => nav.name === page)?.href)
       setDashboardNavigation(filteredNavigation)
-    }
-    else {
+    } else {
       setCurrentPageLink(navigation.find((nav) => nav.name === page)?.href)
       setDashboardNavigation(navigation)
     }
@@ -122,7 +140,9 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
         {titles.map((title, index) => (
           <div key={index} className="flex-inline ml-1 flex items-center lg:ml-2">
             <ChevronRightIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-            <h1 className="ml-1 text-sm leading-tight font-medium text-gray-800 lg:ml-2 lg:text-xl">{title}</h1>
+            <h1 className="ml-1 text-sm font-medium leading-tight text-gray-800 lg:ml-2 lg:text-xl">
+              {title}
+            </h1>
           </div>
         ))}
       </>
@@ -131,15 +151,15 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
 
   return (
     <>
-      <NextSeo
-        title={pageTitle}
-        description="DocsBot AI Dashboard"
-        noindex={true}
-      />
+      <NextSeo title={pageTitle} description="DocsBot AI Dashboard" noindex={true} />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
-            <Dialog as="div" className="relative z-40 md:hidden print:hidden" onClose={setSidebarOpen}>
+            <Dialog
+              as="div"
+              className="relative z-40 print:hidden md:hidden"
+              onClose={setSidebarOpen}
+            >
               <Transition.Child
                 as={Fragment}
                 enter="transition-opacity ease-linear duration-300"
@@ -162,7 +182,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                   leaveFrom="translate-x-0"
                   leaveTo="-translate-x-full"
                 >
-                  <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800 pt-5 pb-4">
+                  <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800 pb-4 pt-5">
                     <Transition.Child
                       as={Fragment}
                       enter="ease-in-out duration-300"
@@ -172,7 +192,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <div className="absolute top-0 right-0 -mr-12 pt-2">
+                      <div className="absolute right-0 top-0 -mr-12 pt-2">
                         <button
                           type="button"
                           className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -220,7 +240,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
           </Transition.Root>
 
           {/* Static sidebar for desktop */}
-          <div className="hidden md:fixed md:inset-y-0 md:flex md:w-48 md:flex-col print:!hidden">
+          <div className="hidden print:!hidden md:fixed md:inset-y-0 md:flex md:w-48 md:flex-col">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800">
               <div className="flex h-16 flex-shrink-0 items-center justify-between bg-cyan-800 px-4 text-white">
@@ -264,16 +284,23 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               </button>
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
-                  <h1 className="lg:ml-4 text-md lg:text-xl font-semibold text-gray-900">
+                  <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
                     <Link href={currentPageLink}>{page}</Link>
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
-                <p className="ml-2 flex leading-tight items-center text-xs md:text-sm text-gray-500 overflow-hidden">
+                <p className="ml-2 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
                   {team?.name || ''}
                 </p>
-                <Link className='ml-1 flex leading-tight items-center text-xs md:text-sm text-gray-500 overflow-hidden' href={'/app/team'} title="Switch Team">
-                  <ChevronUpDownIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                <Link
+                  className="ml-1 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm"
+                  href={'/app/team'}
+                  title="Switch Team"
+                >
+                  <ChevronUpDownIcon
+                    className="h-5 w-5 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
                   <span className="sr-only">Switch Team</span>
                 </Link>
                 <div className="ml-2 flex flex-none items-center md:ml-6">
@@ -360,12 +387,14 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
 
             <main className="flex-1">
               <div className="py-4 sm:py-8">
-                <div className={
-                  classNames(
+                <div
+                  className={classNames(
                     'mx-auto px-4 sm:px-6 md:px-8',
                     fullWidth ? '' : 'max-w-7xl'
-                  )
-                }>{children}</div>
+                  )}
+                >
+                  {children}
+                </div>
               </div>
             </main>
           </div>

@@ -10,8 +10,10 @@ import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
 import Alert from '@/components/Alert'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { usePostHog } from 'posthog-js/react'
 
 export default function Cancel({ team, bots }) {
+  const posthog = usePostHog()
   const [open, setOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
   const [reason, setReason] = useState(null)
@@ -324,6 +326,7 @@ export default function Cancel({ team, bots }) {
           onClick={(e) => {
             setOpen(true)
             Mixpanel.track('Started Cancellation')
+            posthog?.capture('Started Cancellation')
             if (window.bento !== undefined) {
               window.bento.track('startedCancel')
             }

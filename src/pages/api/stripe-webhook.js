@@ -9,6 +9,7 @@ import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { getTeam, getUser } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
@@ -259,6 +260,10 @@ const webhookHandler = async (req, res) => {
                     'Cancel Reason': subscription.cancellation_details.feedback || '',
                     'Cancel Comment': subscription.cancellation_details.comment || '',
                   })
+                  phTrack(teamOwner(teamObj), 'Subscription Canceled', {
+                    'Cancel Reason': subscription.cancellation_details.feedback || '',
+                    'Cancel Comment': subscription.cancellation_details.comment || '',
+                  }, teamObj.id)
                 } catch (e) {
                   console.log('Error sending bento track', e)
                 }
@@ -322,6 +327,13 @@ const webhookHandler = async (req, res) => {
                     currency: session.currency,
                     interval: plan.interval,
                   })
+                  phTrack(teamOwner(team), 'Subscribed', {
+                    plan: planName,
+                    amount:
+                      session.currency == 'jpy' ? session.amount_total : session.amount_total / 100,
+                    currency: session.currency,
+                    interval: plan.interval,
+                  }, team.id)
 
                   await slack.send({
                     attachments: [

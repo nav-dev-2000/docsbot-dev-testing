@@ -3,6 +3,7 @@ import { getURL, getNeededStripeProduct } from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 
 export default async function createCheckoutSession(req, res) {
   let check = null
@@ -71,11 +72,15 @@ export default async function createCheckoutSession(req, res) {
             tier,
             frequency,
           })
-          mpTrack(userId, 'Started checkout', {
+          mpTrack(userId, 'Checkout Started', {
             ip: req.headers['x-forwarded-for'],
             tier,
             frequency,
           })
+          phTrack(userId, 'Checkout Started', {
+            tier,
+            frequency,
+          }, team.id)
         } catch (e) {
           console.log('Error sending bento track', e)
         }
@@ -158,7 +163,8 @@ export default async function createCheckoutSession(req, res) {
           bentoTrack(userId, 'track', {
             type: 'openBillingPortal',
           })
-          mpTrack(userId, 'Opened Billing Portal', { ip: req.headers['x-forwarded-for'] })
+          mpTrack(userId, 'Billing Portal Opened', { ip: req.headers['x-forwarded-for'] })
+          phTrack(userId, 'Billing Portal Opened', {}, team.id)
         } catch (e) {
           console.log('Error sending bento track', e)
         }
@@ -189,7 +195,8 @@ export default async function createCheckoutSession(req, res) {
         bentoTrack(userId, 'track', {
           type: 'cancelSubscription',
         })
-        mpTrack(userId, 'Canceled subscription', { ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Subscription Canceled', { ip: req.headers['x-forwarded-for'] })
+        phTrack(userId, 'Subscription Canceled', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
       }
@@ -213,7 +220,8 @@ export default async function createCheckoutSession(req, res) {
         bentoTrack(userId, 'track', {
           type: 'renewedSubscription',
         })
-        mpTrack(userId, 'Renewed subscription', { ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Subscription Renewed', { ip: req.headers['x-forwarded-for'] })
+        phTrack(userId, 'Subscription Renewed', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
       }
