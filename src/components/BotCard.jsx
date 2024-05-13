@@ -22,7 +22,8 @@ import { i18n } from '@/constants/strings.constants'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { canUserEditBot } from '@/utils/function.utils'
+import { canUserEditBot, canUserCreateDeleteBot } from '@/utils/function.utils'
+import { BotCopyModal } from '@/components/BotCopy'
 
 export default function BotCard({ team, bot, integrations, setBot }) {
   const [user] = useAuthState(auth)
@@ -75,6 +76,9 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 <ModalPrompt team={team} bot={bot} integrations={integrations} />
                 {
                   canUserEditBot(team, user?.uid) && <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                }
+                {
+                  canUserCreateDeleteBot(team, user?.uid) && <BotCopyModal team={team} bot={bot} />
                 }
               </div>
             </div>

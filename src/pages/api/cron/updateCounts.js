@@ -4,6 +4,7 @@ import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 import { sendErrorEmail } from '../../../utils/emails'
+import { phTrack } from '@/lib/posthog'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -69,6 +70,8 @@ export default async function handler(request, response) {
         let upVotesTotal = 0
         let downVotesTotal = 0
         let escalationsTotal = 0
+        let couldAnswerTotal = 0
+        let couldNotAnswerTotal = 0
         let questionHistoryDailyNew = {}
 
         const botCounts = []
@@ -107,6 +110,7 @@ export default async function handler(request, response) {
                 botName: botDoc.data().name,
               })
               mpTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name })
+              phTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name }, teamDoc.id)
             } catch (error) {
               console.warn('Error tracking bot used:', error)
             }
@@ -127,6 +131,8 @@ export default async function handler(request, response) {
           upVotesTotal += monthly.upVotes
           downVotesTotal += monthly.downVotes
           escalationsTotal += monthly.escalations
+          couldAnswerTotal += monthly.couldAnswer
+          couldNotAnswerTotal += monthly.couldNotAnswer
 
           //loop through daily
           for (const [day, value] of Object.entries(daily)) {
@@ -135,11 +141,15 @@ export default async function handler(request, response) {
               upVotes: 0,
               downVotes: 0,
               escalations: 0,
+              couldAnswer: 0,
+              couldNotAnswer: 0,
             }
             questionHistoryDailyNew[day].questions += value.questions
             questionHistoryDailyNew[day].upVotes += value.upVotes
             questionHistoryDailyNew[day].downVotes += value.downVotes
             questionHistoryDailyNew[day].escalations += value.escalations
+            questionHistoryDailyNew[day].couldAnswer += value.couldAnswer
+            questionHistoryDailyNew[day].couldNotAnswer += value.couldNotAnswer
           }
         }
 
@@ -169,6 +179,8 @@ export default async function handler(request, response) {
               upVotes: upVotesTotal,
               downVotes: downVotesTotal,
               escalations: escalationsTotal,
+              couldAnswer: couldAnswerTotal,
+              couldNotAnswer: couldNotAnswerTotal,
             },
           },
           questionHistoryDaily: {

@@ -6,8 +6,9 @@ import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createTenant } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
-import crypto from 'crypto'
+import { QueueBotCopy } from '@/lib/service'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
@@ -47,6 +48,8 @@ router.post(async (req, res) => {
         message: 'Please add an OpenAI key to create bots.',
       })
     }
+
+    const { copyFrom } = req.body
 
     // Data validation
     let botData = {}
@@ -99,15 +102,22 @@ router.post(async (req, res) => {
       })
     })
 
+    // if copyFrom is defined, run the pubsub copy function
+    if (copyFrom) {
+      console.log(`copying ${copyFrom} to ${botId}...`)
+      await QueueBotCopy(team.id, copyFrom, botId)
+    }
+
     try {
       bentoTrack(userId, 'track', {
         type: 'createBot',
         botName: botData.name,
       })
-      mpTrack(userId, 'Created Bot', {
+      mpTrack(userId, 'Bot Created', {
         'Bot name': botData.name,
         ip: req.headers['x-forwarded-for'],
       })
+      phTrack(userId, 'Bot Created', { 'Bot name': botData.name }, team.id)
     } catch (e) {
       console.log('Error sending tracking', e)
     }

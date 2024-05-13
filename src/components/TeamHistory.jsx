@@ -4,7 +4,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { CreditCardIcon } from '@heroicons/react/24/outline'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
-import Chart from 'chart.js/auto';
+import Chart from 'chart.js/auto'
 import { stripePlan, getStats } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
@@ -25,6 +25,8 @@ export default function TeamHistory({ team }) {
   const [stats, setStats] = useState(null)
   const [lineData, setLineData] = useState(null)
   const [pieData, setPieData] = useState(null)
+  const [escalatedPieData, setEscalatedPieData] = useState(null)
+  const [answerPieData, setAnswerPieData] = useState(null)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
     return stripePlan(team).bots < 10
@@ -66,6 +68,14 @@ export default function TeamHistory({ team }) {
           fill: true,
         },
         {
+          label: 'Could Answer',
+          data: stats.couldAnswerData,
+          borderColor: '#9e74d5',
+          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
           label: 'Escalations',
           data: stats.escalatedData,
           borderColor: '#EDC948',
@@ -81,10 +91,32 @@ export default function TeamHistory({ team }) {
       datasets: [
         {
           data: stats.counts,
-          backgroundColor: ['#76B7B2', '#E15759', '#59A14F', '#EDC948'],
+          backgroundColor: ['#76B7B2', '#E15759', '#59A14F'],
         },
       ],
     })
+
+    setEscalatedPieData({
+      labels: stats.escalatedLabels,
+      datasets: [
+        {
+          data: stats.escalatedCounts,
+          backgroundColor: ['#EDC948', '#76B7B2'],
+        },
+      ],
+    })
+
+    if (stats.couldAnswerRate) {
+      setAnswerPieData({
+        labels: stats.answerLabels,
+        datasets: [
+          {
+            data: stats.answerCounts,
+            backgroundColor: ['#59A14F', '#E15759'],
+          },
+        ],
+      })
+    }
   }, [stats])
 
   useEffect(() => {
@@ -182,7 +214,7 @@ export default function TeamHistory({ team }) {
 
       {stats && (
         <>
-          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-5">
             <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
               <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
@@ -195,7 +227,16 @@ export default function TeamHistory({ team }) {
             >
               <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.resolutionRate}%
+                {stats.resolutionRate != '0' ? stats.resolutionRate + '%' : 'N/A'}
+              </dd>
+            </div>
+            <div
+              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
+              title="Questions the AI determined it could confidently answer"
+            >
+              <dt className="text-sm font-semibold leading-6 text-gray-600">Answer rate</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                {stats.couldAnswerRate != '0' ? stats.couldAnswerRate + '%' : 'N/A'}
               </dd>
             </div>
             <div
@@ -204,7 +245,7 @@ export default function TeamHistory({ team }) {
             >
               <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.deflectionRate}%
+                {stats.deflectionRate != '0' ? stats.deflectionRate + '%' : 'N/A'}
               </dd>
             </div>
             <div
@@ -223,8 +264,8 @@ export default function TeamHistory({ team }) {
           {blurEnabled && (
             <div className="relative z-10 -mb-72 mt-32 w-full">
               <div className="flex justify-center py-4 text-center">
-              <div className="max-w-3xl">
-              <h3 className="text-3xl font-bold">View advanced team statistics</h3>
+                <div className="max-w-3xl">
+                  <h3 className="text-3xl font-bold">View advanced team statistics</h3>
                   <p className="mb-8 text-center text-gray-700">
                     Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
                     <Link href="/#pricing" target="_blank" className="underline">
@@ -232,38 +273,67 @@ export default function TeamHistory({ team }) {
                     </Link>
                     .
                   </p>
-                <button
-                  type="button"
-                  className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
-                  onClick={(e) => setShowUpgrade(true)}
-                >
-                  <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
-                  Upgrade Plan
-                </button>
-                <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+                  <button
+                    type="button"
+                    className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
+                    onClick={(e) => setShowUpgrade(true)}
+                  >
+                    <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                    Upgrade Plan
+                  </button>
+                  <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+                </div>
               </div>
-            </div>
             </div>
           )}
 
           <div
             className={classNames(
-              'items-center space-x-4 align-middle lg:flex',
+              'items-center space-x-4 align-middle',
               blurEnabled ? 'blur-lg' : ''
             )}
           >
-            <div className="mt-6 h-96 flex-auto">
+            <div className="mt-6 h-96 w-full">
               {lineData && (
                 <Line data={lineData} options={{ maintainAspectRatio: false, responsive: true }} />
               )}
             </div>
-            <div className="mt-6 h-80 flex-none">
+          </div>
+          <div
+            className={classNames(
+              'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
+              blurEnabled ? 'blur-lg' : ''
+            )}
+          >
+            <div className="m-auto mt-6 flex h-80 justify-center">
               {pieData && (
                 <Pie
                   data={pieData}
                   options={{
+                    maintainAspectRatio: true,
                     responsive: true,
-                    maintainAspectRatio: false,
+                  }}
+                />
+              )}
+            </div>
+            <div className="m-auto mt-6 flex h-80 justify-center">
+              {escalatedPieData && (
+                <Pie
+                  data={escalatedPieData}
+                  options={{
+                    maintainAspectRatio: true,
+                    responsive: true,
+                  }}
+                />
+              )}
+            </div>
+            <div className="m-auto mt-6 flex h-80 justify-center">
+              {answerPieData && (
+                <Pie
+                  data={answerPieData}
+                  options={{
+                    maintainAspectRatio: true,
+                    responsive: true,
                   }}
                 />
               )}

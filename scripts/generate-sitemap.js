@@ -1,6 +1,7 @@
 const fs = require('fs')
 const globby = require('globby')
 const { ALTERNATIVES } = require('../src/constants/alternatives.constants');
+const { INDUSTRIES } = require('../src/constants/industries.constants');
 
 function addPage(page) {
   //remove exstension
@@ -29,6 +30,13 @@ async function generateSitemap() {
 
   comparisons.forEach((comparison) => {
     pages.push(comparison.href)
+  })
+
+  const industries = INDUSTRIES.map((item) => ({
+    href: `/industry/${item.slug}`,
+  }))
+  industries.forEach((industry) => {
+    pages.push(industry.href)
   })
 
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

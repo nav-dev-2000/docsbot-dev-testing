@@ -16,6 +16,7 @@ import { signOut } from 'firebase/auth'
 import { routePaths } from '@/constants/routePaths.constants'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { usePostHog } from 'posthog-js/react'
 
 const navigation = [
   {
@@ -35,7 +36,7 @@ const navigation = [
     title: 'Chat Widget',
     links: [
       { title: 'Embedding', href: '/documentation/developer/embeddable-chat-widget' },
-      { title: 'HelpScout Integration', href: '/documentation/developer/widget-integrations/helpscout' },
+      { title: 'Help Scout Integration', href: '/documentation/developer/widget-integrations/helpscout' },
       { title: 'HubSpot Integration', href: '/documentation/developer/widget-integrations/hubspot' },
       { title: 'Zendesk Integration', href: '/documentation/developer/widget-integrations/zendesk' },
       { title: 'Intercom Integration', href: '/documentation/developer/widget-integrations/intercom' },
@@ -65,7 +66,7 @@ const navigation = [
   {
     title: 'Integrations',
     links: [
-      { title: 'Helpscout Integration', href: '/docs/integrations/helpscout' },
+      { title: 'Help Scout Integration', href: '/docs/integrations/helpscout' },
     ],
   },
 ]
@@ -83,11 +84,13 @@ function Header({ navigation }) {
   const [user] = useAuthState(auth)
   const router = useRouter()
   const logoutUser = useCallback(logout, [])
+  const posthog = usePostHog()
   const signUserOut = () => {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
           Mixpanel.reset()
+          posthog?.reset()
           router.push(routePaths.ROOT)
         },
       })

@@ -4,6 +4,7 @@ import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserEditBot, canUserCreateDeleteBot } from '@/utils/function.utils'
@@ -48,10 +49,13 @@ export default async function handler(req, res) {
           type: 'updateBot',
           botName: botData.name || bot.name,
         })
-        mpTrack(userId, 'Updated Bot', {
+        mpTrack(userId, 'Bot Updated', {
           'Bot name': botData.name || bot.name,
           ip: req.headers['x-forwarded-for'],
         })
+        phTrack(userId, 'Bot Updated', {
+          'Bot name': botData.name || bot.name,
+        }, team.id)
       } catch (e) {
         console.log('Error sending tracking', e)
       }
@@ -78,7 +82,8 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
         })
-        mpTrack(userId, 'Deleted Bot', { ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Bot Deleted', { ip: req.headers['x-forwarded-for'] })
+        phTrack(userId, 'Bot Deleted', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
       }

@@ -4,8 +4,9 @@ import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 import { i18n } from '@/constants/strings.constants'
-import bentoTrack from '@/lib/bento'
-import mpTrack from '@/lib/mixpanel'
+import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -59,7 +60,7 @@ const getTimeDeltaFromCalendarMonth = () => {
   let currentYear = currentDate.getFullYear()
 
   // first day of the current month
-  var startDate = new Date(currentYear, currentMonth, 1)
+  var startDate = new Date(currentYear, currentMonth-1, 1)
 
   // calculate the difference in milliseconds
   return currentDate - startDate
@@ -74,13 +75,15 @@ export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFr
     .doc(botId)
     .collection('questions')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .select('rating', 'escalation', 'createdAt')
+    .select('rating', 'escalation', 'createdAt', 'couldAnswer')
     .get()
 
   const monthly = {
     upVotes: 0,
     downVotes: 0,
     escalations: 0,
+    couldAnswer: 0,
+    couldNotAnswer: 0,
     questions: 0,
   }
   const daily = {}
@@ -100,18 +103,29 @@ export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFr
       upVotes: 0,
       downVotes: 0,
       escalations: 0,
+      couldAnswer: 0,
+      couldNotAnswer: 0,
       questions: 0,
     }
 
     // Assuming 'rating' key is present in the question document
     const rating = questionData?.rating || 0
-
+    
     if (rating === -1) {
       monthly.downVotes += 1
       daily[day].downVotes += 1
     } else if (rating === 1) {
       monthly.upVotes += 1
       daily[day].upVotes += 1
+    }
+
+    // count couldAnswer
+    if (questionData?.couldAnswer) {
+      monthly.couldAnswer += 1
+      daily[day].couldAnswer += 1
+    } else if (questionData?.couldAnswer === false) {
+      monthly.couldNotAnswer += 1
+      daily[day].couldNotAnswer += 1
     }
 
     if (questionData?.escalation) {
@@ -692,7 +706,8 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
     bentoTrack(uid, 'track', {
       type: 'acceptInvite',
     })
-    mpTrack(uid, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
+    mpTrack(uid, 'Team Invite Accepted', { ip: req.headers['x-forwarded-for'] })
+    phTrack(uid, 'Team Invite Accepted', {}, teamId)
   } catch (e) {
     console.log('Error sending bento track', e)
   }

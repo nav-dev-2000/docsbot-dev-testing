@@ -3,11 +3,21 @@ import Image from 'next/image'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { ALTERNATIVES } from '@/constants/alternatives.constants'
+import { INDUSTRIES } from '@/constants/industries.constants'
 
 const comparisons = ALTERNATIVES.map((item) => ({
   name: `${item.name} Alternative`,
   href: `/comparisons/${item.slug}-alternative`,
 }))
+
+const industries = Object.entries(INDUSTRIES.reduce((acc, item) => {
+  acc[item.industry] = [...(acc[item.industry] || []), item];
+  return acc;
+}, {})).map(([industry, items], industryIndex) => (
+  {
+    name: `${industry}`,
+    href: `/industry/${items[0].slug}`,
+  }))
 
 const footerNavigation = {
   pages: NAVIGATION,
@@ -31,6 +41,7 @@ const footerNavigation = {
       href: 'https://imajinn.ai/product-visualizer',
     },
   ],
+  industries,
   legal: [
     { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
@@ -150,11 +161,22 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-base font-medium text-gray-900">Meta</h3>
+                <h3 className="mt-6 text-base font-medium text-gray-900">Meta</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-base font-medium text-gray-900">For Industries</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.industries.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}

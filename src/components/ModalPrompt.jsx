@@ -187,7 +187,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                 htmlFor="helpscoutPrompt"
                                 className="block text-left text-sm font-medium text-gray-700"
                               >
-                                Custom Helpscout Prompt
+                                Custom Help Scout Prompt
                               </label>
                               <div className="mt-1 h-full">
                                 <textarea

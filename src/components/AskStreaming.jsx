@@ -17,6 +17,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { usePostHog } from 'posthog-js/react'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -31,6 +32,7 @@ export default function AskStreaming({ teamId, bot }) {
   const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
   const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
   const [user] = useAuthState(auth)
+  const posthog = usePostHog()
 
   //clear error text when question changes
   useEffect(() => {
@@ -96,6 +98,7 @@ export default function AskStreaming({ teamId, bot }) {
 
       if (testing) {
         Mixpanel.track('Bot Tested', { 'Bot name': bot.name })
+        posthog?.capture('Bot Tested', { 'Bot name': bot.name })
         if (window.bento !== undefined) {
           window.bento.track('botTested', { botName: bot.name })
         }

@@ -8,6 +8,7 @@ import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { sendInviteEmail } from '@/utils/emails'
 import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { canUserInvite } from '@/utils/function.utils'
 
 const validateEmail = (email) => {
@@ -44,7 +45,8 @@ export default async function handleInvite(req, res) {
         bentoTrack(userId, 'track', {
           type: 'inviteUser',
         })
-        mpTrack(userId, 'Invited Team Member', { ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Team Member Invited', { ip: req.headers['x-forwarded-for'] })
+        phTrack(userId, 'Team Member Invited', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
       }
@@ -121,7 +123,8 @@ export default async function handleInvite(req, res) {
             bentoTrack(uid, 'track', {
               type: 'denyInvite',
             })
-            mpTrack(uid, 'Declined Team Invite', { ip: req.headers['x-forwarded-for'] })
+            mpTrack(uid, 'Team Invite Declined', { ip: req.headers['x-forwarded-for'] })
+            phTrack(uid, 'Team Invite Declined')
           } catch (e) {
             console.log('Error sending bento track', e)
           }

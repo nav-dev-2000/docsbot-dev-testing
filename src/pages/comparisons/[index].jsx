@@ -34,7 +34,7 @@ const docsbotFeatures = [
       },
       {
         name: 'Cloud Sources',
-        value: 'Notion, Google Drive, Dropbox, OneDrive, Box, SharePoint, Zendesk, Intercom',
+        value: 'Notion, Google Drive, Dropbox, OneDrive, Box, SharePoint, Zendesk, Intercom, Freshdesk, Confluence, Salesforce, GitBook',
         key: 'cloud_sources',
       },
       { name: 'Q&A', value: true, key: 'q_a' },
@@ -86,12 +86,12 @@ const docsbotFeatures = [
     features: [
       {
         name: 'Chat logs',
-        value: 'CSV exports, Escalation & Rating filters, Source details, Answer rating',
+        value: 'CSV exports, Escalation/Rating/Answered filters, Source details, Answer rating',
         key: 'chat_logs',
       },
       {
         name: 'Advanced analytics',
-        value: 'Questions, Ratings, Escalations',
+        value: 'Questions, Ratings, Escalations, Could answer',
         key: 'advanced_analytics',
       },
       {
@@ -111,7 +111,7 @@ const docsbotFeatures = [
       { name: 'Zapier', value: true, key: 'zapier' },
       { name: 'Pabbly Connect', value: true, key: 'pabbly_connect' },
       { name: 'Pipedream', value: true, key: 'pipedream' },
-      { name: 'Help Scout', value: 'Coming soon', key: 'helpscout' },
+      { name: 'Help Scout', value: 'Auto-reply, Agent-assist', key: 'helpscout' },
     ],
   },
   {

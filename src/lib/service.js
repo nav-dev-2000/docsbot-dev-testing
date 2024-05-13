@@ -88,6 +88,20 @@ export const QueueIntegration = async (teamId, type, appID, appSecret) => {
   return messageId
 }
 
+export const QueueBotCopy = async (teamId, fromBotId, toBotId) => {
+  const dataBuffer = Buffer.from(
+    JSON.stringify({
+      action: 'copy',
+      teamId,
+      fromBotId,
+      toBotId,
+     })
+  )
+  const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
+  console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
+  return messageId
+}
+
 export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const firestore = getFirestore()
 

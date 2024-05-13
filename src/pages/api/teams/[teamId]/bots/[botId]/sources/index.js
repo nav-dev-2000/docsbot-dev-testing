@@ -7,6 +7,7 @@ import { getBot, getSources, getSource, getTeamIntegrations } from '@/lib/dbQuer
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { getSchema } from '@/lib/weaviate'
@@ -158,12 +159,12 @@ export default async function handler(req, res) {
     //   const integrations = await getTeamIntegrations(team.id)
     //   const integration = integrations.find((integration) => integration.id === 'helpscout')
     //   if (!integration || integration.status !== 'ready') {
-    //     return res.status(400).send({ message: 'Helpscout integration not found. Please connect a Helpscout app via your API dashboard' })
+    //     return res.status(400).send({ message: 'Help Scout integration not found. Please connect a Help Scout app via your API dashboard' })
     //   }
 
     //   const mailbox = integration.mailboxes.find((mailbox) => mailbox.id === mailboxID)
     //   if (!mailbox) {
-    //     return res.status(400).send({ message: 'Helpscout mailbox not found.' })
+    //     return res.status(400).send({ message: 'Help Scout mailbox not found.' })
     //   }
 
     //   // set the title to the mailbox name if not provided
@@ -286,10 +287,11 @@ export default async function handler(req, res) {
               type: 'addFAQ',
               sourceType: type,
             })
-            mpTrack(userId, 'Added FAQ', {
+            mpTrack(userId, 'FAQ Added', {
               'Source type': type,
               ip: req.headers['x-forwarded-for'],
             })
+            phTrack(userId, 'FAQ Added', { 'Source type': type }, team.id)
           } catch (e) {
             console.log('Error sending bento track', e)
           }
@@ -360,7 +362,8 @@ export default async function handler(req, res) {
           type: 'addSource',
           sourceType: type,
         })
-        mpTrack(userId, 'Added Source', { 'Source type': type, ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Source Added', { 'Source type': type, ip: req.headers['x-forwarded-for'] })
+        phTrack(userId, 'Source Added', { 'Source type': type }, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
       }
