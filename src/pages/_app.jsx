@@ -17,19 +17,6 @@ import { Mixpanel } from '@/lib/mixpanel-web'
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
 
-// Check that PostHog is client-side (used to handle Next.js SSR)
-if (typeof window !== 'undefined') {
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ? 'https://docsbot.ai/ph' : process.env.NEXT_PUBLIC_POSTHOG_HOST,
-    ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
-    persistence: 'localStorage',
-    // Enable debug mode in development
-    loaded: (posthog) => {
-      if (process.env.NODE_ENV === 'development') posthog.debug()
-    },
-  })
-}
-
 function getNodeText(node) {
   let text = ''
   for (let child of node.children ?? []) {
@@ -76,6 +63,29 @@ export default function App({ Component, pageProps }) {
 
   // eslint-disable-next-line react/prop-types, no-unused-vars
   const { fallback = {}, themeJson = {}, ...props } = pageProps
+
+  useEffect(() => {
+    // Check that PostHog is client-side (used to handle Next.js SSR)
+    if (
+      typeof window !== 'undefined' &&
+      !router.pathname.startsWith('/chat/') &&
+      !router.pathname.startsWith('/ask/') &&
+      !router.pathname.startsWith('/iframe/')
+    ) {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+        api_host:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? 'https://docsbot.ai/ph'
+            : process.env.NEXT_PUBLIC_POSTHOG_HOST,
+        ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
+        persistence: 'localStorage',
+        // Enable debug mode in development
+        loaded: (posthog) => {
+          if (process.env.NODE_ENV === 'development') posthog.debug()
+        },
+      })
+    }
+  }, [router.pathname])
 
   useEffect(() => {
     const handleRouteChange = () => {
