@@ -64,15 +64,17 @@ export default async function handler(req, res) {
       })
     }
 
-    let newAssignedMailboxes = helpscout?.assignedMailboxes
+    let newAssignedMailboxes = helpscout?.assignedMailboxes || {}
     if (assignedMailboxes) {
-      newAssignedMailboxes = {}
-
       // verify mailboxes exist
       for (let mb of helpscout.mailboxes) {
         const newBotId = assignedMailboxes[mb.id]
-        if (newBotId && newBotId !== 'none') {
-          newAssignedMailboxes[mb.id] = newBotId
+        if (newBotId) {
+          if (newBotId !== 'none') {
+            newAssignedMailboxes[mb.id] = newBotId
+          } else {
+            delete newAssignedMailboxes[mb.id]
+          }
         }
       }
 
