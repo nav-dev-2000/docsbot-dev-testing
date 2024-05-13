@@ -14153,93 +14153,83 @@ const INDUSTRIES = [
     business: 'Veterinary Clinics and Hospitals',
     industry: 'Health Services',
     image:
-      'https://images.unsplash.com/photo-1630438994394-3deff7a591bf?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg5NjF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
-    title: 'AI Chatbots for Veterinary Medicine',
+      'https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHx2ZXRlcmluYXJ5fGVufDB8MHx8fDE3MTU2MTI2MTR8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
+    title: 'AI Chatbots for Veterinary Clinics and Hospitals',
     mainContentIntro:
-      'Discover the power of AI-driven customer support with DocsBot tailored for veterinary clinics and hospitals. Enhance the experience for both pet owners and your staff by providing instant, accurate information and support. This solution offloads routine inquiries from your team, enabling them to focus more on delivering excellent care. Integrating seamlessly into your existing workflow, DocsBot ensures that both common and complex pet health questions are answered promptly and reliably.',
+      'Discover the potential of AI chatbots with DocsBot, tailored for Veterinary Medicine. Engaging with your clients has never been easier\u2014our AI-driven solutions ensure your patients get the care and answers they need, anytime. By deploying DocsBot, your veterinary staff can focus more on patient care while our chatbots handle routine inquiries, appointment details, and provide instant support.',
     supportSection: {
-      preHeading: 'Client Support',
-      heading: 'Revolutionize Your Veterinary Support',
+      preHeading: 'Client Care',
+      heading: 'Enhance Your Client Interaction',
       paragraph:
-        "DocsBot transforms your veterinary clinic's client interaction by providing instant, round-the-clock answers to common questions such as vaccination schedules, dietary guidelines, or operation procedures. This AI-driven support frees up your staff for more critical tasks and improves client satisfaction while reducing response times.",
+        'Transform your client service experience with DocsBot\u2019s AI chatbot solutions designed specifically for veterinary clinics and hospitals. Our chatbots provide round-the-clock answers to common queries about pet care, treatment options, and emergency protocols, reducing wait times and improving client satisfaction.',
       features: {
         item1: {
-          icon: 'ChatBubbleBottomCenterTextIcon',
-          name: 'Instant Replies',
-          description:
-            "Deliver immediate answers to client's frequently asked questions, making the support process smooth and efficient.",
-        },
-        item2: {
           icon: 'BellIcon',
           name: '24/7 Availability',
           description:
-            'Ensure... Fulfill CEO Articlelink Biotech, Pharmaceuticals, Medicine, CEO Interview, Content Marketing, Digital Transformation, Leadership, Management Development, Writing, Article Writing, Guest Posting, Ghost Writing, Technical Writing, Science Communication, Scientific Advertising, Public Speaking, Presentation Development, Grant Writing, Proposal Development,',
+            'Ensure your clients have access to assistance any time of the day with a bot that never sleeps.',
         },
-        usesSection: {
-          preHeading: 'Practical Integration',
-          heading: 'Multipurpose Uses of DocsBot in Veterinary Services',
-          paragraph:
-            'DocsBot in veterinary medicine can offer more than just standard responses; it can support ongoing education, enhance emergency preparedness, and contribute to in-depth knowledge sharing among staff and clients. From easily accessible pet care guidelines to information on recent veterinary advances, our tailored solution covers all bases and ensures a comprehensive support framework.',
-          uses: {
-            item1: {
-              icon: 'BookOpenIcon',
-              name: 'Pet Care Guidelines',
-              description:
-                'Provide constantly updated care instructions and tips for various pet conditions, accessible anytime.',
-            },
-            item2: {
-              icon: 'LightBulbIcon',
-              name: 'Veterinary FAQs',
-              description:
-                'Educationally enrich clients with a compilation of the most frequently asked veterinary questions, all answered with precision and... Insight Articlelink Biotech, Pharmaceuticals, Medicine, CEO Interview, Content Marketing, Digital Transformation, Leadership, Management Development, Writing, Article Writing, Guest Posting, Ghost Writing, Technical Writing, Science Communication, Scientific Advertising, Public Speaking, Presentation Development, Grant Writing, Proposal Development,',
-            },
-          },
+        item2: {
+          icon: 'ChatBubbleLeftIcon',
+          name: 'Instant Responses',
+          description:
+            'Quickly address client concerns and questions, improving engagement and satisfaction.',
         },
-      },
-      usesSection: {
-        preHeading: 'Expand Knowledge',
-        heading: 'Educational and Emergency Readiness with DocsBot',
-        paragraph:
-          'Leverage the capabilities of DocsBot within your clinic to not only answer basic inquiries but also to prepare staff and clients for urgent situations. Enhance everyday learning and ensure your clinic is equipped to handle emergencies with tailored information and detailed instructions.',
-        uses: {
-          item1: {
-            icon: 'LifebuoyIcon',
-            name: 'Emergency Prep Info',
-            description:
-              'Deliver vital preparation tips and actions for common pet emergencies, directly through the chat interface.',
-          },
-          item2: {
-            icon: 'AcademicCapIcon',
-            name: "'Build Knowledge",
-            description:
-              'Train your DocsBot to become a central hub for all veterinary ... Insight Articlelink Biotech, Pharmaceuticals, Medicine, CEO Interview, Content Marketing, Digital Transformation, Leadership, Management Development, Writing, Article Writing, Guest Posting, Ghost Writing, Technical Writing, Science Communication, Scientific Advertising, Public Speaking, Presentation Development, Grant Writing, Proposal Development,',
-          },
+        item3: {
+          icon: 'ClipboardDocumentIcon',
+          name: 'Manage Information Requests',
+          description:
+            'Easily handle appointment schedules, patient records, and treatment information inquiries.',
+        },
+        item4: {
+          icon: 'MagnifyingGlassIcon',
+          name: 'Reduce Staff Load',
+          description:
+            'Reduce the workload on staff by automating routine inquiries, allowing them to focus on patient care.',
         },
       },
     },
     usesSection: {
-      preHeading: 'Client Education',
-      heading: 'Enrich Clinic Visits with Improved Information Sharing',
+      preHeading: 'Innovative Solutions',
+      heading: 'Leverage AI for Veterinary Efficiency',
       paragraph:
-        'Use DocsBot to provide interactive, educational content to clients during their wait times or before consultations. Whether for providing care tips or explaining procedures, the chatbot is an ideal tool for engaging and informing clients efficiently. This proactive approach not only enhances the client experience but also supports your staff by answering routine questions.',
+        'DocsBot brings innovative AI applications to veterinary clinics and hospitals, boosting operational efficiency and client communication. Tailor-fit DocsBot to manage internal knowledge, answer detailed product (medication and treatment) inquiries, and streamline client interactions.',
       uses: {
         item1: {
-          icon: 'ClipboardIcon',
-          name: 'Healthcare Information',
+          icon: 'DocumentTextIcon',
+          name: 'Automated Medical Advice',
           description:
-            'Centralized access to detailed pet health care descriptions, enabling clients to understand the care their pets need.',
+            'Provide accurate, AI-derived information on common animal health issues and preventive care tips.',
         },
         item2: {
-          icon: 'MegaphoneIcon',
-          name: 'Announce Updates',
+          icon: 'ClipboardDocumentListIcon',
+          name: 'Patient Record Access',
           description:
-            'Use DocsBot to announce important information, including new services or changes in clinic policies, instantly and efficiently.',
+            'Quickly fetch and relay information regarding pet medical histories during consultations, enhancing service quality.',
         },
         item3: {
-          icon: 'MagnifyingGlassIcon',
-          name: 'Searchable Knowledge Base',
+          icon: 'FolderIcon',
+          name: 'Streamlined Client Service Pipeline',
           description:
-            'Enable clients... Insight Articlelink Biotech, Pharmaceuticals, Medicine, CEO Interview, Content Marketing, Digital Transformation, Leadership, Management Development, Writing, Article Writing, Guest Posting, Ghost Writing, Technical Writing, Science Communication, Scientific Advertising, Public Speaking, Presentation Development, Grant Writing, Proposal Development,',
+            'Use AI to guide clients through initial inquiry to final consultation, improving client journey and satisfaction.',
+        },
+        item4: {
+          icon: 'LanguageIcon',
+          name: 'Multilingual Support',
+          description:
+            'Offer support and interact with clients in their native languages, enhancing your market coverage.',
+        },
+        item5: {
+          icon: 'ChatBubbleLeftRightIcon',
+          name: 'Engage in Detailed Conversations',
+          description:
+            'Answer complex queries about pet health conditions, treatments, and diets, facilitating better client education.',
+        },
+        item6: {
+          icon: 'ArrowPathIcon',
+          name: 'Resourceful Query Handling',
+          description:
+            'Solve common logistical issues like rescheduling and information updates through automated AI interactions.',
         },
       },
     },
