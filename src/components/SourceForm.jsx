@@ -110,9 +110,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
   const carbonOnSuccess = async (response) => {
     console.log('OnSuccess callback called!', response)
-    if (response.action !== "ADD") return;
+    if (response.action !== "UPDATE") return;
 
-    if (!response.data || !response.data?.data_source_external_id) {
+    if (!response.data || !response.data?.data_source_external_id || !response.data?.files_synced) {
       return
     }
 
