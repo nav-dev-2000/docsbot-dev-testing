@@ -73,6 +73,7 @@ export default async function handler(request, response) {
               {
                 filters: {
                   source: carbonSourceFilters[source.type],
+                  include_containers: false, // we want a flat response, no folders
                 },
                 pagination: {
                   limit: perPage,
