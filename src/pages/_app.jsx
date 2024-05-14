@@ -238,7 +238,9 @@ export default function App({ Component, pageProps }) {
         <Script id="firstpromoter1">
           {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 
-fpr("click");`}
+if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.referrer)) {
+  fpr("click");
+}`}
         </Script>
         <Script
           id="firstpromoter2"
@@ -372,7 +374,9 @@ fpr("click");`}
               <Script id="firstpromoter1">
                 {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 
-fpr("click");`}
+if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.referrer)) {
+  fpr("click");
+}`}
               </Script>
               <Script
                 id="firstpromoter2"
