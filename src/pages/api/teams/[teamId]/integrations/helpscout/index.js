@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         message: 'Please upgrade to the Power plan or higher to add integrations.',
       })
     }
-    
+
     let newData = {}
     if (assignedBots) {
       let newTags = []
@@ -60,7 +60,6 @@ export default async function handler(req, res) {
 
       newData.tags = newTags
     }
-
 
     if (assignedMailboxes) {
       let newAssignedMailboxes = helpscout?.assignedMailboxes || {}
