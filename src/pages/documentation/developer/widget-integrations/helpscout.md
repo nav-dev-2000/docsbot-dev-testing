@@ -12,7 +12,7 @@ Learn how to embed and integrate our AI chat widget with Help Scout. {% .lead %}
 [Help Scout](https://helpscout.grsm.io/9cush642f1y3) is a popular support software used by many businesses to provide a support widget in their website. But with DocsBot you can first display our widget to privide an AI frontline support agent that can answer the most common questions about your product or service in any language! If the user still needs help, they can click the support link in the widget to open your Help Scout Beacon widget to talk to a human.
 
 {% callout title="Try our Advanced Help Scout Integration" %}
-You can also enable our [advanced Help Scout integration](/docs/integrations/helpscout) to train your bot from your Help Scout support history and auto-reply to support tickets!
+You can also enable our [advanced Help Scout integration](/documentation/doc/help-scout-integration) to train your bot from your Help Scout support history and auto-reply to support tickets!
 {% /callout %}
 
 ## Help Scout Beacon Integration

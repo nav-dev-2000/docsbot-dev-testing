@@ -8,7 +8,6 @@ import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
-import HelpscoutIntegration from './integrations/helpscout'
 
 export default function ModalPrompt({ team, integrations, bot }) {
   const [open, setOpen] = useState(false)

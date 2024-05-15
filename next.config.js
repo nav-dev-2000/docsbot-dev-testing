@@ -75,6 +75,11 @@ const nextConfig = {
         destination: '/documentation/doc/zapier-integration',
         permanent: true,
       },
+      {
+        'source': '/documentation/developer/helpscout',
+        'destination': '/documentation/doc/help-scout-integration',
+        'permanent': true
+      }
     ]
   },
   async rewrites() {

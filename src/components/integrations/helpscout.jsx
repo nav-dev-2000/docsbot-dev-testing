@@ -369,7 +369,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             for customer support, you can integrate your bots with your mailboxes to automatically
             draft replies to support tickets. Please{' '}
             <Link
-              href="/documentation/developer/helpscout"
+              href="/documentation/doc/help-scout-integration"
               target="_blank"
               className="text-cyan-800 underline"
             >
