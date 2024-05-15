@@ -112,7 +112,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     console.log('OnSuccess callback called!', response)
     if (response.action !== "UPDATE") return;
 
-    if (!response.data || !response.data?.data_source_external_id || !response.data?.files_synced) {
+    if (!response.data || !response.data?.data_source_external_id) {
       return
     }
 
