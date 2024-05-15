@@ -17,22 +17,23 @@ export default function SourceGrid({
 }) {
   const [fullSources, setFullSources] = useState([])
 
+  const sourceArg = (type, arg) => {
+    const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
+    return sourceType[arg] || null
+  }
+
   useEffect(() => {
     const newSources = []
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
+      source.isCarbon = sourceArg(source.type, 'isCarbon')
       if (source.status !== 'failed' || source.refreshing) {
         newSources.push(source)
       }
     })
     setFullSources(newSources)
   }, [sources])
-
-  const sourceArg = (type, arg) => {
-    const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
-    return sourceType[arg] || null
-  }
 
   //if no sources, show empty state
   if (!fullSources || fullSources.length === 0) {

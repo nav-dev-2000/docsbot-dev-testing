@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { CarbonConnect } from 'carbon-connect'
 import {
   XMarkIcon,
   TrashIcon,
@@ -64,6 +65,14 @@ export default function ModalSource({
         setSources((sources) => sources.map((s) => (s.id === sourceData.id ? sourceData : s)))
       }
     }
+  }
+
+  const carbonTokenFetcher = async () => {
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`)
+    const data = await response.json()
+
+    // carbon expects the full promise response
+    return data
   }
 
   //when opening modal, fetch source details
@@ -408,14 +417,44 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source?.carbonFiles && source?.carbonFiles?.length > 0 && (
+                    {source?.isCarbon && source?.carbonFiles && source?.carbonFiles?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Documents{' '}
                           <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
                           :
                         </h2>
-                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                        <CarbonConnect
+                          tokenFetcher={carbonTokenFetcher}
+                          orgName="DocsBot AI"
+                          brandIcon="/.well-known/logo.png"
+                          primaryBackgroundColor="#0891B2"
+                          primaryTextColor="#FFFFFF"
+                          secondaryBackgroundColor="#FFFFFF"
+                          onSuccess={(evnt) => console.log(evnt)}
+                          onError={(error) => console.warn(error)}
+                          tags={{ botId: bot.id, teamId: team.id }}
+                          entryPoint={source.isCarbon}
+                          showFilesTab={true}
+                          filePickerMode={"FILES"}
+                          enabledIntegrations={[
+                            {
+                              id: source.isCarbon,
+                              chunkSize: 500,
+                              overlapSize: 50,
+                            },
+                          ]}
+                        >
+                          <button
+                            className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                          >
+                            <>
+                              <source.icon className="h-5 w-5" />
+                              <span>Manage files</span>
+                            </>
+                          </button>
+                        </CarbonConnect>
+                        {/* <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
                           <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
                             {source?.carbonFiles.map((item) => (
                               <li
@@ -438,7 +477,7 @@ export default function ModalSource({
                               </li>
                             ))}
                           </ul>
-                        </div>
+                        </div> */}
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
