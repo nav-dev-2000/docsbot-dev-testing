@@ -21,6 +21,7 @@ import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { CarbonConnect } from 'carbon-connect'
 import { canUserModifySources } from '@/utils/function.utils'
+import Link from 'next/link'
 
 export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
   const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
@@ -240,7 +241,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       <>
         <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
         <p className="text-md mb-2 ml-2 mt-8 text-gray-800">
-          Add any content sources you want your bot to be able to answer questions about. You can
+          Add any <Link href="/documentation#sources" className='underline hover:text-gray-600'>content sources</Link> you want your bot to be able to answer questions about. You can
           always add more later on.
         </p>
         <div className="mb-4 rounded-lg bg-white px-4 py-4 shadow sm:px-6">
