@@ -69,11 +69,11 @@ export const BotCopyModal = ({ team, bot }) => {
     <>
       <button
         className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-        title="Edit bot"
+        title="Duplicate this bot & sources"
         onClick={() => setOpen(true)}
       >
         <DocumentDuplicateIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
-        <p>Copy</p>
+        <p>Duplicate</p>
       </button>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
