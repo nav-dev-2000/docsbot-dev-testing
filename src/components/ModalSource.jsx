@@ -69,10 +69,7 @@ export default function ModalSource({
 
   const carbonTokenFetcher = async () => {
     const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`)
-    const data = await response.json()
-
-    // carbon expects the full promise response
-    return data
+    return await response.json()
   }
 
   //when opening modal, fetch source details
