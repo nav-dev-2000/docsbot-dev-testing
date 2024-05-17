@@ -5,7 +5,7 @@ import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
-import { canSourceTypeSchedule } from '@/constants/sourceTypes.constants'
+import { canSourceTypeSchedule, isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 export default async function handler(req, res) {
@@ -125,6 +125,21 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'POST') {
+    if (isCarbonSourceType(source.type)) {
+      // update and reingest source
+      await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+        status: 'indexing',
+      })
+      return res.stats(200).json({})
+    }
+
     if (!canSourceTypeSchedule(source.type)) {
       return res
         .status(403)
@@ -132,7 +147,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      if (!source.scheduleInterval || source.scheduleInterval === 'none') {
+      if ((!source.scheduleInterval || source.scheduleInterval === 'none')) {
         await QueueSourceRegest(team.id, botId, sourceId)
         return res.status(200).json({ message: 'success' })
       }

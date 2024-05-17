@@ -258,6 +258,15 @@ export default function ModalSource({
     }
   }
 
+  const updateCarbon = async (evnt) => {
+    console.log(evnt)
+
+    if (evnt.action === 'UPDATE') {
+      console.log("yayyyy update :3")
+      await refreshSource()
+    }
+  }
+
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
@@ -428,7 +437,7 @@ export default function ModalSource({
                           primaryBackgroundColor="#0891B2"
                           primaryTextColor="#FFFFFF"
                           secondaryBackgroundColor="#FFFFFF"
-                          onSuccess={(evnt) => console.log(evnt)}
+                          onSuccess={updateCarbon}
                           onError={(error) => console.warn(error)}
                           tags={{ botId: bot.id, teamId: team.id }}
                           entryPoint={source.isCarbon}
