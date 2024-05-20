@@ -237,27 +237,6 @@ export default function ModalSource({
     setShowInterval(canSourceTypeSchedule(source?.type))
   }, [source])
 
-  const carbonIcon = (type) => {
-    switch (type) {
-      case 'NOTION':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'NOTION_DATABASE':
-        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_DOCS':
-        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_SLIDES':
-        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_SHEETS':
-        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'INTERCOM':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'DROPBOX':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      default:
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-    }
-  }
-
   const updateCarbon = async (evnt) => {
     console.log(evnt)
 
