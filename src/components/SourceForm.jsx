@@ -540,8 +540,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 onError={(error) => console.warn(error)}
                 tags={{ botId: bot.id, teamId: team.id }}
                 entryPoint={selectedSourceType?.isCarbon}
-                showFilesTab={true}
-                filePickerMode={"FILES"}
                 enabledIntegrations={[
                   {
                     id: selectedSourceType?.isCarbon,
