@@ -241,7 +241,6 @@ export default function ModalSource({
     console.log(evnt)
 
     if (evnt.action === 'UPDATE') {
-      console.log("yayyyy update :3")
       await refreshSource()
     }
   }
