@@ -409,6 +409,7 @@ export default function ModalSource({
                           <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
                           :
                         </h2>
+                        <Alert type="info" title="Make sure to refresh after you've made your changes to queue your source for ingestion!" />
                         <CarbonConnect
                           tokenFetcher={carbonTokenFetcher}
                           orgName="DocsBot AI"
