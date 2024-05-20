@@ -137,7 +137,7 @@ export default async function handler(req, res) {
         .update({
         status: 'indexing',
       })
-      return res.stats(200).json({})
+      return res.status(200).json({})
     }
 
     if (!canSourceTypeSchedule(source.type)) {
