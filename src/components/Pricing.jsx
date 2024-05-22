@@ -216,7 +216,7 @@ export default function Pricing() {
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
-                What’s included
+                Access everything in Business, plus:
               </h4>
               <div className="h-px flex-auto bg-gray-100" />
             </div>
@@ -235,14 +235,7 @@ export default function Pricing() {
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
             <div className="h-full rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
               <div className="mx-auto max-w-xs px-8">
-                <p className="text-base font-semibold text-gray-600">Plans starting at</p>
-                <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$899/mo</span>
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
-                    USD
-                  </span>
-                </p>
-                <p className="text-xs leading-6 tracking-wide text-gray-500">(paid annually)</p>
+                <p className="text-base font-semibold text-gray-600">Get Started</p>
                 <a
                   href="mailto:human@docsbot.ai"
                   onClick={(e) => {
@@ -258,7 +251,7 @@ export default function Pricing() {
                   Contact us
                 </a>
                 <p className="mt-6 text-xs leading-5 text-gray-600">
-                  Custom invoices and pay by ACH or wire transfer
+                  for your custom quote and to learn more about our enterprise features.
                 </p>
               </div>
             </div>
