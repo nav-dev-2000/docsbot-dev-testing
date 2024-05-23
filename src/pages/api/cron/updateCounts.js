@@ -3,7 +3,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats } from '@/lib/dbQueries'
 import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
-import { sendErrorEmail } from '../../../utils/emails'
+import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
 
 export default async function handler(request, response) {
