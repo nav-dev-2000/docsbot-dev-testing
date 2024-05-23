@@ -38,6 +38,21 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
+export const getTeamEmail = async (team) => {
+  // grab the owner's email
+  for (let uid in team.roles) {
+    const role = team.roles[uid]
+    if (role === 'owner') {
+      const user = await getAuth().getUser(uid)
+      if (!user?.email) break;
+      return user.email
+    }
+  }
+
+  // default email fallback
+  return 'unknown-email@nomail.com';
+}
+
 const getTimeDeltaFromCalendarMonth = () => {
   // grab the current month and year
   let currentDate = new Date()

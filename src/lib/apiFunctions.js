@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldPath } from 'firebase-admin/firestore'
+import { getFirestore, FieldPath, FieldValue } from 'firebase-admin/firestore'
 import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
@@ -585,4 +585,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   return botData
+}
+
+export async function clearLastError(team) {
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  // if the team doesn't have a lasterror, ignore!
+  if (!team?.lastError)
+    return;
+
+  await firestore.collection('teams').doc(team.id).update({
+    lastError: FieldValue.delete()
+  })
 }

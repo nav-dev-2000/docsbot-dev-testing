@@ -1,4 +1,5 @@
 import sendEmail from '@/lib/sendEmail'
+import { getTeamEmail } from '@/lib/dbQueries'
 
 export const sendInviteEmail = async (user, inviter, team) => {
   const name = inviter.name || inviter.email
@@ -10,6 +11,15 @@ export const sendInviteEmail = async (user, inviter, team) => {
     <li>Feel free to explore the platform and familiarize yourself with its features. If you have any questions or need assistance, you can reach out to our support by clicking on 'help' <a href="https://docsbot.ai/">here</a>.</li>
   </ol>`
   await sendEmail(user, `You've been invited to ${team.name} on DocsBot AI`, emailBody)
+}
+
+export const sendErrorEmail = async (team, lastError) => {
+  const email = await getTeamEmail(team)
+  const emailBody = `<p>Looks like <a href="https://docsbot.ai/app/bots/${lastError.botId}">${lastError.botName}</a> is failing with the following error:</p>
+  <pre>${lastError.descriptive}</pre>
+  <br/>
+  <p>If you think this is an error, please <a href="https://docsbot.ai/">contact support</a>.</p>`
+  await sendEmail(email, `Whoops! ${lastError.botName} is failing on Docsbot AI!`, emailBody)
 }
 
 export const sendReportEmail = async (userId, reportName, report) => {

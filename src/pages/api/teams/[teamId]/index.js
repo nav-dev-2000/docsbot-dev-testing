@@ -12,6 +12,7 @@ import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { canUserModifyTeam, canUserDeleteTeam } from '@/utils/function.utils'
 import { validateOpenAIKey } from '@/utils/helpers'
+import { clearLastError } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -64,7 +65,7 @@ export default async function handler(req, res) {
         newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
         newTeam.supportsGPT4 = isGPT4
 
-        mpTrack(userId, 'OpenAI Key Updated', { ip: req.headers['x-forwarded-for'] })
+        await clearLastError(team)
         phTrack(userId, 'OpenAI Key Updated', {}, team.id)
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
