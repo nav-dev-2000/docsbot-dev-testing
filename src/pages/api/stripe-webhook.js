@@ -98,6 +98,12 @@ const webhookHandler = async (req, res) => {
               })
               console.log(`🔔 Subscription updated for team ${teamId}`)
 
+              // we also save the questionLimit to the team object as well
+              const questionLimit = stripePlan(teamObj).questions
+              await transaction.update(firestore.collection('teams').doc(teamId), {
+                questionLimit,
+              })
+
               //if changing plan
               if (
                 event.data.previous_attributes?.items?.data[0]?.plan?.id &&
