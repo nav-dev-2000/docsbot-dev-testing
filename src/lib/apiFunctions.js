@@ -2,8 +2,8 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldPath, FieldValue } from 'firebase-admin/firestore'
 import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
-import { getBot } from '@/lib/dbQueries'
-import { deleteSchema, deleteTenant } from '@/lib/weaviate'
+import { getBot, getTeam } from '@/lib/dbQueries'
+import { deleteTenant } from '@/lib/weaviate'
 import { QueueSourceExpel } from '@/lib/service'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { getCarbonCustomerID } from '@/lib/carbon'
@@ -135,6 +135,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
 export const deleteBot = async (teamId, botId) => {
   configureFirebaseApp()
   const firestore = getFirestore()
+  const team = await getTeam(teamId)
   const bot = await getBot(teamId, botId)
   if (!bot) {
     return false
@@ -302,7 +303,7 @@ export const deleteBot = async (teamId, botId) => {
   //delete schema in weaviate async
   if (bot.indexId === 'TenantDocument') {
     try {
-      deleteTenant(botId)
+      deleteTenant(team, botId)
     } catch (error) {
       console.warn('Error deleting Weaviate Tenant:', error)
     }

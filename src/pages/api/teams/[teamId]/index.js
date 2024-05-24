@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
     }
 
-    let { name, openAIKey } = req.body
+    let { name, openAIKey, weaviateUrl, weaviateApiKey } = req.body
     let newTeam = {}
     if (name) {
       newTeam.name = name
@@ -70,6 +70,12 @@ export default async function handler(req, res) {
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
+    }
+    if (weaviateUrl) {
+      newTeam.weaviateUrl = weaviateUrl
+    }
+    if (weaviateApiKey) {
+      newTeam.weaviateApiKey = encryptKey(weaviateApiKey)
     }
 
     try {

@@ -78,14 +78,14 @@ router.post(async (req, res) => {
     const botId = docRef.id
 
     try {
-      createTenant(botId)
+      await createTenant(team, botId)
     } catch (error) {
       console.error('Error creating bot DB', error)
       if (botId) {
         // Delete bot object
         await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
       }
-      return res.status(500).json({ message: error?.message })
+      return res.status(500).json({ message: 'Error creating bot DB. Please try again or contact support.'})
     }
 
     //increment botCounts on team

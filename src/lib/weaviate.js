@@ -1,19 +1,21 @@
 import weaviate, { ApiKey } from 'weaviate-ts-client'
+import { decryptKey } from '@/lib/encryption'
 
-const weaviateClient = (indexId) => {
+const weaviateClient = (team) => {
+  const isDedicated = team?.weaviateUrl && team?.weaviateApiKey
   try {
     let args = {}
-    if (indexId === 'TenantDocument') {
+    if (isDedicated) {
       args = {
         scheme: 'https',
-        host: process.env.WEAVIATE_URL_TENANT,
-        apiKey: new ApiKey(process.env.WEAVIATE_API_KEY_TENANT)
+        host: team?.weaviateUrl,
+        apiKey: new ApiKey(decryptKey(team?.weaviateApiKey))
       }
     } else {
       args = {
         scheme: 'https',
-        host: process.env.WEAVIATE_URL,
-        apiKey: new ApiKey(process.env.WEAVIATE_API_KEY)
+        host: process.env.WEAVIATE_URL_TENANT,
+        apiKey: new ApiKey(process.env.WEAVIATE_API_KEY_TENANT)
       }
     }
     return weaviate.client(args)
@@ -22,20 +24,10 @@ const weaviateClient = (indexId) => {
   }
 }
 
-export const getSchema = (indexId) => {
-  //get a weaviate schema for the bot
-  return weaviateClient().schema.classGetter().withClassName(indexId).do()
+export const createTenant = (team, botId) => {
+  return weaviateClient(team).schema.tenantsCreator('TenantDocument', [{ name: botId }]).do()
 }
 
-export const deleteSchema = (indexId) => {
-  //delete a weaviate schema for the bot
-  return weaviateClient().schema.classDeleter().withClassName(indexId).do()
-}
-
-export const createTenant = (botId) => {
-  return weaviateClient('TenantDocument').schema.tenantsCreator('TenantDocument', [{ name: botId }]).do()
-}
-
-export const deleteTenant = (botId) => {
-  return weaviateClient('TenantDocument').schema.tenantsDeleter('TenantDocument', [botId]).do()
+export const deleteTenant = (team, botId) => {
+  return weaviateClient(team).schema.tenantsDeleter('TenantDocument', [botId]).do()
 }
