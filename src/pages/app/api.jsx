@@ -142,12 +142,24 @@ function Api({ user, team, bots, integrations }) {
         </div>
       </div>
 
+      {(team.weaviateUrl && team.weaviateApiKey) && (
+        <div className="mt-8 rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">Custom Training DB</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            Your team is configured to use a custom vector database for your training data.
+          </p>
+          <div className="mt-4 flex items-center justify-start">
+            <pre className="block">{team.weaviateUrl}</pre>
+          </div>
+        </div>
+      )}
+
       <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">DocsBot API Key</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
           You can get your DocsBot API key here that can be used for the admin API and querying
-          private bots. This key is is tied to your user account and can be used to access all
-          teams that you have a role for.
+          private bots. This key is is tied to your user account and can be used to access all teams
+          that you have a role for.
         </p>
         <div className="mt-4 flex items-center justify-start">
           <pre className="block">{apiKey}</pre>
@@ -181,7 +193,7 @@ function Api({ user, team, bots, integrations }) {
 
       <h2 className="mt-12 text-3xl font-bold">
         Integrations
-        <span className="ml-2 inline-flex items-center align-top rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+        <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 align-top text-xs font-medium text-cyan-800">
           Paid
         </span>
       </h2>
