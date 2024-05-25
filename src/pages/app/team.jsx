@@ -216,7 +216,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   }
 
   const updateTeam = async () => {
-    if (!canUserModifyTeam(currTeam, userId)) {
+    if (!canUserModifyTeam(currTeam, userId) && !isSuperAdmin(userId)) {
       return
     }
 
