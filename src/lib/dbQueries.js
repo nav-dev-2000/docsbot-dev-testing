@@ -60,7 +60,7 @@ const getTimeDeltaFromCalendarMonth = () => {
   let currentYear = currentDate.getFullYear()
 
   // first day of the current month
-  var startDate = new Date(currentYear, currentMonth-1, 1)
+  var startDate = new Date(currentYear, currentMonth, 1)
 
   // calculate the difference in milliseconds
   return currentDate - startDate
