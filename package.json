@@ -33,7 +33,7 @@
     "autoprefixer": "^10.4.12",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
-    "carbon-connect": "^2.0.0",
+    "carbon-connect": "^2.0.4",
     "chart.js": "^4.3.0",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^1.2.1",
