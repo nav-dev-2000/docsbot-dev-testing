@@ -153,6 +153,27 @@ export default function ModalSource({
     }
   }
 
+  const carbonIcon = (type) => {
+    switch (type) {
+      case 'NOTION':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'NOTION_DATABASE':
+        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_DOCS':
+        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SLIDES':
+        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SHEETS':
+        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'INTERCOM':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'DROPBOX':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      default:
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+    }
+  }
+
   const patchSource = async () => {
     if (questions.length === 0) {
       setErrorText('Please add at least one question and answer.')
@@ -408,6 +429,30 @@ export default function ModalSource({
                           <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
                           :
                         </h2>
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                          <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
+                            {source?.carbonFiles.map((item) => (
+                              <li
+                                key={item.id}
+                                className=" rounded-md bg-white px-4 shadow first:ml-2 first:mt-2"
+                              >
+                                {item.url ? (
+                                  <Link
+                                    href={item.url}
+                                    target="_blank"
+                                    className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm"
+                                  >
+                                    {carbonIcon(item.type)} {item.name}
+                                  </Link>
+                                ) : (
+                                  <div className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">
+                                    {carbonIcon(item.type)} {item.name}
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                         <Alert type="info" title="Make sure to refresh after you've made your changes to queue your source for ingestion!" />
                         <CarbonConnect
                           tokenFetcher={carbonTokenFetcher}
@@ -439,30 +484,6 @@ export default function ModalSource({
                             </>
                           </button>
                         </CarbonConnect>
-                        {/* <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
-                          <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
-                            {source?.carbonFiles.map((item) => (
-                              <li
-                                key={item.id}
-                                className=" rounded-md bg-white px-4 shadow first:ml-2 first:mt-2"
-                              >
-                                {item.url ? (
-                                  <Link
-                                    href={item.url}
-                                    target="_blank"
-                                    className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm"
-                                  >
-                                    {carbonIcon(item.type)} {item.name}
-                                  </Link>
-                                ) : (
-                                  <div className="flex w-full items-center justify-start overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">
-                                    {carbonIcon(item.type)} {item.name}
-                                  </div>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        </div> */}
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
