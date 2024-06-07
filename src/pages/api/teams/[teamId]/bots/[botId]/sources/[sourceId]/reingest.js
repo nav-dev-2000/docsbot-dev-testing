@@ -136,6 +136,7 @@ export default async function handler(req, res) {
         .doc(sourceId)
         .update({
         status: 'indexing',
+        createdAt: FieldValue.serverTimestamp(),
       })
       return res.status(200).json({})
     }
