@@ -1,0 +1,11 @@
+# UglyRobot, LLC security contacts and policy
+
+# Our security contact channels
+Contact: mailto:human@docsbot.ai
+
+# Link to our vulnerability disclosure policy
+Policy: https://docsbot.ai/legal/vdp
+
+# Languages that our team speaks and understands
+Preferred-Languages: en-US
+
