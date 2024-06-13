@@ -563,7 +563,7 @@ export default function ModalSource({
                             disabled={submitting || locked !== null || !canModify}
                           >
                             <ArrowPathIcon className="mr-2 h-5 w-5" aria-hidden="true" />
-                            Refresh
+                            Edit
                           </button>
                         </div>
                         )}
