@@ -27,7 +27,7 @@ export const checkFAQsRateLimit = async (ip) => {
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
   const lookupQuery = await firestore.collection('FAQs').where('ip', '==', ip).where('createdAt', '>', timeDelta).get()
 
-  return lookupQuery.docs.length > RATE_LIMIT
+  return lookupQuery.docs.length >= RATE_LIMIT
 }
 
 // returns 9 most recent FAQs
