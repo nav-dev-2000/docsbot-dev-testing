@@ -60,7 +60,7 @@ const RecentAIFAQs = ({ FAQs }) => {
       <div className="mx-none text-left">
         <div className="prose mx-auto mt-6 w-full max-w-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {FAQs.map((faq) => {
-            const [siteUrl] = useState(new URL(faq.url))
+            const siteUrl = new URL(faq.url)
             return (
               <div className="w-full items-center justify-start" key={faq.url}>
                 <Link

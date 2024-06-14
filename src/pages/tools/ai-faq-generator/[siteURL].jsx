@@ -7,10 +7,7 @@ import { lookupFAQs } from '@/lib/faqs'
 import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import Link from 'next/link'
-import {
-  CodeBracketIcon,
-  HashtagIcon,
-} from '@heroicons/react/20/solid'
+import { CodeBracketIcon, HashtagIcon } from '@heroicons/react/20/solid'
 import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import html from 'remark-html'
@@ -38,10 +35,8 @@ const copyAsHTML = (FAQs) => {
 
 // site is a URL
 const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
-  const [shareCopied, setShareCopied] = useState(false)
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
-  const router = useRouter()
 
   return (
     <>
@@ -58,7 +53,11 @@ const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
           </div>
 
           <div className="mx-auto mt-2">
-            <img className="block w-full rounded-md shadow-sm" src={screenCap} />
+            <img
+              className="block w-full rounded-md shadow-sm"
+              src={screenCap}
+              alt={'Thumbnail image of ' + site.hostname}
+            />
           </div>
         </div>
       </div>
@@ -105,9 +104,7 @@ const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
         </div>
         <div className="mx-none text-left">
           {FAQs.map((faq) => {
-            const [renderedAnswer] = useState(() => {
-              return remark().use(remarkGfm).use(html).processSync(faq.answer)
-            })
+            const renderedAnswer = remark().use(remarkGfm).use(html).processSync(faq.answer)
             return (
               <div
                 key={faq.question}
@@ -166,8 +163,12 @@ const FAQsSharePage = ({ FAQs, summary, screenCap, thumbnail, siteURL }) => {
                   <div className="py-12 pb-0">
                     <FAQsInfo FAQs={FAQs} summary={summary} screenCap={thumbnail} site={site} />
                   </div>
-                  <Link href="/tools/ai-faq-generator" className="mt-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-xl font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-             >Create your own website FAQ</Link>
+                  <Link
+                    href="/tools/ai-faq-generator"
+                    className="mt-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-xl font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                  >
+                    Create your own website FAQ
+                  </Link>
                 </div>
               </div>
             </div>
