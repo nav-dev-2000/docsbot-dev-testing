@@ -37,6 +37,10 @@ const footerNavigation = {
       href: '/tools/ai-support-savings-calculator',
     },
     {
+      name: 'Website FAQ Generator',
+      href: '/tools/ai-faq-generator',
+    },
+    {
       name: 'Product Photo Visualizer',
       href: 'https://imajinn.ai/product-visualizer',
     },

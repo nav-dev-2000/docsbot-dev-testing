@@ -52,6 +52,7 @@ export const QueueSourceIngest = async (
     title,
     url,
     file,
+    runId
   }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
