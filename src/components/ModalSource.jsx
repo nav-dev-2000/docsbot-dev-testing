@@ -79,6 +79,9 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
                       <h3 className="inline-flex text-2xl font-bold">How to delete files from Carbon</h3>
                     </div>
                     <div className="pb-2">
+                      <img src="/images/carbon-delete.png" alt="Carbon delete" className="w-full" />
+                    </div>
+                    <div className="pb-2">
                       <p className="text-lg text-gray-500">To delete files from your Carbon source, click on the "Manage Files" button. This will open the Carbon file picker where you can remove or add files. Once complete, click on the "Refresh" button to update your source.</p>
                     </div>
                     <div className="flex flex-shrink-0 items-end justify-end">
