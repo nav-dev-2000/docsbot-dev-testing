@@ -111,7 +111,8 @@ export default function ModalSource({
   defaultOpen = false,
 }) {
   const [open, setOpen] = useState(defaultOpen)
-  const [carbonInfoOpen, setCarbonInfoOpen] = useState(isCarbonSourceType(source?.type) && defaultOpen)
+  const [carbonInfoOpen, setCarbonInfoOpen] = useState(false)
+  const [carbonOpen, setCarbonOpen] = useState(false)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
@@ -124,11 +125,6 @@ export default function ModalSource({
   const [questions, setQuestions] = useState(source?.faqs ?? [])
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
-
-  useEffect(() => {
-    if (!source || !open) return
-    setCarbonInfoOpen(isCarbonSourceType(source?.type) ? true : false)
-  }, [open])
 
   useEffect(() => {
     if (!team || !user) return
@@ -352,7 +348,12 @@ export default function ModalSource({
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <ModalCarbonSourceInfo open={carbonInfoOpen} setOpen={setCarbonInfoOpen} />
+      <ModalCarbonSourceInfo open={carbonInfoOpen} setOpen={(open) => {
+        if (!open) {
+          setCarbonInfoOpen(false)
+          setCarbonOpen(true)
+        }
+      }} />
       <a
         type="button"
         className="m-0 block cursor-pointer"
@@ -547,6 +548,8 @@ export default function ModalSource({
                           secondaryBackgroundColor="#FFFFFF"
                           onSuccess={updateCarbon}
                           onError={(error) => console.warn(error)}
+                          open={carbonOpen}
+                          setOpen={setCarbonOpen}
                           tags={{ botId: bot.id, teamId: team.id }}
                           entryPoint={source.isCarbon}
                           showFilesTab={true}
@@ -558,16 +561,18 @@ export default function ModalSource({
                               overlapSize: 50,
                             },
                           ]}
+                        />
+                        <button
+                          onClick={(open) => {
+                            setCarbonInfoOpen(true)
+                          }}
+                          className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                         >
-                          <button
-                            className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                          >
-                            <>
-                              <source.icon className="h-5 w-5" />
-                              <span>Manage files</span>
-                            </>
-                          </button>
-                        </CarbonConnect>
+                          <>
+                            <source.icon className="h-5 w-5" />
+                            <span>Manage files</span>
+                          </>
+                        </button>
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
