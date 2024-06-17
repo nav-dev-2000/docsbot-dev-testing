@@ -514,7 +514,7 @@ export default function ModalSource({
                           <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
                           :
                         </h2>
-                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2 mb-2">
                           <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
                             {source?.carbonFiles.map((item) => (
                               <li
@@ -538,7 +538,6 @@ export default function ModalSource({
                             ))}
                           </ul>
                         </div>
-                        <Alert type="info" title="Make sure to refresh after you've made your changes to queue your source for ingestion!" />
                         <CarbonConnect
                           tokenFetcher={carbonTokenFetcher}
                           orgName="DocsBot AI"
@@ -563,7 +562,7 @@ export default function ModalSource({
                           ]}
                         />
                         <button
-                          onClick={(open) => {
+                          onClick={() => {
                             setCarbonInfoOpen(true)
                           }}
                           className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
