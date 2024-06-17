@@ -99,73 +99,80 @@ export default async function handler(req, res) {
       })
       const openai = new OpenAIApi(configuration)
 
-      const chat_completion = await openai.createChatCompletion({
-        model: 'gpt-4o',
-        messages: [
-          {
-            role: 'system',
-            content:
-              'Generate a comprehensive list of at least 10 FAQs for the following webpage that addresses common customer queries and concerns written in the primary language of the site\'s content. Begin by identifying the most frequently asked questions by customers, drawing from customer service interactions, social media inquiries, and feedback forms. Ensure the questions cover a broad range of topics, including product features, usage instructions, troubleshooting, pricing, availability, and support services. Write clear and concise answers for each question, providing helpful and accurate information. Include any relevant tips, best practices, or additional resources that could assist the customer. Organize the FAQs in a logical order, grouping similar topics together for easy navigation. Conclude with a section for any additional support options available, such as customer service contact information or links to more detailed resources.',
-          },
-          {
-            role: 'user',
-            content: [
-              { type: 'text', text: "Here's a screen capture of the target webpage" },
-              {
-                type: 'image_url',
-                image_url: {
-                  url: screenCaptures.full,
+      let chat_completion = null
+      try {
+        chat_completion = await openai.createChatCompletion({
+          model: 'gpt-4o',
+          messages: [
+            {
+              role: 'system',
+              content:
+                'Generate a comprehensive list of at least 10 FAQs for the following webpage that addresses common customer queries and concerns written in the primary language of the site\'s content. Begin by identifying the most frequently asked questions by customers, drawing from customer service interactions, social media inquiries, and feedback forms. Ensure the questions cover a broad range of topics, including product features, usage instructions, troubleshooting, pricing, availability, and support services. Write clear and concise answers for each question, providing helpful and accurate information. Include any relevant tips, best practices, or additional resources that could assist the customer. Organize the FAQs in a logical order, grouping similar topics together for easy navigation. Conclude with a section for any additional support options available, such as customer service contact information or links to more detailed resources.',
+            },
+            {
+              role: 'user',
+              content: [
+                { type: 'text', text: "Here's a screen capture of the target webpage" },
+                {
+                  type: 'image_url',
+                  image_url: {
+                    url: screenCaptures.full,
+                  },
                 },
-              },
-            ],
-          },
-          { role: 'user', content: `${content}` },
-        ],
-        functions: [
-          {
-            name: 'faq_list',
-            description: 'Extracts the frequently asked questions as valid JSON.',
-            parameters: {
-              type: 'object',
-              properties: {
-                faqs: {
-                  type: 'array',
-                  description: 'Array of each question and answer.',
-                  items: {
-                    type: 'object',
-                    properties: {
-                      question: {
-                        type: 'string',
-                        description: 'Plaintext question.',
-                      },
-                      answer: {
-                        type: 'string',
-                        description: 'Answer formatted in markdown.',
+              ],
+            },
+            { role: 'user', content: `${content}` },
+          ],
+          functions: [
+            {
+              name: 'faq_list',
+              description: 'Extracts the frequently asked questions as valid JSON.',
+              parameters: {
+                type: 'object',
+                properties: {
+                  faqs: {
+                    type: 'array',
+                    description: 'Array of each question and answer.',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        question: {
+                          type: 'string',
+                          description: 'Plaintext question.',
+                        },
+                        answer: {
+                          type: 'string',
+                          description: 'Answer formatted in markdown.',
+                        },
                       },
                     },
                   },
-                },
-                summary: {
-                  type: 'string',
-                  description: "Summary of the site's content.",
+                  summary: {
+                    type: 'string',
+                    description: "Summary of the site's content.",
+                  },
                 },
               },
+              required: ['faqs'],
             },
-            required: ['faqs'],
-          },
-        ],
-        function_call: { name: 'faq_list' },
-      })
+          ],
+          function_call: { name: 'faq_list' },
+        })
+      } catch (error) {
+        console.error(error)
+        return res.status(500).json({ message: 'Failed to connect to OpenAI. Please try again.' })
+      }
 
       // parse response
       let responseData = null
       try {
         responseData = JSON.parse(chat_completion.data.choices[0].message.function_call.arguments)
       } catch (error) {
+        console.error(error)
         return res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
       }
 
-      if (!responseData?.FAQs || !responseData?.summary) {
+      if (!responseData?.faqs || !responseData?.summary) {
         return res.status(500).json({ message: 'Invalid response from OpenAI. Please try again.' })
       }
 
