@@ -162,7 +162,11 @@ export default async function handler(req, res) {
       try {
         responseData = JSON.parse(chat_completion.data.choices[0].message.function_call.arguments)
       } catch (error) {
-        res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
+        return res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
+      }
+
+      if (!responseData?.FAQs || !responseData?.summary) {
+        return res.status(500).json({ message: 'Invalid response from OpenAI. Please try again.' })
       }
 
       // save data && send response
