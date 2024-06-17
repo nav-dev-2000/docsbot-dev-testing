@@ -27,6 +27,7 @@ import { grabQuestions } from '@/utils/helpers'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { usePostHog } from 'posthog-js/react'
 
 export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
@@ -51,6 +52,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
+  const posthog = usePostHog()
 
   useEffect(() => {
     const handleScreenChange = () => {
@@ -168,6 +170,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
       if (testing) {
         Mixpanel.track('Bot Tested', { 'Bot name': bot.name })
+        posthog?.capture('Bot Tested', { 'Bot name': bot.name })
         if (window.bento !== undefined) {
           window.bento.track('botTested', { botName: bot.name })
         }

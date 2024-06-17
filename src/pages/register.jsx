@@ -24,6 +24,7 @@ import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import { PencilIcon } from '@heroicons/react/24/outline'
+import { usePostHog } from 'posthog-js/react'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -36,6 +37,7 @@ function Register({ teamCount }) {
   const [name, setName] = useState('')
   const [userType, setUserType] = useState(null)
   const [usageType, setUsageType] = useState(null)
+  const posthog = usePostHog()
 
   const userTypes = [
     { value: 'business', title: 'Business', description: 'Create chatbots for your company.' },
@@ -109,6 +111,8 @@ function Register({ teamCount }) {
             "User Type": userType,
             "Login Method": "Email"
           })
+          posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
+          posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           router.push(redirectPath)
         },
       })
@@ -143,6 +147,8 @@ function Register({ teamCount }) {
         "User Type": userType,
         "Login Method": "Google"
       })
+      posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
+      posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       router.push(redirectPath)
     },
   })

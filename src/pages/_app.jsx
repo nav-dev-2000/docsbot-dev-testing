@@ -14,6 +14,8 @@ import { HeadlessApp } from '@headstartwp/next'
 import { Link } from '@/components/blog/Link'
 import { DefaultSeo } from 'next-seo'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import posthog from 'posthog-js'
+import { PostHogProvider } from 'posthog-js/react'
 
 function getNodeText(node) {
   let text = ''
@@ -63,6 +65,29 @@ export default function App({ Component, pageProps }) {
   const { fallback = {}, themeJson = {}, ...props } = pageProps
 
   useEffect(() => {
+    // Check that PostHog is client-side (used to handle Next.js SSR)
+    if (
+      typeof window !== 'undefined' &&
+      !router.pathname.startsWith('/chat/') &&
+      !router.pathname.startsWith('/ask/') &&
+      !router.pathname.startsWith('/iframe/')
+    ) {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+        api_host:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? 'https://docsbot.ai/ph'
+            : process.env.NEXT_PUBLIC_POSTHOG_HOST,
+        ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
+        persistence: 'localStorage',
+        // Enable debug mode in development
+        loaded: (posthog) => {
+          if (process.env.NODE_ENV === 'development') posthog.debug()
+        },
+      })
+    }
+  }, [router.pathname])
+
+  useEffect(() => {
     const handleRouteChange = () => {
       if (window.bento !== undefined) {
         if (user) {
@@ -71,6 +96,7 @@ export default function App({ Component, pageProps }) {
         window.bento.view()
       }
       Mixpanel.pageview()
+      posthog?.capture('$pageview')
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)
@@ -78,6 +104,16 @@ export default function App({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
+
+  useEffect(() => {
+    if (user) {
+      // Identify sends an event, so you want may want to limit how often you call it
+      posthog?.identify(user.uid, {
+        email: user.email,
+        name: user.displayName,
+      })
+    }
+  }, [posthog, user])
 
   useEffect(() => {
     if (user && 'Beacon' in window && Beacon !== undefined && typeof Beacon === 'function') {
@@ -110,7 +146,7 @@ export default function App({ Component, pageProps }) {
       : []
 
     return (
-      <>
+      <PostHogProvider client={posthog}>
         <DefaultSeo
           title={pageTitle}
           description={description}
@@ -202,7 +238,9 @@ export default function App({ Component, pageProps }) {
         <Script id="firstpromoter1">
           {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 
-fpr("click");`}
+if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.referrer)) {
+  fpr("click");
+}`}
         </Script>
         <Script
           id="firstpromoter2"
@@ -219,154 +257,158 @@ fpr("click");`}
           `}
         </Script>
         <Analytics />
-      </>
+      </PostHogProvider>
     )
   }
 
   return (
-    <HeadlessApp
-      pageProps={pageProps}
-      settings={{
-        // instruct the framework to use Next.js link component or your own version
-        linkComponent: Link,
-      }}
-      swrConfig={{
-        /**
-         * Setting this to true will refetch content whenever the tab is refocused
-         */
-        revalidateOnFocus: false,
-        /**
-         * Settings this to true will refetch content whenever the connection is reestablished
-         */
-        revalidateOnReconnect: false,
-        /**
-         * Setting this to true will refetch content after initial load
-         */
-        revalidateOnMount: false,
-      }}
-      useYoastHtml={true}
-    >
-      <DefaultSeo
-        title="DocsBot AI - Custom chatbots from your documentation"
-        description="Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more."
-        openGraph={{
-          type: 'website',
-          locale: 'en_US',
-          url: 'https://docsbot.ai' + router.asPath,
-          siteName: 'DocsBot AI',
-          images: [
+    <PostHogProvider client={posthog}>
+      <HeadlessApp
+        pageProps={pageProps}
+        settings={{
+          // instruct the framework to use Next.js link component or your own version
+          linkComponent: Link,
+        }}
+        swrConfig={{
+          /**
+           * Setting this to true will refetch content whenever the tab is refocused
+           */
+          revalidateOnFocus: false,
+          /**
+           * Settings this to true will refetch content whenever the connection is reestablished
+           */
+          revalidateOnReconnect: false,
+          /**
+           * Setting this to true will refetch content after initial load
+           */
+          revalidateOnMount: false,
+        }}
+        useYoastHtml={true}
+      >
+        <DefaultSeo
+          title="DocsBot AI - Custom chatbots from your documentation"
+          description="Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more."
+          openGraph={{
+            type: 'website',
+            locale: 'en_US',
+            url: 'https://docsbot.ai' + router.asPath,
+            siteName: 'DocsBot AI',
+            images: [
+              {
+                url: 'https://docsbot.ai/social-card.png',
+                width: 1200,
+                height: 630,
+                alt: 'DocsBot AI',
+              },
+            ],
+          }}
+          twitter={{
+            handle: '@docsbotai',
+            site: '@docsbotai',
+            cardType: 'summary_large_image',
+          }}
+          additionalLinkTags={[
             {
-              url: 'https://docsbot.ai/social-card.png',
-              width: 1200,
-              height: 630,
-              alt: 'DocsBot AI',
+              rel: 'apple-touch-icon',
+              href: '/apple-touch-icon.png',
+              sizes: '180x180',
             },
-          ],
-        }}
-        twitter={{
-          handle: '@docsbotai',
-          site: '@docsbotai',
-          cardType: 'summary_large_image',
-        }}
-        additionalLinkTags={[
-          {
-            rel: 'apple-touch-icon',
-            href: '/apple-touch-icon.png',
-            sizes: '180x180',
-          },
-          {
-            rel: 'manifest',
-            href: '/site.webmanifest',
-          },
-          {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '16x16',
-            href: '/favicon-16x16.png',
-          },
-          {
-            rel: 'icon',
-            type: 'image/png',
-            sizes: '32x32',
-            href: '/favicon-32x32.png',
-          },
-          {
-            rel: 'mask-icon',
-            href: '/safari-pinned-tab.svg',
-            color: '#5bbad5',
-          },
-        ]}
-        additionalMetaTags={[
-          {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0, user-scalable=no',
-          },
-          {
-            charSet: 'utf-8',
-          },
-          {
-            name: 'msapplication-TileColor',
-            content: '#da532c',
-          },
-          {
-            name: 'theme-color',
-            content: '#ffffff',
-          },
-        ]}
-      />
-      <div className="h-screen">
-        <Component {...props} />
-      </div>
-      {!router.pathname.startsWith('/chat/') &&
-        !router.pathname.startsWith('/ask/') &&
-        !router.pathname.startsWith('/iframe/') && (
-          <>
-            <Script id="helpscout">
-              {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
-            </Script>
-            <Script id="docsbot">
-              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";const n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});let t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));const o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
+            {
+              rel: 'manifest',
+              href: '/site.webmanifest',
+            },
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '16x16',
+              href: '/favicon-16x16.png',
+            },
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '32x32',
+              href: '/favicon-32x32.png',
+            },
+            {
+              rel: 'mask-icon',
+              href: '/safari-pinned-tab.svg',
+              color: '#5bbad5',
+            },
+          ]}
+          additionalMetaTags={[
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+            },
+            {
+              charSet: 'utf-8',
+            },
+            {
+              name: 'msapplication-TileColor',
+              content: '#da532c',
+            },
+            {
+              name: 'theme-color',
+              content: '#ffffff',
+            },
+          ]}
+        />
+        <div className="h-screen">
+          <Component {...props} />
+        </div>
+        {!router.pathname.startsWith('/chat/') &&
+          !router.pathname.startsWith('/ask/') &&
+          !router.pathname.startsWith('/iframe/') && (
+            <>
+              <Script id="helpscout">
+                {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
+              </Script>
+              <Script id="docsbot">
+                {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";const n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});let t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));const o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",supportCallback: function (event, history) {
       event.preventDefault();
       DocsBotAI.unmount();
       Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
       Beacon('open');
   },});`}
-            </Script>
-            <Script id="firstpromoter1">
-              {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
+              </Script>
+              <Script id="firstpromoter1">
+                {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 
-fpr("click");`}
-            </Script>
-            <Script
-              id="firstpromoter2"
-              strategy="afterInteractive"
-              src="https://cdn.firstpromoter.com/fpr.js"
-            />
-            <Script
-              id="bento-script"
-              src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
-              strategy="afterInteractive"
-            />
-            <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
-            <Script id="gtag">
-              {`
+if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.referrer)) {
+  fpr("click");
+}`}
+              </Script>
+              <Script
+                id="firstpromoter2"
+                strategy="afterInteractive"
+                src="https://cdn.firstpromoter.com/fpr.js"
+              />
+              <Script
+                id="bento-script"
+                src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+                strategy="afterInteractive"
+              />
+              <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
+              <Script id="gtag">
+                {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'AW-412141971');
               `}
-            </Script>
-            <Analytics
-              beforeSend={(event) => {
-                const url = event.url.replace(/\/app\/bots\/[^\/]+/, `/app/bots/[botId]`)
-                return {
-                  ...event,
-                  url: url,
-                }
-              }}
-            />
-          </>
-        )}
-    </HeadlessApp>
+              </Script>
+              <Analytics
+                beforeSend={(event) => {
+                  const url = event.url.replace(/\/app\/bots\/[^\/]+/, `/app/bots/[botId]`)
+                  return {
+                    ...event,
+                    url: url,
+                  }
+                }}
+              />
+            </>
+          )}
+      </HeadlessApp>
+    </PostHogProvider>
   )
 }

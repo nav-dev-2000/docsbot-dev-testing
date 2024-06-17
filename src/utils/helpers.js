@@ -10,6 +10,27 @@ export const getURL = () => {
   return url.includes('http') ? url : `https://${url}`
 }
 
+// makes sure url is in the form of https://{domain}/
+export const sanitizeURL = (url) => {
+  if (!url) return null
+
+  if (!url.startsWith('https://')) {
+    url = `https://${url}/`
+  }
+
+  if (!url.endsWith('/')) {
+    url = `${url}/`
+  }
+
+  try {
+    new URL(url)
+  } catch (e) {
+    return null
+  }
+
+  return url
+}
+
 export const validateOpenAIKey = (team, key) => {
   return team.AzureDeploymentBase || /^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$/.test(key)
 }

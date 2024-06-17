@@ -16,6 +16,7 @@ import { signOut } from 'firebase/auth'
 import { routePaths } from '@/constants/routePaths.constants'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { Mixpanel } from '@/lib/mixpanel-web'
+import { usePostHog } from 'posthog-js/react'
 
 const navigation = [
   {
@@ -83,11 +84,13 @@ function Header({ navigation }) {
   const [user] = useAuthState(auth)
   const router = useRouter()
   const logoutUser = useCallback(logout, [])
+  const posthog = usePostHog()
   const signUserOut = () => {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
           Mixpanel.reset()
+          posthog?.reset()
           router.push(routePaths.ROOT)
         },
       })

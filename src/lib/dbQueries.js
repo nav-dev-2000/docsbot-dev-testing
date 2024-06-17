@@ -4,8 +4,9 @@ import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 import { i18n } from '@/constants/strings.constants'
-import bentoTrack from '@/lib/bento'
-import mpTrack from '@/lib/mixpanel'
+import { bentoTrack } from '@/lib/bento'
+import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import crypto from 'crypto'
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -37,6 +38,21 @@ export async function getBots(team, resultLimit = 1000) {
   return bots
 }
 
+export const getTeamEmail = async (team) => {
+  // grab the owner's email
+  for (let uid in team.roles) {
+    const role = team.roles[uid]
+    if (role === 'owner') {
+      const user = await getAuth().getUser(uid)
+      if (!user?.email) break;
+      return user.email
+    }
+  }
+
+  // default email fallback
+  return 'unknown-email@nomail.com';
+}
+
 const getTimeDeltaFromCalendarMonth = () => {
   // grab the current month and year
   let currentDate = new Date()
@@ -44,7 +60,7 @@ const getTimeDeltaFromCalendarMonth = () => {
   let currentYear = currentDate.getFullYear()
 
   // first day of the current month
-  var startDate = new Date(currentYear, currentMonth-1, 1)
+  var startDate = new Date(currentYear, currentMonth, 1)
 
   // calculate the difference in milliseconds
   return currentDate - startDate
@@ -690,7 +706,8 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
     bentoTrack(uid, 'track', {
       type: 'acceptInvite',
     })
-    mpTrack(uid, 'Accepted Team Invite', { ip: req.headers['x-forwarded-for'] })
+    mpTrack(uid, 'Team Invite Accepted', { ip: req.headers['x-forwarded-for'] })
+    phTrack(uid, 'Team Invite Accepted', {}, teamId)
   } catch (e) {
     console.log('Error sending bento track', e)
   }

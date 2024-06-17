@@ -9,8 +9,10 @@ import { encryptKey } from '@/lib/encryption'
 import { Configuration, OpenAIApi } from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { canUserModifyTeam, canUserDeleteTeam } from '@/utils/function.utils'
 import { validateOpenAIKey } from '@/utils/helpers'
+import { clearLastError } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -30,13 +32,14 @@ export default async function handler(req, res) {
       return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
     }
 
-    let { name, openAIKey } = req.body
+    let { name, openAIKey, weaviateUrl, weaviateApiKey } = req.body
     let newTeam = {}
     if (name) {
       newTeam.name = name
       newTeam.name.trim()
 
-      mpTrack(userId, 'Updated Team Name', { ip: req.headers['x-forwarded-for'] })
+      mpTrack(userId, 'Team Name Updated', { ip: req.headers['x-forwarded-for'] })
+      phTrack(userId, 'Team Name Updated', {}, team.id)
     }
     if (openAIKey) {
       if (!validateOpenAIKey(team, openAIKey)) {
@@ -62,10 +65,17 @@ export default async function handler(req, res) {
         newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(47, 51)
         newTeam.supportsGPT4 = isGPT4
 
-        mpTrack(userId, 'Updated OpenAI Key', { ip: req.headers['x-forwarded-for'] })
+        await clearLastError(team)
+        phTrack(userId, 'OpenAI Key Updated', {}, team.id)
       } catch (error) {
         return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
+    }
+    if (weaviateUrl) {
+      newTeam.weaviateUrl = weaviateUrl
+    }
+    if (weaviateApiKey) {
+      newTeam.weaviateApiKey = encryptKey(weaviateApiKey)
     }
 
     try {
@@ -105,9 +115,12 @@ export default async function handler(req, res) {
           .update({ currentTeam: 'ZrbLG98bbxZ9EFqiPvyl' })
       }
 
-      mpTrack(userId, 'Deleted team', {
+      mpTrack(userId, 'Team Deleted', {
         'Team name': team.name,
         ip: req.headers['x-forwarded-for'],
+      })
+      phTrack(userId, 'Team Deleted', {
+        'Team name': team.name,
       })
 
       return res.status(200).json({ message: 'Team deleted' })

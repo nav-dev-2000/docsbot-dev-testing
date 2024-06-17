@@ -229,6 +229,12 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     })
   }
 
+  const updateHelpscoutSaveMeta = async (saveMeta) => {
+    await updateHelpscout({
+      saveMeta
+    })
+  }
+
   const BotSelect = ({ onChange, value }) => {
     return (
       <select
@@ -363,7 +369,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             for customer support, you can integrate your bots with your mailboxes to automatically
             draft replies to support tickets. Please{' '}
             <Link
-              href="/documentation/developer/helpscout"
+              href="/documentation/doc/help-scout-integration"
               target="_blank"
               className="text-cyan-800 underline"
             >
@@ -531,7 +537,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             <div className="mb-4">
               <FieldToggle
                 label="Reply with Note"
-                description="If enabled, your bot will add responses as a note instead of a draft reply."
+                description="If enabled, your bot will add responses as a note with the response & sources instead of a draft reply."
                 enabled={helpScoutIntegration?.noteResponse || false}
                 setEnabled={updateHelpscoutNoteResponse}
               />
@@ -542,6 +548,14 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                 description="If the bot cannot fully answer the question, a note will be made showing relevant sources."
                 enabled={helpScoutIntegration?.sourceResponse || false}
                 setEnabled={updateHelpscoutSourceResponse}
+              />
+            </div>
+            <div className="mb-4">
+              <FieldToggle
+                label="Save Customer Info"
+                description="If enabled, responses will include user metadata (include name & email) in your questions log"
+                enabled={helpScoutIntegration.hasOwnProperty('saveMeta') ? helpScoutIntegration.saveMeta : true}
+                setEnabled={updateHelpscoutSaveMeta}
               />
             </div>
             <div className="mb-4">

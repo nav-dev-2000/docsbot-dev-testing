@@ -171,9 +171,46 @@ function Dashboard({ team, purchase }) {
     }
   ]
 
+  const removeLastError = async () => {
+    const urlParams = ['teams', team.id, 'clearError']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'POST',
+    })
+    if (response.ok) {
+      const data = await response.json()
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
+  const LastError = ({ lastError }) => {
+    if (!lastError)
+      return null;
+  
+    return (
+      <Alert title={lastError.type === 'chat' ?
+                  'A bot received an error!' :
+                  'A bot has a failing source!'
+      } type="warning" onClose={removeLastError}>
+        {lastError.type === 'chat' ?
+          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><pre>{lastError.message}</pre></p>) :
+          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><pre>{lastError.message}</pre></p>)
+        }
+      </Alert>
+    )
+  } 
+
   return (
     <DashboardWrap page="Dashboard" team={team}>
       <Alert title={errorText} type="warning" />
+      <LastError lastError={team?.lastError} />
       <UpgradeNotice team={team} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">

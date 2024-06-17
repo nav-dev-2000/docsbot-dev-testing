@@ -3,8 +3,10 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import SocialFaces from '@/components/SocialFaces'
+import { usePostHog } from 'posthog-js/react'
 
 export default function RegisterCTA({ customTitle = false, description = false, button = 'Get started'}) {
+  const posthog = usePostHog()
 
   // a list of random CTA titles
   const titles = [
@@ -101,6 +103,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
                   type="button"
                   href="/register"
                   onClick={(e) => {
+                    posthog?.capture('CTA Click', { cta: 'register', title: title })
                     if (window.bento !== undefined) {
                       window.bento.track('cta_click', { cta: 'register', title: title })
                       Mixpanel.track('CTA Click', { cta: 'Register', title: title })

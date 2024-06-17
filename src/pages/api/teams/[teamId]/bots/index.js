@@ -8,6 +8,7 @@ import { createTenant } from '@/lib/weaviate'
 import { stripePlan } from '@/utils/helpers'
 import { QueueBotCopy } from '@/lib/service'
 import { mpTrack } from '@/lib/mixpanel'
+import { phTrack } from '@/lib/posthog'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 
@@ -77,14 +78,14 @@ router.post(async (req, res) => {
     const botId = docRef.id
 
     try {
-      createTenant(botId)
+      await createTenant(team, botId)
     } catch (error) {
       console.error('Error creating bot DB', error)
       if (botId) {
         // Delete bot object
         await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
       }
-      return res.status(500).json({ message: error?.message })
+      return res.status(500).json({ message: 'Error creating bot DB. Please try again or contact support.'})
     }
 
     //increment botCounts on team
@@ -112,10 +113,11 @@ router.post(async (req, res) => {
         type: 'createBot',
         botName: botData.name,
       })
-      mpTrack(userId, 'Created Bot', {
+      mpTrack(userId, 'Bot Created', {
         'Bot name': botData.name,
         ip: req.headers['x-forwarded-for'],
       })
+      phTrack(userId, 'Bot Created', { 'Bot name': botData.name }, team.id)
     } catch (e) {
       console.log('Error sending tracking', e)
     }

@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   const helpscout = integrations.find((i) => i.id === 'helpscout')
 
   if (req.method === 'POST') {
-    const { assignedBots, assignedMailboxes, sourceResponse, noteResponse } = req.body
+    const { assignedBots, assignedMailboxes, sourceResponse, noteResponse, saveMeta } = req.body
 
     // sanity check user permissions
     if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
@@ -37,9 +37,9 @@ export default async function handler(req, res) {
       })
     }
 
-    let newTags = helpscout.tags
+    let newData = {}
     if (assignedBots) {
-      newTags = []
+      let newTags = []
       try {
         // construct new tags array
         for (let tag of helpscout.tags) {
@@ -58,54 +58,50 @@ export default async function handler(req, res) {
         return res.status(500).json({ message: 'invalid assignedBots format, should be: {\'tagid\': \'botid\' }!'})
       }
 
-      // push to firestore
-      await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
-        tags: newTags
-      })
+      newData.tags = newTags
     }
 
-    let newAssignedMailboxes = helpscout?.assignedMailboxes
     if (assignedMailboxes) {
-      newAssignedMailboxes = {}
-
+      let newAssignedMailboxes = helpscout?.assignedMailboxes || {}
       // verify mailboxes exist
       for (let mb of helpscout.mailboxes) {
         const newBotId = assignedMailboxes[mb.id]
-        if (newBotId && newBotId !== 'none') {
-          newAssignedMailboxes[mb.id] = newBotId
+        if (newBotId) {
+          if (newBotId !== 'none') {
+            newAssignedMailboxes[mb.id] = newBotId
+          } else {
+            delete newAssignedMailboxes[mb.id]
+          }
         }
       }
 
-      await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
-        assignedMailboxes: newAssignedMailboxes
-      })
+      newData.assignedMailboxes = newAssignedMailboxes
     }
 
     // update sourceResponse
-    let newSourceResponse = helpscout?.sourceResponse
     if (typeof sourceResponse !== 'undefined') {
-      newSourceResponse = sourceResponse
-      await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
-        sourceResponse
-      })
+      newData.sourceResponse = sourceResponse
     }
 
     // update noteResponse
-    let newNoteResponse = helpscout?.noteResponse
     if (typeof noteResponse !== 'undefined') {
-      newNoteResponse = noteResponse
-      await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
-        noteResponse
-      })
+      newData.noteResponse = noteResponse
     }
+
+    // update saveMeta
+    if (typeof saveMeta !== 'undefined') {
+      newData.saveMeta = saveMeta
+    }
+
+    // update firestore doc
+    await firestore.collection('teams').doc(team.id).collection('integrations').doc('helpscout').update({
+      ...newData
+    })
 
     return res.status(200).json({
       integration: {
         ...helpscout,
-        tags: newTags,
-        assignedMailboxes: newAssignedMailboxes,
-        sourceResponse: newSourceResponse,
-        noteResponse: newNoteResponse
+        ...newData
       }
     })
   }

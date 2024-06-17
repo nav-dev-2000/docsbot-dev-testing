@@ -1,7 +1,7 @@
 import { getAuth } from 'firebase-admin/auth'
 import { stripe } from '@/utils/stripe'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore } from 'firebase-admin/firestore'
 configureFirebaseApp()
 const firestore = getFirestore()
 const auth = getAuth()
@@ -9,7 +9,8 @@ import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
-import { getTeam, getUser } from '@/lib/dbQueries'
+import { phTrack } from '@/lib/posthog'
+import { getTeam, getUser, getTeamEmail } from '@/lib/dbQueries'
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -96,6 +97,12 @@ const webhookHandler = async (req, res) => {
                 stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
               })
               console.log(`🔔 Subscription updated for team ${teamId}`)
+
+              // we also save the questionLimit to the team object as well
+              const questionLimit = stripePlan(teamObj).questions
+              await transaction.update(firestore.collection('teams').doc(teamId), {
+                questionLimit,
+              })
 
               //if changing plan
               if (
@@ -191,17 +198,8 @@ const webhookHandler = async (req, res) => {
                 event.data.previous_attributes?.cancellation_details?.feedback === null &&
                 subscription.cancel_at_period_end
               ) {
-                // grab owner email; default to this if we failed to grab an email (unlikely!)
-                let owner = 'unknown-email@nomail.com';
-                for (let uid in teamObj.roles) {
-                  const role = teamObj.roles[uid]
-                  if (role === 'owner') {
-                    const user = await auth.getUser(uid)
-                    if (!user?.email) break;
-                    owner = user.email
-                    break;
-                  }
-                }
+                // grab owner email
+                let owner = await getTeamEmail(teamObj);
 
                 // Send the Slack notification
                 try {
@@ -259,6 +257,10 @@ const webhookHandler = async (req, res) => {
                     'Cancel Reason': subscription.cancellation_details.feedback || '',
                     'Cancel Comment': subscription.cancellation_details.comment || '',
                   })
+                  phTrack(teamOwner(teamObj), 'Subscription Canceled', {
+                    'Cancel Reason': subscription.cancellation_details.feedback || '',
+                    'Cancel Comment': subscription.cancellation_details.comment || '',
+                  }, teamObj.id)
                 } catch (e) {
                   console.log('Error sending bento track', e)
                 }
@@ -322,6 +324,13 @@ const webhookHandler = async (req, res) => {
                     currency: session.currency,
                     interval: plan.interval,
                   })
+                  phTrack(teamOwner(team), 'Subscribed', {
+                    plan: planName,
+                    amount:
+                      session.currency == 'jpy' ? session.amount_total : session.amount_total / 100,
+                    currency: session.currency,
+                    interval: plan.interval,
+                  }, team.id)
 
                   await slack.send({
                     attachments: [

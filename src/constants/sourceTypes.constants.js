@@ -143,7 +143,7 @@ export const sourceTypes = [
   {
     id: 'notion',
     title: 'Notion',
-    description: 'Answer questions from the content of Notion pages (BETA)',
+    description: 'Answer questions from the content of Notion pages',
     fullDescription: 'Connect to Notion via our partner Carbon and select which pages to learn from. We will download the pages, parse the content, and add them to this bot. Note that you can only have one Notion account source per bot. If you create a new Notion source for the same Notion user and account, it will replace the previous one with the selected pages.',
     icon: NotionLogo,
     isCarbon: 'NOTION',
@@ -158,8 +158,8 @@ export const sourceTypes = [
   {
     id: 'google_docs',
     title: 'Google Drive',
-    description: 'Answer questions from the content of document files in Google Drive (BETA)',
-    fullDescription: 'Connect to Google Drive via our partner Carbon and select which documents to learn from. We support Docs, Slides, Sheets, and pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Drive account source per bot. If you create a new Google Drive source for the same Google user, it will replace the previous one with the selected documents.',
+    description: 'Answer questions from the content of document files in Google Drive',
+    fullDescription: 'Connect to Google Drive via our partner Carbon and select which documents to learn from. We support Docs, Slides, Sheets, and pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, md, json, png, jpg, and audio files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Google Drive account source per bot. If you create a new Google Drive source for the same Google user, it will replace the previous one with the selected documents.',
     icon: DriveLogo,
     isCarbon: 'GOOGLE_DRIVE',
     isPro: true,
@@ -173,8 +173,8 @@ export const sourceTypes = [
   {
     id: 'dropbox',
     title: 'Dropbox',
-    description: 'Answer questions from the content of document files in Dropbox (BETA)',
-    fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    description: 'Answer questions from the content of document files in Dropbox',
+    fullDescription: 'Connect to Dropbox via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, md, json, png, jpg, and audio files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: DropboxLogo,
     isCarbon: 'DROPBOX',
     isPro: true,
@@ -188,8 +188,8 @@ export const sourceTypes = [
   {
     id: 'onedrive',
     title: 'OneDrive',
-    description: 'Answer questions from the content of document files in Microsoft OneDrive (BETA)',
-    fullDescription: 'Connect to Microsoft OneDrive via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    description: 'Answer questions from the content of document files in Microsoft OneDrive',
+    fullDescription: 'Connect to Microsoft OneDrive via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, md, json, png, jpg, and audio files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: CloudIcon,
     isCarbon: 'ONEDRIVE',
     isPro: true,
@@ -203,8 +203,8 @@ export const sourceTypes = [
   {
     id: 'box',
     title: 'Box',
-    description: 'Answer questions from the content of document files in Box cloud storage (BETA)',
-    fullDescription: 'Connect to Box cloud storage via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
+    description: 'Answer questions from the content of document files in Box cloud storage',
+    fullDescription: 'Connect to Box cloud storage via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, md, json, png, jpg, and audio files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Dropbox account source per bot. If you create a new Dropbox source for the same user, it will replace the previous one with the selected documents.',
     icon: BoxLogo,
     isCarbon: 'BOX',
     isPro: true,
@@ -218,8 +218,8 @@ export const sourceTypes = [
   {
     id: 'sharepoint',
     title: 'SharePoint',
-    description: 'Answer questions from the content of document files in Microsoft SharePoint (BETA)',
-    fullDescription: 'Connect to Microsoft SharePoint via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, png, jpg, and md files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Sharepoint source per bot. If you create a new Sharepoint source for the same user, it will replace the previous one with the selected documents. When asked for your Sharepoint tenant and site name, you can get them from the SharePoint site URL. Example for https://uglyrobot.sharepoint.com/sites/docsbot, "uglyrobot" is the tenant and "docsbot" is the site name.',
+    description: 'Answer questions from the content of document files in Microsoft SharePoint',
+    fullDescription: 'Connect to Microsoft SharePoint via our partner Carbon and select which documents to learn from. We support pdf, docx, pptx, xlsx, csv, tsv, rtf, txt, md, json, png, jpg, and audio files. We will download the documents, parse the content, and add them to this bot. Note that you can only have one Sharepoint source per bot. If you create a new Sharepoint source for the same user, it will replace the previous one with the selected documents. When asked for your Sharepoint tenant and site name, you can get them from the SharePoint site URL. Example for https://uglyrobot.sharepoint.com/sites/docsbot, "uglyrobot" is the tenant and "docsbot" is the site name.',
     icon: SharepointLogo,
     isCarbon: 'SHAREPOINT',
     isPro: true,
@@ -233,7 +233,7 @@ export const sourceTypes = [
   {
     id: 'zendesk',
     title: 'Zendesk',
-    description: 'Answer questions from Zendesk Help Center articles (BETA)',
+    description: 'Answer questions from Zendesk Help Center articles',
     fullDescription: 'Connect to Zendesk via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
     icon: ZendeskLogo,
     isCarbon: 'ZENDESK',
@@ -248,7 +248,7 @@ export const sourceTypes = [
   {
     id: 'intercom',
     title: 'Intercom',
-    description: 'Answer questions from Intercom Help Center articles (BETA)',
+    description: 'Answer questions from Intercom Help Center articles',
     fullDescription: 'Connect to Intercom via our partner Carbon and we will import all Help Center articles. Note that you can only have one Intercom account source per bot. If you create a new Intercom source for the same Intercom account, it will replace the previous one.',
     icon: IntercomLogo,
     isCarbon: 'INTERCOM',
@@ -263,7 +263,7 @@ export const sourceTypes = [
   {
     id: 'freshdesk',
     title: 'Freshdesk',
-    description: 'Answer questions from Freshdesk articles (BETA)',
+    description: 'Answer questions from Freshdesk articles',
     fullDescription: 'Connect to Freshdesk via our partner Carbon and we will import all Published articles. Note that you can only have one Freshdesk account source per bot. If you create a new Freshdesk source for the same account, it will replace the previous one.',
     icon: FreshdeskLogo,
     isCarbon: 'FRESHDESK',

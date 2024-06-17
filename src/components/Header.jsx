@@ -14,16 +14,19 @@ import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { Mixpanel } from '@/lib/mixpanel-web'
 import { HeaderBanner } from '@/components/HeaderBanners'
+import { usePostHog } from 'posthog-js/react'
 
 export default function Header() {
   const [user] = useAuthState(auth)
   const router = useRouter()
+  const posthog = usePostHog()
   const logoutUser = useCallback(logout, [])
   const signUserOut = () => {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
           Mixpanel.reset()
+          posthog?.reset()
           router.push(routePaths.ROOT)
         },
       })

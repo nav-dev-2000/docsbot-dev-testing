@@ -15,6 +15,7 @@ import {
   Cog6ToothIcon,
   ArrowPathIcon,
 } from '@heroicons/react/20/solid'
+import { usePostHog } from 'posthog-js/react'
 
 const features = [
   {
@@ -80,6 +81,7 @@ const features = [
 ]
 
 export const AiSupportSavingsCalculator = () => {
+  const posthog = usePostHog()
   const [supportTickets, setSupportTickets] = useState(600)
   const [timePerTicket, setTimePerTicket] = useState(10)
   const [hourlyRate, setHourlyRate] = useState(18)
@@ -313,6 +315,7 @@ export default function Calculate() {
                         type="button"
                         href="/register"
                         onClick={(e) => {
+                          posthog?.capture('CTA Click', { cta: 'Blog Register', title: 'Automate Your Customer Support Now!' })
                           if (window.bento !== undefined) {
                             window.bento.track('cta_click', {
                               cta: 'blog_register',

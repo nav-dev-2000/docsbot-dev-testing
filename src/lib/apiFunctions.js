@@ -1,9 +1,9 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldPath } from 'firebase-admin/firestore'
+import { getFirestore, FieldPath, FieldValue } from 'firebase-admin/firestore'
 import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
-import { getBot } from '@/lib/dbQueries'
-import { deleteSchema, deleteTenant } from '@/lib/weaviate'
+import { getBot, getTeam } from '@/lib/dbQueries'
+import { deleteTenant } from '@/lib/weaviate'
 import { QueueSourceExpel } from '@/lib/service'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { getCarbonCustomerID } from '@/lib/carbon'
@@ -85,6 +85,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
           {
             filters: {
               source: carbonSourceFilters[source.type],
+              include_containers: false, // we want a flat response, no folders
             },
             pagination: {
               limit: perPage,
@@ -134,6 +135,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
 export const deleteBot = async (teamId, botId) => {
   configureFirebaseApp()
   const firestore = getFirestore()
+  const team = await getTeam(teamId)
   const bot = await getBot(teamId, botId)
   if (!bot) {
     return false
@@ -301,7 +303,7 @@ export const deleteBot = async (teamId, botId) => {
   //delete schema in weaviate async
   if (bot.indexId === 'TenantDocument') {
     try {
-      deleteTenant(botId)
+      deleteTenant(team, botId)
     } catch (error) {
       console.warn('Error deleting Weaviate Tenant:', error)
     }
@@ -401,7 +403,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (model !== undefined) {
-    if (model === 'gpt-4' || model === 'gpt-4-turbo') {
+    if (model.startsWith('gpt-4')) {
       if (!team.supportsGPT4) {
         throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
       } else if (stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
@@ -415,13 +417,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4',
       'gpt-4-turbo',
       'gpt-4-1106-preview',
+      'gpt-4o',
     ]
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
     botData.model = model
   } else if (!isUpdate) {
-    botData.model = 'gpt-3.5-turbo'
+    botData.model = team.supportsGPT4 ? 'gpt-4o' : 'gpt-3.5-turbo'
   }
 
   if (customPrompt !== undefined) {
@@ -583,4 +586,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   return botData
+}
+
+export async function clearLastError(team) {
+  configureFirebaseApp()
+  const firestore = getFirestore()
+
+  // if the team doesn't have a lasterror, ignore!
+  if (!team?.lastError)
+    return;
+
+  await firestore.collection('teams').doc(team.id).update({
+    lastError: FieldValue.delete()
+  })
 }
