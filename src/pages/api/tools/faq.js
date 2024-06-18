@@ -52,9 +52,11 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { siteURL } = req.body
     const url = new URL(siteURL)
+    // we can't use url.href because it includes the path, query and other annoyances
+    const hrefURL = `${url.protocol}//${url.hostname}/`
 
     // check cache
-    const cachedData = await lookupFAQs(url.href)
+    const cachedData = await lookupFAQs(hrefURL)
     if (cachedData) {
       return res
         .status(200)
@@ -75,8 +77,8 @@ export default async function handler(req, res) {
 
     try {
       const [content, screenCaptures] = await Promise.all([
-        scrapeURL(url.href),
-        getURLScreenCap(url.href),
+        scrapeURL(hrefURL),
+        getURLScreenCap(hrefURL),
       ])
 
       if (!content) {
@@ -179,7 +181,7 @@ export default async function handler(req, res) {
       // save data && send response
       await saveFAQs(
         ip,
-        url.href,
+        hrefURL,
         screenCaptures.full,
         screenCaptures.thumbnail,
         responseData.summary,
