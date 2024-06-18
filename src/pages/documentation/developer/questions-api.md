@@ -146,3 +146,52 @@ Response is a JSON object with `questions` as an array of question objects, and 
   }
 }
 ```
+
+## Delete Questions
+
+This endpoint lets you delete questions from your bot's question log. It accepts a DELETE request with no query parameters
+
+`DELETE https://docsbot.ai/api/teams/:teamId/bots/:botId/questions/:questionId`
+
+
+### Examples
+
+#### cURL
+
+```bash
+curl --request DELETE 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/questions/FHSGF2524i25xbZRyySL' \
+--header 'Authorization: Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+```
+
+#### JavaScript (Fetch)
+
+```js
+var myHeaders = new Headers()
+myHeaders.append(
+  'Authorization',
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+)
+
+var requestOptions = {
+  method: 'DELETE',
+  headers: myHeaders,
+}
+
+fetch(
+  'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/questions/FHSGF2524i25xbZRyySL',
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log('error', error))
+```
+
+### Response
+
+Response is a JSON object with 1 field, 'message'. In case of failure this field will be a descriptive string describing the error. For success, message will be 'success' with an HTTP status code of 200:
+
+```
+{
+  message: "success"
+}
+```
