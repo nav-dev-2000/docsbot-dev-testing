@@ -19,7 +19,11 @@ Q/A bots are the simplest and is used to get answers to questions. You pass it o
 
 The chat API is more complex and is used to create a full chat interface in your product. You pass it a question plus chat history, and it returns the next answer along with its sources. It also returns the new chat history array to pass back with the next response. This is the endpoint you should use if you want to create a full chat interface in your product.
 
-The Chat API is stateless, meaning we don't track chat sessions between requests via a cookie or any other method. It's the responsibility of your code to do any session tracking by saving the returned chat history to send with the next request. This makes it a bit more complex to implement, but it also makes it more flexible and allows you to use the API in any way you want. 
+{% callout title="Chat Agent API (NEW)" %}
+The [Chat Agent API](/documentation/developer/chat-agent) is our latest and most powerful API for integrating conversational chatbots with your product. You input a question and receive the answer along with its sources. This API can employ multiple agent tools to address queries and perform actions, and even accept images for multimodal chats when using supported models. For output it supports both non-streaming and streaming responses using SSE (similar to the OpenAI API).
+{% /callout %}
+
+The original Chat API is stateless, meaning we don't track chat sessions between requests via a cookie or any other method. It's the responsibility of your code to do any session tracking by saving the returned chat history to send with the next request. This makes it a bit more complex to implement, but it also makes it more flexible and allows you to use the API in any way you want. 
 
 [Read more about the Chat API](/documentation/developer/chat-api)
 
@@ -27,4 +31,4 @@ The Chat API is stateless, meaning we don't track chat sessions between requests
 
 ## REST vs Websocket Streaming APIs
 
-There are two ways to use the chat APIs: REST and streaming via websocket. The REST API is the simplest as its just a simple HTTP request and response. The streaming API is more complex as it requires a websocket connection to be established and maintained. The streaming API is more efficient as it allows you to receive responses as soon as they are available, rather than waiting for the entire response to be generated. It also allows you to display the answers as they are being generated, rather than waiting for the entire response to be generated then returned. This makes for a much more interactive experience for the user.
+There are two ways to use the older chat APIs: REST and streaming via websocket. The REST API is the simplest as its just a simple HTTP request and response. The streaming API is more complex as it requires a websocket connection to be established and maintained. The streaming API is more efficient as it allows you to receive responses as soon as they are available, rather than waiting for the entire response to be generated. It also allows you to display the answers as they are being generated, rather than waiting for the entire response to be generated then returned. This makes for a much more interactive experience for the user.

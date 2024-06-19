@@ -1,0 +1,222 @@
+event: stream
+data: The
+
+event: stream
+data:  Pro
+
+event: stream
+data:  plan
+
+event: stream
+data:  is
+
+event: stream
+data:  the
+
+event: stream
+data:  most
+
+event: stream
+data:  suitable
+
+event: stream
+data:  for
+
+event: stream
+data:  
+
+event: stream
+data: 10
+
+event: stream
+data:  bots
+
+event: stream
+data: .
+
+event: stream
+data:  It
+
+event: stream
+data:  offers
+
+event: stream
+data:  
+
+event: stream
+data: 10
+
+event: stream
+data:  Docs
+
+event: stream
+data: B
+
+event: stream
+data: ots
+
+event: stream
+data: ,
+
+event: stream
+data:  
+
+event: stream
+data: 10
+
+event: stream
+data: k
+
+event: stream
+data:  Source
+
+event: stream
+data:  Pages
+
+event: stream
+data: ,
+
+event: stream
+data:  weekly
+
+event: stream
+data:  source
+
+event: stream
+data:  refresh
+
+event: stream
+data: ,
+
+event: stream
+data:  
+
+event: stream
+data: 10
+
+event: stream
+data: k
+
+event: stream
+data:  questions
+
+event: stream
+data:  per
+
+event: stream
+data:  month
+
+event: stream
+data: ,
+
+event: stream
+data:  private
+
+event: stream
+data:  bots
+
+event: stream
+data: ,
+
+event: stream
+data:  G
+
+event: stream
+data: PT
+
+event: stream
+data: -
+
+event: stream
+data: 4
+
+event: stream
+data: o
+
+event: stream
+data:  support
+
+event: stream
+data: ,
+
+event: stream
+data:  
+
+event: stream
+data: 5
+
+event: stream
+data:  team
+
+event: stream
+data:  users
+
+event: stream
+data: ,
+
+event: stream
+data:  advanced
+
+event: stream
+data:  analytics
+
+event: stream
+data: ,
+
+event: stream
+data:  Zap
+
+event: stream
+data: ier
+
+event: stream
+data:  integration
+
+event: stream
+data: ,
+
+event: stream
+data:  chat
+
+event: stream
+data:  history
+
+event: stream
+data: ,
+
+event: stream
+data:  un
+
+event: stream
+data: br
+
+event: stream
+data: anded
+
+event: stream
+data:  chat
+
+event: stream
+data:  widgets
+
+event: stream
+data: ,
+
+event: stream
+data:  and
+
+event: stream
+data:  prompt
+
+event: stream
+data:  customization
+
+event: stream
+data: .
+
+event: lookup_answer
+data: {"answer": "The Pro plan is the most suitable for 10 bots. It offers 10 DocsBots, 10k Source Pages, weekly source refresh, 10k questions per month, private bots, GPT-4o support, 5 team users, advanced analytics, Zapier integration, chat history, unbranded chat widgets, and prompt customization.", "history": [{"Human": "What plan is best for 10 bots?", "timestamp": "2024-06-19T17:51:46.596807"}, {"AI": "The Pro plan is the most suitable for 10 bots. It offers 10 DocsBots, 10k Source Pages, weekly source refresh, 10k questions per month, private bots, GPT-4o support, 5 team users, advanced analytics, Zapier integration, chat history, unbranded chat widgets, and prompt customization.", "timestamp": "2024-06-19T17:51:53.695132", "type": "lookup_answer"}], "sources": [{"page": null, "title": "DocsBot AI - Custom chatbots from your documentation", "type": "url", "url": "https://docsbot.ai", "used": true}], "id": "QcjnsNybFyEUgpze6wqL", "couldAnswer": true}
+
+event: is_resolved_question
+data: {"answer": "Was that helpful?", "history": [{"Human": "What plan is best for 10 bots?", "timestamp": "2024-06-19T17:51:46.596807"}, {"AI": "The Pro plan is the most suitable for 10 bots. It offers 10 DocsBots, 10k Source Pages, weekly source refresh, 10k questions per month, private bots, GPT-4o support, 5 team users, advanced analytics, Zapier integration, chat history, unbranded chat widgets, and prompt customization.", "timestamp": "2024-06-19T17:51:53.695132", "type": "lookup_answer"}, {"AI": "Was that helpful?", "timestamp": "2024-06-19T17:51:56.212586", "type": "is_resolved_question", "options": {"yes": "\ud83d\udc4d That helped", "no": "No"}}], "options": {"yes": "\ud83d\udc4d That helped", "no": "No"}}
+
