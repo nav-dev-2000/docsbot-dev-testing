@@ -8,6 +8,7 @@ export default async function handler(request, response) {
   const firestore = getFirestore()
 
   // this is a public endpoint, however our 'cron' path is protected by a key; TODO: can this be an env var?
+  // To test: curl "http://localhost:3000/api/cron/crawler?key=efjl95hdjysgq26912"
   if (!request.query.key || request.query.key !== 'efjl95hdjysgq26912') {
     response.status(404).end()
     return
