@@ -139,7 +139,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }, [team, user])
 
   useEffect(() => {
-    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)
+    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
   }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer])
 
   const Sources = ({ sources }) => {

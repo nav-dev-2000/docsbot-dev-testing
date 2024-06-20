@@ -6,13 +6,23 @@ import Alert from '@/components/Alert'
 import { getBot, getQuestions } from '@/lib/dbQueries'
 import TableQuestions from '@/components/TableQuestions'
 
+const buildParams = (ipFilter, rating, escalated, couldAnswer, dateRange) => {
+  const params = []
+  if (ipFilter !== null && ipFilter !== undefined) params.push('ip=' + ipFilter)
+  if (rating !== null && rating !== undefined) params.push('rating=' + rating)
+  if (escalated !== null && escalated !== undefined) params.push('escalated=' + escalated)
+  if (couldAnswer !== null && couldAnswer !== undefined) params.push('couldAnswer=' + couldAnswer)
+  if (dateRange !== null && dateRange !== undefined) params.push('dateRange=' + dateRange)
+  return params.join('&')
+}
+
 function Questions({ team, bot, preQuestions }) {
   const [questions, setQuestions] = useState(preQuestions)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const { botId } = router.query
 
-  async function changePage(page, ipFilter, rating, escalated, couldAnswer, ) {
+  async function changePage(page, ipFilter, rating, escalated, couldAnswer, dateRange) {
     setErrorText(null)
     const urlParams = [
       'teams',
@@ -20,11 +30,7 @@ function Questions({ team, bot, preQuestions }) {
       'bots',
       botId,
       'questions?page=' +
-        page +
-        (ipFilter !== null && ipFilter !== undefined ? '&ip=' + ipFilter : '') +
-        (rating !== null && rating !== undefined ? '&rating=' + rating : '') +
-        (couldAnswer !== null && couldAnswer !== undefined ? '&couldAnswer=' + couldAnswer : '') +
-        (escalated !== null && escalated !== undefined ? '&escalated=' + escalated : ''),
+        page + '&' + buildParams(ipFilter, rating, escalated, couldAnswer, dateRange),
     ]
     const path = '/api/' + urlParams.join('/')
 
