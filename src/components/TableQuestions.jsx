@@ -37,7 +37,7 @@ import ModalExport from '@/components/ModalExport'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
-export default function TableQuestions({ team, bot, questions, setQuestions, changePage }) {
+export default function TableQuestions({ team, bot, questions, setQuestions, changePage, buildParams }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
@@ -263,9 +263,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     setExporting(true)
 
     // ask api to generate logs
-    const apiUrl = `/api/teams/${team.id}/bots/${
-      bot.id
-    }/export-log?startDate=${dateRange.startDate.toString()}&endDate=${dateRange.endDate.toString()}`
+    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log?${buildParams(ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)}`
     try {
       const response = await fetch(apiUrl, {
         method: 'GET',
@@ -684,7 +682,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
             perPage={questions.pagination.perPage}
             totalCount={questions.pagination.viewableCount}
             page={questions.pagination.page}
-            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)}
+            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)}
           />
         </div>
         <div className="mt-4 flex items-center space-x-4 lg:mt-2">

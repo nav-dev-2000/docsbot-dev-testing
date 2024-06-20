@@ -12,7 +12,7 @@ const buildParams = (ipFilter, rating, escalated, couldAnswer, dateRange) => {
   if (rating !== null && rating !== undefined) params.push('rating=' + rating)
   if (escalated !== null && escalated !== undefined) params.push('escalated=' + escalated)
   if (couldAnswer !== null && couldAnswer !== undefined) params.push('couldAnswer=' + couldAnswer)
-  if (dateRange !== null && dateRange !== undefined) params.push('dateRange=' + dateRange)
+  if (dateRange !== null && dateRange !== undefined) params.push(`startDate=${dateRange.startDate.toString()}&endDate=${dateRange.endDate.toString()}`)
   return params.join('&')
 }
 
@@ -67,6 +67,7 @@ function Questions({ team, bot, preQuestions }) {
         setQuestions={setQuestions}
         bot={bot}
         changePage={changePage}
+        buildParams={buildParams}
       />
     </DashboardWrap>
   )
