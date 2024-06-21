@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { CarbonConnect } from 'carbon-connect'
 import {
   XMarkIcon,
   TrashIcon,
@@ -17,12 +18,92 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
 import ScheduleSelect from '@/components/ScheduleSelect'
-import { canSourceTypeSchedule, canSourceTypeDownload } from '@/constants/sourceTypes.constants'
+import { canSourceTypeSchedule, canSourceTypeDownload, isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 import Link from 'next/link'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
+
+// shows how to refresh a source after changing/deleting files from the carbon file picker component
+const ModalCarbonSourceInfo = ({ open, setOpen }) => {
+  return (
+    <>
+      <Transition.Root show={open} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => {
+            setOpen(false)
+          }}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:flex">
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={() => {
+                        setOpen(false)
+                      }}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  <div className="p-8">
+                    <div className="pb-2">
+                      <h3 className="inline-flex text-2xl font-bold">How to delete files from Carbon</h3>
+                    </div>
+                    <div className="pb-2">
+                      <img src="/images/carbon-delete.png" alt="Carbon delete" className="w-full" />
+                    </div>
+                    <div className="pb-2">
+                      <p className="text-lg text-gray-500">To delete files from your Carbon source, click on the "Manage Files" button. This will open the Carbon file picker where you can remove or add files. Once complete, click on the "Refresh" button to update your source.</p>
+                    </div>
+                    <div className="flex flex-shrink-0 items-end justify-end">
+                      <button
+                        onClick={() => {
+                          setOpen(false)
+                        }}
+                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      >
+                        Understood
+                      </button>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+    </>
+  )
+}
 
 export default function ModalSource({
   team,
@@ -33,6 +114,8 @@ export default function ModalSource({
   defaultOpen = false,
 }) {
   const [open, setOpen] = useState(defaultOpen)
+  const [carbonInfoOpen, setCarbonInfoOpen] = useState(false)
+  const [carbonOpen, setCarbonOpen] = useState(false)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
@@ -64,6 +147,11 @@ export default function ModalSource({
         setSources((sources) => sources.map((s) => (s.id === sourceData.id ? sourceData : s)))
       }
     }
+  }
+
+  const carbonTokenFetcher = async () => {
+    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`)
+    return await response.json()
   }
 
   //when opening modal, fetch source details
@@ -144,6 +232,27 @@ export default function ModalSource({
         setErrorText('Error ' + response.status + ', please try again.')
       }
       setSubmitting(false)
+    }
+  }
+
+  const carbonIcon = (type) => {
+    switch (type) {
+      case 'NOTION':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'NOTION_DATABASE':
+        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_DOCS':
+        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SLIDES':
+        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'GOOGLE_SHEETS':
+        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'INTERCOM':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      case 'DROPBOX':
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+      default:
+        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
     }
   }
 
@@ -231,30 +340,23 @@ export default function ModalSource({
     setShowInterval(canSourceTypeSchedule(source?.type))
   }, [source])
 
-  const carbonIcon = (type) => {
-    switch (type) {
-      case 'NOTION':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'NOTION_DATABASE':
-        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_DOCS':
-        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_SLIDES':
-        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'GOOGLE_SHEETS':
-        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'INTERCOM':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      case 'DROPBOX':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-      default:
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+  const updateCarbon = async (evnt) => {
+    console.log(evnt)
+
+    if (evnt.action === 'UPDATE') {
+      await refreshSource()
     }
   }
 
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCarbonSourceInfo open={carbonInfoOpen} setOpen={(open) => {
+        if (!open) {
+          setCarbonInfoOpen(false)
+          setCarbonOpen(true)
+        }
+      }} />
       <a
         type="button"
         className="m-0 block cursor-pointer"
@@ -408,14 +510,14 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source?.carbonFiles && source?.carbonFiles?.length > 0 && (
+                    {source?.isCarbon && source?.carbonFiles && source?.carbonFiles?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Documents{' '}
                           <em className="text-sm text-slate-500">({source?.carbonFiles.length})</em>
                           :
                         </h2>
-                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2 mb-2">
                           <ul role="list" className="grid grid-cols-2 space-x-2 space-y-2">
                             {source?.carbonFiles.map((item) => (
                               <li
@@ -439,6 +541,40 @@ export default function ModalSource({
                             ))}
                           </ul>
                         </div>
+                        <CarbonConnect
+                          tokenFetcher={carbonTokenFetcher}
+                          orgName="DocsBot AI"
+                          brandIcon="/.well-known/logo.png"
+                          primaryBackgroundColor="#0891B2"
+                          primaryTextColor="#FFFFFF"
+                          secondaryBackgroundColor="#FFFFFF"
+                          onSuccess={updateCarbon}
+                          onError={(error) => console.warn(error)}
+                          open={carbonOpen}
+                          setOpen={setCarbonOpen}
+                          tags={{ botId: bot.id, teamId: team.id }}
+                          entryPoint={source.isCarbon}
+                          showFilesTab={true}
+                          filePickerMode={"FILES"}
+                          enabledIntegrations={[
+                            {
+                              id: source.isCarbon,
+                              chunkSize: 500,
+                              overlapSize: 50,
+                            },
+                          ]}
+                        />
+                        <button
+                          onClick={() => {
+                            setCarbonInfoOpen(true)
+                          }}
+                          className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                        >
+                          <>
+                            <source.icon className="h-5 w-5" />
+                            <span>Manage files</span>
+                          </>
+                        </button>
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
@@ -507,6 +643,20 @@ export default function ModalSource({
                               Save
                             </button>
                           </div>
+                        )}
+                        {!showInterval && isCarbonSourceType(source?.type) && (
+                          <div className="flex flex-shrink-0 items-end justify-end">
+                          <button
+                            type="button"
+                            className={"inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75" +
+                              (canModify ? " hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 border-gray-300 bg-white" : " border-gray-200 bg-gray-300 cursor-not-allowed")}
+                            onClick={refreshSource}
+                            disabled={submitting || locked !== null || !canModify}
+                          >
+                            <ArrowPathIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+                            Refresh
+                          </button>
+                        </div>
                         )}
                       </div>
                     )}

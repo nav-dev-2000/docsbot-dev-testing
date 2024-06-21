@@ -42,7 +42,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [scheduleInterval, setScheduleInterval] = useState('none')
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
   const [carbonId, setCarbonId] = useState(null)
-  const [carbonFiles, setCarbonFiles] = useState(null)
   const [canModifySources, setCanModifySources] = useState(() => canUserModifySources(team, user?.uid))
 
   useEffect(() => {
@@ -111,6 +110,10 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
   const carbonOnSuccess = async (response) => {
     console.log('OnSuccess callback called!', response)
+
+    // only listen to UPDATE/ADD events
+    if (!["UPDATE", "ADD"].includes(response.action)) return;
+
     if (!response.data || !response.data?.data_source_external_id) {
       return
     }
@@ -121,9 +124,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     } else if (response.data.data_source_external_id.includes('-')) {
       carbon = response.data.data_source_external_id.split('-');
     }
+    console.log(carbon, response)
     setTitle('Account: ' + carbon[1]);
     setCarbonId(carbon[1]);
-    setCarbonFiles(response.data.files)
   }
 
   // create carbon source automatically
@@ -515,7 +518,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
               className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               onClick={() => {
                 setFile(null)
-                setCarbonFiles(null)
                 if (selectedSourceType) {
                   setSelectedSourceType(null)
                 } else {
@@ -540,6 +542,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 onError={(error) => console.warn(error)}
                 tags={{ botId: bot.id, teamId: team.id }}
                 entryPoint={selectedSourceType?.isCarbon}
+                showFilesTab={false}
                 enabledIntegrations={[
                   {
                     id: selectedSourceType?.isCarbon,
@@ -555,7 +558,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   {isUpdating ? (
                     <>
                       <LoadingSpinner className="mr-3" />
-                      <span>Adding {carbonFiles.length} pages</span>
+                      <span>Adding source...</span>
                     </>
                   ) : (
                     <>
