@@ -43,8 +43,8 @@ export default async function handler(request, response) {
         if (teamData?.lastError && teamData.lastError?.emailSent == false) {
           const lastError = teamData.lastError
 
-          // send email (only send for staff account for now)
-          if (['ZrbLG98bbxZ9EFqiPvyl'].includes(teamDoc.id)) {
+          // this list is temporary. maybe have a flag in the team document instead?
+          if (['ZrbLG98bbxZ9EFqiPvyl', 'qgLhgCi4fr7IrqJT3Pcj'].includes(teamDoc.id)) {
             await sendErrorEmail(teamData, lastError)
           }
 
