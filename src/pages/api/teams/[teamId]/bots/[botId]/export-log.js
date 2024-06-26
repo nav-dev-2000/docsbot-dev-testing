@@ -3,10 +3,8 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getBot, getUser } from '@/lib/dbQueries';
+import { getBot, getQuestions } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
-import getFakeUserByIp from '@/utils/fakeUsers';
-import sendEmail from '@/lib/sendEmail';
 import { stringify } from '@vanillaes/csv'
 import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
