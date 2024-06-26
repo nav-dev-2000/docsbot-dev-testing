@@ -3,8 +3,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import Datepicker from 'react-tailwindcss-datepicker'
-import Alert from '@/components/Alert'
 
 export default function ModalExport({ team, bot, open, setOpen, downloadLogs, isProcessing }) {
   return (

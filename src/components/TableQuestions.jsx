@@ -34,6 +34,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
 import ModalExport from '@/components/ModalExport'
+import Datepicker from 'react-tailwindcss-datepicker'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -49,6 +50,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     endDate: new Date(),
   })
   const [user] = useAuthState(auth)
+  const [errorText, setErrorText] = useState(null)
 
   const filterOptions = [
     {
@@ -140,7 +142,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
 
   useEffect(() => {
     changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
-  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer])
+  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange])
 
   const Sources = ({ sources }) => {
     return (
@@ -429,7 +431,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           {children}
         </button>
         <Transition.Root show={open} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={setOpen}>
+          <Dialog as="div" className="relative z-5" onClose={setOpen}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -442,7 +444,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
               <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
             </Transition.Child>
 
-            <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="fixed inset-0 z-5 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                 <Transition.Child
                   as={Fragment}
@@ -662,8 +664,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
         </button>
       </div>
     </div>
-    <ModalExport team={team} bot={bot} open={exportOpen} setOpen={setExportOpen} downloadLogs={downloadLogs} isProcessing={exporting} />
+    <ModalExport team={team} bot={bot} open={exportOpen} setOpen={setExportOpen} downloadLogs={async () => { await downloadLogs(); setExportOpen(false) }} isProcessing={exporting} />
 
+    <Alert title={errorText} type="error" className="rounded-t-lg"/>
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-0">
         <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
@@ -678,6 +681,20 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
             setFilters={setFilters}
             filterOptions={filterOptions}
           />
+          <div className="light overflow-visible">
+            <Datepicker
+              value={dateRange}
+              primaryColor="cyan"
+              onChange={setDateRange}
+              showShortcuts={true}
+              useRange={false}
+              minDate={new Date(bot.createdAt)}
+              maxDate={new Date()}
+              classNames={{
+                container: 'z-10',
+              }}
+            />
+          </div>
           <Paginator
             perPage={questions.pagination.perPage}
             totalCount={questions.pagination.viewableCount}
@@ -745,38 +762,38 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                   <tr>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       User
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
+                      className="sticky top-16 z-5 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
                     >
                       Question
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Answer
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Sources
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Rating
                     </th>
                     {bot?.classify && (
                       <th
                         scope="col"
-                        className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                        className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                       >
                         Could Answer
                       </th>
