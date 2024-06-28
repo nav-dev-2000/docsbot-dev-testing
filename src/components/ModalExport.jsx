@@ -3,60 +3,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import Datepicker from 'react-tailwindcss-datepicker'
-import Alert from '@/components/Alert'
 
-export default function ModalExport({ team, bot, open, setOpen }) {
-  const [isProcessing, setIsProcessing] = useState(false)
-  const [errorText, setErrorText] = useState(null)
-  const [infoText, setInfoText] = useState(null)
-  const [value, setValue] = useState({
-    startDate: bot.createdAt,
-    endDate: new Date(),
-  })
-
-  const downloadLogs = async () => {
-    if (isProcessing) {
-      return
-    }
-    setIsProcessing(true)
-
-    // ask api to generate logs
-    const apiUrl = `/api/teams/${team.id}/bots/${
-      bot.id
-    }/export-log?startDate=${value.startDate.toString()}&endDate=${value.endDate.toString()}`
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-      if (response.ok) {
-        // we get a signed url back
-        const { url } = await response.json()
-        var link = document.createElement('a')
-        link.href = url
-        link.click()
-        link.remove()
-
-        setInfoText('Successfully exported logs! Your download should start soon.')
-      } else {
-        try {
-          const { message } = await response.json()
-          setErrorText(message)
-        } catch (e) {
-          console.warn(e)
-          setErrorText('Something went wrong, please try again.')
-        }
-      }
-    } catch (e) {
-      console.warn(e)
-      setErrorText('Something went wrong, please try again.')
-    }
-    setIsProcessing(false)
-  }
-
+export default function ModalExport({ team, bot, open, setOpen, downloadLogs, isProcessing }) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -95,19 +43,8 @@ export default function ModalExport({ team, bot, open, setOpen }) {
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                <Alert title={infoText} type="info" />
-                <Alert title={errorText} type="warning" />
                 <div className="light mt-4 overflow-visible">
-                  <label className="block text-sm font-medium text-gray-700">Date range</label>
-                  <Datepicker
-                    value={value}
-                    primaryColor="cyan"
-                    onChange={setValue}
-                    showShortcuts={true}
-                    useRange={false}
-                    minDate={new Date(bot.createdAt)}
-                    maxDate={new Date()}
-                  />
+                  <p>This will export all logs with the currently applied filters from {bot.name} as a CSV file. Are you sure?</p>
                 </div>
                 <div className="mt-6 flex w-full flex-shrink-0 items-end justify-end">
                   <button

@@ -17,6 +17,8 @@ import {
   TrashIcon,
   CheckCircleIcon,
   MinusCircleIcon,
+  ChevronLeftIcon,
+  ChartBarIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
@@ -30,97 +32,26 @@ import LocaleDateTime from '@/components/LocaleDateTime'
 import QuestionFilters from '@/components/QuestionFilters'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
-
 import { canUserEditBot } from '@/utils/function.utils'
+import ModalExport from '@/components/ModalExport'
+import Datepicker from 'react-tailwindcss-datepicker'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
-const filterOptions = [
-  {
-    id: 'rating',
-    name: 'Rating',
-    options: [
-      { value: null, label: 'All' },
-      {
-        value: 1,
-        label: (
-          <span className="flex items-center">
-            <HandThumbUpIcon className="mr-1 h-4 w-4 text-green-600" /> Up
-          </span>
-        ),
-      },
-      {
-        value: 0,
-        label: (
-          <span className="flex items-center">
-            <MinusIcon className="mr-1 h-4 w-4 text-gray-500" /> Neutral
-          </span>
-        ),
-      },
-      {
-        value: -1,
-        label: (
-          <span className="flex items-center">
-            <HandThumbDownIcon className="mr-1 h-4 w-4 text-red-600" /> Down
-          </span>
-        ),
-      },
-    ],
-  },
-  {
-    id: 'escalated',
-    name: 'Escalated',
-    options: [
-      { value: null, label: 'All' },
-      {
-        value: true,
-        label: (
-          <span className="flex items-center">
-            <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Escalated
-          </span>
-        ),
-      },
-      {
-        value: false,
-        label: (
-          <span className="flex items-center">
-            <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Escalated
-          </span>
-        ),
-      },
-    ],
-  },
-  {
-    id: 'couldAnswer',
-    name: 'Could Answer',
-    options: [
-      { value: null, label: 'All' },
-      {
-        value: true,
-        label: (
-          <span className="flex items-center">
-            <LifebuoyIcon className="mr-1 h-4 w-4 text-blue-700" /> Answered
-          </span>
-        ),
-      },
-      {
-        value: false,
-        label: (
-          <span className="flex items-center">
-            <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Answered
-          </span>
-        ),
-      },
-    ],
-  },
-]
-
-export default function TableQuestions({ team, bot, questions, setQuestions, changePage }) {
+export default function TableQuestions({ team, bot, questions, setQuestions, changePage, buildParams }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
   const [canModify, setModify] = useState(false)
+  const [exportOpen, setExportOpen] = useState(false)
+  const [exporting, setExporting] = useState(false)
+  const [dateRange, setDateRange] = useState({
+    startDate: bot.createdAt,
+    endDate: new Date(),
+  })
   const [user] = useAuthState(auth)
+  const [errorText, setErrorText] = useState(null)
+
   const filterOptions = [
     {
       id: 'rating',
@@ -210,8 +141,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }, [team, user])
 
   useEffect(() => {
-    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)
-  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer])
+    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
+  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange])
 
   const Sources = ({ sources }) => {
     return (
@@ -325,6 +256,46 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
         setErrorText('Error ' + response.status + ', please try again.')
       }
     }
+  }
+
+  const downloadLogs = async () => {
+    if (exporting) {
+      return
+    }
+    setExporting(true)
+
+    // ask api to generate logs
+    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/export-log?${buildParams(ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)}`
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      if (response.ok) {
+        // we get a signed url back
+        const { url } = await response.json()
+        var link = document.createElement('a')
+        link.href = url
+        link.click()
+        link.remove()
+
+        setExportOpen(false)
+      } else {
+        try {
+          const { message } = await response.json()
+          setErrorText(message)
+        } catch (e) {
+          console.warn(e)
+          setErrorText('Something went wrong, please try again.')
+        }
+      }
+    } catch (e) {
+      console.warn(e)
+      setErrorText('Something went wrong, please try again.')
+    }
+    setExporting(false)
   }
 
   const FullSource = ({ source }) => {
@@ -460,7 +431,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           {children}
         </button>
         <Transition.Root show={open} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={setOpen}>
+          <Dialog as="div" className="relative z-5" onClose={setOpen}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -473,7 +444,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
               <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
             </Transition.Child>
 
-            <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="fixed inset-0 z-5 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                 <Transition.Child
                   as={Fragment}
@@ -664,6 +635,38 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   return (
+    <>
+    <div className="mb-4 flex justify-between">
+      <Link
+        href={`/app/bots/${bot.id}`}
+        className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
+      >
+        <ChevronLeftIcon
+          className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
+          aria-hidden="true"
+        />
+        Back
+      </Link>
+      <div className="flex items-center justify-center space-x-2">
+        <Link
+          href={`/app/bots/${bot.id}/reports`}
+          className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
+          Reports
+        </Link>
+        <button
+          onClick={() => setExportOpen((prev) => !prev)}
+          type="button"
+          className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+        >
+          Export Logs
+        </button>
+      </div>
+    </div>
+    <ModalExport team={team} bot={bot} open={exportOpen} setOpen={setExportOpen} downloadLogs={async () => { await downloadLogs(); setExportOpen(false) }} isProcessing={exporting} />
+
+    <Alert title={errorText} type="error" className="rounded-t-lg"/>
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="px-0">
         <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
@@ -678,11 +681,25 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
             setFilters={setFilters}
             filterOptions={filterOptions}
           />
+          <div className="light overflow-visible">
+            <Datepicker
+              value={dateRange}
+              primaryColor="cyan"
+              onChange={setDateRange}
+              showShortcuts={true}
+              useRange={false}
+              minDate={new Date(bot.createdAt)}
+              maxDate={new Date()}
+              classNames={{
+                container: 'z-10',
+              }}
+            />
+          </div>
           <Paginator
             perPage={questions.pagination.perPage}
             totalCount={questions.pagination.viewableCount}
             page={questions.pagination.page}
-            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer)}
+            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)}
           />
         </div>
         <div className="mt-4 flex items-center space-x-4 lg:mt-2">
@@ -745,38 +762,38 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                   <tr>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       User
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
+                      className="sticky top-16 z-5 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
                     >
                       Question
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Answer
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Sources
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                     >
                       Rating
                     </th>
                     {bot?.classify && (
                       <th
                         scope="col"
-                        className="sticky top-16 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                        className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                       >
                         Could Answer
                       </th>
@@ -949,5 +966,6 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
         </div>
       </div>
     </div>
+    </>
   )
 }

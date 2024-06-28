@@ -3,10 +3,8 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { getBot, getUser } from '@/lib/dbQueries';
+import { getBot, getQuestions } from '@/lib/dbQueries';
 import { stripePlan } from '@/utils/helpers';
-import getFakeUserByIp from '@/utils/fakeUsers';
-import sendEmail from '@/lib/sendEmail';
 import { stringify } from '@vanillaes/csv'
 import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
@@ -34,7 +32,10 @@ const handler = async (req, res) => {
       return res.status(404).json({ message: 'Bot not found' })
     }
 
-    const { startDate, endDate } = req.query
+    let { ip, rating, escalated, couldAnswer, startDate, endDate } = req.query
+    escalated = typeof escalated === "undefined" ? null : escalated ? ( escalated === 'true' || escalated === '1' ) : false
+    couldAnswer = typeof couldAnswer === "undefined" ? null : couldAnswer ? (couldAnswer === 'true' || couldAnswer === '1') : false
+    rating = typeof rating === "undefined" ? null : rating ? parseInt(rating) : 0
 
     if (!startDate || !endDate) {
       console.log('Missing startDate or endDate', startDate, endDate)
@@ -57,17 +58,7 @@ const handler = async (req, res) => {
       console.log('Export Start',new Date().toISOString())
 
       // grab questions
-      const questions = await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('questions')
-        .orderBy('createdAt', 'desc')
-        .where('createdAt', '>=', start)
-        .where('createdAt', '<=', end)
-        .select('ip', 'metadata', 'question', 'standaloneQuestion', 'answer', 'sources', 'rating', 'escalation', 'createdAt', 'couldAnswer') // only select fields we need is faster
-        .get()
+      const { questions } = await getQuestions(team, botId, 999999999, 0, ip, rating, escalated, couldAnswer, startDate, endDate);
       var csvData = [];
 
       console.log('questions', questions.size)
@@ -83,23 +74,9 @@ const handler = async (req, res) => {
 
       // write questions to csv file
       csvData.push(headers)
-      questions.forEach((doc) => {
-        if (doc.data().deleted) return // skip deleted questions
-        
-        let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
-        //if we identified the user, use the provided data for alias
-        if (doc.data().metadata) {
-          if (doc.data().metadata.name) {
-            alias = doc.data().metadata.name
-            if (doc.data().metadata.email) {
-              alias += ' (' + doc.data().metadata.email + ')'
-            }
-          } else if (doc.data().metadata.email) {
-            alias = doc.data().metadata.email
-          }
-        }
+      questions.forEach((question) => {
+        if (question.deleted) return // skip deleted questions
 
-        const question = { id: doc.id, ...doc.data(), alias: alias }
         // remove newlines, convert quotes from data
         const cleanedQuestion = question.question
         const cleanedAnswer = question.answer
@@ -123,7 +100,7 @@ const handler = async (req, res) => {
         const referrer = question?.metadata?.referrer ? question.metadata.referrer : '';
         const ip = question?.ip
 
-        let entry = [question.id, question.alias, question.createdAt.toDate().toJSON(), rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer]
+        let entry = [question.id, question.alias, question.createdAt, rating, cleanedQuestion, question.standaloneQuestion || '', cleanedAnswer, sources, referrer]
         if (bot?.recordIP) {
          entry.push(ip)
         }

@@ -29,14 +29,14 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    let { page, perPage, ip, rating, escalated, couldAnswer, startTime, endTime } = req.query
+    let { page, perPage, ip, rating, escalated, couldAnswer, startDate, endDate } = req.query
     perPage = perPage ? parseInt(perPage) : 50
     page = page ? parseInt(page) : 0
     escalated = typeof escalated === "undefined" ? null : escalated ? ( escalated === 'true' || escalated === '1' ) : false
     couldAnswer = typeof couldAnswer === "undefined" ? null : couldAnswer ? (couldAnswer === 'true' || couldAnswer === '1') : false
     rating = typeof rating === "undefined" ? null : rating ? parseInt(rating) : 0
     try {
-      const questions = await getQuestions(team, botId, perPage, page, ip, rating, escalated, couldAnswer, startTime, endTime)
+      const questions = await getQuestions(team, botId, perPage, page, ip, rating, escalated, couldAnswer, startDate, endDate)
       return res.json(questions)
     } catch (error) {
       console.warn('Error getting document:', error)

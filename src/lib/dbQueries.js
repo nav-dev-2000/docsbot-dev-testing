@@ -378,23 +378,24 @@ export async function getQuestions(
   const querySnapshot = await questionsRef.get()
   let questions = []
   querySnapshot.forEach((doc) => {
-    let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+    const docData = doc.data()
+    let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
     //if we identified the user, use the provided data for alias
-    if (doc.data().metadata) {
-      if (doc.data().metadata.name) {
-        alias = doc.data().metadata.name
-        if (doc.data().metadata.email) {
-          alias += ' (' + doc.data().metadata.email + ')'
+    if (docData.metadata) {
+      if (docData.metadata.name) {
+        alias = docData.metadata.name
+        if (docData.metadata.email) {
+          alias += ' (' + docData.metadata.email + ')'
         }
-      } else if (doc.data().metadata.email) {
-        alias = doc.data().metadata.email
+      } else if (docData.metadata.email) {
+        alias = docData.metadata.email
       }
     }
 
-    let question = { id: doc.id, ...doc.data(), alias: alias }
-    question.createdAt = question.createdAt.toDate().toJSON() //make serializable
+    let question = { id: doc.id, ...docData, alias }
+    question.createdAt = question.createdAt.toDate().toJSON() // make serializable
 
-    // question.sources = doc.data().sources || []
+    // question.sources = docData.sources || []
     if (!question.sources || Object.keys(question.sources).length === 0) {
       question.sources = []
     }
