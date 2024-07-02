@@ -273,7 +273,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
             </div>
           </div>
           <div className="flex flex-col print:!pl-0 md:pl-48">
-            <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
+            <div className="sticky top-0 z-5 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
               <button
                 type="button"
                 className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 md:hidden"
@@ -339,7 +339,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-5 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="px-4 py-2 text-sm">
                           <div className="mb-1 text-base font-medium leading-none text-gray-600">
                             {user?.displayName}
