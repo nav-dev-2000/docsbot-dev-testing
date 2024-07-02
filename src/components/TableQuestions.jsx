@@ -402,19 +402,14 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
         if (question.answer.length > 300) {
           setShortAnswer(question.answer.substring(0, 300) + '...')
         }
-        // set answer html (if email is set, the answer is an email body, so html) 
-        if (question.metadata?.email) {
-          console.log('answer is an email body', question.answer)
-          setAnswerHtml(question.answer)
-        } else {
-          remark()
-            .use(html)
-            .use(remarkGfm)
-            .process(question.answer)
-            .then((html) => {
-              setAnswerHtml(html.toString())
-            })
-        }
+        // set answer html
+        remark()
+          .use(html)
+          .use(remarkGfm)
+          .process(question.answer)
+          .then((html) => {
+            setAnswerHtml(html.toString())
+          })
       }
     }, [question.answer])
 
