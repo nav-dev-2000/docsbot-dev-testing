@@ -38,14 +38,7 @@ const pricing = {
       output_token_cost_per_thousand: 0.06,
     },
     {
-      model_name: 'Claude 3 Haiku',
-      context: '200K',
-      provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.00025,
-      output_token_cost_per_thousand: 0.00125,
-    },
-    {
-      model_name: 'Claude 3 Sonnet',
+      model_name: 'Claude 3.5 Sonnet',
       context: '200K',
       provider: 'Anthropic',
       input_token_cost_per_thousand: 0.003,
@@ -57,6 +50,13 @@ const pricing = {
       provider: 'Anthropic',
       input_token_cost_per_thousand: 0.015,
       output_token_cost_per_thousand: 0.075,
+    },
+    {
+      model_name: 'Claude 3 Haiku',
+      context: '200K',
+      provider: 'Anthropic',
+      input_token_cost_per_thousand: 0.00025,
+      output_token_cost_per_thousand: 0.00125,
     },
     {
       model_name: 'Llama 3 70b',
@@ -73,11 +73,25 @@ const pricing = {
       output_token_cost_per_thousand: 0.0008,
     },
     {
-      model_name: 'Gemini 1.0 Pro',
-      context: '32K',
+      model_name: 'Gemini 1.5 Flash',
+      context: '128K',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.0005,
-      output_token_cost_per_thousand: 0.0015,
+      input_token_cost_per_thousand: 0.00035,
+      output_token_cost_per_thousand: 0.00105,
+    },
+    {
+      model_name: 'Gemini 1.5 Flash',
+      context: '1M',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.0007,
+      output_token_cost_per_thousand: 0.0021,
+    },
+    {
+      model_name: 'Gemini 1.5 Pro',
+      context: '128K',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.0035,
+      output_token_cost_per_thousand: 0.0105,
     },
     {
       model_name: 'Gemini 1.5 Pro',
@@ -85,6 +99,13 @@ const pricing = {
       provider: 'Google',
       input_token_cost_per_thousand: 0.007,
       output_token_cost_per_thousand: 0.021,
+    },
+    {
+      model_name: 'Gemini 1.0 Pro',
+      context: '32K',
+      provider: 'Google',
+      input_token_cost_per_thousand: 0.0005,
+      output_token_cost_per_thousand: 0.0015,
     },
     {
       model_name: 'Command',
@@ -238,7 +259,7 @@ export default function Calculate() {
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 3,
                   Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple
-                  and powerful free calculator. Latest numbers as of May 2024.
+                  and powerful free calculator. Latest numbers as of July 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -559,12 +580,13 @@ export default function Calculate() {
                 <p>
                   <strong className="text-white">Anthropic's Claude 3</strong>: Claude 3 includes
                   three state-of-the-art models in ascending order of capability: Claude 3 Haiku,
-                  Claude 3 Sonnet, and Claude 3 Opus. Each successive model offers increasingly
+                  Claude 3.5 Sonnet, and Claude 3 Opus. Each successive model offers increasingly
                   powerful performance, allowing users to select the optimal balance of
                   intelligence, speed, and cost for their specific application. Opus is comparable
                   to GPT-4 in performance, while Haiku is the most cost-effective model, while still
-                  beating GPT-3.5 Turbo in many benchmarks. Claude 3 has a huge 200K context window
-                  and is available via Anthropic's API and claud.ai.
+                  beating GPT-3.5 Turbo in many benchmarks. 3.5 Sonnet is a newer release with low
+                  pricing, high speed, and performance comparable to GPT-4o. Claude 3 has a huge
+                  200K context window and is available via Anthropic's API and claud.ai.
                 </p>
               </li>
               <li>
@@ -584,10 +606,10 @@ export default function Calculate() {
                 <p>
                   <strong className="text-white">Gemini</strong>: Gemini is the newest family of
                   multimodal large language models developed by Google, serving as the successor to
-                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Nano in 1.0 and 1.5
+                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Flash in 1.0 and 1.5
                   versions, it was announced on December 6, 2023. Gemini Ultra is positioned as the
                   first contender to OpenAI's GPT-4, while Gemini Pro is closer in performance to
-                  GPT-3.5. Gemini Pro 1.5 is the latest publically available version, with an
+                  GPT-3.5. Gemini Pro 1.5 and Gemini Flash 1.5 are the latest publically available versions, with an
                   industry-leading 1M context window multimodal support for video, audio, images,
                   and text. Gemini models are available via Google's Vertex AI Platform.
                 </p>
