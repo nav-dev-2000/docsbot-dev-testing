@@ -1,6 +1,9 @@
 import { Configuration, OpenAIApi } from 'openai'
 import { lookupFAQs, saveFAQs, checkFAQsRateLimit } from '@/lib/faqs'
 
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
+export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 'fra1'];
+
 const scrapeURL = async (url) => {
   const endpoint = `https://scrapedown.docsbot.workers.dev/?url=${encodeURIComponent(
     url
@@ -73,6 +76,14 @@ export default async function handler(req, res) {
     const isRateLimited = await checkFAQsRateLimit(ip)
     if (isRateLimited) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
+    }
+
+    // we cannot generate the FAQs in hong kong, see: https://vercel.com/changelog/openai-will-not-support-the-hong-kong-region-hkg1-for-functions
+    // btw, preferredRegion should help prevent this from being ran in an edge function in the hong kong aws region unless there's an outage in all of our preferred regions (very highly unlikely)
+    if (process.env?.VERCEL_REGION === 'hkg1') {
+      return res
+        .status(500)
+        .json({ message: `Unfortunately this feature is not available in Hong Kong.` })
     }
 
     try {
