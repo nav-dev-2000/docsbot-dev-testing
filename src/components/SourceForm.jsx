@@ -543,11 +543,13 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 tags={{ botId: bot.id, teamId: team.id }}
                 entryPoint={selectedSourceType?.isCarbon}
                 showFilesTab={false}
+                splitRows={true}
                 enabledIntegrations={[
                   {
                     id: selectedSourceType?.isCarbon,
-                    chunkSize: 500,
+                    chunkSize: 1500,
                     overlapSize: 50,
+                    splitRows: true,
                   },
                 ]}
               >

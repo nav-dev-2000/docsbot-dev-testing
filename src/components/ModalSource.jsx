@@ -556,11 +556,13 @@ export default function ModalSource({
                           entryPoint={source.isCarbon}
                           showFilesTab={true}
                           filePickerMode={"FILES"}
+                          splitRows={true}
                           enabledIntegrations={[
                             {
                               id: source.isCarbon,
-                              chunkSize: 500,
+                              chunkSize: 1500,
                               overlapSize: 50,
+                              splitRows: true,
                             },
                           ]}
                         />
