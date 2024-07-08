@@ -579,9 +579,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
   }
 
-  if (!isUpdate) { //set true for new bots
-    botData.classify = true
-  } else if (classify !== undefined) {
+  if (classify !== undefined) {
     botData.classify = Boolean(classify)
   }
 

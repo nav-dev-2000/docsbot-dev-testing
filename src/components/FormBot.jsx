@@ -17,7 +17,12 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
   const [labels, setLabels] = useState(bot?.labels || i18n[bot?.language]?.labels || null)
   const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
   const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
-  const [classifySwitch, setClassifySwitch] = useState(bot?.classify || false)
+  const [classifySwitch, setClassifySwitch] = useState(() => {
+    if (bot?.classify === undefined) { // default to true
+      return true
+    }
+    return bot?.classify
+  })
   const [rateLimitIPField, setRateLimitIPField] = useState(
     bot?.rateLimitIPAllowlist?.join(', ') || ''
   )
