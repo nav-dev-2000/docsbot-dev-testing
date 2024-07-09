@@ -59,8 +59,8 @@ This endpoint lists all questions asked of a given team and bot. It accepts a GE
 | **rating**      | integer | Filter questions by rating. Can be -1, 0, or 1 for rating down, neutral, or up. Default `null` (all).       |
 | **escalated**   | boolean | Filter questions if escalated. Can be `true` or `false`. Default `null` (all).                              |
 | **couldAnswer** | boolean | Filter questions that bot could/could not answer. Can be `true` or `false`. Default `null` (all).           |
-| **startTime**   | string  | Filter questions by start time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z". |
-| **endTime**     | string  | Filter questions by end time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z".   |
+| **startDate**   | string  | Filter questions by start time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z". |
+| **endDate**     | string  | Filter questions by end time. A parsable datetime string like "2023-10-01" or "2023-09-29T15:12:46.335Z".   |
 
 ### Examples
 
