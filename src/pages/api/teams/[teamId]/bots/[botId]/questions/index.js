@@ -29,7 +29,12 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    let { page, perPage, ip, rating, escalated, couldAnswer, startDate, endDate } = req.query
+    let { page, perPage, ip, rating, escalated, couldAnswer, startDate, endDate, startTime, endTime } = req.query
+    if (!startDate && !endDate) {
+      // make sure we respect old 'startTime' and 'endTime' params
+      startDate = startTime
+      endDate = endTime
+    }
     perPage = perPage ? parseInt(perPage) : 50
     page = page ? parseInt(page) : 0
     escalated = typeof escalated === "undefined" ? null : escalated ? ( escalated === 'true' || escalated === '1' ) : false
