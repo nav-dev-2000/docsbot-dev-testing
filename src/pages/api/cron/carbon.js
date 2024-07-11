@@ -5,7 +5,7 @@ import axios from 'axios'
 import { getSources } from '@/lib/dbQueries'
 import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
-import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
+import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { carbonSourceFilters } from '@/constants/carbon.constants'
 import e from 'cors'
 
@@ -151,7 +151,7 @@ export default async function handler(request, response) {
         //TODO: if too many files we will get an error saving to document (1MB limit)
 
         //update source
-        doc.ref.update({
+        await doc.ref.update({
           status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
           pageCount: newCarbonFiles.length,
           carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
@@ -160,25 +160,29 @@ export default async function handler(request, response) {
         console.log(newCarbonFiles.length, 'Carbon files, ready:', ready, teamId, botId, sourceId)
 
         if (ready) {
-          //if refreshing via regest, expel first so we don't get duplicates (TODO could cause race condition)
+          //if refreshing via regest we need to queue for regest
           if (source.refreshing) {
-            QueueSourceExpel(teamId, bot.indexId, botId, sourceId)
-            console.log('Source', teamId, botId, sourceId, 'queued for expel')
+            await doc.ref.update({
+              status: 'ready',
+              refreshing: false,
+            })
+            await QueueSourceRegest(teamId, botId, sourceId)
+            console.log('Source', teamId, botId, sourceId, 'queued for regest')
+          } else {
+            await QueueSourceIngest(
+              teamId,
+              botId,
+              sourceId,
+              stripePlan(team).pages - team.pageCount,
+              bot.indexId,
+              'carbon',
+              source.title, //null
+              source.url,
+              source.file, //null
+              source.faqs //null
+            )
+            console.log('Source', teamId, botId, sourceId, 'queued for ingest')
           }
-
-          await QueueSourceIngest(
-            teamId,
-            botId,
-            sourceId,
-            stripePlan(team).pages - team.pageCount,
-            bot.indexId,
-            'carbon',
-            source.title, //null
-            source.url,
-            source.file, //null
-            source.faqs //null
-          )
-          console.log('Source', teamId, botId, sourceId, 'queued for ingest')
 
           //TODO ideally we should wait for the ingest to complete before deleting the source
           // we only allow unique carbon type sources per bot, so we'll need to check if a carbon type.

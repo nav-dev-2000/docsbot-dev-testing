@@ -107,7 +107,6 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const firestore = getFirestore()
 
   // check and update status to 'pending'
-  let isCarbon = false
   const sourceRef = firestore
     .collection('teams')
     .doc(teamId)
@@ -121,22 +120,13 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
     throw new Error("Cannot refresh source that is not 'ready' or 'failed.")
   }
 
-  if (sourceData?.type && isCarbonSourceType(sourceData.type)) {
-    isCarbon = true
-  }
-
   const data = {
-    status: 'pending',
+    status: isCarbonSourceType(sourceData.type) ? 'ready' : 'pending',
     createdAt: FieldValue.serverTimestamp(),
     refreshing: true,
   }
 
   sourceRef.update(data)
-
-  //skip pubsub if carbon, as it uses NextJS Vercel cron that just looks for pending
-  if (isCarbon) {
-    return true
-  }
 
   // grab pageLimit
   const team = await getTeam(teamId)
@@ -145,6 +135,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'regest',
+      type: isCarbonSourceType(sourceData.type) ? 'carbon' : sourceData.type,
       teamId,
       botId,
       sourceId,

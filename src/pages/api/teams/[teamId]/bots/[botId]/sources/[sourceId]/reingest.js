@@ -138,8 +138,9 @@ export default async function handler(req, res) {
         .collection('sources')
         .doc(sourceId)
         .update({
-        status: 'indexing',
+        status: 'pending',
         createdAt: FieldValue.serverTimestamp(),
+        refreshing: true,
       })
       return res.status(200).json({})
     }

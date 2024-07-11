@@ -207,7 +207,7 @@ export default async function handler(req, res) {
         title,
         url,
         file,
-        status: carbonId ? 'indexing' : 'pending',
+        status: 'pending',
         pageCount: pageCount,
         chunkCount: 0,
         faqs,
