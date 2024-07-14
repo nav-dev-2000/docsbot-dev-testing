@@ -140,7 +140,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                           value={openAIKey}
                           onChange={(e) => setOpenAIKey(e.target.value)}
                           disabled={isUpdating}
-                          pattern={team.AzureDeploymentBase ? false : "^(sk\-|sk\-proj\-)[a-zA-Z0-9]{48}$"}
+                          pattern={team.AzureDeploymentBase ? false : "^(sk\-|sk\-\w{4,10}\-)[a-zA-Z0-9]{48}$"}
                         />
                       </div>
                       <p
