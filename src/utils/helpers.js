@@ -32,7 +32,7 @@ export const sanitizeURL = (url) => {
 }
 
 export const validateOpenAIKey = (team, key) => {
-  return team.AzureDeploymentBase || /^(sk\-|sk\-\w{4,10}\-)[a-zA-Z0-9]{48}/.test(key)
+  return team.AzureDeploymentBase || /^(sk\-|(sk\-[a-zA-Z0-9]{3,16}\-))[a-zA-Z0-9]{48}/.test(key) // sk-None-ljey3SgL1AmGHqB5qnnOT3BlbkFJN8QVt0VxDSyf4HvmL1GN
 }
 
 export const postData = async ({ url, data }) => {
