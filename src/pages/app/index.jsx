@@ -199,10 +199,12 @@ function Dashboard({ team, purchase }) {
                   'A bot received an error!' :
                   'A bot has a failing source!'
       } type="warning" onClose={removeLastError}>
-        {lastError.type === 'chat' ?
-          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><pre>{lastError.message}</pre></p>) :
-          (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><pre>{lastError.message}</pre></p>)
-        }
+        <div className='text-left text-sm'> {/* prevent overflow */}
+          {lastError.type === 'chat' ?
+            (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> is failing with the following error:<br/><p className='break-words font-mono'>{lastError.message}</p></p>) :
+            (<p>Looks like <a href={`https://docsbot.ai/app/bots/${lastError.botId}`}>{lastError.botName}</a> has a failing source with the following error:<br/><p className='break-words font-mono'>{lastError.message}</p></p>)
+          }
+        </div>
       </Alert>
     )
   } 
