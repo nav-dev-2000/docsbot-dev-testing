@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { updateEmail } from 'firebase/auth'
+import { updateEmail, sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { stripe } from '@/utils/stripe'
 import Script from 'next/script'
@@ -23,11 +23,13 @@ import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 import { getBots } from '@/lib/dbQueries'
 import { getUserRole } from '@/utils/function.utils'
+import ModalPasswordReset from '@/components/ModalPasswordReset'
 
 function Account({ team, bots, checkout }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
+  const [sentPasswordReset, setSentPasswordReset] = useState(false)
 
   const cards = [
     {
@@ -63,7 +65,7 @@ function Account({ team, bots, checkout }) {
   return (
     <DashboardWrap page="Account" team={team}>
       {checkout && (
-        <Script id="gtag-conversion" strategy='lazyOnload'>
+        <Script id="gtag-conversion" strategy="lazyOnload">
           {`
         gtag('event', 'conversion', {
             'send_to': 'AW-412141971/oMEgCP3e7JMZEJOTw8QB',
@@ -161,6 +163,17 @@ function Account({ team, bots, checkout }) {
         </div>
 
         <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">Reset your password</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can request a password reset email here. This will send a password reset email to
+            your email address. Please check your spam folder if you do not receive the email.
+          </p>
+          <div className="mt-5 flex justify-end">
+            <ModalPasswordReset team={team} />
+          </div>
+        </div>
+
+        <div className="rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">Delete Team Account</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
             You can delete your team account here. This will delete all of your bots, sources,
@@ -178,7 +191,7 @@ function Account({ team, bots, checkout }) {
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
-  
+
   if (data?.props?.team) {
     const role = getUserRole(data.props.team, data.props.userId)
 
@@ -206,9 +219,8 @@ export const getServerSideProps = async (context) => {
         currency: session.currency.toUpperCase(),
       }
       console.log(data.props.checkout)
-    }
-    // Catch any errors and log them to the console
-    catch (err) {
+    } catch (err) {
+      // Catch any errors and log them to the console
       console.error('Error retrieving checkout session:', err.message)
     }
   }
