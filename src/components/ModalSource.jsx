@@ -541,43 +541,47 @@ export default function ModalSource({
                             ))}
                           </ul>
                         </div>
-                        <CarbonConnect
-                          tokenFetcher={carbonTokenFetcher}
-                          orgName="DocsBot AI"
-                          brandIcon="/.well-known/logo.png"
-                          primaryBackgroundColor="#0891B2"
-                          primaryTextColor="#FFFFFF"
-                          secondaryBackgroundColor="#FFFFFF"
-                          onSuccess={updateCarbon}
-                          onError={(error) => console.warn(error)}
-                          open={carbonOpen}
-                          setOpen={setCarbonOpen}
-                          tags={{ botId: bot.id, teamId: team.id }}
-                          entryPoint={source.isCarbon}
-                          showFilesTab={true}
-                          filePickerMode={"FILES"}
-                          enabledIntegrations={[
-                            {
-                              id: source.isCarbon,
-                              chunkSize: 1500,
-                              overlapSize: 50,
-                              fileSyncConfig : {
-                                split_rows: true
-                              }
-                            },
-                          ]}
-                        />
-                        <button
-                          onClick={() => {
-                            setCarbonInfoOpen(true)
-                          }}
-                          className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                        >
+                        {(source?.status === 'ready' || source?.status === 'failed') && (
                           <>
-                            <source.icon className="h-5 w-5" />
-                            <span>Manage files</span>
+                            <CarbonConnect
+                              tokenFetcher={carbonTokenFetcher}
+                              orgName="DocsBot AI"
+                              brandIcon="/.well-known/logo.png"
+                              primaryBackgroundColor="#0891B2"
+                              primaryTextColor="#FFFFFF"
+                              secondaryBackgroundColor="#FFFFFF"
+                              onSuccess={updateCarbon}
+                              onError={(error) => console.warn(error)}
+                              open={carbonOpen}
+                              setOpen={setCarbonOpen}
+                              tags={{ botId: bot.id, teamId: team.id }}
+                              entryPoint={source.isCarbon}
+                              showFilesTab={true}
+                              filePickerMode={"FILES"}
+                              enabledIntegrations={[
+                                {
+                                  id: source.isCarbon,
+                                  chunkSize: 1500,
+                                  overlapSize: 50,
+                                  fileSyncConfig : {
+                                    split_rows: true
+                                  }
+                                },
+                              ]}
+                            />
+                            <button
+                            onClick={() => {
+                                setCarbonInfoOpen(true)
+                              }}
+                              className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                              >
+                              <>
+                                <source.icon className="h-5 w-5" />
+                                <span>Manage files</span>
+                              </>
+                            </button>
                           </>
-                        </button>
+                        )}
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
