@@ -6,6 +6,8 @@ export default function GPTModel({ bot }) {
     label = 'GPT-4'
   } else if (bot.model === 'gpt-4o') {
     label = 'GPT-4o'
+  } else if (bot.model === 'gpt-4o-mini') {
+    label = 'GPT-4o Mini'
   } else if (bot.model.includes('gpt-4')) {
     label = 'GPT-4 Turbo'
   } else {

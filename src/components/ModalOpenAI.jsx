@@ -115,7 +115,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                       <Link
                         type="button"
                         className="inline-flex w-full justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
-                        href="https://beta.openai.com/account/api-keys"
+                        href="https://platform.openai.com/account/api-keys"
                         target="_blank"
                       >
                         Get my OpenAI key{' '}

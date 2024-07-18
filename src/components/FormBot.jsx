@@ -11,14 +11,15 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
-  const [model, setModel] = useState(bot?.model || 'gpt-3.5-turbo')
+  const [model, setModel] = useState(bot?.model || 'gpt-4o-mini')
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [rateLimitMessages, setRateLimitMessages] = useState(bot?.rateLimitMessages || 10)
   const [labels, setLabels] = useState(bot?.labels || i18n[bot?.language]?.labels || null)
   const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
   const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
   const [classifySwitch, setClassifySwitch] = useState(() => {
-    if (bot?.classify === undefined) { // default to true
+    if (bot?.classify === undefined) {
+      // default to true
       return true
     }
     return bot?.classify
@@ -265,7 +266,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
               <div className="pl-7 text-sm">
                 <label htmlFor="gpt-4o" className="font-medium text-gray-900">
-                  GPT-4o (omni) - Recommended
+                  GPT-4o - Most Advanced
                   {stripePlan(team).name === 'Free' && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
@@ -287,46 +288,74 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
             </div>
           </div>
-          <div>
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-4-turbo"
-                  name="model"
-                  value="gpt-4-turbo"
-                  aria-describedby="gpt-4-turbo-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-4-1106-preview' || model === 'gpt-4-turbo'}
-                  onChange={() => setModel('gpt-4-turbo')}
-                  disabled={disabled || !team.supportsGPT4}
-                />
-              </div>
-              <div className="pl-7 text-sm">
-                <label htmlFor="gpt-4-turbo" className="font-medium text-gray-900">
-                  GPT-4 Turbo
-                  {stripePlan(team).name === 'Free' && (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
-                    </span>
-                  )}
-                </label>
-                <p id="gpt-4-turbo-description" className="text-gray-500">
-                  Newer (&lt;$0.03/question) model with Dec 2023 knowledge cutoff for advanced
-                  reasoning or content creation needs. Check your rate limits before using for busy
-                  bots.
-                  {!team.supportsGPT4 && (
-                    <Link
-                      href="/app/api"
-                      className="ml-1 inline-block underline hover:text-gray-800"
-                    >
-                      Get access
-                    </Link>
-                  )}
-                </p>
-              </div>
+
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="gpt-4o-mini"
+                name="model"
+                value="gpt-4o-mini"
+                aria-describedby="gpt-4o-mini-description"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={model === 'gpt-4o-mini'}
+                onChange={() => setModel('gpt-4o-mini')}
+                disabled={disabled}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label htmlFor="gpt-4o-mini" className="font-medium text-gray-900">
+                GPT-4o Mini - Best Value
+                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                  New!
+                </span>
+              </label>
+              <p id="gpt-4o-mini-description" className="text-gray-500">
+                Newest & most affordable (&lt;$0.0004/question) model good for most use cases.
+              </p>
             </div>
           </div>
+          {!short && (
+            <div>
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-4-turbo"
+                    name="model"
+                    value="gpt-4-turbo"
+                    aria-describedby="gpt-4-turbo-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4-1106-preview' || model === 'gpt-4-turbo'}
+                    onChange={() => setModel('gpt-4-turbo')}
+                    disabled={disabled || !team.supportsGPT4}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-4-turbo" className="font-medium text-gray-600">
+                    GPT-4 Turbo
+                    {stripePlan(team).name === 'Free' && (
+                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                        Paid
+                      </span>
+                    )}
+                  </label>
+                  <p id="gpt-4-turbo-description" className="text-gray-500">
+                    Previous GPT-4 (&lt;$0.03/question) model with Dec 2023 knowledge cutoff for
+                    advanced reasoning or content creation needs.
+                    {!team.supportsGPT4 && (
+                      <Link
+                        href="/app/api"
+                        className="ml-1 inline-block underline hover:text-gray-800"
+                      >
+                        Get access
+                      </Link>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
           <div>
             {model === 'gpt-4' && ( //don't allow new selection of gpt-4
               <div className="relative flex items-start">
@@ -344,7 +373,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   />
                 </div>
                 <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-4" className="font-medium text-gray-900">
+                  <label htmlFor="gpt-4" className="font-medium text-gray-600">
                     GPT-4
                     {stripePlan(team).name === 'Free' && (
                       <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
@@ -368,29 +397,31 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
             )}
           </div>
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="gpt-3.5-turbo"
-                name="model"
-                value="gpt-3.5-turbo"
-                aria-describedby="gpt-3.5-turbo-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={model === 'gpt-3.5-turbo'}
-                onChange={() => setModel('gpt-3.5-turbo')}
-                disabled={disabled}
-              />
+          {!short && (
+            <div className="relative flex items-start">
+              <div className="absolute flex h-5 items-center">
+                <input
+                  id="gpt-3.5-turbo"
+                  name="model"
+                  value="gpt-3.5-turbo"
+                  aria-describedby="gpt-3.5-turbo-description"
+                  type="radio"
+                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                  checked={model === 'gpt-3.5-turbo'}
+                  onChange={() => setModel('gpt-3.5-turbo')}
+                  disabled={disabled}
+                />
+              </div>
+              <div className="pl-7 text-sm">
+                <label htmlFor="gpt-3.5-turbo" className="font-medium text-gray-600">
+                  GPT 3.5 Turbo
+                </label>
+                <p id="gpt-3.5-turbo-description" className="text-gray-500">
+                  Older fast and cheap (&lt;$0.002/question) model good for most use cases.
+                </p>
+              </div>
             </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="gpt-3.5-turbo" className="font-medium text-gray-900">
-                GPT 3.5 Turbo (Latest)
-              </label>
-              <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                The fastest and cheapest (&lt;$0.002/question) model good for most use cases.
-              </p>
-            </div>
-          </div>
+          )}
           {model === 'gpt-3.5-turbo-0613' && ( //don't allow new selection of gpt-3.5-turbo-0613
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
