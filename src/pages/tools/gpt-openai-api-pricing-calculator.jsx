@@ -17,6 +17,13 @@ const pricing = {
       output_token_cost_per_thousand: 0.015,
     },
     {
+      model_name: 'GPT-4o mini',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.00015,
+      output_token_cost_per_thousand: 0.0006,
+    },
+    {
       model_name: 'GPT-4 Turbo',
       context: '128K',
       provider: 'OpenAI / Azure',
@@ -555,7 +562,8 @@ export default function Calculate() {
                   (Omni) is OpenAI's most advanced multimodal model that’s 2x faster and 50% cheaper
                   than GPT-4 Turbo with stronger vision capabilities. The model has 128K context and
                   an October 2023 knowledge cutoff. It will soon support audio inputs and text,
-                  image, and audio outputs.
+                  image, and audio outputs. There is also a mini version with the same context
+                  limit, tokenizer, and knowledge cutoff, but 60% cheaper.
                 </p>
               </li>
               <li>
@@ -609,9 +617,10 @@ export default function Calculate() {
                   PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Flash in 1.0 and 1.5
                   versions, it was announced on December 6, 2023. Gemini Ultra is positioned as the
                   first contender to OpenAI's GPT-4, while Gemini Pro is closer in performance to
-                  GPT-3.5. Gemini Pro 1.5 and Gemini Flash 1.5 are the latest publically available versions, with an
-                  industry-leading 1M context window multimodal support for video, audio, images,
-                  and text. Gemini models are available via Google's Vertex AI Platform.
+                  GPT-3.5. Gemini Pro 1.5 and Gemini Flash 1.5 are the latest publically available
+                  versions, with an industry-leading 1M context window multimodal support for video,
+                  audio, images, and text. Gemini models are available via Google's Vertex AI
+                  Platform.
                 </p>
               </li>
               <li>

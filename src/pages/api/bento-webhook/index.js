@@ -172,7 +172,7 @@ For businesses who want to save time and money on support and copywriting.
 *   Weekly source refresh
 *   10k questions/mo
 *   Private bots
-*   GPT-4 support
+*   GPT-4o support
 *   5 team users
 *   Advanced Analytics
 *   Zapier integration
@@ -180,7 +180,7 @@ For businesses who want to save time and money on support and copywriting.
 *   Unbranded chat widgets
 *   Prompt customization
 
-Does not include OpenAI API costs (less than $0.002/question)
+Does not include OpenAI API costs (less than $0.0004/question)
 
 ### Personal
 

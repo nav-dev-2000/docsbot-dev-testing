@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'Why do I need to provide my own OpenAI API key?',
     answer:
-      'To use DocsBot, you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. OpenAI currently provides $18 of free credit when you signup, which should be enough to try out DocsBot for a few months and thousands of questions. Each question uses <$0.004 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
+      'To use DocsBot, you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. OpenAI currently provides $18 of free credit when you signup, which should be enough to try out DocsBot for a few months and thousands of questions. Each question uses <$0.0004 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
   },
   {
     question: "Can I automatically update my DocsBot sources?",
