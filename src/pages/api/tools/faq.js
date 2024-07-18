@@ -134,7 +134,7 @@ export default async function handler(req, res) {
                 },
               ],
             },
-            { role: 'user', content: `${content}` },
+            { role: 'user', content: `<URL>${hrefURL}</URL><CONTENT>${content}</CONTENT>` },
           ],
           functions: [
             {
@@ -164,6 +164,10 @@ export default async function handler(req, res) {
                     type: 'string',
                     description: "Summary of the site's content.",
                   },
+                  title: {
+                    type: 'string',
+                    description: 'Title of the site.',
+                  },
                 },
               },
               required: ['faqs'],
@@ -185,7 +189,7 @@ export default async function handler(req, res) {
         return res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
       }
 
-      if (!responseData?.faqs || !responseData?.summary) {
+      if (!responseData?.faqs || !responseData?.summary || !responseData?.title) {
         return res.status(500).json({ message: 'Invalid response from OpenAI. Please try again.' })
       }
 
@@ -193,6 +197,7 @@ export default async function handler(req, res) {
       await saveFAQs(
         ip,
         hrefURL,
+        responseData.title,
         screenCaptures.full,
         screenCaptures.thumbnail,
         responseData.summary,
@@ -220,6 +225,7 @@ export default async function handler(req, res) {
         .status(200)
         .json({
           faqs: cachedData.FAQs,
+          title: cachedData?.title || new URL(siteURL).hostname,
           summary: cachedData.summary,
           screenCap: cachedData.screenCap,
           thumbnail: cachedData.thumbnail,

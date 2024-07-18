@@ -34,7 +34,7 @@ const copyAsHTML = (FAQs) => {
 }
 
 // site is a URL
-const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
+const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
 
@@ -45,7 +45,7 @@ const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
           <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
             <Favicon url={site.hostname} />
           </div>
-          <div>{site.hostname} Summary</div>
+          <div>{title} Summary</div>
         </div>
         <div className="mx-none text-left">
           <div className="prose mx-auto mt-4 w-full max-w-none">
@@ -56,7 +56,7 @@ const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
             <img
               className="block w-full rounded-md shadow-sm"
               src={screenCap}
-              alt={'Thumbnail image of ' + site.hostname}
+              alt={'Thumbnail image of ' + title}
             />
           </div>
         </div>
@@ -121,19 +121,19 @@ const FAQsInfo = ({ FAQs, summary, screenCap, site }) => {
   )
 }
 
-const FAQsSharePage = ({ FAQs, summary, screenCap, thumbnail, siteURL }) => {
+const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) => {
   const [site] = useState(new URL(siteURL))
 
   return (
     <>
       <NextSeo
-        title={`AI-Generated Frequently Asked Questions for ${site.hostname}`}
+        title={`AI-Generated Frequently Asked Questions for ${title}`}
         description={summary}
         openGraph={{
           images: [
             {
               url: `${thumbnail}`,
-              alt: `AI-Generated Frequently Asked Questions for ${site.hostname}`,
+              alt: `AI-Generated Frequently Asked Questions for ${title}`,
             },
           ],
         }}
@@ -157,11 +157,11 @@ const FAQsSharePage = ({ FAQs, summary, screenCap, thumbnail, siteURL }) => {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Frequently Asked Questions for {site.hostname}
+                  Frequently Asked Questions for {title}
                 </h1>
                 <div className="mx-auto max-w-3xl text-center">
                   <div className="py-12 pb-0">
-                    <FAQsInfo FAQs={FAQs} summary={summary} screenCap={thumbnail} site={site} />
+                    <FAQsInfo FAQs={FAQs} title={title} summary={summary} screenCap={thumbnail} site={site} />
                   </div>
                   <Link
                     href="/tools/ai-faq-generator"
@@ -210,6 +210,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       FAQs: cachedData.FAQs,
+      title: cachedData?.title || new URL(siteURL).hostname,
       summary: cachedData.summary,
       screenCap: cachedData.screenCap,
       thumbnail: cachedData.thumbnail,

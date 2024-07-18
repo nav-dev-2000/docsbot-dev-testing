@@ -8,10 +8,11 @@ export const lookupFAQs = async (url) => {
   return ref.exists ? ref.data() : null
 }
 
-export const saveFAQs = async (ip, url, screenCap, thumbnail, summary, FAQs) => {
+export const saveFAQs = async (ip, url, title, screenCap, thumbnail, summary, FAQs) => {
   await firestore.collection('FAQs').doc(encodeURIComponent(url)).set({
     ip,
     url,
+    title,
     screenCap,
     summary,
     thumbnail,
