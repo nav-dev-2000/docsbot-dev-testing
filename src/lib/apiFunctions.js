@@ -403,7 +403,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (model !== undefined) {
-    if (model.startsWith('gpt-4')) {
+    if (model.startsWith('gpt-4') && 'gpt-4o-mini' !== bot?.model) {
       if (!team.supportsGPT4) {
         throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
       } else if (stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
@@ -425,7 +425,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     botData.model = model
   } else if (!isUpdate) {
-    botData.model = team.supportsGPT4 ? 'gpt-4o' : 'gpt-3.5-turbo'
+    botData.model = team.supportsGPT4 && stripePlan(team).name !== 'Free' ? 'gpt-4o' : 'gpt-4o-mini'
   }
 
   if (customPrompt !== undefined) {
