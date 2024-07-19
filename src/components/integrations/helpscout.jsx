@@ -499,9 +499,13 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                 </li>
                 <li>
                   Set it to Active and check the "Conversation Created" and optionally "Conversation
-                  Customer Reply" events.
+                  Customer Reply" and "Conversation Tags Updated" events if you're using a tag listener.
                 </li>
-                <li>Select the mailbox you want to enable Auto-drafts for.</li>
+                <li>
+                  If you want a bot to automatically respond to emails, set a mailbox listener below. If you only want
+                  the bot to respond when a specific tag is set, check the "Conversation Tags Updated" event and set a tag listener
+                  below. Setting both a tag listener and a mailbox listener may not work as expected.
+                </li>
                 <li>Finally, click "Save" and you're all set!</li>
               </ol>
             </div>
