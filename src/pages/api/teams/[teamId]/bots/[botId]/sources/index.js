@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     //check plan credits
     if (stripePlan(team).pages <= team.pageCount) {
       return res.status(402).json({
-        message: 'Source or page limit exceeded. Please upgrade your plan.',
+        message: 'Source page limit exceeded. Please upgrade your plan.',
       })
     }
 

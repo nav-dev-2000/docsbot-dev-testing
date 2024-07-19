@@ -176,6 +176,7 @@ For businesses who want to save time and money on support and copywriting.
 *   5 team users
 *   Advanced Analytics
 *   Zapier integration
+*   Help Scout integration
 *   Chat history
 *   Unbranded chat widgets
 *   Prompt customization
