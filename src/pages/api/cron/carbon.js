@@ -36,7 +36,7 @@ export default async function handler(request, response) {
       'salesforce',
       'confluence',
     ])
-    .where('status', 'in', ['pending', 'indexing'])
+    .where('status', 'in', ['pending'])
     .get()
 
   try {
@@ -151,11 +151,14 @@ export default async function handler(request, response) {
         //TODO: if too many files we will get an error saving to document (1MB limit)
 
         //update source
-        await doc.ref.update({
+        let data = {
           status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
-          pageCount: newCarbonFiles.length,
           carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
-        })
+        }
+        if (source?.pageCount == undefined || source?.pageCount == 0) {
+          data.pageCount = newCarbonFiles.length
+        }
+        await doc.ref.update(data)
 
         console.log(newCarbonFiles.length, 'Carbon files, ready:', ready, teamId, botId, sourceId)
 
