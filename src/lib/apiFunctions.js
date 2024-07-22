@@ -403,7 +403,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (model !== undefined) {
-    if (model.startsWith('gpt-4') && 'gpt-4o-mini' !== bot?.model) {
+    if (model.startsWith('gpt-4') && 'gpt-4o-mini' !== model) {
       if (!team.supportsGPT4) {
         throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
       } else if (stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
