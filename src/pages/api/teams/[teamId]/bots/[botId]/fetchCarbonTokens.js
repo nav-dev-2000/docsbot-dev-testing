@@ -3,6 +3,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import axios from 'axios'
+import { stripePlan } from '@/utils/helpers'
 import { getCarbonCustomerID } from '@/lib/carbon'
 
 export default async function handler(req, res) {
@@ -18,6 +19,8 @@ export default async function handler(req, res) {
   const { userId, team } = check
   const { botId } = req.query
 
+  const plan = stripePlan(team)
+
   if (req.method === 'GET') {
     try {
       const bot = await getBot(team.id, botId)
@@ -26,8 +29,25 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: "botId doesn't exist." })
       }
 
+      // update carbon max_files_per_upload
+      const maxUpload = plan.pages - team.pageCount
+      let response = await axios.post('https://api.carbon.ai/update_users', {
+        "customer_ids": [getCarbonCustomerID(team.id, botId)],
+        "max_files_per_upload": maxUpload,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': `Bearer ${process.env.CARBON_API_KEY}`,
+        },
+      });
+      if (response.status === 200 && response.data) {
+        res.status(200).json(response.data);
+      } else {
+        res.status(500).json({ message: 'Error updating carbon max_files_per_upload' })
+      }
+
       // grab token from carbon
-      const response = await axios.get('https://api.carbon.ai/auth/v1/access_token', {
+      response = await axios.get('https://api.carbon.ai/auth/v1/access_token', {
         headers: {
           'Content-Type': 'application/json',
           'customer-id': getCarbonCustomerID(team.id, botId),
