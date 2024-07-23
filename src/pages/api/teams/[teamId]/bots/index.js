@@ -42,13 +42,6 @@ router.post(async (req, res) => {
       })
     }
 
-    // Must have an OpenAI key
-    if (!team.openAIKey) {
-      return res.status(402).json({
-        message: 'Please add an OpenAI key to create bots.',
-      })
-    }
-
     const { copyFrom } = req.body
 
     // Data validation

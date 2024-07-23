@@ -60,6 +60,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     classifySwitch,
   ])
 
+  useEffect(() => {
+    setModel(bot?.model || 'gpt-4o-mini')
+  }, [bot])
+
   //show upgrade if they change privacy to private
   useEffect(() => {
     if (privacy === 'private' && stripePlan(team).name === 'Free') {
@@ -311,7 +315,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 </span>
               </label>
               <p id="gpt-4o-mini-description" className="text-gray-500">
-                Newest & most affordable (&lt;$0.0004/question) model good for most use cases.
+                Newest & most affordable model good for most use cases.
               </p>
             </div>
           </div>

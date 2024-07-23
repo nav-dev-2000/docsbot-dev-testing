@@ -22,11 +22,19 @@ export default function NewBotPanel({ team, open, setOpen }) {
       setOpen(false)
       setShowUpgrade(true)
     }
-    if (open && !showOpenAI && !team.openAIKey) {
-      setOpen(false)
+  }, [open])
+
+  useEffect(() => {
+    if (open && !showOpenAI && !team.openAIKey && botSettings.model && botSettings.model !== 'gpt-4o-mini') {
       setShowOpenAI(true)
     }
-  }, [open])
+  }, [botSettings])
+
+  useEffect(() => {
+    if (!showOpenAI && !team.openAIKey) {
+      setBotSettings({ ...botSettings, model: 'gpt-4o-mini' })
+    }
+  }, [showOpenAI])
 
   async function createBot() {
     if (!botSettings.name) {
@@ -124,7 +132,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
                           <div className="divide-y divide-gray-200 px-4 sm:px-6">
                             <Alert title={errorText} type="error" />
                             <div className="space-y-6 pt-6 pb-5">
-                            <FormBot {...{team, setBotSettings }} disabled={isUpdating} short={true} />
+                            <FormBot {...{team, setBotSettings }} bot={botSettings} disabled={isUpdating} short={true} />
                           </div>
                             <div className=" pt-4 pb-6">
                               <div className="mt-4 flex text-sm">

@@ -13,15 +13,9 @@ import HelpscoutIntegration from '@/components/integrations/helpscout'
 
 function Api({ user, team, bots, integrations }) {
   const [errorText, setErrorText] = useState(null)
-  const [open, setOpen] = useState(team.openAIKey ? false : true)
+  const [open, setOpen] = useState(false)
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
   const [copyMessage, setCopyMessage] = useState(null)
-
-  useEffect(() => {
-    if (!open && !team.openAIKey) {
-      setOpen(true)
-    }
-  }, [open])
 
   const updateKey = async () => {
     setErrorText('')
@@ -95,8 +89,8 @@ function Api({ user, team, bots, integrations }) {
           </>
         ) : (
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can update your API key here. You must have a valid API key with billing enabled in
-            your OpenAI account for DocsBot to function.{' '}
+            You can add or update your API key here. You must have a valid API key with billing enabled in
+            your OpenAI account for DocsBot to use more advanced models like GPT-4o.{' '}
             <Link
               className="text-cyan-800 underline"
               href="https://platform.openai.com/api-keys"
@@ -119,7 +113,7 @@ function Api({ user, team, bots, integrations }) {
                 }}
               >
                 <PencilIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                Edit
+                {team.openAIKey ? 'Edit' : 'Add'}
               </a>
             </div>
             {team.supportsGPT4 ? (
@@ -128,13 +122,13 @@ function Api({ user, team, bots, integrations }) {
               <>
                 <Link
                   className="mt-4 block text-sm underline hover:text-gray-500"
-                  href="https://openai.com/waitlist/gpt-4-api"
+                  href="https://help.openai.com/en/articles/7102672-how-can-i-access-gpt-4-gpt-4-turbo-gpt-4o-and-gpt-4o-mini#h_9bddcd317c"
                   target="_blank"
                 >
-                  GPT-4 access details
+                  GPT-4o access details
                 </Link>
                 <p className="mt-1 text-xs italic">
-                  Optional - Once approved update your OpenAI API key to enable GPT-4
+                  Optional - Once you've added at least $5 credit to OpenAI update your OpenAI API key to unlock GPT-4 models
                 </p>
               </>
             )}

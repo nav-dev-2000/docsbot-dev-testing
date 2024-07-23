@@ -1,15 +1,29 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 import FormBot from '@/components/FormBot'
+import ModalOpenAI from '@/components/ModalOpenAI'
 
 export default function ModalBotEdit({ team, bot, setBot }) {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [botSettings, setBotSettings] = useState({})
+  const [showOpenAI, setShowOpenAI] = useState(false)
+
+  useEffect(() => {
+    if (open && !showOpenAI && !team.openAIKey && botSettings.model !== 'gpt-4o-mini') {
+      setShowOpenAI(true)
+    }
+  }, [botSettings])
+
+  useEffect(() => {
+    if (!showOpenAI && !team.openAIKey) {
+      setBotSettings({ ...botSettings, model: 'gpt-4o-mini' })
+    }
+  }, [showOpenAI])
 
   async function updateBot() {
     setErrorText('')
@@ -51,6 +65,10 @@ export default function ModalBotEdit({ team, bot, setBot }) {
         <PencilSquareIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
         <p>Edit</p>
       </button>
+      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {
+        team.openAIKey = key
+        setOpen(true)
+      }}/>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -106,7 +124,7 @@ export default function ModalBotEdit({ team, bot, setBot }) {
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
                           <div className="space-y-6 pt-6 pb-5">
-                            <FormBot {...{team, bot, setBotSettings }} disabled={isUpdating} />
+                            <FormBot {...{team, setBotSettings }} bot={{...bot, ...botSettings}} disabled={isUpdating} />
                           </div>
                         </div>
                       </div>

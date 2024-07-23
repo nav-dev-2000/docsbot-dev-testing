@@ -165,18 +165,18 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                       </div>
                       <div className="ml-3 text-sm">
                         <label htmlFor="payment-card" className="font-medium text-gray-700">
-                          Added a payment card to OpenAI?
+                          Enabled billing in OpenAI?
                         </label>
                         <p id="comments-description" className="text-gray-500">
                           You must{' '}
                           <Link
-                            href="https://platform.openai.com/account/billing/payment-methods"
+                            href="https://platform.openai.com/settings/organization/billing/overview"
                             className="underline"
                             target="_blank"
                           >
-                            add a payment method
+                            enable billing
                           </Link>{' '}
-                          to your OpenAI account to increase rate limits even if only using their free credits.
+                          in your OpenAI account to increase rate limits.
                         </p>
                       </div>
                     </div>

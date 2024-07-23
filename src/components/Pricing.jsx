@@ -182,7 +182,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="mx-auto mt-4 text-center text-sm text-gray-600">
-          Does not include OpenAI API costs (&lt;$0.0004/question)
+          Does not include optional OpenAI API costs (&lt;$0.015/question) if using advanced models like GPT-4o.
         </p>
         <div className="mx-auto mt-12 flex max-w-2xl flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:max-w-none lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">

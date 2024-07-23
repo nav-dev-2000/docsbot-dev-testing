@@ -423,6 +423,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
+    if (model !== 'gpt-4o-mini' && !team?.openAIKey) {
+      throw new Error('Please add your OpenAI API key to enable this model.')
+    }
     botData.model = model
   } else if (!isUpdate) {
     botData.model = team.supportsGPT4 && stripePlan(team).name !== 'Free' ? 'gpt-4o' : 'gpt-4o-mini'
