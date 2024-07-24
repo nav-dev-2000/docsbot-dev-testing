@@ -50,11 +50,11 @@ export default async function handler(req, res) {
               'authorization': `Bearer ${process.env.CARBON_API_KEY}`,
             },
           });
-          if (userResponse.status != 200 && userResponse.data) {
-            res.status(500).json({ message: 'Error updating carbon max_files_per_upload' })
+          if (userResponse.status != 200) {
+            console.error('Error updating carbon max_files_per_upload')
           }
         } catch (error) {
-          console.warn('Error updating carbon max_files_per_upload:', error)
+          console.error('Error updating carbon max_files_per_upload:', error)
         }
 
         res.status(200).json(response.data);
