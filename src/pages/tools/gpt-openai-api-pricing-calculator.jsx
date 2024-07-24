@@ -66,18 +66,25 @@ const pricing = {
       output_token_cost_per_thousand: 0.00125,
     },
     {
-      model_name: 'Llama 3 70b',
-      context: '8K',
+      model_name: 'Llama 3.1 405b',
+      context: '32K',
+      provider: 'Meta (via Deepinfra)',
+      input_token_cost_per_thousand: 0.0027,
+      output_token_cost_per_thousand: 0.0027,
+    },
+    {
+      model_name: 'Llama 3.1 70b',
+      context: '128K',
       provider: 'Meta (via Deepinfra)',
       input_token_cost_per_thousand: 0.00059,
       output_token_cost_per_thousand: 0.00079,
     },
     {
-      model_name: 'Llama 2 70b',
-      context: '4K',
-      provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.00064,
-      output_token_cost_per_thousand: 0.0008,
+      model_name: 'Llama 3 70b',
+      context: '8K',
+      provider: 'Meta (via Deepinfra/Groq)',
+      input_token_cost_per_thousand: 0.00059,
+      output_token_cost_per_thousand: 0.00079,
     },
     {
       model_name: 'Gemini 1.5 Flash',
@@ -599,7 +606,7 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Llama 3</strong>: Llama 3 is the latest open-source
+                  <strong className="text-white">Llama 3.1</strong>: Llama 3.1 is the latest open-source
                   large language model (LLM) developed by Meta, the parent company of Facebook. It
                   stands as Meta's answer to OpenAI's GPT-4 series and Google's AI models such as
                   Gemini. However, it distinguishes itself by being freely accessible for both
@@ -607,7 +614,7 @@ export default function Calculate() {
                   performace, Llama 3 is a powerful model that can be used for a variety of tasks,
                   including text generation, summarization, and question answering. It is also
                   approaching the level of GPT-4 on many benchmarks for substantially less cost. One
-                  downside it Llama 3 is primarily an English only model.
+                  downside it Llama 3.1 is primarily an English only model.
                 </p>
               </li>
               <li>
