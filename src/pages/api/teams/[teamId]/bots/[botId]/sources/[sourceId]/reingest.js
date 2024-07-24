@@ -101,23 +101,13 @@ export default async function handler(req, res) {
       }
 
       for (const faq of faqs) {
+        console.log(faq)
         if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
           return res.status(400).json({ message: 'Invalid request body' })
         }
       }
 
-      await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('sources')
-        .doc(sourceId)
-        .update({
-          faqs,
-        })
-
-      await QueueSourceRegest(team.id, botId, sourceId)
+      await QueueSourceRegest(team.id, botId, sourceId, {faqs})
 
       mpTrack(userId, 'Q&A Source Updated', { ip: req.headers['x-forwarded-for'] })
       phTrack(userId, 'Q&A Source Updated', {}, team.id)

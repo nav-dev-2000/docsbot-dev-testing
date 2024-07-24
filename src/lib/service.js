@@ -103,7 +103,7 @@ export const QueueBotCopy = async (teamId, fromBotId, toBotId) => {
   return messageId
 }
 
-export const QueueSourceRegest = async (teamId, botId, sourceId) => {
+export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => {
   const firestore = getFirestore()
 
   // check and update status to 'pending'
@@ -124,9 +124,10 @@ export const QueueSourceRegest = async (teamId, botId, sourceId) => {
     status: isCarbonSourceType(sourceData.type) ? 'ready' : 'pending',
     createdAt: FieldValue.serverTimestamp(),
     refreshing: true,
+    ...uData
   }
 
-  sourceRef.update(data)
+  await sourceRef.update(data)
 
   // grab pageLimit
   const team = await getTeam(teamId)
