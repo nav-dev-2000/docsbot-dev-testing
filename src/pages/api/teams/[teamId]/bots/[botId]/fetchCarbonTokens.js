@@ -29,25 +29,8 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: "botId doesn't exist." })
       }
 
-      // update carbon max_files_per_upload
-      const maxUpload = plan.pages - team.pageCount
-      let response = await axios.post('https://api.carbon.ai/update_users', {
-        "customer_ids": [getCarbonCustomerID(team.id, botId)],
-        "max_files_per_upload": maxUpload,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'authorization': `Bearer ${process.env.CARBON_API_KEY}`,
-        },
-      });
-      if (response.status === 200 && response.data) {
-        res.status(200).json(response.data);
-      } else {
-        res.status(500).json({ message: 'Error updating carbon max_files_per_upload' })
-      }
-
       // grab token from carbon
-      response = await axios.get('https://api.carbon.ai/auth/v1/access_token', {
+      const response = await axios.get('https://api.carbon.ai/auth/v1/access_token', {
         headers: {
           'Content-Type': 'application/json',
           'customer-id': getCarbonCustomerID(team.id, botId),
@@ -55,6 +38,25 @@ export default async function handler(req, res) {
         },
       });
       if (response.status === 200 && response.data) {
+        try {
+          // update carbon max_files_per_upload
+          const maxUpload = plan.pages - team.pageCount
+          const userResponse = await axios.post('https://api.carbon.ai/update_users', {
+            "customer_ids": [getCarbonCustomerID(team.id, botId)],
+            "max_files_per_upload": maxUpload,
+          }, {
+            headers: {
+              'Content-Type': 'application/json',
+              'authorization': `Bearer ${process.env.CARBON_API_KEY}`,
+            },
+          });
+          if (userResponse.status != 200 && userResponse.data) {
+            res.status(500).json({ message: 'Error updating carbon max_files_per_upload' })
+          }
+        } catch (error) {
+          console.warn('Error updating carbon max_files_per_upload:', error)
+        }
+
         res.status(200).json(response.data);
       } else {
         res.status(500).json({ message: 'Error fetching carbon tokens' })
