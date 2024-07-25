@@ -123,6 +123,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
   const data = {
     status: isCarbonSourceType(sourceData.type) ? 'ready' : 'pending',
     createdAt: FieldValue.serverTimestamp(),
+    crawlId: FieldValue.delete(),
     refreshing: true,
     ...uData
   }
