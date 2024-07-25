@@ -43,7 +43,12 @@ export default async function handler(request, response) {
         const params = {
           token: process.env.APIFY_TOKEN,
         }
-        const result = await axios.get(run_url, { headers, params })
+        const result = await axios.get(run_url, {
+          headers,
+          params,
+          validateStatus: function (status) { // silence trivial errors
+            return status < 500
+          }})
 
         if (result.status !== 200) {
           throw new Error(`Apify API returned status ${response.status}`)
