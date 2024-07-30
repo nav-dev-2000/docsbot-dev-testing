@@ -35,6 +35,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
 import ModalExport from '@/components/ModalExport'
 import Datepicker from 'react-tailwindcss-datepicker'
+import { isSuperAdmin } from '@/utils/helpers'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -390,7 +391,6 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const [shortAnswer, setShortAnswer] = useState(question.answer)
     const [qaOpen, setQAOpen] = useState(false)
     const [copied, setCopied] = useState(false)
-    const [successText, setSuccessText] = useState(null)
     const [disabled, setDisabled] = useState(() => {
       return (
         questionIdx + questions.pagination.perPage * questions.pagination.page + BLUR_LIMIT_COUNT >=
@@ -485,6 +485,25 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
                         {copied ? 'Copied!' : 'Copy Share Link'}
                       </button>
+
+                      { isSuperAdmin(user.uid) && (
+                        <button
+                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          navigator.clipboard.writeText(`${question.run_id}`)
+                          setCopied(true)
+                          setTimeout(() => {
+                            setCopied(false)
+                          }, 2000)
+                        }}
+                        disabled={copied}
+                        title="Copy langchain runId"
+                      >
+                        <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        {copied ? 'Copied!' : 'Copy runId'}
+                      </button>
+                      )}
 
                       <button
                         type="button"
