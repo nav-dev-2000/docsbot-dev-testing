@@ -486,7 +486,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         {copied ? 'Copied!' : 'Copy Share Link'}
                       </button>
 
-                      { isSuperAdmin(user.uid) && (
+                      { user && user.uid && isSuperAdmin(user.uid) && (
                         <button
                         className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
                         onClick={(e) => {
