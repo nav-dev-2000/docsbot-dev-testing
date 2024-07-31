@@ -324,6 +324,23 @@ const convertQuestionDocToData = (id, docData) => {
   return question
 }
 
+const QUESTION_SELECT_LIST = [
+  FieldPath.documentId(),
+  'createdAt',
+  'ip',
+  'question',
+  'standaloneQuestion',
+  'sources',
+  'answer',
+  'rating',
+  'escalation',
+  'metadata',
+  'testing',
+  'run_id',
+  'deleted',
+  'couldAnswer',
+]
+
 export async function getQuestions(
   team,
   botId,
@@ -344,20 +361,7 @@ export async function getQuestions(
     .doc(botId)
     .collection('questions')
     .select(
-      FieldPath.documentId(),
-      'createdAt',
-      'ip',
-      'question',
-      'standaloneQuestion',
-      'sources',
-      'answer',
-      'rating',
-      'escalation',
-      'metadata',
-      'testing',
-      'run_id',
-      'deleted',
-      'couldAnswer',
+      ...QUESTION_SELECT_LIST
     ) //skip the vector as it's huge
 
   // grab limits
@@ -467,22 +471,16 @@ export async function getQuestion(teamId, botId, questionId) {
     .get()
   if (questionRef.exists) {
     const docData = questionRef.data()
-    const rawQuestion = convertQuestionDocToData(questionId, docData)
-    return { // firebase doesn't support select() on individual documents, firebase ftw!!!11!!
-      createdAt: rawQuestion.createdAt,
-      ip: rawQuestion.ip,
-      question: rawQuestion.question,
-      standaloneQuestion: rawQuestion?.standaloneQuestion,
-      sources: rawQuestion?.sources,
-      answer: rawQuestion?.answer,
-      rating: rawQuestion?.rating,
-      escalation: rawQuestion?.escalation,
-      metadata: rawQuestion?.metadata,
-      testing: rawQuestion?.testing,
-      run_id: rawQuestion?.run_id,
-      deleted: rawQuestion?.deleted || false,
-      couldAnswer: rawQuestion?.couldAnswer,
+    const question = convertQuestionDocToData(questionId, docData)
+
+    // filter out unwanted fields
+    for (const [key, _] of Object.entries(question)) {
+      if (!['id', ...QUESTION_SELECT_LIST].includes(key)) {
+        delete question[key]
+      }
     }
+
+    return question
   } else {
     return null
   }
