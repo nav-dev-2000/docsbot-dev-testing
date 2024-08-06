@@ -142,6 +142,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }, [team, user])
 
   useEffect(() => {
+    if (!team || !user) return
     changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
   }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange])
 
@@ -634,13 +635,13 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   const ShortAnswer = ({ answer }) => {
-    const [shortAnswer, setShortAnswer] = useState(answer)
-
-    useEffect(() => {
+    const [shortAnswer, setShortAnswer] = useState(() => {
       if (answer.length > 300) {
-        setShortAnswer(answer.substring(0, 300) + '...')
+        return answer.substring(0, 300) + '...'
       }
-    }, [answer])
+
+      return answer
+    })
 
     return <>{shortAnswer}</>
   }
