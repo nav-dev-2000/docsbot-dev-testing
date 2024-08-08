@@ -299,6 +299,48 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
+const convertQuestionDocToData = (id, docData) => {
+  let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
+  //if we identified the user, use the provided data for alias
+  if (docData.metadata) {
+    if (docData.metadata.name) {
+      alias = docData.metadata.name
+      if (docData.metadata.email) {
+        alias += ' (' + docData.metadata.email + ')'
+      }
+    } else if (docData.metadata.email) {
+      alias = docData.metadata.email
+    }
+  }
+
+  let question = { id, ...docData, alias }
+  question.createdAt = question.createdAt.toDate().toJSON() // make serializable
+
+  // question.sources = docData.sources || []
+  if (!question.sources || Object.keys(question.sources).length === 0) {
+    question.sources = []
+  }
+
+  return question
+}
+
+const QUESTION_SELECT_LIST = [
+  FieldPath.documentId(),
+  'createdAt',
+  'ip',
+  'question',
+  'standaloneQuestion',
+  'sources',
+  'answer',
+  'rating',
+  'escalation',
+  'metadata',
+  'testing',
+  'run_id',
+  'deleted',
+  'couldAnswer',
+]
+
 export async function getQuestions(
   team,
   botId,
@@ -319,20 +361,7 @@ export async function getQuestions(
     .doc(botId)
     .collection('questions')
     .select(
-      FieldPath.documentId(),
-      'createdAt',
-      'ip',
-      'question',
-      'standaloneQuestion',
-      'sources',
-      'answer',
-      'rating',
-      'escalation',
-      'metadata',
-      'testing',
-      'run_id',
-      'deleted',
-      'couldAnswer',
+      ...QUESTION_SELECT_LIST
     ) //skip the vector as it's huge
 
   // grab limits
@@ -379,26 +408,7 @@ export async function getQuestions(
   let questions = []
   querySnapshot.forEach((doc) => {
     const docData = doc.data()
-    let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
-    //if we identified the user, use the provided data for alias
-    if (docData.metadata) {
-      if (docData.metadata.name) {
-        alias = docData.metadata.name
-        if (docData.metadata.email) {
-          alias += ' (' + docData.metadata.email + ')'
-        }
-      } else if (docData.metadata.email) {
-        alias = docData.metadata.email
-      }
-    }
-
-    let question = { id: doc.id, ...docData, alias }
-    question.createdAt = question.createdAt.toDate().toJSON() // make serializable
-
-    // question.sources = docData.sources || []
-    if (!question.sources || Object.keys(question.sources).length === 0) {
-      question.sources = []
-    }
+    const question = convertQuestionDocToData(doc.id, docData)
     questions.push(question)
   })
 
@@ -448,6 +458,32 @@ export async function getQuestions(
   }
 
   return { questions, pagination }
+}
+
+export async function getQuestion(teamId, botId, questionId) {
+  const questionRef = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('questions')
+    .doc(questionId)
+    .get()
+  if (questionRef.exists) {
+    const docData = questionRef.data()
+    const question = convertQuestionDocToData(questionId, docData)
+
+    // filter out unwanted fields
+    for (const [key, _] of Object.entries(question)) {
+      if (!['id', ...QUESTION_SELECT_LIST].includes(key)) {
+        delete question[key]
+      }
+    }
+
+    return question
+  } else {
+    return null
+  }
 }
 
 export async function getUser(userId) {

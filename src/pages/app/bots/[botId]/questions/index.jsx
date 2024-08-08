@@ -16,7 +16,7 @@ const buildParams = (ipFilter, rating, escalated, couldAnswer, dateRange) => {
   return params.join('&')
 }
 
-function Questions({ team, bot, preQuestions }) {
+function Questions({ team, bot, preQuestions, openQuestion=null }) {
   const [questions, setQuestions] = useState(preQuestions)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
@@ -68,6 +68,7 @@ function Questions({ team, bot, preQuestions }) {
         bot={bot}
         changePage={changePage}
         buildParams={buildParams}
+        openQuestion={openQuestion}
       />
     </DashboardWrap>
   )

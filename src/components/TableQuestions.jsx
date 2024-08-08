@@ -35,10 +35,11 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
 import ModalExport from '@/components/ModalExport'
 import Datepicker from 'react-tailwindcss-datepicker'
+import { isSuperAdmin } from '@/utils/helpers'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
-export default function TableQuestions({ team, bot, questions, setQuestions, changePage, buildParams }) {
+export default function TableQuestions({ team, bot, questions, setQuestions, changePage, buildParams, openQuestion=null }) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
   const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
@@ -141,6 +142,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }, [team, user])
 
   useEffect(() => {
+    if (!team || !user) return
     changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
   }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange])
 
@@ -384,8 +386,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     )
   }
 
-  const Answer = ({ question, questionIdx, children }) => {
-    const [open, setOpen] = useState(false)
+  const Answer = ({ question, questionIdx, children, startOpen=false }) => {
+    const [open, setOpen] = useState(startOpen)
     const [answerHtml, setAnswerHtml] = useState(null)
     const [shortAnswer, setShortAnswer] = useState(question.answer)
     const [qaOpen, setQAOpen] = useState(false)
@@ -415,16 +417,18 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
 
     return (
       <>
-        <button
-          className={(disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'}
-          onClick={() => {
-            if (disabled) return
-            setOpen(true)
-          }}
-          disabled={disabled}
-        >
-          {children}
-        </button>
+        {!startOpen && (
+          <button
+            className={(disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'}
+            onClick={() => {
+              if (disabled) return
+              setOpen(true)
+            }}
+            disabled={disabled}
+          >
+            {children}
+          </button>
+        )}
         <Transition.Root show={open} as={Fragment}>
           <Dialog as="div" className="relative z-5" onClose={setOpen}>
             <Transition.Child
@@ -465,23 +469,41 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                       >
                         <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
                       </button>
-                      {question.run_id && (
+                      
+                      <button
+                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          navigator.clipboard.writeText(`${window.location.origin}/app/bots/${bot.id}/questions/${question.id}`)
+                          setCopied(true)
+                          setTimeout(() => {
+                            setCopied(false)
+                          }, 2000)
+                        }}
+                        disabled={copied}
+                        title="Copy a shareable link to this question to share to team members or support."
+                      >
+                        <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        {copied ? 'Copied!' : 'Copy Share Link'}
+                      </button>
+
+                      { user && user.uid && isSuperAdmin(user.uid) && (
                         <button
-                          className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            navigator.clipboard.writeText(question.run_id)
-                            setCopied(true)
-                            setTimeout(() => {
-                              setCopied(false)
-                            }, 2000)
-                          }}
-                          disabled={copied}
-                          title="Copy this question ID to provide to the support team."
-                        >
-                          <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
-                          {copied ? 'Copied!' : 'Copy ID'}
-                        </button>
+                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          navigator.clipboard.writeText(`${question.run_id}`)
+                          setCopied(true)
+                          setTimeout(() => {
+                            setCopied(false)
+                          }, 2000)
+                        }}
+                        disabled={copied}
+                        title="Copy langchain runId"
+                      >
+                        <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        {copied ? 'Copied!' : 'Copy runId'}
+                      </button>
                       )}
 
                       <button
@@ -613,13 +635,13 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   const ShortAnswer = ({ answer }) => {
-    const [shortAnswer, setShortAnswer] = useState(answer)
-
-    useEffect(() => {
+    const [shortAnswer, setShortAnswer] = useState(() => {
       if (answer.length > 300) {
-        setShortAnswer(answer.substring(0, 300) + '...')
+        return answer.substring(0, 300) + '...'
       }
-    }, [answer])
+
+      return answer
+    })
 
     return <>{shortAnswer}</>
   }
@@ -748,6 +770,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
             </button>
           )}
         </div>
+
+        {openQuestion && (
+          <Answer question={openQuestion} startOpen={true} />
+        )}
 
         <div className="mt-8 flow-root">
           <div className="-mx-2 -my-2">
