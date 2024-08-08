@@ -10,7 +10,14 @@ import RadioCardSmall from '@/components/RadioCardSmall'
 const pricing = {
   'Chat/Completion Models': [
     {
-      model_name: 'GPT-4o (omni)',
+      model_name: 'GPT-4o-2024-08-06',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.0025,
+      output_token_cost_per_thousand: 0.010,
+    },
+    {
+      model_name: 'GPT-4o',
       context: '128K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.005,
@@ -109,7 +116,7 @@ const pricing = {
     },
     {
       model_name: 'Gemini 1.5 Pro',
-      context: '1M',
+      context: '2M',
       provider: 'Google',
       input_token_cost_per_thousand: 0.007,
       output_token_cost_per_thousand: 0.021,
@@ -273,7 +280,7 @@ export default function Calculate() {
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 3,
                   Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple
-                  and powerful free calculator. Latest numbers as of July 2024.
+                  and powerful free calculator. Latest numbers as of Aug 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
