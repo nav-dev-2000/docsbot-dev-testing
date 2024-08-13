@@ -113,6 +113,7 @@ function Register({ teamCount }) {
           })
           posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
           posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
+          posthog?.startSessionRecording()
           router.push(redirectPath)
         },
       })
@@ -149,6 +150,7 @@ function Register({ teamCount }) {
       })
       posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
       posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
+      posthog?.startSessionRecording()
       router.push(redirectPath)
     },
   })
