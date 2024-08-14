@@ -690,7 +690,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold leading-6 text-gray-900">Questions</h1>
             <p className="mt-2 text-sm text-gray-700">
-              A log of the recent questions you or users have asked your bot.
+              A log of questions you or users have asked your bot in the last 90 days.
             </p>
           </div>
           <QuestionFilters
@@ -705,7 +705,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
               onChange={setDateRange}
               showShortcuts={true}
               useRange={false}
-              minDate={new Date(bot.createdAt)}
+              minDate={new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)}
               maxDate={new Date()}
               classNames={{
                 container: 'z-10',
