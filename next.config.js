@@ -8,8 +8,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    newNextLinkBehavior: true,
     scrollRestoration: true,
+    largePageDataBytes: 256 * 1000, // 256kb, the default is 128kb
   },
   images: {
     remotePatterns: [

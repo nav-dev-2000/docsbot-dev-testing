@@ -1,4 +1,5 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const headlessuiPlugin = require('@headlessui/tailwindcss')
+const formsPlugin = require('@tailwindcss/forms')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -52,8 +53,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [formsPlugin, headlessuiPlugin, require('@tailwindcss/typography')],
 }

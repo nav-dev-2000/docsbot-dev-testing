@@ -124,7 +124,7 @@ export default function Cancel({ team, bots }) {
           //append to answer
           setAnswer((prev) => prev + data.message)
         } else if (data.type === 'end') {
-          data = JSON.parse(data.message)
+          const data = JSON.parse(data.message)
           setAnswer(data.answer)
           setAnswerDone(true)
           ws.close()

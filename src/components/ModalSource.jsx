@@ -550,6 +550,9 @@ export default function ModalSource({
                               primaryBackgroundColor="#0891B2"
                               primaryTextColor="#FFFFFF"
                               secondaryBackgroundColor="#FFFFFF"
+                              secondaryTextColor="#0891B2"
+                              loadingIconColor="#0891B2"
+                              theme="light"
                               onSuccess={updateCarbon}
                               onError={(error) => console.warn(error)}
                               open={carbonOpen}

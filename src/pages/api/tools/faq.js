@@ -1,8 +1,8 @@
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from 'openai'
 import { lookupFAQs, saveFAQs, checkFAQsRateLimit } from '@/lib/faqs'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
-export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 'fra1'];
+export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 'fra1']
 
 const scrapeURL = async (url) => {
   const endpoint = `https://scrapedown.docsbot.workers.dev/?url=${encodeURIComponent(
@@ -61,14 +61,12 @@ export default async function handler(req, res) {
     // check cache
     const cachedData = await lookupFAQs(hrefURL)
     if (cachedData) {
-      return res
-        .status(200)
-        .json({
-          faqs: cachedData.FAQs,
-          summary: cachedData.summary,
-          screenCap: cachedData.screenCap,
-          thumbnail: cachedData.thumbnail,
-        })
+      return res.status(200).json({
+        faqs: cachedData.FAQs,
+        summary: cachedData.summary,
+        screenCap: cachedData.screenCap,
+        thumbnail: cachedData.thumbnail,
+      })
     }
 
     // check rate limit
@@ -99,28 +97,25 @@ export default async function handler(req, res) {
       }
 
       if (!screenCaptures) {
-        return res
-          .status(500)
-          .json({
-            message: `Failed to get screen capture of ${siteURL}! Are you sure it's a valid URL?`,
-          })
+        return res.status(500).json({
+          message: `Failed to get screen capture of ${siteURL}! Are you sure it's a valid URL?`,
+        })
       }
 
       // generate FAQs
-      const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+      const openai = new OpenAI({
+        apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
       })
-      const openai = new OpenAIApi(configuration)
 
       let chat_completion = null
       try {
-        chat_completion = await openai.createChatCompletion({
-          model: 'gpt-4o',
+        chat_completion = await openai.chat.completions.create({
+          model: 'gpt-4o-2024-08-06',
           messages: [
             {
               role: 'system',
               content:
-                'Generate a comprehensive list of at least 10 FAQs for the following webpage that addresses common customer queries and concerns written in the primary language of the site\'s content. Begin by identifying the most frequently asked questions by customers, drawing from customer service interactions, social media inquiries, and feedback forms. Ensure the questions cover a broad range of topics, including product features, usage instructions, troubleshooting, pricing, availability, and support services. Write clear and concise answers for each question, providing helpful and accurate information. Include any relevant tips, best practices, or additional resources that could assist the customer. Organize the FAQs in a logical order, grouping similar topics together for easy navigation. Conclude with a section for any additional support options available, such as customer service contact information or links to more detailed resources.',
+                "Generate a comprehensive list of 10 to 20 FAQs for the following webpage that addresses potential common customer queries and concerns. Write them in the primary language of the site's content. Begin by identifying the most frequently asked questions by customers, drawing from customer service interactions, social media inquiries, and feedback forms. Ensure the questions cover a broad range of topics, including product features, usage instructions, troubleshooting, pricing, availability, and support services. Write clear and concise answers for each question, providing helpful and accurate information. Include any relevant tips, best practices, or additional resources that could assist the customer. Organize the FAQs in a logical order, grouping similar topics together for easy navigation. Conclude with a section for any additional support options available, such as customer service contact information or links to more detailed resources.",
             },
             {
               role: 'user',
@@ -136,11 +131,13 @@ export default async function handler(req, res) {
             },
             { role: 'user', content: `<URL>${hrefURL}</URL><CONTENT>${content}</CONTENT>` },
           ],
-          functions: [
-            {
+          response_format: {
+            type: 'json_schema',
+            json_schema: {
               name: 'faq_list',
               description: 'Extracts the frequently asked questions as valid JSON.',
-              parameters: {
+              strict: true,
+              schema: {
                 type: 'object',
                 properties: {
                   faqs: {
@@ -158,6 +155,8 @@ export default async function handler(req, res) {
                           description: 'Answer formatted in markdown.',
                         },
                       },
+                      required: ['question', 'answer'],
+                      additionalProperties: false,
                     },
                   },
                   summary: {
@@ -169,11 +168,11 @@ export default async function handler(req, res) {
                     description: 'Title of the site.',
                   },
                 },
+                required: ['faqs', 'summary', 'title'],
+                additionalProperties: false,
               },
-              required: ['faqs'],
             },
-          ],
-          function_call: { name: 'faq_list' },
+          },
         })
       } catch (error) {
         console.error(error)
@@ -183,10 +182,19 @@ export default async function handler(req, res) {
       // parse response
       let responseData = null
       try {
-        responseData = JSON.parse(chat_completion.data.choices[0].message.function_call.arguments)
+        const message = chat_completion.choices[0]?.message
+        console.log(message)
+        if (message?.content) {
+          responseData = JSON.parse(message.content)
+        } else {
+          console.error(message.refusal)
+          return res.status(500).json({ message: message.refusal })
+        }
       } catch (error) {
         console.error(error)
-        return res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
+        return res
+          .status(500)
+          .json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
       }
 
       if (!responseData?.faqs || !responseData?.summary || !responseData?.title) {
@@ -203,14 +211,12 @@ export default async function handler(req, res) {
         responseData.summary,
         responseData.faqs
       )
-      return res
-        .status(200)
-        .json({
-          faqs: responseData.faqs,
-          summary: responseData.summary,
-          screenCap: screenCaptures.full,
-          thumbnail: screenCaptures.thumbnail,
-        })
+      return res.status(200).json({
+        faqs: responseData.faqs,
+        summary: responseData.summary,
+        screenCap: screenCaptures.full,
+        thumbnail: screenCaptures.thumbnail,
+      })
     } catch (e) {
       console.error(e)
       return res.status(500).json({ message: `Failed to gen ${e}` })
@@ -221,15 +227,13 @@ export default async function handler(req, res) {
     // check cache
     const cachedData = await lookupFAQs(siteURL)
     if (cachedData) {
-      return res
-        .status(200)
-        .json({
-          faqs: cachedData.FAQs,
-          title: cachedData?.title || new URL(siteURL).hostname,
-          summary: cachedData.summary,
-          screenCap: cachedData.screenCap,
-          thumbnail: cachedData.thumbnail,
-        })
+      return res.status(200).json({
+        faqs: cachedData.FAQs,
+        title: cachedData?.title || new URL(siteURL).hostname,
+        summary: cachedData.summary,
+        screenCap: cachedData.screenCap,
+        thumbnail: cachedData.thumbnail,
+      })
     } else {
       return res.status(404).json({ message: `${siteURL} doesn't exist!` })
     }

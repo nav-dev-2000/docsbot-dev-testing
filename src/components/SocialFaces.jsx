@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/24/solid'
 import image1 from '@/images/avatars/testimony6.png'
 import image2 from '@/images/avatars/testimony2.jpeg'

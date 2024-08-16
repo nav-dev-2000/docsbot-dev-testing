@@ -133,7 +133,7 @@ export default function AskStreaming({ teamId, bot }) {
         } else if (data.type === 'info') {
           setLoadingMessage(data.message)
         } else if (data.type === 'end') {
-          data = JSON.parse(data.message)
+          const data = JSON.parse(data.message)
           setSources(data.sources)
           setAnswer(data.answer)
           setAnswerId(data.id)

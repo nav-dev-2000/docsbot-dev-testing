@@ -354,7 +354,7 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
             },
           ]}
         />
-        <div className="h-screen">
+        <div className="h-screen w-screen">
           <Component {...props} />
         </div>
         {!router.pathname.startsWith('/chat/') &&

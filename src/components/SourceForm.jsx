@@ -43,6 +43,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
   const [carbonId, setCarbonId] = useState(null)
   const [canModifySources, setCanModifySources] = useState(() => canUserModifySources(team, user?.uid))
+  const [carbonOpen, setCarbonOpen] = useState(false)
 
   useEffect(() => {
     if (showForm && stripePlan(team).pages <= team.pageCount) {
@@ -531,31 +532,39 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
             </button>
 
             {selectedSourceType?.isCarbon ? (
-              <CarbonConnect
-                tokenFetcher={carbonTokenFetcher}
-                orgName="DocsBot AI"
-                brandIcon="/.well-known/logo.png"
-                primaryBackgroundColor="#0891B2"
-                primaryTextColor="#FFFFFF"
-                secondaryBackgroundColor="#FFFFFF"
-                onSuccess={carbonOnSuccess}
-                onError={(error) => console.warn(error)}
-                tags={{ botId: bot.id, teamId: team.id }}
-                entryPoint={selectedSourceType?.isCarbon}
-                showFilesTab={false}
-                enabledIntegrations={[
-                  {
-                    id: selectedSourceType?.isCarbon,
-                    chunkSize: 1500,
-                    overlapSize: 50,
-                    fileSyncConfig : {
-                      split_rows: true
-                    }
-                  },
-                ]}
-              >
+              <>
+                <CarbonConnect
+                  tokenFetcher={carbonTokenFetcher}
+                  orgName="DocsBot AI"
+                  brandIcon="/.well-known/logo.png"
+                  primaryBackgroundColor="#0891B2"
+                  primaryTextColor="#FFFFFF"
+                  secondaryBackgroundColor="#FFFFFF"
+                  theme="light"
+                  onSuccess={carbonOnSuccess}
+                  onError={(error) => console.warn(error)}
+                  open={carbonOpen}
+                  setOpen={setCarbonOpen}
+                  tags={{ botId: bot.id, teamId: team.id }}
+                  entryPoint={selectedSourceType?.isCarbon}
+                  showFilesTab={false}
+                  enabledIntegrations={[
+                    {
+                      id: selectedSourceType?.isCarbon,
+                      chunkSize: 1500,
+                      overlapSize: 50,
+                      fileSyncConfig : {
+                        split_rows: true
+                      }
+                    },
+                  ]}
+                />
                 <button
                   disabled={isUpdating}
+                  onClick={() => {
+                    if (isUpdating) return
+                    setCarbonOpen(true)
+                  }}
                   className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                 >
                   {isUpdating ? (
@@ -570,7 +579,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                     </>
                   )}
                 </button>
-              </CarbonConnect>
+              </>
             ) : (
               <button
                 disabled={isUpdating || !validated}

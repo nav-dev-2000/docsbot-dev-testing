@@ -256,7 +256,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                       href={item.href}
                       className={classNames(
                         item.name === page
-                          ? 'bg-cyan-800 text-white'
+                          ? 'bg-cyan-800 text-white hover:text-white'
                           : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
                         'group flex items-center rounded-md px-2 py-2 text-base font-medium'
                       )}
@@ -273,7 +273,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
             </div>
           </div>
           <div className="flex flex-col print:!pl-0 md:pl-48">
-            <div className="sticky top-0 z-5 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
+            <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
               <button
                 type="button"
                 className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 md:hidden"
@@ -285,7 +285,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
                   <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
-                    <Link href={currentPageLink}>{page}</Link>
+                    <Link href={currentPageLink} className='hover:text-gray-500'>{page}</Link>
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>

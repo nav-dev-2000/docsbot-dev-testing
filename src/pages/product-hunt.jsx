@@ -83,7 +83,7 @@ export function ChatPage() {
         } else if (data.type === 'info') {
           setLoadingMessage(data.message)
         } else if (data.type === 'end') {
-          data = JSON.parse(data.message)
+          const data = JSON.parse(data.message)
           setAnswer(data.answer)
           setLoading(false)
           setLoadingMessage(null)

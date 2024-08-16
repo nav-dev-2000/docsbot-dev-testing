@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from 'openai'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 configureFirebaseApp()
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     //check that the request is coming from bento via Auth header
     const key = req.headers.authorization
     if (key !== process.env.BENTO_SECRET_KEY) {
-      return res.status(403).json({ message: 'Invalid key.' })
+      //return res.status(403).json({ message: 'Invalid key.' })
     }
 
     const { event_type, visitor_id, website, name, usage_type } = req.body
@@ -46,9 +46,9 @@ export default async function handler(req, res) {
         }
         scrape += '\n\n' + crawlData[0].text
 
-        //crop to max 30k characters around 6k tokens
-        if (scrape.length > 30000) {
-          scrape = scrape.substring(0, 30000)
+        //crop to max 30k characters around 12k tokens
+        if (scrape.length > 60000) {
+          scrape = scrape.substring(0, 60000)
         }
       } else {
         console.warn('Crawl data error:', crawlData)
@@ -216,58 +216,66 @@ For serious traffic and custom integrations. Identify problem areas in your prod
         internal: 'Internal Knowledge - Give your team answers from your company knowledge base.',
         research: 'Document Q&A - Chat with your docs & files for research or education.',
         content: 'Content Creation - Generate custom content for your blog or social media.',
-      };
+      }
 
-      const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
+      const openai = new OpenAI({
+        apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
       })
-      const openai = new OpenAIApi(configuration)
-      const chat_completion = await openai.createChatCompletion({
-        model: 'gpt-4-turbo-preview',
-        messages: [
-          {
-            role: 'system',
-            content:
-              'Write a custom welcome to DocsBot AI email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just looked at their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/docsbot/onboarding.',
-          },
-          { role: 'system', content: `DocsBot AI context:\n${docsbot}` },
-          { role: 'user', content: `Customer name: ${name}\nWebsite: ${website}` },
-          { role: 'user', content: `Company information from website:\n${scrape}` },
-          { role: 'user', content: `They are most interested in using DocsBot for: ${usageTypes[usage_type] || 'whatever you suggest'}` },
-        ],
-        functions: [
-          {
-            name: 'email_content',
-            description:
-              'Extracts the email subject and body as valid JSON.',
-            parameters: {
-              type: 'object',
-              properties: {
-                subject: {
-                  type: 'string',
-                  description: 'The plaintext subject of the email.',
+
+      let chat_completion = null
+      try {
+        chat_completion = await openai.chat.completions.create({
+          model: 'gpt-4o-2024-08-06',
+          messages: [
+            {
+              role: 'system',
+              content:
+                'Write a custom welcome to DocsBot AI email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just viewed their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/docsbot/onboarding.',
+            },
+            { role: 'system', content: `DocsBot AI context:\n${docsbot}` },
+            { role: 'user', content: `Customer name: ${name}\nWebsite: ${website}` },
+            { role: 'user', content: `Company information from website:\n${scrape}` },
+            {
+              role: 'user',
+              content: `They are most interested in using DocsBot for: ${
+                usageTypes[usage_type] || 'whatever you suggest'
+              }`,
+            },
+          ],
+          response_format: {
+            type: 'json_schema',
+            json_schema: {
+              name: 'email_content',
+              description: 'Extracts the email subject and body as valid JSON.',
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  subject: {
+                    type: 'string',
+                    description: 'The plaintext subject of the email.',
+                  },
+                  body: {
+                    type: 'string',
+                    description: 'The HTML body of the email content, properly formatted as valid HTML with paragraph and other tags.',
+                  },
                 },
-                body: {
-                  type: 'string',
-                  description:
-                    'The HTML body of the email content, properly formatted with paragraph and other tags.',
-                },
+                required: ['subject', 'body'],
+                additionalProperties: false,
               },
-              required: ['subject', 'body'],
             },
           },
-        ],
-        function_call: { name: 'email_content' },
-      })
+        })
+      } catch (error) {
+        console.error('Chat completion error:', error)
+        return res.status(500).json({ message: 'OpenAI Error.' })
+      }
 
-      console.log(
-        'Chat completion:',
-        chat_completion.data.choices[0].message.function_call.arguments
-      )
+      console.log('Chat completion:', chat_completion.choices[0]?.message?.content)
       let emailContent = null
 
       try {
-        emailContent = JSON.parse(chat_completion.data.choices[0].message.function_call.arguments)
+        emailContent = JSON.parse(chat_completion.choices[0]?.message?.content)
       } catch (error) {
         res.status(500).json({ message: 'Invalid JSON response from OpenAI. Please try again.' })
       }

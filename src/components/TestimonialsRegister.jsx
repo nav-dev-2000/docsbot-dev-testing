@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import image3 from '@/images/avatars/testimony3.jpeg'
 import dollieLogo from '@/images/logos/logo-dollie.png'
 import wingarcLogo from '@/images/logos/logo-wingarc.png'
