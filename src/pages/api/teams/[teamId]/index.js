@@ -6,7 +6,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import { encryptKey } from '@/lib/encryption'
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
 import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
@@ -29,7 +29,11 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     // sanity check user permissions
     if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
-      return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
+      return res
+        .status(403)
+        .json({
+          message: 'Unauthorized action; please contact your team owner.',
+        })
     }
 
     let { name, openAIKey, weaviateUrl, weaviateApiKey } = req.body
@@ -38,7 +42,9 @@ export default async function handler(req, res) {
       newTeam.name = name
       newTeam.name.trim()
 
-      mpTrack(userId, 'Team Name Updated', { ip: req.headers['x-forwarded-for'] })
+      mpTrack(userId, 'Team Name Updated', {
+        ip: req.headers['x-forwarded-for'],
+      })
       phTrack(userId, 'Team Name Updated', {}, team.id)
     }
     if (openAIKey) {
@@ -50,25 +56,32 @@ export default async function handler(req, res) {
         let isGPT4 = false
         if (!team.AzureDeploymentBase) {
           //check if key is valid
-          const configuration = new Configuration({
+          const openai = new OpenAI({
             apiKey: openAIKey,
           })
-          const openai = new OpenAIApi(configuration)
           //list models available
-          const models = await openai.listModels()
-          isGPT4 = !!models.data.data.find((model) => model.id === 'gpt-4-turbo')
+          const models = await openai.models.list()
+          console.log('models:', models)
+          isGPT4 = !!models.data.find(
+            (model) => model.id === 'gpt-4o',
+          )
         } else {
           isGPT4 = true
         }
 
         newTeam.openAIKey = encryptKey(openAIKey)
-        newTeam.openAIKeyPreview = openAIKey.substring(0, 3) + '...' + openAIKey.substring(openAIKey.length - 4, openAIKey.length)
+        newTeam.openAIKeyPreview =
+          openAIKey.substring(0, 3) +
+          '...' +
+          openAIKey.substring(openAIKey.length - 4, openAIKey.length)
         newTeam.supportsGPT4 = isGPT4
 
         await clearLastError(team)
         phTrack(userId, 'OpenAI Key Updated', {}, team.id)
       } catch (error) {
-        return res.status(400).json({ message: 'Invalid OpenAI Key. Please check and try again.' })
+        return res
+          .status(400)
+          .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     }
     if (weaviateUrl) {
@@ -87,13 +100,21 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     // sanity check user permissions
     if (!canUserDeleteTeam(team, userId) && !isSuperAdmin(userId)) {
-      return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
+      return res
+        .status(403)
+        .json({
+          message: 'Unauthorized action; please contact your team owner.',
+        })
     }
 
     //delete team from db
     try {
       //delete all bots
-      const botsSnapshot = await firestore.collection('teams').doc(team.id).collection('bots').get()
+      const botsSnapshot = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .get()
       botsSnapshot.forEach(function (doc) {
         deleteBot(team.id, doc.id)
       })
@@ -107,7 +128,10 @@ export default async function handler(req, res) {
 
       //delete team from user
       if (!isSuperAdmin(userId)) {
-        await firestore.collection('users').doc(userId).update({ currentTeam: null })
+        await firestore
+          .collection('users')
+          .doc(userId)
+          .update({ currentTeam: null })
       } else {
         await firestore
           .collection('users')
