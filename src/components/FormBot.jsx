@@ -478,8 +478,8 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
         <>
           <div className="mt-4">
             <FieldToggle
-              label="Classify Answers (BETA)"
-              description="Classify if the bot could answer the user question in logs. This is a BETA feature and could change answer output slightly."
+              label="Classify Answers"
+              description="Classify if the bot could answer the user question in logs. (recommended)"
               enabled={classifySwitch}
               setEnabled={setClassifySwitch}
               disabled={disabled}
