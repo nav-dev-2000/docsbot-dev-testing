@@ -559,16 +559,19 @@ export default function ModalSource({
                               setOpen={setCarbonOpen}
                               tags={{ botId: bot.id, teamId: team.id }}
                               entryPoint={source.isCarbon}
-                              showFilesTab={true}
-                              filePickerMode={"FILES"}
+                              useCarbonFilePicker={true}
+                              prependFilenameToChunks={true}
+                              openFilesTabTo="FILES_LIST"
+                              incrementalSync={true}
                               enabledIntegrations={[
                                 {
                                   id: source.isCarbon,
-                                  chunkSize: 1500,
+                                  chunkSize: 800,
                                   overlapSize: 50,
                                   fileSyncConfig : {
                                     split_rows: true
-                                  }
+                                  },
+                                  useCarbonFilePicker: true,
                                 },
                               ]}
                             />

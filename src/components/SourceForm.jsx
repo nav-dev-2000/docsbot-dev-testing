@@ -540,6 +540,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   primaryBackgroundColor="#0891B2"
                   primaryTextColor="#FFFFFF"
                   secondaryBackgroundColor="#FFFFFF"
+                  loadingIconColor="#0891B2"
                   theme="light"
                   onSuccess={carbonOnSuccess}
                   onError={(error) => console.warn(error)}
@@ -547,15 +548,19 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   setOpen={setCarbonOpen}
                   tags={{ botId: bot.id, teamId: team.id }}
                   entryPoint={selectedSourceType?.isCarbon}
-                  showFilesTab={false}
+                  useCarbonFilePicker={true}
+                  prependFilenameToChunks={true}
+                  openFilesTabTo="FILE_PICKER"
+                  incrementalSync={true}
                   enabledIntegrations={[
                     {
                       id: selectedSourceType?.isCarbon,
-                      chunkSize: 1500,
+                      chunkSize: 800,
                       overlapSize: 50,
                       fileSyncConfig : {
                         split_rows: true
-                      }
+                      },
+                      useCarbonFilePicker: true
                     },
                   ]}
                 />
