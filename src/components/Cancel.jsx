@@ -2,8 +2,10 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -25,8 +27,10 @@ export default function Cancel({ team, bots }) {
   const [errorText, setErrorText] = useState(null)
   const [cancelled, setCancelled] = useState(
     !team.stripeCustomerId ||
-      !['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus) ||
-      team.stripeSubscriptionCancelAtPeriodEnd
+      !['active', 'trialing', 'past_due', 'incomplete'].includes(
+        team.stripeSubscriptionStatus,
+      ) ||
+      team.stripeSubscriptionCancelAtPeriodEnd,
   )
 
   useEffect(() => {
@@ -38,10 +42,10 @@ export default function Cancel({ team, bots }) {
   useEffect(() => {
     if (currentStep === 3 && reason && details) {
       let prompt = `Cancelation reason: ${
-          reasons.find((item) => item.id === reason).value
-        }\nFollowup question: ${
-          reasons.find((item) => item.id === reason).followup_question
-        }\nAnswer: ${details}`
+        reasons.find((item) => item.id === reason).value
+      }\nFollowup question: ${
+        reasons.find((item) => item.id === reason).followup_question
+      }\nAnswer: ${details}`
       if (user.displayName) {
         prompt += `\nCustomer name: ${user.displayName}`
       }
@@ -68,12 +72,17 @@ export default function Cancel({ team, bots }) {
   //convert markdown to html when answer changes or is appended to
   useEffect(() => {
     if (answer) {
-      remark()
-        .use(html)
+      unified()
+        .use(remarkParse)
         .use(remarkGfm)
+        .use(remarkRehype)
+        .use(rehypeStringify)
         .process(answer)
-        .then((html) => {
-          setResultHtml(html.toString())
+        .then((file) => {
+          setResultHtml(String(file))
+        })
+        .catch((error) => {
+          console.warning('Error processing markdown:', error)
         })
     }
   }, [answer])
@@ -124,8 +133,8 @@ export default function Cancel({ team, bots }) {
           //append to answer
           setAnswer((prev) => prev + data.message)
         } else if (data.type === 'end') {
-          const data = JSON.parse(data.message)
-          setAnswer(data.answer)
+          const endData = JSON.parse(data.message) // Renamed variable
+          setAnswer(endData.answer)
           setAnswerDone(true)
           ws.close()
         } else if (data.type === 'error') {
@@ -196,7 +205,8 @@ export default function Cancel({ team, bots }) {
     {
       id: 'too_expensive',
       value: 'It’s too expensive',
-      followup_question: 'What features would provide enough value to be worth the cost?',
+      followup_question:
+        'What features would provide enough value to be worth the cost?',
       suggestion:
         "We understand that cost can be a concern. Did you know we offer a variety of pricing plans? Let's find one that fits your budget. Would you be interested in exploring our [discounted/lesser-priced] plans?",
     },
@@ -215,7 +225,8 @@ export default function Cancel({ team, bots }) {
     {
       id: 'unused',
       value: 'I don’t use the service enough',
-      followup_question: 'How could we improve DocsBot to make it more useful for you?',
+      followup_question:
+        'How could we improve DocsBot to make it more useful for you?',
       suggestion:
         'We want DocsBot AI to be a vital part of your daily activities. Here are some ways our other users integrate it into their workflow. Perhaps these could make it more useful for you too?',
     },
@@ -293,8 +304,14 @@ export default function Cancel({ team, bots }) {
                   <span className="sr-only">{step.title}</span>
                 </div>
               ) : currentStep === index ? (
-                <div className="relative flex items-center justify-center" aria-current="step">
-                  <span className="absolute flex h-5 w-5 p-px" aria-hidden="true">
+                <div
+                  className="relative flex items-center justify-center"
+                  aria-current="step"
+                >
+                  <span
+                    className="absolute flex h-5 w-5 p-px"
+                    aria-hidden="true"
+                  >
                     <span className="h-full w-full rounded-full bg-red-200" />
                   </span>
                   <span
@@ -336,7 +353,12 @@ export default function Cancel({ team, bots }) {
         </button>
       </div>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          initialFocus={cancelButtonRef}
+          onClose={setOpen}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -378,7 +400,9 @@ export default function Cancel({ team, bots }) {
                           {steps[currentStep].title}
                         </Dialog.Title>
                         <div className="mt-2">
-                          <p className="my-4 text-sm text-gray-600">{steps[currentStep].text}</p>
+                          <p className="my-4 text-sm text-gray-600">
+                            {steps[currentStep].text}
+                          </p>
                           {currentStep === 1 ? (
                             <CancelReason />
                           ) : currentStep === 2 ? (
@@ -387,7 +411,10 @@ export default function Cancel({ team, bots }) {
                                 htmlFor="details"
                                 className="text-base font-semibold text-gray-900"
                               >
-                                {reasons.find((item) => item.id === reason).followup_question}
+                                {
+                                  reasons.find((item) => item.id === reason)
+                                    .followup_question
+                                }
                               </label>
                               <textarea
                                 id="details"
@@ -432,7 +459,7 @@ export default function Cancel({ team, bots }) {
                           'inline-flex w-auto justify-center whitespace-nowrap rounded-md px-3 py-2 text-sm font-semibold shadow-sm disabled:opacity-25',
                           currentStep === steps.length - 1
                             ? 'bg-red-600 text-white hover:bg-red-500'
-                            : 'bg-red-50 text-red-600 ring-2 ring-inset ring-red-600 hover:bg-red-100'
+                            : 'bg-red-50 text-red-600 ring-2 ring-inset ring-red-600 hover:bg-red-100',
                         )}
                         onClick={() => {
                           if (currentStep === steps.length - 1) {
@@ -445,18 +472,19 @@ export default function Cancel({ team, bots }) {
                         disabled={
                           currentStep === 1 && !reason
                             ? true
-                            : currentStep === 2 && (!details || details.length <= 5)
-                            ? true
-                            : currentStep === 3 && !answerDone
-                            ? true
-                            : false
+                            : currentStep === 2 &&
+                                (!details || details.length <= 5)
+                              ? true
+                              : currentStep === 3 && !answerDone
+                                ? true
+                                : false
                         }
                       >
                         {currentStep === steps.length - 1
                           ? 'Confirm Cancellation'
                           : currentStep === 3
-                          ? 'I still want to cancel'
-                          : 'Next'}
+                            ? 'I still want to cancel'
+                            : 'Next'}
                       </button>
                     </div>
                   </div>

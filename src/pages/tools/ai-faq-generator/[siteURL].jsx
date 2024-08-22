@@ -8,9 +8,11 @@ import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import Link from 'next/link'
 import { CodeBracketIcon, HashtagIcon } from '@heroicons/react/20/solid'
-import { remark } from 'remark'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import html from 'remark-html'
 import { Favicon } from '.'
 
 const copyAsMarkdown = (FAQs) => {
@@ -27,7 +29,12 @@ const copyAsHTML = (FAQs) => {
   let output = ''
   for (const faq of FAQs) {
     output += `<h3>${faq.question}</h3>\n`
-    output += remark().use(remarkGfm).use(html).processSync(faq.answer) + '\n\n'
+    output += unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeStringify)
+      .processSync(faq.answer).toString() + '\n\n'
   }
 
   navigator.clipboard.writeText(output)
@@ -104,7 +111,13 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
         </div>
         <div className="mx-none text-left">
           {FAQs.map((faq) => {
-            const renderedAnswer = remark().use(remarkGfm).use(html).processSync(faq.answer)
+            const renderedAnswer = unified()
+              .use(remarkParse)
+              .use(remarkGfm)
+              .use(remarkRehype)
+              .use(rehypeStringify)
+              .processSync(faq.answer)
+              .toString()
             return (
               <div
                 key={faq.question}

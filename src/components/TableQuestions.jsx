@@ -18,13 +18,19 @@ import {
   CheckCircleIcon,
   MinusCircleIcon,
   ChevronLeftIcon,
-  ChartBarIcon
+  ChartBarIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
+import remarkExternalLinks from 'remark-external-links'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
@@ -39,10 +45,22 @@ import { isSuperAdmin } from '@/utils/helpers'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
-export default function TableQuestions({ team, bot, questions, setQuestions, changePage, buildParams, openQuestion=null }) {
+export default function TableQuestions({
+  team,
+  bot,
+  questions,
+  setQuestions,
+  changePage,
+  buildParams,
+  openQuestion = null,
+}) {
   const [ipFilter, setIPFilter] = useState(null)
   const [ipAlias, setIPAlias] = useState(null)
-  const [filters, setFilters] = useState({ rating: null, escalated: null, couldAnswer: null })
+  const [filters, setFilters] = useState({
+    rating: null,
+    escalated: null,
+    couldAnswer: null,
+  })
   const [canModify, setModify] = useState(false)
   const [exportOpen, setExportOpen] = useState(false)
   const [exporting, setExporting] = useState(false)
@@ -102,7 +120,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           value: false,
           label: (
             <span className="flex items-center">
-              <LifebuoyIcon className="mr-1 h-4 w-4  text-gray-500" /> Not Escalated
+              <LifebuoyIcon className="mr-1 h-4 w-4 text-gray-500" /> Not
+              Escalated
             </span>
           ),
         },
@@ -120,7 +139,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           value: true,
           label: (
             <span className="flex items-center">
-              <CheckCircleIcon className="mr-1 h-4 w-4 text-green-600" /> Answered
+              <CheckCircleIcon className="mr-1 h-4 w-4 text-green-600" />{' '}
+              Answered
             </span>
           ),
         },
@@ -128,7 +148,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           value: false,
           label: (
             <span className="flex items-center">
-              <MinusCircleIcon className="mr-1 h-4 w-4 text-red-600" /> Not Answered
+              <MinusCircleIcon className="mr-1 h-4 w-4 text-red-600" /> Not
+              Answered
             </span>
           ),
         },
@@ -143,8 +164,21 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
 
   useEffect(() => {
     if (!team || !user) return
-    changePage(0, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)
-  }, [ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange])
+    changePage(
+      0,
+      ipFilter,
+      filters.rating,
+      filters.escalated,
+      filters.couldAnswer,
+      dateRange,
+    )
+  }, [
+    ipFilter,
+    filters.rating,
+    filters.escalated,
+    filters.couldAnswer,
+    dateRange,
+  ])
 
   const Sources = ({ sources }) => {
     return (
@@ -158,7 +192,8 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
     return (
-      questions.questions.length + questions.pagination.perPage * questions.pagination.page >=
+      questions.questions.length +
+        questions.pagination.perPage * questions.pagination.page >=
       questions.pagination.planLimit
     )
   })
@@ -210,7 +245,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
       if (response.ok) {
         setQuestions((prevQuestions) => {
           const questionIndex = prevQuestions.questions.findIndex(
-            (question) => question.id === questionId
+            (question) => question.id === questionId,
           )
           const newQuestions = [...prevQuestions.questions]
           newQuestions[questionIndex].rating = newRating
@@ -220,7 +255,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
         try {
           const data = await response.json()
           if (data.error) {
-            console.warn(data.error || 'Something went wrong, please try again.')
+            console.warn(
+              data.error || 'Something went wrong, please try again.',
+            )
           }
         } catch (e) {
           console.warn(e)
@@ -232,7 +269,14 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   const deleteQuestion = async (questionId) => {
-    const urlParams = ['teams', team.id, 'bots', bot.id, 'questions', questionId]
+    const urlParams = [
+      'teams',
+      team.id,
+      'bots',
+      bot.id,
+      'questions',
+      questionId,
+    ]
     const path = '/api/' + urlParams.join('/')
 
     const response = await fetch(path, {
@@ -244,7 +288,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     if (response.ok) {
       setQuestions((prevQuestions) => {
         const questionIndex = prevQuestions.questions.findIndex(
-          (question) => question.id === questionId
+          (question) => question.id === questionId,
         )
         const newQuestions = [...prevQuestions.questions]
         newQuestions[questionIndex].deleted = true
@@ -308,7 +352,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
       <div
         className={clsx(
           'px-1',
-          source?.used ? ' my-2 rounded-md border border-gray-300 shadow-sm bg-cyan-50' : ''
+          source?.used
+            ? 'my-2 rounded-md border border-gray-300 bg-cyan-50 shadow-sm'
+            : '',
         )}
       >
         <h4 className="mb-2 flex items-center text-sm text-gray-500">
@@ -318,7 +364,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
               aria-hidden="true"
             />
           )}
-          <SourceIcon className="mr-1 h-3 w-3 text-gray-400" aria-hidden="true" />
+          <SourceIcon
+            className="mr-1 h-3 w-3 text-gray-400"
+            aria-hidden="true"
+          />
           {source.url ? (
             <Link
               href={source.url}
@@ -346,24 +395,24 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const ThumbIcon = escalation
       ? LifebuoyIcon
       : rating > 0
-      ? HandThumbUpIcon
-      : rating < 0
-      ? HandThumbDownIcon
-      : MinusIcon
+        ? HandThumbUpIcon
+        : rating < 0
+          ? HandThumbDownIcon
+          : MinusIcon
     const color = escalation
       ? 'text-blue-700'
       : rating > 0
-      ? 'text-green-600'
-      : rating < 0
-      ? 'text-red-600'
-      : 'text-gray-500'
+        ? 'text-green-600'
+        : rating < 0
+          ? 'text-red-600'
+          : 'text-gray-500'
     const spanText = escalation
       ? 'Escalated to support'
       : rating > 0
-      ? 'Up vote'
-      : rating < 0
-      ? 'Down vote'
-      : 'Neutral'
+        ? 'Up vote'
+        : rating < 0
+          ? 'Down vote'
+          : 'Neutral'
 
     return (
       <>
@@ -374,8 +423,16 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
   }
 
   const CouldAnswer = ({ answered, exists }) => {
-    const ThumbIcon = answered ? CheckCircleIcon : exists ? MinusCircleIcon : MinusIcon
-    const color = answered ? 'text-green-600' : exists ? 'text-red-600' : 'text-gray-500'
+    const ThumbIcon = answered
+      ? CheckCircleIcon
+      : exists
+        ? MinusCircleIcon
+        : MinusIcon
+    const color = answered
+      ? 'text-green-600'
+      : exists
+        ? 'text-red-600'
+        : 'text-gray-500'
     const spanText = answered ? 'Answered' : exists ? 'Unanswered' : 'Unknown'
 
     return (
@@ -386,7 +443,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     )
   }
 
-  const Answer = ({ question, questionIdx, children, startOpen=false }) => {
+  const Answer = ({ question, questionIdx, children, startOpen = false }) => {
     const [open, setOpen] = useState(startOpen)
     const [answerHtml, setAnswerHtml] = useState(null)
     const [shortAnswer, setShortAnswer] = useState(question.answer)
@@ -394,7 +451,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
     const [copied, setCopied] = useState(false)
     const [disabled, setDisabled] = useState(() => {
       return (
-        questionIdx + questions.pagination.perPage * questions.pagination.page + BLUR_LIMIT_COUNT >=
+        questionIdx +
+          questions.pagination.perPage * questions.pagination.page +
+          BLUR_LIMIT_COUNT >=
         questions.pagination.planLimit
       )
     })
@@ -405,12 +464,20 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           setShortAnswer(question.answer.substring(0, 300) + '...')
         }
         // set answer html
-        remark()
-          .use(html)
+        unified()
+          .use(remarkParse)
           .use(remarkGfm)
+          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+          .use(remarkMath)
+          .use(remarkRehype)
+          .use(rehypeKatex)
+          .use(rehypeStringify)
           .process(question.answer)
-          .then((html) => {
-            setAnswerHtml(html.toString())
+          .then((file) => {
+            setAnswerHtml(String(file))
+          })
+          .catch((error) => {
+            console.warning('Error processing markdown:', error)
           })
       }
     }, [question.answer])
@@ -419,7 +486,10 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
       <>
         {!startOpen && (
           <button
-            className={(disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'}
+            className={
+              (disabled ? '' : 'cursor-pointer') +
+              'm-0 block px-3 py-4 text-left'
+            }
             onClick={() => {
               if (disabled) return
               setOpen(true)
@@ -430,7 +500,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
           </button>
         )}
         <Transition.Root show={open} as={Fragment}>
-          <Dialog as="div" className="relative z-5" onClose={setOpen}>
+          <Dialog as="div" className="z-10 relative" onClose={setOpen}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -443,7 +513,7 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
               <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
             </Transition.Child>
 
-            <div className="fixed inset-0 z-5 overflow-y-auto">
+            <div className="z-5 fixed inset-0 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                 <Transition.Child
                   as={Fragment}
@@ -467,14 +537,20 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         }
                         onClick={() => deleteQuestion(question.id)}
                       >
-                        <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                        <TrashIcon
+                          className="mr-1 h-4 w-4"
+                          aria-hidden="true"
+                        />{' '}
+                        Delete
                       </button>
-                      
+
                       <button
                         className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
                         onClick={(e) => {
                           e.preventDefault()
-                          navigator.clipboard.writeText(`${window.location.origin}/app/bots/${bot.id}/questions/${question.id}`)
+                          navigator.clipboard.writeText(
+                            `${window.location.origin}/app/bots/${bot.id}/questions/${question.id}`,
+                          )
                           setCopied(true)
                           setTimeout(() => {
                             setCopied(false)
@@ -483,27 +559,33 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         disabled={copied}
                         title="Copy a shareable link to this question to share to team members or support."
                       >
-                        <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                        <ClipboardDocumentIcon
+                          className="mr-1 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         {copied ? 'Copied!' : 'Copy Share Link'}
                       </button>
 
-                      { user && user.uid && isSuperAdmin(user.uid) && (
+                      {user && user.uid && isSuperAdmin(user.uid) && (
                         <button
-                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          navigator.clipboard.writeText(`${question.run_id}`)
-                          setCopied(true)
-                          setTimeout(() => {
-                            setCopied(false)
-                          }, 2000)
-                        }}
-                        disabled={copied}
-                        title="Copy langchain runId"
-                      >
-                        <ClipboardDocumentIcon className="mr-1 h-4 w-4" aria-hidden="true" />
-                        {copied ? 'Copied!' : 'Copy runId'}
-                      </button>
+                          className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            navigator.clipboard.writeText(`${question.run_id}`)
+                            setCopied(true)
+                            setTimeout(() => {
+                              setCopied(false)
+                            }, 2000)
+                          }}
+                          disabled={copied}
+                          title="Copy langchain runId"
+                        >
+                          <ClipboardDocumentIcon
+                            className="mr-1 h-4 w-4"
+                            aria-hidden="true"
+                          />
+                          {copied ? 'Copied!' : 'Copy runId'}
+                        </button>
                       )}
 
                       <button
@@ -519,7 +601,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         <HandThumbUpIcon
                           className={clsx(
                             'h-6 w-6',
-                            question.rating > 0 ? 'text-green-600' : 'text-gray-600'
+                            question.rating > 0
+                              ? 'text-green-600'
+                              : 'text-gray-600',
                           )}
                           aria-hidden="true"
                         />
@@ -537,7 +621,9 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         <HandThumbDownIcon
                           className={clsx(
                             'h-6 w-6',
-                            question.rating < 0 ? 'text-red-600' : 'text-gray-600'
+                            question.rating < 0
+                              ? 'text-red-600'
+                              : 'text-gray-600',
                           )}
                           aria-hidden="true"
                         />
@@ -560,14 +646,16 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                         />
                       )}
                       <div className="flex-inline p-0">
-                        <h2 className="text-wrap flex items-center text-sm font-medium text-gray-400">
+                        <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
                           <img
                             className="mr-1 inline-block h-5 w-5 rounded-full"
                             src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
                             alt="User avatar"
                           />
                           {question.alias} asked
-                          {question.metadata?.referrer ? ` from ${question.metadata.referrer}` : ''}
+                          {question.metadata?.referrer
+                            ? ` from ${question.metadata.referrer}`
+                            : ''}
                           :
                         </h2>
                         {ipFilter === null && question.ip !== undefined && (
@@ -588,10 +676,14 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
                           </button>
                         )}
                       </div>
-                      <h2 className="text-xl font-medium text-gray-900">{question.question}</h2>
+                      <h2 className="text-xl font-medium text-gray-900">
+                        {question.question}
+                      </h2>
                       {question.standaloneQuestion &&
-                        question.standaloneQuestion.trim() !== question.answer.trim() &&
-                        question.standaloneQuestion.trim() !== question.question.trim() && (
+                        question.standaloneQuestion.trim() !==
+                          question.answer.trim() &&
+                        question.standaloneQuestion.trim() !==
+                          question.question.trim() && (
                           <h3 className="mb-1 mt-1 text-sm text-gray-800">
                             Standalone Question:{' '}
                             <span className="font-semibold text-gray-900">
@@ -653,340 +745,390 @@ export default function TableQuestions({ team, bot, questions, setQuestions, cha
 
   return (
     <>
-    <div className="mb-4 flex justify-between">
-      <Link
-        href={`/app/bots/${bot.id}`}
-        className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
-      >
-        <ChevronLeftIcon
-          className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
-          aria-hidden="true"
-        />
-        Back
-      </Link>
-      <div className="flex items-center justify-center space-x-2">
+      <div className="mb-4 flex justify-between">
         <Link
-          href={`/app/bots/${bot.id}/reports`}
-          className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+          href={`/app/bots/${bot.id}`}
+          className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
         >
-          <ChartBarIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-          Reports
-        </Link>
-        <button
-          onClick={() => setExportOpen((prev) => !prev)}
-          type="button"
-          className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-        >
-          Export Logs
-        </button>
-      </div>
-    </div>
-    <ModalExport team={team} bot={bot} open={exportOpen} setOpen={setExportOpen} downloadLogs={async () => { await downloadLogs(); setExportOpen(false) }} isProcessing={exporting} />
-
-    <Alert title={errorText} type="error" className="rounded-t-lg"/>
-    <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
-      <div className="px-0">
-        <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
-          <div className="sm:flex-auto">
-            <h1 className="text-xl font-semibold leading-6 text-gray-900">Questions</h1>
-            <p className="mt-2 text-sm text-gray-700">
-              A log of questions you or users have asked your bot in the last 90 days.
-            </p>
-          </div>
-          <QuestionFilters
-            filters={filters}
-            setFilters={setFilters}
-            filterOptions={filterOptions}
+          <ChevronLeftIcon
+            className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
+            aria-hidden="true"
           />
-          <div className="light overflow-visible">
-            <Datepicker
-              value={dateRange}
-              primaryColor="cyan"
-              onChange={setDateRange}
-              showShortcuts={true}
-              useRange={false}
-              minDate={new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)}
-              maxDate={new Date()}
-              classNames={{
-                container: 'z-10',
-              }}
+          Back
+        </Link>
+        <div className="flex items-center justify-center space-x-2">
+          <Link
+            href={`/app/bots/${bot.id}/reports`}
+            className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <ChartBarIcon
+              className="mr-2 h-5 w-5 text-gray-400"
+              aria-hidden="true"
+            />
+            Reports
+          </Link>
+          <button
+            onClick={() => setExportOpen((prev) => !prev)}
+            type="button"
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+          >
+            Export Logs
+          </button>
+        </div>
+      </div>
+      <ModalExport
+        team={team}
+        bot={bot}
+        open={exportOpen}
+        setOpen={setExportOpen}
+        downloadLogs={async () => {
+          await downloadLogs()
+          setExportOpen(false)
+        }}
+        isProcessing={exporting}
+      />
+
+      <Alert title={errorText} type="error" className="rounded-t-lg" />
+      <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
+        <div className="px-0">
+          <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
+            <div className="sm:flex-auto">
+              <h1 className="text-xl font-semibold leading-6 text-gray-900">
+                Questions
+              </h1>
+              <p className="mt-2 text-sm text-gray-700">
+                A log of questions you or users have asked your bot in the last
+                90 days.
+              </p>
+            </div>
+            <QuestionFilters
+              filters={filters}
+              setFilters={setFilters}
+              filterOptions={filterOptions}
+            />
+            <div className="light overflow-visible">
+              <Datepicker
+                value={dateRange}
+                primaryColor="cyan"
+                onChange={setDateRange}
+                showShortcuts={true}
+                useRange={false}
+                minDate={new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)}
+                maxDate={new Date()}
+                classNames={{
+                  container: 'z-10',
+                }}
+              />
+            </div>
+            <Paginator
+              perPage={questions.pagination.perPage}
+              totalCount={questions.pagination.viewableCount}
+              page={questions.pagination.page}
+              changePage={(page) =>
+                changePage(
+                  page,
+                  ipFilter,
+                  filters.rating,
+                  filters.escalated,
+                  filters.couldAnswer,
+                  dateRange,
+                )
+              }
             />
           </div>
-          <Paginator
-            perPage={questions.pagination.perPage}
-            totalCount={questions.pagination.viewableCount}
-            page={questions.pagination.page}
-            changePage={(page) => changePage(page, ipFilter, filters.rating, filters.escalated, filters.couldAnswer, dateRange)}
-          />
-        </div>
-        <div className="mt-4 flex items-center space-x-4 lg:mt-2">
-          {ipFilter !== null && (
-            <button
-              type="button"
-              className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-              onClick={() => {
-                updateIPFilter(null, null)
-              }}
-            >
-              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-              <span className="m-auto flex pl-1 text-xs text-gray-400">
-                <UserCircleIcon className="mr-1 h-4 w-4" /> {ipAlias}
-              </span>
-            </button>
-          )}
-          {filters.rating !== null && (
-            <button
-              type="button"
-              className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-              onClick={() => {
-                setFilters((prevFilters) => {
-                  return { ...prevFilters, rating: null }
-                })
-              }}
-            >
-              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-              <span className="m-auto flex pl-1 text-xs text-gray-400">
-                {filterOptions[0].options.find((option) => option.value === filters.rating).label}
-              </span>
-            </button>
-          )}
-          {filters.escalated !== null && (
-            <button
-              type="button"
-              className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-              onClick={() => {
-                setFilters((prevFilters) => {
-                  return { ...prevFilters, escalated: null }
-                })
-              }}
-            >
-              <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
-              <span className="m-auto flex pl-1 text-xs text-gray-400">
-                {
-                  filterOptions[1].options.find((option) => option.value === filters.escalated)
-                    .label
-                }
-              </span>
-            </button>
-          )}
-        </div>
+          <div className="mt-4 flex items-center space-x-4 lg:mt-2">
+            {ipFilter !== null && (
+              <button
+                type="button"
+                className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                onClick={() => {
+                  updateIPFilter(null, null)
+                }}
+              >
+                <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+                <span className="m-auto flex pl-1 text-xs text-gray-400">
+                  <UserCircleIcon className="mr-1 h-4 w-4" /> {ipAlias}
+                </span>
+              </button>
+            )}
+            {filters.rating !== null && (
+              <button
+                type="button"
+                className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                onClick={() => {
+                  setFilters((prevFilters) => {
+                    return { ...prevFilters, rating: null }
+                  })
+                }}
+              >
+                <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+                <span className="m-auto flex pl-1 text-xs text-gray-400">
+                  {
+                    filterOptions[0].options.find(
+                      (option) => option.value === filters.rating,
+                    ).label
+                  }
+                </span>
+              </button>
+            )}
+            {filters.escalated !== null && (
+              <button
+                type="button"
+                className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                onClick={() => {
+                  setFilters((prevFilters) => {
+                    return { ...prevFilters, escalated: null }
+                  })
+                }}
+              >
+                <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+                <span className="m-auto flex pl-1 text-xs text-gray-400">
+                  {
+                    filterOptions[1].options.find(
+                      (option) => option.value === filters.escalated,
+                    ).label
+                  }
+                </span>
+              </button>
+            )}
+          </div>
 
-        {openQuestion && (
-          <Answer question={openQuestion} startOpen={true} />
-        )}
+          {openQuestion && <Answer question={openQuestion} startOpen={true} />}
 
-        <div className="mt-8 flow-root">
-          <div className="-mx-2 -my-2">
-            <div className="inline-block min-w-full py-2 align-middle">
-              <table className="min-w-full border-separate border-spacing-0">
-                <thead>
-                  <tr>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                    >
-                      User
-                    </th>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-5 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
-                    >
-                      Question
-                    </th>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                    >
-                      Answer
-                    </th>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                    >
-                      Sources
-                    </th>
-                    <th
-                      scope="col"
-                      className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                    >
-                      Rating
-                    </th>
-                    {bot?.classify && (
+          <div className="mt-8 flow-root">
+            <div className="-mx-2 -my-2">
+              <div className="inline-block min-w-full py-2 align-middle">
+                <table className="min-w-full border-separate border-spacing-0">
+                  <thead>
+                    <tr>
                       <th
                         scope="col"
-                        className="sticky top-16 z-5 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                        className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
                       >
-                        Could Answer
+                        User
                       </th>
-                    )}
-                  </tr>
-                </thead>
-                <tbody>
-                  {questions.questions.map((question, questionIdx) => {
-                    // if the question is deleted, show a row with a message
-                    if (question.deleted) {
-                      return null
-                    }
-
-                    return (
-                      <tr
-                        key={question.id}
-                        className={clsx(
-                          questionIdx +
-                            questions.pagination.perPage * questions.pagination.page +
-                            BLUR_LIMIT_COUNT >=
-                            questions.pagination.planLimit && blurEnabled
-                            ? 'blur-sm'
-                            : 'hover:bg-gray-50',
-                          question.testing ? 'bg-gray-50' : ''
-                        )}
+                      <th
+                        scope="col"
+                        className="z-5 sticky top-16 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell sm:pl-0"
                       >
-                        <td
+                        Question
+                      </th>
+                      <th
+                        scope="col"
+                        className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      >
+                        Answer
+                      </th>
+                      <th
+                        scope="col"
+                        className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      >
+                        Sources
+                      </th>
+                      <th
+                        scope="col"
+                        className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      >
+                        Rating
+                      </th>
+                      {bot?.classify && (
+                        <th
+                          scope="col"
+                          className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                        >
+                          Could Answer
+                        </th>
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {questions.questions.map((question, questionIdx) => {
+                      // if the question is deleted, show a row with a message
+                      if (question.deleted) {
+                        return null
+                      }
+
+                      return (
+                        <tr
+                          key={question.id}
                           className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden text-sm text-gray-500 lg:table-cell'
+                            questionIdx +
+                              questions.pagination.perPage *
+                                questions.pagination.page +
+                              BLUR_LIMIT_COUNT >=
+                              questions.pagination.planLimit && blurEnabled
+                              ? 'blur-sm'
+                              : 'hover:bg-gray-50',
+                            question.testing ? 'bg-gray-50' : '',
                           )}
                         >
-                          <Answer {...{ question, questionIdx }}>
-                            <div className="flex items-center">
-                              <img
-                                className="inline-block h-9 w-9 rounded-full"
-                                src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
-                                alt="User avatar"
-                              />
-                              {question.testing && (
-                                <span className="ml-2 flex items-center text-xs text-gray-400">
-                                  <UserGroupIcon
-                                    className="mr-1 h-4 w-4 text-gray-500"
-                                    title="Staff testing"
-                                  />
-                                  Staff
-                                </span>
-                              )}
-                            </div>
-                            <p className="mt-2 text-xs">{question.alias}</p>
-                          </Answer>
-                        </td>
-                        <td
-                          className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'max-w-xs overflow-hidden break-words text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell'
-                          )}
-                        >
-                          <Answer {...{ question, questionIdx }}>
-                            <p>
-                              {question.standaloneQuestion &&
-                              question.standaloneQuestion != question.answer &&
-                              bot.language == 'en'
-                                ? question.standaloneQuestion
-                                : question.question}
-                            </p>
-                            <span className="mt-2 hidden text-xs text-gray-400 sm:block">
-                              <LocaleDateTime date={question.createdAt} />
-                            </span>
-                            <dl className="font-normal lg:hidden">
-                              <dt className="sr-only">Answer</dt>
-                              <dd className="mt-1 text-sm text-gray-600">
-                                <ShortAnswer answer={question.answer} />
-                              </dd>
-                              <dt className="sr-only">Sources</dt>
-                              <dd className="mt-2 text-gray-500">
-                                <Sources sources={question.sources} />
-                              </dd>
-                            </dl>
-                          </Answer>
-                        </td>
-                        <td
-                          className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden break-words text-sm text-gray-500 lg:table-cell'
-                          )}
-                        >
-                          <Answer {...{ question, questionIdx }}>
-                            <ShortAnswer answer={question.answer} />
-                          </Answer>
-                        </td>
-                        <td
-                          className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden truncate text-sm text-gray-500 lg:table-cell'
-                          )}
-                        >
-                          <Answer {...{ question, questionIdx }}>
-                            <Sources sources={question.sources} />
-                          </Answer>
-                        </td>
-                        <td
-                          className={clsx(
-                            questionIdx !== questions.length - 1 ? 'border-b border-gray-200' : '',
-                            'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
-                          )}
-                        >
-                          <Answer {...{ question, questionIdx }}>
-                            <Rating rating={question.rating} escalation={question?.escalation} />
-                          </Answer>
-                        </td>
-                        {bot?.classify && (
                           <td
                             className={clsx(
                               questionIdx !== questions.length - 1
                                 ? 'border-b border-gray-200'
                                 : '',
-                              'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell'
+                              'hidden text-sm text-gray-500 lg:table-cell',
                             )}
                           >
                             <Answer {...{ question, questionIdx }}>
-                              <CouldAnswer
-                                answered={question?.couldAnswer}
-                                exists={question.couldAnswer !== null}
+                              <div className="flex items-center">
+                                <img
+                                  className="inline-block h-9 w-9 rounded-full"
+                                  src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=36&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3                              `}
+                                  alt="User avatar"
+                                />
+                                {question.testing && (
+                                  <span className="ml-2 flex items-center text-xs text-gray-400">
+                                    <UserGroupIcon
+                                      className="mr-1 h-4 w-4 text-gray-500"
+                                      title="Staff testing"
+                                    />
+                                    Staff
+                                  </span>
+                                )}
+                              </div>
+                              <p className="mt-2 text-xs">{question.alias}</p>
+                            </Answer>
+                          </td>
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'max-w-xs overflow-hidden break-words text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell',
+                            )}
+                          >
+                            <Answer {...{ question, questionIdx }}>
+                              <p>
+                                {question.standaloneQuestion &&
+                                question.standaloneQuestion !=
+                                  question.answer &&
+                                bot.language == 'en'
+                                  ? question.standaloneQuestion
+                                  : question.question}
+                              </p>
+                              <span className="mt-2 hidden text-xs text-gray-400 sm:block">
+                                <LocaleDateTime date={question.createdAt} />
+                              </span>
+                              <dl className="font-normal lg:hidden">
+                                <dt className="sr-only">Answer</dt>
+                                <dd className="mt-1 text-sm text-gray-600">
+                                  <ShortAnswer answer={question.answer} />
+                                </dd>
+                                <dt className="sr-only">Sources</dt>
+                                <dd className="mt-2 text-gray-500">
+                                  <Sources sources={question.sources} />
+                                </dd>
+                              </dl>
+                            </Answer>
+                          </td>
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'hidden break-words text-sm text-gray-500 lg:table-cell',
+                            )}
+                          >
+                            <Answer {...{ question, questionIdx }}>
+                              <ShortAnswer answer={question.answer} />
+                            </Answer>
+                          </td>
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'hidden truncate text-sm text-gray-500 lg:table-cell',
+                            )}
+                          >
+                            <Answer {...{ question, questionIdx }}>
+                              <Sources sources={question.sources} />
+                            </Answer>
+                          </td>
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell',
+                            )}
+                          >
+                            <Answer {...{ question, questionIdx }}>
+                              <Rating
+                                rating={question.rating}
+                                escalation={question?.escalation}
                               />
                             </Answer>
                           </td>
-                        )}
-                      </tr>
-                    )
-                  })}
-                </tbody>
-                <tfoot className="relative">
-                  {blurEnabled && (
-                    <div className="left-50 absolute bottom-0 mb-0 w-full sm:mb-24 md:mb-24 lg:mb-20 xl:mb-0">
-                      <div className="py-4">
-                        <Checkout team={team}>
-                          <p className="mb-4 text-center text-gray-700">
-                            ... and{' '}
-                            {questions.pagination.totalCount -
-                              questions.pagination.planLimit +
-                              BLUR_LIMIT_COUNT}{' '}
-                            more questions
-                          </p>
-                          <h3 className="text-3xl font-bold">View full chat history</h3>
-                          <p className="mb-8 text-center text-gray-700">
-                            Upgrade to the Premium plan or higher to unlock the full chat history of
-                            your users to help you improve your documentation and products. View{' '}
-                            <Link href="/#pricing" target="_blank" className="underline">
-                              plan details
-                            </Link>
-                            .
-                          </p>
-                        </Checkout>
+                          {bot?.classify && (
+                            <td
+                              className={clsx(
+                                questionIdx !== questions.length - 1
+                                  ? 'border-b border-gray-200'
+                                  : '',
+                                'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell',
+                              )}
+                            >
+                              <Answer {...{ question, questionIdx }}>
+                                <CouldAnswer
+                                  answered={question?.couldAnswer}
+                                  exists={question.couldAnswer !== null}
+                                />
+                              </Answer>
+                            </td>
+                          )}
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                  <tfoot className="relative">
+                    {blurEnabled && (
+                      <div className="left-50 absolute bottom-0 mb-0 w-full sm:mb-24 md:mb-24 lg:mb-20 xl:mb-0">
+                        <div className="py-4">
+                          <Checkout team={team}>
+                            <p className="mb-4 text-center text-gray-700">
+                              ... and{' '}
+                              {questions.pagination.totalCount -
+                                questions.pagination.planLimit +
+                                BLUR_LIMIT_COUNT}{' '}
+                              more questions
+                            </p>
+                            <h3 className="text-3xl font-bold">
+                              View full chat history
+                            </h3>
+                            <p className="mb-8 text-center text-gray-700">
+                              Upgrade to the Premium plan or higher to unlock
+                              the full chat history of your users to help you
+                              improve your documentation and products. View{' '}
+                              <Link
+                                href="/#pricing"
+                                target="_blank"
+                                className="underline"
+                              >
+                                plan details
+                              </Link>
+                              .
+                            </p>
+                          </Checkout>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </tfoot>
-              </table>
+                    )}
+                  </tfoot>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="mt-6 flex justify-center md:justify-end">
-          <Paginator
-            perPage={questions.pagination.perPage}
-            totalCount={questions.pagination.viewableCount}
-            page={questions.pagination.page}
-            changePage={changePage}
-          />
+          <div className="mt-6 flex justify-center md:justify-end">
+            <Paginator
+              perPage={questions.pagination.perPage}
+              totalCount={questions.pagination.viewableCount}
+              page={questions.pagination.page}
+              changePage={changePage}
+            />
+          </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

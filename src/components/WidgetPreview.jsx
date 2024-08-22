@@ -21,8 +21,10 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
 import { decideTextColor, getLighterColor } from '@/utils/colors'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { useEffect, useState } from 'react'
 
@@ -78,12 +80,17 @@ export default function WidgetPreview({
             >
               <ArrowPathIcon className="h-4 w-4" />
             </button>
-            <div className={classNames(headerAlignment === 'left' ? 'text-left' : 'text-center')}>
+            <div
+              className={classNames(
+                headerAlignment === 'left' ? 'text-left' : 'text-center',
+              )}
+            >
               {logo ? (
                 <div
                   className="flex items-center justify-center"
                   style={{
-                    justifyContent: headerAlignment === 'left' ? 'start' : 'center',
+                    justifyContent:
+                      headerAlignment === 'left' ? 'start' : 'center',
                   }}
                 >
                   <img src={logo} alt={bot.name} className="max-h-9 w-auto" />
@@ -99,7 +106,10 @@ export default function WidgetPreview({
         </div>
 
         <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
-          <BotMessage text={labels.firstMessage} {...{ botIcon, iconMap, labels, color }} />
+          <BotMessage
+            text={labels.firstMessage}
+            {...{ botIcon, iconMap, labels, color }}
+          />
 
           <div className="mb-3 self-end rounded-2xl rounded-tr-none border bg-white px-3 py-2 text-sm text-gray-700">
             Why are you so amazing?
@@ -120,14 +130,18 @@ export default function WidgetPreview({
                 rel="noopener noreferrer"
                 className="hove:opacity-100 relative text-xs text-gray-500 opacity-80 hover:border-b-2 hover:border-gray-600"
                 style={{
-                  color: decideTextColor(getLighterColor(color || '#1292EE', 0.93)),
+                  color: decideTextColor(
+                    getLighterColor(color || '#1292EE', 0.93),
+                  ),
                 }}
               >
                 {labels.getSupport}
                 <FontAwesomeIcon
                   icon={faBullhorn}
                   style={{
-                    color: decideTextColor(getLighterColor(color || '#1292EE', 0.93)),
+                    color: decideTextColor(
+                      getLighterColor(color || '#1292EE', 0.93),
+                    ),
                     marginLeft: 5,
                   }}
                 />
@@ -151,7 +165,9 @@ export default function WidgetPreview({
             viewBox="0 0 512 512"
             className="w-4"
             style={{
-              fill: ['#ffffff', '#FFFFFF', 'rgb(255, 255, 255)'].includes(color) ? '#b3b3b3' : color,
+              fill: ['#ffffff', '#FFFFFF', 'rgb(255, 255, 255)'].includes(color)
+                ? '#b3b3b3'
+                : color,
             }}
           >
             <path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path>
@@ -163,7 +179,7 @@ export default function WidgetPreview({
           className={classNames(
             alignment === 'right' ? 'ml-auto' : 'mr-auto',
             showButtonLabel ? 'px-5' : 'w-14',
-            'inline-flex h-14 items-center justify-center rounded-full text-lg font-medium text-white shadow-lg hover:opacity-90'
+            'inline-flex h-14 items-center justify-center rounded-full text-lg font-medium text-white shadow-lg hover:opacity-90',
           )}
           style={{
             backgroundColor: color,
@@ -176,7 +192,9 @@ export default function WidgetPreview({
             <img src={icon} alt="icon" className="h-7 w-7 object-scale-down" />
           ) : null}
           {showButtonLabel && (
-            <span className="text-md ml-3 font-normal">{labels.floatingButton}</span>
+            <span className="text-md ml-3 font-normal">
+              {labels.floatingButton}
+            </span>
           )}
         </div>
       </div>
@@ -194,12 +212,17 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
   const [markdown, setMarkdown] = useState(text)
 
   useEffect(() => {
-    remark()
-      .use(html)
+    unified()
+      .use(remarkParse)
       .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeStringify)
       .process(text)
-      .then((html) => {
-        setMarkdown(html.toString())
+      .then((file) => {
+        setMarkdown(String(file))
+      })
+      .catch((error) => {
+        console.warning('Error processing markdown:', error)
       })
   }, [text])
 
@@ -214,7 +237,11 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
           }}
         >
           {botIcon.includes('://') ? (
-            <img src={botIcon} alt="icon" className="h-auto w-4/6 object-scale-down" />
+            <img
+              src={botIcon}
+              alt="icon"
+              className="h-auto w-4/6 object-scale-down"
+            />
           ) : (
             <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="sm" />
           )}
@@ -232,7 +259,7 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
           <div
             className={classNames(
               hideSources ? 'justify-end' : 'justify-between',
-              'mt-2 flex items-center'
+              'mt-2 flex items-center',
             )}
           >
             {!hideSources && (
@@ -242,7 +269,10 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
               </button>
             )}
             <div>
-              <button title={labels.unhelpful} className="text-gray-500 hover:text-red-600">
+              <button
+                title={labels.unhelpful}
+                className="text-gray-500 hover:text-red-600"
+              >
                 <FlagIcon className="h-3 w-3" />
               </button>
             </div>

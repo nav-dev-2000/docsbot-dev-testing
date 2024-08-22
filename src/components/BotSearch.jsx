@@ -1,10 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import { remark } from 'remark'
-import remarkExternalLinks from 'remark-external-links'
-import { MagnifyingGlassIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { LinkIcon, DocumentTextIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
+import {
+  MagnifyingGlassIcon,
+  ChevronRightIcon,
+} from '@heroicons/react/24/solid'
+import {
+  LinkIcon,
+  DocumentTextIcon,
+  ArrowPathIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -74,13 +82,17 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   }
 
   const getMarkdownHtml = (text) => {
-    remark()
-      .use(html)
+    unified()
+      .use(remarkParse)
       .use(remarkGfm)
-      .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+      .use(remarkRehype)
+      .use(rehypeStringify)
       .process(text)
-      .then((html) => {
-        setHtmlContent(html.toString())
+      .then((file) => {
+        setHtmlContent(String(file))
+      })
+      .catch((error) => {
+        console.warning('Error processing markdown:', error)
       })
   }
 
@@ -92,7 +104,12 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   }, [selectedCardData])
 
   return (
-    <div className={clsx('grid grid-cols-1 gap-4', selectedCardData ? 'lg:grid-cols-2' : "max-w-4xl mx-auto")}>
+    <div
+      className={clsx(
+        'grid grid-cols-1 gap-4',
+        selectedCardData ? 'lg:grid-cols-2' : 'mx-auto max-w-4xl',
+      )}
+    >
       <div className="w-full">
         <form className="w-full" onSubmit={handleSearch}>
           <div className="w-full rounded-md sm:flex sm:shadow-sm">
@@ -131,7 +148,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
                 type="submit"
                 tabIndex={2}
                 disabled={loading}
-                className="absolute right-0 my-3 mr-2 rounded-sm  px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
+                className="absolute right-0 my-3 mr-2 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
               >
                 <span className="sr-only">Search training documentation</span>
                 {loading ? (
@@ -176,7 +193,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
                 key={index}
                 className={clsx(
                   'relative px-4 py-5 hover:bg-gray-50 sm:px-6',
-                  selectedButton === index ? 'bg-gray-50' : null
+                  selectedButton === index ? 'bg-gray-50' : null,
                 )}
               >
                 <button

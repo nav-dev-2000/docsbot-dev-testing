@@ -15,10 +15,15 @@ import {
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import remarkExternalLinks from 'remark-external-links'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
@@ -42,14 +47,22 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [ratings, setRatings] = useState({})
   const [isResearchMode, setIsResearchMode] = useState(false)
   const [showQuestion, setShowQuestion] = useState(true)
-  const [researchDisabled, setResearchDisabled] = useState(bot.model === 'gpt-3.5-turbo-0613')
+  const [researchDisabled, setResearchDisabled] = useState(
+    bot.model === 'gpt-3.5-turbo-0613',
+  )
   const [questions, setQuestions] = useState(
-    bot.questions ? (bot.questions.length >= 4 ? grabQuestions(bot) : bot.questions.slice(0, 2)) : []
+    bot.questions
+      ? bot.questions.length >= 4
+        ? grabQuestions(bot)
+        : bot.questions.slice(0, 2)
+      : [],
   )
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
-  const [screenWidth, setScreenWidth] = useState(null);
-  const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
+  const [screenWidth, setScreenWidth] = useState(null)
+  const [hideSources, setHideSources] = useState(
+    () => bot?.hideSources || false,
+  )
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
   const posthog = usePostHog()
@@ -58,16 +71,16 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     const handleScreenChange = () => {
       setScreenWidth(window.innerWidth)
     }
-    window.addEventListener('resize', handleScreenChange);
+    window.addEventListener('resize', handleScreenChange)
     return () => {
-      window.removeEventListener('resize', handleScreenChange);
-    };
-  }, []);
+      window.removeEventListener('resize', handleScreenChange)
+    }
+  }, [])
 
   useEffect(() => {
-    let timeoutId = null;
+    let timeoutId = null
     timeoutId = setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));
+      window.dispatchEvent(new Event('resize'))
     }, 500)
 
     return () => {
@@ -93,13 +106,20 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   //convert markdown to html when answer changes or is appended to
   useEffect(() => {
     if (currentAnswer) {
-      remark()
-        .use(html)
+      unified()
+        .use(remarkParse)
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeKatex)
+        .use(rehypeStringify)
         .process(currentAnswer)
-        .then((html) => {
-          setAnswerHtml(html.toString())
+        .then((file) => {
+          setAnswerHtml(String(file))
+        })
+        .catch((error) => {
+          console.error('Error processing markdown:', error)
         })
     }
   }, [currentAnswer])
@@ -331,14 +351,21 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     //convert markdown to html when answer changes or is appended to
     useEffect(() => {
       if (currentSource?.content) {
-        remark()
-          .use(html)
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .process(currentSource.content)
-          .then((html) => {
-            setContent(html.toString())
-          })
+        unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeKatex)
+        .use(rehypeStringify)
+        .process(currentSource?.content)
+        .then((file) => {
+          setContent(String(file))
+        })
+        .catch((error) => {
+          console.error('Error processing markdown:', error)
+        })
       }
     }, [currentSource])
 
@@ -398,7 +425,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                           <Link
                             href={currentSource.url}
                             target="_blank"
-                            className="focus:outline-none flex items-center space-x-2 hover:underline"
+                            className="flex items-center space-x-2 hover:underline focus:outline-none"
                           >
                             <p className="text-left">
                               {currentSource.title}
@@ -440,7 +467,10 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           onClick={() => setCurrentSource(source)}
           className="flex items-center text-left text-sm font-medium leading-tight text-gray-500"
         >
-          <SourceIcon className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
+          <SourceIcon
+            className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+            aria-hidden="true"
+          />
           {source.title || source.url}
           {page}
         </button>
@@ -454,9 +484,16 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
     return (
       <li className="my-1 flex cursor-pointer items-center">
-        <SourceIcon className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
+        <SourceIcon
+          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+          aria-hidden="true"
+        />
         {source.url ? (
-          <Link href={source.url} target="_blank" className="focus:outline-none">
+          <Link
+            href={source.url}
+            target="_blank"
+            className="focus:outline-none"
+          >
             <p className="text-left">
               {source.title}
               {page}
@@ -497,17 +534,25 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
           <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-              <UserCircleIcon className="h-7 w-7 text-white" aria-hidden="true" />
+              <UserCircleIcon
+                className="h-7 w-7 text-white"
+                aria-hidden="true"
+              />
             </span>
           </div>
-          <div className="prose min-w-full p-4 px-6 sm:px-8">{answer.question}</div>
+          <div className="prose min-w-full p-4 px-6 sm:px-8">
+            {answer.question}
+          </div>
         </div>
       )
     } else {
       return (
         <div
           ref={gridItemRef}
-          className={classNames('grid gap-4', showResearchMode ? 'grid-cols-12' : 'grid-cols-8')}
+          className={classNames(
+            'grid gap-4',
+            showResearchMode ? 'grid-cols-12' : 'grid-cols-8',
+          )}
         >
           <div
             className="relative col-span-8 mt-4 h-fit rounded-md border bg-white text-left shadow-sm sm:rounded-lg"
@@ -522,7 +567,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               <div
                 className={classNames(
                   answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8'
+                  'prose min-w-full p-6 sm:px-8',
                 )}
                 dangerouslySetInnerHTML={{ __html: answer.html }}
               />
@@ -530,7 +575,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               <div
                 className={classNames(
                   answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8'
+                  'prose min-w-full p-6 sm:px-8',
                 )}
               >
                 <LoadingDots />
@@ -541,23 +586,29 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               <div
                 className={classNames(
                   'flex items-end px-6 pb-4 pr-4 sm:px-8 sm:pr-4',
-                  !showResearchMode ? 'justify-between' : 'justify-end'
+                  !showResearchMode ? 'justify-between' : 'justify-end',
                 )}
               >
-                {answer.sources?.length > 0 && !showResearchMode && !hideSources && (
-                  <div className="text-left">
-                    <div className="text-sm font-semibold text-gray-800">{bot.labels.sources}</div>
-                    <ul className="mt-2">
-                      {answer.sources.map((source, index) => (
-                        <Source key={index} source={source} />
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {answer.sources?.length > 0 &&
+                  !showResearchMode &&
+                  !hideSources && (
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-gray-800">
+                        {bot.labels.sources}
+                      </div>
+                      <ul className="mt-2">
+                        {answer.sources.map((source, index) => (
+                          <Source key={index} source={source} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 {answer.id && (
                   <div className="flex items-center justify-between space-x-1">
                     <button
-                      onClick={() => handleCopyText(answer.markdown, answer.id || '')}
+                      onClick={() =>
+                        handleCopyText(answer.markdown, answer.id || '')
+                      }
                       title="Copy answer to clipboard"
                       className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                     >
@@ -583,7 +634,10 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                       className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                     >
                       <span className="sr-only">{bot.labels.unhelpful}</span>
-                      <HandThumbDownIcon className="h-5 w-5" aria-hidden="true" />
+                      <HandThumbDownIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
                     </button>
                   </div>
                 )}
@@ -592,7 +646,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           </div>
           {answer.sources?.length > 0 && showResearchMode && (
             <div className="col-span-4 mt-4 overflow-y-scroll text-left">
-              <div className="text-sm font-semibold text-gray-800">{bot.labels.sources}</div>
+              <div className="text-sm font-semibold text-gray-800">
+                {bot.labels.sources}
+              </div>
               <ul className="mt-2">
                 {answer.sources.map((source, index) => (
                   <SourceResearch key={index} source={source} />
@@ -617,7 +673,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {bot.name}
           </p>
-          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">{bot.description}</p>
+          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
+            {bot.description}
+          </p>
         </div>
 
         <FullSource />
@@ -630,7 +688,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           <Alert title={errorText} type="warning" />
 
           {showQuestion && (
-            <div className="mx-auto mt-5 grid w-full gap-3 grid-cols-1 md:grid-cols-2">
+            <div className="mx-auto mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
               {questions &&
                 questions.length > 0 &&
                 questions.map((recommendedQuestion) => (
@@ -643,7 +701,10 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                     }}
                     key={recommendedQuestion}
                   >
-                    <LightBulbIcon className="mr-1 h-4 w-4 text-cyan-700" aria-hidden="true" />
+                    <LightBulbIcon
+                      className="mr-1 h-4 w-4 text-cyan-700"
+                      aria-hidden="true"
+                    />
                     <p className="text-left text-xs">{recommendedQuestion}</p>
                   </button>
                 ))}
@@ -688,7 +749,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                   }}
                   tabIndex={1}
                   autoComplete="off"
-                  className="text-lg block max-h-48 w-full resize-none rounded-md border border-gray-300 py-4 pl-2 pr-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:py-2 sm:pl-4 sm:pr-12 sm:text-lg"
+                  className="block max-h-48 w-full resize-none rounded-md border border-gray-300 py-4 pl-2 pr-10 text-lg outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:py-2 sm:pl-4 sm:pr-12 sm:text-lg"
                   placeholder={answers.length ? '' : bot.labels.firstMessage}
                 />
 
@@ -696,7 +757,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                   type="submit"
                   tabIndex={2}
                   disabled={loading}
-                  className="absolute right-0 my-3 mr-2 rounded-sm  px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
+                  className="absolute right-0 my-3 mr-2 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
                 >
                   <span className="sr-only">{bot.labels.inputPlaceholder}</span>
                   {loading ? (
@@ -716,7 +777,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           <div className="mt-2 flex items-start justify-between">
             <div className="text-left">
               {showResearchMode && (
-                <label className="relative inline-flex cursor-pointer justify-start items-center">
+                <label className="relative inline-flex cursor-pointer items-center justify-start">
                   <input
                     type="checkbox"
                     value={isResearchMode}
@@ -725,7 +786,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                     className="peer sr-only"
                     disabled={researchDisabled}
                   />
-                  <div className="peer h-4 w-7 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-3 after:w-3 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] disabled:opacity-25 peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-600 peer-focus:ring-offset-2 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700"></div>
+                  <div className="peer h-4 w-7 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-3 after:w-3 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] disabled:opacity-25 peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-600 peer-focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 rtl:peer-checked:after:-translate-x-full"></div>
                   <span className="ms-3 text-xs text-gray-600 dark:text-gray-300">
                     Research mode
                   </span>
@@ -733,8 +794,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               )}
               {isResearchMode && showResearchMode && (
                 <p className="mx-auto mt-1 max-w-prose text-left text-xs text-gray-500">
-                  Note: Enabling Research Mode passes more source context in order to answer
-                  detailed questions at the expense of more token usage.
+                  Note: Enabling Research Mode passes more source context in
+                  order to answer detailed questions at the expense of more
+                  token usage.
                 </p>
               )}
             </div>
@@ -750,7 +812,10 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                     setQuestion('')
                   }}
                 >
-                  <ArrowPathIcon className="mr-0.5 h-3 w-3" aria-hidden="true" />
+                  <ArrowPathIcon
+                    className="mr-0.5 h-3 w-3"
+                    aria-hidden="true"
+                  />
                   Reset
                 </button>
               )}
