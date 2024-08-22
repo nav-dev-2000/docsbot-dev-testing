@@ -7,10 +7,15 @@ import {
   LinkIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import remarkExternalLinks from 'remark-external-links'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
@@ -42,15 +47,22 @@ export default function AskStreaming({ teamId, bot }) {
   }, [question])
 
   //convert markdown to html when answer changes or is appended to
-  useEffect(() => {
+   useEffect(() => {
     if (answer) {
-      remark()
-        .use(html)
+      unified()
+        .use(remarkParse)
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeKatex)
+        .use(rehypeStringify)
         .process(answer)
-        .then((html) => {
-          setResultHtml(html.toString())
+        .then((file) => {
+          setResultHtml(String(file))
+        })
+        .catch((error) => {
+          console.error('Error processing markdown:', error)
         })
     }
   }, [answer])

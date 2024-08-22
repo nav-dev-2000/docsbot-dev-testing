@@ -76,9 +76,14 @@ const nextConfig = {
         permanent: true,
       },
       {
-        'source': '/documentation/developer/helpscout',
-        'destination': '/documentation/doc/help-scout-integration',
-        'permanent': true
+        source: '/documentation/developer/helpscout',
+        destination: '/documentation/doc/help-scout-integration',
+        permanent: true,
+      },
+      {
+        source: '/product-hunt',
+        destination: 'https://www.producthunt.com/products/docsbot-ai',
+        permanent: true,
       }
     ]
   },
