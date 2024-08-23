@@ -1,4 +1,10 @@
-import { usePost, fetchHookData, addHookData, handleError, usePosts } from '@headstartwp/next'
+import {
+  usePost,
+  fetchHookData,
+  addHookData,
+  handleError,
+  usePosts,
+} from '@headstartwp/next'
 import { BlocksRenderer } from '@headstartwp/core/react'
 import { getWPUrl, getHostUrl, removeSourceUrl } from '@headstartwp/core'
 import { replaceUrls, replaceATagsWithLinks } from '@/utils/replaceUrls'
@@ -42,7 +48,7 @@ const SinglePage = ({ seo }) => {
           <div className="bg-white py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-16 lg:px-24">
               <div className="mx-auto max-w-3xl text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex items-center space-x-2 justify-center">
+                <h2 className="flex items-center justify-center space-x-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   <LoadingSpinner large={true} />
                   <span>Loading...</span>
                 </h2>
@@ -80,19 +86,25 @@ const SinglePage = ({ seo }) => {
  * @returns {Promise<*>}
  */
 export async function getStaticPaths() {
-  const postsData = await usePosts.fetcher().get({ postType: 'post', per_page: 60 })
+  const postsData = await usePosts
+    .fetcher()
+    .get({ postType: 'post', per_page: 60 })
 
   const postsPath = postsData.result.map(({ link }) => {
     return {
       // path is the catch all route, so it must be array with url segments
       // if you don't want to support date urls just remove the date from the path
       params: {
-        path: removeSourceUrl({ link, backendUrl: getWPUrl() }).substring(1).split('/'),
+        path: removeSourceUrl({ link, backendUrl: getWPUrl() })
+          .substring(1)
+          .split('/'),
       },
     }
   })
 
-  const pagesData = await usePosts.fetcher().get({ postType: 'page', per_page: 50 })
+  const pagesData = await usePosts
+    .fetcher()
+    .get({ postType: 'page', per_page: 50 })
 
   const pagePaths = pagesData.result
     .map(({ link }) => {
@@ -117,29 +129,36 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  try {
-    // fetch batch of promises and throws errors selectively
-    // passing `throw:false` will prevent errors from being thrown for that promise
-    const settledPromises = await resolveBatch([
-      {
-        func: fetchHookData(usePost.fetcher(), context, { params: params }),
-      },
-    ])
+  // Check if the last segment of the path has a file extension
+  const lastPathSegment = context.params.path[context.params.path.length - 1]
+  if (lastPathSegment.includes('.')) {
+    return {
+      notFound: true,
+    }
+  } else {
+    try {
+      // fetch batch of promises and throws errors selectively
+      // passing `throw:false` will prevent errors from being thrown for that promise
+      const settledPromises = await resolveBatch([
+        {
+          func: fetchHookData(usePost.fetcher(), context, { params: params }),
+        },
+      ])
 
-    settledPromises[0].data.result.link = replaceUrls(settledPromises[0].data.result.link).replace(
-      /\/$/,
-      ''
-    )
-    //settledPromises[0].data.result.yoast_head = replaceUrls(
-    //  settledPromises[0].data.result.yoast_head
-    //)
-    settledPromises[0].data.result.contentReplaced = replaceATagsWithLinks(
-      settledPromises[0].data.result.content.rendered
-    )
+      settledPromises[0].data.result.link = replaceUrls(
+        settledPromises[0].data.result.link,
+      ).replace(/\/$/, '')
+      //settledPromises[0].data.result.yoast_head = replaceUrls(
+      //  settledPromises[0].data.result.yoast_head
+      //)
+      settledPromises[0].data.result.contentReplaced = replaceATagsWithLinks(
+        settledPromises[0].data.result.content.rendered,
+      )
 
-    return addHookData(settledPromises, { revalidate: 60 * 60 })
-  } catch (e) {
-    return handleError(e, context)
+      return addHookData(settledPromises, { revalidate: 60 * 60 })
+    } catch (e) {
+      return handleError(e, context)
+    }
   }
 }
 
