@@ -550,7 +550,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   entryPoint={selectedSourceType?.isCarbon}
                   useCarbonFilePicker={true}
                   prependFilenameToChunks={true}
-                  openFilesTabTo="FILE_PICKER"
+                  openFilesTabTo={"FILE_PICKER"}
                   incrementalSync={true}
                   enabledIntegrations={[
                     {
@@ -560,8 +560,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                       fileSyncConfig : {
                         split_rows: true
                       },
-                      useCarbonFilePicker: true
-                    },
+                      syncFilesOnConnection: false,
+                      useCarbonFilePicker: true,
+                    }
                   ]}
                 />
                 <button
