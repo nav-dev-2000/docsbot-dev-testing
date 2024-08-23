@@ -82,7 +82,7 @@ export default function Cancel({ team, bots }) {
           setResultHtml(String(file))
         })
         .catch((error) => {
-          console.warning('Error processing markdown:', error)
+          console.warn('Error processing markdown:', error)
         })
     }
   }, [answer])

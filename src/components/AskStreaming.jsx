@@ -23,6 +23,7 @@ import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
+import { preprocessLaTeX } from '@/utils/helpers'
 
 export default function AskStreaming({ teamId, bot }) {
   const [question, setQuestion] = useState('')
@@ -53,11 +54,11 @@ export default function AskStreaming({ teamId, bot }) {
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath)
+        .use(remarkMath, { singleDollarTextMath: false })
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
-        .process(answer)
+        .process(preprocessLaTeX(answer))
         .then((file) => {
           setResultHtml(String(file))
         })

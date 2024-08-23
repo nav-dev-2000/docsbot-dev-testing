@@ -125,10 +125,10 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         as="h3"
                         className="mb-4 text-xl font-medium leading-6 text-gray-900"
                       >
-                        Customize Prompt (advanced)
-                        {stripePlan(team).bots < 10 && (
+                        Customize Prompt
+                        {stripePlan(team).bots < 3 && (
                           <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                            Pro
+                            Power
                           </span>
                         )}
                       </Dialog.Title>
@@ -137,27 +137,27 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         <div className=''>
                           <p className="text-md text-gray-700">
                             Add some custom instructions to your prompt to adjust your bot's answer
-                            output to your specific use case. You can use this powerful tool to make
-                            highly specific changes to your bot's output.
+                            output to your specific use case. You can use this powerful tool to change behavior,
+                            formatting, and provide any context that needs to be available for every response.
                           </p>
                           <h3 className="mt-4 text-lg font-medium text-gray-800">Examples</h3>
                           <ul className="ml-4 mt-2 list-disc text-sm text-gray-700">
                             <li className="text-sm text-gray-700">
-                              "Politely refuse to answer questions unrelated to {bot.name}."
+                              <code>Politely refuse to answer questions unrelated to {bot.name}.</code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              "Begin each answer with the phrase 'I think...'."
+                              <code>Use \[...\] for block math and \(...\) for inline math in your response.</code> (for pretty display of equations)
                             </li>
                             <li className="text-sm text-gray-700">
-                              "End each answer with the phrase 'I hope that helps!'."
+                              <code>If relevant to the user's question, after your answer, suggest my book "{bot.name} For Dummies".</code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              "If the answer is not in the provided context, recommend they contact
+                              <code>If the answer is not in the provided context, recommend they contact
                               the {bot.name} support team and provide a link to
-                              https://mysite.com/support/"
+                              https://mysite.com/support/</code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              "Always answer in the form of a rhyming couplet."
+                              <code>Always respond as if you are Pee-wee Herman.</code>
                             </li>
                           </ul>
                         </div>

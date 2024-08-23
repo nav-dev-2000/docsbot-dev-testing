@@ -42,6 +42,7 @@ import { canUserEditBot } from '@/utils/function.utils'
 import ModalExport from '@/components/ModalExport'
 import Datepicker from 'react-tailwindcss-datepicker'
 import { isSuperAdmin } from '@/utils/helpers'
+import { preprocessLaTeX } from '@/utils/helpers'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -468,16 +469,16 @@ export default function TableQuestions({
           .use(remarkParse)
           .use(remarkGfm)
           .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMath)
+          .use(remarkMath, { singleDollarTextMath: false })
           .use(remarkRehype)
           .use(rehypeKatex)
           .use(rehypeStringify)
-          .process(question.answer)
+          .process(preprocessLaTeX(question.answer))
           .then((file) => {
             setAnswerHtml(String(file))
           })
           .catch((error) => {
-            console.warning('Error processing markdown:', error)
+            console.warn('Error processing markdown:', error)
           })
       }
     }, [question.answer])

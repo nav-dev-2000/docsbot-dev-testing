@@ -33,6 +33,7 @@ import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
+import { preprocessLaTeX } from '@/utils/helpers'
 
 export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
@@ -110,11 +111,13 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath)
+        .use(remarkMath, {
+          singleDollarTextMath: false,
+        })
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
-        .process(currentAnswer)
+        .process(preprocessLaTeX(currentAnswer))
         .then((file) => {
           setAnswerHtml(String(file))
         })
@@ -352,20 +355,20 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     useEffect(() => {
       if (currentSource?.content) {
         unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath)
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .process(currentSource?.content)
-        .then((file) => {
-          setContent(String(file))
-        })
-        .catch((error) => {
-          console.error('Error processing markdown:', error)
-        })
+          .use(remarkParse)
+          .use(remarkGfm)
+          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+          .use(remarkMath, { singleDollarTextMath: false })
+          .use(remarkRehype)
+          .use(rehypeKatex)
+          .use(rehypeStringify)
+          .process(preprocessLaTeX(currentSource?.content))
+          .then((file) => {
+            setContent(String(file))
+          })
+          .catch((error) => {
+            console.error('Error processing markdown:', error)
+          })
       }
     }, [currentSource])
 

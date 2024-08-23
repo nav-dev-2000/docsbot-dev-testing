@@ -222,7 +222,7 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
         setMarkdown(String(file))
       })
       .catch((error) => {
-        console.warning('Error processing markdown:', error)
+        console.warn('Error processing markdown:', error)
       })
   }, [text])
 

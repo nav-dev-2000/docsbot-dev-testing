@@ -433,7 +433,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (customPrompt !== undefined) {
     // Check if their plan allows custom prompts
-    if (customPrompt && stripePlan(team).bots < 10 && !isSuperAdmin(userId)) {
+    if (customPrompt && stripePlan(team).bots < 3 && !isSuperAdmin(userId)) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.customPrompt = customPrompt

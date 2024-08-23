@@ -92,7 +92,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
         setHtmlContent(String(file))
       })
       .catch((error) => {
-        console.warning('Error processing markdown:', error)
+        console.warn('Error processing markdown:', error)
       })
   }
 
