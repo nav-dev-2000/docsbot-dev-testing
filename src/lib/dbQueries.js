@@ -25,7 +25,7 @@ export async function getBots(team, resultLimit = 1000) {
     let bot = { id: doc.id, ...doc.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
     if (!bot.model) {
-      bot.model = 'gpt-3.5-turbo'
+      bot.model = 'gpt-4o-mini'
     }
     // if the bot is missing labels, populate with defaults
     bot.labels = {
@@ -44,13 +44,13 @@ export const getTeamEmail = async (team) => {
     const role = team.roles[uid]
     if (role === 'owner') {
       const user = await getAuth().getUser(uid)
-      if (!user?.email) break;
+      if (!user?.email) break
       return user.email
     }
   }
 
   // default email fallback
-  return 'unknown-email@nomail.com';
+  return 'unknown-email@nomail.com'
 }
 
 const getTimeDeltaFromCalendarMonth = () => {
@@ -66,7 +66,11 @@ const getTimeDeltaFromCalendarMonth = () => {
   return currentDate - startDate
 }
 
-export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFromCalendarMonth()) {
+export async function getQuestionStats(
+  teamId,
+  botId,
+  timeDelta = getTimeDeltaFromCalendarMonth(),
+) {
   // grab question stats for specific bot
   const questionsSnapshot = await firestore
     .collection('teams')
@@ -110,7 +114,7 @@ export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFr
 
     // Assuming 'rating' key is present in the question document
     const rating = questionData?.rating || 0
-    
+
     if (rating === -1) {
       monthly.downVotes += 1
       daily[day].downVotes += 1
@@ -143,7 +147,24 @@ export async function getQuestionStats(teamId, botId, timeDelta = getTimeDeltaFr
 }
 
 export async function getBot(teamId, botId) {
-  const botRef = firestore.collection('teams').doc(teamId).collection('bots').doc(botId)
+  // Sanity check for valid parameters
+  if (
+    !teamId ||
+    typeof teamId !== 'string' ||
+    !/^[A-Za-z0-9]{20}$/.test(teamId)
+  ) {
+    console.log('Invalid teamId parameter')
+    return null
+  }
+  if (!botId || typeof botId !== 'string' || !/^[A-Za-z0-9]{20}$/.test(botId)) {
+    console.log('Invalid botId parameter')
+    return null
+  }
+  const botRef = firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
   const botSnapshot = await botRef.get()
   if (botSnapshot.exists) {
     let bot = { id: botSnapshot.id, ...botSnapshot.data() }
@@ -163,7 +184,7 @@ export async function getBot(teamId, botId) {
     }
 
     if (!bot.model) {
-      bot.model = 'gpt-3.5-turbo'
+      bot.model = 'gpt-4o-mini'
     }
 
     // if the bot is missing labels, populate with defaults
@@ -178,7 +199,13 @@ export async function getBot(teamId, botId) {
   }
 }
 
-export async function getSources(teamId, bot, page = 0, pageSize = 100, ascending = false) {
+export async function getSources(
+  teamId,
+  bot,
+  page = 0,
+  pageSize = 100,
+  ascending = false,
+) {
   const offset = page * pageSize
   const sourcesRef = firestore
     .collection('teams')
@@ -206,7 +233,7 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       'status',
       'refreshing',
       'scheduled',
-      'scheduleInterval'
+      'scheduleInterval',
     )
     .offset(offset)
     .limit(pageSize)
@@ -236,7 +263,8 @@ export async function getSources(teamId, bot, page = 0, pageSize = 100, ascendin
       : 1 //APIFY has 6hr timeout, cloud functions has 60mins
     if (
       ['indexing', 'pending', 'processing'].includes(source.status) &&
-      source.createdAt.toDate() < new Date(Date.now() - expireHours * 60 * 60 * 1000)
+      source.createdAt.toDate() <
+        new Date(Date.now() - expireHours * 60 * 60 * 1000)
     ) {
       source.status = 'failed'
       source.error = 'Processing timed out, please try again'
@@ -351,7 +379,7 @@ export async function getQuestions(
   escalated = null,
   couldAnswer = null,
   startTime = null,
-  endTime = null
+  endTime = null,
 ) {
   const offset = page * perPage
   let snapshot = firestore
@@ -360,9 +388,7 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
-    .select(
-      ...QUESTION_SELECT_LIST
-    ) //skip the vector as it's huge
+    .select(...QUESTION_SELECT_LIST) //skip the vector as it's huge
 
   // grab limits
   const plan = stripePlan(team)
@@ -401,7 +427,10 @@ export async function getQuestions(
     snapshot = snapshot.where('createdAt', '<=', end)
   }
 
-  const questionsRef = snapshot.orderBy('createdAt', 'desc').offset(offset).limit(pageLimit)
+  const questionsRef = snapshot
+    .orderBy('createdAt', 'desc')
+    .offset(offset)
+    .limit(pageLimit)
 
   // grab questions
   const querySnapshot = await questionsRef.get()
@@ -500,6 +529,11 @@ export async function getUser(userId) {
 }
 
 export async function getTeam(teamId) {
+  // Sanity check for valid teamId parameter
+  if (!teamId || typeof teamId !== 'string' || !/^[A-Za-z0-9]{20}$/.test(teamId)) {
+    console.log('Invalid teamId parameter')
+    return null
+  }
   const teamRef = await firestore.collection('teams').doc(teamId).get()
   if (teamRef.exists) {
     let team = { id: teamRef.id, ...teamRef.data() }
@@ -624,7 +658,10 @@ export async function assignDefaultTeam(userId, name) {
 }
 
 export async function getInvitesFromEmail(email) {
-  const inviteQuery = await firestore.collection('invites').where('email', '==', email).get()
+  const inviteQuery = await firestore
+    .collection('invites')
+    .where('email', '==', email)
+    .get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
@@ -677,7 +714,10 @@ export async function getInvitesFromEmailAndTeamId(email, teamId) {
 }
 
 export async function getInvitesFromTeam(teamId) {
-  const inviteQuery = await firestore.collection('invites').where('teamId', '==', teamId).get()
+  const inviteQuery = await firestore
+    .collection('invites')
+    .where('teamId', '==', teamId)
+    .get()
   let userInvites = []
   inviteQuery.forEach((doc) => {
     const docData = doc.data()
@@ -726,8 +766,8 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
       transaction.update(teamRef, {
         roles: {
           [userId]: role || 'admin',
-          ...teamDoc.data().roles
-        }
+          ...teamDoc.data().roles,
+        },
       })
 
       // set the user's currentTeam to the newly joined team
@@ -784,10 +824,14 @@ export async function getTeamUsers(teamId) {
 export async function getTeamIntegrations(teamId) {
   const integrations = []
 
-  const integrationsSnapshot = await firestore.collection('teams').doc(teamId).collection('integrations').get()
+  const integrationsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('integrations')
+    .get()
   integrationsSnapshot.forEach((doc) => {
     const docData = doc.data()
-    integrations.push({id: doc.id, ...docData})
+    integrations.push({ id: doc.id, ...docData })
   })
 
   return integrations

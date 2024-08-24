@@ -129,6 +129,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  // Check if the request is a POST or if the path starts with /api/
+  if (context.req?.method === 'POST' || context.params.path[0] === 'api') {
+    console.log('404 skip')
+    return {
+      notFound: true,
+    }
+  }
+
   // Check if the last segment of the path has a file extension
   const lastPathSegment = context.params.path[context.params.path.length - 1]
   if (lastPathSegment.includes('.')) {
