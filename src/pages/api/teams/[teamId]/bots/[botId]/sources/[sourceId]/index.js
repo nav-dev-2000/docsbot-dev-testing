@@ -10,6 +10,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
+import { clearLastError } from '@/lib/apiFunctions'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -115,6 +116,12 @@ export default async function handler(req, res) {
       return res
         .status(409)
         .json({ message: 'Please wait until indexing is complete before deleting this source.' })
+    }
+
+    // check if lastError is related to this source
+    if (team?.lastError && team?.lastError?.sourceId === sourceId) {
+      // remove it!
+      await clearLastError(team)
     }
 
     //delete source from db
