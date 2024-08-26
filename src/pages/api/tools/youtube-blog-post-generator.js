@@ -1,5 +1,4 @@
 import OpenAI from 'openai'
-import { YoutubeTranscript } from 'youtube-transcript'
 import {
   lookupYoutubeBlogPost,
   saveYoutubeBlogPost,
