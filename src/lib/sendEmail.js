@@ -1,10 +1,13 @@
 import { getAuth } from 'firebase-admin/auth'
-import Mailjet from 'node-mailjet'
-const mailjet = Mailjet.apiConnect(process.env.MAILJET_KEY, process.env.MAILJET_SECRET)
-
-export default async function sendEmail(userId, subject, htmlBody, id = 'Generic') {
+import { sendTransactionalEmail } from '@/lib/bento'
+export default async function sendEmail(
+  userId,
+  subject,
+  htmlBody,
+  personalizations = {},
+) {
   //get user email from firebase auth
-  let retries = 4;
+  let retries = 4
   do {
     try {
       let email = ''
@@ -16,34 +19,16 @@ export default async function sendEmail(userId, subject, htmlBody, id = 'Generic
         const user = await auth.getUser(userId)
         email = user.email
       }
-  
+
       if (email) {
-        const request = await mailjet.post('send', { version: 'v3.1' }).request({
-          Messages: [
-            {
-              From: {
-                Email: 'noreply@docsbot.ai',
-                Name: 'DocsBot AI',
-              },
-              To: [
-                {
-                  Email: email,
-                },
-              ],
-              Subject: subject,
-              HTMLPart: htmlBody,
-              CustomID: id,
-            },
-          ],
-        })
-        console.log('Email sent:', email)
+        await sendTransactionalEmail(email, subject, htmlBody, personalizations)
       } else {
         console.error('No user found for email')
       }
-      return;
+      return
     } catch (error) {
       console.error(error)
     }
-    retries -= 1;
-  } while (retries > 0);
+    retries -= 1
+  } while (retries > 0)
 }

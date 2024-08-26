@@ -14,7 +14,7 @@
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
-    "@bentonow/bento-node-sdk": "^0.1.14",
+    "@bentonow/bento-node-sdk": "^0.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@google-cloud/pubsub": "^4.5.0",
@@ -51,7 +51,6 @@
     "next": "^14.2.6",
     "next-connect": "^1.0.0-next.4",
     "next-seo": "^6.5.0",
-    "node-mailjet": "^6.0.4",
     "openai": "^4.53.2",
     "postcss-focus-visible": "^6.0.4",
     "posthog-js": "^1.131.4",

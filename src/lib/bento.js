@@ -34,3 +34,32 @@ export async function bentoTrack(userId, command, data) {
 export function teamOwner(team) {
   return Object.keys(team.roles).find((key) => team.roles[key] === 'owner')
 }
+
+export async function sendTransactionalEmail(to, subject, htmlBody, personalizations = {}) {
+  if (!process.env.NEXT_PUBLIC_BENTO_SITE) {
+    console.error('NEXT_PUBLIC_BENTO_SITE environment variable is not set');
+    return;
+  }
+
+  try {
+    const response = await bento.V1.Batch.sendTransactionalEmails({
+      site_uuid: process.env.NEXT_PUBLIC_BENTO_SITE,
+      emails: [
+        {
+          to,
+          from: 'transactional@docsbot.ai',
+          subject,
+          html_body: htmlBody,
+          transactional: true,
+          personalizations
+        }
+      ]
+    });
+
+    console.log('Transactional email sent:', response);
+    return response;
+  } catch (error) {
+    console.error('Error sending transactional email:', error);
+    throw error;
+  }
+}

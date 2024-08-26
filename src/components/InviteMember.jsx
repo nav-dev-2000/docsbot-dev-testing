@@ -55,7 +55,7 @@ export default function InviteMember({ team, invite, setToInvite, setErrorText, 
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <div className="mt-8 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
-        <div className="px-4 py-5 sm:p-6">
+        <div className="px-4 py-5 sm:p-6 max-w-2xl w-full">
           <h3 className="text-lg font-medium leading-6 text-gray-900">Invite a team member</h3>
           <div className="text-md mt-2 text-gray-500">
             <div className="relative flex flex-grow items-stretch focus-within:z-10 shadow-sm gap-4">
