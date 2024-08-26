@@ -1,5 +1,5 @@
 import OpenAI from 'openai'
-import { lookupFAQs, saveFAQs, checkFAQsRateLimit } from '@/lib/faqs'
+import { lookupFAQs, saveFAQs, checkFAQsRateLimit } from '@/lib/tools'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
 export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 'fra1']
@@ -110,7 +110,7 @@ export default async function handler(req, res) {
       let chat_completion = null
       try {
         chat_completion = await openai.chat.completions.create({
-          model: 'gpt-4o-2024-08-06',
+          model: 'gpt-4o-mini',
           messages: [
             {
               role: 'system',

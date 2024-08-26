@@ -29,7 +29,7 @@ const footerNavigation = {
   comparisons: comparisons.slice(0, 5),
   tools2: [
     {
-      name: 'OpenAI API Calculator',
+      name: 'LLM API Price Calculator',
       href: '/tools/gpt-openai-api-pricing-calculator',
     },
     {
@@ -41,8 +41,8 @@ const footerNavigation = {
       href: '/tools/ai-faq-generator',
     },
     {
-      name: 'Product Photo Visualizer',
-      href: 'https://imajinn.ai/product-visualizer',
+      name: 'YouTube Video Summarizer',
+      href: '/tools/ai-youtube-summarizer',
     },
   ],
   industries,
