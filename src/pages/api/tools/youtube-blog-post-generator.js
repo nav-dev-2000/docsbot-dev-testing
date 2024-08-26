@@ -36,10 +36,11 @@ const getVideoId = (url) => {
 
 const fetchTranscript = async (videoId) => {
   try {
-    const transcript = await YoutubeTranscript.fetchTranscript(videoId, {
-      lang: 'en',
-    })
-    return transcript.map((item) => item.text).join(' ')
+    const response = await fetch(`https://yt-transcript.docsbot.workers.dev/api/transcript?url=https://www.youtube.com/watch?v=${videoId}&output=text`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    return await response.text()
   } catch (error) {
     console.error('Error fetching transcript:', error)
     return null
