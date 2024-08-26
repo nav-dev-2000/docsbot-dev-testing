@@ -1,83 +1,93 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import { NextSeo } from 'next-seo'
-import { lookupFAQs } from '@/lib/tools'
-import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import Link from 'next/link'
-import { CodeBracketIcon, HashtagIcon } from '@heroicons/react/20/solid'
+import { CodeBracketIcon, HashtagIcon, DocumentTextIcon } from '@heroicons/react/20/solid'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import { Favicon } from '.'
+import { lookupYoutubeSummary } from '@/lib/tools'
 
-const copyAsMarkdown = (FAQs) => {
-  let output = ''
-  for (const faq of FAQs) {
-    output += `## ${faq.question}\n\n`
-    output += `${faq.answer}\n\n`
-  }
-
-  navigator.clipboard.writeText(output)
-}
-
-const copyAsHTML = (FAQs) => {
-  let output = ''
-  for (const faq of FAQs) {
-    output += `<h3>${faq.question}</h3>\n`
-    output += unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(faq.answer).toString() + '\n\n'
-  }
+const copyAsMarkdown = (summary) => {
+  let output = `# ${summary.title}\n\n`
+  output += `![Thumbnail](${summary.thumbnail})\n\n`
+  output += `${summary.summary}\n\n`
+  output += `## Key Points\n\n`
+  summary.keyPoints.forEach((point) => {
+    output += `### ${point.point}\n\n${point.summary}\n\n`
+  })
 
   navigator.clipboard.writeText(output)
 }
 
-// site is a URL
-const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
+const copyAsHTML = (summary) => {
+  let output = `<h1>${summary.title}</h1>\n`
+  output += unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeStringify)
+    .processSync(summary.summary).toString() + '\n\n'
+  output += `<h2>Key Points</h2>\n`
+  summary.keyPoints.forEach((point) => {
+    output += `<h3>${point.point}</h3>\n<p>${point.summary}</p>\n`
+  })
+
+  navigator.clipboard.writeText(output)
+}
+
+const copyAsText = (summary) => {
+  let output = `${summary.title}\n\n`
+  output += `${summary.summary}\n\n`
+  output += `Key Points:\n\n`
+  summary.keyPoints.forEach((point) => {
+    output += `${point.point}\n${point.summary}\n\n`
+  })
+
+  navigator.clipboard.writeText(output)
+}
+
+const YoutubeSummaryInfo = ({ summary, videoId }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
+  const [textCopied, setTextCopied] = useState(false)
 
   return (
     <>
       <div className="mx-auto rounded-xl bg-white px-6 py-4 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
         <div className="flex items-center justify-center space-x-2 text-center text-3xl font-bold tracking-tight text-gray-800">
-          <div className="flex h-10 w-10 items-center justify-center overflow-hidden">
-            <Favicon url={site.hostname} />
-          </div>
-          <div>{title} Summary</div>
+          <div>{summary.title}</div>
         </div>
         <div className="mx-none text-left">
           <div className="prose mx-auto mt-4 w-full max-w-none">
-            <p className="mb-2">{summary}</p>
+            <p className="mb-2">{summary.summary}</p>
           </div>
 
-          <div className="mx-auto mt-2">
-            <img
-              className="block w-full rounded-md shadow-sm"
-              src={screenCap}
-              alt={'Thumbnail image of ' + title}
-            />
+          <div className="mx-auto mt-2 relative w-full pb-[56.25%]">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>
 
       <div className="mx-auto mt-10 rounded-xl bg-white px-6 py-4 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
         <div className="mb-3 text-center text-3xl font-bold tracking-tight text-gray-800">
-          Frequently Asked Questions
+          Key Points
         </div>
         <div className="mb-3 flex w-full items-center text-center">
           <button
             type="button"
             onClick={() => {
-              copyAsMarkdown(FAQs)
+              copyAsMarkdown(summary)
               setMarkdownCopied(true)
               setTimeout(() => setMarkdownCopied(false), 1500)
             }}
@@ -94,7 +104,7 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
           <button
             type="button"
             onClick={() => {
-              copyAsHTML(FAQs)
+              copyAsHTML(summary)
               setHtmlCopied(true)
               setTimeout(() => setHtmlCopied(false), 1500)
             }}
@@ -108,45 +118,48 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
             <CodeBracketIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {htmlCopied ? 'Copied!' : 'Copy as HTML'}
           </button>
+          <button
+            type="button"
+            onClick={() => {
+              copyAsText(summary)
+              setTextCopied(true)
+              setTimeout(() => setTextCopied(false), 1500)
+            }}
+            className={
+              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
+              (textCopied
+                ? ' text-green-700 hover:text-green-900'
+                : ' text-gray-500 hover:text-gray-700')
+            }
+          >
+            <DocumentTextIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+            {textCopied ? 'Copied!' : 'Copy as Text'}
+          </button>
         </div>
         <div className="mx-none text-left">
-          {FAQs.map((faq) => {
-            const renderedAnswer = unified()
-              .use(remarkParse)
-              .use(remarkGfm)
-              .use(remarkRehype)
-              .use(rehypeStringify)
-              .processSync(faq.answer)
-              .toString()
-            return (
-              <div
-                key={faq.question}
-                className="prose mt-2 w-full max-w-none border-t border-gray-200 pt-4"
-              >
-                <h1 className="text-2xl font-bold text-black">{faq.question}</h1>
-                <div dangerouslySetInnerHTML={{ __html: renderedAnswer }} />
-              </div>
-            )
-          })}
+          {summary.keyPoints.map((keyPoint, index) => (
+            <div key={index} className="mb-4">
+              <h3 className="font-semibold mb-1 text-lg">{keyPoint.point}</h3>
+              <p className="text-sm text-gray-600">{keyPoint.summary}</p>
+            </div>
+          ))}
         </div>
       </div>
     </>
   )
 }
 
-const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) => {
-  const [site] = useState(new URL(siteURL))
-
+const YoutubeSummaryPage = ({ summary, videoId }) => {
   return (
     <>
       <NextSeo
-        title={`AI-Generated Frequently Asked Questions for ${title}`}
-        description={summary}
+        title={`AI-Generated Summary for ${summary.title}`}
+        description={summary.summary}
         openGraph={{
           images: [
             {
-              url: `${thumbnail}`,
-              alt: `AI-Generated Frequently Asked Questions for ${title}`,
+              url: `https://img.youtube.com/vi/${videoId}/0.jpg`,
+              alt: `AI-Generated Summary for ${summary.title}`,
             },
           ],
         }}
@@ -170,17 +183,17 @@ const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) 
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Frequently Asked Questions for {title}
+                  YouTube Video Summary
                 </h1>
                 <div className="mx-auto max-w-3xl text-center">
                   <div className="py-12 pb-0">
-                    <FAQsInfo FAQs={FAQs} title={title} summary={summary} screenCap={thumbnail} site={site} />
+                    <YoutubeSummaryInfo summary={summary} videoId={videoId} />
                   </div>
                   <Link
-                    href="/tools/ai-faq-generator"
+                    href="/tools/ai-youtube-summarizer"
                     className="mt-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-xl font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                   >
-                    Create your own website FAQ
+                    Summarize another video
                   </Link>
                 </div>
               </div>
@@ -194,27 +207,25 @@ const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) 
   )
 }
 
-export default FAQsSharePage
+export default YoutubeSummaryPage
 
 export const getServerSideProps = async (context) => {
-  const siteURL = sanitizeURL(context?.params?.siteURL)
+  const videoId = context?.params?.videoId
 
-  // no query param?
-  if (!siteURL) {
+  if (!videoId || !/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
     return {
       redirect: {
-        destination: '/tools/ai-faq-generator',
+        destination: '/tools/ai-youtube-summarizer',
         permanent: false,
       },
     }
   }
 
-  // data doesn't exist?
-  const cachedData = await lookupFAQs(siteURL)
+  const cachedData = await lookupYoutubeSummary(videoId)
   if (!cachedData) {
     return {
       redirect: {
-        destination: '/tools/ai-faq-generator',
+        destination: '/tools/ai-youtube-summarizer',
         permanent: false,
       },
     }
@@ -222,12 +233,8 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
-      FAQs: cachedData.FAQs,
-      title: cachedData?.title || new URL(siteURL).hostname,
-      summary: cachedData.summary,
-      screenCap: cachedData.screenCap,
-      thumbnail: cachedData.thumbnail,
-      siteURL: siteURL,
+      summary: cachedData,
+      videoId,
     },
   }
 }

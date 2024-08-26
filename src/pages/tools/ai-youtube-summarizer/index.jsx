@@ -6,29 +6,15 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { getRecentFAQs } from '@/lib/tools'
-import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 
 const loadingText = [
-  'Loading website...',
-  'Generating screenshot...',
-  "Reading content...",
-  'Generating FAQs...',
-  'Consulting with DocsBot...',
-  'Writing answers...',
+  'Fetching video details...',
+  'Analyzing content...',
+  'Generating summary...',
+  'Extracting key points...',
+  'Finalizing results...',
 ]
-
-// uses DDG's undocumented favicon api
-export const Favicon = ({ url }) => {
-  return (
-    <img
-      src={`https://icons.duckduckgo.com/ip3/${url}.ico`}
-      alt="favicon"
-      className="max-h-full max-w-full"
-    />
-  )
-}
 
 // text that slowly fades in and out walking through the above array
 const LoadingText = () => {
@@ -51,71 +37,40 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const RecentAIFAQs = ({ FAQs }) => {
-  return (
-    <div className="mx-auto py-4 mt-16">
-      <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Generated FAQs
-      </div>
-      <div className="mx-none text-left">
-        <div className="prose mx-auto mt-6 w-full max-w-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {FAQs.map((faq) => {
-            const siteUrl = new URL(faq.url)
-            return (
-              <div className="w-full items-center justify-start" key={faq.url}>
-                <Link
-                  href={`/tools/ai-faq-generator/${siteUrl.hostname}`}
-                  className="ml-auto hover:underline no-underline text-white text-xl flex items-center overflow-hidden"
-                >
-                  <div className="flex h-10 w-10 overflow-hidden items-center rounded-md justify-center mr-2">
-                    <Favicon url={siteUrl.hostname} />
-                  </div>
-                  <div>{siteUrl.hostname}</div>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const AiFAQGenerator = () => {
-  const [site, setSite] = useState('')
+const YoutubeSummarizer = () => {
+  const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
 
-  const genFAQs = async (url) => {
+  const summarizeVideo = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
-    url = sanitizeURL(url)
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
       return
     }
 
-    setSite(url)
-    const endpoint = `/api/tools/faq`
+    setVideoUrl(url)
+    const endpoint = `/api/tools/youtube-summarizer`
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        siteURL: url,
+        videoUrl: url,
       }),
     })
 
     try {
       const data = await response.json()
       if (response.ok) {
-        // redirect to share page
-        console.log(url, new URL(url).hostname)
-        await router.push(`/tools/ai-faq-generator/${new URL(url).hostname}`)
+        // Extract video ID from URL
+        const videoId = url.split('v=')[1] || url.split('/').pop()
+        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Rate limit exceeded, please try again later.')
       } else {
@@ -138,24 +93,24 @@ const AiFAQGenerator = () => {
               <input
                 type="text"
                 onChange={(e) => {
-                  setSite(e.target.value)
+                  setVideoUrl(e.target.value)
                 }}
                 disabled={isComputing}
-                placeholder="Website URL"
+                placeholder="YouTube Video URL or ID"
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8"
               />
               <button
-                onClick={() => genFAQs(site)}
+                onClick={() => summarizeVideo(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
               >
                 {isComputing ? (
                   <>
-                    <LoadingSpinner /> <LoadingText />{' '}
+                    <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Generate FAQ</>
+                  <>Summarize Video</>
                 )}
               </button>
             </div>
@@ -166,17 +121,17 @@ const AiFAQGenerator = () => {
   )
 }
 
-export default function FAQGenerator({ FAQs }) {
+export default function YoutubeSummarizerPage() {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered website FAQ Generator - DocsBot AI"
-        description="Generate a list of frequently asked questions about a website, powered by DocsBot AI."
+        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
+        description="Generate a summary of any YouTube video, powered by DocsBot AI."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-faq-generator.png',
-              alt: 'AI-Powered site FAQ Generator',
+              url: 'https://docsbot.ai/og-youtube-summarizer.png',
+              alt: 'AI-Powered YouTube Video Summarizer',
             },
           ],
         }}
@@ -200,31 +155,18 @@ export default function FAQGenerator({ FAQs }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered FAQ Generator
+                  AI-Powered YouTube Video Summarizer
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate a list of frequently asked questions about a website for free, powered by
-                  DocsBot AI.
-                </p>
-                <AiFAQGenerator />
-                <RecentAIFAQs FAQs={FAQs} />
+                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.                </p>
+                <YoutubeSummarizer />
               </div>
             </div>
           </div>
         </div>
-          <RegisterCTA />
+        <RegisterCTA />
       </main>
       <Footer />
     </>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const FAQs = await getRecentFAQs();
-
-  return {
-    props: {
-      FAQs,
-    },
-  }
 }
