@@ -9,6 +9,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { getRecentFAQs } from '@/lib/tools'
 import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 
 const loadingText = [
   'Loading website...',
@@ -212,7 +213,13 @@ export default function FAQGenerator({ FAQs }) {
             </div>
           </div>
         </div>
-          <RegisterCTA />
+        <RegisterCTA />
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Explore More Free Tools
+          </h2>
+          <FreeToolsGrid />
+        </div>
       </main>
       <Footer />
     </>

@@ -6,6 +6,7 @@ import { Fragment, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 
 const pricing = {
   'Chat/Completion Models': [
@@ -573,7 +574,7 @@ export default function Calculate() {
                   >
                     GPT-4o
                   </Link>{' '}
-                  (Omni) is OpenAI's most advanced multimodal model that’s 2x faster and 50% cheaper
+                  (Omni) is OpenAI's most advanced multimodal model that's 2x faster and 50% cheaper
                   than GPT-4 Turbo with stronger vision capabilities. The model has 128K context and
                   an October 2023 knowledge cutoff. It will soon support audio inputs and text,
                   image, and audio outputs. There is also a mini version with the same context
@@ -689,6 +690,16 @@ export default function Calculate() {
             </p>
           </div>
           <RegisterCTA />
+          
+          {/* Add FreeToolsGrid section with white background */}
+          <div className="bg-white py-12 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8 text-center">
+                Explore More Free Tools
+              </h2>
+              <FreeToolsGrid />
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import RegisterCTA from '@/components/RegisterCTA'
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 import Link from 'next/link'
 import { CodeBracketIcon, HashtagIcon, DocumentTextIcon } from '@heroicons/react/20/solid'
 import { unified } from 'unified'
@@ -200,6 +201,12 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
           </div>
         </div>
         <RegisterCTA />
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Explore More Free Tools
+          </h2>
+          <FreeToolsGrid />
+        </div>
       </main>
       <Footer />
     </>

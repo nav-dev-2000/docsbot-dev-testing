@@ -4,6 +4,7 @@ import docsbotLogo from '@/images/docsbot-logo.png'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { ALTERNATIVES } from '@/constants/alternatives.constants'
 import { INDUSTRIES } from '@/constants/industries.constants'
+import { freeTools } from '@/constants/freeTools.constants'
 
 const comparisons = ALTERNATIVES.map((item) => ({
   name: `${item.name} Alternative`,
@@ -22,32 +23,16 @@ const industries = Object.entries(INDUSTRIES.reduce((acc, item) => {
 const footerNavigation = {
   pages: NAVIGATION,
   tools: [
-    { name: 'ChatWP (powered by DocsBot)', href: 'https://wpdocs.chat' },
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
     { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
   ],
-  comparisons: comparisons.slice(0, 5),
+  comparisons: comparisons.slice(0, 8),
   tools2: [
-    {
-      name: 'LLM API Price Calculator',
-      href: '/tools/gpt-openai-api-pricing-calculator',
-    },
-    {
-      name: 'Support Savings Calculator',
-      href: '/tools/ai-support-savings-calculator',
-    },
-    {
-      name: 'Website FAQ Generator',
-      href: '/tools/ai-faq-generator',
-    },
-    {
-      name: 'YouTube Blog Post Generator',
-      href: '/tools/youtube-blog-post-generator',
-    },
-    {
-      name: 'YouTube Video Summarizer',
-      href: '/tools/ai-youtube-summarizer',
-    },
+    ...freeTools.slice(0, 9).map(tool => ({
+      name: tool.name,
+      href: tool.href,
+    })),
+    { name: 'All Free Tools', href: '/tools' },
   ],
   industries,
   legal: [
@@ -133,8 +118,32 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+                <h3 className="mt-6 text-base font-medium text-gray-900">Meta</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="mt-12 md:mt-0">
+                <h3 className="text-base font-medium text-gray-900">Free AI Tools</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.tools2.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">Other Products</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools.map((item) => (
@@ -156,31 +165,7 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-base font-medium text-gray-900">Free AI Tools</h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.tools2.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                <h3 className="mt-6 text-base font-medium text-gray-900">Meta</h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                
-              </div>
+              
               <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">For Industries</h3>
                 <ul role="list" className="mt-4 space-y-4">

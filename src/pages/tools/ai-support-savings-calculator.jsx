@@ -16,6 +16,7 @@ import {
   ArrowPathIcon,
 } from '@heroicons/react/20/solid'
 import { usePostHog } from 'posthog-js/react'
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 
 const features = [
   {
@@ -335,6 +336,16 @@ export default function Calculate() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Add FreeToolsGrid section with white background */}
+          <div className="bg-white py-12 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8 text-center">
+                Explore More Free Tools
+              </h2>
+              <FreeToolsGrid />
             </div>
           </div>
         </div>

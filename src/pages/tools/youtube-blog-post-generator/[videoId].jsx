@@ -15,6 +15,8 @@ import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { lookupYoutubeBlogPost } from '@/lib/tools'
 import clsx from 'clsx'
+import RegisterCTA from '@/components/RegisterCTA'
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 
 const copyAsMarkdown = (summary) => {
   let output = `# ${summary.title}\n\n`
@@ -128,22 +130,23 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                   </button>
                 </div>
               </article>
-              <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="flex justify-center mt-12">
                 <Link
                   href="/tools/youtube-blog-post-generator"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
+                  className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
                 >
                   Generate another YouTube blog post
-                </Link>
-                <Link
-                  href={`/tools/ai-youtube-summarizer`}
-                  className="inline-flex w-full items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
-                >
-                  Summarize a YouTube video
                 </Link>
               </div>
             </div>
           </div>
+        </div>
+        <RegisterCTA />
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Explore More Free Tools
+          </h2>
+          <FreeToolsGrid />
         </div>
       </main>
       <Footer />

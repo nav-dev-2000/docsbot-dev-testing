@@ -8,6 +8,7 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import { getRecentSummarizedVideos } from '@/lib/tools' // Add this import
+import FreeToolsGrid from '@/components/FreeToolsGrid'
 
 const loadingText = [
   'Fetching video details...',
@@ -200,6 +201,12 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
           </div>
         </div>
         <RegisterCTA />
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+            Explore More Free Tools
+          </h2>
+          <FreeToolsGrid />
+        </div>
       </main>
       <Footer />
     </>
