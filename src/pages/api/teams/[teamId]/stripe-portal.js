@@ -46,6 +46,7 @@ export default async function createCheckoutSession(req, res) {
         if (team.stripeCustomerId) {
           params.customer = team.stripeCustomerId
         } else {
+          params.tax_id_collection = { enabled: true }
           params.customer_email = email
           if (team.canTrial && 'business' !== tier) {
             params.subscription_data = { 

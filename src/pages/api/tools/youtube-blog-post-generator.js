@@ -25,12 +25,14 @@ const getVideoId = (url) => {
     return url
   }
 
-  const matchId = videoId.match(
-    '/(?:youtube.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu.be/)([^"&?/s]{11})/i',
+  const matchId = url.match(
+    /(?:youtube.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu.be\/)([^"&?\/\s]{11})/i
   )
   if (matchId && matchId.length) {
     return matchId[1]
   }
+
+  return null // Add this line
 }
 
 const fetchTranscript = async (videoId) => {
