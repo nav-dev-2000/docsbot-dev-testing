@@ -11,6 +11,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { lookupYoutubeSummary } from '@/lib/tools'
+import clsx from 'clsx';
 
 const copyAsMarkdown = (summary) => {
   let output = `# ${summary.title}\n\n`
@@ -83,7 +84,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
         <div className="mb-3 text-center text-3xl font-bold tracking-tight text-gray-800">
           Key Points
         </div>
-        <div className="mb-3 flex w-full items-center text-center">
+        <div className="mb-3 flex w-full items-center justify-center space-x-4 text-center">
           <button
             type="button"
             onClick={() => {
@@ -91,12 +92,11 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
               setMarkdownCopied(true)
               setTimeout(() => setMarkdownCopied(false), 1500)
             }}
-            className={
-              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
-              (markdownCopied
-                ? ' text-green-700 hover:text-green-900'
-                : ' text-gray-500 hover:text-gray-700')
-            }
+            className={clsx(
+              'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
+              'hover:bg-gray-100',
+              markdownCopied ? 'text-cyan-700' : 'text-gray-600'
+            )}
           >
             <HashtagIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
@@ -108,12 +108,11 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
               setHtmlCopied(true)
               setTimeout(() => setHtmlCopied(false), 1500)
             }}
-            className={
-              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
-              (htmlCopied
-                ? ' text-green-700 hover:text-green-900'
-                : ' text-gray-500 hover:text-gray-700')
-            }
+            className={clsx(
+              'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
+              'hover:bg-gray-100',
+              htmlCopied ? 'text-cyan-700' : 'text-gray-600'
+            )}
           >
             <CodeBracketIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {htmlCopied ? 'Copied!' : 'Copy as HTML'}
@@ -125,12 +124,11 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
               setTextCopied(true)
               setTimeout(() => setTextCopied(false), 1500)
             }}
-            className={
-              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
-              (textCopied
-                ? ' text-green-700 hover:text-green-900'
-                : ' text-gray-500 hover:text-gray-700')
-            }
+            className={clsx(
+              'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
+              'hover:bg-gray-100',
+              textCopied ? 'text-cyan-700' : 'text-gray-600'
+            )}
           >
             <DocumentTextIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {textCopied ? 'Copied!' : 'Copy as Text'}
@@ -158,11 +156,12 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
         openGraph={{
           images: [
             {
-              url: `https://img.youtube.com/vi/${videoId}/0.jpg`,
+              url: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
               alt: `AI-Generated Summary for ${summary.title}`,
             },
           ],
         }}
+        noindex
       />
       <Header />
       <main>

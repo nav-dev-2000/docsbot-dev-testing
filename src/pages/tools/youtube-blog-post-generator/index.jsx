@@ -7,14 +7,14 @@ import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
-import { getRecentSummarizedVideos } from '@/lib/tools' // Add this import
+import { getRecentVideoBlogPosts } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
   'Analyzing content...',
-  'Generating summary...',
-  'Extracting key points...',
-  'Finalizing results...',
+  'Generating blog post...',
+  'Structuring content...',
+  'Finalizing post...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -38,13 +38,13 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeSummarizer = () => {
+const YoutubeBlogPostGenerator = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
 
-  const summarizeVideo = async (url) => {
+  const generateBlogPost = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -55,7 +55,7 @@ const YoutubeSummarizer = () => {
     }
 
     setVideoUrl(url)
-    const endpoint = `/api/tools/youtube-summarizer`
+    const endpoint = `/api/tools/youtube-blog-post-generator`
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -71,7 +71,7 @@ const YoutubeSummarizer = () => {
       if (response.ok) {
         // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
-        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
+        await router.push(`/tools/youtube-blog-post-generator/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
       } else {
@@ -101,7 +101,7 @@ const YoutubeSummarizer = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8"
               />
               <button
-                onClick={() => summarizeVideo(videoUrl)}
+                onClick={() => generateBlogPost(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -111,7 +111,7 @@ const YoutubeSummarizer = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Summarize Video</>
+                  <>Generate Blog Post</>
                 )}
               </button>
             </div>
@@ -122,28 +122,28 @@ const YoutubeSummarizer = () => {
   )
 }
 
-const RecentSummarizedVideos = ({ videos }) => {
+const RecentVideoBlogPosts = ({ blogPosts }) => {
   return (
     <div className="mx-auto py-4 mt-16">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Summarized Videos
+        Recently Generated Video Blog Posts
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {videos.map((video) => (
+        {blogPosts.map((post) => (
           <Link
-            key={video.id}
-            href={`/tools/ai-youtube-summarizer/${video.id}`}
+            key={post.id}
+            href={`/tools/youtube-blog-post-generator/${post.id}`}
             className="block hover:opacity-75 transition-opacity"
           >
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
               <img
-                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                alt={video.title}
+                src={`https://img.youtube.com/vi/${post.id}/mqdefault.jpg`}
+                alt={post.title}
                 className="w-full h-36 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-sm font-medium text-gray-900 truncate">
-                  {video.title}
+                  {post.title}
                 </h3>
               </div>
             </div>
@@ -154,17 +154,27 @@ const RecentSummarizedVideos = ({ videos }) => {
   )
 }
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export const getServerSideProps = async (context) => {
+  const recentBlogPosts = await getRecentVideoBlogPosts();
+
+  return {
+    props: {
+      recentBlogPosts,
+    },
+  }
+}
+
+export default function YoutubeBlogPostPage({ recentBlogPosts }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI-Powered YouTube Blog Post Generator - DocsBot AI"
+        description="Generate a blog post or article from any YouTube video, then copy the post to your clipboard as Markdown or HTML."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-youtube-summarize.png',
-              alt: 'AI-Powered YouTube Video Summarizer',
+              url: 'https://docsbot.ai/og-youtube-blog.png',
+              alt: 'AI-Powered YouTube Blog Post Generator',
             },
           ],
         }}
@@ -188,13 +198,13 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  AI-Powered YouTube Blog Post Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.
+                  Transform any YouTube video into a well-structured blog post for free using our AI-powered generator. Save time and effortlessly create engaging content from video sources that can be copied as Markdown, HTML, or text to be pasted into any blog.
                 </p>
-                <YoutubeSummarizer />
-                <RecentSummarizedVideos videos={recentVideos} />
+                <YoutubeBlogPostGenerator />
+                <RecentVideoBlogPosts blogPosts={recentBlogPosts} />
               </div>
             </div>
           </div>
@@ -204,14 +214,4 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
       <Footer />
     </>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentSummarizedVideos();
-
-  return {
-    props: {
-      recentVideos,
-    },
-  }
 }

@@ -14,6 +14,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { Favicon } from '.'
+import clsx from 'clsx'
 
 const copyAsMarkdown = (FAQs) => {
   let output = ''
@@ -81,12 +82,10 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
               setMarkdownCopied(true)
               setTimeout(() => setMarkdownCopied(false), 1500)
             }}
-            className={
-              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
-              (markdownCopied
-                ? ' text-green-700 hover:text-green-900'
-                : ' text-gray-500 hover:text-gray-700')
-            }
+            className={clsx(
+              'm-auto inline-flex items-center rounded-md px-3 py-2 text-center text-sm font-medium hover:bg-gray-100',
+              markdownCopied ? 'text-cyan-700 hover:text-cyan-900' : 'text-gray-500 hover:text-gray-700'
+            )}
           >
             <HashtagIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
@@ -98,12 +97,10 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
               setHtmlCopied(true)
               setTimeout(() => setHtmlCopied(false), 1500)
             }}
-            className={
-              'm-auto inline-flex items-center rounded-md text-center text-sm font-medium hover:underline' +
-              (htmlCopied
-                ? ' text-green-700 hover:text-green-900'
-                : ' text-gray-500 hover:text-gray-700')
-            }
+            className={clsx(
+              'm-auto inline-flex items-center rounded-md px-3 py-2 text-center text-sm font-medium hover:bg-gray-100',
+              htmlCopied ? 'text-cyan-700 hover:text-cyan-900' : 'text-gray-500 hover:text-gray-700'
+            )}
           >
             <CodeBracketIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             {htmlCopied ? 'Copied!' : 'Copy as HTML'}

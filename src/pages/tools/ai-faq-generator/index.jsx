@@ -117,7 +117,7 @@ const AiFAQGenerator = () => {
         console.log(url, new URL(url).hostname)
         await router.push(`/tools/ai-faq-generator/${new URL(url).hostname}`)
       } else if (response.status === 429) {
-        setErrorText('Rate limit exceeded, please try again later.')
+        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
       }

@@ -41,6 +41,10 @@ const footerNavigation = {
       href: '/tools/ai-faq-generator',
     },
     {
+      name: 'YouTube Blog Post Generator',
+      href: '/tools/youtube-blog-post-generator',
+    },
+    {
       name: 'YouTube Video Summarizer',
       href: '/tools/ai-youtube-summarizer',
     },

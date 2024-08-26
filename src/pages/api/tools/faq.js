@@ -104,7 +104,7 @@ export default async function handler(req, res) {
 
       // generate FAQs
       const openai = new OpenAI({
-        apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+        apiKey: process.env['OPENAI_API_KEY_TOOLS'],
       })
 
       let chat_completion = null
