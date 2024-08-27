@@ -52,6 +52,29 @@ export default async function handler(request, response) {
       const teamId = teamRef.id
       const team = { id: teamId, ...(await teamRef.get()).data() }
 
+      // Check if source is expired and update status if necessary
+      const expireHours = 6; // Set the expiration time to 6 hours
+      if (
+        source.createdAt.toDate() <
+          new Date(Date.now() - expireHours * 60 * 60 * 1000)
+      ) {
+        source.status = 'failed'
+        source.error = 'Processing timed out, please try again'
+        // Update source in Firestore
+        await firestore
+          .collection('teams')
+          .doc(teamId)
+          .collection('bots')
+          .doc(botId)
+          .collection('sources')
+          .doc(sourceId)
+          .update({ status: source.status, error: source.error })
+        
+        console.log(`Updated expired source: ${sourceId} for bot: ${botId} in team: ${teamId}`)
+        // Skip further processing for this expired source
+        return
+      }
+
       console.log('Checking Carbon status', teamId, botId, sourceId)
       try {
         const headers = {
