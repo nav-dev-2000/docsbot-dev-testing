@@ -198,7 +198,7 @@ export default function Calculate() {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-support-calc.png',
+              url: 'https://docsbot.ai/images/og/support-savings.png',
               alt: 'AI-Powered Support Chatbot Savings Calculator',
             },
           ],

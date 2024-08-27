@@ -176,7 +176,7 @@ export default function FAQGenerator({ FAQs }) {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-faq-generator.png',
+              url: 'https://docsbot.ai/images/og/website-faq-generator.png',
               alt: 'AI-Powered site FAQ Generator',
             },
           ],

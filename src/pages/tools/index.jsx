@@ -14,7 +14,7 @@ export default function FreeTools() {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-free-tools.png',
+              url: 'https://docsbot.ai/images/og/free-tools.png',
               alt: 'Free AI Tools',
             },
           ],

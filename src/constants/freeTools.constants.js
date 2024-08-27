@@ -7,12 +7,12 @@ export const freeTools = [
   {
     name: 'Support Savings Calculator',
     href: '/tools/ai-support-savings-calculator',
-    ogImage: '/og-support-calc.png',
+    ogImage: '/images/og/support-savings.png',
   },
   {
     name: 'Website FAQ Generator',
     href: '/tools/ai-faq-generator',
-    ogImage: '/og-faq-generator.png',
+    ogImage: '/images/og/website-faq-generator.png',
   },
   {
     name: 'YouTube Blog Post Generator',
