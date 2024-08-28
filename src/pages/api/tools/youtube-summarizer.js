@@ -39,12 +39,16 @@ const fetchTranscript = async (videoId) => {
   try {
     const response = await fetch(`https://yt-transcript.docsbot.workers.dev/api/transcript?url=https://www.youtube.com/watch?v=${videoId}&output=text`)
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
+      const errorData = await response.json();
+      if (errorData.error) {
+        throw new Error(errorData.error);
+      }
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
     return await response.text()
   } catch (error) {
     console.error('Error fetching transcript:', error)
-    return null
+    return { error: error.message }
   }
 }
 
@@ -85,13 +89,13 @@ export default async function handler(req, res) {
           .json({ message: `Your IP has been rate limited.` })
       }
 
-      const transcript = await fetchTranscript(videoId)
-      if (!transcript) {
+      const transcriptResult = await fetchTranscript(videoId)
+      if (transcriptResult.error) {
         return res.status(400).json({
-          message:
-            'Failed to fetch the video transcript. It may not be available in English.',
+          message: `Failed to fetch the video transcript: ${transcriptResult.error}`,
         })
       }
+      const transcript = transcriptResult
 
       console.log('transcript', transcript)
       const openai = new OpenAI({

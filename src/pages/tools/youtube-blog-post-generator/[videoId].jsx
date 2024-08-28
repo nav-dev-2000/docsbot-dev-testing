@@ -59,7 +59,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
         title={`${summary.title} - AI-Generated Blog Post`}
         description="An AI-genrated blog post from a YouTube video."
         openGraph={{
-          images: [{ url: summary.thumbnail, alt: summary.title }],
+          images: [{ url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`, alt: summary.title }],
         }}
         noindex
       />
@@ -91,6 +91,10 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </h1>
                 <img
                   src={summary.thumbnail}
+                  onError={(e) => {
+                    e.target.onerror = null
+                    e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                  }}
                   alt={summary.title}
                   className="w-full rounded-lg shadow-lg"
                 />
@@ -104,7 +108,9 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                     }}
                     className={clsx(
                       'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium hover:bg-gray-100',
-                      markdownCopied ? 'text-cyan-700 hover:text-cyan-900' : 'text-gray-500 hover:text-gray-700'
+                      markdownCopied
+                        ? 'text-cyan-700 hover:text-cyan-900'
+                        : 'text-gray-500 hover:text-gray-700',
                     )}
                   >
                     <HashtagIcon className="mr-2 h-5 w-5" />
@@ -119,7 +125,9 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                     }}
                     className={clsx(
                       'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium hover:bg-gray-100',
-                      htmlCopied ? 'text-cyan-700 hover:text-cyan-900' : 'text-gray-500 hover:text-gray-700'
+                      htmlCopied
+                        ? 'text-cyan-700 hover:text-cyan-900'
+                        : 'text-gray-500 hover:text-gray-700',
                     )}
                   >
                     <CodeBracketIcon
@@ -130,7 +138,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                   </button>
                 </div>
               </article>
-              <div className="flex justify-center mt-12">
+              <div className="mt-12 flex justify-center">
                 <Link
                   href="/tools/youtube-blog-post-generator"
                   className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
@@ -143,7 +151,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
         </div>
         <RegisterCTA />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
+          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight">
             Explore More Free Tools
           </h2>
           <FreeToolsGrid />

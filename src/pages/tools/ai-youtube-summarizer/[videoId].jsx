@@ -157,7 +157,7 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
         openGraph={{
           images: [
             {
-              url: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+              url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
               alt: `AI-Generated Summary for ${summary.title}`,
             },
           ],
