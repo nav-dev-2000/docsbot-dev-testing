@@ -17,18 +17,25 @@ import { lookupYoutubeBlogPost } from '@/lib/tools'
 import clsx from 'clsx'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import Image from 'next/image'
 
-const copyAsMarkdown = (summary) => {
+const copyAsMarkdown = (summary, videoId, thumbnailError) => {
   let output = `# ${summary.title}\n\n`
-  output += `![Thumbnail](${summary.thumbnail})\n\n`
+  const thumbnailUrl = thumbnailError
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : summary.thumbnail
+  output += `![Thumbnail](${thumbnailUrl})\n\n`
   output += summary.content
 
   navigator.clipboard.writeText(output)
 }
 
-const copyAsHTML = (summary) => {
+const copyAsHTML = (summary, videoId, thumbnailError) => {
   let output = `<h1>${summary.title}</h1>\n`
-  output += `<img src="${summary.thumbnail}" alt="${summary.title}">\n`
+  const thumbnailUrl = thumbnailError
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : summary.thumbnail
+  output += `<img src="${thumbnailUrl}" alt="${summary.title}">\n`
   output += unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -43,7 +50,7 @@ const copyAsHTML = (summary) => {
 const YoutubeBlogPost = ({ summary, videoId }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
-  const [textCopied, setTextCopied] = useState(false)
+  const [thumbnailError, setThumbnailError] = useState(false)
 
   const blogContent = unified()
     .use(remarkParse)
@@ -89,20 +96,21 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 <h1 className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl">
                   {summary.title}
                 </h1>
-                <img
-                  src={summary.thumbnail}
-                  onError={(e) => {
-                    e.target.onerror = null
-                    e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-                  }}
-                  alt={summary.title}
-                  className="w-full rounded-lg shadow-lg"
-                />
+                <div className="relative w-full aspect-video">
+                  <Image
+                    src={thumbnailError ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : summary.thumbnail}
+                    alt={summary.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg shadow-lg"
+                    onError={() => setThumbnailError(true)}
+                  />
+                </div>
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
                 <div className="mt-8 flex justify-center space-x-4">
                   <button
                     onClick={() => {
-                      copyAsMarkdown(summary)
+                      copyAsMarkdown(summary, videoId, thumbnailError)
                       setMarkdownCopied(true)
                       setTimeout(() => setMarkdownCopied(false), 1500)
                     }}
@@ -119,7 +127,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                   <button
                     type="button"
                     onClick={() => {
-                      copyAsHTML(summary)
+                      copyAsHTML(summary, videoId, thumbnailError)
                       setHtmlCopied(true)
                       setTimeout(() => setHtmlCopied(false), 1500)
                     }}
