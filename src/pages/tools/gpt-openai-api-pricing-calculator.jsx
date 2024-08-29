@@ -251,7 +251,7 @@ export default function Calculate() {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-openai-pricing.png',
+              url: 'https://docsbot.ai/images/og/llm-api-calculator.png',
               alt: 'LLM API Pricing Calculator',
             },
           ],

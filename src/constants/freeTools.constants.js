@@ -2,7 +2,7 @@ export const freeTools = [
   {
     name: 'LLM API Price Calculator',
     href: '/tools/gpt-openai-api-pricing-calculator',
-    ogImage: '/og-openai-pricing.png',
+    ogImage: '/images/og/llm-api-calculator.png',
   },
   {
     name: 'Support Savings Calculator',

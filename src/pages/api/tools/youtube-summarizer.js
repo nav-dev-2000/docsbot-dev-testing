@@ -163,8 +163,8 @@ export default async function handler(req, res) {
         ...responseData,
       }
 
-      await saveYoutubeSummary(ip, videoId, summaryData)
-      return res.status(200).json(summaryData)
+      await saveYoutubeSummary(ip, videoId, blogPostData)
+      return res.status(200).json(blogPostData)
     } else if (req.method === 'GET') {
       const { videoId } = req.query
 

@@ -47,9 +47,61 @@ const copyAsHTML = (summary, videoId, thumbnailError) => {
   navigator.clipboard.writeText(output)
 }
 
-const YoutubeBlogPost = ({ summary, videoId }) => {
+const CopyButtons = ({ summary, videoId, thumbnailError }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
+
+  return (
+    <div className="mt-4 mb-8 p-4 bg-gray-100 rounded-lg">
+      <h3 className="text-lg font-semibold mt-0 mb-2">Copy this article</h3>
+      <p className="text-sm text-gray-600 mb-4">
+        This article has been created using the same AI that powers{' '}
+        <Link href="/" className="text-cyan-600 hover:underline">
+          DocsBot AI
+        </Link>
+        . You can copy it and easily use on your website or blog.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-2">
+        <button
+          onClick={() => {
+            copyAsMarkdown(summary, videoId, thumbnailError)
+            setMarkdownCopied(true)
+            setTimeout(() => setMarkdownCopied(false), 1500)
+          }}
+          className={clsx(
+            "flex-1 inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50",
+            markdownCopied ? "text-cyan-600" : "text-gray-700"
+          )}
+        >
+          <CodeBracketIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+          {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
+        </button>
+        <button
+          onClick={() => {
+            copyAsHTML(summary, videoId, thumbnailError)
+            setHtmlCopied(true)
+            setTimeout(() => setHtmlCopied(false), 1500)
+          }}
+          className={clsx(
+            "flex-1 inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50",
+            htmlCopied ? "text-cyan-600" : "text-gray-700"
+          )}
+        >
+          <DocumentTextIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+          {htmlCopied ? 'Copied!' : 'Copy as HTML'}
+        </button>
+        <Link
+          href="/tools/youtube-blog-post-generator"
+          className="flex-1 inline-flex items-cente no-underline justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+        >
+          Create new article
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+const YoutubeBlogPost = ({ summary, videoId }) => {
   const [thumbnailError, setThumbnailError] = useState(false)
 
   const blogContent = unified()
@@ -60,13 +112,25 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
     .processSync(summary.content)
     .toString()
 
+  // Format the date
+  const formattedDate = summary.createdAt ? new Date(summary.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''
+
+  // Calculate read time (assuming 200 words per minute)
+  const wordCount = summary.content.split(/\s+/).length
+  const readTime = Math.ceil(wordCount / 200)
+
   return (
     <>
       <NextSeo
         title={`${summary.title} - AI-Generated Blog Post`}
         description="An AI-genrated blog post from a YouTube video."
         openGraph={{
-          images: [{ url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`, alt: summary.title }],
+          images: [
+            {
+              url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+              alt: summary.title,
+            },
+          ],
         }}
         noindex
       />
@@ -93,66 +157,65 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </p>
               </div>
               <article className="prose prose-lg prose-cyan mx-auto max-w-4xl rounded-xl bg-white px-4 py-4 shadow-xl ring-1 ring-slate-900/10 sm:px-6 lg:px-8">
-                <h1 className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl">
+                <h1 className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl mb-0">
                   {summary.title}
                 </h1>
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
+                <div className="my-2 text-center text-base text-gray-500 sm:text-left flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-2">
+                  {summary.channelName && (
+                    <div className="flex items-center justify-center sm:justify-start">
+                      <p className="m-0">By {summary.channelName}</p>
+                      <span className="text-gray-300 mx-2 hidden sm:inline">•</span>
+                    </div>
+                  )}
+                  {formattedDate && (
+                    <div className="flex items-center justify-center sm:justify-start">
+                      <p className="m-0">Published {formattedDate}</p>
+                      <span className="text-gray-300 mx-2 hidden sm:inline">•</span>
+                    </div>
+                  )}
+                  <p className="m-0">{readTime} min read</p>
+                </div>
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8">
                   <Image
-                    src={thumbnailError ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : summary.thumbnail}
+                    src={
+                      thumbnailError
+                        ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                        : summary.thumbnail
+                    }
                     alt={summary.title}
                     layout="fill"
                     objectFit="cover"
+                    className="m-0"
                     onError={() => setThumbnailError(true)}
                   />
                 </div>
+
+                {/* Copy buttons after image */}
+                <CopyButtons
+                  summary={summary}
+                  videoId={videoId}
+                  thumbnailError={thumbnailError}
+                />
+
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
-                <div className="mt-8 flex justify-center space-x-4">
-                  <button
-                    onClick={() => {
-                      copyAsMarkdown(summary, videoId, thumbnailError)
-                      setMarkdownCopied(true)
-                      setTimeout(() => setMarkdownCopied(false), 1500)
-                    }}
-                    className={clsx(
-                      'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium hover:bg-gray-100',
-                      markdownCopied
-                        ? 'text-cyan-700 hover:text-cyan-900'
-                        : 'text-gray-500 hover:text-gray-700',
-                    )}
-                  >
-                    <HashtagIcon className="mr-2 h-5 w-5" />
-                    {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      copyAsHTML(summary, videoId, thumbnailError)
-                      setHtmlCopied(true)
-                      setTimeout(() => setHtmlCopied(false), 1500)
-                    }}
-                    className={clsx(
-                      'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium hover:bg-gray-100',
-                      htmlCopied
-                        ? 'text-cyan-700 hover:text-cyan-900'
-                        : 'text-gray-500 hover:text-gray-700',
-                    )}
-                  >
-                    <CodeBracketIcon
-                      className="mr-2 h-4 w-4"
-                      aria-hidden="true"
-                    />
-                    {htmlCopied ? 'Copied!' : 'Copy as HTML'}
-                  </button>
+
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    title={summary.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                  />
                 </div>
+
+                {/* Copy buttons at the bottom of the article */}
+                <CopyButtons
+                  summary={summary}
+                  videoId={videoId}
+                  thumbnailError={thumbnailError}
+                />
               </article>
-              <div className="mt-12 flex justify-center">
-                <Link
-                  href="/tools/youtube-blog-post-generator"
-                  className="inline-flex items-center justify-center rounded-md bg-cyan-600 px-6 py-3 text-white hover:bg-cyan-700"
-                >
-                  Generate another YouTube blog post
-                </Link>
-              </div>
             </div>
           </div>
         </div>
