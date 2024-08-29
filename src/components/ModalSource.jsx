@@ -11,6 +11,7 @@ import {
   DocumentTextIcon,
   PresentationChartBarIcon,
   TableCellsIcon,
+  CheckIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -76,13 +77,13 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
 
                   <div className="p-8">
                     <div className="pb-2">
-                      <h3 className="inline-flex text-2xl font-bold">How to delete files from Carbon</h3>
+                      <h3 className="inline-flex text-2xl font-bold">How to edit synced files</h3>
                     </div>
                     <div className="pb-2">
                       <img src="/images/carbon-delete.png" alt="Carbon delete" className="w-full" />
                     </div>
                     <div className="pb-2">
-                      <p className="text-lg text-gray-500">To delete files from your Carbon source, click on the "Manage Files" button. This will open the Carbon file picker where you can remove or add files. Once complete, click on the "Refresh" button to update your source.</p>
+                      <p className="text-lg text-gray-500">To edit files from your cloud source, click on the "Manage Files" button. This will open the file picker where you can remove, add, or update files. Once complete, click on the "Refresh" button to update your source with the changes.</p>
                     </div>
                     <div className="flex flex-shrink-0 items-end justify-end">
                       <button
@@ -91,6 +92,7 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
                         }}
                         className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       >
+                        <CheckIcon className="h-5 w-5 mr-2" aria-hidden="true" />
                         Understood
                       </button>
                     </div>
@@ -510,13 +512,15 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source?.isCarbon && source?.carbonFiles && source?.carbonFiles?.length > 0 && (
+                    {source?.isCarbon && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
-                          Indexed Files:
-                          <em className="text-sm text-slate-500">{source?.carbonFiles.length}</em>
+                          Indexed Files:{' '}
+                          <em className="text-sm text-slate-500">
+                            {source?.carbonFiles?.length ? `(${source.carbonFiles.length})` : 'Fetching...'}
+                          </em>
                         </h2>
-                        {(source?.status === 'ready' || source?.status === 'failed') && (
+                        {(true) && (
                           <>
                             <CarbonConnect
                               tokenFetcher={carbonTokenFetcher}
@@ -557,7 +561,7 @@ export default function ModalSource({
                             onClick={() => {
                                 setCarbonInfoOpen(true)
                               }}
-                              className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                              className="inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                               >
                               <>
                                 <source.icon className="h-5 w-5" />

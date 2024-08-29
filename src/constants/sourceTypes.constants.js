@@ -10,7 +10,10 @@ import {
   QuestionMarkCircleIcon,
   DocumentIcon,
   CircleStackIcon,
-  CloudIcon
+  CloudIcon,
+  CodeBracketIcon,
+  ChatBubbleLeftRightIcon,
+  BookOpenIcon
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
 import NotionLogo from '@/components/NotionLogo'
@@ -39,6 +42,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
+    category: 'Websites',
   },
   {
     id: 'document',
@@ -54,6 +58,7 @@ export const sourceTypes = [
     fileTypes: {txt: 'text/plain', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', eml: 'message/rfc822', html: 'text/html', pdf: 'application/pdf', zip: 'application/zip', md: 'text/plain'},
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
   {
     id: 'wp',
@@ -69,6 +74,7 @@ export const sourceTypes = [
     fileTypes: {xml: 'text/xml'},
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Websites',
   },
   {
     id: 'sitemap',
@@ -83,6 +89,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
+    category: 'Websites',
   },
   {
     id: 'urls',
@@ -98,6 +105,7 @@ export const sourceTypes = [
     fileTypes: {csv: 'text/csv', txt: 'text/plain'},
     fieldSchedule: true,
     fieldQA: false,
+    category: 'Websites',
   },
   {
     id: 'csv',
@@ -113,6 +121,7 @@ export const sourceTypes = [
     fileTypes: {csv: 'text/csv'},
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
   {
     id: 'rss',
@@ -125,6 +134,7 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
+    category: 'RSS',
   },
   {
     id: 'qa',
@@ -139,6 +149,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: 'required',
+    category: 'Productivity',
   },
   {
     id: 'notion',
@@ -152,8 +163,9 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
   {
     id: 'google_docs',
@@ -167,8 +179,9 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
+    category: 'Cloud Storage',
   },
   {
     id: 'dropbox',
@@ -184,6 +197,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Cloud Storage',
   },
   {
     id: 'onedrive',
@@ -199,6 +213,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Cloud Storage',
   },
   {
     id: 'box',
@@ -214,6 +229,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Cloud Storage',
   },
   {
     id: 'sharepoint',
@@ -229,6 +245,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Cloud Storage',
   },
   {
     id: 'zendesk',
@@ -242,8 +259,9 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
+    category: 'Customer Support',
   },
   {
     id: 'intercom',
@@ -257,8 +275,9 @@ export const sourceTypes = [
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
+    category: 'Customer Support',
   },
   {
     id: 'freshdesk',
@@ -274,6 +293,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Customer Support',
   },
   {
     id: 'confluence',
@@ -289,6 +309,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
   {
     id: 'salesforce',
@@ -304,6 +325,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
   {
     id: 'gitbook',
@@ -319,12 +341,13 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: false,
     fieldQA: false,
+    category: 'Productivity',
   },
-  /*
   {
     id: 'youtube',
     title: 'YouTube',
-    description: 'Answer questions based on the transcripts of a YouTube video or channel',
+    description: 'Answer questions based on the transcripts of a YouTube video or entire channel',
+    fullDescription: 'Enter the URL of a YouTube video or channel to learn from. We will crawl the content, extract the transcripts, and add it to this bot. You can add multiple YouTube sources per bot, allowing you to include content from various videos or channels.',
     icon: VideoCameraIcon,
     isPro: true,
     coming: true,
@@ -333,8 +356,82 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
+    category: 'Websites',
   },
-  */
+  {
+    id: 'slack',
+    title: 'Slack',
+    description: 'Answer questions based on the content of your Slack workspace',
+    fullDescription: 'Connect to Slack to import conversations and messages from your workspace. You can filter conversations by type and sync messages with optional date filtering. Messages are synced in 15-minute blocks, including replies. Currently, only message content is supported.',
+    icon: ChatBubbleLeftRightIcon,
+    isPro: true,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    category: 'Email & Communication',
+  },
+  {
+    id: 'github',
+    title: 'GitHub',
+    description: 'Answer questions based on the content of your GitHub repositories',
+    icon: CodeBracketIcon,
+    isPro: true,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    category: 'Developer',
+  },
+  {
+    id: 'guru',
+    title: 'Guru',
+    description: 'Answer questions based on your Guru collections, folders, and cards',
+    fullDescription: 'The Guru connector allows users to synchronize collections, folders, and cards from their Guru account. This integration enables your bot to access and learn from your organization\'s knowledge base stored in Guru.',
+    icon: BookOpenIcon,
+    isPro: true,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    category: 'Productivity',
+  },
+  {
+    id: 's3',
+    title: 'Amazon S3/Digital Ocean Spaces',
+    description: 'Answer questions based on the content of files in your Amazon S3/Digital Ocean Spaces buckets',
+    fullDescription: 'The Amazon S3 connector allows users to synchronize files from their Amazon S3 buckets. This integration enables your bot to access and learn from your organization\'s files stored in Amazon S3.',
+    icon: CloudIcon,
+    isPro: true,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    category: 'Object Storage',
+  },
+  {
+    id: 'gcs',
+    title: 'Google Cloud Storage',
+    description: 'Answer questions based on the content of your Google Cloud Storage buckets',
+    fullDescription: 'The Google Cloud Storage connector allows users to synchronize files from their Google Cloud Storage buckets. This integration enables your bot to access and learn from your organization\'s files stored in Google Cloud Storage.',
+    icon: CloudIcon,
+    isPro: true,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    category: 'Object Storage',
+  },
 ]
 
 export const canSourceTypeSchedule = (typeName) => {
