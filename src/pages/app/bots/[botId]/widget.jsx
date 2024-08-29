@@ -643,7 +643,10 @@ function Widget({ team, bot }) {
                               e.target.value
                                 .split(',')
                                 .filter((s) => s)
-                                .map((d) => d.trim().toLowerCase())
+                                .map((d) => d.trim().toLowerCase()
+                                  .replace(/^(https?:\/\/)/, '')  // Remove http:// or https://
+                                  .replace(/\/.*$/, ''))  // Remove everything from the first slash onwards
+                                .filter(Boolean)
                             )
                           }}
                           disabled={isUpdating}

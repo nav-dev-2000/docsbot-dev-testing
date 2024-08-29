@@ -13,7 +13,12 @@ import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
 import { carbonSourceFilters } from '@/constants/carbon.constants'
 
-export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) => {
+export const deleteSource = async (
+  teamId,
+  bot,
+  sourceId,
+  deleteCarbon = true,
+) => {
   configureFirebaseApp()
   const firestore = getFirestore()
 
@@ -36,10 +41,15 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
     source = sourceDoc.data()
 
     // decrement team counts (if the source was ingested)
-    if (sourceDoc.data().status == 'ready' || sourceDoc.data().status == 'failed') {
+    if (
+      sourceDoc.data().status == 'ready' ||
+      sourceDoc.data().status == 'failed'
+    ) {
       const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
-      const newTeamChunkCount = (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-      const newTeamPageCount = (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+      const newTeamChunkCount =
+        (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+      const newTeamPageCount =
+        (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
       transaction.update(teamRef, {
         sourceCount: newTeamSourceCount,
         chunkCount: newTeamChunkCount,
@@ -49,8 +59,10 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
 
       // decrement bot counts
       const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
-      const newBotChunkCount = (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-      const newBotPageCount = (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+      const newBotChunkCount =
+        (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
+      const newBotPageCount =
+        (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
       const newBotStatus = newBotSourceCount == 0 ? 'pending' : 'ready'
       transaction.update(botRef, {
         sourceCount: newBotSourceCount,
@@ -92,7 +104,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
               offset: offset,
             },
           },
-          headers
+          headers,
         )
 
         if (response.status !== 200) {
@@ -118,7 +130,7 @@ export const deleteSource = async (teamId, bot, sourceId, deleteCarbon = true) =
         {
           file_ids: carbonFiles,
         },
-        headers
+        headers,
       )
       if (resp.status !== 200) {
         throw new Error(`Carbon API returned status ${response.status}`)
@@ -270,7 +282,12 @@ export const deleteBot = async (teamId, botId) => {
   await conversationsBatch.commit()
 
   //delete bot
-  await firestore.collection('teams').doc(teamId).collection('bots').doc(botId).delete()
+  await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .delete()
 
   //decrement botCounts on team
   await firestore.runTransaction(async (transaction) => {
@@ -281,9 +298,18 @@ export const deleteBot = async (teamId, botId) => {
     }
 
     const newBotCount = Math.max(0, (sfDoc.data().botCount || 0) - 1)
-    const newSourceCount = Math.max(0, (sfDoc.data().sourceCount || 0) - (bot.sourceCount || 0))
-    const newPageCount = Math.max(0, (sfDoc.data().pageCount || 0) - (bot.pageCount || 0))
-    const newChunkCount = Math.max(0, (sfDoc.data().chunkCount || 0) - (bot.chunkCount || 0))
+    const newSourceCount = Math.max(
+      0,
+      (sfDoc.data().sourceCount || 0) - (bot.sourceCount || 0),
+    )
+    const newPageCount = Math.max(
+      0,
+      (sfDoc.data().pageCount || 0) - (bot.pageCount || 0),
+    )
+    const newChunkCount = Math.max(
+      0,
+      (sfDoc.data().chunkCount || 0) - (bot.chunkCount || 0),
+    )
     transaction.update(teamRef, {
       botCount: newBotCount,
       sourceCount: newSourceCount,
@@ -329,7 +355,7 @@ export const deleteBot = async (teamId, botId) => {
       {
         customer_ids: [getCarbonCustomerID(teamId, botId)],
       },
-      headers
+      headers,
     )
     if (resp.status !== 200) {
       throw new Error(`Carbon API returned status ${response.status}`)
@@ -428,7 +454,10 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     botData.model = model
   } else if (!isUpdate) {
-    botData.model = team.supportsGPT4 && stripePlan(team).name !== 'Free' ? 'gpt-4o' : 'gpt-4o-mini'
+    botData.model =
+      team.supportsGPT4 && stripePlan(team).name !== 'Free'
+        ? 'gpt-4o'
+        : 'gpt-4o-mini'
   }
 
   if (customPrompt !== undefined) {
@@ -441,7 +470,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (helpscoutPrompt !== undefined) {
     if (helpscoutPrompt && stripePlan(team).bots < 3 && !isSuperAdmin(userId)) {
-      throw new Error('Custom helpscout prompts are not available at your plan level.')
+      throw new Error(
+        'Custom helpscout prompts are not available at your plan level.',
+      )
     }
     botData.helpscoutPrompt = helpscoutPrompt
   }
@@ -450,7 +481,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.allowedDomains = allowedDomains
       ? allowedDomains
           .filter((s) => s)
-          .map((d) => d.trim().toLowerCase())
+          .map((d) =>
+            d
+              .trim()
+              .toLowerCase()
+              .replace(/^(https?:\/\/)/, '') // Remove http:// or https://
+              .replace(/\/.*$/, ''),
+          ) // Remove everything from the first slash onwards
           .filter(Boolean)
       : []
   }
@@ -460,8 +497,18 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (icon !== undefined) {
-    const validIconOptions = ['default', 'comments', 'robot', 'life-ring', 'question', 'book']
-    botData.icon = icon && (validIconOptions.includes(icon) || icon.includes('://')) ? icon : ''
+    const validIconOptions = [
+      'default',
+      'comments',
+      'robot',
+      'life-ring',
+      'question',
+      'book',
+    ]
+    botData.icon =
+      icon && (validIconOptions.includes(icon) || icon.includes('://'))
+        ? icon
+        : ''
   }
 
   if (alignment !== undefined) {
@@ -471,9 +518,18 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (botIcon !== undefined) {
-    const validBotIconOptions = [false, 'comment', 'robot', 'life-ring', 'info', 'book']
+    const validBotIconOptions = [
+      false,
+      'comment',
+      'robot',
+      'life-ring',
+      'info',
+      'book',
+    ]
     botData.botIcon =
-      validBotIconOptions.includes(botIcon) || botIcon.includes('://') ? botIcon : ''
+      validBotIconOptions.includes(botIcon) || botIcon.includes('://')
+        ? botIcon
+        : ''
   }
 
   if (logo !== undefined) {
@@ -530,7 +586,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (questions !== undefined) {
     botData.questions = questions || []
     if (Array.isArray(botData.questions)) {
-      botData.questions = botData.questions.filter((question) => question?.trim() !== '')
+      botData.questions = botData.questions.filter(
+        (question) => question?.trim() !== '',
+      )
     }
   }
 
@@ -544,7 +602,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     throw new Error('Rate limiting is not available at your plan level.')
   }
   if (rateLimitMessages !== undefined) {
-    botData.rateLimitMessages = rateLimitMessages ? parseInt(rateLimitMessages) : 10
+    botData.rateLimitMessages = rateLimitMessages
+      ? parseInt(rateLimitMessages)
+      : 10
   }
 
   if (
@@ -557,7 +617,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     throw new Error('Rate limiting is not available at your plan level.')
   }
   if (rateLimitSeconds !== undefined) {
-    botData.rateLimitSeconds = rateLimitSeconds ? parseInt(rateLimitSeconds) : 60
+    botData.rateLimitSeconds = rateLimitSeconds
+      ? parseInt(rateLimitSeconds)
+      : 60
   }
 
   if (rateLimitIPAllowlist !== undefined) {
@@ -595,10 +657,9 @@ export async function clearLastError(team) {
   const firestore = getFirestore()
 
   // if the team doesn't have a lasterror, ignore!
-  if (!team?.lastError)
-    return;
+  if (!team?.lastError) return
 
   await firestore.collection('teams').doc(team.id).update({
-    lastError: FieldValue.delete()
+    lastError: FieldValue.delete(),
   })
 }
