@@ -3,6 +3,7 @@ import {
   lookupYoutubeSummary,
   saveYoutubeSummary,
   checkYoutubeRateLimit,
+  fetchYoutubeSubtitles, // Add this import
 } from '@/lib/tools'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 
@@ -35,22 +36,7 @@ const getVideoId = (url) => {
   return null // Add this line
 }
 
-const fetchTranscript = async (videoId) => {
-  try {
-    const response = await fetch(`https://yt-transcript.docsbot.workers.dev/api/transcript?url=https://www.youtube.com/watch?v=${videoId}&output=text`)
-    if (!response.ok) {
-      const errorData = await response.json();
-      if (errorData.error) {
-        throw new Error(errorData.error);
-      }
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.text()
-  } catch (error) {
-    console.error('Error fetching transcript:', error)
-    return { error: error.message }
-  }
-}
+// Remove the fetchTranscript function as it's no longer needed
 
 export default async function handler(req, res) {
   try {
@@ -63,6 +49,24 @@ export default async function handler(req, res) {
           .status(400)
           .json({ message: 'Invalid YouTube URL or video ID.' })
       }
+
+      // Fetch subtitles and metadata
+      let subtitlesResult
+      try {
+        subtitlesResult = await fetchYoutubeSubtitles(videoId)
+        if (!subtitlesResult.subtitles) {
+          return res.status(400).json({
+            message: `Failed to fetch the video subtitles.`,
+          })
+        }
+      } catch (error) {
+        console.error('Error fetching YouTube subtitles:', error)
+        return res.status(400).json({
+          message: `An error occurred while fetching the video subtitles: ${error.message}`,
+        })
+      }
+
+      const { metadata, subtitles } = subtitlesResult
 
       // check cache
       const cachedData = await lookupYoutubeSummary(videoId)
@@ -89,15 +93,6 @@ export default async function handler(req, res) {
           .json({ message: `Your IP has been rate limited.` })
       }
 
-      const transcriptResult = await fetchTranscript(videoId)
-      if (transcriptResult.error) {
-        return res.status(400).json({
-          message: `Failed to fetch the video transcript: ${transcriptResult.error}`,
-        })
-      }
-      const transcript = transcriptResult
-
-      console.log('transcript', transcript)
       const openai = new OpenAI({
         apiKey: process.env['OPENAI_API_KEY_TOOLS'],
       })
@@ -108,11 +103,11 @@ export default async function handler(req, res) {
           {
             role: 'system',
             content:
-              'You are an AI assistant that summarizes YouTube videos based on their transcripts. Provide a concise summary, extract key points, and determine the video title.',
+              'You are an AI assistant that summarizes YouTube videos based on their subtitles. Provide a concise summary, extract key points, and use the provided metadata.',
           },
           {
             role: 'user',
-            content: `Summarize the following YouTube video transcript. Provide a brief summary, list all the key points, and determine the video title:\n\n${transcript}`,
+            content: `Summarize the following YouTube video subtitles. Provide a brief summary, list all the key points, and use the provided metadata:\n\nMetadata: ${JSON.stringify(metadata)}\n\nSubtitles:\n${subtitles}`,
           },
         ],
         response_format: {
@@ -125,10 +120,6 @@ export default async function handler(req, res) {
             schema: {
               type: 'object',
               properties: {
-                title: {
-                  type: 'string',
-                  description: 'The title of the YouTube video',
-                },
                 summary: {
                   type: 'string',
                   description: 'A concise summary of the video content',
@@ -155,7 +146,7 @@ export default async function handler(req, res) {
                     'List of key points from the video in order with detailed summaries',
                 },
               },
-              required: ['title', 'summary', 'keyPoints'],
+              required: ['summary', 'keyPoints'],
               additionalProperties: false,
             },
           },
@@ -166,11 +157,12 @@ export default async function handler(req, res) {
         chat_completion.choices[0].message.content,
       )
 
-      // Save data and send response
-      const summaryData = {
+      // Combine the blog post data with the metadata, letting responseData overwrite metadata
+      const blogPostData = {
+        ...metadata,
         ...responseData,
-        thumbnail: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
       }
+
       await saveYoutubeSummary(ip, videoId, summaryData)
       return res.status(200).json(summaryData)
     } else if (req.method === 'GET') {

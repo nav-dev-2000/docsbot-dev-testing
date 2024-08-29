@@ -3,6 +3,7 @@ import {
   lookupYoutubeBlogPost,
   saveYoutubeBlogPost,
   checkYoutubeBlogPostRateLimit,
+  fetchYoutubeSubtitles,
 } from '@/lib/tools'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 
@@ -35,23 +36,6 @@ const getVideoId = (url) => {
   return null // Add this line
 }
 
-const fetchTranscript = async (videoId) => {
-  try {
-    const response = await fetch(`https://yt-transcript.docsbot.workers.dev/api/transcript?url=https://www.youtube.com/watch?v=${videoId}&output=text`)
-    if (!response.ok) {
-      const errorData = await response.json();
-      if (errorData.error) {
-        throw new Error(errorData.error);
-      }
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.text()
-  } catch (error) {
-    console.error('Error fetching transcript:', error)
-    return { error: error.message }
-  }
-}
-
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
@@ -63,6 +47,24 @@ export default async function handler(req, res) {
           .status(400)
           .json({ message: 'Invalid YouTube URL or video ID.' })
       }
+
+      // Fetch subtitles and metadata
+      let subtitlesResult
+      try {
+        subtitlesResult = await fetchYoutubeSubtitles(videoId)
+        if (!subtitlesResult.subtitles) {
+          return res.status(400).json({
+            message: `Failed to fetch the video subtitles.`,
+          })
+        }
+      } catch (error) {
+        console.error('Error fetching YouTube subtitles:', error)
+        return res.status(400).json({
+          message: `An error occurred while fetching the video subtitles: ${error.message}`,
+        })
+      }
+
+      const { metadata, subtitles } = subtitlesResult
 
       // check cache
       const cachedData = await lookupYoutubeBlogPost(videoId)
@@ -89,14 +91,6 @@ export default async function handler(req, res) {
           .json({ message: `Your IP has been rate limited.` })
       }
 
-      const transcriptResult = await fetchTranscript(videoId)
-      if (transcriptResult.error) {
-        return res.status(400).json({
-          message: `Failed to fetch the video transcript: ${transcriptResult.error}`,
-        })
-      }
-      const transcript = transcriptResult
-
       const openai = new OpenAI({
         apiKey: process.env['OPENAI_API_KEY_TOOLS'],
       })
@@ -107,11 +101,11 @@ export default async function handler(req, res) {
           {
             role: 'system',
             content:
-              "You are an experienced SEO copywriter tasked with creating a compelling, informative article based on the provided YouTube video transcript. Your goal is to craft a well-researched, engaging piece that adheres to SEO best practices and ranks high on search engines. Follow these guidelines:\n\n1. Begin with a strong, keyword-rich title that accurately reflects the content and pass it for the `title` property in the JSON response.\n2. Write a brief, engaging introduction that provides context and outlines the significance of the topic.\n3. Structure the article using clear headings and subheadings (H2, H3) to enhance readability and SEO.\n4. Present the main points in a logical, well-organized manner, explaining each point well with essential details.\n5. Use bullet points or numbered lists occassionally where appropriate to improve scannability.\n6. Incorporate relevant keywords naturally throughout the text, maintaining a good flow and readability.\n7. Include critical data, statistics, or quotes from authoritative sources when mentioned in the transcript to add credibility and boost SEO value.\n8. Ensure the content answers questions or solves problems related to the topic, providing value to the reader.\n9. Conclude with a summary that encapsulates the overall essence of the topic, its implications, and relevance.\n10. Add a strong call-to-action with no title as part of the conclusion to encourage reader engagement.\n11. Format the entire output in markdown, using appropriate syntax for headings, lists, and emphasis.\n12. Aim for a length of approximately 1000-1500 words, adjusting as needed based on the complexity of the topic.\n13. Don't include any links.\n\nEnsure the article is accessible to a broad audience, avoiding jargon or overly technical language unless necessary. Do not mention that the content is based on a YouTube video.",
+              "You are an experienced SEO copywriter tasked with creating a compelling, informative article based on the provided YouTube video transcript. Your goal is to craft a well-researched, engaging piece that adheres to SEO best practices and ranks high on search engines. Follow these guidelines:\n\n1. Begin with a strong, keyword-rich title that accurately reflects the content and pass it for the `title` property in the JSON response (don't use the same title as the metadata).\n2. Write a brief, engaging introduction that provides context and outlines the significance of the topic.\n3. Structure the article using clear headings and subheadings (H2, H3) to enhance readability and SEO.\n4. Present the main points in a logical, well-organized manner, explaining each point well with essential details.\n5. Use bullet points or numbered lists occassionally where appropriate to improve scannability.\n6. Incorporate relevant keywords naturally throughout the text, maintaining a good flow and readability.\n7. Include critical data, statistics, or quotes from authoritative sources when mentioned in the transcript to add credibility and boost SEO value.\n8. Ensure the content answers questions or solves problems related to the topic, providing value to the reader.\n9. Conclude with a summary that encapsulates the overall essence of the topic, its implications, and relevance.\n10. Add a strong call-to-action with no title as part of the conclusion to encourage reader engagement.\n11. Format the entire output in markdown, using appropriate syntax for headings, lists, and emphasis.\n12. Aim for a length of approximately 1000-1500 words, adjusting as needed based on the complexity of the topic.\n13. Don't include any links.\n\nEnsure the article is accessible to a broad audience, avoiding jargon or overly technical language unless necessary. Do not mention that the content is based on a YouTube video.",
           },
           {
             role: 'user',
-            content: `Video Transcript:\n\n${transcript}`,
+            content: `Create a blog post based on the following YouTube video subtitles and metadata:\n\nMetadata: ${JSON.stringify(metadata)}\n\nSubtitles:\n${subtitles}`,
           },
         ],
         response_format: {
@@ -132,7 +126,7 @@ export default async function handler(req, res) {
                 content: {
                   type: 'string',
                   description:
-                    'The longform markdown-formatted body content of the blog post with NO main H1 title.',
+                    'The longform markdown-formatted body content of the blog post with NO main H1 title. The first line should be the introductory paragraph with no heading.',
                 },
               },
               required: ['title', 'content'],
@@ -146,9 +140,15 @@ export default async function handler(req, res) {
         chat_completion.choices[0].message.content,
       )
 
+      // Combine the blog post data with the metadata, letting responseData overwrite metadata
+      const blogPostData = {
+        ...metadata,
+        ...responseData,
+      }
+
       // Save data and send response
-      await saveYoutubeBlogPost(ip, videoId, responseData)
-      return res.status(200).json(responseData)
+      await saveYoutubeBlogPost(ip, videoId, blogPostData)
+      return res.status(200).json(blogPostData)
     } else if (req.method === 'GET') {
       const { videoId } = req.query
 

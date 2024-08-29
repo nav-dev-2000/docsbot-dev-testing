@@ -96,13 +96,12 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 <h1 className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl">
                   {summary.title}
                 </h1>
-                <div className="relative w-full aspect-video">
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src={thumbnailError ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : summary.thumbnail}
                     alt={summary.title}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-lg shadow-lg"
                     onError={() => setThumbnailError(true)}
                   />
                 </div>
