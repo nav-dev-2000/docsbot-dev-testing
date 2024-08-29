@@ -41,6 +41,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.tempurl.host',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
     ],
   },
   async redirects() {
