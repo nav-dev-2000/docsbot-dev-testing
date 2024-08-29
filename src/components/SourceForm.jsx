@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { RadioGroup } from '@headlessui/react'
-import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { RadioGroup, Disclosure } from '@headlessui/react'
+import { CheckCircleIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import {
   PlusIcon,
@@ -241,6 +241,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   }
 
   if (showForm) {
+    // Get unique categories from sourceTypes, preserving order
+    const categories = [...new Set(sourceTypes.map(source => source.category))]
+
     return (
       <>
         <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
@@ -264,76 +267,104 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
               }}
             >
               <RadioGroup.Label className="text-sm font-medium text-gray-700">
-                Source type
+                Source types
               </RadioGroup.Label>
 
-              <div className="mt-2 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-4">
-                {sourceTypes.map((sourceType) => (
-                  <RadioGroup.Option
-                    key={sourceType.id}
-                    value={sourceType}
-                    disabled={sourceType.coming || isUpdating}
-                    className={({ checked, active }) =>
-                      classNames(
-                        checked ? 'border-transparent' : 'border-gray-300',
-                        active ? 'border-cyan-500 ring-2 ring-cyan-500' : '',
-                        'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none',
-                        sourceType.coming ? 'opacity-50' : ''
-                      )
-                    }
-                  >
-                    {({ checked, active }) => (
-                      <>
-                        <span className="mr-2 flex-shrink-0 items-center">
-                          <sourceType.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
-                        </span>
-                        <span className="flex flex-1">
-                          <span className="flex flex-col">
-                            <RadioGroup.Label
-                              as="span"
-                              className="block text-sm font-medium text-gray-900"
-                            >
-                              {sourceType.title}
-                              {sourceType.isPro &&
-                                !sourceType.coming &&
-                                stripePlan(team).name === 'Free' && (
-                                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                    Paid
-                                  </span>
-                                )}
-                              {sourceType.coming && (
-                                <span className="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
-                                  Coming soon
-                                </span>
-                              )}
-                            </RadioGroup.Label>
-                            <RadioGroup.Description
-                              as="span"
-                              className="mt-1 flex items-center text-sm text-gray-500"
-                            >
-                              {sourceType.description}
-                            </RadioGroup.Description>
-                          </span>
-                        </span>
-                        <CheckCircleIcon
-                          className={classNames(
-                            !checked ? 'invisible' : '',
-                            'h-5 w-5 text-cyan-600'
-                          )}
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            active ? 'border' : 'border-2',
-                            checked ? 'border-cyan-500' : 'border-transparent',
-                            'pointer-events-none absolute -inset-px rounded-lg'
-                          )}
-                          aria-hidden="true"
-                        />
-                      </>
-                    )}
-                  </RadioGroup.Option>
-                ))}
+              <div className="mt-2 space-y-4">
+                {categories.map((category) => {
+                  const hasAvailableSource = sourceTypes
+                    .filter((sourceType) => sourceType.category === category)
+                    .some((sourceType) => !sourceType.coming);
+
+                  return (
+                    <Disclosure key={category} defaultOpen={hasAvailableSource}>
+                      {({ open }) => (
+                        <>
+                          <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
+                            <span>{category}</span>
+                            <ChevronUpIcon
+                              className={`${
+                                open ? '' : 'rotate-180 transform'
+                              } h-5 w-5 text-gray-500`}
+                            />
+                          </Disclosure.Button>
+                          <Disclosure.Panel className="px-4 pt-4 pb-2">
+                            <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-4">
+                              {sourceTypes
+                                .filter((sourceType) => sourceType.category === category)
+                                .map((sourceType) => (
+                                  <RadioGroup.Option
+                                    key={sourceType.id}
+                                    value={sourceType}
+                                    disabled={sourceType.coming || isUpdating}
+                                    className={({ checked, active }) =>
+                                      classNames(
+                                        checked ? 'border-transparent' : 'border-gray-300',
+                                        active ? 'border-cyan-500 ring-2 ring-cyan-500' : '',
+                                        'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none',
+                                        sourceType.coming ? 'opacity-50' : ''
+                                      )
+                                    }
+                                  >
+                                    {({ checked, active }) => (
+                                      <>
+                                        <span className="mr-2 flex-shrink-0 items-center">
+                                          <sourceType.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
+                                        </span>
+                                        <span className="flex flex-1">
+                                          <span className="flex flex-col">
+                                            <RadioGroup.Label
+                                              as="span"
+                                              className="block text-sm font-medium text-gray-900"
+                                            >
+                                              {sourceType.title}
+                                              {sourceType.isPro &&
+                                                !sourceType.coming &&
+                                                stripePlan(team).name === 'Free' && (
+                                                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                                                    Paid
+                                                  </span>
+                                                )}
+                                              {sourceType.coming && (
+                                                <span className="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+                                                  Coming soon
+                                                </span>
+                                              )}
+                                            </RadioGroup.Label>
+                                            <RadioGroup.Description
+                                              as="span"
+                                              className="mt-1 flex items-center text-sm text-gray-500"
+                                            >
+                                              {sourceType.description}
+                                            </RadioGroup.Description>
+                                          </span>
+                                        </span>
+                                        <CheckCircleIcon
+                                          className={classNames(
+                                            !checked ? 'invisible' : '',
+                                            'h-5 w-5 text-cyan-600'
+                                          )}
+                                          aria-hidden="true"
+                                        />
+                                        <span
+                                          className={classNames(
+                                            active ? 'border' : 'border-2',
+                                            checked ? 'border-cyan-500' : 'border-transparent',
+                                            'pointer-events-none absolute -inset-px rounded-lg'
+                                          )}
+                                          aria-hidden="true"
+                                        />
+                                      </>
+                                    )}
+                                  </RadioGroup.Option>
+                                ))}
+                            </div>
+                          </Disclosure.Panel>
+                        </>
+                      )}
+                    </Disclosure>
+                  );
+                })}
               </div>
             </RadioGroup>
           ) : (
