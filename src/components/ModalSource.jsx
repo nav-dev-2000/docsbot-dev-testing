@@ -571,7 +571,10 @@ export default function ModalSource({
                                   fileSyncConfig : {
                                     split_rows: true
                                   },
+                                  syncFilesOnConnection: false,
+                                  syncSourceItems: false,
                                   useCarbonFilePicker: true,
+                                  incrementalSync: true,
                                 },
                               ]}
                             />

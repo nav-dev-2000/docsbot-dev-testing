@@ -561,7 +561,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                         split_rows: true
                       },
                       syncFilesOnConnection: false,
+                      syncSourceItems: false,
                       useCarbonFilePicker: true,
+                      incrementalSync: true,
                     }
                   ]}
                 />
