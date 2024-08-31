@@ -96,6 +96,8 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       setUrlDescription('URL of the RSS feed to learn from.')
     } else if (selectedSourceType?.id === 'sitemap') {
       setUrlDescription('URL of the site to crawl for all discovered sitemaps.')
+    } else if (selectedSourceType?.id === 'youtube') {
+      setUrlDescription('URL of the YouTube video or playlist.')
     } else {
       setUrlDescription('Clickable URL of source link displayed with answers.')
     }
@@ -325,6 +327,11 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                                                     Paid
                                                   </span>
                                                 )}
+                                              {sourceType.id === 'youtube' && stripePlan(team).name !== 'Free' && (
+                                                <span className="ml-4 inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                                                  New
+                                                </span>
+                                              )}
                                               {sourceType.coming && (
                                                 <span className="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
                                                   Coming soon

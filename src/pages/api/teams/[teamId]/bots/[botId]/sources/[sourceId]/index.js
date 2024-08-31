@@ -56,6 +56,11 @@ export default async function handler(req, res) {
       return res.status(409).json({ message: 'Only new failed sources can be retried currently.' })
     }
 
+    // Error if it's a YouTube source
+    if (source.type === 'youtube') {
+      return res.status(400).json({ message: 'YouTube sources cannot be retried manually. Please delete and recreate the source.' })
+    }
+
     //update source status in db
     try {
       await firestore

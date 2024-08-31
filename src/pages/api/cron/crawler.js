@@ -2,6 +2,7 @@ import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceIngest } from '@/lib/service'
 import axios from 'axios'
+import { stripePlan } from '@/utils/helpers'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -17,7 +18,7 @@ export default async function handler(request, response) {
   // select sources being crawled by apify
   const sourcesRef = await firestore
     .collectionGroup('sources')
-    .where('type', 'in', ['urls', 'sitemap'])
+    .where('type', 'in', ['urls', 'sitemap', 'youtube'])
     .where('status', '==', 'indexing')
     .get()
   try {
@@ -32,11 +33,11 @@ export default async function handler(request, response) {
 
       const teamRef = botRef.parent.parent
       const teamId = teamRef.id
-
+      const team = { id: teamId, ...(await teamRef.get()).data() }
       try {
         // fetch the run
         const headers = {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', 
           Accept: 'application/json',
         }
         const run_url = `https://api.apify.com/v2/actor-runs/${source.crawlId}`
@@ -46,30 +47,53 @@ export default async function handler(request, response) {
         const result = await axios.get(run_url, {
           headers,
           params,
-          validateStatus: function (status) { // silence trivial errors
+          validateStatus: function (status) {
+            // silence trivial errors
             return status < 500
-          }})
+          },
+        })
 
         if (result.status !== 200) {
           throw new Error(`Apify API returned status ${response.status}`)
         }
 
-        console.log('Source', doc.id, 'apify crawler status:', result.data.data.statusMessage)
+        console.log(
+          'Source',
+          doc.id,
+          'apify crawler status:',
+          result.data.data.statusMessage,
+        )
         // if the run is finished, trigger an ingest pub/sub message
         if (result.data.data.status === 'SUCCEEDED') {
-          await QueueSourceIngest(
-            teamId,
-            botId,
-            doc.id,
-            1000000, //this was checked before starting the crawler
-            bot.indexId,
-            'crawler',
-            source.title, //null
-            source.url,
-            source.file, //null
-            source.faqs, //null
-            source.crawlId
-          )
+          if (source.type === 'youtube') {
+            await QueueSourceIngest(
+              teamId,
+              botId,
+              doc.id,
+              stripePlan(team).pages - team.pageCount,
+              bot.indexId,
+              'youtube',
+              null, //title
+              source.url,
+              null, // file
+              null, // faqs
+              source.crawlId //runId
+            )
+          } else { // for 'urls' and 'sitemap' types
+            await QueueSourceIngest(
+              teamId,
+              botId,
+              doc.id,
+              1000000, //this was checked before starting the crawler
+              bot.indexId,
+              'crawler',
+              null, // title
+              source.url,
+              null, // file
+              null, // faqs
+              source.crawlId //runId
+            )
+          }
           //await doc.ref.update({ status: 'processing' }) // the Cloud funciton marks the source as processing to prevent multiple crawler ingests
           console.log('source', doc.id, 'ingest queued')
         } else if (result.data.status === 'FAILED') {
