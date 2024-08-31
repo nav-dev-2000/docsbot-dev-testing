@@ -4,7 +4,6 @@ import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers } from '@/lib/dbQueries'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { canUserModifyTeam } from '@/utils/function.utils'
 
@@ -85,11 +84,6 @@ export default async function handler(req, res) {
           return res.status(500).json({ message: "Something went wrong, please try again" })
       }
 
-    mpTrack(userId, 'Team Member Role Changed', {
-      "Team name": team.name,
-      role,
-      ip: req.headers['x-forwarded-for'],
-    })
     phTrack(userId, 'Team Member Role Changed', { "Team name": team.name, role }, team.id)
     return res.status(200).send({ message: `User role has been changed successfully`, teamUsers: await getTeamUsers(team.id)})
   } catch (error) {
@@ -162,10 +156,6 @@ export default async function handler(req, res) {
             return res.status(500).json({ message: "Something went wrong, please try again" })
         }
 
-      mpTrack(userId, 'Team Member Removed', {
-        "Team name": team.name,
-        ip: req.headers['x-forwarded-for'],
-      })
       phTrack(userId, 'Team Member Removed', { "Team name": team.name }, team.id)
       
       return res.status(200).send({ message: `Removed user successfully`})

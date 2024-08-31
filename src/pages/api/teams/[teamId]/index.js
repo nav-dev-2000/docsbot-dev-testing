@@ -8,7 +8,6 @@ import { getTeam } from '@/lib/dbQueries'
 import { encryptKey } from '@/lib/encryption'
 import OpenAI from 'openai'
 import { deleteBot } from '@/lib/apiFunctions'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { canUserModifyTeam, canUserDeleteTeam } from '@/utils/function.utils'
 import { validateOpenAIKey } from '@/utils/helpers'
@@ -42,9 +41,6 @@ export default async function handler(req, res) {
       newTeam.name = name
       newTeam.name.trim()
 
-      mpTrack(userId, 'Team Name Updated', {
-        ip: req.headers['x-forwarded-for'],
-      })
       phTrack(userId, 'Team Name Updated', {}, team.id)
     }
     if (openAIKey) {
@@ -139,10 +135,6 @@ export default async function handler(req, res) {
           .update({ currentTeam: 'ZrbLG98bbxZ9EFqiPvyl' })
       }
 
-      mpTrack(userId, 'Team Deleted', {
-        'Team name': team.name,
-        ip: req.headers['x-forwarded-for'],
-      })
       phTrack(userId, 'Team Deleted', {
         'Team name': team.name,
       })

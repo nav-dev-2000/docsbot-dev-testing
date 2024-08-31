@@ -29,7 +29,6 @@ import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
 import LoadingDots from './LoadingDots'
 import { grabQuestions } from '@/utils/helpers'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
@@ -192,7 +191,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       ws.send(JSON.stringify(req))
 
       if (testing) {
-        Mixpanel.track('Bot Tested', { 'Bot name': bot.name })
+        
         posthog?.capture('Bot Tested', { 'Bot name': bot.name })
         if (window.bento !== undefined) {
           window.bento.track('botTested', { botName: bot.name })

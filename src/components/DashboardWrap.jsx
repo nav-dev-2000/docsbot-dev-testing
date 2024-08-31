@@ -25,7 +25,6 @@ import { auth } from '@/config/firebase-ui.config'
 import { routePaths } from '@/constants/routePaths.constants'
 import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import { getUserRole } from '@/utils/function.utils'
 import { usePostHog } from 'posthog-js/react'
 
@@ -42,7 +41,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
-          Mixpanel.reset()
+          
           posthog?.reset()
           router.push(routePaths.LOGIN)
         },

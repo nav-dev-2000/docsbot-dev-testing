@@ -7,7 +7,6 @@ import { useRouter } from 'next/router'
 import { logout } from '@/api/logout'
 import { auth } from '@/config/firebase-ui.config'
 import { routePaths } from '@/constants/routePaths.constants'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import { usePostHog } from 'posthog-js/react'
 
 export default function ModalDeleteAccount({ team }) {
@@ -23,7 +22,7 @@ export default function ModalDeleteAccount({ team }) {
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
-          Mixpanel.reset()
+          
           posthog?.reset()
           router.push(routePaths.LOGIN)
         },

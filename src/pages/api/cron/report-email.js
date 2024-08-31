@@ -1,6 +1,5 @@
 import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 import { stripePlan } from '@/utils/helpers'
 import { sendReportEmail } from '@/utils/emails'

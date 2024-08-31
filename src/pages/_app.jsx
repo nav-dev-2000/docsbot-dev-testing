@@ -13,7 +13,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { HeadlessApp } from '@headstartwp/next'
 import { Link } from '@/components/blog/Link'
 import { DefaultSeo } from 'next-seo'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
 
@@ -96,7 +95,6 @@ export default function App({ Component, pageProps }) {
         }
         window.bento.view()
       }
-      Mixpanel.pageview()
       posthog?.capture('$pageview')
     }
 

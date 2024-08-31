@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useState, useEffect } from 'react'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import SocialFaces from '@/components/SocialFaces'
 import { usePostHog } from 'posthog-js/react'
 
@@ -106,7 +105,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
                     posthog?.capture('CTA Click', { cta: 'register', title: title })
                     if (window.bento !== undefined) {
                       window.bento.track('cta_click', { cta: 'register', title: title })
-                      Mixpanel.track('CTA Click', { cta: 'Register', title: title })
+                      
                     }
                   }}
                   className="block w-full rounded-md border border-cyan-600 bg-gradient-to-b from-teal-300 to-cyan-400 px-5 py-3  text-center text-base font-medium text-cyan-900 shadow hover:bg-teal-200 hover:from-teal-200 hover:to-cyan-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cyan-600 sm:px-10"

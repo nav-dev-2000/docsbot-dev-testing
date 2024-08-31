@@ -5,7 +5,6 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot, getSource } from '@/lib/dbQueries'
 import { canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 
 export default async function handler(req, res) {
@@ -53,7 +52,7 @@ export default async function handler(req, res) {
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7 // 7 days
     }))[0];
 
-    mpTrack(userId, 'Source File Downloaded', { ip: req.headers['x-forwarded-for'] })
+    
     phTrack(userId, 'Source File Downloaded', {}, team.id)
 
     return res.status(200).json({ url })

@@ -3,7 +3,6 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
@@ -49,10 +48,6 @@ export default async function handler(req, res) {
           type: 'updateBot',
           botName: botData.name || bot.name,
         })
-        mpTrack(userId, 'Bot Updated', {
-          'Bot name': botData.name || bot.name,
-          ip: req.headers['x-forwarded-for'],
-        })
         phTrack(userId, 'Bot Updated', {
           'Bot name': botData.name || bot.name,
         }, team.id)
@@ -82,7 +77,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'deleteBot',
         })
-        mpTrack(userId, 'Bot Deleted', { ip: req.headers['x-forwarded-for'] })
+        
         phTrack(userId, 'Bot Deleted', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)

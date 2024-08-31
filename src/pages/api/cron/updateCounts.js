@@ -1,7 +1,6 @@
 import { getFirestore, Filter } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats } from '@/lib/dbQueries'
-import { mpTrack } from '@/lib/mixpanel'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
@@ -109,7 +108,6 @@ export default async function handler(request, response) {
                 type: 'botUsed',
                 botName: botDoc.data().name,
               })
-              mpTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name })
               phTrack(teamOwner(teamData), 'Bot Used', { 'Bot name': botDoc.data().name }, teamDoc.id)
             } catch (error) {
               console.warn('Error tracking bot used:', error)

@@ -7,7 +7,6 @@ import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.consta
 import { bentoTrack } from '@/lib/bento'
 import { stripePlan } from '@/utils/helpers'
 import { assignDefaultTeam, getInvitesFromEmail, acceptInvite } from '@/lib/dbQueries'
-import { mpProfile } from '@/lib/mixpanel'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -34,16 +33,7 @@ export default async function handler(req, res) {
   const invites = await getInvitesFromEmail(decodedJwt?.email.toLowerCase())
   const invited = isNewUser && invites.length > 0
 
-  const mpData = {
-    $email: decodedJwt?.email,
-    $name: name,
-  }
-  if (invited) {
-    mpData['Invited'] = true
-  }
-
-  // update mixpanel profile
-  mpProfile(userId, mpData)
+  //TODO track invited status with posthog
 
   if (isNewUser) {
 

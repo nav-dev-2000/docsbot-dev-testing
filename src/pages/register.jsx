@@ -22,7 +22,6 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { usePostHog } from 'posthog-js/react'
 
@@ -102,15 +101,6 @@ function Register({ teamCount }) {
             window.fpr("referral",{email: user?.user?.email})
           }
           va.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
-          Mixpanel.identify(user.user.uid)
-          Mixpanel.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
-          Mixpanel.profile({
-            $email: user.user.email,
-            $name: user.user.displayName,
-            "Usage Type": usageType,
-            "User Type": userType,
-            "Login Method": "Email"
-          })
           posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
           posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           posthog?.startSessionRecording()
@@ -138,16 +128,6 @@ function Register({ teamCount }) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
       va.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
-      Mixpanel.identify(user.user.uid)
-      Mixpanel.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
-      Mixpanel.profile({
-        $email: googleUser.user.email,
-        $name: googleUser.user.displayName,
-        $avatar: googleUser.user.photoURL,
-        "Usage Type": usageType,
-        "User Type": userType,
-        "Login Method": "Google"
-      })
       posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
       posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       posthog?.startSessionRecording()

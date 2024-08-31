@@ -4,7 +4,6 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
-import { mpTrack } from '@/lib/mixpanel'
 import { canSourceTypeSchedule, isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
@@ -79,7 +78,7 @@ export default async function handler(req, res) {
           scheduleInterval: scheduleInterval,
         })
 
-      mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
+      
       phTrack(userId, 'Source Refreshed', {}, team.id)
 
       return res.status(200).json({ newScheduled: scheduled.toJSON() })
@@ -109,7 +108,7 @@ export default async function handler(req, res) {
 
       await QueueSourceRegest(team.id, botId, sourceId, {faqs})
 
-      mpTrack(userId, 'Q&A Source Updated', { ip: req.headers['x-forwarded-for'] })
+      
       phTrack(userId, 'Q&A Source Updated', {}, team.id)
 
       return res.status(200).json(await getSource(team, bot, sourceId))
@@ -164,7 +163,7 @@ export default async function handler(req, res) {
 
       await QueueSourceRegest(team.id, botId, sourceId)
 
-      mpTrack(userId, 'Source Refreshed', { ip: req.headers['x-forwarded-for'] })
+      
       phTrack(userId, 'Source Refreshed', {}, team.id)
 
       return res.status(200).json({ newScheduled: nextSchedule.toJSON() })

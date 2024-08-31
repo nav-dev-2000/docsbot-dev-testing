@@ -22,7 +22,6 @@ import { GoogleLogo } from '@/components/GoogleLogo'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { NextSeo } from 'next-seo'
-import { Mixpanel } from '@/lib/mixpanel-web'
 import { usePostHog } from 'posthog-js/react'
 
 function Login() {
@@ -71,12 +70,6 @@ function Login() {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
           }
-          Mixpanel.identify(user.user.uid)
-          Mixpanel.profile({
-            $email: user.user.email,
-            $name: user.user.displayName,
-            "Login Method": "Email"
-          })
           posthog?.identify(user.user.uid, { email: user.user.email })
           router.push(redirectPath)
         },
@@ -97,13 +90,6 @@ function Login() {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
       va.track('Signup')
-      Mixpanel.identify(googleUser.user.uid)
-      Mixpanel.profile({
-        $email: googleUser.user.email,
-        $name: googleUser.user.displayName,
-        $avatar: googleUser.user.photoURL,
-        "Login Method": "Google"
-      })
       posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
       posthog?.capture('Signup', { method: 'Google' })
       posthog?.startSessionRecording()

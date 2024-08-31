@@ -8,7 +8,6 @@ const auth = getAuth()
 import { stripePlan } from '@/utils/helpers'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { getTeam, getUser, getTeamEmail } from '@/lib/dbQueries'
 
@@ -253,10 +252,6 @@ const webhookHandler = async (req, res) => {
                       comment: subscription.cancellation_details.comment || '',
                     },
                   })
-                  mpTrack(teamOwner(teamObj), 'Subscription Canceled', {
-                    'Cancel Reason': subscription.cancellation_details.feedback || '',
-                    'Cancel Comment': subscription.cancellation_details.comment || '',
-                  })
                   phTrack(teamOwner(teamObj), 'Subscription Canceled', {
                     'Cancel Reason': subscription.cancellation_details.feedback || '',
                     'Cancel Comment': subscription.cancellation_details.comment || '',
@@ -317,13 +312,6 @@ const webhookHandler = async (req, res) => {
                 // Send the Slack notification
                 try {
                   const team = await getTeam(checkoutSession.client_reference_id)
-                  mpTrack(teamOwner(team), 'Subscribed', {
-                    plan: planName,
-                    amount:
-                      session.currency == 'jpy' ? session.amount_total : session.amount_total / 100,
-                    currency: session.currency,
-                    interval: plan.interval,
-                  })
                   phTrack(teamOwner(team), 'Subscribed', {
                     plan: planName,
                     amount:

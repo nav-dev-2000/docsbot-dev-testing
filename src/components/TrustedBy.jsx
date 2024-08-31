@@ -16,10 +16,10 @@ export default function TrustedBy({ props }) {
           href="https://infiniteuploads.com"
           target="_blank"
           title="Infinite Uploads"
-          className="flex justify-center"
+          className="flex justify-center col-span-2 lg:col-span-1"
         >
           <Image
-            className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+            className="max-h-8 w-full object-contain"
             src={iuLogo}
             alt="Infinite Uploads Logo"
             width={125}
@@ -73,7 +73,7 @@ export default function TrustedBy({ props }) {
           height={32}
         />
 
-        <WPMUDEVLogo className="col-span-1 max-h-8 w-full object-contain text-white" />
+        <WPMUDEVLogo className="col-span-2 lg:col-span-1 max-h-8 w-full object-contain text-white" />
       </div>
   )
 }

@@ -11,7 +11,6 @@ import {
 } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
@@ -292,10 +291,6 @@ export default async function handler(req, res) {
               type: 'addFAQ',
               sourceType: type,
             })
-            mpTrack(userId, 'FAQ Added', {
-              'Source type': type,
-              ip: req.headers['x-forwarded-for'],
-            })
             phTrack(userId, 'FAQ Added', { 'Source type': type }, team.id)
           } catch (e) {
             console.log('Error sending bento track', e)
@@ -426,10 +421,6 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'addSource',
           sourceType: type,
-        })
-        mpTrack(userId, 'Source Added', {
-          'Source type': type,
-          ip: req.headers['x-forwarded-for'],
         })
         phTrack(userId, 'Source Added', { 'Source type': type }, team.id)
       } catch (e) {

@@ -46,8 +46,6 @@
     "focus-visible": "^5.2.0",
     "jose": "^4.10.4",
     "katex": "^0.16.11",
-    "mixpanel": "^0.18.0",
-    "mixpanel-browser": "^2.47.0",
     "next": "^14.2.7",
     "next-connect": "^1.0.0-next.4",
     "next-seo": "^6.5.0",

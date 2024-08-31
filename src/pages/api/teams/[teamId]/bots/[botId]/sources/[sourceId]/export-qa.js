@@ -5,7 +5,6 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot, getSource } from '@/lib/dbQueries'
 import sendEmail from '@/lib/sendEmail'
 import { stringify } from '@vanillaes/csv'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 
 // this handler will export the question log of a bot to a csv file
@@ -79,7 +78,7 @@ const handler = async (req, res) => {
       // const emailBody = `You can download your exported log for ${bot.name} here: ${url}`
       // await sendEmail(userId, `Your exported log for ${bot.name} is ready`, emailBody)
 
-      mpTrack(userId, 'Q&A Source Exported', { "Bot name": bot.name, ip: req.headers['x-forwarded-for'] })
+      
       phTrack(userId, 'Q&A Source Exported', { "Bot name": bot.name }, team.id)
 
       return res.status(200).json({ url: url })

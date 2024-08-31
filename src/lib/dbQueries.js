@@ -5,7 +5,6 @@ import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
 import { i18n } from '@/constants/strings.constants'
 import { bentoTrack } from '@/lib/bento'
-import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import crypto from 'crypto'
 configureFirebaseApp()
@@ -783,7 +782,6 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
     bentoTrack(uid, 'track', {
       type: 'acceptInvite',
     })
-    mpTrack(uid, 'Team Invite Accepted', { ip: req.headers['x-forwarded-for'] })
     phTrack(uid, 'Team Invite Accepted', {}, teamId)
   } catch (e) {
     console.log('Error sending bento track', e)
