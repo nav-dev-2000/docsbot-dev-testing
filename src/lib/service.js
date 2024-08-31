@@ -116,6 +116,12 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
     .doc(sourceId)
   const source = await sourceRef.get()
   const sourceData = source.data()
+  
+  // Prevent refreshing YouTube sources
+  if (sourceData.type === 'youtube') {
+    throw new Error("Refreshing YouTube sources is not allowed.")
+  }
+
   if (sourceData.status !== 'ready' && sourceData.status !== 'failed') {
     throw new Error("Cannot refresh source that is not 'ready' or 'failed.")
   }

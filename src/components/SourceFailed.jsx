@@ -49,16 +49,18 @@ export default function SourceFailed({ sources, deleteSource, retrySource }) {
                 </div>
               </>
             )}
-            <button
-              className="text-gray-400 hover:text-gray-600 focus:text-gray-500 flex items-center"
-              type="button"
-              onClick={(e) => {
-                e.preventDefault()
-                retrySource(source.id)
-              }}
-            >
-              <ArrowPathIcon className="h-4 w-4 mr-1" aria-hidden="true" /> Retry
-            </button>
+            {source.type !== 'youtube' && (
+              <button
+                className="text-gray-400 hover:text-gray-600 focus:text-gray-500 flex items-center"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault()
+                  retrySource(source.id)
+                }}
+              >
+                <ArrowPathIcon className="h-4 w-4 mr-1" aria-hidden="true" /> Retry
+              </button>
+            )}
         </Alert>
       ))}
     </div>

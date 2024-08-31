@@ -502,8 +502,6 @@ export default function ModalSource({
                                   target="_blank"
                                   className="block w-full text-sm"
                                 >
-                                  <em className="text-slate-600">{item.source}</em>
-                                  <br />
                                   {item.title}
                                 </Link>
                               </li>
@@ -616,7 +614,7 @@ export default function ModalSource({
                             </button>
                           )}
                         </div>
-                        {showInterval && (
+                        {showInterval && source?.type !== 'youtube' && (
                           <div className="flex flex-shrink-0 items-end justify-end">
                             <button
                               type="button"

@@ -11,7 +11,12 @@ export const bento = new Analytics({
 })
 
 export async function bentoTrack(userId, command, data) {
-  //get user email from firebase auth
+  // Check if required environment variables are set
+  if (!process.env.BENTO_PUB_KEY || !process.env.BENTO_SECRET_KEY || !process.env.NEXT_PUBLIC_BENTO_SITE) {
+    console.warn('Skipping Bento tracking: Missing required environment variables');
+    return;
+  }
+
   try {
     if (!data.email) {
       if (!userId) return

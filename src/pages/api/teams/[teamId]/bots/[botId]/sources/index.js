@@ -3,14 +3,18 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
-import { getBot, getSources, getSource, getTeamIntegrations } from '@/lib/dbQueries'
+import {
+  getBot,
+  getSources,
+  getSource,
+  getTeamIntegrations,
+} from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { mpTrack } from '@/lib/mixpanel'
 import { phTrack } from '@/lib/posthog'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
-import { getSchema } from '@/lib/weaviate'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
@@ -67,7 +71,9 @@ export default async function handler(req, res) {
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
 
     //check plan credits
-    const predictedPageCount = sourceType.isPro ? team.pageCount + 5 : team.pageCount + 1
+    const predictedPageCount = sourceType.isPro
+      ? team.pageCount + 5
+      : team.pageCount + 1
     if (stripePlan(team).pages < predictedPageCount) {
       return res.status(402).json({
         message: 'Source page limit exceeded. Please upgrade your plan.',
@@ -77,7 +83,8 @@ export default async function handler(req, res) {
     //check if they are pro and can use the source type
     if (sourceType.isPro && stripePlan(team).name === 'Free') {
       return res.status(402).json({
-        message: 'Source type not available on your plan. Please upgrade your plan.',
+        message:
+          'Source type not available on your plan. Please upgrade your plan.',
       })
     }
 
@@ -87,20 +94,42 @@ export default async function handler(req, res) {
       sourceType.fieldUrl === 'required' &&
       (!url || !url.match(/^(https?):\/\/[^\s\/$.?#].[^\s]*$/))
     ) {
-      return res.status(400).send({ message: 'Invalid or missing parameter "url".' })
+      return res
+        .status(400)
+        .send({ message: 'Invalid or missing parameter "url".' })
+    }
+
+    // Check if it's a YouTube source and validate the URL
+    if (type === 'youtube') {
+      const youtubeRegex =
+        /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)[\w-]+/
+      if (!youtubeRegex.test(url)) {
+        return res
+          .status(400)
+          .send({
+            message:
+              'Invalid YouTube URL. Please provide a valid YouTube video or channel URL.',
+          })
+      }
     }
 
     title = title?.trim() || null
     if (sourceType.fieldTitle === 'required' && !title) {
-      return res.status(400).send({ message: 'Invalid or missing parameter "title".' })
+      return res
+        .status(400)
+        .send({ message: 'Invalid or missing parameter "title".' })
     }
 
     if (sourceType.fieldFile === 'required' && !file) {
-      return res.status(400).send({ message: 'Invalid or missing parameter "file".' })
+      return res
+        .status(400)
+        .send({ message: 'Invalid or missing parameter "file".' })
     }
 
     if (sourceType.fieldQA === 'required' && !faqs) {
-      return res.status(400).send({ message: 'Invalid or missing parameter "faqs".' })
+      return res
+        .status(400)
+        .send({ message: 'Invalid or missing parameter "faqs".' })
     }
 
     if (!sourceType.fieldQA) {
@@ -114,7 +143,12 @@ export default async function handler(req, res) {
       }
 
       for (const faq of faqs) {
-        if (!faq.question || !faq.answer || faq.answer.length === 0 || faq.question.length === 0) {
+        if (
+          !faq.question ||
+          !faq.answer ||
+          faq.answer.length === 0 ||
+          faq.question.length === 0
+        ) {
           return res.status(400).json({ message: 'Invalid parameter "faqs".' })
         }
       }
@@ -130,29 +164,6 @@ export default async function handler(req, res) {
       }
     }
 
-    // if (sourceType.fieldMailboxID === 'required' && !req.body.mailboxID) {
-    //   return res.status(400).send({ message: 'Invalid or missing parameter "mailboxID".' })
-    // }
-
-    // // verify the helpscout integration exists
-    // if (mailboxID) {
-    //   const integrations = await getTeamIntegrations(team.id)
-    //   const integration = integrations.find((integration) => integration.id === 'helpscout')
-    //   if (!integration || integration.status !== 'ready') {
-    //     return res.status(400).send({ message: 'Help Scout integration not found. Please connect a Help Scout app via your API dashboard' })
-    //   }
-
-    //   const mailbox = integration.mailboxes.find((mailbox) => mailbox.id === mailboxID)
-    //   if (!mailbox) {
-    //     return res.status(400).send({ message: 'Help Scout mailbox not found.' })
-    //   }
-
-    //   // set the title to the mailbox name if not provided
-    //   if (!title) {
-    //     title = mailbox.name + ' support tickets'
-    //   }
-    // }
-
     //check file type, mostly for sanity
     if (file) {
       const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
@@ -167,7 +178,8 @@ export default async function handler(req, res) {
       if (extension === 'zip' && stripePlan(team).name === 'Free') {
         await fileRef.delete()
         return res.status(402).json({
-          message: 'File type not available on your plan. Please upgrade your plan.',
+          message:
+            'File type not available on your plan. Please upgrade your plan.',
         })
       }
 
@@ -177,7 +189,7 @@ export default async function handler(req, res) {
       const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
       await fileRef.move(newFile)
       file = newFile
-      console.log(newFile, "created!")
+      console.log(newFile, 'created!')
     } else {
       file = null
     }
@@ -187,7 +199,9 @@ export default async function handler(req, res) {
     if (sourceType.isCarbon) {
       // check carbonId
       if (!carbonId) {
-        return res.status(400).json({ message: 'Invalid or missing parameter "carbonId".' })
+        return res
+          .status(400)
+          .json({ message: 'Invalid or missing parameter "carbonId".' })
       }
     } else {
       carbonId = null
@@ -212,11 +226,17 @@ export default async function handler(req, res) {
         if (!sourceType.fieldSchedule) {
           return res
             .status(400)
-            .send({ message: 'This source type does not currently support scheduled refreshes.' })
+            .send({
+              message:
+                'This source type does not currently support scheduled refreshes.',
+            })
         }
 
         //this will throw an error if the interval is invalid or not allowed for plan
-        const scheduled = checkSourceScheduledFromInterval(team, scheduleInterval)
+        const scheduled = checkSourceScheduledFromInterval(
+          team,
+          scheduleInterval,
+        )
         data = { ...data, scheduled, scheduleInterval }
       }
 
@@ -233,12 +253,17 @@ export default async function handler(req, res) {
           .get()
         if (!qaSources.empty) {
           // add the faqs to the existing qa source
-          const existingSource = { id: qaSources.docs[0].id, ...qaSources.docs[0].data() }
+          const existingSource = {
+            id: qaSources.docs[0].id,
+            ...qaSources.docs[0].data(),
+          }
           const existingFaqs = existingSource.faqs || []
 
           // loop through and remove old conflicting faqs
           const newFaqs = existingFaqs.filter((newFaq) => {
-            const existingFaq = faqs.find((faq) => faq.question === newFaq.question)
+            const existingFaq = faqs.find(
+              (faq) => faq.question === newFaq.question,
+            )
             if (existingFaq) {
               return false
             }
@@ -276,7 +301,63 @@ export default async function handler(req, res) {
             console.log('Error sending bento track', e)
           }
 
-          return res.status(201).json(await getSource(team, bot, existingSource.id))
+          return res
+            .status(201)
+            .json(await getSource(team, bot, existingSource.id))
+        }
+      }
+
+      // youtube sources we just start the apify crawler here and set the status to indexing. crawler cron will check status then ingest
+      if (type === 'youtube') {
+        // Get remaining page limit in plan
+        const remainingPages = stripePlan(team).pages - team.pageCount
+        // Limit the YouTube scraper to remaining pages or 100, whichever is smaller
+        const maxResults = Math.min(remainingPages, 100)
+        const apiEndpoint =
+          'https://api.apify.com/v2/acts/streamers~youtube-scraper/runs?timeout=3600&maxItems=' +
+          maxResults +
+          '&token=' +
+          process.env.APIFY_TOKEN
+
+        const requestBody = {
+          startUrls: [
+            {
+              url: url,
+            },
+          ],
+          maxResults: maxResults,
+          downloadSubtitles: true,
+          subtitlesLanguage: 'en',
+          subtitlesFormat: 'srt',
+          preferAutoGeneratedSubtitles: false,
+        }
+
+        try {
+          const response = await fetch(apiEndpoint, {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+
+          if (!response.ok) {
+            throw new Error('HTTP error ' + response.status)
+          }
+
+          const result = await response.json()
+          const crawlId = result.data.id
+
+          // Add the crawlId to the data object
+          data.crawlId = crawlId
+          data.status = 'indexing'
+
+          // Continue with the existing source creation logic...
+        } catch (error) {
+          console.error('Error starting APIFY crawler job:', error)
+          return res
+            .status(500)
+            .json({ message: 'Error starting YouTube crawler' })
         }
       }
 
@@ -305,7 +386,11 @@ export default async function handler(req, res) {
 
         //increment source counts on bot
         await firestore.runTransaction(async (transaction) => {
-          const botRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId)
+          const botRef = firestore
+            .collection('teams')
+            .doc(team.id)
+            .collection('bots')
+            .doc(botId)
           const sfDoc = await transaction.get(botRef)
           if (!sfDoc.exists) {
             throw 'Bot does not exist!'
@@ -320,8 +405,8 @@ export default async function handler(req, res) {
         console.warn('Increment transaction failed: ', e)
       }
 
-      //add source event to pub/sub queue for processing (carbon handled by cron)
-      if (!sourceType.isCarbon) {
+      //add source event to pub/sub queue for processing (carbon/youtube handled by cron)
+      if (!sourceType.isCarbon && type !== 'youtube') {
         await QueueSourceIngest(
           team.id,
           botId,
@@ -342,7 +427,10 @@ export default async function handler(req, res) {
           type: 'addSource',
           sourceType: type,
         })
-        mpTrack(userId, 'Source Added', { 'Source type': type, ip: req.headers['x-forwarded-for'] })
+        mpTrack(userId, 'Source Added', {
+          'Source type': type,
+          ip: req.headers['x-forwarded-for'],
+        })
         phTrack(userId, 'Source Added', { 'Source type': type }, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
@@ -359,7 +447,9 @@ export default async function handler(req, res) {
     const sourceLimit = parseInt(req.query.limit) || 100
     const ascending = req.query.ascending || false
     try {
-      return res.json(await getSources(team.id, bot, page, sourceLimit, ascending))
+      return res.json(
+        await getSources(team.id, bot, page, sourceLimit, ascending),
+      )
     } catch (e) {
       return res.status(500).json({ message: e?.message })
     }
