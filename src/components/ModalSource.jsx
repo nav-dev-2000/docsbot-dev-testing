@@ -19,7 +19,11 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
 import ScheduleSelect from '@/components/ScheduleSelect'
-import { canSourceTypeSchedule, canSourceTypeDownload, isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import {
+  canSourceTypeSchedule,
+  canSourceTypeDownload,
+  isCarbonSourceType,
+} from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 import Link from 'next/link'
 import { auth } from '@/config/firebase-ui.config'
@@ -77,22 +81,37 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
 
                   <div className="p-8">
                     <div className="pb-2">
-                      <h3 className="inline-flex text-2xl font-bold">How to edit synced files</h3>
+                      <h3 className="inline-flex text-2xl font-bold">
+                        How to edit synced files
+                      </h3>
                     </div>
                     <div className="pb-2">
-                      <img src="/images/carbon-delete.png" alt="Carbon delete" className="w-full" />
+                      <img
+                        src="/images/carbon-delete.png"
+                        alt="Carbon delete"
+                        className="w-full"
+                      />
                     </div>
                     <div className="pb-2">
-                      <p className="text-lg text-gray-500">To edit files from your cloud source, click on the "Manage Files" button. This will open the file picker where you can remove, add, or update files. Once complete, click on the "Refresh" button to update your source with the changes.</p>
+                      <p className="text-lg text-gray-500">
+                        To edit files from your cloud source, click on the
+                        "Manage Files" button. This will open the file picker
+                        where you can remove, add, or update files. Once
+                        complete, click on the "Refresh" button to update your
+                        source with the changes.
+                      </p>
                     </div>
                     <div className="flex flex-shrink-0 items-end justify-end">
                       <button
                         onClick={() => {
                           setOpen(false)
                         }}
-                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       >
-                        <CheckIcon className="h-5 w-5 mr-2" aria-hidden="true" />
+                        <CheckIcon
+                          className="mr-2 h-5 w-5"
+                          aria-hidden="true"
+                        />
                         Understood
                       </button>
                     </div>
@@ -121,9 +140,13 @@ export default function ModalSource({
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
-  const [scheduleInterval, setScheduleInterval] = useState(source?.scheduleInterval ?? 'none')
+  const [scheduleInterval, setScheduleInterval] = useState(
+    source?.scheduleInterval ?? 'none',
+  )
   const [submitting, setSubmitting] = useState(false)
-  const [showInterval, setShowInterval] = useState(canSourceTypeSchedule(source?.type))
+  const [showInterval, setShowInterval] = useState(
+    canSourceTypeSchedule(source?.type),
+  )
   const [locked, setLocked] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [changed, setChanged] = useState(false)
@@ -138,21 +161,28 @@ export default function ModalSource({
 
   const fetchSourceDetails = async () => {
     if (source.id) {
-      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `/api/teams/${team.id}/bots/${bot.id}/sources/${source.id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      })
+      )
       if (response.ok) {
         const sourceData = await response.json()
-        setSources((sources) => sources.map((s) => (s.id === sourceData.id ? sourceData : s)))
+        setSources((sources) =>
+          sources.map((s) => (s.id === sourceData.id ? sourceData : s)),
+        )
       }
     }
   }
 
   const carbonTokenFetcher = async () => {
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`)
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`,
+    )
     return await response.json()
   }
 
@@ -181,7 +211,7 @@ export default function ModalSource({
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
     if (response.ok) {
       // we get a signed url back
@@ -213,12 +243,14 @@ export default function ModalSource({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ scheduleInterval }),
-      }
+      },
     )
     if (response.ok) {
       const { newScheduled } = await response.json()
       setSources((sources) =>
-        sources.map((s) => (s.id === source?.id ? { ...source, scheduled: newScheduled } : s))
+        sources.map((s) =>
+          s.id === source?.id ? { ...source, scheduled: newScheduled } : s,
+        ),
       )
       setSubmitting(false)
     } else {
@@ -228,7 +260,9 @@ export default function ModalSource({
           setShowUpgrade(true)
           setScheduleInterval(source?.scheduleInterval ?? 'none')
         } else {
-          setErrorText(data.message || 'Something went wrong, please try again.')
+          setErrorText(
+            data.message || 'Something went wrong, please try again.',
+          )
         }
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
@@ -240,21 +274,49 @@ export default function ModalSource({
   const carbonIcon = (type) => {
     switch (type) {
       case 'NOTION':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        )
       case 'NOTION_DATABASE':
-        return <CircleStackIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <CircleStackIcon
+            className="mr-1 h-4 w-4 flex-none"
+            aria-hidden="true"
+          />
+        )
       case 'GOOGLE_DOCS':
-        return <DocumentTextIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <DocumentTextIcon
+            className="mr-1 h-4 w-4 flex-none"
+            aria-hidden="true"
+          />
+        )
       case 'GOOGLE_SLIDES':
-        return <PresentationChartBarIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <PresentationChartBarIcon
+            className="mr-1 h-4 w-4 flex-none"
+            aria-hidden="true"
+          />
+        )
       case 'GOOGLE_SHEETS':
-        return <TableCellsIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <TableCellsIcon
+            className="mr-1 h-4 w-4 flex-none"
+            aria-hidden="true"
+          />
+        )
       case 'INTERCOM':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        )
       case 'DROPBOX':
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        )
       default:
-        return <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        return (
+          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
+        )
     }
   }
 
@@ -266,7 +328,12 @@ export default function ModalSource({
 
     // make sure they have content
     for (const q of questions) {
-      if (!q.question || !q.answer || q.question.length === 0 || q.answer.length === 0) {
+      if (
+        !q.question ||
+        !q.answer ||
+        q.question.length === 0 ||
+        q.answer.length === 0
+      ) {
         setErrorText('Please fill out all questions and answers.')
         return
       }
@@ -282,7 +349,7 @@ export default function ModalSource({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ faqs: questions }),
-      }
+      },
     )
     if (response.ok) {
       const data = await response.json()
@@ -311,14 +378,16 @@ export default function ModalSource({
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     )
     if (response.ok) {
       const { newScheduled } = await response.json()
       setSources((sources) =>
         sources.map((s) =>
-          s.id === source?.id ? { ...source, status: 'pending', scheduled: newScheduled } : s
-        )
+          s.id === source?.id
+            ? { ...source, status: 'pending', scheduled: newScheduled }
+            : s,
+        ),
       )
       setOpen(false)
     } else {
@@ -353,12 +422,15 @@ export default function ModalSource({
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <ModalCarbonSourceInfo open={carbonInfoOpen} setOpen={(open) => {
-        if (!open) {
-          setCarbonInfoOpen(false)
-          setCarbonOpen(true)
-        }
-      }} />
+      <ModalCarbonSourceInfo
+        open={carbonInfoOpen}
+        setOpen={(open) => {
+          if (!open) {
+            setCarbonInfoOpen(false)
+            setCarbonOpen(true)
+          }
+        }}
+      />
       <a
         type="button"
         className="m-0 block cursor-pointer"
@@ -446,8 +518,12 @@ export default function ModalSource({
                           <button
                             disabled={submitting || !changed || !canModify}
                             onClick={patchSource}
-                            className={"ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm" +
-                              (canModify ? " bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" : " bg-gray-300 cursor-not-allowed")}
+                            className={
+                              'ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm' +
+                              (canModify
+                                ? ' bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                : ' cursor-not-allowed bg-gray-300')
+                            }
                           >
                             {submitting && <LoadingSpinner className="mr-3" />}
                             Save
@@ -467,13 +543,14 @@ export default function ModalSource({
                           />
                           <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
                             {source?.scheduled
-                              ? 'Refresh scheduled for ' + new Date(source?.scheduled).toUTCString()
+                              ? 'Refresh scheduled for ' +
+                                new Date(source?.scheduled).toUTCString()
                               : 'This source will not be refreshed.'}
                           </h1>
                         </div>
                       </>
                     )}
-                    {canModify && 
+                    {canModify && (
                       <SourceDelete
                         team={team}
                         bot={bot}
@@ -482,12 +559,14 @@ export default function ModalSource({
                         setErrorText={setErrorText}
                         setSources={setSources}
                       />
-                    }
+                    )}
                     {source?.indexedUrls?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed URLs{' '}
-                          <em className="text-sm text-slate-500">({source?.indexedUrls.length})</em>
+                          <em className="text-sm text-slate-500">
+                            ({source?.indexedUrls.length})
+                          </em>
                           :
                         </h2>
                         <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
@@ -515,10 +594,12 @@ export default function ModalSource({
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Files:{' '}
                           <em className="text-sm text-slate-500">
-                            {source?.carbonFiles?.length ? `(${source.carbonFiles.length})` : 'Fetching...'}
+                            {source?.carbonFiles?.length
+                              ? `(${source.carbonFiles.length})`
+                              : 'Fetching...'}
                           </em>
                         </h2>
-                        {(true) && (
+                        {true && (
                           <>
                             <CarbonConnect
                               tokenFetcher={carbonTokenFetcher}
@@ -545,8 +626,8 @@ export default function ModalSource({
                                   id: source.isCarbon,
                                   chunkSize: 800,
                                   overlapSize: 50,
-                                  fileSyncConfig : {
-                                    split_rows: true
+                                  fileSyncConfig: {
+                                    split_rows: true,
                                   },
                                   syncFilesOnConnection: false,
                                   syncSourceItems: false,
@@ -556,11 +637,11 @@ export default function ModalSource({
                               ]}
                             />
                             <button
-                            onClick={() => {
+                              onClick={() => {
                                 setCarbonInfoOpen(true)
                               }}
                               className="inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                              >
+                            >
                               <>
                                 <source.icon className="h-5 w-5" />
                                 <span>Manage files</span>
@@ -572,26 +653,44 @@ export default function ModalSource({
                     )}
                     {source?.warnsList?.length > 0 && (
                       <>
-                        <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">Warnings:</h2>
+                        <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
+                          Warnings:
+                        </h2>
                         <div className="rounded-md border-2 border-solid border-slate-200 bg-slate-100">
                           <pre className="whitespace-pre-wrap p-2 font-mono text-sm text-orange-600">
                             {source?.warnsList.join('\n')}
                           </pre>
                         </div>
+                        {source.type === 'youtube' && (
+                          <div className="mt-2 text-xs italic text-red-900">
+                            Note: YouTube's scraping protections sometimes
+                            prevent us from fetching a transcript. We are
+                            working on making this more reliable.
+                          </div>
+                        )}
                       </>
                     )}
                     {!toDelete && (
                       <div className="mb-2 mt-6 flex items-end justify-between">
                         <div className="items-middle flex flex-shrink-0 justify-end">
-                          {(source?.status === 'ready' || source?.status === 'failed') && (
+                          {(source?.status === 'ready' ||
+                            source?.status === 'failed') && (
                             <button
                               type="button"
-                              className={"flex items-center rounded-md bg-white text-sm "
-                              + (canModify ? " text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" : " text-gray-400 cursor-not-allowed")}
+                              className={
+                                'flex items-center rounded-md bg-white text-sm ' +
+                                (canModify
+                                  ? ' text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2'
+                                  : ' cursor-not-allowed text-gray-400')
+                              }
                               onClick={() => setToDelete(source)}
                               disabled={!canModify}
                             >
-                              <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Delete
+                              <TrashIcon
+                                className="mr-1 h-4 w-4"
+                                aria-hidden="true"
+                              />{' '}
+                              Delete
                             </button>
                           )}
                           {source?.type === 'url' && (
@@ -603,13 +702,17 @@ export default function ModalSource({
                               {source?.url}
                             </Link>
                           )}
-                          {(canSourceTypeDownload(source?.type) || 'qa' == source?.type) && (
+                          {(canSourceTypeDownload(source?.type) ||
+                            'qa' == source?.type) && (
                             <button
                               type="button"
                               className="ml-2 flex items-center rounded-md bg-white text-sm text-slate-600 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
                               onClick={downloadSource}
                             >
-                              <ArrowDownTrayIcon className="mr-1 h-4 w-4" aria-hidden="true" />{' '}
+                              <ArrowDownTrayIcon
+                                className="mr-1 h-4 w-4"
+                                aria-hidden="true"
+                              />{' '}
                               Download
                             </button>
                           )}
@@ -618,38 +721,64 @@ export default function ModalSource({
                           <div className="flex flex-shrink-0 items-end justify-end">
                             <button
                               type="button"
-                              className={"inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75" +
-                                (canModify ? " hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 border-gray-300 bg-white" : " border-gray-200 bg-gray-300 cursor-not-allowed")}
+                              className={
+                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                (canModify
+                                  ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                  : ' cursor-not-allowed border-gray-200 bg-gray-300')
+                              }
                               onClick={refreshSource}
-                              disabled={submitting || locked !== null || !canModify}
+                              disabled={
+                                submitting || locked !== null || !canModify
+                              }
                             >
-                              <ArrowPathIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+                              <ArrowPathIcon
+                                className="mr-2 h-5 w-5"
+                                aria-hidden="true"
+                              />
                               Refresh
                             </button>
                             <button
-                              disabled={submitting || locked !== null || !canModify}
+                              disabled={
+                                submitting || locked !== null || !canModify
+                              }
                               onClick={updateSource}
-                              className={"ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm" +
-                              (canModify ? " bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" : " bg-gray-300 cursor-not-allowed")}
+                              className={
+                                'ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm' +
+                                (canModify
+                                  ? ' bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                  : ' cursor-not-allowed bg-gray-300')
+                              }
                             >
-                              {submitting && <LoadingSpinner className="mr-3" />}
+                              {submitting && (
+                                <LoadingSpinner className="mr-3" />
+                              )}
                               Save
                             </button>
                           </div>
                         )}
                         {!showInterval && isCarbonSourceType(source?.type) && (
                           <div className="flex flex-shrink-0 items-end justify-end">
-                          <button
-                            type="button"
-                            className={"inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75" +
-                              (canModify ? " hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 border-gray-300 bg-white" : " border-gray-200 bg-gray-300 cursor-not-allowed")}
-                            onClick={refreshSource}
-                            disabled={submitting || locked !== null || !canModify}
-                          >
-                            <ArrowPathIcon className="mr-2 h-5 w-5" aria-hidden="true" />
-                            Refresh
-                          </button>
-                        </div>
+                            <button
+                              type="button"
+                              className={
+                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                (canModify
+                                  ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                  : ' cursor-not-allowed border-gray-200 bg-gray-300')
+                              }
+                              onClick={refreshSource}
+                              disabled={
+                                submitting || locked !== null || !canModify
+                              }
+                            >
+                              <ArrowPathIcon
+                                className="mr-2 h-5 w-5"
+                                aria-hidden="true"
+                              />
+                              Refresh
+                            </button>
+                          </div>
                         )}
                       </div>
                     )}
