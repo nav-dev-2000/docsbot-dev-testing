@@ -599,56 +599,6 @@ export default function ModalSource({
                               : 'Fetching...'}
                           </em>
                         </h2>
-                        {true && (
-                          <>
-                            <CarbonConnect
-                              tokenFetcher={carbonTokenFetcher}
-                              orgName="DocsBot AI"
-                              brandIcon="/.well-known/logo.png"
-                              primaryBackgroundColor="#0891B2"
-                              primaryTextColor="#FFFFFF"
-                              secondaryBackgroundColor="#FFFFFF"
-                              secondaryTextColor="#0891B2"
-                              loadingIconColor="#0891B2"
-                              theme="light"
-                              onSuccess={updateCarbon}
-                              onError={(error) => console.warn(error)}
-                              open={carbonOpen}
-                              setOpen={setCarbonOpen}
-                              tags={{ botId: bot.id, teamId: team.id }}
-                              entryPoint={source.isCarbon}
-                              useCarbonFilePicker={true}
-                              prependFilenameToChunks={true}
-                              openFilesTabTo="FILES_LIST"
-                              incrementalSync={true}
-                              enabledIntegrations={[
-                                {
-                                  id: source.isCarbon,
-                                  chunkSize: 800,
-                                  overlapSize: 50,
-                                  fileSyncConfig: {
-                                    split_rows: true,
-                                  },
-                                  syncFilesOnConnection: false,
-                                  syncSourceItems: false,
-                                  useCarbonFilePicker: true,
-                                  incrementalSync: true,
-                                },
-                              ]}
-                            />
-                            <button
-                              onClick={() => {
-                                setCarbonInfoOpen(true)
-                              }}
-                              className="inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                            >
-                              <>
-                                <source.icon className="h-5 w-5" />
-                                <span>Manage files</span>
-                              </>
-                            </button>
-                          </>
-                        )}
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
@@ -671,14 +621,14 @@ export default function ModalSource({
                       </>
                     )}
                     {!toDelete && (
-                      <div className="mb-2 mt-6 flex items-end justify-between">
+                      <div className="mt-6 flex flex-col-reverse sm:flex-row items-end justify-between space-y-0 sm:space-y-0">
                         <div className="items-middle flex flex-shrink-0 justify-end">
                           {(source?.status === 'ready' ||
                             source?.status === 'failed') && (
                             <button
                               type="button"
                               className={
-                                'flex items-center rounded-md bg-white text-sm ' +
+                                'flex items-center rounded-md bg-white text-sm mt-8 sm:mt-0 ' +
                                 (canModify
                                   ? ' text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2'
                                   : ' cursor-not-allowed text-gray-400')
@@ -758,26 +708,74 @@ export default function ModalSource({
                           </div>
                         )}
                         {!showInterval && isCarbonSourceType(source?.type) && (
-                          <div className="flex flex-shrink-0 items-end justify-end">
+                          <div className="flex flex-col sm:flex-row items-center justify-between sm:justify-end space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+                            <CarbonConnect
+                              tokenFetcher={carbonTokenFetcher}
+                              orgName="DocsBot AI"
+                              brandIcon="/.well-known/logo.png"
+                              primaryBackgroundColor="#0891B2"
+                              primaryTextColor="#FFFFFF"
+                              secondaryBackgroundColor="#FFFFFF"
+                              secondaryTextColor="#0891B2"
+                              loadingIconColor="#0891B2"
+                              theme="light"
+                              onSuccess={updateCarbon}
+                              onError={(error) => console.warn(error)}
+                              open={carbonOpen}
+                              setOpen={setCarbonOpen}
+                              tags={{ botId: bot.id, teamId: team.id }}
+                              entryPoint={source.isCarbon[0]}
+                              useCarbonFilePicker={true}
+                              prependFilenameToChunks={true}
+                              openFilesTabTo="FILES_LIST"
+                              incrementalSync={true}
+                              enabledIntegrations={[
+                                {
+                                  id: source.isCarbon[0],
+                                  chunkSize: 800,
+                                  overlapSize: 50,
+                                  fileSyncConfig: {
+                                    split_rows: true,
+                                  },
+                                  syncFilesOnConnection: false,
+                                  syncSourceItems: false,
+                                  useCarbonFilePicker: true,
+                                  incrementalSync: true,
+                                },
+                              ]}
+                            />
                             <button
-                              type="button"
-                              className={
-                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
-                                (canModify
-                                  ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
-                                  : ' cursor-not-allowed border-gray-200 bg-gray-300')
-                              }
-                              onClick={refreshSource}
-                              disabled={
-                                submitting || locked !== null || !canModify
-                              }
+                              onClick={() => {
+                                setCarbonInfoOpen(true)
+                              }}
+                              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                             >
-                              <ArrowPathIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                              Refresh
+                              <>
+                                <source.icon className="h-5 w-5" />
+                                <span>Manage files</span>
+                              </>
                             </button>
+                            {source?.status === 'ready' && (
+                              <button
+                                type="button"
+                                className={
+                                  'w-full sm:w-auto inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                  (canModify
+                                    ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                    : ' cursor-not-allowed border-gray-200 bg-gray-300')
+                                }
+                                onClick={refreshSource}
+                                disabled={
+                                  submitting || locked !== null || !canModify
+                                }
+                              >
+                                <ArrowPathIcon
+                                  className="mr-2 h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                                Refresh
+                              </button>
+                            )}
                           </div>
                         )}
                       </div>

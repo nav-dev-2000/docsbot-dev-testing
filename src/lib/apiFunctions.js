@@ -11,7 +11,6 @@ import axios from 'axios'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
-import { carbonSourceFilters } from '@/constants/carbon.constants'
 
 export const deleteSource = async (
   teamId,
@@ -96,7 +95,7 @@ export const deleteSource = async (
           `https://api.carbon.ai/user_files_v2`,
           {
             filters: {
-              source: carbonSourceFilters[source.type],
+              source: isCarbonSourceType(source.type),
               include_containers: false, // we want a flat response, no folders
             },
             pagination: {

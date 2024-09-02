@@ -585,14 +585,14 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   open={carbonOpen}
                   setOpen={setCarbonOpen}
                   tags={{ botId: bot.id, teamId: team.id }}
-                  entryPoint={selectedSourceType?.isCarbon}
+                  entryPoint={selectedSourceType?.isCarbon[0]}
                   useCarbonFilePicker={true}
                   prependFilenameToChunks={true}
                   openFilesTabTo={"FILE_PICKER"}
                   incrementalSync={true}
                   enabledIntegrations={[
                     {
-                      id: selectedSourceType?.isCarbon,
+                      id: selectedSourceType?.isCarbon[0],
                       chunkSize: 800,
                       overlapSize: 50,
                       fileSyncConfig : {

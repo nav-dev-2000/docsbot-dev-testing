@@ -6,8 +6,7 @@ import { getSources } from '@/lib/dbQueries'
 import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
 import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
-import { carbonSourceFilters } from '@/constants/carbon.constants'
-import { sourceTypes } from '@/constants/sourceTypes.constants'
+import { sourceTypes, isCarbonSourceType } from '@/constants/sourceTypes.constants'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -24,16 +23,26 @@ export default async function handler(request, response) {
   const carbonSourceTypes = sourceTypes
     .filter(sourceType => sourceType.isCarbon)
     .map(sourceType => sourceType.id)
-
-  // Grab all carbon sources
-  const sourcesRef = await firestore
+  
+  // Grab all carbon sources with 'pending' status
+  const pendingSourcesRef = await firestore
     .collectionGroup('sources')
     .where('type', 'in', carbonSourceTypes)
-    .where('status', 'in', ['pending', 'indexing'])
+    .where('status', '==', 'pending')
     .get()
 
+  // Grab all carbon sources with 'indexing' status
+  const indexingSourcesRef = await firestore
+    .collectionGroup('sources')
+    .where('type', 'in', carbonSourceTypes)
+    .where('status', '==', 'indexing')
+    .get()
+
+  // Combine the results that were split to avoid firestore where limits
+  const allSources = [...pendingSourcesRef.docs, ...indexingSourcesRef.docs]
+
   try {
-    const sourcePromises = sourcesRef.docs.map(async (doc) => {
+    const sourcePromises = allSources.map(async (doc) => {
       const source = doc.data()
       const sourceId = doc.id
 
@@ -88,7 +97,7 @@ export default async function handler(request, response) {
               `https://api.carbon.ai/user_files_v2`,
               {
                 filters: {
-                  source: carbonSourceFilters[source.type],
+                  source: isCarbonSourceType(source.type),
                   include_containers: false, // we want a flat response, no folders
                 },
                 pagination: {
