@@ -10,4 +10,11 @@ export const carbonSourceFilters = {
   salesforce: ['SALESFORCE'],
   gitbook: ['GITBOOK'],
   freshdesk: ['FRESHDESK'],
+  github: ['GITHUB'],
+  onedrive: ['ONEDRIVE'],
+  zotero: ['ZOTERO'],
+  guru: ['GURU'],
+  slack: ['SLACK'],
+  s3: ['S3'],
+  gcs: ['GOOGLE_CLOUD_STORAGE'],
 }

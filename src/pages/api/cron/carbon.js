@@ -7,7 +7,7 @@ import { deleteSource } from '@/lib/apiFunctions'
 import { stripePlan } from '@/utils/helpers'
 import { QueueSourceIngest, QueueSourceExpel } from '@/lib/service'
 import { carbonSourceFilters } from '@/constants/carbon.constants'
-import e from 'cors'
+import { sourceTypes } from '@/constants/sourceTypes.constants'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -20,22 +20,15 @@ export default async function handler(request, response) {
     return
   }
 
-  // grab all carbon sources
+  // Get all carbon source types
+  const carbonSourceTypes = sourceTypes
+    .filter(sourceType => sourceType.isCarbon)
+    .map(sourceType => sourceType.id)
+
+  // Grab all carbon sources
   const sourcesRef = await firestore
     .collectionGroup('sources')
-    .where('type', 'in', [
-      'notion',
-      'google_docs',
-      'intercom',
-      'dropbox',
-      'box',
-      'zendesk',
-      'freshdesk',
-      'sharepoint',
-      'gitbook',
-      'salesforce',
-      'confluence',
-    ])
+    .where('type', 'in', carbonSourceTypes)
     .where('status', 'in', ['pending', 'indexing'])
     .get()
 

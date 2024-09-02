@@ -7,6 +7,7 @@ import { i18n } from '@/constants/strings.constants'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import crypto from 'crypto'
+import { sourceTypes } from '@/constants/sourceTypes.constants'
 configureFirebaseApp()
 const firestore = getFirestore()
 
@@ -243,21 +244,13 @@ export async function getSources(
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
     //if createdAt is more than X hour ago and indexing is not complete, set error
-    const expireHours = [
-      'urls',
-      'sitemap',
-      'notion',
-      'google_docs',
-      'intercom',
-      'dropbox',
-      'box',
-      'zendesk',
-      'freshdesk',
-      'sharepoint',
-      'gitbook',
-      'salesforce',
-      'confluence',
-    ].includes(source.type)
+    const carbonTypes = sourceTypes
+      .filter((type) => type.isCarbon)
+      .map((type) => type.id)
+
+    const expireHours = [...carbonTypes, 'urls', 'sitemap'].includes(
+      source.type,
+    )
       ? 6
       : 1 //APIFY has 6hr timeout, cloud functions has 60mins
     if (
@@ -529,7 +522,11 @@ export async function getUser(userId) {
 
 export async function getTeam(teamId) {
   // Sanity check for valid teamId parameter
-  if (!teamId || typeof teamId !== 'string' || !/^[A-Za-z0-9]{20}$/.test(teamId)) {
+  if (
+    !teamId ||
+    typeof teamId !== 'string' ||
+    !/^[A-Za-z0-9]{20}$/.test(teamId)
+  ) {
     console.log('Invalid teamId parameter')
     return null
   }

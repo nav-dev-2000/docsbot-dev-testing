@@ -37,7 +37,7 @@ const integrations = [
   {
     name: 'Document Files',
     description:
-      'Upload any files in TXT, DOC, PPT, EML, HTML, PDF format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
+      'Upload any files in TXT, DOC, PPT, EML, HTML, MD, PDF format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
     icon: DocumentMagnifyingGlassIcon,
   },
   {
