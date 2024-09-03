@@ -89,7 +89,7 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
                       <img
                         src="/images/carbon-delete.png"
                         alt="Carbon delete"
-                        className="w-full"
+                        className="sm:w-1/2 mx-auto border border-solid border-slate-200 rounded-lg"
                       />
                     </div>
                     <div className="pb-2">

@@ -98,6 +98,7 @@ export default async function handler(request, response) {
               {
                 filters: {
                   source: isCarbonSourceType(source.type),
+                  non_synced_only: true,
                   include_containers: false, // we want a flat response, no folders
                 },
                 pagination: {
@@ -131,7 +132,6 @@ export default async function handler(request, response) {
           }
         }
 
-        let newCarbonFiles = []
         let ready = true
         const statuses = carbonFiles.map((file) => file.sync_status)
         //count by status
@@ -146,43 +146,19 @@ export default async function handler(request, response) {
           if (
             file.sync_status !== 'READY' &&
             file.sync_status !== 'SYNC_ERROR' &&
-            file.sync_status !== 'EVALUATING_RESYNC'
+            file.sync_status !== 'EVALUATING_RESYNC' &&
+            file.sync_status !== 'SYNC_ABORTED'
           ) {
             ready = false
           }
-
-          if (file.sync_status !== 'SYNC_ERROR' && !file.file_metadata?.is_folder) {
-            newCarbonFiles.push({
-              id: file.id,
-              name: file.name || file.title || 'DB Item', //gdocs has name, others have title
-              url: file.external_url,
-              type: file.file_statistics?.file_format || file.source,
-              status: file.sync_status,
-            })
-          }
         }
-
-        //if this will exceed the page count, fail and return
-        if (newCarbonFiles.length + team.pageCount > stripePlan(team).pages) {
-          throw new Error(
-            `This source has ${
-              newCarbonFiles.length
-            } pages, exceeding the remaining plan limit of ${
-              stripePlan(team).pages - team.pageCount
-            }. Please upgrade your plan.`
-          )
-        }
-
-        //TODO: if too many files we will get an error saving to document (1MB limit)
 
         //update source
         doc.ref.update({
           status: 'indexing', //avoid race condition since it's a 1min cron and 5min timeout
-          pageCount: newCarbonFiles.length,
-          carbonFiles: newCarbonFiles, //update carbon files with new int ids for delete later
         })
 
-        console.log(newCarbonFiles.length, 'Carbon files, ready:', ready, teamId, botId, sourceId)
+        console.log('Carbon files, ready:', ready, teamId, botId, sourceId)
 
         if (ready) {
           //if refreshing via regest, expel first so we don't get duplicates (TODO could cause race condition)
@@ -201,7 +177,9 @@ export default async function handler(request, response) {
             source.title, //null
             source.url,
             source.file, //null
-            source.faqs //null
+            source.faqs, //null
+            null, //runId
+            isCarbonSourceType(source.type) //passes filter like ["NOTION","NOTION_DATABASE"]
           )
           console.log('Source', teamId, botId, sourceId, 'queued for ingest')
 

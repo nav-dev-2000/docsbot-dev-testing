@@ -23,7 +23,8 @@ export const QueueSourceIngest = async (
   url,
   file,
   faqs,
-  runId = null
+  runId = null,
+  carbonTypes = null
 ) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
@@ -39,6 +40,7 @@ export const QueueSourceIngest = async (
       file,
       faqs,
       runId,
+      carbonTypes
     })
   )
   console.log(JSON.stringify({
@@ -52,7 +54,8 @@ export const QueueSourceIngest = async (
     title,
     url,
     file,
-    runId
+    runId,
+    carbonTypes
   }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
