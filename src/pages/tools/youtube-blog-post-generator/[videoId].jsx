@@ -219,7 +219,11 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
             </div>
           </div>
         </div>
-        <RegisterCTA />
+        <RegisterCTA 
+          customTitle="Train an AI Chatbot from YouTube"
+          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
+          button="Create a YouTube Chatbot"
+        />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <h2 className="mb-8 text-center text-3xl font-bold tracking-tight">
             Explore More Free Tools
