@@ -173,7 +173,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
       </div>
 
       <BotCard team={team} bot={bot} integrations={integrations} setBot={setBot} />
-      <SourceFailed {...{ sources, deleteSource, retrySource }} />
+      <SourceFailed {...{ team, bot, sources, deleteSource, retrySource }} />
 
       <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage, retrySource }} />
 
