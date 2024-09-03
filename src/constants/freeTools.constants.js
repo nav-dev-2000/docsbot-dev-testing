@@ -29,4 +29,19 @@ export const freeTools = [
     href: 'https://wpdocs.chat',
     ogImage: '/images/og/chatwp.png',
   },
+  {
+    name: 'Image Description Generator',
+    href: '/tools/image-description-generator',
+    ogImage: '/images/og/free-tools.png',
+  },
+  {
+    name: 'Image Caption Generator',
+    href: '/tools/image-caption-generator',
+    ogImage: '/images/og/free-tools.png',
+  },
+  {
+    name: 'Image to Text Generator',
+    href: '/tools/image-to-text-generator',
+    ogImage: '/images/og/free-tools.png',
+  },
 ];

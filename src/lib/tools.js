@@ -113,6 +113,17 @@ export const saveYoutubeBlogPost = async (ip, videoId, blogPostData) => {
     })
 }
 
+export const saveImage = async (ip, type, descriptionData) => {
+  await firestore
+    .collection('image-tools')
+    .add({
+      ip,
+      type,
+      ...descriptionData,
+      createdAt: FieldValue.serverTimestamp(),
+    })
+}
+
 /* returns true if ip exceeds rate limit */
 export const checkYoutubeBlogPostRateLimit = async (ip, isLoggedIn = false) => {
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
@@ -123,6 +134,18 @@ export const checkYoutubeBlogPostRateLimit = async (ip, isLoggedIn = false) => {
     .get()
 
   return lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
+}
+
+/* returns true if ip exceeds rate limit */
+export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
+  const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
+  const lookupQuery = await firestore
+    .collection('image-tools')
+    .where('ip', '==', ip)
+    .where('createdAt', '>', timeDelta)
+    .get()
+
+  return lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT) * 3 //we have 3 image tools
 }
 
 // Add this new function
