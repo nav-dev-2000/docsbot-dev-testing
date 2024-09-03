@@ -162,7 +162,7 @@ export default function SourceFailed({
       </h2>
 
       {fullSources.map((source) => (
-        <Source source={source} />
+        <Source source={source} key={source.id} />
       ))}
     </div>
   )
