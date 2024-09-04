@@ -115,7 +115,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     console.log('OnSuccess callback called!', response)
 
     // only listen to UPDATE/ADD events
-    if (!["UPDATE", "ADD"].includes(response.action)) return;
+    if (!["UPDATE"].includes(response.action)) return;
 
     if (!response.data || !response.data?.data_source_external_id) {
       return
@@ -599,9 +599,10 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                         split_rows: true
                       },
                       syncFilesOnConnection: false,
-                      syncSourceItems: false,
+                      syncSourceItems: true,
                       useCarbonFilePicker: true,
                       incrementalSync: true,
+                      skipEmbeddingGeneration: true,
                     }
                   ]}
                 />

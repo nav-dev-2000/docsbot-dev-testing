@@ -740,9 +740,10 @@ export default function ModalSource({
                                     split_rows: true,
                                   },
                                   syncFilesOnConnection: false,
-                                  syncSourceItems: false,
+                                  syncSourceItems: true,
                                   useCarbonFilePicker: true,
                                   incrementalSync: true,
+                                  skipEmbeddingGeneration: true,
                                 },
                               ]}
                             />
