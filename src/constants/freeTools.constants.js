@@ -32,16 +32,16 @@ export const freeTools = [
   {
     name: 'Image Description Generator',
     href: '/tools/image-description-generator',
-    ogImage: '/images/og/free-tools.png',
+    ogImage: '/images/og/image-description.png',
   },
   {
     name: 'Image Caption Generator',
     href: '/tools/image-caption-generator',
-    ogImage: '/images/og/free-tools.png',
+    ogImage: '/images/og/image-caption.png',
   },
   {
     name: 'Image to Text Generator',
     href: '/tools/image-to-text-generator',
-    ogImage: '/images/og/free-tools.png',
+    ogImage: '/images/og/image-to-text.png',
   },
 ];
