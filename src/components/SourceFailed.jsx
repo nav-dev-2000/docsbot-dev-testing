@@ -65,9 +65,11 @@ export default function SourceFailed({
             <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
               Indexed Files:{' '}
               <em className="text-sm text-slate-500">
-                {source?.carbonFiles?.length
-                  ? `(${source.carbonFiles.length})`
-                  : 'Fetching...'}
+                {typeof source.carbonFiles === 'number'
+                  ? `(${source.carbonFiles})`
+                  : Array.isArray(source.carbonFiles)
+                    ? `(${source.carbonFiles.length})`
+                    : 'Fetching...'}
               </em>
             </h2>
             <CarbonConnect

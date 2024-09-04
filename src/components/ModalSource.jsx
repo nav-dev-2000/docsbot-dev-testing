@@ -594,7 +594,9 @@ export default function ModalSource({
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Files:{' '}
                           <em className="text-sm text-slate-500">
-                            {source?.carbonFiles?.length
+                            {typeof source.carbonFiles === 'number'
+                              ? `(${source.carbonFiles})`
+                              : Array.isArray(source.carbonFiles)
                               ? `(${source.carbonFiles.length})`
                               : 'Fetching...'}
                           </em>
