@@ -163,9 +163,7 @@ export const BotCopyModal = ({ team, bot }) => {
                           {!isUpdating ? (
                             <span>Duplicate</span>
                           ) : (
-                            <span>
-                              <LoadingSpinner /> Duplicating...
-                            </span>
+                            <span className="flex items-center"><LoadingSpinner /> Duplicating...</span>
                           )}
                         </button>
                       </div>

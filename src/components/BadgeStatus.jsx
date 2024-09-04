@@ -23,7 +23,7 @@ export default function BadgeStatus({status, small = false}) {
   if (status === 'indexing') {
     return (
       <span className={sizeClass + " inline-flex items-center rounded-full bg-blue-100 font-medium text-blue-800"}>
-        <LoadingSpinner small={small} /> Indexing
+        <LoadingSpinner small={small} /> Copying
       </span>
     )
   }
@@ -32,6 +32,14 @@ export default function BadgeStatus({status, small = false}) {
     return (
       <span className={sizeClass + " inline-flex items-center rounded-full bg-green-100 font-medium text-green-800"}>
         Ready
+      </span>
+    )
+  }
+
+  if (status === 'failed') {
+    return (
+      <span className={sizeClass + " inline-flex items-center rounded-full bg-red-100 font-medium text-red-800"}>
+        Sync Failed
       </span>
     )
   }

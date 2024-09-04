@@ -73,6 +73,9 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                   />
                   <p>{i18n[bot.language] ? i18n[bot.language].name : 'English'}</p>
                 </div>
+                </div>
+
+              <div className="mt-2 flex-wrap md:flex md:space-x-3">
                 <ModalPrompt team={team} bot={bot} integrations={integrations} />
                 {
                   canUserEditBot(team, user?.uid) && <ModalBotEdit team={team} bot={bot} setBot={setBot} />

@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "What are source 'Pages'?",
-    answer: "When you train your bot using various sources we calculate how many pages were imported. This is equivalent to one webpage url, or a page of a PDF or other document file. For example if you import your website via sitemap that may have hundreds of pages. For long document files we calculate a page as roughly 4000 characters of cleaned-up raw text. Different plans have different page limits depending on your needs."
+    answer: "When you train your bot using various sources we calculate how many pages were imported. Each page is equivalent to 5000 characters of cleaned-up raw text, or a page of a PDF. For example if you import your website via sitemap that may have hundreds of pages. Different plans have different page limits depending on your needs."
   },
   {
     question: "Do you have an API I can use?",
@@ -31,11 +31,11 @@ const faqs = [
   },
   {
     question: "What are your privacy protections?",
-    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to privide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. We use Bento (https://bentonow.com/) for usage tracking, email, and marketing. Please see our privacy policy for more details: https://docsbot.ai/legal/privacy-policy.",
+    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to provide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. Please see our privacy policy and DPAfor more details: https://docsbot.ai/legal/privacy-policy.",
   },
   {
     question: "Do you have an affiliate program?",
-    answer: "Yes! We have a generous affiliate program that pays out 20% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,200 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://docsbot.firstpromoter.com/.",
+    answer: "Yes! We have a generous affiliate program that pays out 25% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,200 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://docsbot.firstpromoter.com/.",
   },
 ]
 
