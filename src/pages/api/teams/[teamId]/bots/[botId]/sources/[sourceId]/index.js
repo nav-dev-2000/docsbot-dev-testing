@@ -57,7 +57,7 @@ export default async function handler(req, res) {
 
     // Error if it's a YouTube source
     if (source.type === 'youtube') {
-      return res.status(400).json({ message: 'YouTube sources cannot be retried manually. Please delete and recreate the source.' })
+      //return res.status(400).json({ message: 'YouTube sources cannot be retried manually. Please delete and recreate the source.' })
     }
 
     //update source status in db
