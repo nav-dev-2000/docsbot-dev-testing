@@ -54,7 +54,7 @@ export default function SourceFailed({
         key={source.id}
         type="warning"
         title={source.name + ': ' + (source.error || 'Unknown error')}
-        onClose={() => deleteSource(source.id)}
+        onClose={() => source.type !== 'qa' && deleteSource(source.id)}
       >
         <div className="mb-2 w-full flex-1 text-sm">
           <p className="truncate text-xs text-gray-600">{source.title}</p>
