@@ -15,7 +15,7 @@ import { phTrack } from '@/lib/posthog'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
-import { checkSourceScheduledFromInterval } from '@/utils/helpers'
+import { checkSourceScheduledFromInterval, isSuperAdmin } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
@@ -46,6 +46,13 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
+    // If not super admin, show error about disabled bot training actions
+    if (!isSuperAdmin(userId)) {
+      return res.status(503).json({
+        message:
+          "We've temporarily disabled all bot training actions while our cloud provider is performing maintenance on our database. We apologize for the inconvenience and expect to restore full functionality soon. You can monitor stats at https://docsbot.instatus.com/",
+      })
+    }
     //check user is allowed to edit bot or not
     if (!canUserModifySources(team, userId)) {
       return res.status(402).json({
@@ -103,12 +110,10 @@ export default async function handler(req, res) {
       const youtubeRegex =
         /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)[\w-]+/
       if (!youtubeRegex.test(url)) {
-        return res
-          .status(400)
-          .send({
-            message:
-              'Invalid YouTube URL. Please provide a valid YouTube video or channel URL.',
-          })
+        return res.status(400).send({
+          message:
+            'Invalid YouTube URL. Please provide a valid YouTube video or channel URL.',
+        })
       }
     }
 
@@ -223,12 +228,10 @@ export default async function handler(req, res) {
       if (scheduleInterval && scheduleInterval !== 'none') {
         // make sure the source type is supported
         if (!sourceType.fieldSchedule) {
-          return res
-            .status(400)
-            .send({
-              message:
-                'This source type does not currently support scheduled refreshes.',
-            })
+          return res.status(400).send({
+            message:
+              'This source type does not currently support scheduled refreshes.',
+          })
         }
 
         //this will throw an error if the interval is invalid or not allowed for plan

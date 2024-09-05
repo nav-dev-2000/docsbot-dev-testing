@@ -10,6 +10,7 @@ import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
   let bot = null
   let source = null
 
- try {
+  try {
     bot = await getBot(team.id, botId)
     if (!bot) {
       // doc.data() will be undefined in this case
@@ -44,6 +45,14 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
+    // If not super admin, show error about disabled bot training actions
+    if (!isSuperAdmin(userId)) {
+      return res.status(503).json({
+        message:
+          "We've temporarily disabled all bot training actions while our cloud provider is performing maintenance on our database. We apologize for the inconvenience and expect to restore full functionality soon. You can monitor stats at https://docsbot.instatus.com/",
+      })
+    }
+
     //check user is allowed to edit this source or not
     if (!canUserModifySources(team, userId)) {
       return res.status(402).json({
@@ -52,7 +61,9 @@ export default async function handler(req, res) {
     }
     //error if source is not in failed state
     if (source.status !== 'failed' || source.refreshing) {
-      return res.status(409).json({ message: 'Only new failed sources can be retried currently.' })
+      return res
+        .status(409)
+        .json({ message: 'Only new failed sources can be retried currently.' })
     }
 
     // Error if it's a YouTube source
@@ -79,7 +90,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'retrySource',
         })
-        
+
         phTrack(userId, 'Source Retried', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
@@ -98,7 +109,7 @@ export default async function handler(req, res) {
           source.title,
           source.url,
           source.file,
-          source.faqs
+          source.faqs,
         )
       }
 
@@ -109,6 +120,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    // If not super admin, show error about disabled bot training actions
+    if (!isSuperAdmin(userId)) {
+      return res.status(503).json({
+        message:
+          "We've temporarily disabled all bot training actions while our cloud provider is performing maintenance on our database. We apologize for the inconvenience and expect to restore full functionality soon. You can monitor stats at https://docsbot.instatus.com/",
+      })
+    }
     //check user is allowed to delete this source or not
     if (!canUserModifySources(team, userId)) {
       return res.status(402).json({
@@ -119,7 +137,10 @@ export default async function handler(req, res) {
     if (source.status !== 'ready' && source.status !== 'failed') {
       return res
         .status(409)
-        .json({ message: 'Please wait until indexing is complete before deleting this source.' })
+        .json({
+          message:
+            'Please wait until indexing is complete before deleting this source.',
+        })
     }
 
     // check if lastError is related to this source
@@ -137,7 +158,7 @@ export default async function handler(req, res) {
         bentoTrack(userId, 'track', {
           type: 'deleteSource',
         })
-        
+
         phTrack(userId, 'Source Deleted', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
