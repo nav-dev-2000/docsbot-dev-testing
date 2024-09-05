@@ -45,13 +45,6 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
-    // If not super admin, show error about disabled bot training actions
-    if (!isSuperAdmin(userId)) {
-      return res.status(503).json({
-        message:
-          "We've temporarily disabled all bot training actions while our cloud provider is performing maintenance on our database. We apologize for the inconvenience and expect to restore full functionality soon. You can monitor stats at https://docsbot.instatus.com/",
-      })
-    }
 
     //check user is allowed to edit this source or not
     if (!canUserModifySources(team, userId)) {
@@ -120,13 +113,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    // If not super admin, show error about disabled bot training actions
-    if (!isSuperAdmin(userId)) {
-      return res.status(503).json({
-        message:
-          "We've temporarily disabled all bot training actions while our cloud provider is performing maintenance on our database. We apologize for the inconvenience and expect to restore full functionality soon. You can monitor stats at https://docsbot.instatus.com/",
-      })
-    }
+
     //check user is allowed to delete this source or not
     if (!canUserModifySources(team, userId)) {
       return res.status(402).json({

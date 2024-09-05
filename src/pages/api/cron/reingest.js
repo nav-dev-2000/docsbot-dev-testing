@@ -16,8 +16,6 @@ export default async function handler(request, response) {
 
   console.log('cron reingest started!')
 
-  return response.status(200).json({ success: true }) // TODO: remove after outage
-
   // select scheduled sources based on current time
   const currentTime = Timestamp.now()
   const sourcesRef = await firestore
