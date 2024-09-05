@@ -138,17 +138,19 @@ export default function SourceFailed({
             Please try again.
           </div>
         )}
-
-        <button
-          className="mt-4 flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
-          type="button"
-          onClick={(e) => {
-            e.preventDefault()
-            retrySource(source.id)
-          }}
-        >
-          <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Retry
-        </button>
+        
+        {source.type !== 'youtube' && (
+          <button
+            className="mt-4 flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              retrySource(source.id)
+            }}
+          >
+            <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Retry
+          </button>
+        )}
       </Alert>
     )
   }
