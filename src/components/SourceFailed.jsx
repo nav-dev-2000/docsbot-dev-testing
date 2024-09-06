@@ -99,12 +99,13 @@ export default function SourceFailed({
                   overlapSize: 50,
                   fileSyncConfig: {
                     split_rows: true,
+                    generate_chunks_only: true,
                   },
                   syncFilesOnConnection: false,
                   syncSourceItems: true,
                   useCarbonFilePicker: true,
                   incrementalSync: true,
-                  skipEmbeddingGeneration: true,
+                  generateChunksOnly: true,
                 },
               ]}
             />

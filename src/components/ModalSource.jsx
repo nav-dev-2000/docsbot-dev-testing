@@ -738,12 +738,13 @@ export default function ModalSource({
                                   overlapSize: 50,
                                   fileSyncConfig: {
                                     split_rows: true,
+                                    generate_chunks_only: true,
                                   },
                                   syncFilesOnConnection: false,
                                   syncSourceItems: true,
                                   useCarbonFilePicker: true,
                                   incrementalSync: true,
-                                  skipEmbeddingGeneration: true,
+                                  generateChunksOnly: true,
                                 },
                               ]}
                             />

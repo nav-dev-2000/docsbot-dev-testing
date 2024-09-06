@@ -396,6 +396,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     resetkey,
     recordIP,
     classify,
+    embeddingModel,
   } = req.body
 
   const botData = {}
@@ -646,6 +647,24 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (classify !== undefined) {
     botData.classify = Boolean(classify)
+  }
+
+  if (!isUpdate) { //Only can set embedding model on new bots
+    const embeddingModelWhitelist = ['text-embedding-ada-002', 'text-embedding-3-large', 'embed-multilingual-v3.0', 'text-embedding-3-small'];
+    if (embeddingModel !== undefined && !embeddingModelWhitelist.includes(embeddingModel)) {
+      throw new Error('The specified embedding model is not allowed. Please choose from the following: ' + embeddingModelWhitelist.join(', '));
+    }
+    if (team.AzureDeploymentBase) {
+      botData.embeddingModel = embeddingModel || 'text-embedding-ada-002'
+    } else if (stripePlan(team).bots > 1) {
+      if (botData.language === 'en') {
+        botData.embeddingModel = embeddingModel || 'text-embedding-3-large'
+      } else {
+        botData.embeddingModel = embeddingModel || 'embed-multilingual-v3.0'
+      }
+    } else {
+      botData.embeddingModel = 'text-embedding-3-small'
+    }
   }
 
   return botData

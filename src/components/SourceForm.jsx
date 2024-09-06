@@ -596,13 +596,14 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                       chunkSize: 800,
                       overlapSize: 50,
                       fileSyncConfig : {
-                        split_rows: true
+                        split_rows: true,
+                        generate_chunks_only: true,
                       },
                       syncFilesOnConnection: false,
                       syncSourceItems: true,
                       useCarbonFilePicker: true,
                       incrementalSync: true,
-                      skipEmbeddingGeneration: true,
+                      generateChunksOnly: true,
                     }
                   ]}
                 />
