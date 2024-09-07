@@ -18,7 +18,8 @@ Bot objects have the following properties:
 | **description** | string | The bot description. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **indexId** | string | Used internally. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-turbo`. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, and `gpt-4o-mini`. |
+| **embeddingModel** | string/null | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. If null assumes `text-embedding-ada-002`. |
 | **customPrompt** | string | Any custom prompt for the bot. |
 | **language** | string | The bot language. Supports many languages such as `en`, `es`, and `jp`. |
 | **rateLimitMessages** | number | The maximum number of messages a user can send in a given time period. |
@@ -152,7 +153,7 @@ Response is a JSON bot object:
     "indexId": "Document_mlc4lmmc91",
     "customPrompt": null,
     "language": "en",
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4o-mini",
     "createdAt": "2023-03-16T21:15:19.994Z",
     "sourceCount": 1,
     "pageCount": 50,
@@ -177,7 +178,8 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **description** | string | The bot description. Shown by default in embeds and share links. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview` if your OpenAI account has access. |
+| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, `gpt-4o-mini`. Default is `gpt-4o-mini`. |
+| **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-multilingual-v3.0` for paid non-English bots. |
 
 ### Examples
 
@@ -236,7 +238,7 @@ Response is a HTTP 201 with a JSON bot object:
     "indexId": "Document_mlc4lmmc91",
     "customPrompt": null,
     "language": "en",
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4o-mini",
     "createdAt": "2023-03-16T21:15:19.994Z",
     "sourceCount": 0,
     "pageCount": 0,
@@ -261,8 +263,8 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **description** | string | The bot description. Shown by default in embeds and share links. |
 | **customPrompt** | string | Optional custom prompt instructions. Only editible on Pro plan and higher. |
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
-| **language** | string | The bot language. Can be `en` or `jp`. |
-| **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo` (default), `gpt-4`, and `gpt-4-1106-preview` if the OpenAI account has it enabled. |
+| **language** | string | The bot language. Can be `en`, `jp`, and any others found in our widget settings. |
+| **model** | string | The OpenAI model. Currently supports `gpt-4o-mini` (default), `gpt-4o`, `gpt-4`, and `gpt-3.5-turbo`. |
 | **allowedDomains** | array | An array of hostnames the widget is allowed to be embedded on. Set an empty array to allow all. |
 | **color** | string | Color in hex, eg. `#FFFFFF` |
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
