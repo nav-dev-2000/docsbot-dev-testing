@@ -166,6 +166,15 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
   return messageId
 }
 
+/*
+YOu can manually publish a message to trigger report like this:
+https://console.cloud.google.com/cloudpubsub/topic/detail/docsbot-report?project=docsbotai&tab=messages
+{
+  "action": "report",
+  "teamId": "dLbpMCFxf0DU53JB0aBU",
+  "botId": "yeJDiVixfHo5yMe4ufHx"
+}
+*/
 export const QueueReport = async (teamId, botId) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
