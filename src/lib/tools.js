@@ -266,6 +266,30 @@ export const fetchYoutubeSubtitles = async (videoId) => {
       }
     }
 
+    // If subtitles are still empty, use the backup API
+    if (!subtitles) {
+      console.log('No subtitles found, using backup API')
+      const backupApiEndpoint = 'https://www.searchapi.io/api/v1/search'
+      const params = new URLSearchParams({
+        engine: 'youtube_transcripts',
+        video_id: videoId,
+        lang: 'en',
+        api_key: process.env.SEARCHAPI_KEY
+      })
+
+      const backupResponse = await fetch(`${backupApiEndpoint}?${params}`)
+      
+      if (!backupResponse.ok) {
+        throw new Error('Error fetching YouTube subtitles, please try again later')
+      }
+
+      const backupData = await backupResponse.json()
+
+      if (backupData.transcripts && backupData.transcripts.length > 0) {
+        subtitles = backupData.transcripts.map(segment => segment.text).join(' ')
+      }
+    }
+
     return { metadata, subtitles }
   } catch (error) {
     console.error('Error fetching YouTube subtitles:', error)
