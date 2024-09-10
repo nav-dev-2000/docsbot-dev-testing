@@ -2,11 +2,12 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import { usePostHog } from 'posthog-js/react'
 
 const pricing = {
   'Chat/Completion Models': [
@@ -235,12 +236,40 @@ export default function Calculate() {
   const [outputTokens, setOutputTokens] = useState(500)
   const [apiCalls, setAPICalls] = useState(100)
   const [type, setType] = useState(radioOptions[0])
+  const posthog = usePostHog()
 
   const getCost = (model) => {
     return (
       (model.input_token_cost_per_thousand || 0) * ((inputTokens * type.multiplier) / 1000) +
       (model.output_token_cost_per_thousand || 0) * ((outputTokens * type.multiplier) / 1000)
     )
+  }
+
+  useEffect(() => {
+    // Track calculator usage without specific values
+    posthog?.capture('Free Tool', {
+      tool: 'LLM API Pricing Calculator',
+      action: 'Calculate',
+      type: type.name,
+      category: 'Calculator'
+    })
+  }, [inputTokens, outputTokens, apiCalls, type, posthog])
+
+  const handleInputChange = (setter) => (e) => {
+    const value = parseInt(e.target.value, 10)
+    if (!isNaN(value) && value >= 0) {
+      setter(value)
+    }
+  }
+
+  const handleTypeChange = (newType) => {
+    setType(newType)
+    posthog?.capture('Free Tool', {
+      tool: 'LLM API Pricing Calculator',
+      action: 'Change Type',
+      newType: newType.name,
+      category: 'Calculator'
+    })
   }
 
   return (
@@ -301,7 +330,7 @@ export default function Calculate() {
                           min={1}
                           step={100}
                           value={inputTokens}
-                          onChange={(e) => setInputTokens(e.target.value)}
+                          onChange={handleInputChange(setInputTokens)}
                           className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-center text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-500"
                         />
                       </div>
@@ -322,7 +351,7 @@ export default function Calculate() {
                           min={1}
                           step={100}
                           value={outputTokens}
-                          onChange={(e) => setOutputTokens(e.target.value)}
+                          onChange={handleInputChange(setOutputTokens)}
                           className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-center text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-500"
                         />
                       </div>
@@ -343,7 +372,7 @@ export default function Calculate() {
                           min={1}
                           step={10}
                           value={apiCalls}
-                          onChange={(e) => setAPICalls(e.target.value)}
+                          onChange={handleInputChange(setAPICalls)}
                           className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-center text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-cyan-500"
                         />
                       </div>
@@ -354,7 +383,7 @@ export default function Calculate() {
                         options={radioOptions}
                         title="Calculate by"
                         value={type}
-                        setValue={setType}
+                        setValue={handleTypeChange}
                       />
                     </div>
                   </div>

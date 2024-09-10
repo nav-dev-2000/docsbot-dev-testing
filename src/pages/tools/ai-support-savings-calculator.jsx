@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { NextSeo } from 'next-seo'
 import {
   ClockIcon,
@@ -93,6 +93,16 @@ export const AiSupportSavingsCalculator = () => {
   const timeSavings = Math.round((supportTickets * closeRate * timePerTicket) / 60)
   const costSavings = Math.round(timeSavings * hourlyRate - planCost)
 
+  const trackInputChange = useCallback((inputType, value) => {
+    posthog?.capture('Free Tool', {
+      tool: 'AI Support Savings Calculator',
+      action: 'Adjust Input',
+      inputType: inputType,
+      value: value,
+      category: 'Calculator'
+    })
+  }, [posthog])
+
   const handleSupportTicketsChange = (e) => {
     setSupportTickets(e.target.value)
   }
@@ -138,6 +148,7 @@ export const AiSupportSavingsCalculator = () => {
               max="1000"
               step="1"
               onChange={handleSupportTicketsChange}
+              onMouseUp={() => trackInputChange('Support Tickets', supportTickets)}
               className="col-span-4 h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-100 accent-cyan-600"
             />
             <div className="text-muted-foreground w-20 flex-shrink-0">
@@ -155,6 +166,7 @@ export const AiSupportSavingsCalculator = () => {
               max="60"
               step="1"
               onChange={handleTimePerTicketChange}
+              onMouseUp={() => trackInputChange('Time Per Ticket', timePerTicket)}
               className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-100 accent-cyan-600"
             />
             <div className="text-muted-foreground w-20 flex-shrink-0">
@@ -175,6 +187,7 @@ export const AiSupportSavingsCalculator = () => {
               max="50"
               step="1"
               onChange={handleHourlyRateChange}
+              onMouseUp={() => trackInputChange('Hourly Rate', hourlyRate)}
               className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-slate-100 accent-cyan-600"
             />
             <div className="text-muted-foreground w-20 flex-shrink-0">

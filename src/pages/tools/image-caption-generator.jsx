@@ -8,6 +8,7 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
+import { usePostHog } from 'posthog-js/react'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -36,6 +37,7 @@ const ImageCaptionGenerator = () => {
   const [imageCaption, setImageCaption] = useState('')
   const [captionCopied, setCaptionCopied] = useState(false)
   const [selectedVibe, setSelectedVibe] = useState('fun')
+  const posthog = usePostHog()
 
   const handleImageUpload = useCallback(async (e) => {
     const file = e.target.files[0]
@@ -52,6 +54,14 @@ const ImageCaptionGenerator = () => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
+      
+      // Track no image error
+      posthog?.capture('Free Tool', {
+        tool: 'Image Caption Generator',
+        action: 'Error',
+        error: 'No Image Uploaded',
+        category: 'Image'
+      })
       return
     }
 
@@ -71,15 +81,47 @@ const ImageCaptionGenerator = () => {
       const data = await response.json()
       if (response.ok) {
         setImageCaption(data.caption)
+        
+        // Track successful caption generation
+        posthog?.capture('Free Tool', {
+          tool: 'Image Caption Generator',
+          action: 'Used',
+          vibe: selectedVibe,
+          category: 'Image'
+        })
       } else if (response.status === 429) {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        
+        // Track usage limit exceeded
+        posthog?.capture('Free Tool', {
+          tool: 'Image Caption Generator',
+          action: 'Error',
+          error: 'Usage Limit Exceeded',
+          category: 'Image'
+        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
+        
+        // Track error
+        posthog?.capture('Free Tool', {
+          tool: 'Image Caption Generator',
+          action: 'Error',
+          error: data.message || 'Unknown error',
+          category: 'Image'
+        })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
+      
+      // Track error
+      posthog?.capture('Free Tool', {
+        tool: 'Image Caption Generator',
+        action: 'Error',
+        error: `Error ${response.status}: ${e}`,
+        category: 'Image'
+      })
     }
 
     setIsComputing(false)
@@ -89,6 +131,13 @@ const ImageCaptionGenerator = () => {
     navigator.clipboard.writeText(imageCaption)
     setCaptionCopied(true)
     setTimeout(() => setCaptionCopied(false), 1500)
+    
+    // Track caption copy
+    posthog?.capture('Free Tool', {
+      tool: 'Image Caption Generator',
+      action: 'Copy Caption',
+      category: 'Image'
+    })
   }
 
   const resetTool = () => {

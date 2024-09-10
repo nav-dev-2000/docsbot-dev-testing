@@ -9,6 +9,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import { getRecentSummarizedVideos } from '@/lib/tools' // Add this import
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import { usePostHog } from 'posthog-js/react'
 
 const loadingText = [
   'Fetching video details...',
@@ -44,6 +45,7 @@ const YoutubeSummarizer = () => {
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
+  const posthog = usePostHog()
 
   const summarizeVideo = async (url) => {
     setIsComputing(true)
@@ -52,6 +54,14 @@ const YoutubeSummarizer = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
+      
+      // Track invalid URL error
+      posthog?.capture('Free Tool', {
+        tool: 'YouTube Summarizer',
+        action: 'Error',
+        error: 'Invalid URL',
+        category: 'YouTube'
+      })
       return
     }
 
@@ -72,14 +82,47 @@ const YoutubeSummarizer = () => {
       if (response.ok) {
         // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
+        
+        // Track successful summarization
+        posthog?.capture('Free Tool', {
+          tool: 'YouTube Summarizer',
+          result: `https://docsbot.ai/tools/ai-youtube-summarizer/${videoId}`,
+          action: 'Used',
+          category: 'YouTube'
+        })
+        
         await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
+        
+        // Track usage limit exceeded
+        posthog?.capture('Free Tool Used', {
+          tool: 'YouTube Summarizer',
+          action: 'Error',
+          error: 'Usage Limit Exceeded',
+          category: 'YouTube'
+        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
+        
+        // Track error
+        posthog?.capture('Free Tool Used', {
+          tool: 'YouTube Summarizer',
+          action: 'Error',
+          error: data.message || 'Unknown error',
+          category: 'YouTube'
+        })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
+      
+      // Track error
+      posthog?.capture('Free Tool Used', {
+        tool: 'YouTube Summarizer',
+        action: 'Error',
+        error: `Error ${response.status}: ${e}`,
+        category: 'YouTube'
+      })
     }
 
     setIsComputing(false)

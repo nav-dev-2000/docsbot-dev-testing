@@ -8,6 +8,7 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
+import { usePostHog } from 'posthog-js/react'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -36,6 +37,7 @@ const ImageDescriptionGenerator = () => {
   const [imageTitle, setImageTitle] = useState('')
   const [imageDescription, setImageDescription] = useState('')
   const [descriptionCopied, setDescriptionCopied] = useState(false)
+  const posthog = usePostHog()
 
   const handleImageUpload = useCallback(async (e) => {
     const file = e.target.files[0]
@@ -52,6 +54,14 @@ const ImageDescriptionGenerator = () => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
+      
+      // Track no image error
+      posthog?.capture('Free Tool', {
+        tool: 'Image Description Generator',
+        action: 'Error',
+        error: 'No Image Uploaded',
+        category: 'Image'
+      })
       return
     }
 
@@ -71,15 +81,46 @@ const ImageDescriptionGenerator = () => {
       if (response.ok) {
         setImageTitle(data.title)
         setImageDescription(data.description)
+        
+        // Track successful description generation
+        posthog?.capture('Free Tool', {
+          tool: 'Image Description Generator',
+          action: 'Used',
+          category: 'Image'
+        })
       } else if (response.status === 429) {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        
+        // Track usage limit exceeded
+        posthog?.capture('Free Tool', {
+          tool: 'Image Description Generator',
+          action: 'Error',
+          error: 'Usage Limit Exceeded',
+          category: 'Image'
+        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
+        
+        // Track error
+        posthog?.capture('Free Tool', {
+          tool: 'Image Description Generator',
+          action: 'Error',
+          error: data.message || 'Unknown error',
+          category: 'Image'
+        })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
+      
+      // Track error
+      posthog?.capture('Free Tool', {
+        tool: 'Image Description Generator',
+        action: 'Error',
+        error: `Error ${response.status}: ${e}`,
+        category: 'Image'
+      })
     }
 
     setIsComputing(false)
@@ -90,6 +131,13 @@ const ImageDescriptionGenerator = () => {
     navigator.clipboard.writeText(fullText)
     setDescriptionCopied(true)
     setTimeout(() => setDescriptionCopied(false), 1500)
+    
+    // Track description copy
+    posthog?.capture('Free Tool', {
+      tool: 'Image Description Generator',
+      action: 'Copy Description',
+      category: 'Image'
+    })
   }
 
   const resetTool = () => {
@@ -97,6 +145,13 @@ const ImageDescriptionGenerator = () => {
     setImageTitle('')
     setImageDescription('')
     setErrorText(null)
+    
+    // Track tool reset
+    posthog?.capture('Free Tool', {
+      tool: 'Image Description Generator',
+      action: 'Reset Tool',
+      category: 'Image'
+    })
   }
 
   return (

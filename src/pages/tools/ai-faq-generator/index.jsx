@@ -10,6 +10,7 @@ import { getRecentFAQs } from '@/lib/tools'
 import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import { usePostHog } from 'posthog-js/react'
 
 const loadingText = [
   'Loading website...',
@@ -87,6 +88,7 @@ const AiFAQGenerator = () => {
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
+  const posthog = usePostHog()
 
   const genFAQs = async (url) => {
     setIsComputing(true)
@@ -96,6 +98,14 @@ const AiFAQGenerator = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
+      
+      // Track invalid URL error
+      posthog?.capture('Free Tool', {
+        tool: 'AI FAQ Generator',
+        action: 'Error',
+        error: 'Invalid URL',
+        category: 'Website'
+      })
       return
     }
 
@@ -114,16 +124,47 @@ const AiFAQGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
+        // Track successful FAQ generation
+        posthog?.capture('Free Tool', {
+          tool: 'AI FAQ Generator',
+          action: 'Used',
+          category: 'Website'
+        })
+        
         // redirect to share page
         console.log(url, new URL(url).hostname)
         await router.push(`/tools/ai-faq-generator/${new URL(url).hostname}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
+        
+        // Track usage limit exceeded
+        posthog?.capture('Free Tool', {
+          tool: 'AI FAQ Generator',
+          action: 'Error',
+          error: 'Usage Limit Exceeded',
+          category: 'Website'
+        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
+        
+        // Track error
+        posthog?.capture('Free Tool', {
+          tool: 'AI FAQ Generator',
+          action: 'Error',
+          error: data.message || 'Unknown error',
+          category: 'Website'
+        })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
+      
+      // Track error
+      posthog?.capture('Free Tool', {
+        tool: 'AI FAQ Generator',
+        action: 'Error',
+        error: `Error ${response.status}: ${e}`,
+        category: 'Website'
+      })
     }
 
     setIsComputing(false)
