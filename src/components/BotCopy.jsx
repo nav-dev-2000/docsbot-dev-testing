@@ -35,6 +35,7 @@ export const BotCopyModal = ({ team, bot }) => {
     const data = {
       ...bot,
       name: botName,
+      embeddingModel: bot.embeddingModel || 'text-embedding-ada-002',
       copyFrom: bot.id
     }
 
