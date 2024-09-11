@@ -615,9 +615,7 @@ export default function ModalSource({
                         </div>
                         {source.type === 'youtube' && (
                           <div className="mt-2 text-xs italic text-red-900">
-                            Note: YouTube's scraping protections sometimes
-                            prevent us from fetching a transcript. We are
-                            working on making this more reliable.
+                            Note: Not every YouTube video has transcripts available, especially for older/unpopular/unlisted videos.
                           </div>
                         )}
                       </>

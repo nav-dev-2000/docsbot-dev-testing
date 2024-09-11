@@ -238,7 +238,7 @@ export const sourceTypes = [
     id: 'youtube',
     title: 'YouTube',
     description: 'Answer questions based on the transcripts of a YouTube video or playlist (BETA)',
-    fullDescription: 'Enter the URL of a YouTube video or playlist (up to 100 videos) to learn from. We will crawl YouTube, extract the transcripts, and add it to this bot. Source links will include each video title and a timestamped link. Note that YouTube is very strict about web scraping, so we occasionally will not be able to fetch the transcripts for a video.',
+    fullDescription: 'Enter the URL of a YouTube video or playlist (up to 100 videos) to learn from. We will crawl YouTube, extract the transcripts, and add it to this bot. Source links will include each video title and a timestamped link. Note that not every video will have transcripts available (especially for older/unpopular/unlisted videos), so we occasionally will not be able to fetch the transcripts for a video.',
     icon: VideoCameraIcon,
     isPro: true,
     coming: false,
