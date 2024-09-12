@@ -13,84 +13,98 @@ const pricing = {
   'Chat/Completion Models': [
     {
       model_name: 'GPT-4o-2024-08-06',
-      context: '128K',
+      context: '128K/16K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.0025,
-      output_token_cost_per_thousand: 0.010,
+      output_token_cost_per_thousand: 0.01,
     },
     {
       model_name: 'GPT-4o',
-      context: '128K',
+      context: '128K/4K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.005,
       output_token_cost_per_thousand: 0.015,
     },
     {
       model_name: 'GPT-4o mini',
-      context: '128K',
+      context: '128K/16K',
       provider: 'OpenAI',
       input_token_cost_per_thousand: 0.00015,
       output_token_cost_per_thousand: 0.0006,
     },
     {
+      model_name: 'o1-preview',
+      context: '128K/32K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.015, // $15.00 / 1M
+      output_token_cost_per_thousand: 0.06, // $60.00 / 1M
+    },
+    {
+      model_name: 'o1-mini',
+      context: '128K/65K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.003, // $3.00 / 1M
+      output_token_cost_per_thousand: 0.012, // $12.00 / 1M
+    },
+    {
       model_name: 'GPT-4 Turbo',
-      context: '128K',
+      context: '128K/4K',
       provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.01,
       output_token_cost_per_thousand: 0.03,
     },
     {
       model_name: 'GPT-3.5 Turbo',
-      context: '16K',
+      context: '16K/4K',
       provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0005,
       output_token_cost_per_thousand: 0.0015,
     },
     {
       model_name: 'GPT-4',
-      context: '8K',
+      context: '8K/8K',
       provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.03,
       output_token_cost_per_thousand: 0.06,
     },
     {
       model_name: 'Claude 3.5 Sonnet',
-      context: '200K',
+      context: '200K/8K',
       provider: 'Anthropic',
       input_token_cost_per_thousand: 0.003,
       output_token_cost_per_thousand: 0.015,
     },
     {
       model_name: 'Claude 3 Opus',
-      context: '200K',
+      context: '200K/4K',
       provider: 'Anthropic',
       input_token_cost_per_thousand: 0.015,
       output_token_cost_per_thousand: 0.075,
     },
     {
       model_name: 'Claude 3 Haiku',
-      context: '200K',
+      context: '200K/4K',
       provider: 'Anthropic',
       input_token_cost_per_thousand: 0.00025,
       output_token_cost_per_thousand: 0.00125,
     },
     {
       model_name: 'Llama 3.1 405b',
-      context: '32K',
+      context: '128K/2K',
       provider: 'Meta (via Deepinfra)',
       input_token_cost_per_thousand: 0.0027,
       output_token_cost_per_thousand: 0.0027,
     },
     {
       model_name: 'Llama 3.1 70b',
-      context: '128K',
+      context: '128K/2K',
       provider: 'Meta (via Deepinfra)',
       input_token_cost_per_thousand: 0.00059,
       output_token_cost_per_thousand: 0.00079,
     },
     {
       model_name: 'Llama 3 70b',
-      context: '8K',
+      context: '8K/2K',
       provider: 'Meta (via Deepinfra/Groq)',
       input_token_cost_per_thousand: 0.00059,
       output_token_cost_per_thousand: 0.00079,
@@ -139,7 +153,7 @@ const pricing = {
     },
     {
       model_name: 'Command R',
-      context: '128K IN/4K OUT',
+      context: '128K/4K',
       provider: 'Cohere',
       input_token_cost_per_thousand: 0.0005,
       output_token_cost_per_thousand: 0.0015,
@@ -232,7 +246,7 @@ const radioOptions = [
 ]
 
 export default function Calculate() {
-  const [inputTokens, setInputTokens] = useState(100)
+  const [inputTokens, setInputTokens] = useState(1000)
   const [outputTokens, setOutputTokens] = useState(500)
   const [apiCalls, setAPICalls] = useState(100)
   const [type, setType] = useState(radioOptions[0])
@@ -240,8 +254,10 @@ export default function Calculate() {
 
   const getCost = (model) => {
     return (
-      (model.input_token_cost_per_thousand || 0) * ((inputTokens * type.multiplier) / 1000) +
-      (model.output_token_cost_per_thousand || 0) * ((outputTokens * type.multiplier) / 1000)
+      (model.input_token_cost_per_thousand || 0) *
+        ((inputTokens * type.multiplier) / 1000) +
+      (model.output_token_cost_per_thousand || 0) *
+        ((outputTokens * type.multiplier) / 1000)
     )
   }
 
@@ -251,7 +267,7 @@ export default function Calculate() {
       tool: 'LLM API Pricing Calculator',
       action: 'Calculate',
       type: type.name,
-      category: 'Calculator'
+      category: 'Calculator',
     })
   }, [inputTokens, outputTokens, apiCalls, type, posthog])
 
@@ -268,7 +284,7 @@ export default function Calculate() {
       tool: 'LLM API Pricing Calculator',
       action: 'Change Type',
       newType: newType.name,
-      category: 'Calculator'
+      category: 'Calculator',
     })
   }
 
@@ -308,9 +324,10 @@ export default function Calculate() {
                   OpenAI & other LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate and compare the cost of using OpenAI, Azure, Anthropic Claude, Llama 3,
-                  Google Gemini, Mistral, and Cohere LLM APIs for your AI project with our simple
-                  and powerful free calculator. Latest numbers as of Aug 2024.
+                  Calculate and compare the cost of using OpenAI, Azure,
+                  Anthropic Claude, Llama 3, Google Gemini, Mistral, and Cohere
+                  LLM APIs for your AI project with our simple and powerful free
+                  calculator. Latest numbers as of September 2024.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -396,8 +413,9 @@ export default function Calculate() {
                       Pricing Calculations
                     </h1>
                     <p className="mt-2 text-sm text-gray-700">
-                      The following pricing calculations are based on the input tokens, output
-                      tokens, and API calls you have entered above.
+                      The following pricing calculations are based on the input
+                      tokens, output tokens, and API calls you have entered
+                      above.
                     </p>
                   </div>
                 </div>
@@ -467,10 +485,16 @@ export default function Calculate() {
                                 </tr>
                                 {category.map((model, modelIdx) => (
                                   <tr
-                                    key={model.provider + model.model_name + model.context}
+                                    key={
+                                      model.provider +
+                                      model.model_name +
+                                      model.context
+                                    }
                                     className={classNames(
-                                      modelIdx === 0 ? 'border-gray-300' : 'border-gray-200',
-                                      'border-t'
+                                      modelIdx === 0
+                                        ? 'border-gray-300'
+                                        : 'border-gray-200',
+                                      'border-t',
                                     )}
                                   >
                                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
@@ -487,7 +511,10 @@ export default function Calculate() {
                                     </td>
                                     <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
                                       {model.output_token_cost_per_thousand && (
-                                        <>${model.output_token_cost_per_thousand}</>
+                                        <>
+                                          $
+                                          {model.output_token_cost_per_thousand}
+                                        </>
                                       )}
                                     </td>
                                     <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
@@ -527,70 +554,91 @@ export default function Calculate() {
               AI LLM Model Pricing: A Comprehensive Overview
             </h2>
             <p>
-              OpenAI, Anthropic, Google, Cohere, Mistral, and Meta offer a diverse range of models,
-              each tailored to specific tasks and capabilities. Understanding the pricing structure
-              is crucial for businesses and developers looking to integrate these models into their
-              applications. Here&#39;s a detailed look at how they structure their pricing.
+              OpenAI, Anthropic, Google, Cohere, Mistral, and Meta offer a
+              diverse range of models, each tailored to specific tasks and
+              capabilities. Understanding the pricing structure is crucial for
+              businesses and developers looking to integrate these models into
+              their applications. Here&#39;s a detailed look at how they
+              structure their pricing.
             </p>
-            <h3 className="text-white" id="1-tokens-the-fundamental-unit-of-pricing-">
+            <h3
+              className="text-white"
+              id="1-tokens-the-fundamental-unit-of-pricing-"
+            >
               Tokens: The Fundamental Unit of Pricing
             </h3>
             <p>
-              LLM pricing usually revolves around the concept of &quot;tokens.&quot; A token can be
-              thought of as a piece of a word. To give you a perspective, 1,000 tokens equate to
-              approximately 750 words. For instance, the sentence &quot;This paragraph is 5
-              tokens&quot; itself is 5 tokens long.
+              LLM pricing usually revolves around the concept of
+              &quot;tokens.&quot; A token can be thought of as a piece of a
+              word. To give you a perspective, 1,000 tokens equate to
+              approximately 750 words. For instance, the sentence &quot;This
+              paragraph is 5 tokens&quot; itself is 5 tokens long.
             </p>
             <p>
-              A useful guideline to remember when working with tokens is that, for typical English
-              text, one token usually equates to approximately four characters. This means that a
-              token represents about three-quarters of a word. Non-English languages like Japanese
-              can change this calculation significantly.
+              A useful guideline to remember when working with tokens is that,
+              for typical English text, one token usually equates to
+              approximately four characters. This means that a token represents
+              about three-quarters of a word. Non-English languages like
+              Japanese can change this calculation significantly.
             </p>
 
-            <h3 className="text-white" id="1-tokens-the-fundamental-unit-of-pricing-">
+            <h3
+              className="text-white"
+              id="1-tokens-the-fundamental-unit-of-pricing-"
+            >
               Context Length
             </h3>
             <p>
-              With Large Language Models (LLMs), especially those developed by OpenAI, the term
-              "context length" is common. It's an important concept to grasp, as it directly impacts
-              the model's performance, capabilities, and, consequently, the cost. Here's a deep dive
-              into what context length means and why it matters.
+              With Large Language Models (LLMs), especially those developed by
+              OpenAI, the term "context length" is common. It's an important
+              concept to grasp, as it directly impacts the model's performance,
+              capabilities, and, consequently, the cost. Here's a deep dive into
+              what context length means and why it matters.
             </p>
             <h4 className="text-white">What is Context Length?</h4>
             <p>
-              Context length refers to the amount of information or the number of tokens a model can
-              consider or "remember" from a given input at one time. It's essentially the model's
-              "working memory" when processing a request. For instance, if a model has a context
-              length of 8,000 (8K) tokens, it can consider up to 8,000 tokens from the input and
-              output in a single pass.
+              Context length refers to the amount of information or the number
+              of tokens a model can consider or "remember" from a given input at
+              one time. It's essentially the model's "working memory" when
+              processing a request. For instance, if a model has a context
+              length of 8,000 (8K) tokens, it can consider up to 8,000 tokens
+              from the input and output in a single pass.
             </p>
             <h4 className="text-white">Why Does Context Length Matter?</h4>
             <ul>
               <li>
-                <strong className="text-white">Complexity of Tasks</strong>: Longer context lengths
-                allow the model to handle more complex tasks that require understanding and
-                processing larger chunks of information. For instance, summarizing a long article or
-                answering questions about a detailed technical document might require a model with a
-                longer context length.
+                <strong className="text-white">Complexity of Tasks</strong>:
+                Longer context lengths allow the model to handle more complex
+                tasks that require understanding and processing larger chunks of
+                information. For instance, summarizing a long article or
+                answering questions about a detailed technical document might
+                require a model with a longer context length.
               </li>
               <li>
-                <strong className="text-white">Continuity in Conversations</strong>: In chatbot
-                applications, a longer context ensures that the model remembers more of the previous
-                conversation, leading to more coherent and contextually relevant responses.
+                <strong className="text-white">
+                  Continuity in Conversations
+                </strong>
+                : In chatbot applications, a longer context ensures that the
+                model remembers more of the previous conversation, leading to
+                more coherent and contextually relevant responses.
               </li>
               <li>
-                <strong className="text-white">Cost Implications</strong>: Models with longer
-                context lengths typically come at a higher price point due to the increased
-                computational resources they consume.
+                <strong className="text-white">Cost Implications</strong>:
+                Models with longer context lengths typically come at a higher
+                price point due to the increased computational resources they
+                consume.
               </li>
             </ul>
-            <h3 className="text-white" id="2-language-models-power-and-flexibility-">
+            <h3
+              className="text-white"
+              id="2-language-models-power-and-flexibility-"
+            >
               Language Models: Chat, Text Generation, and Reasoning
             </h3>
             <p>
-              OpenAI and others offer multiple language models, each with distinct capabilities and
-              price points. The pricing for these models is typically per 1,000 tokens.
+              OpenAI and others offer multiple language models, each with
+              distinct capabilities and price points. The pricing for these
+              models is typically per 1,000 tokens.
             </p>
             <ul>
               <li>
@@ -603,112 +651,159 @@ export default function Calculate() {
                   >
                     GPT-4o
                   </Link>{' '}
-                  (Omni) is OpenAI's most advanced multimodal model that's 2x faster and 50% cheaper
-                  than GPT-4 Turbo with stronger vision capabilities. The model has 128K context and
-                  an October 2023 knowledge cutoff. It will soon support audio inputs and text,
-                  image, and audio outputs. There is also a mini version with the same context
-                  limit, tokenizer, and knowledge cutoff, but 60% cheaper.
+                  (Omni) is OpenAI's most advanced multimodal model that's 2x
+                  faster and 50% cheaper than GPT-4 Turbo with stronger vision
+                  capabilities. The model has 128K context and an October 2023
+                  knowledge cutoff. It will soon support audio inputs and text,
+                  image, and audio outputs. There is also a mini version with
+                  the same context limit, tokenizer, and knowledge cutoff, but
+                  60% cheaper.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">OpenAI GPT-4</strong>: Known for its broad general
-                  knowledge and domain expertise, GPT-4 is adept at following intricate instructions
-                  in natural language and solving challenging problems with precision. It's also
-                  slower and more expensive than other models. The recently released GPT-4 Turbo
-                  (gpt-4-turbo) is 3x more affordable and supports an amazing 128K context limit!
+                  OpenAI's <strong>o1-preview</strong> and{' '}
+                  <strong>o1-mini</strong> models represent a significant
+                  advancement in AI reasoning, particularly in complex domains
+                  like science, coding, and math. The o1-preview model excels in
+                  thoughtful reasoning, employing an internal chain-of-thought processing
+                  approach that mirrors human cognition, leading to more
+                  accurate and insightful answers. Meanwhile, the o1-mini model
+                  offers a cost-effective solution for developers, focusing on
+                  STEM domains with high reasoning power at a lower cost. These
+                  models are designed to tackle challenging problems, setting a
+                  new standard in AI capabilities. For more details, visit the{' '}
+                  <a
+                    href="https://docsbot.ai/article/a-new-era-of-ai-reasoning-openais-o1-preview-and-o1-mini-models"
+                    target="_blank"
+                  >
+                    full article
+                  </a>
+                  .
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">OpenAI GPT-4</strong>: Known
+                  for its broad general knowledge and domain expertise, GPT-4 is
+                  adept at following intricate instructions in natural language
+                  and solving challenging problems with precision. It's also
+                  slower and more expensive than other models. The recently
+                  released GPT-4 Turbo (gpt-4-turbo) is 3x more affordable and
+                  supports an amazing 128K context limit! Also available via
+                  Microsoft's Azure OpenAI Service.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">OpenAI GPT-3.5 Turbo</strong>:
+                  This model is optimized for dialogue, making it ideal for
+                  chatbot applications and conversational interfaces. It is also
+                  the fastest and most cost-effective model for generating text.
                   Also available via Microsoft's Azure OpenAI Service.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">OpenAI GPT-3.5 Turbo</strong>: This model is
-                  optimized for dialogue, making it ideal for chatbot applications and
-                  conversational interfaces. It is also the fastest and most cost-effective model
-                  for generating text. Also available via Microsoft's Azure OpenAI Service.
+                  <strong className="text-white">Anthropic's Claude 3</strong>:
+                  Claude 3 includes three state-of-the-art models in ascending
+                  order of capability: Claude 3 Haiku, Claude 3.5 Sonnet, and
+                  Claude 3 Opus. Each successive model offers increasingly
+                  powerful performance, allowing users to select the optimal
+                  balance of intelligence, speed, and cost for their specific
+                  application. Opus is comparable to GPT-4 in performance, while
+                  Haiku is the most cost-effective model, while still beating
+                  GPT-3.5 Turbo in many benchmarks. 3.5 Sonnet is a newer
+                  release with low pricing, high speed, and performance
+                  comparable to GPT-4o. Claude 3 has a huge 200K context window
+                  and is available via Anthropic's API and claud.ai.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Anthropic's Claude 3</strong>: Claude 3 includes
-                  three state-of-the-art models in ascending order of capability: Claude 3 Haiku,
-                  Claude 3.5 Sonnet, and Claude 3 Opus. Each successive model offers increasingly
-                  powerful performance, allowing users to select the optimal balance of
-                  intelligence, speed, and cost for their specific application. Opus is comparable
-                  to GPT-4 in performance, while Haiku is the most cost-effective model, while still
-                  beating GPT-3.5 Turbo in many benchmarks. 3.5 Sonnet is a newer release with low
-                  pricing, high speed, and performance comparable to GPT-4o. Claude 3 has a huge
-                  200K context window and is available via Anthropic's API and claud.ai.
+                  <strong className="text-white">Llama 3.1</strong>: Llama 3.1
+                  is the latest open-source large language model (LLM) developed
+                  by Meta, the parent company of Facebook. It stands as Meta's
+                  answer to OpenAI's GPT-4 series and Google's AI models such as
+                  Gemini. However, it distinguishes itself by being freely
+                  accessible for both research and commercial endeavors.
+                  Generally similar to GPT-3.5 Turbo in performace, Llama 3 is a
+                  powerful model that can be used for a variety of tasks,
+                  including text generation, summarization, and question
+                  answering. It is also approaching the level of GPT-4 on many
+                  benchmarks for substantially less cost. One downside it Llama
+                  3.1 is primarily an English only model.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Llama 3.1</strong>: Llama 3.1 is the latest open-source
-                  large language model (LLM) developed by Meta, the parent company of Facebook. It
-                  stands as Meta's answer to OpenAI's GPT-4 series and Google's AI models such as
-                  Gemini. However, it distinguishes itself by being freely accessible for both
-                  research and commercial endeavors. Generally similar to GPT-3.5 Turbo in
-                  performace, Llama 3 is a powerful model that can be used for a variety of tasks,
-                  including text generation, summarization, and question answering. It is also
-                  approaching the level of GPT-4 on many benchmarks for substantially less cost. One
-                  downside it Llama 3.1 is primarily an English only model.
+                  <strong className="text-white">Gemini</strong>: Gemini is the
+                  newest family of multimodal large language models developed by
+                  Google, serving as the successor to PaLM 2. Comprising Gemini
+                  Ultra, Gemini Pro, and Gemini Flash in 1.0 and 1.5 versions,
+                  it was announced on December 6, 2023. Gemini Ultra is
+                  positioned as the first contender to OpenAI's GPT-4, while
+                  Gemini Pro is closer in performance to GPT-3.5. Gemini Pro 1.5
+                  and Gemini Flash 1.5 are the latest publically available
+                  versions, with an industry-leading 1M context window
+                  multimodal support for video, audio, images, and text. Gemini
+                  models are available via Google's Vertex AI Platform.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">Gemini</strong>: Gemini is the newest family of
-                  multimodal large language models developed by Google, serving as the successor to
-                  PaLM 2. Comprising Gemini Ultra, Gemini Pro, and Gemini Flash in 1.0 and 1.5
-                  versions, it was announced on December 6, 2023. Gemini Ultra is positioned as the
-                  first contender to OpenAI's GPT-4, while Gemini Pro is closer in performance to
-                  GPT-3.5. Gemini Pro 1.5 and Gemini Flash 1.5 are the latest publically available
-                  versions, with an industry-leading 1M context window multimodal support for video,
-                  audio, images, and text. Gemini models are available via Google's Vertex AI
-                  Platform.
+                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is an
+                  older language model from Google boasting enhanced
+                  multilingual, reasoning, and coding capabilities. Trained on
+                  multilingual text from over 100 languages, it excels in
+                  understanding and translating intricate text forms like idioms
+                  and poems. Its dataset, rich with scientific papers and web
+                  content, empowers it with superior logic, reasoning, and
+                  mathematical skills. Additionally, its proficiency in coding
+                  is evident from its training on vast source code datasets,
+                  making it adept in languages from Python to Fortran.
                 </p>
               </li>
               <li>
                 <p>
-                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is an older language model
-                  from Google boasting enhanced multilingual, reasoning, and coding capabilities.
-                  Trained on multilingual text from over 100 languages, it excels in understanding
-                  and translating intricate text forms like idioms and poems. Its dataset, rich with
-                  scientific papers and web content, empowers it with superior logic, reasoning, and
-                  mathematical skills. Additionally, its proficiency in coding is evident from its
-                  training on vast source code datasets, making it adept in languages from Python to
-                  Fortran.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">Mistral</strong>: Mistral AI is a new exciting
-                  startup that has released a number of small open source models that are very fast
-                  and cheap to use. Mistral 7B and Mixtral 8x7B (Mixtral) are two of their most
-                  popular open models. Mixtral beats Llama 2 and compares in performance to GPT-3.5
-                  Turbo and is 2.5x cheaper to use. Mistral Large is a private model with benchmarks
-                  approaching GPT-4 level for reasoning tasks in English, Spanish, French, German,
-                  and Italian.
+                  <strong className="text-white">Mistral</strong>: Mistral AI is
+                  a new exciting startup that has released a number of small
+                  open source models that are very fast and cheap to use.
+                  Mistral 7B and Mixtral 8x7B (Mixtral) are two of their most
+                  popular open models. Mixtral beats Llama 2 and compares in
+                  performance to GPT-3.5 Turbo and is 2.5x cheaper to use.
+                  Mistral Large is a private model with benchmarks approaching
+                  GPT-4 level for reasoning tasks in English, Spanish, French,
+                  German, and Italian.
                 </p>
               </li>
             </ul>
-            <h3 className="text-white" id="3-fine-tuning-models-customization-at-its-best-">
+            <h3
+              className="text-white"
+              id="3-fine-tuning-models-customization-at-its-best-"
+            >
               Fine-tuning Models
             </h3>
             <p>
-              OpenAI allows users to create custom models by fine-tuning base models with their
-              training data. Once a model is fine-tuned, users are billed only for the tokens they
-              use in requests to that specific model. This offers a level of customization that can
-              be tailored to specific business needs. It can save costs by eliminating the need to
-              include common system prompts or few-shot examples in every request if it will be used
-              over and over again.
+              OpenAI allows users to create custom models by fine-tuning base
+              models with their training data. Once a model is fine-tuned, users
+              are billed only for the tokens they use in requests to that
+              specific model. This offers a level of customization that can be
+              tailored to specific business needs. It can save costs by
+              eliminating the need to include common system prompts or few-shot
+              examples in every request if it will be used over and over again.
             </p>
-            <h3 className="text-white" id="4-embedding-models-advanced-functionalities-">
+            <h3
+              className="text-white"
+              id="4-embedding-models-advanced-functionalities-"
+            >
               Embedding Models: Semantic Search and Clustering
             </h3>
             <p>
-              Embedding models are designed to build advanced functionalities like search,
-              clustering, topic modeling, and classification. They are essential for applications
-              that require nuanced understanding and categorization of data like{' '}
+              Embedding models are designed to build advanced functionalities
+              like search, clustering, topic modeling, and classification. They
+              are essential for applications that require nuanced understanding
+              and categorization of data like{' '}
               <Link
                 className="text-teal-400"
                 href="/article/you-shouldnt-build-your-own-ai-support-bot"
@@ -719,11 +814,11 @@ export default function Calculate() {
             </p>
           </div>
           <RegisterCTA />
-          
+
           {/* Add FreeToolsGrid section with white background */}
           <div className="bg-white py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-8 text-center">
+              <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-gray-900">
                 Explore More Free Tools
               </h2>
               <FreeToolsGrid />
