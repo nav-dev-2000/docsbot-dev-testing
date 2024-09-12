@@ -593,7 +593,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   enabledIntegrations={[
                     {
                       id: selectedSourceType?.isCarbon[0],
-                      chunkSize: 800,
+                      chunkSize: 1500,
                       overlapSize: 50,
                       fileSyncConfig : {
                         split_rows: true,
