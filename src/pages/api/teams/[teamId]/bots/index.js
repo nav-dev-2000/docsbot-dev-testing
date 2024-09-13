@@ -75,9 +75,19 @@ router.post(async (req, res) => {
       console.error('Error creating bot DB', error)
       if (botId) {
         // Delete bot object
-        await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).delete()
+        await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .delete()
       }
-      return res.status(500).json({ message: 'Error creating bot DB. Please try again or contact support.'})
+      return res
+        .status(500)
+        .json({
+          message:
+            'Error creating bot DB. Please try again or contact support.',
+        })
     }
 
     //increment botCounts on team
@@ -96,6 +106,17 @@ router.post(async (req, res) => {
 
     // if copyFrom is defined, run the pubsub copy function
     if (copyFrom) {
+      // Check if the user owns the copyFrom bot in the team
+      const copyFromBot = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(copyFrom)
+        .get()
+      if (!copyFromBot.exists) {
+        throw new Error('The bot to copy from does not exist in this team.')
+      }
+
       console.log(`copying ${copyFrom} to ${botId}...`)
       await QueueBotCopy(team.id, copyFrom, botId)
     }
