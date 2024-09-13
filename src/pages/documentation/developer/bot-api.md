@@ -179,7 +179,9 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
 | **model** | string | The OpenAI model. Currently supports `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, `gpt-4o-mini`. Default is `gpt-4o-mini`. |
-| **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-multilingual-v3.0` for paid non-English bots. |
+| **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-multilingual-v3.0` for paid non-English bots. If copying from another bot, the embedding model must be the same as the source bot. |
+| **copyFrom** | string | (Optional) The ID of an existing bot in your team to copy from. If provided, the new bot will be created as a copy of the specified bot, with all sources copied over after creation. |
+
 
 ### Examples
 
