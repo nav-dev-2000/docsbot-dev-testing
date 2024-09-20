@@ -30,7 +30,7 @@ export default async function handler(request, response) {
         doc.id,
         'is scheduled to be reingested at',
         source.scheduled.toDate(),
-        ' -- reingesting...'
+        ' -- reingesting...',
       )
 
       const botRef = doc.ref.parent.parent
@@ -40,10 +40,21 @@ export default async function handler(request, response) {
       const teamId = teamRef.id
 
       try {
+        // Check if it's a carbon source type
+        if (source.type === 'carbon') {
+          console.log(`Skipping carbon source type for source ${doc.id}`)
+          // remove schedule
+          doc.ref.update({
+            scheduled: FieldValue.delete(),
+            scheduleInterval: 'none',
+          })
+          return // Skip this iteration
+        }
+
         // grab next schedule date
         const nextSchedule = checkSourceScheduledFromInterval(
           await getTeam(teamId),
-          source.scheduleInterval
+          source.scheduleInterval,
         )
 
         // update and reingest source
