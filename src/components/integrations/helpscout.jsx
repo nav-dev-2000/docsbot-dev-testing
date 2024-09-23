@@ -6,6 +6,7 @@ import {
   EyeSlashIcon,
   TrashIcon,
   CreditCardIcon,
+  XCircleIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Alert from '@/components/Alert'
@@ -235,13 +236,12 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     })
   }
 
-  const BotSelect = ({ onChange, value }) => {
+  const BotSelect = ({ onChange, value, className }) => {
     return (
       <select
-        id="team_role"
         value={value}
         onChange={onChange}
-        className="block w-full rounded-none rounded-l-md rounded-r-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+        className={`block w-full rounded-md border-gray-300 py-1 text-xs focus:border-cyan-500 focus:ring-cyan-500 ${className}`}
       >
         {bots.map((bot) => (
           <option key={bot.id} value={bot.id}>
@@ -256,42 +256,57 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
   }
 
   const TagTable = () => {
-    if (!helpScoutIntegration || !helpScoutIntegration?.tags) return null
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredTags, setFilteredTags] = useState([]);
+
+    useEffect(() => {
+      if (!helpScoutIntegration || !helpScoutIntegration?.tags) return;
+      const filtered = helpScoutIntegration.tags.filter(tag =>
+        tag.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredTags(filtered);
+    }, [searchTerm, helpScoutIntegration?.tags]);
+
+    if (!helpScoutIntegration || !helpScoutIntegration?.tags) return null;
+
     return (
       <div className="inline-block min-w-full py-2 align-middle">
-        <table className="min-w-full border-separate border-spacing-0">
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+        <div className="mb-4">
+          <label htmlFor="search" className="sr-only">
+            Search tags
+          </label>
+          <div className="relative mt-2 flex items-center md:max-w-xs">
+            <input
+              id="search"
+              name="search"
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="block w-full rounded-md border-0 py-1.5 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+              placeholder="Search tags..."
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="absolute inset-y-0 right-0 flex items-center pr-3"
               >
-                Tag
-              </th>
-              <th
-                scope="col"
-                className="sticky top-16 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
-              >
-                Bot
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {helpScoutIntegration.tags.map((tag) => {
-              return (
-                <tr key={tag.id} className="hover:bg-gray-50">
-                  <td className="px-3 py-1 text-sm text-gray-500">{tag.name}</td>
-                  <td className="px-3 py-1 text-sm text-gray-500">
-                    <BotSelect
-                      onChange={(e) => updateHelpScoutTag(tag, e.target.value)}
-                      value={tag?.assignedBot || 'none'}
-                    />
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+                <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+              </button>
+            )}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {filteredTags.map((tag) => (
+            <div key={tag.id} className="flex items-center space-x-2 rounded-md border border-gray-200 p-2 hover:bg-gray-50">
+              <span className="w-1/2 truncate text-xs font-bold text-gray-800">{tag.name}</span>
+              <BotSelect
+                onChange={(e) => updateHelpScoutTag(tag, e.target.value)}
+                value={tag?.assignedBot || 'none'}
+                className="w-1/2 text-xs"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     )
   }
@@ -335,7 +350,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
               return (
                 <tr key={mb.id} className="hover:bg-gray-50">
                   <td className="px-3 py-1 text-sm text-gray-500">
-                    <span className="text-sm text-gray-500">{mb.name}</span>
+                    <span className="text-md text-gray-500 font-bold">{mb.name}</span>
                     <span className="ml-2 text-sm text-gray-400">{mb.slug}</span>
                   </td>
                   <td className="px-3 py-1 text-sm text-gray-500">
@@ -563,20 +578,19 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-700">Active tags:</label>
+              <label className="block text-md font-bold text-gray-700">Tag Mappings:</label>
+              <p className="mb-2 text-sm text-gray-500">
+                Set a bot to automatically reply to messages with a specific tag.
+              </p>
               <TagTable />
             </div>
+            
             <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-700">Mailboxes:</label>
+              <label className="block text-md font-bold text-gray-700">Mailbox Mappings:</label>
+              <p className="mb-2 text-sm text-gray-500">
+                Set a default bot that will always respond to messages in a mailbox.
+              </p>
               <MailboxTable />
-              {/* <div className="ml-2 mt-2">
-                {helpScoutIntegration.mailboxes.map((mailbox) => (
-                  <div key={mailbox.id} className="flex items-center">
-                    <span className="text-sm text-gray-500">{mailbox.name}</span>
-                    <span className="ml-2 text-sm text-gray-400">{mailbox.slug}</span>
-                  </div>
-                ))}
-              </div> */}
             </div>
             <div className="flex justify-between">
               <button
@@ -589,7 +603,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
               <button
                 type="button"
                 className={
-                  'mr-10 flex items-center rounded-md text-xs text-gray-500 hover:text-gray-900 focus:outline-none'
+                  'flex items-center rounded-md text-xs text-gray-500 hover:text-gray-900 px-3 py-2 hover:ring-1 hover:ring-gray-300 focus:outline-none'
                 }
                 onClick={() => refreshTags()}
               >
