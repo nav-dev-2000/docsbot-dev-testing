@@ -96,7 +96,7 @@ const YoutubeSummarizer = () => {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
         
         // Track usage limit exceeded
-        posthog?.capture('Free Tool Used', {
+        posthog?.capture('Free Tool', {
           tool: 'YouTube Summarizer',
           action: 'Error',
           error: 'Usage Limit Exceeded',
@@ -106,7 +106,7 @@ const YoutubeSummarizer = () => {
         setErrorText(data.message || 'Something went wrong, please try again.')
         
         // Track error
-        posthog?.capture('Free Tool Used', {
+        posthog?.capture('Free Tool', {
           tool: 'YouTube Summarizer',
           action: 'Error',
           error: data.message || 'Unknown error',
@@ -117,7 +117,7 @@ const YoutubeSummarizer = () => {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
       
       // Track error
-      posthog?.capture('Free Tool Used', {
+      posthog?.capture('Free Tool', {
         tool: 'YouTube Summarizer',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
