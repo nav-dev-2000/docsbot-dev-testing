@@ -9,6 +9,7 @@ import { stripePlan, getStats } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
+import tippy from 'tippy.js'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -122,6 +123,24 @@ export default function TeamHistory({ team }) {
   useEffect(() => {
     updateData(selected.value)
   }, [])
+
+  useEffect(() => {
+    // Initialize Tippy on all elements with a title attribute
+    tippy('[title]', {
+      content(reference) {
+        return reference.getAttribute('title')
+      },
+      onShow(instance) {
+        // Remove the title attribute on hover to prevent default browser tooltip
+        instance.reference.removeAttribute('title')
+      },
+      onHidden(instance) {
+        // Restore the title attribute when the tooltip is hidden
+        instance.reference.setAttribute('title', instance.props.content)
+      },
+      //theme: 'light', // You can customize the theme or style with Tailwind CSS classes
+    })
+  }, [stats])
 
   return (
     <div className="mx-0 mt-8 rounded-lg bg-white p-4 shadow-lg lg:p-8">

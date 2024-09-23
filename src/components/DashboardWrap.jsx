@@ -27,8 +27,16 @@ import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
 import { usePostHog } from 'posthog-js/react'
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css' // Optional for default styling
 
-export default function DashboardWrap({ page, title, team, fullWidth = false, children }) {
+export default function DashboardWrap({
+  page,
+  title,
+  team,
+  fullWidth = false,
+  children,
+}) {
   const router = useRouter()
   const [user] = useAuthState(auth)
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -41,7 +49,6 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
     signOut(auth).then(() => {
       logoutUser({
         onComplete: () => {
-          
           posthog?.reset()
           router.push(routePaths.LOGIN)
         },
@@ -59,6 +66,24 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
   }, [posthog, team, router])
 
   useEffect(() => {
+    // Initialize Tippy on all elements with a title attribute
+    tippy('[title]', {
+      content(reference) {
+        return reference.getAttribute('title')
+      },
+      onShow(instance) {
+        // Remove the title attribute on hover to prevent default browser tooltip
+        instance.reference.removeAttribute('title')
+      },
+      onHidden(instance) {
+        // Restore the title attribute when the tooltip is hidden
+        instance.reference.setAttribute('title', instance.props.content)
+      },
+      theme: 'light', // You can customize the theme or style with Tailwind CSS classes
+    })
+  }, [])
+
+  useEffect(() => {
     if (
       user &&
       team &&
@@ -74,20 +99,19 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
       }
       if (team) {
         ident.company = team.name
-        ident['connected-sites'] = `https://docsbot.ai/app/team?switchTeam=${team.id}`
+        ident['connected-sites'] =
+          `https://docsbot.ai/app/team?switchTeam=${team.id}`
         if (team.stripeSubscriptionPrice && stripePlan(team).name !== 'Free') {
           ident['monthly-price'] = '$' + team.stripeSubscriptionPrice / 100
         }
         ident['storage-plan'] = stripePlan(team).name
         if (team.stripeCustomerId) {
-          ident[
-            'stripe-customer'
-          ] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
+          ident['stripe-customer'] =
+            `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
         }
         if (team.stripeSubscriptionId) {
-          ident[
-            'stripe-subscription'
-          ] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
+          ident['stripe-subscription'] =
+            `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
         }
       }
       Beacon('identify', ident)
@@ -108,12 +132,18 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
   ]
 
   useEffect(() => {
-    if (currentRole?.toLowerCase() === 'editor' || currentRole?.toLowerCase() === 'viewer') {
+    if (
+      currentRole?.toLowerCase() === 'editor' ||
+      currentRole?.toLowerCase() === 'viewer'
+    ) {
       const filteredNavigation = navigation.filter(
         (nav) =>
-          !nav.name.toLowerCase().includes('account') && !nav.name.toLowerCase().includes('api')
+          !nav.name.toLowerCase().includes('account') &&
+          !nav.name.toLowerCase().includes('api'),
       )
-      setCurrentPageLink(filteredNavigation.find((nav) => nav.name === page)?.href)
+      setCurrentPageLink(
+        filteredNavigation.find((nav) => nav.name === page)?.href,
+      )
       setDashboardNavigation(filteredNavigation)
     } else {
       setCurrentPageLink(navigation.find((nav) => nav.name === page)?.href)
@@ -137,7 +167,10 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
     return (
       <>
         {titles.map((title, index) => (
-          <div key={index} className="flex-inline ml-1 flex items-center lg:ml-2">
+          <div
+            key={index}
+            className="flex-inline ml-1 flex items-center lg:ml-2"
+          >
             <ChevronRightIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
             <h1 className="ml-1 text-sm font-medium leading-tight text-gray-800 lg:ml-2 lg:text-xl">
               {title}
@@ -150,13 +183,17 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
 
   return (
     <>
-      <NextSeo title={pageTitle} description="DocsBot AI Dashboard" noindex={true} />
+      <NextSeo
+        title={pageTitle}
+        description="DocsBot AI Dashboard"
+        noindex={true}
+      />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
             <Dialog
               as="div"
-              className="relative z-40 print:hidden md:hidden"
+              className="relative z-40 md:hidden print:hidden"
               onClose={setSidebarOpen}
             >
               <Transition.Child
@@ -198,13 +235,25 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                           onClick={() => setSidebarOpen(false)}
                         >
                           <span className="sr-only">Close sidebar</span>
-                          <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                          <XMarkIcon
+                            className="h-6 w-6 text-white"
+                            aria-hidden="true"
+                          />
                         </button>
                       </div>
                     </Transition.Child>
                     <div className="flex flex-shrink-0 items-center px-4">
-                      <Link href="/app" title="Dashboard" className="fill-white">
-                        <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
+                      <Link
+                        href="/app"
+                        title="Dashboard"
+                        className="fill-white"
+                      >
+                        <Image
+                          src={logo}
+                          height={38}
+                          width={150}
+                          alt="DocsBot Logo"
+                        />
                       </Link>
                     </div>
                     <div className="mt-5 h-0 flex-1 overflow-y-auto">
@@ -217,7 +266,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                               item.name === page
                                 ? 'bg-cyan-800 text-white'
                                 : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
-                              'group flex items-center rounded-md px-2 py-2 text-base font-medium'
+                              'group flex items-center rounded-md px-2 py-2 text-base font-medium',
                             )}
                           >
                             <item.icon
@@ -239,12 +288,17 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
           </Transition.Root>
 
           {/* Static sidebar for desktop */}
-          <div className="hidden print:!hidden md:fixed md:inset-y-0 md:flex md:w-48 md:flex-col">
+          <div className="hidden md:fixed md:inset-y-0 md:flex md:w-48 md:flex-col print:!hidden">
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex min-h-0 flex-1 flex-col bg-gradient-to-r from-cyan-700 to-cyan-800">
               <div className="flex h-16 flex-shrink-0 items-center justify-between bg-cyan-800 px-4 text-white">
                 <Link href="/app" title="Dashboard" className="fill-white">
-                  <Image src={logo} height={38} width={150} alt="DocsBot Logo" />
+                  <Image
+                    src={logo}
+                    height={38}
+                    width={150}
+                    alt="DocsBot Logo"
+                  />
                 </Link>
               </div>
               <div className="flex flex-1 flex-col overflow-y-auto">
@@ -257,7 +311,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                         item.name === page
                           ? 'bg-cyan-800 text-white hover:text-white'
                           : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
-                        'group flex items-center rounded-md px-2 py-2 text-base font-medium'
+                        'group flex items-center rounded-md px-2 py-2 text-base font-medium',
                       )}
                     >
                       <item.icon
@@ -271,7 +325,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               </div>
             </div>
           </div>
-          <div className="flex flex-col print:!pl-0 md:pl-48">
+          <div className="flex flex-col md:pl-48 print:!pl-0">
             <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
               <button
                 type="button"
@@ -284,7 +338,12 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
                   <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
-                    <Link href={currentPageLink} className='hover:text-gray-500'>{page}</Link>
+                    <Link
+                      href={currentPageLink}
+                      className="hover:text-gray-500"
+                    >
+                      {page}
+                    </Link>
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
@@ -338,7 +397,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-5 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="z-5 absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="px-4 py-2 text-sm">
                           <div className="mb-1 text-base font-medium leading-none text-gray-600">
                             {user?.displayName}
@@ -354,7 +413,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                                 href={item.href}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
+                                  'block px-4 py-2 text-sm text-gray-700',
                                 )}
                               >
                                 {item.name}
@@ -369,7 +428,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                               href="#"
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-gray-700',
                               )}
                               onClick={signUserOut}
                             >
@@ -389,7 +448,7 @@ export default function DashboardWrap({ page, title, team, fullWidth = false, ch
                 <div
                   className={classNames(
                     'mx-auto px-4 sm:px-6 md:px-8',
-                    fullWidth ? '' : 'max-w-7xl'
+                    fullWidth ? '' : 'max-w-7xl',
                   )}
                 >
                   {children}

@@ -11,22 +11,22 @@ Sources are how your train your bots. They can be urls, files, sitemaps, and man
 
 Source objects have the following properties:
 
-| Property             | Type   | Description                                                                                                                                                            |
-| -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id**               | string | The source id.                                                                                                                                                         |
-| **type**             | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`. All but url and sitemap require uploading a formatted file.                                     |
-| **status**           | string | The source status. Can be `pending`, `indexing`, `processing`, `ready`, or `failed`.                                                                                   |
-| **title**            | string | The source title. Required only for `document` type.                                                                                                                   |
-| **url**              | string | The source url. Optional except for `url`, `sitemap`, and `rss` types.                                                                                                 |
-| **file**             | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response.             |
-| **createdAt**        | string | The source creation date.                                                                                                                                              |
-| **pageCount**        | number | The number of pages indexed from the source.                                                                                                                           |
-| **chunkCount**       | number | The number of chunks indexed from the source.                                                                                                                          |
-| **scheduleInterval** | string | The source schedule interval. Can be `daily`, `weekly`, `monthly`, or `none`.                                                                                          |
-| **faqs**             | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`. Ommitted when listing sources.                            |
-| **indexedUrls**      | array  | An array of indexed url objects `[{"source":"https://url.com", "title":"Page title"}]` for some source types like `urls` and `sitemap`. Ommitted when listing sources. |
-| **warnsList**        | array  | An array of warning strings encountered when training.                                                                                  |
-| **carbonFiles**      | int/array  | A count orarray of file objects for cloud source types. May include `id`, `type`, `name`, `url`. Ommitted when listing sources.                                               |
+| Property             | Type      | Description                                                                                                                                                                        |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**               | string    | The source id.                                                                                                                                                                     |
+| **type**             | string    | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`, `youtube`. All but url, sitemap, and youtube require uploading a formatted file.                            |
+| **status**           | string    | The source status. Can be `pending`, `indexing`, `processing`, `ready`, or `failed`.                                                                                               |
+| **title**            | string    | The source title. Required only for `document` type.                                                                                                                               |
+| **url**              | string    | The source url. Optional except for `url`, `sitemap`, `youtube`, and `rss` types.                                                                                                  |
+| **file**             | string    | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response.                         |
+| **createdAt**        | string    | The source creation date.                                                                                                                                                          |
+| **pageCount**        | number    | The number of pages indexed from the source.                                                                                                                                       |
+| **chunkCount**       | number    | The number of chunks indexed from the source.                                                                                                                                      |
+| **scheduleInterval** | string    | The source schedule interval. Can be `daily`, `weekly`, `monthly`, or `none`.                                                                                                      |
+| **faqs**             | array     | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`. Ommitted when listing sources.                                        |
+| **indexedUrls**      | array     | An array of indexed url objects `[{"source":"https://url.com", "title":"Page title"}]` for some source types like `urls`, `youtube`, and `sitemap`. Ommitted when listing sources. |
+| **warnsList**        | array     | An array of warning strings encountered when training.                                                                                                                             |
+| **carbonFiles**      | int/array | A count orarray of file objects for cloud source types. May include `id`, `type`, `name`, `url`. Ommitted when listing sources.                                                    |
 
 ---
 
@@ -51,7 +51,7 @@ curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV3
 var myHeaders = new Headers()
 myHeaders.append(
   'Authorization',
-  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673',
 )
 
 var requestOptions = {
@@ -62,7 +62,7 @@ var requestOptions = {
 
 fetch(
   'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources',
-  requestOptions
+  requestOptions,
 )
   .then((response) => response.text())
   .then((result) => console.log(result))
@@ -112,7 +112,7 @@ curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV3
 var myHeaders = new Headers()
 myHeaders.append(
   'Authorization',
-  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673',
 )
 
 var requestOptions = {
@@ -123,7 +123,7 @@ var requestOptions = {
 
 fetch(
   'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources/qGDSDhbdxtqmifTZQrYs',
-  requestOptions
+  requestOptions,
 )
   .then((response) => response.text())
   .then((result) => console.log(result))
@@ -160,9 +160,9 @@ This endpoint creates a new source for a bot. It accepts a POST request with the
 
 | Property             | Type   | Description                                                                                                                                                |
 | -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **type**             | string | The source type. Can be `url`, `rss`,`sitemap`, `urls`, `csv`, `document`, `qa` or `wp`.                                                                   |
-| **title**            | string | The source title. Optional except for `document`.                                                                                                          |
-| **url**              | string | The source URL. Required if type is `url`, `sitemap`, or `rss`.                                                                                            |
+| **type**             | string | Can be `url`, `document`, `sitemap`, `wp`, `urls`, `csv`, `rss`, `qa`, `youtube`. All but url, sitemap, and youtube require uploading a formatted file.    |
+| **title**            | string | The source title. Required only for `document` type.                                                                                                       |
+| **url**              | string | The source url. Optional except for `url`, `sitemap`, `youtube`, and `rss` types.                                                                          |
 | **file**             | string | The source file path. Required if type is `urls`, `csv`, `document`, or `wp`. The is usually the cloud storage path from the GET /upload-url API response. |
 | **faqs**             | array  | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`                                                |
 | **scheduleInterval** | string | The source refresh scheduled interval. Can be `daily`, `weekly`, `monthly`, or `none` depending on your plan. Optional, defaults to `none`.                |
@@ -188,7 +188,7 @@ curl --request POST 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV
 var myHeaders = new Headers()
 myHeaders.append(
   'Authorization',
-  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673',
 )
 myHeaders.append('Content-Type', 'application/json')
 
@@ -207,7 +207,7 @@ var requestOptions = {
 
 fetch(
   'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources',
-  requestOptions
+  requestOptions,
 )
   .then((response) => response.text())
   .then((result) => console.log(result))
@@ -294,14 +294,18 @@ Then finally, you can create your source using the normal source API. A full exa
 ```js
 const teamId = '0NZfVRlrjJ6d4YdwUGHt'
 const botId = 'yR5EwAGpINpmp7XzT9qL'
-const authToken = '8656f848949372c090cd455cc39c158b5b8bd9a00d0c9807f832bec30b1735a1'
+const authToken =
+  '8656f848949372c090cd455cc39c158b5b8bd9a00d0c9807f832bec30b1735a1'
 
 // Get upload URL
-fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/upload-url?fileName=test.csv`, {
-  headers: {
-    Authorization: `Bearer ${authToken}`,
+fetch(
+  `https://docsbot.ai/api/teams/${teamId}/bots/${botId}/upload-url?fileName=test.csv`,
+  {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
   },
-})
+)
   .then((response) => response.json())
   .then((data) => {
     const url = data.url
@@ -395,7 +399,7 @@ curl --request DELETE 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQ
 var myHeaders = new Headers()
 myHeaders.append(
   'Authorization',
-  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673',
 )
 
 var requestOptions = {
@@ -406,7 +410,7 @@ var requestOptions = {
 
 fetch(
   'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/sources/qGDSDhbdxtqmifTZQrYs',
-  requestOptions
+  requestOptions,
 )
   .then((response) => response.text())
   .then((result) => console.log(result))

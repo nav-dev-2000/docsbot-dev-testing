@@ -10,6 +10,7 @@ import { stripePlan } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
+import tippy from 'tippy.js'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -21,7 +22,7 @@ const defaultSelected = 30
 
 export default function BotHistory({ team, botId }) {
   const [selected, setSelected] = useState(
-    intervals.filter((interval) => interval.value === defaultSelected)[0]
+    intervals.filter((interval) => interval.value === defaultSelected)[0],
   )
   const [stats, setStats] = useState(null)
   const [lineData, setLineData] = useState(null)
@@ -59,7 +60,9 @@ export default function BotHistory({ team, botId }) {
         try {
           const data = await response.json()
           if (data.error) {
-            console.warn(data.error || 'Something went wrong, please try again.')
+            console.warn(
+              data.error || 'Something went wrong, please try again.',
+            )
           }
         } catch (e) {
           console.warn(e)
@@ -156,6 +159,24 @@ export default function BotHistory({ team, botId }) {
     updateData(selected.value)
   }, [])
 
+  useEffect(() => {
+    // Initialize Tippy on all elements with a title attribute
+    tippy('[title]', {
+      content(reference) {
+        return reference.getAttribute('title')
+      },
+      onShow(instance) {
+        // Remove the title attribute on hover to prevent default browser tooltip
+        instance.reference.removeAttribute('title')
+      },
+      onHidden(instance) {
+        // Restore the title attribute when the tooltip is hidden
+        instance.reference.setAttribute('title', instance.props.content)
+      },
+      theme: 'light', // You can customize the theme or style with Tailwind CSS classes
+    })
+  }, [stats])
+
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="mb-4">
@@ -185,7 +206,10 @@ export default function BotHistory({ team, botId }) {
                     <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6">
                       <span className="block truncate">{selected.title}</span>
                       <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                        <ChevronUpDownIcon
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
                       </span>
                     </Listbox.Button>
 
@@ -202,8 +226,10 @@ export default function BotHistory({ team, botId }) {
                             key={interval.value}
                             className={({ active }) =>
                               classNames(
-                                active ? 'bg-cyan-600 text-white' : 'text-gray-900',
-                                'relative cursor-default select-none py-1 pl-3 pr-9'
+                                active
+                                  ? 'bg-cyan-600 text-white'
+                                  : 'text-gray-900',
+                                'relative cursor-default select-none py-1 pl-3 pr-9',
                               )
                             }
                             value={interval}
@@ -213,8 +239,10 @@ export default function BotHistory({ team, botId }) {
                                 <div className="flex">
                                   <span
                                     className={classNames(
-                                      selected ? 'font-semibold' : 'font-normal',
-                                      'block truncate text-gray-900'
+                                      selected
+                                        ? 'font-semibold'
+                                        : 'font-normal',
+                                      'block truncate text-gray-900',
                                     )}
                                   >
                                     {interval.title}
@@ -225,10 +253,13 @@ export default function BotHistory({ team, botId }) {
                                   <span
                                     className={classNames(
                                       active ? 'text-white' : 'text-cyan-600',
-                                      'absolute inset-y-0 right-0 flex items-center pr-4'
+                                      'absolute inset-y-0 right-0 flex items-center pr-4',
                                     )}
                                   >
-                                    <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                    <CheckIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
                                   </span>
                                 ) : null}
                               </>
@@ -256,7 +287,9 @@ export default function BotHistory({ team, botId }) {
         <>
           <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-5">
             <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                User questions
+              </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 <LocalStringNum value={stats.totalCount} />
               </dd>
@@ -265,27 +298,39 @@ export default function BotHistory({ team, botId }) {
               className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
               title="Answers with no negative rating or support escalation"
             >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                Resolution rate
+              </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.resolutionRate != '0' ? stats.resolutionRate + '%' : 'N/A'}
+                {stats.resolutionRate != '0'
+                  ? stats.resolutionRate + '%'
+                  : 'N/A'}
               </dd>
             </div>
             <div
               className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
               title="Questions the AI determined it could confidently answer"
             >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Answer rate</dt>
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                Answer rate
+              </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.couldAnswerRate != '0' ? stats.couldAnswerRate + '%' : 'N/A'}
+                {stats.couldAnswerRate != '0'
+                  ? stats.couldAnswerRate + '%'
+                  : 'N/A'}
               </dd>
             </div>
             <div
               className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
               title="Answers with no support escalation"
             >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
+              <dt className="text-sm font-semibold leading-6 text-gray-600">
+                Deflection rate
+              </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.deflectionRate != '0' ? stats.deflectionRate + '%' : 'N/A'}
+                {stats.deflectionRate != '0'
+                  ? stats.deflectionRate + '%'
+                  : 'N/A'}
               </dd>
             </div>
             <div
@@ -305,23 +350,37 @@ export default function BotHistory({ team, botId }) {
             <div className="relative z-10 -mb-72 mt-32 w-full">
               <div className="flex justify-center py-4 text-center">
                 <div className="max-w-3xl">
-                  <h3 className="text-3xl font-bold">View advanced bot statistics</h3>
+                  <h3 className="text-3xl font-bold">
+                    View advanced bot statistics
+                  </h3>
                   <p className="mb-8 text-center text-gray-700">
-                    Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
-                    <Link href="/#pricing" target="_blank" className="underline">
+                    Upgrade to the Pro plan or higher to unlock advance question
+                    statistics. View{' '}
+                    <Link
+                      href="/#pricing"
+                      target="_blank"
+                      className="underline"
+                    >
                       plan details
                     </Link>
                     .
                   </p>
                   <button
                     type="button"
-                    className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
+                    className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                     onClick={(e) => setShowUpgrade(true)}
                   >
-                    <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                    <CreditCardIcon
+                      className="mr-1.5 h-5 w-5 flex-shrink-0"
+                      aria-hidden="true"
+                    />
                     Upgrade Plan
                   </button>
-                  <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+                  <ModalCheckout
+                    team={team}
+                    open={showUpgrade}
+                    setOpen={setShowUpgrade}
+                  />
                 </div>
               </div>
             </div>
@@ -330,22 +389,25 @@ export default function BotHistory({ team, botId }) {
           <div
             className={classNames(
               'items-center space-x-4 align-middle',
-              blurEnabled ? 'blur-lg' : ''
+              blurEnabled ? 'blur-lg' : '',
             )}
           >
             <div className="mt-6 h-96 w-full">
               {lineData && (
-                <Line data={lineData} options={{ maintainAspectRatio: false, responsive: true }} />
+                <Line
+                  data={lineData}
+                  options={{ maintainAspectRatio: false, responsive: true }}
+                />
               )}
             </div>
           </div>
           <div
             className={classNames(
               'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
-              blurEnabled ? 'blur-lg' : ''
+              blurEnabled ? 'blur-lg' : '',
             )}
           >
-            <div className="m-auto mt-6 h-80 flex justify-center">
+            <div className="m-auto mt-6 flex h-80 justify-center">
               {pieData && (
                 <Pie
                   data={pieData}
@@ -356,7 +418,7 @@ export default function BotHistory({ team, botId }) {
                 />
               )}
             </div>
-            <div className="m-auto mt-6 h-80 flex justify-center">
+            <div className="m-auto mt-6 flex h-80 justify-center">
               {escalatedPieData && (
                 <Pie
                   data={escalatedPieData}
@@ -367,7 +429,7 @@ export default function BotHistory({ team, botId }) {
                 />
               )}
             </div>
-            <div className="m-auto mt-6 h-80 flex justify-center">
+            <div className="m-auto mt-6 flex h-80 justify-center">
               {answerPieData && (
                 <Pie
                   data={answerPieData}
