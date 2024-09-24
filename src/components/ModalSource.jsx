@@ -470,7 +470,7 @@ export default function ModalSource({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl max-h-[calc(100vh-4rem)] flex flex-col">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:flex">
                     <button
                       type="button"
@@ -484,7 +484,7 @@ export default function ModalSource({
                     </button>
                   </div>
 
-                  <div className="rounded-lg bg-white p-8 shadow">
+                  <div className="rounded-lg bg-white p-8 shadow flex-grow overflow-y-auto">
                     <div className="pb-2">
                       <h3 className="inline-flex text-2xl font-bold">
                         {source?.title ?? source?.url}
@@ -622,13 +622,13 @@ export default function ModalSource({
                     )}
                     {!toDelete && (
                       <div className="mt-6 flex flex-col-reverse sm:flex-row items-end justify-between space-y-0 sm:space-y-0">
-                        <div className="items-middle flex flex-shrink-0 justify-end">
+                        <div className="items-middle flex flex-shrink-0 justify-end sm:mt-0 mt-8">
                           {(source?.status === 'ready' ||
                             source?.status === 'failed') && (
                             <button
                               type="button"
                               className={
-                                'flex items-center rounded-md bg-white text-sm mt-8 sm:mt-0 ' +
+                                'flex items-center rounded-md bg-white text-sm ' +
                                 (canModify
                                   ? ' text-red-400 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2'
                                   : ' cursor-not-allowed text-gray-400')
