@@ -142,7 +142,7 @@ const YoutubeBlogPostGenerator = () => {
                 }}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
-                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8"
+                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
               />
               <button
                 onClick={() => generateBlogPost(videoUrl)}
@@ -259,10 +259,7 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
           button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
-            Explore More Free Tools
-          </h2>
-          <FreeToolsGrid />
+          <FreeToolsGrid category="YouTube" />
         </div>
       </main>
       <Footer />

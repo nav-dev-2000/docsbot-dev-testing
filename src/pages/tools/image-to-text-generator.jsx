@@ -296,10 +296,7 @@ export default function ImageToTextPage() {
           button="Get Started for Free"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight">
-            Explore More Free Tools
-          </h2>
-          <FreeToolsGrid />
+          <FreeToolsGrid category="Image" />
         </div>
       </main>
       <Footer />

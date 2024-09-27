@@ -5,18 +5,22 @@ import Header from '@/components/Header'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import Link from 'next/link'
-import { CodeBracketIcon, HashtagIcon, DocumentTextIcon } from '@heroicons/react/20/solid'
+import {
+  CodeBracketIcon,
+  HashtagIcon,
+  DocumentTextIcon,
+} from '@heroicons/react/20/solid'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import { lookupYoutubeSummary } from '@/lib/tools'
-import clsx from 'clsx';
+import { lookupYoutubeData } from '@/lib/tools'
+import clsx from 'clsx'
 
 const copyAsMarkdown = (summary) => {
   let output = `# ${summary.title}\n\n`
-  output += `![Thumbnail](${summary.thumbnail})\n\n`
+  output += `![Thumbnail](${summary.metadata.thumbnail})\n\n`
   output += `${summary.summary}\n\n`
   output += `## Key Points\n\n`
   summary.keyPoints.forEach((point) => {
@@ -28,12 +32,14 @@ const copyAsMarkdown = (summary) => {
 
 const copyAsHTML = (summary) => {
   let output = `<h1>${summary.title}</h1>\n`
-  output += unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .processSync(summary.summary).toString() + '\n\n'
+  output +=
+    unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeStringify)
+      .processSync(summary.summary)
+      .toString() + '\n\n'
   output += `<h2>Key Points</h2>\n`
   summary.keyPoints.forEach((point) => {
     output += `<h3>${point.point}</h3>\n<p>${point.summary}</p>\n`
@@ -69,9 +75,9 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
             <p className="mb-2">{summary.summary}</p>
           </div>
 
-          <div className="mx-auto mt-2 relative w-full pb-[56.25%]">
+          <div className="relative mx-auto mt-2 w-full pb-[56.25%]">
             <iframe
-              className="absolute top-0 left-0 w-full h-full"
+              className="absolute left-0 top-0 h-full w-full"
               src={`https://www.youtube.com/embed/${videoId}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -96,7 +102,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
             className={clsx(
               'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
               'hover:bg-gray-100',
-              markdownCopied ? 'text-cyan-700' : 'text-gray-600'
+              markdownCopied ? 'text-cyan-700' : 'text-gray-600',
             )}
           >
             <HashtagIcon className="mr-2 h-4 w-4" aria-hidden="true" />
@@ -112,7 +118,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
             className={clsx(
               'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
               'hover:bg-gray-100',
-              htmlCopied ? 'text-cyan-700' : 'text-gray-600'
+              htmlCopied ? 'text-cyan-700' : 'text-gray-600',
             )}
           >
             <CodeBracketIcon className="mr-2 h-4 w-4" aria-hidden="true" />
@@ -128,7 +134,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
             className={clsx(
               'inline-flex items-center rounded-md px-4 py-2 text-sm font-medium',
               'hover:bg-gray-100',
-              textCopied ? 'text-cyan-700' : 'text-gray-600'
+              textCopied ? 'text-cyan-700' : 'text-gray-600',
             )}
           >
             <DocumentTextIcon className="mr-2 h-4 w-4" aria-hidden="true" />
@@ -138,7 +144,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
         <div className="mx-none text-left">
           {summary.keyPoints.map((keyPoint, index) => (
             <div key={index} className="mb-4">
-              <h3 className="font-semibold mb-1 text-lg">{keyPoint.point}</h3>
+              <h3 className="mb-1 text-lg font-semibold">{keyPoint.point}</h3>
               <p className="text-sm text-gray-600">{keyPoint.summary}</p>
             </div>
           ))}
@@ -200,16 +206,13 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
           button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
-            Explore More Free Tools
-          </h2>
-          <FreeToolsGrid />
+          <FreeToolsGrid category="YouTube" />
         </div>
       </main>
       <Footer />
@@ -231,7 +234,7 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  const cachedData = await lookupYoutubeSummary(videoId)
+  const cachedData = await lookupYoutubeData(videoId, 'summary')
   if (!cachedData) {
     return {
       redirect: {

@@ -167,8 +167,12 @@ export default async function handler(req, res) {
                     type: 'string',
                     description: 'Title of the site.',
                   },
+                  is_ai: {
+                    type: 'boolean',
+                    description: 'Whether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
+                  },
                 },
-                required: ['faqs', 'summary', 'title'],
+                required: ['faqs', 'summary', 'title', 'is_ai'],
                 additionalProperties: false,
               },
             },

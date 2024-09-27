@@ -12,11 +12,11 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
 const loadingText = [
-  'Fetching video details...',
-  'Analyzing content...',
-  'Generating summary...',
-  'Extracting key points...',
-  'Finalizing results...',
+  'Analyzing video content...',
+  'Identifying viral moments...',
+  'Extracting key highlights...',
+  'Uncovering shareable clips...',
+  'Finalizing viral content results...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -40,14 +40,14 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeSummarizer = () => {
+const YoutubeViralMomentsFinder = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
 
-  const summarizeVideo = async (url) => {
+  const findViralMoments = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -57,7 +57,7 @@ const YoutubeSummarizer = () => {
       
       // Track invalid URL error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Viral Moments Finder',
         action: 'Error',
         error: 'Invalid URL',
         category: 'YouTube'
@@ -74,7 +74,7 @@ const YoutubeSummarizer = () => {
       },
       body: JSON.stringify({
         videoUrl: url,
-        type: 'summary',
+        type: 'moments',
       }),
     })
 
@@ -84,21 +84,21 @@ const YoutubeSummarizer = () => {
         // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
         
-        // Track successful summarization
+        // Track successful idea extraction
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
-          result: `https://docsbot.ai/tools/ai-youtube-summarizer/${videoId}`,
+          tool: 'YouTube Viral Moments Finder',
+          result: `https://docsbot.ai/tools/ai-youtube-viral-moment-finder/${videoId}`,
           action: 'Used',
           category: 'YouTube'
         })
         
-        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
+        await router.push(`/tools/ai-youtube-viral-moment-finder/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
         
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Viral Moments Finder',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'YouTube'
@@ -108,7 +108,7 @@ const YoutubeSummarizer = () => {
         
         // Track error
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Viral Moments Finder',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'YouTube'
@@ -119,7 +119,7 @@ const YoutubeSummarizer = () => {
       
       // Track error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Viral Moments Finder',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'YouTube'
@@ -146,7 +146,7 @@ const YoutubeSummarizer = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
               />
               <button
-                onClick={() => summarizeVideo(videoUrl)}
+                onClick={() => findViralMoments(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -156,7 +156,7 @@ const YoutubeSummarizer = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Summarize Video</>
+                  <>Find Viral Moments</>
                 )}
               </button>
             </div>
@@ -167,17 +167,17 @@ const YoutubeSummarizer = () => {
   )
 }
 
-const RecentSummarizedVideos = ({ videos }) => {
+const RecentExtractedVideos = ({ videos }) => {
   return (
     <div className="mx-auto py-4 mt-16">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Summarized Videos
+        Recently Analyzed Videos
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video) => (
           <Link
             key={video.id}
-            href={`/tools/ai-youtube-summarizer/${video.id}`}
+            href={`/tools/ai-youtube-viral-moment-finder/${video.id}`}
             className="block hover:opacity-75 transition-opacity"
           >
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -199,17 +199,17 @@ const RecentSummarizedVideos = ({ videos }) => {
   )
 }
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI YouTube Video Viral Moments Finder - DocsBot AI"
+        description="Discover the most shareable and viral moments in any YouTube video using AI. Identify content that has the potential to go viral and create engaging highlights."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-summarize.png',
-              alt: 'AI-Powered YouTube Video Summarizer',
+              url: 'https://docsbot.ai/images/og/youtube-viral-moment.png',
+              alt: 'AI-Powered YouTube Video Viral Moments Finder',
             },
           ],
         }}
@@ -233,21 +233,21 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  Free AI YouTube Video Viral Moments Finder
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.
+                  Uncover the most shareable and potentially viral moments in any YouTube video using our AI-powered tool. Identify content that resonates with viewers, including surprising reveals, emotional peaks, and standout quotes. Use these viral moments to create engaging clips, social media posts, or promotional content.
                 </p>
-                <YoutubeSummarizer />
-                <RecentSummarizedVideos videos={recentVideos} />
+                <YoutubeViralMomentsFinder />
+                <RecentExtractedVideos videos={recentVideos} />
               </div>
             </div>
           </div>
         </div>
         <RegisterCTA 
-          customTitle="Train an AI Chatbot from YouTube"
-          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
-          button="Create a YouTube Chatbot"
+          customTitle="Create an AI Chatbot from YouTube's Viral Moments"
+          description="Transform the most shareable moments from your favorite YouTube videos into an AI-powered chatbot. Build an assistant that can share viral content and engaging highlights, then embed it in your website or app for increased user interaction."
+          button="Create a Viral Moments Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
@@ -259,7 +259,7 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('summary');
+  const recentVideos = await getRecentYoutubeVideos('moments');
 
   return {
     props: {

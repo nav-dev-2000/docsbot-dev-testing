@@ -28,11 +28,19 @@ const footerNavigation = {
   ],
   comparisons: comparisons.slice(0, 8),
   tools2: [
-    ...freeTools.slice(0, 9).map(tool => ({
+    ...Object.entries(freeTools.reduce((acc, tool) => {
+      if (!acc[tool.category]) {
+        acc[tool.category] = [];
+      }
+      if (acc[tool.category].length < 2) {
+        acc[tool.category].push(tool);
+      }
+      return acc;
+    }, {})).flatMap(([_, tools]) => tools).map(tool => ({
       name: tool.name,
       href: tool.href,
     })),
-    { name: 'All Free Tools', href: '/tools' },
+    { name: 'All Free Tools →', href: '/tools' },
   ],
   industries,
   legal: [
@@ -111,7 +119,7 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-gray-900">Pages</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.pages.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>
@@ -121,7 +129,7 @@ export default function Footer() {
                 <h3 className="mt-6 text-base font-medium text-gray-900">Meta</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.legal.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>
@@ -133,7 +141,7 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-gray-900">Free AI Tools</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools2.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>
@@ -147,7 +155,7 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-gray-900">Other Products</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>
@@ -157,7 +165,7 @@ export default function Footer() {
                 <h3 className="mt-6 text-base font-medium text-gray-900">Comparisons</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.comparisons.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>
@@ -170,7 +178,7 @@ export default function Footer() {
                 <h3 className="text-base font-medium text-gray-900">For Industries</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.industries.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="leading-tight">
                       <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
                         {item.name}
                       </a>

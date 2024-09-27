@@ -12,11 +12,11 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
 const loadingText = [
-  'Fetching video details...',
-  'Analyzing content...',
-  'Generating summary...',
-  'Extracting key points...',
-  'Finalizing results...',
+  'Analyzing YouTube video...',
+  'Extracting key insights...',
+  'Crafting engaging tweets...',
+  'Adding viral potential...',
+  'Finalizing your tweets...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -40,14 +40,14 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeSummarizer = () => {
+const YoutubeTweetXPostGenerator = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
 
-  const summarizeVideo = async (url) => {
+  const generateTweets = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -55,9 +55,8 @@ const YoutubeSummarizer = () => {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
       
-      // Track invalid URL error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Tweet/X Post Generator',
         action: 'Error',
         error: 'Invalid URL',
         category: 'YouTube'
@@ -74,7 +73,7 @@ const YoutubeSummarizer = () => {
       },
       body: JSON.stringify({
         videoUrl: url,
-        type: 'summary',
+        type: 'tweets',
       }),
     })
 
@@ -84,21 +83,19 @@ const YoutubeSummarizer = () => {
         // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
         
-        // Track successful summarization
+        // Track successful tweet/X post generation
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
-          result: `https://docsbot.ai/tools/ai-youtube-summarizer/${videoId}`,
+          tool: 'YouTube Tweet/X Post Generator',
           action: 'Used',
           category: 'YouTube'
         })
         
-        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
+        await router.push(`/tools/ai-youtube-tweet-x-post-generator/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
         
-        // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Tweet/X Post Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'YouTube'
@@ -106,9 +103,8 @@ const YoutubeSummarizer = () => {
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
         
-        // Track error
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Tweet/X Post Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'YouTube'
@@ -117,9 +113,8 @@ const YoutubeSummarizer = () => {
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
       
-      // Track error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Tweet/X Post Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'YouTube'
@@ -138,15 +133,13 @@ const YoutubeSummarizer = () => {
             <div className="grid grid-cols-12 items-center gap-3">
               <input
                 type="text"
-                onChange={(e) => {
-                  setVideoUrl(e.target.value)
-                }}
+                onChange={(e) => setVideoUrl(e.target.value)}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
               />
               <button
-                onClick={() => summarizeVideo(videoUrl)}
+                onClick={() => generateTweets(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -156,7 +149,7 @@ const YoutubeSummarizer = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Summarize Video</>
+                  <>Generate Tweets/X Posts</>
                 )}
               </button>
             </div>
@@ -167,17 +160,17 @@ const YoutubeSummarizer = () => {
   )
 }
 
-const RecentSummarizedVideos = ({ videos }) => {
+const RecentExtractedVideos = ({ videos }) => {
   return (
     <div className="mx-auto py-4 mt-16">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Summarized Videos
+        Recently Analyzed Videos
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video) => (
           <Link
             key={video.id}
-            href={`/tools/ai-youtube-summarizer/${video.id}`}
+            href={`/tools/ai-youtube-tweet-x-post-generator/${video.id}`}
             className="block hover:opacity-75 transition-opacity"
           >
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -199,17 +192,17 @@ const RecentSummarizedVideos = ({ videos }) => {
   )
 }
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI YouTube to Tweet/X Post Generator - No Signup"
+        description="Generate engaging tweets and X posts from any YouTube video using AI. Create viral-worthy content to grow your followers and increase engagement on X."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-summarize.png',
-              alt: 'AI-Powered YouTube Video Summarizer',
+              url: 'https://docsbot.ai/images/og/youtube-tweet-generator.png',
+              alt: 'AI-Powered YouTube Tweet/X Post Generator',
             },
           ],
         }}
@@ -233,20 +226,20 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  Free AI YouTube to Tweet/X Post Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.
+                  Transform any YouTube video into a series of engaging Tweets or X posts using our Free no-login AI-powered tool. Generate viral-worthy content to grow your followers and increase engagement on X! Perfect for repurposing yours or other people's YouTube content for X/Twitter.
                 </p>
-                <YoutubeSummarizer />
-                <RecentSummarizedVideos videos={recentVideos} />
+                <YoutubeTweetXPostGenerator />
+                <RecentExtractedVideos videos={recentVideos} />
               </div>
             </div>
           </div>
         </div>
         <RegisterCTA 
-          customTitle="Train an AI Chatbot from YouTube"
-          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
+          customTitle="Create an AI Chatbot from YouTube"
+          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Easily build a knowledgeable assistant that can generate social media content based on video content, then embed it in your website or app."
           button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -259,7 +252,7 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('summary');
+  const recentVideos = await getRecentYoutubeVideos('tweets');
 
   return {
     props: {

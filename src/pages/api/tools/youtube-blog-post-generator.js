@@ -126,10 +126,14 @@ export default async function handler(req, res) {
                 content: {
                   type: 'string',
                   description:
-                    'The longform markdown-formatted body content of the blog post with NO main H1 title. The first line should be the introductory paragraph with no heading.',
+                    'The longform markdown-formatted body content of the blog post with NO main H1 title. The first line should be the introductory paragraph with no heading. 1000-1500 words.',
+                },
+                is_ai: {
+                  type: 'boolean',
+                  description: 'Wether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
                 },
               },
-              required: ['title', 'content'],
+              required: ['title', 'content', 'is_ai'],
               additionalProperties: false,
             },
           },

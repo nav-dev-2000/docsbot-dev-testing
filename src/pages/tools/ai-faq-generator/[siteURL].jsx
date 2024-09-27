@@ -138,7 +138,7 @@ const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) 
   return (
     <>
       <NextSeo
-        title={`AI-Generated Frequently Asked Questions for ${title}`}
+        title={`AI-Generated FAQs for ${title}`}
         description={summary}
         openGraph={{
           images: [
@@ -148,6 +148,7 @@ const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) 
             },
           ],
         }}
+        noindex={!is_ai}
       />
       <Header />
       <main>
@@ -232,6 +233,7 @@ export const getServerSideProps = async (context) => {
       screenCap: cachedData.screenCap,
       thumbnail: cachedData.thumbnail,
       siteURL: siteURL,
+      is_ai: cachedData.is_ai || false,
     },
   }
 }

@@ -4,8 +4,11 @@ import Header from '@/components/Header'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import { freeTools } from '@/constants/freeTools.constants'
 
 export default function FreeTools() {
+  const uniqueCategories = [...new Set(freeTools.map(tool => tool.category))];
+
   return (
     <>
       <NextSeo
@@ -40,7 +43,14 @@ export default function FreeTools() {
         
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <FreeToolsGrid />
+            {uniqueCategories.map(category => (
+              <div key={category} className="mb-12">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 text-center">
+                  {category} Tools
+                </h2>
+                <FreeToolsGrid category={category} showTitle={false} />
+              </div>
+            ))}
           </div>
         </div>
 

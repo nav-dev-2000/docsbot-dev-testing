@@ -14,8 +14,8 @@ import { getRecentYoutubeVideos } from '@/lib/tools'
 const loadingText = [
   'Fetching video details...',
   'Analyzing content...',
-  'Generating summary...',
-  'Extracting key points...',
+  'Extracting recommendations...',
+  'Generating insights...',
   'Finalizing results...',
 ]
 
@@ -40,14 +40,14 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeSummarizer = () => {
+const YoutubeRecommendationsExtractor = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
 
-  const summarizeVideo = async (url) => {
+  const extractRecommendations = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -57,7 +57,7 @@ const YoutubeSummarizer = () => {
       
       // Track invalid URL error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Recommendations Extractor',
         action: 'Error',
         error: 'Invalid URL',
         category: 'YouTube'
@@ -74,7 +74,7 @@ const YoutubeSummarizer = () => {
       },
       body: JSON.stringify({
         videoUrl: url,
-        type: 'summary',
+        type: 'recommendations',
       }),
     })
 
@@ -84,21 +84,21 @@ const YoutubeSummarizer = () => {
         // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
         
-        // Track successful summarization
+        // Track successful recommendation extraction
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
-          result: `https://docsbot.ai/tools/ai-youtube-summarizer/${videoId}`,
+          tool: 'YouTube Recommendations Extractor',
+          result: `https://docsbot.ai/tools/ai-youtube-recommendations-extractor/${videoId}`,
           action: 'Used',
           category: 'YouTube'
         })
         
-        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
+        await router.push(`/tools/ai-youtube-recommendations-extractor/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
         
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Recommendations Extractor',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'YouTube'
@@ -108,7 +108,7 @@ const YoutubeSummarizer = () => {
         
         // Track error
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Recommendations Extractor',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'YouTube'
@@ -119,7 +119,7 @@ const YoutubeSummarizer = () => {
       
       // Track error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Recommendations Extractor',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'YouTube'
@@ -146,7 +146,7 @@ const YoutubeSummarizer = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
               />
               <button
-                onClick={() => summarizeVideo(videoUrl)}
+                onClick={() => extractRecommendations(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -156,7 +156,7 @@ const YoutubeSummarizer = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Summarize Video</>
+                  <>Extract Recommendations</>
                 )}
               </button>
             </div>
@@ -167,17 +167,17 @@ const YoutubeSummarizer = () => {
   )
 }
 
-const RecentSummarizedVideos = ({ videos }) => {
+const RecentExtractedVideos = ({ videos }) => {
   return (
     <div className="mx-auto py-4 mt-16">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Summarized Videos
+        Recently Analyzed Videos
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video) => (
           <Link
             key={video.id}
-            href={`/tools/ai-youtube-summarizer/${video.id}`}
+            href={`/tools/ai-youtube-recommendations-extractor/${video.id}`}
             className="block hover:opacity-75 transition-opacity"
           >
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -199,17 +199,17 @@ const RecentSummarizedVideos = ({ videos }) => {
   )
 }
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI YouTube Video Recommendations Extractor - DocsBot AI"
+        description="Extract key recommendations and insights from any YouTube video using AI, including a one-sentence takeaway and 15-30 surprising, insightful recommendations."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-summarize.png',
-              alt: 'AI-Powered YouTube Video Summarizer',
+              url: 'https://docsbot.ai/images/og/youtube-references.png',
+              alt: 'AI-Powered YouTube Video Recommendations Extractor',
             },
           ],
         }}
@@ -233,20 +233,20 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  Free AI YouTube Video Recommendations Extractor
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.
+                  Extract valuable recommendations and insights from any YouTube video for free using our AI-powered tool. Discover a concise one-sentence takeaway and 15-30 surprising, insightful, and interesting recommendations to fuel your learning and decision-making process.
                 </p>
-                <YoutubeSummarizer />
-                <RecentSummarizedVideos videos={recentVideos} />
+                <YoutubeRecommendationsExtractor />
+                <RecentExtractedVideos videos={recentVideos} />
               </div>
             </div>
           </div>
         </div>
         <RegisterCTA 
           customTitle="Train an AI Chatbot from YouTube"
-          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
+          description="Transform your favorite YouTube videos or playlists into an AI-powered chatbot. Easily create a knowledgeable assistant that can provide recommendations and insights based on video content, then embed it in your website or app."
           button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -259,7 +259,7 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('summary');
+  const recentVideos = await getRecentYoutubeVideos('recommendations');
 
   return {
     props: {

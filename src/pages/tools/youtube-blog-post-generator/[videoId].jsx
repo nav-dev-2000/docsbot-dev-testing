@@ -123,7 +123,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
     <>
       <NextSeo
         title={`${summary.title} - AI-Generated Blog Post`}
-        description="An AI-genrated blog post from a YouTube video."
+        description="An AI-generated blog post from a YouTube video."
         openGraph={{
           images: [
             {
@@ -132,7 +132,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
             },
           ],
         }}
-        noindex
+        noindex={!summary.is_ai}
       />
       <Header />
       <main>
@@ -225,10 +225,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
           button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight">
-            Explore More Free Tools
-          </h2>
-          <FreeToolsGrid />
+          <FreeToolsGrid category="YouTube" />
         </div>
       </main>
       <Footer />

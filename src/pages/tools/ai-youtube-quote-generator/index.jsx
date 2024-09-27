@@ -14,8 +14,8 @@ import { getRecentYoutubeVideos } from '@/lib/tools'
 const loadingText = [
   'Fetching video details...',
   'Analyzing content...',
-  'Generating summary...',
-  'Extracting key points...',
+  'Extracting quotes...',
+  'Generating insightful quotes...',
   'Finalizing results...',
 ]
 
@@ -40,14 +40,14 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeSummarizer = () => {
+const YoutubeQuoteGenerator = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
 
-  const summarizeVideo = async (url) => {
+  const generateQuotes = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -55,9 +55,8 @@ const YoutubeSummarizer = () => {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
       
-      // Track invalid URL error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Quote Generator',
         action: 'Error',
         error: 'Invalid URL',
         category: 'YouTube'
@@ -74,31 +73,28 @@ const YoutubeSummarizer = () => {
       },
       body: JSON.stringify({
         videoUrl: url,
-        type: 'summary',
+        type: 'quotes',
       }),
     })
 
     try {
       const data = await response.json()
       if (response.ok) {
-        // Extract video ID from URL
         const videoId = url.split('v=')[1] || url.split('/').pop()
         
-        // Track successful summarization
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
-          result: `https://docsbot.ai/tools/ai-youtube-summarizer/${videoId}`,
+          tool: 'YouTube Quote Generator',
+          result: `https://docsbot.ai/tools/ai-youtube-quote-generator/${videoId}`,
           action: 'Used',
           category: 'YouTube'
         })
         
-        await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
+        await router.push(`/tools/ai-youtube-quote-generator/${videoId}`)
       } else if (response.status === 429) {
         setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
         
-        // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Quote Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'YouTube'
@@ -106,9 +102,8 @@ const YoutubeSummarizer = () => {
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
         
-        // Track error
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
+          tool: 'YouTube Quote Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'YouTube'
@@ -117,9 +112,8 @@ const YoutubeSummarizer = () => {
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
       
-      // Track error
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Summarizer',
+        tool: 'YouTube Quote Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'YouTube'
@@ -146,7 +140,7 @@ const YoutubeSummarizer = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
               />
               <button
-                onClick={() => summarizeVideo(videoUrl)}
+                onClick={() => generateQuotes(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -156,7 +150,7 @@ const YoutubeSummarizer = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Summarize Video</>
+                  <>Generate Quotes</>
                 )}
               </button>
             </div>
@@ -167,17 +161,17 @@ const YoutubeSummarizer = () => {
   )
 }
 
-const RecentSummarizedVideos = ({ videos }) => {
+const RecentQuotedVideos = ({ videos }) => {
   return (
     <div className="mx-auto py-4 mt-16">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Summarized Videos
+        Recently Quoted Videos
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {videos.map((video) => (
           <Link
             key={video.id}
-            href={`/tools/ai-youtube-summarizer/${video.id}`}
+            href={`/tools/ai-youtube-quote-generator/${video.id}`}
             className="block hover:opacity-75 transition-opacity"
           >
             <div className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -199,17 +193,17 @@ const RecentSummarizedVideos = ({ videos }) => {
   )
 }
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI YouTube Video Quote Extractor/Generator - DocsBot AI"
+        description="Generate insightful quotes from any YouTube video using AI. Extract key messages and memorable phrases effortlessly to copy and use anywhere."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-summarize.png',
-              alt: 'AI-Powered YouTube Video Summarizer',
+              url: 'https://docsbot.ai/images/og/youtube-quote-generator.png',
+              alt: 'AI-Powered YouTube Video Quote Generator',
             },
           ],
         }}
@@ -233,13 +227,13 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  AI-Powered YouTube Video Quote Generator/Extractor
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for free using our AI-powered YouTube video summarizer. Save time and boost productivity by quickly grasping key points from long videos.
+                  Extract insightful quotes from any YouTube video for free using our AI-powered quote generator/extractor. Quickly capture key messages and memorable phrases to copy, share, or use in your own content. Perfect for creating engaging quotes for your ads,website, blog, or social media.
                 </p>
-                <YoutubeSummarizer />
-                <RecentSummarizedVideos videos={recentVideos} />
+                <YoutubeQuoteGenerator />
+                <RecentQuotedVideos videos={recentVideos} />
               </div>
             </div>
           </div>
@@ -259,7 +253,7 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('summary');
+  const recentVideos = await getRecentYoutubeVideos('quotes');
 
   return {
     props: {
