@@ -81,17 +81,17 @@ const YoutubeBlogPostGenerator = () => {
       const data = await response.json()
       if (response.ok) {
         // Get video ID from the response
-        const { videoId } = data
+        const { id } = data
 
         // Track successful blog post generation
         posthog?.capture('Free Tool', {
           tool: 'YouTube Blog Post Generator',
-          result: `https://docsbot.ai/tools/youtube-blog-post-generator/${videoId}`,
+          result: `https://docsbot.ai/tools/youtube-blog-post-generator/${id}`,
           action: 'Used',
           category: 'YouTube',
         })
 
-        await router.push(`/tools/youtube-blog-post-generator/${videoId}`)
+        await router.push(`/tools/youtube-blog-post-generator/${id}`)
       } else if (response.status === 429) {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',

@@ -126,6 +126,7 @@ export const lookupYoutubeBlogPost = async (videoId) => {
   const data = ref.exists ? ref.data() : null
   if (data && data.createdAt) {
     data.createdAt = data.createdAt.toDate().toISOString()
+    data.id = videoId
   }
   return data
 }
