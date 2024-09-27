@@ -200,7 +200,7 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Quote Extractor/Generator - DocsBot AI"
+        title="Free AI YouTube Video Quote Extractor/Generator - No Login"
         description="Generate insightful quotes from any YouTube video using AI. Extract key messages and memorable phrases effortlessly to copy and use anywhere."
         openGraph={{
           images: [

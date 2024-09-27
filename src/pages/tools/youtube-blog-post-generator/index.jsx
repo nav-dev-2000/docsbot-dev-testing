@@ -214,7 +214,7 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Blog Post Generator - DocsBot AI"
+        title="Free AI-Powered YouTube Blog Post Generator - No Login"
         description="Generate a blog post or article from any YouTube video, then copy the post to your clipboard as Markdown or HTML."
         openGraph={{
           images: [

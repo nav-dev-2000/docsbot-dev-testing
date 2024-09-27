@@ -241,8 +241,8 @@ export default function ImageDescriptionPage() {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered Image Description Generator - DocsBot AI"
-        description="Generate detailed descriptions for any image using our AI-powered tool. Perfect for AI prompt generation, improving accessibility, creating image captions, or understanding image content."
+        title="Free AI Image Description Generator | No Login | Copy Results"
+        description="Generate detailed descriptions for any image using our AI-powered tool. Perfect for AI prompt generation, improving accessibility, alt text, creating image captions, or understanding image content."
         openGraph={{
           images: [
             {

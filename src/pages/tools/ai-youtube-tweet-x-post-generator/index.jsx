@@ -198,7 +198,7 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube to Tweet/X Post Generator - No Signup"
+        title="Free AI YouTube to Tweet/X Post Generator - No Login"
         description="Generate engaging tweets and X posts from any YouTube video using AI. Create viral-worthy content to grow your followers and increase engagement on X."
         openGraph={{
           images: [

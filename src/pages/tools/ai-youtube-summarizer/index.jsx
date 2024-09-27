@@ -205,7 +205,7 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Video Summarizer - DocsBot AI"
+        title="Free AI YouTube Video Summarizer - No Login"
         description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
         openGraph={{
           images: [

@@ -15,8 +15,8 @@ const loadingText = [
   'Analyzing video content...',
   'Identifying viral moments...',
   'Extracting key highlights...',
-  'Uncovering shareable clips...',
-  'Finalizing viral content results...',
+  'Uncovering shareable bits...',
+  'Finalizing viral content...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -205,8 +205,8 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Viral Moments Finder - DocsBot AI"
-        description="Discover the most shareable and viral moments in any YouTube video using AI. Identify content that has the potential to go viral and create engaging highlights."
+        title="Free AI YouTube Video Viral Moment Finder - No Login"
+        description="Discover the most shareable, potentially trending, and viral moments in any YouTube video using AI. Identify content that has the potential to go viral to repurpose for your own content."
         openGraph={{
           images: [
             {
@@ -238,12 +238,12 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
                   Free AI YouTube Video Viral Moments Finder
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Uncover the most shareable and potentially viral moments in
-                  any YouTube video using our AI-powered tool. Identify content
-                  that resonates with viewers, including surprising reveals,
-                  emotional peaks, and standout quotes. Use these viral moments
-                  to create engaging clips, social media posts, or promotional
-                  content.
+                  Uncover the most shareable, potentially trending or viral
+                  moments in any YouTube video using our free AI-powered tool.
+                  Identify content that is likely to resonate with viewers,
+                  including surprising reveals, emotional peaks, and standout
+                  quotes. Use these viral moments to create engaging clips,
+                  social media posts, or promotional content.
                 </p>
                 <YoutubeViralMomentsFinder />
                 <RecentExtractedVideos videos={recentVideos} />
@@ -252,9 +252,9 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
           </div>
         </div>
         <RegisterCTA
-          customTitle="Create an AI Chatbot from YouTube's Viral Moments"
+          customTitle="Create an AI Chatbot from YouTube"
           description="Transform the most shareable moments from your favorite YouTube videos into an AI-powered chatbot. Build an assistant that can share viral content and engaging highlights, then embed it in your website or app for increased user interaction."
-          button="Create a Viral Moments Chatbot"
+          button="Create a YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />

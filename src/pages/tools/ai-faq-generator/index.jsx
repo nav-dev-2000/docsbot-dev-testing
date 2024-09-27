@@ -212,8 +212,8 @@ export default function FAQGenerator({ FAQs }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered website FAQ Generator - DocsBot AI"
-        description="Generate a list of frequently asked questions about a website, powered by DocsBot AI."
+        title="Free AI FAQ Generator for Websites | No Login | Instant Results"
+        description="Create a comprehensive FAQ for any website instantly with our free AI tool. No sign-up needed. Generate frequently asked questions and answers for your site to boost SEO and user engagement."
         openGraph={{
           images: [
             {

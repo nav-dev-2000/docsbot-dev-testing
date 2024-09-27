@@ -291,7 +291,7 @@ export default function Calculate() {
   return (
     <>
       <NextSeo
-        title="OpenAI & other LLM API Pricing Calculator - DocsBot AI"
+        title="OpenAI & other LLM API Pricing Calculator | Free, No Login"
         description="Calculate and compare the cost of using OpenAI, Azure, Anthropic, Llama 3, Google Gemini, Mistral, and Cohere APIs with our powerful FREE pricing calculator."
         openGraph={{
           images: [

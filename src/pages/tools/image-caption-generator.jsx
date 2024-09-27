@@ -279,8 +279,8 @@ export default function ImageCaptionPage() {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered Image Caption Generator - DocsBot AI"
-        description="Generate creative captions for any image using our AI-powered tool. Perfect for social media posts, content creation, or adding engaging descriptions to your images."
+        title="Free AI Image Caption Generator | No Login | 13+ Tone Options"
+        description="Generate creative captions for any image using our no-signup AI tool. Perfect for social media posts, content creation, or adding engaging descriptions to your images."
         openGraph={{
           images: [
             {

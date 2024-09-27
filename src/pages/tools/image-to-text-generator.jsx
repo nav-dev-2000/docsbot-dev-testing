@@ -248,8 +248,8 @@ export default function ImageToTextPage() {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered Image to Text Generator - DocsBot AI"
-        description="Extract text from any image using our AI-powered tool. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos."
+        title="Free AI Image to Text Extractor | No Login | Copy Formatted Results"
+        description="Extract text from any image using our AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos to repurpose in other content."
         openGraph={{
           images: [
             {

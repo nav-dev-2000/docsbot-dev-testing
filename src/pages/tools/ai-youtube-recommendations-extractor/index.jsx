@@ -208,8 +208,8 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Recommendations Extractor - DocsBot AI"
-        description="Extract key recommendations and insights from any YouTube video using AI, including a one-sentence takeaway and 15-30 surprising, insightful recommendations."
+        title="Free AI YouTube Video Recommendations Extractor - No Login"
+        description="Unlock valuable insights from any YouTube video with this free AI tool. Get a concise takeaway and 15-30 actionable recommendations to enhance your learning and decision-making. No signup required, start extracting wisdom today!"
         openGraph={{
           images: [
             {

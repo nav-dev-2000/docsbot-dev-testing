@@ -203,8 +203,8 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Key Points Finder - DocsBot AI"
-        description="Extract key ideas and insights from any YouTube video using AI, then copy the results to your clipboard."
+        title="Free AI YouTube Video Key Points Finder - No Login"
+        description="Extract key ideas and insights from any YouTube video with no signup using AI, then copy the results to your clipboard."
         openGraph={{
           images: [
             {

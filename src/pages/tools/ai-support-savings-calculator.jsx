@@ -206,7 +206,7 @@ export default function Calculate() {
   return (
     <>
       <NextSeo
-        title="AI-Powered Support Chatbot Savings Calculator - DocsBot AI"
+        title="AI Customer Support Chatbot Savings Calculator - DocsBot AI"
         description="Calculate how much you can save in support hours and cost by automating your customer support using a custom GPT chatbot powered by DocsBot AI."
         openGraph={{
           images: [
@@ -236,11 +236,11 @@ export default function Calculate() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered Support Chatbot Savings Calculator
+                  AI Customer Support Chatbot Savings Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Calculate the potential savings in support hours and cost by implementing a custom
-                  GPT chatbot powered by DocsBot AI to automate your customer support.
+                  Calculate the potential savings in customer service support hours and cost by implementing a custom
+                  ChatGPT chatbot powered by DocsBot AI to automate your customer support.
                 </p>
               </div>
               <AiSupportSavingsCalculator />
