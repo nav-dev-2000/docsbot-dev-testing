@@ -249,7 +249,7 @@ export default function ImageToTextPage() {
     <>
       <NextSeo
         title="Free AI Image to Text Extractor | No Login | Copy Formatted Results"
-        description="Extract text from any image using our AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos to repurpose in other content."
+        description="Extract text from any image using our OCR AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos to repurpose in other content."
         openGraph={{
           images: [
             {

@@ -210,7 +210,7 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-viral-moment.png',
+              url: 'https://docsbot.ai/images/og/youtube-moments.png',
               alt: 'AI-Powered YouTube Video Viral Moments Finder',
             },
           ],

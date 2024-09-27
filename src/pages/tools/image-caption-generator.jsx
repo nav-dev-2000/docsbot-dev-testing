@@ -279,7 +279,7 @@ export default function ImageCaptionPage() {
   return (
     <>
       <NextSeo
-        title="Free AI Image Caption Generator | No Login | 13+ Tone Options"
+        title="Free AI Image Caption Generator | No Login | 13+ Tones/Vibes"
         description="Generate creative captions for any image using our no-signup AI tool. Perfect for social media posts, content creation, or adding engaging descriptions to your images."
         openGraph={{
           images: [

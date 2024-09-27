@@ -203,7 +203,7 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-tweet-generator.png',
+              url: 'https://docsbot.ai/images/og/youtube-tweets.png',
               alt: 'AI-Powered YouTube Tweet/X Post Generator',
             },
           ],

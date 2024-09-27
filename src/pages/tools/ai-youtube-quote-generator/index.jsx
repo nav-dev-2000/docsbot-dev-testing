@@ -205,7 +205,7 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-quote-generator.png',
+              url: 'https://docsbot.ai/images/og/youtube-quotes.png',
               alt: 'AI-Powered YouTube Video Quote Generator',
             },
           ],
