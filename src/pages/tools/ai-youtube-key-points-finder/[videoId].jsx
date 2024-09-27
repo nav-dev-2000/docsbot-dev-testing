@@ -201,7 +201,7 @@ const YoutubeIdeasPage = ({ ideas, videoId }) => {
                     href="/tools/ai-youtube-key-points-finder"
                     className="mt-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-xl font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                   >
-                    Extract ideas from another video
+                    Extract key points from another video
                   </Link>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const YoutubeIdeasPage = ({ ideas, videoId }) => {
         <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
-          button="Create a YouTube Chatbot"
+          button="Create a Free YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />

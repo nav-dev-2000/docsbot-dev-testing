@@ -54,13 +54,13 @@ const YoutubeViralMomentsFinder = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
-      
+
       // Track invalid URL error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Viral Moments Finder',
         action: 'Error',
         error: 'Invalid URL',
-        category: 'YouTube'
+        category: 'YouTube',
       })
       return
     }
@@ -81,48 +81,50 @@ const YoutubeViralMomentsFinder = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        // Extract video ID from URL
-        const videoId = url.split('v=')[1] || url.split('/').pop()
-        
+        // Get video ID from the response
+        const { videoId } = data
+
         // Track successful idea extraction
         posthog?.capture('Free Tool', {
           tool: 'YouTube Viral Moments Finder',
           result: `https://docsbot.ai/tools/ai-youtube-viral-moment-finder/${videoId}`,
           action: 'Used',
-          category: 'YouTube'
+          category: 'YouTube',
         })
-        
+
         await router.push(`/tools/ai-youtube-viral-moment-finder/${videoId}`)
       } else if (response.status === 429) {
-        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
-        
+        setErrorText(
+          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+        )
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'YouTube Viral Moments Finder',
           action: 'Error',
           error: 'Usage Limit Exceeded',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
-        
+
         // Track error
         posthog?.capture('Free Tool', {
           tool: 'YouTube Viral Moments Finder',
           action: 'Error',
           error: data.message || 'Unknown error',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
-      
+
       // Track error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Viral Moments Finder',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
-        category: 'YouTube'
+        category: 'YouTube',
       })
     }
 
@@ -143,7 +145,7 @@ const YoutubeViralMomentsFinder = () => {
                 }}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
-                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
+                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:bg-gray-100 disabled:opacity-50 sm:col-span-8 sm:text-sm"
               />
               <button
                 onClick={() => findViralMoments(videoUrl)}
@@ -169,25 +171,25 @@ const YoutubeViralMomentsFinder = () => {
 
 const RecentExtractedVideos = ({ videos }) => {
   return (
-    <div className="mx-auto py-4 mt-16">
+    <div className="mx-auto mt-16 py-4">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
         Recently Analyzed Videos
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((video) => (
           <Link
             key={video.id}
             href={`/tools/ai-youtube-viral-moment-finder/${video.id}`}
-            className="block hover:opacity-75 transition-opacity"
+            className="block transition-opacity hover:opacity-75"
           >
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+            <div className="overflow-hidden rounded-lg bg-white shadow-md">
               <img
                 src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                 alt={video.title}
-                className="w-full h-36 object-cover"
+                className="h-36 w-full object-cover"
               />
               <div className="p-4">
-                <h3 className="text-sm font-medium text-gray-900 truncate">
+                <h3 className="truncate text-sm font-medium text-gray-900">
                   {video.title}
                 </h3>
               </div>
@@ -236,7 +238,12 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
                   Free AI YouTube Video Viral Moments Finder
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Uncover the most shareable and potentially viral moments in any YouTube video using our AI-powered tool. Identify content that resonates with viewers, including surprising reveals, emotional peaks, and standout quotes. Use these viral moments to create engaging clips, social media posts, or promotional content.
+                  Uncover the most shareable and potentially viral moments in
+                  any YouTube video using our AI-powered tool. Identify content
+                  that resonates with viewers, including surprising reveals,
+                  emotional peaks, and standout quotes. Use these viral moments
+                  to create engaging clips, social media posts, or promotional
+                  content.
                 </p>
                 <YoutubeViralMomentsFinder />
                 <RecentExtractedVideos videos={recentVideos} />
@@ -244,7 +251,7 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Create an AI Chatbot from YouTube's Viral Moments"
           description="Transform the most shareable moments from your favorite YouTube videos into an AI-powered chatbot. Build an assistant that can share viral content and engaging highlights, then embed it in your website or app for increased user interaction."
           button="Create a Viral Moments Chatbot"
@@ -259,7 +266,7 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('moments');
+  const recentVideos = await getRecentYoutubeVideos('moments')
 
   return {
     props: {

@@ -81,8 +81,8 @@ const YoutubeIdeaExtractor = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        // Extract video ID from URL
-        const videoId = url.split('v=')[1] || url.split('/').pop()
+        // Get video ID from the response
+        const { videoId } = data;
         
         // Track successful idea extraction
         posthog?.capture('Free Tool', {
@@ -247,7 +247,7 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
         <RegisterCTA 
           customTitle="Train an AI Chatbot from YouTube"
           description="Transform your favorite YouTube videos or playlists into an AI-powered chatbot. Easily create a knowledgeable assistant that can answer questions and provide insights based on video content, then embed it in your website or app."
-          button="Create a YouTube Chatbot"
+          button="Create a Free YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />

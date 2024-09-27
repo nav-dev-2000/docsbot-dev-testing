@@ -54,13 +54,13 @@ const YoutubeRecommendationsExtractor = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
-      
+
       // Track invalid URL error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Recommendations Extractor',
         action: 'Error',
         error: 'Invalid URL',
-        category: 'YouTube'
+        category: 'YouTube',
       })
       return
     }
@@ -82,47 +82,52 @@ const YoutubeRecommendationsExtractor = () => {
       const data = await response.json()
       if (response.ok) {
         // Extract video ID from URL
-        const videoId = url.split('v=')[1] || url.split('/').pop()
-        
+        // Get video ID from the response
+        const { videoId } = data
+
         // Track successful recommendation extraction
         posthog?.capture('Free Tool', {
           tool: 'YouTube Recommendations Extractor',
           result: `https://docsbot.ai/tools/ai-youtube-recommendations-extractor/${videoId}`,
           action: 'Used',
-          category: 'YouTube'
+          category: 'YouTube',
         })
-        
-        await router.push(`/tools/ai-youtube-recommendations-extractor/${videoId}`)
+
+        await router.push(
+          `/tools/ai-youtube-recommendations-extractor/${videoId}`,
+        )
       } else if (response.status === 429) {
-        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
-        
+        setErrorText(
+          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+        )
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'YouTube Recommendations Extractor',
           action: 'Error',
           error: 'Usage Limit Exceeded',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
-        
+
         // Track error
         posthog?.capture('Free Tool', {
           tool: 'YouTube Recommendations Extractor',
           action: 'Error',
           error: data.message || 'Unknown error',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
-      
+
       // Track error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Recommendations Extractor',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
-        category: 'YouTube'
+        category: 'YouTube',
       })
     }
 
@@ -143,7 +148,7 @@ const YoutubeRecommendationsExtractor = () => {
                 }}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
-                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
+                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:bg-gray-100 disabled:opacity-50 sm:col-span-8 sm:text-sm"
               />
               <button
                 onClick={() => extractRecommendations(videoUrl)}
@@ -169,25 +174,25 @@ const YoutubeRecommendationsExtractor = () => {
 
 const RecentExtractedVideos = ({ videos }) => {
   return (
-    <div className="mx-auto py-4 mt-16">
+    <div className="mx-auto mt-16 py-4">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
         Recently Analyzed Videos
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((video) => (
           <Link
             key={video.id}
             href={`/tools/ai-youtube-recommendations-extractor/${video.id}`}
-            className="block hover:opacity-75 transition-opacity"
+            className="block transition-opacity hover:opacity-75"
           >
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+            <div className="overflow-hidden rounded-lg bg-white shadow-md">
               <img
                 src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                 alt={video.title}
-                className="w-full h-36 object-cover"
+                className="h-36 w-full object-cover"
               />
               <div className="p-4">
-                <h3 className="text-sm font-medium text-gray-900 truncate">
+                <h3 className="truncate text-sm font-medium text-gray-900">
                   {video.title}
                 </h3>
               </div>
@@ -236,7 +241,11 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
                   Free AI YouTube Video Recommendations Extractor
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Extract valuable recommendations and insights from any YouTube video for free using our AI-powered tool. Discover a concise one-sentence takeaway and 15-30 surprising, insightful, and interesting recommendations to fuel your learning and decision-making process.
+                  Extract valuable recommendations and insights from any YouTube
+                  video for free using our AI-powered tool. Discover a concise
+                  one-sentence takeaway and 15-30 surprising, insightful, and
+                  interesting recommendations to fuel your learning and
+                  decision-making process.
                 </p>
                 <YoutubeRecommendationsExtractor />
                 <RecentExtractedVideos videos={recentVideos} />
@@ -244,10 +253,10 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Transform your favorite YouTube videos or playlists into an AI-powered chatbot. Easily create a knowledgeable assistant that can provide recommendations and insights based on video content, then embed it in your website or app."
-          button="Create a YouTube Chatbot"
+          button="Create a Free YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
@@ -259,7 +268,7 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('recommendations');
+  const recentVideos = await getRecentYoutubeVideos('recommendations')
 
   return {
     props: {

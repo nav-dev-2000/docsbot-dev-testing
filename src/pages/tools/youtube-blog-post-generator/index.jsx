@@ -54,13 +54,13 @@ const YoutubeBlogPostGenerator = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
-      
+
       // Track invalid URL error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Blog Post Generator',
         action: 'Error',
         error: 'Invalid URL',
-        category: 'YouTube'
+        category: 'YouTube',
       })
       return
     }
@@ -80,48 +80,50 @@ const YoutubeBlogPostGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        // Extract video ID from URL
-        const videoId = url.split('v=')[1] || url.split('/').pop()
-        
+        // Get video ID from the response
+        const { videoId } = data
+
         // Track successful blog post generation
         posthog?.capture('Free Tool', {
           tool: 'YouTube Blog Post Generator',
           result: `https://docsbot.ai/tools/youtube-blog-post-generator/${videoId}`,
           action: 'Used',
-          category: 'YouTube'
+          category: 'YouTube',
         })
-        
+
         await router.push(`/tools/youtube-blog-post-generator/${videoId}`)
       } else if (response.status === 429) {
-        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
-        
+        setErrorText(
+          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+        )
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'YouTube Blog Post Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
-        
+
         // Track error
         posthog?.capture('Free Tool', {
           tool: 'YouTube Blog Post Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
-      
+
       // Track error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Blog Post Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
-        category: 'YouTube'
+        category: 'YouTube',
       })
     }
 
@@ -142,7 +144,7 @@ const YoutubeBlogPostGenerator = () => {
                 }}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
-                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
+                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:bg-gray-100 disabled:opacity-50 sm:col-span-8 sm:text-sm"
               />
               <button
                 onClick={() => generateBlogPost(videoUrl)}
@@ -168,25 +170,25 @@ const YoutubeBlogPostGenerator = () => {
 
 const RecentVideoBlogPosts = ({ blogPosts }) => {
   return (
-    <div className="mx-auto py-4 mt-16">
+    <div className="mx-auto mt-16 py-4">
       <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
         Recently Generated Video Blog Posts
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post) => (
           <Link
             key={post.id}
             href={`/tools/youtube-blog-post-generator/${post.id}`}
-            className="block hover:opacity-75 transition-opacity"
+            className="block transition-opacity hover:opacity-75"
           >
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+            <div className="overflow-hidden rounded-lg bg-white shadow-md">
               <img
                 src={`https://img.youtube.com/vi/${post.id}/mqdefault.jpg`}
                 alt={post.title}
-                className="w-full h-36 object-cover"
+                className="h-36 w-full object-cover"
               />
               <div className="p-4">
-                <h3 className="text-sm font-medium text-gray-900 truncate">
+                <h3 className="truncate text-sm font-medium text-gray-900">
                   {post.title}
                 </h3>
               </div>
@@ -199,7 +201,7 @@ const RecentVideoBlogPosts = ({ blogPosts }) => {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentBlogPosts = await getRecentVideoBlogPosts();
+  const recentBlogPosts = await getRecentVideoBlogPosts()
 
   return {
     props: {
@@ -245,7 +247,11 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
                   AI-Powered YouTube Blog Post Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Transform any YouTube video into a well-structured blog post for free using our AI-powered generator. Save time and effortlessly create engaging content from video sources that can be copied as Markdown, HTML, or text to be pasted into any blog.
+                  Transform any YouTube video into a well-structured blog post
+                  for free using our AI-powered generator. Save time and
+                  effortlessly create engaging content from video sources that
+                  can be copied as Markdown, HTML, or text to be pasted into any
+                  blog.
                 </p>
                 <YoutubeBlogPostGenerator />
                 <RecentVideoBlogPosts blogPosts={recentBlogPosts} />
@@ -253,10 +259,10 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
-          button="Create a YouTube Chatbot"
+          button="Create a Free YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />

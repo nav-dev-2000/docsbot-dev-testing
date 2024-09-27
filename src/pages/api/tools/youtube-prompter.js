@@ -582,7 +582,10 @@ export default async function handler(req, res) {
       )
 
       await saveYoutubeData(ip, videoId, type, metadata.title, responseData)
-      return res.status(200).json(responseData)
+      return res.status(200).json({
+        ...responseData,
+        videoId, // Add videoId to the response
+      })
     } else if (req.method === 'GET') {
       const { videoId, type } = req.query
 
