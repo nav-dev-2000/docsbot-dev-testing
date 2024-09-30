@@ -188,7 +188,7 @@ const ImageCaptionGenerator = () => {
               </div>
               <div className="mb-4">
                 <label className="mb-2 block text-sm font-medium text-gray-700">
-                  Select a Vibe
+                  Select a Vibe/Tone
                 </label>
                 <div className="flex flex-wrap justify-center gap-2">
                   {vibeOptions.map((vibe) => (

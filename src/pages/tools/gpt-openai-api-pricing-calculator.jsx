@@ -818,9 +818,6 @@ export default function Calculate() {
           {/* Add FreeToolsGrid section with white background */}
           <div className="bg-white py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-gray-900">
-                Explore More Free Tools
-              </h2>
               <FreeToolsGrid />
             </div>
           </div>

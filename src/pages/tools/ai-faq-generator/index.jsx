@@ -256,9 +256,6 @@ export default function FAQGenerator({ FAQs }) {
         </div>
         <RegisterCTA />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
-            Explore More Free Tools
-          </h2>
           <FreeToolsGrid />
         </div>
       </main>
