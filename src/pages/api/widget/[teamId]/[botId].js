@@ -36,9 +36,12 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       const team = await getTeam(teamId)
+      if (!team) {
+        return res.status(404).json({ message: "Team not found." })
+      }
+
       const bot = await getBot(teamId, botId)
       if (bot) {
-
         if (bot.status !== 'ready') {
           return res.status(409).json({ message: 'Bot is not ready.' })
         }
@@ -65,11 +68,11 @@ export default async function handler(req, res) {
 
         return res.json(widget)
       } else {
-        return res.status(404).json({ message: "botId doesn't exist." })
+        return res.status(404).json({ message: "Bot not found." })
       }
     } catch (error) {
       console.warn('Error getting document:', error)
-      return res.status(500).json({ message: error })
+      return res.status(500).json({ message: error.message })
     }
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })

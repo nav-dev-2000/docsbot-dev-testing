@@ -54,30 +54,32 @@ const BotSearch = ({ team, bot, setErrorText }) => {
         'Content-Type': 'application/json',
       }
       if (bot.privacy === 'private') {
-        //add token to request
         headers['Authorization'] = 'Bearer ' + bot.signature
       }
 
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(searchPayload),
-      })
-      if (response.ok) {
-        const data = await response.json()
-        setSearchData(data)
-        setErrorText('')
-        setLoading(false)
-      } else {
-        try {
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(searchPayload),
+        })
+
+        if (response.ok) {
           const data = await response.json()
-          setErrorText(data?.error || 'Something went wrong, please try again.')
-          setLoading(false)
-        } catch (e) {
-          setErrorText('Error ' + response.status + ', please try again.')
-          setLoading(false)
+          setSearchData(data)
+          setErrorText('')
+        } else {
+          const errorData = await response.json()
+          setErrorText(errorData?.error || `Error ${response.status}: ${response.statusText}`)
         }
+      } catch (error) {
+        console.error('Fetch error:', error)
+        setErrorText('Network error. Please check your connection and try again.')
+      } finally {
+        setLoading(false)
       }
+    } else {
+      setLoading(false)
     }
   }
 

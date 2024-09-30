@@ -72,8 +72,14 @@
             "memory": 2048,
             "maxDuration": 300
         },
+        "src/pages/api/cron/crawler.js": {
+            "maxDuration": 300
+        },
         "src/pages/api/cron/updateCounts.js": {
             "maxDuration": 300
+        },
+        "src/pages/api/tools/youtube-prompter.js": {
+            "maxDuration": 120
         }
     },
     "rewrites": [
