@@ -132,7 +132,7 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
   )
 }
 
-const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL }) => {
+const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL, is_ai }) => {
   const [site] = useState(new URL(siteURL))
 
   return (
