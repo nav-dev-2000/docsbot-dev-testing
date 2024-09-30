@@ -12,6 +12,8 @@ import {
   PresentationChartBarIcon,
   TableCellsIcon,
   CheckIcon,
+  XCircleIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -89,7 +91,7 @@ const ModalCarbonSourceInfo = ({ open, setOpen }) => {
                       <img
                         src="/images/carbon-delete.png"
                         alt="Carbon delete"
-                        className="sm:w-1/2 mx-auto border border-solid border-slate-200 rounded-lg"
+                        className="mx-auto rounded-lg border border-solid border-slate-200 sm:w-1/2"
                       />
                     </div>
                     <div className="pb-2">
@@ -153,6 +155,8 @@ export default function ModalSource({
   const [questions, setQuestions] = useState(source?.faqs ?? [])
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filteredUrls, setFilteredUrls] = useState(source?.indexedUrls ?? [])
 
   useEffect(() => {
     if (!team || !user) return
@@ -419,6 +423,18 @@ export default function ModalSource({
     }
   }
 
+  useEffect(() => {
+    if (!source?.indexedUrls) return
+
+    const lowercasedTerm = searchTerm.toLowerCase()
+    const filtered = source.indexedUrls.filter(
+      (item) =>
+        item.title.toLowerCase().includes(lowercasedTerm) ||
+        (item.source && item.source.toLowerCase().includes(lowercasedTerm)),
+    )
+    setFilteredUrls(filtered)
+  }, [searchTerm, source?.indexedUrls])
+
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
@@ -470,7 +486,7 @@ export default function ModalSource({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl max-h-[calc(100vh-4rem)] flex flex-col">
+                <Dialog.Panel className="relative flex max-h-[calc(100vh-4rem)] transform flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
                   <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:flex">
                     <button
                       type="button"
@@ -484,7 +500,7 @@ export default function ModalSource({
                     </button>
                   </div>
 
-                  <div className="rounded-lg bg-white p-8 shadow flex-grow overflow-y-auto">
+                  <div className="flex-grow overflow-y-auto rounded-lg bg-white p-8 shadow">
                     <div className="pb-2">
                       <h3 className="inline-flex text-2xl font-bold">
                         {source?.title ?? source?.url}
@@ -569,23 +585,74 @@ export default function ModalSource({
                           </em>
                           :
                         </h2>
-                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-200 bg-slate-100 p-2">
-                          <ul role="list" className="space-y-2">
-                            {source?.indexedUrls.map((item, index) => (
-                              <li
-                                key={index + item.source}
-                                className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-4 py-1 shadow"
+                        <div className="mb-2">
+                          <label htmlFor="search" className="sr-only">
+                            Search
+                          </label>
+                          <div className="relative flex items-center md:max-w-xs">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-2">
+                              <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
+                            </div>
+                            <input
+                              id="filter-results"
+                              name="filter-results"
+                              type="text"
+                              value={searchTerm}
+                              onChange={(e) => setSearchTerm(e.target.value)}
+                              className="block w-full rounded-md border-0 py-1 pl-8 pr-8 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-xs sm:leading-6"
+                              placeholder="Filter list..."
+                            />
+                            {searchTerm && (
+                              <button
+                                onClick={() => setSearchTerm('')}
+                                className="absolute inset-y-0 right-0 flex items-center pr-2"
                               >
-                                <Link
-                                  href={item.source || ''}
-                                  target="_blank"
-                                  className="block w-full text-sm"
+                                <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                        <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-400 bg-slate-100 p-2">
+                          {filteredUrls.length > 0 ? (
+                            <ul
+                              role="list"
+                              className="grid grid-cols-1 gap-2 md:grid-cols-2"
+                            >
+                              {filteredUrls.map((item, index) => (
+                                <li
+                                  key={index + item.source}
+                                  className="overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white px-3 py-1 shadow"
                                 >
-                                  {item.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                                  {item.source ? (
+                                    <Link
+                                      href={item.source}
+                                      target="_blank"
+                                      className="block w-full overflow-hidden overflow-ellipsis text-xs hover:underline"
+                                    >
+                                      {item.title}
+                                    </Link>
+                                  ) : (
+                                    <span className="block w-full overflow-hidden overflow-ellipsis text-xs">
+                                      {item.title}
+                                    </span>
+                                  )}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <div className="flex items-center justify-center text-center">
+                              <span className="text-sm text-gray-500">
+                                No results found
+                              </span>
+                              <button
+                                onClick={() => setSearchTerm('')}
+                                className="ml-2 text-sm text-cyan-600 hover:text-cyan-700"
+                              >
+                                <XCircleIcon className="mr-0.5 inline h-3 w-3" />
+                                Clear filter
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </>
                     )}
@@ -597,8 +664,8 @@ export default function ModalSource({
                             {typeof source.carbonFiles === 'number'
                               ? `(${source.carbonFiles})`
                               : Array.isArray(source.carbonFiles)
-                              ? `(${source.carbonFiles.length})`
-                              : 'Fetching...'}
+                                ? `(${source.carbonFiles.length})`
+                                : 'Fetching...'}
                           </em>
                         </h2>
                       </>
@@ -615,14 +682,16 @@ export default function ModalSource({
                         </div>
                         {source.type === 'youtube' && (
                           <div className="mt-2 text-xs italic text-red-900">
-                            Note: Not every YouTube video has transcripts available, especially for older/unpopular/unlisted videos.
+                            Note: Not every YouTube video has transcripts
+                            available, especially for older/unpopular/unlisted
+                            videos.
                           </div>
                         )}
                       </>
                     )}
                     {!toDelete && (
-                      <div className="mt-6 flex flex-col-reverse sm:flex-row items-end justify-between space-y-0 sm:space-y-0">
-                        <div className="items-middle flex flex-shrink-0 justify-end sm:mt-0 mt-8">
+                      <div className="mt-6 flex flex-col-reverse items-end justify-between space-y-0 sm:flex-row sm:space-y-0">
+                        <div className="items-middle mt-8 flex flex-shrink-0 justify-end sm:mt-0">
                           {(source?.status === 'ready' ||
                             source?.status === 'failed') && (
                             <button
@@ -708,7 +777,7 @@ export default function ModalSource({
                           </div>
                         )}
                         {!showInterval && isCarbonSourceType(source?.type) && (
-                          <div className="flex flex-col sm:flex-row items-center justify-between sm:justify-end space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+                          <div className="flex w-full flex-col items-center justify-between space-y-4 sm:flex-row sm:justify-end sm:space-x-4 sm:space-y-0">
                             <CarbonConnect
                               tokenFetcher={carbonTokenFetcher}
                               orgName="DocsBot AI"
@@ -750,7 +819,7 @@ export default function ModalSource({
                               onClick={() => {
                                 setCarbonInfoOpen(true)
                               }}
-                              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+                              className="inline-flex w-full items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:w-auto"
                             >
                               <>
                                 <source.icon className="h-5 w-5" />
@@ -761,7 +830,7 @@ export default function ModalSource({
                               <button
                                 type="button"
                                 className={
-                                  'w-full sm:w-auto inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                  'inline-flex w-full items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75 sm:w-auto' +
                                   (canModify
                                     ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
                                     : ' cursor-not-allowed border-gray-200 bg-gray-300')
