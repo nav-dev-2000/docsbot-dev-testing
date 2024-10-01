@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
-import { Fragment, useState, useEffect, useMemo } from 'react'
+import { Fragment, useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
@@ -14,6 +14,12 @@ import {
   ChevronUpDownIcon,
   XCircleIcon,
 } from '@heroicons/react/20/solid'
+import Chart from 'chart.js/auto'
+import { Bar } from 'react-chartjs-2'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
+
+// Register Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const pricing = {
   'Chat/Completion Models': [
@@ -64,6 +70,22 @@ const pricing = {
       provider: 'OpenAI',
       input_token_cost_per_million: 5,
       output_token_cost_per_million: 20,
+    },
+    {
+      model_name: 'GPT-4o Realtime (Audio)',
+      model_slug: 'gpt-4o-realtime-preview',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 100,
+      output_token_cost_per_million: 200,
+    },
+    {
+      model_name: 'GPT-4o Audio (Audio)',
+      model_slug: 'gpt-4o-audio-preview',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 100,
+      output_token_cost_per_million: 200,
     },
     {
       model_name: 'GPT-4 Turbo',
@@ -163,34 +185,39 @@ const pricing = {
     },
     {
       model_name: 'Gemini 1.5 Flash',
+      model_slug: 'gemini-1.5-flash',
       context: '128K',
       provider: 'Google',
       input_token_cost_per_million: 0.075,
-      output_token_cost_per_million: 0.03,
+      output_token_cost_per_million: 0.3,
     },
     {
       model_name: 'Gemini 1.5 Flash',
+      model_slug: 'gemini-1.5-flash',
       context: '1M',
       provider: 'Google',
-      input_token_cost_per_million: 0.015,
-      output_token_cost_per_million: 0.06,
+      input_token_cost_per_million: 0.15,
+      output_token_cost_per_million: 0.6,
     },
     {
       model_name: 'Gemini 1.5 Pro',
+      model_slug: 'gemini-1.5-pro',
       context: '128K',
       provider: 'Google',
       input_token_cost_per_million: 1.25,
-      output_token_cost_per_million: 2.5,
+      output_token_cost_per_million: 5,
     },
     {
       model_name: 'Gemini 1.5 Pro',
+      model_slug: 'gemini-1.5-pro',
       context: '2M',
       provider: 'Google',
-      input_token_cost_per_million: 5,
+      input_token_cost_per_million: 2.5,
       output_token_cost_per_million: 10,
     },
     {
       model_name: 'Gemini 1.0 Pro',
+      model_slug: 'gemini-1.0-pro',
       context: '32K',
       provider: 'Google',
       input_token_cost_per_million: 0.5,
@@ -324,9 +351,11 @@ const pricing = {
       input_token_cost_per_million: 0.1,
     },
     {
-      model_name: 'PaLM 2',
+      model_name: 'Gemini Text Embedding',
+      model_slug: 'text-embedding-004',
       provider: 'Google',
-      input_token_cost_per_million: 0.4,
+      input_token_cost_per_million: 0.1,
+      context: '2K'
     },
     {
       model_name: 'Embed v3.0',
@@ -370,11 +399,21 @@ const modelTypes = [
 export default function Calculate() {
   const [inputTokens, setInputTokens] = useState(1000)
   const [outputTokens, setOutputTokens] = useState(500)
-  const [apiCalls, setAPICalls] = useState(100)
+  const [apiCalls, setAPICalls] = useState(1000)
   const [type, setType] = useState(radioOptions[0])
   const posthog = usePostHog()
   const [selectedProvider, setSelectedProvider] = useState(providers[0])
   const [selectedModelType, setSelectedModelType] = useState(modelTypes[0])
+
+  // Add this ref
+  const chartRefs = useRef({})
+
+  // Add this function
+  const setChartRef = useCallback((element, modelType) => {
+    if (element) {
+      chartRefs.current[modelType] = element
+    }
+  }, [])
 
   const getCost = (model) => {
     return (
@@ -442,6 +481,92 @@ export default function Calculate() {
   const hasResults = Object.values(filteredPricing).some(
     (category) => category.length > 0,
   )
+
+  // Modify the chartData function to return data for each model type
+  const chartDataByType = useMemo(() => {
+    const dataByType = {}
+
+    Object.entries(filteredPricing).forEach(([category, models]) => {
+      const data = models.map(model => {
+        const totalCost = getCost(model) * apiCalls
+        return {
+          label: `${model.provider} - ${model.model_name} ${model.context ? `(${model.context})` : ''}`,
+          value: totalCost
+        }
+      })
+
+      // Sort the data from least to most expensive
+      data.sort((a, b) => a.value - b.value)
+
+      dataByType[category] = {
+        labels: data.map(item => item.label),
+        datasets: [
+          {
+            label: 'Total Cost',
+            data: data.map(item => item.value),
+            backgroundColor: 'rgba(8, 145, 178, 0.6)',
+            borderColor: 'rgba(8, 145, 178, 1)',
+            borderWidth: 1,
+          },
+        ],
+      }
+    })
+
+    return dataByType
+  }, [filteredPricing, apiCalls, getCost])
+
+  const chartOptions = {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Total Cost by Model',
+        font: {
+          size: 16,
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => `$${context.parsed.x.toFixed(2)}`,
+        },
+      },
+    },
+    scales: {
+      x: {
+        type: 'logarithmic',
+        title: {
+          display: true,
+          text: 'Total Cost ($, log scale)',
+        },
+        ticks: {
+          callback: (value) => `$${value.toLocaleString()}`,
+        },
+      },
+      y: {
+        ticks: {
+          autoSkip: false,
+          font: {
+            size: 10,
+          },
+        },
+      },
+    },
+  }
+
+  // Add this function to calculate chart height
+  const getChartHeight = (models) => {
+    const baseHeight = 200; // Base height for the chart
+    const itemHeight = 30; // Height per item
+    const maxHeight = 800; // Maximum height for the chart
+    
+    const calculatedHeight = baseHeight + (models.length * itemHeight);
+    return Math.min(calculatedHeight, maxHeight) + 'px';
+  };
 
   return (
     <>
@@ -577,7 +702,7 @@ export default function Calculate() {
                 </div>
                 <div className="mt-4 flow-root">
                   <div className="gap-x-4 sm:flex sm:items-center">
-                    <div className="w-full sm:max-w-48">
+                    <div className="w-full sm:max-w-56">
                       <Listbox
                         value={selectedModelType}
                         onChange={setSelectedModelType}
@@ -733,82 +858,63 @@ export default function Calculate() {
                   </div>
 
                   {hasResults ? (
-                    <div className="mt-4 flow-root">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                          <table className="min-w-full">
-                            <thead className="bg-white">
-                              <tr>
-                                <th
-                                  scope="col"
-                                  className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-                                >
-                                  Provider
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                >
-                                  Model
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                                >
-                                  Context
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-                                >
-                                  Input/1M
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-                                >
-                                  Output/1M
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
-                                >
-                                  Per Call
-                                </th>
-                                <th
-                                  scope="col"
-                                  className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
-                                >
-                                  Total
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody className="bg-white">
-                              {Object.keys(filteredPricing).map((key) => {
-                                const category = filteredPricing[key]
-                                return (
-                                  <Fragment key={key}>
-                                    <tr className="border-t border-gray-200">
-                                      <th
-                                        colSpan={8}
-                                        scope="colgroup"
-                                        className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-                                      >
-                                        {key}
+                    <>
+                      {Object.entries(filteredPricing).map(([category, models]) => (
+                        <div key={category} className="mt-6">
+                          <h3 className="text-lg font-semibold text-gray-900">{category}</h3>
+                          
+                          {/* Chart for this category */}
+                          <div 
+                            style={{ height: getChartHeight(models), width: '100%' }} 
+                            ref={(el) => setChartRef(el, category)}
+                          >
+                            <Bar
+                              data={chartDataByType[category]}
+                              options={{
+                                ...chartOptions,
+                                responsive: true,
+                                maintainAspectRatio: false,
+                              }}
+                            />
+                          </div>
+
+                          {/* Table for this category */}
+                          <div className="mt-6 flow-root">
+                            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                              <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                <table className="min-w-full">
+                                  <thead className="bg-white">
+                                    <tr>
+                                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
+                                        Provider
+                                      </th>
+                                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        Model
+                                      </th>
+                                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        Context
+                                      </th>
+                                      <th scope="col" className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell">
+                                        Input/1M
+                                      </th>
+                                      <th scope="col" className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">
+                                        Output/1M
+                                      </th>
+                                      <th scope="col" className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">
+                                        Per Call
+                                      </th>
+                                      <th scope="col" className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">
+                                        Total
                                       </th>
                                     </tr>
-                                    {category.map((model, modelIdx) => (
+                                  </thead>
+                                  <tbody className="bg-white">
+                                    {models.map((model, modelIdx) => (
                                       <tr
-                                        key={
-                                          model.provider +
-                                          model.model_name +
-                                          model.context
-                                        }
+                                        key={model.provider + model.model_name + model.context}
                                         className={classNames(
-                                          modelIdx === 0
-                                            ? 'border-gray-300'
-                                            : 'border-gray-200',
-                                          'border-t',
+                                          modelIdx === 0 ? 'border-gray-300' : 'border-gray-200',
+                                          'border-t'
                                         )}
                                       >
                                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
@@ -835,33 +941,25 @@ export default function Calculate() {
                                         </td>
                                         <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
                                           {model.output_token_cost_per_million && (
-                                            <>
-                                              $
-                                              {
-                                                model.output_token_cost_per_million
-                                              }
-                                            </>
+                                            <>${model.output_token_cost_per_million}</>
                                           )}
                                         </td>
                                         <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                           ${getCost(model).toFixed(4)}
                                         </td>
                                         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                          $
-                                          {(getCost(model) * apiCalls).toFixed(
-                                            2,
-                                          )}
+                                          ${(getCost(model) * apiCalls).toFixed(2)}
                                         </td>
                                       </tr>
                                     ))}
-                                  </Fragment>
-                                )
-                              })}
-                            </tbody>
-                          </table>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      ))}
+                    </>
                   ) : (
                     <div className="mt-6 text-center">
                       <XCircleIcon className="mx-auto h-12 w-12 text-gray-400" />
