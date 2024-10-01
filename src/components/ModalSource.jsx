@@ -31,6 +31,7 @@ import Link from 'next/link'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
+import Tooltip from '@/components/Tooltip'
 
 // shows how to refresh a source after changing/deleting files from the carbon file picker component
 const ModalCarbonSourceInfo = ({ open, setOpen }) => {
@@ -511,9 +512,11 @@ export default function ModalSource({
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
                       {source && <BadgeStatusSource source={source} />}
-                      <h1 className="flex-end text-sm font-medium text-gray-500">
-                        {source?.pageCount.toString()} Pages
-                      </h1>
+                      <Tooltip content="A source page is the greater of 5000 processed characters or one document/web page.">
+                        <h1 className="flex-end text-sm font-medium text-gray-500 cursor-help">
+                          {source?.pageCount.toString()} Pages
+                        </h1>
+                      </Tooltip>
                       <h1 className="flex-end text-sm font-medium text-gray-500">
                         {(showInterval ? 'Updated: ' : 'Created: ') +
                           new Date(source?.createdAt).toUTCString()}

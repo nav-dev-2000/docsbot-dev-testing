@@ -1,25 +1,27 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import {
-  ChatBubbleLeftRightIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import { ChatBubbleLeftRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Chat from '@/components/ChatStreaming'
-import TipsTooltip from './TipsTooltip'
-
+import TipsTooltip from '@/components/TipsTooltip'
+import Tooltip from '@/components/Tooltip'
 export default function ModalChat({ team, bot }) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
-      <button
-        className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-        disabled={bot.status !== 'ready'}
-        onClick={() => setOpen(true)}
-      >
-        <ChatBubbleLeftRightIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-        Chat
-      </button>
+      <Tooltip content="Chat with your bot">
+        <button
+          className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+          disabled={bot.status !== 'ready'}
+          onClick={() => setOpen(true)}
+        >
+          <ChatBubbleLeftRightIcon
+            className="mr-2 h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+          Chat
+        </button>
+      </Tooltip>
 
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>

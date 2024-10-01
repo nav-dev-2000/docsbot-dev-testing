@@ -9,7 +9,7 @@ import { stripePlan, getStats } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
-import tippy from 'tippy.js'
+import Tooltip from '@/components/Tooltip'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -124,24 +124,6 @@ export default function TeamHistory({ team }) {
     updateData(selected.value)
   }, [])
 
-  useEffect(() => {
-    // Initialize Tippy on all elements with a title attribute
-    tippy('[title]', {
-      content(reference) {
-        return reference.getAttribute('title')
-      },
-      onShow(instance) {
-        // Remove the title attribute on hover to prevent default browser tooltip
-        instance.reference.removeAttribute('title')
-      },
-      onHidden(instance) {
-        // Restore the title attribute when the tooltip is hidden
-        instance.reference.setAttribute('title', instance.props.content)
-      },
-      //theme: 'light', // You can customize the theme or style with Tailwind CSS classes
-    })
-  }, [stats])
-
   return (
     <div className="mx-0 mt-8 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="mb-4">
@@ -240,44 +222,52 @@ export default function TeamHistory({ team }) {
                 <LocalStringNum value={stats.totalCount} />
               </dd>
             </div>
-            <div
-              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-              title="Answers with no negative rating or support escalation"
-            >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Resolution rate</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.resolutionRate != '0' ? stats.resolutionRate + '%' : 'N/A'}
-              </dd>
-            </div>
-            <div
-              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-              title="Questions the AI determined it could confidently answer"
-            >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Answer rate</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.couldAnswerRate != '0' ? stats.couldAnswerRate + '%' : 'N/A'}
-              </dd>
-            </div>
-            <div
-              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-              title="Answers with no support escalation"
-            >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">Deflection rate</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                {stats.deflectionRate != '0' ? stats.deflectionRate + '%' : 'N/A'}
-              </dd>
-            </div>
-            <div
-              className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10"
-              title="Assuming an average of 5mins/ticket"
-            >
-              <dt className="text-sm font-semibold leading-6 text-gray-600">
-                Support staff time saved
-              </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                <LocalStringNum value={stats.timeSaved} /> Mins
-              </dd>
-            </div>
+            <Tooltip content="Answers with no negative rating or support escalation">
+              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Resolution rate
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  {stats.resolutionRate != '0'
+                    ? stats.resolutionRate + '%'
+                    : 'N/A'}
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Questions the AI determined it could confidently answer">
+              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Answer rate
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  {stats.couldAnswerRate != '0'
+                    ? stats.couldAnswerRate + '%'
+                    : 'N/A'}
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Answers with no support escalation">
+              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Deflection rate
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  {stats.deflectionRate != '0'
+                    ? stats.deflectionRate + '%'
+                    : 'N/A'}
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Assuming an average of 5mins/ticket">
+              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Support staff time saved
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={stats.timeSaved} /> Mins
+                </dd>
+              </div>
+            </Tooltip>
           </dl>
 
           {blurEnabled && (

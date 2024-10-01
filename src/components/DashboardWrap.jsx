@@ -27,8 +27,7 @@ import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
 import { usePostHog } from 'posthog-js/react'
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css' // Optional for default styling
+import Tooltip from '@/components/Tooltip'
 
 export default function DashboardWrap({
   page,
@@ -66,31 +65,7 @@ export default function DashboardWrap({
   }, [posthog, team, router])
 
   useEffect(() => {
-    // Initialize Tippy on all elements with a title attribute
-    tippy('[title]', {
-      content(reference) {
-        return reference.getAttribute('title')
-      },
-      onShow(instance) {
-        // Remove the title attribute on hover to prevent default browser tooltip
-        instance.reference.removeAttribute('title')
-      },
-      onHidden(instance) {
-        // Restore the title attribute when the tooltip is hidden
-        instance.reference.setAttribute('title', instance.props.content)
-      },
-      theme: 'light', // You can customize the theme or style with Tailwind CSS classes
-    })
-  }, [])
-
-  useEffect(() => {
-    if (
-      user &&
-      team &&
-      'Beacon' in window &&
-      Beacon !== undefined &&
-      typeof Beacon === 'function'
-    ) {
+    if (user && team && 'Beacon' in window && Beacon !== undefined && typeof Beacon === 'function') {
       const ident = {
         email: user.email,
       }
@@ -338,29 +313,32 @@ export default function DashboardWrap({
               <div className="flex flex-1 justify-between px-4">
                 <div className="flex flex-1 items-center">
                   <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
-                    <Link
-                      href={currentPageLink}
-                      className="hover:text-gray-500"
-                    >
-                      {page}
-                    </Link>
+                    <Tooltip content={`Go to ${page}`}>
+                      <Link
+                        href={currentPageLink}
+                        className="hover:text-gray-500"
+                      >
+                        {page}
+                      </Link>
+                    </Tooltip>
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
-                <p className="ml-2 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
+                <Tooltip content="Switch Team">
+                  <Link
+                    className="ml-2 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm"
+                    href={'/app/team'}
+                  >
+                <p className="flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
                   {team?.name || ''}
                 </p>
-                <Link
-                  className="ml-1 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm"
-                  href={'/app/team'}
-                  title="Switch Team"
-                >
-                  <ChevronUpDownIcon
-                    className="h-5 w-5 flex-shrink-0 text-gray-400"
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">Switch Team</span>
-                </Link>
+                    <ChevronUpDownIcon
+                      className="h-5 w-5 flex-shrink-0 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="sr-only">Switch Team</span>
+                  </Link>
+                </Tooltip>
                 <div className="ml-2 flex flex-none items-center md:ml-6">
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">

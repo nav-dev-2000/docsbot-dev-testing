@@ -25,9 +25,10 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
+import Tooltip from '@/components/Tooltip'
 
-const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
-  return (
+const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
+  const cardContent = (
     <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
       <div className="p-5">
         <div className="flex items-center">
@@ -64,6 +65,12 @@ const Card = ({ name, stat, href, linkText, CardIcon, limit }) => {
       )}
     </div>
   )
+
+  return tooltip ? (
+    <Tooltip content={tooltip}>
+      {cardContent}
+    </Tooltip>
+  ) : cardContent
 }
 
 function Dashboard({ team, purchase }) {
@@ -95,6 +102,7 @@ function Dashboard({ team, purchase }) {
       name: 'Bots',
       href: '/app/bots',
       linkText: 'View all',
+      tooltip: 'You can create up to ' + stripePlan(team).bots + ' bots.',
       icon: ServerStackIcon,
       stat: team?.botCount || 0,
       limit: stripePlan(team).bots,
@@ -102,14 +110,13 @@ function Dashboard({ team, purchase }) {
     {
       name: 'Sources',
       href: false,
-      linkText: 'Get more',
       icon: DocumentTextIcon,
       stat: team?.sourceCount || 0,
     },
     {
       name: 'Source Pages',
       href: false,
-      linkText: 'Get more',
+      tooltip: 'A source page is the greater of 5000 characters of processed text or one document/web page.',
       icon: Square3Stack3DIcon,
       stat: team?.pageCount || 0,
       limit: stripePlan(team).pages,
@@ -117,7 +124,7 @@ function Dashboard({ team, purchase }) {
     {
       name: 'Questions',
       href: false,
-      linkText: 'Get more',
+      tooltip: 'User questions in current month',
       icon: QuestionMarkCircleIcon,
       stat: team?.questionCount || 0,
       limit: stripePlan(team).questions,
@@ -223,6 +230,7 @@ function Dashboard({ team, purchase }) {
             name={card.name}
             href={card.href}
             linkText={card.linkText}
+            tooltip={card.tooltip}
             CardIcon={card.icon}
             stat={card.stat}
             limit={card.limit}

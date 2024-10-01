@@ -1,7 +1,7 @@
 import OpenAIIcon from '@/components/OpenAIIcon'
 import CohereIcon from '@/components/CohereIcon'
 import Link from 'next/link'
-
+import Tooltip from '@/components/Tooltip'
 export default function EmbeddingModel({ bot }) {
   let label
   let Icon = OpenAIIcon
@@ -21,9 +21,11 @@ export default function EmbeddingModel({ bot }) {
     title = 'OpenAI Embeddings Ada v2'
   }
   return (
-    <Link href="/documentation/doc/understanding-embedding-models-in-docsbot" target="_blank" className="flex items-center text-sm text-gray-500" title={title}>
-      <Icon className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
-      {label}
-    </Link>
+    <Tooltip content={title}>
+      <Link href="/documentation/doc/understanding-embedding-models-in-docsbot" target="_blank" className="flex items-center text-sm text-gray-500">
+        <Icon className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
+        {label}
+      </Link>
+    </Tooltip>
   )
 }

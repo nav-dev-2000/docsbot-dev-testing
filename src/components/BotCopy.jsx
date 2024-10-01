@@ -6,7 +6,7 @@ import { stripePlan } from '@/utils/helpers'
 import Alert from '@/components/Alert'
 import ModalCheckout from '@/components/ModalCheckout'
 import { useRouter } from 'next/router'
-
+import Tooltip from '@/components/Tooltip'
 export const BotCopyModal = ({ team, bot }) => {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -36,7 +36,7 @@ export const BotCopyModal = ({ team, bot }) => {
       ...bot,
       name: botName,
       embeddingModel: bot.embeddingModel || 'text-embedding-ada-002',
-      copyFrom: bot.id
+      copyFrom: bot.id,
     }
 
     if (data?.id) {
@@ -60,7 +60,11 @@ export const BotCopyModal = ({ team, bot }) => {
         const rdata = await response.json()
         setErrorText(rdata.message || 'Something went wrong, please try again.')
       } catch (e) {
-        setErrorText('Error ' + response.status + ' creating bot, please try again later. Please be patient while our DB provider is trying to scale to meet the extreme demand.')
+        setErrorText(
+          'Error ' +
+            response.status +
+            ' creating bot, please try again later. Please be patient while our DB provider is trying to scale to meet the extreme demand.',
+        )
       }
       setIsUpdating(false)
     }
@@ -68,14 +72,18 @@ export const BotCopyModal = ({ team, bot }) => {
 
   return (
     <>
-      <button
-        className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-        title="Duplicate this bot & sources"
-        onClick={() => setOpen(true)}
-      >
-        <DocumentDuplicateIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
-        <p>Duplicate</p>
-      </button>
+      <Tooltip content="Duplicate this bot & its sources">
+        <button
+          className="flex items-center text-sm text-gray-600 hover:text-gray-800"
+          onClick={() => setOpen(true)}
+        >
+          <DocumentDuplicateIcon
+            className="mr-1 h-4 w-4 flex-shrink-0"
+            aria-hidden="true"
+          />
+          <p>Duplicate</p>
+        </button>
+      </Tooltip>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -101,14 +109,14 @@ export const BotCopyModal = ({ team, bot }) => {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault()
                       createCopy()
                     }}
                   >
-                    <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
@@ -126,30 +134,45 @@ export const BotCopyModal = ({ team, bot }) => {
                         Copy {bot.name}
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
-                      <p className="text-md text-gray-700">Create a new bot with the same settings and source training data. Useful for testing and staging changes.</p>
-                      <p className="text-sm text-gray-600">NOTE: Cloud sources (Notion, Google Drive, etc) added via our partner Carbon will not be able to be refreshed in the copy, as they limit to one connnection per user account.</p>
+                      <p className="text-md text-gray-700">
+                        Create a new bot with the same settings and source
+                        training data. Useful for testing and staging changes.
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        NOTE: Cloud sources (Notion, Google Drive, etc) added
+                        via our partner Carbon will not be able to be refreshed
+                        in the copy, as they limit to one connnection per user
+                        account.
+                      </p>
 
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
-                          <div className="space-y-6 pt-6 pb-5">
-                            <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+                          <div className="space-y-6 pb-5 pt-6">
+                            <ModalCheckout
+                              team={team}
+                              open={showUpgrade}
+                              setOpen={setShowUpgrade}
+                            />
                             <div>
-                            <label htmlFor="project-name" className="block text-sm font-medium text-gray-900">
-                              Name
-                            </label>
-                            <div className="mt-1">
-                              <input
-                                type="text"
-                                name="project-name"
-                                id="project-name"
-                                value={botName}
-                                onChange={(e) => setBotName(e.target.value)}
-                                disabled={isUpdating}
-                                placeholder="What would you like to call your bot?"
-                                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
-                              />
+                              <label
+                                htmlFor="project-name"
+                                className="block text-sm font-medium text-gray-900"
+                              >
+                                Name
+                              </label>
+                              <div className="mt-1">
+                                <input
+                                  type="text"
+                                  name="project-name"
+                                  id="project-name"
+                                  value={botName}
+                                  onChange={(e) => setBotName(e.target.value)}
+                                  disabled={isUpdating}
+                                  placeholder="What would you like to call your bot?"
+                                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+                                />
+                              </div>
                             </div>
-                          </div>
                           </div>
                         </div>
                       </div>
@@ -164,7 +187,9 @@ export const BotCopyModal = ({ team, bot }) => {
                           {!isUpdating ? (
                             <span>Duplicate</span>
                           ) : (
-                            <span className="flex items-center"><LoadingSpinner /> Duplicating...</span>
+                            <span className="flex items-center">
+                              <LoadingSpinner /> Duplicating...
+                            </span>
                           )}
                         </button>
                       </div>

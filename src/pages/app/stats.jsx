@@ -341,7 +341,7 @@ export const getServerSideProps = async (context) => {
     { name: 'Pages per Account', stat: pagesPerAccount },
     { name: 'Questions per Account', stat: questionsPerAccount },
   ]
-  console.log('stats', stats)
+
   data.props.stats = stats
 
   data.props.steps = [

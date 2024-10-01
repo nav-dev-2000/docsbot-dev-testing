@@ -5,6 +5,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 import FormBot from '@/components/FormBot'
 import ModalOpenAI from '@/components/ModalOpenAI'
+import Tooltip from '@/components/Tooltip'
 
 export default function ModalBotEdit({ team, bot, setBot }) {
   const [open, setOpen] = useState(false)
@@ -57,14 +58,15 @@ export default function ModalBotEdit({ team, bot, setBot }) {
 
   return (
     <>
-      <button
-        className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-        title="Edit bot"
+      <Tooltip content="Change bot settings">
+        <button
+          className="flex items-center text-sm text-gray-600 hover:text-gray-800"
         onClick={() => setOpen(true)}
       >
         <PencilSquareIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
-        <p>Edit</p>
-      </button>
+          <p>Edit</p>
+        </button>
+      </Tooltip>
       <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {
         team.openAIKey = key
         setOpen(true)

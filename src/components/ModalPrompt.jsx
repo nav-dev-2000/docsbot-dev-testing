@@ -8,6 +8,7 @@ import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
+import Tooltip from '@/components/Tooltip'
 
 export default function ModalPrompt({ team, integrations, bot }) {
   const [open, setOpen] = useState(false)
@@ -40,9 +41,9 @@ export default function ModalPrompt({ team, integrations, bot }) {
     const apiPath = '/api/' + urlParams.join('/')
 
     let data = {}
-    data.customPrompt = prompt;
+    data.customPrompt = prompt
     if (helpScoutIntegration) {
-      data.helpscoutPrompt = hsPrompt;
+      data.helpscoutPrompt = hsPrompt
     }
 
     const response = await fetch(apiPath, {
@@ -69,14 +70,18 @@ export default function ModalPrompt({ team, integrations, bot }) {
 
   return (
     <>
-      <button
-        className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-        title="Customize prompt"
-        onClick={() => setOpen(true)}
-      >
-        <CommandLineIcon className="mr-1 h-4 w-4 flex-shrink-0" aria-hidden="true" />
-        {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}
-      </button>
+      <Tooltip content="Customize your bot's behavior">
+        <button
+          className="flex items-center text-sm text-gray-600 hover:text-gray-800"
+          onClick={() => setOpen(true)}
+        >
+          <CommandLineIcon
+            className="mr-1 h-4 w-4 flex-shrink-0"
+            aria-hidden="true"
+          />
+          {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}
+        </button>
+      </Tooltip>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -133,36 +138,56 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         )}
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
-                      <div className="grid lg:grid-cols-2 gap-x-8 grid-cols-1">
-                        <div className=''>
+                      <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-2">
+                        <div className="">
                           <p className="text-md text-gray-700">
-                            Add some custom instructions to your prompt to adjust your bot's answer
-                            output to your specific use case. You can use this powerful tool to change behavior,
-                            formatting, and provide any context that needs to be available for every response.
+                            Add some custom instructions to your prompt to
+                            adjust your bot's answer output to your specific use
+                            case. You can use this powerful tool to change
+                            behavior, formatting, and provide any context that
+                            needs to be available for every response.
                           </p>
-                          <h3 className="mt-4 text-lg font-medium text-gray-800">Examples</h3>
+                          <h3 className="mt-4 text-lg font-medium text-gray-800">
+                            Examples
+                          </h3>
                           <ul className="ml-4 mt-2 list-disc text-sm text-gray-700">
                             <li className="text-sm text-gray-700">
-                              <code>Politely refuse to answer questions unrelated to {bot.name}.</code>
+                              <code>
+                                Politely refuse to answer questions unrelated to{' '}
+                                {bot.name}.
+                              </code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              <code>Use \[...\] for block math and \(...\) for inline math in your response.</code> (for pretty display of equations)
+                              <code>
+                                Use \[...\] for block math and \(...\) for
+                                inline math in your response.
+                              </code>{' '}
+                              (for pretty display of equations)
                             </li>
                             <li className="text-sm text-gray-700">
-                              <code>If relevant to the user's question, after your answer, suggest my book "{bot.name} For Dummies".</code>
+                              <code>
+                                If relevant to the user's question, after your
+                                answer, suggest my book "{bot.name} For
+                                Dummies".
+                              </code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              <code>If the answer is not in the provided context, recommend they contact
-                              the {bot.name} support team and provide a link to
-                              https://mysite.com/support/</code>
+                              <code>
+                                If the answer is not in the provided context,
+                                recommend they contact the {bot.name} support
+                                team and provide a link to
+                                https://mysite.com/support/
+                              </code>
                             </li>
                             <li className="text-sm text-gray-700">
-                              <code>Always respond as if you are Pee-wee Herman.</code>
+                              <code>
+                                Always respond as if you are Pee-wee Herman.
+                              </code>
                             </li>
                           </ul>
                         </div>
                         <div className="flex">
-                          <div className="mt-4 lg:mt-0 mr-2 w-full h-full">
+                          <div className="mr-2 mt-4 h-full w-full lg:mt-0">
                             <label
                               htmlFor="prompt"
                               className="block text-left text-sm font-medium text-gray-700"
@@ -181,7 +206,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                             </div>
                           </div>
                           {helpScoutIntegration && (
-                            <div className="mt-4 lg:mt-0 w-full h-full">
+                            <div className="mt-4 h-full w-full lg:mt-0">
                               <label
                                 htmlFor="helpscoutPrompt"
                                 className="block text-left text-sm font-medium text-gray-700"
@@ -206,8 +231,10 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         <button
                           type="submit"
                           name="submit-form"
-                          className={"inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm" +
-                            (canModify ? '' : ' hidden')}
+                          className={
+                            'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
+                            (canModify ? '' : ' hidden')
+                          }
                           disabled={isUpdating || !canModify}
                         >
                           {!isUpdating ? (
