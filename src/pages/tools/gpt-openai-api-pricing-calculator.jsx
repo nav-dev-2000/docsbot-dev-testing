@@ -2,286 +2,343 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useMemo } from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
+import { Listbox, Transition } from '@headlessui/react'
+import {
+  CheckIcon,
+  ChevronUpDownIcon,
+  XCircleIcon,
+} from '@heroicons/react/20/solid'
 
 const pricing = {
   'Chat/Completion Models': [
     {
       model_name: 'GPT-4o',
+      model_slug: 'gpt-4o',
       context: '128K/16K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.0025,
-      output_token_cost_per_thousand: 0.01,
-    },
-    {
-      model_name: 'GPT-4o Realtime (Text)',
-      context: '128K/16K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.005,
-      output_token_cost_per_thousand: 0.02,
-    },
-    {
-      model_name: 'GPT-4o Audio (Text)',
-      context: '128K/16K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.005,
-      output_token_cost_per_thousand: 0.02,
+      provider: 'OpenAI',
+      input_token_cost_per_million: 2.5,
+      output_token_cost_per_million: 10,
     },
     {
       model_name: 'GPT-4o mini',
+      model_slug: 'gpt-4o-mini',
       context: '128K/16K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.00015,
-      output_token_cost_per_thousand: 0.0006,
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.15,
+      output_token_cost_per_million: 0.6,
     },
     {
       model_name: 'o1-preview',
+      model_slug: 'o1-preview',
       context: '128K/32K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.015, // $15.00 / 1M
-      output_token_cost_per_thousand: 0.06, // $60.00 / 1M
+      provider: 'OpenAI',
+      input_token_cost_per_million: 15,
+      output_token_cost_per_million: 60,
     },
     {
       model_name: 'o1-mini',
+      model_slug: 'o1-mini',
       context: '128K/65K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.003, // $3.00 / 1M
-      output_token_cost_per_thousand: 0.012, // $12.00 / 1M
+      provider: 'OpenAI',
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 12,
+    },
+    {
+      model_name: 'GPT-4o Realtime (Text)',
+      model_slug: 'gpt-4o-realtime-preview',
+      context: '128K/16K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 20,
+    },
+    {
+      model_name: 'GPT-4o Audio (Text)',
+      model_slug: 'gpt-4o-audio-preview',
+      context: '128K/16K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 20,
     },
     {
       model_name: 'GPT-4 Turbo',
+      model_slug: 'gpt-4-turbo-preview',
       context: '128K/4K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.01,
-      output_token_cost_per_thousand: 0.03,
+      provider: 'OpenAI',
+      input_token_cost_per_million: 10,
+      output_token_cost_per_million: 30,
     },
     {
       model_name: 'GPT-3.5 Turbo',
+      model_slug: 'gpt-3.5-turbo',
       context: '16K/4K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.0005,
-      output_token_cost_per_thousand: 0.0015,
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.5,
+      output_token_cost_per_million: 1.5,
     },
     {
       model_name: 'GPT-4',
+      model_slug: 'gpt-4',
       context: '8K/8K',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.03,
-      output_token_cost_per_thousand: 0.06,
+      provider: 'OpenAI',
+      input_token_cost_per_million: 30,
+      output_token_cost_per_million: 60,
     },
     {
       model_name: 'Claude 3.5 Sonnet',
+      model_slug: 'claude-3-5-sonnet-20240620',
       context: '200K/8K',
       provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.003,
-      output_token_cost_per_thousand: 0.015,
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 15,
     },
     {
       model_name: 'Claude 3 Opus',
+      model_slug: 'claude-3-opus-20240229',
       context: '200K/4K',
       provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.015,
-      output_token_cost_per_thousand: 0.075,
+      input_token_cost_per_million: 15,
+      output_token_cost_per_million: 75,
+    },
+    {
+      model_name: 'Claude 3 Sonnet',
+      model_slug: 'claude-3-sonnet-20240229',
+      context: '200K/4K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 15,
     },
     {
       model_name: 'Claude 3 Haiku',
+      model_slug: 'claude-3-haiku-20240307',
       context: '200K/4K',
       provider: 'Anthropic',
-      input_token_cost_per_thousand: 0.00025,
-      output_token_cost_per_thousand: 0.00125,
+      input_token_cost_per_million: 0.25,
+      output_token_cost_per_million: 1.25,
     },
     {
       model_name: 'Llama 3.1 405b',
       context: '128K/2K',
-      provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.00179,
-      output_token_cost_per_thousand: 0.00179,
+      provider: 'Meta',
+      api_provider: 'Deepinfra',
+      input_token_cost_per_million: 1.79,
+      output_token_cost_per_million: 1.79,
     },
     {
       model_name: 'Llama 3.2 90b Vision-Instruct',
       context: '128K/2K',
-      provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.00035,
-      output_token_cost_per_thousand: 0.00040,
+      provider: 'Meta',
+      api_provider: 'Deepinfra',
+      input_token_cost_per_million: 0.35,
+      output_token_cost_per_million: 0.4,
     },
     {
       model_name: 'Llama 3.1 70b',
       context: '128K/2K',
-      provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.00035,
-      output_token_cost_per_thousand: 0.00040,
+      provider: 'Meta',
+      api_provider: 'Deepinfra',
+      input_token_cost_per_million: 0.35,
+      output_token_cost_per_million: 0.4,
     },
     {
       model_name: 'Llama 3.2 11b Vision-Instruct',
       context: '128K/2K',
-      provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.000055,
-      output_token_cost_per_thousand: 0.000055,
+      provider: 'Meta',
+      api_provider: 'Deepinfra',
+      input_token_cost_per_million: 0.055,
+      output_token_cost_per_million: 0.055,
     },
     {
       model_name: 'Llama 3 70b',
       context: '8K/2K',
-      provider: 'Meta (via Deepinfra/Groq)',
-      input_token_cost_per_thousand: 0.00059,
-      output_token_cost_per_thousand: 0.00079,
+      provider: 'Meta',
+      api_provider: 'Deepinfra/Groq',
+      input_token_cost_per_million: 0.59,
+      output_token_cost_per_million: 0.79,
     },
     {
       model_name: 'Gemini 1.5 Flash',
       context: '128K',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.000075,
-      output_token_cost_per_thousand: 0.00003,
+      input_token_cost_per_million: 0.075,
+      output_token_cost_per_million: 0.03,
     },
     {
       model_name: 'Gemini 1.5 Flash',
       context: '1M',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.000015,
-      output_token_cost_per_thousand: 0.00006,
+      input_token_cost_per_million: 0.015,
+      output_token_cost_per_million: 0.06,
     },
     {
       model_name: 'Gemini 1.5 Pro',
       context: '128K',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.00125,
-      output_token_cost_per_thousand: 0.0025,
+      input_token_cost_per_million: 1.25,
+      output_token_cost_per_million: 2.5,
     },
     {
       model_name: 'Gemini 1.5 Pro',
       context: '2M',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.005,
-      output_token_cost_per_thousand: 0.01,
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 10,
     },
     {
       model_name: 'Gemini 1.0 Pro',
       context: '32K',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.0005,
-      output_token_cost_per_thousand: 0.0015,
+      input_token_cost_per_million: 0.5,
+      output_token_cost_per_million: 1.5,
     },
     {
       model_name: 'Command',
       context: '4K',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.01,
-      output_token_cost_per_thousand: 0.02,
+      input_token_cost_per_million: 10,
+      output_token_cost_per_million: 20,
     },
     {
       model_name: 'Command R',
       context: '128K/4K',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.0005,
-      output_token_cost_per_thousand: 0.0015,
+      input_token_cost_per_million: 0.5,
+      output_token_cost_per_million: 1.5,
     },
     {
       model_name: 'Command R+',
       context: '128K',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.003,
-      output_token_cost_per_thousand: 0.015,
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 15,
+    },
+    {
+      model_name: 'Mistral NeMo',
+      model_slug: 'open-mistral-nemo-2407',
+      context: '128K',
+      provider: 'Mistral AI',
+      input_token_cost_per_million: 0.15,
+      output_token_cost_per_million: 0.15,
     },
     {
       model_name: 'Mixtral 8x7B',
       context: '32K',
-      provider: 'Mistral AI (via Anyscale)',
-      input_token_cost_per_thousand: 0.0005,
-      output_token_cost_per_thousand: 0.0005,
+      provider: 'Mistral AI',
+      api_provider: 'Anyscale',
+      input_token_cost_per_million: 0.5,
+      output_token_cost_per_million: 0.5,
     },
     {
-      model_name: 'Mistral Small',
-      context: '32K',
+      model_name: 'Mistral Small 24.09',
+      context: '128K',
       provider: 'Mistral AI',
-      input_token_cost_per_thousand: 0.002,
-      output_token_cost_per_thousand: 0.006,
+      model_slug: 'mistral-small-2409',
+      input_token_cost_per_million: 2,
+      output_token_cost_per_million: 6,
     },
     {
-      model_name: 'Mistral Large',
-      context: '32K',
+      model_name: 'Mistral Large 2',
+      context: '128K',
       provider: 'Mistral AI',
-      input_token_cost_per_thousand: 0.008,
-      output_token_cost_per_thousand: 0.024,
+      model_slug: 'mistral-large-2407',
+      input_token_cost_per_million: 2,
+      output_token_cost_per_million: 6,
     },
     {
       model_name: 'DBRX',
       context: '32K',
       provider: 'DataBricks',
-      input_token_cost_per_thousand: 0.00225,
-      output_token_cost_per_thousand: 0.00675,
+      input_token_cost_per_million: 2.25,
+      output_token_cost_per_million: 6.75,
     },
   ],
   'Audio Models': [
     {
       model_name: 'GPT-4o Realtime (Audio)',
+      model_slug: 'gpt-4o-realtime-preview',
       context: '128K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.1,
-      output_token_cost_per_thousand: 0.2,
+      input_token_cost_per_million: 100,
+      output_token_cost_per_million: 200,
     },
     {
       model_name: 'GPT-4o Audio (Audio)',
+      model_slug: 'gpt-4o-audio-preview',
       context: '128K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.1,
-      output_token_cost_per_thousand: 0.2,
+      input_token_cost_per_million: 100,
+      output_token_cost_per_million: 200,
     },
   ],
   'Fine-tuning models': [
     {
       model_name: 'GPT-4o',
+      model_slug: 'gpt-4o-2024-08-06',
       context: '128K/16K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.00375,
-      output_token_cost_per_thousand: 0.015,
-      training_cost_per_thousand: 0.025,
+      input_token_cost_per_million: 3.75,
+      output_token_cost_per_million: 15,
+      training_cost_per_million: 25,
     },
     {
       model_name: 'GPT-4o Mini',
+      model_slug: 'gpt-4o-mini-2024-07-18',
       context: '128K/16K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.0003,
-      output_token_cost_per_thousand: 0.0012,
-      training_cost_per_thousand: 0.003,
+      input_token_cost_per_million: 0.3,
+      output_token_cost_per_million: 1.2,
+      training_cost_per_million: 3,
     },
     {
       model_name: 'GPT-3.5 Turbo',
+      model_slug: 'gpt-3.5-turbo-0125',
       context: '4K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.003,
-      output_token_cost_per_thousand: 0.006,
-      training_cost_per_thousand: 0.008,
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 6,
+      training_cost_per_million: 8,
     },
   ],
   'Embedding models': [
     {
       model_name: '3 Small',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.00002,
+      model_slug: 'text-embedding-3-small',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.02,
     },
     {
       model_name: '3 Large',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.00013,
+      model_slug: 'text-embedding-3-large',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.13,
     },
     {
       model_name: 'Ada v2',
-      provider: 'OpenAI / Azure',
-      input_token_cost_per_thousand: 0.0001,
+      model_slug: 'text-embedding-ada-002',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.1,
     },
     {
       model_name: 'PaLM 2',
       provider: 'Google',
-      input_token_cost_per_thousand: 0.0004,
+      input_token_cost_per_million: 0.4,
     },
     {
       model_name: 'Embed v3.0',
+      model_slug: 'embed-english-v3.0',
       provider: 'Cohere',
-      input_token_cost_per_thousand: 0.0001,
+      input_token_cost_per_million: 0.1,
+    },
+    {
+      model_name: 'Mistral Embed',
+      model_slug: 'mistral-embed',
+      provider: 'Mistral AI',
+      input_token_cost_per_million: 0.1,
     },
   ],
 }
@@ -292,19 +349,39 @@ const radioOptions = [
   { name: 'Characters', multiplier: 0.25 },
 ]
 
+const providers = [
+  'All Providers',
+  'OpenAI',
+  'Anthropic',
+  'Meta',
+  'Google',
+  'Cohere',
+  'Mistral AI',
+  'DataBricks',
+]
+const modelTypes = [
+  'All Types',
+  'Chat/Completion Models',
+  'Audio Models',
+  'Fine-tuning models',
+  'Embedding models',
+]
+
 export default function Calculate() {
   const [inputTokens, setInputTokens] = useState(1000)
   const [outputTokens, setOutputTokens] = useState(500)
   const [apiCalls, setAPICalls] = useState(100)
   const [type, setType] = useState(radioOptions[0])
   const posthog = usePostHog()
+  const [selectedProvider, setSelectedProvider] = useState(providers[0])
+  const [selectedModelType, setSelectedModelType] = useState(modelTypes[0])
 
   const getCost = (model) => {
     return (
-      (model.input_token_cost_per_thousand || 0) *
-        ((inputTokens * type.multiplier) / 1000) +
-      (model.output_token_cost_per_thousand || 0) *
-        ((outputTokens * type.multiplier) / 1000)
+      (model.input_token_cost_per_million || 0) *
+        ((inputTokens * type.multiplier) / 1000000) +
+      (model.output_token_cost_per_million || 0) *
+        ((outputTokens * type.multiplier) / 1000000)
     )
   }
 
@@ -334,6 +411,37 @@ export default function Calculate() {
       category: 'Calculator',
     })
   }
+
+  const filteredPricing = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries(pricing)
+        .filter(([key, models]) => {
+          if (selectedModelType !== 'All Types' && key !== selectedModelType)
+            return false
+
+          if (selectedProvider === 'All Providers') return true
+
+          return models.some((model) => model.provider === selectedProvider)
+        })
+        .map(([key, models]) => [
+          key,
+          models.filter(
+            (model) =>
+              selectedProvider === 'All Providers' ||
+              model.provider === selectedProvider,
+          ),
+        ]),
+    )
+  }, [selectedProvider, selectedModelType])
+
+  const resetFilters = () => {
+    setSelectedProvider(providers[0])
+    setSelectedModelType(modelTypes[0])
+  }
+
+  const hasResults = Object.values(filteredPricing).some(
+    (category) => category.length > 0,
+  )
 
   return (
     <>
@@ -374,7 +482,8 @@ export default function Calculate() {
                   Calculate and compare the cost of using OpenAI, Azure,
                   Anthropic Claude, Llama 3, Google Gemini, Mistral, and Cohere
                   LLM APIs for your AI project with our simple and powerful free
-                  calculator. Latest numbers as of <span className="font-bold">October 2024</span>.
+                  calculator. Latest numbers as of{' '}
+                  <span className="font-bold">October 2024</span>.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -466,119 +575,313 @@ export default function Calculate() {
                     </p>
                   </div>
                 </div>
-                <div className="mt-8 flow-root">
-                  <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                      <table className="min-w-full">
-                        <thead className="bg-white">
-                          <tr>
-                            <th
-                              scope="col"
-                              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-                            >
-                              Provider
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                            >
-                              Model
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                            >
-                              Context
-                            </th>
-                            <th
-                              scope="col"
-                              className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-                            >
-                              Input/1k Tokens
-                            </th>
-                            <th
-                              scope="col"
-                              className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
-                            >
-                              Output/1k Tokens
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
-                            >
-                              Per Call
-                            </th>
-                            <th
-                              scope="col"
-                              className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
-                            >
-                              Total
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="bg-white">
-                          {Object.keys(pricing).map((key) => {
-                            const category = pricing[key]
-                            return (
-                              <Fragment key={key}>
-                                <tr className="border-t border-gray-200">
-                                  <th
-                                    colSpan={8}
-                                    scope="colgroup"
-                                    className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-                                  >
-                                    {key}
-                                  </th>
-                                </tr>
-                                {category.map((model, modelIdx) => (
-                                  <tr
-                                    key={
-                                      model.provider +
-                                      model.model_name +
-                                      model.context
-                                    }
-                                    className={classNames(
-                                      modelIdx === 0
-                                        ? 'border-gray-300'
-                                        : 'border-gray-200',
-                                      'border-t',
-                                    )}
-                                  >
-                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                      {model.provider}
-                                    </td>
-                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                      {model.model_name}
-                                    </td>
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                      {model.context}
-                                    </td>
-                                    <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 pl-6 text-sm text-gray-500 sm:table-cell">
-                                      ${model.input_token_cost_per_thousand}
-                                    </td>
-                                    <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                      {model.output_token_cost_per_thousand && (
-                                        <>
-                                          $
-                                          {model.output_token_cost_per_thousand}
-                                        </>
-                                      )}
-                                    </td>
-                                    <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                      ${getCost(model).toFixed(4)}
-                                    </td>
-                                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                      ${(getCost(model) * apiCalls).toFixed(2)}
-                                    </td>
-                                  </tr>
-                                ))}
-                              </Fragment>
-                            )
-                          })}
-                        </tbody>
-                      </table>
+                <div className="mt-4 flow-root">
+                  <div className="gap-x-4 sm:flex sm:items-center">
+                    <div className="w-full sm:max-w-48">
+                      <Listbox
+                        value={selectedModelType}
+                        onChange={setSelectedModelType}
+                      >
+                        <Listbox.Label className="block text-xs font-medium leading-6">
+                          Model Type
+                        </Listbox.Label>
+                        <div className="relative mt-1">
+                          <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:text-sm sm:leading-6">
+                            <span className="block truncate">
+                              {selectedModelType}
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                              <ChevronUpDownIcon
+                                className="h-5 w-5 text-gray-400"
+                                aria-hidden="true"
+                              />
+                            </span>
+                          </Listbox.Button>
+                          <Transition
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                              {modelTypes.map((type) => (
+                                <Listbox.Option
+                                  key={type}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active
+                                        ? 'bg-cyan-600 text-white'
+                                        : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9',
+                                    )
+                                  }
+                                  value={type}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <span
+                                        className={classNames(
+                                          selected
+                                            ? 'font-semibold'
+                                            : 'font-normal',
+                                          'block truncate',
+                                        )}
+                                      >
+                                        {type}
+                                      </span>
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active
+                                              ? 'text-white'
+                                              : 'text-cyan-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4',
+                                          )}
+                                        >
+                                          <CheckIcon
+                                            className="h-5 w-5"
+                                            aria-hidden="true"
+                                          />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </div>
+                      </Listbox>
+                    </div>
+
+                    <div className="w-full sm:max-w-48">
+                      <Listbox
+                        value={selectedProvider}
+                        onChange={setSelectedProvider}
+                      >
+                        <Listbox.Label className="block text-xs font-medium leading-6">
+                          Provider
+                        </Listbox.Label>
+                        <div className="relative mt-1">
+                          <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 sm:text-sm sm:leading-6">
+                            <span className="block truncate">
+                              {selectedProvider}
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                              <ChevronUpDownIcon
+                                className="h-5 w-5 text-gray-400"
+                                aria-hidden="true"
+                              />
+                            </span>
+                          </Listbox.Button>
+                          <Transition
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                              {providers.map((provider) => (
+                                <Listbox.Option
+                                  key={provider}
+                                  className={({ active }) =>
+                                    classNames(
+                                      active
+                                        ? 'bg-cyan-600 text-white'
+                                        : 'text-gray-900',
+                                      'relative cursor-default select-none py-2 pl-3 pr-9',
+                                    )
+                                  }
+                                  value={provider}
+                                >
+                                  {({ selected, active }) => (
+                                    <>
+                                      <span
+                                        className={classNames(
+                                          selected
+                                            ? 'font-semibold'
+                                            : 'font-normal',
+                                          'block truncate',
+                                        )}
+                                      >
+                                        {provider}
+                                      </span>
+                                      {selected ? (
+                                        <span
+                                          className={classNames(
+                                            active
+                                              ? 'text-white'
+                                              : 'text-cyan-600',
+                                            'absolute inset-y-0 right-0 flex items-center pr-4',
+                                          )}
+                                        >
+                                          <CheckIcon
+                                            className="h-5 w-5"
+                                            aria-hidden="true"
+                                          />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </div>
+                      </Listbox>
                     </div>
                   </div>
+
+                  {hasResults ? (
+                    <div className="mt-4 flow-root">
+                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                          <table className="min-w-full">
+                            <thead className="bg-white">
+                              <tr>
+                                <th
+                                  scope="col"
+                                  className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                                >
+                                  Provider
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                                >
+                                  Model
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                                >
+                                  Context
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                                >
+                                  Input/1M
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                                >
+                                  Output/1M
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
+                                >
+                                  Per Call
+                                </th>
+                                <th
+                                  scope="col"
+                                  className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
+                                >
+                                  Total
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody className="bg-white">
+                              {Object.keys(filteredPricing).map((key) => {
+                                const category = filteredPricing[key]
+                                return (
+                                  <Fragment key={key}>
+                                    <tr className="border-t border-gray-200">
+                                      <th
+                                        colSpan={8}
+                                        scope="colgroup"
+                                        className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                                      >
+                                        {key}
+                                      </th>
+                                    </tr>
+                                    {category.map((model, modelIdx) => (
+                                      <tr
+                                        key={
+                                          model.provider +
+                                          model.model_name +
+                                          model.context
+                                        }
+                                        className={classNames(
+                                          modelIdx === 0
+                                            ? 'border-gray-300'
+                                            : 'border-gray-200',
+                                          'border-t',
+                                        )}
+                                      >
+                                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                                          {model.provider}
+                                          {model.api_provider && (
+                                            <div className="text-xs text-gray-500">
+                                              via {model.api_provider}
+                                            </div>
+                                          )}
+                                        </td>
+                                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                                          {model.model_name}
+                                          {model.model_slug && (
+                                            <div className="text-xs text-gray-500">
+                                              {model.model_slug}
+                                            </div>
+                                          )}
+                                        </td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                          {model.context}
+                                        </td>
+                                        <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 pl-6 text-sm text-gray-500 sm:table-cell">
+                                          ${model.input_token_cost_per_million}
+                                        </td>
+                                        <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                          {model.output_token_cost_per_million && (
+                                            <>
+                                              $
+                                              {
+                                                model.output_token_cost_per_million
+                                              }
+                                            </>
+                                          )}
+                                        </td>
+                                        <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                          ${getCost(model).toFixed(4)}
+                                        </td>
+                                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                          $
+                                          {(getCost(model) * apiCalls).toFixed(
+                                            2,
+                                          )}
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </Fragment>
+                                )
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="mt-6 text-center">
+                      <XCircleIcon className="mx-auto h-12 w-12 text-gray-400" />
+                      <h3 className="mt-2 text-sm font-semibold text-gray-900">
+                        No results found
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-500">
+                        No models match your current filter selection.
+                      </p>
+                      <div className="mt-6">
+                        <button
+                          type="button"
+                          onClick={resetFilters}
+                          className="inline-flex items-center rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                        >
+                          Reset filters
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -685,7 +988,7 @@ export default function Calculate() {
             <p>
               OpenAI and others offer multiple language models, each with
               distinct capabilities and price points. The pricing for these
-              models is typically per 1,000 tokens.
+              models is typically per 1 Million tokens.
             </p>
             <ul>
               <li>
@@ -709,20 +1012,39 @@ export default function Calculate() {
               </li>
               <li>
                 <p>
-                  OpenAI's <strong>o1-preview</strong> and{' '}
-                  <strong>o1-mini</strong> models represent a significant
-                  advancement in AI reasoning, particularly in complex domains
-                  like science, coding, and math. The o1-preview model excels in
-                  thoughtful reasoning, employing an internal chain-of-thought processing
-                  approach that mirrors human cognition, leading to more
-                  accurate and insightful answers. Meanwhile, the o1-mini model
-                  offers a cost-effective solution for developers, focusing on
-                  STEM domains with high reasoning power at a lower cost. These
+                  <strong className="text-white">
+                    OpenAI GPT-4o Realtime and Audio
+                  </strong>
+                  : These new models, available in public beta to all paid
+                  developers, power the Realtime API and Chat Completions API
+                  respectively. Both support text and voice capabilities. For
+                  text, they're priced at $5 per 1M input tokens and $20 per 1M
+                  output tokens. Audio input is priced at $100 per 1M tokens
+                  (approximately $0.06 per minute), and audio output at $200 per
+                  1M tokens (approximately $0.24 per minute). Realtime API is
+                  for streaming audio into and out of the model. Chat
+                  Completions API is for combined text and voice conversations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">
+                    OpenAI's o1-preview and o1-mini models
+                  </strong>{' '}
+                  represent a significant advancement in AI reasoning,
+                  particularly in complex domains like science, coding, and
+                  math. The o1-preview model excels in thoughtful reasoning,
+                  employing an internal chain-of-thought processing approach
+                  that mirrors human cognition, leading to more accurate and
+                  insightful answers. Meanwhile, the o1-mini model offers a
+                  cost-effective solution for developers, focusing on STEM
+                  domains with high reasoning power at a lower cost. These
                   models are designed to tackle challenging problems, setting a
                   new standard in AI capabilities. For more details, visit the{' '}
                   <a
                     href="https://docsbot.ai/article/a-new-era-of-ai-reasoning-openais-o1-preview-and-o1-mini-models"
                     target="_blank"
+                    className="text-teal-400"
                   >
                     full article
                   </a>
@@ -822,16 +1144,6 @@ export default function Calculate() {
                   Mistral Large is a private model with benchmarks approaching
                   GPT-4 level for reasoning tasks in English, Spanish, French,
                   German, and Italian.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">OpenAI GPT-4o Realtime and Audio</strong>: These new models, 
-                  available in public beta to all paid developers, power the Realtime API and Chat Completions API 
-                  respectively. Both support text and audio capabilities. For text, they're priced at $5 per 1M 
-                  input tokens and $20 per 1M output tokens. Audio input is priced at $100 per 1M tokens 
-                  (approximately $0.06 per minute), and audio output at $200 per 1M tokens (approximately $0.24 
-                  per minute). The GPT-4o Audio model for Chat Completions API will be released in the coming weeks.
                 </p>
               </li>
             </ul>
