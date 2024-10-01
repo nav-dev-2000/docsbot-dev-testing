@@ -12,37 +12,44 @@ import { usePostHog } from 'posthog-js/react'
 const pricing = {
   'Chat/Completion Models': [
     {
-      model_name: 'GPT-4o-2024-08-06',
+      model_name: 'GPT-4o',
       context: '128K/16K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.0025,
       output_token_cost_per_thousand: 0.01,
     },
     {
-      model_name: 'GPT-4o',
-      context: '128K/4K',
-      provider: 'OpenAI',
+      model_name: 'GPT-4o Realtime (Text)',
+      context: '128K/16K',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.005,
-      output_token_cost_per_thousand: 0.015,
+      output_token_cost_per_thousand: 0.02,
+    },
+    {
+      model_name: 'GPT-4o Audio (Text)',
+      context: '128K/16K',
+      provider: 'OpenAI / Azure',
+      input_token_cost_per_thousand: 0.005,
+      output_token_cost_per_thousand: 0.02,
     },
     {
       model_name: 'GPT-4o mini',
       context: '128K/16K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.00015,
       output_token_cost_per_thousand: 0.0006,
     },
     {
       model_name: 'o1-preview',
       context: '128K/32K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.015, // $15.00 / 1M
       output_token_cost_per_thousand: 0.06, // $60.00 / 1M
     },
     {
       model_name: 'o1-mini',
       context: '128K/65K',
-      provider: 'OpenAI',
+      provider: 'OpenAI / Azure',
       input_token_cost_per_thousand: 0.003, // $3.00 / 1M
       output_token_cost_per_thousand: 0.012, // $12.00 / 1M
     },
@@ -92,15 +99,29 @@ const pricing = {
       model_name: 'Llama 3.1 405b',
       context: '128K/2K',
       provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.0027,
-      output_token_cost_per_thousand: 0.0027,
+      input_token_cost_per_thousand: 0.00179,
+      output_token_cost_per_thousand: 0.00179,
+    },
+    {
+      model_name: 'Llama 3.2 90b Vision-Instruct',
+      context: '128K/2K',
+      provider: 'Meta (via Deepinfra)',
+      input_token_cost_per_thousand: 0.00035,
+      output_token_cost_per_thousand: 0.00040,
     },
     {
       model_name: 'Llama 3.1 70b',
       context: '128K/2K',
       provider: 'Meta (via Deepinfra)',
-      input_token_cost_per_thousand: 0.00059,
-      output_token_cost_per_thousand: 0.00079,
+      input_token_cost_per_thousand: 0.00035,
+      output_token_cost_per_thousand: 0.00040,
+    },
+    {
+      model_name: 'Llama 3.2 11b Vision-Instruct',
+      context: '128K/2K',
+      provider: 'Meta (via Deepinfra)',
+      input_token_cost_per_thousand: 0.000055,
+      output_token_cost_per_thousand: 0.000055,
     },
     {
       model_name: 'Llama 3 70b',
@@ -194,20 +215,46 @@ const pricing = {
       output_token_cost_per_thousand: 0.00675,
     },
   ],
+  'Audio Models': [
+    {
+      model_name: 'GPT-4o Realtime (Audio)',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.1,
+      output_token_cost_per_thousand: 0.2,
+    },
+    {
+      model_name: 'GPT-4o Audio (Audio)',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.1,
+      output_token_cost_per_thousand: 0.2,
+    },
+  ],
   'Fine-tuning models': [
+    {
+      model_name: 'GPT-4o',
+      context: '128K/16K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.00375,
+      output_token_cost_per_thousand: 0.015,
+      training_cost_per_thousand: 0.025,
+    },
+    {
+      model_name: 'GPT-4o Mini',
+      context: '128K/16K',
+      provider: 'OpenAI',
+      input_token_cost_per_thousand: 0.0003,
+      output_token_cost_per_thousand: 0.0012,
+      training_cost_per_thousand: 0.003,
+    },
     {
       model_name: 'GPT-3.5 Turbo',
       context: '4K',
       provider: 'OpenAI',
-      input_token_cost_per_thousand: 0.012,
-      output_token_cost_per_thousand: 0.016,
-    },
-    {
-      model_name: 'PaLM 2',
-      context: '8K',
-      provider: 'Google',
-      input_token_cost_per_thousand: 0.002,
-      output_token_cost_per_thousand: 0.002,
+      input_token_cost_per_thousand: 0.003,
+      output_token_cost_per_thousand: 0.006,
+      training_cost_per_thousand: 0.008,
     },
   ],
   'Embedding models': [
@@ -291,8 +338,8 @@ export default function Calculate() {
   return (
     <>
       <NextSeo
-        title="OpenAI & other LLM API Pricing Calculator | Free, No Login"
-        description="Calculate and compare the cost of using OpenAI, Azure, Anthropic, Llama 3, Google Gemini, Mistral, and Cohere APIs with our powerful FREE pricing calculator."
+        title={`Free OpenAI & every-LLM API Pricing Calculator | Updated ${new Date().toLocaleString('default', { month: 'short' })} ${new Date().getFullYear()}`}
+        description="Calculate and compare the cost of using OpenAI, Azure, Anthropic, Llama 3.3, Google Gemini, Mistral, and Cohere APIs with our powerful FREE pricing calculator. Inlcudes latest pricing for chat, vision, audio, fine-tuned, and embedding models."
         openGraph={{
           images: [
             {
@@ -321,13 +368,13 @@ export default function Calculate() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  OpenAI & other LLM API Pricing Calculator
+                  OpenAI & all LLM API Pricing Calculator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure,
                   Anthropic Claude, Llama 3, Google Gemini, Mistral, and Cohere
                   LLM APIs for your AI project with our simple and powerful free
-                  calculator. Latest numbers as of September 2024.
+                  calculator. Latest numbers as of <span className="font-bold">October 2024</span>.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -775,6 +822,16 @@ export default function Calculate() {
                   Mistral Large is a private model with benchmarks approaching
                   GPT-4 level for reasoning tasks in English, Spanish, French,
                   German, and Italian.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong className="text-white">OpenAI GPT-4o Realtime and Audio</strong>: These new models, 
+                  available in public beta to all paid developers, power the Realtime API and Chat Completions API 
+                  respectively. Both support text and audio capabilities. For text, they're priced at $5 per 1M 
+                  input tokens and $20 per 1M output tokens. Audio input is priced at $100 per 1M tokens 
+                  (approximately $0.06 per minute), and audio output at $200 per 1M tokens (approximately $0.24 
+                  per minute). The GPT-4o Audio model for Chat Completions API will be released in the coming weeks.
                 </p>
               </li>
             </ul>
