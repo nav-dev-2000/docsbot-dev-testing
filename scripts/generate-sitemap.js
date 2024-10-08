@@ -17,13 +17,20 @@ function addPage(page) {
 }
 
 async function generateSitemap() {
-  // Ignore Next.js specific files (e.g., _app.js) and API routes.
+  // Ignore Next.js specific files (e.g., _app.js) and specific directories/files
   const pages = await globby([
     'src/pages/**/*{.js,.jsx,.mdx,.md}',
     '!src/pages/_*{.jsx,.js}',
     '!src/pages/**/[*{.jsx,.js}',
-    '!src/pages/{api,app,ask,chat,iframe,404,register}{**/*,*}',
+    '!src/pages/api/**/*',
+    '!src/pages/app/**/*',
+    '!src/pages/ask/**/*',
+    '!src/pages/chat/**/*',
+    '!src/pages/iframe/**/*',
+    '!src/pages/404.{js,jsx,mdx,md}',
+    '!src/pages/register.{js,jsx,mdx,md}',
   ])
+
   const comparisons = ALTERNATIVES.map((item) => ({
     href: `/comparisons/${item.slug}-alternative`,
   }))
