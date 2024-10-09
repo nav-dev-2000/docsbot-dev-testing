@@ -265,8 +265,8 @@ const pricing = {
       context: '128K',
       provider: 'Mistral AI',
       model_slug: 'mistral-small-2409',
-      input_token_cost_per_million: 2,
-      output_token_cost_per_million: 6,
+      input_token_cost_per_million: .2,
+      output_token_cost_per_million: .6,
     },
     {
       model_name: 'Mistral Large 2',
