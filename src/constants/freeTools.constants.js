@@ -61,9 +61,21 @@ export const freeTools = [
     category: 'Image',
   },
   {
-    name: 'Image to Text Generator',
+    name: 'Image to Text Extractor',
     href: '/tools/image-to-text-generator',
     ogImage: '/images/og/image-to-text.png',
+    category: 'Image',
+  },
+  {
+    name: 'Image to Markdown Converter',
+    href: '/tools/image-to-markdown-extractor',
+    ogImage: '/images/og/image-to-text.png',
+    category: 'Image',
+  },
+  {
+    name: 'Image to FAQ Generator',
+    href: '/tools/image-to-faq-generator',
+    ogImage: '/images/og/image-faq.png',
     category: 'Image',
   },
   {

@@ -65,13 +65,14 @@ const ImageCaptionGenerator = () => {
       return
     }
 
-    const endpoint = `/api/tools/image-caption-generator`
+    const endpoint = `/api/tools/image-prompter`
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        type: 'caption',
         image: image.split(',')[1],
         vibe: selectedVibe,
       }),
@@ -80,7 +81,7 @@ const ImageCaptionGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        setImageCaption(data.caption)
+        setImageCaption(data)
         
         // Track successful caption generation
         posthog?.capture('Free Tool', {

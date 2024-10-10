@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
@@ -9,6 +9,11 @@ import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -34,9 +39,9 @@ const ImageDescriptionGenerator = () => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
-  const [imageTitle, setImageTitle] = useState('')
   const [imageDescription, setImageDescription] = useState('')
   const [descriptionCopied, setDescriptionCopied] = useState(false)
+  const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
 
   const handleImageUpload = useCallback(async (e) => {
@@ -65,13 +70,14 @@ const ImageDescriptionGenerator = () => {
       return
     }
 
-    const endpoint = `/api/tools/image-description-generator`
+    const endpoint = `/api/tools/image-prompter`
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        type: 'description',
         image: image.split(',')[1], // Remove the data URL prefix
       }),
     })
@@ -79,8 +85,7 @@ const ImageDescriptionGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        setImageTitle(data.title)
-        setImageDescription(data.description)
+        setImageDescription(data)
         
         // Track successful description generation
         posthog?.capture('Free Tool', {
@@ -142,9 +147,13 @@ const ImageDescriptionGenerator = () => {
 
   const resetTool = () => {
     setImage(null)
-    setImageTitle('')
     setImageDescription('')
     setErrorText(null)
+    // Scroll to the image upload input
+    const imageUploadElement = document.getElementById('image-upload');
+    if (imageUploadElement) {
+      imageUploadElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     
     // Track tool reset
     posthog?.capture('Free Tool', {
@@ -154,12 +163,33 @@ const ImageDescriptionGenerator = () => {
     })
   }
 
+  const getMarkdownHtml = (text) => {
+    unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeStringify)
+      .process(text)
+      .then((file) => {
+        setHtmlContent(String(file))
+      })
+      .catch((error) => {
+        console.warn('Error processing markdown:', error)
+      })
+  }
+
+  useEffect(() => {
+    if (imageDescription) {
+      getMarkdownHtml(imageDescription)
+    }
+  }, [imageDescription])
+
   return (
     <div className="mx-auto max-w-3xl text-center">
       <div className="py-12 pb-0">
         <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
           <Alert title={errorText} type="error" />
-          {!imageTitle && !imageDescription && (
+          {!imageDescription && (
             <div className="mb-4">
               <label
                 htmlFor="image-upload"
@@ -186,7 +216,7 @@ const ImageDescriptionGenerator = () => {
               />
             </div>
           )}
-          {!imageTitle && !imageDescription && (
+          {!imageDescription && (
             <>
               <button
                 onClick={generateDescription}
@@ -204,10 +234,13 @@ const ImageDescriptionGenerator = () => {
               <p className="mt-2 text-xs text-gray-500">Images are never saved</p>
             </>
           )}
-          {imageTitle && imageDescription && (
+          {imageDescription && (
             <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
-              <h3 className="mb-2 text-md font-medium">{imageTitle}</h3>
-              <p className="mb-4 text-gray-700">{imageDescription}</p>
+              <h3 className="mb-2 text-md font-medium">Description</h3>
+              <div
+                className="prose min-w-full mb-4 text-gray-700"
+                dangerouslySetInnerHTML={{ __html: htmlContent }}
+              />
               <div className="flex gap-2">
                 <button
                   onClick={copyDescription}

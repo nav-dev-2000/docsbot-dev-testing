@@ -6,7 +6,7 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
+import { CodeBracketSquareIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { unified } from 'unified'
@@ -35,12 +35,12 @@ const resizeImage = (file) => {
   })
 }
 
-const ImageToTextGenerator = () => {
+const ImageToMarkdownConverter = () => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
-  const [extractedText, setExtractedText] = useState('')
-  const [textCopied, setTextCopied] = useState(false)
+  const [extractedMarkdown, setExtractedMarkdown] = useState('')
+  const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
 
@@ -53,7 +53,7 @@ const ImageToTextGenerator = () => {
 
         // Track image upload
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to Markdown Converter',
           action: 'Upload Image',
           category: 'Image',
         })
@@ -62,7 +62,7 @@ const ImageToTextGenerator = () => {
     [posthog],
   )
 
-  const extractText = async () => {
+  const extractMarkdown = async () => {
     setIsComputing(true)
     setErrorText('')
 
@@ -72,7 +72,7 @@ const ImageToTextGenerator = () => {
 
       // Track no image error
       posthog?.capture('Free Tool', {
-        tool: 'Image to Text Generator',
+        tool: 'Image to Markdown Converter',
         action: 'Error',
         error: 'No Image Uploaded',
         category: 'Image',
@@ -95,11 +95,11 @@ const ImageToTextGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        setExtractedText(data)
+        setExtractedMarkdown(data)
 
-        // Track successful text extraction
+        // Track successful markdown extraction
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to Markdown Converter',
           action: 'Used',
           category: 'Image',
         })
@@ -110,7 +110,7 @@ const ImageToTextGenerator = () => {
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to Markdown Converter',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'Image',
@@ -120,7 +120,7 @@ const ImageToTextGenerator = () => {
 
         // Track error
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to Markdown Converter',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'Image',
@@ -131,7 +131,7 @@ const ImageToTextGenerator = () => {
 
       // Track error
       posthog?.capture('Free Tool', {
-        tool: 'Image to Text Generator',
+        tool: 'Image to Markdown Converter',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'Image',
@@ -157,32 +157,32 @@ const ImageToTextGenerator = () => {
   }
 
   useEffect(() => {
-    if (extractedText) {
-      getMarkdownHtml(extractedText)
+    if (extractedMarkdown) {
+      getMarkdownHtml(extractedMarkdown)
     }
-  }, [extractedText])
+  }, [extractedMarkdown])
 
-  const copyText = () => {
-    navigator.clipboard.writeText(extractedText)
-    setTextCopied(true)
-    setTimeout(() => setTextCopied(false), 1500)
+  const copyMarkdown = () => {
+    navigator.clipboard.writeText(extractedMarkdown)
+    setMarkdownCopied(true)
+    setTimeout(() => setMarkdownCopied(false), 1500)
 
-    // Track text copy
+    // Track markdown copy
     posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
-      action: 'Copy Text',
+      tool: 'Image to Markdown Converter',
+      action: 'Copy Markdown',
       category: 'Image',
     })
   }
 
   const resetTool = () => {
     setImage(null)
-    setExtractedText('')
+    setExtractedMarkdown('')
     setErrorText(null)
 
     // Track tool reset
     posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
+      tool: 'Image to Markdown Converter',
       action: 'Reset Tool',
       category: 'Image',
     })
@@ -194,7 +194,7 @@ const ImageToTextGenerator = () => {
         <div className="py-12 pb-0">
           <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
             <Alert title={errorText} type="error" />
-            {!extractedText && (
+            {!extractedMarkdown && (
               <div className="mb-4">
                 <label
                   htmlFor="image-upload"
@@ -217,23 +217,23 @@ const ImageToTextGenerator = () => {
                 <img
                   src={image}
                   alt="Preview"
-                  className="mx-auto h-auto max-w-full rounded-lg shadow-lg"
+                  className="mx-auto h-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
                 />
               </div>
             )}
-            {!extractedText && (
+            {!extractedMarkdown && (
               <>
                 <button
-                  onClick={extractText}
+                  onClick={extractMarkdown}
                   disabled={isComputing || !image}
                   className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                 >
                   {isComputing ? (
                     <>
-                      <LoadingSpinner /> Extracting Text...
+                      <LoadingSpinner /> Extracting Markdown...
                     </>
                   ) : (
-                    <>Extract Text</>
+                    <>Extract Markdown</>
                   )}
                 </button>
                 <p className="mt-2 text-xs text-gray-500">
@@ -241,26 +241,26 @@ const ImageToTextGenerator = () => {
                 </p>
               </>
             )}
-            {extractedText && (
+            {extractedMarkdown && (
               <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
-                <h3 className="text-md mb-2 font-medium">Extracted Text</h3>
+                <h3 className="text-md mb-2 font-medium">Extracted Markdown</h3>
                 <div
                   className="prose mb-4 min-w-full text-gray-700"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
                 <div className="flex gap-2">
                   <button
-                    onClick={copyText}
+                    onClick={copyMarkdown}
                     className={clsx(
                       'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                      textCopied ? 'text-cyan-600' : 'text-gray-700',
+                      markdownCopied ? 'text-cyan-600' : 'text-gray-700',
                     )}
                   >
-                    <DocumentDuplicateIcon
+                    <CodeBracketSquareIcon
                       className="mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    {textCopied ? 'Copied!' : 'Copy Text'}
+                    {markdownCopied ? 'Copied!' : 'Copy Markdown'}
                   </button>
                   <button
                     onClick={resetTool}
@@ -274,10 +274,10 @@ const ImageToTextGenerator = () => {
           </div>
         </div>
       </div>
-      {!extractedText && (
+      {!extractedMarkdown && (
         <div className="text-justify text-gray-300">
           <p className="mt-6 text-lg leading-8">
-            Extract text from any image using our advanced{' '}
+            Extract markdown from any image using our advanced{' '}
             <strong>AI-powered OCR tool</strong>. Perfect for:
           </p>
           <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
@@ -288,22 +288,13 @@ const ImageToTextGenerator = () => {
               <em>Transcribing</em> handwritten notes and letters
             </li>
             <li>
-              <em>Extracting</em> text from receipts and business cards
+              <em>Converting</em> scanned documents to editable markdown
             </li>
             <li>
-              <em>Converting</em> scanned documents to editable text
+              <em>Translating</em> foreign language in images to markdown
             </li>
             <li>
-              <em>Capturing</em> text from road signs and billboards
-            </li>
-            <li>
-              <em>Translating</em> foreign language text in images
-            </li>
-            <li>
-              <em>Archiving</em> and indexing image-based content
-            </li>
-            <li>
-              <em>Enhancing</em> accessibility for visually impaired users
+              <em>Archiving</em> and indexing image-based content preserving formatting
             </li>
           </ul>
           <h3 className="mt-6 text-lg font-medium">Key features:</h3>
@@ -312,25 +303,27 @@ const ImageToTextGenerator = () => {
               Supports <em>multiple languages</em> and various image formats
             </li>
             <li>
-              <em>No signup required</em> - start extracting text instantly
+              <em>No signup required</em> - start extracting markdown from
+              images instantly
             </li>
             <li>
               Ideal for{' '}
               <em>
-                students, researchers, professionals, and content creators
+                students, researchers, professionals, AI developers, ChatGPT users, and content
+                creators
               </em>
             </li>
             <li>
               Convert images to <em>searchable, editable, and translatable</em>{' '}
-              text
+              markdown that preserves formatting
             </li>
           </ul>
           <p className="mt-6 text-lg leading-8">
             <strong>Boost productivity</strong>, <strong>save time</strong>, and{' '}
             <strong>unlock the potential</strong> of your visual content with
-            our <em>free image to text converter</em>. Transform{' '}
+            our <em>free image to markdown converter</em>. Transform{' '}
             <strong>screenshots, photos, memes, and more</strong> into usable
-            text effortlessly.
+            markdown effortlessly.
           </p>
         </div>
       )}
@@ -338,17 +331,17 @@ const ImageToTextGenerator = () => {
   )
 }
 
-export default function ImageToTextPage() {
+export default function ImageToMarkdownPage() {
   return (
     <>
       <NextSeo
-        title="Free AI Image to Text Extractor | No Login | Copy Formatted Results"
-        description="Extract text from any image using our OCR AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos to repurpose in other content."
+        title="Free AI Image to Markdown Extractor | No Login | Copy Formatted Results"
+        description="Extract markdown from any image using our OCR AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting markdown from screenshots and photos to repurpose in other content."
         openGraph={{
           images: [
             {
               url: 'https://docsbot.ai/images/og/image-to-text.png',
-              alt: 'AI-Powered Image to Text Generator',
+              alt: 'AI-Powered Image to Markdown Generator',
             },
           ],
         }}
@@ -372,15 +365,17 @@ export default function ImageToTextPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Free AI Image to Text Extractor
+                  Free AI Image to Markdown Extractor/Converter
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Extract text from any image or picture using our AI-powered
-                  tool. Perfect for digitizing documents, transcribing
-                  handwritten notes, or extracting text from screenshots and
-                  photos. No signup required.
+                  Extract and convert any image into markdown using our
+                  AI-powered tool. Perfect for digitizing documents,
+                  transcribing handwritten notes, or extracting markdown from
+                  screenshots and photos while preserving the formatting. Use as
+                  context for LLMs or as a prompt for AI models. Use for RAG
+                  over images.
                 </p>
-                <ImageToTextGenerator />
+                <ImageToMarkdownConverter />
               </div>
             </div>
           </div>

@@ -6,7 +6,10 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
+import {
+  DocumentDuplicateIcon,
+  CodeBracketIcon,
+} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { unified } from 'unified'
@@ -35,34 +38,26 @@ const resizeImage = (file) => {
   })
 }
 
-const ImageToTextGenerator = () => {
+const ImageToFAQGenerator = () => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
-  const [extractedText, setExtractedText] = useState('')
-  const [textCopied, setTextCopied] = useState(false)
+  const [faqs, setFaqs] = useState('')
+  const [descriptionCopied, setDescriptionCopied] = useState(false)
   const [htmlContent, setHtmlContent] = useState('')
+  const [textCopied, setTextCopied] = useState(false)
+  const [markdownCopied, setMarkdownCopied] = useState(false)
   const posthog = usePostHog()
 
-  const handleImageUpload = useCallback(
-    async (e) => {
-      const file = e.target.files[0]
-      if (file) {
-        const resizedImage = await resizeImage(file)
-        setImage(resizedImage)
+  const handleImageUpload = useCallback(async (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      const resizedImage = await resizeImage(file)
+      setImage(resizedImage)
+    }
+  }, [])
 
-        // Track image upload
-        posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
-          action: 'Upload Image',
-          category: 'Image',
-        })
-      }
-    },
-    [posthog],
-  )
-
-  const extractText = async () => {
+  const generateFAQs = async () => {
     setIsComputing(true)
     setErrorText('')
 
@@ -72,7 +67,7 @@ const ImageToTextGenerator = () => {
 
       // Track no image error
       posthog?.capture('Free Tool', {
-        tool: 'Image to Text Generator',
+        tool: 'Image to FAQ Generator',
         action: 'Error',
         error: 'No Image Uploaded',
         category: 'Image',
@@ -87,7 +82,7 @@ const ImageToTextGenerator = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        type: 'text',
+        type: 'faq',
         image: image.split(',')[1], // Remove the data URL prefix
       }),
     })
@@ -95,11 +90,11 @@ const ImageToTextGenerator = () => {
     try {
       const data = await response.json()
       if (response.ok) {
-        setExtractedText(data)
+        setFaqs(data)
 
-        // Track successful text extraction
+        // Track successful FAQ generation
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to FAQ Generator',
           action: 'Used',
           category: 'Image',
         })
@@ -110,7 +105,7 @@ const ImageToTextGenerator = () => {
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to FAQ Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'Image',
@@ -120,7 +115,7 @@ const ImageToTextGenerator = () => {
 
         // Track error
         posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
+          tool: 'Image to FAQ Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'Image',
@@ -131,7 +126,7 @@ const ImageToTextGenerator = () => {
 
       // Track error
       posthog?.capture('Free Tool', {
-        tool: 'Image to Text Generator',
+        tool: 'Image to FAQ Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'Image',
@@ -139,6 +134,50 @@ const ImageToTextGenerator = () => {
     }
 
     setIsComputing(false)
+  }
+
+  const copyFAQsAsText = () => {
+    navigator.clipboard.writeText(
+      faqs
+        .replace(/\*\*/g, '')
+        .replace(/###\s/g, '')
+        .replace(/\*([^*]+)\*/g, '$1'),
+    )
+    setTextCopied(true)
+    setTimeout(() => setTextCopied(false), 1500)
+
+    // Track FAQ copy as text
+    posthog?.capture('Free Tool', {
+      tool: 'Image to FAQ Generator',
+      action: 'Copy FAQs as Text',
+      category: 'Image',
+    })
+  }
+
+  const copyFAQsAsMarkdown = () => {
+    navigator.clipboard.writeText(faqs)
+    setMarkdownCopied(true)
+    setTimeout(() => setMarkdownCopied(false), 1500)
+
+    // Track FAQ copy as markdown
+    posthog?.capture('Free Tool', {
+      tool: 'Image to FAQ Generator',
+      action: 'Copy FAQs as Markdown',
+      category: 'Image',
+    })
+  }
+
+  const resetTool = () => {
+    setImage(null)
+    setFaqs('')
+    setErrorText(null)
+
+    // Track tool reset
+    posthog?.capture('Free Tool', {
+      tool: 'Image to FAQ Generator',
+      action: 'Reset Tool',
+      category: 'Image',
+    })
   }
 
   const getMarkdownHtml = (text) => {
@@ -157,36 +196,10 @@ const ImageToTextGenerator = () => {
   }
 
   useEffect(() => {
-    if (extractedText) {
-      getMarkdownHtml(extractedText)
+    if (faqs) {
+      getMarkdownHtml(faqs)
     }
-  }, [extractedText])
-
-  const copyText = () => {
-    navigator.clipboard.writeText(extractedText)
-    setTextCopied(true)
-    setTimeout(() => setTextCopied(false), 1500)
-
-    // Track text copy
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
-      action: 'Copy Text',
-      category: 'Image',
-    })
-  }
-
-  const resetTool = () => {
-    setImage(null)
-    setExtractedText('')
-    setErrorText(null)
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
-  }
+  }, [faqs])
 
   return (
     <>
@@ -194,7 +207,7 @@ const ImageToTextGenerator = () => {
         <div className="py-12 pb-0">
           <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
             <Alert title={errorText} type="error" />
-            {!extractedText && (
+            {!faqs && (
               <div className="mb-4">
                 <label
                   htmlFor="image-upload"
@@ -217,23 +230,23 @@ const ImageToTextGenerator = () => {
                 <img
                   src={image}
                   alt="Preview"
-                  className="mx-auto h-auto max-w-full rounded-lg shadow-lg"
+                  className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
                 />
               </div>
             )}
-            {!extractedText && (
+            {!faqs && (
               <>
                 <button
-                  onClick={extractText}
+                  onClick={generateFAQs}
                   disabled={isComputing || !image}
                   className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                 >
                   {isComputing ? (
                     <>
-                      <LoadingSpinner /> Extracting Text...
+                      <LoadingSpinner /> Generating FAQs...
                     </>
                   ) : (
-                    <>Extract Text</>
+                    <>Generate FAQs</>
                   )}
                 </button>
                 <p className="mt-2 text-xs text-gray-500">
@@ -241,16 +254,16 @@ const ImageToTextGenerator = () => {
                 </p>
               </>
             )}
-            {extractedText && (
-              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
-                <h3 className="text-md mb-2 font-medium">Extracted Text</h3>
+            {faqs && (
+              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
+                <h3 className="text-md mb-2 font-medium">FAQs</h3>
                 <div
                   className="prose mb-4 min-w-full text-gray-700"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
                 <div className="flex gap-2">
                   <button
-                    onClick={copyText}
+                    onClick={copyFAQsAsText}
                     className={clsx(
                       'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
                       textCopied ? 'text-cyan-600' : 'text-gray-700',
@@ -260,7 +273,20 @@ const ImageToTextGenerator = () => {
                       className="mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    {textCopied ? 'Copied!' : 'Copy Text'}
+                    {textCopied ? 'Copied!' : 'Copy as Text'}
+                  </button>
+                  <button
+                    onClick={copyFAQsAsMarkdown}
+                    className={clsx(
+                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                      markdownCopied ? 'text-cyan-600' : 'text-gray-700',
+                    )}
+                  >
+                    <CodeBracketIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
                   </button>
                   <button
                     onClick={resetTool}
@@ -274,63 +300,65 @@ const ImageToTextGenerator = () => {
           </div>
         </div>
       </div>
-      {!extractedText && (
+      {!faqs && (
         <div className="text-justify text-gray-300">
           <p className="mt-6 text-lg leading-8">
-            Extract text from any image using our advanced{' '}
-            <strong>AI-powered OCR tool</strong>. Perfect for:
+            Our AI-powered Image to FAQ Generator is a versatile tool with
+            numerous applications across various fields. Here are some key use
+            cases:
           </p>
           <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
             <li>
-              <em>Digitizing</em> printed documents and books
+              <strong>Education:</strong> Teachers can create quick quizzes from
+              educational images, diagrams, or infographics.
             </li>
             <li>
-              <em>Transcribing</em> handwritten notes and letters
+              <strong>E-learning:</strong> Course creators can generate
+              interactive Q&amp;As from visual content to enhance learner
+              engagement.
             </li>
             <li>
-              <em>Extracting</em> text from receipts and business cards
+              <strong>Content Marketing:</strong> Marketers can create FAQs from
+              product images or infographics for better audience understanding.
             </li>
             <li>
-              <em>Converting</em> scanned documents to editable text
+              <strong>Social Media:</strong> Community managers can generate
+              engaging quizzes from trending images or memes.
             </li>
             <li>
-              <em>Capturing</em> text from road signs and billboards
+              <strong>Data Visualization:</strong> Analysts can create Q&amp;As
+              to explain complex charts or graphs.
             </li>
             <li>
-              <em>Translating</em> foreign language text in images
+              <strong>Art and Photography:</strong> Artists can generate
+              discussion points or questions about their visual works.
             </li>
             <li>
-              <em>Archiving</em> and indexing image-based content
+              <strong>Medical Education:</strong> Healthcare professionals can
+              create Q&amp;As from medical imaging for training purposes.
             </li>
             <li>
-              <em>Enhancing</em> accessibility for visually impaired users
+              <strong>Travel and Tourism:</strong> Travel bloggers can generate
+              FAQs about destination images to inform their audience.
+            </li>
+            <li>
+              <strong>Product Development:</strong> Product developers can
+              create FAQs from product images to understand user needs and
+              improve product features.
             </li>
           </ul>
-          <h3 className="mt-6 text-lg font-medium">Key features:</h3>
-          <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
-            <li>
-              Supports <em>multiple languages</em> and various image formats
-            </li>
-            <li>
-              <em>No signup required</em> - start extracting text instantly
-            </li>
-            <li>
-              Ideal for{' '}
-              <em>
-                students, researchers, professionals, and content creators
-              </em>
-            </li>
-            <li>
-              Convert images to <em>searchable, editable, and translatable</em>{' '}
-              text
-            </li>
-          </ul>
-          <p className="mt-6 text-lg leading-8">
-            <strong>Boost productivity</strong>, <strong>save time</strong>, and{' '}
-            <strong>unlock the potential</strong> of your visual content with
-            our <em>free image to text converter</em>. Transform{' '}
-            <strong>screenshots, photos, memes, and more</strong> into usable
-            text effortlessly.
+          <p className="mt-4 text-lg leading-8">
+            This tool leverages advanced AI and computer vision technologies to
+            analyze images and generate relevant, insightful questions and
+            answers. It's perfect for visual learning, content creation,
+            audience engagement, and knowledge testing across various domains.
+          </p>
+          <p className="mt-4 text-lg leading-8">
+            Whether you're an educator, content creator, marketer, or just
+            curious about exploring images in a new way, our Image to FAQ
+            Generator offers a unique approach to understanding and interacting
+            with visual content. Try it now and transform your images into
+            engaging, educational FAQs!
           </p>
         </div>
       )}
@@ -338,17 +366,17 @@ const ImageToTextGenerator = () => {
   )
 }
 
-export default function ImageToTextPage() {
+export default function ImageToFAQPage() {
   return (
     <>
       <NextSeo
-        title="Free AI Image to Text Extractor | No Login | Copy Formatted Results"
-        description="Extract text from any image using our OCR AI tool with no-signup. Perfect for digitizing documents, transcribing handwritten notes, or extracting text from screenshots and photos to repurpose in other content."
+        title="Free AI Image to FAQ Generator | No Login | Copy Results"
+        description="Generate FAQs for any image using our AI-powered tool. Perfect for creating quizes and test to understand image content."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/image-to-text.png',
-              alt: 'AI-Powered Image to Text Generator',
+              url: 'https://docsbot.ai/images/og/image-faq.png',
+              alt: 'AI-Powered Image to FAQ Generator',
             },
           ],
         }}
@@ -372,15 +400,14 @@ export default function ImageToTextPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Free AI Image to Text Extractor
+                  AI-Powered Image to FAQ Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Extract text from any image or picture using our AI-powered
-                  tool. Perfect for digitizing documents, transcribing
-                  handwritten notes, or extracting text from screenshots and
-                  photos. No signup required.
+                  Generate FAQs for any image using our AI-powered tool. Perfect
+                  for students, educators, and anyone who wants to create
+                  quizzes and tests to learn and understand image content.
                 </p>
-                <ImageToTextGenerator />
+                <ImageToFAQGenerator />
               </div>
             </div>
           </div>
