@@ -324,6 +324,7 @@ export const fetchYoutubeSubtitles = async (videoId) => {
     }
 
     // If subtitles are still empty, use the backup API
+    /* disabled for tools, apify is reliable
     if (!subtitles) {
       console.log('No subtitles found, using backup API')
       const backupApiEndpoint = 'https://www.searchapi.io/api/v1/search'
@@ -350,6 +351,7 @@ export const fetchYoutubeSubtitles = async (videoId) => {
           .join(' ')
       }
     }
+    */
 
     const result = { metadata, subtitles }
 

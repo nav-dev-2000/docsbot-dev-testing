@@ -619,7 +619,7 @@ export default async function handler(req, res) {
         subtitlesResult = await fetchYoutubeSubtitles(videoId)
         if (!subtitlesResult.subtitles) {
           return res.status(400).json({
-            message: `Failed to fetch the video subtitles.`,
+            message: `Sorry, this video does not appear to have subtitles. Please try another.`,
           })
         }
       } catch (error) {
