@@ -189,7 +189,7 @@ export default async function handler(req, res) {
 
       const response = await openai.chat.completions.create({
         messages: chatMessages,
-        models: ['meta-llama/llama-3.2-11b-vision-instruct:free', 'google/gemini-flash-1.5-8b', 'meta-llama/llama-3.2-11b-vision-instruct'],
+        models: [/*'meta-llama/llama-3.2-11b-vision-instruct:free', */'google/gemini-flash-1.5-8b', 'meta-llama/llama-3.2-11b-vision-instruct', 'google/gemini-flash-1.5'],
         route: 'fallback',
       })
 
