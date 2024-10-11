@@ -6,7 +6,7 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
+import { DocumentDuplicateIcon, PencilSquareIcon, CameraIcon, EyeIcon, GlobeAltIcon, ClipboardDocumentIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { unified } from 'unified'
@@ -14,6 +14,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
+import { Disclosure } from '@headlessui/react'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -23,7 +24,7 @@ const resizeImage = (file) => {
       img.onload = () => {
         const canvas = document.createElement('canvas')
         const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(1024 / img.width, 1024 / img.height)
+        const scaleFactor = Math.min(2048 / img.width, 2048 / img.height)
         canvas.width = img.width * scaleFactor
         canvas.height = img.height * scaleFactor
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
@@ -35,7 +36,67 @@ const resizeImage = (file) => {
   })
 }
 
-const ImageToTextGenerator = () => {
+const useCases = [
+  {
+    name: 'Digitize Printed Documents',
+    description: 'Convert scanned books, articles, and documents into editable and searchable text, saving time on manual transcription.',
+    icon: DocumentDuplicateIcon,
+  },
+  {
+    name: 'Transcribe Handwritten Notes',
+    description: 'Transform handwritten notes, letters, and journals into digital text for easy archiving and searching.',
+    icon: PencilSquareIcon,
+  },
+  {
+    name: 'Extract Text from Images',
+    description: 'Capture text from screenshots, photos, and graphics to repurpose content or gather information quickly.',
+    icon: CameraIcon,
+  },
+  {
+    name: 'Enhance Accessibility',
+    description: 'Create text alternatives for images, improving web accessibility for visually impaired users.',
+    icon: EyeIcon,
+  },
+  {
+    name: 'Translate Visual Content',
+    description: 'Extract text from foreign language signs, menus, or documents for easy translation.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Data Entry Automation',
+    description: 'Streamline data entry processes by automatically extracting text from forms, receipts, and business cards.',
+    icon: ClipboardDocumentIcon,
+  },
+]
+
+const faqs = [
+  {
+    question: 'How accurate is the image to text conversion?',
+    answer: 'Our AI-powered OCR technology offers high accuracy for most clear, well-lit images. However, factors like image quality, font complexity, and background noise can affect results. We recommend reviewing and editing the output for optimal accuracy.',
+  },
+  {
+    question: 'What image formats are supported?',
+    answer: 'Our tool supports common image formats including JPEG, PNG, GIF, and WEBP. For best results, use high-resolution images with clear, contrasting text.',
+  },
+  {
+    question: 'Can it handle handwritten text?',
+    answer: 'Yes, our AI can process handwritten text, though accuracy may vary depending on the clarity and style of handwriting. Printed text generally yields more accurate results.',
+  },
+  {
+    question: 'Is there a limit on image size or number of images?',
+    answer: 'There\'s no strict limit on image size, but larger images may take longer to process. We automatically resize images to optimize performance. You can process multiple images, but there\'s a daily limit for free users.',
+  },
+  {
+    question: 'How is my data handled?',
+    answer: 'We prioritize your privacy and security. Uploaded images are processed in real-time and are not stored on our servers. The extracted text is temporarily held for display and is deleted after your session ends.',
+  },
+  {
+    question: 'Can I use the extracted text for commercial purposes?',
+    answer: 'Yes, you can use the extracted text for both personal and commercial purposes. However, ensure you have the necessary rights to use the original image content.',
+  },
+]
+
+const ImageToTextGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -162,6 +223,10 @@ const ImageToTextGenerator = () => {
     }
   }, [extractedText])
 
+  useEffect(() => {
+    setHasResults(!!extractedText)
+  }, [extractedText, setHasResults])
+
   const copyText = () => {
     navigator.clipboard.writeText(extractedText)
     setTextCopied(true)
@@ -274,71 +339,13 @@ const ImageToTextGenerator = () => {
           </div>
         </div>
       </div>
-      {!extractedText && (
-        <div className="text-justify text-gray-300">
-          <p className="mt-6 text-lg leading-8">
-            Extract text from any image using our advanced{' '}
-            <strong>AI-powered OCR tool</strong>. Perfect for:
-          </p>
-          <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
-            <li>
-              <em>Digitizing</em> printed documents and books
-            </li>
-            <li>
-              <em>Transcribing</em> handwritten notes and letters
-            </li>
-            <li>
-              <em>Extracting</em> text from receipts and business cards
-            </li>
-            <li>
-              <em>Converting</em> scanned documents to editable text
-            </li>
-            <li>
-              <em>Capturing</em> text from road signs and billboards
-            </li>
-            <li>
-              <em>Translating</em> foreign language text in images
-            </li>
-            <li>
-              <em>Archiving</em> and indexing image-based content
-            </li>
-            <li>
-              <em>Enhancing</em> accessibility for visually impaired users
-            </li>
-          </ul>
-          <h3 className="mt-6 text-lg font-medium">Key features:</h3>
-          <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
-            <li>
-              Supports <em>multiple languages</em> and various image formats
-            </li>
-            <li>
-              <em>No signup required</em> - start extracting text instantly
-            </li>
-            <li>
-              Ideal for{' '}
-              <em>
-                students, researchers, professionals, and content creators
-              </em>
-            </li>
-            <li>
-              Convert images to <em>searchable, editable, and translatable</em>{' '}
-              text
-            </li>
-          </ul>
-          <p className="mt-6 text-lg leading-8">
-            <strong>Boost productivity</strong>, <strong>save time</strong>, and{' '}
-            <strong>unlock the potential</strong> of your visual content with
-            our <em>free image to text converter</em>. Transform{' '}
-            <strong>screenshots, photos, memes, and more</strong> into usable
-            text effortlessly.
-          </p>
-        </div>
-      )}
     </>
   )
 }
 
 export default function ImageToTextPage() {
+  const [hasResults, setHasResults] = useState(false)
+
   return (
     <>
       <NextSeo
@@ -380,11 +387,156 @@ export default function ImageToTextPage() {
                   handwritten notes, or extracting text from screenshots and
                   photos. No signup required.
                 </p>
-                <ImageToTextGenerator />
+                <ImageToTextGenerator setHasResults={setHasResults} />
               </div>
             </div>
           </div>
         </div>
+
+        {!hasResults && (
+          <>
+            <div className="bg-white py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:text-center">
+                  <h2 className="text-base font-semibold leading-7 text-cyan-600">
+                    Effortless Text Extraction
+                  </h2>
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    How to Use Our AI Image to Text Converter
+                  </p>
+                  <p className="mt-6 text-lg leading-8 text-gray-600">
+                    Follow these simple steps to extract text from your images in seconds.
+                  </p>
+                </div>
+                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                  <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          1
+                        </span>
+                        Upload Your Image
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Select and upload the image containing the text you want to extract. We support various image formats.
+                        </p>
+                      </dd>
+                    </div>
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          2
+                        </span>
+                        Extract Text
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Click the 'Extract Text' button and let our AI analyze your image and convert it to text.
+                        </p>
+                      </dd>
+                    </div>
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          3
+                        </span>
+                        Review and Copy
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Review the extracted text, make any necessary edits, and copy it with a single click for your use.
+                        </p>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-900 py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:text-center">
+                  <h2 className="text-base font-semibold leading-7 text-cyan-400">
+                    Versatile Applications
+                  </h2>
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    Use Cases for Our AI Image to Text Converter
+                  </p>
+                  <p className="mt-6 text-lg leading-8 text-gray-300">
+                    Discover how our AI-powered Image to Text Converter can streamline your workflow and enhance productivity across various domains.
+                  </p>
+                </div>
+                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                  <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    {useCases.map((useCase) => (
+                      <div key={useCase.name} className="relative pl-16">
+                        <dt className="text-base font-semibold leading-7 text-white">
+                          <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                            <useCase.icon
+                              className="h-6 w-6 text-white"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          {useCase.name}
+                        </dt>
+                        <dd className="mt-2 text-base leading-7 text-gray-300">
+                          {useCase.description}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white">
+              <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+                <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+                  <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
+                    Frequently Asked Questions
+                  </h2>
+                  <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+                    {faqs.map((faq) => (
+                      <Disclosure as="div" key={faq.question} className="pt-6">
+                        {({ open }) => (
+                          <>
+                            <dt>
+                              <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                                <span className="text-base font-semibold leading-7">
+                                  {faq.question}
+                                </span>
+                                <span className="ml-6 flex h-7 items-center">
+                                  {open ? (
+                                    <MinusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <PlusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                              </Disclosure.Button>
+                            </dt>
+                            <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                              <p className="text-base leading-7 text-gray-600">
+                                {faq.answer}
+                              </p>
+                            </Disclosure.Panel>
+                          </>
+                        )}
+                      </Disclosure>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
         <RegisterCTA
           customTitle="Train a Custom AI Chatbot"
           description="Train a custom chatbot with your content, chat with images, and explore advanced AI-powered tools for personalized interactions with your data."

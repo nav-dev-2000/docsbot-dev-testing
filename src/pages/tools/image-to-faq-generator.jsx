@@ -17,6 +17,17 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
+import {
+  ChatBubbleLeftRightIcon,
+  PencilSquareIcon,
+  GlobeAltIcon,
+  EyeIcon,
+  ArrowUpOnSquareStackIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+  MinusIcon,
+} from '@heroicons/react/24/outline'
+import { Disclosure } from '@headlessui/react'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -38,7 +49,7 @@ const resizeImage = (file) => {
   })
 }
 
-const ImageToFAQGenerator = () => {
+const ImageToFAQGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -91,6 +102,7 @@ const ImageToFAQGenerator = () => {
       const data = await response.json()
       if (response.ok) {
         setFaqs(data)
+        setHasResults(true)
 
         // Track successful FAQ generation
         posthog?.capture('Free Tool', {
@@ -171,6 +183,7 @@ const ImageToFAQGenerator = () => {
     setImage(null)
     setFaqs('')
     setErrorText(null)
+    setHasResults(false)
 
     // Track tool reset
     posthog?.capture('Free Tool', {
@@ -300,78 +313,78 @@ const ImageToFAQGenerator = () => {
           </div>
         </div>
       </div>
-      {!faqs && (
-        <div className="text-justify text-gray-300">
-          <p className="mt-6 text-lg leading-8">
-            Our AI-powered Image to FAQ Generator is a versatile tool with
-            numerous applications across various fields. Here are some key use
-            cases:
-          </p>
-          <ul className="mb-4 ml-8 mt-2 list-inside list-disc">
-            <li>
-              <strong>Education:</strong> Teachers can create quick quizzes from
-              educational images, diagrams, or infographics.
-            </li>
-            <li>
-              <strong>E-learning:</strong> Course creators can generate
-              interactive Q&amp;As from visual content to enhance learner
-              engagement.
-            </li>
-            <li>
-              <strong>Content Marketing:</strong> Marketers can create FAQs from
-              product images or infographics for better audience understanding.
-            </li>
-            <li>
-              <strong>Social Media:</strong> Community managers can generate
-              engaging quizzes from trending images or memes.
-            </li>
-            <li>
-              <strong>Data Visualization:</strong> Analysts can create Q&amp;As
-              to explain complex charts or graphs.
-            </li>
-            <li>
-              <strong>Art and Photography:</strong> Artists can generate
-              discussion points or questions about their visual works.
-            </li>
-            <li>
-              <strong>Medical Education:</strong> Healthcare professionals can
-              create Q&amp;As from medical imaging for training purposes.
-            </li>
-            <li>
-              <strong>Travel and Tourism:</strong> Travel bloggers can generate
-              FAQs about destination images to inform their audience.
-            </li>
-            <li>
-              <strong>Product Development:</strong> Product developers can
-              create FAQs from product images to understand user needs and
-              improve product features.
-            </li>
-          </ul>
-          <p className="mt-4 text-lg leading-8">
-            This tool leverages advanced AI and computer vision technologies to
-            analyze images and generate relevant, insightful questions and
-            answers. It's perfect for visual learning, content creation,
-            audience engagement, and knowledge testing across various domains.
-          </p>
-          <p className="mt-4 text-lg leading-8">
-            Whether you're an educator, content creator, marketer, or just
-            curious about exploring images in a new way, our Image to FAQ
-            Generator offers a unique approach to understanding and interacting
-            with visual content. Try it now and transform your images into
-            engaging, educational FAQs!
-          </p>
-        </div>
-      )}
     </>
   )
 }
 
+const useCases = [
+  {
+    name: 'Enhance Interactive Learning',
+    description: 'Create engaging quizzes and assessments from educational images, diagrams, and infographics to boost student engagement and retention.',
+    icon: ChatBubbleLeftRightIcon,
+  },
+  {
+    name: 'Streamline Content Creation',
+    description: 'Quickly generate FAQs from visual content for textbooks, online courses, and educational websites, saving time for educators and instructional designers.',
+    icon: PencilSquareIcon,
+  },
+  {
+    name: 'Improve E-learning Experiences',
+    description: 'Integrate image-based FAQs into Learning Management Systems like Canvas, Blackboard, and Moodle to create more interactive and comprehensive online courses.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Support Visual Learners',
+    description: 'Create supplementary Q&As for visual learners, helping them better understand and remember complex concepts presented in images and diagrams.',
+    icon: EyeIcon,
+  },
+  {
+    name: 'Facilitate Flipped Classrooms',
+    description: 'Generate pre-class questions from lecture slides or textbook images, encouraging students to engage with material before in-person discussions.',
+    icon: ArrowUpOnSquareStackIcon,
+  },
+  {
+    name: 'Enhance Educational Content Marketing',
+    description: 'Create engaging social media content and blog posts by generating FAQs from infographics and educational images, attracting potential students and learners.',
+    icon: MagnifyingGlassIcon,
+  },
+];
+
+const faqs = [
+  {
+    question: 'How can the Image to FAQ Generator benefit educators?',
+    answer: 'Educators can use this tool to quickly create engaging quizzes, assessments, and discussion prompts from educational images, diagrams, and infographics. This saves time in content creation and helps diversify learning materials.',
+  },
+  {
+    question: 'Can this tool be integrated with Learning Management Systems (LMS)?',
+    answer: 'While direct integration is not available, the generated FAQs can be easily copied and pasted into popular LMS platforms like Canvas, Blackboard, Moodle, and D2L Brightspace to enhance online courses and assessments.',
+  },
+  {
+    question: 'How accurate are the generated FAQs?',
+    answer: 'The AI-generated FAQs are generally quite accurate for common educational content. However, for specialized or complex topics, it\'s recommended that educators review and potentially refine the questions and answers to ensure they align with specific learning objectives.',
+  },
+  {
+    question: 'Can students use this tool for self-study?',
+    answer: 'Absolutely! Students can upload images from their textbooks or lecture slides to generate practice questions, helping them review key concepts and prepare for exams more effectively.',
+  },
+  {
+    question: 'Are there any limitations on image types or sizes?',
+    answer: 'Our tool supports common image formats (JPEG, PNG, GIF, WEBP) and automatically resizes images for optimal processing. Very large files may have size limitations, but most educational images should work well.',
+  },
+  {
+    question: 'How can content creators use this tool for educational marketing?',
+    answer: 'Content creators can generate FAQs from infographics or promotional images to create engaging social media posts, blog articles, or email content. This helps attract potential students and showcase the value of educational programs or courses.',
+  },
+];
+
 export default function ImageToFAQPage() {
+  const [hasResults, setHasResults] = useState(false);
+
   return (
     <>
       <NextSeo
         title="Free AI Image to FAQ Generator | No Login | Copy Results"
-        description="Generate FAQs for any image using our AI-powered tool. Perfect for creating quizes and test to understand image content."
+        description="Generate FAQs for any image using our AI-powered tool. Perfect for creating quizzes and tests to understand image content, enhance learning experiences, and streamline educational content creation."
         openGraph={{
           images: [
             {
@@ -403,15 +416,157 @@ export default function ImageToFAQPage() {
                   AI-Powered Image to FAQ Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate FAQs for any image using our AI-powered tool. Perfect
-                  for students, educators, and anyone who wants to create
-                  quizzes and tests to learn and understand image content.
+                  Generate FAQs for any image using our AI-powered tool. Perfect for students, educators, and anyone who wants to create quizzes and tests to learn and understand image content. Enhance your e-learning materials and LMS content effortlessly.
                 </p>
-                <ImageToFAQGenerator />
+                <ImageToFAQGenerator setHasResults={setHasResults} />
               </div>
             </div>
           </div>
         </div>
+
+        {!hasResults && (
+          <>
+            <div className="bg-white py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:text-center">
+                  <h2 className="text-base font-semibold leading-7 text-cyan-600">
+                    Effortless FAQ Creation
+                  </h2>
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    How to Use Our AI Image to FAQ Generator
+                  </p>
+                  <p className="mt-6 text-lg leading-8 text-gray-600">
+                    Follow these simple steps to create engaging FAQs from your educational images in seconds.
+                  </p>
+                </div>
+                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                  <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          1
+                        </span>
+                        Upload Your Image
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Select and upload the educational image, diagram, or infographic you want to create FAQs for. Our tool supports various image formats.
+                        </p>
+                      </dd>
+                    </div>
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          2
+                        </span>
+                        Generate FAQs
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Click the 'Generate FAQs' button and let our AI analyze your image to create relevant questions and answers.
+                        </p>
+                      </dd>
+                    </div>
+                    <div className="flex flex-col">
+                      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          3
+                        </span>
+                        Review, Copy, Customize
+                      </dt>
+                      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                        <p className="flex-auto">
+                          Review the generated FAQs, copy them with a click, and customize as needed for your learning materials or LMS content.
+                        </p>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-900 py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto max-w-2xl lg:text-center">
+                  <h2 className="text-base font-semibold leading-7 text-cyan-400">
+                    Educational Applications
+                  </h2>
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    Use Cases for Our AI Image to FAQ Generator in Education
+                  </p>
+                  <p className="mt-6 text-lg leading-8 text-gray-300">
+                    Discover how our AI-powered Image to FAQ Generator can enhance learning experiences and streamline content creation across various educational domains.
+                  </p>
+                </div>
+                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                  <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    {useCases.map((useCase) => (
+                      <div key={useCase.name} className="relative pl-16">
+                        <dt className="text-base font-semibold leading-7 text-white">
+                          <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                            <useCase.icon
+                              className="h-6 w-6 text-white"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          {useCase.name}
+                        </dt>
+                        <dd className="mt-2 text-base leading-7 text-gray-300">
+                          {useCase.description}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white">
+              <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+                <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+                  <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
+                    Frequently Asked Questions
+                  </h2>
+                  <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+                    {faqs.map((faq) => (
+                      <Disclosure as="div" key={faq.question} className="pt-6">
+                        {({ open }) => (
+                          <>
+                            <dt>
+                              <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                                <span className="text-base font-semibold leading-7">
+                                  {faq.question}
+                                </span>
+                                <span className="ml-6 flex h-7 items-center">
+                                  {open ? (
+                                    <MinusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
+                                  ) : (
+                                    <PlusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
+                                  )}
+                                </span>
+                              </Disclosure.Button>
+                            </dt>
+                            <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                              <p className="text-base leading-7 text-gray-600">
+                                {faq.answer}
+                              </p>
+                            </Disclosure.Panel>
+                          </>
+                        )}
+                      </Disclosure>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
         <RegisterCTA
           customTitle="Train a Custom AI Chatbot"
           description="Train a custom chatbot with your content, chat with images, and explore advanced AI-powered tools for personalized interactions with your data."
