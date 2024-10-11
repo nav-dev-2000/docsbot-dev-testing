@@ -11,6 +11,7 @@ import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
+import RecentAIVideos from '@/components/RecentAIVideos'
 
 const loadingText = [
   'Fetching video details...',
@@ -199,14 +200,14 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Quote Generator/Extractor
+                  Free AI YouTube Video Quote Generator/Extractor
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Extract insightful quotes from any YouTube video for free
                   using our AI-powered quote generator/extractor. Quickly
                   capture key messages and memorable phrases to copy, share, or
                   use in your own content. Perfect for creating engaging quotes
-                  for your ads,website, blog, or social media.
+                  for your ads, website, blog, or social media.
                 </p>
                 <YoutubeQuoteGenerator />
                 <RecentVideos
@@ -226,6 +227,12 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentVideos
+                  heading="More Recently Generated Quotes"
+                  slug="ai-youtube-quote-generator"
+                  recentVideos={recentVideos}
+                />
       </main>
       <Footer />
     </>

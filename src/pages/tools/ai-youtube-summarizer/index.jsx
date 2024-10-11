@@ -10,6 +10,27 @@ import FreeToolsGrid from '@/components/FreeToolsGrid'
 import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
+import RecentAIVideos from '@/components/RecentAIVideos'
+import {
+  ShieldCheckIcon,
+  UserCircleIcon,
+  BanknotesIcon,
+} from '@heroicons/react/24/solid'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/react'
+import {
+  MinusIcon,
+  PlusIcon,
+  ArrowPathIcon,
+  GlobeAltIcon,
+  FingerPrintIcon,
+  LockClosedIcon,
+  DocumentTextIcon,
+  AcademicCapIcon,
+} from '@heroicons/react/24/outline'
 
 const loadingText = [
   'Fetching video details...',
@@ -169,6 +190,79 @@ const YoutubeSummarizer = () => {
   )
 }
 
+const faqs = [
+  {
+    question: 'What is a YouTube Video Summarizer?',
+    answer:
+      'A YouTube Video Summarizer is an AI-powered tool that automatically generates concise summaries of YouTube videos, extracting key points and main ideas to save you time and enhance your understanding of the content.',
+  },
+  {
+    question: 'Is this YouTube Summarizer really free?',
+    answer:
+      'Yes, our YouTube Video Summarizer is completely free to use. There are no hidden costs or premium features. You can summarize videos without creating an account or paying anything. You can also signup for a free account to create a custom AI chatbot from your videos.',
+  },
+  {
+    question: 'How accurate are the summaries?',
+    answer:
+      'Our AI-powered summarizer uses the latest AI LLM models from OpenAI and Google to ensure high accuracy. However, the quality may vary depending on the video content and audio clarity. We recommend reviewing the summary for the best results.',
+  },
+  {
+    question:
+      'Are there any limitations on video length or number of summaries?',
+    answer:
+      'There are no strict limitations on video length, as long as subtitles are available on YouTube for it to be processed. We do have a daily limit for summaries to ensure the service remains free for everyone. Signup for a free account to increase your daily limit!',
+  },
+  {
+    question: 'Can I use this tool for other video platforms besides YouTube?',
+    answer:
+      'Currently, our tool is optimized for YouTube videos only. We may consider adding support for other video platforms in the future based on user demand.',
+  },
+  {
+    question: 'How can I use the video summaries?',
+    answer:
+      "You can use the summaries to quickly understand video content, prepare for exams, research topics, or create content. They're great for students, researchers, content creators, and anyone looking to save time while consuming video content. We make it simple to copy and paste the summaries anywhere you want.",
+  },
+]
+
+const useCases = [
+  {
+    name: 'Generate Quick Video Summaries for SEO',
+    description:
+      'Summarize YouTube videos in seconds, helping to create SEO-rich summaries that boost content discoverability and engagement.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Create Video Summaries for Busy Professionals',
+    description:
+      'Automatically generate concise summaries of long YouTube videos, ideal for professionals looking to save time while staying informed.',
+    icon: DocumentTextIcon,
+  },
+  {
+    name: 'Summarize Webinars and Online Courses',
+    description:
+      'Use the summarizer to distill key points from educational YouTube videos, webinars, or online courses, making content easier to consume.',
+    icon: AcademicCapIcon,
+  },
+  {
+    name: 'Video Summary Generation for Content Creators',
+    description:
+      'Provide your audience with short, engaging summaries of your YouTube content, perfect for increasing watch times and user retention.',
+    icon: ArrowPathIcon,
+  },
+  {
+    name: 'SEO-Boosting Summaries for Video Blog Posts',
+    description:
+      'Generate concise summaries of your YouTube videos to include in blog posts, enhancing the SEO of your content with keyword-rich summaries.',
+    icon: FingerPrintIcon,
+  },
+  {
+    name: 'Research and Fact-Checking',
+    description:
+      'Quickly extract key information from multiple YouTube videos for research purposes or fact-checking, saving hours of manual video watching.',
+    icon: LockClosedIcon,
+  },
+]
+
 export default function YoutubeSummarizerPage({ recentVideos }) {
   return (
     <>
@@ -206,7 +300,13 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
                   Free AI YouTube Video Summarizer
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Instantly summarize any YouTube video with our AI-powered tool. Get concise summaries, key points, and transcripts to save time and boost your learning. Perfect for students, researchers, and content creators. No login required!
+                  Get straight to the key points of any YouTube video without
+                  spending hours watching with the AI-Powered YouTube Video
+                  Summarizer. This free tool uses advanced AI technology to
+                  generate accurate, concise summaries that capture the most
+                  important information from long videos. Whether you're
+                  researching, learning, or simply trying to digest content more
+                  quickly, this tool can save you significant time and effort.
                 </p>
                 <YoutubeSummarizer />
                 <RecentVideos
@@ -225,80 +325,261 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
           button="Create a Free YouTube Chatbot"
         />
 
-        <div className="bg-white py-12 md:py-24">
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto mb-24 max-w-2xl text-center">
+            <p className="text-base font-semibold leading-7 text-cyan-600">
+              Get an AI YouTube Summary in 4 Easy Steps
+            </p>
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              How It Works
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Our AI-powered YouTube Video Summarizer simplifies the process of
+              extracting key information from any video. Follow these four
+              simple steps to save time and enhance your understanding.
+            </p>
+          </div>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Why Choose Our YouTube Video Summarizer?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
-                <h3 className="text-xl font-semibold mb-3">100% Free</h3>
-                <p>Summarize YouTube videos without any cost. No hidden fees or premium features.</p>
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 1
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Paste URL
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Enter the YouTube video URL you want to summarize.
+                </p>
               </div>
-              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
-                <h3 className="text-xl font-semibold mb-3">No Login Required</h3>
-                <p>Start summarizing videos instantly. No need to create an account or sign up.</p>
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 2
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  AI Analysis
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Our AI analyzes the video content and transcript.
+                </p>
               </div>
-              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
-                <h3 className="text-xl font-semibold mb-3">AI-Powered Accuracy</h3>
-                <p>Get high-quality summaries using advanced AI technology for precise results.</p>
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 3
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Generate Summary
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Get a concise summary with key points in seconds.
+                </p>
+              </div>
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 4
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Save Time
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Quickly grasp video content without watching the full video.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-gray-900 py-12 md:py-24 text-white">
+        <div className="bg-gray-900 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">1. Paste URL</h3>
-                <p>Enter the YouTube video URL you want to summarize.</p>
-              </div>
-              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">2. AI Analysis</h3>
-                <p>Our AI analyzes the video content and transcript.</p>
-              </div>
-              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">3. Generate Summary</h3>
-                <p>Get a concise summary with key points in seconds.</p>
-              </div>
-              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">4. Save Time</h3>
-                <p>Quickly grasp video content without watching the full video.</p>
-              </div>
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-cyan-400">
+                Effortless Summarization
+              </h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Why Choose Our YouTube Video Summarizer?
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                Our AI-powered tool offers quick, accurate, and free summaries
+                of YouTube videos, saving you time and enhancing your
+                understanding of content.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
+                    <BanknotesIcon
+                      className="h-5 w-5 flex-none text-cyan-400"
+                      aria-hidden="true"
+                    />
+                    100% Free
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                    <p className="flex-auto">
+                      Summarize YouTube videos without any cost. No hidden fees
+                      or premium features.
+                    </p>
+                  </dd>
+                </div>
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
+                    <UserCircleIcon
+                      className="h-5 w-5 flex-none text-cyan-400"
+                      aria-hidden="true"
+                    />
+                    No Login Required
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                    <p className="flex-auto">
+                      Start summarizing videos instantly. No need to create an
+                      account or sign up.
+                    </p>
+                  </dd>
+                </div>
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
+                    <ShieldCheckIcon
+                      className="h-5 w-5 flex-none text-cyan-400"
+                      aria-hidden="true"
+                    />
+                    AI-Powered Accuracy
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                    <p className="flex-auto">
+                      Get high-quality summaries using advanced AI technology
+                      for precise results.
+                    </p>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>
 
-
-
-        <div className="bg-white py-12 md:py-24">
+        <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">What is a YouTube Video Summarizer?</summary>
-                <p className="mt-2">A YouTube Video Summarizer is an AI-powered tool that automatically generates concise summaries of YouTube videos, extracting key points and main ideas to save you time and enhance your understanding of the content.</p>
-              </details>
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">Is this YouTube Summarizer really free?</summary>
-                <p className="mt-2">Yes, our YouTube Video Summarizer is completely free to use. There are no hidden costs or premium features. You can summarize videos without creating an account or paying anything. You can also <a href="/register" className="text-cyan-500 hover:text-cyan-700 underline font-semibold transition-colors duration-300">signup for a free account</a> to create a custom AI chatbot from your videos.</p>
-              </details>
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">How accurate are the summaries?</summary>
-                <p className="mt-2">Our AI-powered summarizer uses the latest AI LLM models from OpenAI and Google to ensure high accuracy. However, the quality may vary depending on the video content and audio clarity. We recommend reviewing the summary for the best results.</p>
-              </details>
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">Are there any limitations on video length or number of summaries?</summary>
-                <p className="mt-2">There are no strict limitations on video length, as long as subtitles are available on YouTube for it to be processed. We do have a daily limit for summaries to ensure the service remains free for everyone. <a href="/register" className="text-cyan-500 hover:text-cyan-700 underline font-semibold transition-colors duration-300">Signup for a free account</a> to increase your daily limit!</p>
-              </details>
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">Can I use this tool for other video platforms besides YouTube?</summary>
-                <p className="mt-2">Currently, our tool is optimized for YouTube videos only. We may consider adding support for other video platforms in the future based on user demand.</p>
-              </details>
-              <details className="bg-gray-100 p-4 rounded-lg">
-                <summary className="font-semibold cursor-pointer">How can I use the video summaries?</summary>
-                <p className="mt-2">You can use the summaries to quickly understand video content, prepare for exams, research topics, or create content. They're great for students, researchers, content creators, and anyone looking to save time while consuming video content. We make it simple to copy and paste the summaries anywhere you want.</p>
-              </details>
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-cyan-600">
+                Versatile Applications
+              </h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Use Cases for Our YouTube Video Summarizer
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Discover how our AI-powered YouTube Video Summarizer can
+                revolutionize the way you consume and create content across
+                various domains.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                {useCases.map((useCase) => (
+                  <div key={useCase.name} className="relative pl-16">
+                    <dt className="text-base font-semibold leading-7 text-gray-900">
+                      <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                        <useCase.icon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      {useCase.name}
+                    </dt>
+                    <dd className="mt-2 text-base leading-7 text-gray-600">
+                      {useCase.description}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-900">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+            <div className="mx-auto max-w-4xl divide-y divide-white/10">
+              <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">
+                Frequently Asked Questions
+              </h2>
+              <dl className="mt-10 space-y-6 divide-y divide-white/10">
+                {faqs.map((faq) => (
+                  <Disclosure key={faq.question} as="div" className="pt-6">
+                    <dt>
+                      <DisclosureButton className="group flex w-full items-start justify-between text-left text-white">
+                        <span className="text-base font-semibold leading-7">
+                          {faq.question}
+                        </span>
+                        <span className="ml-6 flex h-7 items-center">
+                          <PlusIcon
+                            aria-hidden="true"
+                            className="h-6 w-6 group-data-[open]:hidden"
+                          />
+                          <MinusIcon
+                            aria-hidden="true"
+                            className="h-6 w-6 [.group:not([data-open])_&]:hidden"
+                          />
+                        </span>
+                      </DisclosureButton>
+                    </dt>
+                    <DisclosurePanel as="dd" className="mt-2 pr-12">
+                      <p className="text-base leading-7 text-gray-300">
+                        {faq.answer}
+                      </p>
+                    </DisclosurePanel>
+                  </Disclosure>
+                ))}
+              </dl>
             </div>
           </div>
         </div>
@@ -306,6 +587,12 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentAIVideos
+          heading="More Recently Analyzed Videos"
+          slug="ai-youtube-summarizer"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>

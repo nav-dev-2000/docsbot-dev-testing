@@ -340,7 +340,7 @@ export default function ImageToMarkdownPage() {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/image-to-text.png',
+              url: 'https://docsbot.ai/images/og/image-markdown.png',
               alt: 'AI-Powered Image to Markdown Generator',
             },
           ],

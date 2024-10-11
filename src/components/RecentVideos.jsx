@@ -1,6 +1,9 @@
 import Link from 'next/link'
 
 const RecentVideos = ({ heading = 'Recently Analyzed Videos', slug, recentVideos }) => {
+  if (!recentVideos || !recentVideos.videos || recentVideos.videos.length === 0) {
+    return null;
+  }
   return (
     <div className="mx-auto mt-16 py-4">
       <div className="mb-6 text-center text-3xl font-bold tracking-tight text-white">
@@ -28,18 +31,6 @@ const RecentVideos = ({ heading = 'Recently Analyzed Videos', slug, recentVideos
           </Link>
         ))}
       </div>
-      <ul className="flex flex-wrap justify-center mt-4">
-        {recentVideos.aiVideos.map((video) => (
-          <li key={video.id} className="my-1 mx-2 flex items-center">
-            <Link
-              href={`/tools/${slug}/${video.id}`}
-              className="text-xs text-cyan-300 hover:text-cyan-100 transition-colors duration-200"
-            >
-              {video.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }

@@ -7,6 +7,13 @@ export const freeTools = [
     category: 'YouTube',
   },
   {
+    name: 'YouTube Summarizer',
+    description: 'Generate concise summaries of YouTube videos',
+    href: '/tools/ai-youtube-summarizer',
+    ogImage: '/images/og/youtube-summarize.png',
+    category: 'YouTube',
+  },
+  {
     name: 'YouTube Tweet/X Post Generator',
     description: 'Generate tweets and X posts from YouTube videos',
     href: '/tools/ai-youtube-tweet-x-post-generator',
@@ -18,13 +25,6 @@ export const freeTools = [
     description: 'Extract meaningful quotes from YouTube videos',
     href: '/tools/ai-youtube-quote-generator',
     ogImage: '/images/og/youtube-quotes.png',
-    category: 'YouTube',
-  },
-  {
-    name: 'YouTube Summarizer',
-    description: 'Generate concise summaries of YouTube videos',
-    href: '/tools/ai-youtube-summarizer',
-    ogImage: '/images/og/youtube-summarize.png',
     category: 'YouTube',
   },
   {
@@ -76,7 +76,7 @@ export const freeTools = [
   {
     name: 'Image to Markdown Converter',
     href: '/tools/image-to-markdown-extractor',
-    ogImage: '/images/og/image-to-text.png',
+    ogImage: '/images/og/image-markdown.png',
     category: 'Image',
   },
   {

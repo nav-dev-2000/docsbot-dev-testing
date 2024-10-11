@@ -8,6 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import RecentVideos from '@/components/RecentVideos'
+import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
@@ -233,6 +234,12 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentAIVideos
+          heading="More Recently Extracted Recommendations"
+          slug="ai-youtube-recommendations-extractor"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>

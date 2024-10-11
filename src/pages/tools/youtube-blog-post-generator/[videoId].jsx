@@ -212,16 +212,6 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
 
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
 
-                <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${videoId}`}
-                    title={summary.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                  />
-                </div>
-
                 {/* Copy buttons at the bottom of the article */}
                 {shouldShowCopyButtons() && (
                   <CopyButtons

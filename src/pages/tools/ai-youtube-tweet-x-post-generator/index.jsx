@@ -8,6 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import RecentVideos from '@/components/RecentVideos'
+import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
@@ -223,6 +224,12 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentAIVideos
+          heading="More Recently Analyzed Videos"
+          slug="ai-youtube-tweet-x-post-generator"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>
@@ -235,6 +242,6 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       recentVideos,
-    }
+    },
   }
 }

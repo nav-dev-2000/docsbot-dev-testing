@@ -11,6 +11,7 @@ import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
+import RecentAIVideos from '@/components/RecentAIVideos'
 
 const loadingText = [
   'Fetching video details...',
@@ -55,13 +56,13 @@ const YoutubeIdeaExtractor = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
-      
+
       // Track invalid URL error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Idea Extractor',
         action: 'Error',
         error: 'Invalid URL',
-        category: 'YouTube'
+        category: 'YouTube',
       })
       return
     }
@@ -83,47 +84,49 @@ const YoutubeIdeaExtractor = () => {
       const data = await response.json()
       if (response.ok) {
         // Get video ID from the response
-        const { videoId } = data;
-        
+        const { videoId } = data
+
         // Track successful idea extraction
         posthog?.capture('Free Tool', {
           tool: 'YouTube Idea Extractor',
           result: `https://docsbot.ai/tools/ai-youtube-key-points-finder/${videoId}`,
           action: 'Used',
-          category: 'YouTube'
+          category: 'YouTube',
         })
-        
+
         await router.push(`/tools/ai-youtube-key-points-finder/${videoId}`)
       } else if (response.status === 429) {
-        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
-        
+        setErrorText(
+          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+        )
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'YouTube Idea Extractor',
           action: 'Error',
           error: 'Usage Limit Exceeded',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
-        
+
         // Track error
         posthog?.capture('Free Tool', {
           tool: 'YouTube Idea Extractor',
           action: 'Error',
           error: data.message || 'Unknown error',
-          category: 'YouTube'
+          category: 'YouTube',
         })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
-      
+
       // Track error
       posthog?.capture('Free Tool', {
         tool: 'YouTube Idea Extractor',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
-        category: 'YouTube'
+        category: 'YouTube',
       })
     }
 
@@ -144,7 +147,7 @@ const YoutubeIdeaExtractor = () => {
                 }}
                 disabled={isComputing}
                 placeholder="YouTube Video URL or ID"
-                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm sm:col-span-8 disabled:opacity-50 disabled:bg-gray-100"
+                className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:bg-gray-100 disabled:opacity-50 sm:col-span-8 sm:text-sm"
               />
               <button
                 onClick={() => extractIdeas(videoUrl)}
@@ -205,7 +208,12 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
                   Free AI YouTube Video Key Points Finder
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Extract the valuable key ideas and insights from any YouTube video for free using our AI-powered tool. Discover key points, concepts, innovative thoughts, and actionable takeaways to fuel your creativity and learning. Repurpose the results for blog content, social media, courses & quizzes, script creation or any other use case.
+                  Extract the valuable key ideas and insights from any YouTube
+                  video for free using our AI-powered tool. Discover key points,
+                  concepts, innovative thoughts, and actionable takeaways to
+                  fuel your creativity and learning. Repurpose the results for
+                  blog content, social media, courses & quizzes, script creation
+                  or any other use case.
                 </p>
                 <YoutubeIdeaExtractor />
                 <RecentVideos
@@ -217,7 +225,7 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Transform your favorite YouTube videos or playlists into an AI-powered chatbot. Easily create a knowledgeable assistant that can answer questions and provide insights based on video content, then embed it in your website or app."
           button="Create a Free YouTube Chatbot"
@@ -225,6 +233,12 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentAIVideos
+          heading="More Recently Analyzed Videos"
+          slug="ai-youtube-key-points-finder"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>
@@ -232,7 +246,7 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('ideas');
+  const recentVideos = await getRecentYoutubeVideos('ideas')
 
   return {
     props: {

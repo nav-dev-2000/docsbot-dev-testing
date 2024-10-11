@@ -9,7 +9,25 @@ import RegisterCTA from '@/components/RegisterCTA'
 import { getRecentVideoBlogPosts } from '@/lib/tools'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import RecentVideos from '@/components/RecentVideos'
+import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
+import {
+  GlobeAltIcon,
+  ClockIcon,
+  MegaphoneIcon,
+  ChartBarIcon,
+  ArrowPathRoundedSquareIcon,
+  SpeakerXMarkIcon,
+} from '@heroicons/react/24/outline'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/react'
+import {
+  MinusIcon,
+  PlusIcon,
+} from '@heroicons/react/24/outline'
 
 const loadingText = [
   'Fetching video details...',
@@ -175,6 +193,66 @@ const YoutubeBlogPostGenerator = () => {
   )
 }
 
+const faqs = [
+  {
+    question: 'What is a YouTube Blog Post Generator?',
+    answer: 'A YouTube Blog Post Generator is an AI-powered tool that automatically converts YouTube video content into well-structured, SEO-optimized blog posts. It extracts key information from the video and creates a written article, saving time for content creators and marketers.',
+  },
+  {
+    question: 'Is this YouTube Blog Post Generator really free?',
+    answer: 'Yes, our YouTube Blog Post Generator is completely free to use. There are no hidden costs or premium features. You can generate blog posts from videos without creating an account or paying anything.',
+  },
+  {
+    question: 'How accurate are the generated blog posts?',
+    answer: 'Our AI-powered generator uses advanced language models to ensure high accuracy. However, the quality may vary depending on the video content and subtitles. We recommend reviewing and editing the generated post for the best results.',
+  },
+  {
+    question: 'Are there any limitations on video length or number of generations?',
+    answer: 'There are no strict limitations on video length, as long as there are user or auto-generated subtitles available on YouTube for it. We do have a daily limit for generations to ensure the service remains free for everyone. Sign up for a free account to increase your daily limit!',
+  },
+  {
+    question: 'Can I edit the generated blog post?',
+    answer: 'Yes, you can edit the generated blog post. We provide the content in various formats (Markdown, HTML, and plain text) so you can easily copy and paste it into your preferred editor for further customization.',
+  },
+  {
+    question: 'How can I use the generated blog posts?',
+    answer: 'You can use the generated blog posts to repurpose your YouTube content for your website, improve SEO, reach a wider audience, and provide written content for those who prefer reading over watching videos. Always ensure you have the right to use the video content in written form.',
+  },
+]
+
+const useCases = [
+  {
+    name: 'Content Repurposing',
+    description: 'Transform your YouTube videos into engaging blog posts, extending the reach of your content to readers who prefer written format.',
+    icon: ArrowPathRoundedSquareIcon,
+  },
+  {
+    name: 'SEO Optimization',
+    description: 'Generate SEO-friendly blog posts from your videos, improving your search engine rankings and driving more organic traffic to your website.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Time-Saving for Content Creators',
+    description: 'Automatically create blog post drafts from your videos, saving hours of writing time and allowing you to focus on creating more video content.',
+    icon: ClockIcon,
+  },
+  {
+    name: 'Enhance Content Marketing',
+    description: 'Use generated blog posts as a foundation for your content marketing strategy, providing valuable written content alongside your video offerings.',
+    icon: MegaphoneIcon,
+  },
+  {
+    name: 'Improve Accessibility',
+    description: 'Make your video content accessible to a wider audience, including those who prefer reading or have hearing impairments.',
+    icon: SpeakerXMarkIcon,
+  },
+  {
+    name: 'Content Analysis',
+    description: 'Use the generated blog posts to analyze your video content, identify key themes, and gather insights for future content creation.',
+    icon: ChartBarIcon,
+  },
+]
+
 export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
   return (
     <>
@@ -234,76 +312,199 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
           button="Create a Free YouTube Chatbot"
         />
 
-        <div className="bg-white py-12">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="mb-6 text-3xl font-bold text-center">
-              Why Use Our YouTube Video to Blog Article Generator?
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto mb-24 max-w-2xl text-center">
+            <p className="text-base font-semibold leading-7 text-cyan-600">
+              Get an AI-Generated Blog Post in 4 Easy Steps
+            </p>
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              How It Works
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Our AI-powered YouTube Video to Blog Post Generator simplifies the process of
+              transforming video content into engaging articles. Follow these four
+              simple steps to save time and enhance your content strategy.
+            </p>
+          </div>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4">
               <div>
-                <ul className="list-disc space-y-2 pl-6">
-                  <li>
-                    <strong>Instant conversion:</strong> Transform videos into blog posts in seconds
-                  </li>
-                  <li>
-                    <strong>SEO-optimized content:</strong> Get articles ready for search engine
-                    ranking
-                  </li>
-                  <li>
-                    <strong>Preserve video essence:</strong> Maintain the original message and
-                    perspective
-                  </li>
-                </ul>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 1
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Paste URL
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Enter the YouTube video URL you want to convert into a blog post.
+                </p>
               </div>
               <div>
-                <ul className="list-disc space-y-2 pl-6">
-                  <li><strong>Time-saving:</strong> Repurpose content quickly and efficiently</li>
-                  <li>
-                    <strong>Free to use:</strong> No login required, start converting right away
-                  </li>
-                  <li>
-                    <strong>Multiple formats:</strong> Copy your blog post as Markdown, HTML, or
-                    plain text
-                  </li>
-                </ul>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 2
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  AI Analysis
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Our AI analyzes the video content, including speech, captions, and visual elements.
+                </p>
               </div>
-            </div>
-            
-            <h3 className="mt-16 mb-4 text-2xl font-bold text-center">
-              How Our AI-Powered YouTube to Blog Post Generator Works
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">1. Input YouTube URL</h4>
-                <p>Simply paste the URL of any YouTube video you want to convert into a blog post.</p>
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 3
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Generate Blog Post
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Get a well-structured, SEO-friendly blog post based on the video's content in seconds.
+                </p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">2. AI Analysis</h4>
-                <p>Our advanced AI analyzes the video content, including speech, captions, and visual elements.</p>
+              <div>
+                <span
+                  className="flex items-center text-sm font-semibold leading-6 text-cyan-600"
+                >
+                  <svg
+                    viewBox="0 0 4 4"
+                    className="mr-4 h-1 w-1 flex-none"
+                    aria-hidden="true"
+                  >
+                    <circle cx="2" cy="2" r="2" fill="currentColor" />
+                  </svg>
+                  Step 4
+                  <div
+                    className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                    aria-hidden="true"
+                  ></div>
+                </span>
+                <p className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                  Publish
+                </p>
+                <p className="mt-1 text-base leading-7 text-gray-600">
+                  Copy your post as Markdown or HTML to publish on the platform of your choice like WordPress, Medium, etc.
+                </p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">3. Generate Blog Post</h4>
-                <p>The AI creates a well-structured, SEO-friendly blog post based on the video's content.</p>
-              </div>
-              <div className="bg-gray-100 p-4 rounded-lg">
-                <h4 className="font-semibold mb-2">4. Copy and Use</h4>
-                <p>Copy your post as Markdown, HTML, or plain text and use it on your website or blog platform.</p>
-              </div>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <p className="text-lg">
-                Whether you're a content creator, marketer, or blogger, our YouTube Video to Blog Article Generator 
-                helps you repurpose your video content effortlessly. Save time, improve your SEO, and reach a wider 
-                audience by converting your YouTube videos into engaging blog posts.
-              </p>
             </div>
           </div>
         </div>
-        
+
+        <div className="bg-gray-900 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-cyan-400">
+                Versatile Applications
+              </h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Use Cases for Our YouTube Blog Post Generator
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                Discover how our AI-powered YouTube Blog Post Generator can revolutionize your content creation process across various domains.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                {useCases.map((useCase) => (
+                  <div key={useCase.name} className="relative pl-16">
+                    <dt className="text-base font-semibold leading-7 text-white">
+                      <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                        <useCase.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                      </div>
+                      {useCase.name}
+                    </dt>
+                    <dd className="mt-2 text-base leading-7 text-gray-300">
+                      {useCase.description}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+            <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+              <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
+                Frequently Asked Questions
+              </h2>
+              <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+                {faqs.map((faq) => (
+                  <Disclosure as="div" key={faq.question} className="pt-6">
+                    {({ open }) => (
+                      <>
+                        <dt>
+                          <DisclosureButton className="flex w-full items-start justify-between text-left text-gray-900">
+                            <span className="text-base font-semibold leading-7">{faq.question}</span>
+                            <span className="ml-6 flex h-7 items-center">
+                              {open ? (
+                                <MinusIcon className="h-6 w-6" aria-hidden="true" />
+                              ) : (
+                                <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                              )}
+                            </span>
+                          </DisclosureButton>
+                        </dt>
+                        <DisclosurePanel as="dd" className="mt-2 pr-12">
+                          <p className="text-base leading-7 text-gray-600">{faq.answer}</p>
+                        </DisclosurePanel>
+                      </>
+                    )}
+                  </Disclosure>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
+
+        <RecentAIVideos
+          heading="More YouTube Articles"
+          slug="youtube-blog-post-generator"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>
