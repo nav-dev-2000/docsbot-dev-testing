@@ -6,6 +6,7 @@ import {
   fetchYoutubeSubtitles, // Add this import
 } from '@/lib/tools'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import { faQ } from '@fortawesome/free-solid-svg-icons'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
 export const preferredRegion = [
@@ -311,6 +312,90 @@ Take a step back and think step-by-step about how to achieve the best possible r
             },
           },
           required: ['short_title', 'one_sentence_takeaway', 'recommendations', 'is_ai'],
+          additionalProperties: false,
+        },
+      },
+    },
+  },
+  faq: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `# IDENTITY and PURPOSE
+
+You extract surprising, insightful, and interesting information from text content. 
+
+You take in transcript of a video as an input and output a object.
+
+Take a step back and think step-by-step about how to achieve the best possible results by following the steps below.
+
+# STEPS
+
+- Extract the most potent takeaway and recommendation into a propery called takeaway. This should be a 15-word sentence that captures the most important essence of the content.
+
+- Extract the 15 to 30 of the most surprising, insightful, and/or interesting questions and answers that can be collected from the content into a section called faqs.
+
+# OUTPUT INSTRUCTIONS
+
+- Only output text, no Markdown.
+- Write the questions and answers as concisely as possible.
+- Do not give warnings or notes; only output the requested sections.
+- Do not repeat ideas, quotes, facts, or resources.
+- Do not start items with the same opening words.
+- Ensure you follow ALL these instructions when creating your output.`,
+      },
+      {
+        role: 'user',
+        content: `Extract FAQs from the following YouTube video transcript:\n\nMetadata: {{metadata}}\n\nTranscript:\n{{subtitles}}`,
+      },
+    ],
+    response_format: {
+      type: 'json_schema',
+      json_schema: {
+        name: 'faq_extractor',
+        description:
+          'Extracts FAQs from the video transcript as valid JSON.',
+        strict: true,
+        schema: {
+          type: 'object',
+          properties: {
+            short_title: {
+              type: 'string',
+              description: 'A concise title of the video, 5 words or less',
+            },
+            one_sentence_takeaway: {
+              type: 'string',
+              description:
+                'A 15-word sentence capturing the most important essence of the content. For example, if the question was "What is the main purpose of the tutorial?", the takeaway would be "The main purpose of the tutorial is...".',
+            },
+            faqs: {
+              type: 'array',
+              items: {
+                type: 'object',
+                properties: {
+                  question: {
+                    type: 'string',
+                    description: 'An insightful question from the video',
+                  },
+                  answer: {
+                    type: 'string',
+                    description: 'The answer to the question',
+                  },
+                },
+                required: ['question', 'answer'],
+                additionalProperties: false,
+              },
+              description:
+                'List of 15 to 30 surprising, insightful, and/or interesting FAQs from the video',
+            },
+            is_ai: {
+              type: 'boolean',
+              description:
+                'Whether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
+            },
+          },
+          required: ['short_title', 'one_sentence_takeaway', 'faqs', 'is_ai'],
           additionalProperties: false,
         },
       },

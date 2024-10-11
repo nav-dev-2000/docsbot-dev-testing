@@ -1,13 +1,13 @@
 import { NextSeo } from 'next-seo'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
@@ -169,39 +169,7 @@ const YoutubeViralMomentsFinder = () => {
   )
 }
 
-const RecentExtractedVideos = ({ videos }) => {
-  return (
-    <div className="mx-auto mt-16 py-4">
-      <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Analyzed Videos
-      </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {videos.map((video) => (
-          <Link
-            key={video.id}
-            href={`/tools/ai-youtube-viral-moment-finder/${video.id}`}
-            className="block transition-opacity hover:opacity-75"
-          >
-            <div className="overflow-hidden rounded-lg bg-white shadow-md">
-              <img
-                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                alt={video.title}
-                className="h-36 w-full object-cover"
-              />
-              <div className="p-4">
-                <h3 className="truncate text-sm font-medium text-gray-900">
-                  {video.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
+export default function YoutubeViralMomentFinderPage({ recentVideos }) {
   return (
     <>
       <NextSeo
@@ -246,15 +214,19 @@ export default function YoutubeViralMomentsFinderPage({ recentVideos }) {
                   social media posts, or promotional content.
                 </p>
                 <YoutubeViralMomentsFinder />
-                <RecentExtractedVideos videos={recentVideos} />
+                <RecentVideos
+                  heading="Recently Analyzed Videos"
+                  slug="ai-youtube-viral-moment-finder"
+                  recentVideos={recentVideos}
+                />
               </div>
             </div>
           </div>
         </div>
         <RegisterCTA
-          customTitle="Create an AI Chatbot from YouTube"
-          description="Transform the most shareable moments from your favorite YouTube videos into an AI-powered chatbot. Build an assistant that can share viral content and engaging highlights, then embed it in your website or app for increased user interaction."
-          button="Create a YouTube Chatbot"
+          customTitle="Train an AI Chatbot from YouTube"
+          description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
+          button="Create a Free YouTube Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />

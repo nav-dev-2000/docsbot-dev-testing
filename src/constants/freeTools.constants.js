@@ -49,6 +49,13 @@ export const freeTools = [
     category: 'YouTube',
   },
   {
+    name: 'YouTube FAQ Generator',
+    description: 'Generate FAQs from YouTube videos',
+    href: '/tools/ai-youtube-faq-generator',
+    ogImage: '/images/og/youtube-faq.png',
+    category: 'YouTube',
+  },
+  {
     name: 'Image Description Generator',
     href: '/tools/image-description-generator',
     ogImage: '/images/og/image-description.png',

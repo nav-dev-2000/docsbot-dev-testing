@@ -1,23 +1,22 @@
 import { NextSeo } from 'next-seo'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
-import RecentVideos from '@/components/RecentVideos'
 
 const loadingText = [
   'Fetching video details...',
   'Analyzing content...',
-  'Extracting quotes...',
-  'Generating insightful quotes...',
-  'Finalizing results...',
+  'Extracting questions...',
+  'Generating insightful answers...',
+  'Finalizing FAQ...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -41,14 +40,14 @@ const LoadingText = () => {
   return <p className="animate-pulse">{loadingText[index]}</p>
 }
 
-const YoutubeQuoteGenerator = () => {
+const YoutubeFAQGenerator = () => {
   const [videoUrl, setVideoUrl] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
 
-  const generateQuotes = async (url) => {
+  const generateFAQ = async (url) => {
     setIsComputing(true)
     setErrorText('')
 
@@ -57,7 +56,7 @@ const YoutubeQuoteGenerator = () => {
       setIsComputing(false)
 
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Quote Generator',
+        tool: 'YouTube FAQ Generator',
         action: 'Error',
         error: 'Invalid URL',
         category: 'YouTube',
@@ -74,7 +73,7 @@ const YoutubeQuoteGenerator = () => {
       },
       body: JSON.stringify({
         videoUrl: url,
-        type: 'quotes',
+        type: 'faq',
       }),
     })
 
@@ -85,20 +84,20 @@ const YoutubeQuoteGenerator = () => {
         const { videoId } = data
 
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Quote Generator',
-          result: `https://docsbot.ai/tools/ai-youtube-quote-generator/${videoId}`,
+          tool: 'YouTube FAQ Generator',
+          result: `https://docsbot.ai/tools/ai-youtube-faq-generator/${videoId}`,
           action: 'Used',
           category: 'YouTube',
         })
 
-        await router.push(`/tools/ai-youtube-quote-generator/${videoId}`)
+        await router.push(`/tools/ai-youtube-faq-generator/${videoId}`)
       } else if (response.status === 429) {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
 
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Quote Generator',
+          tool: 'YouTube FAQ Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
           category: 'YouTube',
@@ -107,7 +106,7 @@ const YoutubeQuoteGenerator = () => {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
         posthog?.capture('Free Tool', {
-          tool: 'YouTube Quote Generator',
+          tool: 'YouTube FAQ Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
           category: 'YouTube',
@@ -117,7 +116,7 @@ const YoutubeQuoteGenerator = () => {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
 
       posthog?.capture('Free Tool', {
-        tool: 'YouTube Quote Generator',
+        tool: 'YouTube FAQ Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
         category: 'YouTube',
@@ -144,7 +143,7 @@ const YoutubeQuoteGenerator = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:bg-gray-100 disabled:opacity-50 sm:col-span-8 sm:text-sm"
               />
               <button
-                onClick={() => generateQuotes(videoUrl)}
+                onClick={() => generateFAQ(videoUrl)}
                 type="submit"
                 disabled={isComputing}
                 className="col-span-12 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:col-span-4"
@@ -154,7 +153,7 @@ const YoutubeQuoteGenerator = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Generate Quotes</>
+                  <>Generate FAQs</>
                 )}
               </button>
             </div>
@@ -165,17 +164,17 @@ const YoutubeQuoteGenerator = () => {
   )
 }
 
-export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
+export default function YoutubeFAQGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Quote Extractor/Generator - No Login"
-        description="Generate insightful quotes from any YouTube video using AI. Extract key messages and memorable phrases effortlessly to copy and use anywhere."
+        title="Free AI YouTube Video FAQ Generator | No Login Required"
+        description="Generate insightful FAQs from any YouTube video using AI. Extract key questions and answers for learning, training, and education."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/youtube-quotes.png',
-              alt: 'AI-Powered YouTube Video Quote Generator',
+              url: 'https://docsbot.ai/images/og/youtube-faq-generator.png',
+              alt: 'AI-Powered YouTube Video FAQ Generator',
             },
           ],
         }}
@@ -199,19 +198,20 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Quote Generator/Extractor
+                  Free AI YouTube Video FAQ Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Extract insightful quotes from any YouTube video for free
-                  using our AI-powered quote generator/extractor. Quickly
-                  capture key messages and memorable phrases to copy, share, or
-                  use in your own content. Perfect for creating engaging quotes
-                  for your ads,website, blog, or social media.
+                  Extract insightful frequently asked questions and answers from
+                  any YouTube video for free using our AI-powered question
+                  generator. Quickly capture key questions and answers to copy,
+                  share, or use in your own content. Perfect for creating quizes
+                  on presentations, lectures, and more for education and
+                  training.
                 </p>
-                <YoutubeQuoteGenerator />
+                <YoutubeFAQGenerator />
                 <RecentVideos
-                  heading="Recently Generated Quotes"
-                  slug="ai-youtube-quote-generator"
+                  heading="Recently Generated FAQs"
+                  slug="ai-youtube-faq-generator"
                   recentVideos={recentVideos}
                 />
               </div>
@@ -233,7 +233,7 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
 }
 
 export const getServerSideProps = async (context) => {
-  const recentVideos = await getRecentYoutubeVideos('quotes')
+  const recentVideos = await getRecentYoutubeVideos('faq')
 
   return {
     props: {

@@ -10,6 +10,7 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
+import RecentVideos from '@/components/RecentVideos'
 
 const loadingText = [
   'Fetching video details...',
@@ -167,38 +168,6 @@ const YoutubeIdeaExtractor = () => {
   )
 }
 
-const RecentExtractedVideos = ({ videos }) => {
-  return (
-    <div className="mx-auto py-4 mt-16">
-      <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Analyzed Videos
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {videos.map((video) => (
-          <Link
-            key={video.id}
-            href={`/tools/ai-youtube-key-points-finder/${video.id}`}
-            className="block hover:opacity-75 transition-opacity"
-          >
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <img
-                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                alt={video.title}
-                className="w-full h-36 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-sm font-medium text-gray-900 truncate">
-                  {video.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function YoutubeIdeaExtractorPage({ recentVideos }) {
   return (
     <>
@@ -239,7 +208,11 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
                   Extract the valuable key ideas and insights from any YouTube video for free using our AI-powered tool. Discover key points, concepts, innovative thoughts, and actionable takeaways to fuel your creativity and learning. Repurpose the results for blog content, social media, courses & quizzes, script creation or any other use case.
                 </p>
                 <YoutubeIdeaExtractor />
-                <RecentExtractedVideos videos={recentVideos} />
+                <RecentVideos
+                  heading="Recently Analyzed Videos"
+                  slug="ai-youtube-key-points-finder"
+                  recentVideos={recentVideos}
+                />
               </div>
             </div>
           </div>

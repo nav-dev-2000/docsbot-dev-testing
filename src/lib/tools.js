@@ -187,24 +187,50 @@ export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
   ) //we have 3 image tools
 }
 
-// Retrieve the 9 most recent YouTube blog posts
+// Retrieve recent YouTube blog posts
 export const getRecentVideoBlogPosts = async () => {
-  const ref = await firestore
-    .collection('yt-blog-posts')
-    .orderBy('createdAt', 'desc')
-    .select('title')
-    .limit(9)
-    .get()
+  try {
+    const res = await firestore
+      .collection('yt-blog-posts')
+      .orderBy('createdAt', 'desc')
+      .select('title')
+      .limit(9)
+      .get()
 
-  let blogPosts = []
-  ref.forEach((doc) => {
-    const data = doc.data()
-    blogPosts.push({
-      id: doc.id,
-      title: data.title,
+    let videos = []
+    res.forEach((doc) => {
+      const data = doc.data()
+      videos.push({
+        id: doc.id,
+        title: data.title,
+      })
     })
-  })
-  return blogPosts
+
+    const res2 = await firestore
+      .collection('yt-blog-posts')
+      .select('title')
+      .where('is_ai', '==', true)
+      .limit(50)
+      .get()
+
+    let aiVideos = []
+    res2.forEach((doc) => {
+      const data = doc.data()
+      const id = doc.id
+      
+      if (!videos.some(video => video.id === id)) {
+        aiVideos.push({
+          id,
+          title: data.title,
+        });
+      }
+    })
+
+    return {videos, aiVideos}
+  } catch (error) {
+    console.error('Error fetching recent YouTube blog posts:', error)
+    return {videos: [], aiVideos: []} // Return empty arrays if there's an error
+  }
 }
 
 // Fetch YouTube subtitles for a given video ID
@@ -410,7 +436,7 @@ export const getRecentYoutubeVideos = async (type) => {
     const res = await firestore
       .collection('yt-tools')
       .orderBy('createdAt', 'desc')
-      .select('title')
+      .select('title', 'short_title')
       .where('type', '==', type)
       .limit(9)
       .get()
@@ -420,12 +446,34 @@ export const getRecentYoutubeVideos = async (type) => {
       const data = doc.data()
       videos.push({
         id: doc.id.split('-')[0], // Extract videoId from the document ID
-        title: data.title,
+        title: data.short_title || data.title,
       })
     })
-    return videos
+
+    const res2 = await firestore
+      .collection('yt-tools')
+      .select('title', 'short_title')
+      .where('type', '==', type)
+      .where('is_ai', '==', true)
+      .limit(50)
+      .get()
+
+    let aiVideos = []
+    res2.forEach((doc) => {
+      const data = doc.data()
+      const id = doc.id.split('-')[0] // Extract videoId from the document ID
+      
+      if (!videos.some(video => video.id === id)) {
+        aiVideos.push({
+          id,
+          title: data.short_title || data.title,
+        });
+      }
+    })
+
+    return {videos, aiVideos}
   } catch (error) {
     console.error('Error fetching recent YouTube videos:', error)
-    return [] // Return an empty array if there's an error
+    return {videos: [], aiVideos: []} // Return empty arrays if there's an error
   }
 }

@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
@@ -9,6 +8,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import { getRecentVideoBlogPosts } from '@/lib/tools'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 
 const loadingText = [
@@ -168,53 +168,11 @@ const YoutubeBlogPostGenerator = () => {
   )
 }
 
-const RecentVideoBlogPosts = ({ blogPosts }) => {
-  return (
-    <div className="mx-auto mt-16 py-4">
-      <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Generated Video Blog Posts
-      </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((post) => (
-          <Link
-            key={post.id}
-            href={`/tools/youtube-blog-post-generator/${post.id}`}
-            className="block transition-opacity hover:opacity-75"
-          >
-            <div className="overflow-hidden rounded-lg bg-white shadow-md">
-              <img
-                src={`https://img.youtube.com/vi/${post.id}/mqdefault.jpg`}
-                alt={post.title}
-                className="h-36 w-full object-cover"
-              />
-              <div className="p-4">
-                <h3 className="truncate text-sm font-medium text-gray-900">
-                  {post.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export const getServerSideProps = async (context) => {
-  const recentBlogPosts = await getRecentVideoBlogPosts()
-
-  return {
-    props: {
-      recentBlogPosts,
-    },
-  }
-}
-
-export default function YoutubeBlogPostPage({ recentBlogPosts }) {
+export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI-Powered YouTube Blog Post Generator - No Login"
+        title="Free AI YouTube Video Blog Post Generator - No Login"
         description="Generate a blog post or article from any YouTube video, then copy the post to your clipboard as Markdown or HTML."
         openGraph={{
           images: [
@@ -244,7 +202,7 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Blog Post Generator
+                  Free AI YouTube Video to Blog Post Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Transform any YouTube video into a well-structured blog post
@@ -254,7 +212,11 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
                   blog.
                 </p>
                 <YoutubeBlogPostGenerator />
-                <RecentVideoBlogPosts blogPosts={recentBlogPosts} />
+                <RecentVideos
+                  heading="Recently Generated Blog Posts"
+                  slug="youtube-blog-post-generator"
+                  recentVideos={recentVideos}
+                />
               </div>
             </div>
           </div>
@@ -271,4 +233,14 @@ export default function YoutubeBlogPostPage({ recentBlogPosts }) {
       <Footer />
     </>
   )
+}
+
+export const getServerSideProps = async (context) => {
+  const recentVideos = await getRecentVideoBlogPosts()
+
+  return {
+    props: {
+      recentVideos,
+    },
+  }
 }

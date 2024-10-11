@@ -1,13 +1,13 @@
 import { NextSeo } from 'next-seo'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 
@@ -162,38 +162,6 @@ const YoutubeTweetXPostGenerator = () => {
   )
 }
 
-const RecentExtractedVideos = ({ videos }) => {
-  return (
-    <div className="mx-auto mt-16 py-4">
-      <div className="mb-3 text-center text-3xl font-bold tracking-tight text-white">
-        Recently Analyzed Videos
-      </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {videos.map((video) => (
-          <Link
-            key={video.id}
-            href={`/tools/ai-youtube-tweet-x-post-generator/${video.id}`}
-            className="block transition-opacity hover:opacity-75"
-          >
-            <div className="overflow-hidden rounded-lg bg-white shadow-md">
-              <img
-                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                alt={video.title}
-                className="h-36 w-full object-cover"
-              />
-              <div className="p-4">
-                <h3 className="truncate text-sm font-medium text-gray-900">
-                  {video.title}
-                </h3>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
   return (
     <>
@@ -238,7 +206,11 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
                   people's YouTube content for X/Twitter.
                 </p>
                 <YoutubeTweetXPostGenerator />
-                <RecentExtractedVideos videos={recentVideos} />
+                <RecentVideos
+                  heading="Recently Analyzed Videos"
+                  slug="ai-youtube-tweet-x-post-generator"
+                  recentVideos={recentVideos}
+                />
               </div>
             </div>
           </div>
@@ -263,6 +235,6 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       recentVideos,
-    },
+    }
   }
 }
