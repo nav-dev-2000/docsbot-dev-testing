@@ -173,8 +173,8 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Video Summarizer - No Login"
-        description="Generate a summary of any YouTube video, then copy the summary to your clipboard."
+        title="Free AI YouTube Video Summarizer | No Login | Instant Summaries"
+        description="Summarize YouTube videos instantly with our free AI-powered tool. Get key points and concise summaries to save time and enhance learning. No login required!"
         openGraph={{
           images: [
             {
@@ -203,13 +203,10 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered YouTube Video Summarizer
+                  Free AI YouTube Video Summarizer
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate concise, accurate summaries of any YouTube video for
-                  free using our AI-powered YouTube video summarizer. Save time
-                  and boost productivity by quickly grasping key points from
-                  long videos.
+                  Instantly summarize any YouTube video with our AI-powered tool. Get concise summaries, key points, and transcripts to save time and boost your learning. Perfect for students, researchers, and content creators. No login required!
                 </p>
                 <YoutubeSummarizer />
                 <RecentVideos
@@ -221,11 +218,91 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
             </div>
           </div>
         </div>
+
         <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
           button="Create a Free YouTube Chatbot"
         />
+
+        <div className="bg-white py-12 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-8">Why Choose Our YouTube Video Summarizer?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
+                <h3 className="text-xl font-semibold mb-3">100% Free</h3>
+                <p>Summarize YouTube videos without any cost. No hidden fees or premium features.</p>
+              </div>
+              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
+                <h3 className="text-xl font-semibold mb-3">No Login Required</h3>
+                <p>Start summarizing videos instantly. No need to create an account or sign up.</p>
+              </div>
+              <div className="border-2 border-gray-400 p-6 rounded-lg transition-colors hover:bg-gray-100">
+                <h3 className="text-xl font-semibold mb-3">AI-Powered Accuracy</h3>
+                <p>Get high-quality summaries using advanced AI technology for precise results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-900 py-12 md:py-24 text-white">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3">1. Paste URL</h3>
+                <p>Enter the YouTube video URL you want to summarize.</p>
+              </div>
+              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3">2. AI Analysis</h3>
+                <p>Our AI analyzes the video content and transcript.</p>
+              </div>
+              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3">3. Generate Summary</h3>
+                <p>Get a concise summary with key points in seconds.</p>
+              </div>
+              <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3">4. Save Time</h3>
+                <p>Quickly grasp video content without watching the full video.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div className="bg-white py-12 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">What is a YouTube Video Summarizer?</summary>
+                <p className="mt-2">A YouTube Video Summarizer is an AI-powered tool that automatically generates concise summaries of YouTube videos, extracting key points and main ideas to save you time and enhance your understanding of the content.</p>
+              </details>
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">Is this YouTube Summarizer really free?</summary>
+                <p className="mt-2">Yes, our YouTube Video Summarizer is completely free to use. There are no hidden costs or premium features. You can summarize videos without creating an account or paying anything. You can also <a href="/register" className="text-cyan-500 hover:text-cyan-700 underline font-semibold transition-colors duration-300">signup for a free account</a> to create a custom AI chatbot from your videos.</p>
+              </details>
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">How accurate are the summaries?</summary>
+                <p className="mt-2">Our AI-powered summarizer uses the latest AI LLM models from OpenAI and Google to ensure high accuracy. However, the quality may vary depending on the video content and audio clarity. We recommend reviewing the summary for the best results.</p>
+              </details>
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">Are there any limitations on video length or number of summaries?</summary>
+                <p className="mt-2">There are no strict limitations on video length, as long as subtitles are available on YouTube for it to be processed. We do have a daily limit for summaries to ensure the service remains free for everyone. <a href="/register" className="text-cyan-500 hover:text-cyan-700 underline font-semibold transition-colors duration-300">Signup for a free account</a> to increase your daily limit!</p>
+              </details>
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">Can I use this tool for other video platforms besides YouTube?</summary>
+                <p className="mt-2">Currently, our tool is optimized for YouTube videos only. We may consider adding support for other video platforms in the future based on user demand.</p>
+              </details>
+              <details className="bg-gray-100 p-4 rounded-lg">
+                <summary className="font-semibold cursor-pointer">How can I use the video summaries?</summary>
+                <p className="mt-2">You can use the summaries to quickly understand video content, prepare for exams, research topics, or create content. They're great for students, researchers, content creators, and anyone looking to save time while consuming video content. We make it simple to copy and paste the summaries anywhere you want.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="YouTube" />
         </div>
