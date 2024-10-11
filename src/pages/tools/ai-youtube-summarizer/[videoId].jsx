@@ -67,9 +67,9 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
   return (
     <>
       <div className="mx-auto rounded-xl bg-white px-6 py-4 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
-        <div className="flex items-center justify-center space-x-2 text-center text-3xl font-bold tracking-tight text-gray-800">
-          <div>{summary.title}</div>
-        </div>
+        <h1 className="flex items-center justify-center space-x-2 text-center text-4xl font-bold tracking-tight text-gray-800">
+          {summary.short_title || summary.title}
+        </h1>
         <div className="mx-none text-left">
           <div className="prose mx-auto mt-4 w-full max-w-none">
             <p className="mb-2">{summary.summary}</p>
@@ -158,13 +158,13 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
   return (
     <>
       <NextSeo
-        title={`AI-Generated Summary for ${summary.title}`}
+        title={`AI-Generated Summary for ${summary.short_title || summary.title}`}
         description={summary.summary}
         openGraph={{
           images: [
             {
               url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
-              alt: `AI-Generated Summary for ${summary.title}`,
+              alt: `AI-Generated Summary for ${summary.short_title || summary.title}`,
             },
           ],
         }}
@@ -188,9 +188,9 @@ const YoutubeSummaryPage = ({ summary, videoId }) => {
           <div className="py-12 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                <h2 className="text-xl font-bold tracking-tight text-white sm:text-3xl">
                   YouTube Video Summary
-                </h1>
+                </h2>
                 <div className="mx-auto max-w-3xl text-center">
                   <div className="py-12 pb-0">
                     <YoutubeSummaryInfo summary={summary} videoId={videoId} />

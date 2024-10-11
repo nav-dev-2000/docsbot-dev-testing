@@ -436,7 +436,7 @@ export const getRecentYoutubeVideos = async (type) => {
     const res = await firestore
       .collection('yt-tools')
       .orderBy('createdAt', 'desc')
-      .select('title', 'short_title')
+      .select('videoId', 'title', 'short_title')
       .where('type', '==', type)
       .limit(9)
       .get()
@@ -445,14 +445,14 @@ export const getRecentYoutubeVideos = async (type) => {
     res.forEach((doc) => {
       const data = doc.data()
       videos.push({
-        id: doc.id.split('-')[0], // Extract videoId from the document ID
+        id: data.videoId,
         title: data.short_title || data.title,
       })
     })
 
     const res2 = await firestore
       .collection('yt-tools')
-      .select('title', 'short_title')
+      .select('videoId', 'title', 'short_title')
       .where('type', '==', type)
       .where('is_ai', '==', true)
       .limit(50)
@@ -461,11 +461,10 @@ export const getRecentYoutubeVideos = async (type) => {
     let aiVideos = []
     res2.forEach((doc) => {
       const data = doc.data()
-      const id = doc.id.split('-')[0] // Extract videoId from the document ID
       
-      if (!videos.some(video => video.id === id)) {
+      if (!videos.some(video => video.id === data.videoId)) {
         aiVideos.push({
-          id,
+          id: data.videoId,
           title: data.short_title || data.title,
         });
       }
