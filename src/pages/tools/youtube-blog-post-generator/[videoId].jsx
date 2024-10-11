@@ -119,11 +119,22 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
   const wordCount = summary.content.split(/\s+/).length
   const readTime = Math.ceil(wordCount / 200)
 
+  // Check if copy buttons should be displayed
+  const shouldShowCopyButtons = () => {
+    if (!summary.is_ai) return true;
+    if (!summary.createdAt) return false;
+    
+    const oneHour = 1 * 60 * 60 * 1000; // milliseconds in one hour
+    const createdDate = new Date(summary.createdAt);
+    const now = new Date();
+    return (now - createdDate) < oneHour;
+  };
+
   return (
     <>
       <NextSeo
-        title={`${summary.title} - AI-Generated Blog Post`}
-        description="An AI-generated blog post from a YouTube video."
+        title={`${summary.title} - DocsBot AI`}
+        description={summary.seo_meta_description || 'An AI-generated blog post from a YouTube video'}
         openGraph={{
           images: [
             {
@@ -191,11 +202,13 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </div>
 
                 {/* Copy buttons after image */}
-                <CopyButtons
-                  summary={summary}
-                  videoId={videoId}
-                  thumbnailError={thumbnailError}
-                />
+                {shouldShowCopyButtons() && (
+                  <CopyButtons
+                    summary={summary}
+                    videoId={videoId}
+                    thumbnailError={thumbnailError}
+                  />
+                )}
 
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
 
@@ -210,11 +223,13 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </div>
 
                 {/* Copy buttons at the bottom of the article */}
-                <CopyButtons
-                  summary={summary}
-                  videoId={videoId}
-                  thumbnailError={thumbnailError}
-                />
+                {shouldShowCopyButtons() && (
+                  <CopyButtons
+                    summary={summary}
+                    videoId={videoId}
+                    thumbnailError={thumbnailError}
+                  />
+                )}
               </article>
             </div>
           </div>
