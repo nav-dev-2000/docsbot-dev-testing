@@ -60,6 +60,10 @@ const PROMPTS = {
         schema: {
           type: 'object',
           properties: {
+            short_title: {
+              type: 'string',
+              description: 'A concise title of the video, 5 words or less',
+            },
             summary: {
               type: 'string',
               description: 'A concise summary of the video content',
@@ -91,7 +95,7 @@ const PROMPTS = {
                 'Whether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
             },
           },
-          required: ['summary', 'keyPoints', 'is_ai'],
+          required: ['short_title', 'summary', 'keyPoints', 'is_ai'],
           additionalProperties: false,
         },
       },
