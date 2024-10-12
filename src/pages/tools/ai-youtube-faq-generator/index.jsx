@@ -11,6 +11,7 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Fetching video details...',
@@ -180,6 +181,7 @@ export default function YoutubeFAQGeneratorPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube Video FAQ Generator - DocsBot" base={1731} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -214,6 +216,10 @@ export default function YoutubeFAQGeneratorPage({ recentVideos }) {
                   heading="Recently Generated FAQs"
                   slug="ai-youtube-faq-generator"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={1731}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

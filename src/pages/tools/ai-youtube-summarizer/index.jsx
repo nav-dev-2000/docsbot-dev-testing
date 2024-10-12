@@ -31,6 +31,8 @@ import {
   DocumentTextIcon,
   AcademicCapIcon,
 } from '@heroicons/react/24/outline'
+import { RatingSchema, StarRating } from '@/components/StarRating'
+import { FAQPageJsonLd } from 'next-seo'
 
 const loadingText = [
   'Fetching video details...',
@@ -278,6 +280,13 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube Video Summarizer - DocsBot" base={911} />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
+      />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -313,6 +322,10 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
                   heading="Recently Summarized Videos"
                   slug="ai-youtube-summarizer"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={911}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

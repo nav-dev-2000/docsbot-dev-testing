@@ -1,4 +1,4 @@
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Footer from '@/components/Footer'
@@ -28,6 +28,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@heroicons/react/24/outline'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Fetching video details...',
@@ -268,6 +269,13 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube Video to Blog Post Generator - DocsBot" base={1876} />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
+      />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -301,6 +309,10 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
                   heading="Recently Generated Blog Posts"
                   slug="youtube-blog-post-generator"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={1876}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

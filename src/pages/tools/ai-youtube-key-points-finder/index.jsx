@@ -12,6 +12,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Fetching video details...',
@@ -186,6 +187,7 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube Video Key Points Finder - DocsBot" base={1876} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -220,6 +222,10 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
                   heading="Recently Analyzed Videos"
                   slug="ai-youtube-key-points-finder"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={1876}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { NextSeo } from 'next-seo'
+import { FAQPageJsonLd } from 'next-seo'
 import { lookupFAQs } from '@/lib/tools'
 import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
@@ -149,6 +150,12 @@ const FAQsSharePage = ({ FAQs, title, summary, screenCap, thumbnail, siteURL, is
           ],
         }}
         noindex={!is_ai}
+      />
+      <FAQPageJsonLd
+        mainEntity={FAQs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
       />
       <Header />
       <main>

@@ -17,6 +17,7 @@ import {
 import Chart from 'chart.js/auto'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -590,6 +591,7 @@ export default function Calculate() {
           ],
         }}
       />
+      <RatingSchema name="OpenAI & all LLM API Pricing Calculator - DocsBot" base={4879} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -1004,6 +1006,10 @@ export default function Calculate() {
               }}
             />
           </div>
+          <StarRating
+            base={4879}
+            className="mx-auto mb-12 flex justify-center text-white"
+          />
 
           <div className="prose relative mx-auto max-w-5xl px-4 pb-32 text-white sm:px-6 lg:px-8">
             <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">

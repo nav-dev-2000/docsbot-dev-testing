@@ -11,6 +11,7 @@ import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
+import { StarRating, RatingSchema } from '@/components/StarRating'
 
 const loadingText = [
   'Loading website...',
@@ -212,8 +213,8 @@ export default function FAQGenerator({ FAQs }) {
   return (
     <>
       <NextSeo
-        title="Free AI FAQ Generator for Websites | No Login | Instant Results"
-        description="Create a comprehensive FAQ for any website instantly with our free AI tool. No sign-up needed. Generate frequently asked questions and answers for your site to boost SEO and user engagement."
+        title="Free AI Website FAQ Generator | No Login | Instant Results"
+        description="Create a comprehensive FAQ from any website URL instantly with our free AI tool. No sign-up needed. Generate frequently asked questions and answers for your site to boost SEO and user engagement."
         openGraph={{
           images: [
             {
@@ -223,6 +224,7 @@ export default function FAQGenerator({ FAQs }) {
           ],
         }}
       />
+      <RatingSchema name="AI Webiste FAQ Generator - DocsBot" base={1936} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -250,6 +252,10 @@ export default function FAQGenerator({ FAQs }) {
                 </p>
                 <AiFAQGenerator />
                 <RecentAIFAQs FAQs={FAQs} />
+                <StarRating
+                  base={1936}
+                  className="mx-auto mt-12 flex justify-center text-white"
+                />
               </div>
             </div>
           </div>

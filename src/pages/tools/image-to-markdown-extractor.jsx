@@ -1,4 +1,4 @@
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import { useState, useCallback, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -23,6 +23,7 @@ import {
   EyeIcon, 
   ViewfinderCircleIcon 
 } from '@heroicons/react/24/outline'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -368,6 +369,13 @@ export default function ImageToMarkdownPage() {
           ],
         }}
       />
+      <RatingSchema name="AI Image to Markdown Extractor - DocsBot" base={996} />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
+      />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -398,6 +406,10 @@ export default function ImageToMarkdownPage() {
                   over images.
                 </p>
                 <ImageToMarkdownConverter setHasResults={setHasResults} />
+                <StarRating
+                  base={996}
+                  className="mx-auto mt-12 flex justify-center text-white"
+                />
               </div>
             </div>
           </div>

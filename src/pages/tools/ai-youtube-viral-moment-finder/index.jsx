@@ -10,6 +10,7 @@ import FreeToolsGrid from '@/components/FreeToolsGrid'
 import RecentVideos from '@/components/RecentVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Analyzing video content...',
@@ -184,6 +185,7 @@ export default function YoutubeViralMomentFinderPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube Video Viral Moment Finder - DocsBot" base={438} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -218,6 +220,10 @@ export default function YoutubeViralMomentFinderPage({ recentVideos }) {
                   heading="Recently Analyzed Videos"
                   slug="ai-youtube-viral-moment-finder"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={438}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

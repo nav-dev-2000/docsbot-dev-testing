@@ -1,4 +1,4 @@
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import { useState, useCallback, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -27,6 +27,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -332,7 +333,7 @@ const faqs = [
   {
     question: 'What is an AI Image Description Generator?',
     answer:
-      'An AI Image Description Generator is a tool that uses artificial intelligence to automatically create detailed, accurate descriptions of images. It analyzes the content, objects, and context within an image to produce a textual description.',
+      'An AI Image Description Generator is a tool that uses artificial intelligence to automatically create detailed descriptions of images. It analyzes the content, objects, and context within an image to produce a textual description.',
   },
   {
     question: 'How accurate are the generated descriptions?',
@@ -378,6 +379,16 @@ export default function ImageDescriptionPage() {
           ],
         }}
       />
+      <RatingSchema
+        name="AI Image Description Generator - DocsBot"
+        base={4501}
+      />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
+      />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -397,15 +408,19 @@ export default function ImageDescriptionPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered Image Description Generator
+                  Free AI Image Description Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate detailed descriptions for any image using our
-                  AI-powered tool. Perfect for creating prompts for AI image
-                  generation, improving accessibility, creating image captions,
-                  or understanding image content.
+                  Describe any image using our AI-powered description generator tool. Perfect for
+                  creating prompts for AI image generation, improving
+                  accessibility, creating image captions, or understanding image
+                  content. Great for social media, e-commerce, education, and more!
                 </p>
                 <ImageDescriptionGenerator setHasResults={setHasResults} />
+                <StarRating
+                  base={4501}
+                  className="mx-auto mt-12 flex justify-center text-white"
+                />
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import { useState, useCallback, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -28,6 +28,7 @@ import {
   MinusIcon,
 } from '@heroicons/react/24/outline'
 import { Disclosure } from '@headlessui/react'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -320,65 +321,79 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
 const useCases = [
   {
     name: 'Enhance Interactive Learning',
-    description: 'Create engaging quizzes and assessments from educational images, diagrams, and infographics to boost student engagement and retention.',
+    description:
+      'Create engaging quizzes and assessments from educational images, diagrams, and infographics to boost student engagement and retention.',
     icon: ChatBubbleLeftRightIcon,
   },
   {
     name: 'Streamline Content Creation',
-    description: 'Quickly generate FAQs from visual content for textbooks, online courses, and educational websites, saving time for educators and instructional designers.',
+    description:
+      'Quickly generate FAQs from visual content for textbooks, online courses, and educational websites, saving time for educators and instructional designers.',
     icon: PencilSquareIcon,
   },
   {
     name: 'Improve E-learning Experiences',
-    description: 'Integrate image-based FAQs into Learning Management Systems like Canvas, Blackboard, and Moodle to create more interactive and comprehensive online courses.',
+    description:
+      'Integrate image-based FAQs into Learning Management Systems like Canvas, Blackboard, and Moodle to create more interactive and comprehensive online courses.',
     icon: GlobeAltIcon,
   },
   {
     name: 'Support Visual Learners',
-    description: 'Create supplementary Q&As for visual learners, helping them better understand and remember complex concepts presented in images and diagrams.',
+    description:
+      'Create supplementary Q&As for visual learners, helping them better understand and remember complex concepts presented in images and diagrams.',
     icon: EyeIcon,
   },
   {
     name: 'Facilitate Flipped Classrooms',
-    description: 'Generate pre-class questions from lecture slides or textbook images, encouraging students to engage with material before in-person discussions.',
+    description:
+      'Generate pre-class questions from lecture slides or textbook images, encouraging students to engage with material before in-person discussions.',
     icon: ArrowUpOnSquareStackIcon,
   },
   {
     name: 'Enhance Educational Content Marketing',
-    description: 'Create engaging social media content and blog posts by generating FAQs from infographics and educational images, attracting potential students and learners.',
+    description:
+      'Create engaging social media content and blog posts by generating FAQs from infographics and educational images, attracting potential students and learners.',
     icon: MagnifyingGlassIcon,
   },
-];
+]
 
 const faqs = [
   {
     question: 'How can the Image to FAQ Generator benefit educators?',
-    answer: 'Educators can use this tool to quickly create engaging quizzes, assessments, and discussion prompts from educational images, diagrams, and infographics. This saves time in content creation and helps diversify learning materials.',
+    answer:
+      'Educators can use this tool to quickly create engaging quizzes, assessments, and discussion prompts from educational images, diagrams, and infographics. This saves time in content creation and helps diversify learning materials.',
   },
   {
-    question: 'Can this tool be integrated with Learning Management Systems (LMS)?',
-    answer: 'While direct integration is not available, the generated FAQs can be easily copied and pasted into popular LMS platforms like Canvas, Blackboard, Moodle, and D2L Brightspace to enhance online courses and assessments.',
+    question:
+      'Can this tool be integrated with Learning Management Systems (LMS)?',
+    answer:
+      'While direct integration is not available, the generated FAQs can be easily copied and pasted into popular LMS platforms like Canvas, Blackboard, Moodle, and D2L Brightspace to enhance online courses and assessments.',
   },
   {
     question: 'How accurate are the generated FAQs?',
-    answer: 'The AI-generated FAQs are generally quite accurate for common educational content. However, for specialized or complex topics, it\'s recommended that educators review and potentially refine the questions and answers to ensure they align with specific learning objectives.',
+    answer:
+      "The AI-generated FAQs are generally quite accurate for common educational content. However, for specialized or complex topics, it's recommended that educators review and potentially refine the questions and answers to ensure they align with specific learning objectives.",
   },
   {
     question: 'Can students use this tool for self-study?',
-    answer: 'Absolutely! Students can upload images from their textbooks or lecture slides to generate practice questions, helping them review key concepts and prepare for exams more effectively.',
+    answer:
+      'Absolutely! Students can upload images from their textbooks or lecture slides to generate practice questions, helping them review key concepts and prepare for exams more effectively.',
   },
   {
     question: 'Are there any limitations on image types or sizes?',
-    answer: 'Our tool supports common image formats (JPEG, PNG, GIF, WEBP) and automatically resizes images for optimal processing. Very large files may have size limitations, but most educational images should work well.',
+    answer:
+      'Our tool supports common image formats (JPEG, PNG, GIF, WEBP) and automatically resizes images for optimal processing. Very large files may have size limitations, but most educational images should work well.',
   },
   {
-    question: 'How can content creators use this tool for educational marketing?',
-    answer: 'Content creators can generate FAQs from infographics or promotional images to create engaging social media posts, blog articles, or email content. This helps attract potential students and showcase the value of educational programs or courses.',
+    question:
+      'How can content creators use this tool for educational marketing?',
+    answer:
+      'Content creators can generate FAQs from infographics or promotional images to create engaging social media posts, blog articles, or email content. This helps attract potential students and showcase the value of educational programs or courses.',
   },
-];
+]
 
 export default function ImageToFAQPage() {
-  const [hasResults, setHasResults] = useState(false);
+  const [hasResults, setHasResults] = useState(false)
 
   return (
     <>
@@ -393,6 +408,13 @@ export default function ImageToFAQPage() {
             },
           ],
         }}
+      />
+      <RatingSchema name="AI Image to FAQ Generator - DocsBot" base={1000} />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
       />
       <Header />
       <main>
@@ -413,12 +435,21 @@ export default function ImageToFAQPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered Image to FAQ Generator
+                  Free AI Image to FAQ Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate FAQs for any image using our AI-powered tool. Perfect for students, educators, and anyone who wants to create quizzes and tests to learn and understand image content. Enhance your e-learning materials and LMS content effortlessly.
+                  Generate Frequently Asked Questions (FAQs) for any image using
+                  our AI-powered tool. Perfect for students, educators, and
+                  anyone who wants to create quizzes and tests to learn and
+                  understand image content. Enhance your e-learning materials
+                  and LMS content effortlessly with quizzes generated for
+                  images.
                 </p>
                 <ImageToFAQGenerator setHasResults={setHasResults} />
+                <StarRating
+                  base={1000}
+                  className="mx-auto mt-12 flex justify-center text-white"
+                />
               </div>
             </div>
           </div>
@@ -436,7 +467,8 @@ export default function ImageToFAQPage() {
                     How to Use Our AI Image to FAQ Generator
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Follow these simple steps to create engaging FAQs from your educational images in seconds.
+                    Follow these simple steps to create engaging FAQs from your
+                    educational images in seconds.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -450,7 +482,9 @@ export default function ImageToFAQPage() {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Select and upload the educational image, diagram, or infographic you want to create FAQs for. Our tool supports various image formats.
+                          Select and upload the educational image, diagram, or
+                          infographic you want to create FAQs for. Our tool
+                          supports various image formats.
                         </p>
                       </dd>
                     </div>
@@ -463,7 +497,9 @@ export default function ImageToFAQPage() {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Click the 'Generate FAQs' button and let our AI analyze your image to create relevant questions and answers.
+                          Click the 'Generate FAQs' button and let our AI
+                          analyze your image to create relevant questions and
+                          answers.
                         </p>
                       </dd>
                     </div>
@@ -476,7 +512,9 @@ export default function ImageToFAQPage() {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Review the generated FAQs, copy them with a click, and customize as needed for your learning materials or LMS content.
+                          Review the generated FAQs, copy them with a click, and
+                          customize as needed for your learning materials or LMS
+                          content.
                         </p>
                       </dd>
                     </div>
@@ -495,7 +533,9 @@ export default function ImageToFAQPage() {
                     Use Cases for Our AI Image to FAQ Generator in Education
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                    Discover how our AI-powered Image to FAQ Generator can enhance learning experiences and streamline content creation across various educational domains.
+                    Discover how our AI-powered Image to FAQ Generator can
+                    enhance learning experiences and streamline content creation
+                    across various educational domains.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

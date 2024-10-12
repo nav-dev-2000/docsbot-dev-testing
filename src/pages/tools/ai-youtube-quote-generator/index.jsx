@@ -12,6 +12,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Fetching video details...',
@@ -181,6 +182,10 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema
+        name="AI YouTube Video Quote Generator - DocsBot"
+        base={692}
+      />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -215,6 +220,10 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
                   slug="ai-youtube-quote-generator"
                   recentVideos={recentVideos}
                 />
+                <StarRating
+                  base={692}
+                  className="mx-auto mt-12 flex justify-center text-white"
+                />
               </div>
             </div>
           </div>
@@ -228,11 +237,11 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
           <FreeToolsGrid category="YouTube" />
         </div>
 
-        <RecentVideos
-                  heading="More Recently Generated Quotes"
-                  slug="ai-youtube-quote-generator"
-                  recentVideos={recentVideos}
-                />
+        <RecentAIVideos
+          heading="More Recently Generated Quotes"
+          slug="ai-youtube-quote-generator"
+          recentVideos={recentVideos}
+        />
       </main>
       <Footer />
     </>

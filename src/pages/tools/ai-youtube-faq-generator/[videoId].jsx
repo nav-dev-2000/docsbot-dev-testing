@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import RegisterCTA from '@/components/RegisterCTA'
@@ -66,6 +66,12 @@ const WebsiteFAQPage = ({ faqs, videoId }) => {
           ],
         }}
         noindex={!faqs.is_ai}
+      />
+      <FAQPageJsonLd
+        mainEntity={faqs.faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
       />
       <Header />
       <main>

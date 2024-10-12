@@ -11,6 +11,7 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
+import { RatingSchema, StarRating } from '@/components/StarRating'
 
 const loadingText = [
   'Analyzing YouTube video...',
@@ -178,6 +179,7 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
           ],
         }}
       />
+      <RatingSchema name="AI YouTube to Tweet/X Post Generator - DocsBot" base={891} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -211,6 +213,10 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
                   heading="Recently Analyzed Videos"
                   slug="ai-youtube-tweet-x-post-generator"
                   recentVideos={recentVideos}
+                />
+                <StarRating
+                  base={891}
+                  className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
             </div>

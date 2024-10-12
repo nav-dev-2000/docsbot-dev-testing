@@ -17,6 +17,7 @@ import {
 } from '@heroicons/react/20/solid'
 import { usePostHog } from 'posthog-js/react'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import { StarRating, RatingSchema } from '@/components/StarRating'
 
 const features = [
   {
@@ -217,6 +218,7 @@ export default function Calculate() {
           ],
         }}
       />
+      <RatingSchema name="AI Customer Support Chatbot Savings Calculator - DocsBot" base={1} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -244,6 +246,7 @@ export default function Calculate() {
                 </p>
               </div>
               <AiSupportSavingsCalculator />
+              <StarRating base={1} className="mt-12 flex justify-center text-white" />
             </div>
           </div>
           <div
