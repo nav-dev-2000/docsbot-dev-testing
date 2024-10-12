@@ -12,6 +12,7 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
 import { StarRating, RatingSchema } from '@/components/StarRating'
+import { ChatBubbleLeftRightIcon, GlobeAltIcon, PencilSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 const loadingText = [
   'Loading website...',
@@ -261,6 +262,131 @@ export default function FAQGenerator({ FAQs }) {
           </div>
         </div>
         <RegisterCTA />
+        
+        {/* New SEO-optimized content section */}
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-cyan-600">
+                Simple 3-Step Process
+              </h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Generate FAQs From Any URL
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Create comprehensive frequently asked questions or quizes for any webpage effortlessly with our AI-powered generator. No sign-up required!
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                    <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                      1
+                    </span>
+                    Enter Any URL
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <p className="flex-auto">
+                      Simply paste any webpage URL - be it a homepage, product page, or course description. Our tool works with any type of web content.
+                    </p>
+                  </dd>
+                </div>
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                    <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                      2
+                    </span>
+                    AI-Powered Analysis
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <p className="flex-auto">
+                      Our AI agent crawls the page content and visual layout, and generates a comprehensive set of FAQs tailored to your content.
+                    </p>
+                  </dd>
+                </div>
+                <div className="flex flex-col">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                    <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                      3
+                    </span>
+                    Review and Use
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <p className="flex-auto">
+                      Instantly view your generated FAQs. Copy and paste them directly into your website, knowledge base, or any other application.
+                    </p>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-50 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:text-center">
+              <h2 className="text-base font-semibold leading-7 text-cyan-600">
+                Versatile Applications
+              </h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Unlock the Power of AI-Generated FAQs
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Explore the many ways our AI FAQ Generator can enhance your website and improve user engagement.
+              </p>
+            </div>
+            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                <div className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                      <ChatBubbleLeftRightIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    Enhance Customer Support
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    Create a comprehensive FAQ section from your documentation to address common customer queries, reducing support tickets and improving customer satisfaction. Perfect for <Link href="/" className="hover:underline text-cyan-600">training a custom AI support chatbot</Link>.
+                  </dd>
+                </div>
+                <div className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                      <GlobeAltIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    Improve Website Navigation
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    Use AI-generated questions to create intuitive navigation menus and improve overall user experience on your website.
+                  </dd>
+                </div>
+                <div className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                      <PencilSquareIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    Content Ideation
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    Use generated questions as inspiration for new blog posts, articles, and other content to address your audience's needs.
+                  </dd>
+                </div>
+                <div className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
+                      <MagnifyingGlassIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                    </div>
+                    SEO Optimization
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    Boost your search engine rankings with FAQ-rich content that targets long-tail keywords and provides valuable information to users.
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid />
         </div>
