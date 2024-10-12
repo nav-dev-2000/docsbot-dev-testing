@@ -51,48 +51,65 @@ const CopyButtons = ({ summary, videoId, thumbnailError }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlCopied, setHtmlCopied] = useState(false)
 
+  // Check if copy buttons should be displayed
+  const shouldShowCopyButtons = () => {
+    if (!summary.is_ai) return true
+    if (!summary.createdAt) return false
+
+    const oneHour = 1 * 60 * 60 * 1000 // milliseconds in one hour
+    const createdDate = new Date(summary.createdAt)
+    const now = new Date()
+    return now - createdDate < oneHour
+  }
+
   return (
-    <div className="mt-4 mb-8 p-4 bg-gray-100 rounded-lg">
-      <h3 className="text-lg font-semibold mt-0 mb-2">Copy this article</h3>
-      <p className="text-sm text-gray-600 mb-4">
+    <div className="mb-8 mt-4 rounded-lg bg-gray-100 p-4">
+      <h3 className="mb-2 mt-0 text-lg font-semibold">
+        {shouldShowCopyButtons() ? 'Copy this article' : 'Created with DocsBot AI'}
+      </h3>
+      <p className="mb-4 text-sm text-gray-600">
         This article has been created using the same AI that powers{' '}
         <Link href="/" className="text-cyan-600 hover:underline">
           DocsBot AI
         </Link>
-        . You can copy it and easily use on your website or blog.
+        . {shouldShowCopyButtons() ? 'You can copy it and easily use on your website or blog.' : ''}
       </p>
-      <div className="flex flex-col sm:flex-row gap-2">
-        <button
-          onClick={() => {
-            copyAsMarkdown(summary, videoId, thumbnailError)
-            setMarkdownCopied(true)
-            setTimeout(() => setMarkdownCopied(false), 1500)
-          }}
-          className={clsx(
-            "flex-1 inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50",
-            markdownCopied ? "text-cyan-600" : "text-gray-700"
-          )}
-        >
-          <CodeBracketIcon className="mr-2 h-5 w-5" aria-hidden="true" />
-          {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
-        </button>
-        <button
-          onClick={() => {
-            copyAsHTML(summary, videoId, thumbnailError)
-            setHtmlCopied(true)
-            setTimeout(() => setHtmlCopied(false), 1500)
-          }}
-          className={clsx(
-            "flex-1 inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50",
-            htmlCopied ? "text-cyan-600" : "text-gray-700"
-          )}
-        >
-          <DocumentTextIcon className="mr-2 h-5 w-5" aria-hidden="true" />
-          {htmlCopied ? 'Copied!' : 'Copy as HTML'}
-        </button>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        {shouldShowCopyButtons() && (
+          <>
+            <button
+              onClick={() => {
+                copyAsMarkdown(summary, videoId, thumbnailError)
+                setMarkdownCopied(true)
+                setTimeout(() => setMarkdownCopied(false), 1500)
+              }}
+              className={clsx(
+                'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                markdownCopied ? 'text-cyan-600' : 'text-gray-700',
+              )}
+            >
+              <CodeBracketIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+              {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
+            </button>
+            <button
+              onClick={() => {
+                copyAsHTML(summary, videoId, thumbnailError)
+                setHtmlCopied(true)
+                setTimeout(() => setHtmlCopied(false), 1500)
+              }}
+              className={clsx(
+                'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                htmlCopied ? 'text-cyan-600' : 'text-gray-700',
+              )}
+            >
+              <DocumentTextIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+              {htmlCopied ? 'Copied!' : 'Copy as HTML'}
+            </button>
+          </>
+        )}
         <Link
           href="/tools/youtube-blog-post-generator"
-          className="flex-1 inline-flex items-cente no-underline justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+          className="items-cente inline-flex flex-1 justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white no-underline hover:bg-cyan-700"
         >
           Create new article
         </Link>
@@ -113,28 +130,26 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
     .toString()
 
   // Format the date
-  const formattedDate = summary.createdAt ? new Date(summary.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''
+  const formattedDate = summary.createdAt
+    ? new Date(summary.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    : ''
 
   // Calculate read time (assuming 200 words per minute)
   const wordCount = summary.content.split(/\s+/).length
   const readTime = Math.ceil(wordCount / 200)
 
-  // Check if copy buttons should be displayed
-  const shouldShowCopyButtons = () => {
-    if (!summary.is_ai) return true;
-    if (!summary.createdAt) return false;
-    
-    const oneHour = 1 * 60 * 60 * 1000; // milliseconds in one hour
-    const createdDate = new Date(summary.createdAt);
-    const now = new Date();
-    return (now - createdDate) < oneHour;
-  };
-
   return (
     <>
       <NextSeo
         title={`${summary.title} - DocsBot AI`}
-        description={summary.seo_meta_description || 'An AI-generated blog post from a YouTube video'}
+        description={
+          summary.seo_meta_description ||
+          'An AI-generated blog post from a YouTube video'
+        }
         openGraph={{
           images: [
             {
@@ -168,25 +183,29 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </p>
               </div>
               <article className="prose prose-lg prose-cyan mx-auto max-w-4xl rounded-xl bg-white px-4 py-4 shadow-xl ring-1 ring-slate-900/10 sm:px-6 lg:px-8">
-                <h1 className="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl mb-0">
+                <h1 className="mb-0 mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-left sm:text-4xl">
                   {summary.title}
                 </h1>
-                <div className="my-2 text-center text-base text-gray-500 sm:text-left flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-2">
+                <div className="my-2 flex flex-col gap-y-2 text-center text-base text-gray-500 sm:flex-row sm:flex-wrap sm:items-center sm:text-left">
                   {summary.channelName && (
                     <div className="flex items-center justify-center sm:justify-start">
                       <p className="m-0">By {summary.channelName}</p>
-                      <span className="text-gray-300 mx-2 hidden sm:inline">•</span>
+                      <span className="mx-2 hidden text-gray-300 sm:inline">
+                        •
+                      </span>
                     </div>
                   )}
                   {formattedDate && (
                     <div className="flex items-center justify-center sm:justify-start">
                       <p className="m-0">Published {formattedDate}</p>
-                      <span className="text-gray-300 mx-2 hidden sm:inline">•</span>
+                      <span className="mx-2 hidden text-gray-300 sm:inline">
+                        •
+                      </span>
                     </div>
                   )}
                   <p className="m-0">{readTime} min read</p>
                 </div>
-                <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-8">
+                <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-lg">
                   <Image
                     src={
                       thumbnailError
@@ -202,29 +221,25 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 </div>
 
                 {/* Copy buttons after image */}
-                {shouldShowCopyButtons() && (
-                  <CopyButtons
-                    summary={summary}
-                    videoId={videoId}
-                    thumbnailError={thumbnailError}
-                  />
-                )}
+                <CopyButtons
+                  summary={summary}
+                  videoId={videoId}
+                  thumbnailError={thumbnailError}
+                />
 
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
 
                 {/* Copy buttons at the bottom of the article */}
-                {shouldShowCopyButtons() && (
-                  <CopyButtons
-                    summary={summary}
-                    videoId={videoId}
-                    thumbnailError={thumbnailError}
-                  />
-                )}
+                <CopyButtons
+                  summary={summary}
+                  videoId={videoId}
+                  thumbnailError={thumbnailError}
+                />
               </article>
             </div>
           </div>
         </div>
-        <RegisterCTA 
+        <RegisterCTA
           customTitle="Train an AI Chatbot from YouTube"
           description="Turn your favorite YouTube videos or playlists into an AI-powered chatbot. Effortlessly create a knowledgeable assistant that can answer questions based on video content, then embed it in your website or app."
           button="Create a Free YouTube Chatbot"
