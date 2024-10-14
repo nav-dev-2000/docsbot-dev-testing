@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { stripe } from '@/utils/stripe'
-import va from '@vercel/analytics'
 import {
   AcademicCapIcon,
   CreditCardIcon,
@@ -84,12 +83,6 @@ function Dashboard({ team, purchase }) {
       setModify(canUserCreateDeleteBot(team, user.uid))
     }
   }, [team, user])
-
-  useEffect(() => {
-    if (purchase) {
-      va.track('Purchase', purchase)
-    }
-  }, [purchase])
 
   useEffect(() => {
     if (!team.botCount) {

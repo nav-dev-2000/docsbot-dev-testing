@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import va from '@vercel/analytics'
 import { useEffect, useState, useCallback } from 'react'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
@@ -100,7 +99,6 @@ function Register({ teamCount }) {
           if (window.fpr !== undefined) {
             window.fpr("referral",{email: user?.user?.email})
           }
-          va.track('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
           posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
           posthog?.startSessionRecording()

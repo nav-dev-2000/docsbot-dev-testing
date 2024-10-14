@@ -8,7 +8,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Alert from '@/components/Alert'
 import openAILogo from '@/images/logos/openai-logo.svg'
-import va from '@vercel/analytics'
 import { validateOpenAIKey } from '@/utils/helpers'
 
 export default function ModalOpenAI({ team, open, setOpen, onKey }) {
@@ -49,7 +48,6 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
       setOpenAIKey('')
       setIsUpdating(false)
       setOpen(false)
-      va.track('OpenAI Key Updated')
     } else {
       try {
         const data = await response.json()

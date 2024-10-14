@@ -8,7 +8,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 import { Layout } from '@/components/docs/Layout'
-import { Analytics } from '@vercel/analytics/react'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { HeadlessApp } from '@headstartwp/next'
 import { Link } from '@/components/blog/Link'
@@ -255,7 +254,6 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
             gtag('config', 'AW-412141971');
           `}
         </Script>
-        <Analytics />
       </PostHogProvider>
     )
   }
@@ -396,15 +394,6 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
                 gtag('config', 'AW-412141971');
               `}
               </Script>
-              <Analytics
-                beforeSend={(event) => {
-                  const url = event.url.replace(/\/app\/bots\/[^\/]+/, `/app/bots/[botId]`)
-                  return {
-                    ...event,
-                    url: url,
-                  }
-                }}
-              />
             </>
           )}
       </HeadlessApp>

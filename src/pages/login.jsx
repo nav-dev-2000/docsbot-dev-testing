@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import va from '@vercel/analytics'
 
 import { useEffect, useState, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
@@ -89,7 +88,6 @@ function Login() {
       if (window.fpr !== undefined) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
-      va.track('Signup')
       posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
       posthog?.capture('Signup', { method: 'Google' })
       posthog?.startSessionRecording()
