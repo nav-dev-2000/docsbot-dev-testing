@@ -10,6 +10,7 @@ import { QueueBotCopy } from '@/lib/service'
 import { phTrack } from '@/lib/posthog'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
+import { clearCloudflareCache } from '@/lib/cloudflare'
 
 const router = createRouter()
 
@@ -120,6 +121,9 @@ router.post(async (req, res) => {
       console.log(`copying ${copyFrom} to ${botId}...`)
       await QueueBotCopy(team.id, copyFrom, botId)
     }
+
+    // Clear Cloudflare cache after creating the bot (asynchronously)
+    clearCloudflareCache(team.id, botId)
 
     try {
       bentoTrack(userId, 'track', {

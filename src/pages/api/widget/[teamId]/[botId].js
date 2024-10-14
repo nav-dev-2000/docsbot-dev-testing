@@ -28,10 +28,12 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors)
   const { teamId, botId } = req.query
 
+  /*
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=300, stale-while-revalidate=359'
   )
+  */
 
   if (req.method === 'GET') {
     try {

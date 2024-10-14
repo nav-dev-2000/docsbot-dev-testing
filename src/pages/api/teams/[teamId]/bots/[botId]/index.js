@@ -7,6 +7,7 @@ import { phTrack } from '@/lib/posthog'
 import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserEditBot, canUserCreateDeleteBot } from '@/utils/function.utils'
+import { clearCloudflareCache } from '@/lib/cloudflare'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -43,6 +44,9 @@ export default async function handler(req, res) {
 
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
+      // Clear Cloudflare cache after updating the bot (asynchronously)
+      clearCloudflareCache(team.id, botId);
+
       try {
         bentoTrack(userId, 'track', {
           type: 'updateBot',
@@ -72,6 +76,9 @@ export default async function handler(req, res) {
       if (!deleteResult) {
         return res.status(404).json({ message: 'Bot not found' })
       }
+
+      // Clear Cloudflare cache after deleting the bot (asynchronously)
+      clearCloudflareCache(team.id, botId);
 
       try {
         bentoTrack(userId, 'track', {
