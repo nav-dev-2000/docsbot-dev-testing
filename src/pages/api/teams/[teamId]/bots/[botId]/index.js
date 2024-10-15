@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).update(botData)
 
       // Clear Cloudflare cache after updating the bot (asynchronously)
-      clearCloudflareCache(team.id, botId);
+      await clearCloudflareCache(team.id, botId);
 
       try {
         bentoTrack(userId, 'track', {
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
       }
 
       // Clear Cloudflare cache after deleting the bot (asynchronously)
-      clearCloudflareCache(team.id, botId);
+      await clearCloudflareCache(team.id, botId);
 
       try {
         bentoTrack(userId, 'track', {

@@ -123,7 +123,7 @@ router.post(async (req, res) => {
     }
 
     // Clear Cloudflare cache after creating the bot (asynchronously)
-    clearCloudflareCache(team.id, botId)
+    await clearCloudflareCache(team.id, botId)
 
     try {
       bentoTrack(userId, 'track', {

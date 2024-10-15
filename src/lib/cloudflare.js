@@ -8,28 +8,30 @@ export async function clearCloudflareCache(teamId, botId) {
     `https://docsbot.ai/iframe/${teamId}/${botId}`,
   ]
 
-
-  return fetch(
-    `https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiToken}`,
-      },
-      body: JSON.stringify({
-        files: urlsToCache,
-      }),
-    },
-  )
-    .then((response) => {
-      if (!response.ok) {
-        return response.text().then((text) => {
-          console.warn('Failed to clear Cloudflare cache:', text)
-        })
+  try {
+    const response = await fetch(
+      `https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiToken}`,
+        },
+        body: JSON.stringify({
+          files: urlsToCache,
+        }),
       }
-    })
-    .catch((error) => {
-      console.error('Error clearing Cloudflare cache:', error)
-    })
+    )
+
+    if (!response.ok) {
+      const text = await response.text()
+      console.warn('Failed to clear Cloudflare cache:', text)
+      return false
+    }
+
+    return true
+  } catch (error) {
+    console.error('Error clearing Cloudflare cache:', error)
+    return false
+  }
 }
