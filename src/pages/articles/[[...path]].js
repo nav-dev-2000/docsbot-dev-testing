@@ -194,7 +194,7 @@ export async function getStaticProps(context) {
         excerpt: post.excerpt,
       }
     })
-    return addHookData([usePostData], { revalidate: 5 * 60 })
+    return addHookData([usePostData], { revalidate: 1 * 60 * 60 })
   } catch (e) {
     return handleError(e, context)
   }

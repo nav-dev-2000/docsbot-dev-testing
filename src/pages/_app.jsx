@@ -148,6 +148,7 @@ export default function App({ Component, pageProps }) {
         <DefaultSeo
           title={pageTitle}
           description={description}
+          canonical={'https://docsbot.ai' + router.asPath}
           openGraph={{
             type: 'website',
             locale: 'en_US',
@@ -285,6 +286,7 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
         <DefaultSeo
           title="DocsBot AI - Custom chatbots from your documentation"
           description="Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more."
+          canonical={'https://docsbot.ai' + router.asPath}
           openGraph={{
             type: 'website',
             locale: 'en_US',
