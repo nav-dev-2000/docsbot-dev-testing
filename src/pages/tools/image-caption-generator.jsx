@@ -404,13 +404,13 @@ export default function ImageCaptionPage() {
   return (
     <>
       <NextSeo
-        title="Free AI Image Caption Generator | No Login | 13+ Tones/Vibes"
-        description="Generate creative captions for any image using our no-signup AI tool. Perfect for social media posts, content creation, or adding engaging descriptions to your images."
+        title="100% Free AI Image Caption Generator | No Login or Ads"
+        description="Generate creative captions for any image using our free AI tool. No signup needed. Perfect for Instagram, ALT text, and social media posts. Multiple tones available."
         openGraph={{
           images: [
             {
               url: 'https://docsbot.ai/images/og/image-caption.png',
-              alt: 'AI-Powered Image Caption Generator',
+              alt: 'Free AI-Powered Image Caption Generator',
             },
           ],
         }}
@@ -441,12 +441,12 @@ export default function ImageCaptionPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  AI-Powered Image Caption Generator
+                  100% Free AI Image Caption Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Generate creative captions for any image using our AI-powered tool. 
-                  Perfect for social media posts, content creation, or adding engaging 
-                  descriptions to your images with a customizable vibe.
+                  No login required. Perfect for Instagram, ALT text, and social media posts. 
+                  Choose from multiple tones to craft the perfect caption.
                 </p>
                 <ImageCaptionGenerator setHasResults={setHasResults} />
                 <StarRating
@@ -467,10 +467,10 @@ export default function ImageCaptionPage() {
                     Effortless Caption Creation
                   </h2>
                   <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                    How to Use Our AI Image Caption Generator
+                    How to Use Our Free AI Image Caption Generator
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Follow these simple steps to create engaging captions for your images in seconds.
+                    Follow these simple steps to create engaging captions for your images in seconds, no login required.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -544,10 +544,10 @@ export default function ImageCaptionPage() {
                     Versatile Applications
                   </h2>
                   <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    Use Cases for Our AI Image Caption Generator
+                    Use Cases for Our Free AI Image Caption Generator
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                    Discover how our AI-powered Image Caption Generator can enhance your content creation across various domains.
+                    Discover how our AI-powered Image Caption Generator can enhance your content creation across various domains, including Instagram, ALT text, and more.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -612,7 +612,7 @@ export default function ImageCaptionPage() {
 
         <RegisterCTA
           customTitle="Train a Custom AI Chatbot"
-          description="Train a custom chatbot with your content, chat with images, and explore advanced AI-powered tools for personalized interactions with your data."
+          description="Take your AI experience further! Train a custom chatbot with your content, chat with images, and explore advanced AI-powered tools for personalized interactions with your data."
           button="Get Started for Free"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
