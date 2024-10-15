@@ -159,6 +159,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
           ],
         }}
         noindex={!summary.is_ai}
+        nofollow={!summary.is_ai}
       />
       <Header />
       <main>

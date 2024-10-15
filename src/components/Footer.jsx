@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="space-y-8 text-left xl:col-span-1">
             <Image className="mr-auto h-10 w-auto" src={docsbotLogo} alt="DocsBot Logo" />
             <p className="text-base text-gray-500">
-              An <Link href="https://uglyrobot.com">UglyRobot</Link> thing.
+              An <Link href="https://uglyrobot.dev">UglyRobot</Link> thing.
             </p>
             <div className="flex space-x-6">
               {footerNavigation.social.map((item) => (

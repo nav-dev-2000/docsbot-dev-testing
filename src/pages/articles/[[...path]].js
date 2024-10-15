@@ -46,13 +46,13 @@ const ArchivePage = ({ seo }) => {
         <div className="bg-white py-12 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 {data?.queriedObject?.term?.yoast_head_json ? (
                   data?.queriedObject?.term?.yoast_head_json?.title
                 ) : (
                   <>Articles</>
                 )}
-              </h2>
+              </h1>
               <p className="mt-2 text-lg leading-8 text-gray-600">
                 DocsBot AI{' '}
                 <Link
@@ -77,7 +77,7 @@ const ArchivePage = ({ seo }) => {
                 </Link>
                 , and{' '}
                 <Link
-                  href="./category/articles"
+                  href="./category/article"
                   className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"
                 >
                   articles
