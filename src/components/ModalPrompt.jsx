@@ -33,7 +33,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
   const [showGeneratePopover, setShowGeneratePopover] = useState(false)
   const popoverRef = useRef(null)
   const buttonRef = useRef(null)
-  
+
   useEffect(() => {
     if (showGeneratePopover) {
       if (activeTab === 'regular') {
@@ -381,7 +381,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                 <div className="h-full">
                                   <label
                                     htmlFor="helpscoutPrompt"
-                                    className="block text-left text-sm font-medium text-gray-700"
+                                    className="sr-only"
                                   >
                                     Custom Help Scout Prompt
                                   </label>
