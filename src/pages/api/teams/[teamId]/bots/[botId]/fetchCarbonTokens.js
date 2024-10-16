@@ -40,11 +40,11 @@ export default async function handler(req, res) {
       if (response.status === 200 && response.data) {
         try {
           // update carbon max_files_per_upload
-          const maxUpload = plan.pages - team.pageCount
+          const maxUpload = (plan.pages - team.pageCount) * 5000
           const userResponse = await axios.post('https://api.carbon.ai/update_users', {
             "customer_ids": [getCarbonCustomerID(team.id, botId)],
-            "max_files_per_upload": Math.min(1000, maxUpload), // Limit to 1000 or maxUpload, whichever is smaller
-            "max_files": maxUpload,
+            "max_characters_per_upload": maxUpload,
+            "max_characters": maxUpload,
           }, {
             headers: {
               'Content-Type': 'application/json',
