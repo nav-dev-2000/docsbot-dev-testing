@@ -69,7 +69,7 @@ export default async function handler(req, res) {
         newTeam.openAIKeyPreview =
           openAIKey.substring(0, 3) +
           '...' +
-          openAIKey.substring(openAIKey.length - 4, openAIKey.length)
+          openAIKey.slice(-4)
         newTeam.supportsGPT4 = isGPT4
 
         await clearLastError(team)

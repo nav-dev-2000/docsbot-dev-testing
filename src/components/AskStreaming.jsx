@@ -47,8 +47,13 @@ export default function AskStreaming({ teamId, bot }) {
   }, [question])
 
   //convert markdown to html when answer changes or is appended to
-   useEffect(() => {
+  useEffect(() => {
     if (answer) {
+      // Remove incomplete markdown images, but keep the alt text
+      let filteredAnswer = answer.replace(/!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm, '$1');
+      // Remove incomplete markdown links, but keep the link text
+      filteredAnswer = filteredAnswer.replace(/\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm, '$1');
+
       unified()
         .use(remarkParse)
         .use(remarkGfm)
@@ -57,7 +62,7 @@ export default function AskStreaming({ teamId, bot }) {
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
-        .process(preprocessLaTeX(answer))
+        .process(preprocessLaTeX(filteredAnswer))
         .then((file) => {
           setResultHtml(String(file))
         })

@@ -106,6 +106,11 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   //convert markdown to html when answer changes or is appended to
   useEffect(() => {
     if (currentAnswer) {
+      // Remove incomplete markdown images, but keep the alt text
+      let filteredAnswer = currentAnswer.replace(/!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm, '$1');
+      // Remove incomplete markdown links, but keep the link text
+      filteredAnswer = filteredAnswer.replace(/\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm, '$1');
+      
       unified()
         .use(remarkParse)
         .use(remarkGfm)
@@ -116,7 +121,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
-        .process(preprocessLaTeX(currentAnswer))
+        .process(preprocessLaTeX(filteredAnswer))
         .then((file) => {
           setAnswerHtml(String(file))
         })
