@@ -5,6 +5,7 @@ import {
   ExclamationCircleIcon,
   ExclamationTriangleIcon,
   SparklesIcon,
+  XCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
@@ -37,12 +38,12 @@ export default function ModalPrompt({ team, integrations, bot }) {
   useEffect(() => {
     if (showGeneratePopover) {
       if (activeTab === 'regular') {
-        setActionInput(prompt);
+        setActionInput(prompt)
       } else if (activeTab === 'helpscout') {
-        setActionInput(hsPrompt);
+        setActionInput(hsPrompt)
       }
     }
-  }, [showGeneratePopover, activeTab, prompt, hsPrompt]);
+  }, [showGeneratePopover, activeTab, prompt, hsPrompt])
 
   useEffect(() => {
     if (!team || !user) return
@@ -67,13 +68,16 @@ export default function ModalPrompt({ team, integrations, bot }) {
   }, [])
 
   const tabs = [
-    { name: 'Regular Prompt', id: 'regular', current: activeTab === 'regular' },
-    {
-      name: 'Help Scout Prompt',
-      id: 'helpscout',
-      current: activeTab === 'helpscout',
-      disabled: !helpScoutIntegration,
-    },
+    { name: 'Custom Prompt', id: 'regular', current: activeTab === 'regular' },
+    ...(helpScoutIntegration
+      ? [
+          {
+            name: 'Help Scout Prompt',
+            id: 'helpscout',
+            current: activeTab === 'helpscout',
+          },
+        ]
+      : []),
   ]
 
   async function updatePrompt() {
@@ -219,7 +223,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
                       <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-3">
-                        <div className="lg:col-span-1">
+                        <div className="mb-4 lg:mb-0 lg:col-span-1">
                           <p className="text-md text-gray-700">
                             Add some custom instructions to your prompt to
                             adjust your bot's answer output to your specific use
@@ -282,7 +286,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                     tab.current
                                       ? 'border-cyan-500 text-cyan-600'
                                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                                    'cursor-pointer whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
+                                    'cursor-pointer whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium',
                                     tab.disabled &&
                                       'cursor-not-allowed opacity-50',
                                   )}
@@ -295,7 +299,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                               ))}
                             </nav>
                             <div className="relative">
-                              <Tooltip content="Generate a custom prompt">
+                              <Tooltip content="Generate or improve your prompt">
                                 <button
                                   ref={buttonRef}
                                   type="button"
@@ -313,7 +317,11 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                       isGenerating && 'animate-ping',
                                     )}
                                   />{' '}
-                                  {showGeneratePopover ? 'Cancel' : 'Generate'}
+                                  <span className="hidden sm:inline">
+                                    {showGeneratePopover
+                                      ? 'Cancel'
+                                      : 'Generate'}
+                                  </span>
                                 </button>
                               </Tooltip>
                               <Transition
@@ -337,21 +345,35 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                       onChange={(e) =>
                                         setActionInput(e.target.value)
                                       }
+                                      tabIndex={10}
                                     />
                                     <div className="flex items-center justify-between px-2 pb-2">
                                       <span className="flex items-center text-xs text-gray-400">
                                         <ExclamationTriangleIcon className="h-5 w-5 pr-1" />
                                         Replaces custom prompt
                                       </span>
-                                      <button
-                                        className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700"
-                                        onClick={generatePrompt}
-                                        disabled={isGenerating}
-                                      >
-                                        {isGenerating
-                                          ? 'Generating...'
-                                          : 'Create'}
-                                      </button>
+                                      <div className="flex items-center">
+                                        <Tooltip content="Clear the prompt">
+                                          <button
+                                            className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-inset"
+                                            onClick={() => setActionInput('')}
+                                            disabled={!actionInput}
+                                            tabIndex={12}
+                                          >
+                                            <XCircleIcon className="h-5 w-5" />
+                                          </button>
+                                        </Tooltip>
+                                        <button
+                                          className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                          onClick={generatePrompt}
+                                          disabled={isGenerating}
+                                          tabIndex={11}
+                                        >
+                                          {isGenerating
+                                            ? 'Generating...'
+                                            : 'Create'}
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -388,7 +410,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                   <div className="mt-1 h-full">
                                     <textarea
                                       id="helpscoutPrompt"
-                                      className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                      className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                       placeholder="Enter any custom prompt here, this will be used for helpscout responses."
                                       value={hsPrompt}
                                       onChange={(e) =>
