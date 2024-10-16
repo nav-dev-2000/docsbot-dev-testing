@@ -1,6 +1,12 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CommandLineIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  CommandLineIcon,
+  ExclamationCircleIcon,
+  ExclamationTriangleIcon,
+  SparklesIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -10,7 +16,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
-
 
 export default function ModalPrompt({ team, integrations, bot }) {
   const [open, setOpen] = useState(false)
@@ -23,15 +28,52 @@ export default function ModalPrompt({ team, integrations, bot }) {
   const [canModify, setModify] = useState(false)
   const [activeTab, setActiveTab] = useState('regular')
   const helpScoutIntegration = integrations.find((i) => i.id === 'helpscout')
+  const [actionInput, setActionInput] = useState('')
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [showGeneratePopover, setShowGeneratePopover] = useState(false)
+  const popoverRef = useRef(null)
+  const buttonRef = useRef(null)
+  
+  useEffect(() => {
+    if (showGeneratePopover) {
+      if (activeTab === 'regular') {
+        setActionInput(prompt);
+      } else if (activeTab === 'helpscout') {
+        setActionInput(hsPrompt);
+      }
+    }
+  }, [showGeneratePopover, activeTab, prompt, hsPrompt]);
 
   useEffect(() => {
     if (!team || !user) return
     setModify(canUserEditBot(team, user.uid))
   }, [team, user])
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setShowGeneratePopover(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   const tabs = [
     { name: 'Regular Prompt', id: 'regular', current: activeTab === 'regular' },
-    { name: 'Help Scout Prompt', id: 'helpscout', current: activeTab === 'helpscout', disabled: !helpScoutIntegration },
+    {
+      name: 'Help Scout Prompt',
+      id: 'helpscout',
+      current: activeTab === 'helpscout',
+      disabled: !helpScoutIntegration,
+    },
   ]
 
   async function updatePrompt() {
@@ -74,6 +116,36 @@ export default function ModalPrompt({ team, integrations, bot }) {
       }
       setIsUpdating(false)
     }
+  }
+
+  async function generatePrompt() {
+    setIsGenerating(true)
+    setShowGeneratePopover(false)
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'prompt']
+    const apiPath = '/api/' + urlParams.join('/')
+    try {
+      const response = await fetch(apiPath, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: actionInput }),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        if (activeTab === 'regular') {
+          setPrompt(data.prompt)
+        } else if (activeTab === 'helpscout') {
+          setHSPrompt(data.prompt)
+        }
+        setActionInput('') // Clear the input
+      } else {
+        setErrorText('Failed to generate prompt. Please try again.')
+      }
+    } catch (error) {
+      setErrorText('An error occurred. Please try again.')
+    }
+    setIsGenerating(false)
   }
 
   return (
@@ -195,39 +267,107 @@ export default function ModalPrompt({ team, integrations, bot }) {
                           </ul>
                         </div>
                         <div className="flex flex-col lg:col-span-2">
-                          <div className="border-b border-gray-200">
-                            <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                          <div className="flex justify-between border-b border-gray-200">
+                            <nav
+                              className="-mb-px flex space-x-8"
+                              aria-label="Tabs"
+                            >
                               {tabs.map((tab) => (
                                 <a
                                   key={tab.name}
-                                  onClick={() => !tab.disabled && setActiveTab(tab.id)}
+                                  onClick={() =>
+                                    !tab.disabled && setActiveTab(tab.id)
+                                  }
                                   className={clsx(
                                     tab.current
                                       ? 'border-cyan-500 text-cyan-600'
                                       : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                                    'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium cursor-pointer',
-                                    tab.disabled && 'opacity-50 cursor-not-allowed'
+                                    'cursor-pointer whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
+                                    tab.disabled &&
+                                      'cursor-not-allowed opacity-50',
                                   )}
-                                  aria-current={tab.current ? 'page' : undefined}
+                                  aria-current={
+                                    tab.current ? 'page' : undefined
+                                  }
                                 >
                                   {tab.name}
                                 </a>
                               ))}
                             </nav>
+                            <div className="relative">
+                              <Tooltip content="Generate a custom prompt">
+                                <button
+                                  ref={buttonRef}
+                                  type="button"
+                                  onClick={() =>
+                                    setShowGeneratePopover(!showGeneratePopover)
+                                  }
+                                  disabled={isGenerating}
+                                  className={
+                                    'my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400'
+                                  }
+                                >
+                                  <SparklesIcon
+                                    className={clsx(
+                                      'mr-1 h-5 w-5',
+                                      isGenerating && 'animate-ping',
+                                    )}
+                                  />{' '}
+                                  {showGeneratePopover ? 'Cancel' : 'Generate'}
+                                </button>
+                              </Tooltip>
+                              <Transition
+                                show={showGeneratePopover}
+                                enter="transition ease-out duration-200"
+                                enterFrom="opacity-0 translate-y-1"
+                                enterTo="opacity-100 translate-y-0"
+                                leave="transition ease-in duration-150"
+                                leaveFrom="opacity-100 translate-y-0"
+                                leaveTo="opacity-0 translate-y-1"
+                              >
+                                <div
+                                  ref={popoverRef}
+                                  className="absolute right-0 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                >
+                                  <div className="rounded-lg bg-gray-50 p-0">
+                                    <textarea
+                                      className="h-24 w-full resize-none rounded border-0 bg-gray-50 p-0 px-2 pt-2 text-sm leading-snug focus:border-0 focus:ring-0"
+                                      placeholder="Describe what you're using the bot for..."
+                                      value={actionInput}
+                                      onChange={(e) =>
+                                        setActionInput(e.target.value)
+                                      }
+                                    />
+                                    <div className="flex items-center justify-between px-2 pb-2">
+                                      <span className="flex items-center text-xs text-gray-400">
+                                        <ExclamationTriangleIcon className="h-5 w-5 pr-1" />
+                                        Replaces custom prompt
+                                      </span>
+                                      <button
+                                        className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700"
+                                        onClick={generatePrompt}
+                                        disabled={isGenerating}
+                                      >
+                                        {isGenerating
+                                          ? 'Generating...'
+                                          : 'Create'}
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </Transition>
+                            </div>
                           </div>
                           <div className="-mt-1 flex-grow">
                             {activeTab === 'regular' && (
                               <div className="h-full">
-                                <label
-                                  htmlFor="prompt"
-                                  className="sr-only"
-                                >
+                                <label htmlFor="prompt" className="sr-only">
                                   Custom Prompt
                                 </label>
                                 <div className="mt-4 h-full">
                                   <textarea
                                     id="prompt"
-                                    className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm min-h-96"
+                                    className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                     placeholder="Enter any custom prompt here..."
                                     value={prompt}
                                     onChange={(e) => setPrompt(e.target.value)}
@@ -236,26 +376,29 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                 </div>
                               </div>
                             )}
-                            {activeTab === 'helpscout' && helpScoutIntegration && (
-                              <div className="h-full">
-                                <label
-                                  htmlFor="helpscoutPrompt"
-                                  className="block text-left text-sm font-medium text-gray-700"
-                                >
-                                  Custom Help Scout Prompt
-                                </label>
-                                <div className="mt-1 h-full">
-                                  <textarea
-                                    id="helpscoutPrompt"
-                                    className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    placeholder="Enter any custom prompt here, this will be used for helpscout responses."
-                                    value={hsPrompt}
-                                    onChange={(e) => setHSPrompt(e.target.value)}
-                                    disabled={isUpdating || !canModify}
-                                  />
+                            {activeTab === 'helpscout' &&
+                              helpScoutIntegration && (
+                                <div className="h-full">
+                                  <label
+                                    htmlFor="helpscoutPrompt"
+                                    className="block text-left text-sm font-medium text-gray-700"
+                                  >
+                                    Custom Help Scout Prompt
+                                  </label>
+                                  <div className="mt-1 h-full">
+                                    <textarea
+                                      id="helpscoutPrompt"
+                                      className="block h-full w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                      placeholder="Enter any custom prompt here, this will be used for helpscout responses."
+                                      value={hsPrompt}
+                                      onChange={(e) =>
+                                        setHSPrompt(e.target.value)
+                                      }
+                                      disabled={isUpdating || !canModify}
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                            )}
+                              )}
                           </div>
                         </div>
                       </div>
