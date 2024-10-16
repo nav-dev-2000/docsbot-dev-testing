@@ -1,5 +1,3 @@
-import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import axios from 'axios'
@@ -7,7 +5,6 @@ import { stripePlan } from '@/utils/helpers'
 import { getCarbonCustomerID } from '@/lib/carbon'
 
 export default async function handler(req, res) {
-  configureFirebaseApp()
 
   //check if user has access to team
   let check = null

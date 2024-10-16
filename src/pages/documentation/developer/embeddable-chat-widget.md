@@ -16,7 +16,7 @@ We make it super simple to add chats to your site with our simple embed code. Yo
 You can find the full embed code for your bot from the [Bot](/app/bots) page for your specific bot. It looks a bit like this:
 
 ```html
-<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});var t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));var o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};</script>
+<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>
 <script type="text/javascript">
   DocsBotAI.init({ id: 'YOUR_ID_HERE' })
 </script>
@@ -315,7 +315,7 @@ For any of these integrations to work you must add a support url to your bot set
 
 ### Other API Methods
 
-There are a few other methods you can use to interact with the widget once it has been initialized.
+There are several methods you can use to interact with the widget once it has been initialized.
 
 ```js
 // Open the widget.
@@ -332,6 +332,72 @@ DocsBotAI.unmount()
 
 // Mount the widget. (re-adds the button and widget to the page)
 DocsBotAI.mount()
+
+// Add a user message to the chat
+// If send is true, it will also open the widget and send the message for an AI answer
+DocsBotAI.addUserMessage(message, send = false)
+
+// Add a bot message to the chat (this will not show in history)
+DocsBotAI.addBotMessage(message)
+
+// Clear the chat history
+DocsBotAI.clearChatHistory()
 ```
 
-If you need us to add more events just let us know and we'll see what we can do!
+#### Adding Messages Programmatically
+
+You can add messages to the chat programmatically using the `addUserMessage` and `addBotMessage` methods. These methods return a Promise that resolves when the message has been added to the chat.
+
+```js
+// Add a user message without sending
+DocsBotAI.addUserMessage("Hello, I have a question").then(() => {
+  console.log("User message added");
+});
+
+// Add a user message and send it (opens the widget if closed)
+DocsBotAI.addUserMessage("What services does DocsBot offer?", true).then(() => {
+  console.log("User message added and sent");
+});
+
+// Add a bot message
+DocsBotAI.addBotMessage("Hello! How can I assist you today?").then(() => {
+  console.log("Bot message added");
+});
+```
+
+#### Clearing Chat History
+
+You can clear the chat history programmatically using the `clearChatHistory` method. This method returns a Promise that resolves when the history has been cleared.
+
+```js
+DocsBotAI.clearChatHistory().then(() => {
+  console.log("Chat history cleared");
+});
+```
+
+{% callout type="warning" title="Widget must be mounted" %}
+These methods will only work if the widget has been mounted. If the widget is not mounted, they will log a warning to the console and resolve the Promise with `false`.
+{% /callout %}
+
+### JavaScript Events
+
+The DocsBot AI widget dispatches custom events for internal communication. While these events are primarily used internally, advanced users may find them useful for creating custom integrations or behaviors. Here's a list of the events dispatched:
+
+1. `docsbot_fetching_answer`: Triggered when the widget starts fetching an answer for a question. Includes the question as detail.
+2. `docsbot_fetching_answer_complete`: Fired when the widget has finished fetching an answer. Includes the final data object as detail.
+
+These events can be listened to using standard JavaScript event listeners. For example:
+
+```javascript
+document.addEventListener("docsbot_fetching_answer", (event) => {
+  console.log(`Fetching answer for question: ${event.detail.question}`);
+});
+
+document.addEventListener("docsbot_fetching_answer_complete", (event) => {
+  console.log("Answer fetched:", event.detail);
+});
+```
+
+Note that these events are dispatched on the `document` object.
+
+If you need us to add more events or methods, just let us know and we'll see what we can do!
