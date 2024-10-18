@@ -38,7 +38,7 @@ const PromptPage = ({ prompts, category }) => {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/prompts.png',
+              url: 'https://docsbot.ai/images/og/prompt-library.png',
               alt: 'Ultimate AI Prompt Library',
             },
           ],
@@ -182,7 +182,7 @@ const PromptPage = ({ prompts, category }) => {
           button="Create Your Free AI Chatbot"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <FreeToolsGrid />
+          <FreeToolsGrid category="Prompt" />
         </div>
       </main>
       <Footer />

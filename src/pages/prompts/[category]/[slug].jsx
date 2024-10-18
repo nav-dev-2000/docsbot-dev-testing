@@ -151,7 +151,7 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
           button="Create Your Free Custom GPT"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <FreeToolsGrid />
+          <FreeToolsGrid category="Prompt" />
         </div>
       </main>
       <Footer />

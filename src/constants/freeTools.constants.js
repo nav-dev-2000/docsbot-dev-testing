@@ -86,6 +86,12 @@ export const freeTools = [
     category: 'Image',
   },
   {
+    name: 'AI Prompt Library',
+    href: '/prompts',
+    ogImage: '/images/og/prompt-library.png',
+    category: 'Prompt',
+  },
+  {
     name: 'AI Prompt Generator',
     href: '/tools/ai-prompt-generator',
     ogImage: '/images/og/prompt-generator.png',
