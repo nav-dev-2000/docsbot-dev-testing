@@ -86,6 +86,12 @@ export const freeTools = [
     category: 'Image',
   },
   {
+    name: 'AI Prompt Generator',
+    href: '/tools/ai-prompt-generator',
+    ogImage: '/images/og/prompt-generator.png',
+    category: 'Prompt',
+  },
+  {
     name: 'Support Savings Calculator',
     href: '/tools/ai-support-savings-calculator',
     ogImage: '/images/og/support-savings.png',

@@ -2,6 +2,7 @@ const fs = require('fs')
 const globby = require('globby')
 const { ALTERNATIVES } = require('../src/constants/alternatives.constants');
 const { INDUSTRIES } = require('../src/constants/industries.constants');
+const { PROMPT_CATEGORIES } = require('../src/constants/promptCategories.constants');
 
 function addPage(page) {
   //remove exstension
@@ -22,6 +23,8 @@ async function generateSitemap() {
     'src/pages/**/*{.js,.jsx,.mdx,.md}',
     '!src/pages/_*{.jsx,.js}',
     '!src/pages/**/[*{.jsx,.js}',
+    '!src/pages/prompts/[category]/**.jsx',
+    '!src/pages/prompts/tags/index.jsx',
     '!src/pages/api/**/*',
     '!src/pages/app/**/*',
     '!src/pages/ask/**/*',
@@ -44,6 +47,13 @@ async function generateSitemap() {
   }))
   industries.forEach((industry) => {
     pages.push(industry.href)
+  })
+
+  const prompts = Object.entries(PROMPT_CATEGORIES).map(([key, value]) => ({
+    href: `/prompts/${key}`,
+  }))
+  prompts.forEach((prompt) => {
+    pages.push(prompt.href)
   })
 
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

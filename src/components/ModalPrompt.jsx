@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   CommandLineIcon,
-  ExclamationCircleIcon,
   ExclamationTriangleIcon,
   SparklesIcon,
   XCircleIcon,

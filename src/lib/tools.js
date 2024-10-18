@@ -217,19 +217,19 @@ export const getRecentVideoBlogPosts = async () => {
     res2.forEach((doc) => {
       const data = doc.data()
       const id = doc.id
-      
-      if (!videos.some(video => video.id === id)) {
+
+      if (!videos.some((video) => video.id === id)) {
         aiVideos.push({
           id,
           title: data.title,
-        });
+        })
       }
     })
 
-    return {videos, aiVideos}
+    return { videos, aiVideos }
   } catch (error) {
     console.error('Error fetching recent YouTube blog posts:', error)
-    return {videos: [], aiVideos: []} // Return empty arrays if there's an error
+    return { videos: [], aiVideos: [] } // Return empty arrays if there's an error
   }
 }
 
@@ -463,18 +463,121 @@ export const getRecentYoutubeVideos = async (type) => {
     let aiVideos = []
     res2.forEach((doc) => {
       const data = doc.data()
-      
-      if (!videos.some(video => video.id === data.videoId)) {
+
+      if (!videos.some((video) => video.id === data.videoId)) {
         aiVideos.push({
           id: data.videoId,
           title: data.short_title || data.title,
-        });
+        })
       }
     })
 
-    return {videos, aiVideos}
+    return { videos, aiVideos }
   } catch (error) {
     console.error('Error fetching recent YouTube videos:', error)
-    return {videos: [], aiVideos: []} // Return empty arrays if there's an error
+    return { videos: [], aiVideos: [] } // Return empty arrays if there's an error
   }
+}
+
+// Add a new prompt
+export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
+  try {
+    if (!data || typeof data !== 'object') {
+      throw new Error('Invalid data for prompt')
+    }
+
+    let docRef
+
+    if (!id) {
+      // Use add() method to automatically generate an ID
+      docRef = await firestore.collection('prompts').add({
+        ...data,
+        ip,
+        type,
+        createdAt: FieldValue.serverTimestamp(),
+      })
+    } else {
+      // Use set() method with the provided ID
+      docRef = firestore.collection('prompts').doc(id)
+      await docRef.set({
+        ...data,
+        ip,
+        type,
+        createdAt: FieldValue.serverTimestamp(),
+      })
+    }
+
+    return docRef.id
+  } catch (error) {
+    console.error('Error adding new prompt:', error)
+    throw error
+  }
+}
+
+// Lookup a prompt by ID
+export const getPrompt = async (promptId) => {
+  if (!promptId || typeof promptId !== 'string') {
+    throw new Error('Invalid prompt ID')
+  }
+  const ref = await firestore.collection('prompts').doc(promptId).get()
+  const data = ref.exists ? ref.data() : null
+  data.id = promptId
+  if (data && data.createdAt) {
+    data.createdAt = data.createdAt.toDate().toISOString()
+  }
+  return data
+}
+
+// Retrieve recent prompts
+export const getPrompts = async (type, category = null, tag = null, limit = 9) => {
+  try {
+    let query = firestore.collection('prompts').where('type', '==', type).where('should_index', '==', true)
+
+    if (category) {
+      query = query.where('category', '==', category)
+    }
+
+    if (tag) {
+      query = query.where('tags', 'array-contains', tag)
+    }
+
+    const res = await query.limit(limit).get()
+
+    let prompts = []
+    res.forEach((doc) => {
+      const data = doc.data()
+      prompts.push({
+        id: doc.id,
+        name: data.name || null,
+        short_description: data.short_description || null,
+        icon: data.icon || null,
+        category: data.category || null,
+        // Add any other fields you want to include in the recent prompts list
+      })
+    })
+
+    return prompts
+  } catch (error) {
+    console.error('Error fetching recent prompts:', error)
+    return [] // Return an empty array if there's an error
+  }
+}
+
+// Check if an IP has exceeded the rate limit for prompt requests
+export const checkPromptRateLimit = async (ip, isLoggedIn = false) => {
+  // Skip rate limiting for localhost
+  if (ip === '::1' || ip === '127.0.0.1') {
+    return false;
+  }
+
+  const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
+  const lookupQuery = await firestore
+    .collection('prompts')
+    .where('ip', '==', ip)
+    .where('createdAt', '>', timeDelta)
+    .get()
+
+  return (
+    lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
+  )
 }
