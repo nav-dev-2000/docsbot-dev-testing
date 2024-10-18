@@ -174,7 +174,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       //get name and email
       const metadata = {}
       let testing = false
-      if (user) {
+      if (user && showResearchMode) {
         metadata.name = user.displayName
         metadata.email = user.email
         testing = true

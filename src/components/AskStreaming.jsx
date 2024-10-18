@@ -24,7 +24,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
 import { preprocessLaTeX } from '@/utils/helpers'
 
-export default function AskStreaming({ teamId, bot }) {
+export default function AskStreaming({ teamId, bot, isPublic = false }) {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
   const [answerId, setAnswerId] = useState(null)
@@ -97,7 +97,7 @@ export default function AskStreaming({ teamId, bot }) {
       //get name and email
       const metadata = {}
       let testing = false
-      if (user) {
+      if (user && !isPublic) {
         metadata.name = user.displayName
         metadata.email = user.email
         testing = true

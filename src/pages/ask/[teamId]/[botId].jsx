@@ -25,7 +25,7 @@ export function ChatPage({ team, bot }) {
             </p>
           </div>
         ) : (
-          <AskStreaming teamId={team.id} bot={bot} />
+          <AskStreaming teamId={team.id} bot={bot} isPublic={true} />
         )}
       </main>
       {stripePlan(team).bots < 10 && (
