@@ -1,5 +1,12 @@
 export const freeTools = [
   {
+    name: 'AI Text Humanizer',
+    description: 'Humanize your text with AI',
+    href: '/tools/writing/ai-text-humanizer',
+    ogImage: '/images/og/text-humanizer.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',
