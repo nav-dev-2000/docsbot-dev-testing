@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 configureFirebaseApp()
 const firestore = getFirestore()
 
-const RATE_LIMIT = 2 // 3 requests per RATE_LIMIT_TIME minutes
+const RATE_LIMIT = 3 // 3 requests per RATE_LIMIT_TIME minutes
 const RATE_LIMIT_TIME = 1440 // in minutes
 const LOGGED_IN_RATE_LIMIT = 6 // 6 requests per RATE_LIMIT_TIME minutes for logged-in users
 
@@ -564,7 +564,7 @@ export const getPrompts = async (type, category = null, tag = null, limit = 9) =
 }
 
 // Check if an IP has exceeded the rate limit for prompt requests
-export const checkPromptRateLimit = async (ip, isLoggedIn = false) => {
+export const checkPromptRateLimit = async (ip, type, isLoggedIn = false) => {
   // Skip rate limiting for localhost
   if (ip === '::1' || ip === '127.0.0.1') {
     return false;
@@ -574,6 +574,7 @@ export const checkPromptRateLimit = async (ip, isLoggedIn = false) => {
   const lookupQuery = await firestore
     .collection('prompts')
     .where('ip', '==', ip)
+    .where('type', '==', type)
     .where('createdAt', '>', timeDelta)
     .get()
 

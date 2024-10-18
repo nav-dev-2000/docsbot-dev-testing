@@ -69,7 +69,7 @@ export default async function handler(req, res) {
 
     // Check rate limit
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    const isRateLimited = await checkPromptRateLimit(ip)
+    const isRateLimited = await checkPromptRateLimit(ip, 'prompt')
     if (isRateLimited) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
     }

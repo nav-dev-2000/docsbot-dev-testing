@@ -14,6 +14,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Text Reworder',
+    description: 'Reword your text with AI',
+    href: '/tools/writing/ai-reworder',
+    ogImage: '/images/og/text-reworder.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',

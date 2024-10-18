@@ -179,7 +179,7 @@ export default async function handler(req, res) {
 
       // check rate limit
       const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-      const isRateLimited = await checkPromptRateLimit(ip, isLoggedIn)
+      const isRateLimited = await checkPromptRateLimit(ip, type, isLoggedIn)
       if (isRateLimited) {
         return res
           .status(429)
