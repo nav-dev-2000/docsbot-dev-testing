@@ -13,7 +13,6 @@ export const preferredRegion = [
   'fra1',
 ]
 
-
 const PROMPTS = {
   humanize: {
     model: 'gpt-4o-mini',
@@ -38,6 +37,7 @@ Retain the essence and accuracy of the original text while adjusting the languag
 - Provide the revised text in a clear, readable format.
 - Preserve the original text basic structure and layout.
 - Only ouput markdown if the original text is markdown.
+- Only output the humanized text.
 
 # Notes
 
@@ -47,6 +47,45 @@ Retain the essence and accuracy of the original text while adjusting the languag
       {
         role: 'user',
         content: `Original Text:\n{{input}}`,
+      },
+    ],
+  },
+  paraphrase: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Rephrase and reword the provided text for essays, articles, emails, and different types of documents. I can optionally specify a tone to guide the rewording.
+
+# Steps
+
+1. **Input:** Provide the text to be reworded and specify the tone if desired (e.g., formal, informal, persuasive).
+2. **Analysis:** Understand the context and purpose of the text.
+3. **Rewording:** Transform the text while maintaining the original meaning, enhancing clarity and flow.
+4. **Tone Adjustment:** Modify the style to fit the specified tone if provided.
+
+# Output Format
+- The rephrased text should a similar length to the original and reflect the chosen tone if specified.
+- Only output the rephrased text, no labels or headings.
+
+# Examples
+
+1. **Original Text:** "I need the report by tomorrow."
+ **Tone:** Formal
+ **Output:** "Could you please provide the report by tomorrow?"
+
+2. **Original Text:** "I had a fantastic time at the conference and learned a lot."
+ **Tone:** Informal
+ **Output:** "Had a great time at the conference and picked up a lot of new info!"
+
+# Notes
+- Ensure that the rephrased text captures the essence of the original.
+- Tailor the text to the specified tone without altering key information.
+- Don't add new formatting or markdown that isn't in the original.`,
+      },
+      {
+        role: 'user',
+        content: `Tone: {{tone}}\nOriginal Text:\n{{input}}`,
       },
     ],
   },
@@ -73,6 +112,7 @@ const getChatParams = (type, params) => {
     content: replacePlaceholders(msg.content, params),
   }))
 
+  //console.log(chatParams)
   return chatParams
 }
 
@@ -84,16 +124,44 @@ export default async function handler(req, res) {
       if (!type || !PROMPTS[type]) {
         return res
           .status(400)
-          .json({ message: 'Invalid or missing type parameter.' })
+          .json({ message: 'Invalid or missing `type` parameter.' })
       }
 
       if (type === 'humanize') {
         if (!input || typeof input !== 'string' || input.trim() === '') {
-          return res.status(400).json({ message: 'Invalid or missing input parameter.' })
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing input parameter.' })
         }
 
         if (input.length > 10000) {
-          return res.status(400).json({ message: 'Input is too long. Maximum length is 10000 characters.' })
+          return res
+            .status(400)
+            .json({
+              message: 'Input is too long. Maximum length is 10000 characters.',
+            })
+        }
+      }
+
+      if (type === 'paraphrase') {
+        if (!input || typeof input !== 'string' || input.trim() === '') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing input parameter.' })
+        }
+
+        if (input.length > 10000) {
+          return res
+            .status(400)
+            .json({
+              message: 'Input is too long. Maximum length is 10000 characters.',
+            })
+        }
+
+        if (tone && typeof tone !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing tone parameter.' })
         }
       }
 
@@ -124,6 +192,7 @@ export default async function handler(req, res) {
 
       const chatParams = getChatParams(type, {
         input,
+        tone,
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 

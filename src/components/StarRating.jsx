@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { SoftwareAppJsonLd } from 'next-seo'
 import { StarIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
 
 // Updated shared function to calculate rating count and rating value
 const calculateRatingCount = (base = 1000) => {
@@ -39,6 +40,7 @@ export const StarRating = ({ base, ...props }) => {
 
   return (
     <div {...props}>
+      <div className="space-y-4">
       <div className="flex items-center space-x-1">
         <span className="text-sm font-medium">Rate this tool:</span>
         {[1, 2, 3, 4, 5].map((star) => (
@@ -55,6 +57,15 @@ export const StarRating = ({ base, ...props }) => {
         <span className="text-sm font-medium">
           {calculateRatingCount(base).ratingValue} ({ratingCount} votes)
         </span>
+      </div>
+      <div className="flex justify-center">
+        <Link
+          href="/affiliates"
+          className="text-sm font-medium text-cyan-500 hover:underline"
+        >
+          💸 DocsBot affiliates earn up to $1500 per referral!
+        </Link>
+      </div>
       </div>
     </div>
   )

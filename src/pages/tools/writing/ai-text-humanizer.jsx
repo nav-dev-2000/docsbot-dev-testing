@@ -65,7 +65,7 @@ const TextHumanizer = () => {
   const [errorText, setErrorText] = useState(null)
   const [humanizedText, setHumanizedText] = useState('')
   const [diff, setDiff] = useState([])
-  const [activeTab, setActiveTab] = useState('markdown')
+  const [activeTab, setActiveTab] = useState('diff')
   const posthog = usePostHog()
   const [copySuccess, setCopySuccess] = useState(false)
 
@@ -460,7 +460,11 @@ export default function TextHumanizerPage() {
           </div>
         </div>
 
-        <RegisterCTA />
+        <RegisterCTA
+          customTitle="Create Content with Custom Trained Chatbots"
+          description="Leverage your own custom trained chatbots to generate content in any style or tone, grounded in your documentation and content. Use internally or deploy to your website."
+          button="Create your Free Chatbot"
+        />
 
         {/* How to Use Section */}
         <div className="bg-white py-24 sm:py-32">

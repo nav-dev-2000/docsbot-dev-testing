@@ -7,6 +7,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Text Paraphraser',
+    description: 'Paraphrase your text with AI',
+    href: '/tools/writing/ai-paraphraser',
+    ogImage: '/images/og/text-paraphraser.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',
