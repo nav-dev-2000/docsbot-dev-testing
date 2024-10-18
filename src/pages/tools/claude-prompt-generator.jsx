@@ -10,18 +10,18 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
 import { StarRating, RatingSchema } from '@/components/StarRating'
-import { ChatBubbleLeftRightIcon, PencilSquareIcon, MegaphoneIcon, AcademicCapIcon, UserGroupIcon, LightBulbIcon } from '@heroicons/react/24/outline'
+import { ChatBubbleOvalLeftIcon, BoltIcon, PencilIcon, BriefcaseIcon, AcademicCapIcon, CodeBracketIcon } from '@heroicons/react/24/outline'
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
 import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
 
 const loadingText = [
-  'Analyzing your input...',
-  'Crafting the perfect prompt...',
-  'Optimizing for AI models...',
-  'Enhancing prompt effectiveness...',
-  'Finalizing custom instructions...',
+  'Analyzing your input for Claude...',
+  'Crafting the perfect Claude prompt...',
+  'Optimizing for Anthropic models...',
+  'Enhancing Claude effectiveness...',
+  'Finalizing custom Claude instructions...',
 ]
 
 // text that slowly fades in and out walking through the above array
@@ -57,11 +57,11 @@ const PromptGenerator = () => {
     setErrorText('')
 
     if (!userInput.trim()) {
-      setErrorText('Please enter a task, goal, or simple prompt.')
+      setErrorText('Please enter a task or idea for a Claude prompt.')
       setIsComputing(false)
 
       posthog?.capture('Free Tool', {
-        tool: 'AI Prompt Generator',
+        tool: 'Claude Prompt Generator',
         action: 'Error',
         error: 'Empty Input',
         category: 'Prompt',
@@ -87,7 +87,7 @@ const PromptGenerator = () => {
             'Daily usage limit exceeded, please try again tomorrow or create a free account.',
           )
           posthog?.capture('Free Tool', {
-            tool: 'AI Prompt Generator',
+            tool: 'Claude Prompt Generator',
             action: 'Error',
             error: 'Usage Limit Exceeded',
             category: 'Prompt',
@@ -98,7 +98,7 @@ const PromptGenerator = () => {
             errorData.message || 'Something went wrong, please try again.',
           )
           posthog?.capture('Free Tool', {
-            tool: 'AI Prompt Generator',
+            tool: 'Claude Prompt Generator',
             action: 'Error',
             error: errorData.message || 'Unknown error',
             category: 'Prompt',
@@ -107,7 +107,7 @@ const PromptGenerator = () => {
       } else {
         const data = await response.json()
         posthog?.capture('Free Tool', {
-          tool: 'AI Prompt Generator',
+          tool: 'Claude Prompt Generator',
           action: 'Used',
           category: 'Prompt',
         })
@@ -117,7 +117,7 @@ const PromptGenerator = () => {
     } catch (e) {
       setErrorText('Error: ' + e.message)
       posthog?.capture('Free Tool', {
-        tool: 'AI Prompt Generator',
+        tool: 'Claude Prompt Generator',
         action: 'Error',
         error: e.message,
         category: 'Prompt',
@@ -143,7 +143,7 @@ const PromptGenerator = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isComputing}
-                placeholder="Enter your task, goal, or a simple prompt to optimize"
+                placeholder="Enter your task or idea for a Claude prompt"
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:opacity-75"
                 rows={4}
               />
@@ -157,12 +157,12 @@ const PromptGenerator = () => {
                     <LoadingSpinner /> <LoadingText />
                   </>
                 ) : (
-                  <>Generate Prompt</>
+                  <>Generate Claude Prompt</>
                 )}
               </button>
             </div>
             <p className="mt-2 text-center text-xs text-gray-500">
-              NOTE: Generated prompts may be published publicly.
+              NOTE: Generated Claude prompts may be published publicly.
             </p>
           </form>
         </div>
@@ -173,73 +173,73 @@ const PromptGenerator = () => {
 
 const useCases = [
   {
-    name: 'Enhance Generative AI Output',
+    name: 'Enhance Claude Responses',
     description:
-      'Generate optimized prompts to improve the quality and relevance of AI-generated content across various platforms like ChatGPT, Claude, and Gemini.',
-    icon: ChatBubbleLeftRightIcon,
+      'Generate optimized prompts to improve the quality and relevance of Claude-generated content, ensuring more accurate and useful AI outputs.',
+    icon: ChatBubbleOvalLeftIcon,
   },
   {
-    name: 'Boost Creative Writing',
+    name: 'Leverage Claude for Research',
     description:
-      'Create inspiring prompts for writers, helping to overcome writer\'s block and generate new ideas for stories, articles, and blog posts.',
-    icon: PencilSquareIcon,
-  },
-  {
-    name: 'Improve Content Marketing',
-    description:
-      'Generate engaging prompts for social media posts, email campaigns, and other marketing materials to increase audience engagement.',
-    icon: MegaphoneIcon,
-  },
-  {
-    name: 'Enhance Educational Resources',
-    description:
-      'Create thought-provoking prompts for students and educators, fostering critical thinking and creativity in various subjects.',
+      'Create comprehensive prompts for Claude to assist with academic research, literature reviews, and data analysis across various fields.',
     icon: AcademicCapIcon,
   },
   {
-    name: 'Streamline Customer Support',
+    name: 'Improve Content Creation with AI',
     description:
-      'Generate effective prompts for customer service chatbots, improving response quality and reducing human intervention.',
-    icon: UserGroupIcon,
+      'Generate engaging Claude prompts for blog posts, articles, and other long-form content to enhance your writing process and output quality.',
+    icon: PencilIcon,
   },
   {
-    name: 'Facilitate Brainstorming Sessions',
+    name: 'Optimize Software Development',
     description:
-      'Create diverse prompts to stimulate innovative thinking and problem-solving in team brainstorming sessions.',
-    icon: LightBulbIcon,
+      'Create specialized Claude prompts to assist with code generation, debugging, and software architecture design across different programming languages.',
+    icon: CodeBracketIcon,
+  },
+  {
+    name: 'Enhance Business Strategy',
+    description:
+      'Generate effective prompts for Claude to assist with market analysis, strategic planning, and problem-solving in various industries.',
+    icon: BriefcaseIcon,
+  },
+  {
+    name: 'Boost Creative Ideation',
+    description:
+      'Create inspiring prompts for Claude to generate innovative ideas for product development, marketing campaigns, and creative projects.',
+    icon: BoltIcon,
   },
 ]
 
 const faqs = [
   {
-    question: 'What is an AI Prompt Generator?',
+    question: 'What is a Claude Prompt Generator?',
     answer:
-      'An AI Prompt Generator is a tool that uses artificial intelligence to create optimized prompts for various AI models like ChatGPT, Claude, and Gemini. It helps users formulate effective instructions or questions to get the best possible responses from AI systems.',
+      'A Claude Prompt Generator is a tool that uses AI to create optimized prompts specifically for Anthropic\'s Claude AI models. It helps users formulate effective instructions or questions to get the best possible responses from Claude, enhancing the quality and relevance of AI-generated content.',
   },
   {
-    question: 'How does the AI Prompt Generator work?',
+    question: 'How does the Claude Prompt Generator work?',
     answer:
-      'Our AI Prompt Generator analyzes your input and uses advanced language models to create an optimized, detailed prompt. It considers factors like clarity, specificity, and context to generate prompts that are more likely to produce high-quality AI responses.',
+      'Our Claude Prompt Generator analyzes your input and uses advanced language models to create an optimized, detailed prompt tailored for Claude. It considers factors like clarity, specificity, and context to generate prompts that are more likely to produce high-quality responses from Claude 3.5 Sonnet and Opus models.',
   },
   {
-    question: 'Can I use this tool for free?',
+    question: 'Can I use this Claude tool for free?',
     answer:
-      'Yes, our AI Prompt Generator is free to use. You can generate a limited number of prompts per day without creating an account. For increased usage, you can sign up for a free account to get a higher daily limit.',
+      'Yes, our Claude Prompt Generator is free to use. You can generate a limited number of prompts per day without creating an account. For increased usage, you can sign up for a free account to get a higher daily limit.',
   },
   {
-    question: 'What types of prompts can I generate?',
+    question: 'What types of Claude prompts can I generate?',
     answer:
-      'You can generate prompts for a wide range of purposes, including creative writing, content creation, problem-solving, coding tasks, and more. The tool is versatile and can be used for any scenario where you need to interact with AI language models.',
+      'You can generate Claude prompts for a wide range of purposes, including research, content creation, coding tasks, business analysis, creative writing, and more. The tool is versatile and can be used for any scenario where you need to interact with Claude effectively.',
   },
   {
-    question: 'How can I improve the quality of generated prompts?',
+    question: 'How can I improve the quality of generated Claude prompts?',
     answer:
-      'To get better results, provide clear and specific information about your desired outcome. You can also use the generated prompt as a starting point and refine it manually to add specific details or context relevant to your needs.',
+      'To get better results, provide clear and specific information about your desired outcome from Claude. You can also use the generated prompt as a starting point and refine it manually to add specific details or context relevant to your needs.',
   },
   {
-    question: 'Are the generated prompts compatible with all AI models?',
+    question: 'Are the generated prompts compatible with other AI models besides Claude?',
     answer:
-      'While our prompts are optimized for popular AI tools like ChatGPT, Claude, and Gemini, they can be used with most AI large language models. However, you may need to make minor adjustments based on the specific requirements of the LLM you\'re using.',
+      'While our prompts are optimized for Claude, they can often be used with other AI language models as well. However, you may need to make minor adjustments based on the specific requirements of the AI model you\'re using.',
   },
 ]
 
@@ -247,18 +247,18 @@ export default function PromptGeneratorPage() {
   return (
     <>
       <NextSeo
-        title="Free AI Prompt Generator & Optimizer | No Login | ChatGPT, Claude, Gemini"
-        description="Create powerful, optimized prompts for ChatGPT, Anthropic Claude, Gemini, and more with our free AI Prompt Generator. No sign-up needed. Generate amazing system prompts and instructions for chatbots instantly."
+        title="Free Claude Prompt Generator & Optimizer | No Login | Anthropic AI"
+        description="Create powerful, optimized prompts for Claude with our free AI Prompt Generator. No sign-up needed. Generate amazing system prompts and instructions for Anthropic's Claude AI instantly."
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/prompt-generator.png',
-              alt: 'AI Prompt Generator and Optimizer',
+              url: 'https://docsbot.ai/images/og/claude-prompt-generator.png',
+              alt: 'Claude Prompt Generator and Optimizer',
             },
           ],
         }}
       />
-      <RatingSchema name="AI Prompt Generator and Optimizer - DocsBot" base={136} />
+      <RatingSchema name="Claude Prompt Generator and Optimizer - DocsBot" base={5} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -284,22 +284,21 @@ export default function PromptGeneratorPage() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Free AI Prompt Generator & Optimizer
+                  Free Claude Prompt Generator & Optimizer
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate powerful, optimized prompts for ChatGPT, Claude, Gemini, and more. 
-                  Enhance your AI outputs, productivity, and get better results from AI tools. 
-                  No sign-up required!
+                  Generate powerful, optimized prompts for Claude. 
+                  Enhance your AI outputs, boost productivity, and get better results from Anthropic's Claude AI models.
                 </p>
                 <PromptGenerator />
                 <StarRating
-                  base={136}
+                  base={5}
                   className="mx-auto mt-12 flex justify-center text-white"
                 />
               </div>
               <div className="mx-auto mt-10 max-w-7xl px-6 text-center lg:px-8">
               <h2 className="mb-4 text-xl font-semibold text-white">
-                Free Prompts by Category
+                Free Claude Prompts by Category
               </h2>
               <div className="flex flex-wrap justify-center gap-4">
                 {Object.entries(PROMPT_CATEGORIES).map(
@@ -380,7 +379,7 @@ export default function PromptGeneratorPage() {
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                     <p className="flex-auto">
                       Instantly view your generated prompt. Copy and paste it
-                      directly into ChatGPT, Claude, Gemini, or any other AI
+                      directly into Anthropic Claude, or any other AI
                       model.
                     </p>
                   </dd>

@@ -124,7 +124,6 @@ const PromptPage = ({ initialPrompts }) => {
                 </Link>
               </div>
             </div>
-            
           </div>
           <svg
             viewBox="0 0 1024 1024"
@@ -145,19 +144,19 @@ const PromptPage = ({ initialPrompts }) => {
               </radialGradient>
             </defs>
           </svg>
-          <div className="mb-10 text-center px-6 lg:px-8 max-w-5xl mx-auto">
-              <div className="flex flex-wrap justify-center gap-4">
-                {Object.entries(PROMPT_CATEGORIES).map(([key, value]) => (
-                  <Link
-                    key={key}
-                    href={`#${key}`}
-                    className="text-sm text-white hover:text-cyan-500 focus:underline focus:outline-none font-semibold hover:underline"
-                  >
-                    {value}
-                  </Link>
-                ))}
-              </div>
+          <div className="mx-auto mb-10 max-w-5xl px-6 text-center lg:px-8">
+            <div className="flex flex-wrap justify-center gap-4">
+              {Object.entries(PROMPT_CATEGORIES).map(([key, value]) => (
+                <Link
+                  key={key}
+                  href={`#${key}`}
+                  className="text-sm font-semibold text-white hover:text-cyan-500 hover:underline focus:underline focus:outline-none"
+                >
+                  {value}
+                </Link>
+              ))}
             </div>
+          </div>
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">

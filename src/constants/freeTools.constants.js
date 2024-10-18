@@ -92,6 +92,18 @@ export const freeTools = [
     category: 'Prompt',
   },
   {
+    name: 'ChatGPT Prompt Generator',
+    href: '/tools/chatgpt-prompt-generator',
+    ogImage: '/images/og/chatgpt-prompt-generator.png',
+    category: 'Prompt',
+  },
+  {
+    name: 'Claude Prompt Generator',
+    href: '/tools/claude-prompt-generator',
+    ogImage: '/images/og/claude-prompt-generator.png',
+    category: 'Prompt',
+  },
+  {
     name: 'Support Savings Calculator',
     href: '/tools/ai-support-savings-calculator',
     ogImage: '/images/og/support-savings.png',

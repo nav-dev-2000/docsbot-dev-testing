@@ -104,7 +104,7 @@ export default async function handler(req, res) {
                 prompt: {
                   type: 'string',
                   description:
-                    'The full generated prompt according to instructions',
+                    'The full generated prompt text according to the instructions, no JSON or metadata.',
                 },
                 name: {
                   type: 'string',

@@ -24,7 +24,7 @@ const PromptDisplay = ({ prompt, category }) => {
   return (
     <div className="rounded-xl bg-white p-6 shadow-xl ring-1 ring-slate-900/10 lg:p-8">
       <div className="relative rounded-md bg-gray-100 p-6">
-        <pre className="whitespace-pre-wrap">{prompt}</pre>
+        <pre className="whitespace-pre-wrap overflow-auto">{prompt}</pre>
         <button
           onClick={copyPrompt}
           className={clsx(
@@ -97,8 +97,8 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
                 {promptData.name}
               </h1>
               <p className="mx-auto mt-6 max-w-xl text-xl leading-8 text-gray-300">
-                {promptData.short_description} Perfectly crafted System
-                Prompt/Instructions for ChatGPT, Gemini, and Claude chatbots and
+                {promptData.short_description} Perfectly crafted free system
+                prompt or custom instructions for ChatGPT, Gemini, and Claude chatbots and
                 models.
               </p>
               {promptData.tags && promptData.tags.length > 0 && (
