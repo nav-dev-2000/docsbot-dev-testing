@@ -6,7 +6,6 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { getRecentFAQs } from '@/lib/tools'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
@@ -15,11 +14,10 @@ import { StarRating, RatingSchema } from '@/components/StarRating'
 const loadingText = [
   'Analyzing your input...',
   'Crafting the perfect prompt...',
-  "Optimizing for AI models...",
+  'Optimizing for AI models...',
   'Enhancing prompt effectiveness...',
   'Finalizing custom instructions...',
 ]
-
 
 // text that slowly fades in and out walking through the above array
 const LoadingText = () => {
@@ -56,12 +54,12 @@ const PromptGenerator = () => {
     if (!userInput.trim()) {
       setErrorText('Please enter a task, goal, or simple prompt.')
       setIsComputing(false)
-      
+
       posthog?.capture('Free Tool', {
         tool: 'AI Prompt Generator',
         action: 'Error',
         error: 'Empty Input',
-        category: 'Prompt'
+        category: 'Prompt',
       })
       return
     }
@@ -80,21 +78,25 @@ const PromptGenerator = () => {
 
       if (!response.ok) {
         if (response.status === 429) {
-          setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
+          setErrorText(
+            'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          )
           posthog?.capture('Free Tool', {
             tool: 'AI Prompt Generator',
             action: 'Error',
             error: 'Usage Limit Exceeded',
-            category: 'Prompt'
+            category: 'Prompt',
           })
         } else {
           const errorData = await response.json()
-          setErrorText(errorData.message || 'Something went wrong, please try again.')
+          setErrorText(
+            errorData.message || 'Something went wrong, please try again.',
+          )
           posthog?.capture('Free Tool', {
             tool: 'AI Prompt Generator',
             action: 'Error',
             error: errorData.message || 'Unknown error',
-            category: 'Prompt'
+            category: 'Prompt',
           })
         }
       } else {
@@ -102,7 +104,7 @@ const PromptGenerator = () => {
         posthog?.capture('Free Tool', {
           tool: 'AI Prompt Generator',
           action: 'Used',
-          category: 'Prompt'
+          category: 'Prompt',
         })
 
         router.push(`/prompts/${data.category}/${data.slug}`)
@@ -113,7 +115,7 @@ const PromptGenerator = () => {
         tool: 'AI Prompt Generator',
         action: 'Error',
         error: e.message,
-        category: 'Prompt'
+        category: 'Prompt',
       })
     }
 
@@ -125,7 +127,12 @@ const PromptGenerator = () => {
       <div className="py-12 pb-0">
         <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
           <Alert title={errorText} type="error" />
-          <form onSubmit={(e) => { e.preventDefault(); generatePrompt(input); }}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              generatePrompt(input)
+            }}
+          >
             <div className="grid grid-cols-12 items-center gap-3">
               <textarea
                 value={input}
@@ -149,6 +156,9 @@ const PromptGenerator = () => {
                 )}
               </button>
             </div>
+            <p className="mt-2 text-center text-xs text-gray-500">
+              NOTE: Generated prompts may be published publicly.
+            </p>
           </form>
         </div>
       </div>
@@ -194,8 +204,8 @@ export default function PromptGeneratorPage() {
                   Free AI Prompt Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate powerful custom prompts and system instructions for ChatGPT, Claude, Gemini, and more, powered by
-                  DocsBot AI.
+                  Generate powerful custom prompts and system instructions for
+                  ChatGPT, Claude, Gemini, and more, powered by DocsBot AI.
                 </p>
                 <PromptGenerator />
                 <StarRating
@@ -207,7 +217,7 @@ export default function PromptGeneratorPage() {
           </div>
         </div>
         <RegisterCTA />
-        
+
         {/* Update the content sections to reflect the new tool */}
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -219,7 +229,8 @@ export default function PromptGeneratorPage() {
                 Create Powerful AI Prompts Instantly
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Generate custom prompts and instructions for any AI model effortlessly with our AI-powered generator. No sign-up required!
+                Generate custom prompts and instructions for any AI model
+                effortlessly with our AI-powered generator. No sign-up required!
               </p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -233,7 +244,9 @@ export default function PromptGeneratorPage() {
                   </dt>
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                     <p className="flex-auto">
-                      Simply enter your task, goal, or a simple prompt. Our tool works with any type of input to create tailored AI instructions.
+                      Simply enter your task, goal, or a simple prompt. Our tool
+                      works with any type of input to create tailored AI
+                      instructions.
                     </p>
                   </dd>
                 </div>
@@ -246,7 +259,8 @@ export default function PromptGeneratorPage() {
                   </dt>
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                     <p className="flex-auto">
-                      Our AI analyzes your input and generates a comprehensive, optimized prompt tailored for various AI models.
+                      Our AI analyzes your input and generates a comprehensive,
+                      optimized prompt tailored for various AI models.
                     </p>
                   </dd>
                 </div>
@@ -259,7 +273,9 @@ export default function PromptGeneratorPage() {
                   </dt>
                   <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                     <p className="flex-auto">
-                      Instantly view your generated prompt. Copy and paste it directly into ChatGPT, Claude, Gemini, or any other AI model.
+                      Instantly view your generated prompt. Copy and paste it
+                      directly into ChatGPT, Claude, Gemini, or any other AI
+                      model.
                     </p>
                   </dd>
                 </div>
@@ -268,8 +284,6 @@ export default function PromptGeneratorPage() {
           </div>
         </div>
 
-        {/* ... keep the "Versatile Applications" section, updating the content to reflect prompt generation ... */}
-
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid />
         </div>
@@ -277,14 +291,4 @@ export default function PromptGeneratorPage() {
       <Footer />
     </>
   )
-}
-
-export const getServerSideProps = async (context) => {
-  const FAQs = await getRecentFAQs();
-
-  return {
-    props: {
-      FAQs,
-    },
-  }
 }
