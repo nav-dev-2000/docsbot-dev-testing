@@ -117,7 +117,7 @@ const PromptPage = ({ initialPrompts }) => {
               </div>
               <div className="flex items-center justify-center gap-x-6 pt-12 lg:pt-16">
                 <Link
-                  href="/tools/ai-prompt-generator"
+                  href="/tools/prompt/ai-prompt-generator"
                   className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
                 >
                   Generate a Custom Prompt

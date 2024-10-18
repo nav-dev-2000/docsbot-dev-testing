@@ -88,7 +88,52 @@ const nextConfig = {
         source: '/product-hunt',
         destination: 'https://www.producthunt.com/products/docsbot-ai',
         permanent: true,
-      }
+      },
+      {
+        source: '/tools/ai-prompt-generator',
+        destination: '/tools/prompt/ai-prompt-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/chatgpt-prompt-generator',
+        destination: '/tools/prompt/chatgpt-prompt-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/claude-prompt-generator',
+        destination: '/tools/prompt/claude-prompt-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-description-generator',
+        destination: '/tools/image/description-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-caption-generator',
+        destination: '/tools/image/caption-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-to-text-generator',
+        destination: '/tools/image/text-extractor',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-to-markdown-extractor',
+        destination: '/tools/image/markdown-extractor',
+        permanent: true,
+      },
+      {
+        source: '/tools/image-to-faq-generator',
+        destination: '/tools/image/faq-generator',
+        permanent: true,
+      },
+      {
+        source: '/tools/images',
+        destination: '/tools/image',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { isServer }) => {
