@@ -12,7 +12,11 @@ const buildParams = (ipFilter, rating, escalated, couldAnswer, dateRange) => {
   if (rating !== null && rating !== undefined) params.push('rating=' + rating)
   if (escalated !== null && escalated !== undefined) params.push('escalated=' + escalated)
   if (couldAnswer !== null && couldAnswer !== undefined) params.push('couldAnswer=' + couldAnswer)
-  if (dateRange !== null && dateRange !== undefined) params.push(`startDate=${dateRange.startDate.toString()}&endDate=${dateRange.endDate.toString()}`)
+  if (dateRange !== null && dateRange !== undefined) {
+    const endDate = new Date(dateRange.endDate)
+    endDate.setUTCHours(23, 59, 59, 999)
+    params.push(`startDate=${dateRange.startDate.toString()}&endDate=${endDate.toISOString()}`)
+  }
   return params.join('&')
 }
 
