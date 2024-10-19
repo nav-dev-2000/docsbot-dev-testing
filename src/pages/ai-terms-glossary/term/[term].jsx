@@ -68,6 +68,7 @@ const GlossaryTermPage = ({
       <QAPageJsonLd
         mainEntity={{
           name: question,
+          answerCount: 1,
           acceptedAnswer: {
             text: definition,
             url: `https://docsbot.ai/ai-terms-glossary/term/${slug}`,
