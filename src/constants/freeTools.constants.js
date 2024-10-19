@@ -152,6 +152,12 @@ export const freeTools = [
     name: 'LLM API Price Calculator',
     href: '/tools/gpt-openai-api-pricing-calculator',
     ogImage: '/images/og/llm-api-calculator.png',
-    category: 'Calculator',
+    category: 'AI',
+  },
+  {
+    name: 'AI Terms Glossary',
+    href: '/ai-terms-glossary',
+    ogImage: '/images/og/glossary.png',
+    category: 'AI',
   },
 ];

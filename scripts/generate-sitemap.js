@@ -3,8 +3,9 @@ const globby = require('globby')
 const { ALTERNATIVES } = require('../src/constants/alternatives.constants');
 const { INDUSTRIES } = require('../src/constants/industries.constants');
 const { PROMPT_CATEGORIES } = require('../src/constants/promptCategories.constants');
+const { GLOSSARY } = require('../src/constants/glossary.constants');
 
-function addPage(page) {
+function addPage(page, changefreq = 'daily') {
   //remove exstension
   const path = page
     .replace(/\.[^/.]+$/, '')
@@ -13,7 +14,7 @@ function addPage(page) {
 
   return `  <url>
     <loc>${`https://docsbot.ai${path}`}</loc>
-    <changefreq>daily</changefreq>
+    <changefreq>${changefreq}</changefreq>
   </url>`
 }
 
@@ -38,26 +39,24 @@ async function generateSitemap() {
     href: `/comparisons/${item.slug}-alternative`,
   }))
 
-  comparisons.forEach((comparison) => {
-    pages.push(comparison.href)
-  })
-
   const industries = INDUSTRIES.map((item) => ({
     href: `/industry/${item.slug}`,
   }))
-  industries.forEach((industry) => {
-    pages.push(industry.href)
-  })
+
+  const glossary = GLOSSARY.map((item) => ({
+    href: `/ai-terms-glossary/term/${item.slug}`,
+  }))
 
   const prompts = Object.entries(PROMPT_CATEGORIES).map(([key, value]) => ({
     href: `/prompts/${key}`,
   }))
-  prompts.forEach((prompt) => {
-    pages.push(prompt.href)
-  })
 
   const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(addPage).join('\n')}
+${pages.map(page => addPage(page)).join('\n')}
+${comparisons.map(comparison => addPage(comparison.href, 'weekly')).join('\n')}
+${industries.map(industry => addPage(industry.href, 'monthly')).join('\n')}
+${glossary.map(glossaryItem => addPage(glossaryItem.href, 'weekly')).join('\n')}
+${prompts.map(prompt => addPage(prompt.href, 'daily')).join('\n')}
 </urlset>`
 
   fs.writeFileSync('public/sitemap-next.xml', sitemap)
