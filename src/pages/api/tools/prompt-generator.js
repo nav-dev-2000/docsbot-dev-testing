@@ -3,6 +3,8 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { addPrompt, getPrompt, checkPromptRateLimit } from '@/lib/tools'
 import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
+import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import { isSuperAdmin } from '@/utils/helpers'
 
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -67,10 +69,22 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'Missing input parameter' })
     }
 
+    // Check if user is logged in or has a valid API key
+    let user
+    let isLoggedIn = false
+    let isSuperAdmin = false
+    try {
+      user = await getAuthorizedUser({ req })
+      isSuperAdmin = isSuperAdmin(user.uid)
+      isLoggedIn = true
+    } catch (error) {
+      // User is not logged in and doesn't have a valid API key
+    }
+
     // Check rate limit
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    const isRateLimited = await checkPromptRateLimit(ip, 'prompt')
-    if (isRateLimited) {
+    const isRateLimited = await checkPromptRateLimit(ip, 'prompt', isLoggedIn)
+    if (isRateLimited && !isSuperAdmin) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
     }
 
