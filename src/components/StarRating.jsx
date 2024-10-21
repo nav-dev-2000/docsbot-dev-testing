@@ -81,7 +81,7 @@ export const RatingSchema = ({ name, base }) => {
       priceCurrency="USD"
       aggregateRating={{
         ratingValue: ratingValue,
-        reviewCount: ratingCount.toString(),
+        ratingCount: ratingCount.toString(),
       }}
       operatingSystem="Any"
       applicationCategory="BrowserApplication"

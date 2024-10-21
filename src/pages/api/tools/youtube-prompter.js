@@ -6,7 +6,6 @@ import {
   fetchYoutubeSubtitles, // Add this import
 } from '@/lib/tools'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
-import { faQ } from '@fortawesome/free-solid-svg-icons'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
 export const preferredRegion = [
