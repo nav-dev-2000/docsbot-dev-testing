@@ -1,17 +1,13 @@
 import {
-  DocumentTextIcon,
-  LifebuoyIcon,
   LinkIcon,
   MapIcon,
   QueueListIcon,
   RssIcon,
-  TableCellsIcon,
   VideoCameraIcon,
   QuestionMarkCircleIcon,
   DocumentIcon,
   CircleStackIcon,
   CloudIcon,
-  CodeBracketIcon,
   ChatBubbleLeftRightIcon,
   BookOpenIcon
 } from '@heroicons/react/24/outline'
@@ -28,6 +24,7 @@ import GithubLogo from '@/components/GithubLogo'
 import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 import FreshdeskLogo from '@/components/FreshdeskLogo'
+import S3Logo from '@/components/S3Logo'
 
 export const sourceTypes = [
   // Productivity
@@ -89,6 +86,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-raw-data-csv',
   },
   {
     id: 'notion',
@@ -105,6 +103,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-your-notion-pages',
   },
   {
     id: 'confluence',
@@ -121,6 +120,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-your-confluence-pages',
   },
   {
     id: 'salesforce',
@@ -137,6 +137,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-salesforce-pages',
   },
   {
     id: 'gitbook',
@@ -153,6 +154,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-gitbook',
   },
   {
     id: 'guru',
@@ -186,6 +188,7 @@ export const sourceTypes = [
     fieldSchedule: true,
     fieldQA: false,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/how-to-train-your-bot-with-a-url-source',
   },
   {
     id: 'urls',
@@ -202,6 +205,7 @@ export const sourceTypes = [
     fieldSchedule: true,
     fieldQA: false,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/training-docsbot-with-url-list',
   },
   {
     id: 'sitemap',
@@ -217,6 +221,7 @@ export const sourceTypes = [
     fieldSchedule: true,
     fieldQA: false,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/training-docsbot-ai-with-website-urls-guide',
   },
   {
     id: 'rss',
@@ -230,6 +235,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/train-docsbot-ai-rss-feeds-enhanced-chatbot-responsiveness',
   },
   {
     id: 'wp',
@@ -262,6 +268,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/train-docsbot-with-youtube-videos',
   },
 
   // Cloud Storage
@@ -280,6 +287,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/how-to-train-an-ai-chatbot-from-your-google-drive-documents',
   },
   {
     id: 'dropbox',
@@ -296,6 +304,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-dropbox-documents-and-files',
   },
   {
     id: 'onedrive',
@@ -312,6 +321,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-onedrive-documents-and-files',
   },
   {
     id: 'box',
@@ -328,6 +338,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-box-documents',
   },
   {
     id: 'sharepoint',
@@ -344,6 +355,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-microsoft-sharepoint-files',
   },
 
   // Customer Support
@@ -362,6 +374,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Customer Support',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zendesk-documentation',
   },
   {
     id: 'intercom',
@@ -378,6 +391,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Customer Support',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-intercom-pages',
   },
   {
     id: 'freshdesk',
@@ -394,6 +408,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Customer Support',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-freshdesk',
   },
 
   // Email & Communication
@@ -437,16 +452,17 @@ export const sourceTypes = [
   {
     id: 's3',
     title: 'Amazon S3 / Digital Ocean Spaces',
-    description: 'Answer questions based on the content of files in your object storage buckets',
-    fullDescription: 'The Amazon S3 connector allows users to synchronize files from their Amazon S3 buckets. This integration enables your bot to access and learn from your organization\'s files stored in Amazon S3.',
-    icon: CloudIcon,
+    description: 'Answer questions based on the content of files in your S3-compatible object storage buckets (BETA)',
+    fullDescription: 'The Amazon S3 connector allows you to synchronize supported files from your Amazon S3 buckets. This integration enables your bot to access and learn from your organization\'s files stored in Amazon S3 or compatible object storage providers like Digital Ocean Spaces.',
+    icon: S3Logo,
     isCarbon: ['S3'],
     isPro: true,
-    coming: true,
+    isNew: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
   },

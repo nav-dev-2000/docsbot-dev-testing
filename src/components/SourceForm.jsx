@@ -385,13 +385,18 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   {selectedSourceType?.title}
                 </h3>
                 <p>{selectedSourceType?.fullDescription || selectedSourceType?.description}</p>
+                {selectedSourceType?.instructionsUrl && (
+                  <Link href={selectedSourceType.instructionsUrl} target="_blank" className="underline">
+                    Learn how to connect to this source
+                  </Link>
+                )}
                 {selectedSourceType?.id === 'csv' && (
-                  <a href="/csv-import-template.csv" download={true} className="underline">
+                  <a href="/csv-import-template.csv" download={true} className="underline block">
                     Download CSV template
                   </a>
                 )}
                 {selectedSourceType?.id === 'document' && (
-                  <a href="/infinite-uploads.pdf" download={true} className="underline">
+                  <a href="/infinite-uploads.pdf" download={true} className="underline block">
                     Download an example PDF document
                   </a>
                 )}
