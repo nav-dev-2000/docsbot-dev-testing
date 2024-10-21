@@ -327,7 +327,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                                                     Paid
                                                   </span>
                                                 )}
-                                              {sourceType.id === 'youtube' && stripePlan(team).name !== 'Free' && (
+                                              {sourceType.isNew && (
                                                 <span className="ml-4 inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
                                                   New
                                                 </span>

@@ -24,6 +24,7 @@ import BoxLogo from '@/components/BoxLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
 import SharepointLogo from '@/components/SharepointLogo'
 import GitBookLogo from '@/components/GitBookLogo'
+import GithubLogo from '@/components/GithubLogo'
 import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 import FreshdeskLogo from '@/components/FreshdeskLogo'
@@ -124,7 +125,7 @@ export const sourceTypes = [
   {
     id: 'salesforce',
     title: 'Salesforce',
-    description: 'Answer questions from the content of your published Salesforce Knowledge articles (BETA)',
+    description: 'Answer questions from the content of your published Salesforce Knowledge articles',
     fullDescription: 'Connect to Salesforce via our partner Carbon and we will import all Knowledge articles. We will import the articles, parse the content, and add them to this bot. Note that you can only have one Salesforce connection source per bot. If you create a new Salesforce source for the same user, it will replace the previous one.',
     icon: SalesforceLogo,
     isCarbon: ['SALESFORCE'],
@@ -140,7 +141,7 @@ export const sourceTypes = [
   {
     id: 'gitbook',
     title: 'GitBook',
-    description: 'Answer questions from the content of GitBook pages for any public or private space (BETA)',
+    description: 'Answer questions from the content of GitBook pages for any public or private space',
     fullDescription: 'Connect to GitBook via our partner Carbon. We will download the pages, parse the content, and add them to this bot. Note that you can only have one GitBook account source per bot. If you create a new GitBook source for the same user, it will replace the previous one with the newly provided organization.',
     icon: GitBookLogo,
     isCarbon: ['GITBOOK'],
@@ -249,10 +250,11 @@ export const sourceTypes = [
   {
     id: 'youtube',
     title: 'YouTube',
-    description: 'Answer questions based on the transcripts of a YouTube video or playlist (BETA)',
+    description: 'Answer questions based on the transcripts of a YouTube video or playlist',
     fullDescription: 'Enter the URL of a YouTube video or playlist (up to 100 videos) to learn from. We will crawl YouTube, extract the transcripts, and add it to this bot. Source links will include each video title and a timestamped link. Note that not every video will have transcripts available (especially for older/unpopular/unlisted videos), so we occasionally will not be able to fetch the transcripts for a video.',
     icon: VideoCameraIcon,
     isPro: true,
+    isNew: true,
     coming: false,
     fieldUrl: 'required',
     fieldTitle: false,
@@ -416,15 +418,17 @@ export const sourceTypes = [
   {
     id: 'github',
     title: 'GitHub',
-    description: 'Answer questions based on the content of your GitHub repositories',
-    icon: CodeBracketIcon,
+    description: 'Answer questions based on the files in your GitHub repositories (BETA)',
+    fullDescription: 'The GitHub connector allows you to synchronize files from all private and public repositories. In cases where an extension is unknown, we’ll attempt to parse it as a text file.',
+    icon: GithubLogo,
     isCarbon: ['GITHUB'],
     isPro: true,
-    coming: true,
+    isNew: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Developer',
   },
