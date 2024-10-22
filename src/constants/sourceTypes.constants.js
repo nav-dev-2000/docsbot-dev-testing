@@ -8,7 +8,6 @@ import {
   DocumentIcon,
   CircleStackIcon,
   CloudIcon,
-  ChatBubbleLeftRightIcon,
   BookOpenIcon
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
@@ -25,7 +24,8 @@ import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 import FreshdeskLogo from '@/components/FreshdeskLogo'
 import S3Logo from '@/components/S3Logo'
-import AzureBlobLogo from '@/components/AzureBlobLogo'
+import SlackLogo from '@/components/SlackLogo'
+import GCSLogo from '@/components/GCSLogo'
 
 export const sourceTypes = [
   // Productivity
@@ -262,6 +262,7 @@ export const sourceTypes = [
     icon: VideoCameraIcon,
     isPro: true,
     isNew: true,
+    isNew: true,
     coming: false,
     fieldUrl: 'required',
     fieldTitle: false,
@@ -416,18 +417,20 @@ export const sourceTypes = [
   {
     id: 'slack',
     title: 'Slack',
-    description: 'Answer questions based on the content of your Slack workspace',
-    fullDescription: 'Connect to Slack to import conversations and messages from your workspace. You can filter conversations by type and sync messages with optional date filtering. Messages are synced in 15-minute blocks, including replies. Currently, only message content is supported.',
-    icon: ChatBubbleLeftRightIcon,
+    description: 'Answer questions based on the content of your Slack workspace (BETA)',
+    fullDescription: 'Connect to Slack to import conversations messages from your workspace. Messages are synced in 15-minute blocks, including replies. Currently, only message content is supported, no attachments or reactions.',
+    icon: SlackLogo,
     isCarbon: ['SLACK'],
     isPro: true,
-    coming: true,
+    isNew: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Email & Communication',
+    instructionsUrl: '/documentation/doc/training-your-ai-chatbot-on-slack-conversations',
   },
 
   // Developer
@@ -441,12 +444,16 @@ export const sourceTypes = [
     isPro: true,
     isNew: true,
     coming: false,
+    isNew: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: false,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Developer',
+    instructionsUrl: '/documentation/doc/training-your-ai-chatbot-from-github-repositories',
   },
 
   // Object Storage
@@ -460,9 +467,12 @@ export const sourceTypes = [
     isPro: true,
     isNew: true,
     coming: false,
+    isNew: true,
+    coming: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
+    fieldSchedule: false,
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
@@ -470,29 +480,13 @@ export const sourceTypes = [
   {
     id: 'gcs',
     title: 'Google Cloud Storage',
-    description: 'Answer questions based on the content of your Google Cloud Storage buckets',
+    description: 'Answer questions based on the content of your Google Cloud Storage buckets (BETA)',
     fullDescription: 'The Google Cloud Storage connector allows users to synchronize files from their Google Cloud Storage buckets. This integration enables your bot to access and learn from your organization\'s files stored in Google Cloud Storage.',
-    icon: CloudIcon,
+    icon: GCSLogo,
     isCarbon: ['GOOGLE_CLOUD_STORAGE'],
     isPro: true,
-    coming: true,
-    fieldUrl: false,
-    fieldTitle: false,
-    fieldFile: false,
-    fieldSchedule: true,
-    fieldQA: false,
-    category: 'Cloud Storage',
-  },
-  {
-    id: 'azure',
-    title: 'Azure Blob Storage',
-    description: 'Answer questions based on the content of files in your Azure Blob Storage containers',
-    fullDescription: 'The Azure Blob Storage connector allows you to synchronize supported files from your Azure Blob Storage containers. This integration enables your bot to access and learn from your organization\'s files stored in Microsoft Azure\'s cloud storage service.',
-    icon: AzureBlobLogo,
-    isCarbon: ['AZURE_BLOB_STORAGE'],
-    isPro: true,
-    isNew: false,
-    coming: true,
+    coming: false,
+    isNew: true,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
