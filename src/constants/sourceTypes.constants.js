@@ -8,7 +8,7 @@ import {
   DocumentIcon,
   CircleStackIcon,
   CloudIcon,
-  BookOpenIcon
+  EnvelopeIcon,
 } from '@heroicons/react/24/outline'
 import WPLogo from '@/components/WPLogo'
 import NotionLogo from '@/components/NotionLogo'
@@ -26,6 +26,12 @@ import FreshdeskLogo from '@/components/FreshdeskLogo'
 import S3Logo from '@/components/S3Logo'
 import SlackLogo from '@/components/SlackLogo'
 import GCSLogo from '@/components/GCSLogo'
+import GuruLogo from '@/components/GuruLogo'
+import ServiceNowLogo from '@/components/ServiceNowLogo'
+import ZoteroLogo from '@/components/ZoteroLogo'
+import GongLogo from '@/components/GongLogo'
+import OutlookLogo from '@/components/OutlookLogo'
+import GmailLogo from '@/components/GmailLogo'
 
 export const sourceTypes = [
   // Productivity
@@ -161,15 +167,16 @@ export const sourceTypes = [
     id: 'guru',
     title: 'Guru',
     description: 'Answer questions based on your Guru collections, folders, and cards',
-    fullDescription: 'The Guru connector allows users to synchronize collections, folders, and cards from their Guru account. This integration enables your bot to access and learn from your organization\'s knowledge base stored in Guru.',
-    icon: BookOpenIcon,
+    fullDescription: 'The Guru connector allows you to synchronize collections, folders, and cards from your Guru account. This includes text, images, and file attachments within the cards. If the card has an image or file attachment, we replace it with its source url, we don’t actually download and embed these. This integration enables your bot to access and learn from your organization\'s knowledge base stored in Guru.',
+    icon: GuruLogo,
     isCarbon: ['GURU'],
     isPro: true,
-    coming: true,
+    coming: false,
+    isNew: true,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: true,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
   },
@@ -359,6 +366,23 @@ export const sourceTypes = [
     category: 'Cloud Storage',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-microsoft-sharepoint-files',
   },
+  {
+    id: 'zotero',
+    title: 'Zotero',
+    description: 'Answer questions from files stored in your Zotero library (BETA)',
+    fullDescription: 'Connect to Zotero via our partner Carbon and access your research materials. We support various file types including audio and text files. We will sync your Zotero files, parse the content, and add them to this bot. Note that you can only have one Zotero account source per bot. If you create a new Zotero source for the same user, it will replace the previous one.',
+    icon: ZoteroLogo,
+    isCarbon: ['ZOTERO'],
+    isPro: true,
+    isNew: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+    category: 'Cloud Storage',
+  },
 
   // Customer Support
   {
@@ -412,6 +436,23 @@ export const sourceTypes = [
     category: 'Customer Support',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-freshdesk',
   },
+  {
+    id: 'servicenow',
+    title: 'ServiceNow',
+    description: 'Answer questions based on ServiceNow incidents and attachments (BETA)',
+    fullDescription: 'Connect to ServiceNow to import incidents and their attachments. This integration enables your bot to access and learn from your organization\'s IT service management data stored in ServiceNow. Use the file picker to select specific items to sync.',
+    icon: ServiceNowLogo,
+    isCarbon: ['SERVICENOW'],
+    isPro: true,
+    coming: false,
+    isNew: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+    category: 'Customer Support',
+  },
 
   // Email & Communication
   {
@@ -431,6 +472,57 @@ export const sourceTypes = [
     fieldQA: false,
     category: 'Email & Communication',
     instructionsUrl: '/documentation/doc/training-your-ai-chatbot-on-slack-conversations',
+  },
+  {
+    id: 'gong',
+    title: 'Gong',
+    description: 'Answer questions based on Gong call transcripts (BETA)',
+    fullDescription: 'Connect to Gong to import call transcripts. This integration enables your bot to access and learn from your organization\'s sales and customer interaction data stored in Gong. By default, all workspaces and calls will be synced, but this can be customized.',
+    icon: GongLogo,
+    isCarbon: ['GONG'],
+    isPro: true,
+    isNew: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+    category: 'Email & Communication',
+  },
+  {
+    id: 'gmail',
+    title: 'Gmail',
+    description: 'Answer questions based on your Gmail emails',
+    fullDescription: 'Connect to Gmail to import and analyze your email communications. This integration will allow your bot to learn from your email content, helping it provide more contextual and informed responses. Note: This feature is coming soon.',
+    icon: GmailLogo,
+    isCarbon: ['GMAIL'],
+    isPro: true,
+    isNew: false,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+    category: 'Email & Communication',
+  },
+  {
+    id: 'outlook',
+    title: 'Outlook',
+    description: 'Answer questions based on your Outlook emails',
+    fullDescription: 'Connect to Outlook to import and analyze your email communications. This integration allows your bot to learn from your email content, providing more contextual and informed responses.',
+    icon: OutlookLogo, // Placeholder icon, replace with actual Outlook logo component when available
+    isCarbon: ['OUTLOOK'],
+    isPro: true,
+    isNew: false,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
+    fieldQA: false,
+    category: 'Email & Communication',
   },
 
   // Developer
