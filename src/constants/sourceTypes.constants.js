@@ -25,6 +25,7 @@ import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 import FreshdeskLogo from '@/components/FreshdeskLogo'
 import S3Logo from '@/components/S3Logo'
+import AzureBlobLogo from '@/components/AzureBlobLogo'
 
 export const sourceTypes = [
   // Productivity
@@ -479,6 +480,23 @@ export const sourceTypes = [
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
+    fieldQA: false,
+    category: 'Cloud Storage',
+  },
+  {
+    id: 'azure',
+    title: 'Azure Blob Storage',
+    description: 'Answer questions based on the content of files in your Azure Blob Storage containers',
+    fullDescription: 'The Azure Blob Storage connector allows you to synchronize supported files from your Azure Blob Storage containers. This integration enables your bot to access and learn from your organization\'s files stored in Microsoft Azure\'s cloud storage service.',
+    icon: AzureBlobLogo,
+    isCarbon: ['AZURE_BLOB_STORAGE'],
+    isPro: true,
+    isNew: false,
+    coming: true,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
   },
