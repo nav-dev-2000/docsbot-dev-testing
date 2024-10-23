@@ -67,84 +67,84 @@ const PromptPage = ({ initialPrompts }) => {
       />
       <Header />
       <main>
-        <div className="relative isolate overflow-hidden bg-gray-900">
-          <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
-            <div className="text-center">
-              <h1 className="mx-auto max-w-2xl text-2xl font-bold tracking-tight text-white sm:text-4xl">
-                Ultimate AI Prompt Library: Best ChatGPT Prompts & More
-              </h1>
-              <p className="mx-auto mt-6 max-w-5xl text-xl leading-8 text-gray-300">
-                Discover our extensive collection of the best AI prompts,
-                including top ChatGPT prompts, Anthropic prompts, and Gemini
-                prompts. Explore our free prompt library to enhance your AI
-                productivity. Unlock the full potential of AI chatbots with our
-                curated selection of prompts for ChatGPT and other leading
-                models.
-              </p>
+        <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-16 sm:py-24 lg:px-8">
+          <img
+            src="https://images.unsplash.com/photo-1674027444484-cf52149ea050?ixid=M3w1OTc2MjN8MHwxfGFsbHx8fHx8fHx8fDE3Mjk2NDk3MDh8&ixlib=rb-4.0.3&fm=webp&auto=format&fit=crop&w=2830&h=820&q=70&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            alt=""
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+            aria-hidden="true"
+          >
+            <div
+              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#80ffdb] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+            />
+          </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Ultimate AI Prompt Library: Best ChatGPT Prompts & More
+            </h1>
+            <p className="mt-6 text-xl leading-8 text-gray-300">
+              Discover our extensive collection of the best AI prompts,
+              including top ChatGPT prompts, Anthropic prompts, and Gemini
+              prompts. Explore our free prompt library to enhance your AI
+              productivity. Unlock the full potential of AI chatbots with our
+              curated selection of prompts for ChatGPT and other leading models.
+            </p>
+          </div>
 
-              <div className="mx-auto mt-8 max-w-xl">
-                <div className="relative rounded-xl shadow-sm">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <MagnifyingGlassIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    className="block w-full rounded-xl border-0 py-3 pl-10 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
-                    placeholder={`Search all prompts...`}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                  {searchTerm && (
-                    <button
-                      onClick={() => {
-                        setSearchTerm('')
-                        setPrompts(initialPrompts)
-                        setIsSearch(false)
-                      }}
-                      className="absolute inset-y-0 right-0 flex items-center pr-3"
-                    >
-                      {isSearching ? (
-                        <LoadingSpinner className="h-5 w-5 text-gray-400" />
-                      ) : (
-                        <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
-                      )}
-                    </button>
-                  )}
-                </div>
+          {/* Search input */}
+          <div className="mx-auto mt-8 max-w-xl">
+            <div className="relative rounded-xl shadow-sm">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <MagnifyingGlassIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
               </div>
-              <div className="flex items-center justify-center gap-x-6 pt-12 lg:pt-16">
-                <Link
-                  href="/tools/prompt/ai-prompt-generator"
-                  className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+              <input
+                type="text"
+                className="block w-full rounded-xl border-0 py-3 pl-10 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                placeholder={`Search all prompts...`}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => {
+                    setSearchTerm('')
+                    setPrompts(initialPrompts)
+                    setIsSearch(false)
+                  }}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3"
                 >
-                  Generate a Custom Prompt
-                </Link>
-              </div>
+                  {isSearching ? (
+                    <LoadingSpinner className="h-5 w-5 text-gray-400" />
+                  ) : (
+                    <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+                  )}
+                </button>
+              )}
             </div>
           </div>
-          <svg
-            viewBox="0 0 1024 1024"
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-          >
-            <circle
-              r={512}
-              cx={512}
-              cy={512}
-              fill="url(#cyan-gradient)"
-              fillOpacity="0.7"
-            />
-            <defs>
-              <radialGradient id="cyan-gradient">
-                <stop stopColor="#0891B2" />
-                <stop offset={1} stopColor="#065E6F" />
-              </radialGradient>
-            </defs>
-          </svg>
-          <div className="mx-auto mb-10 max-w-5xl px-6 text-center lg:px-8">
+
+          {/* Generate Custom Prompt button */}
+          <div className="flex items-center justify-center gap-x-6 pt-8 lg:pt-12">
+            <Link
+              href="/tools/prompt/ai-prompt-generator"
+              className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+            >
+              Generate a Custom Prompt
+            </Link>
+          </div>
+
+          {/* Category links */}
+          <div className="mx-auto mt-12 max-w-5xl px-6 text-center lg:px-8">
             <div className="flex flex-wrap justify-center gap-4">
               {Object.entries(PROMPT_CATEGORIES).map(([key, value]) => (
                 <Link
@@ -157,6 +157,20 @@ const PromptPage = ({ initialPrompts }) => {
               ))}
             </div>
           </div>
+
+          <div
+            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+            aria-hidden="true"
+          >
+            <div
+              className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+            />
+          </div>
+
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -251,7 +265,7 @@ const PromptPage = ({ initialPrompts }) => {
 
 export default PromptPage
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   // Fetch related prompts in the same category
   const prompts = await getPrompts('prompt', null, null, 10000)
 
@@ -264,5 +278,6 @@ export const getServerSideProps = async (context) => {
     props: {
       initialPrompts: limitedPrompts,
     },
+    revalidate: 86400,
   }
 }

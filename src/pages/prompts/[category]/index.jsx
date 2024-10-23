@@ -46,85 +46,84 @@ const PromptPage = ({ prompts, category }) => {
       />
       <Header />
       <main>
-        <div className="relative isolate overflow-hidden bg-gray-900">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-16 sm:py-24 lg:px-8">
+          <img
+            src="https://images.unsplash.com/photo-1674027444484-cf52149ea050?ixid=M3w1OTc2MjN8MHwxfGFsbHx8fHx8fHx8fDE3Mjk2NDk3MDh8&ixlib=rb-4.0.3&fm=webp&auto=format&fit=crop&w=2830&h=820&q=70&blend=111827&sat=-100&exp=15&blend-mode=multiply"
+            alt=""
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+          />
+          <div
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+            aria-hidden="true"
+          >
+            <div
+              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#80ffdb] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+            />
+          </div>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 sm:-mt-20 mb-16">
             <Breadcrumb pages={breadcrumbPages} />
           </div>
-          <div className="px-6 py-16 sm:px-6 sm:py-24 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
-                Best {PROMPT_CATEGORIES[category]} AI Prompts
-              </h1>
-              <p className="mx-auto mt-6 max-w-xl text-xl leading-8 text-gray-300">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              Best {PROMPT_CATEGORIES[category]} AI Prompts
+            </h1>
+            <p className="mt-6 text-xl leading-8 text-gray-300">
               Discover our extensive collection of the best {PROMPT_CATEGORIES[category]} AI prompts,
-                including top ChatGPT prompts, Anthropic prompts, and Gemini
-                prompts.
-              </p>
-              <div className="mt-8">
-                <div className="relative rounded-xl shadow-sm">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <MagnifyingGlassIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    className="block w-full rounded-xl border-0 py-3 pl-10 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
-                    placeholder={`Search ${PROMPT_CATEGORIES[category]} prompts...`}
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                  {searchTerm && (
-                    <button
-                      onClick={() => setSearchTerm('')}
-                      className="absolute inset-y-0 right-0 flex items-center pr-3"
-                    >
-                      <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
-                    </button>
-                  )}
-                </div>
+              including top ChatGPT prompts, Anthropic prompts, and Gemini
+              prompts.
+            </p>
+          </div>
+
+          {/* Search input */}
+          <div className="mx-auto mt-8 max-w-xl">
+            <div className="relative rounded-xl shadow-sm">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <MagnifyingGlassIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
               </div>
-            </div>
-            <div className="mx-auto mt-10 max-w-7xl px-6 text-center lg:px-8">
-              <h2 className="mb-4 text-xl font-semibold text-white">
-                Other Categories
-              </h2>
-              <div className="flex flex-wrap justify-center gap-4">
-                {Object.entries(PROMPT_CATEGORIES).map(
-                  ([key, value]) =>
-                    key !== category && (
-                      <Link
-                        key={key}
-                        href={`/prompts/${key}`}
-                        className="inline-flex items-center rounded-md bg-cyan-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
-                      >
-                        {value}
-                      </Link>
-                    ),
-                )}
-              </div>
+              <input
+                type="text"
+                className="block w-full rounded-xl border-0 py-3 pl-10 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                placeholder={`Search ${PROMPT_CATEGORIES[category]} prompts...`}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3"
+                >
+                  <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+                </button>
+              )}
             </div>
           </div>
-          <svg
-            viewBox="0 0 1024 1024"
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-          >
-            <circle
-              r={512}
-              cx={512}
-              cy={512}
-              fill="url(#cyan-gradient)"
-              fillOpacity="0.7"
-            />
-            <defs>
-              <radialGradient id="cyan-gradient">
-                <stop stopColor="#0891B2" />
-                <stop offset={1} stopColor="#065E6F" />
-              </radialGradient>
-            </defs>
-          </svg>
+
+          <div className="mx-auto mt-10 max-w-7xl px-6 text-center lg:px-8">
+            <h2 className="mb-4 text-xl font-semibold text-white">
+              Other Categories
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {Object.entries(PROMPT_CATEGORIES).map(
+                ([key, value]) =>
+                  key !== category && (
+                    <Link
+                      key={key}
+                      href={`/prompts/${key}`}
+                      className="inline-flex items-center rounded-md bg-cyan-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                    >
+                      {value}
+                    </Link>
+                  ),
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -192,8 +191,17 @@ const PromptPage = ({ prompts, category }) => {
 
 export default PromptPage
 
-export const getServerSideProps = async (context) => {
-  const { category } = context.query
+export async function getStaticPaths() {
+  const categories = Object.keys(PROMPT_CATEGORIES)
+
+  return {
+    paths: categories.map((category) => ({ params: { category } })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps = async (context) => {
+  const { category } = context.params
 
   // Check if the category is valid
   if (!Object.keys(PROMPT_CATEGORIES).includes(category)) {
@@ -213,5 +221,6 @@ export const getServerSideProps = async (context) => {
       category,
       prompts,
     },
+    revalidate: 86400,
   }
 }
