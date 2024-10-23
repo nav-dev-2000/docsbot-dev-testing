@@ -77,6 +77,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: 'required',
     category: 'Productivity',
+    instructionsUrl: '/article/finetune-your-bots-answers',
   },
   {
     id: 'csv',
@@ -179,6 +180,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-guru',
   },
 
   // Web
@@ -260,6 +262,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Web',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-wordpress',
   },
   {
     id: 'youtube',
@@ -382,6 +385,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zotero',
   },
 
   // Customer Support
@@ -476,13 +480,13 @@ export const sourceTypes = [
   {
     id: 'gong',
     title: 'Gong',
-    description: 'Answer questions based on Gong call transcripts (BETA)',
+    description: 'Answer questions based on Gong call transcripts',
     fullDescription: 'Connect to Gong to import call transcripts. This integration enables your bot to access and learn from your organization\'s sales and customer interaction data stored in Gong. By default, all workspaces and calls will be synced, but this can be customized.',
     icon: GongLogo,
     isCarbon: ['GONG'],
     isPro: true,
-    isNew: true,
-    coming: false,
+    isNew: false,
+    coming: true,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
@@ -568,6 +572,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-amazon-s3-digital-ocean-spaces',
   },
   {
     id: 'gcs',
@@ -585,6 +590,7 @@ export const sourceTypes = [
     fieldSchedule: false,
     fieldQA: false,
     category: 'Cloud Storage',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-google-cloud-storage',
   },
 ]
 
