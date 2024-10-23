@@ -12,7 +12,8 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
@@ -172,7 +173,7 @@ const YoutubeIdeaExtractor = () => {
   )
 }
 
-export default function YoutubeIdeaExtractorPage({ recentVideos }) {
+export default function YoutubeIdeaExtractorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -187,7 +188,6 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube Video Key Points Finder - DocsBot" base={1876} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -224,8 +224,10 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={1876}
+                  itemId="ai-youtube-key-points-finder"
+                  name="AI YouTube Video Key Points Finder - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -251,12 +253,15 @@ export default function YoutubeIdeaExtractorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async () => {
   const recentVideos = await getRecentYoutubeVideos('ideas')
+  const starRatingData = await getRating('ai-youtube-key-points-finder')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 3600,
   }
 }

@@ -11,7 +11,8 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
@@ -174,7 +175,7 @@ const YoutubeRecommendationsExtractor = () => {
   )
 }
 
-export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
+export default function YoutubeRecommendationsExtractorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -189,7 +190,6 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube Video Recommendations Extractor - DocsBot" base={1027} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -225,8 +225,10 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={1027}
+                  itemId="ai-youtube-recommendations-extractor"
+                  name="AI YouTube Video Recommendations Extractor - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -252,12 +254,15 @@ export default function YoutubeRecommendationsExtractorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const recentVideos = await getRecentYoutubeVideos('recommendations')
+  const starRatingData = await getRating('ai-youtube-recommendations-extractor')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 86400,
   }
 }

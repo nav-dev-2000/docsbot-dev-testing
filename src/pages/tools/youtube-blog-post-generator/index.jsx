@@ -28,7 +28,8 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@heroicons/react/24/outline'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
@@ -254,7 +255,7 @@ const useCases = [
   },
 ]
 
-export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
+export default function YoutubeBlogPostGeneratorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -269,7 +270,6 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube Video to Blog Post Generator - DocsBot" base={1876} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -311,8 +311,10 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={1876}
+                  itemId="youtube-blog-post-generator"
+                  name="AI YouTube Video to Blog Post Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -523,12 +525,15 @@ export default function YoutubeBlogPostGeneratorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async () => {
   const recentVideos = await getRecentVideoBlogPosts()
+  const starRatingData = await getRating('youtube-blog-post-generator')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 3600,
   }
 }

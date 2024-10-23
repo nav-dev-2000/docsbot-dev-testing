@@ -7,7 +7,8 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import {
   AcademicCapIcon,
   EnvelopeIcon,
@@ -392,7 +393,7 @@ const faqs = [
   },
 ]
 
-export default function AIReworderPage() {
+export default function AIReworderPage({ starRatingData }) {
   return (
     <>
       <NextSeo
@@ -407,7 +408,6 @@ export default function AIReworderPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Rewording Tool - DocsBot" base={341} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -440,8 +440,10 @@ export default function AIReworderPage() {
                 </p>
                 <AIReworder />
                 <StarRating
-                  base={341}
+                  itemId="ai-reworder"
+                  name="AI Rewording Tool - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -639,4 +641,13 @@ export default function AIReworderPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-reworder')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

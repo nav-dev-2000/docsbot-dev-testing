@@ -11,7 +11,8 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Analyzing YouTube video...',
@@ -164,7 +165,7 @@ const YoutubeTweetXPostGenerator = () => {
   )
 }
 
-export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
+export default function YoutubeTweetXPostGeneratorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -179,7 +180,6 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube to Tweet/X Post Generator - DocsBot" base={891} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -215,8 +215,10 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={891}
+                  itemId="ai-youtube-tweet-x-post-generator"
+                  name="AI YouTube to Tweet/X Post Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -242,12 +244,15 @@ export default function YoutubeTweetXPostGeneratorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async () => {
   const recentVideos = await getRecentYoutubeVideos('tweets')
+  const starRatingData = await getRating('ai-youtube-tweet-x-post-generator')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 43200,
   }
 }

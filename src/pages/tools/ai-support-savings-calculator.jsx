@@ -17,7 +17,8 @@ import {
 } from '@heroicons/react/20/solid'
 import { usePostHog } from 'posthog-js/react'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const features = [
   {
@@ -203,7 +204,7 @@ export const AiSupportSavingsCalculator = () => {
   )
 }
 
-export default function Calculate() {
+export default function Calculate({ starRatingData }) {
   return (
     <>
       <NextSeo
@@ -218,7 +219,6 @@ export default function Calculate() {
           ],
         }}
       />
-      <RatingSchema name="AI Customer Support Chatbot Savings Calculator - DocsBot" base={1} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -246,7 +246,12 @@ export default function Calculate() {
                 </p>
               </div>
               <AiSupportSavingsCalculator />
-              <StarRating base={1} className="mt-12 flex justify-center text-white" />
+              <StarRating 
+                itemId="ai-support-savings-calculator" 
+                name="AI Customer Support Chatbot Savings Calculator - DocsBot" 
+                className="mt-12 flex justify-center text-white" 
+                starRatingData={starRatingData}
+              />
             </div>
           </div>
           <div
@@ -362,4 +367,14 @@ export default function Calculate() {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const starRatingData = await getRating('ai-support-savings-calculator')
+  return {
+    props: {
+      starRatingData,
+    },
+    revalidate: 86400, // Cache for 1 day (24 hours * 60 minutes * 60 seconds)
+  }
 }

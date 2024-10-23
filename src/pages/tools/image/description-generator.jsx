@@ -8,9 +8,7 @@ import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import {
   DocumentDuplicateIcon,
-  ChatBubbleLeftRightIcon,
   EyeIcon,
-  GlobeAltIcon,
   PencilSquareIcon,
   MagnifyingGlassIcon,
   MinusIcon,
@@ -27,7 +25,8 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -362,7 +361,7 @@ const faqs = [
   },
 ]
 
-export default function ImageDescriptionPage() {
+export default function ImageDescriptionPage({ starRatingData }) {
   const [hasResults, setHasResults] = useState(false)
 
   return (
@@ -378,10 +377,6 @@ export default function ImageDescriptionPage() {
             },
           ],
         }}
-      />
-      <RatingSchema
-        name="AI Image Description Generator - DocsBot"
-        base={4501}
       />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
@@ -418,8 +413,10 @@ export default function ImageDescriptionPage() {
                 </p>
                 <ImageDescriptionGenerator setHasResults={setHasResults} />
                 <StarRating
-                  base={4501}
+                  itemId="ai-image-description-generator"
+                  name="AI Image Description Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -588,4 +585,15 @@ export default function ImageDescriptionPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-image-description-generator')
+
+  return {
+    props: {
+      starRatingData,
+    },
+    revalidate: 86400,
+  }
 }

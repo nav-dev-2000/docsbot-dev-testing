@@ -28,7 +28,8 @@ import {
   MinusIcon,
 } from '@heroicons/react/24/outline'
 import { Disclosure } from '@headlessui/react'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -392,7 +393,7 @@ const faqs = [
   },
 ]
 
-export default function ImageToFAQPage() {
+export default function ImageToFAQPage({ starRatingData }) {
   const [hasResults, setHasResults] = useState(false)
 
   return (
@@ -409,7 +410,6 @@ export default function ImageToFAQPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Image to FAQ Generator - DocsBot" base={1000} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -447,8 +447,10 @@ export default function ImageToFAQPage() {
                 </p>
                 <ImageToFAQGenerator setHasResults={setHasResults} />
                 <StarRating
-                  base={1000}
+                  itemId="ai-image-faq-generator"
+                  name="AI Image to FAQ Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -619,4 +621,15 @@ export default function ImageToFAQPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-image-faq-generator')
+
+  return {
+    props: {
+      starRatingData,
+    },
+    revalidate: 86400,
+  }
 }

@@ -15,7 +15,8 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -344,7 +345,7 @@ const ImageToTextGenerator = ({ setHasResults }) => {
   )
 }
 
-export default function ImageToTextPage() {
+export default function ImageToTextPage({ starRatingData }) {
   const [hasResults, setHasResults] = useState(false)
 
   return (
@@ -361,7 +362,6 @@ export default function ImageToTextPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Image to Text Generator - DocsBot" base={1276} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -397,8 +397,10 @@ export default function ImageToTextPage() {
                 </p>
                 <ImageToTextGenerator setHasResults={setHasResults} />
                 <StarRating
-                  base={1276}
+                  itemId="ai-image-text-extractor"
+                  name="AI Image to Text Extractor - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -561,4 +563,13 @@ export default function ImageToTextPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-image-text-extractor')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

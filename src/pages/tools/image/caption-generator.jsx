@@ -10,7 +10,8 @@ import { DocumentDuplicateIcon, ChatBubbleLeftRightIcon, MegaphoneIcon, Shopping
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { Disclosure } from '@headlessui/react'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -398,7 +399,7 @@ const faqs = [
   },
 ]
 
-export default function ImageCaptionPage() {
+export default function ImageCaptionPage({ starRatingData }) {
   const [hasResults, setHasResults] = useState(false)
 
   return (
@@ -415,7 +416,6 @@ export default function ImageCaptionPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Image Caption Generator - DocsBot" base={3333} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -450,8 +450,10 @@ export default function ImageCaptionPage() {
                 </p>
                 <ImageCaptionGenerator setHasResults={setHasResults} />
                 <StarRating
-                  base={3333}
+                  itemId="ai-image-caption-generator"
+                  name="AI Image Caption Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -622,4 +624,15 @@ export default function ImageCaptionPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-image-caption-generator')
+
+  return {
+    props: {
+      starRatingData,
+    },
+    revalidate: 86400,
+  }
 }

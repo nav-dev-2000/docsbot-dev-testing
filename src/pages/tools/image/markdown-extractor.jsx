@@ -23,7 +23,8 @@ import {
   EyeIcon, 
   ViewfinderCircleIcon 
 } from '@heroicons/react/24/outline'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const resizeImage = (file) => {
   return new Promise((resolve) => {
@@ -352,7 +353,7 @@ const faqs = [
   },
 ]
 
-export default function ImageToMarkdownPage() {
+export default function ImageToMarkdownPage({ starRatingData }) {
   const [hasResults, setHasResults] = useState(false)
 
   return (
@@ -369,7 +370,6 @@ export default function ImageToMarkdownPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Image to Markdown Extractor - DocsBot" base={996} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -407,8 +407,10 @@ export default function ImageToMarkdownPage() {
                 </p>
                 <ImageToMarkdownConverter setHasResults={setHasResults} />
                 <StarRating
-                  base={996}
+                  itemId="ai-image-markdown-extractor"
+                  name="AI Image to Markdown Extractor - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -569,4 +571,13 @@ export default function ImageToMarkdownPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-image-markdown-extractor')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

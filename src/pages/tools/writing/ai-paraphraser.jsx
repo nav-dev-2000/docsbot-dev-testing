@@ -7,7 +7,8 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import {
   PencilSquareIcon,
   MegaphoneIcon,
@@ -392,7 +393,7 @@ const faqs = [
   },
 ]
 
-export default function AIParaphraserPage() {
+export default function AIParaphraserPage({ starRatingData }) {
   return (
     <>
       <NextSeo
@@ -407,7 +408,6 @@ export default function AIParaphraserPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Paraphrasing Tool - DocsBot" base={918} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -442,8 +442,10 @@ export default function AIParaphraserPage() {
                 </p>
                 <AIParaphraser />
                 <StarRating
-                  base={918}
+                  itemId="ai-paraphraser"
+                  name="AI Paraphrasing Tool - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -648,4 +650,13 @@ export default function AIParaphraserPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-paraphraser')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

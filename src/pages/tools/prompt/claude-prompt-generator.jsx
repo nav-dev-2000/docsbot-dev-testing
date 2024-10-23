@@ -9,7 +9,8 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import { ChatBubbleOvalLeftIcon, BoltIcon, PencilIcon, BriefcaseIcon, AcademicCapIcon, CodeBracketIcon } from '@heroicons/react/24/outline'
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
@@ -243,7 +244,7 @@ const faqs = [
   },
 ]
 
-export default function PromptGeneratorPage() {
+export default function PromptGeneratorPage({ starRatingData }) {
   return (
     <>
       <NextSeo
@@ -258,7 +259,6 @@ export default function PromptGeneratorPage() {
           ],
         }}
       />
-      <RatingSchema name="Claude Prompt Generator and Optimizer - DocsBot" base={5} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -292,8 +292,10 @@ export default function PromptGeneratorPage() {
                 </p>
                 <PromptGenerator />
                 <StarRating
-                  base={5}
+                  itemId="ai-prompt-generator"
+                  name="Claude Prompt Generator and Optimizer - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
               <div className="mx-auto mt-10 max-w-7xl px-6 text-center lg:px-8">
@@ -479,4 +481,13 @@ export default function PromptGeneratorPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-prompt-generator')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

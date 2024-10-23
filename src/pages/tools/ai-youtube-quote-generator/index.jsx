@@ -12,7 +12,8 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
@@ -167,7 +168,7 @@ const YoutubeQuoteGenerator = () => {
   )
 }
 
-export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
+export default function YoutubeQuoteGeneratorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -181,10 +182,6 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
             },
           ],
         }}
-      />
-      <RatingSchema
-        name="AI YouTube Video Quote Generator - DocsBot"
-        base={692}
       />
       <Header />
       <main>
@@ -221,8 +218,10 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={692}
+                  itemId="ai-youtube-quote-generator"
+                  name="AI YouTube Video Quote Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -248,12 +247,15 @@ export default function YoutubeQuoteGeneratorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const recentVideos = await getRecentYoutubeVideos('quotes')
+  const starRatingData = await getRating('ai-youtube-quote-generator')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 86400,
   }
 }

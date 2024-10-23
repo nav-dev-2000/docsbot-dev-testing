@@ -11,7 +11,8 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 const loadingText = [
   'Fetching video details...',
@@ -166,7 +167,7 @@ const YoutubeFAQGenerator = () => {
   )
 }
 
-export default function YoutubeFAQGeneratorPage({ recentVideos }) {
+export default function YoutubeFAQGeneratorPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -181,7 +182,6 @@ export default function YoutubeFAQGeneratorPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube Video FAQ Generator - DocsBot" base={1731} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -218,8 +218,10 @@ export default function YoutubeFAQGeneratorPage({ recentVideos }) {
                   recentVideos={recentVideos}
                 />
                 <StarRating
-                  base={1731}
+                  itemId="ai-youtube-faq-generator"
+                  name="AI YouTube Video FAQ Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -245,12 +247,15 @@ export default function YoutubeFAQGeneratorPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async () => {
   const recentVideos = await getRecentYoutubeVideos('faq')
+  const starRatingData = await getRating('ai-youtube-faq-generator')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 86400,
   }
 }

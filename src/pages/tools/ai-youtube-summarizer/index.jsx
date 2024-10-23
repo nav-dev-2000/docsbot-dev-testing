@@ -31,7 +31,8 @@ import {
   DocumentTextIcon,
   AcademicCapIcon,
 } from '@heroicons/react/24/outline'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import { FAQPageJsonLd } from 'next-seo'
 
 const loadingText = [
@@ -265,7 +266,7 @@ const useCases = [
   },
 ]
 
-export default function YoutubeSummarizerPage({ recentVideos }) {
+export default function YoutubeSummarizerPage({ recentVideos, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -280,7 +281,6 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
           ],
         }}
       />
-      <RatingSchema name="AI YouTube Video Summarizer - DocsBot" base={911} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -323,9 +323,11 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
                   slug="ai-youtube-summarizer"
                   recentVideos={recentVideos}
                 />
-                <StarRating
-                  base={911}
+                <StarRating 
+                  itemId="ai-youtube-summarizer"
+                  name="AI YouTube Video Summarizer - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -612,12 +614,15 @@ export default function YoutubeSummarizerPage({ recentVideos }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const recentVideos = await getRecentYoutubeVideos('summary')
+  const starRatingData = await getRating('ai-youtube-summarizer')
 
   return {
     props: {
       recentVideos,
+      starRatingData,
     },
+    revalidate: 3600,
   }
 }

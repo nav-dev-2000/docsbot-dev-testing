@@ -11,7 +11,8 @@ import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import { ChatBubbleLeftRightIcon, GlobeAltIcon, PencilSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 const loadingText = [
@@ -210,7 +211,7 @@ const AiFAQGenerator = () => {
   )
 }
 
-export default function FAQGenerator({ FAQs }) {
+export default function FAQGenerator({ FAQs, starRatingData }) {
   return (
     <>
       <NextSeo
@@ -225,7 +226,6 @@ export default function FAQGenerator({ FAQs }) {
           ],
         }}
       />
-      <RatingSchema name="AI Webiste FAQ Generator - DocsBot" base={1936} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -254,8 +254,10 @@ export default function FAQGenerator({ FAQs }) {
                 <AiFAQGenerator />
                 <RecentAIFAQs FAQs={FAQs} />
                 <StarRating
-                  base={1936}
+                  itemId="ai-faq-generator"
+                  name="AI Website FAQ Generator - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
             </div>
@@ -396,12 +398,17 @@ export default function FAQGenerator({ FAQs }) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+// Change this function from getServerSideProps to getStaticProps
+export const getStaticProps = async () => {
   const FAQs = await getRecentFAQs();
+  const starRatingData = await getRating('ai-faq-generator')
 
   return {
     props: {
       FAQs,
+      starRatingData,
     },
+    // This enables ISR with a revalidation period of 1 hour (3600 seconds)
+    revalidate: 3600,
   }
 }

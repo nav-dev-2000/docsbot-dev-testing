@@ -17,7 +17,8 @@ import {
 import Chart from 'chart.js/auto'
 import { Bar } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
-import { RatingSchema, StarRating } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -405,7 +406,18 @@ const modelTypes = [
   'Embedding models',
 ]
 
-export default function Calculate() {
+export async function getStaticProps() {
+  const starRatingData = await getRating('gpt-openai-api-pricing-calculator')
+  
+  return {
+    props: {
+      starRatingData,
+    },
+    revalidate: 86400,
+  }
+}
+
+export default function Calculate({ starRatingData }) {
   const [inputTokens, setInputTokens] = useState(1000)
   const [outputTokens, setOutputTokens] = useState(500)
   const [apiCalls, setAPICalls] = useState(1000)
@@ -591,7 +603,6 @@ export default function Calculate() {
           ],
         }}
       />
-      <RatingSchema name="OpenAI & all LLM API Pricing Calculator - DocsBot" base={4879} />
       <Header />
       <main>
         <div className="relative isolate bg-gray-900">
@@ -1007,8 +1018,10 @@ export default function Calculate() {
             />
           </div>
           <StarRating
-            base={4879}
+            itemId="gpt-openai-api-pricing-calculator"
+            name="OpenAI & all LLM API Pricing Calculator - DocsBot"
             className="mx-auto mb-12 flex justify-center text-white"
+            starRatingData={starRatingData}
           />
 
           <div className="prose relative mx-auto max-w-5xl px-4 pb-32 text-white sm:px-6 lg:px-8">

@@ -10,7 +10,8 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import { usePostHog } from 'posthog-js/react'
-import { StarRating, RatingSchema } from '@/components/StarRating'
+import { StarRating } from '@/components/StarRating'
+import { getRating } from '@/lib/tools'
 import {
   PencilSquareIcon,
   MegaphoneIcon,
@@ -403,7 +404,7 @@ const faqs = [
   },
 ]
 
-export default function TextHumanizerPage() {
+export default function TextHumanizerPage({ starRatingData }) {
   return (
     <>
       <NextSeo
@@ -418,7 +419,6 @@ export default function TextHumanizerPage() {
           ],
         }}
       />
-      <RatingSchema name="AI Text Humanizer - DocsBot" base={1316} />
       <FAQPageJsonLd
         mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
@@ -451,8 +451,10 @@ export default function TextHumanizerPage() {
                 </p>
                 <TextHumanizer />
                 <StarRating
-                  base={1316}
+                  itemId="ai-text-humanizer"
+                  name="AI Text Humanizer - DocsBot"
                   className="mx-auto mt-12 flex justify-center text-white"
+                  starRatingData={starRatingData}
                 />
               </div>
               
@@ -623,4 +625,13 @@ export default function TextHumanizerPage() {
       <Footer />
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const starRatingData = await getRating('ai-text-humanizer')
+
+  return {
+    props: { starRatingData },
+    revalidate: 86400,
+  }
 }

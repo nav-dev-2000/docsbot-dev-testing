@@ -13,7 +13,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
-import { lookupYoutubeBlogPost } from '@/lib/tools'
+import { lookupYoutubeBlogPost, getRecentVideoBlogPosts } from '@/lib/tools'
 import clsx from 'clsx'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
@@ -256,7 +256,21 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
 
 export default YoutubeBlogPost
 
-export const getServerSideProps = async (context) => {
+export async function getStaticPaths() {
+  const recentVideos = await getRecentVideoBlogPosts()
+ 
+  // Get the paths we want to prerender based on posts
+  // In production environments, prerender all pages
+  // (slower builds, but faster initial page load)
+  const paths = recentVideos.aiVideos.map((post) => ({
+    params: { videoId: post.id },
+  }))
+ 
+  // { fallback: false } means other routes should 404
+  return { paths, fallback: 'blocking' }
+}
+
+export const getStaticProps = async (context) => {
   const videoId = context?.params?.videoId
 
   if (!videoId || !/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
@@ -283,5 +297,6 @@ export const getServerSideProps = async (context) => {
       summary: cachedData,
       videoId,
     },
+    revalidate: 86400,
   }
 }
