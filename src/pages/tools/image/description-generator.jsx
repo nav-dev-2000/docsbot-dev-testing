@@ -27,26 +27,7 @@ import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
-
-const resizeImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const img = new Image()
-      img.onload = () => {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(512 / img.width, 512 / img.height)
-        canvas.width = img.width * scaleFactor
-        canvas.height = img.height * scaleFactor
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        resolve(canvas.toDataURL('image/jpeg'))
-      }
-      img.src = e.target.result
-    }
-    reader.readAsDataURL(file)
-  })
-}
+import ImageDropZone from '@/components/ImageDropZone'
 
 const ImageDescriptionGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
@@ -60,14 +41,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
   useEffect(() => {
     setHasResults(!!imageDescription)
   }, [imageDescription, setHasResults])
-
-  const handleImageUpload = useCallback(async (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      const resizedImage = await resizeImage(file)
-      setImage(resizedImage)
-    }
-  }, [])
 
   const generateDescription = async () => {
     setIsComputing(true)
@@ -167,10 +140,7 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
     setImageDescription('')
     setErrorText(null)
     // Scroll to the image upload input
-    const imageUploadElement = document.getElementById('image-upload')
-    if (imageUploadElement) {
-      imageUploadElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }
+    window.scrollTo({ top: 200, behavior: 'smooth' })
 
     // Track tool reset
     posthog?.capture('Free Tool', {
@@ -208,28 +178,11 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
           <Alert title={errorText} type="error" />
           {!imageDescription && (
             <div className="mb-4">
-              <label
-                htmlFor="image-upload"
-                className="mb-2 block text-sm font-medium text-gray-700"
-              >
-                Upload Image
-              </label>
-              <input
-                id="image-upload"
-                type="file"
-                accept="image/*"
-                onChange={handleImageUpload}
-                disabled={isComputing}
-                className="block w-full cursor-pointer text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cyan-600 file:ring-2 file:ring-inset file:ring-cyan-600 hover:file:bg-cyan-50 hover:file:text-cyan-700 focus:outline-none"
-              />
-            </div>
-          )}
-          {image && (
-            <div className="mb-4">
-              <img
-                src={image}
-                alt="Preview"
-                className="mx-auto h-auto max-w-full rounded-lg shadow-lg"
+              <ImageDropZone
+                image={image}
+                setImage={setImage}
+                isComputing={isComputing}
+                maxSize={512}
               />
             </div>
           )}
@@ -254,34 +207,43 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
             </>
           )}
           {imageDescription && (
-            <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
-              <h3 className="text-md mb-2 font-medium">Description</h3>
-              <div
-                className="prose mb-4 min-w-full text-gray-700"
-                dangerouslySetInnerHTML={{ __html: htmlContent }}
-              />
-              <div className="flex gap-2">
-                <button
-                  onClick={copyDescription}
-                  className={clsx(
-                    'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                    descriptionCopied ? 'text-cyan-600' : 'text-gray-700',
-                  )}
-                >
-                  <DocumentDuplicateIcon
-                    className="mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
-                  {descriptionCopied ? 'Copied!' : 'Copy Description'}
-                </button>
-                <button
-                  onClick={resetTool}
-                  className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
-                >
-                  Try Another Image
-                </button>
+            <>
+              <div className="mb-4">
+                <img
+                  src={image}
+                  alt="Preview"
+                  className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                />
               </div>
-            </div>
+              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
+                <h3 className="text-md mb-2 font-medium">Description</h3>
+                <div
+                  className="prose mb-4 min-w-full text-gray-700"
+                  dangerouslySetInnerHTML={{ __html: htmlContent }}
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={copyDescription}
+                    className={clsx(
+                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                      descriptionCopied ? 'text-cyan-600' : 'text-gray-700',
+                    )}
+                  >
+                    <DocumentDuplicateIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    {descriptionCopied ? 'Copied!' : 'Copy Description'}
+                  </button>
+                  <button
+                    onClick={resetTool}
+                    className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                  >
+                    Try Another Image
+                  </button>
+                </div>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -406,10 +368,11 @@ export default function ImageDescriptionPage({ starRatingData }) {
                   Free AI Image Description Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Describe any image using our AI-powered description generator tool. Perfect for
-                  creating prompts for AI image generation, improving
-                  accessibility, creating image captions, or understanding image
-                  content. Great for social media, e-commerce, education, and more!
+                  Describe any image using our AI-powered description generator
+                  tool. Perfect for creating prompts for AI image generation,
+                  improving accessibility, creating image captions, or
+                  understanding image content. Great for social media,
+                  e-commerce, education, and more!
                 </p>
                 <ImageDescriptionGenerator setHasResults={setHasResults} />
                 <StarRating

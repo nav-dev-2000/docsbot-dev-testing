@@ -71,18 +71,26 @@ const ImageDropZone = ({ image, setImage, maxSize = 512, isComputing }) => {
 
   if (image) {
     return (
-      <div className="group relative">
+      <div className={clsx(
+        "group relative",
+        !isComputing && "hover:cursor-pointer"
+      )}>
         <img
           src={image}
           alt="Preview"
-          className="mx-auto h-auto max-w-full rounded-lg shadow-lg group-hover:opacity-50"
+          className={clsx(
+            "mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg",
+            !isComputing && "group-hover:opacity-50"
+          )}
         />
-        <button
-          onClick={() => setImage(null)}
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
-        >
-          <XCircleIcon className="h-16 w-16 text-gray-800" aria-hidden="true" />
-        </button>
+        {!isComputing && (
+          <button
+            onClick={() => setImage(null)}
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100"
+          >
+            <XCircleIcon className="h-16 w-16 text-gray-800" aria-hidden="true" />
+          </button>
+        )}
       </div>
     )
   } else {

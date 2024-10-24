@@ -6,55 +6,46 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { DocumentDuplicateIcon, ChatBubbleLeftRightIcon, MegaphoneIcon, ShoppingCartIcon, HashtagIcon, MagnifyingGlassIcon, MinusIcon, PlusIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import {
+  DocumentDuplicateIcon,
+  ChatBubbleLeftRightIcon,
+  MegaphoneIcon,
+  ShoppingCartIcon,
+  HashtagIcon,
+  MagnifyingGlassIcon,
+  MinusIcon,
+  PlusIcon,
+  EyeSlashIcon,
+} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
-
-const resizeImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const img = new Image()
-      img.onload = () => {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(512 / img.width, 512 / img.height)
-        canvas.width = img.width * scaleFactor
-        canvas.height = img.height * scaleFactor
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        resolve(canvas.toDataURL('image/jpeg'))
-      }
-      img.src = e.target.result
-    }
-    reader.readAsDataURL(file)
-  })
-}
+import ImageDropZone from '@/components/ImageDropZone'
 
 // Custom SVG components for social media icons
 const LinkedInIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 )
 
 const TwitterIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M14.285 10.172L23.222 0h-2.117L14.357 8.83 7.147 0H0l9.37 13.354L0 24.02h2.117l8.192-9.327 6.544 9.327h7.147M2.881 1.563h3.252L21.119 22.54h-3.252"/>
+    <path d="M14.285 10.172L23.222 0h-2.117L14.357 8.83 7.147 0H0l9.37 13.354L0 24.02h2.117l8.192-9.327 6.544 9.327h7.147M2.881 1.563h3.252L21.119 22.54h-3.252" />
   </svg>
 )
 
 const InstagramIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
   </svg>
 )
 
 const FacebookIcon = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
   </svg>
 )
 
@@ -85,7 +76,7 @@ const socialMediaFeatures = [
   },
 ]
 
-const ImageCaptionGenerator = ({setHasResults}) => {
+const ImageCaptionGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -102,14 +93,6 @@ const ImageCaptionGenerator = ({setHasResults}) => {
     }
   }, [imageCaption])
 
-  const handleImageUpload = useCallback(async (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      const resizedImage = await resizeImage(file)
-      setImage(resizedImage)
-    }
-  }, [])
-
   const generateCaption = async () => {
     setIsComputing(true)
     setErrorText('')
@@ -117,13 +100,13 @@ const ImageCaptionGenerator = ({setHasResults}) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-      
+
       // Track no image error
       posthog?.capture('Free Tool', {
         tool: 'Image Caption Generator',
         action: 'Error',
         error: 'No Image Uploaded',
-        category: 'Image'
+        category: 'Image',
       })
       return
     }
@@ -145,46 +128,46 @@ const ImageCaptionGenerator = ({setHasResults}) => {
       const data = await response.json()
       if (response.ok) {
         setImageCaption(data)
-        
+
         // Track successful caption generation
         posthog?.capture('Free Tool', {
           tool: 'Image Caption Generator',
           action: 'Used',
           vibe: selectedVibe,
-          category: 'Image'
+          category: 'Image',
         })
       } else if (response.status === 429) {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
-        
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'Image Caption Generator',
           action: 'Error',
           error: 'Usage Limit Exceeded',
-          category: 'Image'
+          category: 'Image',
         })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
-        
+
         // Track error
         posthog?.capture('Free Tool', {
           tool: 'Image Caption Generator',
           action: 'Error',
           error: data.message || 'Unknown error',
-          category: 'Image'
+          category: 'Image',
         })
       }
     } catch (e) {
       setErrorText('Error ' + response.status + ', please try again. ' + e)
-      
+
       // Track error
       posthog?.capture('Free Tool', {
         tool: 'Image Caption Generator',
         action: 'Error',
         error: `Error ${response.status}: ${e}`,
-        category: 'Image'
+        category: 'Image',
       })
     }
 
@@ -195,12 +178,12 @@ const ImageCaptionGenerator = ({setHasResults}) => {
     navigator.clipboard.writeText(imageCaption)
     setCaptionCopied(true)
     setTimeout(() => setCaptionCopied(false), 1500)
-    
+
     // Track caption copy
     posthog?.capture('Free Tool', {
       tool: 'Image Caption Generator',
       action: 'Copy Caption',
-      category: 'Image'
+      category: 'Image',
     })
   }
 
@@ -208,7 +191,8 @@ const ImageCaptionGenerator = ({setHasResults}) => {
     setImage(null)
     setImageCaption('')
     setErrorText(null)
-    setSelectedVibe('fun')
+    // Scroll to the image upload input
+    window.scrollTo({ top: 200, behavior: 'smooth' })
   }
 
   const vibeOptions = [
@@ -224,7 +208,7 @@ const ImageCaptionGenerator = ({setHasResults}) => {
     { label: '📚 Informative', value: 'informative' },
     { label: '🥰 Cute', value: 'cute' },
     { label: '😎 Cool', value: 'cool' },
-    { label: '🔥 Controversial', value: 'controversial' }
+    { label: '🔥 Controversial', value: 'controversial' },
   ]
 
   return (
@@ -235,19 +219,11 @@ const ImageCaptionGenerator = ({setHasResults}) => {
           {!imageCaption && (
             <>
               <div className="mb-4">
-                <label
-                  htmlFor="image-upload"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Upload Image
-                </label>
-                <input
-                  id="image-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isComputing}
-                  className="block w-full cursor-pointer text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cyan-600 file:ring-2 file:ring-inset file:ring-cyan-600 hover:file:bg-cyan-50 hover:file:text-cyan-700 focus:outline-none"
+                <ImageDropZone
+                  image={image}
+                  setImage={setImage}
+                  maxSize={512}
+                  isComputing={isComputing}
                 />
               </div>
               <div className="mb-4">
@@ -256,7 +232,10 @@ const ImageCaptionGenerator = ({setHasResults}) => {
                 </label>
                 <div className="flex flex-wrap justify-center gap-2">
                   {vibeOptions.map((vibe) => (
-                    <label key={vibe.value} className="inline-flex items-center">
+                    <label
+                      key={vibe.value}
+                      className="inline-flex items-center"
+                    >
                       <input
                         type="radio"
                         name="vibe"
@@ -280,15 +259,6 @@ const ImageCaptionGenerator = ({setHasResults}) => {
               </div>
             </>
           )}
-          {image && (
-            <div className="mb-4">
-              <img
-                src={image}
-                alt="Preview"
-                className="mx-auto h-auto max-w-full rounded-lg shadow-lg"
-              />
-            </div>
-          )}
           {!imageCaption && (
             <>
               <button
@@ -304,34 +274,45 @@ const ImageCaptionGenerator = ({setHasResults}) => {
                   <>Generate Caption</>
                 )}
               </button>
-              <p className="mt-2 text-xs text-gray-500">Images are never saved</p>
+              <p className="mt-2 text-xs text-gray-500">
+                Images are never saved
+              </p>
             </>
           )}
           {imageCaption && (
-            <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
-              <p className="mb-4 text-gray-700">{imageCaption}</p>
-              <div className="flex gap-2">
-                <button
-                  onClick={copyCaption}
-                  className={clsx(
-                    'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                    captionCopied ? 'text-cyan-600' : 'text-gray-700',
-                  )}
-                >
-                  <DocumentDuplicateIcon
-                    className="mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
-                  {captionCopied ? 'Copied!' : 'Copy Caption'}
-                </button>
-                <button
-                  onClick={resetTool}
-                  className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
-                >
-                  Try Another Image
-                </button>
+            <>
+              <div className="mb-4">
+                <img
+                  src={image}
+                  alt="Preview"
+                  className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                />
               </div>
-            </div>
+              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
+                <p className="mb-4 text-gray-700">{imageCaption}</p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={copyCaption}
+                    className={clsx(
+                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                      captionCopied ? 'text-cyan-600' : 'text-gray-700',
+                    )}
+                  >
+                    <DocumentDuplicateIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    {captionCopied ? 'Copied!' : 'Copy Caption'}
+                  </button>
+                  <button
+                    onClick={resetTool}
+                    className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                  >
+                    Try Another Image
+                  </button>
+                </div>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -342,32 +323,38 @@ const ImageCaptionGenerator = ({setHasResults}) => {
 const useCases = [
   {
     name: 'Create Engaging Social Media Captions',
-    description: 'Use AI to generate creative and engaging captions for your images, perfect for boosting social media engagement and reach.',
+    description:
+      'Use AI to generate creative and engaging captions for your images, perfect for boosting social media engagement and reach.',
     icon: ChatBubbleLeftRightIcon,
   },
   {
     name: 'Generate Captions for Content Marketing',
-    description: 'Automatically create compelling image captions for blog posts and landing pages, enhancing your content marketing with optimized text.',
+    description:
+      'Automatically create compelling image captions for blog posts and landing pages, enhancing your content marketing with optimized text.',
     icon: MegaphoneIcon,
   },
   {
     name: 'Craft Personalized Image Captions for E-commerce',
-    description: 'Generate product-specific captions that help convert visitors into buyers, using AI to create engaging descriptions for your product photos.',
+    description:
+      'Generate product-specific captions that help convert visitors into buyers, using AI to create engaging descriptions for your product photos.',
     icon: ShoppingCartIcon,
   },
   {
     name: 'Optimize Captions for Instagram and Pinterest',
-    description: 'Automatically generate engaging captions for Instagram or Pinterest, increasing visibility and social media traffic.',
+    description:
+      'Automatically generate engaging captions for Instagram or Pinterest, increasing visibility and social media traffic.',
     icon: HashtagIcon,
   },
   {
     name: 'SEO-Friendly Captions for Blog Images',
-    description: 'Use AI to create SEO-optimized captions for images in your blog posts, helping to improve search engine rankings.',
+    description:
+      'Use AI to create SEO-optimized captions for images in your blog posts, helping to improve search engine rankings.',
     icon: MagnifyingGlassIcon,
   },
   {
     name: 'Generate Accessible Image Descriptions',
-    description: 'Create detailed, descriptive captions for images to improve web accessibility, helping visually impaired users better understand your content.',
+    description:
+      'Create detailed, descriptive captions for images to improve web accessibility, helping visually impaired users better understand your content.',
     icon: EyeSlashIcon,
   },
 ]
@@ -375,27 +362,33 @@ const useCases = [
 const faqs = [
   {
     question: 'What is an AI Image Caption Generator?',
-    answer: 'An AI Image Caption Generator is a tool that uses artificial intelligence to automatically create descriptive and engaging captions for images. It analyzes the content of the image and generates relevant text to accompany it.',
+    answer:
+      'An AI Image Caption Generator is a tool that uses artificial intelligence to automatically create descriptive and engaging captions for images. It analyzes the content of the image and generates relevant text to accompany it.',
   },
   {
     question: 'How accurate are the generated captions?',
-    answer: 'The accuracy of generated captions can vary depending on the complexity of the image and the AI model used. Our tool uses advanced AI technology to provide high-quality captions, but we recommend reviewing and adjusting them as needed for your specific context.',
+    answer:
+      'The accuracy of generated captions can vary depending on the complexity of the image and the AI model used. Our tool uses advanced AI technology to provide high-quality captions, but we recommend reviewing and adjusting them as needed for your specific context.',
   },
   {
     question: 'Can I use this tool for commercial purposes?',
-    answer: 'Yes, you can use the generated captions for commercial purposes. However, we recommend reviewing and potentially editing the captions to ensure they align with your brand voice and specific needs.',
+    answer:
+      'Yes, you can use the generated captions for commercial purposes. However, we recommend reviewing and potentially editing the captions to ensure they align with your brand voice and specific needs.',
   },
   {
     question: 'Are there any limitations on image size or type?',
-    answer: 'Our tool supports most common image formats (JPEG, PNG, GIF, WEBP) and automatically resizes images to optimize processing.',
+    answer:
+      'Our tool supports most common image formats (JPEG, PNG, GIF, WEBP) and automatically resizes images to optimize processing.',
   },
   {
     question: 'How can I improve the quality of generated captions?',
-    answer: 'To get better results, use high-quality images with clear subjects and try selecting different vibes or tones. You can also use the generated caption as a starting point and refine it manually to better fit your needs.',
+    answer:
+      'To get better results, use high-quality images with clear subjects and try selecting different vibes or tones. You can also use the generated caption as a starting point and refine it manually to better fit your needs.',
   },
   {
     question: 'Are there any usage limits for this tool?',
-    answer: 'You can generate a limited number of captions per day without creating an account. For increased usage, you can sign up for a free account to get a higher daily limit. This allows you to use the tool more extensively while still enjoying it at no cost.',
+    answer:
+      'You can generate a limited number of captions per day without creating an account. For increased usage, you can sign up for a free account to get a higher daily limit. This allows you to use the tool more extensively while still enjoying it at no cost.',
   },
 ]
 
@@ -444,9 +437,10 @@ export default function ImageCaptionPage({ starRatingData }) {
                   100% Free AI Image Caption Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate creative captions for any image using our AI-powered tool. 
-                  No login required. Perfect for Instagram, ALT text, and social media posts. 
-                  Choose from multiple tones to craft the perfect caption.
+                  Generate creative captions for any image using our AI-powered
+                  tool. No login required. Perfect for Instagram, ALT text, and
+                  social media posts. Choose from multiple tones to craft the
+                  perfect caption.
                 </p>
                 <ImageCaptionGenerator setHasResults={setHasResults} />
                 <StarRating
@@ -472,41 +466,51 @@ export default function ImageCaptionPage({ starRatingData }) {
                     How to Use Our Free AI Image Caption Generator
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Follow these simple steps to create engaging captions for your images in seconds, no login required.
+                    Follow these simple steps to create engaging captions for
+                    your images in seconds, no login required.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
                   <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     <div className="flex flex-col">
                       <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">1</span>
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          1
+                        </span>
                         Upload Your Image
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Select and upload the image you want to caption. Our tool supports various image formats.
+                          Select and upload the image you want to caption. Our
+                          tool supports various image formats.
                         </p>
                       </dd>
                     </div>
                     <div className="flex flex-col">
                       <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">2</span>
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          2
+                        </span>
                         Choose a Vibe
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Select the desired tone or vibe for your caption from our list of options.
+                          Select the desired tone or vibe for your caption from
+                          our list of options.
                         </p>
                       </dd>
                     </div>
                     <div className="flex flex-col">
                       <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">3</span>
+                        <span className="rounded-full bg-cyan-600 px-3 py-1 text-white">
+                          3
+                        </span>
                         Generate and Customize
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Click 'Generate Caption' and review the result. Adjust or refine as needed for your perfect caption.
+                          Click 'Generate Caption' and review the result. Adjust
+                          or refine as needed for your perfect caption.
                         </p>
                       </dd>
                     </div>
@@ -514,7 +518,6 @@ export default function ImageCaptionPage({ starRatingData }) {
                 </div>
               </div>
             </div>
-
 
             <div className="bg-white py-24 sm:py-32">
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -527,11 +530,16 @@ export default function ImageCaptionPage({ starRatingData }) {
                       <div key={feature.name}>
                         <dt className="text-base font-semibold leading-7 text-gray-900">
                           <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-600">
-                            <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                            <feature.icon
+                              className="h-6 w-6 text-white"
+                              aria-hidden="true"
+                            />
                           </div>
                           {feature.name}
                         </dt>
-                        <dd className="mt-1 text-base leading-7 text-gray-600">{feature.description}</dd>
+                        <dd className="mt-1 text-base leading-7 text-gray-600">
+                          {feature.description}
+                        </dd>
                       </div>
                     ))}
                   </dl>
@@ -549,7 +557,9 @@ export default function ImageCaptionPage({ starRatingData }) {
                     Use Cases for Our Free AI Image Caption Generator
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                    Discover how our AI-powered Image Caption Generator can enhance your content creation across various domains, including Instagram, ALT text, and more.
+                    Discover how our AI-powered Image Caption Generator can
+                    enhance your content creation across various domains,
+                    including Instagram, ALT text, and more.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -588,18 +598,28 @@ export default function ImageCaptionPage({ starRatingData }) {
                           <>
                             <dt>
                               <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                                <span className="text-base font-semibold leading-7">{faq.question}</span>
+                                <span className="text-base font-semibold leading-7">
+                                  {faq.question}
+                                </span>
                                 <span className="ml-6 flex h-7 items-center">
                                   {open ? (
-                                    <MinusIcon className="h-6 w-6" aria-hidden="true" />
+                                    <MinusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
                                   ) : (
-                                    <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                                    <PlusIcon
+                                      className="h-6 w-6"
+                                      aria-hidden="true"
+                                    />
                                   )}
                                 </span>
                               </Disclosure.Button>
                             </dt>
                             <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                              <p className="text-base leading-7 text-gray-600">{faq.answer}</p>
+                              <p className="text-base leading-7 text-gray-600">
+                                {faq.answer}
+                              </p>
                             </Disclosure.Panel>
                           </>
                         )}

@@ -6,7 +6,16 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { DocumentDuplicateIcon, PencilSquareIcon, CameraIcon, EyeIcon, GlobeAltIcon, ClipboardDocumentIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+import {
+  DocumentDuplicateIcon,
+  PencilSquareIcon,
+  CameraIcon,
+  EyeIcon,
+  GlobeAltIcon,
+  ClipboardDocumentIcon,
+  MinusIcon,
+  PlusIcon,
+} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { unified } from 'unified'
@@ -17,56 +26,43 @@ import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
-
-const resizeImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const img = new Image()
-      img.onload = () => {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(2048 / img.width, 2048 / img.height)
-        canvas.width = img.width * scaleFactor
-        canvas.height = img.height * scaleFactor
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        resolve(canvas.toDataURL('image/jpeg'))
-      }
-      img.src = e.target.result
-    }
-    reader.readAsDataURL(file)
-  })
-}
+import ImageDropZone from '@/components/ImageDropZone'
 
 const useCases = [
   {
     name: 'Digitize Printed Documents',
-    description: 'Convert scanned books, articles, and documents into editable and searchable text, saving time on manual transcription.',
+    description:
+      'Convert scanned books, articles, and documents into editable and searchable text, saving time on manual transcription.',
     icon: DocumentDuplicateIcon,
   },
   {
     name: 'Transcribe Handwritten Notes',
-    description: 'Transform handwritten notes, letters, and journals into digital text for easy archiving and searching.',
+    description:
+      'Transform handwritten notes, letters, and journals into digital text for easy archiving and searching.',
     icon: PencilSquareIcon,
   },
   {
     name: 'Extract Text from Images',
-    description: 'Capture text from screenshots, photos, and graphics to repurpose content or gather information quickly.',
+    description:
+      'Capture text from screenshots, photos, and graphics to repurpose content or gather information quickly.',
     icon: CameraIcon,
   },
   {
     name: 'Enhance Accessibility',
-    description: 'Create text alternatives for images, improving web accessibility for visually impaired users.',
+    description:
+      'Create text alternatives for images, improving web accessibility for visually impaired users.',
     icon: EyeIcon,
   },
   {
     name: 'Translate Visual Content',
-    description: 'Extract text from foreign language signs, menus, or documents for easy translation.',
+    description:
+      'Extract text from foreign language signs, menus, or documents for easy translation.',
     icon: GlobeAltIcon,
   },
   {
     name: 'Data Entry Automation',
-    description: 'Streamline data entry processes by automatically extracting text from forms, receipts, and business cards.',
+    description:
+      'Streamline data entry processes by automatically extracting text from forms, receipts, and business cards.',
     icon: ClipboardDocumentIcon,
   },
 ]
@@ -74,27 +70,33 @@ const useCases = [
 const faqs = [
   {
     question: 'How accurate is the image to text conversion?',
-    answer: 'Our AI-powered OCR technology offers high accuracy for most clear, well-lit images. However, factors like image quality, font complexity, and background noise can affect results. We recommend reviewing and editing the output for optimal accuracy.',
+    answer:
+      'Our AI-powered OCR technology offers high accuracy for most clear, well-lit images. However, factors like image quality, font complexity, and background noise can affect results. We recommend reviewing and editing the output for optimal accuracy.',
   },
   {
     question: 'What image formats are supported?',
-    answer: 'Our tool supports common image formats including JPEG, PNG, GIF, and WEBP. For best results, use high-resolution images with clear, contrasting text.',
+    answer:
+      'Our tool supports common image formats including JPEG, PNG, GIF, and WEBP. For best results, use high-resolution images with clear, contrasting text.',
   },
   {
     question: 'Can it handle handwritten text?',
-    answer: 'Yes, our AI can process handwritten text, though accuracy may vary depending on the clarity and style of handwriting. Printed text generally yields more accurate results.',
+    answer:
+      'Yes, our AI can process handwritten text, though accuracy may vary depending on the clarity and style of handwriting. Printed text generally yields more accurate results.',
   },
   {
     question: 'Is there a limit on image size or number of images?',
-    answer: 'There\'s no strict limit on image size, but larger images may take longer to process. We automatically resize images to optimize performance. You can process multiple images, but there\'s a daily limit for free users.',
+    answer:
+      "There's no strict limit on image size, but larger images may take longer to process. We automatically resize images to optimize performance. You can process multiple images, but there's a daily limit for free users.",
   },
   {
     question: 'How is my data handled?',
-    answer: 'We prioritize your privacy and security. Uploaded images are processed in real-time and are not stored on our servers. The extracted text is temporarily held for display and is deleted after your session ends.',
+    answer:
+      'We prioritize your privacy and security. Uploaded images are processed in real-time and are not stored on our servers. The extracted text is temporarily held for display and is deleted after your session ends.',
   },
   {
     question: 'Can I use the extracted text for commercial purposes?',
-    answer: 'Yes, you can use the extracted text for both personal and commercial purposes. However, ensure you have the necessary rights to use the original image content.',
+    answer:
+      'Yes, you can use the extracted text for both personal and commercial purposes. However, ensure you have the necessary rights to use the original image content.',
   },
 ]
 
@@ -107,24 +109,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
   const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
 
-  const handleImageUpload = useCallback(
-    async (e) => {
-      const file = e.target.files[0]
-      if (file) {
-        const resizedImage = await resizeImage(file)
-        setImage(resizedImage)
-
-        // Track image upload
-        posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
-          action: 'Upload Image',
-          category: 'Image',
-        })
-      }
-    },
-    [posthog],
-  )
-
   const extractText = async () => {
     setIsComputing(true)
     setErrorText('')
@@ -133,7 +117,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
       setErrorText('Please upload an image.')
       setIsComputing(false)
 
-      // Track no image error
       posthog?.capture('Free Tool', {
         tool: 'Image to Text Generator',
         action: 'Error',
@@ -246,6 +229,8 @@ const ImageToTextGenerator = ({ setHasResults }) => {
     setImage(null)
     setExtractedText('')
     setErrorText(null)
+    // Scroll to the image upload input
+    window.scrollTo({ top: 200, behavior: 'smooth' })
 
     // Track tool reset
     posthog?.capture('Free Tool', {
@@ -263,28 +248,11 @@ const ImageToTextGenerator = ({ setHasResults }) => {
             <Alert title={errorText} type="error" />
             {!extractedText && (
               <div className="mb-4">
-                <label
-                  htmlFor="image-upload"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Upload Image
-                </label>
-                <input
-                  id="image-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isComputing}
-                  className="block w-full cursor-pointer text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cyan-600 file:ring-2 file:ring-inset file:ring-cyan-600 hover:file:bg-cyan-50 hover:file:text-cyan-700 focus:outline-none"
-                />
-              </div>
-            )}
-            {image && (
-              <div className="mb-4">
-                <img
-                  src={image}
-                  alt="Preview"
-                  className="mx-auto h-auto max-w-full rounded-lg shadow-lg"
+                <ImageDropZone
+                  image={image}
+                  setImage={setImage}
+                  maxSize={2048}
+                  isComputing={isComputing}
                 />
               </div>
             )}
@@ -309,34 +277,43 @@ const ImageToTextGenerator = ({ setHasResults }) => {
               </>
             )}
             {extractedText && (
-              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
-                <h3 className="text-md mb-2 font-medium">Extracted Text</h3>
-                <div
-                  className="prose mb-4 min-w-full text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
-                <div className="flex gap-2">
-                  <button
-                    onClick={copyText}
-                    className={clsx(
-                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                      textCopied ? 'text-cyan-600' : 'text-gray-700',
-                    )}
-                  >
-                    <DocumentDuplicateIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    {textCopied ? 'Copied!' : 'Copy Text'}
-                  </button>
-                  <button
-                    onClick={resetTool}
-                    className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
-                  >
-                    Try Another Image
-                  </button>
+              <>
+                <div className="mb-4">
+                  <img
+                    src={image}
+                    alt="Preview"
+                    className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                  />
                 </div>
-              </div>
+                <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
+                  <h3 className="text-md mb-2 font-medium">Extracted Text</h3>
+                  <div
+                    className="prose mb-4 min-w-full text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={copyText}
+                      className={clsx(
+                        'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                        textCopied ? 'text-cyan-600' : 'text-gray-700',
+                      )}
+                    >
+                      <DocumentDuplicateIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      {textCopied ? 'Copied!' : 'Copy Text'}
+                    </button>
+                    <button
+                      onClick={resetTool}
+                      className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                    >
+                      Try Another Image
+                    </button>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -419,7 +396,8 @@ export default function ImageToTextPage({ starRatingData }) {
                     How to Use Our AI Image to Text Converter
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Follow these simple steps to extract text from your images in seconds.
+                    Follow these simple steps to extract text from your images
+                    in seconds.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -433,7 +411,8 @@ export default function ImageToTextPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Select and upload the image containing the text you want to extract. We support various image formats.
+                          Select and upload the image containing the text you
+                          want to extract. We support various image formats.
                         </p>
                       </dd>
                     </div>
@@ -446,7 +425,8 @@ export default function ImageToTextPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Click the 'Extract Text' button and let our AI analyze your image and convert it to text.
+                          Click the 'Extract Text' button and let our AI analyze
+                          your image and convert it to text.
                         </p>
                       </dd>
                     </div>
@@ -459,7 +439,8 @@ export default function ImageToTextPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Review the extracted text, make any necessary edits, and copy it with a single click for your use.
+                          Review the extracted text, make any necessary edits,
+                          and copy it with a single click for your use.
                         </p>
                       </dd>
                     </div>
@@ -478,7 +459,9 @@ export default function ImageToTextPage({ starRatingData }) {
                     Use Cases for Our AI Image to Text Converter
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                    Discover how our AI-powered Image to Text Converter can streamline your workflow and enhance productivity across various domains.
+                    Discover how our AI-powered Image to Text Converter can
+                    streamline your workflow and enhance productivity across
+                    various domains.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

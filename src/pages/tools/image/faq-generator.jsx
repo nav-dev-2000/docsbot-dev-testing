@@ -30,26 +30,7 @@ import {
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
-
-const resizeImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const img = new Image()
-      img.onload = () => {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(1024 / img.width, 1024 / img.height)
-        canvas.width = img.width * scaleFactor
-        canvas.height = img.height * scaleFactor
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        resolve(canvas.toDataURL('image/jpeg'))
-      }
-      img.src = e.target.result
-    }
-    reader.readAsDataURL(file)
-  })
-}
+import ImageDropZone from '@/components/ImageDropZone'
 
 const ImageToFAQGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
@@ -61,14 +42,6 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
   const [textCopied, setTextCopied] = useState(false)
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const posthog = usePostHog()
-
-  const handleImageUpload = useCallback(async (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      const resizedImage = await resizeImage(file)
-      setImage(resizedImage)
-    }
-  }, [])
 
   const generateFAQs = async () => {
     setIsComputing(true)
@@ -186,6 +159,7 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
     setFaqs('')
     setErrorText(null)
     setHasResults(false)
+    window.scrollTo({ top: 200, behavior: 'smooth' })
 
     // Track tool reset
     posthog?.capture('Free Tool', {
@@ -224,28 +198,11 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
             <Alert title={errorText} type="error" />
             {!faqs && (
               <div className="mb-4">
-                <label
-                  htmlFor="image-upload"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Upload Image
-                </label>
-                <input
-                  id="image-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isComputing}
-                  className="block w-full cursor-pointer text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cyan-600 file:ring-2 file:ring-inset file:ring-cyan-600 hover:file:bg-cyan-50 hover:file:text-cyan-700 focus:outline-none"
-                />
-              </div>
-            )}
-            {image && (
-              <div className="mb-4">
-                <img
-                  src={image}
-                  alt="Preview"
-                  className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                <ImageDropZone
+                  image={image}
+                  setImage={setImage}
+                  maxSize={1024}
+                  isComputing={isComputing}
                 />
               </div>
             )}
@@ -270,47 +227,56 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
               </>
             )}
             {faqs && (
-              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
-                <h3 className="text-md mb-2 font-medium">FAQs</h3>
-                <div
-                  className="prose mb-4 min-w-full text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
-                <div className="flex gap-2">
-                  <button
-                    onClick={copyFAQsAsText}
-                    className={clsx(
-                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                      textCopied ? 'text-cyan-600' : 'text-gray-700',
-                    )}
-                  >
-                    <DocumentDuplicateIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    {textCopied ? 'Copied!' : 'Copy as Text'}
-                  </button>
-                  <button
-                    onClick={copyFAQsAsMarkdown}
-                    className={clsx(
-                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                      markdownCopied ? 'text-cyan-600' : 'text-gray-700',
-                    )}
-                  >
-                    <CodeBracketIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
-                  </button>
-                  <button
-                    onClick={resetTool}
-                    className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
-                  >
-                    Try Another Image
-                  </button>
+              <>
+                <div className="mb-4">
+                  <img
+                    src={image}
+                    alt="Preview"
+                    className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                  />
                 </div>
-              </div>
+                <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
+                  <h3 className="text-md mb-2 font-medium">FAQs</h3>
+                  <div
+                    className="prose mb-4 min-w-full text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={copyFAQsAsText}
+                      className={clsx(
+                        'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                        textCopied ? 'text-cyan-600' : 'text-gray-700',
+                      )}
+                    >
+                      <DocumentDuplicateIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      {textCopied ? 'Copied!' : 'Copy as Text'}
+                    </button>
+                    <button
+                      onClick={copyFAQsAsMarkdown}
+                      className={clsx(
+                        'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                        markdownCopied ? 'text-cyan-600' : 'text-gray-700',
+                      )}
+                    >
+                      <CodeBracketIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      {markdownCopied ? 'Copied!' : 'Copy as Markdown'}
+                    </button>
+                    <button
+                      onClick={resetTool}
+                      className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                    >
+                      Try Another Image
+                    </button>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>

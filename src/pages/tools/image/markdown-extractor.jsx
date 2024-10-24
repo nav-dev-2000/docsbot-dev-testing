@@ -6,7 +6,10 @@ import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
-import { BuildingLibraryIcon, CodeBracketSquareIcon } from '@heroicons/react/24/outline'
+import {
+  BuildingLibraryIcon,
+  CodeBracketSquareIcon,
+} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
 import { unified } from 'unified'
@@ -16,35 +19,16 @@ import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/20/solid'
-import { 
-  NewspaperIcon, 
-  ChatBubbleBottomCenterTextIcon, 
-  BookOpenIcon, 
-  EyeIcon, 
-  ViewfinderCircleIcon 
+import {
+  NewspaperIcon,
+  ChatBubbleBottomCenterTextIcon,
+  BookOpenIcon,
+  EyeIcon,
+  ViewfinderCircleIcon,
 } from '@heroicons/react/24/outline'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
-
-const resizeImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      const img = new Image()
-      img.onload = () => {
-        const canvas = document.createElement('canvas')
-        const ctx = canvas.getContext('2d')
-        const scaleFactor = Math.min(1024 / img.width, 1024 / img.height)
-        canvas.width = img.width * scaleFactor
-        canvas.height = img.height * scaleFactor
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-        resolve(canvas.toDataURL('image/jpeg'))
-      }
-      img.src = e.target.result
-    }
-    reader.readAsDataURL(file)
-  })
-}
+import ImageDropZone from '@/components/ImageDropZone'
 
 const ImageToMarkdownConverter = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
@@ -58,24 +42,6 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
   useEffect(() => {
     setHasResults(!!extractedMarkdown)
   }, [extractedMarkdown, setHasResults])
-
-  const handleImageUpload = useCallback(
-    async (e) => {
-      const file = e.target.files[0]
-      if (file) {
-        const resizedImage = await resizeImage(file)
-        setImage(resizedImage)
-
-        // Track image upload
-        posthog?.capture('Free Tool', {
-          tool: 'Image to Markdown Converter',
-          action: 'Upload Image',
-          category: 'Image',
-        })
-      }
-    },
-    [posthog],
-  )
 
   const extractMarkdown = async () => {
     setIsComputing(true)
@@ -211,28 +177,11 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
             <Alert title={errorText} type="error" />
             {!extractedMarkdown && (
               <div className="mb-4">
-                <label
-                  htmlFor="image-upload"
-                  className="mb-2 block text-sm font-medium text-gray-700"
-                >
-                  Upload Image
-                </label>
-                <input
-                  id="image-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isComputing}
-                  className="block w-full cursor-pointer text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-white file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cyan-600 file:ring-2 file:ring-inset file:ring-cyan-600 hover:file:bg-cyan-50 hover:file:text-cyan-700 focus:outline-none"
-                />
-              </div>
-            )}
-            {image && (
-              <div className="mb-4">
-                <img
-                  src={image}
-                  alt="Preview"
-                  className="mx-auto h-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                <ImageDropZone
+                  image={image}
+                  setImage={setImage}
+                  maxSize={1024}
+                  isComputing={isComputing}
                 />
               </div>
             )}
@@ -257,34 +206,45 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
               </>
             )}
             {extractedMarkdown && (
-              <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
-                <h3 className="text-md mb-2 font-medium">Extracted Markdown</h3>
-                <div
-                  className="prose mb-4 min-w-full text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
-                <div className="flex gap-2">
-                  <button
-                    onClick={copyMarkdown}
-                    className={clsx(
-                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                      markdownCopied ? 'text-cyan-600' : 'text-gray-700',
-                    )}
-                  >
-                    <CodeBracketSquareIcon
-                      className="mr-2 h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    {markdownCopied ? 'Copied!' : 'Copy Markdown'}
-                  </button>
-                  <button
-                    onClick={resetTool}
-                    className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
-                  >
-                    Try Another Image
-                  </button>
+              <>
+                <div className="mb-4">
+                  <img
+                    src={image}
+                    alt="Preview"
+                    className="mx-auto max-h-[60vh] max-w-full rounded-lg shadow-lg"
+                  />
                 </div>
-              </div>
+                <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
+                  <h3 className="text-md mb-2 font-medium">
+                    Extracted Markdown
+                  </h3>
+                  <div
+                    className="prose mb-4 min-w-full text-gray-700"
+                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={copyMarkdown}
+                      className={clsx(
+                        'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                        markdownCopied ? 'text-cyan-600' : 'text-gray-700',
+                      )}
+                    >
+                      <CodeBracketSquareIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      {markdownCopied ? 'Copied!' : 'Copy Markdown'}
+                    </button>
+                    <button
+                      onClick={resetTool}
+                      className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                    >
+                      Try Another Image
+                    </button>
+                  </div>
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -296,32 +256,38 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
 const useCases = [
   {
     name: 'Enhance AI Training Data',
-    description: 'Convert image-based content into markdown format to create rich, structured datasets for training language models and chatbots.',
+    description:
+      'Convert image-based content into markdown format to create rich, structured datasets for training language models and chatbots.',
     icon: BuildingLibraryIcon,
   },
   {
     name: 'Streamline Content Publishing',
-    description: 'Transform screenshots and image-based content into markdown for quick integration into blogs, wikis, and documentation systems.',
+    description:
+      'Transform screenshots and image-based content into markdown for quick integration into blogs, wikis, and documentation systems.',
     icon: NewspaperIcon,
   },
   {
     name: 'Improve LLM Context',
-    description: 'Extract markdown from images to provide better context for large language models, enhancing their understanding and responses.',
+    description:
+      'Extract markdown from images to provide better context for large language models, enhancing their understanding and responses.',
     icon: ChatBubbleBottomCenterTextIcon,
   },
   {
     name: 'Automate Knowledge Base Creation',
-    description: 'Convert image-heavy documents into searchable, markdown-formatted knowledge bases for AI-powered chatbots and virtual assistants.',
+    description:
+      'Convert image-heavy documents into searchable, markdown-formatted knowledge bases for AI-powered chatbots and virtual assistants.',
     icon: BookOpenIcon,
   },
   {
     name: 'Enhance Content Accessibility',
-    description: 'Transform visual content into markdown, making it more accessible for screen readers and improving SEO for AI-driven content discovery.',
+    description:
+      'Transform visual content into markdown, making it more accessible for screen readers and improving SEO for AI-driven content discovery.',
     icon: EyeIcon,
   },
   {
     name: 'Facilitate Multi-Modal AI',
-    description: 'Bridge the gap between visual and textual data by converting images to markdown, enabling more sophisticated multi-modal AI applications.',
+    description:
+      'Bridge the gap between visual and textual data by converting images to markdown, enabling more sophisticated multi-modal AI applications.',
     icon: ViewfinderCircleIcon,
   },
 ]
@@ -329,27 +295,34 @@ const useCases = [
 const faqs = [
   {
     question: 'How can this tool benefit AI and LLM developers?',
-    answer: 'Our Image to Markdown Extractor is invaluable for AI and LLM developers. It allows you to convert visual information into structured markdown, which can be used to enhance training datasets, improve context understanding for language models, and create more comprehensive knowledge bases for chatbots and virtual assistants.',
+    answer:
+      'Our Image to Markdown Extractor is invaluable for AI and LLM developers. It allows you to convert visual information into structured markdown, which can be used to enhance training datasets, improve context understanding for language models, and create more comprehensive knowledge bases for chatbots and virtual assistants.',
   },
   {
     question: 'Can I use the extracted markdown for training custom AI models?',
-    answer: 'Absolutely! The markdown extracted from images can be an excellent source of structured data for training custom AI models, including language models and chatbots. It helps in creating diverse and rich datasets that combine visual and textual information.',
+    answer:
+      'Absolutely! The markdown extracted from images can be an excellent source of structured data for training custom AI models, including language models and chatbots. It helps in creating diverse and rich datasets that combine visual and textual information.',
   },
   {
     question: 'How does this tool support content publishers and marketers?',
-    answer: 'Content publishers and marketers can use this tool to quickly convert image-based content, infographics, or screenshots into markdown format. This streamlines the process of repurposing visual content for blogs, social media, and other digital platforms, saving time and maintaining consistency in content structure.',
+    answer:
+      'Content publishers and marketers can use this tool to quickly convert image-based content, infographics, or screenshots into markdown format. This streamlines the process of repurposing visual content for blogs, social media, and other digital platforms, saving time and maintaining consistency in content structure.',
   },
   {
     question: 'Is the extracted markdown suitable for SEO optimization?',
-    answer: 'Yes, the markdown extracted from images can significantly boost SEO efforts. It allows search engines to index the content within images, improving discoverability. Additionally, you can easily modify the extracted markdown to include relevant keywords and meta-information, enhancing your content\'s SEO performance.',
+    answer:
+      "Yes, the markdown extracted from images can significantly boost SEO efforts. It allows search engines to index the content within images, improving discoverability. Additionally, you can easily modify the extracted markdown to include relevant keywords and meta-information, enhancing your content's SEO performance.",
   },
   {
     question: 'How can this tool enhance chatbot development?',
-    answer: 'For chatbot developers, this tool offers a way to convert visual information into text-based data that chatbots can process. This is particularly useful for creating comprehensive knowledge bases, handling image-based queries, and improving the chatbot\'s ability to understand and respond to diverse types of input.',
+    answer:
+      "For chatbot developers, this tool offers a way to convert visual information into text-based data that chatbots can process. This is particularly useful for creating comprehensive knowledge bases, handling image-based queries, and improving the chatbot's ability to understand and respond to diverse types of input.",
   },
   {
-    question: 'Can the extracted markdown be used in multi-modal AI applications?',
-    answer: 'Definitely! The markdown extracted from images serves as a bridge between visual and textual data, making it ideal for multi-modal AI applications. It allows you to create datasets and models that can process and understand information across different modalities, leading to more sophisticated and versatile AI systems.',
+    question:
+      'Can the extracted markdown be used in multi-modal AI applications?',
+    answer:
+      'Definitely! The markdown extracted from images serves as a bridge between visual and textual data, making it ideal for multi-modal AI applications. It allows you to create datasets and models that can process and understand information across different modalities, leading to more sophisticated and versatile AI systems.',
   },
 ]
 
@@ -428,7 +401,8 @@ export default function ImageToMarkdownPage({ starRatingData }) {
                     How to Use Our AI Image to Markdown Converter
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-600">
-                    Follow these simple steps to transform your images into structured markdown in seconds.
+                    Follow these simple steps to transform your images into
+                    structured markdown in seconds.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -442,7 +416,9 @@ export default function ImageToMarkdownPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Select and upload the image containing the content you want to convert to markdown. We support various image formats.
+                          Select and upload the image containing the content you
+                          want to convert to markdown. We support various image
+                          formats.
                         </p>
                       </dd>
                     </div>
@@ -455,7 +431,9 @@ export default function ImageToMarkdownPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Click the 'Extract Markdown' button and let our AI analyze your image and convert it to structured markdown.
+                          Click the 'Extract Markdown' button and let our AI
+                          analyze your image and convert it to structured
+                          markdown.
                         </p>
                       </dd>
                     </div>
@@ -468,7 +446,9 @@ export default function ImageToMarkdownPage({ starRatingData }) {
                       </dt>
                       <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                         <p className="flex-auto">
-                          Review the extracted markdown, make any necessary edits, and copy it for use in your AI training, content publishing, or chatbot development projects.
+                          Review the extracted markdown, make any necessary
+                          edits, and copy it for use in your AI training,
+                          content publishing, or chatbot development projects.
                         </p>
                       </dd>
                     </div>
@@ -487,7 +467,9 @@ export default function ImageToMarkdownPage({ starRatingData }) {
                     Use Cases for Our AI Image to Markdown Converter
                   </p>
                   <p className="mt-6 text-lg leading-8 text-gray-300">
-                    Discover how our AI-powered Image to Markdown Converter can revolutionize your AI development, content publishing, and chatbot creation workflows.
+                    Discover how our AI-powered Image to Markdown Converter can
+                    revolutionize your AI development, content publishing, and
+                    chatbot creation workflows.
                   </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
