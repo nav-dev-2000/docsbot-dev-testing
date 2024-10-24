@@ -21,6 +21,12 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'PDF to Image Converter',
+    href: '/tools/pdf/to-image',
+    ogImage: '/images/og/pdf-image.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',
@@ -171,11 +177,5 @@ export const freeTools = [
     href: '/ai-terms-glossary',
     ogImage: '/images/og/glossary.png',
     category: 'AI',
-  },
-  {
-    name: 'PDF to Image Converter',
-    href: '/tools/pdf/to-image',
-    ogImage: '/images/og/pdf-image.png',
-    category: 'PDF',
   },
 ];

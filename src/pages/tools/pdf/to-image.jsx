@@ -20,7 +20,8 @@ const PDFScripts = () => {
   return (
     <>
       <Script
-        strategy="beforeInteractive"
+        id="pdf-js-lib"
+        strategy="lazyOnload"
         type="module"
       >
         {`
