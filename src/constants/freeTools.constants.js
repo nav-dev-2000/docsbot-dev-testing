@@ -89,6 +89,12 @@ export const freeTools = [
     category: 'Image',
   },
   {
+    name: 'Image to Prompt Generator',
+    href: '/tools/image/prompt-generator',
+    ogImage: '/images/og/image-prompt.png',
+    category: 'Image',
+  },
+  {
     name: 'Image to Text Extractor',
     href: '/tools/image/text-extractor',
     ogImage: '/images/og/image-to-text.png',
@@ -128,6 +134,12 @@ export const freeTools = [
     name: 'Claude Prompt Generator',
     href: '/tools/prompt/claude-prompt-generator',
     ogImage: '/images/og/claude-prompt-generator.png',
+    category: 'Prompt',
+  },
+  {
+    name: 'Image to Prompt Generator',
+    href: '/tools/image/prompt-generator',
+    ogImage: '/images/og/image-prompt.png',
     category: 'Prompt',
   },
   {

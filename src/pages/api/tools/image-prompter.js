@@ -103,7 +103,23 @@ const PROMPTS = {
       ],
     },
   ],
-
+  prompt: [
+    {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          text: 'Generate a comprehensive, detailed text prompt for AI image synthesis tools (such as Midjourney, DALL-E, Stable Diffusion) focusing on creating an image indistinguishable from this original. Include all elements like style, color palette, shapes, colors, textures, and text if applicable. Ensure the prompt replicates the style perfectly, detailing textures, colors, tones, shapes, effects, fonts, and structure. The final prompt should be one or two, concise sentences.\n\nAdditional instructions: {{instructions}}',
+        },
+        {
+          type: 'image_url',
+          image_url: {
+            url: '{{image_url}}',
+          },
+      },
+    ],
+  },
+],
   // Add more types here as needed
 }
 
@@ -144,7 +160,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { image, type = 'description', vibe = 'fun' } = req.body
+      const { image, type = 'description', vibe = 'fun', instructions} = req.body
 
       if (!image) {
         return res.status(400).json({ message: 'Invalid image data.' })
@@ -185,6 +201,7 @@ export default async function handler(req, res) {
       const chatMessages = getChatParams(type, {
         image_url: `data:image/jpeg;base64,${image}`,
         vibe,
+        instructions,
       })
 
       const response = await openai.chat.completions.create({
