@@ -172,4 +172,10 @@ export const freeTools = [
     ogImage: '/images/og/glossary.png',
     category: 'AI',
   },
+  {
+    name: 'PDF to Image Converter',
+    href: '/tools/pdf/to-image',
+    ogImage: '/images/og/pdf-image.png',
+    category: 'PDF',
+  },
 ];
