@@ -18,6 +18,15 @@ function addPage(page, changefreq = 'daily') {
   </url>`
 }
 
+function generateSectionSitemap(urls, filename, changefreq = 'daily') {
+  const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(url => addPage(url, changefreq)).join('\n')}
+</urlset>`
+
+  fs.writeFileSync(`public/${filename}`, sitemap)
+  return filename
+}
+
 async function generateSitemap() {
   // Ignore Next.js specific files (e.g., _app.js) and specific directories/files
   const pages = await globby([
@@ -35,38 +44,35 @@ async function generateSitemap() {
     '!src/pages/register.{js,jsx,mdx,md}',
   ])
 
-  const comparisons = ALTERNATIVES.map((item) => ({
-    href: `/comparisons/${item.slug}-alternative`,
-  }))
+  const comparisons = ALTERNATIVES.map((item) => `/comparisons/${item.slug}-alternative`)
+  const industries = INDUSTRIES.map((item) => `/industry/${item.slug}`)
+  const glossary = GLOSSARY.map((item) => `/ai-terms-glossary/term/${item.slug}`)
+  const prompts = Object.entries(PROMPT_CATEGORIES).map(([key]) => `/prompts/${key}`)
 
-  const industries = INDUSTRIES.map((item) => ({
-    href: `/industry/${item.slug}`,
-  }))
+  // Generate individual sitemaps
+  const sitemapFiles = [
+    generateSectionSitemap(pages, 'sitemap-pages.xml'),
+    generateSectionSitemap(comparisons, 'sitemap-comparisons.xml', 'weekly'),
+    generateSectionSitemap(industries, 'sitemap-industries.xml', 'monthly'),
+    generateSectionSitemap(glossary, 'sitemap-glossary.xml', 'weekly'),
+    generateSectionSitemap(prompts, 'sitemap-prompts.xml')
+  ]
 
-  const glossary = GLOSSARY.map((item) => ({
-    href: `/ai-terms-glossary/term/${item.slug}`,
-  }))
+  // Create sitemap index
+  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapFiles.map(file => `  <sitemap>
+    <loc>https://docsbot.ai/${file}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </sitemap>`).join('\n')}
+</sitemapindex>`
 
-  const prompts = Object.entries(PROMPT_CATEGORIES).map(([key, value]) => ({
-    href: `/prompts/${key}`,
-  }))
+  fs.writeFileSync('public/sitemap-next.xml', sitemapIndex)
 
-  const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(page => addPage(page)).join('\n')}
-${comparisons.map(comparison => addPage(comparison.href, 'weekly')).join('\n')}
-${industries.map(industry => addPage(industry.href, 'monthly')).join('\n')}
-${glossary.map(glossaryItem => addPage(glossaryItem.href, 'weekly')).join('\n')}
-${prompts.map(prompt => addPage(prompt.href, 'daily')).join('\n')}
-</urlset>`
-
-  fs.writeFileSync('public/sitemap-next.xml', sitemap)
-
+  // Fetch and merge with external sitemap
   const axios = require('axios')
-
-  // Fetch the external sitemap and merge it with the existing sitemap
   const response = await axios.get('https://blog.docsbot.ai/sitemap_index.xml')
   let externalSitemap = response.data
-  externalSitemap = externalSitemap
     .replace(
       '//blog.docsbot.ai/wp-content/plugins/wordpress-seo/css/main-sitemap.xsl',
       '/main-sitemap.xsl'

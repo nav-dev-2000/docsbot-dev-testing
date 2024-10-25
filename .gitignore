@@ -37,6 +37,5 @@ firebase-account-creds.json
 googleSecretCredentials.js
 cors.json
 
-public/sitemap.xml
-public/sitemap-next.xml
+public/sitemap*
 public/latest-news.json
