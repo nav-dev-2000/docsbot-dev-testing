@@ -522,7 +522,7 @@ export default function PDFToImagesPage({ starRatingData }) {
           button="Chat with PDFs Free"
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <FreeToolsGrid />
+          <FreeToolsGrid category="Writing" />
         </div>
       </main>
       <Footer />

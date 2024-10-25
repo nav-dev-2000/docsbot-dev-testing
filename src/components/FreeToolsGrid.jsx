@@ -15,8 +15,8 @@ const FreeToolsGrid = ({ category, showTitle = true }) => {
         </h2>
       )}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredTools.map((tool) => (
-          <Link key={tool.href} href={tool.href} className="group">
+        {filteredTools.map((tool, index) => (
+          <Link key={tool.href + index} href={tool.href} className="group">
             <div className="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 group-hover:scale-105">
               <div className="relative pb-[52.36%]">
                 <Image

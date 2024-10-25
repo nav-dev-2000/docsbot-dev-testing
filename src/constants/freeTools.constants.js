@@ -27,6 +27,12 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'PDF Comparison Tool',
+    href: '/tools/pdf/compare',
+    ogImage: '/images/og/pdf-compare.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',
