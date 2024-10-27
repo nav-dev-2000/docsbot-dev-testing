@@ -25,6 +25,7 @@ import {
   BookOpenIcon,
   EyeIcon,
   ViewfinderCircleIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
@@ -222,7 +223,7 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
                     className="prose mb-4 min-w-full text-gray-700"
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
-                  <div className="flex gap-2">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     <button
                       onClick={copyMarkdown}
                       className={clsx(
@@ -240,6 +241,10 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
                       onClick={resetTool}
                       className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
                     >
+                      <ArrowPathIcon
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
                       Try Another Image
                     </button>
                   </div>

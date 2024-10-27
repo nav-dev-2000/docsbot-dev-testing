@@ -2,6 +2,7 @@ import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import { useState, useCallback, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import Link from 'next/link'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import RegisterCTA from '@/components/RegisterCTA'
@@ -13,9 +14,9 @@ import {
   PlusIcon,
   TagIcon,
   ArrowUpOnSquareStackIcon,
-  XCircleIcon,
   PaintBrushIcon,
   CameraIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
@@ -197,12 +198,12 @@ const ImagePromptGenerator = ({ setHasResults }) => {
             </>
           )}
           {prompt && (
-            <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
+            <div className="rounded-lg bg-gray-100 p-4 text-justify">
               <h3 className="text-md mb-2 font-medium">Generated Prompt</h3>
               <div className="prose mb-4 min-w-full text-gray-700">
                 {prompt}
               </div>
-              <div className="flex gap-2">
+              <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
                 <button
                   onClick={copyPrompt}
                   className={clsx(
@@ -216,11 +217,27 @@ const ImagePromptGenerator = ({ setHasResults }) => {
                   />
                   {promptCopied ? 'Copied!' : 'Copy Prompt'}
                 </button>
+                <Link
+                  href="https://www.basedlabs.ai/?via=docsbot"
+                  target="_blank"
+                  rel="noopener nofollow sponsored"
+                  className="inline-flex flex-1 items-center justify-center rounded-md bg-animation px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-700"
+                >
+                  <ArrowUpOnSquareStackIcon
+                    className="mr-2 h-5 w-5"
+                    aria-hidden="true"
+                  />
+                  Generate This Image
+                </Link>
                 <button
                   onClick={resetTool}
-                  className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                  className="inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                 >
-                  Try Another Image
+                  <ArrowPathIcon
+                    className="mr-2 h-5 w-5"
+                    aria-hidden="true"
+                  />
+                  Try Another
                 </button>
               </div>
             </div>

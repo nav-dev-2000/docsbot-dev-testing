@@ -16,6 +16,7 @@ import {
   BuildingStorefrontIcon,
   TagIcon,
   ArrowUpOnSquareStackIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
@@ -221,7 +222,7 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
                   className="prose mb-4 min-w-full text-gray-700"
                   dangerouslySetInnerHTML={{ __html: htmlContent }}
                 />
-                <div className="flex gap-2">
+                <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                   <button
                     onClick={copyDescription}
                     className={clsx(
@@ -233,12 +234,16 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
                       className="mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    {descriptionCopied ? 'Copied!' : 'Copy Description'}
+                    {descriptionCopied ? 'Copied!' : 'Copy Caption'}
                   </button>
                   <button
                     onClick={resetTool}
                     className="inline-flex flex-1 items-center justify-center rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
                   >
+                    <ArrowPathIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
                     Try Another Image
                   </button>
                 </div>
