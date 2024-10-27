@@ -159,7 +159,7 @@ const PDFToImagesGenerator = ({ setHasResults }) => {
 
       posthog?.capture('Free Tool', {
         tool: 'PDF to Image Converter',
-        action: 'Converted',
+        action: 'Used',
         category: 'PDF',
       })
     } catch (error) {

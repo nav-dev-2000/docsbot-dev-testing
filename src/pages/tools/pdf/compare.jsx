@@ -115,7 +115,8 @@ const PDFCompare = () => {
   const [pages, setPages] = useState([]);
   const [activeTab, setActiveTab] = useState('differences');
   const [currentPage, setCurrentPage] = useState(1);
-  const [isComparing, setIsComparing] = useState(false); // Add this line
+  const [isComparing, setIsComparing] = useState(false);
+  const posthog = usePostHog(); // Add this line
 
   useEffect(() => {
     if (pdf1 && pdf2) {
@@ -142,7 +143,7 @@ const PDFCompare = () => {
       return;
     }
 
-    setIsComparing(true); // Add this line
+    setIsComparing(true);
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.2.67/build/pdf.worker.min.mjs";
     try {
       // Convert files to ArrayBuffers first
@@ -175,11 +176,26 @@ const PDFCompare = () => {
       }
 
       setPages(newPages);
+      
+      // Add PostHog tracking
+      posthog?.capture('Free Tool', {
+        tool: 'PDF Comparison Tool',
+        action: 'Used',
+        category: 'PDF',
+      });
     } catch (error) {
       console.error('Error rendering PDFs:', error);
       setError('Error rendering PDFs. Please try again with valid PDF files.');
+      
+      // Add error tracking
+      posthog?.capture('Free Tool', {
+        tool: 'PDF Comparison Tool',
+        action: 'Error',
+        error: error.message,
+        category: 'PDF',
+      });
     } finally {
-      setIsComparing(false); // Add this line
+      setIsComparing(false);
     }
   };
 
