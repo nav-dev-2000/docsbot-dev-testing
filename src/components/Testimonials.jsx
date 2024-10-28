@@ -9,6 +9,8 @@ import image5 from '@/images/avatars/testimony5.jpeg'
 import image6 from '@/images/avatars/testimony6.png'
 import image7 from '@/images/avatars/testimony-sg.jpeg'
 import image8 from '@/images/avatars/avatar-default.jpg'
+import image9 from '@/images/avatars/testimony7.png'
+import image10 from '@/images/avatars/testimony8.jpeg'
 import sony from '@/images/avatars/sony-logo.jpg'
 import wingarc from '@/images/avatars/wingarc.png'
 import sentry from '@/images/avatars/sentry.png'
@@ -48,7 +50,15 @@ const testimonials = [
         image: image1,
       },
     },
-
+    {
+      content:
+        "DocsBot has become an essential part of my courses, assisting students with assignments, exams, and projects, while reinforcing key concepts from our lecture discussions. By adopting this technology, I've been able to offer a richer, more engaging learning experience that empowers students to take control of their own education.",
+      author: {
+        name: 'Brian D. Avery',
+        role: 'Instructional Associate Professor',
+        image: image9,
+      },
+    },
     {
       content:
         'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
@@ -56,15 +66,6 @@ const testimonials = [
         name: 'Igor Benić',
         role: 'Soloprenuer/Web Developer',
         image: image5,
-      },
-    },
-    {
-      content:
-        "AI assistants are now doing the work of 700 full-time agents at Klarna. They moved issue resolving times from 11 minutes with humans to two minutes with AI. And customer satisfaction is on par with human agents. And it said its resolutions are more accurate than humans, creating a 25% drop in repeat inquiries.",
-      author: {
-        name: 'Jason Calacanis',
-        role: 'All-In Podcast Host, Investor',
-        image: jasonc,
       },
     },
   ],
@@ -88,6 +89,15 @@ const testimonials = [
       },
     },
 
+    {
+      content:
+        "We were invested in building our own RAG, but the ease of use of your service made me stop our efforts, even though we're all technical people here! Good job.",
+      author: {
+        name: 'Geovanny Tejeda',
+        role: 'CTO @ BotPro',
+        image: image10,
+      },
+    },
     {
       content:
         "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
