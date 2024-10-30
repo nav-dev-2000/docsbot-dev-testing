@@ -23,6 +23,7 @@ import { LLM_PRICING } from '@/constants/llmPricing.constants'
 import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
+import { useRouter } from 'next/router'
 
 // Register Chart.js components
 ChartJS.register(
@@ -34,6 +35,52 @@ ChartJS.register(
   Tooltip,
   Legend,
 )
+
+// Add this component near the top of the file
+const ModelSelector = ({ models, selectedModel, onChange, className }) => {
+  const groupedModels = groupModelsByProvider(models)
+
+  return (
+    <select
+      value={selectedModel?.slug || ''}
+      onChange={(e) => {
+        const selected = models.find((m) => m.slug === e.target.value)
+        onChange(selected)
+      }}
+      className={clsx(
+        'block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-md sm:leading-6 text-center',
+        className,
+      )}
+    >
+      <option value="" disabled>
+        Choose model
+      </option>
+      {Object.entries(groupedModels).map(([provider, providerModels]) => (
+        <optgroup key={provider} label={getProviderInfo(provider).displayName}>
+          {providerModels
+            .sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+            .map((model) => (
+              <option key={model.slug} value={model.slug}>
+                {model.model_name}
+              </option>
+            ))}
+        </optgroup>
+      ))}
+    </select>
+  )
+}
+
+// Add this helper function
+const groupModelsByProvider = (models) => {
+  return models.reduce((acc, model) => {
+    const provider = model.provider
+    if (!acc[provider]) {
+      acc[provider] = []
+    }
+    acc[provider].push(model)
+    return acc
+  }, {})
+}
 
 const ModelPage = ({
   model_name,
@@ -135,6 +182,17 @@ const ModelPage = ({
 
   // Add state for scale type
   const [priceScale, setPriceScale] = useState('logarithmic')
+
+  // Add router and state for comparison
+  const router = useRouter()
+  const [compareModel, setCompareModel] = useState(null)
+
+  // Add handler for model comparison
+  const handleCompare = (model) => {
+    if (model && model.slug !== slug) {
+      router.push(`/models/compare/${slug}/${model.slug}`)
+    }
+  }
 
   return (
     <>
@@ -794,10 +852,13 @@ const ModelPage = ({
 
         <div className="bg-gray-900 py-12">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
-            <h2 className="mb-6 text-center text-2xl font-bold text-white">
-              More models from {providerInfo.displayName}
-            </h2>
-            <ul className="grid grid-cols-1 gap-4 text-justify sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="sm:flex sm:items-center sm:justify-between">
+              <h2 className="text-2xl font-bold text-white">
+                More models from {providerInfo.displayName}
+              </h2>
+              
+            </div>
+            <ul className="mt-6 grid grid-cols-1 gap-4 text-justify sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {LLMS.filter(
                 (item) => item.provider === provider && item.slug !== slug,
               ).map((item) => (
@@ -819,6 +880,18 @@ const ModelPage = ({
                 &larr; All AI Models
               </Link>
             </div>
+
+            <div className="mt-8 flex items-center gap-3 justify-center">
+                <span className="text-white text-lg">Compare {model_name} with:</span>
+                <div className="w-72">
+                  <ModelSelector
+                    models={LLMS.filter((m) => m.slug !== slug)}
+                    selectedModel={compareModel}
+                    onChange={handleCompare}
+                    className="bg-white"
+                  />
+                </div>
+              </div>
           </div>
         </div>
 

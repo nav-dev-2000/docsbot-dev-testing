@@ -27,8 +27,10 @@ import {
   ArrowTrendingUpIcon,
   ArrowTrendingDownIcon,
   InformationCircleIcon,
+  EqualsIcon,
 } from '@heroicons/react/24/outline'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
+import { useRouter } from 'next/router'
 
 // Register Chart.js components
 ChartJS.register(
@@ -86,7 +88,52 @@ const normalizeKnowledgeCutoff = (date) => {
   }
 }
 
+// Add this helper function
+const groupModelsByProvider = (models) => {
+  return models.reduce((acc, model) => {
+    const provider = model.provider
+    if (!acc[provider]) {
+      acc[provider] = []
+    }
+    acc[provider].push(model)
+    return acc
+  }, {})
+}
+
+// Update the ModelSelector component to have a more compact style
+const ModelSelector = ({ models, selectedModel, onChange, className }) => {
+  const groupedModels = groupModelsByProvider(models)
+
+  return (
+    <select
+      value={selectedModel.slug}
+      onChange={(e) => {
+        const selected = models.find((m) => m.slug === e.target.value)
+        onChange(selected)
+      }}
+      className={clsx(
+        'block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-md sm:leading-6 text-center',
+        className,
+      )}
+    >
+      {Object.entries(groupedModels).map(([provider, providerModels]) => (
+        <optgroup key={provider} label={getProviderInfo(provider).displayName}>
+          {providerModels
+            .sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+            .map((model) => (
+              <option key={model.slug} value={model.slug}>
+                {model.model_name}
+              </option>
+            ))}
+        </optgroup>
+      ))}
+    </select>
+  )
+}
+
 const ModelPage = ({ model1, model2 }) => {
+  const router = useRouter()
+
   const breadcrumbPages = [
     { name: 'Models', href: '/models', current: false },
     { name: 'Compare', href: null, current: false },
@@ -125,11 +172,13 @@ const ModelPage = ({ model1, model2 }) => {
       },
       {
         question: `When were ${model1.model_name} and ${model2.model_name} released?`,
-        answer: `${model1.model_name} was released on ${new Date(model1.release_date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}, while ${model2.model_name} was released on ${new Date(model2.release_date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}. ${(() => {
+        answer: `${model1.model_name} was released on ${new Date(model1.release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}, while ${model2.model_name} was released on ${new Date(model2.release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}. ${(() => {
           const date1 = new Date(model1.release_date)
           const date2 = new Date(model2.release_date)
-          const diffMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth())
-          return diffMonths === 0 
+          const diffMonths =
+            (date2.getFullYear() - date1.getFullYear()) * 12 +
+            (date2.getMonth() - date1.getMonth())
+          return diffMonths === 0
             ? 'They were released in the same month.'
             : `This makes ${model2.model_name} ${Math.abs(diffMonths)} month${Math.abs(diffMonths) === 1 ? '' : 's'} ${diffMonths > 0 ? 'newer' : 'older'} than ${model1.model_name}.`
         })()}`,
@@ -148,16 +197,18 @@ const ModelPage = ({ model1, model2 }) => {
       {
         question: `How do ${model1.model_name} and ${model2.model_name}'s prices compare?`,
         answer: `For input tokens, ${model2.model_name} ${
-          model2.input_cost_per_million_tokens >
-          model1.input_cost_per_million_tokens
-            ? 'costs more'
-            : 'costs less'
-        } ($${model2.input_cost_per_million_tokens} vs $${model1.input_cost_per_million_tokens} per million tokens). For output tokens, ${model2.model_name} ${
-          model2.output_cost_per_million_tokens >
-          model1.output_cost_per_million_tokens
-            ? 'costs more'
-            : 'costs less'
-        } ($${model2.output_cost_per_million_tokens} vs $${model1.output_cost_per_million_tokens} per million tokens).`,
+          model2.input_cost_per_million_tokens === model1.input_cost_per_million_tokens
+            ? 'costs the same as'
+            : model2.input_cost_per_million_tokens > model1.input_cost_per_million_tokens
+              ? 'costs more than' 
+              : 'costs less than'
+        } ${model1.model_name} ($${model2.input_cost_per_million_tokens} vs $${model1.input_cost_per_million_tokens} per million tokens). For output tokens, ${model2.model_name} ${
+          model2.output_cost_per_million_tokens === model1.output_cost_per_million_tokens
+            ? 'costs the same as'
+            : model2.output_cost_per_million_tokens > model1.output_cost_per_million_tokens
+              ? 'costs more than'
+              : 'costs less than'
+        } ${model1.model_name} ($${model2.output_cost_per_million_tokens} vs $${model1.output_cost_per_million_tokens} per million tokens).`,
       },
     ]
 
@@ -179,7 +230,10 @@ const ModelPage = ({ model1, model2 }) => {
       faqs.push({
         question: `What is the maximum output length of ${model1.model_name} compared to ${model2.model_name}?`,
         answer: `${(() => {
-          if (normalizeContextWindow(model2.maximum_output_tokens) === normalizeContextWindow(model1.maximum_output_tokens)) {
+          if (
+            normalizeContextWindow(model2.maximum_output_tokens) ===
+            normalizeContextWindow(model1.maximum_output_tokens)
+          ) {
             return `Both models can generate the same number of tokens per request (${model1.maximum_output_tokens} tokens).`
           }
           return `${model2.model_name} can generate ${
@@ -232,6 +286,13 @@ const ModelPage = ({ model1, model2 }) => {
 
   // Add state for scale type
   const [priceScale, setPriceScale] = useState('logarithmic')
+
+  // Add this handler
+  const handleModelChange = (newModel1, newModel2) => {
+    if (newModel1 && newModel2 && newModel1.slug !== newModel2.slug) {
+      router.push(`/models/compare/${newModel1.slug}/${newModel2.slug}`)
+    }
+  }
 
   return (
     <>
@@ -287,6 +348,24 @@ const ModelPage = ({ model1, model2 }) => {
           <div className="mx-auto mt-10 flex max-w-2xl justify-center lg:mx-0 lg:max-w-none">
             <Breadcrumb pages={breadcrumbPages} />
           </div>
+          <div className="flex items-center justify-center gap-4 text-white mt-8">
+            <span className="text-lg font-medium">Compare</span>
+            <div className="w-72">
+              <ModelSelector
+                models={LLMS}
+                selectedModel={model1}
+                onChange={(newModel) => handleModelChange(newModel, model2)}
+              />
+            </div>
+            <span className="text-lg font-medium">to</span>
+            <div className="w-72">
+              <ModelSelector
+                models={LLMS}
+                selectedModel={model2}
+                onChange={(newModel) => handleModelChange(model1, newModel)}
+              />
+            </div>
+          </div>
 
           {/* Section links */}
           <div className="mx-auto mt-10 flex max-w-2xl justify-center lg:mx-0 lg:max-w-none">
@@ -329,9 +408,9 @@ const ModelPage = ({ model1, model2 }) => {
               <div className="rounded-lg bg-gray-50 p-6">
                 <div className="mb-4 flex items-center gap-2">
                   <IconComponent1 className="h-6 w-6" />
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <Link href={`/models/${model1.slug}`} className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline">
                     {model1.model_name}
-                  </h3>
+                  </Link>
                 </div>
                 <p className="text-gray-600">{model1.description}</p>
               </div>
@@ -340,9 +419,9 @@ const ModelPage = ({ model1, model2 }) => {
               <div className="rounded-lg bg-gray-50 p-6">
                 <div className="mb-4 flex items-center gap-2">
                   <IconComponent2 className="h-6 w-6" />
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <Link href={`/models/${model2.slug}`} className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline">
                     {model2.model_name}
-                  </h3>
+                  </Link>
                 </div>
                 <p className="text-gray-600">{model2.description}</p>
               </div>
@@ -687,33 +766,47 @@ const ModelPage = ({ model1, model2 }) => {
               {/* Pricing Insights */}
               <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
                 {model2.input_cost_per_million_tokens +
-                  model2.output_cost_per_million_tokens <
+                  model2.output_cost_per_million_tokens ===
                 model1.input_cost_per_million_tokens +
                   model1.output_cost_per_million_tokens ? (
+                  <EqualsIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
+                ) : model2.input_cost_per_million_tokens +
+                  model2.output_cost_per_million_tokens <
+                  model1.input_cost_per_million_tokens +
+                    model1.output_cost_per_million_tokens ? (
                   <ArrowTrendingDownIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
                 ) : (
                   <ArrowTrendingUpIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
                 )}
                 <div>
                   <p className="font-medium text-blue-900">
-                    {model2.model_name} is{' '}
                     {model2.input_cost_per_million_tokens +
-                      model2.output_cost_per_million_tokens <
+                      model2.output_cost_per_million_tokens ===
                     model1.input_cost_per_million_tokens +
-                      model1.output_cost_per_million_tokens
-                      ? `roughly ${(
-                          (model1.input_cost_per_million_tokens +
-                            model1.output_cost_per_million_tokens) /
-                          (model2.input_cost_per_million_tokens +
-                            model2.output_cost_per_million_tokens)
-                        ).toFixed(1)}x cheaper`
-                      : `roughly ${(
-                          (model2.input_cost_per_million_tokens +
-                            model2.output_cost_per_million_tokens) /
-                          (model1.input_cost_per_million_tokens +
-                            model1.output_cost_per_million_tokens)
-                        ).toFixed(1)}x more expensive`}{' '}
-                    compared to {model1.model_name} for input and output tokens.
+                      model1.output_cost_per_million_tokens ? (
+                      `${model2.model_name} costs the same as ${model1.model_name} for input and output tokens.`
+                    ) : model2.input_cost_per_million_tokens +
+                      model2.output_cost_per_million_tokens <
+                      model1.input_cost_per_million_tokens +
+                        model1.output_cost_per_million_tokens ? (
+                      `${model2.model_name} is roughly ${(
+                        (model1.input_cost_per_million_tokens +
+                          model1.output_cost_per_million_tokens) /
+                        (model2.input_cost_per_million_tokens +
+                          model2.output_cost_per_million_tokens)
+                      ).toFixed(1)}x cheaper compared to ${
+                        model1.model_name
+                      } for input and output tokens.`
+                    ) : (
+                      `${model2.model_name} is roughly ${(
+                        (model2.input_cost_per_million_tokens +
+                          model2.output_cost_per_million_tokens) /
+                        (model1.input_cost_per_million_tokens +
+                          model1.output_cost_per_million_tokens)
+                      ).toFixed(1)}x more expensive compared to ${
+                        model1.model_name
+                      } for input and output tokens.`
+                    )}
                   </p>
                 </div>
               </div>
@@ -980,7 +1073,7 @@ const ModelPage = ({ model1, model2 }) => {
                               scope="col"
                               className="w-fit border-l border-gray-800 px-3 py-3.5 text-center text-sm font-semibold text-white"
                             >
-                              <div className="flex items-center justify-center gap-2 whitespace-nowrap text-xl">
+                              <div className="flex items-center justify-center gap-2 lg:whitespace-nowrap text-xl">
                                 {model === model1 ? (
                                   <IconComponent1 className="h-6 w-6" />
                                 ) : (
@@ -1117,13 +1210,24 @@ const ModelPage = ({ model1, model2 }) => {
                 ),
               )}
             </ul>
-            <div className="mt-8 text-center">
-              <Link
-                href="/models"
-                className="text-xl font-semibold text-cyan-400 hover:underline"
-              >
-                &larr; All AI Models
-              </Link>
+          </div>
+          {/* Model Selection */}
+          <div className="mt-12 flex items-center justify-center gap-4 text-white">
+            <span className="text-lg font-medium">Compare</span>
+            <div className="w-72">
+              <ModelSelector
+                models={LLMS}
+                selectedModel={model1}
+                onChange={(newModel) => handleModelChange(newModel, model2)}
+              />
+            </div>
+            <span className="text-lg font-medium">to</span>
+            <div className="w-72">
+              <ModelSelector
+                models={LLMS}
+                selectedModel={model2}
+                onChange={(newModel) => handleModelChange(model1, newModel)}
+              />
             </div>
           </div>
         </div>

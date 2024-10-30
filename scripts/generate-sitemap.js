@@ -49,6 +49,10 @@ async function generateSitemap() {
   const glossary = GLOSSARY.map((item) => `/ai-terms-glossary/term/${item.slug}`)
   const prompts = Object.entries(PROMPT_CATEGORIES).map(([key]) => `/prompts/${key}`)
   const models = LLMS.map((item) => `/models/${item.slug}`)
+  const modelComparisons = LLMS.flatMap((model1) =>
+    LLMS.filter((model2) => model2.slug !== model1.slug)
+      .map((model2) => `/models/compare/${model1.slug}/${model2.slug}`)
+  )
 
   // Generate individual sitemaps
   const sitemapFiles = [
@@ -58,6 +62,7 @@ async function generateSitemap() {
     generateSectionSitemap(glossary, 'sitemap-glossary.xml', 'weekly'),
     generateSectionSitemap(prompts, 'sitemap-prompts.xml'),
     generateSectionSitemap(models, 'sitemap-models.xml', 'weekly'),
+    generateSectionSitemap(modelComparisons, 'sitemap-model-comparisons.xml', 'weekly'),
   ]
 
   // Create sitemap index

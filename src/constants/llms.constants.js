@@ -27,6 +27,49 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Claude 3.5 Sonnet',
+    slug: 'claude-3-5-sonnet',
+    provider: 'anthropic',
+    description:
+      "The upgraded Claude 3.5 Sonnet delivers across-the-board improvements over its predecessor, with particularly significant gains in coding—an area where it already led the field. The model is the first frontier AI to offer computer use in public beta. It has demonstrated wide-ranging improvements on industry benchmarks, especially in coding and tool use tasks. Available through various APIs like Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+    input_context_window: '200K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-10-22',
+    knowledge_cut_off_date: 'April 2024',
+    api_providers: "Anthropic API, Amazon Bedrock, Google Cloud's Vertex AI",
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 88.91,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      'MMLU-Pro': {
+        score: 78,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      MMMU: {
+        score: 71.4,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 93.7,
+        notes: '0-shot',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      MATH: {
+        score: 78.3,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+    },
+  },
+  {
     model_name: 'Claude 3.5 Sonnet (Oct 2024)',
     slug: 'claude-3-5-sonnet-20241022',
     provider: 'anthropic',
@@ -70,11 +113,11 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Claude 3.5 Sonnet',
-    slug: 'claude-3-5-sonnet',
+    model_name: 'Claude 3.5 Sonnet (Jun 2024)',
+    slug: 'claude-3-5-sonnet-20240620',
     provider: 'anthropic',
     description:
-      'The Claude 3.5 Sonnet model, developed by Anthropic, supports an input context window of 200K tokens and can generate up to 8,192 tokens per request. It is not open source and was released on June 20, 2024, with its last knowledge cut-off in April 2024. The model is available through API from Anthropic, AWS Bedrock, and Google AI Studio, Vertex AI. It performs well across several benchmarks and costs $3.00 per million tokens for input and $15.00 for output.',
+      'The original Claude 3.5 Sonnet model, developed by Anthropic, supports an input context window of 200K tokens and can generate up to 8,192 tokens per request. It is not open source and was released on June 20, 2024, with its last knowledge cut-off in April 2024. The model is available through API from Anthropic, AWS Bedrock, and Google AI Studio, Vertex AI. It performs well across several benchmarks and costs $3.00 per million tokens for input and $15.00 for output.',
     input_context_window: '200K',
     maximum_output_tokens: '8,192',
     open_source: false,
@@ -1179,7 +1222,7 @@ const LLMS = [
   },
   {
     model_name: 'Llama 3.1 Nemotron 70B Instruct',
-    slug: 'llama-3.1-nemotron-70b-instruct',
+    slug: 'llama-3-1-nemotron-70b-instruct',
     provider: 'nvidia',
     description:
       "NVIDIA's Llama 3.1 Nemotron 70B is a language model designed for generating precise and useful responses. Leveraging Llama 3.1 70B architecture and Reinforcement Learning from Human Feedback (RLHF), it excels in automatic alignment benchmarks. This model is tailored for applications requiring high accuracy in helpfulness and response generation, suitable for diverse user queries across multiple domains.",
