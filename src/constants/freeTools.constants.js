@@ -184,4 +184,10 @@ export const freeTools = [
     ogImage: '/images/og/glossary.png',
     category: 'AI',
   },
+  {
+    name: 'LLM AI Model Directory',
+    href: '/models',
+    ogImage: '/images/og/llm-models.png',
+    category: 'AI',
+  },
 ];

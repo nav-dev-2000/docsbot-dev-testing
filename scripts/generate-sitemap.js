@@ -4,7 +4,7 @@ const { ALTERNATIVES } = require('../src/constants/alternatives.constants');
 const { INDUSTRIES } = require('../src/constants/industries.constants');
 const { PROMPT_CATEGORIES } = require('../src/constants/promptCategories.constants');
 const { GLOSSARY } = require('../src/constants/glossary.constants');
-
+const { LLMS } = require('../src/constants/llms.constants');
 function addPage(page, changefreq = 'daily') {
   //remove exstension
   const path = page
@@ -48,6 +48,7 @@ async function generateSitemap() {
   const industries = INDUSTRIES.map((item) => `/industry/${item.slug}`)
   const glossary = GLOSSARY.map((item) => `/ai-terms-glossary/term/${item.slug}`)
   const prompts = Object.entries(PROMPT_CATEGORIES).map(([key]) => `/prompts/${key}`)
+  const models = LLMS.map((item) => `/models/${item.slug}`)
 
   // Generate individual sitemaps
   const sitemapFiles = [
@@ -55,7 +56,8 @@ async function generateSitemap() {
     generateSectionSitemap(comparisons, 'sitemap-comparisons.xml', 'weekly'),
     generateSectionSitemap(industries, 'sitemap-industries.xml', 'monthly'),
     generateSectionSitemap(glossary, 'sitemap-glossary.xml', 'weekly'),
-    generateSectionSitemap(prompts, 'sitemap-prompts.xml')
+    generateSectionSitemap(prompts, 'sitemap-prompts.xml'),
+    generateSectionSitemap(models, 'sitemap-models.xml', 'weekly'),
   ]
 
   // Create sitemap index

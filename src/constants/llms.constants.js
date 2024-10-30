@@ -1,0 +1,2067 @@
+const LLMS = [
+  {
+    model_name: 'Claude Instant 1.2',
+    slug: 'claude-instant-1-2',
+    provider: 'anthropic',
+    description:
+      'Claude Instant 1.2, created by Anthropic, features a context window of 100,000 tokens. The model is priced at 0.8 cents per thousand tokens for input and 2.4 cents per thousand tokens for output. It was launched on August 9, 2023, and has shown strong performance in the MMLU benchmark with a score of 73.4 in a 5-shot scenario.',
+    input_context_window: '100K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2023-08-09',
+    knowledge_cut_off_date: 'Early 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.8,
+    output_cost_per_million_tokens: 2.4,
+    benchmarks: {
+      MMLU: {
+        score: 73.4,
+        notes: '5-shot',
+        source:
+          'https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/claude-2-model-card.pdf',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Claude 3.5 Sonnet (Oct 2024)',
+    slug: 'claude-3-5-sonnet-20241022',
+    provider: 'anthropic',
+    description:
+      "The upgraded Claude 3.5 Sonnet delivers across-the-board improvements over its predecessor, with particularly significant gains in coding—an area where it already led the field. The model is the first frontier AI to offer computer use in public beta. It has demonstrated wide-ranging improvements on industry benchmarks, especially in coding and tool use tasks. Available through various APIs like Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+    input_context_window: '200K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-10-22',
+    knowledge_cut_off_date: 'April 2024',
+    api_providers: "Anthropic API, Amazon Bedrock, Google Cloud's Vertex AI",
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 88.91,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      'MMLU-Pro': {
+        score: 78,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      MMMU: {
+        score: 71.4,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 93.7,
+        notes: '0-shot',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      MATH: {
+        score: 78.3,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+    },
+  },
+  {
+    model_name: 'Claude 3.5 Sonnet',
+    slug: 'claude-3-5-sonnet',
+    provider: 'anthropic',
+    description:
+      'The Claude 3.5 Sonnet model, developed by Anthropic, supports an input context window of 200K tokens and can generate up to 8,192 tokens per request. It is not open source and was released on June 20, 2024, with its last knowledge cut-off in April 2024. The model is available through API from Anthropic, AWS Bedrock, and Google AI Studio, Vertex AI. It performs well across several benchmarks and costs $3.00 per million tokens for input and $15.00 for output.',
+    input_context_window: '200K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-06-20',
+    knowledge_cut_off_date: 'April 2024',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 88.3,
+        notes: '0-shot CoT',
+        source:
+          'https://cdn.sanity.io/files/4zrzovbb/website/fed9cc193a14b84131812372d8d5857f8f304c52.pdf',
+      },
+      'MMLU-Pro': {
+        score: 75.1,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+      },
+      MMMU: {
+        score: 68.3,
+        notes: '0-shot CoT',
+        source:
+          'https://cdn.sanity.io/files/4zrzovbb/website/fed9cc193a14b84131812372d8d5857f8f304c52.pdf',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 92,
+        notes: '0-shot CoT',
+        source:
+          'https://cdn.sanity.io/files/4zrzovbb/website/fed9cc193a14b84131812372d8d5857f8f304c52.pdf',
+      },
+      MATH: {
+        score: 71.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Claude 3 Sonnet',
+    slug: 'claude-3-sonnet',
+    provider: 'anthropic',
+    description:
+      'Claude 3 Sonnet, developed by Anthropic, features a context window of 200,000 tokens. The model costs 0.3 cents per thousand tokens for input and 1.5 cents per thousand tokens for output. It was released on March 4, 2024, and has achieved benchmark scores of 53.1 in MMMU, 89.0 in HellaSwag (10-shot), and 81.5 in MMLU (5-shot CoT).',
+    input_context_window: '200K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-03-04',
+    knowledge_cut_off_date: 'August 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 81.5,
+        notes: '5-shot CoT',
+        source: 'https://www.anthropic.com/claude-3-model-card',
+      },
+      MMMU: {
+        score: 53.1,
+        notes: null,
+        source: 'https://mmmu-benchmark.github.io/#leaderboard',
+      },
+      HellaSwag: {
+        score: 89,
+        notes: '10-shot',
+        source: 'https://www.anthropic.com/news/claude-3-family',
+      },
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Claude 3 Opus',
+    slug: 'claude-3-opus',
+    provider: 'anthropic',
+    description:
+      'Claude 3 Opus, developed by Anthropic, features a context window of 200,000 tokens. The model costs 1.5 cents per thousand tokens for input and 7.5 cents per thousand tokens for output. It was released on March 4, 2024, and has achieved impressive scores in benchmarks like HellaSwag with a score of 95.4 in a 10-shot scenario, MMLU with a score of 88.2 in a 5-shot CoT scenario, and MMMU with a score of 59.4.',
+    input_context_window: '200K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-03-04',
+    knowledge_cut_off_date: 'August 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 15,
+    output_cost_per_million_tokens: 75,
+    benchmarks: {
+      MMLU: {
+        score: 88.2,
+        notes: '5-shot CoT',
+        source: 'https://www.anthropic.com/claude-3-model-card',
+      },
+      MMMU: {
+        score: 59.4,
+        notes: null,
+        source: 'https://mmmu-benchmark.github.io/#leaderboard',
+      },
+      HellaSwag: {
+        score: 95.4,
+        notes: '10-shot',
+        source: 'https://www.anthropic.com/news/claude-3-family',
+      },
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Claude 3 Haiku',
+    slug: 'claude-3-haiku',
+    provider: 'anthropic',
+    description:
+      'Claude 3 Haiku, developed by Anthropic, features a context window of 200,000 tokens. The model costs 0.025 cents per thousand tokens for input and 0.125 cents per thousand tokens for output. It was released on March 13, 2024. In benchmarks, it achieved a score of 50.2 in MMMU, 85.9 in HellaSwag in a 10-shot scenario, and 76.7 in MMLU in a 5-shot CoT scenario.',
+    input_context_window: '200K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-03-13',
+    knowledge_cut_off_date: 'August 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.25,
+    output_cost_per_million_tokens: 1.25,
+    benchmarks: {
+      MMLU: {
+        score: 76.7,
+        notes: '5-shot CoT',
+        source: 'https://www.anthropic.com/claude-3-model-card',
+      },
+      MMMU: {
+        score: 50.2,
+        notes: null,
+        source: 'https://mmmu-benchmark.github.io/#leaderboard',
+      },
+      HellaSwag: {
+        score: 85.9,
+        notes: '10-shot',
+        source: 'https://www.anthropic.com/news/claude-3-family',
+      },
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Claude 2.1',
+    slug: 'claude-2-1',
+    provider: 'anthropic',
+    description:
+      'Claude 2.1, developed by Anthropic, features a large context window of 200,000 tokens. The model costs 0.08 cents per thousand tokens for input and 0.24 cents per thousand tokens for output. It was released on November 23, 2023.',
+    input_context_window: '200K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2023-11-23',
+    knowledge_cut_off_date: 'Early 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 8,
+    output_cost_per_million_tokens: 24,
+    benchmarks: {
+      MMLU: null,
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Claude 2',
+    slug: 'claude-2',
+    provider: 'anthropic',
+    description:
+      'Claude 2, developed by Anthropic, features a large context window of 100,000 tokens. The model costs 0.8 cents per thousand tokens for input and 2.4 cents per thousand tokens for output. It was released on July 11, 2023, and has shown strong performance in the MMLU benchmark with a score of 78.5 in a 5-shot scenario.',
+    input_context_window: '100K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2023-07-11',
+    knowledge_cut_off_date: 'Early 2023',
+    api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 8,
+    output_cost_per_million_tokens: 24,
+    benchmarks: {
+      MMLU: {
+        score: 78.5,
+        notes: '5-shot',
+        source:
+          'https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/claude-2-model-card.pdf',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Command R+ (Aug 2024)',
+    slug: 'command-r-plus-08-2024',
+    provider: 'cohere',
+    description:
+      'Command R+ (08-2024), developed by Cohere, features a context window of 128,000 tokens. It is updated to have roughly 50% higher throughput and 25% lower latencies compared to the previous version while maintaining the same hardware footprint. The model costs $2.375 per million input tokens and $9.5 per million output tokens. It was released in August 2024.',
+    input_context_window: '128K',
+    maximum_output_tokens: '',
+    open_source: false,
+    release_date: '2024-08-30',
+    knowledge_cut_off_date: '',
+    api_providers: 'Cohere, AWS',
+    input_cost_per_million_tokens: 2.5,
+    output_cost_per_million_tokens: 10,
+    benchmarks: {
+      MMLU: {
+        score: 75,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 71,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+      MATH: {
+        score: 44,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+    },
+  },
+  {
+    model_name: 'Command R (Aug 2024)',
+    slug: 'command-r-08-2024',
+    provider: 'cohere',
+    description:
+      'Command R (08-2024), updated by Cohere, offers enhanced multilingual retrieval-augmented generation (RAG) and tool use capabilities. This version excels in performance for math, code, and reasoning, providing competitive results comparable to the previous Command R+ model.',
+    input_context_window: '128K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2024-08-30',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'Cohere, AWS',
+    input_cost_per_million_tokens: 0.15,
+    output_cost_per_million_tokens: 0.60,
+    benchmarks: {
+      MMLU: {
+        score: 67,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 70,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+      MATH: {
+        score: 40,
+        notes: null,
+        source: "https://artificialanalysis.ai/models/command-r-plus",
+      },
+    },
+  },
+  {
+    model_name: 'Gemma 2 27B',
+    slug: 'gemma-2-27b',
+    provider: 'google',
+    description:
+      'Gemma 2 27B by Google is an open model built from the same research and technology used to create the Gemini models. Gemma models are well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning.',
+    input_context_window: '8,192',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2024-06-27',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'OpenRouter',
+    input_cost_per_million_tokens: 0.27,
+    output_cost_per_million_tokens: 0.27,
+    benchmarks: {
+      MMLU: {
+        score: 75.2,
+        notes: '5-shot',
+        source: 'https://huggingface.co/google/gemma-2-27b-it',
+      },
+      'MMMU-Pro': null,
+      HellaSwag: {
+        score: 86.4,
+        notes: '10-shot',
+        source: 'https://huggingface.co/google/gemma-2-27b-it',
+      },
+      HumanEval: {
+        score: 51.8,
+        notes: 'pass@1',
+        source: 'https://huggingface.co/google/gemma-2-27b-it',
+      },
+      MATH: {
+        score: 42.3,
+        notes: '4-shot',
+        source: 'https://huggingface.co/google/gemma-2-27b-it',
+      },
+    },
+  },
+  {
+    model_name: 'Google Gemma 2 9B',
+    slug: 'google-gemma-2-9b',
+    provider: 'google',
+    description:
+      'Gemma 2 9B by Google is an advanced, open-source language model that sets a new standard for efficiency and performance in its size class. Designed for a wide variety of tasks, it empowers developers and researchers to build innovative applications, while maintaining accessibility, safety, and cost-effectiveness.',
+    input_context_window: '8,192',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2024-06-27',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'OpenRouter',
+    input_cost_per_million_tokens: 0.06,
+    output_cost_per_million_tokens: 0.06,
+    benchmarks: {
+      MMLU: {
+        score: 71.3,
+        notes: '5-shot',
+        source: 'https://huggingface.co/google/gemma-2-9b-it',
+      },
+      'MMLU-Pro': {
+        score: 52.08,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      HellaSwag: {
+        score: 81.9,
+        notes: '10-shot',
+        source: 'https://huggingface.co/google/gemma-2-9b-it',
+      },
+      HumanEval: {
+        score: 40.2,
+        notes: 'pass@1',
+        source: 'https://huggingface.co/google/gemma-2-9b-it',
+      },
+      MATH: {
+        score: 36.6,
+        notes: '4-shot',
+        source: 'https://huggingface.co/google/gemma-2-9b-it',
+      },
+    },
+  },
+
+  {
+    model_name: 'Gemini Ultra 1.0',
+    slug: 'gemini-ultra',
+    provider: 'google',
+    description:
+      'Gemini Ultra, developed by Google, features a large context window of 32768 tokens. The model has excelled in benchmarks like MMMU with a score of 59.4 in a 0-shot pass@1 scenario and MMLU with a score of 83.7 in a 5-shot scenario.',
+    input_context_window: '32.8K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-02-08',
+    knowledge_cut_off_date: 'November 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 83.7,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2312.11805.pdf',
+      },
+      MMMU: {
+        score: 59.4,
+        notes: '0-shot pass@1',
+        source: 'https://deepmind.google/technologies/gemini/#gemini-1.0',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 74.4,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MATH: {
+        score: 53.2,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini Pro 1.0',
+    slug: 'gemini-pro-1-0',
+    provider: 'google',
+    description:
+      'Gemini Pro, developed by Google, features a context window of 32768 tokens. The model costs 0.0125 cents per thousand tokens for input and 0.0375 cents per thousand tokens for output. It was released on December 13, 2023, and has achieved a score of 47.9 in the MMMU benchmark with a "pass@1" caveat and a score of 71.8 in the MMLU benchmark in a 5-shot scenario.',
+    input_context_window: '32.8K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2023-12-13',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 12.5,
+    output_cost_per_million_tokens: 37.5,
+    benchmarks: {
+      MMLU: {
+        score: 71.8,
+        notes: '5-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf',
+      },
+      MMMU: {
+        score: 47.9,
+        notes: 'pass@1',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf',
+      },
+      HellaSwag: {
+        score: 84.7,
+        notes: '10-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf',
+      },
+      HumanEval: {
+        score: 67.7,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MATH: {
+        score: 32.6,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+    },
+  },
+
+  {
+    model_name: 'Gemini 1.5 Pro (002)',
+    slug: 'gemini-1-5-pro-002',
+    provider: 'google',
+    description:
+      'Gemini 1.5 Pro, a model designed for general performance across a wide range of text, code, and multimodal tasks. It supports a long context window, multimodal capabilities, and offers improved performance on benchmarks such as MMLU and MATH. The model has reduced input and output costs by approximately 64% and 52%, respectively. It was released as part of updated Gemini models alongside Gemini 1.5 Flash. These models provide faster output, lower latency, and increased rate limits, making them more efficient for various use cases.',
+    input_context_window: '2M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-09-24',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 1.25,
+    output_cost_per_million_tokens: 5,
+    benchmarks: {
+      MMLU: null,
+      'MMLU-Pro': {
+        score: 75.8,
+        notes: '0-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      MMMU: {
+        score: 65.9,
+        notes: null,
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      HellaSwag: {
+        score: 93.3,
+        notes: '10-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      HumanEval: {
+        score: 84.1,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MATH: {
+        score: 86.5,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini 1.5 Pro (001)',
+    slug: 'gemini-1-5-pro-001',
+    provider: 'google',
+    description:
+      'Gemini 1.5 Pro by Google features a vast context window of 1,000,000 tokens. The model is priced at 0.7 cents per thousand tokens for input and 2.1 cents per thousand tokens for output. It was launched on February 15, 2024. In benchmark tests, it achieved a score of 58.5 in MMMU with a 0-shot scenario and 81.9 in MMLU with a 5-shot scenario.',
+    input_context_window: '2M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-02-15',
+    knowledge_cut_off_date: 'November 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 3.5,
+    output_cost_per_million_tokens: 10.5,
+    benchmarks: {
+      MMLU: {
+        score: 81.9,
+        notes: '5-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      'MMLU-Pro': {
+        score: 69,
+        notes: '0-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      MMMU: {
+        score: 62.2,
+        notes: '0-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      HellaSwag: {
+        score: 93.3,
+        notes: '10-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      HumanEval: {
+        score: 84.1,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MATH: {
+        score: 67.7,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini Flash 1.5 (002)',
+    slug: 'gemini-flash-1-5-002',
+    provider: 'google',
+    description:
+      'Gemini Flash, developed by Google, features a context window of 1M tokens and can generate up to 8,192 tokens in a single request. The model costs $0.13 per million tokens for input and $0.38 per million tokens for output. It was released on May 14th, 2024. Notable benchmarks include a 78.9 score on MMLU and a 56.1 score on MMMU. The model is available through Google AI Studio, Vertex AI.',
+    input_context_window: '1M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-09-24',
+    knowledge_cut_off_date: 'November 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.13,
+    output_cost_per_million_tokens: 0.38,
+    benchmarks: {
+      MMLU: null,
+      'MMLU-Pro': {
+        score: 67.3,
+        notes: '0-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      MMMU: {
+        score: 62.3,
+        notes: '0-shot pass@1',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      HellaSwag: {
+        score: 86.5,
+        notes: '10-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      HumanEval: {
+        score: 74.3,
+        notes: '0-shot',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      MATH: {
+        score: 77.9,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini Flash 1.5 (001)',
+    slug: 'gemini-flash-1-5-001',
+    provider: 'google',
+    description:
+      'Gemini Flash, developed by Google, features a context window of 1M tokens and can generate up to 8,192 tokens in a single request. The model costs $0.13 per million tokens for input and $0.38 per million tokens for output. It was released on May 14th, 2024. Notable benchmarks include a 78.9 score on MMLU and a 56.1 score on MMMU. The model is available through Google AI Studio, Vertex AI.',
+    input_context_window: '1M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-05-14',
+    knowledge_cut_off_date: 'November 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.13,
+    output_cost_per_million_tokens: 0.38,
+    benchmarks: {
+      MMLU: {
+        score: 78.9,
+        notes: '5-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      'MMLU-Pro': {
+        score: 59.1,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MMMU: {
+        score: 56.1,
+        notes: '0-shot pass@1',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      HellaSwag: {
+        score: 86.5,
+        notes: '10-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      HumanEval: {
+        score: 74.3,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MATH: {
+        score: 54.9,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini 1.5 Flash-8B',
+    slug: 'gemini-1-5-flash-8b',
+    provider: 'google',
+    description:
+      'Gemini 1.5 Flash-8B is optimized for speed and efficiency, offering enhanced performance in small prompt tasks like chat, transcription, and translation. With reduced latency, it is highly effective for real-time and large-scale operations. This model focuses on cost-effective solutions while maintaining high-quality results.',
+    input_context_window: '1M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-09-24',
+    knowledge_cut_off_date: 'November 2023',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.0375,
+    output_cost_per_million_tokens: 0.15,
+    benchmarks: {
+      MMLU: null,
+      'MMLU-Pro': {
+        score: 58.7,
+        notes: '0-shot',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      MMMU: {
+        score: 53.7,
+        notes: '0-shot pass@1',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 58.7,
+        notes: '4-shot Minerva Prompt',
+        source:
+          'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3.2 90B Vision Instruct',
+    slug: 'llama-3-2-90b-vision-instruct',
+    provider: 'meta',
+    description:
+      'The Llama 90B Vision model is a top-tier, 90-billion-parameter multimodal model designed for challenging visual reasoning and language tasks. Built on Llama 3.1, it excels in image captioning, visual question answering, and advanced image-text comprehension. The model achieved impressive scores on benchmarks like VQAv2 (78.1%), MMMU (60.3%), and DocVQA (90.1%).',
+    input_context_window: '128K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2024-09-25',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'Fireworks, Together, DeepInfra, Hyperbolic',
+    input_cost_per_million_tokens: 0.35,
+    output_cost_per_million_tokens: 0.4,
+    benchmarks: {
+      MMLU: {
+        score: 86,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+      MMMU: {
+        score: 60.3,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 68,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3.2 11B Vision Instruct',
+    slug: 'llama-3-2-11b-vision-instruct',
+    provider: 'meta',
+    description:
+      'Llama 3.2 11B Vision is an 11-billion-parameter multimodal model built on Llama 3.1, designed for visual reasoning and language tasks. It excels in image captioning, visual question answering, and document understanding, achieving strong benchmark scores like VQAv2 (75.2%), MMMU (50.7%), and DocVQA (88.4%).',
+    input_context_window: '128K',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2024-09-25',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'Fireworks, Together, DeepInfra, Hyperbolic',
+    input_cost_per_million_tokens: 0.055,
+    output_cost_per_million_tokens: 0.055,
+    benchmarks: {
+      MMLU: {
+        score: 73,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+      MMMU: {
+        score: 50.7,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 51.9,
+        notes: '0-shot CoT',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3.1 8B Instruct',
+    slug: 'llama-3-1-8b-instruct',
+    provider: 'meta',
+    description:
+      'Llama 3.1 8B Instruct, developed by Meta, features a context window of 128K tokens. The model was released on July 23rd, 2024, and achieved a score of 66.7 in the MMLU benchmark in a 5-shot scenario.',
+    input_context_window: '128K',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-07-23',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 66.7,
+        notes: '5-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 51.9,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3.1 70B Instruct',
+    slug: 'llama3-1-70b-instruct-v1',
+    provider: 'meta',
+    description:
+      "Llama 3.1 70B Instruct, provided by Meta, features a context window of 128K tokens. It has a maximum output capability of 2,048 tokens per request. Open source availability allows public use of the model's code. Released on July 23rd, 2024, with a knowledge cut-off date in December 2023, the model is accessible on various platforms, including Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, and IBM watsonx. Pricing and empirical throughput data are not available currently. Notable benchmarks include an MMLU score of 83.6 5-shot and a MATH score of 68.0 0-shot.",
+    input_context_window: '128K',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-07-23',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 83.6,
+        notes: '5-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+      'MMLU-Pro': {
+        score: 62.84,
+        notes: null,
+        source:
+          'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 68,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3.1 405B Instruct',
+    slug: 'llama-3-1-405b-instruct',
+    provider: 'meta',
+    description:
+      'Llama 3.1 405B Instruct is a model developed by Meta that supports an input context window of 128K tokens and can generate a maximum of 2,048 tokens per request. The model is open-source and was released on July 23, 2024, with a knowledge cut-off date of December 2023. It is available through various API providers including Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, and IBM watsonx.',
+    input_context_window: '128K',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-07-23',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 85.2,
+        notes: '5-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 73.8,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3 8B Instruct',
+    slug: 'llama-3-8b-instruct',
+    provider: 'meta',
+    description:
+      'Llama 3 8B Instruct, developed by Meta, features a context window of 8000 tokens. The model was released on April 18, 2024, and achieved a score of 68.4 in the MMLU benchmark.',
+    input_context_window: '8,000',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-04-18',
+    knowledge_cut_off_date: 'March 2023',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 68.4,
+        notes: '5-shot',
+        source: 'https://llama.meta.com/llama3/',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 29.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 3 70B Instruct',
+    slug: 'llama-3-70b-instruct',
+    provider: 'meta',
+    description:
+      'Llama 3 70B Instruct, developed by Meta, features a context window of 8000 tokens. The model was released on April 18, 2024, and achieved a score of 82.0 in the MMLU benchmark under a 5-shot scenario.',
+    input_context_window: '8,000',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-04-18',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 82,
+        notes: '5-shot',
+        source: 'https://llama.meta.com/llama3/',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 51,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Llama 2 Chat 70B',
+    slug: 'llama-2-chat-70b',
+    provider: 'meta',
+    description:
+      'Llama 2 Chat 70B, developed by Meta, features a context window of 4096 tokens. The model was released on July 18, 2023, and has achieved a score of 30.1 in the MMMU benchmark and 68.9 in the MMLU benchmark.',
+    input_context_window: '4,096',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2023-07-18',
+    knowledge_cut_off_date: 'September 2022',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 68.9,
+        notes: null,
+        source: 'https://llama.meta.com/llama2/',
+      },
+      MMMU: {
+        score: 30.1,
+        notes: null,
+        source: 'https://arxiv.org/pdf/2311.16502.pdf',
+      },
+      HellaSwag: {
+        score: 85.3,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2307.09288v2',
+      },
+      HumanEval: {
+        score: 29.9,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2307.09288v2',
+      },
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Llama 2 Chat 13B',
+    slug: 'llama-2-chat-13b',
+    provider: 'meta',
+    description:
+      'Llama 2 Chat 13B, developed by Meta, features a context window of 4096 tokens. The model was released on July 18, 2023, and achieved a score of 54.8 in the MMLU benchmark.',
+    input_context_window: '4,096',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2023-07-18',
+    knowledge_cut_off_date: 'September 2022',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
+    input_cost_per_million_tokens: 0,
+    output_cost_per_million_tokens: 0,
+    benchmarks: {
+      MMLU: {
+        score: 54.8,
+        notes: null,
+        source: 'https://llama.meta.com/llama2/',
+      },
+      MMMU: {
+        score: 0,
+        notes: null,
+        source: null,
+      },
+      HellaSwag: {
+        score: 80.7,
+        notes: '10-shot',
+        source: 'https://llama.meta.com/llama2/',
+      },
+      HumanEval: {
+        score: 18.3,
+        notes: '0-shot',
+        source: 'https://llama.meta.com/llama2/',
+      },
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Mistral Large 2',
+    slug: 'mistral-large-2',
+    provider: 'mistral',
+    description:
+      'Mistral Large 2, developed by Mistral, features a context window of 128K tokens. The model costs $3.00 per million tokens for input and $9.00 per million tokens for output. It was released on July 24, 2024, and achieved a score of 84.0 in the MMLU benchmark in a 5-shot scenario.',
+    input_context_window: '128K',
+    maximum_output_tokens: '8,192',
+    open_source: true,
+    release_date: '2024-07-24',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 9,
+    benchmarks: {
+      MMLU: {
+        score: 84,
+        notes: '5-shot',
+        source: 'https://mistral.ai/news/mistral-large-2407/',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Mistral Large',
+    slug: 'mistral-large',
+    provider: 'mistral',
+    description:
+      'Mistral Large, developed by Mistral, features a context window of 32000 tokens. The model is priced at 0.8 cents per thousand tokens for both input and output. It was released on February 26, 2024, and has achieved impressive scores in benchmarks like MMLU (81.2 in a 5-shot scenario) and HellaSwag (89.2 in a 10-shot scenario).',
+    input_context_window: '32K',
+    maximum_output_tokens: '4,096',
+    open_source: true,
+    release_date: '2024-02-26',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
+    input_cost_per_million_tokens: 8,
+    output_cost_per_million_tokens: 8,
+    benchmarks: {
+      MMLU: {
+        score: 81.2,
+        notes: '5-shot',
+        source: 'https://mistral.ai/news/mistral-large/',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 89.2,
+        notes: '10-shot',
+        source: 'https://mistral.ai/news/mistral-large/',
+      },
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Mistral 8x7B Instruct',
+    slug: 'mistral-8x7b-instruct',
+    provider: 'mistral',
+    description:
+      'Mistral 8x7B Instruct, developed by Mistral, features a context window of 32000 tokens. The model costs 0.07 cents per thousand tokens for both input and output. It was released on December 11, 2023, and achieved a score of 70.6 in the MMLU benchmark in a 5-shot scenario.',
+    input_context_window: '32K',
+    maximum_output_tokens: '4,096',
+    open_source: true,
+    release_date: '2023-12-11',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
+    input_cost_per_million_tokens: 0.7,
+    output_cost_per_million_tokens: 0.7,
+    benchmarks: {
+      MMLU: {
+        score: 70.6,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2401.04088.pdf',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Mistral 7B Instruct',
+    slug: 'mistral-7b-instruct',
+    provider: 'mistral',
+    description:
+      'Mistral 7B Instruct, developed by Mistral, features a large context window of 32000 tokens. The model is priced at 0.025 cents per thousand tokens for both input and output. It was released on September 27, 2023, and achieved a score of 60.1 in the MMLU benchmark under a 5-shot scenario.',
+    input_context_window: '32K',
+    maximum_output_tokens: '8,192',
+    open_source: true,
+    release_date: '2023-09-27',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
+    input_cost_per_million_tokens: 0.25,
+    output_cost_per_million_tokens: 0.25,
+    benchmarks: {
+      MMLU: {
+        score: 60.1,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2310.06825.pdf',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'Llama 3.1 Nemotron 70B Instruct',
+    slug: 'llama-3.1-nemotron-70b-instruct',
+    provider: 'nvidia',
+    description:
+      "NVIDIA's Llama 3.1 Nemotron 70B is a language model designed for generating precise and useful responses. Leveraging Llama 3.1 70B architecture and Reinforcement Learning from Human Feedback (RLHF), it excels in automatic alignment benchmarks. This model is tailored for applications requiring high accuracy in helpfulness and response generation, suitable for diverse user queries across multiple domains.",
+    input_context_window: '128K',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2023-10-15',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'OpenRouter',
+    input_cost_per_million_tokens: 0.35,
+    output_cost_per_million_tokens: 0.4,
+    benchmarks: {
+      MMLU: {
+        score: 85,
+        notes: '5-shot',
+        source:
+          'https://artificialanalysis.ai/models/llama-3-1-nemotron-instruct-70b',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 75,
+        notes: null,
+        source:
+          'https://artificialanalysis.ai/models/llama-3-1-nemotron-instruct-70b',
+      },
+      MATH: {
+        score: 71,
+        notes: null,
+        source:
+          'https://artificialanalysis.ai/models/llama-3-1-nemotron-instruct-70b',
+      },
+    },
+  },
+  {
+    model_name: 'o1 Preview',
+    slug: 'o1-preview',
+    provider: 'openai',
+    description:
+      "The o1 Preview model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released on September 12, 2024. Its knowledge is up-to-date as of October 2023, and OpenAI is the only API provider. The model's input costs $15 per million tokens, and the output costs $60 per million tokens.",
+    input_context_window: '128K',
+    maximum_output_tokens: '32.8K',
+    open_source: false,
+    release_date: '2024-09-12',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 15,
+    output_cost_per_million_tokens: 60,
+    benchmarks: {
+      MMLU: {
+        score: 92.3,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      MMMU: {
+        score: 78.2,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MATH: {
+        score: 85.5,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+    },
+  },
+  {
+    model_name: 'o1 Preview 2024-09-12',
+    slug: 'o1-preview-2024-09-12',
+    provider: 'openai',
+    description:
+      'o1 Preview 2024-09-12 is a model provided by OpenAI. It features an input context window of 128K tokens and a maximum output of 32.8K tokens. The model is not open-sourced and was released on September 12th, 2024. The knowledge cut-off date for this model is October 2023 and its API provider is OpenAI. It costs $15.00 per million tokens for input and $60.00 per million tokens for output.',
+    input_context_window: '128K',
+    maximum_output_tokens: '32.8K',
+    open_source: false,
+    release_date: '2024-09-12',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 15,
+    output_cost_per_million_tokens: 60,
+    benchmarks: {
+      MMLU: {
+        score: 92.3,
+        notes: 'pass@1',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      MMMU: {
+        score: 78.2,
+        notes: 'pass@1',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: {
+        score: 85.5,
+        notes: 'pass@1',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+    },
+  },
+  {
+    model_name: 'o1 Mini',
+    slug: 'o1-mini',
+    provider: 'openai',
+    description:
+      "The o1 Mini model, developed by OpenAI, features an input context window of 128K tokens. Capable of generating up to 65.5K tokens in a single request, this model was first released on September 12th, 2024. The knowledge cut-off date for the model is October 2023. It is not open source, and the model's input costs $3 per million tokens, while output generation costs $12 per million tokens. No benchmark results are available.",
+    input_context_window: '128K',
+    maximum_output_tokens: '65.5K',
+    open_source: false,
+    release_date: '2024-09-12',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 12,
+    benchmarks: {
+      MMLU: {
+        score: 85.2,
+        notes: '0-shot CoT',
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MATH: {
+        score: 90.0,
+        notes: '0-shot CoT',
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+    },
+  },
+  {
+    model_name: 'o1 Mini 2024-09-12',
+    slug: 'o1-mini-2024-09-12',
+    provider: 'openai',
+    description:
+      'o1 Mini, developed by OpenAI, features a context window of 128K tokens. It was released on September 12, 2024, with a knowledge cut-off date in October 2023. The input cost is $3.00 per million tokens, and the output cost is $12.00 per million tokens. API providers include OpenAI.',
+    input_context_window: '128K',
+    maximum_output_tokens: '65.5K',
+    open_source: false,
+    release_date: '2024-09-12',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 12,
+    benchmarks: {
+      MMLU: {
+        score: 85.2,
+        notes: '0-shot CoT',
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MATH: {
+        score: 90.0,
+        notes: '0-shot CoT',
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4o Mini',
+    slug: 'gpt-4o-mini',
+    provider: 'openai',
+    description:
+      'GPT-4o Mini, developed by OpenAI, features a context window of 128K tokens and can generate up to 16.4K tokens in a single request. The model has an empirical throughput of 85.2 tokens per second and was released on July 18th, 2024. It was last updated with new knowledge in October 2023. The model costs $0.15 per million tokens for input and $0.60 per million tokens for output. MMLU benchmark achieved a score of 82.0 in a 5-shot scenario.',
+    input_context_window: '128K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2024-07-18',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 0.15,
+    output_cost_per_million_tokens: 0.6,
+    benchmarks: {
+      MMLU: {
+        score: 82,
+        notes: '5-shot',
+        source:
+          'https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/',
+      },
+      'MMLU-Pro': {
+        score: 63.09,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: {
+        score: 59.4,
+        notes: null,
+        source:
+          'https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 87.2,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 70.2,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4o',
+    slug: 'gpt-4o',
+    provider: 'openai',
+    description:
+      'The latest GPT-4o model, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on August 6, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI’s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. No benchmark scores are available.',
+    input_context_window: '128K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2024-08-06',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 2.5,
+    output_cost_per_million_tokens: 10,
+    benchmarks: {
+      MMLU: {
+        score: 88.7,
+        notes: '5-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      'MMLU-Pro': {
+        score: 74.68,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: {
+        score: 69.1,
+        notes: null,
+        source: 'https://openai.com/index/hello-gpt-4o/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 90.2,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 75.9,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4o 2024-08-06',
+    slug: 'gpt-4o-2024-08-06',
+    provider: 'openai',
+    description:
+      'GPT-4o, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on August 6, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI’s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. No benchmark scores are available.',
+    input_context_window: '128K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2024-08-06',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 2.5,
+    output_cost_per_million_tokens: 10,
+    benchmarks: {
+      MMLU: {
+        score: 88.7,
+        notes: '5-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+
+      'MMLU-Pro': {
+        score: 74.68,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: {
+        score: 69.1,
+        notes: null,
+        source: 'https://openai.com/index/hello-gpt-4o/',
+      },
+
+      HellaSwag: null,
+      HumanEval: {
+        score: 90.2,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 75.9,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4o 2024-05-13',
+    slug: 'gpt-4o-2024-05-13',
+    provider: 'openai',
+    description:
+      'GPT-4o is a language model developed by OpenAI featuring a context window of 128K tokens. The model allows for a maximum of 2048 tokens to be generated in a single request. Released on May 13, 2024, it has an empirical throughput of 89.3 tokens per second and supports API access through OpenAI. It costs $5.00 per million tokens for input and $15.00 per million tokens for output. As of now, it is not open-source, and its knowledge was last updated in October 2023. The model achieved an 88.7 score on the MMLU benchmark (5-shot setting), indicating robust knowledge acquisition capabilities in a few-shot scenario.',
+    input_context_window: '128K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-05-13',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 5,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 87.2,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      'MMLU-Pro': {
+        score: 72.55,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: {
+        score: 69.1,
+        notes: null,
+        source: 'https://openai.com/index/hello-gpt-4o/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 91,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 76.6,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4 Turbo',
+    slug: 'gpt-4-turbo',
+    provider: 'openai',
+    description:
+      'The latest GPT-4 Turbo, developed by OpenAI, features an input context window of 128K tokens and a generation capacity of 4,096 tokens per request. Released on April 9, 2024, its knowledge was last updated in December 2023 and it generates 31.8 tokens per second. It is offered by OpenAI and is not open source.',
+    input_context_window: '128K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-04-09',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 10,
+    output_cost_per_million_tokens: 30,
+    benchmarks: {
+      MMLU: {
+        score: 85.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      'MMLU-Pro': {
+        score: 63.71,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 86.6,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 64.5,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4 Turbo 2024-04-09',
+    slug: 'gpt-4-turbo-2024-04-09',
+    provider: 'openai',
+    description:
+      'GPT-4 Turbo, developed by OpenAI, features an input context window of 128K tokens and a generation capacity of 4,096 tokens per request. Released on April 9, 2024, its knowledge was last updated in December 2023 and it generates 31.8 tokens per second. It is offered by OpenAI and is not open source.',
+    input_context_window: '128K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-04-09',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 10,
+    output_cost_per_million_tokens: 30,
+    benchmarks: {
+      MMLU: {
+        score: 85.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      'MMLU-Pro': {
+        score: 63.71,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 86.6,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 64.5,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4 Turbo 0125',
+    slug: 'gpt-4-0125-preview',
+    provider: 'openai',
+    description:
+      'GPT-4 Turbo 0125, developed by OpenAI, features an impressive context window of 128,000 tokens. The model costs 1.0 cent per thousand tokens for input and 3.0 cents per thousand tokens for output. It is set to be released on January 25, 2024.',
+    input_context_window: '128K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-01-25',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 10,
+    output_cost_per_million_tokens: 30,
+    benchmarks: {
+      MMLU: {
+        score: 85.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      'MMLU-Pro': {
+        score: 63.71,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 86.6,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 64.5,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4 Turbo 1106',
+    slug: 'gpt-4-1106-preview',
+    provider: 'openai',
+    description:
+      'GPT-4 Turbo 1106, developed by OpenAI, features an impressive context window of 128,000 tokens. The model costs 1.0 cent per thousand tokens for input and 3.0 cents per thousand tokens for output. It is set to be released on November 6, 2023.',
+    input_context_window: '128K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2023-11-06',
+    knowledge_cut_off_date: 'April 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 10,
+    output_cost_per_million_tokens: 30,
+    benchmarks: {
+      MMLU: {
+        score: 84.7,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      'MMLU-Pro': {
+        score: 63.71,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 83.7,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 64.3,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4 32K 0613',
+    slug: 'gpt-4-32k-0613',
+    provider: 'openai',
+    description:
+      'GPT-4 32K 0613, developed by OpenAI, features a context window of 32768 tokens. The model costs 6.0 cents per thousand tokens for input and 12.0 cents per thousand tokens for output. It was released on June 13, 2023.',
+    input_context_window: '32.8K',
+    maximum_output_tokens: 'Unknown.',
+    open_source: false,
+    release_date: '2023-06-13',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 60,
+    output_cost_per_million_tokens: 120,
+    benchmarks: {
+      MMLU: null,
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: null,
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'GPT-4',
+    slug: 'gpt-4',
+    provider: 'openai',
+    description:
+      'The latest GPT-4, developed by OpenAI, features a context window of 8192 tokens. The model costs 3.0 cents per thousand tokens for input and 6.0 cents per thousand tokens for output. It was released on March 14, 2023, and has achieved impressive scores in benchmarks like HellaSwag with a score of 95.3 in a 10-shot scenario and MMLU with a score of 86.4 in a 5-shot scenario.',
+    input_context_window: '8,192',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2023-06-13',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 30,
+    output_cost_per_million_tokens: 60,
+    benchmarks: {
+      MMLU: {
+        score: 86.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: {
+        score: 34.9,
+        notes: null,
+        source: 'https://arxiv.org/pdf/2311.16502.pdf',
+      },
+      HellaSwag: {
+        score: 95.3,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: {
+        score: 67,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'GPT-4 0613',
+    slug: 'gpt-4-0613',
+    provider: 'openai',
+    description:
+      'GPT-4 0613, developed by OpenAI, features a context window of 8192 tokens. The model costs 3.0 cents per thousand tokens for input and 6.0 cents per thousand tokens for output. It was released on June 13, 2023.',
+    input_context_window: '8,192',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2023-06-13',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 30,
+    output_cost_per_million_tokens: 60,
+    benchmarks: {
+      MMLU: {
+        score: 86.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: {
+        score: 34.9,
+        notes: null,
+        source: 'https://arxiv.org/pdf/2311.16502.pdf',
+      },
+      HellaSwag: {
+        score: 95.3,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: {
+        score: 67,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'GPT-4 32K',
+    slug: 'gpt-4-32k',
+    provider: 'openai',
+    description:
+      'Retired GPT-4 32K, developed by OpenAI, features a context window of 32768 tokens. The model costs 6.0 cents per thousand tokens for input and 12.0 cents per thousand tokens for output. It was released on March 14, 2023.',
+    input_context_window: '32.8K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2023-03-14',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 60,
+    output_cost_per_million_tokens: 120,
+    benchmarks: {
+      MMLU: {
+        score: 86.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: {
+        score: 34.9,
+        notes: null,
+        source: 'https://arxiv.org/pdf/2311.16502.pdf',
+      },
+      HellaSwag: {
+        score: 95.3,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: {
+        score: 67,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MATH: null,
+    },
+  },
+  {
+    model_name: 'GPT-4 0314',
+    slug: 'gpt-4-0314',
+    provider: 'openai',
+    description:
+      'Original GPT-4, developed by OpenAI, features a context window of 8192 tokens. The model costs 3.0 cents per thousand tokens for input and 6.0 cents per thousand tokens for output. It was released on March 14, 2023, and has achieved impressive scores in benchmarks like HellaSwag with a score of 95.3 in a 10-shot scenario and MMLU with a score of 86.4 in a 5-shot scenario.',
+    input_context_window: '8,192 tokens',
+    maximum_output_tokens: '8,192 tokens',
+    open_source: false,
+    release_date: '2023-03-14',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 30,
+    output_cost_per_million_tokens: 60,
+    benchmarks: {
+      MMLU: {
+        score: 86.4,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: {
+        score: 34.9,
+        notes: null,
+        source: 'https://arxiv.org/pdf/2311.16502.pdf',
+      },
+      HellaSwag: {
+        score: 95.3,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: {
+        score: 67,
+        notes: '0-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MATH: null,
+    },
+  },
+
+  {
+    model_name: 'GPT-3.5 Turbo',
+    slug: 'gpt-3-5-turbo',
+    provider: 'openai',
+    description:
+      'The latest GPT-3.5 Turbo, developed by OpenAI, features a context window of 16385 tokens. The model costs 0.05 cents per thousand tokens for input and 0.15 cents per thousand tokens for output. It was released on January 25, 2024. With higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls. Currently points to gpt-3.5-turbo-0125.',
+    input_context_window: '16.4K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-01-25',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 0.5,
+    output_cost_per_million_tokens: 1.5,
+    benchmarks: {
+      MMLU: {
+        score: 70,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 85.5,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: null,
+      MATH: {
+        score: 43.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-3.5 Turbo 0125',
+    slug: 'gpt-3-5-turbo-0125',
+    provider: 'openai',
+    description:
+      'GPT-3.5 Turbo 0125, developed by OpenAI, features a context window of 16385 tokens. The model costs 0.05 cents per thousand tokens for input and 0.15 cents per thousand tokens for output. It was released on January 25, 2024. With higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls.',
+    input_context_window: '16.4K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2024-01-25',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 0.5,
+    output_cost_per_million_tokens: 1.5,
+    benchmarks: {
+      MMLU: {
+        score: 70,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 85.5,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: null,
+      MATH: {
+        score: 43.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-3.5 Turbo 1106',
+    slug: 'gpt-3-5-turbo-1106',
+    provider: 'openai',
+    description:
+      'GPT-3.5 Turbo 1106, developed by OpenAI, features a context window of 16385 tokens. Has Improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. The model costs 0.1 cents per thousand tokens for input and 0.2 cents per thousand tokens for output. It was released on November 6, 2023.',
+    input_context_window: '16.4K',
+    maximum_output_tokens: '4,096',
+    open_source: false,
+    release_date: '2023-11-06',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 1,
+    output_cost_per_million_tokens: 2,
+    benchmarks: {
+      MMLU: {
+        score: 70,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 85.5,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: null,
+      MATH: {
+        score: 43.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-3.5 Turbo 16K',
+    slug: 'gpt-3-5-turbo-16k',
+    provider: 'openai',
+    description:
+      'RetiredGPT-3.5 Turbo 16K, developed by OpenAI, features a context window of 16384 tokens. The model costs 0.3 cents per thousand tokens for input and 0.4 cents per thousand tokens for output. It was released on June 13, 2023.',
+    input_context_window: '16.4K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2023-06-13',
+    knowledge_cut_off_date: 'September 2021',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 4,
+    benchmarks: {
+      MMLU: {
+        score: 70,
+        notes: '5-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 85.5,
+        notes: '10-shot',
+        source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
+      },
+      HumanEval: null,
+      MATH: {
+        score: 43.1,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Grok-2',
+    slug: 'grok-2',
+    provider: 'xai',
+    description:
+      'Grok-2 is a frontier language model released by xAI, featuring state-of-the-art reasoning capabilities in chat, coding, and reasoning. It outperforms models like Claude 3.5 Sonnet and GPT-4-Turbo on the LMSYS leaderboard and offers advanced capabilities in both text and vision understanding. Released on August 13, 2024, Grok-2 is currently in beta on the 𝕏 platform and is soon to be available through an enterprise API.',
+    input_context_window: '128K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2024-08-13',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers: 'xAI',
+    input_cost_per_million_tokens: 5,
+    output_cost_per_million_tokens: 15,
+    benchmarks: {
+      MMLU: {
+        score: 87.5,
+        notes: '0-shot CoT',
+        source: 'https://x.ai/blog/grok-2',
+      },
+      'MMLU-Pro': {
+        score: 75.5,
+        notes: '0-shot CoT',
+        source: 'https://x.ai/blog/grok-2',
+      },
+      MMMU: {
+        score: 66.1,
+        notes: '0-shot CoT',
+        source: 'https://x.ai/blog/grok-2',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 88.4,
+        notes: 'pass@1',
+        source: 'https://x.ai/blog/grok-2',
+      },
+      MATH: {
+        score: 76.1,
+        notes: 'maj@1',
+        source: 'https://x.ai/blog/grok-2',
+      },
+    },
+  },
+]
+
+module.exports = { LLMS }

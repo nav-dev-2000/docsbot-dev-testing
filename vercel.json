@@ -38,7 +38,7 @@
         },
         {
             "path": "/api/cron/carbon?key=efjlnczww7236912",
-            "schedule": "*/5 * * * *"
+            "schedule": "*/2 * * * *"
         },
         {
             "path": "/api/cron/crawler?key=efjl95hdjysgq26912",

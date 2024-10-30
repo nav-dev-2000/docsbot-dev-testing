@@ -228,7 +228,7 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
     const page = source.page ? ` Page ${source.page}` : ''
 
     return (
-      <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
+      <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-cyan-500 focus-within:ring-offset-2 hover:border-gray-400">
         <div className="flex-shrink-0">
           <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-3 shadow-lg">
             <SourceIcon className="h-6 w-6 text-white" aria-hidden="true" />
