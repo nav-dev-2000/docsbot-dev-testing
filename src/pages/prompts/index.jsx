@@ -203,7 +203,7 @@ const PromptPage = ({ initialPrompts }) => {
                             />
                           </div>
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center space-x-3">
                             <h3 className="text-md truncate font-medium text-gray-900">
                               {prompt.name}
