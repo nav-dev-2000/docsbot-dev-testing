@@ -835,7 +835,7 @@ const LLMS = [
     open_source: false,
     release_date: '2024-09-25',
     knowledge_cut_off_date: 'December 2023',
-    api_providers: 'Fireworks, Together, DeepInfra, Hyperbolic',
+    api_providers: 'Fireworks, Together, Hyperbolic, Deepinfra',
     input_cost_per_million_tokens: 0.055,
     output_cost_per_million_tokens: 0.055,
     benchmarks: {
@@ -874,8 +874,8 @@ const LLMS = [
     knowledge_cut_off_date: 'December 2023',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    input_cost_per_million_tokens: 0.055,
+    output_cost_per_million_tokens: 0.055,
     benchmarks: {
       MMLU: {
         score: 66.7,
@@ -905,10 +905,9 @@ const LLMS = [
     open_source: true,
     release_date: '2024-07-23',
     knowledge_cut_off_date: 'December 2023',
-    api_providers:
-      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    api_providers: 'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra',
+    input_cost_per_million_tokens: 0.35,
+    output_cost_per_million_tokens: 0.4,
     benchmarks: {
       MMLU: {
         score: 83.6,
@@ -944,10 +943,9 @@ const LLMS = [
     open_source: true,
     release_date: '2024-07-23',
     knowledge_cut_off_date: 'December 2023',
-    api_providers:
-      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    api_providers: 'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Avian, Deepinfra',
+    input_cost_per_million_tokens: 1.79,
+    output_cost_per_million_tokens: 1.79,
     benchmarks: {
       MMLU: {
         score: 85.2,
@@ -979,8 +977,8 @@ const LLMS = [
     knowledge_cut_off_date: 'March 2023',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    input_cost_per_million_tokens: 0.055,
+    output_cost_per_million_tokens: 0.055,
     benchmarks: {
       MMLU: {
         score: 68.4,
@@ -1010,9 +1008,9 @@ const LLMS = [
     release_date: '2024-04-18',
     knowledge_cut_off_date: 'December 2023',
     api_providers:
-      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra, Groq',
+    input_cost_per_million_tokens: 0.35,
+    output_cost_per_million_tokens: 0.4,
     benchmarks: {
       MMLU: {
         score: 82,
@@ -1043,8 +1041,8 @@ const LLMS = [
     knowledge_cut_off_date: 'September 2022',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    input_cost_per_million_tokens: 0.65,
+    output_cost_per_million_tokens: 2.75,
     benchmarks: {
       MMLU: {
         score: 68.9,
@@ -1082,8 +1080,8 @@ const LLMS = [
     knowledge_cut_off_date: 'September 2022',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0,
-    output_cost_per_million_tokens: 0,
+    input_cost_per_million_tokens: 0.10,
+    output_cost_per_million_tokens: 0.50,
     benchmarks: {
       MMLU: {
         score: 54.8,

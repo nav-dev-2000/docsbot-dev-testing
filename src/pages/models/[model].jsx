@@ -472,12 +472,20 @@ const ModelPage = ({
                             </div>
                           </td>
                           <td className="px-3 py-4 text-center">
-                            <div className="text-lg font-bold text-gray-900">
-                              ${input_cost_per_million_tokens.toFixed(2)}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              per million tokens
-                            </div>
+                            {!input_cost_per_million_tokens ? (
+                              <div className="text-lg font-medium text-gray-500">
+                                Unavailable
+                              </div>
+                            ) : (
+                              <>
+                                <div className="text-lg font-bold text-gray-900">
+                                  ${input_cost_per_million_tokens.toFixed(2)}
+                                </div>
+                                <div className="text-sm text-gray-500">
+                                  per million tokens
+                                </div>
+                              </>
+                            )}
                           </td>
                         </tr>
                         <tr>
@@ -490,12 +498,20 @@ const ModelPage = ({
                             </div>
                           </td>
                           <td className="px-3 py-4 text-center">
-                            <div className="text-lg font-bold text-gray-900">
-                              ${output_cost_per_million_tokens.toFixed(2)}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              per million tokens
-                            </div>
+                            {!output_cost_per_million_tokens ? (
+                              <div className="text-lg font-medium text-gray-500">
+                                Unavailable
+                              </div>
+                            ) : (
+                              <>
+                                <div className="text-lg font-bold text-gray-900">
+                                  ${output_cost_per_million_tokens.toFixed(2)}
+                                </div>
+                                <div className="text-sm text-gray-500">
+                                  per million tokens
+                                </div>
+                              </>
+                            )}
                           </td>
                         </tr>
                       </tbody>

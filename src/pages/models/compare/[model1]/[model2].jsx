@@ -194,7 +194,12 @@ const ModelPage = ({ model1, model2 }) => {
           return `${model2.model_name} has a ${window2 > window1 ? 'larger' : 'smaller'} context window (${model2.input_context_window} vs ${model1.input_context_window} tokens).`
         })()}`,
       },
-      {
+      
+    ]
+
+    if (model1.input_cost_per_million_tokens && model2.input_cost_per_million_tokens && 
+        model1.output_cost_per_million_tokens && model2.output_cost_per_million_tokens) {
+      faqs.push({
         question: `How do ${model1.model_name} and ${model2.model_name}'s prices compare?`,
         answer: `For input tokens, ${model2.model_name} ${
           model2.input_cost_per_million_tokens === model1.input_cost_per_million_tokens
@@ -209,8 +214,8 @@ const ModelPage = ({ model1, model2 }) => {
               ? 'costs more than'
               : 'costs less than'
         } ${model1.model_name} ($${model2.output_cost_per_million_tokens} vs $${model1.output_cost_per_million_tokens} per million tokens).`,
-      },
-    ]
+      })
+    }
 
     // Compare open source status
     if (model1.open_source !== null && model2.open_source !== null) {
@@ -722,13 +727,20 @@ const ModelPage = ({ model1, model2 }) => {
                               key={model.slug}
                               className="border-l border-gray-200 px-3 py-4 text-center"
                             >
-                              <div className="text-lg font-bold text-gray-900">
-                                $
-                                {model.input_cost_per_million_tokens.toFixed(2)}
-                              </div>
-                              <div className="text-sm text-gray-500">
-                                per million tokens
-                              </div>
+                              {!model.input_cost_per_million_tokens ? (
+                                <div className="text-lg font-medium text-gray-500">
+                                  Unavailable
+                                </div>
+                              ) : (
+                                <>
+                                  <div className="text-lg font-bold text-gray-900">
+                                    ${model.input_cost_per_million_tokens.toFixed(2)}
+                                  </div>
+                                  <div className="text-sm text-gray-500">
+                                    per million tokens
+                                  </div>
+                                </>
+                              )}
                             </td>
                           ))}
                         </tr>
@@ -746,15 +758,20 @@ const ModelPage = ({ model1, model2 }) => {
                               key={model.slug}
                               className="border-l border-gray-200 px-3 py-4 text-center"
                             >
-                              <div className="text-lg font-bold text-gray-900">
-                                $
-                                {model.output_cost_per_million_tokens.toFixed(
-                                  2,
-                                )}
-                              </div>
-                              <div className="text-sm text-gray-500">
-                                per million tokens
-                              </div>
+                              {!model.output_cost_per_million_tokens ? (
+                                <div className="text-lg font-medium text-gray-500">
+                                  Unavailable
+                                </div>
+                              ) : (
+                                <>
+                                  <div className="text-lg font-bold text-gray-900">
+                                    ${model.output_cost_per_million_tokens.toFixed(2)}
+                                  </div>
+                                  <div className="text-sm text-gray-500">
+                                    per million tokens
+                                  </div>
+                                </>
+                              )}
                             </td>
                           ))}
                         </tr>
@@ -764,52 +781,62 @@ const ModelPage = ({ model1, model2 }) => {
                 </div>
               </div>
               {/* Pricing Insights */}
-              <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
-                {model2.input_cost_per_million_tokens +
-                  model2.output_cost_per_million_tokens ===
-                model1.input_cost_per_million_tokens +
-                  model1.output_cost_per_million_tokens ? (
-                  <EqualsIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
-                ) : model2.input_cost_per_million_tokens +
-                  model2.output_cost_per_million_tokens <
+              {model1.input_cost_per_million_tokens && model1.output_cost_per_million_tokens && 
+               model2.input_cost_per_million_tokens && model2.output_cost_per_million_tokens ? (
+                <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
+                  {model2.input_cost_per_million_tokens +
+                    model2.output_cost_per_million_tokens ===
                   model1.input_cost_per_million_tokens +
                     model1.output_cost_per_million_tokens ? (
-                  <ArrowTrendingDownIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
-                ) : (
-                  <ArrowTrendingUpIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
-                )}
-                <div>
-                  <p className="font-medium text-blue-900">
-                    {model2.input_cost_per_million_tokens +
-                      model2.output_cost_per_million_tokens ===
+                    <EqualsIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
+                  ) : model2.input_cost_per_million_tokens +
+                    model2.output_cost_per_million_tokens <
                     model1.input_cost_per_million_tokens +
                       model1.output_cost_per_million_tokens ? (
-                      `${model2.model_name} costs the same as ${model1.model_name} for input and output tokens.`
-                    ) : model2.input_cost_per_million_tokens +
-                      model2.output_cost_per_million_tokens <
+                    <ArrowTrendingDownIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
+                  ) : (
+                    <ArrowTrendingUpIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
+                  )}
+                  <div>
+                    <p className="font-medium text-blue-900">
+                      {model2.input_cost_per_million_tokens +
+                        model2.output_cost_per_million_tokens ===
                       model1.input_cost_per_million_tokens +
                         model1.output_cost_per_million_tokens ? (
-                      `${model2.model_name} is roughly ${(
-                        (model1.input_cost_per_million_tokens +
-                          model1.output_cost_per_million_tokens) /
-                        (model2.input_cost_per_million_tokens +
-                          model2.output_cost_per_million_tokens)
-                      ).toFixed(1)}x cheaper compared to ${
-                        model1.model_name
-                      } for input and output tokens.`
-                    ) : (
-                      `${model2.model_name} is roughly ${(
-                        (model2.input_cost_per_million_tokens +
-                          model2.output_cost_per_million_tokens) /
-                        (model1.input_cost_per_million_tokens +
-                          model1.output_cost_per_million_tokens)
-                      ).toFixed(1)}x more expensive compared to ${
-                        model1.model_name
-                      } for input and output tokens.`
-                    )}
+                        `${model2.model_name} costs the same as ${model1.model_name} for input and output tokens.`
+                      ) : model2.input_cost_per_million_tokens +
+                        model2.output_cost_per_million_tokens <
+                        model1.input_cost_per_million_tokens +
+                          model1.output_cost_per_million_tokens ? (
+                        `${model2.model_name} is roughly ${(
+                          (model1.input_cost_per_million_tokens +
+                            model1.output_cost_per_million_tokens) /
+                          (model2.input_cost_per_million_tokens +
+                            model2.output_cost_per_million_tokens)
+                        ).toFixed(1)}x cheaper compared to ${
+                          model1.model_name
+                        } for input and output tokens.`
+                      ) : (
+                        `${model2.model_name} is roughly ${(
+                          (model2.input_cost_per_million_tokens +
+                            model2.output_cost_per_million_tokens) /
+                          (model1.input_cost_per_million_tokens +
+                            model1.output_cost_per_million_tokens)
+                        ).toFixed(1)}x more expensive compared to ${
+                          model1.model_name
+                        } for input and output tokens.`
+                      )}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-yellow-200 bg-yellow-50 p-4">
+                  <InformationCircleIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-yellow-600" />
+                  <p className="font-medium text-yellow-900">
+                    Price comparison unavailable.
                   </p>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Price Comparison */}
