@@ -3,6 +3,7 @@ export const LLM_PRICING = {
           {
             model_name: 'GPT-4o',
             model_slug: 'gpt-4o',
+            page_slug: 'gpt-4o',
             context: '128K/16K',
             provider: 'OpenAI',
             input_token_cost_per_million: 2.5,
@@ -11,6 +12,7 @@ export const LLM_PRICING = {
           {
             model_name: 'GPT-4o mini',
             model_slug: 'gpt-4o-mini',
+            page_slug: 'gpt-4o-mini',
             context: '128K/16K',
             provider: 'OpenAI',
             input_token_cost_per_million: 0.15,
@@ -19,6 +21,7 @@ export const LLM_PRICING = {
           {
             model_name: 'o1-preview',
             model_slug: 'o1-preview',
+            page_slug: 'o1-preview',
             context: '128K/32K',
             provider: 'OpenAI',
             input_token_cost_per_million: 15,
@@ -27,6 +30,7 @@ export const LLM_PRICING = {
           {
             model_name: 'o1-mini',
             model_slug: 'o1-mini',
+            page_slug: 'o1-mini',
             context: '128K/65K',
             provider: 'OpenAI',
             input_token_cost_per_million: 3,
@@ -67,6 +71,7 @@ export const LLM_PRICING = {
           {
             model_name: 'GPT-4 Turbo',
             model_slug: 'gpt-4-turbo-preview',
+            page_slug: 'gpt-4-turbo',
             context: '128K/4K',
             provider: 'OpenAI',
             input_token_cost_per_million: 10,
@@ -75,6 +80,7 @@ export const LLM_PRICING = {
           {
             model_name: 'GPT-3.5 Turbo',
             model_slug: 'gpt-3.5-turbo',
+            page_slug: 'gpt-3-5-turbo',
             context: '16K/4K',
             provider: 'OpenAI',
             input_token_cost_per_million: 0.5,
@@ -83,6 +89,7 @@ export const LLM_PRICING = {
           {
             model_name: 'GPT-4',
             model_slug: 'gpt-4',
+            page_slug: 'gpt-4',
             context: '8K/8K',
             provider: 'OpenAI',
             input_token_cost_per_million: 30,
@@ -90,7 +97,8 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Claude 3.5 Sonnet',
-            model_slug: 'claude-3-5-sonnet-20240620',
+            model_slug: 'claude-3-5-sonnet-20241022',
+            page_slug: 'claude-3-5-sonnet',
             context: '200K/8K',
             provider: 'Anthropic',
             input_token_cost_per_million: 3,
@@ -99,6 +107,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Claude 3 Opus',
             model_slug: 'claude-3-opus-20240229',
+            page_slug: 'claude-3-opus',
             context: '200K/4K',
             provider: 'Anthropic',
             input_token_cost_per_million: 15,
@@ -107,6 +116,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Claude 3 Sonnet',
             model_slug: 'claude-3-sonnet-20240229',
+            page_slug: 'claude-3-sonnet',
             context: '200K/4K',
             provider: 'Anthropic',
             input_token_cost_per_million: 3,
@@ -115,6 +125,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Claude 3 Haiku',
             model_slug: 'claude-3-haiku-20240307',
+            page_slug: 'claude-3-haiku',
             context: '200K/4K',
             provider: 'Anthropic',
             input_token_cost_per_million: 0.25,
@@ -122,6 +133,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Llama 3.1 405b',
+            page_slug: 'llama-3-1-405b-instruct',
             context: '128K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra',
@@ -130,6 +142,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Llama 3.2 90b Vision-Instruct',
+            page_slug: 'llama-3-2-90b-vision-instruct',
             context: '128K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra',
@@ -138,6 +151,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Llama 3.1 70b',
+            page_slug: 'llama-3-1-70b-instruct',
             context: '128K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra',
@@ -146,6 +160,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Llama 3.2 11b Vision-Instruct',
+            page_slug: 'llama-3-2-11b-vision-instruct',
             context: '128K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra',
@@ -154,6 +169,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Llama 3 70b',
+            page_slug: 'llama-3-70b-instruct',
             context: '8K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra/Groq',
@@ -163,6 +179,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Pro',
             model_slug: 'gemini-1.5-pro',
+            page_slug: 'gemini-1-5-pro-002',
             context: '128K',
             provider: 'Google',
             input_token_cost_per_million: 1.25,
@@ -171,6 +188,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Pro',
             model_slug: 'gemini-1.5-pro',
+            page_slug: 'gemini-1-5-pro-002',
             context: '2M',
             provider: 'Google',
             input_token_cost_per_million: 2.5,
@@ -179,6 +197,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Flash',
             model_slug: 'gemini-1.5-flash',
+            page_slug: 'gemini-1-5-flash-002',
             context: '128K',
             provider: 'Google',
             input_token_cost_per_million: 0.075,
@@ -187,6 +206,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Flash',
             model_slug: 'gemini-1.5-flash',
+            page_slug: 'gemini-1-5-flash-002',
             context: '1M',
             provider: 'Google',
             input_token_cost_per_million: 0.15,
@@ -195,6 +215,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Flash-8B',
             model_slug: 'gemini-1.5-flash-8b',
+            page_slug: 'gemini-1-5-flash-8b',
             context: '128K',
             provider: 'Google',
             input_token_cost_per_million: 0.0375,
@@ -203,6 +224,7 @@ export const LLM_PRICING = {
           {
             model_name: 'Gemini 1.5 Flash-8B',
             model_slug: 'gemini-1.5-flash-8b',
+            page_slug: 'gemini-1-5-flash-8b',
             context: '1M',
             provider: 'Google',
             input_token_cost_per_million: 0.075,
@@ -217,6 +239,8 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Command R',
+            model_slug: 'command-r-08-2024',
+            page_slug: 'command-r-08-2024',
             context: '128K/4K',
             provider: 'Cohere',
             input_token_cost_per_million: 0.5,
@@ -224,6 +248,8 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Command R+',
+            model_slug: 'command-r-plus-08-2024',
+            page_slug: 'command-r-plus-08-2024',
             context: '128K',
             provider: 'Cohere',
             input_token_cost_per_million: 3,
@@ -239,6 +265,7 @@ export const LLM_PRICING = {
           },
           {
             model_name: 'Mixtral 8x7B',
+            page_slug: 'mistral-8x7b-instruct',
             context: '32K',
             provider: 'Mistral AI',
             api_provider: 'Anyscale',
@@ -258,6 +285,7 @@ export const LLM_PRICING = {
             context: '128K',
             provider: 'Mistral AI',
             model_slug: 'mistral-large-2407',
+            page_slug: 'mistral-large-2',
             input_token_cost_per_million: 2,
             output_token_cost_per_million: 6,
           },

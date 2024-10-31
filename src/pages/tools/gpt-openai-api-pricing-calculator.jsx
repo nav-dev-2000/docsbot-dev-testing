@@ -589,7 +589,13 @@ export default function Calculate({ starRatingData }) {
                                           )}
                                         </td>
                                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                          {model.model_name}
+                                          {model.page_slug ? (
+                                            <a href={`/models/${model.page_slug}`} className="hover:underline">
+                                              {model.model_name}
+                                            </a>
+                                          ) : (
+                                            model.model_name
+                                          )}
                                           {model.model_slug && (
                                             <div className="text-xs text-gray-500">
                                               {model.model_slug}

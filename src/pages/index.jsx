@@ -19,7 +19,6 @@ import demoScreenshot from '@/images/demo-screenshot.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
-import Signup from '@/components/Signup'
 import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -275,8 +274,6 @@ export default function Home() {
             <Pricing />
 
             <Faq />
-
-            <Signup />
           </main>
           <Footer />
         </div>

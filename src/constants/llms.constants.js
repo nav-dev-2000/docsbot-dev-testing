@@ -417,8 +417,8 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Google Gemma 2 9B',
-    slug: 'google-gemma-2-9b',
+    model_name: 'Gemma 2 9B',
+    slug: 'gemma-2-9b',
     provider: 'google',
     description:
       'Gemma 2 9B by Google is an advanced, open-source language model that sets a new standard for efficiency and performance in its size class. Designed for a wide variety of tasks, it empowers developers and researchers to build innovative applications, while maintaining accessibility, safety, and cost-effectiveness.',
@@ -460,8 +460,8 @@ const LLMS = [
   },
 
   {
-    model_name: 'Gemini Ultra 1.0',
-    slug: 'gemini-ultra',
+    model_name: 'Gemini 1.0 Ultra',
+    slug: 'gemini-1-0-ultra',
     provider: 'google',
     description:
       'Gemini Ultra, developed by Google, features a large context window of 32768 tokens. The model has excelled in benchmarks like MMMU with a score of 59.4 in a 0-shot pass@1 scenario and MMLU with a score of 83.7 in a 5-shot scenario.',
@@ -500,8 +500,8 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Gemini Pro 1.0',
-    slug: 'gemini-pro-1-0',
+    model_name: 'Gemini 1.0 Pro',
+    slug: 'gemini-1-0-pro',
     provider: 'google',
     description:
       'Gemini Pro, developed by Google, features a context window of 32768 tokens. The model costs 0.0125 cents per thousand tokens for input and 0.0375 cents per thousand tokens for output. It was released on December 13, 2023, and has achieved a score of 47.9 in the MMMU benchmark with a "pass@1" caveat and a score of 71.8 in the MMLU benchmark in a 5-shot scenario.',
@@ -649,8 +649,8 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Gemini Flash 1.5 (002)',
-    slug: 'gemini-flash-1-5-002',
+    model_name: 'Gemini 1.5 Flash (002)',
+    slug: 'gemini-1-5-flash-002',
     provider: 'google',
     description:
       'Gemini Flash, developed by Google, features a context window of 1M tokens and can generate up to 8,192 tokens in a single request. The model costs $0.13 per million tokens for input and $0.38 per million tokens for output. It was released on May 14th, 2024. Notable benchmarks include a 78.9 score on MMLU and a 56.1 score on MMMU. The model is available through Google AI Studio, Vertex AI.',
@@ -697,8 +697,8 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Gemini Flash 1.5 (001)',
-    slug: 'gemini-flash-1-5-001',
+    model_name: 'Gemini 1.5 Flash (001)',
+    slug: 'gemini-1-5-flash-001',
     provider: 'google',
     description:
       'Gemini Flash, developed by Google, features a context window of 1M tokens and can generate up to 8,192 tokens in a single request. The model costs $0.13 per million tokens for input and $0.38 per million tokens for output. It was released on May 14th, 2024. Notable benchmarks include a 78.9 score on MMLU and a 56.1 score on MMMU. The model is available through Google AI Studio, Vertex AI.',
@@ -896,7 +896,7 @@ const LLMS = [
   },
   {
     model_name: 'Llama 3.1 70B Instruct',
-    slug: 'llama3-1-70b-instruct-v1',
+    slug: 'llama3-1-70b-instruct',
     provider: 'meta',
     description:
       "Llama 3.1 70B Instruct, provided by Meta, features a context window of 128K tokens. It has a maximum output capability of 2,048 tokens per request. Open source availability allows public use of the model's code. Released on July 23rd, 2024, with a knowledge cut-off date in December 2023, the model is accessible on various platforms, including Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, and IBM watsonx. Pricing and empirical throughput data are not available currently. Notable benchmarks include an MMLU score of 83.6 5-shot and a MATH score of 68.0 0-shot.",

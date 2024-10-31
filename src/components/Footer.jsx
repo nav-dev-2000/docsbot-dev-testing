@@ -5,6 +5,7 @@ import { NAVIGATION } from '@/constants/navigation.constants'
 import { ALTERNATIVES } from '@/constants/alternatives.constants'
 import { INDUSTRIES } from '@/constants/industries.constants'
 import { freeTools } from '@/constants/freeTools.constants'
+import EmailSubscribe from '@/components/EmailSubscribe'
 
 const comparisons = ALTERNATIVES.map((item) => ({
   name: `${item.name} Alternative`,
@@ -189,6 +190,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <EmailSubscribe />
         <div className="mt-12 border-t border-gray-200 py-8">
           <p className="text-base text-gray-400 xl:text-center">
             &copy; 2024 UglyRobot, LLC. All rights reserved.

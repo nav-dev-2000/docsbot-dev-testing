@@ -548,7 +548,7 @@ const ModelPage = ({
                       )
                       .map(
                         (model) =>
-                          `${model.provider} - ${model.model_name} ${model.context ? `(${model.context})` : ''}`,
+                          `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
@@ -642,7 +642,7 @@ const ModelPage = ({
                       )
                       .map(
                         (model) =>
-                          `${model.provider} - ${model.model_name} ${model.context ? `(${model.context})` : ''}`,
+                          `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
