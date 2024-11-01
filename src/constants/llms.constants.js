@@ -13,6 +13,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0.8,
     output_cost_per_million_tokens: 2.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 73.4,
@@ -40,6 +46,12 @@ const LLMS = [
     api_providers: "Anthropic API, Amazon Bedrock, Google Cloud's Vertex AI",
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.91,
@@ -83,6 +95,12 @@ const LLMS = [
     api_providers: "Anthropic API, Amazon Bedrock, Google Cloud's Vertex AI",
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.91,
@@ -126,6 +144,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.3,
@@ -173,6 +197,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 81.5,
@@ -207,6 +237,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 15,
     output_cost_per_million_tokens: 75,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.2,
@@ -241,6 +277,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0.25,
     output_cost_per_million_tokens: 1.25,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 76.7,
@@ -275,6 +317,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 8,
     output_cost_per_million_tokens: 24,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: null,
       MMMU: null,
@@ -297,6 +345,12 @@ const LLMS = [
     api_providers: 'Anthropic, AWS Bedrock, Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 8,
     output_cost_per_million_tokens: 24,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 78.5,
@@ -324,23 +378,29 @@ const LLMS = [
     api_providers: 'Cohere, AWS',
     input_cost_per_million_tokens: 2.5,
     output_cost_per_million_tokens: 10,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 75,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
       MMMU: null,
       HellaSwag: null,
       HumanEval: {
         score: 71,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
       MATH: {
         score: 44,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
     },
   },
@@ -357,24 +417,30 @@ const LLMS = [
     knowledge_cut_off_date: 'Unknown',
     api_providers: 'Cohere, AWS',
     input_cost_per_million_tokens: 0.15,
-    output_cost_per_million_tokens: 0.60,
+    output_cost_per_million_tokens: 0.6,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 67,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
       MMMU: null,
       HellaSwag: null,
       HumanEval: {
         score: 70,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
       MATH: {
         score: 40,
         notes: null,
-        source: "https://artificialanalysis.ai/models/command-r-plus",
+        source: 'https://artificialanalysis.ai/models/command-r-plus',
       },
     },
   },
@@ -392,6 +458,12 @@ const LLMS = [
     api_providers: 'OpenRouter',
     input_cost_per_million_tokens: 0.27,
     output_cost_per_million_tokens: 0.27,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 75.2,
@@ -430,6 +502,12 @@ const LLMS = [
     api_providers: 'OpenRouter',
     input_cost_per_million_tokens: 0.06,
     output_cost_per_million_tokens: 0.06,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 71.3,
@@ -473,6 +551,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0,
     output_cost_per_million_tokens: 0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: {
         score: 83.7,
@@ -513,6 +597,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 12.5,
     output_cost_per_million_tokens: 37.5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: {
         score: 71.8,
@@ -561,6 +651,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 1.25,
     output_cost_per_million_tokens: 5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: null,
       'MMLU-Pro': {
@@ -609,6 +705,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 3.5,
     output_cost_per_million_tokens: 10.5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: {
         score: 81.9,
@@ -662,6 +764,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0.13,
     output_cost_per_million_tokens: 0.38,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: null,
       'MMLU-Pro': {
@@ -710,6 +818,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0.13,
     output_cost_per_million_tokens: 0.38,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
     benchmarks: {
       MMLU: {
         score: 78.9,
@@ -763,6 +877,12 @@ const LLMS = [
     api_providers: 'Google AI Studio, Vertex AI',
     input_cost_per_million_tokens: 0.0375,
     output_cost_per_million_tokens: 0.15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: null,
       'MMLU-Pro': {
@@ -801,6 +921,12 @@ const LLMS = [
     api_providers: 'Fireworks, Together, DeepInfra, Hyperbolic',
     input_cost_per_million_tokens: 0.35,
     output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 86,
@@ -838,6 +964,12 @@ const LLMS = [
     api_providers: 'Fireworks, Together, Hyperbolic, Deepinfra',
     input_cost_per_million_tokens: 0.055,
     output_cost_per_million_tokens: 0.055,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 73,
@@ -876,6 +1008,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
     input_cost_per_million_tokens: 0.055,
     output_cost_per_million_tokens: 0.055,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 66.7,
@@ -905,9 +1043,16 @@ const LLMS = [
     open_source: true,
     release_date: '2024-07-23',
     knowledge_cut_off_date: 'December 2023',
-    api_providers: 'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra',
     input_cost_per_million_tokens: 0.35,
     output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 83.6,
@@ -918,8 +1063,7 @@ const LLMS = [
       'MMLU-Pro': {
         score: 62.84,
         notes: null,
-        source:
-          'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
       },
       MMMU: null,
       HellaSwag: null,
@@ -943,9 +1087,16 @@ const LLMS = [
     open_source: true,
     release_date: '2024-07-23',
     knowledge_cut_off_date: 'December 2023',
-    api_providers: 'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Avian, Deepinfra',
+    api_providers:
+      'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Avian, Deepinfra',
     input_cost_per_million_tokens: 1.79,
     output_cost_per_million_tokens: 1.79,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.2,
@@ -979,6 +1130,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
     input_cost_per_million_tokens: 0.055,
     output_cost_per_million_tokens: 0.055,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 68.4,
@@ -1011,6 +1168,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra, Groq',
     input_cost_per_million_tokens: 0.35,
     output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 82,
@@ -1043,6 +1206,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
     input_cost_per_million_tokens: 0.65,
     output_cost_per_million_tokens: 2.75,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 68.9,
@@ -1080,8 +1249,14 @@ const LLMS = [
     knowledge_cut_off_date: 'September 2022',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0.10,
-    output_cost_per_million_tokens: 0.50,
+    input_cost_per_million_tokens: 0.1,
+    output_cost_per_million_tokens: 0.5,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 54.8,
@@ -1121,6 +1296,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 9,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 84,
@@ -1148,6 +1329,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
     input_cost_per_million_tokens: 8,
     output_cost_per_million_tokens: 8,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 81.2,
@@ -1179,6 +1366,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
     input_cost_per_million_tokens: 0.7,
     output_cost_per_million_tokens: 0.7,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 70.6,
@@ -1206,6 +1399,12 @@ const LLMS = [
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, Snowflake Cortex',
     input_cost_per_million_tokens: 0.25,
     output_cost_per_million_tokens: 0.25,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 60.1,
@@ -1232,6 +1431,12 @@ const LLMS = [
     api_providers: 'OpenRouter',
     input_cost_per_million_tokens: 0.35,
     output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85,
@@ -1269,6 +1474,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 15,
     output_cost_per_million_tokens: 60,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 92.3,
@@ -1307,6 +1518,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 15,
     output_cost_per_million_tokens: 60,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 92.3,
@@ -1341,6 +1558,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 12,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.2,
@@ -1375,6 +1598,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 12,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.2,
@@ -1409,6 +1638,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 0.15,
     output_cost_per_million_tokens: 0.6,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 82,
@@ -1456,6 +1691,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 2.5,
     output_cost_per_million_tokens: 10,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.7,
@@ -1502,6 +1743,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 2.5,
     output_cost_per_million_tokens: 10,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 88.7,
@@ -1550,6 +1797,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 5,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 87.2,
@@ -1595,6 +1848,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 10,
     output_cost_per_million_tokens: 30,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.4,
@@ -1636,6 +1895,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 10,
     output_cost_per_million_tokens: 30,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.4,
@@ -1677,6 +1942,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 10,
     output_cost_per_million_tokens: 30,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 85.4,
@@ -1718,6 +1989,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 10,
     output_cost_per_million_tokens: 30,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 84.7,
@@ -1759,6 +2036,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 60,
     output_cost_per_million_tokens: 120,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: null,
       MMMU: null,
@@ -1781,6 +2064,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 30,
     output_cost_per_million_tokens: 60,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 86.4,
@@ -1819,6 +2108,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 30,
     output_cost_per_million_tokens: 60,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 86.4,
@@ -1857,6 +2152,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 60,
     output_cost_per_million_tokens: 120,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 86.4,
@@ -1895,6 +2196,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 30,
     output_cost_per_million_tokens: 60,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 86.4,
@@ -1934,6 +2241,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 0.5,
     output_cost_per_million_tokens: 1.5,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 70,
@@ -1969,6 +2282,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 0.5,
     output_cost_per_million_tokens: 1.5,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 70,
@@ -2004,6 +2323,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 1,
     output_cost_per_million_tokens: 2,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 70,
@@ -2039,6 +2364,12 @@ const LLMS = [
     api_providers: 'OpenAI, Azure OpenAI Service',
     input_cost_per_million_tokens: 3,
     output_cost_per_million_tokens: 4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 70,
@@ -2074,6 +2405,12 @@ const LLMS = [
     api_providers: 'xAI',
     input_cost_per_million_tokens: 5,
     output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
     benchmarks: {
       MMLU: {
         score: 87.5,

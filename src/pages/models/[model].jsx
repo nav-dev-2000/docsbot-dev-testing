@@ -24,6 +24,13 @@ import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
 import { useRouter } from 'next/router'
+import {
+  DocumentTextIcon,
+  PhotoIcon,
+  SpeakerWaveIcon,
+  VideoCameraIcon,
+} from '@heroicons/react/24/outline'
+import TooltipComponent from '@/components/Tooltip'
 
 // Register Chart.js components
 ChartJS.register(
@@ -48,7 +55,7 @@ const ModelSelector = ({ models, selectedModel, onChange, className }) => {
         onChange(selected)
       }}
       className={clsx(
-        'block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-md sm:leading-6 text-center',
+        'sm:text-md block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-center text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:leading-6',
         className,
       )}
     >
@@ -95,6 +102,7 @@ const ModelPage = ({
   api_providers,
   input_cost_per_million_tokens,
   output_cost_per_million_tokens,
+  modalities,
   benchmarks,
 }) => {
   const breadcrumbPages = [
@@ -168,6 +176,36 @@ const ModelPage = ({
       })
     }
 
+    if (modalities) {
+      faqs.push({
+        question: `Can ${model_name} process text input?`,
+        answer: modalities.text 
+          ? `Yes, ${model_name} can process and generate text, making it suitable for tasks like writing, summarization, analysis, and chat conversations.`
+          : `No, ${model_name} does not support text input or generation.`
+      })
+
+      faqs.push({
+        question: `Does ${model_name} work with images?`,
+        answer: modalities.image
+          ? `Yes, ${model_name} can process and understand images, allowing it to analyze visual content and discuss what it sees.`
+          : `No, ${model_name} does not support image processing or analysis.`
+      })
+
+      faqs.push({
+        question: `Does ${model_name} support voice input?`,
+        answer: modalities.voice
+          ? `Yes, ${model_name} can process voice/audio input, enabling speech-related applications like describing, summarizing, transcribing, and question answering.`
+          : `No, ${model_name} does not support voice or audio processing.`
+      })
+
+      faqs.push({
+        question: `Can ${model_name} handle video content?`,
+        answer: modalities.video
+          ? `Yes, ${model_name} can process video content, allowing it to analyze and understand video inputs.`
+          : `No, ${model_name} does not support video processing or analysis.`
+      })
+    }
+
     // Add benchmark scores when available
     if (benchmarks) {
       Object.entries(benchmarks).forEach(([benchmark, data]) => {
@@ -185,7 +223,6 @@ const ModelPage = ({
 
   const providerInfo = getProviderInfo(provider)
   const IconComponent = providerInfo.icon
-
 
   const faqs = generateFAQs()
 
@@ -302,10 +339,9 @@ const ModelPage = ({
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <table className="min-w-full divide-y divide-gray-300">
-                      
                       <tbody className="divide-y divide-gray-200 bg-white">
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Provider
                             </div>
@@ -323,7 +359,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Input Context Window
                             </div>
@@ -340,7 +376,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Maximum Output Tokens
                             </div>
@@ -357,7 +393,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Open Source
                             </div>
@@ -371,7 +407,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="textlg font-medium text-gray-900">
                               Release Date
                             </div>
@@ -392,20 +428,25 @@ const ModelPage = ({
                             </div>
                             <div className="text-sm text-gray-500">
                               {(() => {
-                                const timeDiff = new Date() - new Date(release_date);
-                                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-                                const months = Math.floor(days / 30);
-                                const years = Math.floor(months / 12);
-                                
-                                if (years > 0) return `${years} year${years === 1 ? '' : 's'} ago`;
-                                if (months > 0) return `${months} month${months === 1 ? '' : 's'} ago`;
-                                return `${days} day${days === 1 ? '' : 's'} ago`;
+                                const timeDiff =
+                                  new Date() - new Date(release_date)
+                                const days = Math.floor(
+                                  timeDiff / (1000 * 60 * 60 * 24),
+                                )
+                                const months = Math.floor(days / 30)
+                                const years = Math.floor(months / 12)
+
+                                if (years > 0)
+                                  return `${years} year${years === 1 ? '' : 's'} ago`
+                                if (months > 0)
+                                  return `${months} month${months === 1 ? '' : 's'} ago`
+                                return `${days} day${days === 1 ? '' : 's'} ago`
                               })()}
                             </div>
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Knowledge Cut-off Date
                             </div>
@@ -418,7 +459,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               API Providers
                             </div>
@@ -429,6 +470,52 @@ const ModelPage = ({
                           </td>
                           <td className="px-3 py-4 text-center text-sm font-medium text-gray-900">
                             {api_providers}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="border-r border-gray-200 py-4 pr-3">
+                            <div className="text-lg font-medium text-gray-900">
+                              Modalities
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              Types of data this model can process
+                            </div>
+                          </td>
+                          <td className="px-3 py-4 text-center">
+                            <div className="flex justify-center gap-3">
+                              <TooltipComponent content={modalities.text ? "Supports text input and generation" : "Does not support text"}>
+                                <DocumentTextIcon 
+                                  className={clsx(
+                                    'h-6 w-6',
+                                    modalities.text ? 'text-cyan-600' : 'text-gray-300'
+                                  )}
+                                />
+                              </TooltipComponent>
+                              <TooltipComponent content={modalities.image ? "Supports image understanding and analysis" : "Does not support images"}>
+                                <PhotoIcon 
+                                  className={clsx(
+                                    'h-6 w-6',
+                                    modalities.image ? 'text-cyan-600' : 'text-gray-300'
+                                  )}
+                                />
+                              </TooltipComponent>
+                              <TooltipComponent content={modalities.voice ? "Supports voice/audio processing" : "Does not support voice/audio"}>
+                                <SpeakerWaveIcon 
+                                  className={clsx(
+                                    'h-6 w-6',
+                                    modalities.voice ? 'text-cyan-600' : 'text-gray-300'
+                                  )}
+                                />
+                              </TooltipComponent>
+                              <TooltipComponent content={modalities.video ? "Supports video understanding and analysis" : "Does not support video"}>
+                                <VideoCameraIcon 
+                                  className={clsx(
+                                    'h-6 w-6',
+                                    modalities.video ? 'text-cyan-600' : 'text-gray-300'
+                                  )}
+                                />
+                              </TooltipComponent>
+                            </div>
                           </td>
                         </tr>
                       </tbody>
@@ -458,7 +545,7 @@ const ModelPage = ({
                         <tr>
                           <th
                             scope="col"
-                            className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 border-r border-gray-200"
+                            className="border-r border-gray-200 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
                           >
                             Type
                           </th>
@@ -472,7 +559,7 @@ const ModelPage = ({
                       </thead>
                       <tbody className="divide-y divide-gray-200 bg-white">
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Input
                             </div>
@@ -498,7 +585,7 @@ const ModelPage = ({
                           </td>
                         </tr>
                         <tr>
-                          <td className="py-4 pr-3 border-r border-gray-200">
+                          <td className="border-r border-gray-200 py-4 pr-3">
                             <div className="text-lg font-medium text-gray-900">
                               Output
                             </div>
@@ -572,8 +659,7 @@ const ModelPage = ({
                           ].includes(model.model_slug),
                       )
                       .map(
-                        (model) =>
-                          `${model.provider} - ${model.model_name}`,
+                        (model) => `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
@@ -666,8 +752,7 @@ const ModelPage = ({
                           ].includes(model.model_slug),
                       )
                       .map(
-                        (model) =>
-                          `${model.provider} - ${model.model_name}`,
+                        (model) => `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
@@ -754,15 +839,22 @@ const ModelPage = ({
                 </Link>
               </div>
             </div>
-            
+
             {/* Benchmarks Table */}
-            <div id="benchmarks" className="bg-gray-900 py-12 mt-24 rounded-xl">
+            <div id="benchmarks" className="mt-24 rounded-xl bg-gray-900 py-12">
               <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="sm:flex sm:items-center">
                   <div className="sm:flex-auto">
-                    <h2 className="text-base/7 font-semibold text-cyan-500">Model Performance</h2>
-                    <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">Benchmarks</p>
-                    <p className="mt-6 text-lg/8 text-gray-300">Performance metrics across various standardized tests and evaluations.</p>
+                    <h2 className="text-base/7 font-semibold text-cyan-500">
+                      Model Performance
+                    </h2>
+                    <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                      Benchmarks
+                    </p>
+                    <p className="mt-6 text-lg/8 text-gray-300">
+                      Performance metrics across various standardized tests and
+                      evaluations.
+                    </p>
                   </div>
                 </div>
                 <div className="mt-8">
@@ -770,10 +862,16 @@ const ModelPage = ({
                     <table className="w-full divide-y divide-gray-700">
                       <thead>
                         <tr>
-                          <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0 border-r border-gray-800">
+                          <th
+                            scope="col"
+                            className="border-r border-gray-800 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
+                          >
                             Benchmark
                           </th>
-                          <th scope="col" className="px-3 py-3.5 text-center text-sm font-semibold text-white">
+                          <th
+                            scope="col"
+                            className="px-3 py-3.5 text-center text-sm font-semibold text-white"
+                          >
                             Score
                           </th>
                         </tr>
@@ -785,12 +883,16 @@ const ModelPage = ({
                           'MMMU',
                           'HellaSwag',
                           'HumanEval',
-                          'MATH'
+                          'MATH',
                         ].map((key) => (
                           <tr key={key}>
-                            <td className="py-4 pl-4 pr-3 sm:pl-0 border-r border-gray-800">
-                              <div className="text-sm font-medium text-white">{key}</div>
-                              <div className="text-sm text-gray-300">{getBenchmarkDescription(key)}</div>
+                            <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">
+                              <div className="text-sm font-medium text-white">
+                                {key}
+                              </div>
+                              <div className="text-sm text-gray-300">
+                                {getBenchmarkDescription(key)}
+                              </div>
                             </td>
                             <td className="px-3 py-4 text-center">
                               {benchmarks?.[key] ? (
@@ -881,7 +983,6 @@ const ModelPage = ({
               <h2 className="text-2xl font-bold text-white">
                 More models from {providerInfo.displayName}
               </h2>
-              
             </div>
             <ul className="mt-6 grid grid-cols-1 gap-4 text-justify sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {LLMS.filter(
@@ -906,17 +1007,19 @@ const ModelPage = ({
               </Link>
             </div>
 
-            <div className="mt-8 flex items-center gap-3 justify-center">
-                <span className="text-white text-lg">Compare {model_name} with:</span>
-                <div className="w-72">
-                  <ModelSelector
-                    models={LLMS.filter((m) => m.slug !== slug)}
-                    selectedModel={compareModel}
-                    onChange={handleCompare}
-                    className="bg-white"
-                  />
-                </div>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <span className="text-lg text-white">
+                Compare {model_name} with:
+              </span>
+              <div className="w-72">
+                <ModelSelector
+                  models={LLMS.filter((m) => m.slug !== slug)}
+                  selectedModel={compareModel}
+                  onChange={handleCompare}
+                  className="bg-white"
+                />
               </div>
+            </div>
           </div>
         </div>
 

@@ -31,6 +31,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
 import { useRouter } from 'next/router'
+import { DocumentTextIcon, PhotoIcon, SpeakerWaveIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
+import TooltipComponent from '@/components/Tooltip'
 
 // Register Chart.js components
 ChartJS.register(
@@ -621,11 +623,63 @@ const ModelPage = ({ model1, model2 }) => {
                             </td>
                           ))}
                         </tr>
+                        <tr>
+                          <td className="py-4 pr-3">
+                            <div className="text-lg font-medium text-gray-900">
+                              Supported Modalities
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              The types of inputs the model can process.
+                            </div>
+                          </td>
+                          {[model1, model2].map((model) => (
+                            <td
+                              key={model.slug}
+                              className="border-l border-gray-200 px-3 py-4 text-center"
+                            >
+                              <div className="flex items-center justify-center gap-3">
+                                <TooltipComponent content={model.modalities?.text ? "Supports text processing" : "Does not support text"}>
+                                  <DocumentTextIcon 
+                                    className={clsx(
+                                      'h-6 w-6',
+                                      model.modalities?.text ? 'text-cyan-600' : 'text-gray-300'
+                                    )}
+                                  />
+                                </TooltipComponent>
+                                <TooltipComponent content={model.modalities?.image ? "Supports image understanding and analysis" : "Does not support images"}>
+                                  <PhotoIcon 
+                                    className={clsx(
+                                      'h-6 w-6',
+                                      model.modalities?.image ? 'text-cyan-600' : 'text-gray-300'
+                                    )}
+                                  />
+                                </TooltipComponent>
+                                <TooltipComponent content={model.modalities?.voice ? "Supports voice/audio processing" : "Does not support voice/audio"}>
+                                  <SpeakerWaveIcon 
+                                    className={clsx(
+                                      'h-6 w-6',
+                                      model.modalities?.voice ? 'text-cyan-600' : 'text-gray-300'
+                                    )}
+                                  />
+                                </TooltipComponent>
+                                <TooltipComponent content={model.modalities?.video ? "Supports video understanding and analysis" : "Does not support video"}>
+                                  <VideoCameraIcon 
+                                    className={clsx(
+                                      'h-6 w-6',
+                                      model.modalities?.video ? 'text-cyan-600' : 'text-gray-300'
+                                    )}
+                                  />
+                                </TooltipComponent>
+                              </div>
+                            </td>
+                          ))}
+                        </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
+              
               {/* Model Insights */}
               <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
                 <InformationCircleIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
@@ -664,6 +718,19 @@ const ModelPage = ({ model1, model2 }) => {
                           ? 'larger'
                           : 'smaller'
                       } context window (${model2.input_context_window} vs ${model1.input_context_window} tokens).`}
+                    {(() => {
+                      const m1 = model1.modalities || {}
+                      const m2 = model2.modalities || {}
+                      const differences = []
+                      if (m1.text !== m2.text) differences.push('text')
+                      if (m1.image !== m2.image) differences.push('image')
+                      if (m1.voice !== m2.voice) differences.push('voice')
+                      if (m1.video !== m2.video) differences.push('video')
+                      if (differences.length > 0) {
+                        return ` Unlike ${model1.model_name}, ${model2.model_name} ${m2[differences[0]] ? 'supports' : 'does not support'} ${differences.join(', ')} processing.`
+                      }
+                      return ''
+                    })()}
                   </p>
                 </div>
               </div>
