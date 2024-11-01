@@ -105,22 +105,30 @@ const ModelPage = ({
   const generateFAQs = () => {
     let faqs = [
       {
-        question: `What is ${provider} ${model_name}?`,
+        question: `What is ${model_name}?`,
         answer: description,
       },
       {
         question: `Who created ${model_name}?`,
-        answer: `${model_name} was created by ${provider}.`,
+        answer: `${model_name} was created by ${providerInfo.displayName}, and launched on ${new Date(release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.`,
       },
       {
-        question: `What is the context window size of ${provider} ${model_name}?`,
-        answer: `${model_name} has a context window of ${input_context_window} tokens.`,
+        question: `How do I use ${model_name}?`,
+        answer: `${model_name} can be accessed ${api_providers ? `through ${api_providers}` : 'through its provider'}. To use the model, you'll need to:
+1. ${api_providers ? `Sign up for an account with ${api_providers}` : `Sign up for an account with ${providerInfo.displayName}`}
+2. Get your API key
+3. Make API calls to the model endpoint with your text input
+4. The model will return generated text based on your input.`,
+      },
+      {
+        question: `What is the context window for ${model_name}?`,
+        answer: `${model_name} has a context window of ${input_context_window} tokens. This generally includes the combination of input and output tokens.`,
       },
     ]
 
     if (open_source !== null) {
       faqs.push({
-        question: `Is ${provider} ${model_name} open source?`,
+        question: `Is ${providerInfo.displayName}'s ${model_name} open source?`,
         answer: `${open_source ? 'Yes' : 'No'}, ${model_name} ${open_source ? 'is' : 'is not'} open source, meaning its code and weights ${open_source ? 'are' : 'are not'} publicly available with a permissive license.`,
       })
     }
@@ -134,7 +142,7 @@ const ModelPage = ({
 
     if (release_date) {
       faqs.push({
-        question: `When was ${provider} ${model_name} released?`,
+        question: `When was ${model_name} released?`,
         answer: `${model_name} was released on ${new Date(release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.`,
       })
     }
@@ -148,14 +156,14 @@ const ModelPage = ({
 
     if (api_providers && api_providers !== 'Unknown') {
       faqs.push({
-        question: `Where can I access ${provider} ${model_name} via API?`,
+        question: `Where can I access ${model_name} via API?`,
         answer: `${model_name} is available through the following providers: ${api_providers}.`,
       })
     }
 
     if (input_cost_per_million_tokens || output_cost_per_million_tokens) {
       faqs.push({
-        question: `How much does ${provider} ${model_name} cost to use?`,
+        question: `How much does ${model_name} cost to use?`,
         answer: `${model_name} costs $${input_cost_per_million_tokens} per million input tokens and $${output_cost_per_million_tokens} per million output tokens.`,
       })
     }
@@ -175,10 +183,11 @@ const ModelPage = ({
     return faqs
   }
 
-  const faqs = generateFAQs()
-
   const providerInfo = getProviderInfo(provider)
   const IconComponent = providerInfo.icon
+
+
+  const faqs = generateFAQs()
 
   // Add state for scale type
   const [priceScale, setPriceScale] = useState('logarithmic')
@@ -197,7 +206,7 @@ const ModelPage = ({
   return (
     <>
       <NextSeo
-        title={`${provider} ${model_name} - AI Model Details`}
+        title={`${providerInfo.displayName}'s ${model_name} - AI Model Details`}
         description={description}
         openGraph={{
           images: [

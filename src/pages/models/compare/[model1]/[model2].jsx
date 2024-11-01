@@ -139,7 +139,7 @@ const ModelPage = ({ model1, model2 }) => {
     { name: 'Compare', href: null, current: false },
     {
       name: `${model1.model_name} vs ${model2.model_name}`,
-      href: '#',
+      href: `/models/compare/${model1.slug}/${model2.slug}`,
       current: true,
     },
   ]
@@ -302,8 +302,8 @@ const ModelPage = ({ model1, model2 }) => {
   return (
     <>
       <NextSeo
-        title={`Compare${providerInfo1.displayName} ${model1.model_name} vs ${providerInfo2.displayName} ${model2.model_name} - AI Model Comparison`}
-        description={`Compare ${model1.model_name} and ${model2.model_name} - features, pricing, and performance benchmarks`}
+        title={`${model1.model_name} vs ${model2.model_name} - Detailed Performance & Feature Comparison`}
+        description={`Discover how ${providerInfo1.displayName}'s ${model1.model_name} and ${providerInfo2.displayName}'s ${model2.model_name} stack up in performance, features, and applications. Read our detailed comparison to find out which AI model best suits your needs.`}
         openGraph={{
           images: [
             {
@@ -343,8 +343,8 @@ const ModelPage = ({ model1, model2 }) => {
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-300">
               Get a detailed comparison of AI language models{' '}
-              {providerInfo1.displayName} {model1.model_name} and{' '}
-              {providerInfo2.displayName} {model2.model_name}, including model
+              {providerInfo1.displayName}'s {model1.model_name} and{' '}
+              {providerInfo2.displayName}'s {model2.model_name}, including model
               features, token pricing, API costs, performance benchmarks, and
               real-world capabilities to help you choose the right LLM for your
               needs.
