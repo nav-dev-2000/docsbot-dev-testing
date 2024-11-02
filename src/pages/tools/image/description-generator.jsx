@@ -29,6 +29,7 @@ import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ImageDropZone from '@/components/ImageDropZone'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const ImageDescriptionGenerator = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
@@ -38,6 +39,7 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
   const [descriptionCopied, setDescriptionCopied] = useState(false)
   const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   useEffect(() => {
     setHasResults(!!imageDescription)
@@ -86,8 +88,9 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
         })
       } else if (response.status === 429) {
         setErrorText(
-          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          'Daily usage limit exceeded, please try again tomorrow.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -234,7 +237,7 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
                       className="mr-2 h-5 w-5"
                       aria-hidden="true"
                     />
-                    {descriptionCopied ? 'Copied!' : 'Copy Caption'}
+                    {descriptionCopied ? 'Copied!' : 'Copy Description'}
                   </button>
                   <button
                     onClick={resetTool}
@@ -252,6 +255,13 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
           )}
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="Image Description Generator"
+        toolCategory="Image"
+      />
     </div>
   )
 }

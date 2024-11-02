@@ -13,6 +13,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -49,6 +50,7 @@ const YoutubeRecommendationsExtractor = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const extractRecommendations = async (url) => {
     setIsComputing(true)
@@ -103,6 +105,7 @@ const YoutubeRecommendationsExtractor = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -171,6 +174,13 @@ const YoutubeRecommendationsExtractor = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Recommendations Extractor"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

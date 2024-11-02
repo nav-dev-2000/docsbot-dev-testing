@@ -14,6 +14,7 @@ import { usePostHog } from 'posthog-js/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import { ChatBubbleLeftRightIcon, GlobeAltIcon, PencilSquareIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Loading website...',
@@ -92,6 +93,7 @@ const AiFAQGenerator = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const genFAQs = async (url) => {
     setIsComputing(true)
@@ -138,8 +140,11 @@ const AiFAQGenerator = () => {
         console.log(url, new URL(url).hostname)
         await router.push(`/tools/ai-faq-generator/${new URL(url).hostname}`)
       } else if (response.status === 429) {
-        setErrorText('Daily usage limit exceeded, please try again tomorrow or create a free account.')
-        
+        setErrorText(
+          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+        )
+        setShowSignupModal(true)
+
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
           tool: 'AI FAQ Generator',
@@ -207,6 +212,13 @@ const AiFAQGenerator = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="AI FAQ Generator"
+        toolCategory="Website"
+      />
     </div>
   )
 }

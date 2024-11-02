@@ -34,6 +34,7 @@ import {
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import { FAQPageJsonLd } from 'next-seo'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -70,6 +71,7 @@ const YoutubeSummarizer = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const summarizeVideo = async (url) => {
     setIsComputing(true)
@@ -119,8 +121,9 @@ const YoutubeSummarizer = () => {
         await router.push(`/tools/ai-youtube-summarizer/${videoId}`)
       } else if (response.status === 429) {
         setErrorText(
-          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          'Daily usage limit exceeded, please try again tomorrow.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -189,6 +192,13 @@ const YoutubeSummarizer = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Summarizer"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

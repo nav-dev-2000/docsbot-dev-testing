@@ -24,6 +24,7 @@ import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ImageDropZone from '@/components/ImageDropZone'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const ImagePromptGenerator = ({ setHasResults }) => {
   const [instructions, setInstructions] = useState('') // Renamed from description
@@ -33,6 +34,7 @@ const ImagePromptGenerator = ({ setHasResults }) => {
   const [promptCopied, setPromptCopied] = useState(false)
   const [image, setImage] = useState(null)
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   useEffect(() => {
     setHasResults(!!prompt)
@@ -87,8 +89,9 @@ const ImagePromptGenerator = ({ setHasResults }) => {
         })
       } else if (response.status === 429) {
         setErrorText(
-          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          'Daily usage limit exceeded, please try again tomorrow.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -151,100 +154,109 @@ const ImagePromptGenerator = ({ setHasResults }) => {
   }
 
   return (
-    <div className="mx-auto max-w-3xl text-center">
-      <div className="py-12 pb-0">
-        <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
-          <Alert title={errorText} type="error" />
-          {!prompt && (
-            <>
-              <ImageDropZone
-                image={image}
-                setImage={setImage}
-                maxSize={512}
-                isComputing={isComputing}
-              />
-              <div className="my-4 xl:flex xl:items-end xl:space-x-4">
-                <div className="flex-1">
-                  <label htmlFor="instructions-input" className="sr-only">
-                    Optional Instructions
-                  </label>
-                  <input
-                    id="instructions-input"
-                    type="text"
-                    value={instructions}
-                    onChange={(e) => setInstructions(e.target.value)}
-                    disabled={isComputing}
-                    placeholder="Optional instructions"
-                    className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
-                  />
+    <>
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="py-12 pb-0">
+          <div className="mx-auto rounded-xl bg-white px-6 py-6 shadow-xl ring-1 ring-slate-900/10 lg:px-8">
+            <Alert title={errorText} type="error" />
+            {!prompt && (
+              <>
+                <ImageDropZone
+                  image={image}
+                  setImage={setImage}
+                  maxSize={512}
+                  isComputing={isComputing}
+                />
+                <div className="my-4 xl:flex xl:items-end xl:space-x-4">
+                  <div className="flex-1">
+                    <label htmlFor="instructions-input" className="sr-only">
+                      Optional Instructions
+                    </label>
+                    <input
+                      id="instructions-input"
+                      type="text"
+                      value={instructions}
+                      onChange={(e) => setInstructions(e.target.value)}
+                      disabled={isComputing}
+                      placeholder="Optional instructions"
+                      className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                  <button
+                    onClick={generatePrompt}
+                    disabled={isComputing || !image}
+                    className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 xl:mt-0 xl:w-auto"
+                  >
+                    {isComputing ? (
+                      <>
+                        <LoadingSpinner /> Generating Prompt...
+                      </>
+                    ) : (
+                      <>Generate Prompt</>
+                    )}
+                  </button>
                 </div>
-                <button
-                  onClick={generatePrompt}
-                  disabled={isComputing || !image}
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 xl:mt-0 xl:w-auto"
-                >
-                  {isComputing ? (
-                    <>
-                      <LoadingSpinner /> Generating Prompt...
-                    </>
-                  ) : (
-                    <>Generate Prompt</>
-                  )}
-                </button>
+                <p className="mt-2 text-xs text-gray-500">
+                  Images are never saved
+                </p>
+              </>
+            )}
+            {prompt && (
+              <div className="rounded-lg bg-gray-100 p-4 text-justify">
+                <h3 className="text-md mb-2 font-medium">Generated Prompt</h3>
+                <div className="prose mb-4 min-w-full text-gray-700">
+                  {prompt}
+                </div>
+                <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
+                  <button
+                    onClick={copyPrompt}
+                    className={clsx(
+                      'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
+                      promptCopied ? 'text-cyan-600' : 'text-gray-700',
+                    )}
+                  >
+                    <DocumentDuplicateIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    {promptCopied ? 'Copied!' : 'Copy Prompt'}
+                  </button>
+                  <Link
+                    href="https://www.basedlabs.ai/?via=docsbot"
+                    target="_blank"
+                    rel="noopener nofollow sponsored"
+                    className="inline-flex flex-1 items-center justify-center rounded-md bg-animation px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-700"
+                  >
+                    <ArrowUpOnSquareStackIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    Generate This Image
+                  </Link>
+                  <button
+                    onClick={resetTool}
+                    className="inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  >
+                    <ArrowPathIcon
+                      className="mr-2 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    Try Another
+                  </button>
+                </div>
               </div>
-              <p className="mt-2 text-xs text-gray-500">
-                Images are never saved
-              </p>
-            </>
-          )}
-          {prompt && (
-            <div className="rounded-lg bg-gray-100 p-4 text-justify">
-              <h3 className="text-md mb-2 font-medium">Generated Prompt</h3>
-              <div className="prose mb-4 min-w-full text-gray-700">
-                {prompt}
-              </div>
-              <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
-                <button
-                  onClick={copyPrompt}
-                  className={clsx(
-                    'inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-50',
-                    promptCopied ? 'text-cyan-600' : 'text-gray-700',
-                  )}
-                >
-                  <DocumentDuplicateIcon
-                    className="mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
-                  {promptCopied ? 'Copied!' : 'Copy Prompt'}
-                </button>
-                <Link
-                  href="https://www.basedlabs.ai/?via=docsbot"
-                  target="_blank"
-                  rel="noopener nofollow sponsored"
-                  className="inline-flex flex-1 items-center justify-center rounded-md bg-animation px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-700"
-                >
-                  <ArrowUpOnSquareStackIcon
-                    className="mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
-                  Generate This Image
-                </Link>
-                <button
-                  onClick={resetTool}
-                  className="inline-flex flex-1 items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                >
-                  <ArrowPathIcon
-                    className="mr-2 h-5 w-5"
-                    aria-hidden="true"
-                  />
-                  Try Another
-                </button>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="AI Image to Prompt Generator"
+        toolCategory="Image"
+      />
+    </>
   )
 }
 
@@ -326,7 +338,7 @@ export default function ImagePromptPage({ starRatingData }) {
   return (
     <>
       <NextSeo
-        title="Free AI Image to Prompt Generator | Image to Image Prompt | No Login"
+        title="Free AI Image to Prompt Generator | Create Prompt from Image | No Login"
         description="Use our AI Image to Prompt Generator to create effective prompts for AI models like FLUX, Stable Diffusion, DALL-E, and MidJourney. Generate detailed prompts from any image to enhance your creative workflows and content marketing."
         openGraph={{
           images: [

@@ -30,6 +30,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { DocumentDuplicateIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Analyzing your text...',
@@ -69,6 +70,7 @@ const TextHumanizer = () => {
   const [activeTab, setActiveTab] = useState('diff')
   const posthog = usePostHog()
   const [copySuccess, setCopySuccess] = useState(false)
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const tabs = [
     { name: 'Diff View', id: 'diff', icon: DocumentDuplicateIcon },
@@ -115,8 +117,10 @@ const TextHumanizer = () => {
       if (!response.ok) {
         if (response.status === 429) {
           setErrorText(
-            'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+            'Daily usage limit exceeded, please try again tomorrow.',
           )
+          setShowSignupModal(true)
+
           posthog?.capture('Free Tool', {
             tool: 'AI Text Humanizer',
             action: 'Error',
@@ -328,6 +332,13 @@ const TextHumanizer = () => {
           )}
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="AI Text Humanizer"
+        toolCategory="Writing"
+      />
     </div>
   )
 }

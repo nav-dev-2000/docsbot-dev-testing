@@ -14,6 +14,7 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -50,6 +51,7 @@ const YoutubeIdeaExtractor = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const extractIdeas = async (url) => {
     setIsComputing(true)
@@ -101,6 +103,7 @@ const YoutubeIdeaExtractor = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -169,6 +172,13 @@ const YoutubeIdeaExtractor = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Idea Extractor"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

@@ -30,6 +30,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -66,6 +67,7 @@ const YoutubeBlogPostGenerator = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const generateBlogPost = async (url) => {
     setIsComputing(true)
@@ -114,8 +116,9 @@ const YoutubeBlogPostGenerator = () => {
         await router.push(`/tools/youtube-blog-post-generator/${id}`)
       } else if (response.status === 429) {
         setErrorText(
-          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          'Daily usage limit exceeded, please try again tomorrow.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -191,6 +194,13 @@ const YoutubeBlogPostGenerator = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Blog Post Generator"
+        toolCategory="Writing"
+      />
     </div>
   )
 }

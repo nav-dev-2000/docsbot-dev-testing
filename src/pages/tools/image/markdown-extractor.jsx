@@ -30,6 +30,7 @@ import {
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ImageDropZone from '@/components/ImageDropZone'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const ImageToMarkdownConverter = ({ setHasResults }) => {
   const [image, setImage] = useState(null)
@@ -38,6 +39,7 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
   const [extractedMarkdown, setExtractedMarkdown] = useState('')
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [htmlContent, setHtmlContent] = useState('')
+  const [showSignupModal, setShowSignupModal] = useState(false)
   const posthog = usePostHog()
 
   useEffect(() => {
@@ -87,8 +89,9 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
         })
       } else if (response.status === 429) {
         setErrorText(
-          'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+          'Daily usage limit exceeded, please try again tomorrow.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -254,6 +257,13 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
           </div>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="Image to Markdown Converter"
+        toolCategory="Image"
+      />
     </>
   )
 }

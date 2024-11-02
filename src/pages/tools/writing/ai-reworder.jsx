@@ -26,6 +26,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Analyzing your text...',
@@ -80,6 +81,7 @@ const AIReworder = () => {
   const [paraphrasedResults, setParaphrasedResults] = useState([])
   const [selectedTone, setSelectedTone] = useState(tones[0])
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const paraphraseText = async (userInput, tone) => {
     setIsComputing(true)
@@ -114,8 +116,10 @@ const AIReworder = () => {
       if (!response.ok) {
         if (response.status === 429) {
           setErrorText(
-            'Daily usage limit exceeded, please try again tomorrow or create a free account.',
+            'Daily usage limit exceeded, please try again tomorrow.',
           )
+          setShowSignupModal(true)
+
           posthog?.capture('Free Tool', {
             tool: 'AI Reworder',
             action: 'Error',
@@ -250,6 +254,13 @@ const AIReworder = () => {
           )}
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="AI Reworder"
+        toolCategory="Writing"
+      />
     </div>
   )
 }

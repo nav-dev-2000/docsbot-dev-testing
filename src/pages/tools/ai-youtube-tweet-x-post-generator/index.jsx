@@ -13,6 +13,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Analyzing YouTube video...',
@@ -49,6 +50,7 @@ const YoutubeTweetXPostGenerator = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const generateTweets = async (url) => {
     setIsComputing(true)
@@ -98,6 +100,7 @@ const YoutubeTweetXPostGenerator = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         posthog?.capture('Free Tool', {
           tool: 'YouTube Tweet/X Post Generator',
@@ -161,6 +164,13 @@ const YoutubeTweetXPostGenerator = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Tweet/X Post Generator"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

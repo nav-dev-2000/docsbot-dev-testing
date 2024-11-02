@@ -188,10 +188,11 @@ export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
+    //TODO rate limit by type
   return (
     lookupQuery.docs.length >=
-    (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT) * 3
-  ) //we have 3 image tools
+    (isLoggedIn ? LOGGED_IN_RATE_LIMIT * 3 : RATE_LIMIT)
+  )
 }
 
 // Retrieve recent YouTube blog posts

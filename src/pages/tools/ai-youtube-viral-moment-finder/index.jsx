@@ -12,6 +12,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Analyzing video content...',
@@ -48,6 +49,7 @@ const YoutubeViralMomentsFinder = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const findViralMoments = async (url) => {
     setIsComputing(true)
@@ -99,6 +101,7 @@ const YoutubeViralMomentsFinder = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         // Track usage limit exceeded
         posthog?.capture('Free Tool', {
@@ -167,6 +170,13 @@ const YoutubeViralMomentsFinder = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Viral Moments Finder"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

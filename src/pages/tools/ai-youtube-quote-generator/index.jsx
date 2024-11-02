@@ -14,6 +14,7 @@ import RecentVideos from '@/components/RecentVideos'
 import RecentAIVideos from '@/components/RecentAIVideos'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -50,6 +51,7 @@ const YoutubeQuoteGenerator = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const generateQuotes = async (url) => {
     setIsComputing(true)
@@ -99,6 +101,7 @@ const YoutubeQuoteGenerator = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         posthog?.capture('Free Tool', {
           tool: 'YouTube Quote Generator',
@@ -164,6 +167,13 @@ const YoutubeQuoteGenerator = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube Quote Generator"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }

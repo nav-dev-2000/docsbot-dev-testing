@@ -125,7 +125,6 @@ function Register({ teamCount }) {
       if (window.fpr !== undefined) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
-      va.track('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
       posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
       posthog?.startSessionRecording()

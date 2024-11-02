@@ -13,6 +13,7 @@ import { usePostHog } from 'posthog-js/react'
 import { getRecentYoutubeVideos } from '@/lib/tools'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
+import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
   'Fetching video details...',
@@ -49,6 +50,7 @@ const YoutubeFAQGenerator = () => {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const posthog = usePostHog()
+  const [showSignupModal, setShowSignupModal] = useState(false)
 
   const generateFAQ = async (url) => {
     setIsComputing(true)
@@ -98,6 +100,7 @@ const YoutubeFAQGenerator = () => {
         setErrorText(
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
+        setShowSignupModal(true)
 
         posthog?.capture('Free Tool', {
           tool: 'YouTube FAQ Generator',
@@ -163,6 +166,13 @@ const YoutubeFAQGenerator = () => {
           </form>
         </div>
       </div>
+
+      <ToolsSignupModal 
+        open={showSignupModal}
+        setOpen={setShowSignupModal}
+        toolName="YouTube FAQ Generator"
+        toolCategory="YouTube"
+      />
     </div>
   )
 }
