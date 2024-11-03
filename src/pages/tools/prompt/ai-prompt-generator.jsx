@@ -55,6 +55,12 @@ const PromptGenerator = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const generatePrompt = async (userInput) => {
     setIsComputing(true)
     setErrorText('')

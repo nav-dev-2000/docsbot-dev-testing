@@ -43,6 +43,12 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
   const posthog = usePostHog()
 
   useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
+  useEffect(() => {
     setHasResults(!!extractedMarkdown)
   }, [extractedMarkdown, setHasResults])
 

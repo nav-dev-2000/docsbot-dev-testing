@@ -22,14 +22,22 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
     googleAuthLoading,
     setAuthLoading,
     onComplete: () => {
-      if (window.bento !== undefined) {
-        window.bento.identify(googleUser?.user?.email)
-        window.bento.updateFields({
-          name: googleUser?.user?.displayName,
-          usage_type: 'tools',
-          tool: toolName,
-          tool_category: toolCategory,
-        })
+      console.log('Window.bento status:', {
+        exists: window.bento !== undefined,
+        value: window.bento
+      })
+      if (typeof window !== 'undefined' && window.bento) {
+        try {
+          window.bento.identify(googleUser?.user?.email)
+          window.bento.updateFields({
+            name: googleUser?.user?.displayName,
+            usage_type: 'tools',
+            tool: toolName,
+            tool_category: toolCategory,
+          })
+        } catch (e) {
+          console.error('Bento error:', e)
+        }
       }
       if (window.fpr !== undefined) {
         window.fpr("referral", {email: googleUser?.user?.email})

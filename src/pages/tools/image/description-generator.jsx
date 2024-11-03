@@ -42,6 +42,12 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
   const [showSignupModal, setShowSignupModal] = useState(false)
 
   useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
+  useEffect(() => {
     setHasResults(!!imageDescription)
   }, [imageDescription, setHasResults])
 

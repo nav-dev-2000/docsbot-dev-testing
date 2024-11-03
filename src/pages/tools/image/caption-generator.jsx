@@ -87,7 +87,13 @@ const ImageCaptionGenerator = ({ setHasResults }) => {
   const [selectedVibe, setSelectedVibe] = useState('fun')
   const [showSignupModal, setShowSignupModal] = useState(false)
   const posthog = usePostHog()
-
+  
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   useEffect(() => {
     if (imageCaption) {
       setHasResults(true)

@@ -52,6 +52,12 @@ const YoutubeTweetXPostGenerator = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const generateTweets = async (url) => {
     setIsComputing(true)
     setErrorText('')

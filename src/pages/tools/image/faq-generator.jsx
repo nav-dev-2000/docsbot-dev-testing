@@ -45,6 +45,12 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [showSignupModal, setShowSignupModal] = useState(false)
   const posthog = usePostHog()
+  
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
 
   const generateFAQs = async () => {
     setIsComputing(true)

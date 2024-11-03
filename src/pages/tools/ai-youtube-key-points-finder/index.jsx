@@ -53,6 +53,12 @@ const YoutubeIdeaExtractor = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const extractIdeas = async (url) => {
     setIsComputing(true)
     setErrorText('')

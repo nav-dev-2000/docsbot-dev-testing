@@ -86,6 +86,12 @@ const AIParaphraser = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const paraphraseText = async (userInput, tone) => {
     setIsComputing(true)
     setErrorText('')

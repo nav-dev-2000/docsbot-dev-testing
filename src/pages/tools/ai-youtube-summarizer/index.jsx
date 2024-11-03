@@ -73,6 +73,12 @@ const YoutubeSummarizer = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const summarizeVideo = async (url) => {
     setIsComputing(true)
     setErrorText('')

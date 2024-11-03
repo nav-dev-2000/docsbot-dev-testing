@@ -112,6 +112,12 @@ const ImageToTextGenerator = ({ setHasResults }) => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const extractText = async () => {
     setIsComputing(true)
     setErrorText('')

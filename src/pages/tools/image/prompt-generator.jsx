@@ -40,6 +40,12 @@ const ImagePromptGenerator = ({ setHasResults }) => {
     setHasResults(!!prompt)
   }, [prompt, setHasResults])
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+
   const removeImage = () => {
     setImage(null)
   }

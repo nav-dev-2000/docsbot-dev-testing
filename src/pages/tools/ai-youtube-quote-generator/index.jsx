@@ -53,6 +53,12 @@ const YoutubeQuoteGenerator = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
   const generateQuotes = async (url) => {
     setIsComputing(true)
     setErrorText('')

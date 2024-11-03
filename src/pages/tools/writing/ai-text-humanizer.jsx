@@ -79,6 +79,12 @@ const TextHumanizer = () => {
   ]
 
   useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
+  
+  useEffect(() => {
     if (input && humanizedText) {
       setDiff(diffWords(input, humanizedText))
     }

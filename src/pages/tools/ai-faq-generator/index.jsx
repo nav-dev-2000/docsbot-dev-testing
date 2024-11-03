@@ -95,6 +95,11 @@ const AiFAQGenerator = () => {
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
+  useEffect(() => {
+    if (!showSignupModal) {
+      setErrorText(null)
+    }
+  }, [showSignupModal])
   const genFAQs = async (url) => {
     setIsComputing(true)
     setErrorText('')
