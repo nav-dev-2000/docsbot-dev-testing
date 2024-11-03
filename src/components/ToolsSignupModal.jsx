@@ -43,7 +43,7 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
       })
       posthog?.capture('Signup', { provider: 'google', usage_type: 'tools', tool: toolName, tool_category: toolCategory })
       setOpen(false)
-      router.reload()
+      //router.reload()
     },
   })
 
