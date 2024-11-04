@@ -8,12 +8,19 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { useState, useEffect } from 'react'
 import { usePostHog } from 'posthog-js/react'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
+import { getIsNewGmailUser } from '@/utils/firebase.utils'
 import Link from 'next/link'
 
-export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory }) {
+export default function ToolsSignupModal({
+  open,
+  setOpen,
+  toolName,
+  toolCategory,
+}) {
   const [user] = useAuthState(auth)
   const router = useRouter()
-  const [signInWithGoogle, googleUser, googleAuthLoading, error] = useSignInWithGoogle(auth)
+  const [signInWithGoogle, googleUser, googleAuthLoading, error] =
+    useSignInWithGoogle(auth)
   const [authLoading, setAuthLoading] = useState(false)
   const posthog = usePostHog()
 
@@ -22,36 +29,40 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
     googleAuthLoading,
     setAuthLoading,
     onComplete: () => {
-      console.log('Window.bento status:', {
-        exists: window.bento !== undefined,
-        value: window.bento
-      })
-      if (typeof window !== 'undefined' && window.bento) {
-        try {
-          window.bento.identify(googleUser?.user?.email)
-          window.bento.updateFields({
-            name: googleUser?.user?.displayName,
-            usage_type: 'tools',
-            tool: toolName,
-            tool_category: toolCategory,
-          })
-        } catch (e) {
-          console.error('Bento error:', e)
+      const isNewUser = getIsNewGmailUser(googleUser)
+      if (isNewUser) {
+        if (typeof window !== 'undefined' && window.bento) {
+          try {
+            window.bento.identify(googleUser?.user?.email)
+            window.bento.updateFields({
+              name: googleUser?.user?.displayName,
+              usage_type: 'tools',
+              tool: toolName,
+              tool_category: toolCategory,
+            })
+          } catch (e) {
+            console.error('Bento error:', e)
+          }
         }
+
+        if (window.fpr !== undefined) {
+          window.fpr('referral', { email: googleUser?.user?.email })
+        }
+        posthog?.identify(googleUser.user.uid, {
+          email: googleUser.user.email,
+          name: googleUser.user.displayName,
+          'Usage Type': 'tools',
+          'Signup Source': toolName,
+          'Tool Category': toolCategory,
+        })
+        posthog?.capture('Signup', {
+          provider: 'google',
+          usage_type: 'tools',
+          tool: toolName,
+          tool_category: toolCategory,
+        })
       }
-      if (window.fpr !== undefined) {
-        window.fpr("referral", {email: googleUser?.user?.email})
-      }
-      posthog?.identify(googleUser.user.uid, {
-        email: googleUser.user.email,
-        name: googleUser.user.displayName,
-        'Usage Type': 'tools',
-        'Signup Source': toolName,  
-        'Tool Category': toolCategory,
-      })
-      posthog?.capture('Signup', { provider: 'google', usage_type: 'tools', tool: toolName, tool_category: toolCategory })
       setOpen(false)
-      //router.reload()
     },
   })
 
@@ -65,9 +76,9 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
       <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center high sm:p-0">
+        <div className="high flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <Dialog.Panel className="relative isolate transform overflow-hidden rounded-lg bg-gray-900 px-6 py-12 text-center shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:rounded-3xl sm:px-16">
-            <div className="mx-auto w-fit rounded-lg text-center mb-2 bg-red-600 px-4 py-0.5 text-sm font-semibold text-white shadow-md">
+            <div className="mx-auto mb-2 w-fit rounded-lg bg-red-600 px-4 py-0.5 text-center text-sm font-semibold text-white shadow-md">
               Daily Usage Exceeded
             </div>
             <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -75,14 +86,14 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
             </h2>
             <p className="mx-auto mt-6 text-pretty text-lg/8 text-gray-300">
               Sign up for a free account to increase your daily usage limit for{' '}
-              {toolName} & <strong>20+ other AI tools!</strong> Expect occasional
-              updates about new free AI tools and features. No spam, unsubscribe
-              anytime.
+              {toolName} & <strong>20+ other AI tools!</strong> Expect
+              occasional updates about new free AI tools and features. No spam,
+              unsubscribe anytime.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center space-y-4">
               {googleAuthLoading || authLoading ? (
-                <div className="flex items-center space-x-3 text-white font-semibold">
+                <div className="flex items-center space-x-3 font-semibold text-white">
                   <LoadingSpinner />
                   <span>Signing you in...</span>
                 </div>
@@ -90,18 +101,26 @@ export default function ToolsSignupModal({ open, setOpen, toolName, toolCategory
                 <>
                   <button
                     onClick={() => signInWithGoogle()}
-                    className="flex items-center rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 gap-2"
+                    className="flex items-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100"
                   >
                     <GoogleLogo className="mr-2 h-5 w-5" />
                     Continue with Google
                   </button>
                   <p className="text-sm text-gray-300">
                     By continuing, you agree to our{' '}
-                    <Link href="/legal/terms-of-service" target="_blank" className="underline hover:text-white">
+                    <Link
+                      href="/legal/terms-of-service"
+                      target="_blank"
+                      className="underline hover:text-white"
+                    >
                       Terms of Service
                     </Link>{' '}
                     &{' '}
-                    <Link href="/legal/privacy-policy" target="_blank" className="underline hover:text-white">
+                    <Link
+                      href="/legal/privacy-policy"
+                      target="_blank"
+                      className="underline hover:text-white"
+                    >
                       Privacy Policy
                     </Link>
                   </p>
