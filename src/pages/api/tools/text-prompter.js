@@ -89,6 +89,66 @@ Retain the essence and accuracy of the original text while adjusting the languag
       },
     ],
   },
+  paragraph: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Generate engaging and unique paragraphs based on a provided topic or keywords, writing style, and specified number of paragraphs. Your task is to create content suitable for mediums such as blogs, essays, articles, emails, or social media posts while ensuring relevance to the given topic and style. Make effective use of inline markdown formatting to improve readability, such as using **bold** for emphasis, *italics* for nuanced points. Do not add headings or bullet lists. Maintain the precise number of paragraphs requested.
+
+# Steps
+
+1. **Understand the Inputs**: Carefully review the provided topic, keywords, writing style, and number of paragraphs.
+2. **Research and Contextualize**: If necessary, conduct brief research to ensure accurate and relevant content. Use knowledge available to generate accurate information.
+3. **Draft Content**: Begin drafting paragraphs by closely adhering to the given style. Ensure each paragraph adds value and context to the topic.
+4. **Format with Markdown**: Use appropriate markdown styling (bold, italics) to enhance readability while maintaining a clean and professional look.
+5. **Review for Cohesion**: If more than one paragraph is requested, ensure each requested paragraph logically transitions from one to the next, creating a cohesive piece.
+6. **Count and Adjust**: Verify that the output exactly matches the number of paragraphs requested.
+
+# Output Format
+- Write content in the requested number of distinct paragraphs separated by double newlines.
+- Utilize markdown formatting inline for enhanced readability.
+- Clearly incorporate the designated writing style throughout the content.
+
+# Example 1
+
+### Input
+- Topic/Keywords: "The importance of sleep"
+- Writing Style: Informative
+- Number of Paragraphs: 3
+
+### Output
+
+Sleep is a fundamental aspect of physical and mental health. Recent studies highlight that **adequate sleep** supports immune function, mood regulation, and cognitive processes. Understanding the importance of sleep can lead to lifestyle changes that promote well-being.
+
+Beyond mere rest and recuperation, sleep is critical for emotional stability and learning. REM sleep, in particular, plays a role in processing emotions and consolidating memories. Integrating sleep hygiene practices, like maintaining a regular sleep schedule, can yield significant benefits.
+
+Many face challenges with sleep, yet solutions are within reach. Incorporating habits such as reducing screen time before bed and creating a tranquil sleeping environment can make a notable difference. Through awareness and proactive measures, one can achieve restorative sleep and improve overall health.
+
+
+# Example 2
+
+### Input
+- Topic/Keywords: "All I do is fix bugs all day"
+- Writing Style: Journalistic
+- Number of Paragraphs: 1
+
+### Output
+
+In the tech world, the life of a software developer often revolves around a relentless cycle of troubleshooting and refining code. For many professionals in the industry, the phrase "all I do is fix bugs all day" captures the essence of their daily activities. With the fast-paced nature of software development, developers frequently find themselves on the front lines, addressing issues that affect user experience and overall product functionality. This reality can often lead to burnout, as the work involved isn't merely about finding and fixing errors; it's also about ensuring that new features and updates don’t introduce further complications.
+
+
+# Notes
+- Consider using everyday examples or metaphors to make complex topics more relatable.
+- Ensure clarity and succinctness in expression without compromising on depth of information.
+`,
+      },
+      {
+        role: 'user',
+        content: `Topic: {{input}}\nWriting Style: {{tone}}\nParagraph Count: {{paragraphCount}}\n\nYour response should be limited to {{paragraphCount}} paragraph(s).`,
+      },
+    ],
+  },
   // Add more types here as needed
 }
 
@@ -119,7 +179,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone } = req.body
+      const { type, input, tone, paragraphCount } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -158,6 +218,29 @@ export default async function handler(req, res) {
             })
         }
 
+        if (tone && typeof tone !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing tone parameter.' })
+        }
+      }
+
+      if (type === 'paragraph') {
+        if (!input || typeof input !== 'string' || input.trim() === '') {
+          return res.status(400).json({ message: 'Invalid or missing input parameter.' })
+        }
+
+        if (
+          !paragraphCount ||
+          typeof paragraphCount !== 'number' ||
+          paragraphCount < 1 ||
+          paragraphCount > 5
+        ) {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing paragraphCount parameter.' })
+        }
+    
         if (tone && typeof tone !== 'string') {
           return res
             .status(400)

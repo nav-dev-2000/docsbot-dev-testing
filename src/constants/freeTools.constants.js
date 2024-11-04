@@ -21,6 +21,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Paragraph Generator',
+    description: 'Generate paragraphs with AI',
+    href: '/tools/writing/ai-paragraph-generator',
+    ogImage: '/images/og/paragraph-generator.png',
+    category: 'Writing',
+  },
+  {
     name: 'PDF to Image Converter',
     href: '/tools/pdf/to-image',
     ogImage: '/images/og/pdf-image.png',
