@@ -40,6 +40,7 @@ export default function ToolsSignupModal({
               tool: toolName,
               tool_category: toolCategory,
             })
+            window.bento.track('toolsSignup')
           } catch (e) {
             console.error('Bento error:', e)
           }

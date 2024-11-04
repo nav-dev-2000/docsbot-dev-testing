@@ -138,15 +138,15 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
           <PromptDisplay {...promptData} />
         </div>
 
-        <RelatedPromptsList 
-          prompts={relatedPrompts} 
-          category={promptData.category}
-        />
-
         <RegisterCTA
           customTitle="Use this prompt with a custom-trained chatbot!"
           description="Create your own custom GPT chatbot with your own data and knowledge. Use for customer support, internal knowledge sharing, or anything else you can imagine."
           button="Create Your Free Custom GPT"
+        />
+
+        <RelatedPromptsList 
+          prompts={relatedPrompts} 
+          category={promptData.category}
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid category="Prompt" />

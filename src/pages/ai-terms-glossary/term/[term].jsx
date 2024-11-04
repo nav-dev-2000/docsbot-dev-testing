@@ -130,6 +130,8 @@ const GlossaryTermPage = ({
           </div>
         </div>
 
+        <RegisterCTA />
+
         <div className="bg-gray-100 py-12">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
             <h2 className="mb-6 text-center text-2xl font-bold">
@@ -154,8 +156,6 @@ const GlossaryTermPage = ({
           </div>
           </div>
         </div>
-
-        <RegisterCTA />
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <FreeToolsGrid />
