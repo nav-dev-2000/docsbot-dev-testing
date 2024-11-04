@@ -54,9 +54,9 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 88.91,
+        score: 89.3,
         notes: '0-shot CoT',
-        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 78,
@@ -103,9 +103,9 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 88.91,
+        score: 89.3,
         notes: '0-shot CoT',
-        source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 78,
@@ -205,9 +205,14 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 81.5,
-        notes: '5-shot CoT',
-        source: 'https://www.anthropic.com/claude-3-model-card',
+        score: 77.1,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
+      'MMLU-Pro': {
+        score: 54.9,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MMMU: {
         score: 53.1,
@@ -219,8 +224,16 @@ const LLMS = [
         notes: '10-shot',
         source: 'https://www.anthropic.com/news/claude-3-family',
       },
-      HumanEval: null,
-      MATH: null,
+      HumanEval: {
+        score: 73,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
+      MATH: {
+        score: 43.1,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
     },
   },
   {
@@ -245,9 +258,14 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 88.2,
-        notes: '5-shot CoT',
-        source: 'https://www.anthropic.com/claude-3-model-card',
+        score: 85.7,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
+      'MMLU-Pro': {
+        score: 67.9,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MMMU: {
         score: 59.4,
@@ -259,8 +277,57 @@ const LLMS = [
         notes: '10-shot',
         source: 'https://www.anthropic.com/news/claude-3-family',
       },
-      HumanEval: null,
-      MATH: null,
+      HumanEval: {
+        score: 84.9,
+        notes: '0-shot',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
+      MATH: {
+        score: 60.1,
+        notes: '0-shot CoT',
+        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+      },
+    },
+  },
+  {
+    model_name: 'Claude 3.5 Haiku',
+    slug: 'claude-3-5-haiku',
+    provider: 'anthropic',
+    description:
+      'Claude 3.5 Haiku, developed by Anthropic, features a context window of 200,000 tokens. The model costs $1 per million input tokens and $5 per million output tokens, with up to 90% cost savings with prompt caching and 50% cost savings with Message Batches API. It was released on November 4, 2024. Ideal for code completions, interactive chatbots, data extraction/labeling, and real-time content moderation.',
+    input_context_window: '200K',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-11-04',
+    knowledge_cut_off_date: 'July 2024',
+    api_providers: 'Anthropic, AWS Bedrock, Vertex AI',
+    input_cost_per_million_tokens: 1,
+    output_cost_per_million_tokens: 5,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: null,
+      'MMLU-Pro': {
+        score: 65.0,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/claude/haiku',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      HumanEval: {
+        score: 88.1,
+        notes: '0-shot',
+        source: 'https://www.anthropic.com/claude/haiku',
+      },
+      MATH: {
+        score: 69.4,
+        notes: '0-shot CoT',
+        source: 'https://www.anthropic.com/claude/haiku',
+      },
     },
   },
   {

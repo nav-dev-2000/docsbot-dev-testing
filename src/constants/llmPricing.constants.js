@@ -105,6 +105,15 @@ export const LLM_PRICING = {
             output_token_cost_per_million: 15,
           },
           {
+            model_name: 'Claude 3.5 Haiku',
+            model_slug: 'claude-3-5-haiku-20241022',
+            page_slug: 'claude-3-5-haiku',
+            context: '200K/8K',
+            provider: 'Anthropic',
+            input_token_cost_per_million: 1,
+            output_token_cost_per_million: 5,
+          },
+          {
             model_name: 'Claude 3 Opus',
             model_slug: 'claude-3-opus-20240229',
             page_slug: 'claude-3-opus',
