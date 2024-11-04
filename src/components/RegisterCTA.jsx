@@ -32,7 +32,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
   }, [customTitle])
 
   return (
-    <div className="bg-white pb-8">
+    <div className="bg-white py-8">
       <div className="relative sm:py-12">
         <div aria-hidden="true" className="hidden sm:block">
           <div className="absolute inset-y-0 left-0 w-1/2 rounded-r-3xl bg-gray-50" />

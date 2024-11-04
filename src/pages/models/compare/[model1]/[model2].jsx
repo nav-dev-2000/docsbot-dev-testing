@@ -31,7 +31,12 @@ import {
 } from '@heroicons/react/24/outline'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
 import { useRouter } from 'next/router'
-import { DocumentTextIcon, PhotoIcon, SpeakerWaveIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
+import {
+  DocumentTextIcon,
+  PhotoIcon,
+  SpeakerWaveIcon,
+  VideoCameraIcon,
+} from '@heroicons/react/24/outline'
 import TooltipComponent from '@/components/Tooltip'
 
 // Register Chart.js components
@@ -114,7 +119,7 @@ const ModelSelector = ({ models, selectedModel, onChange, className }) => {
         onChange(selected)
       }}
       className={clsx(
-        'block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:text-md sm:leading-6 text-center',
+        'sm:text-md block w-full rounded-md border-0 bg-gray-50 py-2 pl-3 pr-10 text-center text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-cyan-600 sm:leading-6',
         className,
       )}
     >
@@ -196,23 +201,30 @@ const ModelPage = ({ model1, model2 }) => {
           return `${model2.model_name} has a ${window2 > window1 ? 'larger' : 'smaller'} context window (${model2.input_context_window} vs ${model1.input_context_window} tokens).`
         })()}`,
       },
-      
     ]
 
-    if (model1.input_cost_per_million_tokens && model2.input_cost_per_million_tokens && 
-        model1.output_cost_per_million_tokens && model2.output_cost_per_million_tokens) {
+    if (
+      model1.input_cost_per_million_tokens &&
+      model2.input_cost_per_million_tokens &&
+      model1.output_cost_per_million_tokens &&
+      model2.output_cost_per_million_tokens
+    ) {
       faqs.push({
         question: `How do ${model1.model_name} and ${model2.model_name}'s prices compare?`,
         answer: `For input tokens, ${model2.model_name} ${
-          model2.input_cost_per_million_tokens === model1.input_cost_per_million_tokens
+          model2.input_cost_per_million_tokens ===
+          model1.input_cost_per_million_tokens
             ? 'costs the same as'
-            : model2.input_cost_per_million_tokens > model1.input_cost_per_million_tokens
-              ? 'costs more than' 
+            : model2.input_cost_per_million_tokens >
+                model1.input_cost_per_million_tokens
+              ? 'costs more than'
               : 'costs less than'
         } ${model1.model_name} ($${model2.input_cost_per_million_tokens} vs $${model1.input_cost_per_million_tokens} per million tokens). For output tokens, ${model2.model_name} ${
-          model2.output_cost_per_million_tokens === model1.output_cost_per_million_tokens
+          model2.output_cost_per_million_tokens ===
+          model1.output_cost_per_million_tokens
             ? 'costs the same as'
-            : model2.output_cost_per_million_tokens > model1.output_cost_per_million_tokens
+            : model2.output_cost_per_million_tokens >
+                model1.output_cost_per_million_tokens
               ? 'costs more than'
               : 'costs less than'
         } ${model1.model_name} ($${model2.output_cost_per_million_tokens} vs $${model1.output_cost_per_million_tokens} per million tokens).`,
@@ -355,7 +367,7 @@ const ModelPage = ({ model1, model2 }) => {
           <div className="mx-auto mt-10 flex max-w-2xl justify-center lg:mx-0 lg:max-w-none">
             <Breadcrumb pages={breadcrumbPages} />
           </div>
-          <div className="flex items-center justify-center gap-4 text-white mt-8">
+          <div className="mt-8 flex items-center justify-center gap-4 text-white">
             <span className="text-lg font-medium">Compare</span>
             <div className="w-72">
               <ModelSelector
@@ -415,7 +427,10 @@ const ModelPage = ({ model1, model2 }) => {
               <div className="rounded-lg bg-gray-50 p-6">
                 <div className="mb-4 flex items-center gap-2">
                   <IconComponent1 className="h-6 w-6" />
-                  <Link href={`/models/${model1.slug}`} className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline">
+                  <Link
+                    href={`/models/${model1.slug}`}
+                    className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline"
+                  >
                     {model1.model_name}
                   </Link>
                 </div>
@@ -426,7 +441,10 @@ const ModelPage = ({ model1, model2 }) => {
               <div className="rounded-lg bg-gray-50 p-6">
                 <div className="mb-4 flex items-center gap-2">
                   <IconComponent2 className="h-6 w-6" />
-                  <Link href={`/models/${model2.slug}`} className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline">
+                  <Link
+                    href={`/models/${model2.slug}`}
+                    className="text-xl font-semibold text-gray-900 hover:text-gray-800 hover:underline"
+                  >
                     {model2.model_name}
                   </Link>
                 </div>
@@ -638,35 +656,67 @@ const ModelPage = ({ model1, model2 }) => {
                               className="border-l border-gray-200 px-3 py-4 text-center"
                             >
                               <div className="flex items-center justify-center gap-3">
-                                <TooltipComponent content={model.modalities?.text ? "Supports text processing" : "Does not support text"}>
-                                  <DocumentTextIcon 
+                                <TooltipComponent
+                                  content={
+                                    model.modalities?.text
+                                      ? 'Supports text processing'
+                                      : 'Does not support text'
+                                  }
+                                >
+                                  <DocumentTextIcon
                                     className={clsx(
                                       'h-6 w-6',
-                                      model.modalities?.text ? 'text-cyan-600' : 'text-gray-300'
+                                      model.modalities?.text
+                                        ? 'text-cyan-600'
+                                        : 'text-gray-300',
                                     )}
                                   />
                                 </TooltipComponent>
-                                <TooltipComponent content={model.modalities?.image ? "Supports image understanding and analysis" : "Does not support images"}>
-                                  <PhotoIcon 
+                                <TooltipComponent
+                                  content={
+                                    model.modalities?.image
+                                      ? 'Supports image understanding and analysis'
+                                      : 'Does not support images'
+                                  }
+                                >
+                                  <PhotoIcon
                                     className={clsx(
                                       'h-6 w-6',
-                                      model.modalities?.image ? 'text-cyan-600' : 'text-gray-300'
+                                      model.modalities?.image
+                                        ? 'text-cyan-600'
+                                        : 'text-gray-300',
                                     )}
                                   />
                                 </TooltipComponent>
-                                <TooltipComponent content={model.modalities?.voice ? "Supports voice/audio processing" : "Does not support voice/audio"}>
-                                  <SpeakerWaveIcon 
+                                <TooltipComponent
+                                  content={
+                                    model.modalities?.voice
+                                      ? 'Supports voice/audio processing'
+                                      : 'Does not support voice/audio'
+                                  }
+                                >
+                                  <SpeakerWaveIcon
                                     className={clsx(
                                       'h-6 w-6',
-                                      model.modalities?.voice ? 'text-cyan-600' : 'text-gray-300'
+                                      model.modalities?.voice
+                                        ? 'text-cyan-600'
+                                        : 'text-gray-300',
                                     )}
                                   />
                                 </TooltipComponent>
-                                <TooltipComponent content={model.modalities?.video ? "Supports video understanding and analysis" : "Does not support video"}>
-                                  <VideoCameraIcon 
+                                <TooltipComponent
+                                  content={
+                                    model.modalities?.video
+                                      ? 'Supports video understanding and analysis'
+                                      : 'Does not support video'
+                                  }
+                                >
+                                  <VideoCameraIcon
                                     className={clsx(
                                       'h-6 w-6',
-                                      model.modalities?.video ? 'text-cyan-600' : 'text-gray-300'
+                                      model.modalities?.video
+                                        ? 'text-cyan-600'
+                                        : 'text-gray-300',
                                     )}
                                   />
                                 </TooltipComponent>
@@ -679,7 +729,7 @@ const ModelPage = ({ model1, model2 }) => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Model Insights */}
               <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
                 <InformationCircleIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
@@ -801,7 +851,10 @@ const ModelPage = ({ model1, model2 }) => {
                               ) : (
                                 <>
                                   <div className="text-lg font-bold text-gray-900">
-                                    ${model.input_cost_per_million_tokens.toFixed(2)}
+                                    $
+                                    {model.input_cost_per_million_tokens.toFixed(
+                                      2,
+                                    )}
                                   </div>
                                   <div className="text-sm text-gray-500">
                                     per million tokens
@@ -832,7 +885,10 @@ const ModelPage = ({ model1, model2 }) => {
                               ) : (
                                 <>
                                   <div className="text-lg font-bold text-gray-900">
-                                    ${model.output_cost_per_million_tokens.toFixed(2)}
+                                    $
+                                    {model.output_cost_per_million_tokens.toFixed(
+                                      2,
+                                    )}
                                   </div>
                                   <div className="text-sm text-gray-500">
                                     per million tokens
@@ -848,8 +904,10 @@ const ModelPage = ({ model1, model2 }) => {
                 </div>
               </div>
               {/* Pricing Insights */}
-              {model1.input_cost_per_million_tokens && model1.output_cost_per_million_tokens && 
-               model2.input_cost_per_million_tokens && model2.output_cost_per_million_tokens ? (
+              {model1.input_cost_per_million_tokens &&
+              model1.output_cost_per_million_tokens &&
+              model2.input_cost_per_million_tokens &&
+              model2.output_cost_per_million_tokens ? (
                 <div className="mt-8 flex items-center justify-center gap-3 rounded-lg border border-blue-200 bg-blue-50 p-4">
                   {model2.input_cost_per_million_tokens +
                     model2.output_cost_per_million_tokens ===
@@ -857,7 +915,7 @@ const ModelPage = ({ model1, model2 }) => {
                     model1.output_cost_per_million_tokens ? (
                     <EqualsIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
                   ) : model2.input_cost_per_million_tokens +
-                    model2.output_cost_per_million_tokens <
+                      model2.output_cost_per_million_tokens <
                     model1.input_cost_per_million_tokens +
                       model1.output_cost_per_million_tokens ? (
                     <ArrowTrendingDownIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-blue-600" />
@@ -869,30 +927,28 @@ const ModelPage = ({ model1, model2 }) => {
                       {model2.input_cost_per_million_tokens +
                         model2.output_cost_per_million_tokens ===
                       model1.input_cost_per_million_tokens +
-                        model1.output_cost_per_million_tokens ? (
-                        `${model2.model_name} costs the same as ${model1.model_name} for input and output tokens.`
-                      ) : model2.input_cost_per_million_tokens +
-                        model2.output_cost_per_million_tokens <
-                        model1.input_cost_per_million_tokens +
-                          model1.output_cost_per_million_tokens ? (
-                        `${model2.model_name} is roughly ${(
-                          (model1.input_cost_per_million_tokens +
-                            model1.output_cost_per_million_tokens) /
-                          (model2.input_cost_per_million_tokens +
-                            model2.output_cost_per_million_tokens)
-                        ).toFixed(1)}x cheaper compared to ${
-                          model1.model_name
-                        } for input and output tokens.`
-                      ) : (
-                        `${model2.model_name} is roughly ${(
-                          (model2.input_cost_per_million_tokens +
-                            model2.output_cost_per_million_tokens) /
-                          (model1.input_cost_per_million_tokens +
-                            model1.output_cost_per_million_tokens)
-                        ).toFixed(1)}x more expensive compared to ${
-                          model1.model_name
-                        } for input and output tokens.`
-                      )}
+                        model1.output_cost_per_million_tokens
+                        ? `${model2.model_name} costs the same as ${model1.model_name} for input and output tokens.`
+                        : model2.input_cost_per_million_tokens +
+                              model2.output_cost_per_million_tokens <
+                            model1.input_cost_per_million_tokens +
+                              model1.output_cost_per_million_tokens
+                          ? `${model2.model_name} is roughly ${(
+                              (model1.input_cost_per_million_tokens +
+                                model1.output_cost_per_million_tokens) /
+                              (model2.input_cost_per_million_tokens +
+                                model2.output_cost_per_million_tokens)
+                            ).toFixed(1)}x cheaper compared to ${
+                              model1.model_name
+                            } for input and output tokens.`
+                          : `${model2.model_name} is roughly ${(
+                              (model2.input_cost_per_million_tokens +
+                                model2.output_cost_per_million_tokens) /
+                              (model1.input_cost_per_million_tokens +
+                                model1.output_cost_per_million_tokens)
+                            ).toFixed(1)}x more expensive compared to ${
+                              model1.model_name
+                            } for input and output tokens.`}
                     </p>
                   </div>
                 </div>
@@ -905,9 +961,13 @@ const ModelPage = ({ model1, model2 }) => {
                 </div>
               )}
             </div>
+          </div>
 
+          <RegisterCTA />
+
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Price Comparison */}
-            <div id="price-comparison" className="mt-24 px-4 sm:px-6 lg:px-8">
+            <div id="price-comparison" className="mt-12 px-4 sm:px-6 lg:px-8">
               <div className="justify-between sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                   <h2 className="text-3xl font-bold text-gray-900">
@@ -948,8 +1008,7 @@ const ModelPage = ({ model1, model2 }) => {
                           ].includes(model.model_slug),
                       )
                       .map(
-                        (model) =>
-                          `${model.provider} - ${model.model_name}`,
+                        (model) => `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
@@ -1042,8 +1101,7 @@ const ModelPage = ({ model1, model2 }) => {
                           ].includes(model.model_slug),
                       )
                       .map(
-                        (model) =>
-                          `${model.provider} - ${model.model_name}`,
+                        (model) => `${model.provider} - ${model.model_name}`,
                       ),
                     datasets: [
                       {
@@ -1167,7 +1225,7 @@ const ModelPage = ({ model1, model2 }) => {
                               scope="col"
                               className="w-fit border-l border-gray-800 px-3 py-3.5 text-center text-sm font-semibold text-white"
                             >
-                              <div className="flex items-center justify-center gap-2 lg:whitespace-nowrap text-xl">
+                              <div className="flex items-center justify-center gap-2 text-xl lg:whitespace-nowrap">
                                 {model === model1 ? (
                                   <IconComponent1 className="h-6 w-6" />
                                 ) : (
@@ -1282,8 +1340,6 @@ const ModelPage = ({ model1, model2 }) => {
             </div>
           </div>
         </div>
-
-        <RegisterCTA />
 
         <div className="bg-gray-900 py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">

@@ -179,30 +179,30 @@ const ModelPage = ({
     if (modalities) {
       faqs.push({
         question: `Can ${model_name} process text input?`,
-        answer: modalities.text 
+        answer: modalities.text
           ? `Yes, ${model_name} can process and generate text, making it suitable for tasks like writing, summarization, analysis, and chat conversations.`
-          : `No, ${model_name} does not support text input or generation.`
+          : `No, ${model_name} does not support text input or generation.`,
       })
 
       faqs.push({
         question: `Does ${model_name} work with images?`,
         answer: modalities.image
           ? `Yes, ${model_name} can process and understand images, allowing it to analyze visual content and discuss what it sees.`
-          : `No, ${model_name} does not support image processing or analysis.`
+          : `No, ${model_name} does not support image processing or analysis.`,
       })
 
       faqs.push({
         question: `Does ${model_name} support voice input?`,
         answer: modalities.voice
           ? `Yes, ${model_name} can process voice/audio input, enabling speech-related applications like describing, summarizing, transcribing, and question answering.`
-          : `No, ${model_name} does not support voice or audio processing.`
+          : `No, ${model_name} does not support voice or audio processing.`,
       })
 
       faqs.push({
         question: `Can ${model_name} handle video content?`,
         answer: modalities.video
           ? `Yes, ${model_name} can process video content, allowing it to analyze and understand video inputs.`
-          : `No, ${model_name} does not support video processing or analysis.`
+          : `No, ${model_name} does not support video processing or analysis.`,
       })
     }
 
@@ -483,35 +483,67 @@ const ModelPage = ({
                           </td>
                           <td className="px-3 py-4 text-center">
                             <div className="flex justify-center gap-3">
-                              <TooltipComponent content={modalities.text ? "Supports text input and generation" : "Does not support text"}>
-                                <DocumentTextIcon 
+                              <TooltipComponent
+                                content={
+                                  modalities.text
+                                    ? 'Supports text input and generation'
+                                    : 'Does not support text'
+                                }
+                              >
+                                <DocumentTextIcon
                                   className={clsx(
                                     'h-6 w-6',
-                                    modalities.text ? 'text-cyan-600' : 'text-gray-300'
+                                    modalities.text
+                                      ? 'text-cyan-600'
+                                      : 'text-gray-300',
                                   )}
                                 />
                               </TooltipComponent>
-                              <TooltipComponent content={modalities.image ? "Supports image understanding and analysis" : "Does not support images"}>
-                                <PhotoIcon 
+                              <TooltipComponent
+                                content={
+                                  modalities.image
+                                    ? 'Supports image understanding and analysis'
+                                    : 'Does not support images'
+                                }
+                              >
+                                <PhotoIcon
                                   className={clsx(
                                     'h-6 w-6',
-                                    modalities.image ? 'text-cyan-600' : 'text-gray-300'
+                                    modalities.image
+                                      ? 'text-cyan-600'
+                                      : 'text-gray-300',
                                   )}
                                 />
                               </TooltipComponent>
-                              <TooltipComponent content={modalities.voice ? "Supports voice/audio processing" : "Does not support voice/audio"}>
-                                <SpeakerWaveIcon 
+                              <TooltipComponent
+                                content={
+                                  modalities.voice
+                                    ? 'Supports voice/audio processing'
+                                    : 'Does not support voice/audio'
+                                }
+                              >
+                                <SpeakerWaveIcon
                                   className={clsx(
                                     'h-6 w-6',
-                                    modalities.voice ? 'text-cyan-600' : 'text-gray-300'
+                                    modalities.voice
+                                      ? 'text-cyan-600'
+                                      : 'text-gray-300',
                                   )}
                                 />
                               </TooltipComponent>
-                              <TooltipComponent content={modalities.video ? "Supports video understanding and analysis" : "Does not support video"}>
-                                <VideoCameraIcon 
+                              <TooltipComponent
+                                content={
+                                  modalities.video
+                                    ? 'Supports video understanding and analysis'
+                                    : 'Does not support video'
+                                }
+                              >
+                                <VideoCameraIcon
                                   className={clsx(
                                     'h-6 w-6',
-                                    modalities.video ? 'text-cyan-600' : 'text-gray-300'
+                                    modalities.video
+                                      ? 'text-cyan-600'
+                                      : 'text-gray-300',
                                   )}
                                 />
                               </TooltipComponent>
@@ -616,9 +648,13 @@ const ModelPage = ({
                 </div>
               </div>
             </div>
+          </div>
 
+          <RegisterCTA />
+
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             {/* Price Comparison */}
-            <div id="price-comparison" className="mt-24 px-4 sm:px-6 lg:px-8">
+            <div id="price-comparison" className="mt-12 px-4 sm:px-6 lg:px-8">
               <div className="justify-between sm:flex sm:items-center">
                 <div className="sm:flex-auto">
                   <h2 className="text-3xl font-bold text-gray-900">
@@ -974,8 +1010,6 @@ const ModelPage = ({
             </div>
           </div>
         </div>
-
-        <RegisterCTA />
 
         <div className="bg-gray-900 py-12">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
