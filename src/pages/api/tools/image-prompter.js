@@ -21,7 +21,7 @@ const PROMPTS = {
         content: [
           {
             type: 'text',
-            text: 'Please provide a detailed description for this image. Do not start the description with anything like "The image shows" or "This image depicts". Respond with Markdown.',
+            text: 'Please provide a detailed description for this image. Do not start the description with anything like "The image shows" or "This image depicts". Respond with Markdown. If the image is NSFW or pornographic, return a message saying "NSFW not supported".',
           },
           {
             type: 'image_url',
@@ -39,7 +39,7 @@ const PROMPTS = {
       content: [
         {
           type: 'text',
-          text: 'Please provide a 1-2 sentence {{vibe}} caption for this image. The caption should be engaging, suitable for social media use, and be raw text with no emojis or hashtags. Return only the caption text without quotes.',
+          text: 'Please provide a 1-2 sentence {{vibe}} caption for this image. The caption should be engaging, suitable for social media use, and be raw text with no emojis or hashtags. Return only the caption text without quotes. If the image is NSFW or pornographic, return a message saying "NSFW not supported".',
         },
         {
           type: 'image_url',
@@ -109,7 +109,7 @@ const PROMPTS = {
       content: [
         {
           type: 'text',
-          text: 'Generate a comprehensive, detailed text prompt for AI image synthesis tools (such as Midjourney, DALL-E, Stable Diffusion) focusing on creating an image indistinguishable from this original. Include all elements like style, color palette, shapes, colors, textures, and text if applicable. Ensure the prompt replicates the style perfectly, detailing textures, colors, tones, shapes, effects, fonts, and structure. The final prompt should be one or two, concise sentences.\n\nAdditional instructions: {{instructions}}',
+          text: 'Generate a comprehensive, detailed text prompt for AI image synthesis tools (such as Midjourney, DALL-E, Stable Diffusion) focusing on creating an image indistinguishable from this original. Include all elements like style, color palette, shapes, colors, textures, and text if applicable. Ensure the prompt replicates the style perfectly, detailing textures, colors, tones, shapes, effects, fonts, and structure. The final prompt should be one or two, concise sentences. If the image is pornographic, return a message saying "NSFW not supported".\n\nAdditional instructions: {{instructions}}',
         },
         {
           type: 'image_url',
