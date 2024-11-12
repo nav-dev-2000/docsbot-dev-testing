@@ -25,20 +25,21 @@ const docsbotFeatures = [
   {
     name: 'Training Sources',
     features: [
-      { name: 'Websites', value: 'URL, Sitemap, WordPress, URL List, RSS Feed', key: 'websites' },
+      { name: 'Web', value: 'URL, Sitemap, WordPress, URL List, RSS Feed', key: 'websites' },
       {
         name: 'Document Files',
         value:
-          '.pdf, .docx, .pptx, .txt, .md, .html, .eml + .xlsx, .csv, .tsv, and .rtf from cloud sources',
+          '.pdf, .docx, .pptx, .txt, .md, .html, .eml, .xlsx, .csv, .tsv + .rtf from cloud sources',
         key: 'document_files',
       },
       {
         name: 'Cloud Sources',
-        value: 'Notion, Google Drive, Dropbox, OneDrive, Box, SharePoint, Zendesk, Intercom, Freshdesk, Confluence, Salesforce, GitBook',
+        value: 'Slack, Notion, Google Drive, Dropbox, OneDrive, Box, SharePoint, Zotero, S3, GCS, Zendesk, Intercom, Freshdesk, ServiceNow,Confluence, Salesforce, GitBook, Guru, GitHub',
         key: 'cloud_sources',
       },
       { name: 'Q&A', value: true, key: 'q_a' },
       { name: 'Raw Data (CSV)', value: true, key: 'raw_data' },
+      { name: 'Video', value: 'YouTube - Videos & Playlists', key: 'video' },
       { name: 'Images', value: '.png, .jpg description & OCR', key: 'images' },
       {
         name: 'Audio',
@@ -109,6 +110,7 @@ const docsbotFeatures = [
       { name: 'API', value: 'Chat & bot management/training', key: 'api' },
       { name: 'OpenAI GPTs', value: 'Custom action', key: 'gpts' },
       { name: 'Zapier', value: true, key: 'zapier' },
+      { name: 'Make', value: true, key: 'make' },
       { name: 'Pabbly Connect', value: true, key: 'pabbly_connect' },
       { name: 'Pipedream', value: true, key: 'pipedream' },
       { name: 'Help Scout', value: 'Auto-reply, Agent-assist', key: 'helpscout' },
