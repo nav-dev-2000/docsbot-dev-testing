@@ -24,7 +24,7 @@ const GlossaryTermPage = ({
 }) => {
   const breadcrumbPages = [
     { name: 'AI Glossary', href: '/ai-terms-glossary', current: false },
-    { name: term, href: `/ai-terms-glossary/${slug}`, current: true },
+    { name: term, href: `/ai-terms-glossary/term/${slug}`, current: true },
   ]
 
   // Add this function to process markdown
