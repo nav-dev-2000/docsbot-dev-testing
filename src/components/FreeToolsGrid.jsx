@@ -19,11 +19,10 @@ const FreeToolsGrid = ({ category, showTitle = true }) => {
           <Link key={tool.href + index} href={tool.href} className="group">
             <div className="overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-300 group-hover:scale-105">
               <div className="relative pb-[52.36%]">
-                <Image
+                <img
                   src={tool.ogImage}
                   alt={tool.name}
-                  fill
-                  className="object-cover"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
               <div className="p-4 text-center">
