@@ -15,7 +15,7 @@ import { NAVIGATION } from '@/constants/navigation.constants'
 import { HeaderBanner } from '@/components/HeaderBanners'
 import { usePostHog } from 'posthog-js/react'
 
-export default function Header() {
+export default function Header({transparent = false}) {
   const [user] = useAuthState(auth)
   const router = useRouter()
   const posthog = usePostHog()
@@ -35,8 +35,8 @@ export default function Header() {
   return (
     <>
     <HeaderBanner />
-    <Popover as="header" className="relative">
-      <div className="bg-gray-900 py-6">
+    <Popover as="header" className="relative z-10">
+      <div className={clsx("bg-gray-900 py-6", transparent && "bg-transparent")}>
         <nav
           className="relative mx-auto flex max-w-7xl items-center justify-between px-6"
           aria-label="Global"
