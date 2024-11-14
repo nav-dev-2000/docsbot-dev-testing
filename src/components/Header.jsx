@@ -10,7 +10,7 @@ import { signOut } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { routePaths } from '@/constants/routePaths.constants'
 import clsx from 'clsx'
-import docsbotLogo from '@/images/docsbot-logo.png'
+import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { HeaderBanner } from '@/components/HeaderBanners'
 import { usePostHog } from 'posthog-js/react'
@@ -45,7 +45,7 @@ export default function Header({transparent = false}) {
             <div className="flex w-full items-center justify-between md:w-auto">
               <Link href="/">
                 <span className="sr-only">DocsBot</span>
-                <Image className="h-8 w-auto sm:h-12" src={docsbotLogo} alt="DocsBot Logo" />
+                <Image className="max-h-8 shrink-0 sm:max-h-12 max-w-48" src={docsbotLogo} alt="DocsBot Logo" />
               </Link>
               <div className="-mr-2 flex items-center md:hidden">
                 <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md bg-gray-900 p-2 text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
@@ -54,7 +54,7 @@ export default function Header({transparent = false}) {
                 </Popover.Button>
               </div>
             </div>
-            <div className="hidden space-x-8 md:ml-10 md:flex">
+            <div className="hidden space-x-4 lg:space-x-8 md:ml-10 md:flex">
               {NAVIGATION.map((item) => (
                 <a
                   key={item.name}
@@ -176,15 +176,10 @@ export default function Header({transparent = false}) {
             </div>
           ) : (
             <div className="hidden md:flex md:items-center md:space-x-6">
-              <Link href="/login" className="text-base font-medium text-white hover:text-gray-300">
+              <Link href="/login" className="text-base whitespace-nowrap font-medium text-white hover:text-gray-300">
                 Log in
               </Link>
-              <Link
-                href="/register"
-                className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-white hover:bg-gray-700"
-              >
-                Try Free
-              </Link>
+              <Link href="/register" className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-2 text-base font-medium text-white hover:bg-gray-700 whitespace-nowrap">Try Free</Link>
             </div>
           )}
         </nav>
@@ -230,7 +225,7 @@ export default function Header({transparent = false}) {
               <div className="mt-6 px-5">
                 <Link
                   href="/register"
-                  className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-white hover:bg-gray-700"
+                  className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-medium text-white hover:bg-gray-700 whitespace-nowrap"
                 >
                   Try Free
                 </Link>

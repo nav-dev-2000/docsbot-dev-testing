@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   const helpscout = integrations.find((i) => i.id === 'helpscout')
 
   if (req.method === 'POST') {
-    const { assignedBots, assignedMailboxes, sourceResponse, noteResponse, saveMeta } = req.body
+    const { assignedBots, assignedMailboxes, sourceResponse, noteResponse, saveMeta, publishReply } = req.body
 
     // sanity check user permissions
     if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
@@ -91,6 +91,11 @@ export default async function handler(req, res) {
     // update saveMeta
     if (typeof saveMeta !== 'undefined') {
       newData.saveMeta = saveMeta
+    }
+
+    // update publishReply
+    if (typeof publishReply !== 'undefined') {
+      newData.publishReply = publishReply
     }
 
     // update firestore doc
