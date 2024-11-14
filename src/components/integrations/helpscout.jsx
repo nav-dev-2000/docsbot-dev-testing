@@ -236,6 +236,12 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
     })
   }
 
+  const updateHelpscoutPublishReply = async (publishReply) => {
+    await updateHelpscout({
+      publishReply
+    })
+  }
+
   const BotSelect = ({ onChange, value, className }) => {
     return (
       <select
@@ -559,6 +565,14 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
                 description="If enabled, your bot will add responses as a note with the response & sources instead of a draft reply."
                 enabled={helpScoutIntegration?.noteResponse || false}
                 setEnabled={updateHelpscoutNoteResponse}
+              />
+            </div>
+            <div className="mb-4">
+              <FieldToggle
+                label="Auto-send First Reply" 
+                description="If enabled, the bot's first reply to a new conversation will be sent immediately instead of saved as a draft."
+                enabled={helpScoutIntegration?.publishReply || false}
+                setEnabled={updateHelpscoutPublishReply}
               />
             </div>
             <div className="mb-4">
