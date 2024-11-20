@@ -73,6 +73,7 @@ export const pricingTiers = [
       '1 user',
       'Basic Analytics',
       'Zapier integration',
+      'Help Scout integration',
       'Chat history',
       'Prompt customization',
     ],
