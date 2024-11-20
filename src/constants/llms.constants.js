@@ -1749,7 +1749,7 @@ const LLMS = [
     slug: 'gpt-4o',
     provider: 'openai',
     description:
-      'The latest GPT-4o model, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on August 6, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI’s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. No benchmark scores are available.',
+      'The latest GPT-4o model, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on August 6, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI’s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens.',
     input_context_window: '128K',
     maximum_output_tokens: '16.4K',
     open_source: false,
@@ -1781,6 +1781,60 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/hello-gpt-4o/',
       },
+      HellaSwag: null,
+      HumanEval: {
+        score: 90.2,
+        notes: '0-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      MATH: {
+        score: 75.9,
+        notes: '0-shot',
+        source:
+          'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4o 2024-11-20',
+    slug: 'gpt-4o-2024-11-20',
+    provider: 'openai',
+    description:
+      'Latest GPT-4o, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on November 20, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI\'s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. The model\'s creative writing ability has leveled up with more natural, engaging, and tailored writing to improve relevance and readability. It\'s also better at working with uploaded files, providing deeper insights and more thorough responses.',
+    input_context_window: '128K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2024-11-20',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 2.5,
+    output_cost_per_million_tokens: 10,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 88.7,
+        notes: '5-shot',
+        source:
+          'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+
+      'MMLU-Pro': {
+        score: 74.68,
+        notes: null,
+        source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
+      },
+      MMMU: {
+        score: 69.1,
+        notes: null,
+        source: 'https://openai.com/index/hello-gpt-4o/',
+      },
+
       HellaSwag: null,
       HumanEval: {
         score: 90.2,
