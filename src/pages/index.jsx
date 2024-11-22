@@ -269,10 +269,7 @@ export default function Home() {
                 </div>
                 <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
                   <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-2">
-                    <motion.div
-                      initial={{ opacity: 0, y: 0 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
+                    <div
                       className="mt-24 sm:mt-32 lg:mt-12"
                     >
                       <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
@@ -281,12 +278,9 @@ export default function Home() {
                           ChatGPT & GPT-4o!
                         </span>
                       </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                    <h1
                       className="mt-8 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl"
                     >
                       <span className="block text-6xl leading-[0.8] tracking-tighter md:text-8xl md:leading-[0.8]">
@@ -295,12 +289,9 @@ export default function Home() {
                       <span className="mt-2 block bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text pb-3 text-3xl text-transparent sm:pb-5 sm:text-4xl">
                         Custom ChatGPT for your business
                       </span>
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
+                    <p
                       className="mt-6 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8"
                     >
                       Get instant answers for you, your customers, or your team
@@ -309,12 +300,9 @@ export default function Home() {
                       experience for your customers, the productivity of your
                       team, and generate new content with existing knowledge of
                       your business!
-                    </motion.p>
+                    </p>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
+                    <div
                       className="mt-10"
                     >
                       <Link
@@ -333,38 +321,32 @@ export default function Home() {
                         ringColor="ring-gray-900"
                         className="mt-6 flex w-full justify-center gap-4"
                       />
-                    </motion.div>
+                    </div>
                   </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
+                  <div
                     className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
                   >
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
                       <Image
-                        className="w-[76rem]"
+                        className="w-[76rem] animate-fade-slide-x"
                         src={qaHeader}
                         alt="DocsBot dashboard screenshot"
                         priority
                       />
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
+              <div
                 className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-8 xl:pb-24"
               >
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
                   Trusted by more than 2,000 businesses!
                 </h2>
                 <TrustedBy />
-              </motion.div>
+              </div>
             </div>
 
             <div id="uses" className="bg-white px-6 pt-24 sm:pt-32 lg:px-8">
@@ -674,7 +656,7 @@ export default function Home() {
                         className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-teal-500 opacity-20 ring-1 ring-inset ring-white"
                       />
                       <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                        <img
+                        <Image
                           alt="Research assistant screenshot"
                           src="/video/uses-research.webp"
                           width={829}

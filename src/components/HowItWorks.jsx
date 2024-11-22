@@ -165,10 +165,12 @@ function FeaturesDesktop() {
                     <source src={feature.video} type="video/mp4" />
                   </video>
                 ) : (
-                  <img
+                  <Image
                     src={feature.poster}
                     alt={feature.name}
                     className="w-full"
+                    width={1236}
+                    height={720}
                   />
                 )}
               </div>

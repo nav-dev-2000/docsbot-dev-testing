@@ -44,3 +44,19 @@
     transform: translateX(var(--move-x-to));
   }
 }
+
+@keyframes fadeSlideX {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-slide-x {
+  animation: fadeSlideX 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}

@@ -22,7 +22,7 @@ function Logo({ label, src, className }) {
         '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
       )}
     >
-      <img alt="" src={src} className="size-4" aria-hidden="true" />
+      <Image alt={label} src={src} className="size-4" aria-hidden="true" width={16} height={16} />
       <span className="text-sm/6 font-medium text-white">{label}</span>
     </div>
   )
@@ -152,11 +152,6 @@ export default function DeployFeatures() {
                     label="Google Sheets"
                     src="/images/logo-timeline/sheets.svg"
                     className="[animation-delay:-1s] [animation-duration:40s]"
-                  />
-                  <Logo
-                    label="Adobe Creative Cloud"
-                    src="/images/logo-timeline/adobe-creative-cloud.svg"
-                    className="[animation-delay:-15s] [animation-duration:40s]"
                   />
                   <Logo
                     label="Zoom"
