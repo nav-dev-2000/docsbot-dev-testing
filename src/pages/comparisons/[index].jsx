@@ -347,7 +347,7 @@ export default function AlternativePage({
             >
               <span>Start researching now</span>
             </Link>
-            <Link href="/#features" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link href="/#uses" className="text-sm font-semibold leading-6 text-gray-900">
               Learn more <span aria-hidden="true">→</span>
             </Link>
           </div>

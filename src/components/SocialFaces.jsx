@@ -7,7 +7,7 @@ import image4 from '@/images/avatars/testimony4.jpeg'
 import image5 from '@/images/avatars/testimony-sg.jpeg'
 import clsx from 'clsx'
 
-export default function SocialFaces({ isDark = false, props }) {
+export default function SocialFaces({ ringColor = 'ring-white', ...props }) {
   return (
     <div className="flex items-center justify-center gap-3" {...props}>
       <div className="flex -space-x-2 overflow-hidden">
@@ -16,50 +16,35 @@ export default function SocialFaces({ isDark = false, props }) {
           alt="Customer avatar"
           width={40}
           height={40}
-          className={clsx(
-            'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-cyan-600' : 'ring-white'
-          )}
+          className={clsx('inline-block h-10 w-10 rounded-full ring-2', ringColor)}
         />
         <Image
           src={image2}
           alt="Customer avatar"
           width={40}
           height={40}
-          className={clsx(
-            'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-cyan-600' : 'ring-white'
-          )}
+          className={clsx('inline-block h-10 w-10 rounded-full ring-2', ringColor)}
         />
         <Image
           src={image3}
           alt="Customer avatar"
           width={40}
           height={40}
-          className={clsx(
-            'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-cyan-600' : 'ring-white'
-          )}
+          className={clsx('inline-block h-10 w-10 rounded-full ring-2', ringColor)}
         />
         <Image
           src={image4}
           alt="Customer avatar"
           width={40}
           height={40}
-          className={clsx(
-            'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-cyan-600' : 'ring-white'
-          )}
+          className={clsx('inline-block h-10 w-10 rounded-full ring-2', ringColor)}
         />
         <Image
           src={image5}
           alt="Customer avatar"
           width={40}
           height={40}
-          className={clsx(
-            'inline-block h-10 w-10 rounded-full ring-2',
-            isDark ? 'ring-cyan-600' : 'ring-white'
-          )}
+          className={clsx('inline-block h-10 w-10 rounded-full ring-2', ringColor)}
         />
       </div>
       <div>
@@ -72,7 +57,7 @@ export default function SocialFaces({ isDark = false, props }) {
             <StarIcon className="h-5 w-5 text-yellow-400" />
           </div>
         </div>
-        <span className={clsx('text-xs font-medium', isDark ? 'text-white' : 'text-gray-900')}>Loved by 32k+ users</span>
+        <span className={clsx('text-xs font-medium', ringColor !== 'ring-white' ? 'text-white' : 'text-gray-900')}>Loved by 45k+ users</span>
       </div>
     </div>
   )

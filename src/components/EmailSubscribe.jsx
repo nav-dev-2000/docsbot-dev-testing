@@ -33,7 +33,7 @@ export default function EmailSubscribe() {
     >
       <div>
         <h3 className="text-sm/6 font-semibold text-gray-900">
-          Subscribe to product updates
+          Stay Updated with Latest Features
         </h3>
         <p className="mt-2 text-sm/6 text-gray-600">
           The latest news and updates, sent to your inbox occasionally.

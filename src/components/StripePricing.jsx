@@ -131,7 +131,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
           </RadioGroup>
         </div>
         <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
-          {pricingTiers.map((tier) => (
+          {pricingTiers.map((tier, index) => (
             <div
               key={tier.id}
               className={clsx(
@@ -203,9 +203,12 @@ export function StripePricingTable({ team, email, setErrorText }) {
               >
                 Subscribe
               </button>
+              <h3 className="text-sm/6 font-medium text-gray-950 mt-6">
+                {index === 0 ? 'Including:' : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
+              </h3>
               <ul
                 role="list"
-                className="mt-8 columns-2 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10 xl:columns-1"
+                className="mt-4 columns-2 space-y-3 text-sm leading-6 text-gray-600 xl:mt-6 xl:columns-1"
               >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">

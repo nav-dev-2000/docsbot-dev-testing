@@ -11,12 +11,12 @@ import WPMUDEVLogo from '@/components/WPMUDEVLogo'
 
 export default function TrustedBy({ props }) {
   return (
-      <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-4 xl:grid-cols-8" {...props}>
+      <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 md:max-w-none md:grid-cols-4 xl:grid-cols-8" {...props}>
         <Link
           href="https://infiniteuploads.com"
           target="_blank"
           title="Infinite Uploads"
-          className="flex justify-center col-span-2 lg:col-span-1"
+          className="flex justify-center "
         >
           <Image
             className="max-h-8 w-full object-contain"
@@ -28,7 +28,7 @@ export default function TrustedBy({ props }) {
         </Link>
 
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={sonyLogo}
           alt="Sony Logo"
           width={125}
@@ -36,7 +36,7 @@ export default function TrustedBy({ props }) {
         />
 
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={extendifyLogo}
           alt="Extendify Logo"
           width={125}
@@ -44,7 +44,7 @@ export default function TrustedBy({ props }) {
         />
 
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={conversionLogo}
           alt="Conversion Logo"
           width={125}
@@ -52,28 +52,28 @@ export default function TrustedBy({ props }) {
         />
 
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={dollieLogo}
           alt="Dollie Logo"
           width={125}
           height={32}
         />
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={logoWingarc}
           alt="WingArc1st Logo"
           width={125}
           height={32}
         />
         <Image
-          className="col-span-2 max-h-8 w-full object-contain lg:col-span-1"
+          className="max-h-8 w-full object-contain"
           src={logoSentry}
           alt="SENTRY.io Logo"
           width={108}
           height={32}
         />
 
-        <WPMUDEVLogo className="col-span-2 lg:col-span-1 max-h-8 w-full object-contain text-white" />
+        <WPMUDEVLogo className=" max-h-8 w-full object-contain text-white" />
       </div>
   )
 }

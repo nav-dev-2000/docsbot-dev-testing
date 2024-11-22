@@ -1,69 +1,39 @@
-import {
-  ShieldCheckIcon,
-  MapIcon,
-  DocumentMagnifyingGlassIcon,
-  TableCellsIcon,
-  RssIcon,
-  CursorArrowRippleIcon,
-  CloudArrowDownIcon,
-} from '@heroicons/react/24/outline'
+import { ShieldCheckIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
 import {
   ChatBubbleLeftRightIcon,
   PencilSquareIcon,
   Cog6ToothIcon,
   LifebuoyIcon,
   ChatBubbleLeftEllipsisIcon,
+  UserGroupIcon,
+  HeartIcon,
+  CloudArrowUpIcon,
+  ClockIcon,
+  CheckCircleIcon,
+  ArrowDownOnSquareStackIcon,
+  LockClosedIcon,
+  AcademicCapIcon,
+  MagnifyingGlassIcon,
+  DocumentChartBarIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/20/solid'
-import qaHeader from '@/images/header-screenshot.png'
-import demoScreenshot from '@/images/demo-screenshot.png'
+import qaHeader from '@/images/header-screenshot.webp'
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
 import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Pricing from '@/components/Pricing'
 import { Testimonials } from '@/components/Testimonials'
 import TrustedBy from '@/components/TrustedBy'
-
-const integrations = [
-  {
-    name: 'URL & Sitemaps',
-    description:
-      'Index a webpage, your support docs, or an entire website including inline images in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.',
-    icon: MapIcon,
-  },
-  {
-    name: 'Document Files',
-    description:
-      'Upload any files in TXT, DOC, PPT, EML, HTML, MD, PDF format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.',
-    icon: DocumentMagnifyingGlassIcon,
-  },
-  {
-    name: 'Blog Posts',
-    description:
-      "Quickly train your DocsBot on your blog content via WordPress export files or RSS feeds. It's a simple way to surface your best content to those looking for answers.",
-    icon: RssIcon,
-  },
-  {
-    name: 'Bulk Import',
-    description:
-      'Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index.',
-    icon: TableCellsIcon,
-  },
-  {
-    name: 'Zapier Integration',
-    description:
-      'Connect DocsBot to thousands of apps via Zapier. Pass your trained bots questions and route answers to your favorite apps.',
-    icon: CursorArrowRippleIcon,
-  },
-  {
-    name: 'Cloud Sources',
-    description:
-      'Connect your Notion, Google Drive, Dropbox, Intercom, or OneDrive account to DocsBot and we will index your files & content automatically.',
-    icon: CloudArrowDownIcon,
-  },
-]
+import SocialFaces from '@/components/SocialFaces'
+import HowItWorks from '@/components/HowItWorks'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import AIHero from '@/components/AIHero'
+import IntegrationsFeatures from '@/components/IntegrationsFeatures'
+import DeployFeatures from '@/components/DeployFeatures'
+import CTASection from '@/components/CTASection'
 
 const features = [
   {
@@ -103,6 +73,144 @@ const features = [
     icon: Cog6ToothIcon,
   },
 ]
+
+const customerBotFeatures = [
+  {
+    name: 'Reduce Support Workload',
+    description:
+      'Automatically handle common customer inquiries 24/7, reducing wait times and enabling smooth handovers to human support when needed.',
+    icon: ClockIcon,
+  },
+  {
+    name: 'Consistent & Accurate',
+    description:
+      'Deliver precise, consistent answers based on your documentation, ensuring customers always receive reliable information.',
+    icon: CheckCircleIcon,
+  },
+  {
+    name: 'Scale Your Support',
+    description:
+      'Handle unlimited concurrent conversations while maintaining high satisfaction rates and building customer loyalty.',
+    icon: CloudArrowUpIcon,
+  },
+]
+
+const supportFeatures = [
+  {
+    name: 'Minimize Repetitive Tasks',
+    description:
+      'Free your support team from answering the same questions repeatedly. Let AI handle routine inquiries while your agents focus on complex, high-value interactions that require human expertise.',
+    icon: ArrowDownOnSquareStackIcon,
+  },
+  {
+    name: 'Better Resource Allocation',
+    description:
+      'Optimize your support operations with first-contact resolution and seamless human handovers. Our AI ensures questions are answered instantly, accurately, or escalated to a human when needed.',
+    icon: UserGroupIcon,
+  },
+  {
+    name: 'Boost Team Morale',
+    description:
+      "Transform your support team's daily experience by eliminating mundane tasks. Watch agent satisfaction soar as they engage in meaningful problem-solving instead of repetitive responses.",
+    icon: HeartIcon,
+  },
+]
+
+const internalBotFeatures = [
+  {
+    name: 'Knowledge Retrieval',
+    description:
+      'Instantly surface relevant information from your internal documentation, eliminating time spent searching through multiple systems and databases.',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'Secure Access',
+    description:
+      'Keep your sensitive information protected with enterprise-grade security while providing seamless access to authorized team members.',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Continuous Learning',
+    description:
+      'Your bot automatically stays up-to-date as your documentation evolves, ensuring teams always have access to the latest information.',
+    icon: AcademicCapIcon,
+  },
+]
+
+const researchFeatures = [
+  {
+    name: 'Instant Reference Discovery',
+    description:
+      'Quickly surface relevant citations, data points, and research materials from your document library. Save hours of manual searching and cross-referencing.',
+    icon: MagnifyingGlassIcon,
+  },
+  {
+    name: 'Comprehensive Analysis',
+    description:
+      'Get detailed insights and connections across your research materials. Our AI helps identify patterns and relationships you might have missed.',
+    icon: DocumentChartBarIcon,
+  },
+  {
+    name: 'Content Repurposing',
+    description:
+      'Transform existing content into new formats and insights. Extract key findings and data to create summaries, presentations, or training materials.',
+    icon: ArrowPathIcon,
+  },
+]
+
+// Add this component for reusability
+const ScrollFadeIn = ({ children, delay = 0 }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.7, delay }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+const ParallaxImage = ({ children, className = '' }) => {
+  const ref = useRef(null)
+  const [isLargeScreen, setIsLargeScreen] = useState(false)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ['10%', '30%'])
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`flex items-start will-change-transform ${className}`}
+      style={{
+        y: isLargeScreen ? y : 0,
+        WebkitBackfaceVisibility: 'hidden',
+        WebkitTransform: 'translate3d(0, 0, 0)',
+      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.8 }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export default function Home() {
   return (
@@ -160,36 +268,59 @@ export default function Home() {
                   />
                 </div>
                 <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-                  <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-8">
-                    <div className="mt-24 sm:mt-32 lg:mt-12">
+                  <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-2">
+                    <motion.div
+                      initial={{ opacity: 0, y: 0 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="mt-24 sm:mt-32 lg:mt-12"
+                    >
                       <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
                         <span className="pr-1">Powered by</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
                           ChatGPT & GPT-4o!
                         </span>
                       </div>
-                    </div>
-                    <h1 className="mt-8 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+                    </motion.div>
+
+                    <motion.h1
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="mt-8 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+                    >
                       <span className="block text-6xl leading-[0.8] tracking-tighter md:text-8xl md:leading-[0.8]">
                         Instant AI Answers from your Docs
                       </span>
                       <span className="mt-2 block bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text pb-3 text-3xl text-transparent sm:pb-5 sm:text-4xl">
                         Custom ChatGPT for your business
                       </span>
-                    </h1>
-                    <p className="mt-6 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+                    </motion.h1>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="mt-6 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8"
+                    >
                       Get instant answers for you, your customers, or your team
                       with custom AI ChatGPT chatbots trained with your content
                       and documentation. Save money and improve the support
                       experience for your customers, the productivity of your
                       team, and generate new content with existing knowledge of
                       your business!
-                    </p>
-                    <div className="mt-10">
+                    </motion.p>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      className="mt-10"
+                    >
                       <Link
                         href="/register"
                         type="button"
-                        className="bg-animation block w-full cursor-pointer rounded-md px-4 py-3 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        className="bg-animation block w-full flex-1 cursor-pointer rounded-md px-4 py-3 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                       >
                         Create your own free DocsBot
                       </Link>
@@ -197,128 +328,386 @@ export default function Home() {
                         Transform your business with AI,{' '}
                         <u>no credit card required</u>!
                       </p>
-                    </div>
+
+                      <SocialFaces
+                        ringColor="ring-gray-900"
+                        className="mt-6 flex w-full justify-center gap-4"
+                      />
+                    </motion.div>
                   </div>
-                  <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32">
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
+                  >
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
                       <Image
-                        className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 ring-offset-4 ring-offset-gray-900/50"
+                        className="w-[76rem]"
                         src={qaHeader}
                         alt="DocsBot dashboard screenshot"
                         priority
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-              <div className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-8 xl:pb-24">
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-8 xl:pb-24"
+              >
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
                   Trusted by more than 2,000 businesses!
                 </h2>
                 <TrustedBy />
-              </div>
+              </motion.div>
             </div>
 
-            {/* Feature section with screenshot */}
-            <div id="features" className="bg-gray-50 py-24 sm:py-32">
-              <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
-                <div className="">
-                  <h2 className="text-lg font-semibold text-cyan-600">
-                    ChatGPT-powered customer support
-                  </h2>
-                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                    Train and deploy custom chatbots in minutes!
-                  </p>
-                  <p className="mx-auto mt-5 max-w-7xl text-xl text-gray-500">
-                    Are you tired of answering the same questions over and over
-                    again? Do you wish you had a way to automate your customer
-                    support and give your team more time to focus on other
-                    tasks? With DocsBot, you can do just that. We make it simple
-                    to build ChatGPT-powered bots that are trained with your
-                    content and documentation, so they can provide instant
-                    answers to your customers' most detailed questions.
-                  </p>
-                </div>
-              </div>
-              <div className="relative overflow-hidden pt-16">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                  <Image
-                    src={demoScreenshot}
-                    alt="Application screenshot"
-                    className="mb-[-2%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
-                  />
-                  <div className="relative" aria-hidden="true">
-                    <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-gray-50 pt-[7%]" />
-                  </div>
-                </div>
-              </div>
-              <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
-                <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-                  {features.map((feature) => (
-                    <div key={feature.name} className="relative pl-9">
-                      <dt className="inline font-semibold text-gray-900">
-                        <feature.icon
-                          className="absolute left-1 top-1 h-5 w-5 text-cyan-600"
-                          aria-hidden="true"
-                        />
-                        {feature.name}
-                      </dt>{' '}
-                      <dd className="inline">{feature.description}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-
-            {/* Feature section with grid */}
-            <div className="relative bg-white pb-12 pt-16 sm:pt-24 lg:pt-32">
-              <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
-                <h2 className="text-lg font-semibold text-cyan-600">
-                  A simple managed chatbot service
+            <div id="uses" className="bg-white px-6 pt-24 sm:pt-32 lg:px-8">
+              <div className="mx-auto max-w-5xl text-center">
+                <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                  Use Cases
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Powerful integrations and API
+                  AI Solutions to Real Business Problems
                 </p>
-                <p className="mx-auto mt-5 max-w-7xl text-xl text-gray-500">
-                  Our intuitive interface makes it easy to index your
-                  documentation, blog posts, or any other content with just a
-                  few clicks. Then use our simple API and embeddable widgets to
-                  integrate your custom DocsBot into your website, WordPress,
-                  app/plugin, Slack, or anywhere else you want to use it!
+                <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                  Unlock the potential of your existing content with AI-driven
+                  chatbots. Automate customer journeys—leads, presales,
+                  onboarding, support, and retention. Empower your team with
+                  instant access to knowledge, repurpose content for marketing
+                  and sales, and speed up research—all with DocsBot.
                 </p>
-                <div className="mt-12">
-                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {integrations.map((feature) => (
-                      <div key={feature.name} className="pt-6">
-                        <div className="flow-root rounded-lg bg-gray-50 px-6 pb-8">
-                          <div className="-mt-6">
-                            <div>
-                              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-3 shadow-lg">
+              </div>
+            </div>
+
+            {/* Customer Facing Bots */}
+            <div className="overflow-hidden bg-white py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                  <ScrollFadeIn>
+                    <div className="lg:pr-8 lg:pt-4">
+                      <div className="lg:max-w-lg">
+                        <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                          Customer Facing Bots
+                        </h2>
+                        <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                          Instant Responses to Customer Queries, 24/7
+                        </p>
+                        <p className="mt-6 text-lg/8 text-gray-600">
+                          Transform your pre-sales and customer support with
+                          AI-powered chatbots that understand your business.
+                          Provide instant, accurate responses while reducing
+                          costs and improving customer satisfaction.
+                        </p>
+                        <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                          {customerBotFeatures.map((feature) => (
+                            <div key={feature.name} className="relative pl-9">
+                              <dt className="inline font-semibold text-gray-900">
                                 <feature.icon
-                                  className="h-6 w-6 text-white"
                                   aria-hidden="true"
+                                  className="absolute left-1 top-1 size-5 text-cyan-600"
                                 />
-                              </span>
+                                {feature.name}
+                              </dt>{' '}
+                              <dd className="inline">{feature.description}</dd>
                             </div>
-                            <h3 className="mt-8 text-lg font-medium tracking-tight text-gray-900">
-                              {feature.name}
-                            </h3>
-                            <p className="mt-5 text-base text-gray-500">
-                              {feature.description}
-                            </p>
-                          </div>
+                          ))}
+                        </dl>
+                        <div className="mt-10 flex gap-4">
+                          <Link
+                            href="/register"
+                            className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
+                          >
+                            Get Instant Answers
+                          </Link>
+                          {/* <Link
+                            href="/features"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          >
+                            Learn More <ArrowRightIcon className="size-4" />
+                          </Link> */}
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  </ScrollFadeIn>
+
+                  <ParallaxImage>
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-[32rem] max-w-none"
+                      poster="/video/uses-customer-facing.png"
+                    >
+                      <source
+                        src="/video/uses-customer-facing.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                  </ParallaxImage>
                 </div>
               </div>
             </div>
+
+            {/* Customer Support Bots */}
+            <div className="overflow-hidden bg-white py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                  <ScrollFadeIn delay={0.2}>
+                    <div className="lg:ml-auto lg:pl-4 lg:pt-4">
+                      <div className="lg:max-w-lg">
+                        <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                          Customer Support Bots
+                        </h2>
+                        <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                          Enhance Support Quality with AI-Powered Excellence
+                        </p>
+                        <p className="mt-6 text-lg/8 text-gray-600">
+                          Transform your customer support from reactive to
+                          proactive. Our AI-powered bots deliver instant,
+                          accurate responses 24/7, ensuring consistent quality
+                          while dramatically reducing response times and support
+                          costs.
+                        </p>
+                        <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                          {supportFeatures.map((feature) => (
+                            <div key={feature.name} className="relative pl-9">
+                              <dt className="inline font-semibold text-gray-900">
+                                <feature.icon
+                                  aria-hidden="true"
+                                  className="absolute left-1 top-1 size-5 text-cyan-600"
+                                />
+                                {feature.name}
+                              </dt>{' '}
+                              <dd className="inline">{feature.description}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                        <div className="mt-10 flex gap-4">
+                          <Link
+                            href="/register"
+                            className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
+                          >
+                            Enhance Your Support Quality
+                          </Link>
+                          {/* <Link
+                            href="/features"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          >
+                            Learn More <ArrowRightIcon className="size-4" />
+                          </Link> */}
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollFadeIn>
+
+                  <ParallaxImage className="justify-end lg:order-first">
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-[32rem] max-w-none"
+                      poster="/video/uses-enhance-support.png"
+                    >
+                      <source
+                        src="/video/uses-enhance-support.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                  </ParallaxImage>
+                </div>
+              </div>
+            </div>
+
+            {/* Internal Knowledge Management */}
+            <div className="bg-white py-24">
+              <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-100px' }}
+                  transition={{ duration: 0.8 }}
+                  className="relative isolate overflow-hidden bg-gray-900 px-6 py-20 sm:rounded-3xl sm:px-10 sm:py-24 lg:py-24 xl:px-24"
+                >
+                  <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-0">
+                    <div className="lg:row-start-2 lg:max-w-md">
+                      <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-teal-400">
+                        Internal Knowledge Access
+                      </h2>
+                      <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                        Boost Productivity Through Instant Information Access
+                      </p>
+                      <p className="mt-6 text-lg/8 text-gray-300">
+                        Transform how your team accesses information with
+                        AI-powered knowledge retrieval. Our internal
+                        documentation bots make finding answers as simple as
+                        asking a question, dramatically reducing time spent
+                        searching through documents and data from multiple
+                        sources.
+                      </p>
+                      <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                        <Link
+                          href="/register"
+                          className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
+                        >
+                          Boost Your Team Productivity
+                        </Link>
+                        {/* <Link
+                          href="/features"
+                          className="flex flex-1 items-center justify-center gap-2 text-center text-sm/6 font-semibold text-white lg:justify-start"
+                        >
+                          Learn More <ArrowRightIcon className="size-4" />
+                        </Link> */}
+                      </div>
+                    </div>
+
+                    <ParallaxImage className="min-w-full max-w-xl lg:row-span-4 lg:-mt-48 lg:w-[32rem] lg:max-w-none">
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="relative -z-20 w-[32rem] lg:w-[32rem]"
+                        poster="/video/uses-knowledgebase.png"
+                      >
+                        <source
+                          src="/video/uses-knowledgebase.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </ParallaxImage>
+                    <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
+                      <dl className="max-w-xl space-y-8 text-base/7 text-gray-300 lg:max-w-none">
+                        {internalBotFeatures.map((feature) => (
+                          <div key={feature.name} className="relative">
+                            <dt className="ml-9 inline-block font-semibold text-white">
+                              <feature.icon
+                                aria-hidden="true"
+                                className="absolute left-1 top-1 size-5 text-cyan-500"
+                              />
+                              {feature.name}
+                            </dt>{' '}
+                            <dd className="inline">{feature.description}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu"
+                  >
+                    <div
+                      style={{
+                        clipPath:
+                          'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                      }}
+                      className="hidden aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-cyan-500 to-cyan-600 opacity-25"
+                    />
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Research use case */}
+            <div className="overflow-hidden bg-white py-24 sm:py-32">
+              <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
+                <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
+                  <ScrollFadeIn>
+                    <div className="px-6 lg:px-0 lg:pr-4 lg:pt-4">
+                      <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+                        <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                          Research Assistant & Document Q&A Bots
+                        </h2>
+                        <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                          Accelerate Research with Fast Reference Discovery
+                        </p>
+                        <p className="mt-6 text-lg/8 text-gray-600">
+                          Transform your research process with AI-powered
+                          document analysis and insight generation. Quickly find
+                          relevant information and discover hidden connections
+                          across your entire document library.
+                        </p>
+                        <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                          {researchFeatures.map((feature) => (
+                            <div key={feature.name} className="relative pl-9">
+                              <dt className="inline font-semibold text-gray-900">
+                                <feature.icon
+                                  aria-hidden="true"
+                                  className="absolute left-1 top-1 size-5 text-cyan-600"
+                                />
+                                {feature.name}
+                              </dt>{' '}
+                              <dd className="inline">{feature.description}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                        <div className="mt-10 flex gap-4">
+                          <Link
+                            href="/register"
+                            className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
+                          >
+                            Accelerate Your Research & Copywriting
+                          </Link>
+                          {/* <Link
+                            href="/features"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          >
+                            Learn More <ArrowRightIcon className="size-4" />
+                          </Link> */}
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollFadeIn>
+
+                  <ParallaxImage className="sm:px-6 lg:px-0">
+                    <div className="relative isolate overflow-hidden bg-cyan-600 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
+                      <div
+                        aria-hidden="true"
+                        className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-teal-500 opacity-20 ring-1 ring-inset ring-white"
+                      />
+                      <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+                        <img
+                          alt="Research assistant screenshot"
+                          src="/video/uses-research.webp"
+                          width={829}
+                          height={741}
+                          className="-mb-12 w-[36rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
+                        />
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl"
+                      />
+                    </div>
+                  </ParallaxImage>
+                </div>
+              </div>
+            </div>
+
+            <HowItWorks />
+
+            <IntegrationsFeatures />
+
+            <DeployFeatures />
 
             <Testimonials />
 
-            {/* Pricing section */}
-            <Pricing />
+            <AIHero />
+
+            <CTASection 
+              heading="Enough excuses. Create your free chatbot today."
+              description="Join the thousands of companies using DocsBot to turn their existing content into instant, accurate answers for customers and employees. Reduce costs, increase productivity, and become the AI hero of your organization."
+              infoHref="/pricing"
+              infoText="Pricing & Plans"
+            />
 
             <Faq />
           </main>
