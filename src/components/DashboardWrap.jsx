@@ -28,6 +28,7 @@ import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
 import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
+import { HeaderBannerSale } from '@/components/HeaderBanners'
 
 export default function DashboardWrap({
   page,
@@ -163,6 +164,7 @@ export default function DashboardWrap({
         description="DocsBot AI Dashboard"
         noindex={true}
       />
+      <HeaderBannerSale team={team} />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
