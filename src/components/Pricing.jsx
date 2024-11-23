@@ -9,6 +9,7 @@ import {
   enterpriseFeatures,
   currencies,
 } from '@/constants/pricing.constants'
+import { BannerSale } from '@/components/HeaderBanners'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
@@ -26,6 +27,7 @@ export default function Pricing() {
             Pricing plans for any usage
           </p>
         </div>
+        {!user && <BannerSale />}
         <p className="mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
           Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a
           custom plan?{' '}

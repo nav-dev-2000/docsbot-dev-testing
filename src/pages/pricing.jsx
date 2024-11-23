@@ -24,6 +24,9 @@ import sony from '@/images/logos/logo-sony.svg'
 import nuro from '@/images/avatars/sony-logo.jpg'
 import wingarcLogo from '@/images/logos/logo-wingarc.png'
 import aoyagi from '@/images/avatars/aoyagi.jpg'
+import { BannerSale } from '@/components/HeaderBanners'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
 // Add this component for reusability
 const ScrollFadeIn = ({ children, delay = 0 }) => {
@@ -66,13 +69,13 @@ const TypewriterText = ({ text, delay = 0 }) => {
       {words.map((word, i) => (
         <motion.span
           key={i}
-          className="inline-block mr-[0.25em]"
+          className="mr-[0.25em] inline-block"
           variants={{
             visible: {
               opacity: 1,
               y: 0,
               transition: {
-                type: "spring",
+                type: 'spring',
                 damping: 12,
                 stiffness: 100,
               },
@@ -96,7 +99,8 @@ export const AiSupportSavingsCalculator = () => {
   const [hourlyRate, setHourlyRate] = useState(18)
   const closeRate = 0.75
 
-  const planName = supportTickets < 500 ? 'Power' : supportTickets < 10000 ? 'Pro' : 'Business'
+  const planName =
+    supportTickets < 500 ? 'Power' : supportTickets < 10000 ? 'Pro' : 'Business'
   const planCost = supportTickets < 500 ? 41 : supportTickets < 10000 ? 83 : 416
   const timeSavings = Math.round(
     (supportTickets * closeRate * timePerTicket) / 60,
@@ -134,16 +138,22 @@ export const AiSupportSavingsCalculator = () => {
   }
 
   return (
-    <div className=" bg-gray-50 text-center px-6 lg:px-8 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto pb-0">
-
+    <div className="bg-gray-50 px-6 py-16 text-center lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl pb-0">
         <div className="mx-auto max-w-6xl text-center">
           <h2 className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
             AI Customer Support
           </h2>
-          <TypewriterText text="Humans are expensive and hard to scale!" delay={0.2} />
-          <p className="mt-6 mb-12 text-lg text-gray-500 sm:text-xl/8">
-            AI chatbots can handle Tier 1 support inquiries instantly, 24/7, at a fraction of the cost of human agents. They can also assist your support team by providing instant access to knowledge, drafting responses, and handling repetitive queries - allowing your agents to focus on complex issues that truly need a human touch.
+          <TypewriterText
+            text="Humans are expensive and hard to scale!"
+            delay={0.2}
+          />
+          <p className="mb-12 mt-6 text-lg text-gray-500 sm:text-xl/8">
+            AI chatbots can handle Tier 1 support inquiries instantly, 24/7, at
+            a fraction of the cost of human agents. They can also assist your
+            support team by providing instant access to knowledge, drafting
+            responses, and handling repetitive queries - allowing your agents to
+            focus on complex issues that truly need a human touch.
           </p>
         </div>
 
@@ -169,7 +179,7 @@ export const AiSupportSavingsCalculator = () => {
             </p>
           </div>
           <div className="mt-12 flex items-center gap-x-6">
-            <div className="text-muted-foreground w-20 flex-shrink-0 sm:w-28 text-xs md:text-base">
+            <div className="text-muted-foreground w-20 flex-shrink-0 text-xs sm:w-28 md:text-base">
               Support Tickets / Messages
             </div>
             <input
@@ -190,7 +200,7 @@ export const AiSupportSavingsCalculator = () => {
             </div>
           </div>
           <div className="mt-12 flex items-center gap-x-6">
-            <div className="text-muted-foreground w-20 flex-shrink-0 sm:w-28 text-xs md:text-base">
+            <div className="text-muted-foreground w-20 flex-shrink-0 text-xs sm:w-28 md:text-base">
               Time Per Ticket
             </div>
             <input
@@ -209,7 +219,7 @@ export const AiSupportSavingsCalculator = () => {
             </div>
           </div>
           <div className="mt-12 flex items-center gap-x-6">
-            <div className="text-muted-foreground w-20 flex-shrink-0 sm:w-28 text-xs md:text-base">
+            <div className="text-muted-foreground w-20 flex-shrink-0 text-xs sm:w-28 md:text-base">
               Hourly <br />
               Rate
             </div>
@@ -235,6 +245,7 @@ export const AiSupportSavingsCalculator = () => {
 }
 
 export default function PricingPage() {
+  const [user] = useAuthState(auth)
   const [frequency, setFrequency] = useState(frequencies[1])
   const [currency, setCurrency] = useState('USD')
 
@@ -317,30 +328,35 @@ export default function PricingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
-                  <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
-                    Save money and time with DocsBot. We offer a variety of
-                    plans to fit your needs. Need a custom plan?{' '}
-                    <a
-                      className="underline"
-                      href="mailto:human@docsbot.ai"
-                      onClick={(e) => {
-                        if (Beacon !== undefined) {
-                          e.preventDefault()
-                          DocsBotAI.unmount()
-                          Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2')
-                          Beacon('open')
-                        }
-                      }}
-                    >
-                      Contact us
-                    </a>
-                    .
-                  </p>
-                  <p className="mb-24 flex items-center justify-center text-lg font-bold text-teal-400">
-                    <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day
-                    money-back guarantee!
+                    <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
+                      Save money and time with DocsBot. We offer a variety of
+                      plans to fit your needs. Need a custom plan?{' '}
+                      <a
+                        className="underline"
+                        href="mailto:human@docsbot.ai"
+                        onClick={(e) => {
+                          if (Beacon !== undefined) {
+                            e.preventDefault()
+                            DocsBotAI.unmount()
+                            Beacon(
+                              'init',
+                              '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2',
+                            )
+                            Beacon('open')
+                          }
+                        }}
+                      >
+                        Contact us
+                      </a>
+                      .
+                    </p>
+                    <p className="mb-24 flex items-center justify-center text-lg font-bold text-teal-400">
+                      <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day
+                      money-back guarantee!
                     </p>
                   </motion.div>
+
+                  {!user && <BannerSale />}
 
                   {/* Period and Currency Switchers */}
                   <div className="mb-8 mt-10 flex flex-col items-center gap-8 px-6 sm:flex-row sm:items-start sm:justify-center md:justify-between lg:px-0">
@@ -413,24 +429,28 @@ export default function PricingPage() {
                         <div
                           key={tier.id}
                           className={clsx(
-                            "-m-2 grid grid-cols-1 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 max-sm:mx-auto max-sm:w-full max-sm:max-w-md hover:shadow-lg hover:shadow-cyan-300/20 hover:scale-105 transition-all duration-300",
-                            tier.mostPopular 
-                              ? "ring-cyan-500/50"
-                              : "ring-black/5"
+                            '-m-2 grid grid-cols-1 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-300/20 max-sm:mx-auto max-sm:w-full max-sm:max-w-md',
+                            tier.mostPopular
+                              ? 'ring-cyan-500/50'
+                              : 'ring-black/5',
                           )}
                         >
-                          <div className={clsx(
-                            "grid grid-cols-1 rounded-[2rem] p-2",
-                            tier.mostPopular
-                              ? "shadow-lg shadow-cyan-500/20"
-                              : "shadow-md shadow-black/5"
-                          )}>
-                            <div className={clsx(
-                              "rounded-3xl bg-white p-6 pb-9",
+                          <div
+                            className={clsx(
+                              'grid grid-cols-1 rounded-[2rem] p-2',
                               tier.mostPopular
-                                ? "shadow-2xl ring-1 ring-cyan-600"
-                                : "shadow-2xl ring-1 ring-black/5"
-                            )}>
+                                ? 'shadow-lg shadow-cyan-500/20'
+                                : 'shadow-md shadow-black/5',
+                            )}
+                          >
+                            <div
+                              className={clsx(
+                                'rounded-3xl bg-white p-6 pb-9',
+                                tier.mostPopular
+                                  ? 'shadow-2xl ring-1 ring-cyan-600'
+                                  : 'shadow-2xl ring-1 ring-black/5',
+                              )}
+                            >
                               <div className="flex items-center justify-between gap-x-4">
                                 <h3
                                   id={tier.id}
@@ -464,24 +484,34 @@ export default function PricingPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.4 }}
                                       >
-                                        {formatNumber(tier.price[currency][frequency?.value])}
+                                        {formatNumber(
+                                          tier.price[currency][
+                                            frequency?.value
+                                          ],
+                                        )}
                                       </motion.span>
                                     </div>
                                     <div className="text-sm text-gray-600">
                                       <p>{frequency.priceSuffix}</p>
                                     </div>
                                   </>
-                                ) : (
+                                ) : false ? (
                                   <>
                                     <div className="text-5xl font-semibold text-gray-950">
                                       {currencies[currency].symbol}
                                       <motion.span
-                                        key={`${currency}-${frequency.value}-${tier.price[currency][frequency?.value]}`}
+                                        key={`${currency}-${frequency.value}-${
+                                          tier.price[currency][frequency?.value]
+                                        }`}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.4 }}
+                                        transiƒtion={{ duration: 0.4 }}
                                       >
-                                        {formatNumber(tier.price[currency][frequency?.value] / 12)}
+                                        {formatNumber(
+                                          tier.price[currency][
+                                            frequency?.value
+                                          ] / 12,
+                                        )}
                                       </motion.span>
                                     </div>
                                     <div className="text-sm text-gray-600">
@@ -489,15 +519,54 @@ export default function PricingPage() {
                                       <p className="text-xs">
                                         ({currencies[currency].symbol}
                                         <motion.span
-                                          key={`${currency}-${frequency.value}-yearly-${tier.price[currency][frequency?.value]}`}
+                                          key={`${currency}-${frequency.value}-yearly-${
+                                            tier.price[currency][
+                                              frequency?.value
+                                            ]
+                                          }`}
                                           initial={{ opacity: 0, y: 20 }}
                                           animate={{ opacity: 1, y: 0 }}
                                           transition={{ duration: 0.4 }}
                                         >
-                                          {formatNumber(tier.price[currency][frequency?.value])}
+                                          {formatNumber(
+                                            tier.price[currency][
+                                              frequency?.value
+                                            ],
+                                          )}
                                         </motion.span>{' '}
                                         /yr)
                                       </p>
+                                    </div>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <div className="flex items-baseline gap-x-1">
+                                        <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                                          {currencies[currency].symbol}
+                                          {tier.price[currency][
+                                            'monthly'
+                                          ].toFixed(0)}
+                                        </span>
+                                        <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                                          /mo
+                                        </span>
+                                      </div>
+                                      <div className="flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                                        <span className="text-4xl font-bold tracking-tight">
+                                          {currencies[currency].symbol}
+                                          {(
+                                            tier.price[currency]['monthly'] *
+                                            0.6
+                                          ).toFixed(0)}
+                                        </span>
+                                        <span className="-ml-0.5 text-sm font-semibold leading-6">
+                                          /month
+                                        </span>
+                                      </div>
+                                      <div className="bg-animation rounded-full px-2 py-0.5 text-center text-xs font-bold leading-6 text-white">
+                                        Save 40% for Black Friday!
+                                      </div>
                                     </div>
                                   </>
                                 )}
@@ -513,7 +582,9 @@ export default function PricingPage() {
                               </div>
                               <div className="mt-8">
                                 <h3 className="text-sm/6 font-medium text-gray-950">
-                                {index === 0 ? 'Including:' : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
+                                  {index === 0
+                                    ? 'Including:'
+                                    : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
                                 </h3>
                                 <ul className="mt-3 space-y-3">
                                   {tier.features.map((feature) => (
@@ -552,7 +623,7 @@ export default function PricingPage() {
                             <Image
                               alt=""
                               src={sony}
-                              className="max-h-8 w-fit self-start mt-1"
+                              className="mt-1 max-h-8 w-fit self-start"
                             />
                             <figure className="mt-10 flex flex-auto flex-col justify-between">
                               <blockquote className="text-xl/8 text-white">
@@ -630,7 +701,7 @@ export default function PricingPage() {
             </div>
 
             <ScrollFadeIn>
-              <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
+              <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
                 <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                   Other Plans
                 </h2>
@@ -725,7 +796,6 @@ export default function PricingPage() {
                 </div>
               </div>
             </ScrollFadeIn>
-
 
             <ScrollFadeIn>
               <AiSupportSavingsCalculator />

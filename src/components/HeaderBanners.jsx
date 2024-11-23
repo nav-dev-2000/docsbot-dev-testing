@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Countdown from 'react-countdown'
 import { stripePlan } from '@/utils/helpers'
 import news from '/public/latest-news.json'
+import { useEffect, useState } from 'react'
 
 export function HeaderBanner() {
   if (!news) return null
@@ -30,6 +31,12 @@ export function HeaderBanner() {
 }
 
 export function HeaderBannerSale({ team }) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   if (team && stripePlan(team).name !== 'Free') {
     return null
   }
@@ -37,17 +44,17 @@ export function HeaderBannerSale({ team }) {
   return (
     <div className="bg-animation flex items-center justify-center gap-x-6 px-6 py-2.5 sm:px-3.5">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <p className="text-center text-lg leading-6 text-white xl:text-left">
-          <strong className="font-semibold">Save up to 50% for Cyber Monday!</strong>
-          <svg
-            viewBox="0 0 2 2"
-            className="mx-2 inline h-0.5 w-0.5 fill-current"
-            aria-hidden="true"
-          >
+        <p className="text-lg leading-6 text-white text-center xl:text-left">
+          <strong className="font-semibold">Save 40% for Black Friday!</strong>
+          <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
             <circle cx={1} cy={1} r={1} />
           </svg>
-          Lock-in an amazing price for any plan. Ends in{' '}
-          <Countdown date={new Date('2023-11-29T00:00:00')} renderer={DayCounter} />!
+          Lock-in an amazing price for any new annual plan. Ends in{' '}
+          {isClient ? (
+            <Countdown date={new Date('2024-12-01T00:00:00')} renderer={DayCounter} />
+          ) : (
+            <span className="text-white">Loading...</span>
+          )}!
         </p>
         <Link
           href="/register?redirect=/app/account"
@@ -61,12 +68,22 @@ export function HeaderBannerSale({ team }) {
 }
 
 export function BannerSale() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
-    <div className="bg-animation my-4 flex items-center justify-center gap-x-6 rounded-md px-6 py-2.5 sm:px-3.5">
+    <div className="flex items-center gap-x-6 my-4 px-6 py-2.5 sm:px-3.5 bg-animation justify-center rounded-md">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <p className="text-center text-lg font-semibold leading-6 text-white">
-          Cyber Monday sale: Save up to 50% on all plans! Ends in{' '}
-          <Countdown date={new Date('2023-11-29T00:00:00')} renderer={DayCounter} />!
+        <p className="text-lg font-semibold leading-6 text-white text-center">
+          Black Friday sale: Save 40% on Annual plans! Ends in{' '}
+          {isClient ? (
+            <Countdown date={new Date('2024-12-01T00:00:00')} renderer={DayCounter} />
+          ) : (
+            <span className="text-white">Loading...</span>
+          )}!
         </p>
       </div>
     </div>
@@ -79,7 +96,7 @@ export function DayCounter({ days, hours, minutes, seconds, completed }) {
   } else {
     return (
       <span className="text-white">
-        {hours}h {minutes}m {seconds}s
+        {days}d {hours}h {minutes}m {seconds}s
       </span>
     )
   }

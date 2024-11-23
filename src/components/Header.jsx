@@ -12,7 +12,7 @@ import { routePaths } from '@/constants/routePaths.constants'
 import clsx from 'clsx'
 import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import { NAVIGATION } from '@/constants/navigation.constants'
-import { HeaderBanner } from '@/components/HeaderBanners'
+import { HeaderBanner, HeaderBannerSale } from '@/components/HeaderBanners'
 import { usePostHog } from 'posthog-js/react'
 
 export default function Header({transparent = false}) {
@@ -34,7 +34,7 @@ export default function Header({transparent = false}) {
 
   return (
     <>
-    <HeaderBanner />
+    {user ? <HeaderBanner /> : <HeaderBannerSale />}
     <Popover as="header" className="relative z-10">
       <div className={clsx("bg-gray-900 py-6", transparent && "bg-transparent")}>
         <nav

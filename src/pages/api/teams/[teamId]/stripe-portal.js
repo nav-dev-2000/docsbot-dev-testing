@@ -53,6 +53,10 @@ export default async function createCheckoutSession(req, res) {
             }
           }
         }
+        if (frequency === 'annually') {
+          delete params.allow_promotion_codes
+          params.discounts = [{coupon: 'A9nyRHZ0'}]
+        }
 
         /*
         if (frequency === 'annually') {
