@@ -43,7 +43,7 @@ export function HeaderBannerSale({ team }) {
 
   return (
     <div className="bg-animation flex items-center justify-center gap-x-6 px-6 py-2.5 sm:px-3.5">
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div className="flex flex-col items-center lg:flex-row flex-wrap sm:items-center gap-x-4 gap-y-2 pb-2 lg:pb-0">
         <p className="text-lg leading-6 text-white text-center xl:text-left">
           <strong className="font-semibold">Save 40% for Black Friday!</strong>
           <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
