@@ -157,7 +157,7 @@ export default function IntegrationsFeatures() {
         ref={scrollRef}
         className={clsx([
           'mt-16 flex gap-8 px-[var(--scroll-padding)]',
-          'min-h-[18rem] overflow-visible',
+          'min-h-[22rem] sm:min-h-[18rem] overflow-visible',
           '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
           'snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth',
           '[--scroll-padding:max(theme(spacing.6),calc((100vw-theme(maxWidth.2xl))/2))] lg:[--scroll-padding:max(theme(spacing.8),calc((100vw-theme(maxWidth.7xl))/2))]',
@@ -175,7 +175,7 @@ export default function IntegrationsFeatures() {
         <div className="w-[42rem] shrink-0 sm:w-[54rem]" />
       </div>
 
-      <div className="mt-8 hidden justify-center gap-2 md:flex">
+      <div className="mt-0 sm:mt-8 hidden justify-center gap-2 md:flex">
         {integrations.map((_, index) => (
           <button
             key={index}
@@ -192,8 +192,8 @@ export default function IntegrationsFeatures() {
       </div>
 
       {/* New CTA section */}
-      <div className="mt-12 flex flex-col items-center">
-        <div className="mt-8 flex gap-4">
+      <div className="mt-8 md:mt-12 flex flex-col items-center">
+        <div className="flex gap-4">
           <Link
             href="/register"
             className="bg-animation rounded-lg bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"

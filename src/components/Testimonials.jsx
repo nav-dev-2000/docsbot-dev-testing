@@ -275,7 +275,7 @@ export function Testimonials() {
             Join thousands of companies using DocsBot to deliver exceptional
             customer experiences.
           </p>
-          <div className="mt-8 flex gap-4">
+          <div className="mt-8 flex flex-col items-center gap-8 sm:flex-row">
             <Link
               href="/register"
               className="bg-animation rounded-lg bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"

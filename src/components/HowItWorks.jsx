@@ -6,6 +6,7 @@ import {
   AcademicCapIcon,
   ChatBubbleLeftRightIcon,
   RocketLaunchIcon,
+  PlayIcon,
 } from '@heroicons/react/20/solid'
 import React from 'react'
 import { Container } from '@/components/Container'
@@ -86,17 +87,30 @@ function FeaturesMobile() {
           <div className="relative mt-10 pb-10">
             <div className="absolute -inset-x-4 bottom-0 top-8 bg-slate-800 sm:-inset-x-6" />
             <div className="relative mx-auto w-[52.75rem] max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-              <video
-                className="h-full w-full object-contain"
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={feature.poster}
-                key={feature.video}
-              >
-                <source src={feature.video} type="video/mp4" />
-              </video>
+              <div className="relative">
+                <video
+                  className="h-full w-full object-contain"
+                  loop
+                  muted
+                  playsInline
+                  poster={feature.poster}
+                  key={feature.video}
+                  preload="metadata"
+                >
+                  <source src={feature.video} type="video/mp4" />
+                </video>
+                <button
+                  onClick={(e) => {
+                    const video = e.target.closest('.relative').querySelector('video');
+                    video.play();
+                    e.target.closest('button').style.display = 'none';
+                  }}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/20 p-2 backdrop-blur-sm hover:bg-gray-900/30"
+                >
+                  <PlayIcon className="h-12 w-12 text-white" aria-hidden="true" />
+                  <span className="sr-only">Play video</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -107,10 +121,36 @@ function FeaturesMobile() {
 
 function FeaturesDesktop() {
   const [selectedIndex, setSelectedIndex] = React.useState(0)
+  const videoRefs = React.useRef([])
+  const [firstVideoButtonVisible, setFirstVideoButtonVisible] = React.useState(true)
+  const isInitialMount = React.useRef(true)
+
+  const playVideo = (index) => {
+    const video = videoRefs.current[index]
+    if (video?.paused) {
+      video.play()
+      if (index === 0) {
+        setFirstVideoButtonVisible(false)
+      }
+    }
+  }
 
   const handlePanelClick = (clickedIndex) => {
     setSelectedIndex(clickedIndex)
+    if (clickedIndex === selectedIndex) {
+      playVideo(clickedIndex)
+    }
   }
+
+  React.useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (selectedIndex !== 0) {
+      playVideo(selectedIndex)
+    }
+  }, [selectedIndex])
 
   return (
     <Tab.Group
@@ -152,27 +192,32 @@ function FeaturesDesktop() {
               onClick={() => handlePanelClick(featureIndex)}
             >
               <div className="w-[52.75rem] max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-                {featureIndex === selectedIndex ? (
+                <div className="relative">
                   <video
+                    ref={el => videoRefs.current[featureIndex] = el}
                     className="h-full w-full object-contain"
-                    autoPlay
                     loop
                     muted
                     playsInline
-                    key={feature.video}
+                    autoPlay={false}
                     poster={feature.poster}
+                    key={feature.video}
+                    preload="metadata"
                   >
                     <source src={feature.video} type="video/mp4" />
                   </video>
-                ) : (
-                  <Image
-                    src={feature.poster}
-                    alt={feature.name}
-                    className="w-full"
-                    width={1236}
-                    height={720}
-                  />
-                )}
+                  {featureIndex === 0 && firstVideoButtonVisible && (
+                    <button
+                      onClick={(e) => {
+                        playVideo(0)
+                      }}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-900/20 p-6 backdrop-blur-sm hover:bg-gray-900/30"
+                    >
+                      <PlayIcon className="h-16 w-16 text-white" aria-hidden="true" />
+                      <span className="sr-only">Play video</span>
+                    </button>
+                  )}
+                </div>
               </div>
             </Tab.Panel>
           ))}

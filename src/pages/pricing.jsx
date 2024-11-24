@@ -304,7 +304,7 @@ export default function PricingPage() {
                     className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-teal-500 to-cyan-600 opacity-20"
                   />
                 </div>
-                <div className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 lg:px-8 lg:pt-40">
+                <div className="mx-auto max-w-7xl px-6 pb-12 pt-24 sm:pb-16 lg:px-8 lg:pt-40">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

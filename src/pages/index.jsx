@@ -212,6 +212,69 @@ const ParallaxImage = ({ children, className = '' }) => {
   )
 }
 
+const LazyVideo = ({ src, poster, className }) => {
+  const videoRef = useRef(null);
+  
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log('Video in view, attempting to play...'); // Debug log
+            
+            // Set source and load video
+            if (!video.src) {
+              video.src = src;
+            }
+            
+            video.load();
+            
+            // Attempt to play
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => console.log('Video playback started'))
+                .catch(error => console.error('Video playback failed:', error));
+            }
+            
+            // Disconnect observer after successful intersection
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '100px 0px',
+        threshold: 0.1
+      }
+    );
+
+    observer.observe(video);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      muted
+      loop
+      playsInline
+      className={className}
+      poster={poster}
+      autoPlay={false}
+      preload="metadata"
+    >
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+};
+
 export default function Home() {
   return (
     <>
@@ -419,19 +482,11 @@ export default function Home() {
                   </ScrollFadeIn>
 
                   <ParallaxImage>
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-[32rem] max-w-none"
+                    <LazyVideo
+                      src="/video/uses-customer-facing.mp4"
                       poster="/video/uses-customer-facing.png"
-                    >
-                      <source
-                        src="/video/uses-customer-facing.mp4"
-                        type="video/mp4"
-                      />
-                    </video>
+                      className="lg:w-[32rem] max-w-none mx-auto w-full"
+                    />
                   </ParallaxImage>
                 </div>
               </div>
@@ -490,19 +545,11 @@ export default function Home() {
                   </ScrollFadeIn>
 
                   <ParallaxImage className="justify-end lg:order-first">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-[32rem] max-w-none"
+                    <LazyVideo
+                      src="/video/uses-enhance-support.mp4"
                       poster="/video/uses-enhance-support.png"
-                    >
-                      <source
-                        src="/video/uses-enhance-support.mp4"
-                        type="video/mp4"
-                      />
-                    </video>
+                      className="lg:w-[32rem] max-w-none mx-auto w-full"
+                    />
                   </ParallaxImage>
                 </div>
               </div>
@@ -551,19 +598,11 @@ export default function Home() {
                     </div>
 
                     <ParallaxImage className="min-w-full max-w-xl lg:row-span-4 lg:-mt-48 lg:w-[32rem] lg:max-w-none">
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="relative -z-20 w-[32rem] lg:w-[32rem]"
+                      <LazyVideo
+                        src="/video/uses-knowledgebase.mp4"
                         poster="/video/uses-knowledgebase.png"
-                      >
-                        <source
-                          src="/video/uses-knowledgebase.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
+                        className="relative -z-20 w-full mx-auto lg:w-[32rem]"
+                      />
                     </ParallaxImage>
                     <div className="max-w-xl lg:row-start-3 lg:mt-10 lg:max-w-md lg:border-t lg:border-white/10 lg:pt-10">
                       <dl className="max-w-xl space-y-8 text-base/7 text-gray-300 lg:max-w-none">
