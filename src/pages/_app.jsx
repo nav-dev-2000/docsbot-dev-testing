@@ -387,7 +387,7 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
                 src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
                 strategy="afterInteractive"
               />
-              {/* <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
+              {/* <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" /> */}
               <Script id="gtag">
                 {`
                 window.dataLayer = window.dataLayer || [];
