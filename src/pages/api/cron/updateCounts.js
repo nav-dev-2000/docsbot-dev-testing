@@ -4,6 +4,7 @@ import { getQuestionStats } from '@/lib/dbQueries'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
+import { stripePlan } from '@/utils/helpers'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -166,8 +167,10 @@ export default async function handler(request, response) {
         // update team count && needsUpdate
         const prevHistory = teamData.questionHistory || {}
         const prevHistoryDaily = teamData.questionHistoryDaily || {}
+        const questionLimit = stripePlan(teamData).questions
         await teamDoc.ref.update({
           questionCount: questionTotal,
+          questionLimit: questionLimit,
           pageCount: pageTotal,
           sourceCount: sourceTotal,
           questionHistory: {
