@@ -64,7 +64,7 @@ function Account({ team, bots, checkout }) {
 
   return (
     <DashboardWrap page="Account" team={team}>
-      {checkout && (
+      {/* {checkout && (
         <Script id="gtag-conversion" strategy="lazyOnload">
           {`
         gtag('event', 'conversion', {
@@ -75,7 +75,7 @@ function Account({ team, bots, checkout }) {
         });
         `}
         </Script>
-      )}
+      )} */}
 
       <Alert title={errorText} type="error" />
 
