@@ -15,7 +15,7 @@ import { phTrack } from '@/lib/posthog'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { uuidv4 } from '@firebase/util'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
-import { checkSourceScheduledFromInterval, isSuperAdmin } from '@/utils/helpers'
+import { checkSourceScheduledFromInterval, isValidURL } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
@@ -90,8 +90,8 @@ export default async function handler(req, res) {
     // https://mathiasbynens.be/demo/url-regex
     url = url?.trim() || null
     if (
-      sourceType.fieldUrl === 'required' &&
-      (!url || !url.match(/^(https?):\/\/[^\s\/$.?#].[^\s]*$/))
+      (sourceType.fieldUrl === 'required' &&
+      (!url || !isValidURL(url))) || (url && !isValidURL(url))
     ) {
       return res
         .status(400)
