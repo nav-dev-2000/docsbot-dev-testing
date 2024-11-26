@@ -156,7 +156,7 @@ export default function App({ Component, pageProps }) {
             siteName: 'DocsBot AI',
             images: [
               {
-                url: 'https://docsbot.ai/social-card.png',
+                url: 'https://docsbot.ai/og-main.png',
                 width: 1200,
                 height: 630,
                 alt: 'DocsBot AI',
@@ -294,7 +294,7 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
             siteName: 'DocsBot AI',
             images: [
               {
-                url: 'https://docsbot.ai/social-card.png',
+                url: 'https://docsbot.ai/og-main.png',
                 width: 1200,
                 height: 630,
                 alt: 'DocsBot AI',
