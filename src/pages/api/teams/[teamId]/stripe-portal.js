@@ -47,7 +47,7 @@ export default async function createCheckoutSession(req, res) {
         } else {
           params.tax_id_collection = { enabled: true }
           params.customer_email = email
-          if (team.canTrial && 'business' !== tier) {
+          if (team.canTrial) {
             params.subscription_data = { 
               trial_period_days: 14,
             }

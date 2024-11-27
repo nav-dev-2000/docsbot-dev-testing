@@ -495,17 +495,15 @@ export default function PricingPage() {
                                       <p>{frequency.priceSuffix}</p>
                                     </div>
                                   </>
-                                ) : false ? (
+                                ) : user ? (
                                   <>
                                     <div className="text-5xl font-semibold text-gray-950">
                                       {currencies[currency].symbol}
                                       <motion.span
-                                        key={`${currency}-${frequency.value}-${
-                                          tier.price[currency][frequency?.value]
-                                        }`}
+                                        key={`${currency}-${frequency.value}-${tier.price[currency][frequency?.value]}`}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transiƒtion={{ duration: 0.4 }}
+                                        transition={{ duration: 0.4 }}
                                       >
                                         {formatNumber(
                                           tier.price[currency][
@@ -544,9 +542,7 @@ export default function PricingPage() {
                                       <div className="flex items-baseline gap-x-1">
                                         <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
                                           {currencies[currency].symbol}
-                                          {tier.price[currency][
-                                            'monthly'
-                                          ].toFixed(0)}
+                                          {tier.price[currency]['monthly'].toFixed(0)}
                                         </span>
                                         <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                                           /mo
