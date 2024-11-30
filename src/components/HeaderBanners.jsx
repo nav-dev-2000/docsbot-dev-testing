@@ -51,7 +51,7 @@ export function HeaderBannerSale({ team }) {
           </svg>
           Lock-in an amazing price for any new annual plan. Ends in{' '}
           {isClient ? (
-            <Countdown date={new Date('2024-12-01T00:00:00Z')} renderer={DayCounter} />
+            <Countdown date={new Date('2024-12-01T00:00:00-08:00')} renderer={DayCounter} />
           ) : (
             <span className="text-white">Loading...</span>
           )}!
@@ -80,7 +80,7 @@ export function BannerSale() {
         <p className="text-lg font-semibold leading-6 text-white text-center">
           Black Friday sale: Save 40% on Annual plans! Ends in{' '}
           {isClient ? (
-            <Countdown date={new Date('2024-12-01T00:00:00Z')} renderer={DayCounter} />
+            <Countdown date={new Date('2024-12-01T00:00:00-08:00')} renderer={DayCounter} />
           ) : (
             <span className="text-white">Loading...</span>
           )}!
