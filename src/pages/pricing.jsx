@@ -474,7 +474,7 @@ export default function PricingPage() {
                                 {tier.description}
                               </p>
                               <div className="mt-8 flex items-center gap-4">
-                                {frequency?.value === 'monthly' ? (
+                                {frequency?.value === 'monthly' && user ? (
                                   <>
                                     <div className="text-5xl font-semibold text-gray-950">
                                       {currencies[currency].symbol}
@@ -493,6 +493,35 @@ export default function PricingPage() {
                                     </div>
                                     <div className="text-sm text-gray-600">
                                       <p>{frequency.priceSuffix}</p>
+                                    </div>
+                                  </>
+                                ) : frequency?.value === 'monthly' && !user ? (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <div className="flex items-baseline gap-x-1">
+                                        <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                                          {currencies[currency].symbol}
+                                          {tier.price[currency]['monthly'].toFixed(0)}
+                                        </span>
+                                        <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                                          /mo
+                                        </span>
+                                      </div>
+                                      <div className="flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                                        <span className="text-4xl font-bold tracking-tight">
+                                          {currencies[currency].symbol}
+                                          {(
+                                            tier.price[currency]['monthly'] *
+                                            0.75
+                                          ).toFixed(0)}
+                                        </span>
+                                        <span className="-ml-0.5 text-sm font-semibold leading-6">
+                                          /month
+                                        </span>
+                                      </div>
+                                      <div className="bg-animation rounded-full px-2 py-0.5 text-center text-xs font-bold leading-6 text-white">
+                                        Save 25% for 12 months!
+                                      </div>
                                     </div>
                                   </>
                                 ) : user ? (
@@ -553,7 +582,7 @@ export default function PricingPage() {
                                           {currencies[currency].symbol}
                                           {(
                                             tier.price[currency]['monthly'] *
-                                            0.6
+                                            0.5
                                           ).toFixed(0)}
                                         </span>
                                         <span className="-ml-0.5 text-sm font-semibold leading-6">
@@ -561,7 +590,7 @@ export default function PricingPage() {
                                         </span>
                                       </div>
                                       <div className="bg-animation rounded-full px-2 py-0.5 text-center text-xs font-bold leading-6 text-white">
-                                        Save 40% for Black Friday!
+                                        Save 50% for Cyber Monday!
                                       </div>
                                     </div>
                                   </>
