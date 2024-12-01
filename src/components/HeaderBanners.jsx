@@ -78,7 +78,7 @@ export function BannerSale() {
     <div className="flex items-center gap-x-6 my-4 px-6 py-2.5 sm:px-3.5 bg-animation justify-center rounded-md">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-lg font-semibold leading-6 text-white text-center">
-          Cyber Monday sale: Save 50% on Annual, 25% on Monthly plans! Ends in{' '}
+          Cyber Monday sale: Save 50% on Annual, 25% on Monthly plans! Ends{' '}
           {isClient ? (
             <Countdown date={new Date('2024-12-03T00:00:00-08:00')} renderer={DayCounter} />
           ) : (
@@ -92,7 +92,7 @@ export function BannerSale() {
 
 export function DayCounter({ days, hours, minutes, seconds, completed }) {
   if (completed) {
-    return <span className="text-white">Sale ended!</span>
+    return <span className="text-white">today!</span>
   } else {
     return (
       <span className="text-white">
