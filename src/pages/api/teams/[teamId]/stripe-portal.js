@@ -53,20 +53,15 @@ export default async function createCheckoutSession(req, res) {
             }
           }
         }
-        if (frequency === 'annually') {
-          delete params.allow_promotion_codes
-          params.discounts = [{coupon: 'A9nyRHZ0'}]
-        }
 
-        /*
+        //cyber monday
         if (frequency === 'annually') {
           delete params.allow_promotion_codes
-          params.discounts = [{coupon: 'HJ8JpsQs'}]
+          params.discounts = [{coupon: '5BvogbZc'}] //41% off
         } else {
           delete params.allow_promotion_codes
-          params.discounts = [{coupon: 'ZeLNT6yj'}]
+          params.discounts = [{coupon: '6kMHwH8t'}] //25% off
         }
-        */
 
         const { url } = await stripe.checkout.sessions.create(params)
 

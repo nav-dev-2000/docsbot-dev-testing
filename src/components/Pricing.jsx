@@ -127,9 +127,13 @@ export default function Pricing() {
               <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
               {frequency?.value === 'monthly' ? (
                 <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-4xl font-bold tracking-tight text-gray-600">
+                  <span className="text-sm line-through text-gray-400">
                     {currencies[currency].symbol}
                     {tier.price[currency][frequency?.value].toFixed(0)}
+                  </span>
+                  <span className="text-4xl font-bold tracking-tight text-gray-600">
+                    {currencies[currency].symbol}
+                    {(tier.price[currency][frequency?.value] * 0.75).toFixed(0)}
                   </span>
                   <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                     {frequency.priceSuffix}
@@ -138,9 +142,13 @@ export default function Pricing() {
               ) : (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-4xl font-bold tracking-tight text-gray-600">
+                    <span className="text-sm line-through text-gray-400">
                       {currencies[currency].symbol}
                       {(tier.price[currency][frequency?.value] / 12).toFixed(0)}
+                    </span>
+                    <span className="text-4xl font-bold tracking-tight text-gray-600">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency][frequency?.value] * 0.5 / 12).toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                       /month
@@ -148,11 +156,15 @@ export default function Pricing() {
                   </p>
                   <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
                     (
-                    <span className="text-xl font-bold tracking-tight ">
+                    <span className="text-sm line-through">
                       {currencies[currency].symbol}
                       {(tier.price[currency][frequency?.value]).toFixed(0)}
                     </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/annually</span>
+                    <span className="text-xl font-bold tracking-tight">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency][frequency?.value] * 0.5).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6">/annually</span>
                     )
                   </p>
                 </>
