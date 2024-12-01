@@ -16,10 +16,14 @@ export function StripePricingTable({ team, email, setErrorText }) {
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState(
-    team.stripeSubscriptionCurrency ? team.stripeSubscriptionCurrency.toUpperCase() : 'USD'
+    team.stripeSubscriptionCurrency
+      ? team.stripeSubscriptionCurrency.toUpperCase()
+      : 'USD',
   )
   const [opening, setOpening] = useState(false)
-  const [plans] = useState(JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [])
+  const [plans] = useState(
+    JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [],
+  )
 
   async function openPortal(tier) {
     setErrorText(null)
@@ -75,10 +79,12 @@ export function StripePricingTable({ team, email, setErrorText }) {
           />
         )}
         <p className="text-lg text-gray-800">
-          Please choose a plan that fits your needs. You can upgrade or downgrade at any time.
+          Please choose a plan that fits your needs. You can upgrade or
+          downgrade at any time.
         </p>
-        <p className="text-md  mx-auto flex items-center justify-center font-semibold text-teal-500">
-          <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back guarantee!
+        <p className="text-md mx-auto flex items-center justify-center font-semibold text-teal-500">
+          <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back
+          guarantee!
         </p>
       </div>
 
@@ -89,7 +95,9 @@ export function StripePricingTable({ team, email, setErrorText }) {
             onChange={setFrequency}
             className="grid grid-cols-2 gap-x-1 rounded-lg bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
           >
-            <RadioGroup.Label className="sr-only">Payment frequency</RadioGroup.Label>
+            <RadioGroup.Label className="sr-only">
+              Payment frequency
+            </RadioGroup.Label>
             {frequencies.map((option) => (
               <RadioGroup.Option
                 key={option.value}
@@ -97,7 +105,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                 className={({ checked }) =>
                   clsx(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-lg px-8 py-2'
+                    'cursor-pointer rounded-lg px-8 py-2',
                   )
                 }
               >
@@ -121,7 +129,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                 className={({ checked }) =>
                   clsx(
                     checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-md px-2.5 py-1'
+                    'cursor-pointer rounded-md px-2.5 py-1',
                   )
                 }
               >
@@ -137,8 +145,10 @@ export function StripePricingTable({ team, email, setErrorText }) {
             <div
               key={tier.id}
               className={clsx(
-                tier.mostPopular ? 'ring-2 ring-cyan-600' : 'ring-1 ring-gray-200',
-                'rounded-3xl p-6 xl:p-8'
+                tier.mostPopular
+                  ? 'ring-2 ring-cyan-600'
+                  : 'ring-1 ring-gray-200',
+                'rounded-3xl p-6 xl:p-8',
               )}
             >
               <div className="flex items-center justify-between gap-x-4">
@@ -146,7 +156,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   id={tier.id}
                   className={clsx(
                     tier.mostPopular ? 'text-cyan-600' : 'text-gray-900',
-                    'text-lg font-semibold leading-8'
+                    'text-lg font-semibold leading-8',
                   )}
                 >
                   {tier.name}
@@ -157,43 +167,59 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   </p>
                 ) : null}
               </div>
-              <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">{tier.description}</p>
+              <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">
+                {tier.description}
+              </p>
               {frequency?.value === 'monthly' ? (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-4xl font-bold tracking-tight text-gray-600">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
                       {currencies[currency].symbol}
                       {tier.price[currency][frequency?.value].toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /month
+                      /mo
                     </span>
                   </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency][frequency?.value] * 0.75).toFixed(
+                        0,
+                      )}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6">
+                      /mo
+                    </span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 25% for Cyber Monday!
+                  </div>
                 </>
               ) : (
                 <>
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-2xl line-through font-bold tracking-tight text-gray-600">
-                    {currencies[currency].symbol}
-                    {(tier.price[currency]['monthly']).toFixed(0)}
-                  </span>
-                <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                  /mo
-                </span>
-                </p>
-                <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                <span className="text-4xl font-bold tracking-tight ">
-                  {currencies[currency].symbol}
-                  {(tier.price[currency]['monthly']*.6).toFixed(0)}
-                </span>
-                <span className="-ml-0.5 text-sm font-semibold leading-6 ">
-                  /mo
-                </span>
-              </p>
-                <div className="text-xs font-bold leading-6 rounded-full bg-animation text-white text-center">
-                  Save 40% for Black Friday!
-                </div>
-              </>
+                  <p className="mt-6 flex items-baseline gap-x-1">
+                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                      {currencies[currency].symbol}
+                      {tier.price[currency]['monthly'].toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                      /mo
+                    </span>
+                  </p>
+                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-4xl font-bold tracking-tight">
+                      {currencies[currency].symbol}
+                      {(tier.price[currency]['monthly'] * 0.5).toFixed(0)}
+                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6">
+                      /mo
+                    </span>
+                  </p>
+                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
+                    Save 50% for Cyber Monday!
+                  </div>
+                </>
               )}
               <button
                 aria-describedby={tier.id}
@@ -203,13 +229,15 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   tier.mostPopular
                     ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
                     : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
-                  'mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800 disabled:cursor-not-allowed disabled:opacity-50'
+                  'mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800 disabled:cursor-not-allowed disabled:opacity-50',
                 )}
               >
                 Subscribe
               </button>
-              <h3 className="text-sm/6 font-medium text-gray-950 mt-6">
-                {index === 0 ? 'Including:' : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
+              <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
+                {index === 0
+                  ? 'Including:'
+                  : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
               </h3>
               <ul
                 role="list"
@@ -217,7 +245,10 @@ export function StripePricingTable({ team, email, setErrorText }) {
               >
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
-                    <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                    <CheckIcon
+                      className="h-6 w-5 flex-none text-cyan-600"
+                      aria-hidden="true"
+                    />
                     {feature}
                   </li>
                 ))}
@@ -239,13 +270,17 @@ export function StripePricingTable({ team, email, setErrorText }) {
       </div>
 
       <p className="mt-1 text-center text-sm text-gray-500">
-        Thousands of people & companies have created custom chatbots with DocsBot!
+        Thousands of people & companies have created custom chatbots with
+        DocsBot!
       </p>
       {!enterprise && (
         <div className="mb-6 mt-6 text-center">
           <p className="text-md text-gray-600">
             Need more?{' '}
-            <button onClick={() => setEnterprise(true)} className="underline hover:text-gray-800">
+            <button
+              onClick={() => setEnterprise(true)}
+              className="underline hover:text-gray-800"
+            >
               View our Enterprise Options
             </button>
           </p>
@@ -254,14 +289,18 @@ export function StripePricingTable({ team, email, setErrorText }) {
       {enterprise && (
         <div className="mx-auto mt-8 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-10 lg:mx-0 lg:flex lg:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
-            <h3 className="text-2xl font-bold tracking-tight text-gray-900">Enterprise</h3>
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+              Enterprise
+            </h3>
             <p className="mt-6 text-base leading-7 text-gray-600">
-              For serious traffic and custom integrations. Identify problem areas in your product
-              and gaps in your documentation with automated AI analysis of user questions. Get
-              priority support & integration help to create specialized bots for your unique
-              business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security
-              with role-based access control (RBAC), private networks, and region restrictions.
-              Self-hosted options are available to satisfy any data protection requirements.
+              For serious traffic and custom integrations. Identify problem
+              areas in your product and gaps in your documentation with
+              automated AI analysis of user questions. Get priority support &
+              integration help to create specialized bots for your unique
+              business needs. Use the Microsoft Azure OpenAI Service for
+              Enterprise-grade security with role-based access control (RBAC),
+              private networks, and region restrictions. Self-hosted options are
+              available to satisfy any data protection requirements.
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
@@ -275,7 +314,10 @@ export function StripePricingTable({ team, email, setErrorText }) {
             >
               {enterpriseFeatures.map((feature) => (
                 <li key={feature} className="flex gap-x-3">
-                  <CheckIcon className="h-6 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                  <CheckIcon
+                    className="h-6 w-5 flex-none text-cyan-600"
+                    aria-hidden="true"
+                  />
                   {feature}
                 </li>
               ))}
@@ -284,14 +326,20 @@ export function StripePricingTable({ team, email, setErrorText }) {
           <div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
             <div className="h-full rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
               <div className="mx-auto max-w-xs px-8">
-                <p className="text-base font-semibold text-gray-600">Plans starting at</p>
+                <p className="text-base font-semibold text-gray-600">
+                  Plans starting at
+                </p>
                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-gray-900">$899/mo</span>
+                  <span className="text-5xl font-bold tracking-tight text-gray-900">
+                    $899/mo
+                  </span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
                     USD
                   </span>
                 </p>
-                <p className="text-xs leading-6 tracking-wide text-gray-500">(paid annually)</p>
+                <p className="text-xs leading-6 tracking-wide text-gray-500">
+                  (paid annually)
+                </p>
                 <a
                   href="mailto:human@docsbot.ai"
                   onClick={(e) => {
