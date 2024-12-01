@@ -245,7 +245,8 @@ export const AiSupportSavingsCalculator = () => {
 }
 
 export default function PricingPage() {
-  const [user] = useAuthState(auth)
+  //const [user] = useAuthState(auth)
+  const user = true; //hide sale stuff for now
   const [frequency, setFrequency] = useState(frequencies[1])
   const [currency, setCurrency] = useState('USD')
 

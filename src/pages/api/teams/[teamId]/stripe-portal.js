@@ -55,6 +55,7 @@ export default async function createCheckoutSession(req, res) {
         }
 
         //cyber monday
+        /*
         if (frequency === 'annually') {
           delete params.allow_promotion_codes
           params.discounts = [{coupon: '5BvogbZc'}] //41% off
@@ -62,6 +63,7 @@ export default async function createCheckoutSession(req, res) {
           delete params.allow_promotion_codes
           params.discounts = [{coupon: '6kMHwH8t'}] //25% off
         }
+        */
 
         const { url } = await stripe.checkout.sessions.create(params)
 

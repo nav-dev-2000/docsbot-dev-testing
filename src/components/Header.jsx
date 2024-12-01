@@ -34,7 +34,7 @@ export default function Header({transparent = false}) {
 
   return (
     <>
-    {user ? <HeaderBanner /> : <HeaderBannerSale />}
+    <HeaderBanner />
     <Popover as="header" className="relative z-10">
       <div className={clsx("bg-gray-900 py-6", transparent && "bg-transparent")}>
         <nav
