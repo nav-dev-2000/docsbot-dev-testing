@@ -33,6 +33,8 @@ export function HeaderBanner() {
 export function HeaderBannerSale({ team }) {
   const [isClient, setIsClient] = useState(false)
 
+  return null;
+
   useEffect(() => {
     setIsClient(true)
   }, [])
@@ -69,6 +71,8 @@ export function HeaderBannerSale({ team }) {
 
 export function BannerSale() {
   const [isClient, setIsClient] = useState(false)
+
+  return null;
 
   useEffect(() => {
     setIsClient(true)

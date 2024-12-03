@@ -10,7 +10,6 @@ import {
   enterpriseFeatures,
 } from '@/constants/pricing.constants'
 import SocialFaces from '@/components/SocialFaces'
-import { BannerSale } from '@/components/HeaderBanners'
 
 export function StripePricingTable({ team, email, setErrorText }) {
   const [enterprise, setEnterprise] = useState(false)
@@ -70,7 +69,6 @@ export function StripePricingTable({ team, email, setErrorText }) {
     <div>
       <div className="mb-2 text-center">
         <h2 className="mb-2 text-3xl font-bold">Choose a Plan</h2>
-        <BannerSale />
         {false && (
           <Alert
             type="info"
@@ -114,7 +112,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
             ))}
           </RadioGroup>
         </div>
-        {/*<p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>*/}
+        <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
         <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
           <RadioGroup
             value={currency}
@@ -199,26 +197,23 @@ export function StripePricingTable({ team, email, setErrorText }) {
               ) : (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
+                    <span className="text-4xl font-bold tracking-tight text-gray-600">
                       {currencies[currency].symbol}
-                      {tier.price[currency]['monthly'].toFixed(0)}
+                      {(tier.price[currency][frequency?.value] / 12).toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /mo
+                      /month
                     </span>
                   </p>
-                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                    <span className="text-4xl font-bold tracking-tight">
+                  <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
+                    (
+                    <span className="text-xl font-bold tracking-tight ">
                       {currencies[currency].symbol}
-                      {(tier.price[currency]['monthly'] * 0.5).toFixed(0)}
+                      {(tier.price[currency][frequency?.value]).toFixed(0)}
                     </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6">
-                      /mo
-                    </span>
+                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/annually</span>
+                    )
                   </p>
-                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
-                    Save 50% for Cyber Monday!
-                  </div>
                 </>
               )}
               <button
