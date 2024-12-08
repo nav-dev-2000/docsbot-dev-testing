@@ -141,6 +141,15 @@ export const LLM_PRICING = {
             output_token_cost_per_million: 1.25,
           },
           {
+            model_name: 'Llama 3.3 70b',
+            page_slug: 'llama-3-3-70b-instruct',
+            context: '128K/2K',
+            provider: 'Meta',
+            api_provider: 'Deepinfra',
+            input_token_cost_per_million: 0.23,
+            output_token_cost_per_million: 0.4,
+          },
+          {
             model_name: 'Llama 3.1 405b',
             page_slug: 'llama-3-1-405b-instruct',
             context: '128K/2K',
@@ -164,7 +173,7 @@ export const LLM_PRICING = {
             context: '128K/2K',
             provider: 'Meta',
             api_provider: 'Deepinfra',
-            input_token_cost_per_million: 0.35,
+            input_token_cost_per_million: 0.23,
             output_token_cost_per_million: 0.4,
           },
           {

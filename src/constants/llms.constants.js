@@ -985,6 +985,59 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Llama 3.3 70B Instruct',
+    slug: 'llama-3-3-70b-instruct',
+    provider: 'meta',
+    description:
+      "Llama 3.3 70B Instruct, developed by Meta, is a multilingual, instruction-tuned large language model optimized for dialogue use cases. It supports multilingual text inputs and outputs with a context window of 128K tokens. Released on December 6th, 2024, it outperforms many open-source and closed chat models across industry benchmarks. The model employs Grouped-Query Attention (GQA) for enhanced scalability and is trained on a mix of public data with over 15 trillion tokens. Its knowledge cut-off date is December 2023.",
+    input_context_window: '128K',
+    maximum_output_tokens: '2,048',
+    open_source: true,
+    release_date: '2024-12-06',
+    knowledge_cut_off_date: 'December 2023',
+    api_providers: 'Fireworks, Together, DeepInfra, Hyperbolic',
+    input_cost_per_million_tokens: 0.23,
+    output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 86.0,
+        notes: '0-shot, CoT',
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+      'MMLU-Pro': {
+        score: 68.9,
+        notes: '5-shot, CoT',
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+      IFEval: {
+        score: 92.1,
+        notes: null,
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+      HumanEval: {
+        score: 88.4,
+        notes: 'pass@1',
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+      MATH: {
+        score: 77.0,
+        notes: '0-shot, CoT',
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+    },
+  },
+  {
     model_name: 'Llama 3.2 90B Vision Instruct',
     slug: 'llama-3-2-90b-vision-instruct',
     provider: 'meta',
@@ -1083,8 +1136,8 @@ const LLMS = [
     knowledge_cut_off_date: 'December 2023',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx',
-    input_cost_per_million_tokens: 0.055,
-    output_cost_per_million_tokens: 0.055,
+    input_cost_per_million_tokens: 0.03,
+    output_cost_per_million_tokens: 0.05,
     modalities: {
       text: true,
       image: false,
@@ -1122,7 +1175,7 @@ const LLMS = [
     knowledge_cut_off_date: 'December 2023',
     api_providers:
       'Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, IBM watsonx, Deepinfra',
-    input_cost_per_million_tokens: 0.35,
+    input_cost_per_million_tokens: 0.23,
     output_cost_per_million_tokens: 0.4,
     modalities: {
       text: true,
