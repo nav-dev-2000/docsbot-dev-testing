@@ -56,7 +56,8 @@ const LLMS = [
       MMLU: {
         score: 89.3,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 78,
@@ -105,7 +106,8 @@ const LLMS = [
       MMLU: {
         score: 89.3,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 78,
@@ -207,12 +209,14 @@ const LLMS = [
       MMLU: {
         score: 77.1,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 54.9,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MMMU: {
         score: 53.1,
@@ -227,12 +231,14 @@ const LLMS = [
       HumanEval: {
         score: 73,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MATH: {
         score: 43.1,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
     },
   },
@@ -260,12 +266,14 @@ const LLMS = [
       MMLU: {
         score: 85.7,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       'MMLU-Pro': {
         score: 67.9,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MMMU: {
         score: 59.4,
@@ -280,12 +288,14 @@ const LLMS = [
       HumanEval: {
         score: 84.9,
         notes: '0-shot',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
       MATH: {
         score: 60.1,
         notes: '0-shot CoT',
-        source: 'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
+        source:
+          'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
     },
   },
@@ -1528,6 +1538,94 @@ const LLMS = [
     },
   },
   {
+    model_name: 'o1 Pro',
+    slug: 'o1-pro',
+    provider: 'openai',
+    description:
+      "The o1 pro model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024. It is currently accessible via the $200/month ChatGPT Pro plan, which provides scaled access to OpenAI's best models and tools, including o1, o1-mini, GPT-4o, and Advanced Voice. o1 pro mode uses enhanced compute and longer reflection time to deliver more accurate and reliable responses, particularly for solving complex problems.",
+    input_context_window: '128K',
+    maximum_output_tokens: '32.8K',
+    open_source: false,
+    release_date: '2024-12-05',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI ChatGPT Pro',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 92.3,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      MMMU: {
+        score: 78.2,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MATH: {
+        score: 94.8,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+    },
+  },
+  {
+    model_name: 'o1',
+    slug: 'o1',
+    provider: 'openai',
+    description:
+      "The full o1 model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT. Its knowledge is up-to-date as of October 2023, and ChatGPT Plus is the only  provider.",
+    input_context_window: '128K',
+    maximum_output_tokens: '32.8K',
+    open_source: false,
+    release_date: '2024-12-05',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI ChatGPT Plus',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 92.3,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/introducing-chatgpt-pro/',
+      },
+      MMMU: {
+        score: 78.2,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+      HellaSwag: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      MATH: {
+        score: 94.8,
+        notes: 'pass@1',
+        url: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
+    },
+  },
+  {
     model_name: 'o1 Preview',
     slug: 'o1-preview',
     provider: 'openai',
@@ -1549,7 +1647,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 92.3,
+        score: 90.8,
         notes: 'pass@1',
         url: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
@@ -1593,7 +1691,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 92.3,
+        score: 90.8,
         notes: 'pass@1',
         source: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
@@ -1603,7 +1701,11 @@ const LLMS = [
         source: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
       HellaSwag: null,
-      HumanEval: null,
+      HumanEval: {
+        score: 92.4,
+        notes: null,
+        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
       MATH: {
         score: 85.5,
         notes: 'pass@1',
@@ -1801,7 +1903,7 @@ const LLMS = [
     slug: 'gpt-4o-2024-11-20',
     provider: 'openai',
     description:
-      'Latest GPT-4o, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on November 20, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI\'s API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. The model\'s creative writing ability has leveled up with more natural, engaging, and tailored writing to improve relevance and readability. It\'s also better at working with uploaded files, providing deeper insights and more thorough responses.',
+      "Latest GPT-4o, provided by OpenAI, features a context window of 128K tokens and supports generating up to 16.4K tokens per request. It was released on November 20, 2024, with a knowledge cut-off as of October 2023. The model is available via OpenAI's API, and it can empirically generate 77.4 tokens per second. Input costs $2.50 per million tokens and output costs $10 per million tokens. The model's creative writing ability has leveled up with more natural, engaging, and tailored writing to improve relevance and readability. It's also better at working with uploaded files, providing deeper insights and more thorough responses.",
     input_context_window: '128K',
     maximum_output_tokens: '16.4K',
     open_source: false,
