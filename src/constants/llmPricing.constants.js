@@ -110,8 +110,8 @@ export const LLM_PRICING = {
       page_slug: 'claude-3-5-haiku',
       context: '200K/8K',
       provider: 'Anthropic',
-      input_token_cost_per_million: 1,
-      output_token_cost_per_million: 5,
+      input_token_cost_per_million: 0.8,
+      output_token_cost_per_million: 4,
     },
     {
       model_name: 'Claude 3 Opus',
