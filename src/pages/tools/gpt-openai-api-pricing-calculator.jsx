@@ -35,6 +35,7 @@ const providers = [
   'OpenAI',
   'Anthropic',
   'Meta',
+  'Amazon',
   'Google',
   'Cohere',
   'Mistral AI',

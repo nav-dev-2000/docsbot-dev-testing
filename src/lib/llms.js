@@ -6,6 +6,7 @@ import {
   XAILogo,
   NvidiaLogo,
   CohereLogo,
+  AmazonLogo,
 } from '@/components/ModelLogos'
 import OpenAIIcon from '@/components/OpenAIIcon'
 
@@ -29,6 +30,11 @@ const PROVIDER_INFO = {
     displayName: 'Meta',
     url: 'https://ai.meta.com/',
     icon: MetaLogo,
+  },
+  amazon: {
+    displayName: 'Amazon',
+    url: 'https://aws.amazon.com/ai/generative-ai/nova/',
+    icon: AmazonLogo,
   },
   cohere: {
     displayName: 'Cohere',

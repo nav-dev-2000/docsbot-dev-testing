@@ -442,6 +442,225 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Amazon Nova Micro',
+    slug: 'amazon-nova-micro',
+    provider: 'amazon',
+    description:
+      'Amazon Nova Micro is a text-only model optimized for cost and speed. With a context window of 128K tokens, it excels at tasks like text summarization, translation, interactive chat, and basic coding. Released as part of the Amazon Nova foundation models, it supports fine-tuning and distillation for customization on proprietary data.',
+    input_context_window: '128K',
+    maximum_output_tokens: null,
+    open_source: false,
+    release_date: '2024-12-03',
+    knowledge_cut_off_date: null,
+    api_providers: 'Amazon Bedrock',
+    input_cost_per_million_tokens: 0.035,
+    output_cost_per_million_tokens: 0.14,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 77.6,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      DROP: {
+        score: 79.3,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      ARC: {
+        score: 90.2,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      GPQA: {
+        score: 40.0,
+        notes: 'Main',
+        source: 'https://aws.amazon.com/nova',
+      },
+      GSM8K: {
+        score: 92.3,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      MATH: {
+        score: 69.3,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      HumanEval: {
+        score: 81.1,
+        notes: 'pass@1',
+        source: 'https://aws.amazon.com/nova',
+      },
+      IFEval: {
+        score: 87.2,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_EN_to_14: {
+        score: 40.2,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_14_to_EN: {
+        score: 42.6,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+    },
+  },
+  {
+    model_name: 'Amazon Nova Lite',
+    slug: 'amazon-nova-lite',
+    provider: 'amazon',
+    description:
+      'Amazon Nova Lite is a multimodal model capable of processing text, image, and video inputs to generate text outputs. With a context window of 300K tokens, it excels at real-time interactions, document analysis, and visual question answering. Released as part of the Amazon Nova foundation models, it supports fine-tuning and distillation for customization.',
+    input_context_window: '300K',
+    maximum_output_tokens: null,
+    open_source: false,
+    release_date: '2024-12-03',
+    knowledge_cut_off_date: null,
+    api_providers: 'Amazon Bedrock',
+    input_cost_per_million_tokens: 0.06,
+    output_cost_per_million_tokens: 0.24,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 80.5,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      DROP: {
+        score: 80.2,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      ARC: {
+        score: 92.4,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      GPQA: {
+        score: 42.0,
+        notes: 'Main',
+        source: 'https://aws.amazon.com/nova',
+      },
+      GSM8K: {
+        score: 94.5,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      MATH: {
+        score: 73.3,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      HumanEval: {
+        score: 85.4,
+        notes: 'pass@1',
+        source: 'https://aws.amazon.com/nova',
+      },
+      IFEval: {
+        score: 89.7,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_EN_to_14: {
+        score: 41.5,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_14_to_EN: {
+        score: 43.1,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+    },
+  },
+  {
+    model_name: 'Amazon Nova Pro',
+    slug: 'amazon-nova-pro',
+    provider: 'amazon',
+    description:
+      'Amazon Nova Pro is a state-of-the-art multimodal model with advanced capabilities in processing text, image, and video inputs. With a context window of 300K tokens, it excels at tasks like document analysis, visual question answering, and complex agentic workflows. Released as part of the Amazon Nova foundation models, it supports fine-tuning and distillation for customization.',
+    input_context_window: '300K',
+    maximum_output_tokens: null,
+    open_source: false,
+    release_date: '2024-12-03',
+    knowledge_cut_off_date: null,
+    api_providers: 'Amazon Bedrock',
+    input_cost_per_million_tokens: 0.8,
+    output_cost_per_million_tokens: 3.2,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 85.9,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      DROP: {
+        score: 85.4,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      ARC: {
+        score: 94.8,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      GPQA: {
+        score: 46.9,
+        notes: 'Main',
+        source: 'https://aws.amazon.com/nova',
+      },
+      GSM8K: {
+        score: 94.8,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      MATH: {
+        score: 76.6,
+        notes: 'CoT',
+        source: 'https://aws.amazon.com/nova',
+      },
+      HumanEval: {
+        score: 89.0,
+        notes: 'pass@1',
+        source: 'https://aws.amazon.com/nova',
+      },
+      IFEval: {
+        score: 92.1,
+        notes: null,
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_EN_to_14: {
+        score: 43.4,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+      Translation_14_to_EN: {
+        score: 44.4,
+        notes: 'Flores200',
+        source: 'https://aws.amazon.com/nova',
+      },
+    },
+  },
+  {
     model_name: 'Command R+ (Aug 2024)',
     slug: 'command-r-plus-08-2024',
     provider: 'cohere',
@@ -989,7 +1208,7 @@ const LLMS = [
     slug: 'llama-3-3-70b-instruct',
     provider: 'meta',
     description:
-      "Llama 3.3 70B Instruct, developed by Meta, is a multilingual, instruction-tuned large language model optimized for dialogue use cases. It supports multilingual text inputs and outputs with a context window of 128K tokens. Released on December 6th, 2024, it outperforms many open-source and closed chat models across industry benchmarks. The model employs Grouped-Query Attention (GQA) for enhanced scalability and is trained on a mix of public data with over 15 trillion tokens. Its knowledge cut-off date is December 2023.",
+      'Llama 3.3 70B Instruct, developed by Meta, is a multilingual, instruction-tuned large language model optimized for dialogue use cases. It supports multilingual text inputs and outputs with a context window of 128K tokens. Released on December 6th, 2024, it outperforms many open-source and closed chat models across industry benchmarks. The model employs Grouped-Query Attention (GQA) for enhanced scalability and is trained on a mix of public data with over 15 trillion tokens. Its knowledge cut-off date is December 2023.',
     input_context_window: '128K',
     maximum_output_tokens: '2,048',
     open_source: true,
@@ -1639,7 +1858,7 @@ const LLMS = [
     slug: 'o1',
     provider: 'openai',
     description:
-      "The full o1 model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT. Its knowledge is up-to-date as of October 2023, and ChatGPT Plus is the only  provider.",
+      'The full o1 model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT. Its knowledge is up-to-date as of October 2023, and ChatGPT Plus is the only  provider.',
     input_context_window: '128K',
     maximum_output_tokens: '32.8K',
     open_source: false,
