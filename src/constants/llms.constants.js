@@ -1047,6 +1047,68 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 2.0 Flash (Experimental)',
+    slug: 'gemini-2-0-flash',
+    provider: 'google',
+    description:
+      'Gemini 2.0 Flash Experimental, developed by Google, is a fast, efficient model that builds on the success of 1.5 Flash, with enhanced performance and new capabilities. It supports multimodal inputs and outputs, including text, images, and multilingual audio, as well as native tool use.  It is available to developers through the Gemini API in Google AI Studio and Vertex AI. It outperforms 1.5 Pro on key benchmarks at twice the speed. The model is available to developers as an experimental model, with general availability expected in January 2025.',
+    input_context_window: '1M',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2024-12-11',
+    knowledge_cut_off_date: null,
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    benchmarks: {
+      'MMLU-Pro': {
+        score: 76.4,
+      },
+      Natural2Code: {
+        score: 92.9,
+      },
+      'Bird-SQL (Dev)': {
+        score: 56.9,
+      },
+      'LiveCodeBench (Code Generation)': {
+        score: 35.1,
+      },
+      'FACTS Grounding': {
+        score: 83.6,
+      },
+      MATH: {
+        score: 89.7,
+      },
+      HiddenMath: {
+        score: 63.0,
+      },
+      'GPQA (diamond)': {
+        score: 62.1,
+      },
+      'MRCR (1M)': {
+        score: 69.2,
+      },
+      MMMU: {
+        score: 70.7,
+      },
+      'Vibe-Eval (Reka)': {
+        score: 56.3,
+      },
+      'CoVoST2 (21 lang)': {
+        score: 39.2,
+      },
+      'EgoSchema (test)': {
+        score: 71.5,
+      },
+    },
+  },
+  {
     model_name: 'Gemini 1.5 Flash (002)',
     slug: 'gemini-1-5-flash-002',
     provider: 'google',
