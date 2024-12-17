@@ -1927,8 +1927,8 @@ const LLMS = [
     release_date: '2024-12-05',
     knowledge_cut_off_date: 'October 2023',
     api_providers: 'OpenAI ChatGPT Plus',
-    input_cost_per_million_tokens: null,
-    output_cost_per_million_tokens: null,
+    input_cost_per_million_tokens: 15,
+    output_cost_per_million_tokens: 60,
     modalities: {
       text: true,
       image: true,
