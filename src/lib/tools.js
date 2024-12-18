@@ -267,9 +267,29 @@ export const fetchYoutubeSubtitles = async (videoId) => {
       },
     })
 
+    if (response.status === 500) {
+      const errorData = await response.json()
+      const errorMessage = errorData.error
+
+      const errorMessages = {
+        VideoUnavailable: 'Video is unavailable',
+        TooManyRequests: 'Too many requests to YouTube',
+        YouTubeRequestFailed: 'YouTube request failed',
+        NoTranscriptFound: 'No transcript found for video',
+        TranscriptsDisabled: 'Transcripts are disabled for this video',
+        NotTranslatable: 'Video transcript cannot be translated',
+        TranslationLanguageNotAvailable: 'Translation not available in requested language',
+        NoTranscriptAvailable: 'No transcript available for this video',
+        FailedToCreateConsentCookie: 'Failed to create YouTube consent cookie',
+        InvalidVideoId: 'Invalid YouTube video ID provided'
+      }
+
+      throw new Error(errorMessages[errorMessage] || 'YouTube API error')
+    }
+
     if (!response.ok) {
       console.log('HTTP error:', response.status)
-      throw new Error('HTTP error') 
+      throw new Error('HTTP error')
     }
 
     const result = await response.json()
