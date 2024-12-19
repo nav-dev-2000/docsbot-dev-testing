@@ -170,30 +170,16 @@ export function StripePricingTable({ team, email, setErrorText }) {
               </p>
               {frequency?.value === 'monthly' ? (
                 <>
-                  <p className="mt-6 flex items-baseline gap-x-1">
-                    <span className="text-2xl font-bold tracking-tight text-gray-600 line-through">
-                      {currencies[currency].symbol}
-                      {tier.price[currency][frequency?.value].toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /mo
-                    </span>
-                  </p>
-                  <p className="mt-0 flex items-baseline gap-x-1 bg-gradient-to-br from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-                    <span className="text-4xl font-bold tracking-tight">
-                      {currencies[currency].symbol}
-                      {(tier.price[currency][frequency?.value] * 0.75).toFixed(
-                        0,
-                      )}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6">
-                      /mo
-                    </span>
-                  </p>
-                  <div className="bg-animation rounded-full text-center text-xs font-bold leading-6 text-white">
-                    Save 25% for Cyber Monday!
-                  </div>
-                </>
+                <p className="mt-6 flex items-baseline gap-x-1">
+                  <span className="text-4xl font-bold tracking-tight text-gray-600">
+                    {currencies[currency].symbol}
+                    {tier.price[currency][frequency?.value].toFixed(0)}
+                  </span>
+                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                    /month
+                  </span>
+                </p>
+              </>
               ) : (
                 <>
                   <p className="mt-6 flex items-baseline gap-x-1">
