@@ -139,6 +139,19 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     }
   }, [carbonId, title])
 
+  const resetState = () => {
+    setFile(null)
+    setFileName(null)
+    setUrl(null)
+    setTitle('')
+    setSelectedSourceType(null)
+    setValidated(false)
+    setIsUpdating(false)
+    setPercent(0)
+    setShowForm(false)
+    setScheduleInterval('none')
+  }
+
   async function createSource() {
     if (!validated) {
       setErrorText('Please complete required fields.')
@@ -178,16 +191,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       } else {
         setSources([data, ...sources])
       }
-      setFile(null)
-      setFileName(null)
-      setUrl(null)
-      setTitle('')
-      setSelectedSourceType(null)
-      setValidated(false)
-      setIsUpdating(false)
-      setPercent(0)
-      setShowForm(false)
-      setScheduleInterval('none')
+      resetState()
     } else {
       try {
         const data = await response.json()
@@ -264,7 +268,9 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   setShowUpgrade(true)
                   return
                 } else {
+                  resetState()
                   setSelectedSourceType(e)
+                  setShowForm(true)
                 }
               }}
             >
