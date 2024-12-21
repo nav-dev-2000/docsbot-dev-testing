@@ -1896,13 +1896,37 @@ const LLMS = [
     },
   },
   {
+    model_name: 'o3',
+    slug: 'o3',
+    provider: 'openai',
+    description:
+      'OpenAI o3 represents a significant leap forward in AI reasoning capabilities. Released in January 2024, it demonstrates remarkable improvements in software engineering and mathematical reasoning tasks. The model features enhanced safety testing protocols and deliberative alignment techniques for safer AI interactions. It excels particularly in complex programming challenges and mathematical problem-solving, with significant performance gains over its predecessor o1.',
+    input_context_window: '200K',
+    maximum_output_tokens: '100K', 
+    open_source: false,
+    release_date: '2024-12-19',
+    knowledge_cut_off_date: null,
+    api_providers: 'OpenAI API',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+     
+    },
+  },
+  {
     model_name: 'o1 Pro',
     slug: 'o1-pro',
     provider: 'openai',
     description:
-      "The o1 pro model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024. It is currently accessible via the $200/month ChatGPT Pro plan, which provides scaled access to OpenAI's best models and tools, including o1, o1-mini, GPT-4o, and Advanced Voice. o1 pro mode uses enhanced compute and longer reflection time to deliver more accurate and reliable responses, particularly for solving complex problems.",
-    input_context_window: '128K',
-    maximum_output_tokens: '32.8K',
+      "The o1 pro model, provided by OpenAI, features an input context window of 200K tokens and can generate up to 100K tokens in a single request. This model is not open source and was released in December 2024. It is currently accessible via the $200/month ChatGPT Pro plan, which provides scaled access to OpenAI's best models and tools, including o1, o1-mini, GPT-4o, and Advanced Voice. o1 pro mode uses enhanced compute and longer reflection time to deliver more accurate and reliable responses, particularly for solving complex problems.",
+    input_context_window: '200K',
+    maximum_output_tokens: '100K',
     open_source: false,
     release_date: '2024-12-05',
     knowledge_cut_off_date: 'October 2023',
@@ -1944,13 +1968,13 @@ const LLMS = [
     slug: 'o1',
     provider: 'openai',
     description:
-      'The full o1 model, provided by OpenAI, features an input context window of 128K tokens and can generate up to 32.8K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT. Its knowledge is up-to-date as of October 2023, and ChatGPT Plus is the only  provider.',
-    input_context_window: '128K',
-    maximum_output_tokens: '32.8K',
+      'The full o1 model, provided by OpenAI, features an input context window of 200K tokens and can generate up to 100K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT then API on December 19th. Its knowledge is up-to-date as of October 2023, and can be found in ChatGPT Plus and OpenAI API.',
+    input_context_window: '200K',
+    maximum_output_tokens: '100K',
     open_source: false,
     release_date: '2024-12-05',
     knowledge_cut_off_date: 'October 2023',
-    api_providers: 'OpenAI ChatGPT Plus',
+    api_providers: 'ChatGPT Plus, OpenAI API, Azure OpenAI Service',
     input_cost_per_million_tokens: 15,
     output_cost_per_million_tokens: 60,
     modalities: {
