@@ -146,4 +146,6 @@ const nextConfig = {
   },
 }
 
-module.exports = withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig)
+module.exports = process.env.DISABLE_HEADLESS 
+  ? withMarkdoc()(nextConfig)
+  : withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig)
