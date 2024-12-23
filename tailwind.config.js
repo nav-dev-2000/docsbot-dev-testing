@@ -51,6 +51,17 @@ module.exports = {
       maxWidth: {
         '2xl': '40rem',
       },
+      keyframes: {
+        'bounce-slide-down': {
+          '0%': { transform: 'translate(-50%, -100%)', opacity: '0' },
+          '60%': { transform: 'translate(-50%, 10%)', opacity: '1' },
+          '80%': { transform: 'translate(-50%, -5%)' },
+          '100%': { transform: 'translate(-50%, 0)' }
+        }
+      },
+      animation: {
+        'bounce-slide-down': 'bounce-slide-down 0.5s ease-out'
+      }
     },
   },
   plugins: [formsPlugin, headlessuiPlugin, require('@tailwindcss/typography')],

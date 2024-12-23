@@ -96,6 +96,13 @@ export const freeTools = [
     category: 'YouTube',
   },
   {
+    name: 'YouTube Quiz Generator',
+    description: 'Generate quizzes from YouTube videos',
+    href: '/tools/ai-youtube-quiz-generator',
+    ogImage: '/images/og/youtube-quiz.png',
+    category: 'YouTube',
+  },
+  {
     name: 'Image Description Generator',
     href: '/tools/image/description-generator',
     ogImage: '/images/og/image-description.png',

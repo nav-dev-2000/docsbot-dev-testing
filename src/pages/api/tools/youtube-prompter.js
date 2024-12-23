@@ -404,6 +404,108 @@ Take a step back and think step-by-step about how to achieve the best possible r
       },
     },
   },
+  quiz: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `# IDENTITY and PURPOSE
+
+You are an expert quiz generator that creates engaging multiple choice questions from video content.
+
+You take in a transcript of a video as input and output a quiz with questions, answer choices, and explanations.
+
+Take a step back and think step-by-step about how to achieve the best possible results by following these steps:
+
+# STEPS
+
+1. Carefully analyze the video transcript to identify key concepts, facts, and insights that would make good quiz questions
+2. For each concept, create a clear and focused multiple choice question
+3. Generate 4 answer choices for each question:
+   - One correct answer that is clearly accurate
+   - Three incorrect but plausible distractors 
+4. Write a detailed explanation for why the correct answer is right and why the others are wrong
+5. Review to ensure questions test understanding rather than just recall
+
+# OUTPUT INSTRUCTIONS
+
+- Create 10-15 high quality multiple choice questions
+- Write clear, unambiguous questions that test comprehension
+- Make all answer choices similar in length and style
+- Ensure distractors are plausible but clearly incorrect
+- Provide thorough explanations for correct answers
+- Vary question types (facts, concepts, applications)
+- Do not repeat content across questions
+- Use proper grammar and professional language
+- Test different levels of learning and understanding
+- You must output at least 10 questions - no less`,
+      },
+      {
+        role: 'user',
+        content: `Extract FAQs from the following YouTube video transcript:\n\nMetadata: {{metadata}}\n\nTranscript:\n{{subtitles}}`,
+      },
+    ],
+    response_format: {
+      type: 'json_schema',
+      json_schema: {
+        name: 'multiple_choice_quiz',
+        schema: {
+          type: 'object',
+          properties: {
+            short_title: {
+              type: 'string',
+              description: 'A concise title of the video, 5 words or less',
+            },
+            questions: {
+              type: 'array',
+              description: 'A list of exactly 10 questions for the quiz.',
+              items: {
+                type: 'object',
+                properties: {
+                  question: {
+                    type: 'string',
+                    description: 'The text of the question being asked.',
+                  },
+                  options: {
+                    type: 'array',
+                    description: 'A list of four possible answer options.',
+                    items: {
+                      type: 'object',
+                      properties: {
+                        answer: {
+                          type: 'string',
+                          description: 'A possible answer for this question.',
+                        },
+                        is_answer: {
+                          type: 'boolean',
+                          description: 'Indicates if this answer choice is the correct answer.',
+                        },
+                        reason: {
+                          type: 'string',
+                          description: 'The reasoning or explanation for why this answer choice is correct or incorrect.',
+                        },
+                      },
+                      required: ['answer', 'is_answer', 'reason'],
+                      additionalProperties: false,
+                    },
+                  },
+                },
+                required: ['question', 'options'],
+                additionalProperties: false,
+              },
+            },
+            is_ai: {
+              type: 'boolean',
+              description: 'Whether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
+            },
+          },
+          required: ['questions', 'short_title', 'is_ai'],
+          additionalProperties: false,
+        },
+        strict: true,
+      },
+    },
+  },
   moments: {
     model: 'gpt-4o-mini',
     messages: [
