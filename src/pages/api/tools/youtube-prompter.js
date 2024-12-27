@@ -411,7 +411,7 @@ Take a step back and think step-by-step about how to achieve the best possible r
         role: 'system',
         content: `# IDENTITY and PURPOSE
 
-You are an expert quiz generator that creates engaging multiple choice questions from video content.
+You are an expert quiz generator that creates 10+ engaging multiple choice questions from video content.
 
 You take in a transcript of a video as input and output a quiz with questions, answer choices, and explanations.
 
@@ -438,7 +438,7 @@ Take a step back and think step-by-step about how to achieve the best possible r
 - Do not repeat content across questions
 - Use proper grammar and professional language
 - Test different levels of learning and understanding
-- You must output at least 10 questions - no less`,
+- You must output at least 10 (ten) questions! DO NOT OUTPUT LESS THAN 10 QUESTIONS!`,
       },
       {
         role: 'user',
