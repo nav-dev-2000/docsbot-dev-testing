@@ -89,6 +89,63 @@ Retain the essence and accuracy of the original text while adjusting the languag
       },
     ],
   },
+  summarize: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Analyze and summarize support ticket conversations to extract key information and create concise summaries. The summary should identify the main issues, relevant details, and any action items or resolutions needed.
+
+# Steps
+
+1. **Input Analysis:** Review the support ticket content and ticket category
+2. **Key Information Extraction:** Identify the core issue, customer needs, and any technical details
+3. **Context Understanding:** Consider the ticket category and business impact
+4. **Summary Creation:** Create a clear, actionable summary highlighting the key points in markdown format.
+
+# Output Format
+Provide a structured markdown formatted summary with:
+- Short Title: 1-5 words that summarize the issue
+- Main Issue: Brief description of the core problem (1-2 sentences)
+- Key Details: Important contextual information and technical details
+- Priority Level: Suggested priority based on issue severity
+- Customer Sentiment: Positive, Neutral, or Negative using emoji to illustrate
+- Next Steps: Recommended actions or resolution path
+
+# Notes
+- Focus on actionable insights and clear problem identification
+- Maintain all critical details while eliminating redundant information
+- Consider business impact and urgency in the summary
+- Highlight any immediate actions needed for resolution
+
+# Example
+
+**Input Ticket:**
+Chat bot link - Hi. Our bot is internal (named "Anie"). I do not want the link for the bot to be shareable. Can we disable the link? We have it integrated with slack right now, and I only want our team to use the slack channel to chat with the bot. They should not use the external link, because then everyone else on our team cannot see their questions/answers. Also, I do not want the link shared with customers.
+
+**Output:**
+## Disable Chatbot Link
+
+**Main Issue:** The customer wants to prevent the internal chatbot ("Anie") from being shareable externally to ensure that only their team can access it through Slack.
+
+**Key Details:** 
+- Customer's bot is currently integrated with Slack.
+- Concern arises from the potential of sharing the external link, which could lead to non-team members accessing internal Q&A.
+- The request is time-sensitive as the customer wants to implement this change immediately.
+
+**Priority Level:** High - due to implications for internal communication and data privacy.
+
+**Customer Sentiment:** Negative 😟 - expressing concern over control and security of internal tools.
+
+**Next Steps:** Advise the customer to set the bot to private in its settings to restrict sharing and embedding capabilities. Confirm implementation and ensure they are aware of the configuration process.
+`,
+      },
+      {
+        role: 'user',
+        content: `Ticket Content:\n{{input}}`,
+      },
+    ],
+  },
   paragraph: {
     model: 'gpt-4o-mini',
     messages: [

@@ -170,8 +170,14 @@ export const freeTools = [
   },
   {
     name: 'Support Savings Calculator',
-    href: '/tools/ai-support-savings-calculator',
+    href: '/tools/support/ai-savings-calculator',
     ogImage: '/images/og/support-savings.png',
+    category: 'Customer Support',
+  },
+  {
+    name: 'Support Ticket Summarizer',
+    href: '/tools/support/ticket-summarizer',
+    ogImage: '/images/og/support-ticket-summarizer.png',
     category: 'Customer Support',
   },
   {
@@ -186,6 +192,7 @@ export const freeTools = [
     ogImage: '/images/og/chatwp.png',
     category: 'Customer Support',
   },
+  
   {
     name: 'LLM API Price Calculator',
     href: '/tools/gpt-openai-api-pricing-calculator',

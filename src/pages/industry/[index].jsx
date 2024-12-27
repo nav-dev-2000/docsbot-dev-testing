@@ -150,7 +150,7 @@ export default function IndustryPage({
                 <span>Automate Your Customer Support</span>
               </Link>
               <Link
-                href="/tools/ai-support-savings-calculator"
+                href="/tools/support/ai-savings-calculator"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Learn more <span aria-hidden="true">→</span>

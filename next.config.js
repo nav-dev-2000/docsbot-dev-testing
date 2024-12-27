@@ -134,6 +134,16 @@ const nextConfig = {
         destination: '/tools/image',
         permanent: true,
       },
+      {
+        source: '/tools/customer-support',
+        destination: '/tools/support',
+        permanent: true,
+      },
+      {
+        source: '/tools/ai-support-savings-calculator',
+        destination: '/tools/support/ai-savings-calculator',
+        permanent: true,
+      },
     ]
   },
   webpack: (config, { isServer }) => {
