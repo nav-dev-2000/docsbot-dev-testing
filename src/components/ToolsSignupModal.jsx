@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleLogo } from '@/components/GoogleLogo'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { usePostHog } from 'posthog-js/react'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import { getIsNewGmailUser } from '@/utils/firebase.utils'
@@ -23,6 +23,27 @@ export default function ToolsSignupModal({
     useSignInWithGoogle(auth)
   const [authLoading, setAuthLoading] = useState(false)
   const posthog = usePostHog()
+  const [hasTracked, setHasTracked] = useState(false)
+
+  const handleBentoTracking = useCallback(() => {
+    if (hasTracked || !googleUser?.user?.email) return
+    
+    if (typeof window !== 'undefined' && window.bento) {
+      try {
+        window.bento.identify(googleUser?.user?.email)
+        window.bento.updateFields({
+          name: googleUser?.user?.displayName,
+          usage_type: 'tools',
+          tool: toolName,
+          tool_category: toolCategory,
+        })
+        window.bento.track('toolsSignup')
+        setHasTracked(true)
+      } catch (e) {
+        console.error('Bento error:', e)
+      }
+    }
+  }, [googleUser?.user, toolName, toolCategory, hasTracked])
 
   useRegisterGoogleUser({
     googleUser,
@@ -31,20 +52,7 @@ export default function ToolsSignupModal({
     onComplete: () => {
       const isNewUser = getIsNewGmailUser(googleUser)
       if (isNewUser) {
-        if (typeof window !== 'undefined' && window.bento) {
-          try {
-            window.bento.identify(googleUser?.user?.email)
-            window.bento.updateFields({
-              name: googleUser?.user?.displayName,
-              usage_type: 'tools',
-              tool: toolName,
-              tool_category: toolCategory,
-            })
-            window.bento.track('toolsSignup')
-          } catch (e) {
-            console.error('Bento error:', e)
-          }
-        }
+        handleBentoTracking()
 
         if (window.fpr !== undefined) {
           window.fpr('referral', { email: googleUser?.user?.email })
