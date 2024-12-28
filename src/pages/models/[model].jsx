@@ -254,7 +254,12 @@ const ModelPage = ({
           ],
         }}
       />
-      <FAQPageJsonLd faqs={faqs} />
+      <FAQPageJsonLd
+        mainEntity={faqs.map((faq) => ({
+          questionName: faq.question,
+          acceptedAnswerText: faq.answer,
+        }))}
+      />
       <Header />
       <main>
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-16 sm:py-24 lg:px-8">
