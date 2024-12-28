@@ -39,7 +39,7 @@ const providers = [
   'Google',
   'Cohere',
   'Mistral AI',
-  'DataBricks',
+  'DeepSeek',
 ]
 const modelTypes = [
   'All Types',
@@ -272,7 +272,7 @@ export default function Calculate({ starRatingData }) {
                   Anthropic Claude, Llama 3, Google Gemini, Mistral, and Cohere
                   LLM APIs for your AI project with our simple and powerful free
                   calculator. Latest numbers as of{' '}
-                  <span className="font-bold">October 2024</span>.
+                  <span className="font-bold">December 2024</span>.
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">

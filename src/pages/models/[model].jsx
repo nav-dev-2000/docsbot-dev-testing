@@ -22,7 +22,7 @@ import {
 import { LLM_PRICING } from '@/constants/llmPricing.constants'
 import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
+import { getProviderInfo, getBenchmarkDescription,  } from '@/lib/llms'
 import { useRouter } from 'next/router'
 import {
   DocumentTextIcon,
@@ -920,11 +920,13 @@ const ModelPage = ({
                       <tbody className="divide-y divide-gray-800">
                         {[
                           'MMLU',
-                          'MMLU-Pro',
+                          'MMLU-Pro', 
                           'MMMU',
                           'HellaSwag',
                           'HumanEval',
                           'MATH',
+                          'GPQA',
+                          'IFEval'
                         ].map((key) => (
                           <tr key={key}>
                             <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">

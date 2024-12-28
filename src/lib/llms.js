@@ -7,6 +7,7 @@ import {
   NvidiaLogo,
   CohereLogo,
   AmazonLogo,
+  DeepSeekLogo,
 } from '@/components/ModelLogos'
 import OpenAIIcon from '@/components/OpenAIIcon'
 
@@ -56,6 +57,11 @@ const PROVIDER_INFO = {
     url: 'https://nvidia.com',
     icon: NvidiaLogo,
   },
+  deepseek: {
+    displayName: 'DeepSeek',
+    url: 'https://www.deepseek.com/',
+    icon: DeepSeekLogo,
+  },
 }
 
 export const getProviderInfo = (providerName) => {
@@ -71,6 +77,8 @@ export const getBenchmarkDescription = (key) => {
     HellaSwag: 'A challenging sentence completion benchmark',
     HumanEval: 'Evaluates code generation and problem-solving capabilities',
     MATH: 'Tests mathematical problem-solving abilities across various difficulty levels',
+    GPQA: 'Tests PhD-level knowledge in chemistry, biology, and physics through multiple choice questions that require deep domain expertise',
+    IFEval: 'Tests model\'s ability to accurately follow explicit formatting instructions, generate appropriate outputs, and maintain consistent instruction adherence across different tasks',
   }
   return descriptions[key] || 'Description not available'
 }

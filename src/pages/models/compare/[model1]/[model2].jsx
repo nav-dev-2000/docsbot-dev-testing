@@ -1242,13 +1242,15 @@ const ModelPage = ({ model1, model2 }) => {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-800">
-                        {[
+                      {[
                           'MMLU',
-                          'MMLU-Pro',
+                          'MMLU-Pro', 
                           'MMMU',
                           'HellaSwag',
                           'HumanEval',
                           'MATH',
+                          'GPQA',
+                          'IFEval'
                         ].map((key) => (
                           <tr key={key}>
                             <td className="py-4 pl-4 pr-3 sm:pl-0">

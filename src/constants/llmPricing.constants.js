@@ -123,33 +123,6 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 4,
     },
     {
-      model_name: 'Claude 3 Opus',
-      model_slug: 'claude-3-opus-20240229',
-      page_slug: 'claude-3-opus',
-      context: '200K/4K',
-      provider: 'Anthropic',
-      input_token_cost_per_million: 15,
-      output_token_cost_per_million: 75,
-    },
-    {
-      model_name: 'Claude 3 Sonnet',
-      model_slug: 'claude-3-sonnet-20240229',
-      page_slug: 'claude-3-sonnet',
-      context: '200K/4K',
-      provider: 'Anthropic',
-      input_token_cost_per_million: 3,
-      output_token_cost_per_million: 15,
-    },
-    {
-      model_name: 'Claude 3 Haiku',
-      model_slug: 'claude-3-haiku-20240307',
-      page_slug: 'claude-3-haiku',
-      context: '200K/4K',
-      provider: 'Anthropic',
-      input_token_cost_per_million: 0.25,
-      output_token_cost_per_million: 1.25,
-    },
-    {
       model_name: 'Llama 3.3 70b',
       page_slug: 'llama-3-3-70b-instruct',
       context: '128K/2K',
@@ -344,12 +317,13 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 6,
     },
     {
-      model_name: 'DBRX',
-      context: '32K',
-      provider: 'DataBricks',
-      input_token_cost_per_million: 2.25,
-      output_token_cost_per_million: 6.75,
-    },
+      model_name: 'DeepSeek-V3',
+      model_slug: 'deepseek-v3',
+      context: '128K/8K',
+      provider: 'DeepSeek',
+      input_token_cost_per_million: 0.14,
+      output_token_cost_per_million: 0.28,
+    }
   ],
   'Audio Models': [
     {

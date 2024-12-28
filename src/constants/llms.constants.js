@@ -979,6 +979,11 @@ const LLMS = [
         source:
           'https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf',
       },
+      GPQA: {
+        score: 59.1,
+        notes: null,
+        source: 'https://deepmind.google/technologies/gemini/',
+      },
       MATH: {
         score: 86.5,
         notes: '4-shot Minerva Prompt',
@@ -1049,7 +1054,7 @@ const LLMS = [
   {
     model_name: 'Gemini 2.0 Flash Thinking (Experimental)',
     slug: 'gemini-2-0-flash-thinking',
-    provider: 'google', 
+    provider: 'google',
     description:
       'Gemini 2.0 Flash Thinking Experimental is a specialized variant focused on transparent reasoning and step-by-step thinking processes. It excels at complex problem solving, coding challenges, and mathematical reasoning while showing its work. The model is optimized for tasks requiring detailed explanations and logical breakdowns.',
     input_context_window: '32K',
@@ -1066,9 +1071,7 @@ const LLMS = [
       voice: true,
       video: true,
     },
-    benchmarks: {
-      
-    },
+    benchmarks: {},
   },
   {
     model_name: 'Gemini 2.0 Flash (Experimental)',
@@ -1112,8 +1115,9 @@ const LLMS = [
       HiddenMath: {
         score: 63.0,
       },
-      'GPQA (diamond)': {
+      GPQA: {
         score: 62.1,
+        notes: 'Diamond',
       },
       'MRCR (1M)': {
         score: 69.2,
@@ -1177,6 +1181,11 @@ const LLMS = [
         notes: '0-shot',
         source:
           'https://developers.googleblog.com/en/updated-gemini-models-reduced-15-pro-pricing-increased-rate-limits-and-more/',
+      },
+      GPQA: {
+        score: 51,
+        notes: null,
+        source: 'https://deepmind.google/technologies/gemini/',
       },
       MATH: {
         score: 77.9,
@@ -1331,6 +1340,12 @@ const LLMS = [
       HumanEval: {
         score: 88.4,
         notes: 'pass@1',
+        source:
+          'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
+      },
+      GPQA: {
+        score: 50.5,
+        notes: '0-shot, CoT',
         source:
           'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
       },
@@ -1743,10 +1758,31 @@ const LLMS = [
         notes: '5-shot',
         source: 'https://mistral.ai/news/mistral-large-2407/',
       },
+      'MMLU-Pro': {
+        score: 50.69,
+        notes: null,
+        source:
+          'https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/?official=true',
+      },
       MMMU: null,
       HellaSwag: null,
       HumanEval: null,
-      MATH: null,
+      MATH: {
+        score: 1.13,
+        notes: null,
+        source:
+          'https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/?official=true',
+      },
+      GPQA: {
+        score: 24.94,
+        notes: null,
+        source: null,
+      },
+      IFEval: {
+        score: 84.01,
+        notes: null,
+        source: null,
+      },
     },
   },
   {
@@ -1902,7 +1938,7 @@ const LLMS = [
     description:
       'OpenAI o3 represents a significant leap forward in AI reasoning capabilities. Released in January 2024, it demonstrates remarkable improvements in software engineering and mathematical reasoning tasks. The model features enhanced safety testing protocols and deliberative alignment techniques for safer AI interactions. It excels particularly in complex programming challenges and mathematical problem-solving, with significant performance gains over its predecessor o1.',
     input_context_window: '200K',
-    maximum_output_tokens: '100K', 
+    maximum_output_tokens: '100K',
     open_source: false,
     release_date: '2024-12-19',
     knowledge_cut_off_date: null,
@@ -1915,9 +1951,7 @@ const LLMS = [
       voice: false,
       video: false,
     },
-    benchmarks: {
-     
-    },
+    benchmarks: {},
   },
   {
     model_name: 'o1 Pro',
@@ -1955,6 +1989,11 @@ const LLMS = [
         score: 92.4,
         notes: null,
         url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      GPQA: {
+        score: 77.3,
+        notes: '0-shot',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
       MATH: {
         score: 94.8,
@@ -2000,6 +2039,11 @@ const LLMS = [
         notes: null,
         url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
+      GPQA: {
+        score: 77.3,
+        notes: '0-shot',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
       MATH: {
         score: 94.8,
         notes: 'pass@1',
@@ -2044,54 +2088,15 @@ const LLMS = [
         notes: null,
         url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
+      GPQA: {
+        score: 73.3,
+        notes: '0-shot',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
+      },
       MATH: {
         score: 85.5,
         notes: 'pass@1',
         url: 'https://openai.com/index/learning-to-reason-with-llms/',
-      },
-    },
-  },
-  {
-    model_name: 'o1 Preview 2024-09-12',
-    slug: 'o1-preview-2024-09-12',
-    provider: 'openai',
-    description:
-      'o1 Preview 2024-09-12 is a model provided by OpenAI. It features an input context window of 128K tokens and a maximum output of 32.8K tokens. The model is not open-sourced and was released on September 12th, 2024. The knowledge cut-off date for this model is October 2023 and its API provider is OpenAI. It costs $15.00 per million tokens for input and $60.00 per million tokens for output.',
-    input_context_window: '128K',
-    maximum_output_tokens: '32.8K',
-    open_source: false,
-    release_date: '2024-09-12',
-    knowledge_cut_off_date: 'October 2023',
-    api_providers: 'OpenAI, Azure OpenAI Service',
-    input_cost_per_million_tokens: 15,
-    output_cost_per_million_tokens: 60,
-    modalities: {
-      text: true,
-      image: false,
-      voice: false,
-      video: false,
-    },
-    benchmarks: {
-      MMLU: {
-        score: 90.8,
-        notes: 'pass@1',
-        source: 'https://openai.com/index/learning-to-reason-with-llms/',
-      },
-      MMMU: {
-        score: 78.2,
-        notes: 'pass@1',
-        source: 'https://openai.com/index/learning-to-reason-with-llms/',
-      },
-      HellaSwag: null,
-      HumanEval: {
-        score: 92.4,
-        notes: null,
-        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
-      },
-      MATH: {
-        score: 85.5,
-        notes: 'pass@1',
-        source: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
     },
   },
@@ -2128,45 +2133,10 @@ const LLMS = [
         notes: null,
         url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
-      MATH: {
-        score: 90.0,
-        notes: '0-shot CoT',
-        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
-      },
-    },
-  },
-  {
-    model_name: 'o1 Mini 2024-09-12',
-    slug: 'o1-mini-2024-09-12',
-    provider: 'openai',
-    description:
-      'o1 Mini, developed by OpenAI, features a context window of 128K tokens. It was released on September 12, 2024, with a knowledge cut-off date in October 2023. The input cost is $3.00 per million tokens, and the output cost is $12.00 per million tokens. API providers include OpenAI.',
-    input_context_window: '128K',
-    maximum_output_tokens: '65.5K',
-    open_source: false,
-    release_date: '2024-09-12',
-    knowledge_cut_off_date: 'October 2023',
-    api_providers: 'OpenAI, Azure OpenAI Service',
-    input_cost_per_million_tokens: 3,
-    output_cost_per_million_tokens: 12,
-    modalities: {
-      text: true,
-      image: false,
-      voice: false,
-      video: false,
-    },
-    benchmarks: {
-      MMLU: {
-        score: 85.2,
-        notes: '0-shot CoT',
-        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
-      },
-      MMMU: null,
-      HellaSwag: null,
-      HumanEval: {
-        score: 92.4,
-        notes: null,
-        url: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      GPQA: {
+        score: 60,
+        notes: '0-shot',
+        source: 'https://openai.com/index/learning-to-reason-with-llms/',
       },
       MATH: {
         score: 90.0,
@@ -2272,6 +2242,11 @@ const LLMS = [
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
       },
+      GPQA: {
+        score: 53.6,
+        notes: '0-shot',
+        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
       MATH: {
         score: 75.9,
         notes: '0-shot',
@@ -2325,6 +2300,11 @@ const LLMS = [
         notes: '0-shot',
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      GPQA: {
+        score: 53.6,
+        notes: '0-shot',
+        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 75.9,
@@ -2380,6 +2360,11 @@ const LLMS = [
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
       },
+      GPQA: {
+        score: 53.6,
+        notes: '0-shot',
+        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
       MATH: {
         score: 75.9,
         notes: '0-shot',
@@ -2430,6 +2415,11 @@ const LLMS = [
         notes: '0-shot',
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+      GPQA: {
+        score: 53.6,
+        notes: '0-shot',
+        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 76.6,
@@ -3042,6 +3032,65 @@ const LLMS = [
         score: 76.1,
         notes: 'maj@1',
         source: 'https://x.ai/blog/grok-2',
+      },
+    },
+  },
+  {
+    model_name: 'DeepSeek-V3',
+    slug: 'deepseek-v3',
+    provider: 'deepseek',
+    description:
+      'DeepSeek-V3 is a Open-Source 671B parameter Mixture-of-Experts (MoE) model with 37B activated parameters per token. It features innovative load balancing and multi-token prediction, trained on 14.8T tokens. The model achieves state-of-the-art performance across benchmarks while maintaining efficient training costs of only 2.788M H800 GPU hours. It incorporates reasoning capabilities distilled from DeepSeek-R1 and supports a 128K context window.',
+    input_context_window: '128K',
+    maximum_output_tokens: '8K',
+    open_source: true,
+    release_date: '2024-12-27',
+    knowledge_cut_off_date: null,
+    api_providers: 'DeepSeek, HuggingFace',
+    input_cost_per_million_tokens: 0.14,
+    output_cost_per_million_tokens: 0.28,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 88.5,
+        notes: 'EM',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      'MMLU-Pro': {
+        score: 75.9,
+        notes: 'EM',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      MMMU: null,
+      HellaSwag: {
+        score: 88.9,
+        notes: '10-shot',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      GPQA: {
+        score: 59.1,
+        notes: 'pass@1',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      HumanEval: {
+        score: 82.6,
+        notes: 'pass@1',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      IFEval: {
+        score: 86.1,
+        notes: 'Prompt Strict',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
+      },
+      MATH: {
+        score: 61.6,
+        notes: '4-shot',
+        source: 'https://github.com/deepseek-ai/DeepSeek-V3',
       },
     },
   },
