@@ -7,7 +7,7 @@ export default function AIHero() {
       <div className="relative h-80 overflow-hidden bg-cyan-800 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
         <img
           alt=""
-          src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&blend=0e7490&sat=-100&blend-mode=multiply"
+          src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=60&blend=0e7490&sat=-100&blend-mode=multiply"
           className="size-full object-cover"
         />
         <svg

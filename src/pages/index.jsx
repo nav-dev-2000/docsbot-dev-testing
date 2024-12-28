@@ -396,6 +396,8 @@ export default function Home() {
                         src={qaHeader}
                         alt="DocsBot dashboard screenshot"
                         priority
+                        width={1216}
+                        height={764}
                       />
                     </div>
                   </div>
@@ -547,7 +549,7 @@ export default function Home() {
                   <ParallaxImage className="justify-end lg:order-first">
                     <LazyVideo
                       src="/video/uses-enhance-support.mp4"
-                      poster="/video/uses-enhance-support.png"
+                      poster="/video/uses-enhance-support.webp"
                       className="lg:w-[32rem] max-w-none mx-auto w-full"
                     />
                   </ParallaxImage>
@@ -600,7 +602,7 @@ export default function Home() {
                     <ParallaxImage className="min-w-full max-w-xl lg:row-span-4 lg:-mt-48 lg:w-[32rem] lg:max-w-none">
                       <LazyVideo
                         src="/video/uses-knowledgebase.mp4"
-                        poster="/video/uses-knowledgebase.png"
+                        poster="/video/uses-knowledgebase.webp"
                         className="relative -z-20 w-full mx-auto lg:w-[32rem]"
                       />
                     </ParallaxImage>
