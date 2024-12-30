@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function AIHero() {
   return (
     <div className="relative bg-gray-900">
       <div className="relative h-80 overflow-hidden bg-cyan-800 md:absolute md:left-0 md:h-full md:w-1/3 lg:w-1/2">
-        <img
+        <Image
           alt=""
           src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=60&blend=0e7490&sat=-100&blend-mode=multiply"
           className="size-full object-cover"
+          width={1057}
+          height={760}
         />
         <svg
           viewBox="0 0 926 676"
