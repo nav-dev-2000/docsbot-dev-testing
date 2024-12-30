@@ -56,14 +56,17 @@ export const getTeamEmail = async (team) => {
 const getTimeDeltaFromCalendarMonth = () => {
   // grab the current month and year
   let currentDate = new Date()
-  let currentMonth = currentDate.getMonth()
-  let currentYear = currentDate.getFullYear()
 
-  // first day of the current month
-  var startDate = new Date(currentYear, currentMonth, 1)
-
-  // calculate the difference in milliseconds
-  return currentDate - startDate
+  if (currentDate.getDay() === 1) {
+    // delta is the last 48 hours
+    return 48 * 60 * 60 * 1000
+  } else { // delta between the first day of the month and today
+    let currentMonth = currentDate.getMonth()
+    let currentYear = currentDate.getFullYear()
+    let startDate = new Date(currentYear, currentMonth, 1)
+    // calculate the difference in milliseconds
+    return currentDate - startDate
+  }
 }
 
 export async function getQuestionStats(
