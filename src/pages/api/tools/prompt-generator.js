@@ -101,7 +101,7 @@ export default async function handler(req, res) {
       })
 
       const chat_completion = await openai.chat.completions.create({
-        model: 'gpt-4o',
+        model: 'gpt-4o-mini',
         messages: [
           { role: 'system', content: META_PROMPT },
           { role: 'user', content: `Task, Goal, or Current Prompt:\n${input}` },
