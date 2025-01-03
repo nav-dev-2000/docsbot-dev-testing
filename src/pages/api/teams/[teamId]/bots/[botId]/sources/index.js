@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, scheduleInterval, faqs, carbonId } = req.body
+    let { type, title, url, file, scheduleInterval, faqs, carbonId, processImages } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -204,6 +204,26 @@ export default async function handler(req, res) {
       carbonId = null
     }
 
+    // Add processImages validation after type validation
+    if (processImages !== undefined) {
+      // Ensure it's a boolean
+      if (typeof processImages !== 'boolean') {
+        return res.status(400).send({ message: 'Invalid parameter "processImages". Must be a boolean.' })
+      }
+
+      // Only allow true for supported source types
+      if (processImages && !sourceType.fieldImages) {
+        return res.status(400).send({ message: 'Image processing not supported for this source type.' })
+      }
+
+      // Only allow true for paid plans
+      if (processImages && stripePlan(team).bots < 10) {
+        return res.status(402).send({ message: 'Image processing requires Pro plan or higher.' })
+      }
+    } else {
+      processImages = false
+    }
+
     try {
       let data = {
         createdAt: FieldValue.serverTimestamp(),
@@ -216,6 +236,7 @@ export default async function handler(req, res) {
         chunkCount: 0,
         faqs,
         carbonId,
+        processImages,
       }
 
       if (scheduleInterval && scheduleInterval !== 'none') {

@@ -77,7 +77,7 @@ export default function SourceGrid({
                   <div className="flex items-center text-sm">
                     <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
                     {source.pageCount ? (
-                      <p className="ml-2 text-xs text-gray-500">{source.pageCount} Pages</p>
+                      <p className="ml-2 text-xs text-gray-500">{source.pageCount} Source pages</p>
                     ) : null}
                   </div>
                 </div>

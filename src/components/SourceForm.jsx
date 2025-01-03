@@ -44,6 +44,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [carbonId, setCarbonId] = useState(null)
   const [canModifySources, setCanModifySources] = useState(() => canUserModifySources(team, user?.uid))
   const [carbonOpen, setCarbonOpen] = useState(false)
+  const [processImages, setProcessImages] = useState(false)
 
   useEffect(() => {
     if (showForm && stripePlan(team).pages <= team.pageCount) {
@@ -176,6 +177,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         carbonId,
         faqs: questions,
         scheduleInterval,
+        processImages,
       }),
     })
     if (response.ok) {
@@ -558,6 +560,36 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                     <p className="mt-2 text-sm text-gray-500" id="title-description">
                       This will automatically refresh the source at the selected interval.
                     </p>
+                  </div>
+                )}
+                {selectedSourceType?.fieldImages && (
+                  <div className="mt-4">
+                    <div className="relative flex items-start">
+                      <div className="flex h-5 items-center">
+                        <input
+                          id="process-images"
+                          name="process-images"
+                          type="checkbox"
+                          checked={stripePlan(team).bots < 10 ? false : processImages}
+                          onChange={(e) => setProcessImages(e.target.checked)}
+                          disabled={isUpdating || stripePlan(team).bots < 10}
+                          className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 disabled:opacity-50"
+                        />
+                      </div>
+                      <div className="ml-3 text-sm">
+                        <label htmlFor="process-images" className="font-medium text-gray-700">
+                          Learn from public images in HTML/Markdown (BETA)
+                          {stripePlan(team).bots < 10 && (
+                            <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                              Pro
+                            </span>
+                          )}
+                        </label>
+                        <p className="text-sm text-gray-500">
+                          Only recommended for documentation pages with screenshots or diagrams. Processing images significantly increases indexing time and source page usage. <Link target='_blank' href="https://docsbot.ai/documentation/doc/enable-learn-from-public-images-docsbot" className="text-cyan-600 hover:text-cyan-500">Learn more about image processing</Link>.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

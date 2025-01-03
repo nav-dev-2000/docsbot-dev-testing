@@ -14,6 +14,7 @@ import {
   CheckIcon,
   XCircleIcon,
   MagnifyingGlassIcon,
+  PhotoIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -512,15 +513,20 @@ export default function ModalSource({
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
                       {source && <BadgeStatusSource source={source} />}
+                      {source?.processImages && (
+                        <Tooltip content="Includes AI analysis of images">
+                          <span className="flex items-center cursor-help text-sm font-medium text-gray-500"><PhotoIcon className="ml-2 inline-flex h-4 w-4 mr-1 text-gray-500" /> Images processed</span>
+                        </Tooltip>
+                      )}
                       <Tooltip content="A source page is the greater of 5000 processed characters or one document/web page.">
-                        <h1 className="flex-end text-sm font-medium text-gray-500 cursor-help">
-                          {source?.pageCount.toString()} Pages
-                        </h1>
+                        <h3 className="flex-end cursor-help text-sm font-medium text-gray-500">
+                          {source?.pageCount.toString()} Source pages
+                        </h3>
                       </Tooltip>
-                      <h1 className="flex-end text-sm font-medium text-gray-500">
+                      <h3 className="flex-end text-sm font-medium text-gray-500">
                         {(showInterval ? 'Updated: ' : 'Created: ') +
                           new Date(source?.createdAt).toUTCString()}
-                      </h1>
+                      </h3>
                     </div>
                     <Alert title={errorText} type="warning" />
                     {source?.faqs && (
