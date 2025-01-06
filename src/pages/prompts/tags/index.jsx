@@ -11,6 +11,7 @@ import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
 import PromptIcon from '@/components/PromptIcon'
 import { MagnifyingGlassIcon, XCircleIcon } from '@heroicons/react/20/solid'
 import Breadcrumb from '@/components/Breadcrumb'
+import CarbonAd from '@/components/CarbonAd'
 
 const PromptPage = ({ prompts, tag }) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -78,6 +79,7 @@ const PromptPage = ({ prompts, tag }) => {
                 including top ChatGPT prompts, Anthropic prompts, and Gemini
                 prompts.
               </p>
+              <CarbonAd className="flex justify-center mt-4" />
               <div className="mt-8">
                 <div className="relative rounded-xl shadow-sm">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
