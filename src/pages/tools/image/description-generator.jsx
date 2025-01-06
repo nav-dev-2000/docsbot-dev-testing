@@ -59,14 +59,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-
-      // Track no image error
-      posthog?.capture('Free Tool', {
-        tool: 'Image Description Generator',
-        action: 'Error',
-        error: 'No Image Uploaded',
-        category: 'Image',
-      })
       return
     }
 
@@ -98,14 +90,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'Image Description Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -137,13 +121,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
     navigator.clipboard.writeText(fullText)
     setDescriptionCopied(true)
     setTimeout(() => setDescriptionCopied(false), 1500)
-
-    // Track description copy
-    posthog?.capture('Free Tool', {
-      tool: 'Image Description Generator',
-      action: 'Copy Description',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {
@@ -152,13 +129,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
     setErrorText(null)
     // Scroll to the image upload input
     window.scrollTo({ top: 200, behavior: 'smooth' })
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'Image Description Generator',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
   }
 
   const getMarkdownHtml = (text) => {

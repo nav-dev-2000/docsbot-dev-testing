@@ -126,13 +126,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-
-      posthog?.capture('Free Tool', {
-        tool: 'Image to Text Generator',
-        action: 'Error',
-        error: 'No Image Uploaded',
-        category: 'Image',
-      })
       return
     }
 
@@ -164,14 +157,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'Image to Text Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -227,13 +212,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
     navigator.clipboard.writeText(extractedText)
     setTextCopied(true)
     setTimeout(() => setTextCopied(false), 1500)
-
-    // Track text copy
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
-      action: 'Copy Text',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {
@@ -242,13 +220,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
     setErrorText(null)
     // Scroll to the image upload input
     window.scrollTo({ top: 200, behavior: 'smooth' })
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Text Generator',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
   }
 
   return (

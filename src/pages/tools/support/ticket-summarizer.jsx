@@ -107,13 +107,6 @@ const TicketSummarizer = () => {
             'Daily usage limit exceeded, please try again tomorrow.',
           )
           setShowSignupModal(true)
-
-          posthog?.capture('Free Tool', {
-            tool: 'Support Ticket Summarizer',
-            action: 'Error',
-            error: 'Usage Limit Exceeded',
-            category: 'Support',
-          })
         } else {
           const errorData = await response.json()
           setErrorText(

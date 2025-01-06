@@ -99,9 +99,11 @@ function Register({ teamCount }) {
           if (window.fpr !== undefined) {
             window.fpr("referral",{email: user?.user?.email})
           }
-          posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
-          posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
-          posthog?.startSessionRecording()
+          if (!posthog?._isIdentified()) {
+            posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
+            posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
+            posthog?.startSessionRecording()
+          }
           router.push(redirectPath)
         },
       })
@@ -125,9 +127,11 @@ function Register({ teamCount }) {
       if (window.fpr !== undefined) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
-      posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
-      posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
-      posthog?.startSessionRecording()
+      if (!posthog?._isIdentified()) {
+        posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
+        posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
+        posthog?.startSessionRecording()
+      }
       router.push(redirectPath)
     },
   })

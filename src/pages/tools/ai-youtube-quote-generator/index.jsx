@@ -109,13 +109,6 @@ const YoutubeQuoteGenerator = () => {
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
         setShowSignupModal(true)
-
-        posthog?.capture('Free Tool', {
-          tool: 'YouTube Quote Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'YouTube',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 

@@ -127,13 +127,6 @@ const TextHumanizer = () => {
             'Daily usage limit exceeded, please try again tomorrow.',
           )
           setShowSignupModal(true)
-
-          posthog?.capture('Free Tool', {
-            tool: 'AI Text Humanizer',
-            action: 'Error',
-            error: 'Usage Limit Exceeded',
-            category: 'Writing',
-          })
         } else {
           const errorData = await response.json()
           setErrorText(

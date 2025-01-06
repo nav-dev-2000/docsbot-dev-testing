@@ -106,10 +106,12 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (user) {
       // Identify sends an event, so you want may want to limit how often you call it
-      posthog?.identify(user.uid, {
-        email: user.email,
-        name: user.displayName,
-      })
+      if (!posthog?._isIdentified()) {
+        posthog?.identify(user.uid, {
+          email: user.email,
+          name: user.displayName,
+        })
+      }
     }
   }, [posthog, user])
 

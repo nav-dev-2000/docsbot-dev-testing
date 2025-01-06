@@ -59,14 +59,6 @@ const ImagePromptGenerator = ({ setHasResults }) => {
       // Check if both image and instructions are missing
       setErrorText('Please upload an image or enter instructions.')
       setIsComputing(false)
-
-      // Track no input error
-      posthog?.capture('Free Tool', {
-        tool: 'AI Image to Prompt Generator',
-        action: 'Error',
-        error: 'No Image or Instructions Provided',
-        category: 'Image',
-      })
       return
     }
 
@@ -99,14 +91,6 @@ const ImagePromptGenerator = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'AI Image to Prompt Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -137,13 +121,6 @@ const ImagePromptGenerator = ({ setHasResults }) => {
     navigator.clipboard.writeText(prompt)
     setPromptCopied(true)
     setTimeout(() => setPromptCopied(false), 1500)
-
-    // Track prompt copy
-    posthog?.capture('Free Tool', {
-      tool: 'AI Image to Prompt Generator',
-      action: 'Copy Prompt',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {
@@ -151,13 +128,6 @@ const ImagePromptGenerator = ({ setHasResults }) => {
     setPrompt('')
     setErrorText(null)
     setImage(null)
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'AI Image to Prompt Generator',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
   }
 
   return (

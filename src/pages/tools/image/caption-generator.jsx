@@ -110,14 +110,6 @@ const ImageCaptionGenerator = ({ setHasResults }) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-
-      // Track no image error
-      posthog?.capture('Free Tool', {
-        tool: 'Image Caption Generator',
-        action: 'Error',
-        error: 'No Image Uploaded',
-        category: 'Image',
-      })
       return
     }
 
@@ -151,14 +143,6 @@ const ImageCaptionGenerator = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'Image Caption Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -189,13 +173,6 @@ const ImageCaptionGenerator = ({ setHasResults }) => {
     navigator.clipboard.writeText(imageCaption)
     setCaptionCopied(true)
     setTimeout(() => setCaptionCopied(false), 1500)
-
-    // Track caption copy
-    posthog?.capture('Free Tool', {
-      tool: 'Image Caption Generator',
-      action: 'Copy Caption',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {

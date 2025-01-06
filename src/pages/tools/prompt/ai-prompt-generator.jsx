@@ -96,13 +96,6 @@ const PromptGenerator = () => {
             'Daily usage limit exceeded, please try again tomorrow or create a free account.',
           )
           setShowSignupModal(true)
-
-          posthog?.capture('Free Tool', {
-            tool: 'AI Prompt Generator',
-            action: 'Error',
-            error: 'Usage Limit Exceeded',
-            category: 'Prompt',
-          })
         } else {
           const errorData = await response.json()
           setErrorText(

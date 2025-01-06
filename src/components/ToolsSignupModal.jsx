@@ -57,19 +57,21 @@ export default function ToolsSignupModal({
         if (window.fpr !== undefined) {
           window.fpr('referral', { email: googleUser?.user?.email })
         }
-        posthog?.identify(googleUser.user.uid, {
-          email: googleUser.user.email,
-          name: googleUser.user.displayName,
-          'Usage Type': 'tools',
-          'Signup Source': toolName,
-          'Tool Category': toolCategory,
-        })
-        posthog?.capture('Signup', {
-          provider: 'google',
-          usage_type: 'tools',
-          tool: toolName,
-          tool_category: toolCategory,
-        })
+        if (!posthog?._isIdentified()) {
+          posthog?.identify(googleUser.user.uid, {
+            email: googleUser.user.email,
+            name: googleUser.user.displayName,
+            'Usage Type': 'tools',
+            'Signup Source': toolName,
+            'Tool Category': toolCategory,
+          })
+          posthog?.capture('Signup', {
+            provider: 'google',
+            usage_type: 'tools',
+            tool: toolName,
+            tool_category: toolCategory,
+          })
+        }
       }
       setOpen(false)
     },

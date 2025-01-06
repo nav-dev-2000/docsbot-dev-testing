@@ -131,14 +131,6 @@ const YoutubeSummarizer = () => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'YouTube Summarizer',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'YouTube',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 

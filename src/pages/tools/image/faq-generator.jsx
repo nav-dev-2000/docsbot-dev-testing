@@ -60,14 +60,6 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-
-      // Track no image error
-      posthog?.capture('Free Tool', {
-        tool: 'Image to FAQ Generator',
-        action: 'Error',
-        error: 'No Image Uploaded',
-        category: 'Image',
-      })
       return
     }
 
@@ -100,14 +92,6 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'Image to FAQ Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -143,26 +127,12 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
     )
     setTextCopied(true)
     setTimeout(() => setTextCopied(false), 1500)
-
-    // Track FAQ copy as text
-    posthog?.capture('Free Tool', {
-      tool: 'Image to FAQ Generator',
-      action: 'Copy FAQs as Text',
-      category: 'Image',
-    })
   }
 
   const copyFAQsAsMarkdown = () => {
     navigator.clipboard.writeText(faqs)
     setMarkdownCopied(true)
     setTimeout(() => setMarkdownCopied(false), 1500)
-
-    // Track FAQ copy as markdown
-    posthog?.capture('Free Tool', {
-      tool: 'Image to FAQ Generator',
-      action: 'Copy FAQs as Markdown',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {
@@ -171,13 +141,6 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
     setErrorText(null)
     setHasResults(false)
     window.scrollTo({ top: 200, behavior: 'smooth' })
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'Image to FAQ Generator',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
   }
 
   const getMarkdownHtml = (text) => {

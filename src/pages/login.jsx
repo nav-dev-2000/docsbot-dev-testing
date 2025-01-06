@@ -69,7 +69,9 @@ function Login() {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
           }
-          posthog?.identify(user.user.uid, { email: user.user.email })
+          if (!posthog?._isIdentified()) {
+            posthog?.identify(user.user.uid, { email: user.user.email })
+          }
           router.push(redirectPath)
         },
       })
@@ -88,9 +90,11 @@ function Login() {
       if (window.fpr !== undefined) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
-      posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
-      posthog?.capture('Signup', { method: 'Google' })
-      posthog?.startSessionRecording()
+      if (!posthog?._isIdentified()) {
+        posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
+        posthog?.capture('Signup', { method: 'Google' })
+        posthog?.startSessionRecording()
+      }
       router.push(redirectPath)
     },
   })

@@ -108,14 +108,6 @@ const AiFAQGenerator = () => {
     if (!url) {
       setErrorText('Invalid URL, please try again.')
       setIsComputing(false)
-      
-      // Track invalid URL error
-      posthog?.capture('Free Tool', {
-        tool: 'AI FAQ Generator',
-        action: 'Error',
-        error: 'Invalid URL',
-        category: 'Website'
-      })
       return
     }
 
@@ -149,14 +141,6 @@ const AiFAQGenerator = () => {
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'AI FAQ Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Website'
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
         

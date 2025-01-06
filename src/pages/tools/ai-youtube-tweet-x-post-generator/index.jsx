@@ -108,13 +108,6 @@ const YoutubeTweetXPostGenerator = () => {
           'Daily usage limit exceeded, please try again tomorrow or create a free account.',
         )
         setShowSignupModal(true)
-
-        posthog?.capture('Free Tool', {
-          tool: 'YouTube Tweet/X Post Generator',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'YouTube',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 

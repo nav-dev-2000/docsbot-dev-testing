@@ -60,14 +60,6 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
     if (!image) {
       setErrorText('Please upload an image.')
       setIsComputing(false)
-
-      // Track no image error
-      posthog?.capture('Free Tool', {
-        tool: 'Image to Markdown Converter',
-        action: 'Error',
-        error: 'No Image Uploaded',
-        category: 'Image',
-      })
       return
     }
 
@@ -99,14 +91,6 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
           'Daily usage limit exceeded, please try again tomorrow.',
         )
         setShowSignupModal(true)
-
-        // Track usage limit exceeded
-        posthog?.capture('Free Tool', {
-          tool: 'Image to Markdown Converter',
-          action: 'Error',
-          error: 'Usage Limit Exceeded',
-          category: 'Image',
-        })
       } else {
         setErrorText(data.message || 'Something went wrong, please try again.')
 
@@ -158,26 +142,12 @@ const ImageToMarkdownConverter = ({ setHasResults }) => {
     navigator.clipboard.writeText(extractedMarkdown)
     setMarkdownCopied(true)
     setTimeout(() => setMarkdownCopied(false), 1500)
-
-    // Track markdown copy
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Markdown Converter',
-      action: 'Copy Markdown',
-      category: 'Image',
-    })
   }
 
   const resetTool = () => {
     setImage(null)
     setExtractedMarkdown('')
     setErrorText(null)
-
-    // Track tool reset
-    posthog?.capture('Free Tool', {
-      tool: 'Image to Markdown Converter',
-      action: 'Reset Tool',
-      category: 'Image',
-    })
   }
 
   return (
