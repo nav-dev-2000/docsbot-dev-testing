@@ -346,7 +346,7 @@ export default function DashboardWrap({
                       <Menu.Button className="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
                         <span className="sr-only">Open user menu</span>
                         {user?.photoURL ? (
-                          <Image
+                          <img
                             className="h-8 w-8 rounded-full"
                             src={user?.photoURL}
                             alt={user?.displayName}

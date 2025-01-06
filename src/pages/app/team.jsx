@@ -504,7 +504,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               <div className="relative flex items-center px-4 py-4 sm:px-6">
                 <div className="flex min-w-0 flex-1 items-center">
                   <div className="flex-shrink-0">
-                    <Image
+                    <img
                       className="h-12 w-12 rounded-full"
                       src={user.photoURL}
                       width={48}

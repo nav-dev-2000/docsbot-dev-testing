@@ -152,7 +152,7 @@ function Header({ navigation }) {
                   <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="sr-only">Open user menu</span>
                     {user?.photoURL ? (
-                      <Image
+                      <img
                         className="h-10 w-10 rounded-full"
                         src={user?.photoURL}
                         alt={user?.displayName}
