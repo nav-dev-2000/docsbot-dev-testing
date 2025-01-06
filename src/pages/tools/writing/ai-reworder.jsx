@@ -27,6 +27,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Analyzing your text...',
@@ -245,6 +246,8 @@ const AIReworder = () => {
               </button>
             </div>
           </form>
+
+          <CarbonAd className="flex justify-center mt-4" /> 
 
           {paraphrasedResults.length > 0 && (
             <button

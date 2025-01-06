@@ -13,6 +13,7 @@ import {
   ChatBubbleOvalLeftIcon,
 } from '@heroicons/react/24/outline'
 import { CheckBadgeIcon } from '@heroicons/react/24/solid'
+import CarbonAd from '@/components/CarbonAd'
 import { lookupYoutubeData } from '@/lib/tools'
 
 const TweetComponent = ({ tweet, onCopy }) => {
@@ -125,6 +126,9 @@ const YoutubeTweetGenerator = ({ tweets, videoId }) => {
             <h2 className="mb-4 text-center text-4xl font-bold text-white">
               Generated Tweets/X Posts
             </h2>
+
+            <CarbonAd className="flex justify-center mb-4" /> 
+
             <p className="mb-6 text-lg leading-8 text-gray-300 text-center">
               AI-generated tweets and X posts created from {tweets.short_title || tweets.title}. Share your
               insights and grow your followers!

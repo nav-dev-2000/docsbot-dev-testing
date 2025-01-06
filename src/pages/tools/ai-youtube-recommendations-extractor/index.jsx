@@ -14,6 +14,7 @@ import { getRecentYoutubeVideos } from '@/lib/tools'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Fetching video details...',
@@ -178,6 +179,9 @@ const YoutubeRecommendationsExtractor = () => {
               </button>
             </div>
           </form>
+
+          <CarbonAd className="flex justify-center mt-4" /> 
+
         </div>
       </div>
 

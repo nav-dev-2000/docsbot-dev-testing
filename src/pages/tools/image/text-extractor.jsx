@@ -29,6 +29,7 @@ import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ImageDropZone from '@/components/ImageDropZone'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const useCases = [
   {
@@ -329,6 +330,7 @@ const ImageToTextGenerator = ({ setHasResults }) => {
                 </div>
               </>
             )}
+            <CarbonAd className="flex justify-center mt-4" /> 
           </div>
         </div>
       </div>

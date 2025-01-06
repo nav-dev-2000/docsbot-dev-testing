@@ -14,6 +14,7 @@ import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import Script from 'next/script'
 import PDFDropZone from '@/components/PDFDropZone'
+import CarbonAd from '@/components/CarbonAd'
 
 // Add these components before the PDFToImagesGenerator component
 const PDFScripts = () => {
@@ -224,6 +225,8 @@ const PDFToImagesGenerator = ({ setHasResults }) => {
                 />
               </div>
             )}
+
+            <CarbonAd className="flex justify-center my-4" /> 
 
             {/* Add conversion button and progress */}
             {!images.length && pdf && (

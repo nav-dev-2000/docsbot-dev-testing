@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+import CarbonAd from '@/components/CarbonAd'
 import Link from 'next/link'
 import {
   CodeBracketIcon,
@@ -72,6 +73,7 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
         </h1>
         <div className="mx-none text-left">
           <div className="prose mx-auto mt-4 w-full max-w-none">
+            <CarbonAd className="flex justify-center" />
             <p className="mb-2">{summary.summary}</p>
           </div>
 

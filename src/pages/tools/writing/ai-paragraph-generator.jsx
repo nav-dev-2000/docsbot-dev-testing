@@ -32,6 +32,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Generating your paragraph...',
@@ -313,6 +314,8 @@ const AIParagraphComponent = () => {
             )}
           </button>
 
+          <CarbonAd className="flex justify-center mt-4" /> 
+          
           {generatedParagraphs.map((result, index) => (
             <GeneratedResult key={index} result={result} />
           ))}

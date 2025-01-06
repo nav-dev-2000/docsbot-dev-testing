@@ -31,6 +31,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
 import { DocumentDuplicateIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Analyzing your text...',
@@ -336,6 +337,7 @@ const TextHumanizer = () => {
               </div>
             </div>
           )}
+          <CarbonAd className="flex justify-center mt-4" /> 
         </div>
       </div>
 

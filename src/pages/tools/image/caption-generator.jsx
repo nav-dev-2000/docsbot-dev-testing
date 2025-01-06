@@ -25,6 +25,7 @@ import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import ImageDropZone from '@/components/ImageDropZone'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 // Custom SVG components for social media icons
 const LinkedInIcon = (props) => (
@@ -328,6 +329,7 @@ const ImageCaptionGenerator = ({ setHasResults }) => {
               </div>
             </>
           )}
+          <CarbonAd className="flex justify-center mt-4" /> 
         </div>
       </div>
 
@@ -419,7 +421,7 @@ export default function ImageCaptionPage({ starRatingData }) {
   return (
     <>
       <NextSeo
-        title="100% Free AI Image Caption Generator | No Login or Ads"
+        title="100% Free AI Image Caption Generator | No Login"
         description="Generate creative captions for any image using our free AI tool. No signup needed. Perfect for Instagram, ALT text, and social media posts. Multiple tones available."
         openGraph={{
           images: [

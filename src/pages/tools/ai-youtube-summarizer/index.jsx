@@ -35,6 +35,7 @@ import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import { FAQPageJsonLd } from 'next-seo'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Fetching video details...',
@@ -333,6 +334,7 @@ export default function YoutubeSummarizerPage({ recentVideos, starRatingData }) 
                   researching, learning, or simply trying to digest content more
                   quickly, this tool can save you significant time and effort.
                 </p>
+                <CarbonAd className="flex justify-center mt-4" />  
                 <YoutubeSummarizer />
                 <RecentVideos
                   heading="Recently Summarized Videos"

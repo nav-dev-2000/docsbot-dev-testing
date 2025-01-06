@@ -18,6 +18,7 @@ import clsx from 'clsx'
 import RegisterCTA from '@/components/RegisterCTA'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
 import Image from 'next/image'
+import CarbonAd from '@/components/CarbonAd'
 
 const copyAsMarkdown = (summary, videoId, thumbnailError) => {
   let output = `# ${summary.title}\n\n`
@@ -227,6 +228,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                   thumbnailError={thumbnailError}
                 />
 
+                <CarbonAd className="flex justify-center" /> 
                 <div dangerouslySetInnerHTML={{ __html: blogContent }} />
 
                 {/* Copy buttons at the bottom of the article */}

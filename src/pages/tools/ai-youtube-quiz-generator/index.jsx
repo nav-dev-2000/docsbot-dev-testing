@@ -31,6 +31,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from '@heroicons/react/24/outline'
+import CarbonAd from '@/components/CarbonAd'
 
 const loadingText = [
   'Fetching video details...',
@@ -187,6 +188,9 @@ const YoutubeQuizGenerator = () => {
               </button>
             </div>
           </form>
+
+          <CarbonAd className="flex justify-center mt-4" /> 
+
         </div>
       </div>
 

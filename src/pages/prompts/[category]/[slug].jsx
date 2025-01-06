@@ -11,6 +11,7 @@ import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
 import PromptIcon from '@/components/PromptIcon'
 import RelatedPromptsList from '@/components/RelatedPromptsList'
 import Breadcrumb from '@/components/Breadcrumb'
+import CarbonAd from '@/components/CarbonAd'
 
 const PromptDisplay = ({ prompt, category }) => {
   const [copied, setCopied] = useState(false)
@@ -118,6 +119,7 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
                 prompt or custom instructions for ChatGPT, Gemini, and Claude chatbots and
                 models.
               </p>
+              <CarbonAd className="flex justify-center mt-4" /> 
               {promptData.tags && promptData.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap justify-center gap-4">
                   {promptData.tags.map((tag, index) => (

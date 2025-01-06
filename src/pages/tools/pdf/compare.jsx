@@ -14,6 +14,7 @@ import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import Script from 'next/script'
 import PDFDropZone from '@/components/PDFDropZone'
+import CarbonAd from '@/components/CarbonAd'
 
 // Add these components before the PDFToImagesGenerator component
 const PDFScripts = () => {
@@ -299,6 +300,8 @@ const PDFCompare = () => {
                 </div>
               </div>
             )}
+
+            <CarbonAd className="flex justify-center mt-4" /> 
 
             {/* PDF Comparison Display */}
             {pages.length > 0 && (
