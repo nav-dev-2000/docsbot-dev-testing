@@ -57,7 +57,7 @@ const getTimeDeltaFromCalendarMonth = () => {
   // grab the current month and year
   let currentDate = new Date()
 
-  if (currentDate.getDay() === 1) {
+  if (currentDate.getDate() === 1) {
     // delta is the last 48 hours
     return 48 * 60 * 60 * 1000
   } else { // delta between the first day of the month and today
