@@ -16,14 +16,14 @@ export default function CarbonAd({ ...props }) {
       document.getElementById('carbon-container').appendChild(script)
       
       setLoading(false)
-    }, 1000)
+    }, 0)
 
     return () => clearTimeout(timer)
   }, [])
 
   return (
     <div className="" {...props}>
-        <div id="carbon-container" className="w-[400px]">
+        <div id="carbon-container" className="w-[400px] min-h-[155px]">
           {loading && (
             <div className="border-2 rounded-md w-[400px] h-[245.65px]">
             <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">

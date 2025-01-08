@@ -277,11 +277,11 @@ const TextHumanizer = () => {
                   </span>
                 )}
                 {activeTab === 'original' ? (
-                  <div className="prose prose-sm max-w-none text-left">
+                  <div className="prose prose-sm max-w-none text-left rounded-md bg-gray-100 px-4 py-1">
                     <div dangerouslySetInnerHTML={{ __html: processedOriginalMarkdown }} />
                   </div>
                 ) : activeTab === 'markdown' ? (
-                  <div className="prose prose-sm max-w-none text-left">
+                  <div className="prose prose-sm max-w-none text-left rounded-md bg-gray-100 px-4 py-1">
                     <div dangerouslySetInnerHTML={{ __html: processedHumanizedMarkdown }} />
                   </div>
                 ) : (
