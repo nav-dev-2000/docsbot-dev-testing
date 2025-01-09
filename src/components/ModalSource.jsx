@@ -513,16 +513,19 @@ export default function ModalSource({
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
                       {source && <BadgeStatusSource source={source} />}
-                      {source?.processImages && (
-                        <Tooltip content="Includes AI analysis of images">
-                          <span className="flex items-center cursor-help text-sm font-medium text-gray-500"><PhotoIcon className="ml-2 inline-flex h-4 w-4 mr-1 text-gray-500" /> Images processed</span>
-                        </Tooltip>
-                      )}
                       <Tooltip content="A source page is the greater of 5000 processed characters or one document/web page.">
                         <h3 className="flex-end cursor-help text-sm font-medium text-gray-500">
                           {source?.pageCount.toString()} Source pages
                         </h3>
                       </Tooltip>
+                      {source?.processImages && (
+                        <Tooltip content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}>
+                          <span className="flex items-center cursor-help text-sm font-medium text-gray-500">
+                            <PhotoIcon className="ml-2 inline-flex h-4 w-4 mr-1 text-gray-500" />
+                            {source?.processedImages?.processed ? `${source.processedImages.processed} ` : ''}Images
+                          </span>
+                        </Tooltip>
+                      )}
                       <h3 className="flex-end text-sm font-medium text-gray-500">
                         {(showInterval ? 'Updated: ' : 'Created: ') +
                           new Date(source?.createdAt).toUTCString()}

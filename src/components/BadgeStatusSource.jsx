@@ -1,4 +1,5 @@
 import LoadingSpinner from '@/components/LoadingSpinner'
+import Tooltip from '@/components/Tooltip'
 /*
 Possible status values from the API:
   starting: the prediction is starting up. If this status lasts longer than a few seconds, then it's typically because a new worker is being started to run the prediction.
@@ -31,6 +32,15 @@ export default function BadgeStatusSource({ source, small = false }) {
         }
       >
         <LoadingSpinner small={small} /> Processing
+        {source.processedPages ? (
+          <Tooltip
+            content={`${source.processedPages.count}/${source.processedPages.total} pages processed`}
+          >
+            <span className="text-xs ml-1 cursor-help">
+              ({Math.round((source.processedPages.count / source.processedPages.total) * 100)}%)
+            </span>
+          </Tooltip>
+        ) : null}
       </span>
     )
   }

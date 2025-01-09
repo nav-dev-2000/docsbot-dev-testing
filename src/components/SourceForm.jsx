@@ -151,6 +151,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     setPercent(0)
     setShowForm(false)
     setScheduleInterval('none')
+    setProcessImages(false)
   }
 
   async function createSource() {

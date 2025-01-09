@@ -237,6 +237,9 @@ export async function getSources(
       'refreshing',
       'scheduled',
       'scheduleInterval',
+      'processImages',
+      'processedImages',
+      'processedPages',
     )
     .offset(offset)
     .limit(pageSize)
