@@ -98,10 +98,16 @@ export default async function handler(req, res) {
         .send({ message: 'Invalid or missing parameter "url".' })
     }
 
+    // check if they added a youtube url under a url source type. if so, swap the type
+    const youtubeRegex =
+      /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)[\w-]+/
+
+    if (type === 'url' && youtubeRegex.test(url)) {
+      type = 'youtube'
+    }
+    
     // Check if it's a YouTube source and validate the URL
     if (type === 'youtube') {
-      const youtubeRegex =
-        /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)[\w-]+/
       if (!youtubeRegex.test(url)) {
         return res.status(400).send({
           message:
