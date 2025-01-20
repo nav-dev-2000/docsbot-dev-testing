@@ -1,21 +1,23 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { ArrowPathIcon, PencilIcon } from '@heroicons/react/24/outline'
+import { Fragment, useState, useEffect } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { ArrowPathIcon, PencilIcon, XMarkIcon, TrashIcon } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { getUser, getBots, getTeamIntegrations } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
-import openAILogo from '@/images/logos/openai-logo.svg'
 import { getUserRole } from '@/utils/function.utils'
 import HelpscoutIntegration from '@/components/integrations/helpscout'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 function Api({ user, team, bots, integrations }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
+  const [openRemoveModal, setOpenRemoveModal] = useState(false)
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
   const [copyMessage, setCopyMessage] = useState(null)
+  const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
 
   const updateKey = async () => {
     setErrorText('')
@@ -44,6 +46,106 @@ function Api({ user, team, bots, integrations }) {
     }
   }
 
+  const RemoveKeyModal = () => {
+    const [isProcessing, setProcessing] = useState(false)
+
+    const removeKey = async () => {
+      setProcessing(true)
+      const urlParams = ['teams', team.id]
+      const apiPath = '/api/' + urlParams.join('/')
+
+      const response = await fetch(apiPath, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ openAIKey: false }),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        team.openAIKey = data.openAIKey
+        setAllowApiRemove(false)
+      } else {
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Something went wrong, please try again.')
+        } catch (e) {
+          setErrorText('Error ' + response.status + ', please try again.')
+        }
+      }
+
+      setProcessing(false)
+    }
+
+    return (
+      <Transition.Root show={openRemoveModal} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={setOpenRemoveModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform rounded-lg bg-white p-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl">
+                  <h3 className="inline-flex text-2xl font-bold">Remove API Key</h3>
+                  <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                  <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={() => setOpenRemoveModal(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="light mt-4 overflow-visible">
+                    <p>
+                      Are you sure you want to remove your OpenAI API key?
+                    </p>
+                    <Alert title={"All bots will be moved to the gpt-4o-mini model!"} type="error" />
+                  </div>
+                  <div className="mt-6 flex w-full flex-shrink-0 items-end justify-end">
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-75"
+                      onClick={() => {
+                        removeKey()
+                        setOpenRemoveModal(false)
+                      }}
+                    >
+                      {isProcessing ? (
+                        <LoadingSpinner className="mr-2 h-4 w-4" />
+                      ) : (
+                        <TrashIcon className="mr-2 h-4 w-4" />
+                      )}
+                      Remove
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+    )
+  }
+
   return (
     <DashboardWrap page="API/Integrations" team={team}>
       <Alert title={errorText} type="error" />
@@ -54,9 +156,11 @@ function Api({ user, team, bots, integrations }) {
           setOpen,
           onKey: (key) => {
             team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)
+            setAllowApiRemove(true)
           },
         }}
       />
+      <RemoveKeyModal />
 
       <div className="rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">{team.AzureDeploymentBase && 'Azure '}OpenAI API Key</h3>
@@ -115,6 +219,18 @@ function Api({ user, team, bots, integrations }) {
                 <PencilIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
                 {team.openAIKey ? 'Edit' : 'Add'}
               </a>
+              {allowApiRemove && (
+                <a
+                  type="button"
+                  className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-red-500 hover:text-red-900"
+                  onClick={() => {
+                    setOpenRemoveModal(true)
+                  }}
+                >
+                  <TrashIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                  {'Remove'}
+                </a>
+              )}
             </div>
             {team.supportsGPT4 ? (
               <p className="mt-4 text-sm italic">GPT-4 Support Enabled</p>

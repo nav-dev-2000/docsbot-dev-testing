@@ -79,6 +79,31 @@ export default async function handler(req, res) {
           .status(400)
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
+    } else if (openAIKey === false) {
+      // walk through each bot, and verify that it's set to gpt-4o-mini. if not, update it
+      const botsSnapshot = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .get()
+
+      botsSnapshot.forEach(async (doc) => {
+        if (doc.get('model') !== 'gpt-4o-mini') {
+          // update bot to gpt-4o-mini
+          await firestore
+            .collection('teams')
+            .doc(team.id)
+            .collection('bots')
+            .doc(doc.id)
+            .update({
+              model: 'gpt-4o-mini',
+            })
+        }
+      })
+
+      newTeam.openAIKey = null
+      newTeam.openAIKeyPreview = null
+      newTeam.supportsGPT4 = false
     }
     if (weaviateUrl) {
       newTeam.weaviateUrl = weaviateUrl
