@@ -3094,6 +3094,53 @@ const LLMS = [
       },
     },
   },
+  {
+    model_name: 'DeepSeek-R1',
+    slug: 'deepseek-r1',
+    provider: 'deepseek',
+    description:
+      'DeepSeek-R1 is a 671B parameter Mixture-of-Experts (MoE) model with 37B activated parameters per token, trained via large-scale reinforcement learning with a focus on reasoning capabilities. It incorporates two RL stages for discovering improved reasoning patterns and aligning with human preferences, along with two SFT stages for seeding reasoning and non-reasoning capabilities. The model achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.',
+    input_context_window: '128K',
+    maximum_output_tokens: '32K',
+    open_source: true,
+    release_date: '2025-01-21',
+    knowledge_cut_off_date: null,
+    api_providers: 'DeepSeek, HuggingFace',
+    input_cost_per_million_tokens: 0.55,
+    output_cost_per_million_tokens: 2.19,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 90.8,
+        notes: 'Pass@1',
+        source: 'https://github.com/deepseek-ai/DeepSeek-R1',
+      },
+      'MMLU-Pro': {
+        score: 84.0,
+        notes: 'EM',
+        source: 'https://github.com/deepseek-ai/DeepSeek-R1',
+      },
+      MMMU: null,
+      HellaSwag: null,
+      GPQA: {
+        score: 71.5,
+        notes: 'Pass@1',
+        source: 'https://github.com/deepseek-ai/DeepSeek-R1',
+      },
+      HumanEval: null,
+      IFEval: {
+        score: 83.3,
+        notes: 'Prompt Strict',
+        source: 'https://github.com/deepseek-ai/DeepSeek-R1',
+      },
+      MATH: null,
+    },
+  },
 ]
 
 module.exports = { LLMS }

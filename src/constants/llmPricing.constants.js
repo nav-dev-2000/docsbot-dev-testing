@@ -323,6 +323,14 @@ export const LLM_PRICING = {
       provider: 'DeepSeek',
       input_token_cost_per_million: 0.14,
       output_token_cost_per_million: 0.28,
+    },
+    {
+      model_name: 'DeepSeek-R1',
+      model_slug: 'deepseek-r1',
+      context: '128K/8K',
+      provider: 'DeepSeek',
+      input_token_cost_per_million: 0.55,
+      output_token_cost_per_million: 2.19,
     }
   ],
   'Audio Models': [
