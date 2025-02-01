@@ -140,6 +140,14 @@ export const deleteSource = async (
     }
   }
 
+  //delete all sources data from bucket
+  try {
+    const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${bot.id}/sources` })
+  } catch (error) {
+    console.warn('Error deleting sources data from bucket:', error)
+  }
+
   return true
 }
 

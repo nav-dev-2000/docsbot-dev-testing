@@ -169,8 +169,6 @@ export default async function handler(req, res) {
 
     //check file type, mostly for sanity
     if (file) {
-      const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
-      const fileRef = bucket.file(file)
       const extension = file.split('.').pop()
       if (!Object.keys(sourceType.fileTypes).includes(extension)) {
         await fileRef.delete()
@@ -186,13 +184,7 @@ export default async function handler(req, res) {
         })
       }
 
-      //generate uuid for file name with same extension
-      const uuid = uuidv4()
-      //move the file to the correct location in bucket
-      const newFile = `teams/${team.id}/bots/${botId}/${uuid}.${extension}`
-      await fileRef.move(newFile)
-      file = newFile
-      console.log(newFile, 'created!')
+      //we will move the file to the correct location in bucket after we have the source id
     } else {
       file = null
     }
@@ -386,6 +378,38 @@ export default async function handler(req, res) {
         .doc(botId)
         .collection('sources')
         .add(data)
+
+      //move file to correct location in bucket
+      if (file) {
+        try {
+          const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+          const fileRef = bucket.file(file)
+          const fileName = file.split('/').pop().replace(/^.*[\\\/]/, '').replace(/\s+/g, '_').replace(/\0/g, '')
+          // Add uuid to filename
+          const extension = fileName.includes('.') ? fileName.split('.').pop() : ''
+          const baseName = fileName.includes('.') ? fileName.slice(0, fileName.lastIndexOf('.')) : fileName
+          const uuid = Math.random().toString(36).substring(2, 5) // Get 3 characters from uuid
+          const newFileName = `${baseName}_${uuid}${extension ? '.' + extension : ''}`
+
+          //move the file to the correct location in bucket
+          const newFile = `teams/${team.id}/bots/${botId}/sources/${docRef.id}/${newFileName}`
+          await fileRef.move(newFile)
+          
+          await docRef.update({
+            file: newFile
+          })
+          file = newFile
+          data.file = newFile
+
+          console.log(newFile, 'created!')
+        } catch (error) {
+          console.log('Error moving file', error)
+          await docRef.update({
+            status: 'error'
+          })
+          return res.status(500).json({ message: 'Error processing uploaded file. Please try again.' })
+        }
+      }
 
       //increment sourceCounts on team
       try {

@@ -56,9 +56,9 @@ export default function SourceFailed({
         title={source.name + ': ' + (source.error || 'Unknown error')}
         onClose={() => source.type !== 'qa' && deleteSource(source.id)}
       >
-        <div className="mb-2 w-full flex-1 text-sm">
-          <p className="truncate text-xs text-gray-600">{source.title}</p>
-          <p className="truncate text-xs text-gray-500">{source.url}</p>
+        <div className="mb-2 w-full flex-1 text-sm whitespace-normal">
+          <p className="break-all whitespace-pre-wrap text-xs text-gray-600">{source.title}</p>
+          <p className="break-all whitespace-pre-wrap text-xs text-gray-500">{source.url}</p>
         </div>
         {source?.isCarbon && (
           <>
