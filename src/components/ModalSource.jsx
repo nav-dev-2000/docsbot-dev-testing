@@ -15,6 +15,7 @@ import {
   XCircleIcon,
   MagnifyingGlassIcon,
   PhotoIcon,
+  InformationCircleIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -680,6 +681,21 @@ export default function ModalSource({
                                 : 'Fetching...'}
                           </em>
                         </h2>
+                        <div className="mt-2 rounded-md bg-yellow-50 p-3">
+                          <div className="flex items-center">
+                            <div className="flex-shrink-0">
+                              <InformationCircleIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                            </div>
+                            <div className="ml-2">
+                              <p className="text-sm text-yellow-700">
+                                This is a legacy cloud source and can no longer be refreshed or edited. If you delete this source, you will not be able to recreate it!
+                                <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className="ml-1 font-medium text-yellow-700 underline hover:text-yellow-600">
+                                  Learn more &raquo;
+                                </Link>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </>
                     )}
                     {source?.warnsList?.length > 0 && (
@@ -786,79 +802,6 @@ export default function ModalSource({
                               )}
                               Save
                             </button>
-                          </div>
-                        )}
-                        {!showInterval && isCarbonSourceType(source?.type) && (
-                          <div className="flex w-full flex-col items-center justify-between space-y-4 sm:flex-row sm:justify-end sm:space-x-4 sm:space-y-0">
-                            <CarbonConnect
-                              tokenFetcher={carbonTokenFetcher}
-                              orgName="DocsBot AI"
-                              brandIcon="/.well-known/logo.png"
-                              primaryBackgroundColor="#0891B2"
-                              primaryTextColor="#FFFFFF"
-                              secondaryBackgroundColor="#FFFFFF"
-                              secondaryTextColor="#0891B2"
-                              loadingIconColor="#0891B2"
-                              theme="light"
-                              onSuccess={updateCarbon}
-                              onError={(error) => console.warn(error)}
-                              open={carbonOpen}
-                              setOpen={setCarbonOpen}
-                              tags={{ botId: bot.id, teamId: team.id }}
-                              entryPoint={source.isCarbon[0]}
-                              useCarbonFilePicker={true}
-                              prependFilenameToChunks={true}
-                              openFilesTabTo="FILES_LIST"
-                              incrementalSync={true}
-                              enabledIntegrations={[
-                                {
-                                  id: source.isCarbon[0],
-                                  chunkSize: 1500,
-                                  overlapSize: 50,
-                                  fileSyncConfig: {
-                                    split_rows: true,
-                                    generate_chunks_only: true,
-                                  },
-                                  syncFilesOnConnection: false,
-                                  syncSourceItems: true,
-                                  useCarbonFilePicker: true,
-                                  incrementalSync: true,
-                                  generateChunksOnly: true,
-                                },
-                              ]}
-                            />
-                            <button
-                              onClick={() => {
-                                setCarbonInfoOpen(true)
-                              }}
-                              className="inline-flex w-full items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:w-auto"
-                            >
-                              <>
-                                <source.icon className="h-5 w-5" />
-                                <span>Manage files</span>
-                              </>
-                            </button>
-                            {source?.status === 'ready' && (
-                              <button
-                                type="button"
-                                className={
-                                  'inline-flex w-full items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75 sm:w-auto' +
-                                  (canModify
-                                    ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
-                                    : ' cursor-not-allowed border-gray-200 bg-gray-300')
-                                }
-                                onClick={refreshSource}
-                                disabled={
-                                  submitting || locked !== null || !canModify
-                                }
-                              >
-                                <ArrowPathIcon
-                                  className="mr-2 h-5 w-5"
-                                  aria-hidden="true"
-                                />
-                                Refresh
-                              </button>
-                            )}
                           </div>
                         )}
                       </div>

@@ -60,66 +60,6 @@ export default function SourceFailed({
           <p className="break-all whitespace-pre-wrap text-xs text-gray-600">{source.title}</p>
           <p className="break-all whitespace-pre-wrap text-xs text-gray-500">{source.url}</p>
         </div>
-        {source?.isCarbon && (
-          <>
-            <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
-              Indexed Files:{' '}
-              <em className="text-sm text-slate-500">
-                {typeof source.carbonFiles === 'number'
-                  ? `(${source.carbonFiles})`
-                  : Array.isArray(source.carbonFiles)
-                    ? `(${source.carbonFiles.length})`
-                    : 'Fetching...'}
-              </em>
-            </h2>
-            <CarbonConnect
-              tokenFetcher={carbonTokenFetcher}
-              orgName="DocsBot AI"
-              brandIcon="/.well-known/logo.png"
-              primaryBackgroundColor="#0891B2"
-              primaryTextColor="#FFFFFF"
-              secondaryBackgroundColor="#FFFFFF"
-              secondaryTextColor="#0891B2"
-              loadingIconColor="#0891B2"
-              theme="light"
-              onSuccess={updateCarbon}
-              onError={(error) => console.warn(error)}
-              open={carbonOpen}
-              setOpen={setCarbonOpen}
-              tags={{ botId: bot.id, teamId: team.id }}
-              entryPoint={source.isCarbon[0]}
-              useCarbonFilePicker={true}
-              prependFilenameToChunks={true}
-              openFilesTabTo="FILES_LIST"
-              incrementalSync={true}
-              enabledIntegrations={[
-                {
-                  id: source.isCarbon[0],
-                  chunkSize: 1500,
-                  overlapSize: 50,
-                  fileSyncConfig: {
-                    split_rows: true,
-                    generate_chunks_only: true,
-                  },
-                  syncFilesOnConnection: false,
-                  syncSourceItems: true,
-                  useCarbonFilePicker: true,
-                  incrementalSync: true,
-                  generateChunksOnly: true,
-                },
-              ]}
-            />
-            <button
-              className="inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-              onClick={() => {
-                setCarbonOpen(true)
-              }}
-            >
-              <source.icon className="h-5 w-5" />
-              <span>Manage files</span>
-            </button>
-          </>
-        )}
         {source.warnsList?.length > 0 && (
           <>
             <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
@@ -140,7 +80,7 @@ export default function SourceFailed({
           </div>
         )}
         
-        {source.type !== 'youtube' && (
+        {source.type !== 'youtube' && !source?.isCarbon && (
           <button
             className="mt-4 flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
             type="button"
