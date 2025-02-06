@@ -27,6 +27,7 @@ function FeatureCard({
   bounds,
   scrollX,
   onClick,
+  coming,
   ...props
 }) {
   const ref = useRef(null)
@@ -84,6 +85,13 @@ function FeatureCard({
           <p className="mt-3 text-left text-base text-gray-500">
             {description}
           </p>
+          {coming && (
+            <div className="absolute bottom-3 right-3">
+              <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+                Coming Soon
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -97,11 +105,11 @@ export default function IntegrationsFeatures() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const integrations = sourceTypes
-    .filter((type) => !type.coming)
     .map((type) => ({
       name: type.title,
       description: type.description,
       icon: type.icon,
+      coming: type.coming,
     }))
 
   useMotionValueEvent(scrollX, 'change', (x) => {
@@ -143,7 +151,7 @@ export default function IntegrationsFeatures() {
             </svg>
             <span className="relative">Anything</span>
           </span>{' '}
-          with {integrations.length + 9}+ Content Sources
+          with {integrations.filter(i => !i.coming).length + 9}+ Content Sources
         </p>
         <p className="mx-auto mt-5 max-w-7xl text-xl text-gray-500">
           Our intuitive interface makes it easy to index your documentation,
