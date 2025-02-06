@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
-import { CarbonConnect } from 'carbon-connect'
 
 export default function SourceFailed({
   team,
@@ -12,13 +11,6 @@ export default function SourceFailed({
   retrySource,
 }) {
   const [fullSources, setFullSources] = useState([])
-
-  const carbonTokenFetcher = async () => {
-    const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`,
-    )
-    return await response.json()
-  }
 
   useEffect(() => {
     const newSources = []
@@ -39,15 +31,6 @@ export default function SourceFailed({
   }
 
   const Source = ({ source }) => {
-    const [carbonOpen, setCarbonOpen] = useState(false)
-
-    const updateCarbon = async (evnt) => {
-      console.log(evnt)
-
-      if (evnt.action === 'UPDATE') {
-        await retrySource(source.id)
-      }
-    }
 
     return (
       <Alert
@@ -80,7 +63,7 @@ export default function SourceFailed({
           </div>
         )}
         
-        {source.type !== 'youtube' && !source?.isCarbon && (
+        {source.type !== 'youtube' && !source?.carbonId && (
           <button
             className="mt-4 flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
             type="button"

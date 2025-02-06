@@ -27,7 +27,6 @@ export default function SourceGrid({
     sources.map((source) => {
       source.icon = sourceArg(source.type, 'icon')
       source.name = sourceArg(source.type, 'title')
-      source.isCarbon = sourceArg(source.type, 'isCarbon')
       if (source.status !== 'failed' || source.refreshing) {
         newSources.push(source)
       }

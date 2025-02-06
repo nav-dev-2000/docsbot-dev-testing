@@ -2,7 +2,7 @@ import { PubSub } from '@google-cloud/pubsub'
 import { FieldValue, getFirestore } from 'firebase-admin/firestore'
 import { getTeam } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
-import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 
 const SERVICE_ACCOUNT = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
 const PUBSUB_CLIENT = new PubSub({
@@ -24,7 +24,6 @@ export const QueueSourceIngest = async (
   file,
   faqs,
   runId = null,
-  carbonTypes = null
 ) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
@@ -40,7 +39,6 @@ export const QueueSourceIngest = async (
       file,
       faqs,
       runId,
-      carbonTypes
     })
   )
   console.log(JSON.stringify({
@@ -55,7 +53,6 @@ export const QueueSourceIngest = async (
     url,
     file,
     runId,
-    carbonTypes
   }))
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)
@@ -125,12 +122,13 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
     throw new Error("Refreshing YouTube sources is not allowed.")
   }
 
-  if (sourceData.status !== 'ready' && sourceData.status !== 'failed') {
+  // prevent refreshing sources that are not ready or failed. Truto will be in indexing state when we regest (new or refresh)
+  if (sourceData.status !== 'ready' && sourceData.status !== 'failed' && (!isTrutoSourceType(sourceData.type) && sourceData.status !== 'indexing')) {
     throw new Error("Cannot refresh source that is not 'ready' or 'failed.")
   }
 
   const data = {
-    status: isCarbonSourceType(sourceData.type) ? 'ready' : 'pending',
+    status: 'pending',
     createdAt: FieldValue.serverTimestamp(),
     crawlId: FieldValue.delete(),
     refreshing: true,
@@ -146,7 +144,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'regest',
-      type: isCarbonSourceType(sourceData.type) ? 'carbon' : sourceData.type,
+      type: isTrutoSourceType(sourceData.type) ? 'truto' : sourceData.type,
       teamId,
       botId,
       sourceId,

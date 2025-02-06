@@ -221,15 +221,15 @@ export async function getSources(
       FieldPath.documentId(),
       'id',
       'file',
-      'carbonId',
       'type',
       'title',
       'url',
       //'faqs',
       //'indexedUrls',
+      'trutoFiles',
+      'carbonId', //to display notice on legacy sources
       'warnsList',
       'error',
-      //'carbonFiles',
       'createdAt',
       'pageCount',
       'chunkCount',
@@ -250,11 +250,11 @@ export async function getSources(
   querySnapshot.forEach((doc) => {
     let source = { id: doc.id, ...doc.data() }
     //if createdAt is more than X hour ago and indexing is not complete, set error
-    const carbonTypes = sourceTypes
-      .filter((type) => type.isCarbon)
+    const trutoTypes = sourceTypes
+      .filter((type) => type.isTruto)
       .map((type) => type.id)
 
-    const expireHours = [...carbonTypes, 'urls', 'sitemap'].includes(
+    const expireHours = [...trutoTypes, 'urls', 'sitemap'].includes(
       source.type,
     )
       ? 6

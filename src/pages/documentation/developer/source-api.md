@@ -26,7 +26,7 @@ Source objects have the following properties:
 | **faqs**             | array     | Required if type is `qa`. An array of objects like `[{"question":"Question text", "answer":"The answer."}]`. Ommitted when listing sources.                                        |
 | **indexedUrls**      | array     | An array of indexed url objects `[{"source":"https://url.com", "title":"Page title"}]` for some source types like `urls`, `youtube`, and `sitemap`. Ommitted when listing sources. |
 | **warnsList**        | array     | An array of warning strings encountered when training.                                                                                                                             |
-| **carbonFiles**      | int/array | A count orarray of file objects for cloud source types. May include `id`, `type`, `name`, `url`. Ommitted when listing sources.                                                    |
+| **carbonFiles**      | int/array | A count or array of file objects for cloud source types. May include `id`, `type`, `name`, `url`. Ommitted when listing sources.                                                    |
 
 ---
 

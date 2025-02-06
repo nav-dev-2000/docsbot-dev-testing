@@ -10,7 +10,8 @@
     "lint": "next lint",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
     "sitemap": "node scripts/generate-sitemap.js",
-    "news": "node scripts/latest-news.js"
+    "news": "node scripts/latest-news.js",
+    "truto-sync": "node scripts/truto-sync.js"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -30,11 +31,11 @@
     "@slack/webhook": "^7.0.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
+    "@truto/truto-link-sdk": "^1.1.12",
     "@vanillaes/csv": "^3.0.1",
     "autoprefixer": "^10.4.12",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
-    "carbon-connect": "^3.0.2",
     "chart.js": "^4.3.0",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.1",

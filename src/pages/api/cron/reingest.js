@@ -3,7 +3,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
-import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -41,9 +41,9 @@ export default async function handler(request, response) {
       const teamId = teamRef.id
 
       try {
-        // Check if it's a carbon source type, we are not supporting carbon sources for cron jobs anymore
-        if (isCarbonSourceType(source.type)) {
-          console.log(`Skipping carbon source type for source ${doc.id}`)
+        // Check if it's a truto source type, we are not supporting truto sources for cron jobs anymore
+        if (isTrutoSourceType(source.type)) {
+          console.log(`Skipping truto source type for source ${doc.id}`)
           // remove schedule
           doc.ref.update({
             scheduled: FieldValue.delete(),

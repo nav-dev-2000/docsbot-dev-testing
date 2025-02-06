@@ -6,11 +6,11 @@ import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
-import { isSuperAdmin } from '@/utils/helpers'
+import { GetTrutoSelected } from '@/lib/truto'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -89,22 +89,23 @@ export default async function handler(req, res) {
         console.log('Error sending bento track', e)
       }
 
-      //skip pubsub if carbon, as it uses NextJS Vercel cron
-      if (!isCarbonSourceType(source.type)) {
-        //add source event to pub/sub queue for processing
-        await QueueSourceIngest(
-          team.id,
-          botId,
-          sourceId,
-          stripePlan(team).pages - team.pageCount,
-          bot.indexId,
-          source.type,
-          source.title,
-          source.url,
-          source.file,
-          source.faqs,
-        )
+      if (isTrutoSourceType(source.type)) {
+        source.type = 'truto'
       }
+
+      //add source event to pub/sub queue for processing
+      await QueueSourceIngest(
+        team.id,
+        botId,
+        sourceId,
+        stripePlan(team).pages - team.pageCount,
+        bot.indexId,
+        source.type,
+        source.title,
+        source.url,
+        source.file,
+        source.faqs,
+      )
 
       //done, return source object
       return res.status(201).json(await getSource(team, bot, sourceId))
@@ -158,6 +159,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error })
     }
   } else if (req.method === 'GET') {
+    if (isTrutoSourceType(source.type) && source.trutoIntegrationID) {
+      try {
+        source.trutoSelected = await GetTrutoSelected(source.trutoIntegrationID, source.type)
+      } catch (error) {
+        console.warn('Error fetching Truto selected:', error)
+      }
+    }
     return res.json(source)
   } else {
     return res.status(400).json({ message: 'Invalid HTTP method' })

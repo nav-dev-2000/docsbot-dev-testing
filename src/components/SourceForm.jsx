@@ -19,8 +19,8 @@ import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
-import { CarbonConnect } from 'carbon-connect'
 import { canUserModifySources } from '@/utils/function.utils'
+import authenticate, { showFilePicker } from "@truto/truto-link-sdk";
 import Link from 'next/link'
 
 export default function SourceForm({ team, bot, sources, setSources, setOpenSourceID }) {
@@ -41,10 +41,10 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
   const [urlDescription, setUrlDescription] = useState(null)
   const [scheduleInterval, setScheduleInterval] = useState('none')
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
-  const [carbonId, setCarbonId] = useState(null)
   const [canModifySources, setCanModifySources] = useState(() => canUserModifySources(team, user?.uid))
-  const [carbonOpen, setCarbonOpen] = useState(false)
   const [processImages, setProcessImages] = useState(false)
+  const [trutoIntegrationID, setTrutoIntegrationID] = useState(null);
+  const [trutoFiles, setTrutoFiles] = useState(null);
 
   useEffect(() => {
     if (showForm && stripePlan(team).pages <= team.pageCount) {
@@ -104,42 +104,6 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     }
   }, [selectedSourceType, url, file, title, questions])
 
-  const carbonTokenFetcher = async () => {
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`)
-    const data = await response.json()
-
-    // carbon expects the full promise response
-    return data
-  }
-
-  const carbonOnSuccess = async (response) => {
-    console.log('OnSuccess callback called!', response)
-
-    // only listen to UPDATE/ADD events
-    if (!["UPDATE"].includes(response.action)) return;
-
-    if (!response.data || !response.data?.data_source_external_id) {
-      return
-    }
-
-    let carbon;
-    if (response.data.data_source_external_id.includes('|')) { //new format
-      carbon = response.data.data_source_external_id.split('|');
-    } else if (response.data.data_source_external_id.includes('-')) {
-      carbon = response.data.data_source_external_id.split('-');
-    }
-    console.log(carbon, response)
-    setTitle('Account: ' + carbon[1]);
-    setCarbonId(carbon[1]);
-  }
-
-  // create carbon source automatically
-  useEffect(() => {
-    if (carbonId && title) {
-      createSource()
-    }
-  }, [carbonId, title])
-
   const resetState = () => {
     setFile(null)
     setFileName(null)
@@ -152,6 +116,8 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     setShowForm(false)
     setScheduleInterval('none')
     setProcessImages(false)
+    setTrutoIntegrationID(null)
+    setTrutoFiles(null)
   }
 
   async function createSource() {
@@ -175,10 +141,11 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         title,
         url,
         file,
-        carbonId,
         faqs: questions,
         scheduleInterval,
         processImages,
+        trutoIntegrationID,
+        trutoFiles
       }),
     })
     if (response.ok) {
@@ -206,6 +173,108 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
+      setIsUpdating(false)
+    }
+  }
+
+  const getTrutoToken = async () => {
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'fetchTrutoToken']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      return data.token
+    }
+  }
+
+  const getTrutoIntegrationToken = async (accountID) => {
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'fetchTrutoToken']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        accountID
+      }),
+    })
+    if (response.ok) {
+      return await response.json()
+    } else {
+      console.log(await response.json())
+    }
+  }
+
+  useEffect(() => {
+    if (trutoIntegrationID && trutoFiles) {
+      createSource()
+    }
+  }, [trutoIntegrationID, trutoFiles])
+
+  const openTrutoUI = async (integrationType) => {
+    if (isUpdating) return
+    let trutoID = trutoIntegrationID
+    setErrorText('')
+
+    try {
+      setIsUpdating(true)
+      
+      if (!trutoID) {
+        const token = await getTrutoToken()
+        if (!token) {
+          throw new Error('Failed to get authentication token')
+        }
+    
+        const integration = await authenticate(token, {
+          integration: integrationType,
+          noBack: true,
+        })
+        
+        if (!integration?.integrated_account_id) {
+          throw new Error('Integration failed - no account ID received')
+        }
+        
+        console.log('Integration:', integration)
+        setTrutoIntegrationID(integration.integrated_account_id)
+        trutoID = integration.integrated_account_id
+      }
+
+      const tokenResponse = await getTrutoIntegrationToken(trutoID)
+      if (!tokenResponse?.accountToken || !tokenResponse?.label) {
+        throw new Error('Failed to get integration token')
+      }
+
+      setTitle('Account: ' + tokenResponse.label)
+
+      // Only show file picker for Google Docs
+      if (integrationType === 'googledrive' || integrationType === 'sharepoint') {
+        const selectedFiles = await showFilePicker(integrationType, tokenResponse.accountToken)
+        if (!selectedFiles?.length) {
+          throw new Error('No files selected')
+        }
+        
+        console.log('Selected files:', selectedFiles)
+        setTrutoFiles(selectedFiles.length)
+      } else {
+        // For other integrations, just set files to 1 and proceed
+        setTrutoFiles(1)
+      }
+    } catch (error) {
+      console.error("Truto UI error:", error)
+      setErrorText(`Failed to connect: ${error.message || 'Please try again'}`)
+      // Reset states on error
+      setTrutoIntegrationID(null)
+      setTrutoFiles(null)
+      setTitle('')
+    } finally {
       setIsUpdating(false)
     }
   }
@@ -251,7 +320,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
   if (showForm) {
     // Get unique categories from sourceTypes, preserving order
-    const categories = [...new Set(sourceTypes.map(source => source.category))]
+    const categories = [...new Set(sourceTypes.filter(source => !source.hide).map(source => source.category))]
 
     return (
       <>
@@ -261,9 +330,11 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
           always add more later on.
         </p>
         <div className="mb-4 rounded-lg bg-white px-4 py-4 shadow sm:px-6">
-          <Alert title="Carbon Cloud Source Notice" type="notice">
-            Our cloud connection partner Carbon has been acquired and is no longer supported. Existing cloud sources will remain in your bot's training until deleted, but you will not be able to refresh or modify them. We will be re-enabling replacement cloud connections very soon, prioritized by popularity, starting with Google Drive and Notion this week. <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className='underline hover:text-gray-600 font-medium'>More information &rarr;</Link>.
-          </Alert>
+          {!selectedSourceType && (
+            <Alert title="Carbon Cloud Source Notice" type="notice">
+              Our cloud connection partner Carbon has been acquired and is no longer supported. Existing cloud sources will remain in your bot's training until deleted, but you will not be able to refresh or modify them. We will be re-enabling replacement cloud connections very soon, prioritized by popularity, starting with Google Drive and Notion this week. <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className='underline hover:text-gray-600 font-medium'>More information &rarr;</Link>.
+            </Alert>
+          )}
           <Alert title={errorText} type="error" />
 
           {!selectedSourceType ? (
@@ -277,6 +348,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                   resetState()
                   setSelectedSourceType(e)
                   setShowForm(true)
+                  setErrorText('')
                 }
               }}
             >
@@ -288,6 +360,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                 {categories.map((category) => {
                   const hasAvailableSource = sourceTypes
                     .filter((sourceType) => sourceType.category === category)
+                    .filter((sourceType) => !sourceType.hide)
                     .some((sourceType) => !sourceType.coming);
 
                   return (
@@ -306,6 +379,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                             <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-4">
                               {sourceTypes
                                 .filter((sourceType) => sourceType.category === category)
+                                .filter((sourceType) => !sourceType.hide)
                                 .map((sourceType) => (
                                   <RadioGroup.Option
                                     key={sourceType.id}
@@ -617,65 +691,27 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
               Cancel
             </button>
 
-            {selectedSourceType?.isCarbon ? (
-              <>
-                <CarbonConnect
-                  tokenFetcher={carbonTokenFetcher}
-                  orgName="DocsBot AI"
-                  brandIcon="/.well-known/logo.png"
-                  primaryBackgroundColor="#0891B2"
-                  primaryTextColor="#FFFFFF"
-                  secondaryBackgroundColor="#FFFFFF"
-                  loadingIconColor="#0891B2"
-                  theme="light"
-                  onSuccess={carbonOnSuccess}
-                  onError={(error) => console.warn(error)}
-                  open={carbonOpen}
-                  setOpen={setCarbonOpen}
-                  tags={{ botId: bot.id, teamId: team.id }}
-                  entryPoint={selectedSourceType?.isCarbon[0]}
-                  useCarbonFilePicker={true}
-                  prependFilenameToChunks={true}
-                  openFilesTabTo={"FILE_PICKER"}
-                  incrementalSync={true}
-                  enabledIntegrations={[
-                    {
-                      id: selectedSourceType?.isCarbon[0],
-                      chunkSize: 1500,
-                      overlapSize: 50,
-                      fileSyncConfig : {
-                        split_rows: true,
-                        generate_chunks_only: true,
-                      },
-                      syncFilesOnConnection: false,
-                      syncSourceItems: true,
-                      useCarbonFilePicker: true,
-                      incrementalSync: true,
-                      generateChunksOnly: true,
-                    }
-                  ]}
-                />
-                <button
-                  disabled={isUpdating}
-                  onClick={() => {
-                    if (isUpdating) return
-                    setCarbonOpen(true)
-                  }}
-                  className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                >
-                  {isUpdating ? (
-                    <>
-                      <LoadingSpinner className="mr-3" />
-                      <span>Adding source...</span>
-                    </>
-                  ) : (
-                    <>
-                      <selectedSourceType.icon className="h-5 w-5" />
-                      <span>Connect to {selectedSourceType?.title}</span>
-                    </>
-                  )}
-                </button>
-              </>
+            {selectedSourceType?.isTruto ? (
+              <button
+                disabled={isUpdating}
+                onClick={() => {
+                  if (isUpdating) return
+                  openTrutoUI(selectedSourceType.isTruto)
+                }}
+                className="ml-4 inline-flex items-center justify-center space-x-2 rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
+              >
+                {isUpdating ? (
+                  <>
+                    <LoadingSpinner className="mr-3" />
+                    <span>Adding source...</span>
+                  </>
+                ) : (
+                  <>
+                    <selectedSourceType.icon className="h-5 w-5" />
+                    <span>Connect to {selectedSourceType?.title}</span>
+                  </>
+                )}
+              </button>
             ) : (
               <button
                 disabled={isUpdating || !validated}

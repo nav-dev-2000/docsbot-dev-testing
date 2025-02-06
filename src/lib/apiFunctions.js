@@ -5,18 +5,17 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot, getTeam } from '@/lib/dbQueries'
 import { deleteTenant } from '@/lib/weaviate'
 import { QueueSourceExpel } from '@/lib/service'
-import { isCarbonSourceType } from '@/constants/sourceTypes.constants'
-import { getCarbonCustomerID } from '@/lib/carbon'
 import axios from 'axios'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
+import { DeleteIntegratedAccount, BulkDeleteIntegratedAccounts } from '@/lib/truto'
+import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 
 export const deleteSource = async (
   teamId,
   bot,
   sourceId,
-  deleteCarbon = true,
 ) => {
   configureFirebaseApp()
   const firestore = getFirestore()
@@ -75,75 +74,20 @@ export const deleteSource = async (
     transaction.delete(sourceRef)
   })
 
-  // for Carbon sources we need to delete the files from the Carbon API
-  if (deleteCarbon && isCarbonSourceType(source.type)) {
+  // If it's a Truto source, delete it from Truto first
+  if (isTrutoSourceType(source.type) && source.trutoIntegrationID) {
     try {
-      const headers = {
-        headers: {
-          'Content-Type': 'application/json',
-          'customer-id': getCarbonCustomerID(teamId, bot.id),
-          authorization: `Bearer ${process.env.CARBON_API_KEY}`,
-        },
-      }
-
-      const carbonFiles = []
-      const perPage = 250
-      let offset = 0
-
-      while (true) {
-        const response = await axios.post(
-          `https://api.carbon.ai/user_files_v2`,
-          {
-            filters: {
-              source: isCarbonSourceType(source.type),
-              include_containers: false, // we want a flat response, no folders
-            },
-            pagination: {
-              limit: perPage,
-              offset: offset,
-            },
-          },
-          headers,
-        )
-
-        if (response.status !== 200) {
-          throw new Error(`Carbon API returned status ${response.status}`)
-        }
-
-        for (const file of response.data.results) {
-          carbonFiles.push(file.id)
-        }
-
-        // Check if there are more pages to fetch
-        if (response.data.count <= offset + perPage) {
-          break
-        }
-
-        // Update the offset for the next iteration
-        offset += perPage
-      }
-
-      console.log('Deleting %d files from Carbon API', carbonFiles.length)
-      const resp = await axios.post(
-        `https://api.carbon.ai/delete_files`,
-        {
-          file_ids: carbonFiles,
-        },
-        headers,
-      )
-      if (resp.status !== 200) {
-        throw new Error(`Carbon API returned status ${response.status}`)
-      }
-      console.log('Deleted files from Carbon API', resp.status)
-    } catch (e) {
-      console.log('Error deleting file from Carbon API', e)
+      await DeleteIntegratedAccount(source.trutoIntegrationID)
+    } catch (error) {
+      console.warn('Error deleting Truto integrated account:', error)
+      // Continue with deletion even if Truto deletion fails
     }
   }
 
   //delete all sources data from bucket
   try {
     const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
-    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${bot.id}/sources` })
+    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${bot.id}/sources/${sourceId}` })
   } catch (error) {
     console.warn('Error deleting sources data from bucket:', error)
   }
@@ -325,14 +269,6 @@ export const deleteBot = async (teamId, botId) => {
     })
   })
 
-  //delete all bot data from bucket
-  try {
-    const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
-    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}` })
-  } catch (error) {
-    console.warn('Error deleting bot data from bucket:', error)
-  }
-
   //delete schema in weaviate async
   if (bot.indexId === 'TenantDocument') {
     try {
@@ -348,29 +284,19 @@ export const deleteBot = async (teamId, botId) => {
     }
   }
 
-  //delete any data and connections in Carbon
+  // Delete any Truto integrated accounts for this bot by tenant id
   try {
-    const headers = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${process.env.CARBON_API_KEY}`,
-      },
-    }
+    await BulkDeleteIntegratedAccounts(teamId, botId)
+  } catch (error) {
+    console.warn('Error bulk deleting Truto integrated accounts:', error)
+  }
 
-    const resp = await axios.post(
-      `https://api.carbon.ai/delete_users`,
-      {
-        customer_ids: [getCarbonCustomerID(teamId, botId)],
-      },
-      headers,
-    )
-    if (resp.status !== 200) {
-      throw new Error(`Carbon API returned status ${response.status}`)
-    }
-
-    console.log(`Deleted ${getCarbonCustomerID(teamId, botId)} from Carbon`)
-  } catch (e) {
-    console.log('Error clearing data from Carbon API', e)
+  //delete all bot data from bucket
+  try {
+    const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+    await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}` })
+  } catch (error) {
+    console.warn('Error deleting bot data from bucket:', error)
   }
 
   return true

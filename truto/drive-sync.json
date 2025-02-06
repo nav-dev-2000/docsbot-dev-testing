@@ -1,0 +1,121 @@
+{
+  "id": "22eb3292-c928-4281-a3a8-feb7dff95163",
+  "integration_name": "",
+  "args_schema": {
+    "integrated_account_id": {
+      "type": "string",
+      "format": "integrated_account_id",
+      "required": true
+    },
+    "webhook_id": {
+      "type": "string",
+      "format": "webhook_id"
+    },
+    "google_cloud_storage_datastore_id": {
+      "type": "string",
+      "format": "datastore_id",
+      "required": true
+    },
+    "team_id": {
+      "type": "string",
+      "required": true
+    },
+    "bot_id": {
+      "type": "string",
+      "required": true
+    },
+    "source_id": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "resources": [
+    {
+      "type": "request",
+      "name": "get-files",
+      "resource": "file-storage/drive-items",
+      "method": "list",
+      "query": {
+        "drive_item_id": "{{drive_items.id}}"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}",
+      "loop_on": "drive_items",
+      "recurse": {
+        "if": "{{resources.file-storage.drive-items.has_children:bool}}",
+        "config": {
+          "query": {
+            "parent": "{{resources.file-storage.drive-items.id}}"
+          }
+        }
+      }
+    },
+    {
+      "type": "add_context",
+      "name": "add-file-name",
+      "depends_on": "get-files",
+      "config": {
+        "expression": "resources.`file-storage`.`drive-items`.{ \"file_id\": id, \"file_name\": name, \"content_type\": $mapValues(mime_type, { \"application/vnd.google-apps.document\": \"text/markdown\", \"application/vnd.google-apps.spreadsheet\": \"text/csv\", \"application/vnd.google-apps.presentation\": \"text/plain\" }), \"file_url\": urls[type=\"self\"].url }"
+      }
+    },
+    {
+      "type": "request",
+      "name": "download-file",
+      "resource": "file-storage/drive-items",
+      "method": "download",
+      "depends_on": "get-files",
+      "query": "{\n  \"file_url\": resources.`file-storage`.`drive-items`.(\n    $matcher := $mapValues(mime_type, {\n      \"application/vnd.google-apps.document\": \"text/markdown\",\n      \"application/vnd.google-apps.spreadsheet\": \"text/csv\",\n \"application/vnd.google-apps.presentation\": \"text/plain\" \n   });\n    urls[mimeType = $matcher and type = \"truto_download\" ].url ? urls[mimeType = $matcher and type = \"truto_download\" ].url : urls[type = \"truto_download\"][0].url \n  )\n}",
+      "integrated_account_id": "{{args.integrated_account_id}}"
+    },
+    {
+      "name": "transform-file-content",
+      "type": "transform",
+      "config": {
+        "expression": "{\"file_name\": file_name, \"content\": resources.`file-storage`.`drive-items` }"
+      },
+      "depends_on": "download-file"
+    },
+    {
+      "name": "webhook",
+      "type": "destination",
+      "destination_type": "webhook",
+      "config": {
+        "id": "{{args.webhook_id}}"
+      },
+      "run_if": "$exists(args.webhook_id)",
+      "resources_to_persist": [
+        "transform-file-content",
+        "get-files"
+      ]
+    },
+    {
+      "name": "google-cloud-storage",
+      "type": "destination",
+      "destination_type": "datastore",
+      "method": "uploadObject",
+      "config": {
+        "id": "{{args.google_cloud_storage_datastore_id}}",
+        "config": {
+          "path": "teams/{{args.team_id}}/bots/{{args.bot_id}}/sources/{{args.source_id}}",
+          "file_name": "{{file_name}}",
+          "content": "{{payload.records.0.content}}",
+          "upload_type": "resumable",
+          "headers": {
+            "Content-Type": "{{content_type}}",
+            "X-Goog-Meta-File-Id": "{{file_id}}",
+            "X-Goog-Meta-File-Url": "{{file_url}}"
+          }
+        }
+      },
+      "run_if": "$exists(args.google_cloud_storage_datastore_id)",
+      "resources_to_persist": [
+        "transform-file-content"
+      ]
+    }
+  ],
+  "environment_id": "5e6c1566-bd23-4b05-a481-f579eec913b7",
+  "created_at": "2025-02-03T04:47:51.000Z",
+  "updated_at": "2025-02-05T18:02:52.000Z",
+  "default_runtime_version": 4,
+  "label": "Fetch all the files from Google Drive",
+  "args_validation": "$firstNonEmpty(args.webhook_id, args.google_cloud_storage_datastore_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"
+}

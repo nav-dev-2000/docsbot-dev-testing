@@ -138,12 +138,6 @@ export const BotCopyModal = ({ team, bot }) => {
                         Create a new bot with the same settings and source
                         training data. Useful for testing and staging changes.
                       </p>
-                      <p className="text-sm text-gray-600">
-                        NOTE: Cloud sources (Notion, Google Drive, etc) added
-                        via our partner Carbon will not be able to be refreshed
-                        in the copy, as they limit to one connnection per user
-                        account.
-                      </p>
 
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">

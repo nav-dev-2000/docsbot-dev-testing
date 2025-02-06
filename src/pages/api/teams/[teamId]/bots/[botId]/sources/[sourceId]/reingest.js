@@ -3,10 +3,10 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot, getSource } from '@/lib/dbQueries'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isSuperAdmin } from '@/utils/helpers'
-import { bentoTrack } from '@/lib/bento'
-import { canSourceTypeSchedule, isCarbonSourceType } from '@/constants/sourceTypes.constants'
+import { canSourceTypeSchedule, isTrutoSourceType, sourceTypes } from '@/constants/sourceTypes.constants'
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -117,9 +117,14 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'POST') {
-    if (isCarbonSourceType(source.type)) {
-      // update and reingest source
-      await firestore
+    if (isTrutoSourceType(source.type)) {
+      try {
+        // start Truto sync job
+        const trutoSyncRun = await RunSyncJob(GetSyncJobID(source.type), source?.trutoIntegrationID, team.id, botId, sourceId)
+        console.log("starting sync job with ID:", trutoSyncRun)
+
+        // add sync job id to source
+        await firestore
         .collection('teams')
         .doc(team.id)
         .collection('bots')
@@ -127,11 +132,17 @@ export default async function handler(req, res) {
         .collection('sources')
         .doc(sourceId)
         .update({
-        status: 'pending',
-        createdAt: FieldValue.serverTimestamp(),
-        refreshing: true,
-      })
-      return res.status(200).json({})
+          status: 'indexing',
+          refreshing: true,
+          createdAt: FieldValue.serverTimestamp(), // revent expiration failure
+          trutoSyncRun
+        })
+
+      } catch (error) {
+        console.log('Error starting Truto sync job', error)
+        return res.status(500).json({ message: 'Error starting Truto sync job. Please try again.' })
+      }
+      return res.status(200).json({ message: 'success' })
     }
 
     if (!canSourceTypeSchedule(source.type)) {

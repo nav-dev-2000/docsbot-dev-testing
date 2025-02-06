@@ -1,21 +1,15 @@
 import { Fragment, useState, useEffect, useMemo } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CarbonConnect } from 'carbon-connect'
 import {
   XMarkIcon,
   TrashIcon,
   ArrowPathIcon,
   ArrowDownTrayIcon,
-  DocumentIcon,
-  CircleStackIcon,
-  DocumentTextIcon,
-  PresentationChartBarIcon,
-  TableCellsIcon,
-  CheckIcon,
   XCircleIcon,
   MagnifyingGlassIcon,
   PhotoIcon,
   InformationCircleIcon,
+  DocumentIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -26,7 +20,8 @@ import ScheduleSelect from '@/components/ScheduleSelect'
 import {
   canSourceTypeSchedule,
   canSourceTypeDownload,
-  isCarbonSourceType,
+  sourceTypes,
+  isTrutoSourceType
 } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 import Link from 'next/link'
@@ -34,102 +29,6 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
-
-// shows how to refresh a source after changing/deleting files from the carbon file picker component
-const ModalCarbonSourceInfo = ({ open, setOpen }) => {
-  return (
-    <>
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          onClose={() => {
-            setOpen(false)
-          }}
-        >
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:flex">
-                    <button
-                      type="button"
-                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      onClick={() => {
-                        setOpen(false)
-                      }}
-                    >
-                      <span className="sr-only">Close</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-
-                  <div className="p-8">
-                    <div className="pb-2">
-                      <h3 className="inline-flex text-2xl font-bold">
-                        How to edit synced files
-                      </h3>
-                    </div>
-                    <div className="pb-2">
-                      <img
-                        src="/images/carbon-delete.png"
-                        alt="Carbon delete"
-                        className="mx-auto rounded-lg border border-solid border-slate-200 sm:w-1/2"
-                      />
-                    </div>
-                    <div className="pb-2">
-                      <p className="text-lg text-gray-500">
-                        To edit files from your cloud source, click on the
-                        "Manage Files" button. This will open the file picker
-                        where you can remove, add, or update files. Once
-                        complete, click on the "Refresh" button to update your
-                        source with the changes.
-                      </p>
-                    </div>
-                    <div className="flex flex-shrink-0 items-end justify-end">
-                      <button
-                        onClick={() => {
-                          setOpen(false)
-                        }}
-                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      >
-                        <CheckIcon
-                          className="mr-2 h-5 w-5"
-                          aria-hidden="true"
-                        />
-                        Understood
-                      </button>
-                    </div>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-    </>
-  )
-}
 
 export default function ModalSource({
   team,
@@ -140,8 +39,6 @@ export default function ModalSource({
   defaultOpen = false,
 }) {
   const [open, setOpen] = useState(defaultOpen)
-  const [carbonInfoOpen, setCarbonInfoOpen] = useState(false)
-  const [carbonOpen, setCarbonOpen] = useState(false)
   const [toDelete, setToDelete] = useState(null)
   const [infoText, setInfoText] = useState(null)
   const [errorText, setErrorText] = useState(null)
@@ -160,6 +57,8 @@ export default function ModalSource({
   const [canModify, setModify] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredUrls, setFilteredUrls] = useState(source?.indexedUrls ?? [])
+  const [filteredTrutoSelected, setFilteredTrutoSelected] = useState(Array.isArray(source?.trutoSelected) ? source?.trutoSelected : [])
+  const [isTruto, setIsTruto] = useState(isTrutoSourceType(source?.type))
 
   useEffect(() => {
     if (!team || !user) return
@@ -184,13 +83,6 @@ export default function ModalSource({
         )
       }
     }
-  }
-
-  const carbonTokenFetcher = async () => {
-    const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/fetchCarbonTokens`,
-    )
-    return await response.json()
   }
 
   //when opening modal, fetch source details
@@ -278,55 +170,6 @@ export default function ModalSource({
     }
   }
 
-  const carbonIcon = (type) => {
-    switch (type) {
-      case 'NOTION':
-        return (
-          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-        )
-      case 'NOTION_DATABASE':
-        return (
-          <CircleStackIcon
-            className="mr-1 h-4 w-4 flex-none"
-            aria-hidden="true"
-          />
-        )
-      case 'GOOGLE_DOCS':
-        return (
-          <DocumentTextIcon
-            className="mr-1 h-4 w-4 flex-none"
-            aria-hidden="true"
-          />
-        )
-      case 'GOOGLE_SLIDES':
-        return (
-          <PresentationChartBarIcon
-            className="mr-1 h-4 w-4 flex-none"
-            aria-hidden="true"
-          />
-        )
-      case 'GOOGLE_SHEETS':
-        return (
-          <TableCellsIcon
-            className="mr-1 h-4 w-4 flex-none"
-            aria-hidden="true"
-          />
-        )
-      case 'INTERCOM':
-        return (
-          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-        )
-      case 'DROPBOX':
-        return (
-          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-        )
-      default:
-        return (
-          <DocumentIcon className="mr-1 h-4 w-4 flex-none" aria-hidden="true" />
-        )
-    }
-  }
-
   const patchSource = async () => {
     if (questions.length === 0) {
       setErrorText('Please add at least one question and answer.')
@@ -392,7 +235,7 @@ export default function ModalSource({
       setSources((sources) =>
         sources.map((s) =>
           s.id === source?.id
-            ? { ...source, status: 'pending', scheduled: newScheduled }
+            ? { ...source, status: 'pending', scheduled: newScheduled || null }
             : s,
         ),
       )
@@ -418,14 +261,6 @@ export default function ModalSource({
     setShowInterval(canSourceTypeSchedule(source?.type))
   }, [source])
 
-  const updateCarbon = async (evnt) => {
-    console.log(evnt)
-
-    if (evnt.action === 'UPDATE') {
-      await refreshSource()
-    }
-  }
-
   useEffect(() => {
     if (!source?.indexedUrls) return
 
@@ -438,18 +273,20 @@ export default function ModalSource({
     setFilteredUrls(filtered)
   }, [searchTerm, source?.indexedUrls])
 
+  useEffect(() => {
+    if (!Array.isArray(source?.trutoSelected)) return
+
+    const lowercasedTerm = searchTerm.toLowerCase()
+    const filtered = source.trutoSelected.filter(
+      (item) =>
+        item.name.toLowerCase().includes(lowercasedTerm)
+    )
+    setFilteredTrutoSelected(filtered)
+  }, [searchTerm, source?.trutoSelected])
+
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <ModalCarbonSourceInfo
-        open={carbonInfoOpen}
-        setOpen={(open) => {
-          if (!open) {
-            setCarbonInfoOpen(false)
-            setCarbonOpen(true)
-          }
-        }}
-      />
       <a
         type="button"
         className="m-0 block cursor-pointer"
@@ -509,7 +346,11 @@ export default function ModalSource({
                         {source?.title ?? source?.url}
                       </h3>
                       <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
-                        {source?.type.toUpperCase()}
+                        {
+                          sourceTypes.find(
+                            (sourceType) => sourceType.id === source?.type,
+                          )?.title
+                        }
                       </h1>
                     </div>
                     <div className="items-center justify-between text-center sm:flex">
@@ -520,10 +361,15 @@ export default function ModalSource({
                         </h3>
                       </Tooltip>
                       {source?.processImages && (
-                        <Tooltip content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}>
-                          <span className="flex items-center cursor-help text-sm font-medium text-gray-500">
-                            <PhotoIcon className="ml-2 inline-flex h-4 w-4 mr-1 text-gray-500" />
-                            {source?.processedImages?.processed ? `${source.processedImages.processed} ` : ''}Images
+                        <Tooltip
+                          content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}
+                        >
+                          <span className="flex cursor-help items-center text-sm font-medium text-gray-500">
+                            <PhotoIcon className="ml-2 mr-1 inline-flex h-4 w-4 text-gray-500" />
+                            {source?.processedImages?.processed
+                              ? `${source.processedImages.processed} `
+                              : ''}
+                            Images
                           </span>
                         </Tooltip>
                       )}
@@ -669,7 +515,7 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source?.isCarbon && (
+                    {source?.carbonId && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Files:{' '}
@@ -684,12 +530,20 @@ export default function ModalSource({
                         <div className="mt-2 rounded-md bg-yellow-50 p-3">
                           <div className="flex items-center">
                             <div className="flex-shrink-0">
-                              <InformationCircleIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                              <InformationCircleIcon
+                                className="h-5 w-5 text-yellow-400"
+                                aria-hidden="true"
+                              />
                             </div>
                             <div className="ml-2">
                               <p className="text-sm text-yellow-700">
-                                This is a legacy cloud source and can no longer be refreshed or edited. If you delete this source, you will not be able to recreate it!
-                                <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className="ml-1 font-medium text-yellow-700 underline hover:text-yellow-600">
+                                This is a legacy cloud source and can no longer
+                                be refreshed or edited. If you delete this
+                                source, you will not be able to recreate it!
+                                <Link
+                                  href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update"
+                                  className="ml-1 font-medium text-yellow-700 underline hover:text-yellow-600"
+                                >
                                   Learn more &raquo;
                                 </Link>
                               </p>
@@ -698,13 +552,99 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
+                    {source?.trutoFiles && (
+                      <>
+                        <h2 className="mt-4 pb-2 text-sm font-medium text-gray-600">
+                          Indexed Items:{' '}
+                          <em className="text-sm text-slate-500">
+                            ({source.trutoFiles})
+                          </em>
+                        </h2>
+                        {Array.isArray(source.trutoSelected) &&
+                          source.trutoSelected.length > 0 && (
+                            <>
+                            <h3 className="mt-2 pb-2 text-sm font-medium text-gray-600">
+                              Selected Items:{' '}
+                              <em className="text-sm text-slate-500">
+                                ({source.trutoSelected.length})
+                              </em>
+                            </h3>
+                              <div className="mb-2">
+                                <label htmlFor="search" className="sr-only">
+                                  Search
+                                </label>
+                                <div className="relative flex items-center md:max-w-xs">
+                                  <div className="absolute inset-y-0 left-0 flex items-center pl-2">
+                                    <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
+                                  </div>
+                                  <input
+                                    id="filter-results"
+                                    name="filter-results"
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                      setSearchTerm(e.target.value)
+                                    }
+                                    className="block w-full rounded-md border-0 py-1 pl-8 pr-8 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-xs sm:leading-6"
+                                    placeholder="Filter list..."
+                                  />
+                                  {searchTerm && (
+                                    <button
+                                      onClick={() => setSearchTerm('')}
+                                      className="absolute inset-y-0 right-0 flex items-center pr-2"
+                                    >
+                                      <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-400 bg-slate-100 p-2">
+                                {filteredTrutoSelected.length > 0 ? (
+                                  <ul
+                                    role="list"
+                                    className="grid grid-cols-1 gap-2 md:grid-cols-2"
+                                  >
+                                    {filteredTrutoSelected.map((item, index) => (
+                                      <li
+                                        key={index + item.name}
+                                        className="flex items-center overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white pe-3 ps-1 py-1 shadow"
+                                      >
+                                          {item.icon ? <img src={item.icon} alt="" className="mr-2 h-4 w-4 rounded-sm" aria-hidden="true" /> : <DocumentIcon className="mr-2 h-4 w-4 text-gray-400" aria-hidden="true" />}
+                                          <Tooltip content={`Last modified: ${new Date(item.modified).toUTCString()}`}>
+                                            <span className="block w-full overflow-hidden overflow-ellipsis text-xs">
+                                              {item.name}
+                                            </span>
+                                          </Tooltip>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <div className="flex items-center justify-center text-center">
+                                    <span className="text-sm text-gray-500">
+                                      No results found
+                                    </span>
+                                    <button
+                                      onClick={() => setSearchTerm('')}
+                                      className="ml-2 text-sm text-cyan-600 hover:text-cyan-700"
+                                    >
+                                      <XCircleIcon className="mr-0.5 inline h-3 w-3" />
+                                      Clear filter
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          )}
+                      </>
+                    )}
                     {source?.warnsList?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
-                          Warnings:
+                          Warnings:{' '}
+                          <em className="text-sm text-slate-500">({source?.warnsList?.length})</em>
                         </h2>
-                        <div className="rounded-md border-2 border-solid border-slate-200 bg-slate-100">
-                          <pre className="whitespace-pre-wrap p-2 font-mono text-sm text-orange-600">
+                        <div className="rounded-md max-h-48 overflow-y-scroll border-2 border-solid border-slate-200 bg-slate-100">
+                          <pre className="whitespace-pre-wrap p-2 font-mono text-xs text-orange-600">
                             {source?.warnsList.join('\n')}
                           </pre>
                         </div>
@@ -801,6 +741,29 @@ export default function ModalSource({
                                 <LoadingSpinner className="mr-3" />
                               )}
                               Save
+                            </button>
+                          </div>
+                        )}
+                        {isTruto && source?.status === 'ready' && (
+                          <div className="flex flex-shrink-0 items-end justify-end">
+                            <button
+                              type="button"
+                              className={
+                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                (canModify
+                                  ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                  : ' cursor-not-allowed border-gray-200 bg-gray-300')
+                              }
+                              onClick={refreshSource}
+                              disabled={
+                                submitting || locked !== null || !canModify
+                              }
+                            >
+                              <ArrowPathIcon
+                                className="mr-2 h-5 w-5"
+                                aria-hidden="true"
+                              />
+                              Refresh
                             </button>
                           </div>
                         )}

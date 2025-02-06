@@ -7,16 +7,15 @@ import {
   getBot,
   getSources,
   getSource,
-  getTeamIntegrations,
 } from '@/lib/dbQueries'
 import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
-import { sourceTypes } from '@/constants/sourceTypes.constants'
-import { uuidv4 } from '@firebase/util'
+import { sourceTypes, isTrutoSourceType } from '@/constants/sourceTypes.constants'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isValidURL } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
+import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -61,7 +60,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, scheduleInterval, faqs, carbonId, processImages } = req.body
+    let { type, title, url, file, scheduleInterval, faqs, processImages, trutoIntegrationID, trutoFiles } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -191,15 +190,22 @@ export default async function handler(req, res) {
 
     let pageCount = 0
 
-    if (sourceType.isCarbon) {
-      // check carbonId
-      if (!carbonId) {
+    if (sourceType.isTruto) {
+      console.log('trutoIntegrationID:', trutoIntegrationID)
+      // check trutoId
+      if (!trutoIntegrationID) {
         return res
           .status(400)
-          .json({ message: 'Invalid or missing parameter "carbonId".' })
+          .json({ message: 'Invalid or missing parameter "trutoIntegrationID".' })
+      }
+
+      if (!trutoFiles) {
+        return res
+          .status(400)
+          .json({ message: 'Invalid or missing parameter "trutoFiles".' })
       }
     } else {
-      carbonId = null
+      trutoIntegrationID = null
     }
 
     // Add processImages validation after type validation
@@ -233,7 +239,6 @@ export default async function handler(req, res) {
         pageCount: pageCount,
         chunkCount: 0,
         faqs,
-        carbonId,
         processImages,
       }
 
@@ -371,6 +376,16 @@ export default async function handler(req, res) {
         }
       }
 
+      if (isTrutoSourceType(type)) {
+        // if sync job doesn't exist, throw error
+        if (!GetSyncJobID(type)) {
+          return res
+            .status(500)
+            .json({ message: 'Sync job does not exist for this source type!' })
+        }
+        data = { ...data, trutoIntegrationID, trutoFiles }
+      }
+
       const docRef = await firestore
         .collection('teams')
         .doc(team.id)
@@ -378,6 +393,36 @@ export default async function handler(req, res) {
         .doc(botId)
         .collection('sources')
         .add(data)
+
+      if (isTrutoSourceType(type)) {
+        try {
+          // start Truto sync job
+          const trutoSyncRun = await RunSyncJob(GetSyncJobID(type), trutoIntegrationID, team.id, botId, docRef.id)
+          console.log("starting sync job with ID:", trutoSyncRun)
+
+        // add sync job id to source
+        await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('sources')
+          .doc(docRef.id)
+          .update({
+            trutoSyncRun,
+            status: 'indexing'
+          })
+
+          data = { ...data, trutoSyncRun }
+        } catch (error) {
+          console.log('Error starting Truto sync job', error)
+          await docRef.update({
+            status: 'failed',
+            error: error.message
+          })
+          return res.status(500).json({ message: 'Error starting Truto sync job. Please try again.' })
+        }
+      }
 
       //move file to correct location in bucket
       if (file) {
@@ -447,8 +492,8 @@ export default async function handler(req, res) {
         console.warn('Increment transaction failed: ', e)
       }
 
-      //add source event to pub/sub queue for processing (carbon/youtube handled by cron)
-      if (!sourceType.isCarbon && type !== 'youtube') {
+      //add source event to pub/sub queue for processing (youtube handled by cron, truto handled by sync-hook)
+      if (!isTrutoSourceType(type) && type !== 'youtube') {
         await QueueSourceIngest(
           team.id,
           botId,
@@ -462,6 +507,7 @@ export default async function handler(req, res) {
           faqs,
         )
       }
+
 
       //send bento track
       try {

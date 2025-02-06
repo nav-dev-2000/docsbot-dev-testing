@@ -216,7 +216,7 @@ options: {
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
   hideSources: false, // Hide the sources in answers. Default is false.
-  noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
+  noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'gdrive', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
   labels: {
     poweredBy: "Powered by",
     inputPlaceholder: "Send a message...",
