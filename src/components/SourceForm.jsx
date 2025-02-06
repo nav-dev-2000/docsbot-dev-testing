@@ -332,7 +332,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
         <div className="mb-4 rounded-lg bg-white px-4 py-4 shadow sm:px-6">
           {!selectedSourceType && (
             <Alert title="Carbon Cloud Source Notice" type="notice">
-              Our cloud connection partner Carbon has been acquired and is no longer supported. Existing cloud sources will remain in your bot's training until deleted, but you will not be able to refresh or modify them. We will be re-enabling replacement cloud connections very soon, prioritized by popularity, starting with Google Drive and Notion this week. <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className='underline hover:text-gray-600 font-medium'>More information &rarr;</Link>.
+              Our cloud connection partner Carbon has been acquired and is no longer supported. Existing cloud sources will remain in your bot's training until deleted, but you will not be able to refresh or modify them. We have started re-enabling replacement cloud connections, prioritized by popularity. <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className='underline hover:text-gray-600 font-medium'>More information &rarr;</Link>.
             </Alert>
           )}
           <Alert title={errorText} type="error" />

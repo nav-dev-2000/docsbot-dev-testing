@@ -45,6 +45,7 @@ const footerNavigation = {
   ],
   industries,
   legal: [
+    { name: 'Privacy Policy', href: '/legal/privacy-policy' },
     { name: 'Legal', href: '/legal' },
     { name: 'Press', href: '/press' },
     { name: 'Affiliate Program', href: '/affiliates' },
