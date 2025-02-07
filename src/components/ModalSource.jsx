@@ -10,6 +10,10 @@ import {
   PhotoIcon,
   InformationCircleIcon,
   DocumentIcon,
+  GlobeAltIcon,
+  BookOpenIcon,
+  UserIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -21,7 +25,7 @@ import {
   canSourceTypeSchedule,
   canSourceTypeDownload,
   sourceTypes,
-  isTrutoSourceType
+  isTrutoSourceType,
 } from '@/constants/sourceTypes.constants'
 import QAForm from '@/components/QAForm'
 import Link from 'next/link'
@@ -29,6 +33,22 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
+import React from 'react'
+
+export const getTrutoIcon = (icon) => {
+  switch (icon) {
+    case 'global':
+      return GlobeAltIcon
+    case 'knowledge_base':
+      return BookOpenIcon
+    case 'personal':
+      return UserIcon
+    case 'collaboration':
+      return UserGroupIcon
+    default:
+      return DocumentIcon
+  }
+}
 
 export default function ModalSource({
   team,
@@ -57,7 +77,9 @@ export default function ModalSource({
   const [canModify, setModify] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredUrls, setFilteredUrls] = useState(source?.indexedUrls ?? [])
-  const [filteredTrutoSelected, setFilteredTrutoSelected] = useState(Array.isArray(source?.trutoSelected) ? source?.trutoSelected : [])
+  const [filteredTrutoSelected, setFilteredTrutoSelected] = useState(
+    Array.isArray(source?.trutoSelected) ? source?.trutoSelected : [],
+  )
   const [isTruto, setIsTruto] = useState(isTrutoSourceType(source?.type))
 
   useEffect(() => {
@@ -277,9 +299,8 @@ export default function ModalSource({
     if (!Array.isArray(source?.trutoSelected)) return
 
     const lowercasedTerm = searchTerm.toLowerCase()
-    const filtered = source.trutoSelected.filter(
-      (item) =>
-        item.name.toLowerCase().includes(lowercasedTerm)
+    const filtered = source.trutoSelected.filter((item) =>
+      item.name.toLowerCase().includes(lowercasedTerm),
     )
     setFilteredTrutoSelected(filtered)
   }, [searchTerm, source?.trutoSelected])
@@ -438,7 +459,7 @@ export default function ModalSource({
                     {source?.indexedUrls?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
-                          Indexed URLs{' '}
+                          Indexed Items{' '}
                           <em className="text-sm text-slate-500">
                             ({source?.indexedUrls.length})
                           </em>
@@ -554,69 +575,70 @@ export default function ModalSource({
                     )}
                     {source?.trutoFiles && (
                       <>
-                        <h2 className="mt-4 pb-2 text-sm font-medium text-gray-600">
-                          Indexed Items:{' '}
-                          <em className="text-sm text-slate-500">
-                            ({source.trutoFiles})
-                          </em>
-                        </h2>
+                        {(!source?.indexedUrls || source.indexedUrls.length === 0) && (
+                          <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
+                            Indexed Items:{' '}
+                            <em className="text-sm text-slate-500">
+                              ({source.trutoFiles})
+                            </em>
+                          </h2>
+                        )}
                         {Array.isArray(source.trutoSelected) &&
                           source.trutoSelected.length > 0 && (
                             <>
-                            <h3 className="mt-2 pb-2 text-sm font-medium text-gray-600">
-                              Selected Items:{' '}
-                              <em className="text-sm text-slate-500">
-                                ({source.trutoSelected.length})
-                              </em>
-                            </h3>
-                              <div className="mb-2">
-                                <label htmlFor="search" className="sr-only">
-                                  Search
-                                </label>
-                                <div className="relative flex items-center md:max-w-xs">
-                                  <div className="absolute inset-y-0 left-0 flex items-center pl-2">
-                                    <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
-                                  </div>
-                                  <input
-                                    id="filter-results"
-                                    name="filter-results"
-                                    type="text"
-                                    value={searchTerm}
-                                    onChange={(e) =>
-                                      setSearchTerm(e.target.value)
-                                    }
-                                    className="block w-full rounded-md border-0 py-1 pl-8 pr-8 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-xs sm:leading-6"
-                                    placeholder="Filter list..."
-                                  />
-                                  {searchTerm && (
-                                    <button
-                                      onClick={() => setSearchTerm('')}
-                                      className="absolute inset-y-0 right-0 flex items-center pr-2"
-                                    >
-                                      <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
-                                    </button>
-                                  )}
-                                </div>
-                              </div>
-                              <div className="border-1 max-h-96 overflow-y-scroll rounded-md border-solid border-slate-400 bg-slate-100 p-2">
+                              <h3 className="mt-6 pb-2 text-sm font-medium text-gray-600">
+                                Selected Items:{' '}
+                                <em className="text-sm text-slate-500">
+                                  ({source.trutoSelected.length})
+                                </em>
+                              </h3>
+                              <div className="border-1 max-h-48 overflow-y-scroll rounded-md border-solid border-slate-400 bg-slate-100 p-2">
                                 {filteredTrutoSelected.length > 0 ? (
                                   <ul
                                     role="list"
                                     className="grid grid-cols-1 gap-2 md:grid-cols-2"
                                   >
-                                    {filteredTrutoSelected.map((item, index) => (
-                                      <li
-                                        key={index + item.name}
-                                        className="flex items-center overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white pe-3 ps-1 py-1 shadow"
-                                      >
-                                          {item.icon ? <img src={item.icon} alt="" className="mr-2 h-4 w-4 rounded-sm" aria-hidden="true" /> : <DocumentIcon className="mr-2 h-4 w-4 text-gray-400" aria-hidden="true" />}
-                                          <Tooltip content={`Last modified: ${new Date(item.modified).toUTCString()}`}>
+                                    {filteredTrutoSelected.map(
+                                      (item, index) => (
+                                        <li
+                                          key={index + item.name}
+                                          className="flex items-center overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-white py-1 pe-3 ps-1 shadow"
+                                        >
+                                          {item.icon ? (
+                                            item.icon.startsWith('http') ? (
+                                              <img
+                                                src={item.icon}
+                                                alt=""
+                                                className="mr-2 h-4 w-4 rounded-sm"
+                                                aria-hidden="true"
+                                              />
+                                            ) : (
+                                              <>{React.createElement(getTrutoIcon(item.icon), {
+                                                className: 'mr-2 h-4 w-4 text-gray-400'
+                                              })}</>
+                                            )
+                                          ) : (
+                                            <DocumentIcon
+                                              className="mr-2 h-4 w-4 text-gray-400"
+                                              aria-hidden="true"
+                                            />
+                                          )}
+                                          {item.modified ? (
+                                            <Tooltip
+                                              content={`Last modified: ${new Date(item.modified).toUTCString()}`}
+                                            >
+                                              <span className="block w-full overflow-hidden overflow-ellipsis text-xs">
+                                                {item.name}
+                                              </span>
+                                            </Tooltip>
+                                          ) : (
                                             <span className="block w-full overflow-hidden overflow-ellipsis text-xs">
                                               {item.name}
                                             </span>
-                                          </Tooltip>
-                                      </li>
-                                    ))}
+                                          )}
+                                        </li>
+                                      ),
+                                    )}
                                   </ul>
                                 ) : (
                                   <div className="flex items-center justify-center text-center">
@@ -641,9 +663,11 @@ export default function ModalSource({
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Warnings:{' '}
-                          <em className="text-sm text-slate-500">({source?.warnsList?.length})</em>
+                          <em className="text-sm text-slate-500">
+                            ({source?.warnsList?.length})
+                          </em>
                         </h2>
-                        <div className="rounded-md max-h-48 overflow-y-scroll border-2 border-solid border-slate-200 bg-slate-100">
+                        <div className="max-h-48 overflow-y-scroll rounded-md border-2 border-solid border-slate-200 bg-slate-100">
                           <pre className="whitespace-pre-wrap p-2 font-mono text-xs text-orange-600">
                             {source?.warnsList.join('\n')}
                           </pre>

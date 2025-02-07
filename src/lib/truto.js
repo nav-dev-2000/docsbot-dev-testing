@@ -183,6 +183,15 @@ const GetTrutoSelected = async (integratedAccountId, sourceType) => {
           modified: item.lastEditedUtc,
         }))
       }
+    } else if (sourceType === 'confluence') {
+      const { context } = await GetIntegratedAccountByID(integratedAccountId)
+      if (context?.space_identifiers) {
+        trutoSelected = context.space_identifiers.map((item) => ({
+          name: item.label,
+          icon: item.subText,
+          modified: null,
+        }))
+      }
     } else if (sourceType === 'notion') {
       const pages = await ListKnowledgeBasePages(integratedAccountId, {
         pageType: 'page', // only pages, not databases currently supported
@@ -203,6 +212,8 @@ const GetTrutoSelected = async (integratedAccountId, sourceType) => {
 const ListKnowledgeBasePages = async (integrated_account_id, options = {}) => {
   let allPages = []
   let nextCursor = null
+  let pageCount = 0
+  const PAGE_LIMIT = 5
 
   do {
     const queryParams = new URLSearchParams({
@@ -229,11 +240,12 @@ const ListKnowledgeBasePages = async (integrated_account_id, options = {}) => {
       const data = await resp.json()
       allPages = allPages.concat(data.result)
       nextCursor = data.next_cursor
+      pageCount++
     } else {
       console.error(await resp.json())
       throw new Error('Failed to list knowledge base pages')
     }
-  } while (nextCursor && !options.skipPagination)
+  } while (nextCursor && !options.skipPagination && pageCount < PAGE_LIMIT)
 
   return allPages
 }

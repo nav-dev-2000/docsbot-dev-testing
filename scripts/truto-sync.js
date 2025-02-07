@@ -111,9 +111,10 @@ const UpdateSyncJob = async (sync_job_id, syncJobConfig) => {
   throw new Error('Failed to update sync job')
 }
 
-async function updateTrutoSyncJob(sync_job_id, configPath) {
+async function updateTrutoSyncJob(type, configPath) {
   const syncJobConfig = JSON.parse(fs.readFileSync(configPath))
-  const jobId = await UpdateSyncJob(sync_job_id, syncJobConfig)
+  const syncJobId = syncJobConfig.id
+  const jobId = await UpdateSyncJob(syncJobId, syncJobConfig)
   console.log('Updated trutoSyncJob:', `"${jobId}"`)
 }
 
