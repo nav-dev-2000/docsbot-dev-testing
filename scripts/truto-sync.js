@@ -118,12 +118,42 @@ async function updateTrutoSyncJob(type, configPath) {
   console.log('Updated trutoSyncJob:', `"${jobId}"`)
 }
 
+const GetSyncJob = async (sync_job_id) => {
+  const resp = await fetch(`${TRUTO_BASE_URL}/sync-job/${sync_job_id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': GetAuth()
+    }
+  })
+
+  if (resp.ok) {
+    return await resp.json()
+  } else {
+    console.error(await resp.json())
+    throw new Error('Failed to get sync job')
+  }
+}
+
+async function getSyncJobDetails(type, configPath) {
+  const syncJobConfig = JSON.parse(fs.readFileSync(configPath))
+  const syncJobId = syncJobConfig.id
+  if (!syncJobId) {
+    throw new Error('No sync job ID found in config file')
+  }
+  
+  const jobDetails = await GetSyncJob(syncJobId)
+  console.log('Sync Job Details:')
+  console.log(JSON.stringify(jobDetails, null, 2))
+}
+
 async function main() {
   const args = process.argv.slice(2);
   if (args.length < 2) {
     console.error('Usage: node createTruto.js <type> <action>');
     console.error('Example: node createTruto.js notion create');
     console.error('Example: node createTruto.js confluence update');
+    console.error('Example: node createTruto.js notion get');
     process.exit(1);
   }
 
@@ -142,8 +172,11 @@ async function main() {
       case 'update':
         await updateTrutoSyncJob(type, configPath);
         break;
+      case 'get':
+        await getSyncJobDetails(type, configPath);
+        break;
       default:
-        console.error('Invalid action. Use "create" or "update"');
+        console.error('Invalid action. Use "create", "update", or "get"');
         process.exit(1);
     }
   } catch (error) {
@@ -165,5 +198,6 @@ module.exports = {
   createTrutoSyncJob,
   updateTrutoSyncJob,
   CreateWebHook,
-  DeleteSyncJob
+  DeleteSyncJob,
+  GetSyncJob
 };

@@ -428,24 +428,7 @@ export default function ModalSource({
                       </>
                     )}
                     <Alert title={infoText} type="info" />
-                    {showInterval && (
-                      <>
-                        <Alert title={locked} type="info" />
-                        <div className="mt-4 max-w-sm justify-start">
-                          <ScheduleSelect
-                            team={team}
-                            onSelect={setScheduleInterval}
-                            defaultSelected={scheduleInterval}
-                          />
-                          <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
-                            {source?.scheduled
-                              ? 'Refresh scheduled for ' +
-                                new Date(source?.scheduled).toUTCString()
-                              : 'This source will not be refreshed.'}
-                          </h1>
-                        </div>
-                      </>
-                    )}
+                    
                     {canModify && (
                       <SourceDelete
                         team={team}
@@ -681,6 +664,24 @@ export default function ModalSource({
                         )}
                       </>
                     )}
+                    {(showInterval && !source?.carbonId) && (
+                      <>
+                        <Alert title={locked} type="info" />
+                        <div className="mt-4 max-w-sm justify-start">
+                          <ScheduleSelect
+                            team={team}
+                            onSelect={setScheduleInterval}
+                            defaultSelected={scheduleInterval}
+                          />
+                          <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
+                            {source?.scheduled
+                              ? 'Refresh scheduled for ' +
+                                new Date(source?.scheduled).toUTCString()
+                              : 'This source will not be refreshed.'}
+                          </h1>
+                        </div>
+                      </>
+                    )}
                     {!toDelete && (
                       <div className="mt-6 flex flex-col-reverse items-end justify-between space-y-0 sm:flex-row sm:space-y-0">
                         <div className="items-middle mt-8 flex flex-shrink-0 justify-end sm:mt-0">
@@ -728,7 +729,7 @@ export default function ModalSource({
                             </button>
                           )}
                         </div>
-                        {showInterval && source?.type !== 'youtube' && (
+                        {showInterval && !source?.carbonId && (
                           <div className="flex flex-shrink-0 items-end justify-end">
                             <button
                               type="button"
@@ -765,29 +766,6 @@ export default function ModalSource({
                                 <LoadingSpinner className="mr-3" />
                               )}
                               Save
-                            </button>
-                          </div>
-                        )}
-                        {isTruto && source?.status === 'ready' && (
-                          <div className="flex flex-shrink-0 items-end justify-end">
-                            <button
-                              type="button"
-                              className={
-                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
-                                (canModify
-                                  ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
-                                  : ' cursor-not-allowed border-gray-200 bg-gray-300')
-                              }
-                              onClick={refreshSource}
-                              disabled={
-                                submitting || locked !== null || !canModify
-                              }
-                            >
-                              <ArrowPathIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                              Refresh
                             </button>
                           </div>
                         )}

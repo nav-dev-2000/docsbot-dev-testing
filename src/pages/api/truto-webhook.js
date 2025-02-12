@@ -71,7 +71,10 @@ export default async function handler(req, res) {
     const body = typeof rawBody === 'string' ? JSON.parse(rawBody) : rawBody
     const { id: sync_job_id, event, payload, webhook_id, tenant_id } = body
 
-    console.log('sync_job_id', sync_job_id, 'event', event, 'payload', JSON.stringify(payload, null, 2), 'webhook_id', webhook_id, 'tenant_id', tenant_id)
+    console.log('sync_job_id', sync_job_id, 'event', event)
+    if (event.startsWith('sync_job_run:record')) {
+      console.log(JSON.stringify(payload, null, 2))
+    }
 
     if (!sync_job_id || !event || !payload) {
       return res.status(400).send({ message: 'Missing required fields' })
@@ -79,7 +82,6 @@ export default async function handler(req, res) {
 
     // ignore events that we don't care about
     if (event !== 'sync_job_run:completed') {
-        console.log('ignoring event', event)
         return res.status(200).send({ message: 'OK' })
     }
 

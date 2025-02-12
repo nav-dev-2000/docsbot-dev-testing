@@ -248,12 +248,15 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
       }
 
       const tokenResponse = await getTrutoIntegrationToken(trutoID)
-      if (!tokenResponse?.accountToken || !tokenResponse?.label) {
+      if (!tokenResponse?.accountToken) {
         throw new Error('Failed to get integration token')
       }
 
-      setTitle('Account: ' + tokenResponse.label)
-
+      console.log('Token response:', tokenResponse)
+      if (tokenResponse?.label) {
+        setTitle('Account: ' + tokenResponse.label)
+      }
+      
       // Only show file picker for Google Docs
       if (integrationType === 'googledrive' || integrationType === 'sharepoint') {
         const selectedFiles = await showFilePicker(integrationType, tokenResponse.accountToken)

@@ -1,0 +1,130 @@
+{
+  "id": "091a1ab9-cf2c-4c96-a427-532793df7f9a",
+  "integration_name": "zendesk-help",
+  "args_schema": {
+    "integrated_account_id": {
+      "type": "string",
+      "format": "integrated_account_id",
+      "required": true
+    },
+    "webhook_id": {
+      "type": "string",
+      "format": "webhook_id"
+    },
+    "google_cloud_storage_datastore_id": {
+      "type": "string",
+      "format": "datastore_id"
+    },
+    "team_id": {
+      "type": "string",
+      "required": true
+    },
+    "bot_id": {
+      "type": "string",
+      "required": true
+    },
+    "source_id": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "resources": [
+    {
+      "type": "request",
+      "name": "list-pages",
+      "resource": "knowledge-base/pages",
+      "method": "list",
+      "query": {
+        "page_type": "articles"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}"
+    },
+    {
+      "type": "add_context",
+      "name": "add-page-name",
+      "depends_on": "list-pages",
+      "config": {
+        "expression": "{ \"page_id\": resources.`knowledge-base`.pages.id, \"page_title\": resources.`knowledge-base`.pages.title ? resources.`knowledge-base`.pages.title : \"Untitled_\" & resources.`knowledge-base`.pages.id, \"page_url\": resources.`knowledge-base`.pages.urls[type=\"view\"].url }"
+      }
+    },
+    {
+      "type": "request",
+      "name": "get-page-content",
+      "resource": "knowledge-base/page-content",
+      "method": "list",
+      "depends_on": "list-pages",
+      "query": {
+        "page_type": "{{resources.knowledge-base.pages.page_type}}",
+        "page": {
+          "id": "{{resources.knowledge-base.pages.id}}"
+        },
+        "format": "markdown"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}",
+      "run_if": "resources.`knowledge-base`.pages.status = \"published\""
+    },
+    {
+      "name": "remove-remote-data",
+      "type": "transform",
+      "config": {
+        "expression": "resources.`knowledge-base`.`page-content`.$sift(function($v, $k) { $k != remote_data })"
+      },
+      "depends_on": "get-page-content"
+    },
+    {
+      "name": "all-page-content",
+      "type": "spool",
+      "depends_on": "remove-remote-data"
+    },
+    {
+      "name": "combine-page-content",
+      "type": "transform",
+      "config": {
+        "expression": "{ \"file_id\": page_id, \"file_name\": page_title, \"file_url\": page_url, \"content\": $reduce($sortNodes(resources.`knowledge-base`.`page-content`, \"id\", \"parent.id\"), function($acc, $v) { $acc & $v.body.content }, \"\" ) }"
+      },
+      "depends_on": "all-page-content"
+    },
+    {
+      "name": "webhook",
+      "type": "destination",
+      "destination_type": "webhook",
+      "config": {
+        "id": "{{args.webhook_id}}"
+      },
+      "run_if": "$exists(args.webhook_id)",
+      "resources_to_persist": [
+        "combine-page-content"
+      ]
+    },
+    {
+      "name": "google-cloud-storage",
+      "type": "destination",
+      "destination_type": "datastore",
+      "method": "uploadObject",
+      "config": {
+        "id": "{{args.google_cloud_storage_datastore_id}}",
+        "config": {
+          "path": "teams/{{args.team_id}}/bots/{{args.bot_id}}/sources/{{args.source_id}}",
+          "file_name": "{{page_title}}.md",
+          "content": "{{payload.records.0.content}}",
+          "upload_type": "resumable",
+          "headers": {
+            "Content-Type": "text/markdown",
+            "X-Goog-Meta-File-Id": "{{page_id}}",
+            "X-Goog-Meta-File-Url": "{{page_url}}"
+          }
+        }
+      },
+      "run_if": "$exists(args.google_cloud_storage_datastore_id)",
+      "resources_to_persist": [
+        "combine-page-content"
+      ]
+    }
+  ],
+  "environment_id": "5e6c1566-bd23-4b05-a481-f579eec913b7",
+  "created_at": "2025-02-07T20:39:06.000Z",
+  "updated_at": "2025-02-12T10:31:58.000Z",
+  "default_runtime_version": 4,
+  "label": "Fetch all the pages from Zendesk Help Center",
+  "args_validation": "$firstNonEmpty(args.webhook_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"
+}

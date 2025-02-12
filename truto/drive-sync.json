@@ -1,6 +1,6 @@
 {
   "id": "22eb3292-c928-4281-a3a8-feb7dff95163",
-  "integration_name": "",
+  "integration_name": "drive",
   "args_schema": {
     "integrated_account_id": {
       "type": "string",
@@ -64,7 +64,8 @@
       "method": "download",
       "depends_on": "get-files",
       "query": "{\n  \"file_url\": resources.`file-storage`.`drive-items`.(\n    $matcher := $mapValues(mime_type, {\n      \"application/vnd.google-apps.document\": \"text/markdown\",\n      \"application/vnd.google-apps.spreadsheet\": \"text/csv\",\n \"application/vnd.google-apps.presentation\": \"text/plain\" \n   });\n    urls[mimeType = $matcher and type = \"truto_download\" ].url ? urls[mimeType = $matcher and type = \"truto_download\" ].url : urls[type = \"truto_download\"][0].url \n  )\n}",
-      "integrated_account_id": "{{args.integrated_account_id}}"
+      "integrated_account_id": "{{args.integrated_account_id}}",
+      "run_if": "resources.`file-storage`.`drive-items`.(\n    $matcher := $mapValues(mime_type, {\n      \"application/vnd.google-apps.document\": \"text/markdown\",\n      \"application/vnd.google-apps.spreadsheet\": \"text/csv\",\n \"application/vnd.google-apps.presentation\": \"text/plain\" \n   });\n    urls[mimeType = $matcher and type = \"truto_download\" ].url ? urls[mimeType = $matcher and type = \"truto_download\" ].url : urls[type = \"truto_download\"][0].url \n  ) ? true : false"
     },
     {
       "name": "transform-file-content",
@@ -114,7 +115,7 @@
   ],
   "environment_id": "5e6c1566-bd23-4b05-a481-f579eec913b7",
   "created_at": "2025-02-03T04:47:51.000Z",
-  "updated_at": "2025-02-05T18:02:52.000Z",
+  "updated_at": "2025-02-12T10:30:16.000Z",
   "default_runtime_version": 4,
   "label": "Fetch all the files from Google Drive",
   "args_validation": "$firstNonEmpty(args.webhook_id, args.google_cloud_storage_datastore_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"

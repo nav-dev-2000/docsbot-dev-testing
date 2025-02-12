@@ -4,6 +4,7 @@ import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
+import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -41,16 +42,6 @@ export default async function handler(request, response) {
       const teamId = teamRef.id
 
       try {
-        // Check if it's a truto source type, we are not supporting truto sources for cron jobs anymore
-        if (isTrutoSourceType(source.type)) {
-          console.log(`Skipping truto source type for source ${doc.id}`)
-          // remove schedule
-          doc.ref.update({
-            scheduled: FieldValue.delete(),
-            scheduleInterval: 'none',
-          })
-          return // Skip this iteration
-        }
 
         // grab next schedule date
         const nextSchedule = checkSourceScheduledFromInterval(
@@ -58,11 +49,34 @@ export default async function handler(request, response) {
           source.scheduleInterval,
         )
 
+        // Check if it's a truto source type, we are not supporting truto sources for cron jobs anymore
+        if (isTrutoSourceType(source.type)) {
+          try {
+            // start Truto sync job
+            const trutoSyncRun = await RunSyncJob(GetSyncJobID(source.type), source?.trutoIntegrationID, teamId, botId, doc.id)
+            console.log("Starting Trutosync job with ID:", trutoSyncRun)
+    
+            // add sync job id to source
+            await doc.ref.update({
+              status: 'indexing',
+              createdAt: FieldValue.serverTimestamp(), // prevent expiration failure, not sure if this is needed?
+              trutoSyncRun,
+              scheduled: nextSchedule,
+            })
+
+            return // we don't want to reingest the source here, we just want to start the sync job which will reingest the source when it's done via webhook
+    
+          } catch (error) {
+            console.log('Error starting Truto sync job', error)
+            return
+          }
+        }
+
         // update and reingest source
         await doc.ref.update({
           scheduled: nextSchedule,
         })
-
+        
         await QueueSourceRegest(teamId, botId, doc.id)
       } catch (error) {
         console.log(doc.id, 'refresh error:', error)
