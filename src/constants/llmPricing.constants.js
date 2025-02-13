@@ -35,6 +35,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 2.4,
     },
     {
+      model_name: 'o3-mini',
+      model_slug: 'o3-mini',
+      page_slug: 'o3-mini',
+      context: '200K/100K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 1.10,
+      output_token_cost_per_million: 4.40,
+    },
+    {
       model_name: 'o1',
       model_slug: 'o1',
       page_slug: 'o1',
@@ -58,8 +67,8 @@ export const LLM_PRICING = {
       page_slug: 'o1-mini',
       context: '128K/65K',
       provider: 'OpenAI',
-      input_token_cost_per_million: 3,
-      output_token_cost_per_million: 12,
+      input_token_cost_per_million: 1.10,
+      output_token_cost_per_million: 4.40,
     },
     {
       model_name: 'GPT-4o Realtime (Text)',

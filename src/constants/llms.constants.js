@@ -2171,6 +2171,49 @@ const LLMS = [
     benchmarks: {},
   },
   {
+    model_name: 'o3-mini',
+    slug: 'o3-mini',
+    provider: 'openai',
+    description:
+      'OpenAI o3-mini is a fast, cost-efficient reasoning model optimized for STEM tasks, particularly excelling in science, math, and coding. Released in January 2025, it supports key developer features including function calling, structured outputs, and developer messages. The model offers three reasoning effort options (low, medium, high) to balance between deep reasoning and low latency. Unlike o3, it does not support vision capabilities. Initially available to select developers in API usage tiers 3-5, it can be accessed through Chat Completions API, Assistants API, and Batch API.',
+    input_context_window: '200K',
+    maximum_output_tokens: '100K',
+    open_source: false,
+    release_date: '2025-01-31',
+    knowledge_cut_off_date: null,
+    api_providers: 'OpenAI API',
+    input_cost_per_million_tokens: 1.10,
+    output_cost_per_million_tokens: 4.40,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 86.9,
+        notes: 'pass@1, high effort',
+        source: 'https://openai.com/index/openai-o3-mini/',
+      },
+      GPQA: {
+        score: 79.7,
+        notes: '0-shot, high effort',
+        source: 'https://openai.com/index/openai-o3-mini/',
+      },
+      MATH: {
+        score: 97.9,
+        notes: 'pass@1, high effort',
+        source: 'https://openai.com/index/openai-o3-mini/',
+      },
+      SimpleQA: {
+        score: 13.8,
+        notes: 'high effort',
+        source: 'https://openai.com/index/openai-o3-mini/',
+      },
+    },
+  },
+  {
     model_name: 'o1 Pro',
     slug: 'o1-pro',
     provider: 'openai',
@@ -2329,8 +2372,8 @@ const LLMS = [
     release_date: '2024-09-12',
     knowledge_cut_off_date: 'October 2023',
     api_providers: 'OpenAI, Azure OpenAI Service',
-    input_cost_per_million_tokens: 3,
-    output_cost_per_million_tokens: 12,
+    input_cost_per_million_tokens: 1.10,
+    output_cost_per_million_tokens: 4.40,
     modalities: {
       text: true,
       image: false,
