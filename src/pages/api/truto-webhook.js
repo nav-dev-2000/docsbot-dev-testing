@@ -2,7 +2,8 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { QueueSourceRegest } from '@/lib/service'
 import { stripePlan } from '@/utils/helpers'
-import { getSource, getTeam } from '@/lib/dbQueries'
+import { getSource, getSources, getTeam } from '@/lib/dbQueries'
+import { GetIntegratedAccountsByTenantID, GetTenantId, DeleteIntegratedAccount } from '@/lib/truto'
 import crypto from 'crypto'
 
 // const findTrutoSourceByIntegrationId = async (integrationId) => {
@@ -48,6 +49,37 @@ export const config = {
   }
 }
 
+
+
+/**
+ * Removes orphaned Truto integrations that no longer have corresponding sources
+ * 
+ * When a new integration is created, this checks all existing integrations for the tenant
+ * and removes any that don't have an associated source in our system. This prevents
+ * accumulation of stale/unused integrations.
+ *
+ * @param {string} team_id - The ID of the team
+ * @param {string} bot_id - The ID of the bot
+ * @param {string|null} integrated_account_id - Optional ID of a newly created integration to exclude from cleanup
+ * @returns {Promise<void>}
+ */
+const purgeOrphans = async (team_id, bot_id, integrated_account_id = null) => {
+  console.log("Purging orphans for", team_id, bot_id)
+  const tenant_id = GetTenantId(team_id, bot_id)
+  const { sources } = await getSources(team_id, {id: bot_id})
+  const integratedAccounts = await GetIntegratedAccountsByTenantID(tenant_id)
+
+  integratedAccounts.forEach(async integratedAccount => {
+    const id = integratedAccount.id
+    // check if source for this integrated account exists
+    const source = sources.find(source => source.trutoIntegrationID === id)
+    if (!source && id !== integrated_account_id) {
+      console.log("Removing orphaned integration", id)
+      await DeleteIntegratedAccount(id)
+    }
+  })
+}
+
 export default async function handler(req, res) {
   configureFirebaseApp()
   const db = getFirestore()
@@ -69,7 +101,7 @@ export default async function handler(req, res) {
 
     // Since we're using raw body parser, we need to parse the body only if it's a string
     const body = typeof rawBody === 'string' ? JSON.parse(rawBody) : rawBody
-    const { id: sync_job_id, event, payload, webhook_id, tenant_id } = body
+    const { id: sync_job_id, event, payload } = body
 
     console.log('sync_job_id', sync_job_id, 'event', event)
     if (event.startsWith('sync_job_run:record')) {
@@ -78,6 +110,18 @@ export default async function handler(req, res) {
 
     if (!sync_job_id || !event || !payload) {
       return res.status(400).send({ message: 'Missing required fields' })
+    }
+
+    // purge orphaned integrations on integration creation
+    if (event === 'integrated_account:created') {
+      const { id: integrated_account_id, tenant_id } = payload
+      const [team_id, bot_id] = tenant_id.split('-')
+      if (!team_id || !bot_id) {
+        return res.status(400).send({ message: 'Invalid tenant_id format' })
+      }
+
+      await purgeOrphans(team_id, bot_id, integrated_account_id)
+      return res.status(200).send({ message: 'OK' })
     }
 
     // ignore events that we don't care about
@@ -95,19 +139,6 @@ export default async function handler(req, res) {
         return res.status(200).send({ message: 'OK' })
     }
 
-    // await QueueSourceIngest(
-    //   team_id,
-    //   bot_id,
-    //   source_id,
-    //   stripePlan(team).pages - team.pageCount,
-    //   null,
-    //   'truto',
-    //   source?.title,
-    //   source?.url,
-    //   null,
-    //   null,
-    //   null
-    // )
     await QueueSourceRegest(team_id, bot_id, source_id)
     return res.status(200).send({ message: 'OK' })
   } else {

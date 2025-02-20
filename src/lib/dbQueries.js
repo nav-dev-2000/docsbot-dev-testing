@@ -226,6 +226,7 @@ export async function getSources(
       'url',
       //'faqs',
       //'indexedUrls',
+      'trutoIntegrationID',
       'trutoFiles',
       'carbonId', //to display notice on legacy sources
       'warnsList',

@@ -147,6 +147,47 @@ const DeleteIntegratedAccount = async (integrated_account_id) => {
   }
 }
 
+const GetIntegratedAccountsByTenantID = async (tenant_id) => {
+  const resp = await fetch(`${TRUTO_BASE_URL}/integrated-account?tenant_id=${tenant_id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: GetAuth(),
+    }
+  })
+
+  if (resp.ok) {
+    const data = await resp.json()
+    let { next_cursor, result } = data
+
+    // let combinedResults = []
+    // if (next_cursor) {
+    //   combinedResults = combinedResults.concat(results)
+    //   do {
+    //     const resp = await fetch(`${TRUTO_BASE_URL}/integrated-account`, {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         Authorization: GetAuth(),
+    //       },
+    //       body: JSON.stringify({
+    //         next_cursor: next_cursor,
+    //         tenant_id: tenant_id,
+    //       }),
+    //     })
+    //     const data = await resp.json()
+    //     let { next_cursor, results } = data
+    //     console.log('next_cursor', next_cursor)
+    //     combinedResults = combinedResults.concat(results)
+    //   } while (next_cursor)
+    // }
+    return result
+  } else {
+    console.error(await resp.json())
+    throw new Error('Failed to get integrated accounts')
+  }
+};
+
 const BulkDeleteIntegratedAccounts = async (teamId, botId) => {
   const resp = await fetch(`${TRUTO_BASE_URL}/integrated-account/bulk-delete`, {
     method: 'POST',
@@ -265,6 +306,7 @@ export {
   GetTenantId,
   GetIntegratedAccountToken,
   GetIntegratedAccountByID,
+  GetIntegratedAccountsByTenantID,
   RunSyncJob,
   DeleteIntegratedAccount,
   BulkDeleteIntegratedAccounts,
