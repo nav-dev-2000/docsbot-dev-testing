@@ -251,7 +251,7 @@ export default async function handler(req, res) {
                 },
                 should_index: {
                   type: 'boolean',
-                  description: 'True only if the prompt would be generally useful to many people, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW',
+                  description: 'True only if the prompt would be generally useful to many people, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, scam bots, gift cards, or other potentially harmful content.',
                 },
               },
               required: [
