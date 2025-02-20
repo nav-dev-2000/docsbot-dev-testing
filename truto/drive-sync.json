@@ -84,7 +84,6 @@
       },
       "run_if": "$exists(args.webhook_id)",
       "resources_to_persist": [
-        "transform-file-content",
         "get-files"
       ]
     },
@@ -103,7 +102,8 @@
           "headers": {
             "Content-Type": "{{content_type}}",
             "X-Goog-Meta-File-Id": "{{file_id}}",
-            "X-Goog-Meta-File-Url": "{{file_url}}"
+            "X-Goog-Meta-File-Url": "{{file_url}}",
+            "X-Goog-Meta-File-Title": "{{file_name}}"
           }
         }
       },

@@ -519,7 +519,7 @@ export default function ModalSource({
                         </div>
                       </>
                     )}
-                    {source?.carbonId && (
+                    {source?.carbonId ? (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
                           Indexed Files:{' '}
@@ -555,8 +555,8 @@ export default function ModalSource({
                           </div>
                         </div>
                       </>
-                    )}
-                    {source?.trutoFiles && (
+                    ) : null}
+                    {source?.trutoFiles ? (
                       <>
                         {(!source?.indexedUrls || source.indexedUrls.length === 0) && (
                           <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">
@@ -641,7 +641,7 @@ export default function ModalSource({
                             </>
                           )}
                       </>
-                    )}
+                    ) : null}
                     {source?.warnsList?.length > 0 && (
                       <>
                         <h2 className="mt-6 pb-2 text-sm font-medium text-gray-600">

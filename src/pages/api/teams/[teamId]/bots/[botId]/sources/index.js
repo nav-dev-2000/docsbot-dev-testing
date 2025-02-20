@@ -450,7 +450,8 @@ export default async function handler(req, res) {
         } catch (error) {
           console.log('Error moving file', error)
           await docRef.update({
-            status: 'error'
+            status: 'failed',
+            error: error.message
           })
           return res.status(500).json({ message: 'Error processing uploaded file. Please try again.' })
         }

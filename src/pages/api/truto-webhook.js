@@ -82,7 +82,8 @@ export default async function handler(req, res) {
 
     // ignore events that we don't care about
     if (event !== 'sync_job_run:completed') {
-        return res.status(200).send({ message: 'OK' })
+      console.log(JSON.stringify(payload, null, 2))
+      return res.status(200).send({ message: 'OK' })
     }
 
     const { id, args } = payload

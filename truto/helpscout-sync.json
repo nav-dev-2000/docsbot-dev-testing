@@ -36,7 +36,7 @@
       "method": "list",
       "query": {
         "status": "closed",
-        "collections": ["{{mailbox}}"],
+        "collections": "{{mailboxes}}",
         "created_at": "NOW-{{months}}MONTH"
       },
       "integrated_account_id": "{{args.integrated_account_id}}"
