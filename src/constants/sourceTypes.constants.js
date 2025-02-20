@@ -17,6 +17,7 @@ import IntercomLogo from '@/components/IntercomLogo'
 import DriveLogo from '@/components/DriveLogo'
 import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
+import HelpScoutLogo from '@/components/HelpScoutLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
 import SharepointLogo from '@/components/SharepointLogo'
 import GitBookLogo from '@/components/GitBookLogo'
@@ -476,6 +477,24 @@ export const sourceTypes = [
   },
 */
   // Customer Support
+  {
+    id: 'helpscout',
+    title: 'Help Scout',
+    description: 'Answer questions from closed Help Scout tickets',
+    fullDescription: 'Connect to Help Scout via our partner Truto to import recent closed tickets. We do not currently index open tickets, only closed ones. (BETA)',
+    icon: HelpScoutLogo,
+    isTruto: 'helpscout',
+    isPro: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    fieldImages: true,
+    category: 'Customer Support',
+    //instructionsUrl: '/documentation/doc/training-a-chatbot-from-helpscout',
+  },
   {
     id: 'zendesk',
     title: 'Zendesk Guide/Help Center',

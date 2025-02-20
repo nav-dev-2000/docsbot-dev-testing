@@ -10,7 +10,7 @@ import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
-import { GetTrutoSelected } from '@/lib/truto'
+import { GetTrutoSelected, RunSyncJob, GetSyncJobID } from '@/lib/truto'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -64,6 +64,33 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'YouTube sources cannot be retried manually. Please delete and recreate the source.' })
     }
 
+    if (isTrutoSourceType(source.type)) {
+      try {
+        // start Truto sync job
+        const trutoSyncRun = await RunSyncJob(GetSyncJobID(source.type), source?.trutoIntegrationID, team.id, botId, sourceId)
+        console.log("Starting Truto sync job with ID:", trutoSyncRun)
+
+        // add sync job id to source
+        await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('sources')
+        .doc(sourceId)
+        .update({
+          status: 'indexing',
+          createdAt: FieldValue.serverTimestamp(), // revent expiration failure
+          trutoSyncRun
+        })
+
+      } catch (error) {
+        console.log('Error starting Truto sync job', error)
+        return res.status(500).json({ message: 'Error starting Truto sync job. Please try again.' })
+      }
+      return res.status(201).json(await getSource(team, bot, sourceId))
+    }
+
     //update source status in db
     try {
       await firestore
@@ -87,10 +114,6 @@ export default async function handler(req, res) {
         phTrack(userId, 'Source Retried', {}, team.id)
       } catch (e) {
         console.log('Error sending bento track', e)
-      }
-
-      if (isTrutoSourceType(source.type)) {
-        source.type = 'truto'
       }
 
       //add source event to pub/sub queue for processing

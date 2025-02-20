@@ -1,0 +1,116 @@
+{
+  "id": "bce465f7-27f6-472a-b1a9-fbc5f76489ba",
+  "integration_name": "helpscout",
+  "args_schema": {
+    "integrated_account_id": {
+      "type": "string",
+      "format": "integrated_account_id",
+      "required": true
+    },
+    "webhook_id": {
+      "type": "string",
+      "format": "webhook_id"
+    },
+    "google_cloud_storage_datastore_id": {
+      "type": "string",
+      "format": "datastore_id"
+    },
+    "team_id": {
+      "type": "string",
+      "required": true
+    },
+    "bot_id": {
+      "type": "string",
+      "required": true
+    },
+    "source_id": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "resources": [
+    {
+      "type": "request",
+      "name": "list-tickets",
+      "resource": "ticketing/tickets",
+      "method": "list",
+      "query": {
+        "status": "closed",
+        "collections": ["{{mailbox}}"],
+        "created_at": "NOW-{{months}}MONTH"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}"
+    },
+    {
+      "type": "add_context",
+      "name": "add-ticket-context",
+      "depends_on": "list-tickets",
+      "config": {
+        "expression": "{ \"ticket_id\": resources.`ticketing`.tickets.id, \"subject\": resources.`ticketing`.tickets.name, \"ticket_url\": resources.`ticketing`.tickets.ticket_url }"
+      }
+    },
+    {
+      "type": "request",
+      "name": "get-ticket-comments",
+      "resource": "ticketing/comments",
+      "method": "list",
+      "depends_on": "list-tickets",
+      "query": {
+        "ticket_id": "{{resources.ticketing.tickets.id}}"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}",
+      "run_if": "resources.`ticketing`.tickets.remote_data.threads > 1"
+    },
+    {
+      "name": "combine-ticket-comments",
+      "type": "transform",
+      "config": {
+        "expression": "{ \"file_id\": ticket_id, \"file_name\": subject, \"file_url\": ticket_url, \"content\": $reduce($sort(resources.`ticketing`.comments, function($l, $r) { $l.created_at > $r.created_at }), function($acc, $v) { ($v.is_private = false) and ($not(($v.remote_data.type = \"note\") and ($v.remote_data.source.type = \"beacon-v2\"))) ? $acc & ($v.author.type = \"user\" ? \"<h2>Staff Response</h2>\n\" : \"<h2>Customer Message</h2>\n\") & $v.html_body & \"\n\n---------\n\n\" : $acc }, \"\" ) }"
+      },
+      "depends_on": "get-ticket-comments"
+    },
+    {
+      "name": "webhook",
+      "type": "destination",
+      "destination_type": "webhook",
+      "config": {
+        "id": "{{args.webhook_id}}"
+      },
+      "run_if": "$exists(args.webhook_id)",
+      "resources_to_persist": [
+        "combine-ticket-comments"
+      ]
+    },
+    {
+      "name": "google-cloud-storage",
+      "type": "destination",
+      "destination_type": "datastore",
+      "method": "uploadObject",
+      "config": {
+        "id": "{{args.google_cloud_storage_datastore_id}}",
+        "config": {
+          "path": "teams/{{args.team_id}}/bots/{{args.bot_id}}/sources/{{args.source_id}}",
+          "file_name": "{{subject}}_{{ticket_id}}.html",
+          "content": "{{payload.records.0.content}}",
+          "upload_type": "resumable",
+          "headers": {
+            "Content-Type": "text/html",
+            "X-Goog-Meta-File-Id": "{{ticket_id}}",
+            "X-Goog-Meta-File-Url": "{{ticket_url}}",
+            "X-Goog-Meta-File-Title": "{{subject}}"
+          }
+        }
+      },
+      "run_if": "$exists(args.google_cloud_storage_datastore_id)",
+      "resources_to_persist": [
+        "combine-ticket-comments"
+      ]
+    }
+  ],
+  "environment_id": "5e6c1566-bd23-4b05-a481-f579eec913b7",
+  "created_at": "2025-02-04T06:22:50.000Z",
+  "updated_at": "2025-02-05T18:04:59.000Z",
+  "default_runtime_version": 4,
+  "label": "Fetch all the tickets from Help Scout",
+  "args_validation": "$firstNonEmpty(args.webhook_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"
+}
