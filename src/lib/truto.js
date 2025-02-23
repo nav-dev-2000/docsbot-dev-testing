@@ -95,6 +95,26 @@ const RunSyncJob = async (
   bot_id,
   source_id,
 ) => {
+  const integratedAccount = await GetIntegratedAccountByID(integrated_account_id)
+  //console.log('integration', integratedAccount)
+
+  const args = {
+    integrated_account_id: integrated_account_id,
+    webhook_id: GetWebHookID(),
+    google_cloud_storage_datastore_id: GetDatastoreID(),
+    team_id,
+    bot_id,
+    source_id,
+  }
+
+  if (integratedAccount.integration.name === 'freshdesk') {
+    const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - (integratedAccount.context.months || 3)))
+    args.start_date = monthAgo.toISOString().split('T')[0]
+    args.base_url = `https://${integratedAccount.context.subdomain}.freshdesk.com/a/tickets/`
+  }
+
+  console.log('args', args)
+
   const resp = await fetch(`${TRUTO_BASE_URL}/sync-job-run`, {
     method: 'POST',
     headers: {
@@ -103,14 +123,7 @@ const RunSyncJob = async (
     },
     body: JSON.stringify({
       sync_job_id: sync_job_id,
-      args: {
-        integrated_account_id: integrated_account_id,
-        webhook_id: GetWebHookID(),
-        google_cloud_storage_datastore_id: GetDatastoreID(),
-        team_id,
-        bot_id,
-        source_id,
-      },
+      args,
     }),
   })
 
