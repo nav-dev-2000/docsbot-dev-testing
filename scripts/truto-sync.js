@@ -1,17 +1,38 @@
 const TRUTO_BASE_URL = 'https://api.truto.one'
 const fs = require('fs')
 
-const GetAuth = () => {
-  return `Bearer ${process.env.TRUTO_API_KEY}`
+const GetEnvValue = (key, env = 'staging') => {
+  try {
+    const envFile = env === 'production' ? 
+      require('fs').readFileSync('.env.prod.local', 'utf8') :
+      require('fs').readFileSync('.env.local', 'utf8');
+    
+    const match = envFile.match(new RegExp(`${key}=(.+)`));
+    if (match && match[1]) {
+      // Remove surrounding quotes if present
+      return match[1].replace(/^['"]|['"]$/g, '');
+    }
+  } catch (error) {
+    console.error(`Error reading ${key}:`, error.message);
+  }
+  return null;
+}
+
+const GetAuth = (env = 'staging') => {
+  const apiKey = GetEnvValue('TRUTO_API_KEY', env);
+  if (!apiKey) {
+    throw new Error(`No TRUTO_API_KEY found in ${env} environment`);
+  }
+  return `Bearer ${apiKey}`;
 }
 
 // returns sync job id of the created sync job
-const CreateSyncJob = async (syncJobConfig) => {
+const CreateSyncJob = async (syncJobConfig, env = 'staging') => {
   const resp = await fetch(`${TRUTO_BASE_URL}/sync-job`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': GetAuth()
+      'Authorization': GetAuth(env)
     },
     body: JSON.stringify(syncJobConfig)
   })
@@ -29,12 +50,12 @@ const CreateSyncJob = async (syncJobConfig) => {
 }
 
 // returns sync job id of the deleted sync job
-const DeleteSyncJob = async (sync_job_id) => {
+const DeleteSyncJob = async (sync_job_id, env = 'staging') => {
   const resp = await fetch(`${TRUTO_BASE_URL}/sync-job/${sync_job_id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': GetAuth()
+      'Authorization': GetAuth(env)
     }
   })
 
@@ -50,12 +71,12 @@ const DeleteSyncJob = async (sync_job_id) => {
   throw new Error('Failed to delete sync job')
 }
 
-const CreateWebHook = async (target_url) => {
+const CreateWebHook = async (target_url, env = 'staging') => {
   const resp = await fetch(`${TRUTO_BASE_URL}/webhook`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': GetAuth()
+      'Authorization': GetAuth(env)
     },
     body: JSON.stringify({
       target_url: target_url
@@ -74,14 +95,14 @@ const CreateWebHook = async (target_url) => {
   throw new Error('Failed to create webhook')
 }
 
-async function createTrutoSyncJob(type, configPath) {
+async function createTrutoSyncJob(type, configPath, env = 'staging') {
     const syncJobConfig = JSON.parse(fs.readFileSync(configPath))
     // Add the integration type to the config
     syncJobConfig.integration_name = type
     syncJobConfig.label = `Fetch all the pages from ${type}`
     
-    const jobId = await CreateSyncJob(syncJobConfig)
-    console.log('trutoSyncJob:', `"${jobId}"`)
+    const jobId = await CreateSyncJob(syncJobConfig, env)
+    console.log('trutoSyncJob:', `"${jobId}"`, `(${env})`)
 }
 
 async function createWeb(hookUrl) {
@@ -89,12 +110,12 @@ async function createWeb(hookUrl) {
   console.log('webHookID:', webHookID)
 }
 
-const UpdateSyncJob = async (sync_job_id, syncJobConfig) => {
+const UpdateSyncJob = async (sync_job_id, syncJobConfig, env = 'staging') => {
   const resp = await fetch(`${TRUTO_BASE_URL}/sync-job/${sync_job_id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': GetAuth()
+      'Authorization': GetAuth(env)
     },
     body: JSON.stringify(syncJobConfig)
   })
@@ -111,19 +132,38 @@ const UpdateSyncJob = async (sync_job_id, syncJobConfig) => {
   throw new Error('Failed to update sync job')
 }
 
-async function updateTrutoSyncJob(type, configPath) {
-  const syncJobConfig = JSON.parse(fs.readFileSync(configPath))
-  const syncJobId = syncJobConfig.id
-  const jobId = await UpdateSyncJob(syncJobId, syncJobConfig)
-  console.log('Updated trutoSyncJob:', `"${jobId}"`)
+const GetSyncJobId = (type, env = 'staging') => {
+  try {
+    const syncJobs = GetEnvValue('TRUTO_SYNC_JOBS', env);
+    if (syncJobs) {
+      const syncJobsObj = JSON.parse(syncJobs);
+      return syncJobsObj[type];
+    }
+  } catch (error) {
+    console.error('Error reading sync job ID:', error.message);
+  }
+  return null;
 }
 
-const GetSyncJob = async (sync_job_id) => {
+async function updateTrutoSyncJob(type, configPath, env = 'staging') {
+  const syncJobConfig = JSON.parse(fs.readFileSync(configPath));
+  // Get sync job ID from env file instead of config
+  const syncJobId = GetSyncJobId(type, env);
+  if (!syncJobId) {
+    throw new Error(`No sync job ID found for type ${type} in ${env} environment`);
+  }
+  
+  syncJobConfig.id = syncJobId;
+  const jobId = await UpdateSyncJob(syncJobId, syncJobConfig, env);
+  console.log('Updated trutoSyncJob:', `"${jobId}"`, `(${env})`);
+}
+
+const GetSyncJob = async (sync_job_id, env = 'staging') => {
   const resp = await fetch(`${TRUTO_BASE_URL}/sync-job/${sync_job_id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': GetAuth()
+      'Authorization': GetAuth(env)
     }
   })
 
@@ -135,30 +175,39 @@ const GetSyncJob = async (sync_job_id) => {
   }
 }
 
-async function getSyncJobDetails(type, configPath) {
-  const syncJobConfig = JSON.parse(fs.readFileSync(configPath))
-  const syncJobId = syncJobConfig.id
+async function getSyncJobDetails(type, configPath, env = 'staging') {
+  const syncJobId = GetSyncJobId(type, env);
   if (!syncJobId) {
-    throw new Error('No sync job ID found in config file')
+    throw new Error(`No sync job ID found for type ${type} in ${env} environment`);
   }
   
-  const jobDetails = await GetSyncJob(syncJobId)
-  console.log('Sync Job Details:')
-  console.log(JSON.stringify(jobDetails, null, 2))
+  const jobDetails = await GetSyncJob(syncJobId, env);
+  console.log('Sync Job Details:');
+  console.log(JSON.stringify(jobDetails, null, 2));
 }
 
 async function main() {
   const args = process.argv.slice(2);
   if (args.length < 2) {
-    console.error('Usage: node createTruto.js <type> <action>');
+    console.error('Usage: node createTruto.js <type> <action> [environment]');
     console.error('Example: node createTruto.js notion create');
-    console.error('Example: node createTruto.js confluence update');
-    console.error('Example: node createTruto.js notion get');
+    console.error('Example: node createTruto.js confluence update production');
+    console.error('Example: node createTruto.js notion get staging');
     process.exit(1);
   }
 
-  const [type, action] = args;
+  const [type, action, env = 'staging'] = args;
   const configPath = `truto/${type}-sync.json`;
+  
+  // Force production environment if prod is specified
+  if (env === 'prod') {
+    env = 'production';
+  }
+
+  if (env !== 'staging' && env !== 'production') {
+    console.error('Environment must be either "staging" or "production"');
+    process.exit(1);
+  }
 
   try {
     if (!fs.existsSync(configPath)) {
@@ -167,13 +216,13 @@ async function main() {
 
     switch (action) {
       case 'create':
-        await createTrutoSyncJob(type, configPath);
+        await createTrutoSyncJob(type, configPath, env);
         break;
       case 'update':
-        await updateTrutoSyncJob(type, configPath);
+        await updateTrutoSyncJob(type, configPath, env);
         break;
       case 'get':
-        await getSyncJobDetails(type, configPath);
+        await getSyncJobDetails(type, configPath, env);
         break;
       default:
         console.error('Invalid action. Use "create", "update", or "get"');
