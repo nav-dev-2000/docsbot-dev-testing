@@ -114,6 +114,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 60,
     },
     {
+      model_name: 'Claude 3.7 Sonnet',
+      model_slug: 'claude-3-7-sonnet',
+      page_slug: 'claude-3-7-sonnet',
+      context: '200K/128K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 3,
+      output_token_cost_per_million: 15,
+    },
+    {
       model_name: 'Claude 3.5 Sonnet',
       model_slug: 'claude-3-5-sonnet-20241022',
       page_slug: 'claude-3-5-sonnet',

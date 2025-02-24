@@ -33,7 +33,97 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Claude 3.5 Sonnet',
+    model_name: 'Claude 3.7 Sonnet - Extended Thinking',
+    slug: 'claude-3-7-sonnet-extended-thinking',
+    provider: 'anthropic',
+    description:
+      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+    input_context_window: '200K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-02-24',
+    knowledge_cut_off_date: 'April 2024',
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      GPQA: {
+        score: 84.8,
+        notes: 'Diamond',
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MMMU: {
+        score: 75,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      IFEval: {
+        score: 93.2,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MATH: {
+        score: 96.2,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MMMLU: {
+        score: 86.8,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+    },
+  },
+  {
+    model_name: 'Claude 3.7 Sonnet',
+    slug: 'claude-3-7-sonnet',
+    provider: 'anthropic',
+    description:
+      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+    input_context_window: '200K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-02-24',
+    knowledge_cut_off_date: 'April 2024',
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      GPQA: {
+        score: 68,
+        notes: 'Diamond',
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MMMU: {
+        score: 71.8,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      IFEval: {
+        score: 90.8,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MATH: {
+        score: 82.2,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+      MMMLU: {
+        score: 83.2,
+        source: 'https://www.anthropic.com/news/claude-3-7-sonnet',
+      },
+    },
+  },
+  {
+    model_name: 'Claude 3.5 Sonnet (new)',
     slug: 'claude-3-5-sonnet',
     provider: 'anthropic',
     description:
@@ -1072,12 +1162,12 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'GPQA': {
+      GPQA: {
         score: 74.2,
         notes: 'Diamond Science',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'AIME2024': {
+      AIME2024: {
         score: 73.3,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/flash-thinking/',
@@ -1094,15 +1184,15 @@ const LLMS = [
     slug: 'gemini-2-0-pro',
     provider: 'google',
     description:
-      'Gemini 2.0 Pro is Google\'s best model yet for coding performance and complex prompts. It features enhanced capabilities including native tool use, image generation, and speech generation. The model excels at complex reasoning tasks and supports multimodal inputs including text, images, video and audio. Available through Google AI Studio and Vertex AI, it offers significantly improved performance over previous versions while maintaining high efficiency.',
+      "Gemini 2.0 Pro is Google's best model yet for coding performance and complex prompts. It features enhanced capabilities including native tool use, image generation, and speech generation. The model excels at complex reasoning tasks and supports multimodal inputs including text, images, video and audio. Available through Google AI Studio and Vertex AI, it offers significantly improved performance over previous versions while maintaining high efficiency.",
     input_context_window: '2M',
     maximum_output_tokens: '8,192',
     open_source: false,
     release_date: '2024-12-11',
     knowledge_cut_off_date: 'August 2024',
     api_providers: 'Google AI Studio, Vertex AI',
-    input_cost_per_million_tokens: 0.10,
-    output_cost_per_million_tokens: 0.40,
+    input_cost_per_million_tokens: 0.1,
+    output_cost_per_million_tokens: 0.4,
     modalities: {
       text: true,
       image: true,
@@ -1125,12 +1215,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'GPQA': {
+      GPQA: {
         score: 64.7,
         notes: 'Diamond',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'SimpleQA': {
+      SimpleQA: {
         score: 44.3,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1182,15 +1272,15 @@ const LLMS = [
     slug: 'gemini-2-0-flash',
     provider: 'google',
     description:
-      'Gemini 2.0 Flash is Google\'s powerful workhorse model with low latency and enhanced performance, built to power agentic experiences. It features native tool use capabilities and supports multimodal inputs including text, images, video and audio. The model delivers significantly improved performance over previous versions while maintaining high efficiency and speed.',
+      "Gemini 2.0 Flash is Google's powerful workhorse model with low latency and enhanced performance, built to power agentic experiences. It features native tool use capabilities and supports multimodal inputs including text, images, video and audio. The model delivers significantly improved performance over previous versions while maintaining high efficiency and speed.",
     input_context_window: '1M',
     maximum_output_tokens: '8,192',
     open_source: false,
     release_date: '2024-12-11',
     knowledge_cut_off_date: 'August 2024',
     api_providers: 'Google AI Studio, Vertex AI',
-    input_cost_per_million_tokens: 0.10,
-    output_cost_per_million_tokens: 0.40,
+    input_cost_per_million_tokens: 0.1,
+    output_cost_per_million_tokens: 0.4,
     modalities: {
       text: true,
       image: true,
@@ -1213,12 +1303,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'GPQA': {
+      GPQA: {
         score: 60.1,
         notes: 'Diamond',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'SimpleQA': {
+      SimpleQA: {
         score: 29.9,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1268,9 +1358,9 @@ const LLMS = [
   {
     model_name: 'Gemini 2.0 Flash-Lite',
     slug: 'gemini-2-0-flash-lite',
-    provider: 'google', 
+    provider: 'google',
     description:
-      'Gemini 2.0 Flash-Lite is Google\'s most cost-efficient model yet, offering better quality than previous versions at the same speed and cost. It features a 1 million token context window and supports multimodal inputs including text, images, video and audio. The model is optimized for low-cost workflows while maintaining high performance.',
+      "Gemini 2.0 Flash-Lite is Google's most cost-efficient model yet, offering better quality than previous versions at the same speed and cost. It features a 1 million token context window and supports multimodal inputs including text, images, video and audio. The model is optimized for low-cost workflows while maintaining high performance.",
     input_context_window: '1M',
     maximum_output_tokens: '8,192',
     open_source: false,
@@ -1278,7 +1368,7 @@ const LLMS = [
     knowledge_cut_off_date: 'June 2024',
     api_providers: 'Google AI Studio, Vertex AI, Gemini API',
     input_cost_per_million_tokens: 0.075,
-    output_cost_per_million_tokens: 0.30,
+    output_cost_per_million_tokens: 0.3,
     modalities: {
       text: true,
       image: true,
@@ -1301,12 +1391,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'GPQA': {
+      GPQA: {
         score: 51.5,
         notes: 'Diamond',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'SimpleQA': {
+      SimpleQA: {
         score: 21.7,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -2182,8 +2272,8 @@ const LLMS = [
     release_date: '2025-01-31',
     knowledge_cut_off_date: null,
     api_providers: 'OpenAI API',
-    input_cost_per_million_tokens: 1.10,
-    output_cost_per_million_tokens: 4.40,
+    input_cost_per_million_tokens: 1.1,
+    output_cost_per_million_tokens: 4.4,
     modalities: {
       text: true,
       image: false,
@@ -2372,8 +2462,8 @@ const LLMS = [
     release_date: '2024-09-12',
     knowledge_cut_off_date: 'October 2023',
     api_providers: 'OpenAI, Azure OpenAI Service',
-    input_cost_per_million_tokens: 1.10,
-    output_cost_per_million_tokens: 4.40,
+    input_cost_per_million_tokens: 1.1,
+    output_cost_per_million_tokens: 4.4,
     modalities: {
       text: true,
       image: false,
@@ -2505,7 +2595,8 @@ const LLMS = [
       GPQA: {
         score: 53.6,
         notes: '0-shot',
-        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+        source:
+          'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 75.9,
@@ -2564,7 +2655,8 @@ const LLMS = [
       GPQA: {
         score: 53.6,
         notes: '0-shot',
-        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+        source:
+          'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 75.9,
@@ -2623,7 +2715,8 @@ const LLMS = [
       GPQA: {
         score: 53.6,
         notes: '0-shot',
-        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+        source:
+          'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 75.9,
@@ -2679,7 +2772,8 @@ const LLMS = [
       GPQA: {
         score: 53.6,
         notes: '0-shot',
-        source: 'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+        source:
+          'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
       MATH: {
         score: 76.6,
@@ -3243,6 +3337,58 @@ const LLMS = [
         notes: '0-shot',
         source:
           'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+    },
+  },
+  {
+    model_name: 'Grok 3 Beta',
+    slug: 'grok-3',
+    provider: 'xai',
+    description:
+      'Grok 3 is xAI\'s most advanced model, trained on their Colossus supercluster with 10x the compute of previous state-of-the-art models. It features a 1M token context window and advanced reasoning capabilities refined through large-scale reinforcement learning, allowing it to think for seconds to minutes while solving complex problems. The model demonstrates leading performance across academic benchmarks and real-world user preferences, with an Elo score of 1402 in the Chatbot Arena. Released with a companion Grok 3 mini model optimized for cost-efficient reasoning.',
+    input_context_window: '1M',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-02-19',
+    knowledge_cut_off_date: 'February 2025',
+    api_providers: 'xAI',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    benchmarks: {
+      'MMLU-Pro': {
+        score: 79.9,
+        notes: 'Base model',
+        source: 'https://x.ai/blog/grok-3',
+      },
+      MMMU: {
+        score: 78,
+        notes: 'With Think mode',
+        source: 'https://x.ai/blog/grok-3',
+      },
+      GPQA: {
+        score: 84.6,
+        notes: 'With Think mode, Diamond',
+        source: 'https://x.ai/blog/grok-3',
+      },
+      'AIME-2025': {
+        score: 93.3,
+        notes: 'With Think mode, cons@64',
+        source: 'https://x.ai/blog/grok-3',
+      },
+      'LiveCodeBench-v5': {
+        score: 79.4,
+        notes: 'With Think mode',
+        source: 'https://x.ai/blog/grok-3',
+      },
+      SimpleQA: {
+        score: 43.6,
+        source: 'https://x.ai/blog/grok-3',
       },
     },
   },
