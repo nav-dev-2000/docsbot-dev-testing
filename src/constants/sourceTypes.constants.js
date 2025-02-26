@@ -41,7 +41,7 @@ export const sourceTypes = [
     id: 'document',
     title: 'Document',
     description: 'Upload document files containing text (Text, Office, PDF, HTML, MD, EML, ZIP, Excel, CSV, TSV, Images, etc)',
-    fullDescription: 'Upload a document file containing text to learn from. Some examples are product documentation, slide decks, research papers, employee handbooks, an ebook, or any content you can convert to a text file. We will parse the content, and add it to this bot. Currently we support adding .txt, .docx, .pptx, .md, .html, .pdf, .eml, .xlsx, .csv, and .tsv documents. For Excel, CSV, and TSV files, supports one table per sheet and the first row should contain the column headers. We also support .png, .jpeg, .webp, .heic, and .heif images for AI description and text extraction. Paid users can also add .zip files containing multiple documents!',
+    fullDescription: 'Upload a document file containing text to learn from. Some examples are product documentation, slide decks, research papers, employee handbooks, an ebook, or any content you can convert to a text file. We will parse the content, and add it to this bot. Currently we support adding .txt, .docx, .pptx, .md, .html, .pdf, .eml, .xlsx, .csv, and .tsv documents. For Excel, CSV, and TSV files, supports one table per sheet and the first row should contain the column headers. We also support .png, .jpeg, .gif, .webp, .heic, and .heif images for AI description and text extraction. Paid users can also add .zip files containing multiple documents!',
     icon: DocumentIcon,
     isPro: false,
     isNew: true,
@@ -63,6 +63,7 @@ export const sourceTypes = [
       xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       png: 'image/png',
       jpeg: 'image/jpeg',
+      gif: 'image/gif',
       webp: 'image/webp',
       heic: 'image/heic',
       heif: 'image/heif'
