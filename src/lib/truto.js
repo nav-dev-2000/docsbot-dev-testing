@@ -111,6 +111,10 @@ const RunSyncJob = async (
     const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - (integratedAccount.context.months || 3)))
     args.start_date = monthAgo.toISOString().split('T')[0]
     args.base_url = `https://${integratedAccount.context.subdomain}.freshdesk.com/a/tickets/`
+  } else if (integratedAccount.integration.name === 'zendesk') { //internal isTruto name
+    const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - (integratedAccount.context.months || 3)))
+    args.start_date = monthAgo.toISOString().split('T')[0]
+    args.base_url = `https://${integratedAccount.context.subdomain}.zendesk.com/agent/tickets/`
   }
 
   console.log('args', args)

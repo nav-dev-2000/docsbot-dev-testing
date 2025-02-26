@@ -479,7 +479,7 @@ export const sourceTypes = [
   // Customer Support
   {
     id: 'helpscout',
-    title: 'Help Scout',
+    title: 'Help Scout Tickets',
     description: 'Answer questions from closed Help Scout tickets (BETA)',
     fullDescription: 'Connect to Help Scout via our partner Truto to import recent closed tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
     icon: HelpScoutLogo,
@@ -498,7 +498,7 @@ export const sourceTypes = [
   },
   {
     id: 'freshdesk',
-    title: 'Freshdesk',
+    title: 'Freshdesk Tickets',
     description: 'Answer questions from Freshdesk tickets (BETA)',
     fullDescription: 'Connect to Freshdesk via our partner Truto to import recent resolved/closed tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
     icon: FreshdeskLogo,
@@ -516,14 +516,34 @@ export const sourceTypes = [
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-freshdesk',
   },
   {
+    id: 'zendesk-tickets',
+    title: 'Zendesk Tickets',
+    description: 'Answer questions from Zendesk tickets (BETA)',
+    fullDescription: 'Connect to Zendesk via our partner Truto to select and import all solved tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
+    icon: ZendeskLogo,
+    isTruto: 'zendesk',
+    isPro: true,
+    isNew: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    fieldImages: true,
+    category: 'Customer Support',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zendesk-tickets',
+  },
+  {
     id: 'zendesk',
     title: 'Zendesk Guide/Help Center',
-    description: 'Answer questions from Zendesk Guide/Help Center articles',
-    fullDescription: 'Connect to Zendesk via our partner Truto to select and import all publishedHelp Center articles. We do not currently index community posts, only articles. (BETA)',
+    description: 'Answer questions from Zendesk Guide/Help Center articles (BETA)',
+    fullDescription: 'Connect to Zendesk via our partner Truto to select and import all published Help Center articles. We do not currently index community posts, only articles.',
     icon: ZendeskLogo,
     isTruto: 'zendesk-help-center',
     isPro: true,
     coming: false,
+    isNew: false,
     fieldUrl: false,
     fieldTitle: false,
     fieldFile: false,
@@ -551,6 +571,7 @@ export const sourceTypes = [
     category: 'Customer Support',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-intercom-pages',
   },
+  /*
   {
     id: 'servicenow',
     title: 'ServiceNow',
@@ -568,7 +589,7 @@ export const sourceTypes = [
     fieldQA: false,
     fieldImages: false,
     category: 'Customer Support',
-  },
+  },*/
 
   // Email & Communication
   {
