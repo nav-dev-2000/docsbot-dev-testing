@@ -32,6 +32,7 @@ const relevantEvents = new Set([
   'customer.subscription.created',
   'customer.subscription.updated',
   'customer.subscription.deleted',
+  'radar.early_fraud_warning.created',
 ])
 
 //add Slack webhook
@@ -419,6 +420,97 @@ const webhookHandler = async (req, res) => {
                 console.log('Error sending bento track', e)
               }
             })
+            break
+          case 'radar.early_fraud_warning.created':
+            try {
+              const earlyFraudWarning = event.data.object
+              const paymentIntentId = earlyFraudWarning.payment_intent
+              
+              // Get the payment intent to find the customer
+              const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
+              const customerId = paymentIntent.customer
+              
+              if (!customerId) {
+                console.log(`❌ No customer found for payment intent ${paymentIntentId}`)
+                break
+              }
+              
+              // Refund the payment immediately
+              await stripe.refunds.create({
+                payment_intent: paymentIntentId,
+              })
+              console.log(`✅ Refunded payment for payment intent ${paymentIntentId}`)
+              
+              // Find the team associated with this customer
+              const teamsRef = await firestore.collection('teams').where('stripeCustomerId', '==', customerId).get()
+              
+              if (teamsRef.empty) {
+                console.log(`❌ No team found for customer ${customerId}`)
+                break
+              }
+              
+              const teamId = teamsRef.docs[0].id
+              const teamData = teamsRef.docs[0].data()
+              
+              // Cancel the subscription immediately
+              if (teamData.stripeSubscriptionId) {
+                await stripe.subscriptions.cancel(teamData.stripeSubscriptionId, {
+                  invoice_now: false,
+                  prorate: false,
+                })
+                
+                // Update the team record
+                await firestore.collection('teams').doc(teamId).update({
+                  stripeSubscriptionStatus: 'canceled',
+                  stripeSubscriptionCancelAtPeriodEnd: false,
+                })
+                
+                console.log(`✅ Canceled subscription ${teamData.stripeSubscriptionId} for team ${teamId} due to fraud warning`)
+                
+                // Send notification to Slack
+                try {
+                  const owner = await getTeamEmail({ id: teamId, ...teamData })
+                  
+                  await slack.send({
+                    attachments: [
+                      {
+                        fallback: `Fraud warning detected!`,
+                        color: '#d10014',
+                        title: 'Early Fraud Warning - Action Taken',
+                        fields: [
+                          {
+                            title: 'Email',
+                            value: `${owner}`,
+                            short: true,
+                          },
+                          {
+                            title: 'Team',
+                            value: `${teamData.name}`,
+                            short: true,
+                          },
+                          {
+                            title: 'Payment Intent',
+                            value: paymentIntentId,
+                            short: false,
+                          },
+                          {
+                            title: 'Actions Taken',
+                            value: 'Payment refunded and subscription canceled',
+                            short: false,
+                          },
+                        ],
+                      },
+                    ],
+                  })
+                } catch (e) {
+                  console.error('Error sending Slack notification:', e)
+                }
+              } else {
+                console.log(`❌ No subscription found for team ${teamId}`)
+              }
+            } catch (error) {
+              console.error('Error handling early fraud warning:', error)
+            }
             break
           default:
             throw new Error('Unhandled relevant event!')
