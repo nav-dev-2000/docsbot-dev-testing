@@ -31,7 +31,7 @@
     "@slack/webhook": "^7.0.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
-    "@truto/truto-link-sdk": "^1.1.12",
+    "@truto/truto-link-sdk": "^1.1.13",
     "@vanillaes/csv": "^3.0.1",
     "autoprefixer": "^10.4.12",
     "axios": "^1.4.0",

@@ -380,7 +380,7 @@ export const sourceTypes = [
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
-    fieldImages: false,
+    fieldImages: true,
     category: 'Cloud Storage',
     instructionsUrl: '/documentation/doc/how-to-train-an-ai-chatbot-from-your-google-drive-documents',
   },
