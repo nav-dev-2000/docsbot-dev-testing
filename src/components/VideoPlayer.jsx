@@ -264,7 +264,7 @@ export default function VideoPlayer({
             <XMarkIcon className="h-6 w-6" />
           </button>
           
-          <div className="w-full max-w-7xl px-4">
+          <div className="w-full px-8 xl:px-12">
             <video
               ref={fullscreenVideoRef}
               className="w-full rounded-lg shadow-2xl"
