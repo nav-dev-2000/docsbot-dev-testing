@@ -16,6 +16,7 @@ import {
   MagnifyingGlassIcon,
   DocumentChartBarIcon,
   ArrowPathIcon,
+  SparklesIcon,
 } from '@heroicons/react/20/solid'
 import qaHeader from '@/images/header-screenshot.webp'
 import Image from 'next/image'
@@ -34,6 +35,7 @@ import AIHero from '@/components/AIHero'
 import IntegrationsFeatures from '@/components/IntegrationsFeatures'
 import DeployFeatures from '@/components/DeployFeatures'
 import CTASection from '@/components/CTASection'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const features = [
   {
@@ -278,7 +280,9 @@ const LazyVideo = ({ src, poster, className }) => {
 export default function Home() {
   return (
     <>
-      <Head />
+      <Head>
+        <link rel="preconnect" href="https://cdn.docsbot.com" />
+      </Head>
       <div className="bg-white">
         <div className="relative overflow-hidden">
           <Header transparent />
@@ -327,80 +331,77 @@ export default function Home() {
                       clipPath:
                         'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
                     }}
-                    className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-teal-500 to-cyan-600 opacity-20"
+                    className="aspect-[1108/632] w-[69.25rem] h-[70rem] lg:h-[75rem] bg-gradient-to-r from-teal-500 to-cyan-600 opacity-20"
                   />
                 </div>
-                <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-                  <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:pt-2">
+                <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:px-8 lg:py-40">
+                  <div className="mx-auto max-w-4xl text-center">
                     <div
-                      className="mt-24 sm:mt-32 lg:mt-12"
+                      className="mt-24 sm:mt-32 lg:mt-12 flex justify-center"
                     >
                       <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
-                        <span className="pr-1">Powered by</span>
+                        <span className="pr-1">Custom ChatGPT</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
-                          ChatGPT & GPT-4o!
+                        for your business!
                         </span>
                       </div>
                     </div>
 
                     <h1
-                      className="mt-8 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+                      className="mt-8 text-pretty text-5xl font-semibold tracking-tight text-white sm:text-7xl leading-tight"
                     >
-                      <span className="block text-6xl leading-[0.8] tracking-tighter md:text-8xl md:leading-[0.8]">
-                        Instant AI Answers from your Docs
+                      <span className="block text-7xl leading-none tracking-tighter lg:text-8xl md:leading-[0.8]">
+                        Instant AI Answers 
                       </span>
-                      <span className="mt-2 block bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text pb-3 text-3xl text-transparent sm:pb-5 sm:text-4xl">
-                        Custom ChatGPT for your business
+                      <span className="block text-6xl md:text-7xl bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text text-transparent">
+                      from your Docs
                       </span>
                     </h1>
 
-                    <p
-                      className="mt-6 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8"
-                    >
+                  </div>
+
+                  <div className="mx-auto max-w-2xl text-center mt-8">
+                    <p className="text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
                       Get instant answers for you, your customers, or your team
-                      with custom AI ChatGPT chatbots trained with your content
-                      and documentation. Save money and improve the support
-                      experience for your customers, the productivity of your
-                      team, and generate new content with existing knowledge of
-                      your business!
-                    </p>
-
-                    <div
-                      className="mt-10"
-                    >
-                      <Link
-                        href="/register"
-                        type="button"
-                        className="bg-animation block w-full flex-1 cursor-pointer rounded-md px-4 py-3 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-                      >
-                        Create your own free DocsBot
-                      </Link>
-                      <p className="mt-3 text-center text-sm text-gray-300 sm:mt-4">
-                        Transform your business with AI,{' '}
-                        <u>no credit card required</u>!
-                      </p>
-
-                      <SocialFaces
-                        ringColor="ring-gray-900"
-                        className="mt-6 flex w-full justify-center gap-4"
-                      />
-                    </div>
+                      with custom AI chatbots trained with your content
+                      and documentation.
+                    </p> 
                   </div>
 
-                  <div
-                    className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
-                  >
-                    <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-                      <Image
-                        className="w-[76rem] animate-fade-slide-x"
-                        src={qaHeader}
-                        alt="DocsBot dashboard screenshot"
-                        priority
-                        width={1216}
-                        height={764}
-                      />
+                    <div className="mt-10 max-w-3xl mx-auto">
+                      <div className="flex flex-col items-center justify-center">
+                        <div className="max-w-md w-full mb-6">
+                          <Link
+                            href="/register"
+                            type="button"
+                            className="bg-animation block w-full cursor-pointer rounded-md px-4 py-3 text-center font-bold text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                          >
+                            <div className="flex items-center justify-center space-x-2">
+                              <SparklesIcon className="h-5 w-5" />
+                              <span>Build your free AI chatbot</span>
+                            </div>
+                          </Link>
+                          <p className="mt-1 text-center text-sm text-gray-300 sm:mt-2">
+                            Transform your business with AI,{' '}
+                            <u>no credit card required</u>!
+                          </p>
+                        </div>
+                        <SocialFaces
+                          ringColor="ring-gray-900"
+                          className="flex justify-center items-center gap-4 scale-75"
+                        />
+                      </div>
                     </div>
+
+                  <div className="mx-auto mt-12 sm:mt-16 lg:mt-12 max-w-6xl">
+                    <VideoPlayer 
+                      videoSrc="https://cdn.docsbot.com/docsbot-intro.mp4"
+                      posterSrc="/video/docsbot-intro.webp"
+                      className="mx-auto w-full"
+                    />
                   </div>
+
+
                 </div>
               </div>
 
