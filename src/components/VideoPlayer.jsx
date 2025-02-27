@@ -9,7 +9,7 @@ export default function VideoPlayer({
   posterSrc = "/video/docsbot-intro.webp",
   className = ""
 }) {
-  const smallVideoSrc = videoSrc.replace('.mp4', '-480p.mp4');
+  const smallVideoSrc = videoSrc.replace('.mp4', '-720p.mp4');
   const videoSources = [
     // Order matters - browsers will use the first source they can play
     // Higher quality sources should be listed first for devices that can handle them
@@ -234,7 +234,7 @@ export default function VideoPlayer({
                 onClick={handlePlayClick}
                 className={clsx(
                   'absolute inset-0 flex items-center justify-center transition-opacity duration-300',
-                  'bg-black/20 hover:bg-black/40'
+                  'bg-black/20 hover:bg-cyan-500/10'
                 )}
                 aria-label="Play video"
               >
