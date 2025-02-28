@@ -6,17 +6,31 @@ import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
 import FieldToggle from '@/components/FieldToggle'
 
-export default function FormBot({ team, bot, setBotSettings, disabled, short = false }) {
+export default function FormBot({
+  team,
+  bot,
+  setBotSettings,
+  disabled,
+  short = false,
+}) {
   const [language, setLanguage] = useState(bot?.language || 'en')
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(bot?.model || 'gpt-4o-mini')
   const [questions, setQuestions] = useState(bot?.questions || [])
-  const [rateLimitMessages, setRateLimitMessages] = useState(bot?.rateLimitMessages || 10)
-  const [labels, setLabels] = useState(bot?.labels || i18n[bot?.language]?.labels || null)
-  const [rateLimitSeconds, setRateLimitSeconds] = useState(bot?.rateLimitSeconds || 60)
-  const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(bot?.rateLimitIPAllowlist || [])
+  const [rateLimitMessages, setRateLimitMessages] = useState(
+    bot?.rateLimitMessages || 10,
+  )
+  const [labels, setLabels] = useState(
+    bot?.labels || i18n[bot?.language]?.labels || null,
+  )
+  const [rateLimitSeconds, setRateLimitSeconds] = useState(
+    bot?.rateLimitSeconds || 60,
+  )
+  const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(
+    bot?.rateLimitIPAllowlist || [],
+  )
   const [classifySwitch, setClassifySwitch] = useState(() => {
     if (bot?.classify === undefined) {
       // default to true
@@ -25,7 +39,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     return bot?.classify
   })
   const [rateLimitIPField, setRateLimitIPField] = useState(
-    bot?.rateLimitIPAllowlist?.join(', ') || ''
+    bot?.rateLimitIPAllowlist?.join(', ') || '',
   )
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [recordIP, setRecordIP] = useState(bot?.recordIP || false)
@@ -74,7 +88,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
 
   //show upgrade if they change model to gpt-4
   useEffect(() => {
-    if ((model === 'gpt-4' || model === 'gpt-4-turbo') && stripePlan(team).name === 'Free') {
+    if (
+      (model === 'gpt-4' || model === 'gpt-4-turbo') &&
+      stripePlan(team).name === 'Free'
+    ) {
       setShowUpgrade(true)
       setModel('gpt-3.5-turbo')
     }
@@ -157,7 +174,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <div>
-        <label htmlFor="project-name" className="block text-sm font-medium text-gray-900">
+        <label
+          htmlFor="project-name"
+          className="block text-sm font-medium text-gray-900"
+        >
           Name
         </label>
         <div className="mt-1">
@@ -174,7 +194,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
         </div>
       </div>
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-900">
+        <label
+          htmlFor="description"
+          className="block text-sm font-medium text-gray-900"
+        >
           Description
         </label>
         <div className="mt-1">
@@ -209,7 +232,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               />
             </div>
             <div className="pl-7 text-sm">
-              <label htmlFor="privacy-public" className="font-medium text-gray-900">
+              <label
+                htmlFor="privacy-public"
+                className="font-medium text-gray-900"
+              >
                 Public access
               </label>
               <p id="privacy-public-description" className="text-gray-500">
@@ -233,7 +259,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 />
               </div>
               <div className="pl-7 text-sm">
-                <label htmlFor="privacy-private" className="font-medium text-gray-900">
+                <label
+                  htmlFor="privacy-private"
+                  className="font-medium text-gray-900"
+                >
                   Private
                   {stripePlan(team).name === 'Free' && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
@@ -242,7 +271,8 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   )}
                 </label>
                 <p id="privacy-private-description" className="text-gray-500">
-                  Authenticated API access only. Good for internal company content.
+                  Authenticated API access only. Good for internal company
+                  content.
                 </p>
               </div>
             </div>
@@ -251,8 +281,57 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
       </fieldset>
 
       <fieldset>
-        <legend className="text-sm font-medium text-gray-900">OpenAI Model</legend>
+        <legend className="text-sm font-medium text-gray-900">
+          OpenAI Model
+        </legend>
         <div className="mt-2 space-y-2">
+
+        {!short && (
+            <div className="relative flex items-start">
+              <div className="absolute flex h-5 items-center">
+                <input
+                  id="gpt-4.5-preview"
+                  name="model"
+                  value="gpt-4.5-preview"
+                  aria-describedby="gpt-4.5-preview-description"
+                  type="radio"
+                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                  checked={model === 'gpt-4.5-preview'}
+                  onChange={() => setModel('gpt-4.5-preview')}
+                  disabled={disabled || !team.supportsGPT4}
+                />
+              </div>
+              <div className="pl-7 text-sm">
+                <label
+                  htmlFor="gpt-4.5-preview"
+                  className="font-medium text-gray-900"
+                >
+                  GPT-4.5 - Research Beta
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    New!
+                  </span>
+                  {stripePlan(team).name === 'Free' && (
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                      Paid
+                    </span>
+                  )}
+                </label>
+                <p id="gpt-4.5-preview-description" className="text-gray-500">
+                  Very slow, expensive ($0.27/question). We only recommend
+                  using for advanced internal research.
+                  {!team.supportsGPT4 && (
+                    <Link
+                      href="/app/api"
+                      className="ml-1 inline-block underline hover:text-gray-800"
+                    >
+                      Get access
+                    </Link>
+                  )}
+                </p>
+              </div>
+            </div>
+          )}
+
           <div>
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
@@ -278,8 +357,9 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   )}
                 </label>
                 <p id="gpt-4o-description" className="text-gray-500">
-                  Newest (&lt;$0.01/question) model with Oct 2023 knowledge cutoff for advanced
-                  reasoning or content creation needs. 2x faster than GPT-4 Turbo.
+                  Newest (&lt;$0.01/question) model with Oct 2023 knowledge
+                  cutoff for advanced reasoning or content creation needs. 2x
+                  faster than GPT-4 Turbo.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -292,6 +372,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
             </div>
           </div>
+
 
           <div className="relative flex items-start">
             <div className="absolute flex h-5 items-center">
@@ -308,14 +389,14 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               />
             </div>
             <div className="pl-7 text-sm">
-              <label htmlFor="gpt-4o-mini" className="font-medium text-gray-900">
+              <label
+                htmlFor="gpt-4o-mini"
+                className="font-medium text-gray-900"
+              >
                 GPT-4o Mini - Best Value
-                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                  New!
-                </span>
               </label>
               <p id="gpt-4o-mini-description" className="text-gray-500">
-                Newest & most affordable model good for most use cases.
+                Newest & most affordable model good for most support use cases.
               </p>
             </div>
           </div>
@@ -330,13 +411,18 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     aria-describedby="gpt-4-turbo-description"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4-1106-preview' || model === 'gpt-4-turbo'}
+                    checked={
+                      model === 'gpt-4-1106-preview' || model === 'gpt-4-turbo'
+                    }
                     onChange={() => setModel('gpt-4-turbo')}
                     disabled={disabled || !team.supportsGPT4}
                   />
                 </div>
                 <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-4-turbo" className="font-medium text-gray-600">
+                  <label
+                    htmlFor="gpt-4-turbo"
+                    className="font-medium text-gray-600"
+                  >
                     GPT-4 Turbo
                     {stripePlan(team).name === 'Free' && (
                       <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
@@ -345,8 +431,9 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     )}
                   </label>
                   <p id="gpt-4-turbo-description" className="text-gray-500">
-                    Previous GPT-4 (&lt;$0.03/question) model with Dec 2023 knowledge cutoff for
-                    advanced reasoning or content creation needs.
+                    Previous GPT-4 (&lt;$0.03/question) model with Dec 2023
+                    knowledge cutoff for advanced reasoning or content creation
+                    needs.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
@@ -386,8 +473,8 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     )}
                   </label>
                   <p id="gpt-4-description" className="text-gray-500">
-                    Old, slower, and more expensive (&lt;$0.07/question) model for advanced
-                    reasoning or content creation needs.
+                    Old, slower, and more expensive (&lt;$0.07/question) model
+                    for advanced reasoning or content creation needs.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
@@ -401,7 +488,7 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               </div>
             )}
           </div>
-          {!short && (
+          {model === 'gpt-3.5-turbo' && ( //don't allow new selection of gpt-3.5-turbo
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
@@ -417,11 +504,15 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 />
               </div>
               <div className="pl-7 text-sm">
-                <label htmlFor="gpt-3.5-turbo" className="font-medium text-gray-600">
+                <label
+                  htmlFor="gpt-3.5-turbo"
+                  className="font-medium text-gray-600"
+                >
                   GPT 3.5 Turbo
                 </label>
                 <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                  Older fast and cheap (&lt;$0.002/question) model good for most use cases.
+                  Older fast and cheap (&lt;$0.002/question) model good for most
+                  use cases.
                 </p>
               </div>
             </div>
@@ -442,11 +533,18 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                 />
               </div>
               <div className="pl-7 text-sm">
-                <label htmlFor="gpt-3.5-turbo-0613" className="font-medium text-gray-500">
+                <label
+                  htmlFor="gpt-3.5-turbo-0613"
+                  className="font-medium text-gray-500"
+                >
                   GPT 3.5 Turbo (Old June 2023 Version)
                 </label>
-                <p id="gpt-3.5-turbo-0613-description" className="text-gray-500">
-                  The previous (&lt;$0.003/question) model retiring June 2024. Not recommended.
+                <p
+                  id="gpt-3.5-turbo-0613-description"
+                  className="text-gray-500"
+                >
+                  The previous (&lt;$0.003/question) model retiring June 2024.
+                  Not recommended.
                 </p>
               </div>
             </div>
@@ -485,7 +583,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               disabled={disabled}
             />
           </div>
-          <fieldset id="suggested-questions" aria-describedby="suggested-questions-description">
+          <fieldset
+            id="suggested-questions"
+            aria-describedby="suggested-questions-description"
+          >
             <div>
               <legend
                 htmlFor="suggested-questions"
@@ -493,12 +594,17 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               >
                 Suggested questions
               </legend>
-              <p id="suggested-questions-description" className="text-sm text-gray-500">
-                A random selection of these sample questions will be shown to users in the chat
-                interfaces.
+              <p
+                id="suggested-questions-description"
+                className="text-sm text-gray-500"
+              >
+                A random selection of these sample questions will be shown to
+                users in the chat interfaces.
               </p>
               {questions !== undefined &&
-                questions.map((_, index) => <QuestionPrompt index={index} key={index} />)}
+                questions.map((_, index) => (
+                  <QuestionPrompt index={index} key={index} />
+                ))}
               <div className="mt-2 flex justify-center">
                 <button
                   type="button"
@@ -522,7 +628,8 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
               )}
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
-              Rate limiting is a way to prevent abuse of your bot and excessive OpenAI usage costs.
+              Rate limiting is a way to prevent abuse of your bot and excessive
+              OpenAI usage costs.
             </p>
 
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -546,7 +653,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-                <p className="mt-2 text-sm text-gray-500" id="rateLimitMessages-description">
+                <p
+                  className="mt-2 text-sm text-gray-500"
+                  id="rateLimitMessages-description"
+                >
                   {rateLimitMessages} Messages (questions)
                 </p>
               </div>
@@ -571,7 +681,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-                <p className="mt-2 text-sm text-gray-500" id="rateLimitSeconds-description">
+                <p
+                  className="mt-2 text-sm text-gray-500"
+                  id="rateLimitSeconds-description"
+                >
                   Per {rateLimitSeconds} seconds
                 </p>
               </div>
@@ -595,7 +708,10 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-                <p className="mt-2 text-sm text-gray-500" id="rateLimitIPAllowlist-description">
+                <p
+                  className="mt-2 text-sm text-gray-500"
+                  id="rateLimitIPAllowlist-description"
+                >
                   Comma-separated IPs that should be exempt from rate limiting.
                 </p>
               </div>
@@ -614,7 +730,9 @@ export default function FormBot({ team, bot, setBotSettings, disabled, short = f
                   name="rateLimitMessage"
                   id="rateLimitMessage"
                   value={labels?.rateLimitMessage}
-                  onChange={(e) => setLabels({ ...labels, rateLimitMessage: e.target.value })}
+                  onChange={(e) =>
+                    setLabels({ ...labels, rateLimitMessage: e.target.value })
+                  }
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                 />
               </div>

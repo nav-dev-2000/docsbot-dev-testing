@@ -2496,6 +2496,61 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT-4.5',
+    slug: 'gpt-4-5',
+    provider: 'openai',
+    description:
+      'The latest GPT-4.5 model from OpenAI, launched on February 27, 2025, is a massive 12.8 trillion-parameter AI with a 128K token context window. It offers enhanced general knowledge, improved emotional intelligence, multimodal input (text and image), advanced function calling, and streaming responses. Initially available via ChatGPT Pro and later to Plus and Team users, it generates responses at around 37 tokens per second, making it ideal for tasks that require cutting-edge emotional and general intelligence.',
+    input_context_window: '128K',
+    maximum_output_tokens: '16.4K',
+    open_source: false,
+    release_date: '2025-02-27',
+    knowledge_cut_off_date: 'October 2023',
+    api_providers: 'OpenAI, Azure OpenAI Service',
+    input_cost_per_million_tokens: 75,
+    output_cost_per_million_tokens: 150,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false
+    },
+    benchmarks: {
+      MMMLU: {
+        score: 85.1,
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      },
+      MMMU: {
+        score: 74.4,
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      },
+      GPQA: {
+        score: 71.4,
+        notes: 'science',
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      },
+      AIME2024: {
+        score: 36.7,
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      },
+      SimpleQA: {
+        score: 62.5,
+        notes: null,
+        source: 'https://openai.com/gpt-4.5-benchmarks'
+      },
+      'SWE-Lancer': {
+        score: 32.6,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      },
+      'SWE-Bench': {
+        score: 38.0,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-4-5/'
+      }
+    },
+  },
+  {
     model_name: 'GPT-4o Mini',
     slug: 'gpt-4o-mini',
     provider: 'openai',
@@ -3376,7 +3431,7 @@ const LLMS = [
         notes: 'With Think mode, Diamond',
         source: 'https://x.ai/blog/grok-3',
       },
-      'AIME-2025': {
+      'AIME2025': {
         score: 93.3,
         notes: 'With Think mode, cons@64',
         source: 'https://x.ai/blog/grok-3',

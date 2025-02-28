@@ -379,6 +379,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4-1106-preview',
       'gpt-4o',
       'gpt-4o-mini',
+      'gpt-4.5-preview',
     ]
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')

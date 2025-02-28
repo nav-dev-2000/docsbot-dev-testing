@@ -10,6 +10,16 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 10,
     },
     {
+      model_name: 'GPT-4.5',
+      model_slug: 'gpt-4.5-preview',
+      page_slug: 'gpt-4-5',
+      context: '128K/16K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 75,
+      output_token_cost_per_million: 150,
+      cached_input_token_cost_per_million: 37.5,
+    },
+    {
       model_name: 'GPT-4o mini',
       model_slug: 'gpt-4o-mini',
       page_slug: 'gpt-4o-mini',
