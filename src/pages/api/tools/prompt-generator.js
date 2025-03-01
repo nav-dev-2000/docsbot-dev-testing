@@ -95,6 +95,72 @@ export default async function handler(req, res) {
       })
     }
 
+    // Define forbidden words that should cause rejection
+    const forbidden_words = [
+      'sexual',
+      'scam',
+      'porn',
+      'nude',
+      'naked',
+      'xxx',
+      'hentai',
+      'aviator',
+      'blox',
+      'roblox',
+      'minecraft',
+      'milf',
+      'pussy',
+      'girlfriend',
+      'betika',
+      '91club',
+      'gift card',
+      'color prediction',
+      'quotex',
+      'betting',
+      'casino',
+      'slot machine',
+      'bdsm',
+      'bondage',
+      'fetish',
+      'hack',
+      'kink',
+      'game hack',
+      'mating',
+      'code generator',
+      'downloader',
+      'lottery',
+      'quatex',
+      'bukkake',
+      'bank statement',
+      'femdom',
+      '1xbet',
+      'tiranga',
+      'pornhub',
+      'redtube',
+      'xvideos',
+      'youporn',
+      'xhamster',
+      'xnxx',
+    ]
+
+    // Function to check if text contains any forbidden words (with word boundaries)
+    const containsForbiddenWords = (text) => {
+      if (!text) return false
+      const lowerText = text.toLowerCase()
+      return forbidden_words.some((word) => {
+        // Create a regex with word boundaries to match whole words only
+        const regex = new RegExp(`\\b${word}\\b`, 'i')
+        return regex.test(lowerText)
+      })
+    }
+
+    // Check the input for forbidden content before calling OpenAI
+    if (containsForbiddenWords(input)) {
+      return res.status(400).json({
+        message: 'Your request contains inappropriate content that violates our content policy and cannot be processed.'
+      })
+    }
+
     try {
       const openai = new OpenAI({
         apiKey: process.env['OPENAI_API_KEY_TOOLS'],
@@ -245,13 +311,15 @@ export default async function handler(req, res) {
                 tags: {
                   type: 'array',
                   items: {
-                    type: 'string'
+                    type: 'string',
                   },
-                  description: 'An array of 1-4 tags that represent the prompt with proper capitalization',
+                  description:
+                    'An array of 1-4 tags that represent the prompt with proper capitalization',
                 },
                 should_index: {
                   type: 'boolean',
-                  description: 'True only if the prompt would be generally useful to many people, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, scam bots, gift cards, or other potentially harmful content.',
+                  description:
+                    'True only if the prompt would be generally useful for work, school, or businesses, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, scam bots, gift cards, or other potentially harmful content.',
                 },
               },
               required: [
@@ -273,6 +341,17 @@ export default async function handler(req, res) {
         chat_completion.choices[0]?.message?.content,
       )
 
+      // Check if the response data contains any forbidden words
+      if (responseData) {
+        // Convert the entire responseData object to a string for checking
+        const jsonString = JSON.stringify(responseData);
+        
+        // Check if any forbidden words are in the JSON string
+        if (containsForbiddenWords(jsonString)) {
+          responseData.should_index = false;
+        }
+      }
+
       // Convert name to a URL slug
       const slugify = (str) => {
         return str
@@ -289,20 +368,118 @@ export default async function handler(req, res) {
       const checkSlugUniqueness = async (baseSlug) => {
         let uniqueSlug = baseSlug
         let counter = 1
+        let isDuplicate = false
+
         while (true) {
           const existingDoc = await firestore
             .collection('prompts')
             .doc(uniqueSlug)
             .get()
           if (!existingDoc.exists) {
-            return uniqueSlug
+            return { uniqueSlug, isDuplicate }
           }
+          // If we had to modify the slug, it means the original was a duplicate
+          isDuplicate = true
           uniqueSlug = `${baseSlug}-${counter}`
           counter++
         }
       }
 
-      const newId = await checkSlugUniqueness(slug)
+      const { uniqueSlug: newId, isDuplicate } = await checkSlugUniqueness(slug)
+
+      // Override should_index to false if it's a duplicate
+      if (isDuplicate) {
+        responseData.should_index = false
+      }
+
+      // Double-check should_index with GPT-4o-mini if it's currently set to true
+      if (responseData.should_index) {
+        try {
+          // Function to verify if content should be indexed using GPT-4o-mini
+          const verifyContentShouldBeIndexed = async (content) => {
+            const VERIFICATION_PROMPT = `
+You are a content moderator tasked with determining if the following prompt content should be publicly indexed in a library of prompts.
+
+Evaluate if the content meets ALL of these criteria:
+1. Is generally useful for work, school, or business professionals of any kind
+2. Is in English
+3. Does NOT contain any Personally Identifiable Information (PII)
+4. Is NOT branded or promoting a specific product/service
+5. Is NOT potentially offensive, harmful, or inappropriate
+6. Does NOT relate to adult content, gambling, scams, hacking, or illegal activities
+7. Does NOT contain content about sex, nudity, dating, relationships, girlfriends, or NSFW material
+8. Does NOT relate to gambling, betting, casinos, lotteries, or similar activities
+9. Does NOT promote hacks, cheats, or exploits for games or systems
+10. Does NOT involve generating fake documents, statements, or credentials
+11. Does NOT involve potentially criminal activities in any jurisdiction
+
+Content to evaluate:
+${JSON.stringify({
+  name: content.name,
+  short_description: content.short_description,
+  prompt: content.prompt,
+  tags: content.tags,
+})}
+`.trim()
+
+            const verification = await openai.chat.completions.create({
+              model: 'gpt-4o-mini',
+              messages: [{ role: 'system', content: VERIFICATION_PROMPT }],
+              temperature: 0,
+              response_format: {
+                type: 'json_schema',
+                json_schema: {
+                  name: 'classification',
+                  description: 'Classifies the content',
+                  strict: true,
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      reason: {
+                        type: 'string',
+                        description:
+                          'A short explanation of why the content should or should not be indexed',
+                      },
+                      shouldIndex: {
+                        type: 'boolean',
+                        description:
+                          'True ONLY if the content meets ALL criteria for indexing, otherwise false',
+                      },
+                    },
+                    required: ['reason', 'shouldIndex'],
+                    additionalProperties: false,
+                  },
+                },
+              },
+            })
+
+            try {
+              const parsedResponse = JSON.parse(
+                verification.choices[0]?.message?.content ||
+                  '{"shouldIndex":false}',
+              )
+
+              console.log('Second check shouldBeIndexed', parsedResponse)
+              return parsedResponse.shouldIndex === true
+            } catch (parseError) {
+              console.error('Error parsing verification response:', parseError)
+              return false
+            }
+          }
+
+          // Verify if the content should be indexed
+          const shouldBeIndexed =
+            await verifyContentShouldBeIndexed(responseData)
+
+          // Override should_index based on the verification result
+          responseData.should_index = shouldBeIndexed
+        } catch (verificationError) {
+          console.error('Error during content verification:', verificationError)
+          // If verification fails, err on the side of caution and set should_index to false
+          responseData.should_index = false
+        }
+      }
+
       // Save prompt to database
       await addPrompt(ip, 'prompt', responseData, newId)
 
