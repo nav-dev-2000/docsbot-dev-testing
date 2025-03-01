@@ -177,7 +177,7 @@ export const getStaticProps = async (context) => {
     return {
       redirect: {
         destination: '/prompts',
-        permanent: false,
+        permanent: true,
       },
     }
   }
@@ -190,7 +190,7 @@ export const getStaticProps = async (context) => {
     return {
       redirect: {
         destination: '/prompts',
-        permanent: false,
+        permanent: true,
       },
     }
   }
