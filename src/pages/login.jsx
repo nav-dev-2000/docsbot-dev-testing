@@ -92,9 +92,9 @@ function Login() {
       }
       if (!posthog?._isIdentified()) {
         posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
-        posthog?.capture('Signup', { method: 'Google' })
-        posthog?.startSessionRecording()
       }
+      posthog?.capture('Signup', { method: 'Google' })
+      posthog?.startSessionRecording()
       router.push(redirectPath)
     },
   })

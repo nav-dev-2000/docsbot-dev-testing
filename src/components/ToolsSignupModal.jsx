@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleLogo } from '@/components/GoogleLogo'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { usePostHog } from 'posthog-js/react'
 import { useRegisterGoogleUser } from '@/hooks/useRegisterGoogleUser'
 import { getIsNewGmailUser } from '@/utils/firebase.utils'
@@ -24,6 +24,8 @@ export default function ToolsSignupModal({
   const [authLoading, setAuthLoading] = useState(false)
   const posthog = usePostHog()
   const [hasTracked, setHasTracked] = useState(false)
+  const [registrationComplete, setRegistrationComplete] = useState(false)
+  const isNewUserRef = useRef(false)
 
   const handleBentoTracking = useCallback(() => {
     if (hasTracked || !googleUser?.user?.email) return
@@ -45,34 +47,49 @@ export default function ToolsSignupModal({
     }
   }, [googleUser?.user, toolName, toolCategory, hasTracked])
 
+  // Handle PostHog tracking separately with useEffect
+  useEffect(() => {
+    if (!registrationComplete || !googleUser || !isNewUserRef.current) return;
+    
+    // Handle FirstPromoter tracking
+    if (window.fpr !== undefined) {
+      window.fpr('referral', { email: googleUser?.user?.email })
+    }
+    
+    // Handle PostHog tracking - only if not already identified
+    if (!posthog?._isIdentified()) {
+      posthog?.identify(googleUser.user.uid, {
+        email: googleUser.user.email,
+        name: googleUser.user.displayName,
+        'Usage Type': 'tools',
+        'Signup Source': toolName,
+        'Tool Category': toolCategory,
+      })
+    }
+    
+    // Capture signup event only once
+    posthog?.capture('Signup', {
+      provider: 'google',
+      usage_type: 'tools',
+      tool: toolName,
+      tool_category: toolCategory,
+    })
+    
+  }, [registrationComplete, googleUser, posthog, toolName, toolCategory]);
+
   useRegisterGoogleUser({
     googleUser,
     googleAuthLoading,
     setAuthLoading,
     onComplete: () => {
       const isNewUser = getIsNewGmailUser(googleUser)
+      isNewUserRef.current = isNewUser
+      
       if (isNewUser) {
         handleBentoTracking()
-
-        if (window.fpr !== undefined) {
-          window.fpr('referral', { email: googleUser?.user?.email })
-        }
-        if (!posthog?._isIdentified()) {
-          posthog?.identify(googleUser.user.uid, {
-            email: googleUser.user.email,
-            name: googleUser.user.displayName,
-            'Usage Type': 'tools',
-            'Signup Source': toolName,
-            'Tool Category': toolCategory,
-          })
-          posthog?.capture('Signup', {
-            provider: 'google',
-            usage_type: 'tools',
-            tool: toolName,
-            tool_category: toolCategory,
-          })
-        }
       }
+      
+      setRegistrationComplete(true)
       setOpen(false)
     },
   })
