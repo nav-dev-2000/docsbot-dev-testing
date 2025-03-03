@@ -431,6 +431,14 @@ export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
 
     let docRef
 
+    // Add expiration timestamp for non-indexed prompts
+    if (data.should_index === false) {
+      // Set expiration to 30 days from now
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7);
+      data.expiresAt = expirationDate;
+    }
+
     if (!id) {
       // Use add() method to automatically generate an ID
       docRef = await firestore.collection('prompts').add({
@@ -467,6 +475,9 @@ export const getPrompt = async (promptId) => {
   data.id = promptId
   if (data && data.createdAt) {
     data.createdAt = data.createdAt.toDate().toISOString()
+  }
+  if (data && data.expiresAt) {
+    data.expiresAt = data.expiresAt.toDate().toISOString()
   }
   return data
 }
