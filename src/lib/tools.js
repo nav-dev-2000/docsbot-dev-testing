@@ -471,7 +471,9 @@ export const getPrompt = async (promptId) => {
     throw new Error('Invalid prompt ID')
   }
   const ref = await firestore.collection('prompts').doc(promptId).get()
-  const data = ref.exists ? ref.data() : null
+  if (!ref.exists) return null
+  
+  const data = ref.data()
   data.id = promptId
   if (data && data.createdAt) {
     data.createdAt = data.createdAt.toDate().toISOString()
