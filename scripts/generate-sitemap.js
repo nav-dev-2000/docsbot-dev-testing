@@ -78,7 +78,20 @@ ${sitemapFiles.map(file => `  <sitemap>
 
   // Fetch and merge with external sitemap
   const axios = require('axios')
-  const response = await axios.get('https://blog.docsbot.ai/sitemap_index.xml')
+  const fetchWithRetry = async (url, maxRetries = 3) => {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        return await axios.get(url)
+      } catch (error) {
+        if (attempt === maxRetries) throw error
+        console.log(`Attempt ${attempt} failed, retrying...`)
+        // Wait for 10 second before retrying
+        await new Promise(resolve => setTimeout(resolve, 10000))
+      }
+    }
+  }
+
+  const response = await fetchWithRetry('https://blog.docsbot.ai/sitemap_index.xml')
   let externalSitemap = response.data
     .replace(
       '//blog.docsbot.ai/wp-content/plugins/wordpress-seo/css/main-sitemap.xsl',
