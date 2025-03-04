@@ -70,7 +70,12 @@ const SinglePage = ({ seo }) => {
                 </div>
               )}
             </ContentSection>
-            {data.post.type === 'post' && <RegisterCTA />}
+            
+            {data.post.type === 'post' && (
+              <>
+                <RegisterCTA />
+              </>
+            )}
           </>
         )}
       </main>
