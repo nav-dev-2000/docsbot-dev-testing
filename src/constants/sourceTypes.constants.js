@@ -63,6 +63,7 @@ export const sourceTypes = [
       xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       png: 'image/png',
       jpeg: 'image/jpeg',
+      jpg: 'image/jpeg',
       gif: 'image/gif',
       webp: 'image/webp',
       heic: 'image/heic',

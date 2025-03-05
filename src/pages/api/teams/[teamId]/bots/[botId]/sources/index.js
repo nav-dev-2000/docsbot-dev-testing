@@ -170,13 +170,11 @@ export default async function handler(req, res) {
     if (file) {
       const extension = file.split('.').pop()
       if (!Object.keys(sourceType.fileTypes).includes(extension)) {
-        await fileRef.delete()
         return res.status(400).send({ message: 'Invalid file type.' })
       }
 
       // zip files are only for non-free plans
       if (extension === 'zip' && stripePlan(team).name === 'Free') {
-        await fileRef.delete()
         return res.status(402).json({
           message:
             'File type not available on your plan. Please upgrade your plan.',
