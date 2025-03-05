@@ -405,7 +405,7 @@ Take a step back and think step-by-step about how to achieve the best possible r
     },
   },
   quiz: {
-    model: 'gpt-4o-mini',
+    model: 'gpt-4o',
     messages: [
       {
         role: 'system',
