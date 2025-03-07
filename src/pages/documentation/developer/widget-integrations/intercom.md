@@ -52,6 +52,7 @@ DocsBotAI.init({
     window.Intercom('boot', {
       app_id: APP_ID,
     });
+    window.Intercom('show');
   },
 })
 </script>
