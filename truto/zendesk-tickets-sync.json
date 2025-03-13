@@ -43,7 +43,7 @@
       "resource": "ticketing/tickets",
       "method": "list",
       "query": {
-        "status": "solved",
+        "status": "closed",
         "created_at": { "gt": "{{args.start_date}}" }
       },
       "integrated_account_id": "{{args.integrated_account_id}}"
