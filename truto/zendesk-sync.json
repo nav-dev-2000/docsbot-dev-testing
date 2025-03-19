@@ -85,18 +85,6 @@
       "depends_on": "all-page-content"
     },
     {
-      "name": "webhook",
-      "type": "destination",
-      "destination_type": "webhook",
-      "config": {
-        "id": "{{args.webhook_id}}"
-      },
-      "run_if": "$exists(args.webhook_id)",
-      "resources_to_persist": [
-        "combine-page-content"
-      ]
-    },
-    {
       "name": "google-cloud-storage",
       "type": "destination",
       "destination_type": "datastore",
