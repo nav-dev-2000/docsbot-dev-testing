@@ -77,8 +77,14 @@ export const getBenchmarkDescription = (key) => {
     HellaSwag: 'A challenging sentence completion benchmark',
     HumanEval: 'Evaluates code generation and problem-solving capabilities',
     MATH: 'Tests mathematical problem-solving abilities across various difficulty levels',
-    GPQA: 'Tests PhD-level knowledge in chemistry, biology, and physics through multiple choice questions that require deep domain expertise',
     IFEval: 'Tests model\'s ability to accurately follow explicit formatting instructions, generate appropriate outputs, and maintain consistent instruction adherence across different tasks',
+    'Humanity\'s Last Exam': 'A challenging benchmark that tests models on complex reasoning tasks without tool use',
+    'SWE-Bench': 'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
+    'GPQA': 'Graduate-level Physics Questions Assessment - Tests advanced physics knowledge with Diamond Science level questions',
+    'AIME2024': 'American Invitational Mathematics Examination 2024 - Evaluates advanced mathematical problem-solving abilities',
+    'AIME2025': 'American Invitational Mathematics Examination 2025 - Tests cutting-edge mathematical reasoning capabilities',
+    'Global MMLU (Lite)': 'A global version of the MMLU benchmark that tests knowledge across multiple languages and cultures',
+    'SimpleQA': 'A benchmark that evaluates basic question-answering capabilities across common knowledge domains',
   }
   return descriptions[key] || 'Description not available'
 }

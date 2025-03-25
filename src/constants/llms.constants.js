@@ -1180,6 +1180,64 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 2.5 Pro',
+    slug: 'gemini-2-5-pro',
+    provider: 'google',
+    description:
+      "Gemini 2.5 Pro is Google's most intelligent AI model, designed as a thinking model capable of reasoning through its thoughts before responding. It leads common benchmarks by meaningful margins and showcases strong reasoning and code capabilities. The model excels at creating visually compelling web apps, agentic code applications, and code transformation. With native multimodality and a long context window, it can comprehend vast datasets and handle complex problems from different information sources.",
+    input_context_window: '1M (2M soon)',
+    maximum_output_tokens: '8,192',
+    open_source: false,
+    release_date: '2025-03-25',
+    knowledge_cut_off_date: 'March 2025',
+    api_providers: 'Google AI Studio, Vertex AI, Gemini app',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    benchmarks: {
+      "Humanity's Last Exam": {
+        score: 18.8,
+        notes: 'State-of-the-art across models without tool use',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'SWE-Bench': {
+        score: 63.8,
+        notes: 'Verified, With custom agent setup',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'GPQA': {
+        score: 84,
+        notes: 'Diamond Science',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'AIME2024': {
+        score: 92,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'AIME2025': {
+        score: 86.7,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'Global MMLU': {
+        score: 89.8,
+        notes: 'Lite',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      MMMU: {
+        score: 81.7,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+    },
+  },
+  {
     model_name: 'Gemini 2.0 Pro',
     slug: 'gemini-2-0-pro',
     provider: 'google',
@@ -1205,7 +1263,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench (Code Generation)': {
+      'LiveCodeBench-v5': {
         score: 36.0,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1230,9 +1288,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU (Lite)': {
+      'Global MMLU': {
         score: 86.5,
-        notes: null,
+        notes: 'lite',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       MATH: {
@@ -1293,7 +1351,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench (Code Generation)': {
+      'LiveCodeBench-v5': {
         score: 34.5,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1318,9 +1376,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU (Lite)': {
+      'Global MMLU': {
         score: 83.4,
-        notes: null,
+        notes: 'Lite',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       MATH: {
@@ -1381,7 +1439,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench (Code Generation)': {
+      'LiveCodeBench-v5': {
         score: 28.9,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1406,9 +1464,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU (Lite)': {
+      'Global MMLU': {
         score: 78.2,
-        notes: null,
+        notes: 'Lite',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       MATH: {
