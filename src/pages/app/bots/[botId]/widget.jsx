@@ -26,7 +26,7 @@ import {
   faQuestion,
   faBook,
 } from '@fortawesome/free-solid-svg-icons'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
@@ -78,7 +78,7 @@ function Widget({ team, bot }) {
   }, [team, user])
 
   useEffect(() => {
-    if (!branding && stripePlan(team).bots < 10) {
+    if (!branding && !checkPlanPermission(team, 'pro', 'branding').allowed) {
       setShowUpgrade(true)
       setBranding(true)
     }
@@ -618,7 +618,7 @@ function Widget({ team, bot }) {
                         description="If your plan allows you can disable the DocsBot branding in your widget footer."
                         enabled={branding}
                         setEnabled={setBranding}
-                        disabled={isUpdating || stripePlan(team).bots < 10}
+                        disabled={isUpdating}
                       />
                     </div>
 

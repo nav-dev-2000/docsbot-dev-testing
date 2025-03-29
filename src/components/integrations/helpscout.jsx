@@ -12,7 +12,7 @@ import Link from 'next/link'
 import Alert from '@/components/Alert'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import FieldToggle from '@/components/FieldToggle'
 
 const generateWebhookURL = (teamId) => `https://api.docsbot.ai/teams/${teamId}/helpscout`
@@ -27,7 +27,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
   const [isProcessing, setIsProcessing] = useState(true)
   // blur is disabled for pro and higher plans
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return stripePlan(team).bots < 3
+    return !checkPlanPermission(team, 'power').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 

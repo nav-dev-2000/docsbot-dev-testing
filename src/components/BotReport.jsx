@@ -4,7 +4,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { CreditCardIcon } from '@heroicons/react/24/outline'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { Doughnut, Pie } from 'react-chartjs-2'
 import LocalStringNum from '@/components/LocalStringNum'
@@ -223,7 +223,7 @@ export default function BotReport({ team, bot }) {
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return stripePlan(team).bots < 100
+    return !checkPlanPermission(team, 'business').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 

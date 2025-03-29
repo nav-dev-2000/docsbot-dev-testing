@@ -14,7 +14,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import classNames from '@/utils/classNames'
 import ScheduleSelect from '@/components/ScheduleSelect'
@@ -333,18 +333,13 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
           always add more later on.
         </p>
         <div className="mb-4 rounded-lg bg-white px-4 py-4 shadow sm:px-6">
-          {!selectedSourceType && (
-            <Alert title="Carbon Cloud Source Notice" type="notice">
-              Our cloud connection partner Carbon has been acquired and is no longer supported. Existing cloud sources will remain in your bot's training until deleted, but you will not be able to refresh or modify them. We have started re-enabling replacement cloud connections, prioritized by popularity. <Link href="https://docsbot.ai/documentation/doc/carbon-cloud-source-connections-update" className='underline hover:text-gray-600 font-medium'>More information &rarr;</Link>.
-            </Alert>
-          )}
           <Alert title={errorText} type="error" />
 
           {!selectedSourceType ? (
             <RadioGroup
               value={selectedSourceType}
               onChange={(e) => {
-                if (e.isPro && stripePlan(team).name === 'Free') {
+                if (!checkPlanPermission(team, e.minPlan, 'source').allowed) {
                   setShowUpgrade(true)
                   return
                 } else {
@@ -409,19 +404,17 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                                               className="block text-sm font-medium text-gray-900"
                                             >
                                               {sourceType.title}
-                                              {sourceType.isPro &&
-                                                !sourceType.coming &&
-                                                stripePlan(team).name === 'Free' && (
+                                              {!sourceType.coming &&
+                                                !checkPlanPermission(team, sourceType.minPlan, 'source').allowed ? (
                                                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                                    Paid
+                                                    {checkPlanPermission(team, sourceType.minPlan, 'source').requiredPlanLabel}
+                                                  </span>
+                                                ) : sourceType.isNew && (
+                                                  <span className="ml-4 inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                                                    New
                                                   </span>
                                                 )}
-                                              {sourceType.isNew &&
-                                                stripePlan(team).name !== 'Free' && (
-                                                <span className="ml-4 inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                                                  New
-                                                </span>
-                                              )}
+                                              
                                               {sourceType.coming && (
                                                 <span className="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
                                                   Coming soon
@@ -651,18 +644,33 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                           id="process-images"
                           name="process-images"
                           type="checkbox"
-                          checked={stripePlan(team).bots < 10 ? false : processImages}
-                          onChange={(e) => setProcessImages(e.target.checked)}
-                          disabled={isUpdating || stripePlan(team).bots < 10}
-                          className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 disabled:opacity-50"
+                          checked={checkPlanPermission(team, 'pro').allowed ? processImages : false}
+                          disabled={isUpdating}
+                          onChange={(e) => {
+                            if (!checkPlanPermission(team, 'pro').allowed) {
+                              setShowUpgrade(true);
+                            } else {
+                              setProcessImages(e.target.checked);
+                            }
+                          }}
+                          className={`h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500 ${!checkPlanPermission(team, 'pro').allowed ? 'cursor-pointer' : 'disabled:opacity-50'}`}
                         />
                       </div>
                       <div className="ml-3 text-sm">
-                        <label htmlFor="process-images" className="font-medium text-gray-700">
-                          Learn from public images in HTML/Markdown (BETA)
-                          {stripePlan(team).bots < 10 && (
+                        <label 
+                          htmlFor="process-images" 
+                          className={`font-medium text-gray-700 ${!checkPlanPermission(team, 'pro').allowed ? 'cursor-pointer hover:text-cyan-600' : ''}`}
+                          onClick={(e) => {
+                            if (!checkPlanPermission(team, 'pro').allowed) {
+                              e.preventDefault();
+                              setShowUpgrade(true);
+                            }
+                          }}
+                        >
+                          Learn from public images in HTML/Markdown
+                          {!checkPlanPermission(team, 'pro').allowed && (
                             <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                              Pro
+                              {checkPlanPermission(team, 'pro').requiredPlanLabel}
                             </span>
                           )}
                         </label>

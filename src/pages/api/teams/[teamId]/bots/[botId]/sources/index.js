@@ -8,7 +8,7 @@ import {
   getSources,
   getSource,
 } from '@/lib/dbQueries'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { sourceTypes, isTrutoSourceType } from '@/constants/sourceTypes.constants'
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
 
     //check plan credits
-    const predictedPageCount = sourceType.isPro
+    const predictedPageCount = (!checkPlanPermission(team, 'free').allowed)
       ? team.pageCount + 5
       : team.pageCount + 1
     if (stripePlan(team).pages < predictedPageCount) {
@@ -78,8 +78,8 @@ export default async function handler(req, res) {
       })
     }
 
-    //check if they are pro and can use the source type
-    if (sourceType.isPro && stripePlan(team).name === 'Free') {
+    //check if they have access to the source type
+    if (!checkPlanPermission(team, sourceType.minPlan, 'source').allowed) {
       return res.status(402).json({
         message:
           'Source type not available on your plan. Please upgrade your plan.',
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
     ) {
       return res
         .status(400)
-        .send({ message: 'Invalid or missing parameter "url".' })
+        .send({ message: 'Invalid or missing parameter "url". Please remove or provide a valid full URL.' })
     }
 
     // check if they added a youtube url under a url source type. if so, swap the type
@@ -174,7 +174,7 @@ export default async function handler(req, res) {
       }
 
       // zip files are only for non-free plans
-      if (extension === 'zip' && stripePlan(team).name === 'Free') {
+      if (extension === 'zip' && !checkPlanPermission(team, 'free').allowed) {
         return res.status(402).json({
           message:
             'File type not available on your plan. Please upgrade your plan.',
@@ -219,7 +219,7 @@ export default async function handler(req, res) {
       }
 
       // Only allow true for paid plans
-      if (processImages && stripePlan(team).bots < 10) {
+      if (processImages && !checkPlanPermission(team, 'pro', 'image').allowed) {
         return res.status(402).send({ message: 'Image processing requires Pro plan or higher.' })
       }
     } else {

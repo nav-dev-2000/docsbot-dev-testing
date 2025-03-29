@@ -1,7 +1,7 @@
 import { getBot, getTeam } from '@/lib/dbQueries'
 import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
           icon: bot.icon || 'default',
           alignment: bot.alignment || 'right',
           botIcon: bot.botIcon || false,
-          branding: bot.branding === false && stripePlan(team).bots >= 10 ? false : true,
+          branding: bot.branding === false && checkPlanPermission(team, 'pro', 'branding').allowed ? false : true,
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,

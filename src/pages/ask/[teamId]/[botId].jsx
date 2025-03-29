@@ -6,7 +6,7 @@ import { getTeam, getBot } from '@/lib/dbQueries'
 import AskStreaming from '@/components/AskStreaming'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
-import { stripePlan, grabQuestions } from '@/utils/helpers'
+import { checkPlanPermission, grabQuestions } from '@/utils/helpers'
 import { NextSeo } from 'next-seo'
 
 export function ChatPage({ team, bot }) {
@@ -28,7 +28,7 @@ export function ChatPage({ team, bot }) {
           <AskStreaming teamId={team.id} bot={bot} isPublic={true} />
         )}
       </main>
-      {stripePlan(team).bots < 10 && (
+      {!checkPlanPermission(team, 'pro', 'branding').allowed && (
         <div className="mb-4 mt-32 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">{bot.labels.poweredBy}</span>

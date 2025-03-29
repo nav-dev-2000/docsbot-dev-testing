@@ -16,6 +16,7 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@bentonow/bento-node-sdk": "^0.2.1",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@google-cloud/pubsub": "^4.5.0",

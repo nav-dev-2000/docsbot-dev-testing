@@ -12,46 +12,47 @@ export const getURL = () => {
 
 // https://gist.github.com/dperini/729294
 var re_weburl = new RegExp(
-  "^" +
+  '^' +
     // protocol identifier (optional)
     // short syntax // still required
-    "(?:(?:(?:https?|ftp):)?\\/\\/)" +
+    '(?:(?:(?:https?|ftp):)?\\/\\/)' +
     // user:pass BasicAuth (optional)
-    "(?:\\S+(?::\\S*)?@)?" +
-    "(?:" +
-      // IP address exclusion
-      // private & local networks
-      "(?!(?:10|127)(?:\\.\\d{1,3}){3})" +
-      "(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})" +
-      "(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})" +
-      // IP address dotted notation octets
-      // excludes loopback network 0.0.0.0
-      // excludes reserved space >= 224.0.0.0
-      // excludes network & broadcast addresses
-      // (first & last IP address of each class)
-      "(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])" +
-      "(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}" +
-      "(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))" +
-    "|" +
-      // host & domain names, may end with dot
-      // can be replaced by a shortest alternative
-      // (?![-_])(?:[-\\w\\u00a1-\\uffff]{0,63}[^-_]\\.)+
-      "(?:" +
-        "(?:" +
-          "[a-z0-9\\u00a1-\\uffff]" +
-          "[a-z0-9\\u00a1-\\uffff_-]{0,62}" +
-        ")?" +
-        "[a-z0-9\\u00a1-\\uffff]\\." +
-      ")+" +
-      // TLD identifier name, may end with dot
-      "(?:[a-z\\u00a1-\\uffff]{2,}\\.?)" +
-    ")" +
+    '(?:\\S+(?::\\S*)?@)?' +
+    '(?:' +
+    // IP address exclusion
+    // private & local networks
+    '(?!(?:10|127)(?:\\.\\d{1,3}){3})' +
+    '(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})' +
+    '(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})' +
+    // IP address dotted notation octets
+    // excludes loopback network 0.0.0.0
+    // excludes reserved space >= 224.0.0.0
+    // excludes network & broadcast addresses
+    // (first & last IP address of each class)
+    '(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])' +
+    '(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}' +
+    '(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))' +
+    '|' +
+    // host & domain names, may end with dot
+    // can be replaced by a shortest alternative
+    // (?![-_])(?:[-\\w\\u00a1-\\uffff]{0,63}[^-_]\\.)+
+    '(?:' +
+    '(?:' +
+    '[a-z0-9\\u00a1-\\uffff]' +
+    '[a-z0-9\\u00a1-\\uffff_-]{0,62}' +
+    ')?' +
+    '[a-z0-9\\u00a1-\\uffff]\\.' +
+    ')+' +
+    // TLD identifier name, may end with dot
+    '(?:[a-z\\u00a1-\\uffff]{2,}\\.?)' +
+    ')' +
     // port number (optional)
-    "(?::\\d{2,5})?" +
+    '(?::\\d{2,5})?' +
     // resource path (optional)
-    "(?:[/?#]\\S*)?" +
-  "$", "i"
-);
+    '(?:[/?#]\\S*)?' +
+    '$',
+  'i',
+)
 
 export const isValidURL = (str) => {
   return re_weburl.test(str)
@@ -79,7 +80,10 @@ export const sanitizeURL = (url) => {
 }
 
 export const validateOpenAIKey = (team, key) => {
-  return team.AzureDeploymentBase || /^(sk\-|(sk\-[a-zA-Z0-9]{3,16}\-))[a-zA-Z0-9_-]+$/.test(key)
+  return (
+    team.AzureDeploymentBase ||
+    /^(sk\-|(sk\-[a-zA-Z0-9]{3,16}\-))[a-zA-Z0-9_-]+$/.test(key)
+  )
 }
 
 export const postData = async ({ url, data }) => {
@@ -102,7 +106,10 @@ export const postData = async ({ url, data }) => {
 }
 
 export function stripePlan(team) {
-  if ('ZrbLG98bbxZ9EFqiPvyl' === team.id || 'FVasEcNLTWpySb5ZNlF3' === team.id) {
+  if (
+    'ZrbLG98bbxZ9EFqiPvyl' === team.id ||
+    'FVasEcNLTWpySb5ZNlF3' === team.id
+  ) {
     return {
       name: 'Staff',
       bots: 1000,
@@ -147,6 +154,69 @@ export function stripePlan(team) {
   }
 }
 
+/**
+ * Checks if a team has permission for a specific feature based on their plan level
+ * @param {Object} team - The team object containing subscription information
+ * @param {string} feature - The feature to check permission for (e.g., 'youtube', 'notion', etc.)
+ * @param {string} [requiredPlan=null] - Optional specific plan to check against
+ * @returns {Object} Object containing { allowed: boolean, requiredPlanLabel: string }
+ */
+export function checkPlanPermission(team, requiredPlan = null, feature = null) {
+  // Get the current team's plan
+  const currentPlan = stripePlan(team)
+
+  // Check if team has Enterprise plan (custom or standard)
+  const isEnterprise =
+    currentPlan.name === 'Enterprise' ||
+    currentPlan.name === 'Staff' ||
+    currentPlan.name.includes('Enterprise') ||
+    currentPlan.pages > 100000 ||
+    currentPlan.bots > 100
+
+  const planLevels = {
+    free: 1,
+    hobby: 2,
+    power: 3,
+    pro: 4,
+    business: 5,
+    enterprise: 6,
+  }
+
+  const currentPlanLevel = planLevels[currentPlan.name.toLowerCase()] || 0
+
+  // If a specific plan is provided, check if current plan matches or exceeds it
+  if (requiredPlan) {
+    let requiredPlanLevel = planLevels[requiredPlan.toLowerCase()] || 999
+
+    // If checking for a source type feature
+    if (feature == 'source') {
+      // Check if the team was created before March 27, 2025 and the required plan is 'power'
+      // If so, downgrade the required plan to 'hobby' for grandfathered accounts (truto sources)
+      if (requiredPlan.toLowerCase() === 'power' && team.createdAt) {
+        const createdDate = new Date(team.createdAt)
+        const cutoffDate = new Date('2025-03-28')
+
+        if (createdDate < cutoffDate) {
+          // Downgrade required plan level for grandfathered accounts
+          requiredPlanLevel = planLevels['hobby']
+        }
+      }
+    }
+
+    return {
+      allowed: currentPlanLevel >= requiredPlanLevel || isEnterprise,
+      requiredPlanLabel:
+        requiredPlan.charAt(0).toUpperCase() + requiredPlan.slice(1),
+    }
+  }
+
+  // Default to not allowed if feature wasn't found
+  return {
+    allowed: false,
+    requiredPlanLabel: 'Enterprise',
+  }
+}
+
 export function getStats(doc, timeDelta) {
   const millisecondDelta = timeDelta * 24 * 60 * 60 * 1000 // convert to milliseconds
 
@@ -177,7 +247,7 @@ export function getStats(doc, timeDelta) {
     // scrape daily data
     for (const dateKey in doc.questionHistoryDaily) {
       // if date is within the timeDelta, add to our dateCounts
-      const date = new Date(dateKey);
+      const date = new Date(dateKey)
       if (date.getTime() > currDate.getTime() - millisecondDelta) {
         const data = doc.questionHistoryDaily[dateKey]
         dateCounts[dateKey] = {
@@ -186,7 +256,7 @@ export function getStats(doc, timeDelta) {
           positive: data?.upVotes || 0,
           couldAnswer: data?.couldAnswer || null,
           couldNotAnswer: data?.couldNotAnswer || null,
-          escalated: data?.escalations || 0
+          escalated: data?.escalations || 0,
         }
       }
     }
@@ -194,10 +264,21 @@ export function getStats(doc, timeDelta) {
 
   // fill in missing dates
   for (let i = 0; i < timeDelta; i++) {
-    const date = isMonthly ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000) : new Date(currDate - i * 24 * 60 * 60 * 1000)
-    const dateKey = isMonthly ? `${date.getFullYear()}-${date.getMonth() + 1}` : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    const date = isMonthly
+      ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
+      : new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = isMonthly
+      ? `${date.getFullYear()}-${date.getMonth() + 1}`
+      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     if (!dateCounts[dateKey]) {
-      dateCounts[dateKey] = { count: 0, negative: 0, positive: 0, couldAnswer: null, couldNotAnswer: null, escalated: 0 }
+      dateCounts[dateKey] = {
+        count: 0,
+        negative: 0,
+        positive: 0,
+        couldAnswer: null,
+        couldNotAnswer: null,
+        escalated: 0,
+      }
     }
   }
 
@@ -216,8 +297,12 @@ export function getStats(doc, timeDelta) {
     escalatedData = [],
     labels = []
   for (let i = timeDelta - 1; i >= 0; i--) {
-    const date = isMonthly ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000) : new Date(currDate - i * 24 * 60 * 60 * 1000)
-    const dateKey = isMonthly ? `${date.getFullYear()}-${date.getMonth() + 1}` : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    const date = isMonthly
+      ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
+      : new Date(currDate - i * 24 * 60 * 60 * 1000)
+    const dateKey = isMonthly
+      ? `${date.getFullYear()}-${date.getMonth() + 1}`
+      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     countData.push(dateCounts[dateKey].count)
     negativeData.push(dateCounts[dateKey].negative)
     positiveData.push(dateCounts[dateKey].positive)
@@ -232,28 +317,26 @@ export function getStats(doc, timeDelta) {
     totalCouldNotAnswer += dateCounts[dateKey].couldNotAnswer || 0
     totalEscalated += dateCounts[dateKey].escalated
 
-    labels.push(isMonthly ? `${date.getMonth() + 1}/${date.getFullYear()}` : `${date.getMonth() + 1}/${date.getDate()}`)
+    labels.push(
+      isMonthly
+        ? `${date.getMonth() + 1}/${date.getFullYear()}`
+        : `${date.getMonth() + 1}/${date.getDate()}`,
+    )
   }
 
   // calculate percentages
   const counts = [
-    (totalCount - (totalPositive + totalNegative)),
+    totalCount - (totalPositive + totalNegative),
     totalNegative,
     totalPositive,
   ]
 
-  const escalatedCounts = [
-    totalEscalated,
-    totalCount - totalEscalated,
-  ]
+  const escalatedCounts = [totalEscalated, totalCount - totalEscalated]
 
-  const answerCounts = [
-    totalCouldAnswer,
-    totalCouldNotAnswer,
-  ]
+  const answerCounts = [totalCouldAnswer, totalCouldNotAnswer]
 
   const totalClassifiedCount = totalCouldAnswer + totalCouldNotAnswer
-  
+
   // fix 'NaN' strings
   if (totalCount === 0) {
     return {
@@ -271,28 +354,26 @@ export function getStats(doc, timeDelta) {
         `0% Rated Positive`,
       ],
       escalatedCounts,
-      escalatedLabels: [
-        `0% Escalated`,
-        `0% Deflected`,
-      ],
+      escalatedLabels: [`0% Escalated`, `0% Deflected`],
       answerCounts,
-      answerLabels: [
-        `0% Answered`,
-        `0% Unanswered`,
-      ],
+      answerLabels: [`0% Answered`, `0% Unanswered`],
       totalCount: 0,
-      resolutionRate: "0",
-      deflectionRate: "0",
-      couldAnswerRate: "0",
+      resolutionRate: '0',
+      deflectionRate: '0',
+      couldAnswerRate: '0',
       timeSaved: 0,
     }
   }
 
-  const unrated = Math.round(((totalCount - (totalPositive + totalNegative)) / totalCount) * 100)
+  const unrated = Math.round(
+    ((totalCount - (totalPositive + totalNegative)) / totalCount) * 100,
+  )
   const ratedNegative = Math.round((totalNegative / totalCount) * 100)
   const ratedPositive = Math.round((totalPositive / totalCount) * 100)
   const escalated = Math.round((totalEscalated / totalCount) * 100)
-  const unescalated = Math.round(((totalCount - totalEscalated) / totalCount) * 100)
+  const unescalated = Math.round(
+    ((totalCount - totalEscalated) / totalCount) * 100,
+  )
   const percentageLabels = [
     `${unrated}% Unrated`,
     `${ratedNegative}% Rated Negative`,
@@ -303,16 +384,35 @@ export function getStats(doc, timeDelta) {
     `${escalated}% Escalated`,
     `${unescalated}% Deflected`,
   ]
-  
-  const couldAnswer = Math.round((totalCouldAnswer / totalClassifiedCount) * 100) || 0
-  const couldNotAnswer = Math.round((totalCouldNotAnswer / totalClassifiedCount) * 100) || 0
+
+  const couldAnswer =
+    Math.round((totalCouldAnswer / totalClassifiedCount) * 100) || 0
+  const couldNotAnswer =
+    Math.round((totalCouldNotAnswer / totalClassifiedCount) * 100) || 0
   const answerLabels = [
     `${couldAnswer}% Answered`,
     `${couldNotAnswer}% Unanswered`,
   ]
 
-  let resolutionRate = ((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) / totalCount * 100).toFixed((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) / totalCount * 100 % 1 === 0 ? 0 : 1);
-  let deflectionRate = ((totalCount - totalEscalated) / totalCount * 100).toFixed((totalCount - totalEscalated) / totalCount * 100 % 1 === 0 ? 0 : 1);
+  let resolutionRate = (
+    ((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) /
+      totalCount) *
+    100
+  ).toFixed(
+    (((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) /
+      totalCount) *
+      100) %
+      1 ===
+      0
+      ? 0
+      : 1,
+  )
+  let deflectionRate = (
+    ((totalCount - totalEscalated) / totalCount) *
+    100
+  ).toFixed(
+    (((totalCount - totalEscalated) / totalCount) * 100) % 1 === 0 ? 0 : 1,
+  )
   let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
   console.log({
@@ -358,6 +458,17 @@ export function getStats(doc, timeDelta) {
 export function checkSourceScheduledFromInterval(team, interval) {
   const plan = stripePlan(team)
 
+  // Check if the team is grandfathered Business plan (created before 2024) to give them daily refresh
+  if (
+    team.createdAt &&
+    new Date(team.createdAt.seconds * 1000) <
+      new Date('2024-01-01T00:00:00Z') &&
+    plan.pages == 100000 &&
+    plan.bots == 100
+  ) {
+    plan.scheduleInterval = 'daily'
+  }
+
   let rawInterval = 0
   switch (interval) {
     case 'daily':
@@ -388,7 +499,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
       break
     case 'none':
       throw new Error(
-        'Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.'
+        'Scheduled refreshes are currently only available to paid plans. Please upgrade your plan to use this feature.',
       )
     default:
       throw new Error(`Invalid schedule interval for plan ${plan.name}!`)
@@ -396,7 +507,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
 
   if (rawInterval < limit) {
     throw new Error(
-      `The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`
+      `The schedule interval for this plan is limited to ${plan.scheduleInterval}. Please upgrade your plan to use this feature.`,
     )
   }
 
@@ -459,46 +570,61 @@ export const getNeededStripeProduct = (team) => {
 
     const plansArray = Object.values(plans)
 
-
-    if (hobbyPlanLimit.bots >= team?.botCount && hobbyPlanLimit.pages >= team?.pageCount && hobbyPlanLimit.questions >= team?.questionCount) {
-      return ""
-    }
-
-    else if (powerPlanLimit.bots >= team?.botCount && powerPlanLimit.pages >= team?.pageCount && powerPlanLimit.questions >= team?.questionCount) {
+    if (
+      hobbyPlanLimit.bots >= team?.botCount &&
+      hobbyPlanLimit.pages >= team?.pageCount &&
+      hobbyPlanLimit.questions >= team?.questionCount
+    ) {
+      return ''
+    } else if (
+      powerPlanLimit.bots >= team?.botCount &&
+      powerPlanLimit.pages >= team?.pageCount &&
+      powerPlanLimit.questions >= team?.questionCount
+    ) {
       const prices = []
-      plansArray.map(item => {
+      plansArray.map((item) => {
         if (item.name?.toLowerCase() !== 'hobby') {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)
         }
       })
       return prices
-    }
-
-    else if (proPlanLimit.bots >= team?.botCount && proPlanLimit.pages >= team?.pageCount && proPlanLimit.questions >= team?.questionCount) {
+    } else if (
+      proPlanLimit.bots >= team?.botCount &&
+      proPlanLimit.pages >= team?.pageCount &&
+      proPlanLimit.questions >= team?.questionCount
+    ) {
       const prices = []
-      plansArray.map(item => {
-        if (item.name?.toLowerCase() !== 'hobby' && item.name?.toLowerCase() !== 'power') {
+      plansArray.map((item) => {
+        if (
+          item.name?.toLowerCase() !== 'hobby' &&
+          item.name?.toLowerCase() !== 'power'
+        ) {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)
         }
       })
       return prices
-    }
-
-    else if (businessPlanLimit.bots >= team?.botCount && businessPlanLimit.pages >= team?.pageCount && businessPlanLimit.questions >= team?.questionCount) {
+    } else if (
+      businessPlanLimit.bots >= team?.botCount &&
+      businessPlanLimit.pages >= team?.pageCount &&
+      businessPlanLimit.questions >= team?.questionCount
+    ) {
       const prices = []
-      plansArray.map(item => {
-        if (item.name?.toLowerCase() !== 'hobby' && item.name?.toLowerCase() !== 'power' && item.name?.toLowerCase() !== 'pro') {
+      plansArray.map((item) => {
+        if (
+          item.name?.toLowerCase() !== 'hobby' &&
+          item.name?.toLowerCase() !== 'power' &&
+          item.name?.toLowerCase() !== 'pro'
+        ) {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)
         }
       })
       return prices
-    }
-    else return ""
+    } else return ''
   }
-  return ""
+  return ''
 }
 
 export const preprocessLaTeX = (content) => {

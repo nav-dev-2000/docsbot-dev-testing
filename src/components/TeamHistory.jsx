@@ -5,7 +5,7 @@ import { CreditCardIcon } from '@heroicons/react/24/outline'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import Chart from 'chart.js/auto'
-import { stripePlan, getStats } from '@/utils/helpers'
+import { checkPlanPermission, getStats } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
@@ -30,7 +30,7 @@ export default function TeamHistory({ team }) {
   const [answerPieData, setAnswerPieData] = useState(null)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return stripePlan(team).bots < 10
+    return !checkPlanPermission(team, 'pro').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 

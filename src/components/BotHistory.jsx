@@ -6,7 +6,7 @@ import Chart from 'chart.js/auto'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
@@ -32,7 +32,7 @@ export default function BotHistory({ team, botId }) {
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return stripePlan(team).bots < 10
+    return !checkPlanPermission(team, 'pro').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 

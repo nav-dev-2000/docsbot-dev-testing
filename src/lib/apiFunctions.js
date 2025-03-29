@@ -6,7 +6,7 @@ import { getBot, getTeam } from '@/lib/dbQueries'
 import { deleteTenant } from '@/lib/weaviate'
 import { QueueSourceExpel } from '@/lib/service'
 import axios from 'axios'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import crypto from 'crypto'
 import { DeleteIntegratedAccount, BulkDeleteIntegratedAccounts } from '@/lib/truto'
@@ -351,7 +351,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (privacy !== undefined) {
     if (privacy === 'private') {
-      if (stripePlan(team).name === 'Free') {
+      if (!checkPlanPermission(team, 'hobby').allowed) {
         throw new Error('Private bots are not available at your plan level.')
       }
       botData.privacy = privacy
@@ -365,9 +365,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (model !== undefined) {
     if (model.startsWith('gpt-4') && 'gpt-4o-mini' !== model) {
       if (!team.supportsGPT4) {
-        throw new Error('Your OpenAI account is not approved for GPT-4 yet.')
-      } else if (stripePlan(team).name === 'Free' && !isSuperAdmin(userId)) {
-        throw new Error('GPT-4 is not available at your plan level.')
+        throw new Error('Your OpenAI account is not approved for GPT-4 models yet.')
+      } else if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+        throw new Error('GPT-4 models are not available at your plan level.')
       }
     }
     //check if model is valid
@@ -390,21 +390,21 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.model = model
   } else if (!isUpdate) {
     botData.model =
-      team.supportsGPT4 && stripePlan(team).name !== 'Free'
+      team.supportsGPT4 && !checkPlanPermission(team, 'free').allowed
         ? 'gpt-4o'
         : 'gpt-4o-mini'
   }
 
   if (customPrompt !== undefined) {
     // Check if their plan allows custom prompts
-    if (customPrompt && stripePlan(team).bots < 3 && !isSuperAdmin(userId)) {
+    if (customPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.customPrompt = customPrompt
   }
 
   if (helpscoutPrompt !== undefined) {
-    if (helpscoutPrompt && stripePlan(team).bots < 3 && !isSuperAdmin(userId)) {
+    if (helpscoutPrompt && !checkPlanPermission(team, 'power').allowed && !isSuperAdmin(userId)) {
       throw new Error(
         'Custom helpscout prompts are not available at your plan level.',
       )
@@ -478,7 +478,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (branding !== undefined) {
-    if (branding === false && stripePlan(team).bots < 10) {
+    if (branding === false && !checkPlanPermission(team, 'pro', 'branding').allowed) {
       throw new Error('Disabling branding is not available at your plan level.')
     }
     botData.branding = !!branding
@@ -531,7 +531,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     rateLimitMessages !== undefined &&
     rateLimitMessages != bot?.rateLimitMessages &&
     rateLimitMessages != 10 &&
-    stripePlan(team).bots < 100 &&
+    !checkPlanPermission(team, 'business').allowed &&
     !isSuperAdmin(userId)
   ) {
     throw new Error('Rate limiting is not available at your plan level.')
@@ -546,7 +546,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     rateLimitSeconds !== undefined &&
     rateLimitSeconds != bot?.rateLimitSeconds &&
     rateLimitSeconds != 60 &&
-    stripePlan(team).bots < 100 &&
+    !checkPlanPermission(team, 'business').allowed &&
     !isSuperAdmin(userId)
   ) {
     throw new Error('Rate limiting is not available at your plan level.')
@@ -571,7 +571,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (recordIP !== undefined) {
-    if (stripePlan(team).bots >= 100) {
+    if (checkPlanPermission(team, 'business').allowed || isSuperAdmin(userId)) {
       botData.recordIP = Boolean(recordIP)
     } else if (recordIP && bot?.recordIP !== true) {
       throw new Error('Recording IPs is not available at your plan level.')
@@ -591,7 +591,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     if (team.AzureDeploymentBase) {
       botData.embeddingModel = embeddingModel || 'text-embedding-ada-002'
-    } else if (stripePlan(team).bots > 1) {
+    } else if (checkPlanPermission(team, 'hobby').allowed) {
       if (botData.language === 'en') {
         botData.embeddingModel = embeddingModel || 'text-embedding-3-large'
       } else {

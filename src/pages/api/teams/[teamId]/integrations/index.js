@@ -5,8 +5,7 @@ import { QueueIntegration } from '@/lib/service'
 import { getTeamIntegrations } from '@/lib/dbQueries'
 import { canUserModifyTeam } from '@/utils/function.utils'
 import { integrationTypes } from '@/constants/integrationTypes.constants'
-import { isSuperAdmin } from '@/utils/helpers'
-import { stripePlan } from '@/utils/helpers'
+import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -53,7 +52,7 @@ export default async function handler(req, res) {
     }
 
     // must be pro plan or higher
-    if (stripePlan(team).bots < 3) {
+    if (!checkPlanPermission(team, 'power').allowed) {
       return res.status(402).json({
         message: 'Please upgrade to the Power plan or higher to add integrations.',
       })

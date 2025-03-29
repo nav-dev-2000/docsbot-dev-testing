@@ -1,7 +1,7 @@
 import { MegaphoneIcon, SparklesIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Countdown from 'react-countdown'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import news from '/public/latest-news.json'
 import { useEffect, useState } from 'react'
 
@@ -39,7 +39,7 @@ export function HeaderBannerSale({ team }) {
     setIsClient(true)
   }, [])
 
-  if (team && stripePlan(team).name !== 'Free') {
+  if (team && checkPlanPermission(team, 'hobby').allowed) {
     return null
   }
 

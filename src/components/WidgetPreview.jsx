@@ -2,8 +2,7 @@ import {
   ArrowPathIcon,
   ChevronLeftIcon,
   XMarkIcon,
-  PhotoIcon,
-  FlagIcon,
+  PhotoIcon
 } from '@heroicons/react/24/outline'
 import {
   faComment,
@@ -18,6 +17,7 @@ import {
   faFlag,
   faBullhorn,
 } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
 import { decideTextColor, getLighterColor } from '@/utils/colors'
@@ -265,15 +265,21 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources }) {
             {!hideSources && (
               <button className="text-sm font-semibold">
                 {labels.sources}
-                <FontAwesomeIcon icon={faChevronDown} size="sm" />
+                <FontAwesomeIcon icon={faChevronDown} size="sm" className="ml-0.5" />
               </button>
             )}
             <div>
               <button
+                title="Helpful"
+                className="text-gray-500 hover:text-green-600 mr-1"
+              >
+                <FontAwesomeIcon icon={faThumbsUp} className="h-3 w-3" />
+              </button>
+              <button
                 title={labels.unhelpful}
                 className="text-gray-500 hover:text-red-600"
               >
-                <FlagIcon className="h-3 w-3" />
+                <FontAwesomeIcon icon={faThumbsDown} className="h-3 w-3" />
               </button>
             </div>
           </div>

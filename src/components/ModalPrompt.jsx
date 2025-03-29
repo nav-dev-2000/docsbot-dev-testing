@@ -10,7 +10,7 @@ import {
 import clsx from 'clsx'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -83,7 +83,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
     setErrorText('')
 
     //show upgrade modal if they are not power and doing anything other than erasing the prompt
-    if (prompt && stripePlan(team).bots < 3 && !isSuperAdmin(user.uid)) {
+    if (prompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(user.uid)) {
       setShowUpgrade(true)
       return
     }
@@ -214,9 +214,9 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         className="mb-4 text-xl font-medium leading-6 text-gray-900"
                       >
                         Customize Prompt
-                        {stripePlan(team).bots < 3 && (
+                        {!checkPlanPermission(team, 'hobby').allowed && (
                           <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                            Power
+                            {checkPlanPermission(team, 'hobby').requiredPlanLabel}
                           </span>
                         )}
                       </Dialog.Title>

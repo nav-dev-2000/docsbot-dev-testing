@@ -29,15 +29,16 @@ function Bots({ preBots, team }) {
   const [open, setOpen] = useState(false)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
+  const [currentTeam, setCurrentTeam] = useState(team)
 
   useEffect(() => {
-    if (team && user) {
-      setModify(canUserCreateDeleteBot(team, user?.uid))
+    if (currentTeam && user) {
+      setModify(canUserCreateDeleteBot(currentTeam, user?.uid))
     }
-  }, [team, user])
+  }, [currentTeam, user])
 
   useEffect(() => {
-    if (!team.botCount || bots.length == 0) {
+    if (!currentTeam.botCount || bots.length == 0) {
       setOpen(true)
     }
   }, [bots])
@@ -156,11 +157,12 @@ function Bots({ preBots, team }) {
   }
 
   return (
-    <DashboardWrap page="Bots" team={team}>
+    <DashboardWrap page="Bots" team={currentTeam}>
       <Alert title={errorText} type="warning" />
 
       <BotDelete
-        team={team}
+        team={currentTeam}
+        setTeam={setCurrentTeam}
         bot={toDelete}
         setToDelete={setToDelete}
         setErrorText={setErrorText}
@@ -173,7 +175,7 @@ function Bots({ preBots, team }) {
       {
         canModify && <>
           <BotCTA {...{ setOpen }} />
-          <NewBotPanel {...{ team, open, setOpen }} />
+          <NewBotPanel {...{ team: currentTeam, open, setOpen }} />
         </>
       }
 

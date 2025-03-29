@@ -1,7 +1,7 @@
 import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { teamOwner, bentoTrack } from '@/lib/bento'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import { sendReportEmail } from '@/utils/emails'
 
 export default async function handler(request, response) {
@@ -35,7 +35,7 @@ export default async function handler(request, response) {
       try {
         const team = teamDoc.data()
         //check if team is Business
-        if (stripePlan(team).bots < 100) {
+        if (!checkPlanPermission(team, 'business').allowed) {
           //console.log('Skipping team', teamDoc.id, 'is not Business+')
           return
         } else {

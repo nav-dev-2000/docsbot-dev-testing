@@ -304,7 +304,7 @@ function Api({ user, team, bots, integrations }) {
       <h2 className="mt-12 text-3xl font-bold">
         Integrations
         <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 align-top text-xs font-medium text-cyan-800">
-          Paid
+          Power
         </span>
       </h2>
 

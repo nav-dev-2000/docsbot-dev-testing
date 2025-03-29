@@ -27,8 +27,9 @@ export const pricingTiers = [
     features: [
       '1 DocsBot',
       '1k Source Pages',
-      'Unlock all source types',
+      'Unlock paid source types',
       '1k questions/mo',
+      'Prompt customization',
       'Private bots',
       'GPT-4o support',
       '1 user',
@@ -65,13 +66,13 @@ export const pricingTiers = [
     features: [
       '3 DocsBots',
       '5k Source Pages',
+      'Unlock cloud source types',
       'Monthly source refresh',
       '5k questions/mo',
       'Basic Analytics',
       'Zapier integration',
       'Help Scout integration',
       'Chat history',
-      'Prompt customization',
     ],
     mostPopular: false,
   },
@@ -105,6 +106,7 @@ export const pricingTiers = [
     features: [
       '10 DocsBots',
       '10k Source Pages',
+      'Unlock ticket source types',
       'Weekly source refresh',
       '10k questions/mo',
       '5 team users',

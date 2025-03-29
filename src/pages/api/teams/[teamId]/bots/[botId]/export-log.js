@@ -4,7 +4,7 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot, getQuestions } from '@/lib/dbQueries';
-import { stripePlan } from '@/utils/helpers';
+import { checkPlanPermission } from '@/utils/helpers';
 import { stringify } from '@vanillaes/csv'
 import { phTrack } from '@/lib/posthog'
 
@@ -41,8 +41,7 @@ const handler = async (req, res) => {
       return res.status(400).json({ message: 'Missing startDate or endDate' })
     }
 
-    if (stripePlan(team).bots === 1) {
-      console.log(stripePlan(team))
+    if (!checkPlanPermission(team, 'premium').allowed) {
       return res.status(402).json({
         message: 'Please upgrade your plan to enable log exporting.',
       })

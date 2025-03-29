@@ -2,11 +2,12 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { DocumentDuplicateIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import Alert from '@/components/Alert'
 import ModalCheckout from '@/components/ModalCheckout'
 import { useRouter } from 'next/router'
 import Tooltip from '@/components/Tooltip'
+
 export const BotCopyModal = ({ team, bot }) => {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -14,12 +15,6 @@ export const BotCopyModal = ({ team, bot }) => {
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
   const router = useRouter()
-
-  useEffect(() => {
-    if (stripePlan(team).name === 'Free') {
-      setShowUpgrade(true)
-    }
-  }, [team])
 
   const createCopy = async () => {
     if (!botName) {
@@ -72,10 +67,21 @@ export const BotCopyModal = ({ team, bot }) => {
 
   return (
     <>
+      <ModalCheckout
+        team={team}
+        open={showUpgrade}
+        setOpen={setShowUpgrade}
+      />
       <Tooltip content="Duplicate this bot & its sources">
         <button
           className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            if (!checkPlanPermission(team, 'power').allowed) {
+              setShowUpgrade(true)
+            } else {
+              setOpen(true)
+            }
+          }}
         >
           <DocumentDuplicateIcon
             className="mr-1 h-4 w-4 flex-shrink-0"
@@ -142,11 +148,6 @@ export const BotCopyModal = ({ team, bot }) => {
                       <div className="flex flex-1 flex-col justify-between">
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
                           <div className="space-y-6 pb-5 pt-6">
-                            <ModalCheckout
-                              team={team}
-                              open={showUpgrade}
-                              setOpen={setShowUpgrade}
-                            />
                             <div>
                               <label
                                 htmlFor="project-name"

@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { PlusIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
@@ -80,7 +80,7 @@ export default function FormBot({
 
   //show upgrade if they change privacy to private
   useEffect(() => {
-    if (privacy === 'private' && stripePlan(team).name === 'Free') {
+    if (privacy === 'private' && !checkPlanPermission(team, 'hobby').allowed) {
       setShowUpgrade(true)
       setPrivacy('public')
     }
@@ -90,7 +90,7 @@ export default function FormBot({
   useEffect(() => {
     if (
       (model === 'gpt-4' || model === 'gpt-4-turbo') &&
-      stripePlan(team).name === 'Free'
+      !checkPlanPermission(team, 'hobby').allowed
     ) {
       setShowUpgrade(true)
       setModel('gpt-3.5-turbo')
@@ -264,7 +264,7 @@ export default function FormBot({
                   className="font-medium text-gray-900"
                 >
                   Private
-                  {stripePlan(team).name === 'Free' && (
+                  {!checkPlanPermission(team, 'hobby').allowed && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
                     </span>
@@ -310,7 +310,7 @@ export default function FormBot({
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
                     New!
                   </span>
-                  {stripePlan(team).name === 'Free' && (
+                  {!checkPlanPermission(team, 'hobby').allowed && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
                     </span>
@@ -350,7 +350,7 @@ export default function FormBot({
               <div className="pl-7 text-sm">
                 <label htmlFor="gpt-4o" className="font-medium text-gray-900">
                   GPT-4o - Most Advanced
-                  {stripePlan(team).name === 'Free' && (
+                  {!checkPlanPermission(team, 'hobby').allowed && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
                     </span>
@@ -424,7 +424,7 @@ export default function FormBot({
                     className="font-medium text-gray-600"
                   >
                     GPT-4 Turbo
-                    {stripePlan(team).name === 'Free' && (
+                    {!checkPlanPermission(team, 'hobby').allowed && (
                       <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                         Paid
                       </span>
@@ -466,7 +466,7 @@ export default function FormBot({
                 <div className="pl-7 text-sm">
                   <label htmlFor="gpt-4" className="font-medium text-gray-600">
                     GPT-4
-                    {stripePlan(team).name === 'Free' && (
+                    {!checkPlanPermission(team, 'hobby').allowed && (
                       <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                         Paid
                       </span>
@@ -621,9 +621,9 @@ export default function FormBot({
           <div className="border-t border-gray-900/10 pt-6">
             <h2 className="text-base font-semibold leading-7 text-gray-900">
               Rate Limiting
-              {stripePlan(team).bots < 100 && (
+              {!checkPlanPermission(team, 'business').allowed && (
                 <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                  Business Plan
+                  {checkPlanPermission(team, 'business').requiredPlanLabel}
                 </span>
               )}
             </h2>
@@ -648,7 +648,7 @@ export default function FormBot({
                     id="rateLimitMessages"
                     value={rateLimitMessages}
                     onChange={(e) => setRateLimitMessages(e.target.value)}
-                    disabled={disabled || stripePlan(team).bots < 100}
+                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
                     aria-describedby="rateLimitMessages-description"
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
@@ -676,7 +676,7 @@ export default function FormBot({
                     id="rateLimitSeconds"
                     value={rateLimitSeconds}
                     onChange={(e) => setRateLimitSeconds(e.target.value)}
-                    disabled={disabled || stripePlan(team).bots < 100}
+                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
                     aria-describedby="rateLimitSeconds-description"
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
@@ -703,7 +703,7 @@ export default function FormBot({
                     id="rateLimitIPAllowlist"
                     value={rateLimitIPField}
                     onChange={(e) => setRateLimitIPField(e.target.value)}
-                    disabled={disabled || stripePlan(team).bots < 100}
+                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
                     aria-describedby="rateLimitMessages-description"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
@@ -743,7 +743,7 @@ export default function FormBot({
                 description="Record unhashed IP addresses of users to help monitor abuse. Has privacy implications."
                 enabled={recordIP}
                 setEnabled={setRecordIP}
-                disabled={!stripePlan(team).bots >= 100}
+                disabled={!checkPlanPermission(team, 'business').allowed}
               />
             </div>
           </div>

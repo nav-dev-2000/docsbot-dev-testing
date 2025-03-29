@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-export default function BotDelete({ team, bot, setToDelete, setErrorText, bots, setBots }) {
+export default function BotDelete({ team, setTeam, bot, setToDelete, setErrorText, bots, setBots }) {
   const [submitting, setSubmitting] = useState(false)
   const alertRef = useRef(null);
 
@@ -18,6 +18,11 @@ export default function BotDelete({ team, bot, setToDelete, setErrorText, bots, 
       const data = await response.json()
       const deleting = bot.id
       setBots(bots.filter((bot) => bot.id !== deleting))
+      // Update team state with new botCount
+      setTeam({
+        ...team,
+        botCount: Math.max(0, (team.botCount || 0) - 1)
+      })
       setToDelete(null)
       setSubmitting(false)
     } else {
