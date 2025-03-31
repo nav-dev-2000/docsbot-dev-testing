@@ -139,8 +139,12 @@ export default async function handler(req, res) {
         return res.status(200).send({ message: 'OK' })
     }
 
-    await QueueSourceRegest(team_id, bot_id, source_id)
-    await purgeOrphans(team_id, bot_id, integrated_account_id)
+    try {
+      await QueueSourceRegest(team_id, bot_id, source_id)
+      await purgeOrphans(team_id, bot_id, integrated_account_id)
+    } catch (error) {
+      console.error(error)
+    }
     return res.status(200).send({ message: 'OK' })
   } else {
     res.status(400).send({ message: 'Invalid HTTP method' })

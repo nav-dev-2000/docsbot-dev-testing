@@ -141,6 +141,10 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
   const team = await getTeam(teamId)
   const pageLimit = Math.max(stripePlan(team).pages - team.pageCount, 0)
 
+  if (pageLimit === 0) {
+    throw new Error('You have reached your page limit.')
+  }
+
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'regest',
