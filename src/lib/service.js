@@ -31,7 +31,7 @@ export const QueueSourceIngest = async (
       teamId,
       botId,
       sourceId,
-      pageLimit,
+      pageLimit: Math.max(pageLimit, 0),
       indexId,
       type,
       title,
@@ -139,7 +139,7 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
 
   // grab pageLimit
   const team = await getTeam(teamId)
-  const pageLimit = stripePlan(team).pages - team.pageCount
+  const pageLimit = Math.max(stripePlan(team).pages - team.pageCount, 0)
 
   const dataBuffer = Buffer.from(
     JSON.stringify({
