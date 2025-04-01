@@ -37,6 +37,7 @@ export default async function handler(request, response) {
 
       const botRef = doc.ref.parent.parent
       const botId = botRef.id
+      const botName = (await botRef.get()).data().name
 
       const teamRef = botRef.parent.parent
       const teamId = teamRef.id
@@ -81,12 +82,29 @@ export default async function handler(request, response) {
       } catch (error) {
         console.log(doc.id, 'refresh error:', error)
 
-        // remove schedule && report error
+        const lastError = {
+          'botId': botId,
+          'botName': botName,
+          'type': 'source',
+          'sourceId': doc.id,
+          'message': error.message,
+          'emailSent': false,
+          'descriptive': `Failed to refresh source: ${error.message}.`,
+        }
+
+        // remove schedule
         doc.ref.update({
           scheduled: FieldValue.delete(),
           scheduleInterval: 'none',
-          lastError: error,
+          status: 'failed',
+          error: error.message,
         })
+
+        // report error on team doc
+        teamRef.update({
+          lastError: lastError,
+        })
+
         // ignore reingestion errors
         return
       }
