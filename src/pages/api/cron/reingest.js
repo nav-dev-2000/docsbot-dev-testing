@@ -81,10 +81,11 @@ export default async function handler(request, response) {
       } catch (error) {
         console.log(doc.id, 'refresh error:', error)
 
-        // remove schedule
+        // remove schedule && report error
         doc.ref.update({
           scheduled: FieldValue.delete(),
           scheduleInterval: 'none',
+          lastError: error,
         })
         // ignore reingestion errors
         return
