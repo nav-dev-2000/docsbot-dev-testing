@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { RadioGroup, Disclosure } from '@headlessui/react'
 import { CheckCircleIcon, ChevronUpIcon } from '@heroicons/react/20/solid'

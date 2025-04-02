@@ -107,7 +107,7 @@ async function createTrutoSyncJob(type, configPath, env = 'staging') {
 
 async function createWeb(hookUrl) {
   const webHook = await CreateWebHook(hookUrl)
-  console.log('webHook:', webHook.id, 'secret:', webHook.secret)
+  console.log('webHook id:', webHook.id, 'secret:', webHook.secret)
 }
 
 const UpdateSyncJob = async (sync_job_id, syncJobConfig, env = 'staging') => {
@@ -241,7 +241,7 @@ if (require.main === module) {
 // Comment out or remove the previous direct function calls
 // DeleteSyncJob('d7333ef0-3a25-434c-8059-0596e92b28ce')
 // createTrutoSyncJob('notion')
-// createWeb('https://25c1-194-195-89-112.ngrok-free.app/api/truto-webhook')
+// createWeb('https://cccc-2600-1702-5b21-26d0-00-b.ngrok-free.app/api/truto-webhook')
 
 module.exports = {
   createTrutoSyncJob,

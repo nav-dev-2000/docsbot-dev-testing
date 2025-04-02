@@ -1,0 +1,113 @@
+{
+    "id": "970e5e14-84d1-423c-a806-639e69189b0d",
+    "integration_name": "sharepoint",
+    "args_schema": {
+      "integrated_account_id": {
+        "type": "string",
+        "format": "integrated_account_id",
+        "required": true
+      },
+      "webhook_id": {
+        "type": "string",
+        "format": "webhook_id"
+      },
+      "google_cloud_storage_datastore_id": {
+        "type": "string",
+        "format": "datastore_id",
+        "required": true
+      },
+      "team_id": {
+        "type": "string",
+        "required": true
+      },
+      "bot_id": {
+        "type": "string",
+        "required": true
+      },
+      "source_id": {
+        "type": "string",
+        "required": true
+      }
+    },
+    "resources": [
+      {
+        "type": "request",
+        "name": "get-files",
+        "resource": "file-storage/drive-items",
+        "method": "list",
+        "query": {
+          "drive_item_id": "{{drive_items.id}}",
+          "drive": {
+              "id": "{{drive_items.parentReference.driveId}}"
+          }
+        },
+        "integrated_account_id": "{{args.integrated_account_id}}",
+        "loop_on": "drive_items",
+        "recurse": {
+          "if": "{{resources.file-storage.drive-items.has_children:bool}}",
+          "config": {
+              "query": {
+                  "drive": {
+                      "id": "{{resources.file-storage.drive-items.drive.id}}"
+                  },
+                  "parent": "{{resources.file-storage.drive-items.id}}"
+              }
+          }
+        }
+      },
+      {
+        "type": "add_context",
+        "name": "add-file-name",
+        "depends_on": "get-files",
+        "config": {
+          "expression": "resources.`file-storage`.`drive-items`.{ \"file_id\": id, \"file_name\": name, \"content_type\": mime_type, 'file_size': size, 'file_url': urls[type=\"self\"].url }"
+        }
+      },
+      {
+        "type": "request",
+        "name": "download-file",
+        "resource": "file-storage/drive-items",
+        "method": "download",
+        "depends_on": "get-files",
+        "query": "{'file_url':  resources.`file-storage`.`drive-items`.urls[type = 'download'].url, 'truto_response_format': 'stream'}",
+          "integrated_account_id": "{{args.integrated_account_id}}",
+          "run_if": "resources.`file-storage`.`drive-items`.has_children = true ? false : true"
+      },
+      {
+        "name": "transform-file-content",
+        "type": "transform",
+        "config": {
+          "expression": "{\"file_name\": file_name, \"content\": resources.`file-storage`.`drive-items` }"
+        },
+        "depends_on": "download-file"
+      },
+      {
+        "name": "google-cloud-storage",
+        "type": "destination",
+        "destination_type": "datastore",
+        "method": "uploadObject",
+        "config": {
+          "id": "{{args.google_cloud_storage_datastore_id}}",
+          "config": {
+            "path": "teams/{{args.team_id}}/bots/{{args.bot_id}}/sources/{{args.source_id}}",
+            "file_name": "{{file_name}}",
+            "content": "{{payload.records.0.content}}",
+            "upload_type": "resumable",
+            "headers": {
+              "Content-Type": "{{content_type}}",
+              "X-Goog-Meta-File-Id": "{{file_id}}",
+              "X-Goog-Meta-File-Url": "{{file_url}}",
+              "X-Goog-Meta-File-Title": "{{file_name}}"
+            }
+          }
+        },
+        "run_if": "$exists(args.google_cloud_storage_datastore_id)",
+        "resources_to_persist": [
+          "transform-file-content"
+        ]
+      }
+    ],
+    "default_runtime_version": 4,
+    "label": "Fetch all the files from Sharepoint",
+    "args_validation": "$firstNonEmpty(args.webhook_id, args.google_cloud_storage_datastore_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"
+  }
