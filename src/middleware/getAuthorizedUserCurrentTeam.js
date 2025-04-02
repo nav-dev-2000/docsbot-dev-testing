@@ -5,7 +5,7 @@ import { getAuthorizedUser } from './getAuthorizedUser'
 import { isSuperAdmin } from '@/utils/helpers'
 import { authDefaults, TWO_WEEKS_IN_MILLISECONDS } from '@/constants/auth.constants'
 import { getTeam } from '@/lib/dbQueries'
-import cookie from 'cookie'
+import * as cookie from 'cookie'
 
 export const getAuthorizedUserCurrentTeam = async (context) => {
   configureFirebaseApp()
