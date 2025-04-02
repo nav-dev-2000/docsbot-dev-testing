@@ -1,5 +1,5 @@
 import { getAuth } from 'firebase-admin/auth'
-import cookie from 'cookie'
+import * as cookie from 'cookie'
 import * as jose from 'jose'
 import { getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'

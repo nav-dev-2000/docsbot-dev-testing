@@ -1,4 +1,4 @@
-import cookie from 'cookie'
+import * as cookie from 'cookie'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { authDefaults } from '@/constants/auth.constants'
 

@@ -1,4 +1,4 @@
-import cookie from 'cookie'
+import * as cookie from 'cookie'
 import { authDefaults } from '@/constants/auth.constants'
 import { verifySessionCookie } from '@/middleware/verifySessionCookie'
 
