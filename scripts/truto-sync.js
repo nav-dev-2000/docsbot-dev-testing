@@ -86,7 +86,7 @@ const CreateWebHook = async (target_url, env = 'staging') => {
   if (resp.ok) {
     const data = await resp.json()
     if (data?.id) {
-      return data.id
+      return data
     }
   } else {
     console.error(await resp.json())
@@ -106,8 +106,8 @@ async function createTrutoSyncJob(type, configPath, env = 'staging') {
 }
 
 async function createWeb(hookUrl) {
-  const webHookID = await CreateWebHook(hookUrl)
-  console.log('webHookID:', webHookID)
+  const webHook = await CreateWebHook(hookUrl)
+  console.log('webHook:', webHook.id, 'secret:', webHook.secret)
 }
 
 const UpdateSyncJob = async (sync_job_id, syncJobConfig, env = 'staging') => {

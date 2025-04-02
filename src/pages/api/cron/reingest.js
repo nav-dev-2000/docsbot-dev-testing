@@ -1,5 +1,7 @@
 import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
+import { getStorage } from 'firebase-admin/storage'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
@@ -53,10 +55,18 @@ export default async function handler(request, response) {
         // Check if it's a truto source type, we are not supporting truto sources for cron jobs anymore
         if (isTrutoSourceType(source.type)) {
           try {
+            try {
+              console.log('Deleting files from bucket')
+              const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+              await bucket.deleteFiles({ prefix: `teams/${teamId}/bots/${botId}/sources/${doc.id}` })
+            } catch (error) {
+              console.log('Error deleting files from bucket', error)
+            }
+
             // start Truto sync job
             const trutoSyncRun = await RunSyncJob(GetSyncJobID(source.type), source?.trutoIntegrationID, teamId, botId, doc.id)
             console.log("Starting Trutosync job with ID:", trutoSyncRun)
-    
+
             // add sync job id to source
             await doc.ref.update({
               status: 'indexing',

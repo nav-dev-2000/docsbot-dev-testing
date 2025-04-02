@@ -66,6 +66,7 @@ export default function ModalSource({
     source?.scheduleInterval ?? 'none',
   )
   const [submitting, setSubmitting] = useState(false)
+  const [submittingRefresh, setSubmittingRefresh] = useState(false)
   const [showInterval, setShowInterval] = useState(
     canSourceTypeSchedule(source?.type),
   )
@@ -228,7 +229,6 @@ export default function ModalSource({
 
       // update source
       setSources((sources) => sources.map((s) => (s.id === data.id ? data : s)))
-      setSubmitting(false)
       setOpen(false)
     } else {
       try {
@@ -237,12 +237,13 @@ export default function ModalSource({
       } catch (e) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
-      setSubmitting(false)
     }
+    setSubmitting(false)
   }
 
   const refreshSource = async () => {
     setErrorText('')
+    setSubmittingRefresh(true)
     const response = await fetch(
       `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
       {
@@ -270,6 +271,7 @@ export default function ModalSource({
         setErrorText('Error ' + response.status + ', please try again.')
       }
     }
+    setSubmittingRefresh(false)
   }
 
   useEffect(() => {
@@ -735,24 +737,28 @@ export default function ModalSource({
                               type="button"
                               className={
                                 'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
-                                (canModify
+                                ((canModify || submittingRefresh)
                                   ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
                                   : ' cursor-not-allowed border-gray-200 bg-gray-300')
                               }
                               onClick={refreshSource}
                               disabled={
-                                submitting || locked !== null || !canModify
+                                submitting || submittingRefresh || locked !== null || !canModify
                               }
                             >
-                              <ArrowPathIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
+                              { submittingRefresh ? (
+                                <LoadingSpinner className="mr-3" />
+                              ) : (
+                                <ArrowPathIcon
+                                  className="mr-2 h-5 w-5"
+                                  aria-hidden="true"
+                                />
+                              )}
                               Refresh
                             </button>
                             <button
                               disabled={
-                                submitting || locked !== null || !canModify
+                                submitting || submittingRefresh || locked !== null || !canModify
                               }
                               onClick={updateSource}
                               className={

@@ -1,6 +1,8 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot, getSource } from '@/lib/dbQueries'
+import { firebaseConfig } from '@/config/firebase-ui.config'
+import { getStorage } from 'firebase-admin/storage'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isSuperAdmin } from '@/utils/helpers'
 import { canSourceTypeSchedule, isTrutoSourceType, sourceTypes } from '@/constants/sourceTypes.constants'
@@ -119,6 +121,14 @@ export default async function handler(req, res) {
   } else if (req.method === 'POST') {
     if (isTrutoSourceType(source.type)) {
       try {
+        try {
+          console.log('Deleting files from bucket')
+          const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+          await bucket.deleteFiles({ prefix: `teams/${team.id}/bots/${botId}/sources/${sourceId}` })
+        } catch (error) {
+          console.log('Error deleting files from bucket', error)
+        }
+
         // start Truto sync job
         const trutoSyncRun = await RunSyncJob(GetSyncJobID(source.type), source?.trutoIntegrationID, team.id, botId, sourceId)
         console.log("starting sync job with ID:", trutoSyncRun)
