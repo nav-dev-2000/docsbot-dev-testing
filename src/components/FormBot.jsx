@@ -19,6 +19,7 @@ export default function FormBot({
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(bot?.model || 'gpt-4o-mini')
   const [questions, setQuestions] = useState(bot?.questions || [])
+  const [glossary, setGlossary] = useState(bot?.glossary || [])
   const [rateLimitMessages, setRateLimitMessages] = useState(
     bot?.rateLimitMessages || 10,
   )
@@ -52,6 +53,7 @@ export default function FormBot({
       privacy,
       model,
       questions,
+      glossary,
       rateLimitMessages,
       rateLimitSeconds,
       rateLimitIPAllowlist,
@@ -66,6 +68,7 @@ export default function FormBot({
     privacy,
     model,
     questions,
+    glossary,
     rateLimitMessages,
     rateLimitSeconds,
     rateLimitIPAllowlist,
@@ -121,6 +124,31 @@ export default function FormBot({
     })
   }
 
+  const updateGlossary = (index, newGlossary) => {
+    setGlossary((glossary) => {
+      const newGlossaries = [...glossary]
+      newGlossaries[index] = newGlossary
+      console.log(newGlossaries)
+      return newGlossaries
+    })
+  }
+
+  const removeGlossary = (index) => {
+    setGlossary((glossary) => {
+      const newGlossaries = [...glossary]
+      newGlossaries.splice(index, 1)
+      return newGlossaries
+    })
+  }
+
+  const addGlossary = () => {
+    setGlossary((glossary) => {
+      const newGlossaries = [...glossary]
+      newGlossaries.push({ word: '', translation: '' })
+      return newGlossaries
+    })
+  }
+
   useEffect(() => {
     //check for valid IPv4 and IPv6 addresses
     const ipArray = rateLimitIPField
@@ -163,6 +191,80 @@ export default function FormBot({
             onClick={() => removeQuestion(index)}
           >
             <span className="sr-only">Remove question: {question}</span>
+            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  const GlossaryEntry = ({ index }) => {
+    const [word, setWord] = useState(glossary[index].word)
+    const [translation, setTranslation] = useState(glossary[index].translation)
+    const [isDirty, setIsDirty] = useState(false)
+
+    // Sync with parent state changes
+    useEffect(() => {
+      if (!isDirty) {
+        setWord(glossary[index].word)
+        setTranslation(glossary[index].translation)
+      }
+    }, [glossary[index], isDirty])
+
+    // Update parent state when component loses focus entirely
+    const handleFocusOut = useCallback(() => {
+      if (isDirty) {
+        updateGlossary(index, { word, translation })
+        setIsDirty(false)
+      }
+    }, [index, word, translation, isDirty])
+
+    return (
+      <div
+        className="flex items-start pt-2"
+        onBlur={(e) => {
+          // Only update parent if focus is leaving this component entirely
+          // Check if the relatedTarget (where focus is going) is not a child of this component
+          if (!e.currentTarget.contains(e.relatedTarget)) {
+            handleFocusOut()
+          }
+        }}
+      >
+        <div className="grid w-full grid-cols-2 gap-2 text-sm">
+          <div>
+            <input
+              type="text"
+              value={word}
+              autoComplete="off"
+              onChange={(e) => {
+                setWord(e.target.value)
+                setIsDirty(true)
+              }}
+              placeholder={`Word`}
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              value={translation}
+              autoComplete="off"
+              onChange={(e) => {
+                setTranslation(e.target.value)
+                setIsDirty(true)
+              }}
+              placeholder={`Equivalent in sources`}
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+            />
+          </div>
+        </div>
+        <div className="m-auto flex items-center text-center">
+          <button
+            type="button"
+            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            onClick={() => removeGlossary(index)}
+          >
+            <span className="sr-only">Remove Glossary entry: {word}</span>
             <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
           </button>
         </div>
@@ -285,8 +387,7 @@ export default function FormBot({
           OpenAI Model
         </legend>
         <div className="mt-2 space-y-2">
-
-        {!short && (
+          {!short && (
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
@@ -317,8 +418,8 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4.5-preview-description" className="text-gray-500">
-                  Very slow, expensive ($0.27/question). We only recommend
-                  using for advanced internal research.
+                  Very slow, expensive ($0.27/question). We only recommend using
+                  for advanced internal research.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -358,8 +459,7 @@ export default function FormBot({
                 </label>
                 <p id="gpt-4o-description" className="text-gray-500">
                   Newest (&lt;$0.01/question) model with Oct 2023 knowledge
-                  cutoff for advanced reasoning or content creation needs. 2x
-                  faster than GPT-4 Turbo.
+                  cutoff for advanced reasoning or content creation needs.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -372,7 +472,6 @@ export default function FormBot({
               </div>
             </div>
           </div>
-
 
           <div className="relative flex items-start">
             <div className="absolute flex h-5 items-center">
@@ -608,8 +707,43 @@ export default function FormBot({
               <div className="mt-2 flex justify-center">
                 <button
                   type="button"
-                  className="flex items-center justify-center text-cyan-700 hover:text-cyan-900 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                  className="flex items-center justify-center rounded-md px-2 py-1 text-cyan-700 hover:text-cyan-900 focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   onClick={() => addQuestion()}
+                >
+                  <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                  Add
+                </button>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset id="glossary" aria-describedby="glossary-description">
+            <div>
+              <legend
+                htmlFor="glossary"
+                className="block text-sm font-medium text-gray-900"
+              >
+                Glossary
+                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                  New!
+                </span>
+              </legend>
+              <p id="glossary-description" className="text-sm text-gray-500">
+                Define a list of words and their equivalents in your
+                documentation for the bot to use when finding relevant sources.
+                This can help the bot understand the user's question better when
+                using brand or product-specific terminology or translations.
+                Words are case-insensitive and only the full word is matched.
+              </p>
+              {glossary !== undefined &&
+                glossary.map((_, index) => (
+                  <GlossaryEntry index={index} key={index} />
+                ))}
+              <div className="mt-2 flex justify-center">
+                <button
+                  type="button"
+                  className="flex items-center justify-center rounded-md px-2 py-1 text-cyan-700 hover:text-cyan-900 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                  onClick={() => addGlossary()}
                 >
                   <PlusIcon className="h-5 w-5" aria-hidden="true" />
                   Add
@@ -648,7 +782,9 @@ export default function FormBot({
                     id="rateLimitMessages"
                     value={rateLimitMessages}
                     onChange={(e) => setRateLimitMessages(e.target.value)}
-                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
+                    disabled={
+                      disabled || !checkPlanPermission(team, 'business').allowed
+                    }
                     aria-describedby="rateLimitMessages-description"
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
@@ -676,7 +812,9 @@ export default function FormBot({
                     id="rateLimitSeconds"
                     value={rateLimitSeconds}
                     onChange={(e) => setRateLimitSeconds(e.target.value)}
-                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
+                    disabled={
+                      disabled || !checkPlanPermission(team, 'business').allowed
+                    }
                     aria-describedby="rateLimitSeconds-description"
                     className="block w-full rounded-md border-0 py-1.5 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />
@@ -703,7 +841,9 @@ export default function FormBot({
                     id="rateLimitIPAllowlist"
                     value={rateLimitIPField}
                     onChange={(e) => setRateLimitIPField(e.target.value)}
-                    disabled={disabled || !checkPlanPermission(team, 'business').allowed}
+                    disabled={
+                      disabled || !checkPlanPermission(team, 'business').allowed
+                    }
                     aria-describedby="rateLimitMessages-description"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
                   />

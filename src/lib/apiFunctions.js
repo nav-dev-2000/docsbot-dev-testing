@@ -321,6 +321,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     showButtonLabel,
     labels,
     questions,
+    glossary,
     rateLimitMessages,
     rateLimitSeconds,
     rateLimitIPAllowlist,
@@ -524,6 +525,30 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       botData.questions = botData.questions.filter(
         (question) => question?.trim() !== '',
       )
+    }
+  }
+
+  if (glossary !== undefined) {
+    botData.glossary = glossary || []
+    if (Array.isArray(botData.glossary)) {
+      // Trim words and translations, convert words to lowercase
+      botData.glossary = botData.glossary.map(entry => ({
+        word: entry.word?.trim().toLowerCase() || '',
+        translation: entry.translation?.trim() || ''
+      }))
+      botData.glossary = botData.glossary.filter((g) => 
+        g?.word && g.word !== '' && g?.translation && g.translation !== ''
+      )
+      
+      // Remove entries with duplicate words
+      const uniqueWords = new Set()
+      botData.glossary = botData.glossary.filter(entry => {
+        if (uniqueWords.has(entry.word)) {
+          return false
+        }
+        uniqueWords.add(entry.word)
+        return true
+      })
     }
   }
 
