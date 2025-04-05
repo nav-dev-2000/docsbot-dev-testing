@@ -529,8 +529,18 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (glossary !== undefined) {
+    // Check if the team has Pro plan permissions
+    if (glossary && glossary.length > 0 && !checkPlanPermission(team, 'pro', 'glossary').allowed && !isSuperAdmin(userId)) {
+      throw new Error('Glossary feature is only available on the Pro plan or higher.')
+    }
+    
     botData.glossary = glossary || []
-    if (Array.isArray(botData.glossary)) {
+    
+    // If the user doesn't have Pro plan and there are existing glossary entries in the bot
+    // (e.g., downgraded from Pro to a lower plan), we'll clear the glossary entries
+    if (bot?.glossary?.length > 0 && !checkPlanPermission(team, 'pro', 'glossary').allowed && !isSuperAdmin(userId)) {
+      botData.glossary = []
+    } else if (Array.isArray(botData.glossary)) {
       // Trim words and translations, convert words to lowercase
       botData.glossary = botData.glossary.map(entry => ({
         word: entry.word?.trim().toLowerCase() || '',

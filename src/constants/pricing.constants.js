@@ -112,6 +112,7 @@ export const pricingTiers = [
       '5 team users',
       'Advanced Analytics',
       'Unbranded chat widgets',
+      'Glossary',
       'Train from images in HTML/Markdown',
     ],
     mostPopular: true,

@@ -142,11 +142,15 @@ export default function FormBot({
   }
 
   const addGlossary = () => {
-    setGlossary((glossary) => {
-      const newGlossaries = [...glossary]
-      newGlossaries.push({ word: '', translation: '' })
-      return newGlossaries
-    })
+    if (checkPlanPermission(team, 'pro', 'glossary').allowed) {
+      setGlossary((glossary) => {
+        const newGlossaries = [...glossary]
+        newGlossaries.push({ word: '', translation: '' })
+        return newGlossaries
+      })
+    } else {
+      setShowUpgrade(true)
+    }
   }
 
   useEffect(() => {
@@ -219,6 +223,8 @@ export default function FormBot({
       }
     }, [index, word, translation, isDirty])
 
+    const isDisabled = disabled || !checkPlanPermission(team, 'pro', 'glossary').allowed;
+
     return (
       <div
         className="flex items-start pt-2"
@@ -241,6 +247,7 @@ export default function FormBot({
                 setIsDirty(true)
               }}
               placeholder={`Word`}
+              disabled={isDisabled}
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
             />
           </div>
@@ -254,6 +261,7 @@ export default function FormBot({
                 setIsDirty(true)
               }}
               placeholder={`Equivalent in sources`}
+              disabled={isDisabled}
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
             />
           </div>
@@ -263,6 +271,7 @@ export default function FormBot({
             type="button"
             className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             onClick={() => removeGlossary(index)}
+            disabled={disabled}
           >
             <span className="sr-only">Remove Glossary entry: {word}</span>
             <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
@@ -300,13 +309,13 @@ export default function FormBot({
           htmlFor="description"
           className="block text-sm font-medium text-gray-900"
         >
-          Description
+          Description (optional)
         </label>
         <div className="mt-1">
           <textarea
             id="description"
             name="description"
-            placeholder="(optional) Describe what your bot will do and how it will be used, e.g. 'Ask me anything about my product!'"
+            placeholder="This is an internal description of your bot, not a prompt or instructions."
             rows={4}
             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
             value={botDescription}
@@ -418,7 +427,7 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4.5-preview-description" className="text-gray-500">
-                  Very slow, expensive ($0.27/question). We only recommend using
+                  Very slow, expensive ($0.27/question), and low rate limits. We only recommend using
                   for advanced internal research.
                   {!team.supportsGPT4 && (
                     <Link
@@ -450,7 +459,7 @@ export default function FormBot({
               </div>
               <div className="pl-7 text-sm">
                 <label htmlFor="gpt-4o" className="font-medium text-gray-900">
-                  GPT-4o - Most Advanced
+                  GPT-4o - Powerful
                   {!checkPlanPermission(team, 'hobby').allowed && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                       Paid
@@ -458,8 +467,7 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4o-description" className="text-gray-500">
-                  Newest (&lt;$0.01/question) model with Oct 2023 knowledge
-                  cutoff for advanced reasoning or content creation needs.
+                  Stronger (&lt;$0.01/question) model with for better instruction following, advanced reasoning, or content creation.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -495,55 +503,60 @@ export default function FormBot({
                 GPT-4o Mini - Best Value
               </label>
               <p id="gpt-4o-mini-description" className="text-gray-500">
-                Newest & most affordable model good for most support use cases.
+                Included in all plans. Affordable & fast model good for most support
+                use cases.
               </p>
             </div>
           </div>
           {!short && (
             <div>
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4-turbo"
-                    name="model"
-                    value="gpt-4-turbo"
-                    aria-describedby="gpt-4-turbo-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={
-                      model === 'gpt-4-1106-preview' || model === 'gpt-4-turbo'
-                    }
-                    onChange={() => setModel('gpt-4-turbo')}
-                    disabled={disabled || !team.supportsGPT4}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4-turbo"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT-4 Turbo
-                    {!checkPlanPermission(team, 'hobby').allowed && (
-                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                        Paid
-                      </span>
-                    )}
-                  </label>
-                  <p id="gpt-4-turbo-description" className="text-gray-500">
-                    Previous GPT-4 (&lt;$0.03/question) model with Dec 2023
-                    knowledge cutoff for advanced reasoning or content creation
-                    needs.
-                    {!team.supportsGPT4 && (
-                      <Link
-                        href="/app/api"
-                        className="ml-1 inline-block underline hover:text-gray-800"
+              {model === 'gpt-4-turbo' ||
+                (model === 'gpt-4-1106-preview' && ( //don't allow new selection of gpt-4-turbo
+                  <div className="relative flex items-start">
+                    <div className="absolute flex h-5 items-center">
+                      <input
+                        id="gpt-4-turbo"
+                        name="model"
+                        value="gpt-4-turbo"
+                        aria-describedby="gpt-4-turbo-description"
+                        type="radio"
+                        className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                        checked={
+                          model === 'gpt-4-1106-preview' ||
+                          model === 'gpt-4-turbo'
+                        }
+                        onChange={() => setModel('gpt-4-turbo')}
+                        disabled={disabled || !team.supportsGPT4}
+                      />
+                    </div>
+                    <div className="pl-7 text-sm">
+                      <label
+                        htmlFor="gpt-4-turbo"
+                        className="font-medium text-gray-600"
                       >
-                        Get access
-                      </Link>
-                    )}
-                  </p>
-                </div>
-              </div>
+                        GPT-4 Turbo
+                        {!checkPlanPermission(team, 'hobby').allowed && (
+                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                            Paid
+                          </span>
+                        )}
+                      </label>
+                      <p id="gpt-4-turbo-description" className="text-gray-500">
+                        Previous GPT-4 (&lt;$0.03/question) model with Dec 2023
+                        knowledge cutoff for advanced reasoning or content
+                        creation needs.
+                        {!team.supportsGPT4 && (
+                          <Link
+                            href="/app/api"
+                            className="ml-1 inline-block underline hover:text-gray-800"
+                          >
+                            Get access
+                          </Link>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                ))}
             </div>
           )}
           <div>
@@ -673,15 +686,17 @@ export default function FormBot({
 
       {!short && (
         <>
-          <div className="mt-4">
-            <FieldToggle
-              label="Classify Answers"
-              description="Classify if the bot could answer the user question in logs. (recommended)"
-              enabled={classifySwitch}
-              setEnabled={setClassifySwitch}
-              disabled={disabled}
-            />
-          </div>
+          {(bot?.classify === false || bot?.classify === undefined) && ( //don't allow new selection of classify
+            <div className="mt-4">
+              <FieldToggle
+                label="Classify Answers"
+                description="Classify if the bot could answer the user question in logs. (recommended)"
+                enabled={classifySwitch}
+                setEnabled={setClassifySwitch}
+                disabled={disabled}
+              />
+            </div>
+          )}
           <fieldset
             id="suggested-questions"
             aria-describedby="suggested-questions-description"
@@ -724,9 +739,16 @@ export default function FormBot({
                 className="block text-sm font-medium text-gray-900"
               >
                 Glossary
-                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                  New!
-                </span>
+                
+                {!checkPlanPermission(team, 'pro', 'glossary').allowed ? (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    {checkPlanPermission(team, 'pro', 'glossary').requiredPlanLabel}
+                  </span>
+                ) : (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    New!
+                  </span>
+                )}
               </legend>
               <p id="glossary-description" className="text-sm text-gray-500">
                 Define a list of words and their equivalents in your
@@ -744,6 +766,7 @@ export default function FormBot({
                   type="button"
                   className="flex items-center justify-center rounded-md px-2 py-1 text-cyan-700 hover:text-cyan-900 focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   onClick={() => addGlossary()}
+                  disabled={disabled}
                 >
                   <PlusIcon className="h-5 w-5" aria-hidden="true" />
                   Add
