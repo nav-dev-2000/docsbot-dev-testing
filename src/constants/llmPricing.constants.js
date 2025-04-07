@@ -320,6 +320,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 1.5,
     },
     {
+      model_name: 'Command A',
+      model_slug: 'command-a',
+      page_slug: 'command-a',
+      context: '256K',
+      provider: 'Cohere',
+      input_token_cost_per_million: 2.5,
+      output_token_cost_per_million: 10,
+    },
+    {
       model_name: 'Command R+',
       model_slug: 'command-r-plus-08-2024',
       page_slug: 'command-r-plus-08-2024',
