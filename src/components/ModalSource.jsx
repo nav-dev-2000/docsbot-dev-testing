@@ -383,11 +383,18 @@ export default function ModalSource({
                           {source?.pageCount.toString()} Source pages
                         </h3>
                       </Tooltip>
+                      {source?.processedPages?.total && (
+                        <Tooltip content="The total number of items (files, tickets, etc) processed from the source.">
+                          <h3 className="flex-end cursor-help text-sm font-medium text-gray-500">
+                            {source?.processedPages?.total.toString()} Items
+                          </h3>
+                        </Tooltip>
+                      )}
                       {source?.processImages && (
                         <Tooltip
                           content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}
                         >
-                          <span className="flex cursor-help items-center text-sm font-medium text-gray-500">
+                          <span className="flex-end cursor-help items-center text-sm font-medium text-gray-500">
                             <PhotoIcon className="ml-2 mr-1 inline-flex h-4 w-4 text-gray-500" />
                             {source?.processedImages?.processed
                               ? `${source.processedImages.processed} `
