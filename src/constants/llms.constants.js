@@ -1336,9 +1336,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench-v5': {
+      'LiveCodeBench': {
         score: 36.0,
-        notes: null,
+        notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       'Bird-SQL (Dev)': {
@@ -1424,9 +1424,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench-v5': {
+      'LiveCodeBench': {
         score: 34.5,
-        notes: null,
+        notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       'Bird-SQL (Dev)': {
@@ -1512,9 +1512,9 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'LiveCodeBench-v5': {
+      'LiveCodeBench': {
         score: 28.9,
-        notes: null,
+        notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
       'Bird-SQL (Dev)': {
@@ -3766,9 +3766,9 @@ const LLMS = [
         notes: 'With Think mode, cons@64',
         source: 'https://x.ai/blog/grok-3',
       },
-      'LiveCodeBench-v5': {
+      'LiveCodeBench': {
         score: 79.4,
-        notes: 'With Think mode',
+        notes: 'v5 With Think mode',
         source: 'https://x.ai/blog/grok-3',
       },
       SimpleQA: {

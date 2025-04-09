@@ -30,7 +30,7 @@ import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
-import { uuidv4 } from '@firebase/util'
+import { v4 as uuidv4 } from 'uuid'
 import WidgetPreview from '@/components/WidgetPreview'
 
 //icon can be default, robot, life-ring, or question-circle
