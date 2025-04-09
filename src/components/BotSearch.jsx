@@ -15,6 +15,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import clsx from 'clsx'
+import FieldToggle from '@/components/FieldToggle'
 
 const BotSearch = ({ team, bot, setErrorText }) => {
   const [searchInput, setSearchInput] = useState('')
@@ -24,6 +25,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   const [selectedCardData, setSelectedCardData] = useState('')
   const [htmlContent, setHtmlContent] = useState('')
   const [loading, setLoading] = useState(false)
+  const [useGlossary, setUseGlossary] = useState(true)
   const textareaRef = useRef(null)
 
   useEffect(() => {
@@ -49,6 +51,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
       const searchPayload = {
         query: searchInput,
         top_k: searchSize,
+        use_glossary: useGlossary
       }
       const headers = {
         'Content-Type': 'application/json',
@@ -166,23 +169,32 @@ const BotSearch = ({ team, bot, setErrorText }) => {
               </button>
             </div>
           </div>
-          <div className="mt-1 flex items-center justify-end text-xs text-gray-500">
-            <span>Use Shift + Enter to skip to a new line.</span>
-            {searchInput && (
-              <button
-                type="button"
-                className="mx-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
-                onClick={() => {
-                  setSearchInput('')
-                  setSearchData([])
-                  setSelectedButton(-1)
-                  setSelectedCardData('')
-                }}
-              >
-                <ArrowPathIcon className="mr-0.5 h-3 w-3" aria-hidden="true" />
-                Reset
-              </button>
-            )}
+          <div className="mt-3 flex items-center justify-between">
+            <div className="w-36">
+              <FieldToggle 
+                label="Use Glossary"
+                enabled={useGlossary}
+                setEnabled={setUseGlossary}
+              />
+            </div>
+            <div className="flex items-center text-xs text-gray-500">
+              <span>Use Shift + Enter to skip to a new line.</span>
+              {searchInput && (
+                <button
+                  type="button"
+                  className="mx-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
+                  onClick={() => {
+                    setSearchInput('')
+                    setSearchData([])
+                    setSelectedButton(-1)
+                    setSelectedCardData('')
+                  }}
+                >
+                  <ArrowPathIcon className="mr-0.5 h-3 w-3" aria-hidden="true" />
+                  Reset
+                </button>
+              )}
+            </div>
           </div>
         </form>
         {searchData.length ? (

@@ -756,6 +756,9 @@ export default function FormBot({
                 This can help the bot understand the user's question better when
                 using brand or product-specific terminology or translations.
                 Words are case-insensitive and only the full word is matched.
+                <Link href="https://docsbot.ai/documentation/doc/glossary-improve-search-relevance-with-smart-term-replacement" target="_blank" className="ml-1 text-cyan-600 hover:text-cyan-500">
+                  Learn more &rarr;
+                </Link>
               </p>
               {glossary !== undefined &&
                 glossary.map((_, index) => (
