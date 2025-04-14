@@ -9,7 +9,13 @@ export default function GPTModel({ bot }) {
   } else if (bot.model === 'gpt-4.5-preview') {
     label = 'GPT-4.5'
   } else if (bot.model === 'gpt-4o-mini') {
-    label = 'GPT-4o Mini'
+    label = 'GPT-4o mini'
+  } else if (bot.model === 'gpt-4.1') {
+    label = 'GPT-4.1'
+  } else if (bot.model === 'gpt-4.1-mini') {
+    label = 'GPT-4.1 mini'
+  } else if (bot.model === 'gpt-4.1-nano') {
+    label = 'GPT-4.1 nano'
   } else if (bot.model.includes('gpt-4')) {
     label = 'GPT-4 Turbo'
   } else {

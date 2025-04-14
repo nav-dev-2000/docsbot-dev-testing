@@ -31,7 +31,7 @@ export const pricingTiers = [
       '1k questions/mo',
       'Prompt customization',
       'Private bots',
-      'GPT-4o support',
+      'GPT-4o/4.1 support',
       '1 user',
     ],
     mostPopular: false,

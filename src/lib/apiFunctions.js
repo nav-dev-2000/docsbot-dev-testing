@@ -364,7 +364,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (model !== undefined) {
-    if (model.startsWith('gpt-4') && 'gpt-4o-mini' !== model) {
+    if (model.startsWith('gpt-4') && ('gpt-4o-mini' !== model && 'gpt-4.1-nano' !== model)) {
       if (!team.supportsGPT4) {
         throw new Error('Your OpenAI account is not approved for GPT-4 models yet.')
       } else if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
@@ -381,18 +381,21 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4o',
       'gpt-4o-mini',
       'gpt-4.5-preview',
+      'gpt-4.1-mini',
+      'gpt-4.1-nano',
+      'gpt-4.1',
     ]
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
-    if (model !== 'gpt-4o-mini' && !team?.openAIKey) {
+    if (model !== 'gpt-4o-mini' && model !== 'gpt-4.1-nano' && !team?.openAIKey) {
       throw new Error('Please add your OpenAI API key to enable this model.')
     }
     botData.model = model
   } else if (!isUpdate) {
     botData.model =
       team.supportsGPT4 && !checkPlanPermission(team, 'free').allowed
-        ? 'gpt-4o'
+        ? 'gpt-4.1'
         : 'gpt-4o-mini'
   }
 

@@ -92,11 +92,11 @@ export default function FormBot({
   //show upgrade if they change model to gpt-4
   useEffect(() => {
     if (
-      (model === 'gpt-4' || model === 'gpt-4-turbo') &&
+      (model === 'gpt-4o' || model === 'gpt-4.1') &&
       !checkPlanPermission(team, 'hobby').allowed
     ) {
       setShowUpgrade(true)
-      setModel('gpt-3.5-turbo')
+      setModel('gpt-4o-mini')
     }
   }, [model])
 
@@ -223,7 +223,8 @@ export default function FormBot({
       }
     }, [index, word, translation, isDirty])
 
-    const isDisabled = disabled || !checkPlanPermission(team, 'pro', 'glossary').allowed;
+    const isDisabled =
+      disabled || !checkPlanPermission(team, 'pro', 'glossary').allowed
 
     return (
       <div
@@ -396,7 +397,7 @@ export default function FormBot({
           OpenAI Model
         </legend>
         <div className="mt-2 space-y-2">
-          {!short && (
+          {model === 'gpt-4.5-preview' && (
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
@@ -414,11 +415,11 @@ export default function FormBot({
               <div className="pl-7 text-sm">
                 <label
                   htmlFor="gpt-4.5-preview"
-                  className="font-medium text-gray-900"
+                  className="font-medium text-gray-600"
                 >
-                  GPT-4.5 - Research Beta
-                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                    New!
+                  GPT-4.5 - Not Recommended
+                  <span className="ml-4 inline-flex items-center rounded-full bg-orange-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    Retiring June 2025
                   </span>
                   {!checkPlanPermission(team, 'hobby').allowed && (
                     <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
@@ -427,8 +428,8 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4.5-preview-description" className="text-gray-500">
-                  Very slow, expensive ($0.27/question), and low rate limits. We only recommend using
-                  for advanced internal research.
+                  Very slow, expensive ($0.27/question), and low rate limits.
+                  Not recommended for most use cases.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -442,7 +443,49 @@ export default function FormBot({
             </div>
           )}
 
-          <div>
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="gpt-4.1"
+                name="model"
+                value="gpt-4.1"
+                aria-describedby="gpt-4.1-description"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={model === 'gpt-4.1'}
+                onChange={() => setModel('gpt-4.1')}
+                disabled={disabled || !team.supportsGPT4}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label htmlFor="gpt-4.1" className="font-medium text-gray-900">
+                GPT-4.1 - Most Powerful
+                {!checkPlanPermission(team, 'hobby').allowed ? (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    Paid
+                  </span>
+                ) : (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    New!
+                  </span>
+                )}
+              </label>
+              <p id="gpt-4.1-description" className="text-gray-500">
+                Strongest (&lt;$0.01/question) model with the best instruction
+                following, advanced reasoning, and long context window.
+                {!team.supportsGPT4 && (
+                  <Link
+                    href="/app/api"
+                    className="ml-1 inline-block underline hover:text-gray-800"
+                  >
+                    Get access
+                  </Link>
+                )}
+              </p>
+            </div>
+          </div>
+
+          {!short && (
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
@@ -467,7 +510,8 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4o-description" className="text-gray-500">
-                  Stronger (&lt;$0.01/question) model with for better instruction following, advanced reasoning, or content creation.
+                  Stronger ($0.01/question) model with for good instruction
+                  following, advanced reasoning, or content creation.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -478,6 +522,51 @@ export default function FormBot({
                   )}
                 </p>
               </div>
+            </div>
+          )}
+
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="gpt-4.1-mini"
+                name="model"
+                value="gpt-4.1-mini"
+                aria-describedby="gpt-4.1-mini-description"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={model === 'gpt-4.1-mini'}
+                onChange={() => setModel('gpt-4.1-mini')}
+                disabled={disabled || !team.supportsGPT4}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label
+                htmlFor="gpt-4.1-mini"
+                className="font-medium text-gray-900"
+              >
+                GPT-4.1 mini - Best Value
+                {!checkPlanPermission(team, 'hobby').allowed ? (
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                      Paid
+                    </span>
+                  ) : (
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                      New!
+                    </span>
+                  )}
+              </label>
+              <p id="gpt-4.1-mini-description" className="text-gray-500">
+                Affordable & fast model wth better
+                instruction following & reasoning. Good for most support use cases.
+                {!team.supportsGPT4 && (
+                    <Link
+                      href="/app/api"
+                      className="ml-1 inline-block underline hover:text-gray-800"
+                    >
+                      Get access
+                    </Link>
+                  )}
+              </p>
             </div>
           </div>
 
@@ -500,16 +589,48 @@ export default function FormBot({
                 htmlFor="gpt-4o-mini"
                 className="font-medium text-gray-900"
               >
-                GPT-4o Mini - Best Value
+                GPT-4o mini - Value
               </label>
               <p id="gpt-4o-mini-description" className="text-gray-500">
-                Included in all plans. Affordable & fast model good for most support
-                use cases.
+                Included in all plans. Affordable & fast model good for most
+                support use cases.
               </p>
             </div>
           </div>
+
+          <div className="relative flex items-start">
+            <div className="absolute flex h-5 items-center">
+              <input
+                id="gpt-4.1-nano"
+                name="model"
+                value="gpt-4.1-nano"
+                aria-describedby="gpt-4.1-nano-description"
+                type="radio"
+                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                checked={model === 'gpt-4.1-nano'}
+                onChange={() => setModel('gpt-4.1-nano')}
+                disabled={disabled}
+              />
+            </div>
+            <div className="pl-7 text-sm">
+              <label
+                htmlFor="gpt-4.1-nano"
+                className="font-medium text-gray-900"
+              >
+                GPT-4.1 nano - Fast & Cost Effective
+                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                  New!
+                </span>
+              </label>
+              <p id="gpt-4.1-nano-description" className="text-gray-500">
+                Included in all plans. Roughly equivalent to GPT-4o mini with
+                slightly better instruction following.
+              </p>
+            </div>
+          </div>
+
           {!short && (
-            <div>
+            <>
               {model === 'gpt-4-turbo' ||
                 (model === 'gpt-4-1106-preview' && ( //don't allow new selection of gpt-4-turbo
                   <div className="relative flex items-start">
@@ -557,7 +678,7 @@ export default function FormBot({
                     </div>
                   </div>
                 ))}
-            </div>
+            </>
           )}
           <div>
             {model === 'gpt-4' && ( //don't allow new selection of gpt-4
@@ -739,10 +860,12 @@ export default function FormBot({
                 className="block text-sm font-medium text-gray-900"
               >
                 Glossary
-                
                 {!checkPlanPermission(team, 'pro', 'glossary').allowed ? (
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                    {checkPlanPermission(team, 'pro', 'glossary').requiredPlanLabel}
+                    {
+                      checkPlanPermission(team, 'pro', 'glossary')
+                        .requiredPlanLabel
+                    }
                   </span>
                 ) : (
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
@@ -756,7 +879,11 @@ export default function FormBot({
                 This can help the bot understand the user's question better when
                 using brand or product-specific terminology or translations.
                 Words are case-insensitive and only the full word is matched.
-                <Link href="https://docsbot.ai/documentation/doc/glossary-improve-search-relevance-with-smart-term-replacement" target="_blank" className="ml-1 text-cyan-600 hover:text-cyan-500">
+                <Link
+                  href="https://docsbot.ai/documentation/doc/glossary-improve-search-relevance-with-smart-term-replacement"
+                  target="_blank"
+                  className="ml-1 text-cyan-600 hover:text-cyan-500"
+                >
                   Learn more &rarr;
                 </Link>
               </p>

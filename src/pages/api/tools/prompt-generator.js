@@ -352,7 +352,7 @@ export default async function handler(req, res) {
       })
 
       const chat_completion = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'gpt-4.1-mini',
         messages: [
           { role: 'system', content: META_PROMPT },
           { role: 'user', content: `Task, Goal, or Current Prompt:\n${input}` },
@@ -609,7 +609,7 @@ ${JSON.stringify({
 `.trim()
 
             const verification = await openai.chat.completions.create({
-              model: 'gpt-4o-mini',
+              model: 'gpt-4.1-nano',
               messages: [{ role: 'system', content: VERIFICATION_PROMPT }],
               temperature: 0,
               response_format: {
