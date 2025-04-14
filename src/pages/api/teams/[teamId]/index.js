@@ -88,7 +88,7 @@ export default async function handler(req, res) {
         .get()
 
       botsSnapshot.forEach(async (doc) => {
-        if (doc.get('model') !== 'gpt-4o-mini') {
+        if (doc.get('model') !== 'gpt-4o-mini' && doc.get('model') !== 'gpt-4.1-nano') {
           // update bot to gpt-4o-mini
           await firestore
             .collection('teams')

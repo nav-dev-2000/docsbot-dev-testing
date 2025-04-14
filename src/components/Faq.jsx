@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'Do I need to provide my own OpenAI API key?',
     answer:
-      'Access to the capable GPT-4o Mini is included with your plan question limit, and works well for most use cases. To access other models such as the most powerful GPT-4o you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. Each question uses <$0.0002 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
+      'Access to the capable GPT-4o mini or GPT-4.1 nano models is included with your plan question limit, and works well for most use cases. To access other models such as the most powerful GPT-4o or GPT-4.1 you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. Each question uses <$0.008 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
   },
   {
     question: "Can a get a free trial of a higher plan?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "What happens if I exceed my monthly question limit?",
-    answer: "If you reach your monthly question limit, your bot will continue to function but will display a message suggesting users try again later. You can upgrade your plan at any time to increase your limit, or wait for it to reset at the start of your next billing cycle. Business plan customers can enable rate limiting to better manage high traffic periods.",
+    answer: "If you reach your monthly question limit, your bot will continue to function but will display a message suggesting users try again later. You can upgrade your plan at any time to increase your limit, or wait for it to reset at the start of your next billing cycle. Business plan customers can customize rate limiting to better manage high traffic periods.",
   },
   {
     question: "Can I customize the chat widget appearance?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "How secure is DocsBot?",
-    answer: "We take security seriously. All data is encrypted in transit and at rest, and we use industry-standard security practices. Business and Enterprise plans include additional security features like IP logging and SSO options. For organizations with specific security requirements, we offer Enterprise plans with Azure OpenAI Service integration and self-hosted options.",
+    answer: "We take security seriously. All data is encrypted in transit and at rest, and we use industry-standard security practices. Business and Enterprise plans include additional security features like IP logging and SSO options. For organizations with specific security requirements, we offer Enterprise plans with Azure OpenAI Service integration and self-hosted options for your training data.",
   },
   {
     question: "What support options are available?",

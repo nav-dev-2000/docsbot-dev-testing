@@ -196,7 +196,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="mx-auto mt-4 text-center text-sm text-gray-600">
-          Does not include optional OpenAI API costs (&lt;$0.008/question) if using advanced models like GPT-4o.
+          Does not include optional OpenAI API costs (&lt;$0.008/question) if using advanced models like GPT-4o or GPT-4.1.
         </p>
         <div className="mx-auto mt-12 flex max-w-2xl flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:max-w-none lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">
@@ -205,7 +205,7 @@ export default function Pricing() {
             </h3>
             <p className="mt-1 text-base leading-7 text-gray-600">
               Try DocsBot free for personal use. No credit card required. Import document files or
-              urls with up to 50 pages of content and start chatting with your bot. Free bots will
+              urls with up to 50 pages of content and start chatting with your bot up to 100 questions per month. Free bots will
               be deleted after 30 days.
             </p>
           </div>

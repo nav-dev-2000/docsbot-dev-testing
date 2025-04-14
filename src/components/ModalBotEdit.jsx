@@ -15,7 +15,7 @@ export default function ModalBotEdit({ team, bot, setBot }) {
   const [showOpenAI, setShowOpenAI] = useState(false)
 
   useEffect(() => {
-    if (open && !showOpenAI && !team.openAIKey && botSettings.model !== 'gpt-4o-mini') {
+    if (open && !showOpenAI && !team.openAIKey && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano')) {
       setShowOpenAI(true)
     }
   }, [botSettings])

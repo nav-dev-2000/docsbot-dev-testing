@@ -83,7 +83,7 @@ const handler = async (req, res) => {
     try {
       // Generate the custom prompt using the META_PROMPT
       const completion = await openai.chat.completions.create({
-        model: 'gpt-4o',
+        model: 'gpt-4.1',
         messages: [
           { role: 'system', content: META_PROMPT },
           { role: 'user', content: `Task, Goal, or Current Prompt:\n${input}` },
