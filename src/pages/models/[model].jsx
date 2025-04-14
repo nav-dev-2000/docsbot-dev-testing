@@ -22,7 +22,7 @@ import {
 import { LLM_PRICING } from '@/constants/llmPricing.constants'
 import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { getProviderInfo, getBenchmarkDescription,  } from '@/lib/llms'
+import { getProviderInfo, getBenchmarkDescription, BENCHMARKS } from '@/lib/llms'
 import { useRouter } from 'next/router'
 import {
   DocumentTextIcon,
@@ -918,16 +918,7 @@ const ModelPage = ({
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-800">
-                        {[
-                          'MMLU',
-                          'MMLU-Pro', 
-                          'MMMU',
-                          'HellaSwag',
-                          'HumanEval',
-                          'MATH',
-                          'GPQA',
-                          'IFEval'
-                        ].map((key) => (
+                        {Object.keys(BENCHMARKS || {}).filter(key => benchmarks?.[key]).map((key) => (
                           <tr key={key}>
                             <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">
                               <div className="text-sm font-medium text-white">
@@ -938,30 +929,24 @@ const ModelPage = ({
                               </div>
                             </td>
                             <td className="px-3 py-4 text-center">
-                              {benchmarks?.[key] ? (
-                                <div>
-                                  <div className="text-xl font-bold text-cyan-400">
-                                    {benchmarks[key].score}%
-                                  </div>
-                                  <div className="mt-1 text-gray-300">
-                                    {benchmarks[key].notes}
-                                  </div>
-                                  {benchmarks[key].source && (
-                                    <a
-                                      href={benchmarks[key].source}
-                                      className="mt-1 inline-block text-cyan-500 hover:text-cyan-400 hover:underline"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                    >
-                                      Source
-                                    </a>
-                                  )}
+                              <div>
+                                <div className="text-xl font-bold text-cyan-400">
+                                  {benchmarks[key].score}%
                                 </div>
-                              ) : (
-                                <span className="text-gray-300">
-                                  Not available
-                                </span>
-                              )}
+                                <div className="mt-1 text-gray-300">
+                                  {benchmarks[key].notes}
+                                </div>
+                                {benchmarks[key].source && (
+                                  <a
+                                    href={benchmarks[key].source}
+                                    className="mt-1 inline-block text-cyan-500 hover:text-cyan-400 hover:underline"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    Source
+                                  </a>
+                                )}
+                              </div>
                             </td>
                           </tr>
                         ))}

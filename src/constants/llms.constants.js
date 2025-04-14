@@ -37,7 +37,7 @@ const LLMS = [
     slug: 'claude-3-7-sonnet-extended-thinking',
     provider: 'anthropic',
     description:
-      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-Bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
     input_context_window: '200K',
     maximum_output_tokens: '128K',
     open_source: false,
@@ -82,7 +82,7 @@ const LLMS = [
     slug: 'claude-3-7-sonnet',
     provider: 'anthropic',
     description:
-      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
+      "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-Bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
     input_context_window: '200K',
     maximum_output_tokens: '128K',
     open_source: false,
@@ -2826,6 +2826,198 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT-4.1',
+    slug: 'gpt-4-1',
+    provider: 'openai',
+    description:
+      'GPT-4.1, released by OpenAI on April 14, 2025, features a massive 1 million token context window and can generate up to 32,768 tokens per request. It excels at coding tasks, scoring 54.6% on SWE-Bench Verified, and demonstrates superior instruction following with a 10.5% improvement over GPT-4o on MultiChallenge. The model has a knowledge cutoff of June 2024 and costs $2.00 per million tokens for input and $8.00 per million tokens for output, with a 75% discount for cached inputs.',
+    input_context_window: '1M',
+    maximum_output_tokens: '32,768',
+    open_source: false,
+    release_date: '2025-04-14',
+    knowledge_cut_off_date: 'June 2024',
+    api_providers: 'OpenAI API',
+    input_cost_per_million_tokens: 2,
+    output_cost_per_million_tokens: 8,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 90.2,
+        notes: 'pass@1',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'Global MMLU': {
+        score: 87.3,
+        notes: 'pass@1',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'MMLU-Pro': null,
+      MMMU: {
+        score: 74.8,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      AIME2024: {
+        score: 48.1,
+        notes: '',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      GPQA: {
+        score: 66.3,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'SWE-Bench': {
+        score: 54.6,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      MathVista: {
+        score: 72.2,
+        notes: 'Image Reasoning',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      IFEval: {
+        score: 87.4,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4.1 Mini',
+    slug: 'gpt-4-1-mini',
+    provider: 'openai',
+    description:
+      'GPT-4.1 Mini, released by OpenAI on April 14, 2025, is a significant leap in small model performance that matches or exceeds GPT-4o in many benchmarks while reducing latency by nearly half and cost by 83%. It features a 1 million token context window and can generate up to 32K tokens per request. The model has a knowledge cutoff of June 2024 and costs $0.40 per million tokens for input and $1.60 per million tokens for output, with a 75% discount for cached inputs.',
+    input_context_window: '1M',
+    maximum_output_tokens: '32K',
+    open_source: false,
+    release_date: '2025-04-14',
+    knowledge_cut_off_date: 'June 2024',
+    api_providers: 'OpenAI API',
+    input_cost_per_million_tokens: 0.4,
+    output_cost_per_million_tokens: 1.6,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 87.5,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'Global MMLU': {
+        score: 78.5,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      MMMU: {
+        score: 72.7,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      AIME2024: {
+        score: 49.6,
+        notes: '',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      GPQA: {
+        score: 65.0,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'SWE-Bench': {
+        score: 23.6,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      MathVista: {
+        score: 73.1,
+        notes: 'Image Reasoning',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      IFEval: {
+        score: 84.1,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-4.1 Nano',
+    slug: 'gpt-4-1-nano',
+    provider: 'openai',
+    description:
+      'GPT-4.1 Nano, released by OpenAI on April 14, 2025, is their fastest and cheapest model, designed for tasks requiring low latency such as classification or autocompletion. Despite its small size, it features a 1 million token context window and delivers impressive performance, scoring 80.1% on MMLU and 50.3% on GPQA. The model has a knowledge cutoff of June 2024 and costs just $0.10 per million tokens for input and $0.40 per million tokens for output, with a 75% discount for cached inputs.',
+    input_context_window: '1M',
+    maximum_output_tokens: '32K',
+    open_source: false,
+    release_date: '2025-04-14',
+    knowledge_cut_off_date: 'June 2024',
+    api_providers: 'OpenAI API',
+    input_cost_per_million_tokens: 0.1,
+    output_cost_per_million_tokens: 0.4,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      MMLU: {
+        score: 80.1,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'Global MMLU': {
+        score: 66.9,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      'MMLU-Pro': null,
+      MMMU: {
+        score: 55.4,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      HellaSwag: null,
+      HumanEval: null,
+      AIME2024: {
+        score: 29.4,
+        notes: '',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      GPQA: {
+        score: 50.3,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      MathVista: {
+        score: 56.2,
+        notes: 'Image Reasoning',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+      IFEval: {
+        score: 74.5,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
+    },
+  },
+  {
     model_name: 'GPT-4.5',
     slug: 'gpt-4-5',
     provider: 'openai',
@@ -2955,8 +3147,8 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: {
-        score: 88.7,
-        notes: '5-shot',
+        score: 85.7,
+        notes: '1-shot',
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
       },
@@ -2965,10 +3157,20 @@ const LLMS = [
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
       },
+      'Global MMLU': {
+        score: 81.4,
+        notes: '',
+        source: 'https://openai.com/index/gpt-4-1/',
+      },
       MMMU: {
-        score: 69.1,
+        score: 68.7,
         notes: null,
         source: 'https://openai.com/index/hello-gpt-4o/',
+      },
+      MathVista: {
+        score: 61.4,
+        notes: '',
+        source: 'https://openai.com/index/gpt-4-1/',
       },
       HellaSwag: null,
       HumanEval: {
@@ -2977,17 +3179,31 @@ const LLMS = [
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
       },
+      AIME2024: {
+        score: 13.1,
+        source: 'https://openai.com/index/gpt-4-1/'
+      },
       GPQA: {
-        score: 53.6,
-        notes: '0-shot',
+        score: 46,
+        notes: 'Diamond',
         source:
           'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
+      },
+      'SWE-Bench': {
+        score: 33.2,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-4-1/',
       },
       MATH: {
         score: 75.9,
         notes: '0-shot',
         source:
           'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
+      },
+      'IFEval': {
+        score: 81,
+        notes: null,
+        source: 'https://openai.com/index/gpt-4-1/',
       },
     },
   },

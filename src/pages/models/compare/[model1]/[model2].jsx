@@ -29,7 +29,7 @@ import {
   InformationCircleIcon,
   EqualsIcon,
 } from '@heroicons/react/24/outline'
-import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
+import { getProviderInfo, getBenchmarkDescription, BENCHMARKS } from '@/lib/llms'
 import { useRouter } from 'next/router'
 import {
   DocumentTextIcon,
@@ -1242,16 +1242,12 @@ const ModelPage = ({ model1, model2 }) => {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-800">
-                      {[
-                          'MMLU',
-                          'MMLU-Pro', 
-                          'MMMU',
-                          'HellaSwag',
-                          'HumanEval',
-                          'MATH',
-                          'GPQA',
-                          'IFEval'
-                        ].map((key) => (
+                      {Object.keys(BENCHMARKS)
+                        .filter(key => 
+                          model1.benchmarks?.[key]?.score || 
+                          model2.benchmarks?.[key]?.score
+                        )
+                        .map((key) => (
                           <tr key={key}>
                             <td className="py-4 pl-4 pr-3 sm:pl-0">
                               <div className="text-sm font-medium text-white">
