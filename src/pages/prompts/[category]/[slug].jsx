@@ -175,10 +175,7 @@ export const getStaticProps = async (context) => {
   if (!Object.keys(PROMPT_CATEGORIES).includes(category)) {
     console.error('Invalid category:', category)
     return {
-      redirect: {
-        destination: '/prompts',
-        permanent: true,
-      },
+      notFound: true, // This will return a 404 Not Found status
     }
   }
 
@@ -188,10 +185,7 @@ export const getStaticProps = async (context) => {
   if (!promptData) {
     console.error('Prompt not found:', slug)
     return {
-      redirect: {
-        destination: '/prompts',
-        permanent: true,
-      },
+      notFound: true, // This will return a 404 Not Found status
     }
   }
 
