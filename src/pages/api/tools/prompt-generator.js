@@ -114,7 +114,9 @@ export default async function handler(req, res) {
       'xxx',
       'hentai',
       'aviator',
+      '1win',
       'blox',
+      'bloxfruits',
       'milf',
       'pussy',
       'betika',
@@ -288,6 +290,7 @@ export default async function handler(req, res) {
       'sexual',
       'sexually',
       'slut',
+      'scam',
       'threesome',
       'tit',
       'titfuck',
@@ -324,7 +327,8 @@ export default async function handler(req, res) {
       'white trash',
       'wigger',
       'zipperhead',
-      'wop'
+      'wop',
+      'USDT'
     ]
 
     // Function to check if text contains any forbidden words (with word boundaries)
@@ -504,7 +508,7 @@ export default async function handler(req, res) {
                 should_index: {
                   type: 'boolean',
                   description:
-                    'True only if the prompt would be generally useful for work, school, or businesses, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, scam bots, gift cards, or other potentially harmful content.',
+                    'True only if the prompt would be generally useful for work, school, or businesses, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, 1win, scam bots, gift cards, or other potentially harmful content.',
                 },
               },
               required: [

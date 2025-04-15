@@ -133,22 +133,51 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     const urlParams = ['teams', team.id, 'bots', bot.id, 'sources']
     const apiPath = '/api/' + urlParams.join('/')
 
+    // Prepare payload based on the selected source type requirements
+    const payload = {
+      type: selectedSourceType.id,
+    }
+
+    // Only include fields that are required or optional for this source type
+    if (selectedSourceType.fieldTitle) {
+      payload.title = title
+    }
+    
+    if (selectedSourceType.fieldUrl) {
+      payload.url = url
+    }
+    
+    if (selectedSourceType.fieldFile) {
+      payload.file = file
+    }
+    
+    if (selectedSourceType.fieldQA) {
+      payload.faqs = questions
+    }
+    
+    if (selectedSourceType.fieldSchedule) {
+      payload.scheduleInterval = scheduleInterval
+    }
+    
+    if (selectedSourceType.fieldImages) {
+      payload.processImages = processImages
+    }
+    
+    // Include Truto integration fields if they exist
+    if (trutoIntegrationID) {
+      payload.trutoIntegrationID = trutoIntegrationID
+    }
+    
+    if (trutoFiles) {
+      payload.trutoFiles = trutoFiles
+    }
+
     const response = await fetch(apiPath, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        type: selectedSourceType.id,
-        title,
-        url,
-        file,
-        faqs: questions,
-        scheduleInterval,
-        processImages,
-        trutoIntegrationID,
-        trutoFiles
-      }),
+      body: JSON.stringify(payload),
     })
     if (response.ok) {
       const data = await response.json()
