@@ -1311,6 +1311,69 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 2.5 Flash',
+    slug: 'gemini-2-5-flash',
+    provider: 'google',
+    description:
+      "Gemini 2.5 Flash is Google's first fully hybrid reasoning model that balances performance with speed and cost efficiency. It features controllable thinking capabilities, allowing developers to turn thinking on or off and set thinking budgets to find the optimal balance between quality, cost, and latency. Even with thinking turned off, it maintains the fast speeds of 2.0 Flash while delivering improved performance. The model performs strongly on complex reasoning tasks, ranking second only to Gemini 2.5 Pro on Hard Prompts in LMArena.",
+    input_context_window: '1M',
+    maximum_output_tokens: '65K',
+    open_source: false,
+    release_date: '2025-04-17',
+    knowledge_cut_off_date: 'January 2025',
+    api_providers: 'Google AI Studio, Vertex AI, Gemini app',
+    input_cost_per_million_tokens: 0.15,
+    output_cost_per_million_tokens: 0.60,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    benchmarks: {
+      "Humanity's Last Exam": {
+        score: 12.1,
+        notes: 'State-of-the-art across models without tool use',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      },
+      'GPQA': {
+        score: 78.3,
+        notes: 'Diamond Science',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'AIME2024': {
+        score: 88.0,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'AIME2025': {
+        score: 78.0,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      'Global MMLU': {
+        score: 88.4,
+        notes: 'Lite',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      MMMU: {
+        score: 76.7,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      LiveCodeBench: {
+        score: 63.5,
+        notes: 'v5',
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+      SimpleQA: {
+        score: 29.7,
+        notes: null,
+        source: 'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+      },
+  },
+  {
     model_name: 'Gemini 2.0 Pro',
     slug: 'gemini-2-0-pro',
     provider: 'google',
