@@ -146,6 +146,45 @@ Chat bot link - Hi. Our bot is internal (named "Anie"). I do not want the link f
       },
     ],
   },
+  ticketResponseRewriter: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `The user should be able to specify the tone and style from the following options: friendly and casual, professional and formal, detailed and explanative, concise and direct, empathetic and understanding, or technical and precise. Incorporate a wildcard variable Desired Style/Tone that can be replaced with one of these tone options to customize the rewritten response's style and formatting.
+
+Your job is to take an input support ticket response and rewrite it according to the Desired Style/Tone specified by the user.
+
+# Steps
+1. Accept input: the original support ticket response.
+2. Accept input: the desired style/tone specified by the wildcard Desired Style/Tone variable.
+3. Rewrite the response in the style matching Desired Style/Tone.
+4. Preserve the meaning and accuracy of the support ticket information.
+
+# Output Format
+Return the rewritten support ticket response as plain text, styled according to the specified Desired Style/Tone.
+
+# Examples
+Input: "I'm sorry your order hasn't arrived yet. We'll check the status and get back to you soon."
+Format style: friendly and casual
+Output: "Hi there! Sorry to hear your order is delayed. We'll look into it and update you shortly!"
+
+Input: "Your refund has been processed. Please allow 3-5 business days for the amount to reflect in your account."
+Format style: professional and formal
+Output: "We have processed your refund. Kindly allow 3 to 5 business days for the funds to be reflected in your account.",
+
+# Notes
+- Ensure the rewritten response is grammatically correct and maintains the original meaning.
+- Use the specified Desired Style/Tone to tailor the response to the user's preferences.
+- Do not add any additional text or formatting beyond the rewritten response.`
+      },
+      {
+        role: 'user',
+        content: `Original Response:\n{{input}}\n\nDesired Style/Tone: {{tone}}`,
+      },
+    ],
+  },
+  
   paragraph: {
     model: 'gpt-4o-mini',
     messages: [

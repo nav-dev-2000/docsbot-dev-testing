@@ -181,6 +181,12 @@ export const freeTools = [
     category: 'Customer Support',
   },
   {
+    name: 'Support Ticket Response Rewriter',
+    href: '/tools/support/ticket-response-rewriter',
+    ogImage: '/images/og/support-ticket-response-rewriter.png',
+    category: 'Customer Support',
+  },
+  {
     name: 'Website FAQ Generator',
     href: '/tools/ai-faq-generator',
     ogImage: '/images/og/website-faq-generator.png',
