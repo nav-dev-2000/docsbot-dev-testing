@@ -256,6 +256,39 @@ Remove any system or meta instructions from your final output; only provide the 
       },
     ],
   },
+  supportTicketResponseTranslator: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Create an AI tool that takes a support ticket response inputted or pasted by the user and translates it into a desired language selected via a dropdown list.
+
+The AI should:
+- Detect the input text accurately.
+- Provide translation into the Target Language selected from the dropdown menu.
+- Ensure the translation preserves the context and tone appropriate for support ticket communication.
+- Support multiple languages commonly used in customer support.
+
+Steps:
+1. Receive the support ticket response as input.
+2. Obtain the target language from the dropdown selection.
+3. Translate the input text into the selected Target Language.
+4. Output the translated response clearly and accurately.
+
+Output Format:
+Return the translated text as a single string without additional formatting or metadata, ready to be used in a support ticket reply.
+
+# Notes
+- Ensure the translation is accurate and maintains the original meaning.
+- Preserve the tone and style of the original response.
+- Use clear and natural language appropriate for a support ticket context.`,  
+      },
+      {
+        role: 'user',
+        content: `Target Language: {{targetLanguage}}\nResponse:\n{{input}}`,
+      },
+    ],
+  },
   paragraph: {
     model: 'gpt-4o-mini',
     messages: [

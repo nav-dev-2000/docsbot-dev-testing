@@ -199,6 +199,12 @@ export const freeTools = [
     category: 'Customer Support',
   },
   {
+    name: 'Support Ticket Response Translator',
+    href: '/tools/support/ticket-response-translator',
+    ogImage: '/images/og/support-ticket-response-translator.png',
+    category: 'Customer Support',
+  },
+  {
     name: 'Website FAQ Generator',
     href: '/tools/ai-faq-generator',
     ogImage: '/images/og/website-faq-generator.png',
