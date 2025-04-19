@@ -181,9 +181,21 @@ export const freeTools = [
     category: 'Customer Support',
   },
   {
+    name: 'Support Ticket Response Generator',
+    href: '/tools/support/ticket-response-generator',
+    ogImage: '/images/og/support-ticket-response-generator.png',
+    category: 'Customer Support',
+  },
+  {
     name: 'Support Ticket Response Rewriter',
     href: '/tools/support/ticket-response-rewriter',
     ogImage: '/images/og/support-ticket-response-rewriter.png',
+    category: 'Customer Support',
+  },
+  {
+    name: 'Support Conversation Translator',
+    href: '/tools/support/support-conversation-translator',
+    ogImage: '/images/og/support-conversation-translator.png',
     category: 'Customer Support',
   },
   {

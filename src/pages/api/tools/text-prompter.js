@@ -184,7 +184,78 @@ Output: "We have processed your refund. Kindly allow 3 to 5 business days for th
       },
     ],
   },
-  
+  supportTicketResponseGenerator: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `You are a support assistant tool designed to generate helpful and effective responses to support tickets. Your task is to read the provided support ticket content carefully and generate a clear, empathetic, and informative reply that addresses the user's issue or question.
+
+You must customize the tone of the response according to the specified tone parameter. Common tone options include: friendly, professional, empathetic, concise, or casual. Adjust your language, formality, and phrasing to match this tone while maintaining clarity and helpfulness.
+
+Steps:
+1. Analyze the support ticket text to understand the user's issue or question.
+2. Determine the necessary information or solution to address the ticket.
+3. Generate a response that solves the problem or guides the user, tailored to the requested tone.
+4. Ensure the response is clear, polite, and free of jargon unless appropriate to the user's level.
+
+Output format:
+Provide the response as plain text suitable for customer communication.
+
+Example:
+
+Support Ticket: "I'm having trouble logging into my account; it says my password is incorrect even though I just reset it. Can you help?"
+Tone: Friendly
+
+Response:
+"Hi there! I'm sorry to hear you're having trouble logging in after resetting your password. Let's work together to get this sorted out. Please try clearing your browser cache or resetting your password again using the "Forgot Password" link. If the problem persists, let me know, and we'll explore other options!"
+
+Remember to always verify the ticket content before generating the response and tailor the message according to the tone requested.`,
+      },
+      {
+        role: 'user',
+        content: `Support Ticket:\n{{input}}\n\nTone: {{tone}}`,
+      },
+    ],
+  },
+  supportConversationTranslator: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Translate the entire support ticket conversation accurately and clearly into the specified target language, which will be provided as Target Language. Ensure the translation maintains the original meaning, context, and tone of each message in the conversation.
+
+- The conversation will be provided in full.
+- Translate every message within the conversation.
+- Preserve any technical terms, names, or specific references accurately.
+- Use clear and natural language appropriate for a support ticket context.
+
+# Steps
+
+1. Read the full conversation carefully.
+2. Identify the target language indicated by Target Language.
+3. Translate every part of the conversation into Target Language without altering the meaning.
+4. Maintain the conversational structure, showing messages in order.
+5. Review the translation for clarity and accuracy.
+
+# Output Format
+
+Deliver the translated conversation in the same conversational format as the original, clearly indicating the speakers if such info is provided, and present the entire translated text as plain text or structured conversation if originally structured.
+
+# Notes
+
+- If the conversation includes specialized terminology, keep those terms accurate but translated if appropriate.
+- Maintain polite and professional tone suitable for customer support.
+- If the source conversation includes any text in different languages, translate them all into the chosen target language.
+
+Remove any system or meta instructions from your final output; only provide the translated conversation.`,
+      },
+      {
+        role: 'user',
+        content: `Target Language: {{targetLanguage}}\nConversation:\n{{input}}`,
+      },
+    ],
+  },
   paragraph: {
     model: 'gpt-4o-mini',
     messages: [
@@ -275,7 +346,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone, paragraphCount } = req.body
+      const { type, input, tone, paragraphCount, targetLanguage } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -372,6 +443,7 @@ export default async function handler(req, res) {
       const chatParams = getChatParams(type, {
         input,
         tone,
+        targetLanguage,
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 
