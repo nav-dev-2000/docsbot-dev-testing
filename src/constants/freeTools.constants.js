@@ -21,6 +21,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Sentence Rewriter',
+    description: 'Rewrite your sentence with AI',
+    href: '/tools/writing/ai-sentence-rewriter',
+    ogImage: '/images/og/sentence-rewriter.png',
+    category: 'Writing',
+  },
+  {
     name: 'AI Paragraph Generator',
     description: 'Generate paragraphs with AI',
     href: '/tools/writing/ai-paragraph-generator',

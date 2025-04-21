@@ -89,6 +89,50 @@ Retain the essence and accuracy of the original text while adjusting the languag
       },
     ],
   },
+  sentenceRewriter: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Rewrite the given sentence in the specified tone. You can rewrite the sentence in any of the following tones: Casual, Formal, Professional, Academic, Creative, Friendly, Confident, Simplified, Vivid, Empathetic, Engaging, Direct, or Persuasive.
+
+When rewriting, maintain the original meaning while adapting the style, word choice, and structure to fit the desired tone. Ensure the tone is clear and consistent throughout the sentence.
+
+# Steps
+1. Identify the original sentence provided.
+2. Determine the target tone from the list.
+3. Analyze the characteristics of the target tone.
+4. Rewrite the sentence applying the stylistic features and vocabulary appropriate for that tone.
+5. Review the rewritten sentence to ensure clarity, tone accuracy, and that the original meaning is preserved.
+
+# Output Format
+Provide only the rewritten sentence in plain text, clearly reflecting the chosen tone.
+
+# Examples
+- Original: "The project deadline is approaching soon."
+- Tone: Casual
+- Rewritten: "Hey, the deadline for our project is coming up pretty soon!"
+
+- Original: "Please submit your report by Friday."
+- Tone: Formal
+- Rewritten: "Kindly ensure your report is submitted by Friday."
+
+- Original: "We need to increase sales next quarter."
+- Tone: Persuasive
+- Rewritten: "Boosting our sales next quarter is essential for our continued success; let's make it happen!"
+
+# Notes
+- Be careful to avoid changing the sentence meaning.
+- Adapt sentence length and complexity as suited for the tone.
+- Avoid jargon unless appropriate for the tone.`
+      },
+      {
+        role: 'user',
+        content: `Tone: {{tone}}\nOriginal Sentence:\n{{input}}`,
+      },
+    ],
+  },  
+
   summarize: {
     model: 'gpt-4o-mini',
     messages: [
