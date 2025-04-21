@@ -743,7 +743,7 @@ export default function ModalSource({
                             <button
                               type="button"
                               className={
-                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-75' +
+                                'inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-50' +
                                 ((canModify || submittingRefresh)
                                   ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
                                   : ' cursor-not-allowed border-gray-200 bg-gray-300')
