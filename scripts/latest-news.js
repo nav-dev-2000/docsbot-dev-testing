@@ -12,6 +12,9 @@ async function getLatestNews() {
   const { title, slug } = latestPost[0]
 
   fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: title?.rendered, link: "/article/" + slug }))
+
+  //temporary override
+  fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: "DocsBot Week is Coming: Join the Kickoff Event!", link: "/docsbot-week-2025" }))
 }
 
 getLatestNews()
