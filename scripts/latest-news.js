@@ -14,7 +14,7 @@ async function getLatestNews() {
   fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: title?.rendered, link: "/article/" + slug }))
 
   //temporary override
-  fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: "DocsBot Week is Coming: Join our live Kickoff Event today!", link: "/docsbot-week-2025" }))
+  fs.writeFileSync('public/latest-news.json', JSON.stringify({ title: "DocsBot Week is Here: View our live Kickoff video for a preview!", link: "/docsbot-week-2025" }))
 }
 
 getLatestNews()
