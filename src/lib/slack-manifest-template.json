@@ -1,0 +1,56 @@
+{
+  "display_information": {
+    "name": "DocsBot AI",
+    "description": "Provides instant AI answers from your documentation",
+    "background_color": "#111827",
+    "long_description": "Connect your DocsBot account to Slack to instantly answer questions in your workspace. The integration will let your team members get documentation answers without leaving Slack."
+  },
+  "features": {
+    "app_home": {
+      "home_tab_enabled": true,
+      "messages_tab_enabled": true,
+      "messages_tab_read_only_enabled": false
+    },
+    "bot_user": {
+      "display_name": "DocsBot",
+      "always_online": true
+    },
+    "assistant_view": {
+      "assistant_description": "DocsBot is an AI assistant that can answer questions from your documentation.",
+      "suggested_prompts": []
+    }
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "assistant:write",
+        "channels:join",
+        "im:history",
+        "channels:history",
+        "groups:history",
+        "chat:write"
+      ],
+      "user": [
+        "users:read",
+        "users:read.email"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "bot_events": [
+        "assistant_thread_context_changed",
+        "assistant_thread_started",
+        "message.im"
+      ],
+      "user_events": [
+      ]
+    },
+    "interactivity": {
+      "is_enabled": false
+    },
+    "org_deploy_enabled": true,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

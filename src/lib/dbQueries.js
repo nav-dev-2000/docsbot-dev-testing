@@ -32,6 +32,14 @@ export async function getBots(team, resultLimit = 1000) {
       ...i18n[bot.language]?.labels,
       ...(bot.labels || {}),
     }
+
+    // Remove sensitive Slack token information before returning
+    Object.keys(bot).forEach((key) => {
+      if (key.startsWith('slack')) {
+        delete bot[key]
+      }
+    })
+
     bots.push(bot)
   })
 
@@ -194,6 +202,11 @@ export async function getBot(teamId, botId) {
     bot.labels = {
       ...i18n[bot.language]?.labels,
       ...(bot.labels || {}),
+    }
+
+    // Remove sensitive Slack token information before returning
+    if (bot.slackBotToken) {
+      delete bot.slackBotToken;
     }
 
     return bot

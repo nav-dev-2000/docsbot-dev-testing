@@ -180,7 +180,7 @@ export const sourceTypes = [
     id: 'notion',
     title: 'Notion',
     description: 'Answer questions from the content of Notion pages (BETA)',
-    fullDescription: 'Connect to Notion via our partner Truto and select which pages to learn from. We will download the pages, parse the content, and add them to this bot. Does not yet support Notion databases like embeddedtables, boards, calendars, galleries, and lists.',
+    fullDescription: 'Connect to Notion via our partner Truto and select which pages to learn from. We will download the pages, parse the content, and add them to this bot. Does not yet support Notion databases like embedded tables, boards, calendars, galleries, and lists.',
     icon: NotionLogo,
     isTruto: 'notion',
     minPlan: 'power',

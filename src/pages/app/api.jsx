@@ -1,23 +1,41 @@
 import Link from 'next/link'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ArrowPathIcon, PencilIcon, XMarkIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { 
+  ArrowPathIcon, 
+  PencilIcon, 
+  XMarkIcon, 
+  TrashIcon, 
+  ChatBubbleLeftEllipsisIcon,
+  BoltIcon,
+  ArrowTopRightOnSquareIcon,
+  LinkIcon,
+  ClipboardIcon
+} from '@heroicons/react/24/outline'
+import { 
+  CheckCircleIcon,
+  CodeBracketSquareIcon, 
+  ShareIcon 
+} from '@heroicons/react/24/solid'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { getUser, getBots, getTeamIntegrations } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import { getUserRole } from '@/utils/function.utils'
-import HelpscoutIntegration from '@/components/integrations/helpscout'
+import APIIntegration from '@/components/integrations/helpscout'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import SlackLogo from '@/components/SlackLogo'
+import OpenAILogo from '@/components/OpenAILogo'
 
-function Api({ user, team, bots, integrations }) {
+function Api({ user, team, bots, integrations: initialIntegrations }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
   const [openRemoveModal, setOpenRemoveModal] = useState(false)
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
   const [copyMessage, setCopyMessage] = useState(null)
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
+  const [integrations, setIntegrations] = useState(initialIntegrations)
 
   const updateKey = async () => {
     setErrorText('')
@@ -264,41 +282,43 @@ function Api({ user, team, bots, integrations }) {
         </div>
       )}
 
-      <div className="mt-8 rounded-lg bg-white p-8 shadow">
-        <h3 className="text-2xl font-bold">DocsBot API Key</h3>
-        <p className="text-md mt-2 text-justify text-gray-800">
-          You can get your DocsBot API key here that can be used for the admin API and querying
-          private bots. This key is is tied to your user account and can be used to access all teams
-          that you have a role for.
-        </p>
-        <div className="mt-4 flex items-center justify-start">
-          <pre className="block">{apiKey}</pre>
-          <a
-            type="button"
-            className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
-            onClick={() => {
-              updateKey()
-            }}
-          >
-            <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-            Change
-          </a>
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">DocsBot API Key</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can get your DocsBot API key here that can be used for the admin API and querying
+            private bots. This key is is tied to your user account and can be used to access all teams
+            that you have a role for.
+          </p>
+          <div className="mt-4 flex items-center justify-start">
+            <pre className="block">{apiKey}</pre>
+            <a
+              type="button"
+              className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+              onClick={() => {
+                updateKey()
+              }}
+            >
+              <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+              Change
+            </a>
+          </div>
+          <p className="mt-1 text-justify text-sm text-gray-800">{copyMessage}</p>
         </div>
-        <p className="mt-1 text-justify text-sm text-gray-800">{copyMessage}</p>
-      </div>
 
-      <div className="mt-8 rounded-lg bg-white p-8 shadow">
-        <h3 className="text-2xl font-bold">API Documentation</h3>
-        <p className="text-md mt-2 text-justify text-gray-800">
-          You can find the full{' '}
-          <Link href="/documentation/developer" className="text-cyan-800 underline">
-            DocsBot API documentation here
-          </Link>
-          . You can use the API key above to access the admin API and query private bots. You will
-          use the team ID below for the admin API and chat APIs.
-        </p>
-        <h3 className="mt-8 text-xl font-bold">Team ID</h3>
-        <pre className="block">{team.id}</pre>
+        <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">API Documentation</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can find the full{' '}
+            <Link href="/documentation/developer" className="text-cyan-800 underline">
+              DocsBot API documentation here
+            </Link>
+            . You can use the API key above to access the admin API and query private bots. You will
+            use the team ID below for the admin API and chat APIs.
+          </p>
+          <h3 className="mt-8 text-xl font-bold">Team ID</h3>
+          <pre className="block">{team.id}</pre>
+        </div>
       </div>
 
       <h2 className="mt-12 text-3xl font-bold">
@@ -308,7 +328,85 @@ function Api({ user, team, bots, integrations }) {
         </span>
       </h2>
 
-      <HelpscoutIntegration {...{ team, integrations, bots, setErrorText }} />
+      <div className="mt-8 rounded-lg bg-white p-8 shadow">
+        <h3 className="text-2xl font-bold">Bot Integrations</h3>
+        <p className="text-md mt-2 text-justify text-gray-800">
+          DocsBot AI offers several powerful integrations that can be configured for each of your bots:
+        </p>
+        
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <ChatBubbleLeftEllipsisIcon className="mr-2 h-5 w-5 text-cyan-600" />
+              <h4 className="text-lg font-medium">Chat Widget</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Embed a customizable chat widget on your website for instant documentation access.
+            </p>
+          </div>
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <ShareIcon className="mr-2 h-5 w-5" />
+              <h4 className="text-lg font-medium">Share Links</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Create public links for people to interact with your bot through chat or Q/A pages.
+            </p>
+          </div>
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <SlackLogo className="mr-2 h-5 w-5" />
+              <h4 className="text-lg font-medium">Slack</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Connect your bot to Slack to answer questions directly in your workspace channels.
+            </p>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <BoltIcon className="mr-2 h-5 w-5 text-cyan-600" />
+              <h4 className="text-lg font-medium">Workflow Automations</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Connect to Zapier, Make, SureTriggers and other automation platforms.
+            </p>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <CodeBracketSquareIcon className="mr-2 h-5 w-5 text-cyan-600" />
+              <h4 className="text-lg font-medium">API</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Access bot functionality programmatically through our comprehensive REST API endpoints.
+            </p>
+          </div>
+          
+          <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center">
+              <OpenAILogo className="mr-2 h-5 w-5" />
+              <h4 className="text-lg font-medium">ChatGPT Custom GPT</h4>
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Give your custom GPTs access to your DocsBot training library with our custom action.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <p className="text-md text-gray-800">
+            To configure these integrations for a specific bot, go to your{' '}
+            <Link href="/app/bots" className="text-cyan-600 hover:text-cyan-800">
+              Bots page
+            </Link>{' '}
+            and click the <span className="font-medium">Integrations & Sharing</span> button for the bot you want to set up.
+          </p>
+        </div>
+      </div>
+
+      <APIIntegration {...{ team, integrations, bots, setErrorText }} />
+
     </DashboardWrap>
   )
 }
