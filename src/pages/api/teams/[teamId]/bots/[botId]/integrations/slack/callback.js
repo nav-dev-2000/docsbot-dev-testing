@@ -167,7 +167,7 @@ export default async function handler(req, res) {
     // Exchange the authorization code for tokens using the Slack OAuth v2 token endpoint
     const clientId = process.env.SLACK_CLIENT_ID
     const clientSecret = process.env.SLACK_CLIENT_SECRET
-    const redirectUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/teams/${teamId}/bots/${botId}/integrations/slack/callback`
+    const redirectUri = `${process.env.HOST_URL}/api/teams/${teamId}/bots/${botId}/integrations/slack/callback`
     const codeVerifier = botData.slackCodeVerifier
     
     // Make the OAuth v2 token exchange request

@@ -60,7 +60,7 @@ export default async function handler(req, res) {
       }, { merge: true })
 
     // Build the authorization URL for OAuth v2
-    const redirectUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/teams/${teamId}/bots/${botId}/integrations/slack/callback`
+    const redirectUri = `${process.env.HOST_URL}/api/teams/${teamId}/bots/${botId}/integrations/slack/callback`
     
     const authUrl = new URL('https://slack.com/oauth/v2/authorize')
     authUrl.searchParams.append('client_id', process.env.SLACK_CLIENT_ID)
