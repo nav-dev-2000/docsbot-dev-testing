@@ -198,6 +198,32 @@ export default async function handler(req, res) {
     // Extract the access token, bot info, and team info
     const { access_token, bot_user_id, app_id, team, enterprise, is_enterprise_install } = tokenData
     console.log('tokenData', tokenData)
+
+    // Check if this Slack team is already connected to a different bot
+    const existingBotQuery = await firestore
+      .collectionGroup('bots')
+      .where('slackTeamId', '==', team.id)
+      .get()
+
+    if (!existingBotQuery.empty) {
+      const otherBots = existingBotQuery.docs
+        .filter(doc => doc.id !== botId)
+        .map(doc => {
+          const data = doc.data()
+          return `"${data.name}"`
+        })
+
+      if (otherBots.length > 0) {
+        return res.status(400).send(
+          generateMessageHtml(
+            'error',
+            'Team Already Connected',
+            `This Slack team (${team.name}) is already connected to the following bot: ${otherBots.join(', ')}. Only one bot can be connected to a Slack team at a time. Please either disconnect the existing connection or delete the bot before connecting to a new bot.`
+          )
+        )
+      }
+    }
+
     // Store the encrypted access token and related information in Firestore
     const encryptedToken = encryptKey(access_token)
     
