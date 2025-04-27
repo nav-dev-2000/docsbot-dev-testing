@@ -139,27 +139,27 @@ export default async function handler(req, res) {
     // Handle OAuth errors
     if (error) {
       console.error('Slack OAuth error:', error)
-      return res.status(400).send(
+      return res.status(400).setHeader('Content-Type', 'text/html').send(
         generateMessageHtml('error', 'Connection Error', `There was an error connecting to Slack: ${error}`)
       )
     }
     
     // Validate required parameters
     if (!code || !state) {
-      return res.status(400).send(
+      return res.status(400).setHeader('Content-Type', 'text/html').send(
         generateMessageHtml('error', 'Invalid Request', 'Missing required parameters.')
       )
     }
     
     // Parse state parameter to get teamId and botId
     if (stateParts.length < 3) {
-      return res.status(400).send(
+      return res.status(400).setHeader('Content-Type', 'text/html').send(
         generateMessageHtml('error', 'Invalid State', 'The authentication state is not valid.')
       )
     }
     
     if (botData.slackState !== state) {
-      return res.status(400).send(
+      return res.status(400).setHeader('Content-Type', 'text/html').send(
         generateMessageHtml('error', 'Invalid State', 'The authentication state is not valid.')
       )
     }
@@ -190,7 +190,7 @@ export default async function handler(req, res) {
     
     if (!tokenData.ok) {
       console.error('Slack OAuth token exchange error:', tokenData.error)
-      return res.status(400).send(
+      return res.status(400).setHeader('Content-Type', 'text/html').send(
         generateMessageHtml('error', 'Token Exchange Error', `Failed to exchange authorization code for tokens: ${tokenData.error}`)
       )
     }
@@ -214,7 +214,7 @@ export default async function handler(req, res) {
         })
 
       if (otherBots.length > 0) {
-        return res.status(400).send(
+        return res.status(400).setHeader('Content-Type', 'text/html').send(
           generateMessageHtml(
             'error',
             'Team Already Connected',
@@ -308,7 +308,7 @@ export default async function handler(req, res) {
       </script>
     `;
     
-    return res.status(200).send(
+    return res.status(200).setHeader('Content-Type', 'text/html').send(
       generateMessageHtml(
         'success', 
         'Connection Successful', 
@@ -320,7 +320,7 @@ export default async function handler(req, res) {
     
   } catch (error) {
     console.error('Error in Slack OAuth callback:', error)
-    return res.status(500).send(
+    return res.status(500).setHeader('Content-Type', 'text/html').send(
       generateMessageHtml('error', 'Server Error', 'An unexpected error occurred while connecting to Slack.')
     )
   }
