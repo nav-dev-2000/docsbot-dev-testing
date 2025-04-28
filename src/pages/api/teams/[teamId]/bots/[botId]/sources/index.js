@@ -47,7 +47,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     //check user is allowed to edit bot or not
     if (!canUserModifySources(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to add sources in this bot.',
       })
     }

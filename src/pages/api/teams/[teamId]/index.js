@@ -3,7 +3,7 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { isSuperAdmin, stripePlan } from '@/utils/helpers'
+import { isSuperAdmin, stripePlan, checkPlanPermission } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import { encryptKey } from '@/lib/encryption'
 import OpenAI from 'openai'
@@ -80,7 +80,9 @@ export default async function handler(req, res) {
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     } else if (openAIKey === false) {
-      // walk through each bot, and verify that it's set to gpt-4o-mini. if not, update it
+      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+
+      // walk through each bot, and verify that it's set to default. if not, update it
       const botsSnapshot = await firestore
         .collection('teams')
         .doc(team.id)
@@ -88,15 +90,15 @@ export default async function handler(req, res) {
         .get()
 
       botsSnapshot.forEach(async (doc) => {
-        if (doc.get('model') !== 'gpt-4o-mini' && doc.get('model') !== 'gpt-4.1-nano') {
-          // update bot to gpt-4o-mini
+        if (doc.get('model') !== 'gpt-4o-mini' && doc.get('model') !== 'gpt-4.1-nano' && doc.get('model') !== 'gpt-4.1-mini') {
+          // update bot to default model
           await firestore
             .collection('teams')
             .doc(team.id)
             .collection('bots')
             .doc(doc.id)
             .update({
-              model: 'gpt-4o-mini',
+              model: defaultModel,
             })
         }
       })

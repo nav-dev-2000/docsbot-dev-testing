@@ -7,6 +7,7 @@ import {
   ArrowTopRightOnSquareIcon,
   ChatBubbleLeftEllipsisIcon,
   BoltIcon,
+  CreditCardIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon,
@@ -20,9 +21,12 @@ import HelpScoutLogo from '@/components/HelpScoutLogo'
 import OpenAILogo from '@/components/OpenAILogo'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Image from 'next/image'
+import { checkPlanPermission } from '@/utils/helpers'
+import ModalCheckout from '@/components/ModalCheckout'
 
 export default function ModalAPI({ team, bot, integrations }) {
   const [open, setOpen] = useState(false)
+  const [showUpgrade, setShowUpgrade] = useState(false)
   const helpScoutIntegration = integrations.find((i) => i.id === 'helpscout')
   const [subscribedTags, setSubscribedTags] = useState([])
   const [isConnectingSlack, setIsConnectingSlack] = useState(false)
@@ -35,6 +39,9 @@ export default function ModalAPI({ team, bot, integrations }) {
 
   // Check if Slack is connected via bot
   const isSlackConnected = slackConnection.slackBotUserId && slackConnection.slackTeamId
+
+  // Check if user has power plan
+  const hasPowerPlan = checkPlanPermission(team, 'power').allowed
 
   // Add an effect to listen for postMessage events from the Slack OAuth callback window
   useEffect(() => {
@@ -187,6 +194,36 @@ export default function ModalAPI({ team, bot, integrations }) {
     }
   }
 
+  const handleDisconnectSlack = async () => {
+    try {
+      setIsConnectingSlack(true);
+      
+      const response = await fetch(
+        `/api/teams/${team.id}/bots/${bot.id}/integrations/slack/disconnect`,
+        {
+          method: 'POST',
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to disconnect Slack');
+      }
+
+      // Update local state
+      setSlackConnection({
+        slackBotUserId: null,
+        slackTeamId: null,
+        slackTeamName: null,
+        slackConnectedAt: null
+      });
+    } catch (error) {
+      console.error('Error disconnecting Slack:', error);
+      // You might want to show an error toast here
+    } finally {
+      setIsConnectingSlack(false);
+    }
+  }
+
   const HelpScoutInfo = () => {
     if (!helpScoutIntegration || !helpScoutIntegration.webhookSecret) {
       return (
@@ -271,10 +308,20 @@ export default function ModalAPI({ team, bot, integrations }) {
             </li>
           </ul>
           <div className="mt-4">
-            <button
-              type="button"
-              onClick={handleConnectSlack}
-              disabled={isConnectingSlack}
+          {!hasPowerPlan ? (
+              <button
+                type="button"
+                onClick={() => setShowUpgrade(true)}
+                className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              >
+                <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                Upgrade Plan
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={handleConnectSlack}
+                disabled={isConnectingSlack}
               className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isConnectingSlack ? (
@@ -289,6 +336,7 @@ export default function ModalAPI({ team, bot, integrations }) {
                 </>
               )}
             </button>
+            )}
           </div>
         </div>
       )
@@ -330,7 +378,7 @@ export default function ModalAPI({ team, bot, integrations }) {
           You can mention your bot in any channel using{' '}
           <code className="rounded bg-gray-100 px-1 py-0.5">@docsbot</code>.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 space-y-2">
           <button
             type="button"
             onClick={handleConnectSlack}
@@ -338,6 +386,14 @@ export default function ModalAPI({ team, bot, integrations }) {
           >
             <SlackLogo className="mr-2 h-4 w-4" />
             Reconnect to Slack
+          </button>
+          <button
+            type="button"
+            onClick={handleDisconnectSlack}
+            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-4 py-1 text-sm font-medium text-red-600 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          >
+            <XMarkIcon className="mr-1 h-4 w-4" />
+            Disconnect
           </button>
         </div>
       </div>
@@ -534,7 +590,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://zapier.com/apps/docsbot-ai/integrations"
             target="_blank"
-            className="inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <Image
               src="/images/logo-timeline/zapier.svg"
@@ -548,7 +607,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://www.make.com/en/hq/app-invitation/e73df823a271deb12baa80178f4429b7"
             target="_blank"
-            className="inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <Image
               src="/images/logo-timeline/make.svg"
@@ -562,7 +624,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://suretriggers.com/integrations/docsbot?aff=5abd7bee"
             target="_blank"
-            className="inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <Image
               src="/images/logo-timeline/suretriggers.svg"
@@ -576,7 +641,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://payments.pabbly.com/api/affurl/RVYZ07kQyUZ0Z1HUKZ1m/CNd76ecbplizUZ1mp?target=9Z2AHyhSldo6KI1Fn"
             target="_blank"
-            className="inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <Image
               src="/images/logo-timeline/pabbly.webp"
@@ -590,7 +658,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://pipedream.com/apps/docsbot-ai"
             target="_blank"
-            className="inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <span className="mr-2 font-humanist text-green-500">p</span>
             Pipedream
@@ -598,7 +669,10 @@ export default function ModalAPI({ team, bot, integrations }) {
           <Link
             href="https://n8n.io/integrations/docsbot-ai/"
             target="_blank"
-            className="col-span-1 inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            className={classNames(
+              "col-span-1 inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2",
+              !hasPowerPlan ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+            )}
           >
             <Image
               src="/images/logo-timeline/n8n.svg"
@@ -610,6 +684,16 @@ export default function ModalAPI({ team, bot, integrations }) {
             n8n
           </Link>
         </div>
+        {!hasPowerPlan && (
+          <button
+            type="button"
+            onClick={() => setShowUpgrade(true)}
+            className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+          >
+            <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            Upgrade Plan
+          </button>
+        )}
         <Link
           href="https://docsbot.ai/documentation#integrations"
           className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
@@ -649,7 +733,7 @@ export default function ModalAPI({ team, bot, integrations }) {
   }
 
   // Integration card component for consistent styling
-  const IntegrationCard = ({ title, icon, children, isNew }) => {
+  const IntegrationCard = ({ title, icon, children, isNew, minPlan }) => {
     return (
       <div className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
         <div className="border-b border-gray-200 bg-gray-50 px-4 py-5 sm:px-6">
@@ -659,10 +743,16 @@ export default function ModalAPI({ team, bot, integrations }) {
             </div>
             <h3 className="text-lg font-medium leading-6 text-gray-900">
               {title}
-              {isNew && (
-                <span className="ml-2 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                  New!
+              {minPlan ? (
+                <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                  {minPlan}
                 </span>
+              ) : (
+                isNew && (
+                  <span className="ml-2 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    New!
+                  </span>
+                )
               )}
             </h3>
           </div>
@@ -676,6 +766,7 @@ export default function ModalAPI({ team, bot, integrations }) {
 
   return (
     <>
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <a
         type="button"
         className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
@@ -745,14 +836,15 @@ export default function ModalAPI({ team, bot, integrations }) {
                       </IntegrationCard>
 
                       {/* Slack Integration Card */}
-                      {('ZrbLG98bbxZ9EFqiPvyl' === team.id || 'nG4F5A3BFSBzdYc5TZIX' === team.id) && (
-                      <IntegrationCard
-                        title="Slack Integration"
-                        icon={<SlackLogo className="h-8 w-8" />}
-                        isNew={true}
-                      >
-                        <SlackInfo />
-                      </IntegrationCard>
+                      {true && (
+                        <IntegrationCard
+                          title="Slack Integration"
+                          icon={<SlackLogo className="h-8 w-8" />}
+                          isNew={true}
+                          minPlan={!checkPlanPermission(team, 'power', 'slack').allowed ? checkPlanPermission(team, 'power', 'slack').requiredPlanLabel : undefined}
+                        >
+                          <SlackInfo />
+                        </IntegrationCard>
                       )}
 
                       {/* Help Scout Integration Card */}
@@ -777,6 +869,7 @@ export default function ModalAPI({ team, bot, integrations }) {
                       <IntegrationCard
                         title="Workflow Automations"
                         icon={<BoltIcon className="h-8 w-8 text-cyan-600" />}
+                        minPlan={!checkPlanPermission(team, 'power', 'automations').allowed ? checkPlanPermission(team, 'power', 'automations').requiredPlanLabel : undefined}
                       >
                         <WorkflowAutomationsInfo />
                       </IntegrationCard>

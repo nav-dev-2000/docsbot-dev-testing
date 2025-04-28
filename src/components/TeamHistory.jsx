@@ -277,7 +277,7 @@ export default function TeamHistory({ team }) {
                   <h3 className="text-3xl font-bold">View advanced team statistics</h3>
                   <p className="mb-8 text-center text-gray-700">
                     Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
-                    <Link href="/#pricing" target="_blank" className="underline">
+                    <Link href="/pricing" target="_blank" className="underline">
                       plan details
                     </Link>
                     .

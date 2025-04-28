@@ -25,7 +25,7 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     //check user is allowed to edit bot or not
     if (!canUserEditBot(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to edit this bot.',
       })
     }
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     //check user is allowed to delete bot or not
     if (!canUserCreateDeleteBot(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to delete bot.',
       })
     }

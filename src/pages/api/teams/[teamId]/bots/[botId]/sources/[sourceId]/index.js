@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
     //check user is allowed to edit this source or not
     if (!canUserModifySources(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to edit this source',
       })
     }
@@ -140,7 +140,7 @@ export default async function handler(req, res) {
 
     //check user is allowed to delete this source or not
     if (!canUserModifySources(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to delete this source',
       })
     }

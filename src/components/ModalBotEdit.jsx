@@ -6,6 +6,7 @@ import Alert from '@/components/Alert'
 import FormBot from '@/components/FormBot'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import Tooltip from '@/components/Tooltip'
+import { checkPlanPermission } from '@/utils/helpers'
 
 export default function ModalBotEdit({ team, bot, setBot }) {
   const [open, setOpen] = useState(false)
@@ -15,14 +16,15 @@ export default function ModalBotEdit({ team, bot, setBot }) {
   const [showOpenAI, setShowOpenAI] = useState(false)
 
   useEffect(() => {
-    if (open && !showOpenAI && !team.openAIKey && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano')) {
+    if (open && !showOpenAI && !team.openAIKey && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano' && botSettings.model !== 'gpt-4.1-mini')) {
       setShowOpenAI(true)
     }
   }, [botSettings])
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      setBotSettings({ ...botSettings, model: 'gpt-4o-mini' })
+      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+      setBotSettings({ ...botSettings, model: defaultModel });
     }
   }, [showOpenAI])
 

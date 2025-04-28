@@ -30,7 +30,7 @@ router.post(async (req, res) => {
   try {
     //check user is allowed to create bot or not
     if (!canUserCreateDeleteBot(team, userId)) {
-      return res.status(402).json({
+      return res.status(403).json({
         message: 'You are not allowed to create bot.',
       })
     }

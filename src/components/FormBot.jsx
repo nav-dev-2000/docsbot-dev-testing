@@ -83,7 +83,7 @@ export default function FormBot({
   ])
 
   useEffect(() => {
-    setModel(bot?.model || 'gpt-4o-mini')
+    setModel(bot?.model || (checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini'))
   }, [bot])
 
   //show upgrade if they change privacy to private
@@ -97,7 +97,7 @@ export default function FormBot({
   //show upgrade if they change model to gpt-4
   useEffect(() => {
     if (
-      (model === 'gpt-4o' || model === 'gpt-4.1') &&
+      (model === 'gpt-4o' || model === 'gpt-4.1' || model === 'gpt-4.1-mini') &&
       !checkPlanPermission(team, 'hobby').allowed
     ) {
       setShowUpgrade(true)
@@ -541,7 +541,7 @@ export default function FormBot({
                 className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                 checked={model === 'gpt-4.1-mini'}
                 onChange={() => setModel('gpt-4.1-mini')}
-                disabled={disabled || !team.supportsGPT4}
+                disabled={disabled}
               />
             </div>
             <div className="pl-7 text-sm">
@@ -561,16 +561,7 @@ export default function FormBot({
                   )}
               </label>
               <p id="gpt-4.1-mini-description" className="text-gray-500">
-                Affordable & fast model wth better
-                instruction following & reasoning. Good for most support use cases.
-                {!team.supportsGPT4 && (
-                    <Link
-                      href="/app/api"
-                      className="ml-1 inline-block underline hover:text-gray-800"
-                    >
-                      Get access
-                    </Link>
-                  )}
+              Included in paid plans. Fast model equivalent to GPT-4o with good instruction following & reasoning. Good for most support use cases.
               </p>
             </div>
           </div>
@@ -835,7 +826,7 @@ export default function FormBot({
               className="transparent h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600"
             />
             <div className="mt-1 flex justify-between text-xs text-gray-500">
-              <span>Reserved</span>
+              <span>Predictable</span>
               <span className="text-center font-semibold">{temperature === Math.floor(temperature) ? temperature.toFixed(0) : temperature.toFixed(1)}</span>
               <span>Creative</span>
             </div>

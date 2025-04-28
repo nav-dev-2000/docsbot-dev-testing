@@ -23,6 +23,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import { getUserRole } from '@/utils/function.utils'
+import { checkPlanPermission } from '@/utils/helpers'
 import APIIntegration from '@/components/integrations/helpscout'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import SlackLogo from '@/components/SlackLogo'
@@ -36,6 +37,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
   const [copyMessage, setCopyMessage] = useState(null)
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
   const [integrations, setIntegrations] = useState(initialIntegrations)
+  const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'GPT-4.1 mini' : 'GPT-4o mini';
 
   const updateKey = async () => {
     setErrorText('')
@@ -136,7 +138,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
                     <p>
                       Are you sure you want to remove your OpenAI API key?
                     </p>
-                    <Alert title={"All bots will be moved to the gpt-4o-mini model!"} type="error" />
+                    <Alert title={`All bots will be moved to the included ${defaultModel} model!`} type="error" />
                   </div>
                   <div className="mt-6 flex w-full flex-shrink-0 items-end justify-end">
                     <button
@@ -211,8 +213,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
           </>
         ) : (
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can add or update your API key here. You must have a valid API key with billing enabled in
-            your OpenAI account for DocsBot to use more advanced models like GPT-4o.{' '}
+            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-4o/4.1.{' '}
             <Link
               className="text-cyan-800 underline"
               href="https://platform.openai.com/api-keys"
@@ -251,18 +252,18 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
               )}
             </div>
             {team.supportsGPT4 ? (
-              <p className="mt-4 text-sm italic">GPT-4 Support Enabled</p>
+              <p className="mt-4 text-sm italic">GPT-4o/4.1 Support Enabled</p>
             ) : (
               <>
                 <Link
                   className="mt-4 block text-sm underline hover:text-gray-500"
-                  href="https://help.openai.com/en/articles/7102672-how-can-i-access-gpt-4-gpt-4-turbo-gpt-4o-and-gpt-4o-mini#h_9bddcd317c"
+                  href="https://platform.openai.com/docs/guides/rate-limits#usage-tiers"
                   target="_blank"
                 >
-                  GPT-4o access details
+                  GPT-4o/4.1 access details
                 </Link>
                 <p className="mt-1 text-xs italic">
-                  Optional - Once you've added at least $5 credit to OpenAI update your OpenAI API key to unlock GPT-4 models
+                  Optional - Once you've added at least $5 credit to OpenAI update your OpenAI API key to unlock other models
                 </p>
               </>
             )}

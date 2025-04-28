@@ -1,6 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { canUserEditBot } from '@/utils/function.utils'
 import crypto from 'crypto'
 
 export default async function handler(req, res) {
@@ -19,6 +20,13 @@ export default async function handler(req, res) {
   try {
     if (req.method !== 'GET') {
       return res.status(405).json({ message: 'Method not allowed' })
+    }
+
+    //check user is allowed to edit bot or not
+    if (!canUserEditBot(team, userId)) {
+      return res.status(403).json({
+        message: 'You are not allowed to edit this bot.',
+      })
     }
 
     // Generate a code verifier for PKCE

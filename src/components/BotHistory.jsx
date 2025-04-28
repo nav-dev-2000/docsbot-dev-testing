@@ -335,7 +335,7 @@ export default function BotHistory({ team, botId }) {
                     Upgrade to the Pro plan or higher to unlock advance question
                     statistics. View{' '}
                     <Link
-                      href="/#pricing"
+                      href="/pricing"
                       target="_blank"
                       className="underline"
                     >

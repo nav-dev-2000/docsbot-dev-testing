@@ -38,7 +38,7 @@ Bot objects have the following properties:
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
 | **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
 | **botIcon** | string | The icon visible via chat dialogs. Can be one of the following: `false, 'comment', 'robot', 'life-ring', 'info', 'book'` |
-| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/#pricing) for more information |
+| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/pricing) for more information |
 | **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
 | **hideSources** | boolean | If true, the widget will not display the sources of its answers. |
@@ -272,7 +272,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **icon** | string | The chat bubble icon. Can be one of the following: `'default', 'comments', 'robot', 'life-ring', 'question', 'book'` |
 | **alignment** | string | Sets which side the chat bubble is on. Can be `left` or `right` |
 | **botIcon** | string | The icon visible via chat dialogs. Can be one of the following: `false, 'comment', 'robot', 'life-ring', 'info', 'book'` |
-| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/#pricing) for more information |
+| **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/pricing) for more information |
 | **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |

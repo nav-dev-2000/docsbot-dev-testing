@@ -670,17 +670,17 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             d="M9.9 97.2l48.6-48.6c6.3-6.2 10.2-14.9 10.2-24.4 0-9.4-3.8-18-9.9-24.2L10.2 48.6C3.9 54.8 0 63.5 0 73c0 9.5 3.8 18 9.9 24.2zM127.6 68.8L79 117.4c-6.3 6.2-10.2 14.9-10.2 24.4 0 9.4 3.8 18 9.9 24.2l48.6-48.6c6.3-6.2 10.2-14.9 10.2-24.4 0-9.5-3.8-18-9.9-24.2zM127.3 48.7s0-.1 0 0c6.3-6.2 10.2-14.9 10.2-24.4 0-9.4-3.8-18-9.9-24.2L10.2 117.4C3.9 123.6 0 132.3 0 141.8c0 9.4 3.8 18 9.9 24.2L127.3 48.7z"
           ></path>
         </svg>
-        Help Scout Integration <span className="text-sm text-gray-400">BETA</span>
+        Help Scout Integration
       </h3>
 
       {blurEnabled && (
         <div className="relative z-10 -mb-72 mt-32 w-full">
           <div className="flex justify-center py-4 text-center">
           <div className="max-w-3xl">
-          <h3 className="text-3xl font-bold">Setup Help Scout Auto replying</h3>
+          <h3 className="text-3xl font-bold">Setup Help Scout Auto replies</h3>
               <p className="mb-8 text-center text-gray-700">
                 Upgrade to the Power plan or higher to reduce support queues and speed up Help Scout responses! View{' '}
-                <Link href="/#pricing" target="_blank" className="underline">
+                <Link href="/pricing" target="_blank" className="underline">
                   plan details
                 </Link>
                 .

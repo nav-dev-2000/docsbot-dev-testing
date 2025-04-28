@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import FormBot from '@/components/FormBot'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -24,14 +24,15 @@ export default function NewBotPanel({ team, open, setOpen }) {
   }, [open])
 
   useEffect(() => {
-    if (open && !showOpenAI && !team.openAIKey && botSettings.model && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano')) {
+    if (open && !showOpenAI && !team.openAIKey && botSettings.model && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano' && botSettings.model !== 'gpt-4.1-mini')) {
       setShowOpenAI(true)
     }
   }, [botSettings])
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      setBotSettings({ ...botSettings, model: 'gpt-4o-mini' })
+      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+      setBotSettings({ ...botSettings, model: defaultModel });
     }
   }, [showOpenAI])
 

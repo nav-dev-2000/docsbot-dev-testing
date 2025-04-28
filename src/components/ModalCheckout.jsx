@@ -46,7 +46,7 @@ export default function ModalCheckout({ team, open, setOpen }) {
                   <p className="mb-8 text-center text-gray-500">
                     You've reached the limit of your current plan or must upgrade to enable this
                     feature. View{' '}
-                    <Link href="/#pricing" target="_blank" className="underline">
+                    <Link href="/pricing" target="_blank" className="underline">
                       plan details
                     </Link>
                     .

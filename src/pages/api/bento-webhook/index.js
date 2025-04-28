@@ -118,7 +118,7 @@ Build your own data ingestion pipelines for any use case with our powerful admin
 
 Plans for any size business
 
-[Plan pricing details](https://docsbot.ai/#pricing)
+[Plan pricing details](https://docsbot.ai/pricing)
 
 Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a custom plan?
 

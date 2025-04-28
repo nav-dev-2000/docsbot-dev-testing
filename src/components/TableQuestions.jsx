@@ -1103,7 +1103,7 @@ export default function TableQuestions({
                               the full chat history of your users to help you
                               improve your documentation and products. View{' '}
                               <Link
-                                href="/#pricing"
+                                href="/pricing"
                                 target="_blank"
                                 className="underline"
                               >
