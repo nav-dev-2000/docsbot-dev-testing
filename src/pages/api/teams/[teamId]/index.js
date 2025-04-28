@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         })
     }
 
-    let { name, openAIKey, weaviateUrl, weaviateApiKey } = req.body
+    let { name, openAIKey, weaviateUrl, weaviateApiKey, canTrial } = req.body
     let newTeam = {}
     if (name) {
       newTeam.name = name
@@ -43,6 +43,19 @@ export default async function handler(req, res) {
 
       phTrack(userId, 'Team Name Updated', {}, team.id)
     }
+
+    if (canTrial !== undefined) {
+      // Only super admins can modify trial status
+      if (!isSuperAdmin(userId)) {
+        return res.status(403).json({
+          message: 'Only super admins can modify trial status',
+        })
+      }
+      // Ensure canTrial is a boolean
+      newTeam.canTrial = Boolean(canTrial)
+      phTrack(userId, 'Team Trial Status Updated', { canTrial: newTeam.canTrial }, team.id)
+    }
+
     if (openAIKey) {
       if (!validateOpenAIKey(team, openAIKey)) {
         return res.status(400).json({ message: 'Invalid OpenAI Key' })

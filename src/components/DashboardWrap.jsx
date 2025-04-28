@@ -12,6 +12,7 @@ import {
   CreditCardIcon,
   ChevronRightIcon,
   ChevronUpDownIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
@@ -26,6 +27,7 @@ import { routePaths } from '@/constants/routePaths.constants'
 import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
+import { isSuperAdmin } from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
 
@@ -121,10 +123,13 @@ export default function DashboardWrap({
       )
       setDashboardNavigation(filteredNavigation)
     } else {
-      setCurrentPageLink(navigation.find((nav) => nav.name === page)?.href)
-      setDashboardNavigation(navigation)
+      const finalNavigation = isSuperAdmin(user?.uid) 
+        ? [...navigation, { name: 'Staff Tools', href: '/app/staff', icon: UserGroupIcon }]
+        : navigation
+      setCurrentPageLink(finalNavigation.find((nav) => nav.name === page)?.href)
+      setDashboardNavigation(finalNavigation)
     }
-  }, [currentRole])
+  }, [currentRole, user])
 
   const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
@@ -236,7 +241,7 @@ export default function DashboardWrap({
                         {dashboardNavigation.map((item) => (
                           <Link
                             key={item.name}
-                            href={item.href}
+                            href={item.href || '/app'}
                             className={classNames(
                               item.name === page
                                 ? 'bg-cyan-800 text-white'
@@ -281,7 +286,7 @@ export default function DashboardWrap({
                   {dashboardNavigation.map((item) => (
                     <Link
                       key={item.name}
-                      href={item.href}
+                      href={item.href || '/app'}
                       className={classNames(
                         item.name === page
                           ? 'bg-cyan-800 text-white hover:text-white'
@@ -315,7 +320,7 @@ export default function DashboardWrap({
                   <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
                     <Tooltip content={`Go to ${page}`}>
                       <Link
-                        href={currentPageLink}
+                        href={currentPageLink || '/app'}
                         className="hover:text-gray-500"
                       >
                         {page}
