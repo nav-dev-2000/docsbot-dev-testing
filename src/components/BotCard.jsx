@@ -8,6 +8,7 @@ import {
   ChartBarIcon,
   CodeBracketSquareIcon,
   MagnifyingGlassIcon,
+  ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -114,19 +115,36 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 <BadgeStatus status={bot.status} small={false} />
               </div>
               <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
-                <ModalChat team={team} bot={bot} />
+                <ModalChat team={team} bot={bot} className="" />
                 <Tooltip content="Search and preview your bot's knowledge base">
                   <Link
                     href={`/app/bots/${bot.id}/search`}
-                    className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <MagnifyingGlassIcon
-                      className="h-5 w-5 text-gray-400"
+                      className="h-5 w-5 text-cyan-700"
                       aria-hidden="true"
                     />
                     <span className="hidden xl:inline">Search</span>
                   </Link>
                 </Tooltip>
+              </div>
+              <div className="mt-2 flex w-full justify-between space-x-2 sm:justify-end">
+                {/* Temporarily commented out conversation history link
+                <Tooltip content="View user conversation history">
+                  <Link
+                    href={`/app/bots/${bot.id}/conversations`}
+                    className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    disabled={bot.conversationCount <= 0}
+                  >
+                    <ChatBubbleLeftRightIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="hidden xl:inline">Conversations</span>
+                  </Link>
+                </Tooltip>
+                */}
                 <Tooltip content="View user questions and debug or fine-tune bot answers">
                   <Link
                     href={`/app/bots/${bot.id}/questions`}
@@ -137,7 +155,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                       className="h-5 w-5 text-gray-400"
                       aria-hidden="true"
                     />
-                    <span className="hidden xl:inline">Logs</span>
+                    <span className="hidden xl:inline">Questions</span>
                   </Link>
                 </Tooltip>
                 <Tooltip content="View statistics and reports about the bot's performance and user questions">

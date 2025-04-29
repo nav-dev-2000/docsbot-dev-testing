@@ -56,18 +56,37 @@ function Widget({ team, bot }) {
 
   //bot settings
   const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
-  const [allowedDomainsText, setAllowedDomainsText] = useState(allowedDomains.join(', '))
+  const [allowedDomainsText, setAllowedDomainsText] = useState(
+    allowedDomains.join(', '),
+  )
   const [logo, setLogo] = useState(bot.logo || null)
-  const [headerAlignment, setHeaderAlignment] = useState(bot.headerAlignment || 'center')
+  const [headerAlignment, setHeaderAlignment] = useState(
+    bot.headerAlignment || 'center',
+  )
   const [color, setColor] = useState(bot.color || '#1292EE')
   const [icon, setIcon] = useState(bot.icon || 'default')
   const [alignment, setAlignment] = useState(bot.alignment || 'right')
   const [botIcon, setBotIcon] = useState(bot.botIcon || 'none')
-  const [branding, setBranding] = useState(bot.branding === undefined ? true : bot.branding)
+  const [branding, setBranding] = useState(
+    bot.branding === undefined ? true : bot.branding,
+  )
   const [supportLink, setSupportLink] = useState(bot.supportLink || '')
-  const [showButtonLabel, setShowButtonLabel] = useState(bot.showButtonLabel || false)
-  const [labels, setLabels] = useState(bot.labels || i18n[bot.language]?.labels || i18n.en.labels)
+  const [showButtonLabel, setShowButtonLabel] = useState(
+    bot.showButtonLabel || false,
+  )
+  const [labels, setLabels] = useState(
+    bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
+  )
   const [hideSources, setHideSources] = useState(bot.hideSources)
+  const [isAgent, setIsAgent] = useState(
+    bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
+  )
+  const [tools, setTools] = useState(
+    bot.tools || {
+      human_escalation: { enabled: true },
+      followup_rating: { enabled: true },
+    },
+  )
   const iconRef = useRef(null)
   const avatarRef = useRef(null)
   const logoRef = useRef(null)
@@ -109,7 +128,10 @@ function Widget({ team, bot }) {
       uploadBytes(storageRef, file)
         .then((snapshot) => {
           //get public url for file
-          const url = 'https://cdn.docsbot.ai/' + encodeURIComponent(filepath) + '?alt=media'
+          const url =
+            'https://cdn.docsbot.ai/' +
+            encodeURIComponent(filepath) +
+            '?alt=media'
           //const url = 'https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/' + encodeURIComponent(filepath) + '?alt=media'
           if (type === 'icon') setIcon(url)
           if (type === 'avatar') setBotIcon(url)
@@ -118,7 +140,7 @@ function Widget({ team, bot }) {
         .catch((error) => {
           console.warn(error)
           setErrorText(
-            'Error uploading file, please try again. If the problem persists, try logging out then back in again.'
+            'Error uploading file, please try again. If the problem persists, try logging out then back in again.',
           )
         })
     }
@@ -142,6 +164,8 @@ function Widget({ team, bot }) {
       hideSources,
       logo,
       headerAlignment,
+      isAgent,
+      tools,
     }
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -198,7 +222,11 @@ function Widget({ team, bot }) {
 
       <div className="xl:flex">
         <div className="flex-1 overflow-hidden bg-white shadow sm:rounded-lg">
-          <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+          <ModalCheckout
+            team={team}
+            open={showUpgrade}
+            setOpen={setShowUpgrade}
+          />
           <form
             onSubmit={(e) => {
               e.preventDefault()
@@ -208,52 +236,54 @@ function Widget({ team, bot }) {
             <div className="rounded-lg bg-white p-8 shadow">
               <h3 className="text-2xl font-bold">Chat Widget Embed Code</h3>
               <p className="text-md mt-2 text-justify text-gray-800">
-                You can embed this DocsBot as a floating widget on your website by adding the following code to your HTML
-                page anywhere before the closing &lt;/body&gt; tag.
+                You can embed this DocsBot as a floating widget on your website
+                by adding the following code to your HTML page anywhere before
+                the closing &lt;/body&gt; tag.
               </p>
               <pre
-                className="mx-auto w-full mt-2 block text-xs overflow-scroll whitespace-prewrap rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-white"
+                className="whitespace-prewrap mx-auto mt-2 block w-full overflow-scroll rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-xs text-white"
                 disabled
               >
                 {embed}
               </pre>
               <p className="text-md mt-4 text-justify text-gray-800">
-                Or embed as an iframe into a page in your website or many cloud services.
+                Or embed as an iframe into a page in your website or many cloud
+                services.
               </p>
               <pre
-                className="mx-auto w-full mt-2 block text-xs overflow-scroll whitespace-prewrap rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-white"
+                className="whitespace-prewrap mx-auto mt-2 block w-full overflow-scroll rounded-md border-2 border-solid border-gray-200 bg-gray-700 px-4 py-2 font-mono text-xs text-white"
                 disabled
               >
                 {iframe}
               </pre>
               <div className="mx-auto mb-8 mt-4 items-center justify-between space-x-0 space-y-2 lg:flex lg:space-x-2 lg:space-y-0">
-              <div className="items-center justify-between space-x-1 flex">
-              <button
-                  className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    navigator.clipboard.writeText(embed)
-                    setCopied(true)
-                    setTimeout(() => {
-                      setCopied(false)
-                    }, 2000)
-                  }}
-                >
-                  {copied ? 'Copied!' : 'Copy embed'}
-                </button>
-                <button
-                  className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    navigator.clipboard.writeText(iframe)
-                    setCopiedIframe(true)
-                    setTimeout(() => {
-                      setCopiedIframe(false)
-                    }, 2000)
-                  }}
-                >
-                  {copiedIframe ? 'Copied!' : 'Copy iframe'}
-                </button>
+                <div className="flex items-center justify-between space-x-1">
+                  <button
+                    className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigator.clipboard.writeText(embed)
+                      setCopied(true)
+                      setTimeout(() => {
+                        setCopied(false)
+                      }, 2000)
+                    }}
+                  >
+                    {copied ? 'Copied!' : 'Copy embed'}
+                  </button>
+                  <button
+                    className="rounded bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-600 active:opacity-80"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigator.clipboard.writeText(iframe)
+                      setCopiedIframe(true)
+                      setTimeout(() => {
+                        setCopiedIframe(false)
+                      }, 2000)
+                    }}
+                  >
+                    {copiedIframe ? 'Copied!' : 'Copy iframe'}
+                  </button>
                 </div>
                 {bot.privacy === 'private' && (
                   <div className="relative flex h-10 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md lg:w-1/3">
@@ -279,7 +309,10 @@ function Widget({ team, bot }) {
                       }}
                       disabled={copiedKey}
                     >
-                      <ClipboardDocumentIcon className="h-5 w-5" aria-hidden="true" />
+                      <ClipboardDocumentIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
                       <span className="sr-only">Copy key</span>
                     </button>
                   </div>
@@ -295,13 +328,36 @@ function Widget({ team, bot }) {
               <h3 className="text-2xl font-bold">Customize the Widget</h3>
               <Alert title={errorText} type="error" />
               <p className="text-md text-gray-700">
-                Customize the behavior and appearance of your chat widget. Changes can take a few
-                minutes to appear on your site.
+                Customize the behavior and appearance of your chat widget.
+                Changes can take a few minutes to appear on your site.
               </p>
 
               <div className="flex flex-1 flex-col justify-between">
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
+                    {(team.id === 'nG4F5A3BFSBzdYc5TZIX' || team.id === 'ZrbLG98bbxZ9EFqiPvyl') && (
+                      <div className="mt-4 border-b border-gray-200 pb-4">
+                        <Alert title="Agent Mode is here!" type="info">
+                          When ready, you can enable our new BETA Agent
+                        functionality, which provides more intelligent and
+                        contextual responses, tool calling to perform actions,
+                        conversaton view, and so much more! When enabling, you
+                        may need to adjust your custom prompt to tune behavior
+                        for your use case, such as providing different
+                        instructions for when the agent should look up
+                        information from your docs vs answer from it's own
+                        knowledge.
+                      </Alert>
+                      <FieldToggle
+                        label="Enable Agentic Mode"
+                        description="Enable agentic mode to allow the bot to use tools in the widget."
+                        enabled={isAgent}
+                        setEnabled={setIsAgent}
+                        disabled={isUpdating}
+                        isNew={true}
+                      />
+                    </div>
+                    )}
                     <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                       <div className="flex-none">
                         <label className="mb-2 block text-sm font-medium text-gray-900">
@@ -409,7 +465,10 @@ function Widget({ team, bot }) {
                               id="button-label"
                               value={labels.floatingButton}
                               onChange={(e) =>
-                                setLabels({ ...labels, floatingButton: e.target.value })
+                                setLabels({
+                                  ...labels,
+                                  floatingButton: e.target.value,
+                                })
                               }
                               disabled={!showButtonLabel || isUpdating}
                               placeholder="Button text"
@@ -436,7 +495,10 @@ function Widget({ team, bot }) {
                     />
                     <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                       <div className="w-full">
-                        <label htmlFor="logo" className="block text-sm font-medium text-gray-900">
+                        <label
+                          htmlFor="logo"
+                          className="block text-sm font-medium text-gray-900"
+                        >
                           Header Logo
                         </label>
                         <div className="relative mt-2 flex items-center gap-x-3">
@@ -460,7 +522,10 @@ function Widget({ team, bot }) {
                               </button>
                             </div>
                           ) : (
-                            <PhotoIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
+                            <PhotoIcon
+                              className="h-12 w-12 text-gray-300"
+                              aria-hidden="true"
+                            />
                           )}
                           <input
                             ref={logoRef}
@@ -531,8 +596,8 @@ function Widget({ team, bot }) {
                         First Message
                       </label>
                       <span className="text-sm text-gray-500">
-                        This text will appear as the first message from the bot displayed to the
-                        user. Supports{' '}
+                        This text will appear as the first message from the bot
+                        displayed to the user. Supports{' '}
                         <Link
                           href="https://www.markdownguide.org/basic-syntax/"
                           target="_blank"
@@ -547,7 +612,12 @@ function Widget({ team, bot }) {
                           name="message-label"
                           id="message-label"
                           value={labels.firstMessage}
-                          onChange={(e) => setLabels({ ...labels, firstMessage: e.target.value })}
+                          onChange={(e) =>
+                            setLabels({
+                              ...labels,
+                              firstMessage: e.target.value,
+                            })
+                          }
                           disabled={isUpdating}
                           placeholder="Enter your message here..."
                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
@@ -557,79 +627,209 @@ function Widget({ team, bot }) {
 
                     <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                       <div className="w-full">
-                        <label
-                          htmlFor="support-link"
-                          className="block text-sm font-medium text-gray-900"
-                        >
-                          Support Link
-                        </label>
-                        <span className="text-sm text-gray-500">
-                          This link will appear after the bot replies. Optional, leave blank to
-                          hide.
-                        </span>
-                        <div className="mt-1">
-                          <input
-                            type="text"
-                            name="support-link"
-                            id="support-link"
-                            value={supportLink}
-                            onChange={(e) => setSupportLink(e.target.value)}
-                            disabled={isUpdating}
-                            placeholder="https://example.com/support/"
-                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
-                          />
-                        </div>
-                      </div>
-                      <div className="w-full">
-                        <label
-                          htmlFor="support-label"
-                          className="block text-sm font-medium text-gray-900"
-                        >
-                          Support Button Text
-                        </label>
-                        <span className="text-sm text-gray-500">
-                          This text will appear on the support link button if a link has been set.
-                        </span>
-                        <div className="mt-1">
-                          <input
-                            type="text"
-                            name="support-label"
-                            id="support-label"
-                            value={labels.getSupport}
-                            onChange={(e) => setLabels({ ...labels, getSupport: e.target.value })}
-                            disabled={isUpdating}
-                            placeholder="Support text"
-                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                        <FieldToggle
+                          label={
+                            isAgent
+                              ? 'Enable Escalation Tool'
+                              : 'Enable Support Link'
+                          }
+                          description={
+                            isAgent
+                              ? 'Enable escalation detection tool to allow the bot to detect when a user needs to speak to a human, and ask them to confirm.'
+                              : 'Enable a support link button in the widget.'
+                          }
+                          enabled={
+                            tools?.human_escalation?.enabled === undefined
+                              ? true
+                              : tools?.human_escalation?.enabled
+                          }
+                          setEnabled={(enabled) =>
+                            setTools({
+                              ...tools,
+                              human_escalation: { enabled },
+                            })
+                          }
+                          disabled={isUpdating}
+                          isNew={isAgent}
+                        />
 
-                    <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-                      <FieldToggle
-                        label="Show Sources"
-                        description="Show sources titles and links after answers."
-                        enabled={!hideSources}
-                        setEnabled={() => setHideSources(!hideSources)}
-                        disabled={isUpdating}
-                      />
-                      <FieldToggle
-                        label="Show Branding"
-                        description="If your plan allows you can disable the DocsBot branding in your widget footer."
-                        enabled={branding}
-                        setEnabled={setBranding}
-                        disabled={isUpdating}
-                      />
+                        <div className="mt-4">
+                          <label
+                            htmlFor="support-link"
+                            className="block text-sm font-medium text-gray-900"
+                          >
+                            Support Link
+                          </label>
+                          <span className="text-sm text-gray-500">
+                            {isAgent
+                              ? 'This link will be used when the user confirms they need to speak to a human. Optional, you can register a JS event instead.'
+                              : 'This link will appear after the bot replies.'}
+                          </span>
+                          <div className="mt-1">
+                            <input
+                              type="text"
+                              name="support-link"
+                              id="support-link"
+                              value={supportLink}
+                              onChange={(e) => setSupportLink(e.target.value)}
+                              disabled={
+                                isUpdating || !tools?.human_escalation?.enabled
+                              }
+                              placeholder="https://example.com/support/"
+                              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                            />
+                          </div>
+                        </div>
+
+                        {!isAgent && (
+                          <div className="mt-4">
+                            <label
+                              htmlFor="support-label"
+                              className="block text-sm font-medium text-gray-900"
+                            >
+                              Support Button Text
+                            </label>
+                            <span className="text-sm text-gray-500">
+                              This text will appear on the support link button
+                              if a link has been set.
+                            </span>
+                            <div className="mt-1">
+                              <input
+                                type="text"
+                                name="support-label"
+                                id="support-label"
+                                value={labels.getSupport}
+                                onChange={(e) =>
+                                  setLabels({
+                                    ...labels,
+                                    getSupport: e.target.value,
+                                  })
+                                }
+                                disabled={isUpdating}
+                                placeholder="Support text"
+                                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="w-full">
+                        <FieldToggle
+                          label="Collect Feedback"
+                          description="Collect ratings (CSAT) from users after they interact with the bot."
+                          enabled={
+                            tools?.followup_rating?.enabled === undefined
+                              ? true
+                              : tools?.followup_rating?.enabled
+                          }
+                          setEnabled={(enabled) =>
+                            setTools({
+                              ...tools,
+                              followup_rating: { enabled },
+                            })
+                          }
+                          disabled={isUpdating}
+                          isNew={true}
+                        />
+
+                        <div className="mt-4">
+                          <FieldToggle
+                            label="Show Sources"
+                            description="Show sources titles and links after answers."
+                            enabled={!hideSources}
+                            setEnabled={() => setHideSources(!hideSources)}
+                            disabled={isUpdating}
+                          />
+                        </div>
+
+                        <div className="mt-4">
+                          <FieldToggle
+                            label="Show Branding"
+                            description="If your plan allows you can disable the DocsBot branding in your widget footer."
+                            enabled={branding}
+                            setEnabled={setBranding}
+                            disabled={isUpdating}
+                            planLabel={
+                              !checkPlanPermission(team, 'pro', 'branding')
+                                .allowed
+                                ? checkPlanPermission(team, 'pro', 'branding')
+                                    .requiredPlanLabel
+                                : null
+                            }
+                          />
+                        </div>
+                      </div>
                     </div>
 
                     <div className="w-full">
-                      <label htmlFor="domains" className="block text-sm font-medium text-gray-900">
+                      <div className="flex items-center justify-between">
+                        <div className="flex-grow">
+                          <label
+                            htmlFor="footer-text"
+                            className="block text-sm font-medium text-gray-900"
+                          >
+                            Footer Text
+                            <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                              New!
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <span className="text-sm text-gray-500">
+                        Add optional text that will appear in the widget footer.
+                        This is a great place to add a{' '}
+                        <button
+                          type="button"
+                          className="text-cyan-600 underline hover:text-cyan-500"
+                          onClick={() => {
+                            setLabels({
+                              ...labels,
+                              footerText:
+                                'By starting a conversation, you agree to our [Privacy Policy](/legal/privacy-policy).',
+                            })
+                          }}
+                        >
+                          privacy policy disclaimer
+                        </button>
+                        , etc. Hidden after the user starts a conversation.
+                        Supports{' '}
+                        <Link
+                          href="https://www.markdownguide.org/basic-syntax/"
+                          target="_blank"
+                          className="text-cyan-600 underline hover:font-semibold"
+                        >
+                          Markdown
+                        </Link>
+                      </span>
+                      <div className="mt-1">
+                        <textarea
+                          name="footer-text"
+                          id="footer-text"
+                          value={labels.footerText}
+                          onChange={(e) =>
+                            setLabels({
+                              ...labels,
+                              footerText: e.target.value,
+                            })
+                          }
+                          disabled={isUpdating}
+                          placeholder="Footer text"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="domains"
+                        className="block text-sm font-medium text-gray-900"
+                      >
                         Allowed Domains
                       </label>
                       <span className="text-sm text-gray-500">
-                        Enter a comma-separated list of domains that are allowed to embed this
-                        widget. Any subdomains must be listed seperately. Leave blank to allow all
-                        domains.
+                        Enter a comma-separated list of domains that are allowed
+                        to embed this widget. Any subdomains must be listed
+                        seperately. Leave blank to allow all domains.
                       </span>
                       <div className="mt-1">
                         <input
@@ -643,10 +843,14 @@ function Widget({ team, bot }) {
                               e.target.value
                                 .split(',')
                                 .filter((s) => s)
-                                .map((d) => d.trim().toLowerCase()
-                                  .replace(/^(https?:\/\/)/, '')  // Remove http:// or https://
-                                  .replace(/\/.*$/, ''))  // Remove everything from the first slash onwards
-                                .filter(Boolean)
+                                .map((d) =>
+                                  d
+                                    .trim()
+                                    .toLowerCase()
+                                    .replace(/^(https?:\/\/)/, '') // Remove http:// or https://
+                                    .replace(/\/.*$/, ''),
+                                ) // Remove everything from the first slash onwards
+                                .filter(Boolean),
                             )
                           }}
                           disabled={isUpdating}
@@ -663,8 +867,12 @@ function Widget({ team, bot }) {
                 <button
                   type="submit"
                   name="submit-form"
-                  className={"inline-flex w-1/4 items-center justify-center inline-flex rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm" +
-                  (canModify ? " bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2" : " bg-gray-300 cursor-not-allowed")}
+                  className={
+                    'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm' +
+                    (canModify
+                      ? ' bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                      : ' cursor-not-allowed bg-gray-300')
+                  }
                   disabled={isUpdating || !canModify}
                 >
                   {!isUpdating ? (
@@ -694,6 +902,8 @@ function Widget({ team, bot }) {
               labels,
               hideSources,
               supportLink,
+              isAgent,
+              tools,
             }}
           />
         </div>

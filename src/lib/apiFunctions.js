@@ -332,6 +332,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     recordIP,
     classify,
     embeddingModel,
+    isAgent,
+    tools,
     temperature,
   } = req.body
 
@@ -630,6 +632,35 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.temperature = temp
   } else if (!isUpdate) {
     botData.temperature = 0 // Default to 0 for most precise responses
+  }
+
+  if (isAgent !== undefined) {
+    botData.isAgent = Boolean(isAgent)
+  } else if (!isUpdate) {
+    botData.isAgent = true
+  }
+
+  if (tools !== undefined) {
+    // tools is an object, keyed by tool name with enabled boolean
+    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": { "enabled": true } }
+    // Verify the tools schema before assigning
+    const validTools = {};
+    for (const [toolName, toolConfig] of Object.entries(tools)) {
+      if (typeof toolConfig === 'object' && toolConfig !== null && 'enabled' in toolConfig) {
+        validTools[toolName] = {
+          enabled: Boolean(toolConfig.enabled),
+          ...toolConfig
+        };
+      } else {
+        throw new Error(`Invalid tool configuration for "${toolName}". Each tool must be an object with at least an "enabled" boolean property.`);
+      }
+    }
+    botData.tools = validTools;
+  } else if (!isUpdate) {
+    botData.tools = {
+      human_escalation: { enabled: true },
+      followup_rating: { enabled: true },
+    }
   }
 
   if (!isUpdate) { //Only can set embedding model on new bots

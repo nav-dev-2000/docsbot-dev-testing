@@ -19,6 +19,7 @@ export const i18n = {
       feedbackYes: "Yes",
       feedbackNo: "No",
       resetChat: "Reset conversation",
+      footerMessage: "",
     },
   },
   jp: {
@@ -41,6 +42,7 @@ export const i18n = {
       feedbackYes: "はい",
       feedbackNo: "いいえ",
       resetChat: "会話をリセット",
+      footerMessage: "",
     },
   },
   ar: {
@@ -64,6 +66,7 @@ export const i18n = {
       feedbackYes: "نعم",
       feedbackNo: "لا",
       resetChat: "إعادة المحادثة",
+      footerMessage: "",
     },
   },
   zh: {
@@ -86,6 +89,7 @@ export const i18n = {
       feedbackYes: "是",
       feedbackNo: "否",
       resetChat: "重置对话",
+      footerMessage: "",
     },
   },
   zh_tw: {
@@ -108,6 +112,7 @@ export const i18n = {
       feedbackYes: "是",
       feedbackNo: "否",
       resetChat: "重新開始對話",
+      footerMessage: "",
     },
   },
   cs: {
@@ -130,6 +135,7 @@ export const i18n = {
       feedbackYes: "Ano",
       feedbackNo: "Ne",
       resetChat: "Resetovat konverzaci",
+      footerMessage: "",
     },
   },
   da: {
@@ -152,6 +158,7 @@ export const i18n = {
       feedbackYes: "Ja",
       feedbackNo: "Nej",
       resetChat: "Nulstil samtalen",
+      footerMessage: "",
     },
   },
   nl: {
@@ -174,6 +181,7 @@ export const i18n = {
       feedbackYes: "Ja",
       feedbackNo: "Nee",
       resetChat: "Gesprek resetten",
+      footerMessage: "",
     },
   },
   fil: {
@@ -196,6 +204,7 @@ export const i18n = {
       feedbackYes: "Oo",
       feedbackNo: "Hindi",
       resetChat: "I-reset ang usapan",
+      footerMessage: "",
     },
   },
   fi: {
@@ -218,6 +227,7 @@ export const i18n = {
       feedbackYes: "Kyllä",
       feedbackNo: "Ei",
       resetChat: "Nollaa keskustelu",
+      footerMessage: "",
     },
   },
   fr: {
@@ -240,6 +250,7 @@ export const i18n = {
       feedbackYes: "Oui",
       feedbackNo: "Non",
       resetChat: "Réinitialiser la conversation",
+      footerMessage: "",
     },
   },
   de: {
@@ -262,6 +273,7 @@ export const i18n = {
       feedbackYes: "Ja",
       feedbackNo: "Nein",
       resetChat: "Konversation zurücksetzen",
+      footerMessage: "",
     },
   },
   el: {
@@ -284,6 +296,7 @@ export const i18n = {
       feedbackYes: "Ναι",
       feedbackNo: "Όχι",
       resetChat: "Επαναφορά συνομιλίας",
+      footerMessage: "",
     },
   },
   he: {
@@ -307,6 +320,7 @@ export const i18n = {
       feedbackYes: "כן",
       feedbackNo: "לא",
       resetChat: "איפוס שיחה",
+      footerMessage: "",
     },
   },
   hi: {
@@ -351,6 +365,7 @@ export const i18n = {
       feedbackYes: "Igen",
       feedbackNo: "Nem",
       resetChat: "Beszélgetés visszaállítása",
+      footerMessage: "",
     },
   },
   id: {
@@ -373,6 +388,7 @@ export const i18n = {
       feedbackYes: "Ya",
       feedbackNo: "Tidak",
       resetChat: "Atur ulang percakapan",
+      footerMessage: "",
     },
   },
   it: {
@@ -395,6 +411,7 @@ export const i18n = {
       feedbackYes: "Sì",
       feedbackNo: "No",
       resetChat: "Ripristina conversazione",
+      footerMessage: "",
     },
   },
   ko: {
@@ -417,6 +434,7 @@ export const i18n = {
       feedbackYes: "예",
       feedbackNo: "아니요",
       resetChat: "대화 재설정",
+      footerMessage: "",
     },
   },
   no: {
@@ -439,6 +457,7 @@ export const i18n = {
       feedbackYes: "Ja",
       feedbackNo: "Nei",
       resetChat: "Tilbakestill samtalen",
+      footerMessage: "",
     },
   },
   pl: {
@@ -461,6 +480,7 @@ export const i18n = {
       feedbackYes: "Tak",
       feedbackNo: "Nie",
       resetChat: "Zresetuj rozmowę",
+      footerMessage: "",
     },
   },
   pt: {
@@ -505,6 +525,7 @@ export const i18n = {
       feedbackYes: "Da",
       feedbackNo: "Nu",
       resetChat: "Resetați conversația",
+      footerMessage: "",
     },
   },
   ru: {
@@ -527,6 +548,7 @@ export const i18n = {
       feedbackYes: "Да",
       feedbackNo: "Нет",
       resetChat: "Сбросить беседу",
+      footerMessage: "",
     },
   },
   sr: {
@@ -549,6 +571,7 @@ export const i18n = {
       feedbackYes: "Da",
       feedbackNo: "Ne",
       resetChat: "Resetuj razgovor",
+      footerMessage: "",
     },
   },
   es: {
@@ -593,6 +616,7 @@ export const i18n = {
       feedbackYes: "Ndio",
       feedbackNo: "Hapana",
       resetChat: "Rudisha mazungumzo",
+      footerMessage: "",
     },
   },
   sv: {
@@ -615,6 +639,7 @@ export const i18n = {
       feedbackYes: "Ja",
       feedbackNo: "Nej",
       resetChat: "Återställ samtalet",
+      footerMessage: "",
     },
   },
   th: {
@@ -659,6 +684,7 @@ export const i18n = {
       feedbackYes: "Evet",
       feedbackNo: "Hayır",
       resetChat: "Konuşmayı sıfırla",
+      footerMessage: "",
     },
   },
 }

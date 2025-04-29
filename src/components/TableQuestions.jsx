@@ -19,7 +19,9 @@ import {
   MinusCircleIcon,
   ChevronLeftIcon,
   ChartBarIcon,
+  ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline'
+import Tooltip from '@/components/Tooltip'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
 import { unified } from 'unified'
@@ -233,10 +235,10 @@ export default function TableQuestions({
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${bot?.signatureKey}`,
+      Authorization: `Bearer ${bot?.signature}`,
     }
 
-    const apiUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/rate/${questionId}`
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${botId}/rate/${questionId}`
     try {
       const response = await fetch(apiUrl, {
         method: 'PUT',
@@ -567,26 +569,35 @@ export default function TableQuestions({
                         {copied ? 'Copied!' : 'Copy Share Link'}
                       </button>
 
+                      {question.conversationId && (
+                        <Tooltip content="View full conversation">
+                          <Link
+                            href={`/app/bots/${bot.id}/conversations?conversationId=${question.conversationId}`}
+                            className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                          >
+                            <ChatBubbleLeftRightIcon
+                              className="mr-1 h-4 w-4"
+                              aria-hidden="true"
+                            /> 
+                            Conversation
+                          </Link>
+                        </Tooltip>
+                      )}
+
                       {user && user.uid && isSuperAdmin(user.uid) && (
-                        <button
+                        <Link
+                          href={`https://smith.langchain.com/o/3a7d1270-cdc3-4de5-8a1a-c595a186eb5a/projects/p/7a4e94a1-8115-48bd-a144-fd83defbf4b0/r/${question.run_id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            navigator.clipboard.writeText(`${question.run_id}`)
-                            setCopied(true)
-                            setTimeout(() => {
-                              setCopied(false)
-                            }, 2000)
-                          }}
-                          disabled={copied}
-                          title="Copy langchain runId"
+                          title="View run in LangSmith"
                         >
-                          <ClipboardDocumentIcon
+                          <ChartBarIcon
                             className="mr-1 h-4 w-4"
                             aria-hidden="true"
                           />
-                          {copied ? 'Copied!' : 'Copy runId'}
-                        </button>
+                          View Trace
+                        </Link>
                       )}
 
                       <button

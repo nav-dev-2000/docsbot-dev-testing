@@ -32,7 +32,7 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
   const Page = ({ page, current }) => {
     if (page === false) {
       return (
-        <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+        <span className="relative inline-flex items-center px-3 py-1 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
           ...
         </span>
       )
@@ -43,7 +43,7 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
         <button
           aria-current="page"
           disabled={true}
-          className="relative z-10 inline-flex items-center bg-cyan-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+          className="relative z-10 inline-flex items-center bg-cyan-600 px-3 py-1 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
         >
           {page + 1}
         </button>
@@ -52,7 +52,7 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
       return (
         <button
           onClick={() => changePage(page)}
-          className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+          className="relative inline-flex items-center px-3 py-1 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
         >
           {page + 1}
         </button>
@@ -65,7 +65,7 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
       <button
         onClick={() => changePage(currentPage - 1)}
         disabled={page === 0}
-        className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
+        className="relative inline-flex items-center rounded-l-md px-1.5 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
       >
         <span className="sr-only">Previous</span>
         <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -77,7 +77,7 @@ export default function Paginator({ page, totalCount, perPage, changePage }) {
       <button
         onClick={() => changePage(currentPage + 1)}
         disabled={currentPage * perPage + perPage >= totalCount}
-        className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
+        className="relative inline-flex items-center rounded-r-md px-1.5 py-1 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50"
       >
         <span className="sr-only">Next</span>
         <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

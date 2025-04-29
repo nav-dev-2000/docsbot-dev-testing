@@ -66,6 +66,9 @@ export default async function handler(req, res) {
           hideSources: bot.hideSources || false,
           logo: bot.logo || false,
           headerAlignment: bot.headerAlignment || 'center',
+          isAgent: bot.isAgent || false,
+          useEscalation: bot.tools?.human_escalation?.enabled === undefined ? true : bot.tools.human_escalation.enabled,
+          useFeedback: bot.tools?.followup_rating?.enabled === undefined ? true : bot.tools.followup_rating.enabled,
         }
 
         return res.json(widget)

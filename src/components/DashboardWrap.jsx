@@ -15,8 +15,8 @@ import {
   UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
-import classNames from '@/utils/classNames'
 import { useCallback } from 'react'
+import clsx from 'clsx'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { signOut } from 'firebase/auth'
@@ -36,6 +36,7 @@ export default function DashboardWrap({
   title,
   team,
   fullWidth = false,
+  header = null,
   children,
 }) {
   const router = useRouter()
@@ -83,12 +84,14 @@ export default function DashboardWrap({
         }
         ident['storage-plan'] = stripePlan(team).name
         if (team.stripeCustomerId) {
-          ident['stripe-customer'] =
-            `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
+          ident[
+            'stripe-customer'
+          ] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
         }
         if (team.stripeSubscriptionId) {
-          ident['stripe-subscription'] =
-            `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
+          ident[
+            'stripe-subscription'
+          ] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
         }
       }
       Beacon('identify', ident)
@@ -163,11 +166,7 @@ export default function DashboardWrap({
 
   return (
     <>
-      <NextSeo
-        title={pageTitle}
-        description="DocsBot AI Dashboard"
-        noindex={true}
-      />
+      <NextSeo title={pageTitle} description="DocsBot AI Dashboard" noindex={true} />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -242,7 +241,7 @@ export default function DashboardWrap({
                           <Link
                             key={item.name}
                             href={item.href || '/app'}
-                            className={classNames(
+                            className={clsx(
                               item.name === page
                                 ? 'bg-cyan-800 text-white'
                                 : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
@@ -287,7 +286,7 @@ export default function DashboardWrap({
                     <Link
                       key={item.name}
                       href={item.href || '/app'}
-                      className={classNames(
+                      className={clsx(
                         item.name === page
                           ? 'bg-cyan-800 text-white hover:text-white'
                           : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
@@ -394,9 +393,9 @@ export default function DashboardWrap({
                             {({ active }) => (
                               <Link
                                 href={item.href}
-                                className={classNames(
+                                className={clsx(
                                   active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700',
+                                  'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
                                 {item.name}
@@ -409,9 +408,9 @@ export default function DashboardWrap({
                             <a
                               type="button"
                               href="#"
-                              className={classNames(
+                              className={clsx(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700',
+                                'block px-4 py-2 text-sm text-gray-700'
                               )}
                               onClick={signUserOut}
                             >
@@ -425,13 +424,14 @@ export default function DashboardWrap({
                 </div>
               </div>
             </div>
+            {header}
 
             <main className="flex-1">
               <div className="py-4 sm:py-8">
                 <div
-                  className={classNames(
+                  className={clsx(
                     'mx-auto px-4 sm:px-6 md:px-8',
-                    fullWidth ? '' : 'max-w-7xl',
+                    fullWidth ? '' : 'max-w-7xl'
                   )}
                 >
                   {children}

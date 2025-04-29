@@ -61,6 +61,8 @@ export default function WidgetPreview({
   labels,
   hideSources,
   supportLink,
+  isAgent,
+  tools,
 }) {
   return (
     <div className="sticky top-20">

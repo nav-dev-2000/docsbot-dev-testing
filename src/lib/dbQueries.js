@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue, FieldPath } from 'firebase-admin/firestore'
+import { getFirestore, FieldValue, FieldPath, Timestamp } from 'firebase-admin/firestore'
 import { getAuth } from 'firebase-admin/auth'
 import { stripePlan } from '@/utils/helpers'
 import getFakeUserByIp from '@/utils/fakeUsers'
@@ -182,17 +182,15 @@ export async function getBot(teamId, botId) {
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
 
     //create an expiring hmac token for the bot so that it can be used to authenticate with the API
-    if (bot.privacy === 'private') {
-      if (!bot.signatureKey) {
-        bot.signatureKey = crypto.randomBytes(32).toString('hex')
-        botRef.update({ signatureKey: bot.signatureKey })
-      }
-
-      const hmac = crypto.createHmac('sha256', bot.signatureKey)
-      const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 12 //expires in 12 hours
-      hmac.update(`${botId}:${expires}`)
-      bot.signature = `${hmac.digest('hex')}:${expires}`
+    if (!bot.signatureKey) {
+      bot.signatureKey = crypto.randomBytes(32).toString('hex')
+      botRef.update({ signatureKey: bot.signatureKey })
     }
+
+    const hmac = crypto.createHmac('sha256', bot.signatureKey)
+    const expires = Math.floor(Date.now() / 1000) + 60 * 60 * 12 //expires in 12 hours
+    hmac.update(`${botId}:${expires}`)
+    bot.signature = `${hmac.digest('hex')}:${expires}`
 
     if (!bot.model) {
       bot.model = 'gpt-4o-mini'
@@ -379,6 +377,7 @@ const QUESTION_SELECT_LIST = [
   'run_id',
   'deleted',
   'couldAnswer',
+  'conversationId',
 ]
 
 export async function getQuestions(
@@ -522,6 +521,222 @@ export async function getQuestion(teamId, botId, questionId) {
     }
 
     return question
+  } else {
+    return null
+  }
+}
+
+const CONVERSATION_SELECT_LIST = [
+  FieldPath.documentId(),
+  'createdAt',
+  'updatedAt',
+  //'history', Skip history as it' potentially huge
+  'resolved',
+  'escalated',
+  'answered',
+  'ip',
+  'metadata',
+  'title',
+  'summary',
+  'sentiment',
+  'model',
+  'truncated',
+  'topic',
+  //'ticketSubject',
+  //'ticketContent',
+]
+export async function getConversations(
+  team,
+  botId,
+  perPage = 50,
+  page = 0,
+  ip = null,
+  sentiment = null,
+  escalated = null,
+  resolved = null,
+  startTime = null,
+  endTime = null
+) {
+  const offset = page * perPage
+  let snapshot = firestore
+    .collection('teams')
+    .doc(team.id)
+    .collection('bots')
+    .doc(botId)
+    .collection('conversations')
+    .select(...CONVERSATION_SELECT_LIST) //skip the history as it's potentially huge
+
+  // grab limits
+  const plan = stripePlan(team)
+  const planLimit = plan.logLimit
+  const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
+
+  if (ip) {
+    snapshot = snapshot.where('ip', '==', ip)
+  }
+
+  if (escalated !== null) {
+    snapshot = snapshot.where('escalated', '==', escalated)
+  } 
+
+  if (resolved !== null) {
+    snapshot = snapshot.where('resolved', '==', resolved)
+  }
+
+  if (sentiment !== null) {
+    snapshot = snapshot.where('sentiment', '==', sentiment)
+  }
+
+  if (startTime) {
+    const start = new Date(startTime)
+    if (isNaN(start.getTime())) {
+      throw new Error('Invalid parameter "startTime".')
+    }
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    if (isNaN(end.getTime())) {
+      throw new Error('Invalid parameter "endTime".')
+    }
+    snapshot = snapshot.where('createdAt', '<=', end)
+  }
+
+  const conversationsRef = snapshot
+    .orderBy('createdAt', 'desc')
+    .offset(offset)
+    .limit(pageLimit)
+
+  // grab conversations
+  const querySnapshot = await conversationsRef.get()
+  let conversations = []
+  querySnapshot.forEach((doc) => {
+    let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+    //if we identified the user, use the provided data for alias
+    if (doc.data().metadata) {
+      if (doc.data().metadata.name) {
+        alias = doc.data().metadata.name
+        if (doc.data().metadata.email) {
+          //alias += ' (' + doc.data().metadata.email + ')'
+        }
+      } else if (doc.data().metadata.email) {
+        alias = doc.data().metadata.email
+      }
+    }
+
+    let question = { 
+      id: doc.id, 
+      ...doc.data(), 
+      alias: alias,
+      email: doc.data().metadata?.email // Explicitly set email field for Gravatar
+    }
+    question = JSON.stringify(question, (key, value) => {
+      if (value instanceof Timestamp) {
+        return value.toDate().toJSON()
+      }
+      return value
+    })
+    question = JSON.parse(question)
+
+    conversations.push(question)
+  })
+
+  snapshot = firestore
+    .collection('teams')
+    .doc(team.id)
+    .collection('bots')
+    .doc(botId)
+    .collection('conversations')
+
+  if (ip) {
+    snapshot = snapshot.where('ip', '==', ip)
+  }
+
+  if (escalated !== null) {
+    snapshot = snapshot.where('escalated', '==', escalated)
+  } 
+  
+  if (resolved !== null) {
+    snapshot = snapshot.where('resolved', '==', resolved || 0)
+  }
+
+  if (sentiment !== null) {
+    snapshot = snapshot.where('sentiment', '==', sentiment)
+  }
+  
+  if (startTime) {
+    const start = new Date(startTime)
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    snapshot = snapshot.where('createdAt', '<=', end)
+  }
+
+  // get total count
+  const countSnapshot = await snapshot.count().get()
+  const totalCount = countSnapshot.data().count
+
+  // get plan viewable count
+  const viewableCount = totalCount > planLimit ? planLimit : totalCount
+
+  const pagination = {
+    perPage,
+    page,
+    viewableCount,
+    totalCount,
+    hasMorePages: offset + perPage < viewableCount,
+    planLimit,
+  }
+
+  return { conversations, pagination }
+}
+
+export async function getConversation(teamId, botId, conversationId) {
+  const conversationRef = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('conversations')
+    .doc(conversationId)
+    .get()
+
+  if (conversationRef.exists) {
+    const docData = conversationRef.data()
+    let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
+    
+    //if we identified the user, use the provided data for alias
+    if (docData.metadata) {
+      if (docData.metadata.name) {
+        alias = docData.metadata.name
+        if (docData.metadata.email) {
+          //alias += ' (' + docData.metadata.email + ')'
+        }
+      } else if (docData.metadata.email) {
+        alias = docData.metadata.email
+      }
+    }
+
+    let conversation = { 
+      id: conversationId, 
+      ...docData, 
+      alias: alias,
+      email: docData.metadata?.email // Explicitly set email field for Gravatar
+    }
+    
+    // Convert Timestamps to JSON dates
+    conversation = JSON.stringify(conversation, (key, value) => {
+      if (value instanceof Timestamp) {
+        return value.toDate().toJSON()
+      }
+      return value
+    })
+    conversation = JSON.parse(conversation)
+
+    return conversation
   } else {
     return null
   }

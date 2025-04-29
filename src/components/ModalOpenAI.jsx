@@ -163,7 +163,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                       </div>
                       <div className="ml-3 text-sm">
                         <label htmlFor="payment-card" className="font-medium text-gray-700">
-                          Enabled billing in OpenAI?
+                          Added at least $5 in credit to OpenAI?
                         </label>
                         <p id="comments-description" className="text-gray-500">
                           You must{' '}
@@ -172,9 +172,9 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                             className="underline"
                             target="_blank"
                           >
-                            enable billing
+                            add at least $5 in credit
                           </Link>{' '}
-                          in your OpenAI account to increase rate limits.
+                          in your OpenAI account to increase rate limits and unlock advanced models.
                         </p>
                       </div>
                     </div>
