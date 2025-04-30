@@ -261,7 +261,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       document_retriever: true,
       human_escalation: false,
       followup_rating: false,
-      model: selectedModel,
       image_urls: imageUrls,
     }
     if (isResearchMode) {
@@ -271,6 +270,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       body.autocut = 2
     }
 
+    //only send model if they can
+    if (team?.supportsGPT4 && team?.openAIKey && checkPlanPermission(team, 'hobby').allowed) {
+      body.model = selectedModel
+    }
+    
     class FatalError extends Error {}
     class RetriableError extends Error {}
 
