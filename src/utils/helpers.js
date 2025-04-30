@@ -45,6 +45,9 @@ var re_weburl = new RegExp(
     ')+' +
     // TLD identifier name, may end with dot
     '(?:[a-z\\u00a1-\\uffff]{2,}\\.?)' +
+    '|' +
+    // localhost
+    'localhost' +
     ')' +
     // port number (optional)
     '(?::\\d{2,5})?' +
