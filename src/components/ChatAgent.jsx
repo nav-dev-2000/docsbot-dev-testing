@@ -341,20 +341,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           } else {
             try {
               // Handle case where msg.data is empty or invalid JSON
-              if (!msg.data || msg.data.trim() === '') {
+              if (!msg.data || !msg.event) {
                 console.warn(
-                  'Received empty message data - connection may have dropped',
+                  'Received empty message - connection may have dropped',
                 )
-                setErrorText('Connection interrupted. Please try again.')
-                setLoading(false)
-                //strip all empty answers
-                if (answers.length > 0) {
-                  setAnswers((prev) => {
-                    return [
-                      ...prev.filter((a) => a.type !== 'answer' || a.html),
-                    ]
-                  })
-                }
                 return false
               }
 
