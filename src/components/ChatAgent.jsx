@@ -15,9 +15,11 @@ import {
   BeakerIcon,
   PhotoIcon,
   CubeIcon,
-  CreditCardIcon,
 } from '@heroicons/react/24/outline'
-import { PaperAirplaneIcon, BeakerIcon as BeakerIconSolid } from '@heroicons/react/24/solid'
+import {
+  PaperAirplaneIcon,
+  BeakerIcon as BeakerIconSolid,
+} from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -218,11 +220,14 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     setShowQuestion(false)
     setAnswers((prev) => {
       //add new question with images
-      return [...prev, { 
-        type: 'question', 
-        question: askedQuestion,
-        images: selectedImages.map(img => img.url)
-      }]
+      return [
+        ...prev,
+        {
+          type: 'question',
+          question: askedQuestion,
+          images: selectedImages.map((img) => img.url),
+        },
+      ]
     })
     setQuestion('')
     // Clear selected images after adding to message
@@ -288,6 +293,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
           if (response.ok) {
             // 200-299 responses are good, regardless of content type
+            // Create initial answer object if it doesn't exist
+            setAnswers((prev) => {
+              if (prev.length === 0 || prev[prev.length - 1].type !== 'answer') {
+                return [...prev, { type: 'answer', html: null, rating: 0 }]
+              }
+              return prev
+            })
             return
           } else if (response.status >= 400 && response.status < 500) {
             // Try to extract error message from response body
@@ -310,14 +322,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         onmessage(msg) {
           hasReceivedEvents = true
 
-          // Create initial answer object if it doesn't exist
-          setAnswers((prev) => {
-            if (prev.length === 0 || prev[prev.length - 1].type !== 'answer') {
-              return [...prev, { type: 'answer', html: null, rating: 0 }]
-            }
-            return prev
-          })
-
           if (msg.event === 'stream') {
             //append to answer
             setCurrentAnswer((prev) => {
@@ -335,43 +339,111 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             }
             throw new FatalError(msg.data)
           } else {
-            const endData = JSON.parse(msg.data)
-            console.log(endData)
-            setChatHistory(endData.history)
-            if (msg.event === 'is_resolved_question') {
-              setAnswers((prev) => {
-                //add new answer
-                return [
-                  ...prev,
-                  {
-                    type: 'answer',
-                    html: endData.answer,
-                    rating: 0,
-                    id: endData.id,
-                    options: endData.options,
-                  },
-                ]
-              })
-              setCurrentAnswer(endData.answer)
-            } else {
-              setCurrentAnswer(endData.answer)
-              setAnswers((prev) => {
-                const newPrev = [...prev]
-                if (newPrev.length > 0) {
-                  newPrev[newPrev.length - 1] = {
-                    ...newPrev[newPrev.length - 1],
-                    sources: endData.sources,
-                    id: endData.id,
-                    options:
-                      endData.options || newPrev[newPrev.length - 1].options,
-                  }
+            try {
+              // Handle case where msg.data is empty or invalid JSON
+              if (!msg.data || msg.data.trim() === '') {
+                console.warn(
+                  'Received empty message data - connection may have dropped',
+                )
+                setErrorText('Connection interrupted. Please try again.')
+                setLoading(false)
+                //strip all empty answers
+                if (answers.length > 0) {
+                  setAnswers((prev) => {
+                    return [
+                      ...prev.filter((a) => a.type !== 'answer' || a.html),
+                    ]
+                  })
                 }
-                return newPrev
-              })
-            }
+                return false
+              }
 
-            setLoading(false)
-            return true
+              let endData
+              try {
+                endData = JSON.parse(msg.data)
+              } catch (jsonError) {
+                console.error(
+                  'JSON parse error:',
+                  jsonError,
+                  'Raw data:',
+                  msg.data,
+                )
+                setErrorText('Incomplete response received. Please try again.')
+                setLoading(false)
+                //strip all empty answers
+                if (answers.length > 0) {
+                  setAnswers((prev) => {
+                    return [
+                      ...prev.filter((a) => a.type !== 'answer' || a.html),
+                    ]
+                  })
+                }
+                return false
+              }
+
+              console.log(endData)
+
+              // Check if history exists before setting it
+              if (endData.history) {
+                setChatHistory(endData.history)
+              }
+
+              if (msg.event === 'is_resolved_question') {
+                setAnswers((prev) => {
+                  //add new answer
+                  return [
+                    ...prev,
+                    {
+                      type: 'answer',
+                      html: endData.answer,
+                      markdown: endData.answer,
+                      rating: 0,
+                      id: endData.id,
+                      options: endData.options,
+                    },
+                  ]
+                })
+                setCurrentAnswer(endData.answer)
+              } else {
+                if (endData.answer) {
+                  setCurrentAnswer(endData.answer)
+                }
+
+                setAnswers((prev) => {
+                  const newPrev = [...prev]
+                  if (newPrev.length > 0) {
+                    newPrev[newPrev.length - 1] = {
+                      ...newPrev[newPrev.length - 1],
+                      sources: endData.sources,
+                      id: endData.id,
+                      options:
+                        endData.options || newPrev[newPrev.length - 1].options,
+                      markdown: endData.answer,
+                    }
+                  }
+                  return newPrev
+                })
+              }
+
+              setLoading(false)
+              return true
+            } catch (error) {
+              console.error(
+                'Error processing message:',
+                error,
+                'Message data:',
+                msg.data,
+              )
+              setErrorText('Error processing response. Please try again.')
+              setLoading(false)
+              //strip all empty answers
+              if (answers.length > 0) {
+                setAnswers((prev) => {
+                  return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                })
+              }
+              return false
+            }
           }
         },
         onerror(err) {
@@ -447,7 +519,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       })
     } catch (error) {
       console.error('Failed to fetch answer:', error)
-      setErrorText(error instanceof Error ? error.message : 'Unknown error. Please try again later.')
+      setErrorText(
+        error instanceof Error
+          ? error.message
+          : 'Unknown error. Please try again later.',
+      )
       setLoading(false)
       //strip all empty answers
       if (answers.length > 0) {
@@ -663,8 +739,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         >
           <SourceIcon
             className={clsx(
-              "mr-1.5 h-4 w-4 flex-shrink-0",
-              source.used === true ? "text-gray-600" : "text-gray-400"
+              'mr-1.5 h-4 w-4 flex-shrink-0',
+              source.used === true ? 'text-gray-600' : 'text-gray-400',
             )}
             aria-hidden="true"
           />
@@ -685,8 +761,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       <li className="my-1 flex cursor-pointer items-center">
         <SourceIcon
           className={clsx(
-            "mr-1.5 h-4 w-4 flex-shrink-0",
-            source.used === true ? "text-gray-600" : "text-gray-400"
+            'mr-1.5 h-4 w-4 flex-shrink-0',
+            source.used === true ? 'text-gray-600' : 'text-gray-400',
           )}
           aria-hidden="true"
         />
@@ -760,7 +836,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       <img
                         src={imageUrl}
                         alt={`User uploaded image ${index + 1}`}
-                        className="w-20 h-20 rounded-lg object-cover m-0"
+                        className="m-0 h-20 w-20 rounded-lg object-cover"
                       />
                     </button>
                   ))}
@@ -771,7 +847,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           </div>
 
           <Transition.Root show={!!expandedImage} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setExpandedImage}>
+            <Dialog
+              as="div"
+              className="relative z-10"
+              onClose={setExpandedImage}
+            >
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -806,7 +886,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                           <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
                       </div>
-                      <div onClick={() => setExpandedImage(null)} className="cursor-pointer">
+                      <div
+                        onClick={() => setExpandedImage(null)}
+                        className="cursor-pointer"
+                      >
                         <img
                           src={expandedImage}
                           alt="Expanded view"
@@ -825,13 +908,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       return (
         <div
           ref={gridItemRef}
-          className={clsx(
-            'grid gap-4 grid-cols-1 sm:grid-cols-12',
-          )}
+          className={clsx('grid grid-cols-1 gap-4 sm:grid-cols-12')}
         >
           <div
             className={clsx(
-              "relative col-span-1 sm:col-span-8 mt-4 h-fit rounded-md border bg-white text-left shadow-sm sm:rounded-lg",
+              'relative col-span-1 mt-4 h-fit rounded-md border bg-white text-left shadow-sm sm:col-span-8 sm:rounded-lg',
             )}
             id={answer.id || null}
           >
@@ -844,7 +925,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               <div
                 className={clsx(
                   answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8',
+                  'pb-2 sm:pb-2 prose min-w-full p-6 sm:px-8',
                 )}
                 dangerouslySetInnerHTML={{ __html: answer.html }}
               />
@@ -859,63 +940,64 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </div>
             )}
 
-            {(answer.sources?.length > 0 || answer.id || answer.options) && (
+            {(answer.markdown) && (
               <div
                 className={clsx(
-                  'flex items-end px-6 pb-4 pr-4 sm:px-8 sm:pr-4 justify-between sm:justify-end',
+                  'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
                 )}
               >
-                {answer.sources?.length > 0 &&
-                  !hideSources && (
-                    <div className="block sm:hidden text-left">
-                      <div className="text-sm font-semibold text-gray-800">
-                        {bot.labels.sources}
-                      </div>
-                      <ul className="mt-2">
-                        {answer.sources.map((source, index) => (
-                          <Source key={index} source={source} />
-                        ))}
-                      </ul>
+                {answer.sources?.length > 0 && !hideSources && (
+                  <div className="block text-left sm:hidden">
+                    <div className="text-sm font-semibold text-gray-800">
+                      {bot.labels.sources}
                     </div>
-                  )}
-                {answer.id && (
-                  <div className="flex items-center justify-between space-x-1">
-                    <button
-                      onClick={() =>
-                        handleCopyText(answer.markdown, answer.id || '')
-                      }
-                      title="Copy answer to clipboard"
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                    >
-                      {isCopied && copiedId === answer.id ? (
-                        <CheckIcon className="h-5 w-5" />
-                      ) : (
-                        <ClipboardIcon className="h-5 w-5" />
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setRating(answer.id, 1)}
-                      disabled={ratings[answer.id] === 1}
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                    >
-                      <span className="sr-only">{bot.labels.helpful}</span>
-                      <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setRating(answer.id, -1)}
-                      disabled={ratings[answer.id] === -1}
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                    >
-                      <span className="sr-only">{bot.labels.unhelpful}</span>
-                      <HandThumbDownIcon
-                        className="h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    </button>
+                    <ul className="mt-2">
+                      {answer.sources.map((source, index) => (
+                        <Source key={index} source={source} />
+                      ))}
+                    </ul>
                   </div>
                 )}
+                <div className="flex items-center justify-between space-x-1">
+                  <button
+                    onClick={() =>
+                      handleCopyText(answer.markdown, answer.id || '')
+                    }
+                    title="Copy answer to clipboard"
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    {isCopied && copiedId === (answer.id || '') ? (
+                      <CheckIcon className="h-5 w-5" />
+                    ) : (
+                      <ClipboardIcon className="h-5 w-5" />
+                    )}
+                  </button>
+                  {answer.id && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setRating(answer.id, 1)}
+                        disabled={ratings[answer.id] === 1}
+                        className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                      >
+                        <span className="sr-only">{bot.labels.helpful}</span>
+                        <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setRating(answer.id, -1)}
+                        disabled={ratings[answer.id] === -1}
+                        className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                      >
+                        <span className="sr-only">{bot.labels.unhelpful}</span>
+                        <HandThumbDownIcon
+                          className="h-5 w-5"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </>
+                  )}
+                </div>
                 {answer.options && (
                   <div className="flex items-center justify-between space-x-2">
                     {Object.entries(answer.options).map(([key, value]) => (
@@ -933,7 +1015,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             )}
           </div>
           {answer.sources?.length > 0 && (
-            <div className="hidden sm:block col-span-4 mt-4 overflow-y-scroll text-left">
+            <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
               <div className="text-sm font-semibold text-gray-800">
                 {bot.labels.sources}
               </div>
@@ -950,16 +1032,19 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }
 
   const ModelSelector = () => {
-    const isDisabled = !team?.supportsGPT4 || !team?.openAIKey || !checkPlanPermission(team, 'hobby').allowed
-    const tooltipContent = isDisabled 
-      ? !team?.supportsGPT4 
-        ? "GPT-4 access required. Please upgrade your plan or add an OpenAI API key with credit."
+    const isDisabled =
+      !team?.supportsGPT4 ||
+      !team?.openAIKey ||
+      !checkPlanPermission(team, 'hobby').allowed
+    const tooltipContent = isDisabled
+      ? !team?.supportsGPT4
+        ? 'GPT-4 access required. Please upgrade your plan or add an OpenAI API key with credit.'
         : !team?.openAIKey
-          ? "OpenAI API key required to change models. Configure on the API page."
+          ? 'OpenAI API key required to change models. Configure on the API page.'
           : !checkPlanPermission(team, 'hobby').allowed
-            ? "Upgrade to Hobby plan to change models."
-            : "Change model"
-      : "Change model"
+            ? 'Upgrade to Hobby plan to change models.'
+            : 'Change model'
+      : 'Change model'
 
     return (
       <Listbox value={selectedModel} onChange={setSelectedModel}>
@@ -967,12 +1052,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           <div className="inline-block">
             <Tooltip content={tooltipContent} placement="top">
               <div>
-                <Listbox.Button 
+                <Listbox.Button
                   className={clsx(
-                    "cursor-pointer p-2 text-xs flex items-center",
-                    isDisabled 
-                      ? "text-gray-400 cursor-not-allowed opacity-50" 
-                      : "text-gray-600 hover:text-cyan-600"
+                    'flex cursor-pointer items-center p-2 text-xs',
+                    isDisabled
+                      ? 'cursor-not-allowed text-gray-400 opacity-50'
+                      : 'text-gray-600 hover:text-cyan-600',
                   )}
                   onClick={(e) => {
                     if (!checkPlanPermission(team, 'hobby').allowed) {
@@ -986,7 +1071,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   <CubeIcon className="mr-1 h-5 w-5" aria-hidden="true" />
                   {validModels
                     .find((m) => m.id === selectedModel)
-                      ?.name.replace('GPT-', '') || selectedModel.replace('GPT-', '')}
+                    ?.name.replace('GPT-', '') ||
+                    selectedModel.replace('GPT-', '')}
                 </Listbox.Button>
               </div>
             </Tooltip>
@@ -1010,7 +1096,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     clsx(
                       'group cursor-default select-none p-2 text-sm',
                       active ? 'bg-cyan-600 text-white' : 'text-gray-900',
-                      isDisabled && 'opacity-50 cursor-not-allowed'
+                      isDisabled && 'cursor-not-allowed opacity-50',
                     )
                   }
                 >
@@ -1067,7 +1153,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       return
     }
 
-    files.forEach(file => {
+    files.forEach((file) => {
       if (!file.type.startsWith('image/')) {
         setErrorText('Please select only image files')
         return
@@ -1099,8 +1185,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
           // Convert to base64
           const base64 = canvas.toDataURL('image/jpeg', 0.8)
-          setSelectedImages(prev => [...prev, { url: base64, file }])
-          setImageUrls(prev => [...prev, base64])
+          setSelectedImages((prev) => [...prev, { url: base64, file }])
+          setImageUrls((prev) => [...prev, base64])
         }
         img.src = e.target.result
       }
@@ -1109,8 +1195,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }
 
   const removeImage = (index) => {
-    setSelectedImages(prev => prev.filter((_, i) => i !== index))
-    setImageUrls(prev => prev.filter((_, i) => i !== index))
+    setSelectedImages((prev) => prev.filter((_, i) => i !== index))
+    setImageUrls((prev) => prev.filter((_, i) => i !== index))
   }
 
   const triggerFileInput = () => {
@@ -1140,11 +1226,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
             {bot.description}
           </p>
-          <Alert 
-            title="Welcome to your new AI Agent!"
-            type="info"
-          >
-            You are chatting using our new BETA Agent functionality, which provides more intelligent and contextual responses, tool calling to perform actions, as well as image and model selection support! You may need to adjust your custom prompt to tune behavior for your use case, such as providing different instructions for when the agent should look up information from your docs.
+          <Alert title="Welcome to your new AI Agent!" type="info">
+            You are chatting using our new BETA Agent functionality, which
+            provides more intelligent and contextual responses, tool calling to
+            perform actions, as well as image and model selection support! You
+            may need to adjust your custom prompt to tune behavior for your use
+            case, such as providing different instructions for when the agent
+            should look up information from your docs.
           </Alert>
         </div>
 
@@ -1202,13 +1290,21 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     multiple
                     className="hidden"
                   />
-                  <Tooltip content={checkPlanPermission(team, 'power').allowed ? "Add an image" : "Upgrade to Power plan to enable image uploads"}>
+                  <Tooltip
+                    content={
+                      checkPlanPermission(team, 'power').allowed
+                        ? 'Add an image'
+                        : 'Upgrade to Power plan to enable image uploads'
+                    }
+                  >
                     <button
                       type="button"
                       className={clsx(
-                        "rounded-md p-2 text-gray-600 hover:text-cyan-600 cursor-pointer",
-                        selectedImages.length >= 4 && "opacity-50 cursor-not-allowed",
-                        !checkPlanPermission(team, 'power').allowed && "opacity-50"
+                        'cursor-pointer rounded-md p-2 text-gray-600 hover:text-cyan-600',
+                        selectedImages.length >= 4 &&
+                          'cursor-not-allowed opacity-50',
+                        !checkPlanPermission(team, 'power').allowed &&
+                          'opacity-50',
                       )}
                       onClick={(e) => {
                         e.stopPropagation()
@@ -1226,7 +1322,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     </button>
                   </Tooltip>
                   {showResearchMode && (
-                    <Tooltip content={checkPlanPermission(team, 'hobby').allowed ? "Enable research mode" : "Upgrade to Hobby plan to enable research mode"}>
+                    <Tooltip
+                      content={
+                        checkPlanPermission(team, 'hobby').allowed
+                          ? 'Enable research mode'
+                          : 'Upgrade to Hobby plan to enable research mode'
+                      }
+                    >
                       <button
                         type="button"
                         className={clsx(
@@ -1234,7 +1336,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                           isResearchMode
                             ? 'font-bold text-cyan-600'
                             : 'text-gray-600',
-                          !checkPlanPermission(team, 'hobby').allowed && 'opacity-50'
+                          !checkPlanPermission(team, 'hobby').allowed &&
+                            'opacity-50',
                         )}
                         onClick={() => {
                           if (!checkPlanPermission(team, 'hobby').allowed) {
@@ -1255,13 +1358,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   <ModelSelector />
                 </div>
                 {selectedImages.length > 0 && (
-                  <div className="absolute top-0 left-0 right-0 flex flex-wrap gap-2 p-3 pb-2">
+                  <div className="absolute left-0 right-0 top-0 flex flex-wrap gap-2 p-3 pb-2">
                     {selectedImages.map((image, index) => (
                       <div key={index} className="relative">
                         <img
                           src={image.url}
                           alt={`Selected ${index + 1}`}
-                          className="sm:h-20 sm:w-20 h-16 w-16 rounded-lg object-cover"
+                          className="h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20"
                         />
                         <button
                           type="button"
@@ -1301,8 +1404,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   tabIndex={1}
                   autoComplete="off"
                   className={clsx(
-                    "text-md block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:px-4",
-                    selectedImages.length > 0 ? "pt-24" : "pt-3"
+                    'text-md block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:px-4',
+                    selectedImages.length > 0 ? 'pt-24' : 'pt-3',
                   )}
                   placeholder={
                     answers.length
@@ -1334,7 +1437,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
             <div className="mb-4 flex items-start justify-between">
               {isResearchMode && showResearchMode ? (
-                <p className="sm:block hidden max-w-prose text-left text-xs text-gray-500">
+                <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
                   Note: Enabling Research Mode passes more source context in
                   order to answer detailed questions at the expense of more
                   token usage.
