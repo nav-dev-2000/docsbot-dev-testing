@@ -887,7 +887,7 @@ function Widget({ team, bot }) {
             </div>
           </form>
         </div>
-        <div className="mx-auto mt-8 min-h-screen w-80 flex-none xl:ml-8 xl:mt-0">
+        <div className="mx-auto mt-8 min-h-screen w-96 flex-none xl:ml-8 xl:mt-0">
           <WidgetPreview
             {...{
               bot,
