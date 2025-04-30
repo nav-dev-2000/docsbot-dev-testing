@@ -71,6 +71,11 @@ export default async function handler(req, res) {
           useFeedback: bot.tools?.followup_rating?.enabled === undefined ? true : bot.tools.followup_rating.enabled,
         }
 
+        //temp fix for feedbackYes
+        if (bot.language === 'en' && widget.labels.feedbackYes === 'YES') {
+          widget.labels.feedbackYes = 'Yes'
+        }
+
         return res.json(widget)
       } else {
         return res.status(404).json({ message: "Bot not found." })
