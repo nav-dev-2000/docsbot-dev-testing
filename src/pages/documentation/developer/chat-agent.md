@@ -3,12 +3,12 @@ title: Chat Agent API (BETA)
 description: The Chat Agent API is our latest and most powerful API for integrating conversational chatbots with your product.
 ---
 
-The chat Agent API is our latest and most powerful API for integrating conversational chatbots with your product. You input a question and receive the answer along with its sources. This API can employ multiple agent tools to address queries and perform actions, and even accept images for multimodal chats when using supported models. For output it supports both non-streaming and streaming responses using SSE (similar to the OpenAI API).
+The chat Agent API is our latest and most powerful API for integrating conversational chatbots with your product. It is much more conversational similar to ChatGPT, and conversations are stored and viewable in your dashboard. This API can employ multiple agent tools to address queries and perform actions, and even accept images for multimodal chats when using supported models. For output it supports both non-streaming and streaming responses using SSE (similar to the OpenAI API).
 
 ---
 
 {% callout title="Stateful API" %}
-Unlike our older chat APIs, this API is stateful, meaning it maintains the conversation context and history between requests. This allows for more sophisticated interactions and better responses, and frees you from having to store and send the conversation history with each request. This is done by you generating a UUID for each conversation and sending it with each request as the `conversationId` parameter. Any time you change the UUID it will create a new conversation thread in our database. To save on token usage costs and improve performance, we recommend making it simple for the user to start a new conversation thread when they change the subject, such as by clicking a button or resetting after a certain time period. For example our widget will reset the conversation after 12 hours of inactivity.
+Unlike our older chat APIs, this API is stateful, meaning it maintains the conversation context and history between requests. This allows for more sophisticated interactions and better responses, and frees you from having to store and send the conversation history with each request. It also allows us to show full conversation threads in the dashboard. This is done by you generating a UUID for each conversation and sending it with each request as the `conversationId` parameter. Any time you change the UUID it will create a new conversation thread in our database. To save on token usage costs and improve performance, we recommend making it simple for the user to start a new conversation thread when they change the subject, such as by clicking a button or resetting after a certain time period. For example our widget will reset the conversation after 12 hours of inactivity.
 {% /callout %}
 
 ## Request
@@ -34,6 +34,8 @@ Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 | **autocut**            | integer/boolean | Autocut results to num groups. Optional, defaults to `false`.                                                                                                                                                               |
 | **testing**            | boolean         | Whether the request is for testing purposes. Optional, defaults to `false`.                                                                                                                                                 |
 | **image_urls**         | array           | List of image URLs to include with the question as context. Optional, defaults to `null`.                                                                                                                                   |
+| **model**               | string          | Override the model used for this request. Requires an OpenAI API key to be set on your team. Optional, defaults to the model configured for the bot. Examples: `gpt-4o`, `gpt-4.1`, `gpt-4.1-mini`.                  |
+
 
 {% callout title="Vision" %}
 Newer AI models like GPT-4o and GPT-4 Turbo support multimodal inputs, which means they can process both text and images. If the bot is using one of these models, you can include image URLs in your request via the `image_urls` parameter to provide additional context for the AI. The AI will use both the text and images to generate a response. If you're using a model that doesn't support images, the API will return an error if you include via the `image_urls` in your request. For details on using vision and its limitations, see the [OpenAI Docs](https://platform.openai.com/docs/guides/vision).
@@ -43,7 +45,7 @@ Newer AI models like GPT-4o and GPT-4 Turbo support multimodal inputs, which mea
 
 ```json
 {
-  "conversationId": "1234567",
+  "conversationId": "550e8400-e29b-41d4-a716-446655440000",
   "question": "What is docsbot pricing.",
   "metadata": { "name": "your_name", "email": "your@gmail.com" },
   "context_items": 5,
@@ -78,8 +80,8 @@ Data objects found in the `data` could have the following properties depending o
 | **history**     | array   | An array containing the history of interactions related to the query, including user inputs and AI responses. Always included.                                                                         |
 | **sources**     | array   | An array of sources used to generate the answer. Only for `lookup_answer`.                                                                                                                             |
 | **id**          | string  | Unique identifier for the query or response used for rating. Not present for `is_resolved_question`.                                                                                                   |
-| **couldAnswer** | boolean | Indicates whether an answer could be generated for the query or not. Only for `lookup_answer`.                                                                                                         |
-| **options**     | object  | Preset options for the user to respond to the answer. Only for `is_resolved_question` or `support_escalation` event types. While optional, these can be displayed as clickable presets in the chat UI. |
+| **couldAnswer** | boolean | Indicates whether an answer could be generated for the query or not.                                                                                                         |
+| **options**     | object  | Preset `yes` and `no` options for the user to respond to the answer. Only for `is_resolved_question` or `support_escalation` event types. While optional, these can be displayed as clickable preset messages in the chat UI. |
 
 ### The source object
 
@@ -189,7 +191,7 @@ The `support_escalation` event is triggered when LLM determines that the user re
 
 ### stream
 
-When streaming response is enabled via the `stream` parameter, the answer is initially sent as a stream of `stream` events so that you can display the progress to the user as it's generated. Each `stream` event is a token to be appended to the latest message, which is commonly parsed as markdown for proper formatting. When the answer streaming is complete it will followed by a different event type such as `lookup_answer` that contains the final full answer to display. See this [response example](/sse-response.txt) for more details.
+When streaming response is enabled via the `stream` parameter, the answer is initially sent as a stream of `stream` events so that you can display the progress to the user as it's generated. Each `stream` event is a token to be appended to the latest message, which is commonly parsed as markdown for proper formatting. When the answer streaming is complete it will be followed by a different event type such as `lookup_answer` that contains the final full answer to display. See this [response example](/sse-response.txt) for more details.
 
 ## Error Handling
 

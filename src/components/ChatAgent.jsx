@@ -940,7 +940,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
                 )}
               >
-                {answer.sources?.length > 0 && !hideSources && (
+                {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isResearchMode)).length > 0 && !hideSources && (
                   <div className="block text-left sm:hidden">
                     <div className="text-sm font-semibold text-gray-800">
                       {bot.labels.sources}
@@ -1008,7 +1008,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </div>
             )}
           </div>
-          {answer.sources?.length > 0 && (
+          {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isResearchMode)).length > 0 && (
             <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
               <div className="text-sm font-semibold text-gray-800">
                 {bot.labels.sources}
