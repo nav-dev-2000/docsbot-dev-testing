@@ -785,7 +785,7 @@ function Widget({ team, bot }) {
                           onClick={() => {
                             setLabels({
                               ...labels,
-                              footerText:
+                              footerMessage:
                                 'By starting a conversation, you agree to our [Privacy Policy](/legal/privacy-policy).',
                             })
                           }}
@@ -806,15 +806,15 @@ function Widget({ team, bot }) {
                         <textarea
                           name="footer-text"
                           id="footer-text"
-                          value={labels.footerText}
+                          value={labels.footerMessage}
                           onChange={(e) =>
                             setLabels({
                               ...labels,
-                              footerText: e.target.value,
+                              footerMessage: e.target.value,
                             })
                           }
                           disabled={isUpdating}
-                          placeholder="Footer text"
+                          placeholder="Optional footer text"
                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
                         />
                       </div>

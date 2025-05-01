@@ -151,16 +151,17 @@ You can also interact with the widget using the following API if you want to cre
 
 ### Support Callback
 
-If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event` and `history` objects. The `event` object is the click event and the `history` object is the chat history array. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history.
+If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event`, `history`, `metadata`, and if Agent Mode is enabled `ticket` objects. The `event` object is the click event and the `history` object is the chat history array. `metadata` merely contains the metadata you passed to the widget. When you provide an argument for `ticket` and Agent mode is enabled, then we will use AI to summarize the conversation and write a ticket. This object contains { `subject`, `message` }. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history or AI written ticket.
 
 ### Example Code
 
 ```js
 DocsBotAI.init({
   id: 'YOUR_ID_HERE',
-  supportCallback: function (event, history) {
+  supportCallback: function (event, history, metadata, ticket) {
     event.preventDefault() // Optionally prevent default behavior opening the url.
     console.log(history) // Safely access the chat history.
+    console.log(ticket) //AI generated { `subject`, `message` }
     DocsBotAI.close() // Close the widget.
   },
 }).then(() => {
@@ -168,14 +169,14 @@ DocsBotAI.init({
 })
 ```
 
-### User Identification
+### User Identification/Metadata
 
-If you would like to record the user's name, email, or any other custom variables you can optionally pass an `identify` object with the properties you would like to record. These properties will be recorded in the question `metadata` of the chat history allowing you to view it in the chat logs or export it via the questions API endpoint. This can be useful to identify the user or metadata about them such as their subscription plan or any other custom data you would like to record.
+If you would like to record the user's name, email, or any other custom variables you can optionally pass an `identify` object with the properties you would like to record. These properties will be recorded in the question `metadata` of the chat history allowing you to view it in the chat logs or export it via the questions API endpoint. This can be useful to identify the user or metadata about them such as their subscription plan or any other custom data you would like to record. *This information is also visible to the AI model to provide answers or call tools.* You could for example provide a list of their latest orders and links to their status or other personalized data to answer common questions.
 
 The properties `email`, and `name` if set will be shown in the question history logs of our dashboard instead of a pseudonomous user alias. Make sure that you are using the latest version of our widget embed code to take advantage of the `identify` feature.
 
 {% callout title="Privacy and GDPR Considerations" %}
-If you use the identify feature to record user's personal information, chat logs stored with DocsBot will no longer be anonymous. You should make sure that you have a privacy policy that discloses this to your users. You should also make sure that you are not recording any sensitive information such as credit card numbers or passwords. We do not recommend recording any sensitive information in the chat history metadata.
+If you use the identify feature to record user's personal information, chat logs stored with DocsBot will no longer be anonymous. You should make sure that you have a privacy policy that discloses this to your users. You can add a Privacy Policy optin message in your widget footer. You should also make sure that you are not recording any sensitive information such as credit card numbers or passwords. We do not recommend recording any sensitive information in the chat history metadata.
 {% /callout %}
 
 ### Example Code
@@ -201,6 +202,9 @@ If you would like override the widget settings optionally pass an `options` obje
 
 ```js
 options: {
+  isAgent: true, //wether to enable the more powerful agent mode
+  useFeedback: true, //collect user feedback after answers
+  useEscalation: true, // Enable the escalation button or agent tool
   botName: "DocsBot", //name of the bot.
   description: "Ask our AI support assistant your questions about our services.", //description of the bot.
   allowedDomains: [
@@ -213,28 +217,35 @@ options: {
   logo: "https://yourdomain.com/imageurl.png", //logo for the header can be null, or a public image url. Recommended max height is 36px.
   hideHeader: false, //hide the header of the widget. Only works when embedded into a page. Default is false.
   botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
-  supportLink: "https://docsbot.ai/", //link to your support page. If null|false, no button will be shown.
+  supportLink: "https://docsbot.ai/", //link to your support page. If null|false, and no supportCallback is set, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
   hideSources: false, // Hide the sources in answers. Default is false.
   noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'gdrive', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
   labels: {
-    poweredBy: "Powered by",
-    inputPlaceholder: "Send a message...",
-    firstMessage: "What can I help you with?", //supports markdown
-    sources: "Sources",
-    unhelpful: "Report as innacurate",
-    getSupport: "Contact support",
-    floatingButton: "Help",
-    suggestions: "Not sure what to ask?",
-    close: "Close",
-    create: "Create your own!",
-    thinking: "Thinking..."
-  }, // Override all the default labels for your own language.
+      poweredBy: 'Powered by',
+      inputPlaceholder: 'Send a message...',
+      firstMessage: 'What can I help you with?', //supports markdown
+      sources: 'Sources',
+      helpful: 'Rate as helpful', //title hover text
+      unhelpful: 'Rate as unhelpful', //title hover text
+      getSupport: 'Contact support', //only used with Agent mode off
+      floatingButton: 'Help',
+      suggestions: 'Not sure what to ask?',
+      close: 'Close',
+      create: 'Create your own!',
+      thinking: 'Thinking...',
+      rateLimitMessage: 'You are sending messages too fast. Please slow down.',
+      feedbackMessage: 'Was this answer helpful?', //only used with Agent mode off
+      feedbackYes: "Yes", //only used with Agent mode off
+      feedbackNo: "No", //only used with Agent mode off
+      resetChat: "Reset conversation", //title text
+      footerMessage: "", // if set will show at conversation start. Supports Markdown
+    },, // Override all the default labels for your own language.
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
   customCSS: '', // Custom CSS to override the default styles.
   inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000.
-  contextItems: 5, // Number of sources to lookup for the bot to answer from. Default is 5. Research mode uses 16 (more expensive token usage).
+  contextItems: 6, // Number of sources to lookup for the bot to answer from. Default is 5. Research mode uses 16 (more expensive token usage).
   questions: [
     "What is DocsBot?",
     "What services does DocsBot offer?",

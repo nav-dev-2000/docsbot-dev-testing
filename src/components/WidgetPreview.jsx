@@ -70,13 +70,13 @@ export default function WidgetPreview({
   const [footerMarkdown, setFooterMarkdown] = useState('')
 
   useEffect(() => {
-    if (labels.footerText) {
+    if (labels.footerMessage) {
       unified()
         .use(remarkParse)
         .use(remarkGfm)
         .use(remarkRehype)
         .use(rehypeStringify)
-        .process(labels.footerText)
+        .process(labels.footerMessage)
         .then((file) => {
           setFooterMarkdown(String(file))
         })
@@ -84,7 +84,7 @@ export default function WidgetPreview({
           console.warn('Error processing footer markdown:', error)
         })
     }
-  }, [labels.footerText])
+  }, [labels.footerMessage])
 
   return (
     <div className="sticky top-20">
@@ -207,7 +207,7 @@ export default function WidgetPreview({
               </svg>
             </button>
           </div>
-          {labels.footerText && (
+          {labels.footerMessage && (
             <div className="mt-0.5 w-full text-xs prose first:prose-p:mt-0 last:prose-p:mb-0 text-gray-500 text-center">
               <span dangerouslySetInnerHTML={{ __html: footerMarkdown }} />
             </div>
