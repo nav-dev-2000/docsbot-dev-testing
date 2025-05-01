@@ -335,11 +335,10 @@ function Widget({ team, bot }) {
               <div className="flex flex-1 flex-col justify-between">
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
-                    {(team.id === 'nG4F5A3BFSBzdYc5TZIX' || team.id === 'ZrbLG98bbxZ9EFqiPvyl') && (
                       <div className="mt-4 border-b border-gray-200 pb-4">
                         <Alert title="Agent Mode is here!" type="info">
-                          When ready, you can enable our new BETA Agent
-                        functionality, which provides more intelligent and
+                          When ready, you can enable our new BETA Agentic
+                        mode, which provides more intelligent and
                         contextual responses, tool calling to perform actions,
                         conversaton view, and so much more! When enabling, you
                         may need to adjust your custom prompt to tune behavior
@@ -357,7 +356,6 @@ function Widget({ team, bot }) {
                         isNew={true}
                       />
                     </div>
-                    )}
                     <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
                       <div className="flex-none">
                         <label className="mb-2 block text-sm font-medium text-gray-900">

@@ -130,7 +130,6 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 </Tooltip>
               </div>
               <div className="mt-2 flex w-full justify-between space-x-2 sm:justify-end">
-                {/* Temporarily commented out conversation history link
                 <Tooltip content="View user conversation history">
                   <Link
                     href={`/app/bots/${bot.id}/conversations`}
@@ -144,7 +143,6 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                     <span className="hidden xl:inline">Conversations</span>
                   </Link>
                 </Tooltip>
-                */}
                 <Tooltip content="View user questions and debug or fine-tune bot answers">
                   <Link
                     href={`/app/bots/${bot.id}/questions`}
