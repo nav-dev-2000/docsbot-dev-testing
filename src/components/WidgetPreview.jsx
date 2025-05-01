@@ -2,11 +2,9 @@ import {
   ChevronLeftIcon,
   XMarkIcon,
   PhotoIcon,
-  ArrowTopRightOnSquareIcon
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline'
-import {
-  ArrowPathIcon,
-} from '@heroicons/react/20/solid'
+import { ArrowPathIcon } from '@heroicons/react/20/solid'
 import {
   faComment,
   faComments,
@@ -134,11 +132,13 @@ export default function WidgetPreview({
             {...{ botIcon, iconMap, labels, color }}
           />
 
-          <div className="mb-3 self-end rounded-2xl rounded-tr-none bg-white px-3 py-3 text-sm text-gray-700"
-          style={{
-            backgroundColor: color,
-            color: decideTextColor(color),
-          }}>
+          <div
+            className="mb-3 self-end rounded-2xl rounded-tr-none bg-white px-3 py-3 text-sm text-gray-700"
+            style={{
+              backgroundColor: color,
+              color: decideTextColor(color),
+            }}
+          >
             Why are you so amazing?
           </div>
 
@@ -152,34 +152,51 @@ export default function WidgetPreview({
           {tools?.followup_rating?.enabled === undefined
             ? true
             : tools?.followup_rating?.enabled && (
-            <BotMessage
-            text={labels.feedbackMessage}
-            {...{ botIcon, iconMap, labels, color, isAgent, sources: false, feedback: true }}
-          />
-          )}
+                <BotMessage
+                  text={labels.feedbackMessage}
+                  {...{
+                    botIcon,
+                    iconMap,
+                    labels,
+                    color,
+                    isAgent,
+                    sources: false,
+                    feedback: true,
+                  }}
+                />
+              )}
 
           {tools?.human_escalation?.enabled === undefined
             ? true
-            : tools?.human_escalation?.enabled  && (
-              <>
-              {isAgent && (
-                <div className="mb-3 self-end rounded-2xl rounded-tr-none bg-white px-3 py-3 text-sm text-gray-700"
-                style={{
-                  backgroundColor: color,
-                  color: decideTextColor(color),
-                }}>
-                  Can I talk to someone?
-                </div>
-              )}
+            : tools?.human_escalation?.enabled && (
+                <>
+                  {isAgent && (
+                    <div
+                      className="mb-3 self-end rounded-2xl rounded-tr-none bg-white px-3 py-3 text-sm text-gray-700"
+                      style={{
+                        backgroundColor: color,
+                        color: decideTextColor(color),
+                      }}
+                    >
+                      Can I talk to someone?
+                    </div>
+                  )}
 
-              <BotMessage
-              text={
-                "Sure, can I connect you to the support team?"
-              }
-              {...{ botIcon, iconMap, labels, color, isAgent, supportLink, sources: false, support: true }}
-            />
-            </>
-          )}
+                  <BotMessage
+                    text={'Sure, can I connect you to the support team?'}
+                    {...{
+                      botIcon,
+                      iconMap,
+                      labels,
+                      color,
+                      isAgent,
+                      supportLink,
+                      sources: false,
+                      support: true,
+                    }}
+                  />
+                </>
+              )}
         </div>
 
         <div className="relative flex-1 px-4 py-4">
@@ -187,22 +204,22 @@ export default function WidgetPreview({
             <input
               type="text"
               placeholder="Send a message..."
-              className="w-full rounded-2xl border border-gray-300 bg-white pr-12 pl-4 py-3 text-sm text-gray-700 placeholder-gray-500 focus:border-gray-300 focus:outline-none"
+              className="w-full rounded-2xl border border-gray-300 bg-white py-3 pl-4 pr-12 text-sm text-gray-700 placeholder-gray-500 focus:border-gray-300 focus:outline-none"
               style={{
                 borderColor: color,
               }}
               disabled
             />
-            <button 
-              className="absolute right-1 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-xl fill-gray-300"
-                onMouseOver={(e) => {
-                  e.currentTarget.style.backgroundColor = color;
-                  e.currentTarget.style.fill = decideTextColor(color);
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.fill = '#d1d5db';
-                }}
+            <button
+              className="absolute right-1 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-xl fill-gray-300"
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = color
+                e.currentTarget.style.fill = decideTextColor(color)
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent'
+                e.currentTarget.style.fill = '#d1d5db'
+              }}
               disabled
             >
               <svg
@@ -215,14 +232,19 @@ export default function WidgetPreview({
             </button>
           </div>
           {labels.footerMessage && (
-            <div className="mt-0.5 w-full text-xs prose first:prose-p:mt-0 last:prose-p:mb-0 text-gray-500 text-center">
+            <div className="prose mt-0.5 w-full text-center text-xs text-gray-500 first:prose-p:mt-0 last:prose-p:mb-0">
               <span dangerouslySetInnerHTML={{ __html: footerMarkdown }} />
             </div>
           )}
           {branding && (
             <div className="mt-1 flex w-full items-center justify-center text-center">
               <button className="flex items-center justify-center text-xs font-semibold text-gray-500 hover:text-gray-800">
-                Powered by <Image src={docsbotLogo} alt="DocsBot Logo" className="ml-0.5 h-3 w-auto" />
+                Powered by{' '}
+                <Image
+                  src={docsbotLogo}
+                  alt="DocsBot Logo"
+                  className="ml-0.5 h-3 w-auto"
+                />
               </button>
             </div>
           )}
@@ -232,8 +254,8 @@ export default function WidgetPreview({
         <div
           className={classNames(
             alignment === 'right' ? 'ml-auto' : 'mr-auto',
-            showButtonLabel ? 'px-5 h-12 rounded-2xl' : 'w-14 h-14 rounded-3xl',
-            'inline-flex items-center justify-center text-md font-bold text-white shadow-lg hover:opacity-90',
+            showButtonLabel ? 'h-12 rounded-2xl px-5' : 'h-14 w-14 rounded-3xl',
+            'text-md inline-flex items-center justify-center font-bold text-white shadow-lg hover:opacity-90',
           )}
           style={{
             backgroundColor: color,
@@ -256,7 +278,18 @@ export default function WidgetPreview({
   )
 }
 
-function BotMessage({ text, botIcon, labels, color, sources, hideSources, isAgent, supportLink, feedback, support }) {
+function BotMessage({
+  text,
+  botIcon,
+  labels,
+  color,
+  sources,
+  hideSources,
+  isAgent,
+  supportLink,
+  feedback,
+  support,
+}) {
   const avatarBgColor = getLighterColor(color || '#1292EE', 0.6)
   const avatarFontColor = decideTextColor(avatarBgColor)
 
@@ -282,93 +315,108 @@ function BotMessage({ text, botIcon, labels, color, sources, hideSources, isAgen
 
   return (
     <>
-    {!(support && !isAgent) && (
-    <div className="items-top mb-3 flex justify-start">
-      {botIcon !== 'none' && (
+      {!(support && !isAgent) && (
+        <div className="items-top mb-3 flex justify-start">
+          {botIcon !== 'none' && (
+            <div
+              className="mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100"
+              style={{
+                backgroundColor: avatarBgColor,
+                color: avatarFontColor,
+              }}
+            >
+              {botIcon.includes('://') ? (
+                <img
+                  src={botIcon}
+                  alt="icon"
+                  className="h-auto w-1/2 object-scale-down"
+                />
+              ) : (
+                <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="xs" />
+              )}
+            </div>
+          )}
+          <div className="prose mr-1 rounded-2xl rounded-tl-none bg-[#f1f3f5] px-3 py-3 text-sm leading-snug text-gray-800 first:prose-p:my-0">
+            <span dangerouslySetInnerHTML={{ __html: markdown }} />
+            {sources && !hideSources && (
+              <>
+                <div className="mt-3 border-t border-gray-300 pt-3 text-sm font-semibold text-gray-700">
+                  Sources
+                </div>
+                <div className="">
+                  <a
+                    href="https://docsbot.ai/documentation/developer/embeddable-chat-widget"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between text-sm text-gray-700 hover:text-gray-900"
+                  >
+                    <span>Embeddable Chat Widget - DocsBot</span>
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                  </a>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {feedback && (
         <div
-          className="mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100"
-          style={{
-            backgroundColor: avatarBgColor,
-            color: avatarFontColor,
-          }}
+          className={classNames(
+            '-mt-1 mb-4 ml-1 flex justify-start',
+            botIcon !== 'none' ? 'ml-10' : '',
+          )}
         >
-          {botIcon.includes('://') ? (
-            <img
-              src={botIcon}
-              alt="icon"
-              className="h-auto w-1/2 object-scale-down"
-            />
+          <div className="flex space-x-2">
+            <button
+              title={labels.helpful}
+              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-sm text-gray-700 transition-shadow hover:shadow-md"
+            >
+              {labels.feedbackYes}
+            </button>
+            <button
+              title={labels.unhelpful}
+              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-sm text-gray-700 transition-shadow hover:shadow-md"
+            >
+              {labels.feedbackNo}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {support && (
+        <div
+        className={classNames(
+          '-mt-1 mb-4 ml-1 flex justify-start',
+          botIcon !== 'none' ? 'ml-10' : '',
+        )}
+      >
+          {isAgent ? (
+            <div className="flex space-x-2">
+              <a
+                href={supportLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-sm text-gray-700 transition-shadow hover:shadow-md"
+              >
+                Yes, please
+              </a>
+              <button className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-sm text-gray-700 transition-shadow hover:shadow-md">
+                No, thanks
+              </button>
+            </div>
           ) : (
-            <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="xs" />
+            <a
+              href={supportLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-gray-300 bg-white px-2 py-0.5 text-sm font-medium text-gray-700 transition-shadow hover:shadow-md"
+            >
+              {labels.getSupport}
+            </a>
           )}
         </div>
       )}
-      <div
-        className="prose rounded-2xl rounded-tl-none px-3 py-3 text-sm leading-snug text-gray-800 first:prose-p:my-0 bg-[#f1f3f5] mr-1"
-        
-      >
-        <span dangerouslySetInnerHTML={{ __html: markdown }} />
-        {sources && !hideSources && (
-          <>
-            <div className="mt-3 border-t border-gray-300 pt-3 text-sm font-semibold text-gray-700">Sources</div>
-            <div className="">
-              <a 
-                href="https://docsbot.ai/documentation/developer/embeddable-chat-widget"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-sm text-gray-700 hover:text-gray-900 justify-between"
-              >
-                <span>Embeddable Chat Widget - DocsBot</span>
-                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-              </a>
-            </div>
-          </>
-        )}
-      </div>
-    </div>
-    )}
-
-    {feedback && (
-      <div className="mb-4 -mt-1 ml-1 flex justify-start">
-        <div className="flex space-x-2">
-        <button
-          title={labels.helpful}
-          className="rounded-md px-2 py-1 text-sm border border-gray-300 bg-white text-gray-700 hover:shadow-md transition-shadow"
-        >
-          {labels.feedbackYes}
-        </button>
-        <button
-          title={labels.unhelpful}
-          className="rounded-md px-2 py-1 text-sm border border-gray-300 bg-white text-gray-700 hover:shadow-md transition-shadow"
-        >
-          {labels.feedbackNo}
-        </button>
-      </div>
-    </div>
-    )}
-
-    {support && (
-      <div className="mb-4 -mt-1 ml-1 flex justify-start">
-      {isAgent ? (
-        <div className="flex space-x-2">
-          <a href={supportLink} target="_blank" rel="noopener noreferrer"
-            className="rounded-md px-2 py-1 text-sm border border-gray-300 bg-white text-gray-700 hover:shadow-md transition-shadow"
-        >
-          Yes, please
-        </a>
-        <button
-          className="rounded-md px-2 py-1 text-sm border border-gray-300 bg-white text-gray-700 hover:shadow-md transition-shadow"
-        >
-          No, thanks
-        </button>
-      </div>
-      ) : (
-        <a href={supportLink} target="_blank" rel="noopener noreferrer" className="rounded-md px-2 py-1 text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:shadow-md transition-shadow">
-          {labels.getSupport}
-        </a>
-      )}
-    </div>
-    )}
     </>
   )
 }
