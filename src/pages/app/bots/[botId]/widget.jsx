@@ -337,15 +337,15 @@ function Widget({ team, bot }) {
                   <div className="space-y-6 pb-5 pt-6">
                       <div className="mt-4 border-b border-gray-200 pb-4">
                         <Alert title="Agent Mode is here!" type="info">
-                          When ready, you can enable our new BETA Agentic
-                        mode, which provides more intelligent and
+                          When ready, you can enable our new <Link href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers" target="_blank" className="text-blue-600 underline hover:text-blue-500">BETA Agentic
+                        mode</Link>, which provides more intelligent and
                         contextual responses, tool calling to perform actions,
-                        conversaton view, and so much more! When enabling, you
-                        may need to adjust your custom prompt to tune behavior
-                        for your use case, such as providing different
+                        conversaton view, and so much more! When enabling, <strong>please test! You
+                        might need to adjust your custom prompt to tune behavior
+                        for your use case</strong>, such as providing different
                         instructions for when the agent should look up
                         information from your docs vs answer from it's own
-                        knowledge.
+                        knowledge, or remove any instructions that conflict with the feedback or escalation tools.
                       </Alert>
                       <FieldToggle
                         label="Enable Agentic Mode"

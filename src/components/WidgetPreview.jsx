@@ -1,10 +1,12 @@
 import {
-  ArrowPathIcon,
   ChevronLeftIcon,
   XMarkIcon,
   PhotoIcon,
   ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline'
+import {
+  ArrowPathIcon,
+} from '@heroicons/react/20/solid'
 import {
   faComment,
   faComments,
@@ -14,9 +16,6 @@ import {
   faInfo,
   faBook,
   faPlus,
-  faChevronDown,
-  faFlag,
-  faBullhorn,
 } from '@fortawesome/free-solid-svg-icons'
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -89,7 +88,7 @@ export default function WidgetPreview({
   return (
     <div className="sticky top-20">
       <h3 className="mb-4 text-2xl font-bold">Preview</h3>
-      <div className="overflow-hidden rounded-xl bg-gray-50 shadow-xl">
+      <div className="overflow-hidden rounded-xl bg-white shadow-xl">
         <div
           className="flex items-center justify-center px-3 py-2 text-xs"
           style={{
@@ -188,20 +187,28 @@ export default function WidgetPreview({
             <input
               type="text"
               placeholder="Send a message..."
-              className="w-full rounded-2xl border border-gray-300 bg-gray-50 pr-12 pl-4 py-3 text-sm text-gray-700 placeholder-gray-500 focus:border-gray-300 focus:outline-none"
+              className="w-full rounded-2xl border border-gray-300 bg-white pr-12 pl-4 py-3 text-sm text-gray-700 placeholder-gray-500 focus:border-gray-300 focus:outline-none"
               style={{
                 borderColor: color,
               }}
               disabled
             />
             <button 
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-200"
+              className="absolute right-1 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-xl fill-gray-300"
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = color;
+                  e.currentTarget.style.fill = decideTextColor(color);
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.fill = '#d1d5db';
+                }}
               disabled
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
-                className="h-3 w-3 fill-gray-300"
+                className="h-3 w-3 fill-inherit"
               >
                 <path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path>
               </svg>
