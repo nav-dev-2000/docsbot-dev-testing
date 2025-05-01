@@ -43,8 +43,9 @@
       "resource": "ticketing/tickets",
       "method": "list",
       "query": {
-        "status": [4, 5],
-        "created_at": { "gt": "{{args.start_date}}" }
+        "updated_at": {
+          "gt": "{{args.start_date}}"
+        }
       },
       "integrated_account_id": "{{args.integrated_account_id}}"
     },
@@ -57,11 +58,19 @@
       }
     },
     {
+      "name": "filtered-list-tickets",
+      "type": "transform",
+      "config": {
+        "expression": "[resources.ticketing.tickets[status.id in [\"4\",\"5\"]]]"
+      },
+      "depends_on": "list-tickets"
+    },
+    {
       "type": "request",
       "name": "get-ticket-comments",
       "resource": "ticketing/comments",
       "method": "list",
-      "depends_on": "list-tickets",
+      "depends_on": "filtered-list-tickets",
       "query": {
         "ticket_id": "{{resources.ticketing.tickets.id}}"
       },
