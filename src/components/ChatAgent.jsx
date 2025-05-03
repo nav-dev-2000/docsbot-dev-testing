@@ -262,6 +262,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       human_escalation: false,
       followup_rating: false,
       image_urls: imageUrls,
+      default_language: navigator.language,
     }
     if (isResearchMode) {
       body.context_items = 16

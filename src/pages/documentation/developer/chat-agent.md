@@ -35,10 +35,11 @@ Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 | **testing**            | boolean         | Whether the request is for testing purposes. Optional, defaults to `false`.                                                                                                                                                 |
 | **image_urls**         | array           | List of image URLs to include with the question as context. Optional, defaults to `null`.                                                                                                                                   |
 | **model**               | string          | Override the model used for this request. Requires an OpenAI API key to be set on your team. Optional, defaults to the model configured for the bot. Examples: `gpt-4o`, `gpt-4.1`, `gpt-4.1-mini`.                  |
+| **default_language**   | string          | The default language to use if the language of the conversation is unclear. Use locale codes like 'en' or 'en-US'. Optional, defaults to the bot's configured language.                  |
 
 
 {% callout title="Vision" %}
-Newer AI models like GPT-4o and GPT-4 Turbo support multimodal inputs, which means they can process both text and images. If the bot is using one of these models, you can include image URLs in your request via the `image_urls` parameter to provide additional context for the AI. The AI will use both the text and images to generate a response. If you're using a model that doesn't support images, the API will return an error if you include via the `image_urls` in your request. For details on using vision and its limitations, see the [OpenAI Docs](https://platform.openai.com/docs/guides/vision).
+Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which means they can process both text and images. If the bot is using one of these models, you can include image URLs in your request via the `image_urls` parameter to provide additional context for the AI. The AI will use both the text and images to generate a response. If you're using a model that doesn't support images, the API will return an error if you include via the `image_urls` in your request. For details on using vision and its limitations, see the [OpenAI Docs](https://platform.openai.com/docs/guides/vision).
 {% /callout %}
 
 ### Example Request
