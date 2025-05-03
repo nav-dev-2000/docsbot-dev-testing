@@ -206,7 +206,7 @@ options: {
   useFeedback: true, //collect user feedback after answers
   useEscalation: true, // Enable the escalation button or agent tool
   botName: "DocsBot", //name of the bot.
-  description: "Ask our AI support assistant your questions about our services.", //description of the bot.
+  description: "Ask our AI support assistant your questions about our services.", //description of the bot. Only shown when no logo is present.
   allowedDomains: [
     "docsbot.ai"
   ], // Array of domains that the widget is allowed to be embedded on. If empty, any domain is allowed.
@@ -219,7 +219,7 @@ options: {
   botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, and no supportCallback is set, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
-  hideSources: false, // Hide the sources in answers. Default is false.
+  hideSources: false, // Hide the sources in answers. Default is false. True to hide all, or pass an array of type to hide like ['qa', 'crawler']
   noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'gdrive', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
   labels: {
       poweredBy: 'Powered by',

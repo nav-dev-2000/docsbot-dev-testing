@@ -407,7 +407,7 @@ export const i18n = {
       create: 'Crea il tuo!',
       thinking: 'Pensando...',
       rateLimitMessage: 'Stai inviando messaggi troppo velocemente. Per favore rallenta.',
-      feedbackMessage: 'È stato utile questa risposta?',
+      feedbackMessage: 'È stata utile questa risposta?',
       feedbackYes: "Sì",
       feedbackNo: "No",
       resetChat: "Ripristina conversazione",
