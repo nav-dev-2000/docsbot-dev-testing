@@ -54,30 +54,40 @@ DocsBotAI.init({
 </script>
 ```
 
-### Prefilling the Contact Form with Chat History
+### Prefilling the Contact Form with AI written ticket (Pro plan and up only)
 
-If you want to prefill the contact form with the chat history as a conversation, you can use the `history` argument to pass the chat history to the Freshdesk widget. Here's an example of how you could do that:
+If you want to prefill the contact form with an AI generated ticket from the chat history. Here's an example of how you could do that:
 
 ```js
 <script type="text/javascript">
 DocsBotAI.init({
     id: "YOUR_ID_HERE",
-    supportCallback: function (event, history) {
-        event.preventDefault(); // Prevent default behavior opening the url.
-        DocsBotAI.unmount(); // Hide the widget.
-        // Open the Freshdesk widget form https://developers.freshdesk.com/widget-api/#prefill-fields
+    // optionally identify logged in user for chat logs
+    identify: {
+      name: "Bilbo Baggins",
+      email: "bilbo@shire.net"
+    },
+    supportCallback: function (event, history, metadata, ticket) {
+      event.preventDefault(); // Prevent default behavior opening the url.
+      DocsBotAI.unmount(); // Hide the widget.
+      // Open the Freshdesk widget form https://developers.freshdesk.com/widget-api/#prefill-fields
+      FreshworksWidget('open', 'ticketForm');
+      // Optionally identify user from metadata above. This will work with our upcoming lead collection tool
+      FreshworksWidget('identify', 'ticketForm', {
+        name: metadata.name || null,
+        email: metadata.email || null,
+      });
+      // Prefill the ticket (Pro+ plan only)
+      if (ticket) {
         FreshworksWidget('prefill', 'ticketForm', {
-          subject: history[0][0], // Use the first user message as the subject.
-          description: history.map((item) => 'User: ' + item[0] + '\nBot: ' + item[1]).join('\n'), // Join all messages into one conversation string.
+          subject: ticket.subject,
+          description: ticket.message
         });
+      }
     },
 })
 </script>
 ```
-
-{% callout type="warning" title="Make sure to add a support url!" %}
-For any of these integrations to work you must add a support url to your bot settings so that it will show the support link in the widget. If you don't want to use the support link, you can simply add a `#` to the url field.
-{% /callout %}
 
 That's it! Now when the user clicks the support link in the DocsBot widget, the Freshdesk Help Widget will open in the contact from so they can start a ticket with a human support agent.
 

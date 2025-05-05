@@ -41,7 +41,7 @@ Finally adjust the DocsBoc initialization code to open the Zendesk Web Widget wh
 <script type="text/javascript">
 DocsBotAI.init({
     id: "YOUR_ID_HERE",
-    supportCallback: function (event, history) {
+    supportCallback: function (event, history, metadata) {
         event.preventDefault(); // Prevent default behavior opening the url.
         DocsBotAI.unmount(); // Hide the widget.
         // Open the Zendesk Web Widget (classic).
@@ -49,7 +49,7 @@ DocsBotAI.init({
     },
 })
 </script>
-```
+``
 
 ## Zendesk Web Widget (messaging) Integration
 
@@ -80,7 +80,7 @@ Finally adjust the DocsBoc initialization code to open the Zendesk Web Widget wh
 <script type="text/javascript">
 DocsBotAI.init({
     id: "YOUR_ID_HERE",
-    supportCallback: function (event, history) {
+    supportCallback: function (event, history, metadata) {
         event.preventDefault(); // Prevent default behavior opening the url.
         DocsBotAI.unmount(); // Hide the widget.
         // Open the Zendesk Web Widget.
@@ -89,10 +89,6 @@ DocsBotAI.init({
 })
 </script>
 ```
-
-{% callout type="warning" title="Make sure to add a support url!" %}
-For any of these integrations to work you must add a support url to your bot settings so that it will show the support link in the widget. If you don't want to use the support link, you can simply add a `#` to the url field.
-{% /callout %}
 
 That's it! Now when the user clicks the support link in the DocsBot widget, the Zendesk Web Widget will open so they can start a live chat or ticket with a human support agent.
 

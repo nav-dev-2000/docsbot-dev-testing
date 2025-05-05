@@ -45,19 +45,29 @@ Finally adjust the DocsBoc initialization code to open the Help Scout Beacon wid
 ```js
 DocsBotAI.init({
   id: 'YOUR_ID_HERE',
-  supportCallback: function (event, history) {
+  // optionally identify logged in user for chat logs
+  metadata: {
+    name: "Bilbo Baggins",
+    email: "bilbo@shire.net"
+  }
+  supportCallback: function (event, history, metadata, ticket) {
     event.preventDefault() // Prevent default behavior opening the url.
     DocsBotAI.unmount() // Hide the widget.
     // Open the Help Scout Beacon widget.
     Beacon('init', 'YOUR_BEACON_ID_HERE') // Replace with your beacon id, assuming you havn't already initialized the beacon.
     Beacon('open')
+    if (ticket) {
+      // Add ticket subject and message to Beacon. Note this works for Pro plans only
+      Beacon('prefill', {
+        name: metadata.name || null, //assuming you identified the user above
+        email: metadata.email || null, //assuming you identified the user above
+        subject: ticket.subject,
+        text: ticket.message
+      });          
+    }         
   },
 })
 ```
-
-{% callout type="warning" title="Make sure to add a support url!" %}
-For any of these integrations to work you must add a support url to your bot settings so that it will show the support link in the widget. If you don't want to use the support link, you can simply add a `#` to the url field.
-{% /callout %}
 
 That's it! Now when the user clicks the support link in the DocsBot widget, the Help Scout Beacon widget will open so they can start a live chat or ticket with a human support agent.
 

@@ -321,10 +321,6 @@ DocsBotAI.init({
 })
 ```
 
-{% callout type="warning" title="Make sure to add a support url!" %}
-For any of these integrations to work you must add a support url to your bot settings so that it will show the support link in the widget. If you don't want to use the support link, you can simply add a `#` to the url field.
-{% /callout %}
-
 ### Other API Methods
 
 There are several methods you can use to interact with the widget once it has been initialized.

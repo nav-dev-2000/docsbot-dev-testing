@@ -238,7 +238,7 @@ export default function TableQuestions({
       Authorization: `Bearer ${bot?.signature}`,
     }
 
-    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${botId}/rate/${questionId}`
+    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/rate/${questionId}`
     try {
       const response = await fetch(apiUrl, {
         method: 'PUT',
