@@ -803,14 +803,14 @@ export default function TableQuestions({
       <Alert title={errorText} type="error" className="rounded-t-lg" />
       <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
         <div className="px-0">
-          <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8">
+          <div className="space-x-0 space-y-4 lg:flex lg:items-end lg:space-x-8 items-center">
             <div className="sm:flex-auto">
               <h1 className="text-xl font-semibold leading-6 text-gray-900">
                 Questions
               </h1>
-              <p className="mt-2 text-sm text-gray-700">
-                A log of questions you or users have asked your bot in the last
-                90 days.
+              <p className="mt-2 text-sm text-gray-700 max-w-2xl">
+                A log of questions and lookup answers you or users have asked your bot in the last
+                90 days. Does not include non-question messages, which are available in the <Link href={`/app/bots/${bot.id}/conversations`} className="text-cyan-600 hover:text-cyan-700">conversation logs</Link>.
               </p>
             </div>
             <QuestionFilters

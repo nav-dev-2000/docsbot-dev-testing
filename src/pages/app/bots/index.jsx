@@ -116,7 +116,7 @@ function Bots({ preBots, team }) {
                   />
                   <p>
                     <span className="text-gray-900"><LocalStringNum value={bot.questionCount} /></span>{' '}
-                    Questions
+                    Messages
                   </p>
                 </div>
               </div>

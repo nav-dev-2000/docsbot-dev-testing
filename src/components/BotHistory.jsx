@@ -270,7 +270,7 @@ export default function BotHistory({ team, botId }) {
           <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-5">
             <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
               <dt className="text-sm font-semibold leading-6 text-gray-600">
-                User questions
+                User messages
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 <LocalStringNum value={stats.totalCount} />

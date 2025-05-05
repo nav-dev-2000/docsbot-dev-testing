@@ -630,7 +630,6 @@ function Conversations({ team, bot, preConversations }) {
                     </div>
                   </Tooltip>
                 ) : null}
-                {conversation.sentiment && (
                   <Tooltip
                     content={
                       !checkPlanPermission(team, 'business').allowed
@@ -682,7 +681,6 @@ function Conversations({ team, bot, preConversations }) {
                       ) : null}
                     </div>
                   </Tooltip>
-                )}
               </div>
             </div>
             <div className="ml-4 lg:mr-2 xl:mr-4">
@@ -746,7 +744,7 @@ function Conversations({ team, bot, preConversations }) {
                       {isSummarizing
                         ? 'Generating summary...'
                         : 'Generate summary'}
-                      {checkPlanPermission(team, 'pro').allowed && (
+                      {!checkPlanPermission(team, 'pro').allowed && (
                         <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                           Pro
                         </span>
@@ -805,7 +803,7 @@ function Conversations({ team, bot, preConversations }) {
                       <div className="absolute inset-0 mx-auto flex max-w-xl items-center">
                         <div className="w-full border-t border-dashed border-gray-200"></div>
                       </div>
-                      <Tooltip content="Some older messages have been truncated due to length limits. You can still view all individual questions in the question logs">
+                      <Tooltip content="Some older messages have been truncated due to length limits. You can still view all individual messages in the question logs">
                         <div className="relative rounded-full bg-gray-100 px-3 py-2 text-xs text-gray-500">
                           Earlier messages truncated
                         </div>

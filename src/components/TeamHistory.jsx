@@ -45,7 +45,7 @@ export default function TeamHistory({ team }) {
       labels: stats.labels,
       datasets: [
         {
-          label: 'All Questions',
+          label: 'All Messages',
           data: stats.countData,
           borderColor: '#76B7B2',
           backgroundColor: 'rgba(118, 183, 178, 0.1)',
@@ -133,7 +133,7 @@ export default function TeamHistory({ team }) {
               Team Statistics
             </h2>
             <p className="mt-4 text-gray-500">
-              Statistics about the questions you or users have asked all team bots.
+              Statistics about the messages you or users have asked all team bots.
             </p>
           </div>
           <div className="mt-4 w-28 sm:mt-0 sm:flex-none">
@@ -217,7 +217,7 @@ export default function TeamHistory({ team }) {
         <>
           <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-5">
             <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+              <dt className="text-sm font-semibold leading-6 text-gray-600">User messages</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                 <LocalStringNum value={stats.totalCount} />
               </dd>

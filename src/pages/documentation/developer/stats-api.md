@@ -86,15 +86,15 @@ The response is a JSON object containing aggregated statistics and chart data:
 
 | Property             | Type       | Description                                                                |
 | -------------------- | ---------- | -------------------------------------------------------------------------- |
-| **totalCount**       | number     | Total number of user questions in the time period.                         |
+| **totalCount**       | number     | Total number of user messages in the time period.                         |
 | **resolutionRate**   | string     | Percentage of questions resolved without negative rating or escalation.    |
 | **couldAnswerRate**  | string     | Percentage of questions the AI determined it could confidently answer.     |
 | **deflectionRate**   | string     | Percentage of questions that didn't require escalation to human support.   |
 | **timeSaved**        | number     | Estimated time saved for support staff in minutes (based on 5min/ticket).  |
 | **labels**           | string[]   | Date labels for the line chart.                                            |
-| **countData**        | number[]   | All questions count per date.                                              |
-| **negativeData**     | number[]   | Negatively rated questions per date.                                       |
-| **positiveData**     | number[]   | Positively rated questions per date.                                       |
+| **countData**        | number[]   | All messages count per date.                                              |
+| **negativeData**     | number[]   | Negatively rated answers per date.                                       |
+| **positiveData**     | number[]   | Positively rated answers per date.                                       |
 | **couldAnswerData**  | number[]   | Questions AI could answer per date.                                        |
 | **escalatedData**    | number[]   | Escalated questions per date.                                              |
 | **percentageLabels** | string[]   | Labels for rating distribution (Neutral, Negative, Positive).              |
@@ -118,7 +118,7 @@ const lineData = {
   labels: stats.labels,
   datasets: [
     {
-      label: 'All Questions',
+      label: 'All Messages',
       data: stats.countData,
       borderColor: '#76B7B2',
       backgroundColor: 'rgba(118, 183, 178, 0.1)',
@@ -227,7 +227,7 @@ If you're not using React, you can use vanilla Chart.js to create the same visua
       labels: stats.labels,
       datasets: [
         {
-          label: 'All Questions',
+          label: 'All Messages',
           data: stats.countData,
           borderColor: '#76B7B2',
           backgroundColor: 'rgba(118, 183, 178, 0.1)',

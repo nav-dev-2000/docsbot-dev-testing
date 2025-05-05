@@ -10,7 +10,7 @@ import {
   CheckBadgeIcon,
   DocumentTextIcon,
   Square3Stack3DIcon,
-  QuestionMarkCircleIcon,
+  ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -115,10 +115,10 @@ function Dashboard({ team, purchase }) {
       limit: stripePlan(team).pages,
     },
     {
-      name: 'Questions',
+      name: 'Messages',
       href: false,
-      tooltip: 'User questions in current month',
-      icon: QuestionMarkCircleIcon,
+      tooltip: 'User messages in current month',
+      icon: ChatBubbleBottomCenterTextIcon,
       stat: team?.questionCount || 0,
       limit: stripePlan(team).questions,
     },

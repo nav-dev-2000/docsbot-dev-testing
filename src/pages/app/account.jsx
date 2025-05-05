@@ -11,7 +11,7 @@ import {
   CheckBadgeIcon,
   DocumentTextIcon,
   Square3Stack3DIcon,
-  QuestionMarkCircleIcon,
+  ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -54,10 +54,10 @@ function Account({ team, bots, checkout }) {
       stat: <LocalStringNum value={stripePlan(team).pages} />,
     },
     {
-      name: 'Question Limit',
+      name: 'Message Limit',
       href: false,
       linkText: 'Get more',
-      icon: QuestionMarkCircleIcon,
+      icon: ChatBubbleBottomCenterTextIcon,
       stat: <LocalStringNum value={stripePlan(team).questions} />,
     },
   ]

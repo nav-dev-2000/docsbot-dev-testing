@@ -323,7 +323,7 @@ export const getServerSideProps = async (context) => {
     { name: 'Bots', stat: botCount },
     { name: 'Sources', stat: sourceCount },
     { name: 'Source Pages', stat: pageCount },
-    { name: 'Questions Asked', stat: questionCount },
+    { name: 'Messages Asked', stat: questionCount },
     {
       name: 'Accounts with Active Bots',
       stat: teamsWbots,
@@ -339,7 +339,7 @@ export const getServerSideProps = async (context) => {
     { name: 'Bots per Account', stat: botsPerAccount },
     { name: 'Sources per Account', stat: sourcesPerAccount },
     { name: 'Pages per Account', stat: pagesPerAccount },
-    { name: 'Questions per Account', stat: questionsPerAccount },
+    { name: 'Messages per Account', stat: questionsPerAccount },
   ]
 
   data.props.stats = stats

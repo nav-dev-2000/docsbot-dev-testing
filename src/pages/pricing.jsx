@@ -636,7 +636,7 @@ export default function PricingPage() {
                     </div>
                     <p className="mx-auto mt-10 text-center text-sm text-gray-200">
                       Does not include optional OpenAI API costs
-                      (&lt;$0.008/question) if using advanced models like
+                      (&lt;$0.008/message) if using advanced models like
                       GPT-4o/4.1. GPT-4.1 mini is included in all plans.
                     </p>
                   </div>

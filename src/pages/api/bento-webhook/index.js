@@ -139,7 +139,7 @@ Create your own basic DocsBot for quick answers and copywriting.
 *   1 DocsBot
 *   1k Source Pages
 *   Unlock all source types
-*   1k questions/mo
+*   1k messages/mo
 *   Private bot
 *   GPT-4 support
 *   1 user
@@ -152,7 +152,7 @@ For power users and small businesses just getting started.
 *   5k Source Pages
 *   Unlock all source types
 *   Monthly source refresh
-*   5k questions/mo
+*   5k messages/mo
 *   Private bots
 *   GPT-4 support
 *   1 user
@@ -170,7 +170,7 @@ For businesses who want to save time and money on support and copywriting.
 *   10k Source Pages
 *   Unlock all source types
 *   Weekly source refresh
-*   10k questions/mo
+*   10k messages/mo
 *   Private bots
 *   GPT-4o support
 *   5 team users
@@ -181,7 +181,7 @@ For businesses who want to save time and money on support and copywriting.
 *   Unbranded chat widgets
 *   Prompt customization
 
-Does not include OpenAI API costs (less than $0.0004/question)
+Does not include OpenAI API costs (less than $0.0008/question)
 
 ### Personal
 
@@ -197,7 +197,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
 *   100k+ Source Pages
 *   Unlock all source types
 *   Daily source refresh
-*   100k+ questions/mo
+*   100k+ messages/mo
 *   Private bots
 *   GPT-4 support
 *   50+ team users

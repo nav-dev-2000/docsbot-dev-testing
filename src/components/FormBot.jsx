@@ -785,7 +785,7 @@ export default function FormBot({
         <div>
           <label htmlFor="language" className="flex items-center gap-1.5 text-sm font-medium text-gray-900">
             Language
-            <Tooltip content="Sets the default language for prompts and widget labels. The bot will still detect and respond in the language used in questions.">
+            <Tooltip content="Sets the default language for prompts and widget labels. The bot will still detect and respond in the language used in messages.">
               <InformationCircleIcon className="h-4 w-4 text-gray-500" />
             </Tooltip>
           </label>

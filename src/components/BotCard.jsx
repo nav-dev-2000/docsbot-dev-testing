@@ -9,6 +9,7 @@ import {
   CodeBracketSquareIcon,
   MagnifyingGlassIcon,
   ChatBubbleLeftRightIcon,
+  ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -213,19 +214,19 @@ export default function BotCard({ team, bot, integrations, setBot }) {
             <span className="text-gray-600">Indexed pages</span>
           </div>
         </Tooltip>
-        <Tooltip content="User questions in current month">
+        <Tooltip content="User messages in current month">
           <Link
             className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100"
             href={`/app/bots/${bot.id}/questions`}
           >
-            <QuestionMarkCircleIcon
+            <ChatBubbleBottomCenterTextIcon
               className="h-5 w-5 text-gray-400"
               aria-hidden="true"
             />
             <span className="text-gray-900">
               <LocalStringNum value={bot.questionCount} />
             </span>{' '}
-            <span className="text-gray-600">Questions</span>
+            <span className="text-gray-600">Messages</span>
           </Link>
         </Tooltip>
       </div>
