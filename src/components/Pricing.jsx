@@ -14,7 +14,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 
 export default function Pricing() {
-  const [frequency, setFrequency] = useState(frequencies[1])
+  const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState('USD')
   const [user] = useAuthState(auth)
 

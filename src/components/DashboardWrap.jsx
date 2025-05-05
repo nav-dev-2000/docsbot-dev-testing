@@ -136,7 +136,7 @@ export default function DashboardWrap({
 
   const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
-  const pageTitle = `${page} ${title ? ` | ${title}` : ''}`
+  const pageTitle = `${page} ${title ? ` | ${Array.isArray(title) ? title.join(' | ') : title}` : ''}`
 
   const Breadcrumbs = ({ title }) => {
     if (!title) return null
@@ -149,17 +149,19 @@ export default function DashboardWrap({
 
     return (
       <>
-        {titles.map((title, index) => (
-          <div
-            key={index}
-            className="flex-inline ml-1 flex items-center lg:ml-2"
-          >
-            <ChevronRightIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-            <h1 className="ml-1 text-sm font-medium leading-tight text-gray-800 lg:ml-2 lg:text-xl">
-              {title}
-            </h1>
-          </div>
-        ))}
+        <div className="flex flex-wrap items-center">
+          {titles.map((title, index) => (
+            <div
+              key={index}
+              className="flex-inline ml-1 flex items-center lg:ml-2"
+            >
+              <ChevronRightIcon className="h-3 w-3 flex-shrink-0 text-gray-400 sm:h-4 sm:w-4" />
+              <h1 className="ml-1 truncate text-xs font-medium leading-tight text-gray-800 sm:text-sm lg:ml-2 lg:text-xl">
+                {title}
+              </h1>
+            </div>
+          ))}
+        </div>
       </>
     )
   }

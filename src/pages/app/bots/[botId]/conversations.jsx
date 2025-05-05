@@ -21,6 +21,8 @@ import {
   FaceFrownIcon,
   ExclamationCircleIcon,
   XMarkIcon,
+  ArrowPathIcon,
+  NoSymbolIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -46,6 +48,8 @@ import LocaleDateTime from '@/components/LocaleDateTime'
 import Paginator from '@/components/Paginator'
 import Tooltip from '@/components/Tooltip'
 import { Dialog, Transition } from '@headlessui/react'
+import { checkPlanPermission } from '@/utils/helpers'
+import ModalCheckout from '@/components/ModalCheckout'
 
 function BotMessage({ text, id, onRate, rating = 0, labels, botId }) {
   const [markdown, setMarkdown] = useState(text)
@@ -80,7 +84,10 @@ function BotMessage({ text, id, onRate, rating = 0, labels, botId }) {
 
   return (
     <div className="mb-4 flex items-start self-end">
-      <div className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 leading-snug text-gray-700 first:prose-p:my-0">
+      <div
+        dir="auto"
+        className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0"
+      >
         <span dangerouslySetInnerHTML={{ __html: markdown }} />
         {id && (
           <div className="mt-4 flex items-center justify-end space-x-1">
@@ -159,7 +166,10 @@ function UserMessage({ text, alias, email, image_urls }) {
           email={email}
           className="mr-3 hidden h-10 w-10 flex-none rounded-full bg-gray-50 sm:flex lg:hidden xl:flex"
         />
-        <div className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-gray-700">
+        <div
+          dir="auto"
+          className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
+        >
           {image_urls && image_urls.length > 0 && (
             <div className="mb-2 grid grid-cols-4 gap-2">
               {image_urls.map((imageUrl, index) => (
@@ -171,7 +181,7 @@ function UserMessage({ text, alias, email, image_urls }) {
                   <img
                     src={imageUrl}
                     alt={`User uploaded image ${index + 1}`}
-                    className="w-20 h-20 rounded-lg object-cover m-0"
+                    className="m-0 h-20 w-20 rounded-lg object-cover"
                   />
                 </button>
               ))}
@@ -206,14 +216,17 @@ function UserMessage({ text, alias, email, image_urls }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all" onClick={() => setExpandedImage(null)}>
+                <Dialog.Panel
+                  className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all"
+                  onClick={() => setExpandedImage(null)}
+                >
                   <div className="absolute right-0 top-0 z-10 pr-4 pt-4">
                     <button
                       type="button"
                       className="rounded-md bg-white/80 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                       onClick={(e) => {
-                        e.stopPropagation();
-                        setExpandedImage(null);
+                        e.stopPropagation()
+                        setExpandedImage(null)
                       }}
                     >
                       <span className="sr-only">Close</span>
@@ -239,12 +252,13 @@ function Conversations({ team, bot, preConversations }) {
   const [conversations, setConversations] = useState(preConversations)
   const [conversation, setConversation] = useState(null)
   const [labels, setLabels] = useState(
-    bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
+    bot.labels || i18n[bot?.language]?.labels || i18n.en.labels,
   )
   const [errorText, setErrorText] = useState(null)
   const [ratings, setRatings] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [isSummarizing, setIsSummarizing] = useState(false)
+  const [showUpgrade, setShowUpgrade] = useState(false)
 
   // Function to fetch a single conversation with full history
   const fetchConversation = async (conversationId) => {
@@ -435,6 +449,12 @@ function Conversations({ team, bot, preConversations }) {
   const generateSummary = async (conversationId) => {
     if (!conversationId || isSummarizing) return
 
+    // Check if user has pro permissions
+    if (!checkPlanPermission(team, 'pro').allowed) {
+      setShowUpgrade(true)
+      return
+    }
+
     setIsSummarizing(true)
     setErrorText(null)
 
@@ -451,12 +471,17 @@ function Conversations({ team, bot, preConversations }) {
       if (response.ok) {
         const updatedConversation = await response.json()
 
-        // Update conversations and current conversation with new summary
+        // Update conversations and current conversation with new summary and title
         setConversations((prev) => ({
           ...prev,
           conversations: prev.conversations.map((conv) =>
             conv.id === conversationId
-              ? { ...conv, summary: updatedConversation.summary }
+              ? {
+                  ...conv,
+                  summary: updatedConversation.summary,
+                  title: updatedConversation.title || conv.title,
+                  sentiment: updatedConversation.sentiment || conv.sentiment,
+                }
               : conv,
           ),
         }))
@@ -464,6 +489,8 @@ function Conversations({ team, bot, preConversations }) {
         setConversation((prev) => ({
           ...prev,
           summary: updatedConversation.summary,
+          title: updatedConversation.title || prev.title,
+          sentiment: updatedConversation.sentiment || prev.sentiment,
         }))
       } else {
         const data = await response.json()
@@ -605,10 +632,24 @@ function Conversations({ team, bot, preConversations }) {
                 ) : null}
                 {conversation.sentiment && (
                   <Tooltip
-                    content={`Conversation sentiment: ${conversation.sentiment.charAt(0).toUpperCase() + conversation.sentiment.slice(1)}`}
+                    content={
+                      !checkPlanPermission(team, 'business').allowed
+                        ? 'Sentiment analysis requires Business plan'
+                        : `Conversation sentiment: ${conversation.sentiment.charAt(0).toUpperCase() + conversation.sentiment.slice(1)}`
+                    }
                   >
                     <div className="flex items-center text-sm">
-                      {conversation.sentiment === 'positive' ? (
+                      {!checkPlanPermission(team, 'business').allowed ? (
+                        <div className="flex items-center text-gray-400">
+                          <NoSymbolIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-1.5 hidden sm:inline">
+                            Sentiment
+                          </span>
+                        </div>
+                      ) : conversation.sentiment === 'positive' ? (
                         <div className="flex items-center text-green-600">
                           <FaceSmileIcon
                             className="h-5 w-5 flex-shrink-0 text-green-500"
@@ -657,28 +698,63 @@ function Conversations({ team, bot, preConversations }) {
         {conversation.title && (
           <div className="w-full border-b border-t border-gray-200 bg-white px-4 pt-4 lg:px-6 lg:pr-80 xl:pr-96">
             <div className="flex flex-col pb-5 lg:flex-row lg:items-start lg:justify-between lg:pr-2 xl:pr-4">
-              <div>
-                {conversation.title && (
-                  <h2 className="text-base font-semibold text-gray-900">
-                    {conversation.title}
-                  </h2>
-                )}
-                {conversation.summary ? (
-                  <p className="mt-2 text-sm text-gray-500">
-                    {conversation.summary}
-                  </p>
-                ) : null}
+              <div className="w-full items-center justify-between sm:flex">
+                <div>
+                  {conversation.title && (
+                    <h2 className="my-0 text-base font-semibold text-gray-900">
+                      {conversation.title}
+                    </h2>
+                  )}
+                  {conversation.summary && (
+                    <div className="mt-4 flex-1 text-sm text-gray-500">
+                      {conversation.summary}
+                    </div>
+                  )}
+                </div>
+                <div className="ml-0 sm:mt-0 flex-none sm:ml-4 mt-4">
+                  {conversation.summary ? (
+                    <Tooltip
+                      content={
+                        isSummarizing
+                          ? 'Refreshing summary...'
+                          : 'Refresh summary'
+                      }
+                    >
+                      <button
+                        onClick={() => generateSummary(conversation.id)}
+                        disabled={isSummarizing}
+                        className="flex-shrink-0 rounded-md p-1 text-gray-400 hover:text-gray-500 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        <ArrowPathIcon
+                          className={clsx(
+                            'h-5 w-5',
+                            isSummarizing && 'animate-spin',
+                          )}
+                        />
+                        {!checkPlanPermission(team, 'pro').allowed && (
+                          <span className="sr-only">Pro feature</span>
+                        )}
+                      </button>
+                    </Tooltip>
+                  ) : (
+                    <button
+                      onClick={() => generateSummary(conversation.id)}
+                      disabled={isSummarizing}
+                      className="inline-flex flex-none items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <DocumentTextIcon className="mr-1.5 h-4 w-4 text-gray-400" />
+                      {isSummarizing
+                        ? 'Generating summary...'
+                        : 'Generate summary'}
+                      {checkPlanPermission(team, 'pro').allowed && (
+                        <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                          Pro
+                        </span>
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
-              {!conversation.summary && (
-                <button
-                  onClick={() => generateSummary(conversation.id)}
-                  disabled={isSummarizing}
-                  className="mt-2 inline-flex max-w-52 items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 lg:mr-4 lg:mt-0"
-                >
-                  <DocumentTextIcon className="mr-1.5 h-4 w-4 text-gray-400" />
-                  {isSummarizing ? 'Generating summary...' : 'Generate summary'}
-                </button>
-              )}
             </div>
           </div>
         )}
@@ -687,211 +763,214 @@ function Conversations({ team, bot, preConversations }) {
   }
 
   return (
-    <DashboardWrap
-      page="Bots"
-      title={title}
-      team={team}
-      fullWidth={true}
-      header={<Header />}
-    >
-      <main className="relative lg:pr-80 xl:pr-96">
-        <Alert title={errorText} type="warning" />
-        <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
-          {isLoading ? (
-            <div className="flex h-full items-center justify-center p-8 text-gray-500">
-              Loading conversation...
-            </div>
-          ) : conversation ? (
-            <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
-              {conversation.truncated && (
-                <>
-                  <div className="mb-4 flex max-w-3xl items-start justify-start opacity-50">
-                    <UserAvatar
-                      alias={conversation.alias}
-                      email={conversation.email}
-                      className="mr-3 hidden h-10 w-10 flex-none rounded-full bg-gray-50 sm:flex lg:hidden xl:flex"
-                    />
-                    <div className="rounded-2xl rounded-tl-none border bg-white px-8 py-2 text-xl text-gray-400">
-                      ⋯
-                    </div>
-                  </div>
-                  <div className="mb-4 flex items-start self-end opacity-50">
-                    <div className="prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-8 py-2 text-xl leading-snug text-gray-400">
-                      ⋯
-                    </div>
-                    <div className="ml-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">
-                      <RobotIcon className="h-auto w-4/6 object-scale-down text-white" />
-                    </div>
-                  </div>
-                  <div className="relative mb-4 flex items-center justify-center">
-                    <div className="absolute inset-0 mx-auto flex max-w-xl items-center">
-                      <div className="w-full border-t border-dashed border-gray-200"></div>
-                    </div>
-                    <Tooltip content="Some older messages have been truncated due to length limits. You can still view all individual questions in the question logs">
-                      <div className="relative rounded-full bg-gray-100 px-3 py-2 text-xs text-gray-500">
-                        Earlier messages truncated
-                      </div>
-                    </Tooltip>
-                  </div>
-                </>
-              )}
-              {conversation.history.map((message, index) => {
-                if (message['Human']) {
-                  return (
-                    <UserMessage
-                      text={message['Human']}
-                      alias={conversation.alias}
-                      email={conversation.email}
-                      image_urls={message.image_urls}
-                      key={index}
-                    />
-                  )
-                } else if (message['AI']) {
-                  return (
-                    <BotMessage
-                      key={index}
-                      text={message['AI']}
-                      id={message.id}
-                      onRate={setRating}
-                      rating={ratings[message.id] || message.rating || 0}
-                      labels={labels}
-                      botId={bot.id}
-                    />
-                  )
-                }
-              })}
-              {/* Conversation Navigation Buttons */}
-              <div className="mb-1 mt-8 flex justify-between border-t pt-4">
-                <button
-                  onClick={handlePrevious}
-                  disabled={!canGoPrevious}
-                  className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <ChevronLeftIcon
-                    className="-ml-1 mr-2 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                  Previous
-                </button>
-                <button
-                  onClick={handleNext}
-                  disabled={!canGoNext}
-                  className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  Next
-                  <ChevronRightIcon
-                    className="-mr-1 ml-2 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </button>
+    <>
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <DashboardWrap
+        page="Bots"
+        title={title}
+        team={team}
+        fullWidth={true}
+        header={<Header />}
+      >
+        <main className="relative lg:pr-80 xl:pr-96">
+          <Alert title={errorText} type="warning" />
+          <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
+            {isLoading ? (
+              <div className="flex h-full items-center justify-center p-8 text-gray-500">
+                Loading conversation...
               </div>
-            </div>
-          ) : (
-            <div className="flex h-full items-center justify-center p-8 text-gray-500">
-              No recorded conversations yet. Go ahead and{' '}
-              <Link
-                href={`/app/bots/${bot.id}`}
-                className="ml-1 text-cyan-600 hover:text-cyan-700"
-              >
-                chat with your bot
-              </Link>
-              !
-            </div>
-          )}
-        </div>
-      </main>
-
-      <aside className="fixed inset-y-0 right-0 hidden w-80 overflow-y-auto border-l border-gray-200 bg-white pt-16 lg:block xl:w-96">
-        {conversations && (
-          <ul role="list" className="divide-y divide-gray-100">
-            {conversations.conversations.map((convo) => (
-              <li
-                key={convo.id}
-                className={clsx(
-                  'relative flex items-center justify-between gap-x-4 px-2 py-5 hover:bg-gray-50 lg:px-4',
-                  conversation && convo.id === conversation.id
-                    ? 'bg-cyan-50 shadow-inner hover:bg-cyan-50'
-                    : 'bg-white',
+            ) : conversation ? (
+              <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
+                {conversation.truncated && (
+                  <>
+                    <div className="mb-4 flex max-w-3xl items-start justify-start opacity-50">
+                      <UserAvatar
+                        alias={conversation.alias}
+                        email={conversation.email}
+                        className="mr-3 hidden h-10 w-10 flex-none rounded-full bg-gray-50 sm:flex lg:hidden xl:flex"
+                      />
+                      <div className="rounded-2xl rounded-tl-none border bg-white px-8 py-2 text-xl text-gray-400">
+                        ⋯
+                      </div>
+                    </div>
+                    <div className="mb-4 flex items-start self-end opacity-50">
+                      <div className="prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-8 py-2 text-xl leading-snug text-gray-400">
+                        ⋯
+                      </div>
+                      <div className="ml-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">
+                        <RobotIcon className="h-auto w-4/6 object-scale-down text-white" />
+                      </div>
+                    </div>
+                    <div className="relative mb-4 flex items-center justify-center">
+                      <div className="absolute inset-0 mx-auto flex max-w-xl items-center">
+                        <div className="w-full border-t border-dashed border-gray-200"></div>
+                      </div>
+                      <Tooltip content="Some older messages have been truncated due to length limits. You can still view all individual questions in the question logs">
+                        <div className="relative rounded-full bg-gray-100 px-3 py-2 text-xs text-gray-500">
+                          Earlier messages truncated
+                        </div>
+                      </Tooltip>
+                    </div>
+                  </>
                 )}
-              >
-                <div className="absolute right-2 top-2 flex space-x-1 lg:right-4">
-                  {convo.resolved === 'confirmed' ? (
-                    <Tooltip content="Confirmed by user">
-                      <CheckCircleIconSolid
-                        className="h-4 w-4 flex-shrink-0 text-green-500"
-                        aria-hidden="true"
+                {conversation.history.map((message, index) => {
+                  if (message['Human']) {
+                    return (
+                      <UserMessage
+                        text={message['Human']}
+                        alias={conversation.alias}
+                        email={conversation.email}
+                        image_urls={message.image_urls}
+                        key={index}
                       />
-                    </Tooltip>
-                  ) : convo.resolved === 'assumed' ? (
-                    <Tooltip content="Classified as resolved by AI">
-                      <CheckCircleIconOutline
-                        className="h-4 w-4 flex-shrink-0 text-green-500"
-                        aria-hidden="true"
+                    )
+                  } else if (message['AI']) {
+                    return (
+                      <BotMessage
+                        key={index}
+                        text={message['AI']}
+                        id={message.id}
+                        onRate={setRating}
+                        rating={ratings[message.id] || message.rating || 0}
+                        labels={labels}
+                        botId={bot.id}
                       />
-                    </Tooltip>
-                  ) : convo.resolved === 'unresolved' ? (
-                    <Tooltip content="Confirmed by user or classified by AI">
-                      <MinusCircleIcon
-                        className="h-4 w-4 flex-shrink-0 text-orange-400"
-                        aria-hidden="true"
-                      />
-                    </Tooltip>
-                  ) : null}
-                  {convo.escalated === 'handled' ? (
-                    <Tooltip content="User clicked escalation button">
-                      <LifebuoyIconSolid
-                        className="h-4 w-4 flex-shrink-0 text-blue-400"
-                        aria-hidden="true"
-                      />
-                    </Tooltip>
-                  ) : convo.escalated === 'triggered' ? (
-                    <Tooltip content="User asked to be escalated - classified by AI">
-                      <LifebuoyIconOutline
-                        className="h-4 w-4 flex-shrink-0 text-blue-400"
-                        aria-hidden="true"
-                      />
-                    </Tooltip>
-                  ) : null}
+                    )
+                  }
+                })}
+                {/* Conversation Navigation Buttons */}
+                <div className="mb-1 mt-8 flex justify-between border-t pt-4">
+                  <button
+                    onClick={handlePrevious}
+                    disabled={!canGoPrevious}
+                    className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <ChevronLeftIcon
+                      className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    Previous
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    disabled={!canGoNext}
+                    className="inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Next
+                    <ChevronRightIcon
+                      className="-mr-1 ml-2 h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </button>
                 </div>
-                <UserAvatar
-                  alias={convo.alias}
-                  email={convo.metadata?.email}
-                  className="h-10 w-10 flex-none rounded-full bg-gray-50"
-                />
-                <div className="min-w-0 flex-auto">
-                  <div className="flex items-baseline justify-between gap-x-4">
-                    <p
-                      className="truncate text-left text-xs font-semibold leading-6 text-gray-900"
-                      style={{ maxWidth: 'calc(100% - 50px)' }}
-                    >
-                      <button
-                        onClick={(e) => {
-                          fetchConversation(convo.id)
-                          setRatings({})
-                        }}
-                      >
-                        <span className="absolute inset-x-0 -top-px bottom-0" />
-                        {convo.alias}
-                      </button>
-                    </p>
-                    <Tooltip
-                      content={`Updated ${new Date(convo.updatedAt).toISOString()}`}
-                    >
-                      <p className="flex-none text-xs text-gray-600">
-                        <TimeAgo dateTime={convo.updatedAt} />
-                      </p>
-                    </Tooltip>
+              </div>
+            ) : (
+              <div className="flex h-full items-center justify-center p-8 text-gray-500">
+                No recorded conversations yet. Go ahead and{' '}
+                <Link
+                  href={`/app/bots/${bot.id}`}
+                  className="ml-1 text-cyan-600 hover:text-cyan-700"
+                >
+                  chat with your bot
+                </Link>
+                !
+              </div>
+            )}
+          </div>
+        </main>
+
+        <aside className="fixed inset-y-0 right-0 hidden w-80 overflow-y-auto border-l border-gray-200 bg-white pt-16 lg:block xl:w-96">
+          {conversations && (
+            <ul role="list" className="divide-y divide-gray-100">
+              {conversations.conversations.map((convo) => (
+                <li
+                  key={convo.id}
+                  className={clsx(
+                    'relative flex items-center justify-between gap-x-4 px-2 py-5 hover:bg-gray-50 lg:px-4',
+                    conversation && convo.id === conversation.id
+                      ? 'bg-cyan-50 shadow-inner hover:bg-cyan-50'
+                      : 'bg-white',
+                  )}
+                >
+                  <div className="absolute right-2 top-2 flex space-x-1 lg:right-4">
+                    {convo.resolved === 'confirmed' ? (
+                      <Tooltip content="Confirmed by user">
+                        <CheckCircleIconSolid
+                          className="h-4 w-4 flex-shrink-0 text-green-500"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    ) : convo.resolved === 'assumed' ? (
+                      <Tooltip content="Classified as resolved by AI">
+                        <CheckCircleIconOutline
+                          className="h-4 w-4 flex-shrink-0 text-green-500"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    ) : convo.resolved === 'unresolved' ? (
+                      <Tooltip content="Confirmed by user or classified by AI">
+                        <MinusCircleIcon
+                          className="h-4 w-4 flex-shrink-0 text-orange-400"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    ) : null}
+                    {convo.escalated === 'handled' ? (
+                      <Tooltip content="User clicked escalation button">
+                        <LifebuoyIconSolid
+                          className="h-4 w-4 flex-shrink-0 text-blue-400"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    ) : convo.escalated === 'triggered' ? (
+                      <Tooltip content="User asked to be escalated - classified by AI">
+                        <LifebuoyIconOutline
+                          className="h-4 w-4 flex-shrink-0 text-blue-400"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    ) : null}
                   </div>
-                  <p className="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">
-                    {convo.title ?? ''}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </aside>
-    </DashboardWrap>
+                  <UserAvatar
+                    alias={convo.alias}
+                    email={convo.metadata?.email}
+                    className="h-10 w-10 flex-none rounded-full bg-gray-50"
+                  />
+                  <div className="min-w-0 flex-auto">
+                    <div className="flex items-baseline justify-between gap-x-4">
+                      <p
+                        className="truncate text-left text-xs font-semibold leading-6 text-gray-900"
+                        style={{ maxWidth: 'calc(100% - 50px)' }}
+                      >
+                        <button
+                          onClick={(e) => {
+                            fetchConversation(convo.id)
+                            setRatings({})
+                          }}
+                        >
+                          <span className="absolute inset-x-0 -top-px bottom-0" />
+                          {convo.alias}
+                        </button>
+                      </p>
+                      <Tooltip
+                        content={`Updated ${new Date(convo.updatedAt).toISOString()}`}
+                      >
+                        <p className="flex-none text-xs text-gray-600">
+                          <TimeAgo dateTime={convo.updatedAt} />
+                        </p>
+                      </Tooltip>
+                    </div>
+                    <p className="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">
+                      {convo.title ?? ''}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </aside>
+      </DashboardWrap>
+    </>
   )
 }
 

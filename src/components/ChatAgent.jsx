@@ -819,7 +819,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 />
               </span>
             </div>
-            <div className="prose min-w-full p-4 px-6 sm:px-8">
+            <div dir="auto" className="prose min-w-full p-4 px-6 text-start sm:px-8">
               {answer.images && answer.images.length > 0 && (
                 <div className="mb-2 flex flex-wrap gap-2">
                   {answer.images.map((imageUrl, index) => (
@@ -917,13 +917,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </span>
             </div>
             {answer.html ? (
-              <div
-                className={clsx(
-                  answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'pb-2 sm:pb-2 prose min-w-full p-6 sm:px-8',
-                )}
-                dangerouslySetInnerHTML={{ __html: answer.html }}
-              />
+              <div dir="auto" className={clsx(answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '', 'prose min-w-full p-6 text-start sm:px-8')} dangerouslySetInnerHTML={{ __html: answer.html }} />
             ) : (
               <div
                 className={clsx(
