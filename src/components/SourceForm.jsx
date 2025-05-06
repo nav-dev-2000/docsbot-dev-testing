@@ -139,16 +139,17 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
     }
 
     // Only include fields that are required or optional for this source type
-    if (selectedSourceType.fieldTitle) {
-      payload.title = title
-    }
-    
     if (selectedSourceType.fieldUrl) {
       payload.url = url
     }
     
     if (selectedSourceType.fieldFile) {
       payload.file = file
+      payload.title = fileName
+    }
+
+    if (selectedSourceType.fieldTitle) {
+      payload.title = title
     }
     
     if (selectedSourceType.fieldQA) {
@@ -257,13 +258,13 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
 
     try {
       setIsUpdating(true)
-      
+
       if (!trutoID) {
         const token = await getTrutoToken()
         if (!token) {
           throw new Error('Failed to get authentication token')
         }
-    
+
         const integration = await authenticate(token, {
           integration: integrationType,
           noBack: true,
