@@ -30,6 +30,7 @@ import PresetPromptSelect from '@/components/PresetPromptSelect'
 export default function ModalPrompt({ team, integrations, bot, open, setOpen }) {
   const [localOpen, setLocalOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
+  const [successText, setSuccessText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [prompt, setPrompt] = useState(bot.customPrompt || '')
   const [agentPrompt, setAgentPrompt] = useState(bot.agentPrompt || '')
@@ -185,6 +186,7 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
 
   async function updatePrompt() {
     setErrorText('')
+    setSuccessText('')
 
     //show upgrade modal if they are not power and doing anything other than erasing the prompt
     if (
@@ -219,8 +221,12 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
       const data = await response.json()
       setHasUnsavedChanges(false)
       setIsUpdating(false)
-      // Close the modal after saving successfully
-      setIsOpen(false)
+      setSuccessText('Changes saved successfully')
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => {
+        setSuccessText(null)
+      }, 3000)
     } else {
       try {
         const data = await response.json()
@@ -402,6 +408,7 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
                         </div>
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
+                      <Alert title={successText} type="success" />
                       <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-3">
                         <div
                           className={clsx(

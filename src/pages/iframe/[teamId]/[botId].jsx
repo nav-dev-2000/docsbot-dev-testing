@@ -24,7 +24,7 @@ export function ChatPage({ team, bot, signature, agent }) {
           images: []
         }}
       />
-      {bot.privacy === 'private' ? (
+      {bot.privacy === 'private' && !signature ? (
         <main className="mx-auto my-16 max-w-6xl">
           <div className="mb-32 mt-64 text-center">
             <EyeSlashIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />

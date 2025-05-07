@@ -630,6 +630,7 @@ function Conversations({ team, bot, preConversations }) {
                     </div>
                   </Tooltip>
                 ) : null}
+                {conversation.sentiment || !checkPlanPermission(team, 'business').allowed ? (
                   <Tooltip
                     content={
                       !checkPlanPermission(team, 'business').allowed
@@ -681,6 +682,7 @@ function Conversations({ team, bot, preConversations }) {
                       ) : null}
                     </div>
                   </Tooltip>
+                ) : null}
               </div>
             </div>
             <div className="ml-4 lg:mr-2 xl:mr-4">
