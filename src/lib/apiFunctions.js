@@ -310,6 +310,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     model,
     language,
     customPrompt,
+    agentPrompt,
     helpscoutPrompt,
     allowedDomains,
     color,
@@ -406,6 +407,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.customPrompt = customPrompt
+  }
+
+  if (agentPrompt !== undefined) {
+    // Check if their plan allows custom prompts on updates
+    if (agentPrompt && isUpdate && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+      throw new Error('Custom prompts are not available at your plan level.')
+    }
+    botData.agentPrompt = agentPrompt
   }
 
   if (helpscoutPrompt !== undefined) {
@@ -636,6 +645,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (isAgent !== undefined) {
     botData.isAgent = Boolean(isAgent)
+    if (isAgent && !bot?.agentPrompt) {
+      throw new Error('Please set your agent instructions before enabling agent mode.')
+    }
   } else if (!isUpdate) {
     botData.isAgent = true
   }

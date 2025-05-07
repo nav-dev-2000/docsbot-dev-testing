@@ -38,7 +38,11 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   async function createBot() {
     if (!botSettings.name) {
-      setErrorText('Please enter a name for your bot.')
+      setErrorText('Please enter a name for your agent.')
+      return
+    }
+    if (!botSettings.agentPrompt) {
+      setErrorText('Please select a preset role for your agent.')
       return
     }
     setErrorText('')
@@ -94,7 +98,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
                   leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
-                  <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                  <Dialog.Panel className="pointer-events-auto w-screen max-w-lg">
                     <form
                       action="#"
                       className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl"

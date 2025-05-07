@@ -28,6 +28,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalPrompt from '@/components/ModalPrompt'
 import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
 import { v4 as uuidv4 } from 'uuid'
@@ -53,6 +54,7 @@ function Widget({ team, bot }) {
   const [isUpdating, setIsUpdating] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [canModify, setModify] = useState(false)
+  const [showPromptModal, setShowPromptModal] = useState(false)
 
   //bot settings
   const [allowedDomains, setAllowedDomains] = useState(bot.allowedDomains || [])
@@ -202,10 +204,27 @@ function Widget({ team, bot }) {
 
   const title = [bot.name, 'Widget']
 
+  // Function to handle agent mode toggle
+  const handleAgentToggle = (enabled) => {
+    setIsAgent(enabled)
+    // If agent mode is being enabled and there's no agent prompt, show the prompt modal
+    if (enabled && !bot.agentPrompt) {
+      setShowPromptModal(true)
+    }
+  }
+
   return (
     <DashboardWrap page="Bots" title={title} team={team} fullWidth={true}>
       <Alert title={infoText} type="info" />
       <Alert title={errorText} type="warning" />
+
+      <ModalPrompt
+        team={team}
+        integrations={bot.integrations || []}
+        bot={bot}
+        open={showPromptModal}
+        setOpen={setShowPromptModal}
+      />
 
       <div className="mb-4 flex justify-start">
         <Link
@@ -335,23 +354,32 @@ function Widget({ team, bot }) {
               <div className="flex flex-1 flex-col justify-between">
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
-                      <div className="mt-4 border-b border-gray-200 pb-4">
+                    <div className="mt-4 border-b border-gray-200 pb-4">
+                      {!bot.isAgent && (
                         <Alert title="Agent Mode is here!" type="info">
-                          When ready, you can enable our new <Link href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers" target="_blank" className="text-blue-600 underline hover:text-blue-500">BETA Agentic
-                        mode</Link>, which provides more intelligent and
-                        contextual responses, tool calling to perform actions,
-                        conversaton view, and so much more! When enabling, <strong>please test! You
-                        might need to adjust your custom prompt to tune behavior
-                        for your use case</strong>, such as providing different
-                        instructions for when the agent should look up
-                        information from your docs vs answer from it's own
-                        knowledge, or remove any instructions that conflict with the feedback or escalation tools.
-                      </Alert>
+                          When ready, you can enable our new{' '}
+                          <Link
+                            href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
+                            target="_blank"
+                            className="text-blue-600 underline hover:text-blue-500"
+                          >
+                            BETA Agentic mode
+                          </Link>
+                          , which provides more intelligent and contextual
+                          responses, tool calling to perform actions,
+                          conversaton view, and so much more! When enabling,{' '}
+                          <strong>
+                            set your agent instructions and please test!
+                          </strong>{' '}
+                          Start with a preset role and adjust, then update or
+                          remove any instructions that may conflict.
+                        </Alert>
+                      )}
                       <FieldToggle
                         label="Enable Agentic Mode"
                         description="Enable agentic mode to allow the bot to use tools in the widget."
                         enabled={isAgent}
-                        setEnabled={setIsAgent}
+                        setEnabled={handleAgentToggle}
                         disabled={isUpdating}
                         isNew={true}
                       />

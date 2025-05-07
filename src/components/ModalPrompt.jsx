@@ -1,12 +1,20 @@
 import { Fragment, useEffect, useState, useRef } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition, Listbox } from '@headlessui/react'
 import {
   CommandLineIcon,
   ExclamationTriangleIcon,
   SparklesIcon,
   XCircleIcon,
   XMarkIcon,
+  BeakerIcon,
+  ChatBubbleBottomCenterTextIcon,
+  PencilSquareIcon,
+  ChevronUpDownIcon,
+  InformationCircleIcon,
+  LightBulbIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
+import { CheckIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -16,23 +24,33 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
+import { PRESET_PROMPTS } from '@/constants/prompts.constants'
+import PresetPromptSelect from '@/components/PresetPromptSelect'
 
-export default function ModalPrompt({ team, integrations, bot }) {
-  const [open, setOpen] = useState(false)
+export default function ModalPrompt({ team, integrations, bot, open, setOpen }) {
+  const [localOpen, setLocalOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [isUpdating, setIsUpdating] = useState(false)
   const [prompt, setPrompt] = useState(bot.customPrompt || '')
+  const [agentPrompt, setAgentPrompt] = useState(bot.agentPrompt || '')
   const [hsPrompt, setHSPrompt] = useState(bot.helpscoutPrompt || '')
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const saveButtonRef = useRef(null)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
-  const [activeTab, setActiveTab] = useState('regular')
+  const [activeTab, setActiveTab] = useState('agent')
+  const [selectedPreset, setSelectedPreset] = useState('')
   const helpScoutIntegration = integrations.find((i) => i.id === 'helpscout')
   const [actionInput, setActionInput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [showGeneratePopover, setShowGeneratePopover] = useState(false)
   const popoverRef = useRef(null)
   const buttonRef = useRef(null)
+
+  // Use external open state if provided, otherwise use local state
+  const isOpen = open !== undefined ? open : localOpen
+  const setIsOpen = setOpen || setLocalOpen
 
   useEffect(() => {
     if (showGeneratePopover) {
@@ -66,8 +84,33 @@ export default function ModalPrompt({ team, integrations, bot }) {
     }
   }, [])
 
+  useEffect(() => {
+    // Track unsaved changes when prompts are modified
+    const hasChanges =
+      prompt !== (bot.customPrompt || '') ||
+      hsPrompt !== (bot.helpscoutPrompt || '') ||
+      agentPrompt !== (bot.agentPrompt || '')
+    setHasUnsavedChanges(hasChanges)
+  }, [prompt, hsPrompt, agentPrompt, bot])
+
+  // Add beforeunload event handler
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (hasUnsavedChanges) {
+        e.preventDefault()
+        e.returnValue =
+          'You have unsaved changes. Are you sure you want to leave?'
+        return e.returnValue
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [hasUnsavedChanges])
+
   const tabs = [
-    { name: 'Custom Prompt', id: 'regular', current: activeTab === 'regular' },
+    { name: 'Agent Prompt', id: 'agent', current: activeTab === 'agent' },
+    { name: 'Legacy Prompt', id: 'regular', current: activeTab === 'regular' },
     ...(helpScoutIntegration
       ? [
           {
@@ -79,11 +122,76 @@ export default function ModalPrompt({ team, integrations, bot }) {
       : []),
   ]
 
+  const handlePresetChange = (value) => {
+    setSelectedPreset(value)
+
+    if (value) {
+      const presetPrompt = PRESET_PROMPTS[value]?.prompt || ''
+      if (activeTab === 'agent') {
+        setAgentPrompt(presetPrompt.replace(/{company_name}/g, bot.name).replace(/{old_prompt}/g, prompt || ''))
+      }
+    }
+  }
+
+  const handlePromptChange = (e) => {
+    setPrompt(e.target.value)
+  }
+
+  const handleAgentPromptChange = (e) => {
+    setAgentPrompt(e.target.value)
+  }
+
+  const handleHSPromptChange = (e) => {
+    setHSPrompt(e.target.value)
+  }
+
+  const handleReset = () => {
+    if (hasUnsavedChanges) {
+      const confirmed = window.confirm(
+        'Are you sure you want to reset all changes?',
+      )
+      if (confirmed) {
+        setPrompt(bot.customPrompt || '')
+        setAgentPrompt(bot.agentPrompt || '')
+        setHSPrompt(bot.helpscoutPrompt || '')
+        setSelectedPreset('')
+      }
+    }
+  }
+
+  const handleIframeClick = (e) => {
+    if (hasUnsavedChanges && saveButtonRef.current) {
+      e.preventDefault()
+      saveButtonRef.current.focus()
+      saveButtonRef.current.classList.add('animate-pulse', 'ring-4')
+      setTimeout(() => {
+        saveButtonRef.current.classList.remove('animate-pulse', 'ring-4')
+      }, 1000)
+    }
+  }
+
+  const handleCloseModal = () => {
+    if (hasUnsavedChanges) {
+      const confirmed = window.confirm(
+        'You have unsaved changes. Are you sure you want to close?',
+      )
+      if (confirmed) {
+        setIsOpen(false)
+      }
+    } else {
+      setIsOpen(false)
+    }
+  }
+
   async function updatePrompt() {
     setErrorText('')
 
     //show upgrade modal if they are not power and doing anything other than erasing the prompt
-    if (prompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(user.uid)) {
+    if (
+      prompt &&
+      !checkPlanPermission(team, 'hobby').allowed &&
+      !isSuperAdmin(user.uid)
+    ) {
       setShowUpgrade(true)
       return
     }
@@ -95,6 +203,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
 
     let data = {}
     data.customPrompt = prompt
+    data.agentPrompt = agentPrompt
     if (helpScoutIntegration) {
       data.helpscoutPrompt = hsPrompt
     }
@@ -108,8 +217,10 @@ export default function ModalPrompt({ team, integrations, bot }) {
     })
     if (response.ok) {
       const data = await response.json()
-      setOpen(false)
+      setHasUnsavedChanges(false)
       setIsUpdating(false)
+      // Close the modal after saving successfully
+      setIsOpen(false)
     } else {
       try {
         const data = await response.json()
@@ -132,12 +243,14 @@ export default function ModalPrompt({ team, integrations, bot }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: actionInput }),
+        body: JSON.stringify({ input: actionInput, activeTab }),
       })
       if (response.ok) {
         const data = await response.json()
         if (activeTab === 'regular') {
           setPrompt(data.prompt)
+        } else if (activeTab === 'agent') {
+          setAgentPrompt(data.prompt)
         } else if (activeTab === 'helpscout') {
           setHSPrompt(data.prompt)
         }
@@ -153,21 +266,24 @@ export default function ModalPrompt({ team, integrations, bot }) {
 
   return (
     <>
-      <Tooltip content="Customize your bot's behavior">
-        <button
-          className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-          onClick={() => setOpen(true)}
-        >
-          <CommandLineIcon
-            className="mr-1 h-4 w-4 flex-shrink-0"
-            aria-hidden="true"
-          />
-          {bot.customPrompt ? <p>Custom prompt</p> : <p>Default prompt</p>}
-        </button>
-      </Tooltip>
+      {/* Only show button if setOpen is not provided externally */}
+      {!setOpen && (
+        <Tooltip content="Customize your bot's behavior">
+          <button
+            className="flex items-center text-sm text-gray-600 hover:text-gray-800"
+            onClick={() => setLocalOpen(true)}
+          >
+            <CommandLineIcon
+              className="mr-1 h-4 w-4 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <p>Custom Instructions</p>
+          </button>
+        </Tooltip>
+      )}
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Transition.Root show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={handleCloseModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -202,7 +318,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                       <button
                         type="button"
                         className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                        onClick={() => setOpen(false)}
+                        onClick={handleCloseModal}
                       >
                         <span className="sr-only">Close</span>
                         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -213,63 +329,88 @@ export default function ModalPrompt({ team, integrations, bot }) {
                         as="h3"
                         className="mb-4 text-xl font-medium leading-6 text-gray-900"
                       >
-                        Customize Prompt
-                        {!checkPlanPermission(team, 'hobby').allowed && (
-                          <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                            {checkPlanPermission(team, 'hobby').requiredPlanLabel}
-                          </span>
-                        )}
+                        <div className="flex items-center">
+                          <span>Customize Instructions</span>
+                          {!checkPlanPermission(team, 'hobby').allowed && (
+                            <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                              {
+                                checkPlanPermission(team, 'hobby')
+                                  .requiredPlanLabel
+                              }
+                            </span>
+                          )}
+                          <div className="group relative ml-2">
+                            <LightBulbIcon className="h-5 w-5 cursor-pointer text-gray-400 hover:text-gray-500" />
+                            <span className="absolute left-0 top-8 z-10 flex w-96 scale-0 gap-3 rounded-lg bg-white p-3 shadow-lg transition-all group-hover:scale-100">
+                              <div>
+                                <InformationCircleIcon className="h-5 w-5" />
+                              </div>
+                              <div className="text-gray-500">
+                                <p className="mb-2 text-sm text-gray-600">
+                                  Add some custom instructions to your prompt to
+                                  adjust your agents's answer output to your
+                                  specific use case. You can use this powerful
+                                  tool to change behavior, formatting, and
+                                  provide any context that needs to be available
+                                  for every response. Start by selecting a
+                                  preset, or generate your own.
+                                </p>
+                                <p className="text-sm font-semibold text-gray-800">
+                                  Example Custom Prompts
+                                </p>
+                                <div className="mt-2">
+                                  <ul className="ml-0 list-disc space-y-2 text-sm text-gray-700">
+                                    <li className="text-sm text-gray-700">
+                                      <code>
+                                        Politely refuse to answer questions
+                                        unrelated to {bot.name}.
+                                      </code>
+                                    </li>
+                                    <li className="text-sm text-gray-700">
+                                      <code>
+                                        Use \[...\] for block math and \(...\)
+                                        for inline math in your response.
+                                      </code>{' '}
+                                      (for pretty display of equations)
+                                    </li>
+                                    <li className="text-sm text-gray-700">
+                                      <code>
+                                        If relevant to the user's question,
+                                        after your answer, suggest my book "
+                                        {bot.name} For Dummies".
+                                      </code>
+                                    </li>
+                                    <li className="text-sm text-gray-700">
+                                      <code>
+                                        If the answer is not in the provided
+                                        context, recommend they contact the{' '}
+                                        {bot.name} support team and provide a
+                                        link to https://mysite.com/support/
+                                      </code>
+                                    </li>
+                                    <li className="text-sm text-gray-700">
+                                      <code>
+                                        Always respond as if you are Pee-wee
+                                        Herman.
+                                      </code>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
                       </Dialog.Title>
                       <Alert title={errorText} type="error" />
                       <div className="grid grid-cols-1 gap-x-8 lg:grid-cols-3">
-                        <div className="mb-4 lg:mb-0 lg:col-span-1">
-                          <p className="text-md text-gray-700">
-                            Add some custom instructions to your prompt to
-                            adjust your bot's answer output to your specific use
-                            case. You can use this powerful tool to change
-                            behavior, formatting, and provide any context that
-                            needs to be available for every response.
-                          </p>
-                          <h3 className="mt-4 text-lg font-medium text-gray-800">
-                            Examples
-                          </h3>
-                          <ul className="ml-4 mt-2 list-disc text-sm text-gray-700">
-                            <li className="text-sm text-gray-700">
-                              <code>
-                                Politely refuse to answer questions unrelated to{' '}
-                                {bot.name}.
-                              </code>
-                            </li>
-                            <li className="text-sm text-gray-700">
-                              <code>
-                                Use \[...\] for block math and \(...\) for
-                                inline math in your response.
-                              </code>{' '}
-                              (for pretty display of equations)
-                            </li>
-                            <li className="text-sm text-gray-700">
-                              <code>
-                                If relevant to the user's question, after your
-                                answer, suggest my book "{bot.name} For
-                                Dummies".
-                              </code>
-                            </li>
-                            <li className="text-sm text-gray-700">
-                              <code>
-                                If the answer is not in the provided context,
-                                recommend they contact the {bot.name} support
-                                team and provide a link to
-                                https://mysite.com/support/
-                              </code>
-                            </li>
-                            <li className="text-sm text-gray-700">
-                              <code>
-                                Always respond as if you are Pee-wee Herman.
-                              </code>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="flex flex-col lg:col-span-2">
+                        <div
+                          className={clsx(
+                            'flex flex-col',
+                            (activeTab === 'regular' || activeTab === 'agent') && bot.status === 'ready'
+                              ? 'lg:col-span-2'
+                              : 'lg:col-span-3',
+                          )}
+                        >
                           <div className="flex justify-between border-b border-gray-200">
                             <nav
                               className="-mb-px flex space-x-8"
@@ -334,12 +475,12 @@ export default function ModalPrompt({ team, integrations, bot }) {
                               >
                                 <div
                                   ref={popoverRef}
-                                  className="absolute right-0 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                  className="absolute right-0 z-10 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 >
                                   <div className="rounded-lg bg-gray-50 p-0">
                                     <textarea
                                       className="h-24 w-full resize-none rounded border-0 bg-gray-50 p-0 px-2 pt-2 text-sm leading-snug focus:border-0 focus:ring-0"
-                                      placeholder="Describe what you're using the bot for..."
+                                      placeholder="Describe what you're using the agent for..."
                                       value={actionInput}
                                       onChange={(e) =>
                                         setActionInput(e.target.value)
@@ -354,7 +495,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                       <div className="flex items-center">
                                         <Tooltip content="Clear the prompt">
                                           <button
-                                            className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-inset"
+                                            className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                                             onClick={() => setActionInput('')}
                                             disabled={!actionInput}
                                             tabIndex={12}
@@ -381,17 +522,59 @@ export default function ModalPrompt({ team, integrations, bot }) {
                           </div>
                           <div className="-mt-1 flex-grow">
                             {activeTab === 'regular' && (
-                              <div className="h-full">
+                              <div className="mt-4 h-fit">
                                 <label htmlFor="prompt" className="sr-only">
-                                  Custom Prompt
+                                  Legacy Prompt
                                 </label>
-                                <div className="mt-4 h-full">
+                                <p className="mt-2 text-sm text-gray-500">
+                                  Enter any custom instructions here, this will
+                                  be used for non-agent mode responses such as
+                                  via the widget (with agent mode disabled),
+                                  Slack, Automations, or legacy APIs.
+                                </p>
+                                <div className="mt-2 h-full">
                                   <textarea
                                     id="prompt"
-                                    className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                    placeholder="Enter any custom prompt here..."
+                                    className="block h-full min-h-[28rem] w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                    placeholder="Enter custom instructions..."
                                     value={prompt}
-                                    onChange={(e) => setPrompt(e.target.value)}
+                                    onChange={handlePromptChange}
+                                    disabled={isUpdating || !canModify}
+                                  />
+                                </div>
+                              </div>
+                            )}
+                            {activeTab === 'agent' && (
+                              <div className="mt-4 h-full">
+                                <label
+                                  htmlFor="agentPrompt"
+                                  className="sr-only"
+                                >
+                                  Agent Prompt
+                                </label>
+                                <div className="">
+                                  <PresetPromptSelect
+                                    value={selectedPreset}
+                                    onChange={handlePresetChange}
+                                    disabled={isUpdating || !canModify}
+                                    defaultOptionLabel="Select a preset"
+                                    defaultOptionDescription="Choose a default role for your agent to customize"
+                                  />
+                                  {selectedPreset && (
+                                    <p className="mt-2 text-sm text-gray-500">
+                                      Customize the template below and replace
+                                      any variables in {'{curly_braces}'} with
+                                      your specific information.
+                                    </p>
+                                  )}
+                                </div>
+                                <div className="mt-2">
+                                  <textarea
+                                    id="agentPrompt"
+                                    className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                    placeholder="You must set an agent prompt to use the agent mode. Please choose and customize a preset or use the prompt generator to create your agent mode prompt."
+                                    value={agentPrompt}
+                                    onChange={handleAgentPromptChange}
                                     disabled={isUpdating || !canModify}
                                   />
                                 </div>
@@ -412,9 +595,7 @@ export default function ModalPrompt({ team, integrations, bot }) {
                                       className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                       placeholder="Enter any custom prompt here, this will be used for helpscout responses."
                                       value={hsPrompt}
-                                      onChange={(e) =>
-                                        setHSPrompt(e.target.value)
-                                      }
+                                      onChange={handleHSPromptChange}
                                       disabled={isUpdating || !canModify}
                                     />
                                   </div>
@@ -422,13 +603,58 @@ export default function ModalPrompt({ team, integrations, bot }) {
                               )}
                           </div>
                         </div>
+
+                        {(activeTab === 'regular' || activeTab === 'agent') && bot.status === 'ready' && (
+                          <div className="mb-4 flex h-full flex-col lg:col-span-1 lg:mb-0">
+                            <h3 className="text-md mb-2 font-medium">
+                              Test your agent
+                            </h3>
+                            <div
+                              className="relative flex-1"
+                              onClick={handleIframeClick}
+                            >
+                              {hasUnsavedChanges && (
+                                <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-gray-900 bg-opacity-40 text-white">
+                                  <div className="px-4 text-center">
+                                    <span className="text-md font-semibold">
+                                      Save your changes before testing
+                                    </span>
+                                  </div>
+                                </div>
+                              )}
+                              <iframe
+                                src={`https://docsbot.ai/iframe/${team.id}/${bot.id}?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
+                                allowTransparency="true"
+                                className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
+                              ></iframe>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <div className="mt-14 flex justify-end sm:mt-12">
+                      <div className="mt-14 flex justify-end gap-4 sm:mt-12">
+                        <button
+                          type="button"
+                          onClick={handleReset}
+                          className={clsx(
+                            'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm',
+                            !hasUnsavedChanges &&
+                              'cursor-not-allowed opacity-50',
+                            !canModify && 'hidden',
+                          )}
+                          disabled={!hasUnsavedChanges || !canModify}
+                        >
+                          <ArrowPathIcon
+                            className="mr-2 h-5 w-5"
+                            aria-hidden="true"
+                          />
+                          Reset
+                        </button>
                         <button
                           type="submit"
                           name="submit-form"
+                          ref={saveButtonRef}
                           className={
-                            'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
+                            'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
                             (canModify ? '' : ' hidden')
                           }
                           disabled={isUpdating || !canModify}

@@ -5,8 +5,10 @@ import { checkPlanPermission } from '@/utils/helpers'
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
+import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import FieldToggle from '@/components/FieldToggle'
 import Tooltip from '@/components/Tooltip'
+import PresetPromptSelect from '@/components/PresetPromptSelect'
 
 export default function FormBot({
   team,
@@ -19,7 +21,7 @@ export default function FormBot({
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
-  const [model, setModel] = useState(bot?.model || 'gpt-4o-mini')
+  const [model, setModel] = useState(bot?.model || (checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini'))
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
   const [rateLimitMessages, setRateLimitMessages] = useState(
@@ -47,6 +49,8 @@ export default function FormBot({
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [recordIP, setRecordIP] = useState(bot?.recordIP || false)
   const [temperature, setTemperature] = useState(bot?.temperature || 0)
+  const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
+  const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
 
   useEffect(() => {
     setBotSettings({
@@ -64,6 +68,7 @@ export default function FormBot({
       recordIP,
       classify: classifySwitch,
       temperature,
+      agentPrompt,
     })
   }, [
     language,
@@ -80,11 +85,18 @@ export default function FormBot({
     recordIP,
     classifySwitch,
     temperature,
+    agentPrompt,
   ])
 
-  useEffect(() => {
-    setModel(bot?.model || (checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini'))
-  }, [bot])
+  const handleAgentPromptChange = (value) => {
+    setAgentRole(value)
+      setAgentPrompt((PRESET_PROMPTS[value]?.prompt || '').replace(/{company_name}/g, botName).replace(/{old_prompt}\n/g, ''))
+    
+    // Set temperature based on the preset prompt
+    if (value && PRESET_PROMPTS[value]?.temperature !== undefined) {
+      setTemperature(PRESET_PROMPTS[value].temperature)
+    }
+  }
 
   //show upgrade if they change privacy to private
   useEffect(() => {
@@ -96,14 +108,26 @@ export default function FormBot({
 
   //show upgrade if they change model to gpt-4
   useEffect(() => {
-    if (
-      (model === 'gpt-4o' || model === 'gpt-4.1' || model === 'gpt-4.1-mini') &&
-      !checkPlanPermission(team, 'hobby').allowed
-    ) {
-      setShowUpgrade(true)
-      setModel('gpt-4o-mini')
+    // For users on the hobby plan:
+    // - They should be able to select gpt-4.1-mini without any issues
+    // - Only show upgrade for gpt-4o and gpt-4.1 if they don't have supportsGPT4
+    if (!checkPlanPermission(team, 'hobby').allowed) {
+      // For non-hobby plans, keep existing behavior
+      if (model === 'gpt-4o' || model === 'gpt-4.1' || model === 'gpt-4.1-mini') {
+        setShowUpgrade(true)
+        setModel('gpt-4o-mini')
+        console.log("Setting default free plan model to gpt-4o-mini")
+      }
+    } else {
+      // For hobby plan users
+      if ((model === 'gpt-4o' || model === 'gpt-4.1') && !team.supportsGPT4) {
+        setShowUpgrade(true)
+        setModel('gpt-4.1-mini') // Default to gpt-4.1-mini since they're on hobby plan
+        console.log("Setting default paid plan model to gpt-4.1-mini")
+      }
+      // If they're selecting gpt-4.1-mini and have hobby plan, don't change anything
     }
-  }, [model])
+  }, [model, team, checkPlanPermission])
 
   const updateQuestion = (index, newQuestion) => {
     setQuestions((questions) => {
@@ -310,26 +334,45 @@ export default function FormBot({
           />
         </div>
       </div>
-      <div>
-        <label
-          htmlFor="description"
-          className="block text-sm font-medium text-gray-900"
-        >
-          Description (optional)
-        </label>
-        <div className="mt-1">
-          <textarea
-            id="description"
-            name="description"
-            placeholder="This is an internal description of your bot, not a prompt or instructions."
-            rows={4}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
-            value={botDescription}
-            disabled={disabled}
-            onChange={(e) => setBotDescription(e.target.value)}
-          />
+      {!short && (
+        <div>
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-900"
+          >
+            Description (optional)
+          </label>
+          <div className="mt-1">
+            <textarea
+              id="description"
+              name="description"
+              placeholder="This is an internal description of your bot, not a prompt or instructions."
+              rows={4}
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+              value={botDescription}
+              disabled={disabled}
+              onChange={(e) => setBotDescription(e.target.value)}
+            />
+          </div>
         </div>
-      </div>
+      )}
+
+      {short && (
+        <div>
+          <PresetPromptSelect
+            value={agentRole}
+            onChange={handleAgentPromptChange}
+            disabled={disabled}
+            className="w-full"
+            label="Choose Preset"
+            defaultOptionLabel="Agent Role"
+            defaultOptionDescription="Select a default role for this bot"
+          />
+          <p className="text-xs text-gray-500">
+            Choose a preset to get started quickly. You can customize your agent's instructions later.
+          </p>
+        </div>
+      )}
 
       <fieldset>
         <legend className="text-sm font-medium text-gray-900">Privacy</legend>
@@ -551,17 +594,19 @@ export default function FormBot({
               >
                 GPT-4.1 mini - Best Value
                 {!checkPlanPermission(team, 'hobby').allowed ? (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
-                    </span>
-                  ) : (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                      New!
-                    </span>
-                  )}
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    Paid
+                  </span>
+                ) : (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                    New!
+                  </span>
+                )}
               </label>
               <p id="gpt-4.1-mini-description" className="text-gray-500">
-              Included in paid plans. Fast model equivalent to GPT-4o with good instruction following & reasoning. Good for most support use cases.
+                Included in paid plans. Fast model equivalent to GPT-4o with
+                good instruction following & reasoning. Good for most support
+                use cases.
               </p>
             </div>
           </div>
@@ -783,7 +828,10 @@ export default function FormBot({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="language" className="flex items-center gap-1.5 text-sm font-medium text-gray-900">
+          <label
+            htmlFor="language"
+            className="flex items-center gap-1.5 text-sm font-medium text-gray-900"
+          >
             Language
             <Tooltip content="Sets the default language for prompts and widget labels. The bot will still detect and respond in the language used in messages.">
               <InformationCircleIcon className="h-4 w-4 text-gray-500" />
@@ -805,33 +853,42 @@ export default function FormBot({
           </select>
         </div>
 
-        <div>
-          <label htmlFor="temperature" className="flex items-center gap-1.5 text-sm font-medium text-gray-900">
-            Temperature
-            <Tooltip content="Controls how creative vs precise the bot's responses are. Lower values (closer to 0) make responses more focused and predictable, while higher values make them more creative and varied.">
-              <InformationCircleIcon className="h-4 w-4 text-gray-500" />
-            </Tooltip>
-          </label>
-          <div className="mt-2">
-            <input
-              type="range"
-              name="temperature"
-              id="temperature"
-              min="0"
-              max="1"
-              step="0.1"
-              value={temperature}
-              onChange={(e) => setTemperature(parseFloat(e.target.value))}
-              disabled={disabled}
-              className="transparent h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600"
-            />
-            <div className="mt-1 flex justify-between text-xs text-gray-500">
-              <span>Predictable</span>
-              <span className="text-center font-semibold">{temperature === Math.floor(temperature) ? temperature.toFixed(0) : temperature.toFixed(1)}</span>
-              <span>Creative</span>
+        {!short && (
+          <div>
+            <label
+              htmlFor="temperature"
+              className="flex items-center gap-1.5 text-sm font-medium text-gray-900"
+            >
+              Temperature
+              <Tooltip content="Controls how creative vs precise the bot's responses are. Lower values (closer to 0) make responses more focused and predictable, while higher values make them more creative and varied.">
+                <InformationCircleIcon className="h-4 w-4 text-gray-500" />
+              </Tooltip>
+            </label>
+            <div className="mt-2">
+              <input
+                type="range"
+                name="temperature"
+                id="temperature"
+                min="0"
+                max="1"
+                step="0.1"
+                value={temperature}
+                onChange={(e) => setTemperature(parseFloat(e.target.value))}
+                disabled={disabled}
+                className="transparent h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-300 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-600"
+              />
+              <div className="mt-1 flex justify-between text-xs text-gray-500">
+                <span>Predictable</span>
+                <span className="text-center font-semibold">
+                  {temperature === Math.floor(temperature)
+                    ? temperature.toFixed(0)
+                    : temperature.toFixed(1)}
+                </span>
+                <span>Creative</span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       {!short && (
