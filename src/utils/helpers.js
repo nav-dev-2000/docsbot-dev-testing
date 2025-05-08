@@ -576,13 +576,15 @@ export const getNeededStripeProduct = (team) => {
     if (
       hobbyPlanLimit.bots >= team?.botCount &&
       hobbyPlanLimit.pages >= team?.pageCount &&
-      hobbyPlanLimit.questions >= team?.questionCount
+      hobbyPlanLimit.questions >= team?.questionCount &&
+      hobbyPlanLimit.teamMembers >= team?.roles.length
     ) {
       return ''
     } else if (
       powerPlanLimit.bots >= team?.botCount &&
       powerPlanLimit.pages >= team?.pageCount &&
-      powerPlanLimit.questions >= team?.questionCount
+      powerPlanLimit.questions >= team?.questionCount &&
+      powerPlanLimit.teamMembers >= team?.roles.length
     ) {
       const prices = []
       plansArray.map((item) => {
@@ -595,7 +597,8 @@ export const getNeededStripeProduct = (team) => {
     } else if (
       proPlanLimit.bots >= team?.botCount &&
       proPlanLimit.pages >= team?.pageCount &&
-      proPlanLimit.questions >= team?.questionCount
+      proPlanLimit.questions >= team?.questionCount &&
+      proPlanLimit.teamMembers >= team?.roles.length
     ) {
       const prices = []
       plansArray.map((item) => {
@@ -611,7 +614,8 @@ export const getNeededStripeProduct = (team) => {
     } else if (
       businessPlanLimit.bots >= team?.botCount &&
       businessPlanLimit.pages >= team?.pageCount &&
-      businessPlanLimit.questions >= team?.questionCount
+      businessPlanLimit.questions >= team?.questionCount &&
+      businessPlanLimit.teamMembers >= team?.roles.length
     ) {
       const prices = []
       plansArray.map((item) => {

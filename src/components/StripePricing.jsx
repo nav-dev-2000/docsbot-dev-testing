@@ -58,7 +58,8 @@ export function StripePricingTable({ team, email, setErrorText }) {
     if (
       team?.botCount > planLimits.bots ||
       team?.pageCount >= planLimits.pages ||
-      team?.questionCount >= planLimits.questions
+      team?.questionCount >= planLimits.questions ||
+      team?.roles.length >= planLimits.teamMembers
     ) {
       isDisableButton = true
     }

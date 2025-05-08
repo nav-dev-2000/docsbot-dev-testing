@@ -29,7 +29,8 @@ export default async function createCheckoutSession(req, res) {
         if (
           team?.botCount > planLimits.bots ||
           team?.pageCount >= planLimits.pages ||
-          team?.questionCount >= planLimits.questions
+          team?.questionCount >= planLimits.questions ||
+          team?.roles.length >= planLimits.teamMembers
         ) {
           throw Error('This plan does not fit your current usage.')
         }
