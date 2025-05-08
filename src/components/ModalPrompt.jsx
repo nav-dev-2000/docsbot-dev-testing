@@ -27,7 +27,13 @@ import Tooltip from '@/components/Tooltip'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
 
-export default function ModalPrompt({ team, integrations, bot, open, setOpen }) {
+export default function ModalPrompt({
+  team,
+  integrations,
+  bot,
+  open,
+  setOpen,
+}) {
   const [localOpen, setLocalOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
@@ -129,7 +135,11 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
     if (value) {
       const presetPrompt = PRESET_PROMPTS[value]?.prompt || ''
       if (activeTab === 'agent') {
-        setAgentPrompt(presetPrompt.replace(/{company_name}/g, bot.name).replace(/{old_prompt}/g, prompt || ''))
+        setAgentPrompt(
+          presetPrompt
+            .replace(/{company_name}/g, bot.name)
+            .replace(/{old_prompt}/g, prompt || ''),
+        )
       }
     }
   }
@@ -222,7 +232,7 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
       setHasUnsavedChanges(false)
       setIsUpdating(false)
       setSuccessText('Changes saved successfully')
-      
+
       // Clear success message after 3 seconds
       setTimeout(() => {
         setSuccessText(null)
@@ -413,7 +423,9 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
                         <div
                           className={clsx(
                             'flex flex-col',
-                            (activeTab === 'regular' || activeTab === 'agent') && bot.status === 'ready'
+                            (activeTab === 'regular' ||
+                              activeTab === 'agent') &&
+                              bot.status === 'ready'
                               ? 'lg:col-span-2'
                               : 'lg:col-span-3',
                           )}
@@ -609,71 +621,75 @@ export default function ModalPrompt({ team, integrations, bot, open, setOpen }) 
                                 </div>
                               )}
                           </div>
+
+                          <div className="mt-12 flex justify-end gap-4 sm:mt-8">
+                            <button
+                              type="button"
+                              onClick={handleReset}
+                              className={clsx(
+                                'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm',
+                                !hasUnsavedChanges &&
+                                  'cursor-not-allowed opacity-50',
+                                !canModify && 'hidden',
+                              )}
+                              disabled={!hasUnsavedChanges || !canModify}
+                            >
+                              <ArrowPathIcon
+                                className="mr-2 h-5 w-5"
+                                aria-hidden="true"
+                              />
+                              Reset
+                            </button>
+                            <button
+                              type="submit"
+                              name="submit-form"
+                              ref={saveButtonRef}
+                              className={
+                                'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
+                                (canModify ? '' : ' hidden')
+                              }
+                              disabled={isUpdating || !canModify}
+                            >
+                              {!isUpdating ? (
+                                <span>Save</span>
+                              ) : (
+                                <span>
+                                  <LoadingSpinner /> Saving...
+                                </span>
+                              )}
+                            </button>
+                          </div>
                         </div>
 
-                        {(activeTab === 'regular' || activeTab === 'agent') && bot.status === 'ready' && (
-                          <div className="mb-4 flex h-full flex-col lg:col-span-1 lg:mb-0">
-                            <h3 className="text-md mb-2 font-medium">
-                              Test your agent
-                            </h3>
-                            <div
-                              className="relative flex-1"
-                              onClick={handleIframeClick}
-                            >
-                              {hasUnsavedChanges && (
-                                <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-gray-900 bg-opacity-40 text-white">
-                                  <div className="px-4 text-center">
-                                    <span className="text-md font-semibold">
-                                      Save your changes before testing
-                                    </span>
+                        {(activeTab === 'regular' || activeTab === 'agent') &&
+                          bot.status === 'ready' && (
+                            <div className="hidden mb-4 lg:flex h-full flex-col lg:col-span-1 lg:mb-0">
+                              <h3 className="text-md mb-2 font-medium">
+                                {activeTab === 'agent'
+                                  ? 'Test your agent'
+                                  : 'Test your bot'}
+                              </h3>
+                              <div
+                                className="relative flex-1"
+                                onClick={handleIframeClick}
+                              >
+                                {hasUnsavedChanges && (
+                                  <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-gray-900 bg-opacity-40 text-white">
+                                    <div className="px-4 text-center">
+                                      <span className="text-md font-semibold">
+                                        Save your changes before testing
+                                      </span>
+                                    </div>
                                   </div>
-                                </div>
-                              )}
-                              <iframe
-                                src={`https://docsbot.ai/iframe/${team.id}/${bot.id}?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
-                                allowTransparency="true"
-                                className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
-                              ></iframe>
+                                )}
+                                <iframe
+                                  src={`https://docsbot.ai/iframe/${team.id}/${bot.id}?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
+                                  allowTransparency="true"
+                                  className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
+                                ></iframe>
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </div>
-                      <div className="mt-14 flex justify-end gap-4 sm:mt-12">
-                        <button
-                          type="button"
-                          onClick={handleReset}
-                          className={clsx(
-                            'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm',
-                            !hasUnsavedChanges &&
-                              'cursor-not-allowed opacity-50',
-                            !canModify && 'hidden',
                           )}
-                          disabled={!hasUnsavedChanges || !canModify}
-                        >
-                          <ArrowPathIcon
-                            className="mr-2 h-5 w-5"
-                            aria-hidden="true"
-                          />
-                          Reset
-                        </button>
-                        <button
-                          type="submit"
-                          name="submit-form"
-                          ref={saveButtonRef}
-                          className={
-                            'inline-flex w-1/4 items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
-                            (canModify ? '' : ' hidden')
-                          }
-                          disabled={isUpdating || !canModify}
-                        >
-                          {!isUpdating ? (
-                            <span>Save</span>
-                          ) : (
-                            <span>
-                              <LoadingSpinner /> Saving...
-                            </span>
-                          )}
-                        </button>
                       </div>
                     </div>
                   </form>
