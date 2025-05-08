@@ -21,7 +21,7 @@ export function ChatPage({ team, bot, signature, agent }) {
         noindex={true}
         nofollow={true}
         openGraph={{
-          images: []
+          images: [{}] //override default
         }}
       />
       {bot.privacy === 'private' && !signature ? (

@@ -369,7 +369,13 @@ function Widget({ team, bot }) {
                           responses, tool calling to perform actions,
                           conversaton view, and so much more! When enabling,{' '}
                           <strong>
-                            set your agent instructions and please test!
+                            <button
+                              type="button"
+                              onClick={() => setShowPromptModal(true)}
+                              className="text-blue-600 underline hover:text-blue-500"
+                            >
+                              set your agent instructions
+                            </button> and please test!
                           </strong>{' '}
                           Start with a preset role and adjust, then update or
                           remove any instructions that may conflict.
