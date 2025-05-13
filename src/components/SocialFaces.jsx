@@ -57,7 +57,7 @@ export default function SocialFaces({ ringColor = 'ring-white', ...props }) {
             <StarIcon className="h-5 w-5 text-yellow-400" />
           </div>
         </div>
-        <span className={clsx('text-xs font-medium', ringColor !== 'ring-white' ? 'text-white' : 'text-gray-900')}>Loved by 45k+ users</span>
+        <span className={clsx('text-xs font-medium', ringColor !== 'ring-white' ? 'text-white' : 'text-gray-900')}>Loved by 75k+ users</span>
       </div>
     </div>
   )

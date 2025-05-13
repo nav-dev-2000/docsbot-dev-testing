@@ -378,12 +378,11 @@ export default function Home() {
                           >
                             <div className="flex items-center justify-center space-x-2">
                               <SparklesIcon className="h-5 w-5" />
-                              <span>Build your free AI chatbot</span>
+                              <span>Turn your content into AI answers</span>
                             </div>
                           </Link>
                           <p className="mt-1 text-center text-sm text-gray-300 sm:mt-2">
-                            Transform your business with AI,{' '}
-                            <u>no credit card required</u>!
+                            Try it free, <u>no credit card required</u>. Your customers (and team) will thank you!
                           </p>
                         </div>
                         <SocialFaces
@@ -409,7 +408,7 @@ export default function Home() {
                 className="mx-auto max-w-7xl px-6 pb-16 lg:px-8 lg:pb-8 xl:pb-24"
               >
                 <h2 className="mb-8 text-center text-lg font-semibold leading-8 text-white">
-                  Trusted by more than 2,000 businesses!
+                  Trusted by more than 3,000 businesses!
                 </h2>
                 <TrustedBy />
               </div>
