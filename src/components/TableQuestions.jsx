@@ -903,6 +903,26 @@ export default function TableQuestions({
                 </span>
               </button>
             )}
+            {filters.couldAnswer !== null && (
+              <button
+                type="button"
+                className="flex items-center rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                onClick={() => {
+                  setFilters((prevFilters) => {
+                    return { ...prevFilters, couldAnswer: null }
+                  })
+                }}
+              >
+                <XMarkIcon className="m-auto h-4 w-4" aria-hidden="true" />
+                <span className="m-auto flex pl-1 text-xs text-gray-400">
+                  {
+                    filterOptions[2].options.find(
+                      (option) => option.value === filters.couldAnswer,
+                    ).label
+                  }
+                </span>
+              </button>
+            )}
           </div>
 
           {openQuestion && <Answer question={openQuestion} startOpen={true} />}
@@ -1136,7 +1156,16 @@ export default function TableQuestions({
               perPage={questions.pagination.perPage}
               totalCount={questions.pagination.viewableCount}
               page={questions.pagination.page}
-              changePage={changePage}
+              changePage={(page) =>
+                changePage(
+                  page,
+                  ipFilter,
+                  filters.rating,
+                  filters.escalated,
+                  filters.couldAnswer,
+                  dateRange,
+                )
+              }
             />
           </div>
         </div>
