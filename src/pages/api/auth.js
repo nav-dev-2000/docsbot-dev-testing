@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           email: decodedJwt?.email,
           fields: {
             invited,
-            name,
+            name: name ? name.replace(/https?:\/\/\S+/gi, '').trim() : '',
           },
         })
       } catch (error) {

@@ -283,7 +283,7 @@ function Register({ teamCount }) {
                   autoComplete="name"
                   required
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value.replace(/https?:\/\/\S+/gi, ''))}
                 />
                 <TextField
                   className="col-span-full"
