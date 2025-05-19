@@ -52,6 +52,20 @@ router.post(async (req, res) => {
       return res.status(400).json({ message: error?.message })
     }
 
+    //increment botCounts on team first to avoid race condition
+    await firestore.runTransaction(async (transaction) => {
+      const teamRef = firestore.collection('teams').doc(team.id)
+      const sfDoc = await transaction.get(teamRef)
+      if (!sfDoc.exists) {
+        throw 'Team does not exist!'
+      }
+
+      const newBotCount = (sfDoc.data().botCount || 0) + 1
+      transaction.update(teamRef, {
+        botCount: newBotCount,
+      })
+    })
+
     // Create bot in db
     const docRef = await firestore
       .collection('teams')
@@ -83,6 +97,20 @@ router.post(async (req, res) => {
           .doc(botId)
           .delete()
       }
+      // Decrement botCount on team since bot creation failed
+      await firestore.runTransaction(async (transaction) => {
+        const teamRef = firestore.collection('teams').doc(team.id)
+        const sfDoc = await transaction.get(teamRef)
+        if (!sfDoc.exists) {
+          throw 'Team does not exist!'
+        }
+
+        const currentBotCount = sfDoc.data().botCount || 0
+        const newBotCount = Math.max(currentBotCount - 1, 0) // Ensure count doesn't go below 0
+        transaction.update(teamRef, {
+          botCount: newBotCount,
+        })
+      })
       return res
         .status(500)
         .json({
@@ -91,19 +119,7 @@ router.post(async (req, res) => {
         })
     }
 
-    //increment botCounts on team
-    await firestore.runTransaction(async (transaction) => {
-      const teamRef = firestore.collection('teams').doc(team.id)
-      const sfDoc = await transaction.get(teamRef)
-      if (!sfDoc.exists) {
-        throw 'Team does not exist!'
-      }
-
-      const newBotCount = (sfDoc.data().botCount || 0) + 1
-      transaction.update(teamRef, {
-        botCount: newBotCount,
-      })
-    })
+    
 
     // if copyFrom is defined, run the pubsub copy function
     if (copyFrom) {
@@ -138,6 +154,13 @@ router.post(async (req, res) => {
     return res.status(201).json(await getBot(team.id, botId))
   } catch (error) {
     console.error(error)
+    // Restore botCount on team if error
+    await firestore
+    .collection('teams')
+    .doc(team.id)
+    .update({
+      botCount: team.botCount,
+    })
     return res.status(500).json({ message: error?.message })
   }
 })
