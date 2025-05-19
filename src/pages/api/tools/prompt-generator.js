@@ -5,6 +5,7 @@ import { addPrompt, getPrompt, checkPromptRateLimit } from '@/lib/tools'
 import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { isSuperAdmin } from '@/utils/helpers'
+import { clearCloudflareCache } from '@/lib/cloudflare'
 
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -692,10 +693,96 @@ ${JSON.stringify({
     } else {
       return res
         .status(404)
-        .json({ message: `Prompt "${name}" doesn't exist!` })
+        .json({ message: `Prompt "${slug}" doesn't exist!` })
+    }
+  } else if (req.method === 'DELETE') {
+    const { slug } = req.query
+
+    if (!slug) {
+      return res.status(400).json({ message: 'Missing slug parameter' })
+    }
+
+    try {
+      // Check if user is a super admin
+      let user = null
+      try {
+        user = await getAuthorizedUser({ req })
+        
+        if (!isSuperAdmin(user.uid)) {
+          return res.status(403).json({ message: 'Unauthorized: Only super admins can delete prompts' })
+        }
+      } catch (error) {
+        return res.status(401).json({ message: 'Unauthorized: Authentication required' })
+      }
+
+      // Get the prompt to make sure it exists
+      const prompt = await getPrompt(slug)
+      if (!prompt) {
+        return res.status(404).json({ message: `Prompt "${slug}" not found` })
+      }
+
+      // Delete the prompt from the database
+      await firestore.collection('prompts').doc(slug).delete()
+
+      // Revalidate related ISR paths to clear the cache
+      const category = prompt.category
+      const pathsToRevalidate = [
+        `/prompts/${category}/${slug}`,  // The prompt page itself
+        `/prompts/${category}`,          // The category listing page
+        '/prompts',                      // The main prompts listing page
+      ]
+
+      // If the prompt has tags, also revalidate the tag pages
+      if (prompt.tags && Array.isArray(prompt.tags)) {
+        prompt.tags.forEach(tag => {
+          pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
+        })
+      }
+
+      // Revalidate each path
+      await Promise.all(pathsToRevalidate.map(async (path) => {
+        try {
+          await res.revalidate(path)
+          console.log(`Revalidated: ${path}`)
+        } catch (error) {
+          console.error(`Failed to revalidate path ${path}:`, error)
+          // Continue with other revalidations even if one fails
+        }
+      }))
+
+      // Clear Cloudflare cache for prompt pages
+      const urlsToPurge = [
+        `https://docsbot.ai/prompts/${category}/${slug}`,
+        `https://docsbot.ai/prompts/${category}`,
+        `https://docsbot.ai/prompts`,
+      ]
+
+      // Add tag URLs to purge if present
+      if (prompt.tags && Array.isArray(prompt.tags)) {
+        prompt.tags.forEach(tag => {
+          urlsToPurge.push(`https://docsbot.ai/prompts/tags?tag=${encodeURIComponent(tag)}`)
+        })
+      }
+
+      // Use the cloudflare helper to clear the cache
+      try {
+        const cloudflareClearResult = await clearCloudflareCache(null, null, urlsToPurge)
+        console.log(`Cloudflare cache cleared: ${cloudflareClearResult ? 'success' : 'failed'}`)
+      } catch (cloudflareError) {
+        console.error('Error clearing Cloudflare cache:', cloudflareError)
+        // Continue even if Cloudflare purge fails
+      }
+
+      return res.status(200).json({ 
+        message: 'Prompt deleted successfully',
+        revalidatedPaths: pathsToRevalidate
+      })
+    } catch (error) {
+      console.error('Error deleting prompt:', error)
+      return res.status(500).json({ message: `Failed to delete prompt: ${error.message}` })
     }
   }
 
-  res.setHeader('Allow', ['POST', 'GET'])
+  res.setHeader('Allow', ['POST', 'GET', 'DELETE'])
   return res.status(405).end(`Method ${req.method} Not Allowed`)
 }

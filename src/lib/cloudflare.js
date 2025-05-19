@@ -1,7 +1,9 @@
-export async function clearCloudflareCache(teamId, botId) {
+export async function clearCloudflareCache(teamId, botId, customUrls = null) {
   const zoneId = process.env.CLOUDFLARE_ZONE_ID
   const apiToken = process.env.CLOUDFLARE_API_TOKEN
-  const urlsToCache = [
+  
+  // If custom URLs are provided, use those instead of the default bot URLs
+  const urlsToCache = customUrls || [
     `https://docsbot.ai/api/widget/${teamId}/${botId}`,
     `https://docsbot.ai/chat/${teamId}/${botId}`,
     `https://docsbot.ai/ask/${teamId}/${botId}`,

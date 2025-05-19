@@ -51,6 +51,7 @@ const PromptGenerator = () => {
   const [input, setInput] = useState('')
   const [isComputing, setIsComputing] = useState(false)
   const [errorText, setErrorText] = useState(null)
+  const [consentChecked, setConsentChecked] = useState(false)
   const router = useRouter()
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
@@ -73,6 +74,19 @@ const PromptGenerator = () => {
         tool: 'AI Prompt Generator',
         action: 'Error',
         error: 'Empty Input',
+        category: 'Prompt',
+      })
+      return
+    }
+
+    if (!consentChecked) {
+      setErrorText('Please confirm that you understand generated prompts may be published publicly.')
+      setIsComputing(false)
+      
+      posthog?.capture('Free Tool', {
+        tool: 'AI Prompt Generator',
+        action: 'Error',
+        error: 'Consent Not Checked',
         category: 'Prompt',
       })
       return
@@ -108,6 +122,7 @@ const PromptGenerator = () => {
             category: 'Prompt',
           })
         }
+        setIsComputing(false)
       } else {
         const data = await response.json()
         posthog?.capture('Free Tool', {
@@ -126,9 +141,8 @@ const PromptGenerator = () => {
         error: e.message,
         category: 'Prompt',
       })
+      setIsComputing(false)
     }
-
-    setIsComputing(false)
   }
 
   return (
@@ -151,6 +165,24 @@ const PromptGenerator = () => {
                 className="col-span-12 block rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:opacity-75"
                 rows={4}
               />
+              <div className="col-span-12 flex items-start">
+                <div className="flex h-5 items-center">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    checked={consentChecked}
+                    onChange={() => setConsentChecked(!consentChecked)}
+                    className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    required
+                  />
+                </div>
+                <div className="ml-2 text-sm text-left">
+                  <label htmlFor="consent" className="font-medium text-gray-700">
+                    I understand that generated prompts may be published publicly.
+                  </label>
+                </div>
+              </div>
               <button
                 type="submit"
                 disabled={isComputing}
@@ -165,9 +197,6 @@ const PromptGenerator = () => {
                 )}
               </button>
             </div>
-            <p className="mt-2 text-center text-xs text-gray-500">
-              NOTE: Generated prompts may be published publicly.
-            </p>
           </form>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { NextSeo } from 'next-seo'
@@ -12,14 +12,43 @@ import PromptIcon from '@/components/PromptIcon'
 import RelatedPromptsList from '@/components/RelatedPromptsList'
 import Breadcrumb from '@/components/Breadcrumb'
 import CarbonAd from '@/components/CarbonAd'
+import { isSuperAdmin } from '@/utils/helpers'
+import { useRouter } from 'next/router'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
-const PromptDisplay = ({ prompt, category }) => {
+const PromptDisplay = ({ prompt, category, slug, isSuperAdminUser }) => {
   const [copied, setCopied] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const router = useRouter()
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(prompt)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const deletePrompt = async () => {
+    if (confirm('Are you sure you want to delete this prompt? This action cannot be undone.')) {
+      setIsDeleting(true)
+      try {
+        const response = await fetch(`/api/tools/prompt-generator?slug=${slug}`, {
+          method: 'DELETE',
+        })
+
+        if (response.ok) {
+          alert('Prompt deleted successfully')
+          router.push('/prompts')
+        } else {
+          const data = await response.json()
+          alert(`Failed to delete prompt: ${data.message || 'Unknown error'}`)
+          setIsDeleting(false)
+        }
+      } catch (error) {
+        alert(`Error: ${error.message}`)
+        setIsDeleting(false)
+      }
+    }
   }
 
   return (
@@ -45,18 +74,39 @@ const PromptDisplay = ({ prompt, category }) => {
             {PROMPT_CATEGORIES[category]}
           </Link>
         </div>
-        <Link
-          href="/tools/prompt/ai-prompt-generator"
-          className="block rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          Generate your own AI prompt
-        </Link>
+        <div className="flex gap-2">
+          {isSuperAdminUser && (
+            <button
+              onClick={deletePrompt}
+              disabled={isDeleting}
+              className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {isDeleting ? 'Deleting...' : 'Delete Prompt'}
+            </button>
+          )}
+          <Link
+            href="/tools/prompt/ai-prompt-generator"
+            className="block rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Generate your own AI prompt
+          </Link>
+        </div>
       </div>
     </div>
   )
 }
 
 const PromptPage = ({ promptData, relatedPrompts }) => {
+  const [user, loading] = useAuthState(auth)
+  const [isSuperAdminUser, setIsSuperAdminUser] = useState(false)
+  
+  useEffect(() => {
+    if (user && !loading) {
+      // Check if the user is a super admin
+      setIsSuperAdminUser(isSuperAdmin(user.uid))
+    }
+  }, [user, loading])
+
   const breadcrumbPages = [
     { name: 'Prompts', href: '/prompts', current: false },
     { name: PROMPT_CATEGORIES[promptData.category], href: `/prompts/${promptData.category}`, current: false },
@@ -137,7 +187,11 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
           </div>
         </div>
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <PromptDisplay {...promptData} />
+          <PromptDisplay 
+            {...promptData} 
+            slug={promptData.id}
+            isSuperAdminUser={isSuperAdminUser}
+          />
         </div>
 
         <RegisterCTA
