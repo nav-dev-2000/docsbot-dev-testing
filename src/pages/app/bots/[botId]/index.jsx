@@ -10,6 +10,8 @@ import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
 import Link from 'next/link'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
+import { checkPlanPermission } from '@/utils/helpers'
+import ModalCheckout from '@/components/ModalCheckout'
 
 const sourcePerPage = 60
 
@@ -22,8 +24,34 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
   const [autoOpenSourceIdState, setAutoOpenSourceIdState] = useState(autoOpenSourceId)
+  const [showCheckout, setShowCheckout] = useState(false)
   const router = useRouter()
   const { botId } = router.query
+
+  const getExpirationAlert = () => {
+    if (checkPlanPermission(team, 'hobby').allowed) {
+      return null
+    }
+
+    const createdAt = new Date(bot.createdAt)
+    const expirationDate = new Date(createdAt.getTime() + 30 * 24 * 60 * 60 * 1000) // 30 days from creation
+    const now = new Date()
+    const daysLeft = Math.ceil((expirationDate - now) / (1000 * 60 * 60 * 24))
+
+    if (daysLeft <= 0) {
+      return {
+        title: "This free bot has expired and will be deleted shortly. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.",
+        type: "warning"
+      }
+    }
+
+    return {
+      title: `This free bot will expire in ${daysLeft} days. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.`,
+      type: "warning"
+    }
+  }
+
+  const expirationAlert = getExpirationAlert()
 
   async function refreshBot() {
 
@@ -159,6 +187,20 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   return (
     <DashboardWrap page="Bots" title={bot.name} team={team}>
       <Alert title={errorText} type="warning" />
+      {expirationAlert && (
+        <Alert 
+          title={expirationAlert.title} 
+          type={expirationAlert.type}
+        >
+          <button
+            onClick={() => setShowCheckout(true)}
+            className="mt-2 inline-flex items-center rounded-md bg-yellow-50 px-3 py-2 text-sm font-semibold text-yellow-800 hover:bg-yellow-100 ring-2 ring-yellow-600 ring-inset focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+          >
+            Upgrade Now
+          </button>
+        </Alert>
+      )}
+      <ModalCheckout team={team} open={showCheckout} setOpen={setShowCheckout} />
       <div className="mb-4 flex justify-start">
         <Link
           href={`/app/bots`}
