@@ -90,13 +90,26 @@ export default function FormBot({
 
   const handleAgentPromptChange = (value) => {
     setAgentRole(value)
-      setAgentPrompt((PRESET_PROMPTS[value]?.prompt || '').replace(/{company_name}/g, botName).replace(/{old_prompt}\n/g, ''))
+      setAgentPrompt((PRESET_PROMPTS[value]?.prompt || '')
+        .replace(/{company_name}/g, botName)
+        .replace(/{old_prompt}\n/g, '')
+        .replace(/{old_prompt}/g, ''))
     
     // Set temperature based on the preset prompt
     if (value && PRESET_PROMPTS[value]?.temperature !== undefined) {
       setTemperature(PRESET_PROMPTS[value].temperature)
     }
   }
+
+  // Update agentPrompt when botName changes if a preset role is selected
+  useEffect(() => {
+    if (agentRole && PRESET_PROMPTS[agentRole]) {
+      setAgentPrompt((PRESET_PROMPTS[agentRole]?.prompt || '')
+        .replace(/{company_name}/g, botName)
+        .replace(/{old_prompt}\n/g, '')
+        .replace(/{old_prompt}/g, ''))
+    }
+  }, [botName, agentRole])
 
   //show upgrade if they change privacy to private
   useEffect(() => {

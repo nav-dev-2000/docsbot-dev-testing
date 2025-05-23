@@ -155,6 +155,34 @@ If you would like to run a callback when the user clicks the support link in the
 
 ### Example Code
 
+#### History Array
+
+```js
+[
+  {
+      "Human": "hi",
+      "timestamp": "2025-05-08T22:56:28.514357"
+  },
+  {
+      "AI": "Hello! How can I assist you today?",
+      "timestamp": "2025-05-08T22:56:30.645700",
+      "type": "answer"
+  },
+  {
+      "Human": "How do i connect to Zapier?",
+      "timestamp": "2025-05-23T14:54:47.215796"
+  },
+  {
+      "AI": "Visit the integrations tab in your bot...",
+      "timestamp": "2025-05-23T14:54:52.215796"
+  },
+  {
+      "AI": "Did that answer your question?",
+      "timestamp": "2025-05-23T14:54:55.215796"
+  }
+]
+```
+
 ```js
 DocsBotAI.init({
   id: 'YOUR_ID_HERE',

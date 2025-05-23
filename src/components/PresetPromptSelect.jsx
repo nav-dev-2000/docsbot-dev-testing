@@ -1,5 +1,5 @@
 import { Listbox } from '@headlessui/react'
-import { ChevronUpDownIcon, UserGroupIcon } from '@heroicons/react/24/outline'
+import { ChevronUpDownIcon, UserGroupIcon, PencilIcon } from '@heroicons/react/24/outline'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import clsx from 'clsx'
@@ -20,6 +20,30 @@ export default function PresetPromptSelect({
     })),
   ]
 
+  const getDisplayInfo = () => {
+    if (value === 'custom') {
+      return {
+        icon: PencilIcon,
+        label: 'Custom',
+        description: 'A custom prompt that doesn\'t match any preset'
+      }
+    } else if (value && PRESET_PROMPTS[value]) {
+      return {
+        icon: PRESET_PROMPTS[value].icon,
+        label: PRESET_PROMPTS[value].label,
+        description: PRESET_PROMPTS[value].description
+      }
+    } else {
+      return {
+        icon: UserGroupIcon,
+        label: defaultOptionLabel,
+        description: defaultOptionDescription
+      }
+    }
+  }
+
+  const displayInfo = getDisplayInfo()
+
   return (
     <Listbox 
       value={value} 
@@ -34,16 +58,13 @@ export default function PresetPromptSelect({
           <span className="col-start-1 row-start-1 flex items-center gap-3 pr-6">
             {value ? (
               <>
-                {(() => {
-                  const Icon = PRESET_PROMPTS[value]?.icon
-                  return Icon ? <Icon className="h-6 w-6 text-gray-400 flex-shrink-0" aria-hidden="true" /> : null
-                })()}
+                {displayInfo.icon && <displayInfo.icon className="h-6 w-6 text-gray-400 flex-shrink-0" aria-hidden="true" />}
                 <div className="flex flex-col">
                   <span className="block truncate font-medium">
-                    {PRESET_PROMPTS[value]?.label || defaultOptionLabel}
+                    {displayInfo.label}
                   </span>
                   <span className="block text-sm text-gray-500 break-normal">
-                    {PRESET_PROMPTS[value]?.description || defaultOptionDescription}
+                    {displayInfo.description}
                   </span>
                 </div>
               </>

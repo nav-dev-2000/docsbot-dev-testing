@@ -74,6 +74,35 @@ export default function ModalPrompt({
     setModify(canUserEditBot(team, user.uid))
   }, [team, user])
 
+  // Check if current agentPrompt matches any preset, if not set to "custom"
+  useEffect(() => {
+    if (!agentPrompt) {
+      setSelectedPreset('')
+      return
+    }
+
+    // Check if agentPrompt matches any preset after variable replacement
+    let matchedPreset = ''
+    for (const [presetKey, presetData] of Object.entries(PRESET_PROMPTS)) {
+      const replacedPrompt = presetData.prompt
+        .replace(/{company_name}/g, bot.name)
+        .replace(/{old_prompt}\n/g, prompt ? prompt + '\n' : '')
+        .replace(/{old_prompt}/g, prompt ? prompt + '\n' : '')
+      
+      if (agentPrompt.trim() === replacedPrompt.trim()) {
+        matchedPreset = presetKey
+        break
+      }
+    }
+
+    if (matchedPreset) {
+      setSelectedPreset(matchedPreset)
+    } else {
+      // If agentPrompt exists but doesn't match any preset, set to "custom"
+      setSelectedPreset('custom')
+    }
+  }, [agentPrompt, bot.name, prompt])
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -132,13 +161,15 @@ export default function ModalPrompt({
   const handlePresetChange = (value) => {
     setSelectedPreset(value)
 
-    if (value) {
+    // Don't modify agentPrompt if "custom" is selected
+    if (value && value !== 'custom') {
       const presetPrompt = PRESET_PROMPTS[value]?.prompt || ''
       if (activeTab === 'agent') {
         setAgentPrompt(
           presetPrompt
             .replace(/{company_name}/g, bot.name)
-            .replace(/{old_prompt}/g, prompt || ''),
+            .replace(/{old_prompt}\n/g, prompt ? prompt + '\n' : '')
+            .replace(/{old_prompt}/g, prompt ? prompt + '\n' : ''),
         )
       }
     }
@@ -165,7 +196,26 @@ export default function ModalPrompt({
         setPrompt(bot.customPrompt || '')
         setAgentPrompt(bot.agentPrompt || '')
         setHSPrompt(bot.helpscoutPrompt || '')
-        setSelectedPreset('')
+        
+        // Reset selectedPreset based on original bot agentPrompt
+        if (!bot.agentPrompt) {
+          setSelectedPreset('')
+        } else {
+          // Check if original agentPrompt matches any preset
+          let matchedPreset = ''
+          for (const [presetKey, presetData] of Object.entries(PRESET_PROMPTS)) {
+            const replacedPrompt = presetData.prompt
+              .replace(/{company_name}/g, bot.name)
+              .replace(/{old_prompt}\n/g, bot.customPrompt ? bot.customPrompt + '\n' : '')
+              .replace(/{old_prompt}/g, bot.customPrompt ? bot.customPrompt + '\n' : '')
+            
+            if (bot.agentPrompt.trim() === replacedPrompt.trim()) {
+              matchedPreset = presetKey
+              break
+            }
+          }
+          setSelectedPreset(matchedPreset || 'custom')
+        }
       }
     }
   }
