@@ -32,8 +32,8 @@ export default async function handler(request, response) {
     const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
       try {
         const team = teamDoc.data()
-        //check if team is Business
-        if (!checkPlanPermission(team, 'business').allowed) {
+        //check if team is Business or staff account
+        if (!checkPlanPermission(team, 'business').allowed && team.id !== 'ZrbLG98bbxZ9EFqiPvyl') {
           //console.log('Skipping team', teamDoc.id, 'is not Business+')
           return
         } else {

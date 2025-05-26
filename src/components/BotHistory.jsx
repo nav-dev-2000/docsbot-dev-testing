@@ -119,6 +119,14 @@ export default function BotHistory({ team, botId }) {
           tension: 0.3,
           fill: true,
         },
+        {
+          label: 'Total Messages',
+          data: stats.messagesData,
+          borderColor: '#9CA3AF',
+          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          tension: 0.3,
+          fill: false,
+        },
       ],
     })
 
@@ -169,6 +177,8 @@ export default function BotHistory({ team, botId }) {
             </h2>
             <p className="mt-4 text-gray-500">
               Statistics about the questions you or users have asked your bot.
+              In Agent mode, this only includes questions that trigger a
+              documentation lookup.
             </p>
           </div>
           <div className="mt-4 w-28 sm:mt-0 sm:flex-none">
@@ -267,17 +277,29 @@ export default function BotHistory({ team, botId }) {
 
       {stats && (
         <>
-          <dl className="mt-6 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-5">
-            <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
-              <dt className="text-sm font-semibold leading-6 text-gray-600">
-                User messages
-              </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
-                <LocalStringNum value={stats.totalCount} />
-              </dd>
-            </div>
-            <Tooltip content="Answers with no negative rating or support escalation">
-              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+          <dl className="mt-6 grid grid-cols-2 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-3">
+          <Tooltip content="All messages that count towards your plan limits, including tool calls">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  Total Messages
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={stats.totalMessages} />
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Only counts lookup questions, not all messages">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  User questions
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={stats.totalCount} />
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Lookup Answers with no negative rating or support escalation">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
                   Resolution rate
                 </dt>
@@ -288,8 +310,8 @@ export default function BotHistory({ team, botId }) {
                 </dd>
               </div>
             </Tooltip>
-            <Tooltip content="Questions the AI determined it could confidently answer">
-              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+            <Tooltip content="Lookup Questions the AI determined it could confidently answer">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
                   Answer rate
                 </dt>
@@ -300,8 +322,8 @@ export default function BotHistory({ team, botId }) {
                 </dd>
               </div>
             </Tooltip>
-            <Tooltip content="Answers with no support escalation">
-              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+            <Tooltip content="Lookup Answers with no support escalation">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
                   Deflection rate
                 </dt>
@@ -313,7 +335,7 @@ export default function BotHistory({ team, botId }) {
               </div>
             </Tooltip>
             <Tooltip content="Assuming an average of 5mins/ticket">
-              <div className="flex flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10 cursor-help">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
                   Support staff time saved
                 </dt>
@@ -334,11 +356,7 @@ export default function BotHistory({ team, botId }) {
                   <p className="mb-8 text-center text-gray-700">
                     Upgrade to the Pro plan or higher to unlock advance question
                     statistics. View{' '}
-                    <Link
-                      href="/pricing"
-                      target="_blank"
-                      className="underline"
-                    >
+                    <Link href="/pricing" target="_blank" className="underline">
                       plan details
                     </Link>
                     .

@@ -235,6 +235,7 @@ export function getStats(doc, timeDelta) {
         const data = doc.questionHistory[dateKey]
         dateCounts[dateKey] = {
           count: data.questions,
+          messages: data.messages || data.questions,
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
           couldAnswer: data?.couldAnswer || null,
@@ -255,6 +256,7 @@ export function getStats(doc, timeDelta) {
         const data = doc.questionHistoryDaily[dateKey]
         dateCounts[dateKey] = {
           count: data.questions,
+          messages: data.messages || data.questions,
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
           couldAnswer: data?.couldAnswer || null,
@@ -276,6 +278,7 @@ export function getStats(doc, timeDelta) {
     if (!dateCounts[dateKey]) {
       dateCounts[dateKey] = {
         count: 0,
+        messages: 0,
         negative: 0,
         positive: 0,
         couldAnswer: null,
@@ -287,12 +290,14 @@ export function getStats(doc, timeDelta) {
 
   // split data and labels
   let totalCount = 0,
+    totalMessages = 0,
     totalNegative = 0,
     totalPositive = 0,
     totalCouldAnswer = 0,
     totalCouldNotAnswer = 0,
     totalEscalated = 0
   let countData = [],
+    messagesData = [],
     negativeData = [],
     positiveData = [],
     couldAnswerData = [],
@@ -307,6 +312,7 @@ export function getStats(doc, timeDelta) {
       ? `${date.getFullYear()}-${date.getMonth() + 1}`
       : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     countData.push(dateCounts[dateKey].count)
+    messagesData.push(dateCounts[dateKey].messages)
     negativeData.push(dateCounts[dateKey].negative)
     positiveData.push(dateCounts[dateKey].positive)
     couldAnswerData.push(dateCounts[dateKey].couldAnswer)
@@ -314,6 +320,7 @@ export function getStats(doc, timeDelta) {
     escalatedData.push(dateCounts[dateKey].escalated)
 
     totalCount += dateCounts[dateKey].count
+    totalMessages += dateCounts[dateKey].messages
     totalNegative += dateCounts[dateKey].negative
     totalPositive += dateCounts[dateKey].positive
     totalCouldAnswer += dateCounts[dateKey].couldAnswer || 0
@@ -344,6 +351,7 @@ export function getStats(doc, timeDelta) {
   if (totalCount === 0) {
     return {
       countData,
+      messagesData,
       negativeData,
       positiveData,
       couldAnswerData,
@@ -361,6 +369,7 @@ export function getStats(doc, timeDelta) {
       answerCounts,
       answerLabels: [`0% Answered`, `0% Unanswered`],
       totalCount: 0,
+      totalMessages: 0,
       resolutionRate: '0',
       deflectionRate: '0',
       couldAnswerRate: '0',
@@ -418,8 +427,10 @@ export function getStats(doc, timeDelta) {
   )
   let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
+  /*
   console.log({
     countData,
+    messagesData,
     negativeData,
     positiveData,
     couldAnswerData,
@@ -432,13 +443,16 @@ export function getStats(doc, timeDelta) {
     answerCounts,
     answerLabels,
     totalCount,
+    totalMessages,
     resolutionRate,
     deflectionRate,
     couldAnswerRate: couldAnswer,
     timeSaved,
   })
+  */
   return {
     countData,
+    messagesData,
     negativeData,
     positiveData,
     couldAnswerData,
@@ -451,6 +465,7 @@ export function getStats(doc, timeDelta) {
     answerCounts,
     answerLabels,
     totalCount,
+    totalMessages,
     resolutionRate,
     deflectionRate,
     couldAnswerRate: couldAnswer,

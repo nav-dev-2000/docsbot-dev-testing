@@ -90,7 +90,7 @@ export async function getQuestionStats(
     .doc(botId)
     .collection('questions')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .select('rating', 'escalation', 'createdAt', 'couldAnswer')
+    .select('type', 'rating', 'escalation', 'createdAt', 'couldAnswer')
     .get()
 
   const monthly = {
@@ -100,6 +100,7 @@ export async function getQuestionStats(
     couldAnswer: 0,
     couldNotAnswer: 0,
     questions: 0,
+    messages: 0,
   }
   const daily = {}
 
@@ -121,34 +122,41 @@ export async function getQuestionStats(
       couldAnswer: 0,
       couldNotAnswer: 0,
       questions: 0,
+      messages: 0,
     }
 
-    // Assuming 'rating' key is present in the question document
-    const rating = questionData?.rating || 0
+    if (questionData?.type === 'lookup_answer') {
+      // Assuming 'rating' key is present in the question document
+      const rating = questionData?.rating || 0
 
-    if (rating === -1) {
-      monthly.downVotes += 1
-      daily[day].downVotes += 1
-    } else if (rating === 1) {
-      monthly.upVotes += 1
-      daily[day].upVotes += 1
+      if (rating === -1) {
+        monthly.downVotes += 1
+        daily[day].downVotes += 1
+      } else if (rating === 1) {
+        monthly.upVotes += 1
+        daily[day].upVotes += 1
+      }
+
+      // count couldAnswer
+      if (questionData?.couldAnswer) {
+        monthly.couldAnswer += 1
+        daily[day].couldAnswer += 1
+      } else if (questionData?.couldAnswer === false) {
+        monthly.couldNotAnswer += 1
+        daily[day].couldNotAnswer += 1
+      }
+
+      if (questionData?.escalation) {
+        monthly.escalations += 1
+        daily[day].escalations += 1
+      }
+
+      monthly.questions += 1
+      daily[day].questions += 1
     }
 
-    // count couldAnswer
-    if (questionData?.couldAnswer) {
-      monthly.couldAnswer += 1
-      daily[day].couldAnswer += 1
-    } else if (questionData?.couldAnswer === false) {
-      monthly.couldNotAnswer += 1
-      daily[day].couldNotAnswer += 1
-    }
-
-    if (questionData?.escalation) {
-      monthly.escalations += 1
-      daily[day].escalations += 1
-    }
-    monthly.questions += 1
-    daily[day].questions += 1
+    monthly.messages += 1
+    daily[day].messages += 1
   })
 
   return {
@@ -399,6 +407,7 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
+    .where('type', '==', 'lookup_answer')
     .select(...QUESTION_SELECT_LIST) //skip the vector as it's huge
 
   // grab limits
@@ -458,6 +467,8 @@ export async function getQuestions(
     .collection('bots')
     .doc(botId)
     .collection('questions')
+    .where('type', '==', 'lookup_answer')
+    .orderBy('createdAt', 'desc')
 
   if (ip) {
     snapshot = snapshot.where('ip', '==', ip)

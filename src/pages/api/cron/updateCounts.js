@@ -65,6 +65,7 @@ export default async function handler(request, response) {
           .get()
 
         let questionTotal = 0
+        let questionLookupTotal = 0
         let pageTotal = 0
         let sourceTotal = 0
         let upVotesTotal = 0
@@ -89,7 +90,8 @@ export default async function handler(request, response) {
           const prevHistoryDaily = botDoc.data().questionHistoryDaily || {}
 
           const botData = {
-            questionCount: monthly.questions,
+            questionCount: monthly.messages,
+            questionLookupCount: monthly.questions,
             pageCount: pageCount,
             sourceCount: sourceCount,
             questionHistory: {
@@ -124,7 +126,8 @@ export default async function handler(request, response) {
 
         // take and sum the results
         for (const { pageCount, sourceCount, monthly, daily } of botCounts) {
-          questionTotal += monthly.questions
+          questionTotal += monthly.messages
+          questionLookupTotal += monthly.questions
           pageTotal += pageCount
           sourceTotal += sourceCount
           upVotesTotal += monthly.upVotes
@@ -137,6 +140,7 @@ export default async function handler(request, response) {
           for (const [day, value] of Object.entries(daily)) {
             questionHistoryDailyNew[day] = questionHistoryDailyNew[day] || {
               questions: 0,
+              messages: 0,
               upVotes: 0,
               downVotes: 0,
               escalations: 0,
@@ -144,6 +148,7 @@ export default async function handler(request, response) {
               couldNotAnswer: 0,
             }
             questionHistoryDailyNew[day].questions += value.questions
+            questionHistoryDailyNew[day].messages += value.messages
             questionHistoryDailyNew[day].upVotes += value.upVotes
             questionHistoryDailyNew[day].downVotes += value.downVotes
             questionHistoryDailyNew[day].escalations += value.escalations
@@ -170,13 +175,15 @@ export default async function handler(request, response) {
         const questionLimit = stripePlan(teamData).questions
         await teamDoc.ref.update({
           questionCount: questionTotal,
+          questionLookupCount: questionLookupTotal,
           questionLimit: questionLimit,
           pageCount: pageTotal,
           sourceCount: sourceTotal,
           questionHistory: {
             ...prevHistory,
             [`${currentYear}-${currentMonth}`]: {
-              questions: questionTotal,
+              messages: questionTotal,
+              questions: questionLookupTotal,
               upVotes: upVotesTotal,
               downVotes: downVotesTotal,
               escalations: escalationsTotal,
