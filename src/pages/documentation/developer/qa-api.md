@@ -21,7 +21,7 @@ This endpoint accepts a POST request with the following parameters:
 
 | Parameter       | Type    | Description                                                                                        |
 | --------------- | ------- | -------------------------------------------------------------------------------------------------- |
-| **question**    | string  | The question to ask the bot. 5 to 2000 characters. Max is model context length when authenticated. |
+| **question**    | string  | The question to ask the bot. 5 to 500 characters. Max is model context length when authenticated. |
 | **full_source** | boolean | Whether the full source content should be returned. Optional, defaults to `false`                  |
 
 {% callout title="full_source behavior" %}

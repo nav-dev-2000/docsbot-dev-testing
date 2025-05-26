@@ -272,7 +272,7 @@ options: {
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
   customCSS: '', // Custom CSS to override the default styles.
-  inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000.
+  inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000 if widget is signed/authenticated.
   contextItems: 6, // Number of sources to lookup for the bot to answer from. Default is 5. Research mode uses 16 (more expensive token usage).
   questions: [
     "What is DocsBot?",
