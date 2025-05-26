@@ -6,7 +6,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Alert from '@/components/Alert'
 
-export default function ModalQA({ team, botId, question, open, setOpen }) {
+export default function ModalQA({ team, botId, question, open, setOpen, hideButton }) {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [successText, setSuccessText] = useState(null)
@@ -98,14 +98,16 @@ export default function ModalQA({ team, botId, question, open, setOpen }) {
   return (
     <>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <a
-        type="button"
-        className={"ml-2 flex cursor-pointer items-center justify-end text-sm font-medium " + (question?.revised ? "text-purple-500 hover:text-purple-900" : "text-gray-500 hover:text-gray-900") }
-        onClick={openQA}
-      >
-        <PencilSquareIcon className="h-4 w-4 mr-1s" aria-hidden="true" />
-         Revise answer
-      </a>
+      {!hideButton && (
+        <button
+          type="button"
+          className={"ml-2 flex cursor-pointer items-center justify-end text-sm font-medium " + (question?.revised ? "text-purple-500 hover:text-purple-900" : "text-gray-500 hover:text-gray-900") }
+          onClick={openQA}
+        >
+          <PencilSquareIcon className="h-4 w-4 mr-1s" aria-hidden="true" />
+           Revise answer
+        </button>
+      )}
 
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>

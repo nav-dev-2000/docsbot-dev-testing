@@ -23,6 +23,7 @@ import {
   XMarkIcon,
   ArrowPathIcon,
   NoSymbolIcon,
+  PencilSquareIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -45,15 +46,17 @@ import TimeAgo from '@/components/TimeAgo'
 import UserAvatar from '@/components/UserAvatar'
 import clsx from 'clsx'
 import LocaleDateTime from '@/components/LocaleDateTime'
+import ModalQA from '@/components/ModalQA'
 import Paginator from '@/components/Paginator'
 import Tooltip from '@/components/Tooltip'
 import { Dialog, Transition } from '@headlessui/react'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 
-function BotMessage({ text, id, onRate, rating = 0, labels, botId }) {
+function BotMessage({ team, question, text, id, onRate, rating = 0, labels, botId, canModify }) {
   const [markdown, setMarkdown] = useState(text)
   const [isCopied, setIsCopied] = useState(false)
+  const [qaOpen, setQAOpen] = useState(false)
 
   const handleCopyText = () => {
     navigator.clipboard.writeText(text)
@@ -80,6 +83,7 @@ function BotMessage({ text, id, onRate, rating = 0, labels, botId }) {
       .catch((error) => {
         console.warn('Error processing markdown:', error)
       })
+      console.log('id ', id)
   }, [text])
 
   return (
@@ -88,9 +92,28 @@ function BotMessage({ text, id, onRate, rating = 0, labels, botId }) {
         dir="auto"
         className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0"
       >
+        <ModalQA
+          team={team}
+          botId={botId}
+          question={{ id, question, answer: text}}
+          open={qaOpen}
+          setOpen={setQAOpen}
+          hideButton={true}
+        />
         <span dangerouslySetInnerHTML={{ __html: markdown }} />
         {id && (
           <div className="mt-4 flex items-center justify-end space-x-1">
+            <Tooltip content="Revise answer">
+              {/* {canModify && ( */}
+                
+                <button
+                  onClick={() => setQAOpen(true)}
+                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                >
+                  <PencilSquareIcon className="h-5 w-5" />
+                </button>
+              {/* )} */}
+            </Tooltip>
             <Tooltip content="View question details">
               <Link
                 href={`/app/bots/${botId}/questions/${id}`}
@@ -814,6 +837,7 @@ function Conversations({ team, bot, preConversations }) {
                   </>
                 )}
                 {conversation.history.map((message, index) => {
+                  const prevMessage = index > 0 ? conversation.history[index - 1] : null
                   if (message['Human']) {
                     return (
                       <UserMessage
@@ -828,6 +852,8 @@ function Conversations({ team, bot, preConversations }) {
                     return (
                       <BotMessage
                         key={index}
+                        team={team}
+                        question={prevMessage?.['Human']}
                         text={message['AI']}
                         id={message.id}
                         onRate={setRating}
