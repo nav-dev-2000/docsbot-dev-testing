@@ -1,6 +1,6 @@
 import { getFirestore, Filter } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getQuestionStats } from '@/lib/dbQueries'
+import { getQuestionStats, getConversationStats } from '@/lib/dbQueries'
 import { teamOwner, bentoTrack } from '@/lib/bento'
 import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
@@ -61,7 +61,7 @@ export default async function handler(request, response) {
 
         const botsSnapshot = await teamDoc.ref
           .collection('bots')
-          .select('questionHistory', 'questionHistoryDaily', 'name', 'embedded')
+          .select('questionHistory', 'questionHistoryDaily', 'conversationHistory', 'conversationHistoryDaily', 'name', 'embedded')
           .get()
 
         let questionTotal = 0
@@ -73,12 +73,25 @@ export default async function handler(request, response) {
         let escalationsTotal = 0
         let couldAnswerTotal = 0
         let couldNotAnswerTotal = 0
+        let conversationTotal = 0
+        let resolvedConfirmedTotal = 0
+        let resolvedAssumedTotal = 0
+        let unresolvedTotal = 0
+        let escalatedHandledTotal = 0
+        let escalatedTriggeredTotal = 0
+        let sentimentPositiveTotal = 0
+        let sentimentNegativeTotal = 0
+        let sentimentNeutralTotal = 0
+        let answeredTotal = 0
+        let unansweredTotal = 0
         let questionHistoryDailyNew = {}
+        let conversationHistoryDailyNew = {}
 
         const botCounts = []
 
         for (const botDoc of botsSnapshot.docs) {
           const { monthly, daily } = await getQuestionStats(teamDoc.id, botDoc.id)
+          const { monthly: conversationMonthly, daily: conversationDaily } = await getConversationStats(teamDoc.id, botDoc.id)
 
           // grab the # of source pages
           const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
@@ -88,10 +101,13 @@ export default async function handler(request, response) {
 
           const prevHistory = botDoc.data().questionHistory || {}
           const prevHistoryDaily = botDoc.data().questionHistoryDaily || {}
+          const prevConversationHistory = botDoc.data().conversationHistory || {}
+          const prevConversationHistoryDaily = botDoc.data().conversationHistoryDaily || {}
 
           const botData = {
             questionCount: monthly.messages,
             questionLookupCount: monthly.questions,
+            conversationCount: conversationMonthly.conversations,
             pageCount: pageCount,
             sourceCount: sourceCount,
             questionHistory: {
@@ -101,6 +117,14 @@ export default async function handler(request, response) {
             questionHistoryDaily: {
               ...prevHistoryDaily,
               ...daily,
+            },
+            conversationHistory: {
+              ...prevConversationHistory,
+              [`${currentYear}-${currentMonth}`]: conversationMonthly,
+            },
+            conversationHistoryDaily: {
+              ...prevConversationHistoryDaily,
+              ...conversationDaily,
             },
           }
 
@@ -121,11 +145,11 @@ export default async function handler(request, response) {
           // update bot count
           await botDoc.ref.update(botData)
 
-          botCounts.push({ pageCount, sourceCount, monthly, daily })
+          botCounts.push({ pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily })
         }
 
         // take and sum the results
-        for (const { pageCount, sourceCount, monthly, daily } of botCounts) {
+        for (const { pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily } of botCounts) {
           questionTotal += monthly.messages
           questionLookupTotal += monthly.questions
           pageTotal += pageCount
@@ -136,7 +160,20 @@ export default async function handler(request, response) {
           couldAnswerTotal += monthly.couldAnswer
           couldNotAnswerTotal += monthly.couldNotAnswer
 
-          //loop through daily
+          // Add conversation totals
+          conversationTotal += conversationMonthly.conversations
+          resolvedConfirmedTotal += conversationMonthly.resolvedConfirmed
+          resolvedAssumedTotal += conversationMonthly.resolvedAssumed
+          unresolvedTotal += conversationMonthly.unresolved
+          escalatedHandledTotal += conversationMonthly.escalatedHandled
+          escalatedTriggeredTotal += conversationMonthly.escalatedTriggered
+          sentimentPositiveTotal += conversationMonthly.sentimentPositive
+          sentimentNegativeTotal += conversationMonthly.sentimentNegative
+          sentimentNeutralTotal += conversationMonthly.sentimentNeutral
+          answeredTotal += conversationMonthly.answered
+          unansweredTotal += conversationMonthly.unanswered
+
+          //loop through daily question stats
           for (const [day, value] of Object.entries(daily)) {
             questionHistoryDailyNew[day] = questionHistoryDailyNew[day] || {
               questions: 0,
@@ -155,6 +192,34 @@ export default async function handler(request, response) {
             questionHistoryDailyNew[day].couldAnswer += value.couldAnswer
             questionHistoryDailyNew[day].couldNotAnswer += value.couldNotAnswer
           }
+
+          //loop through daily conversation stats
+          for (const [day, value] of Object.entries(conversationDaily)) {
+            conversationHistoryDailyNew[day] = conversationHistoryDailyNew[day] || {
+              conversations: 0,
+              resolvedConfirmed: 0,
+              resolvedAssumed: 0,
+              unresolved: 0,
+              escalatedHandled: 0,
+              escalatedTriggered: 0,
+              sentimentPositive: 0,
+              sentimentNegative: 0,
+              sentimentNeutral: 0,
+              answered: 0,
+              unanswered: 0,
+            }
+            conversationHistoryDailyNew[day].conversations += value.conversations
+            conversationHistoryDailyNew[day].resolvedConfirmed += value.resolvedConfirmed
+            conversationHistoryDailyNew[day].resolvedAssumed += value.resolvedAssumed
+            conversationHistoryDailyNew[day].unresolved += value.unresolved
+            conversationHistoryDailyNew[day].escalatedHandled += value.escalatedHandled
+            conversationHistoryDailyNew[day].escalatedTriggered += value.escalatedTriggered
+            conversationHistoryDailyNew[day].sentimentPositive += value.sentimentPositive
+            conversationHistoryDailyNew[day].sentimentNegative += value.sentimentNegative
+            conversationHistoryDailyNew[day].sentimentNeutral += value.sentimentNeutral
+            conversationHistoryDailyNew[day].answered += value.answered
+            conversationHistoryDailyNew[day].unanswered += value.unanswered
+          }
         }
 
         console.log(
@@ -163,6 +228,8 @@ export default async function handler(request, response) {
           'has',
           questionTotal,
           'questions,',
+          conversationTotal,
+          'conversations,',
           sourceTotal,
           'sources,',
           pageTotal,
@@ -172,10 +239,13 @@ export default async function handler(request, response) {
         // update team count && needsUpdate
         const prevHistory = teamData.questionHistory || {}
         const prevHistoryDaily = teamData.questionHistoryDaily || {}
+        const prevConversationHistory = teamData.conversationHistory || {}
+        const prevConversationHistoryDaily = teamData.conversationHistoryDaily || {}
         const questionLimit = stripePlan(teamData).questions
         await teamDoc.ref.update({
           questionCount: questionTotal,
           questionLookupCount: questionLookupTotal,
+          conversationCount: conversationTotal,
           questionLimit: questionLimit,
           pageCount: pageTotal,
           sourceCount: sourceTotal,
@@ -194,6 +264,26 @@ export default async function handler(request, response) {
           questionHistoryDaily: {
             ...prevHistoryDaily,
             ...questionHistoryDailyNew,
+          },
+          conversationHistory: {
+            ...prevConversationHistory,
+            [`${currentYear}-${currentMonth}`]: {
+              conversations: conversationTotal,
+              resolvedConfirmed: resolvedConfirmedTotal,
+              resolvedAssumed: resolvedAssumedTotal,
+              unresolved: unresolvedTotal,
+              escalatedHandled: escalatedHandledTotal,
+              escalatedTriggered: escalatedTriggeredTotal,
+              sentimentPositive: sentimentPositiveTotal,
+              sentimentNegative: sentimentNegativeTotal,
+              sentimentNeutral: sentimentNeutralTotal,
+              answered: answeredTotal,
+              unanswered: unansweredTotal,
+            },
+          },
+          conversationHistoryDaily: {
+            ...prevConversationHistoryDaily,
+            ...conversationHistoryDailyNew,
           },
           needsUpdate: false,
         })

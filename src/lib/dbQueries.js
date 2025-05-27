@@ -165,6 +165,115 @@ export async function getQuestionStats(
   }
 }
 
+export async function getConversationStats(
+  teamId,
+  botId,
+  timeDelta = getTimeDeltaFromCalendarMonth(),
+) {
+  // grab conversation stats for specific bot
+  const conversationsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('conversations')
+    .where('createdAt', '>', new Date(Date.now() - timeDelta))
+    .select('createdAt', 'resolved', 'escalated', 'sentiment', 'answered')
+    .get()
+
+  const monthly = {
+    conversations: 0,
+    resolvedConfirmed: 0,
+    resolvedAssumed: 0,
+    unresolved: 0,
+    escalatedHandled: 0,
+    escalatedTriggered: 0,
+    sentimentPositive: 0,
+    sentimentNegative: 0,
+    sentimentNeutral: 0,
+    answered: 0,
+    unanswered: 0,
+  }
+  const daily = {}
+
+  conversationsSnapshot.forEach((conversationDoc) => {
+    const conversationData = conversationDoc.data()
+    const createdDate = conversationData?.createdAt?.toDate()
+    //get year-month-day for object key
+    const day =
+      createdDate?.getFullYear() +
+      '-' +
+      (createdDate?.getMonth() + 1) +
+      '-' +
+      createdDate?.getDate()
+
+    daily[day] = daily[day] || {
+      conversations: 0,
+      resolvedConfirmed: 0,
+      resolvedAssumed: 0,
+      unresolved: 0,
+      escalatedHandled: 0,
+      escalatedTriggered: 0,
+      sentimentPositive: 0,
+      sentimentNegative: 0,
+      sentimentNeutral: 0,
+      answered: 0,
+      unanswered: 0,
+    }
+
+    // Count total conversations
+    monthly.conversations += 1
+    daily[day].conversations += 1
+
+    // Track resolved states
+    if (conversationData?.resolved === 'confirmed') {
+      monthly.resolvedConfirmed += 1
+      daily[day].resolvedConfirmed += 1
+    } else if (conversationData?.resolved === 'assumed') {
+      monthly.resolvedAssumed += 1
+      daily[day].resolvedAssumed += 1
+    } else if (conversationData?.resolved === 'unresolved') {
+      monthly.unresolved += 1
+      daily[day].unresolved += 1
+    }
+
+    // Track escalation states
+    if (conversationData?.escalated === 'handled') {
+      monthly.escalatedHandled += 1
+      daily[day].escalatedHandled += 1
+    } else if (conversationData?.escalated === 'triggered') {
+      monthly.escalatedTriggered += 1
+      daily[day].escalatedTriggered += 1
+    }
+
+    // Track sentiment
+    if (conversationData?.sentiment === 'positive') {
+      monthly.sentimentPositive += 1
+      daily[day].sentimentPositive += 1
+    } else if (conversationData?.sentiment === 'negative') {
+      monthly.sentimentNegative += 1
+      daily[day].sentimentNegative += 1
+    } else if (conversationData?.sentiment === 'neutral') {
+      monthly.sentimentNeutral += 1
+      daily[day].sentimentNeutral += 1
+    }
+
+    // Track answered status
+    if (conversationData?.answered === true) {
+      monthly.answered += 1
+      daily[day].answered += 1
+    } else if (conversationData?.answered === false) {
+      monthly.unanswered += 1
+      daily[day].unanswered += 1
+    }
+  })
+
+  return {
+    monthly,
+    daily,
+  }
+}
+
 export async function getBot(teamId, botId) {
   // Sanity check for valid parameters
   if (
