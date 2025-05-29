@@ -450,16 +450,16 @@ export function getStats(doc, timeDelta) {
 
     // Calculate daily CSAT (confirmed + assumed resolved / total with resolution status)
     const dayTotalResolved = dayResolvedConfirmed + dayResolvedAssumed + dayUnresolved
-    const dayCsat = dayTotalResolved > 0 ? Math.round(((dayResolvedConfirmed + dayResolvedAssumed) / dayTotalResolved) * 100) : 0
+    const dayCsat = dayTotalResolved > 0 ? Math.round(((dayResolvedConfirmed + dayResolvedAssumed) / dayTotalResolved) * 100) : null
     csatData.push(dayCsat)
 
     // Calculate daily conversation deflection rate (conversations not escalated to handled / total conversations)
-    const dayDeflectionRate = dayConversations > 0 ? Math.round(((dayConversations - dayEscalatedHandled) / dayConversations) * 100) : 0
+    const dayDeflectionRate = dayConversations > 0 ? Math.round(((dayConversations - dayEscalatedHandled) / dayConversations) * 100) : null
     conversationDeflectionData.push(dayDeflectionRate)
 
     // Calculate daily average sentiment score (positive=1, neutral=0, negative=-1)
     const dayTotalSentiment = daySentimentPositive + daySentimentNegative + daySentimentNeutral
-    let dayAvgSentiment = 0
+    let dayAvgSentiment = null
     if (dayTotalSentiment > 0) {
       const sentimentScore = (daySentimentPositive * 1) + (daySentimentNeutral * 0) + (daySentimentNegative * -1)
       dayAvgSentiment = Math.round((sentimentScore / dayTotalSentiment) * 100) / 100 // Round to 2 decimal places
@@ -468,7 +468,7 @@ export function getStats(doc, timeDelta) {
 
     // Calculate daily answered rate (answered / total with answer status)
     const dayTotalAnswered = dayAnswered + dayUnanswered
-    const dayAnsweredRate = dayTotalAnswered > 0 ? Math.round((dayAnswered / dayTotalAnswered) * 100) : 0
+    const dayAnsweredRate = dayTotalAnswered > 0 ? Math.round((dayAnswered / dayTotalAnswered) * 100) : null
     answeredRateData.push(dayAnsweredRate)
 
     totalConversations += dayConversations
@@ -509,19 +509,19 @@ export function getStats(doc, timeDelta) {
 
   // Calculate total CSAT, deflection rate, and average sentiment
   const totalClassifiedResolved = totalResolvedConfirmed + totalResolvedAssumed + totalUnresolved
-  const totalCsat = totalClassifiedResolved > 0 ? Math.round(((totalResolvedConfirmed + totalResolvedAssumed) / totalClassifiedResolved) * 100) : 0
+  const totalCsat = totalClassifiedResolved > 0 ? Math.round(((totalResolvedConfirmed + totalResolvedAssumed) / totalClassifiedResolved) * 100) : null
   
-  const totalConversationDeflectionRate = totalConversations > 0 ? Math.round(((totalConversations - totalEscalatedHandled) / totalConversations) * 100) : 0
+  const totalConversationDeflectionRate = totalConversations > 0 ? Math.round(((totalConversations - totalEscalatedHandled) / totalConversations) * 100) : null
   
   const totalClassifiedSentiment = totalSentimentPositive + totalSentimentNegative + totalSentimentNeutral
-  let totalAvgSentiment = 0
+  let totalAvgSentiment = null
   if (totalClassifiedSentiment > 0) {
-    const totalSentimentScore = (totalSentimentPositive * 100) + (totalSentimentNeutral * 50) + (totalSentimentNegative * 0)
-    totalAvgSentiment = Math.round((totalSentimentScore / totalClassifiedSentiment)) // Convert to percentage
+    const totalSentimentScore = (totalSentimentPositive * 1) + (totalSentimentNeutral * 0) + (totalSentimentNegative * -1)
+    totalAvgSentiment = Math.round((totalSentimentScore / totalClassifiedSentiment) * 100) / 100 // Round to 2 decimal places
   }
 
   const totalClassifiedAnswered = totalAnswered + totalUnanswered
-  const totalAnsweredRate = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : 0
+  const totalAnsweredRate = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : null
 
   // fix 'NaN' strings
   if (totalCount === 0 && totalConversations === 0) {
@@ -575,10 +575,10 @@ export function getStats(doc, timeDelta) {
       csatData,
       conversationDeflectionData,
       avgSentimentData,
-      totalCsat: 0,
-      totalConversationDeflectionRate: 0,
-      totalAvgSentiment: 0,
-      totalAnsweredRate: 0,
+      totalCsat: null,
+      totalConversationDeflectionRate: null,
+      totalAvgSentiment: null,
+      totalAnsweredRate: null,
       answeredRateData,
     }
   }
@@ -616,40 +616,40 @@ export function getStats(doc, timeDelta) {
   // Conversation percentages - only calculate based on classified data
   const totalClassifiedEscalated = totalEscalatedHandled + totalEscalatedTriggered
 
-  const resolvedConfirmed = totalClassifiedResolved > 0 ? Math.round((totalResolvedConfirmed / totalClassifiedResolved) * 100) : 0
-  const resolvedAssumed = totalClassifiedResolved > 0 ? Math.round((totalResolvedAssumed / totalClassifiedResolved) * 100) : 0
-  const unresolved = totalClassifiedResolved > 0 ? Math.round((totalUnresolved / totalClassifiedResolved) * 100) : 0
+  const resolvedConfirmed = totalClassifiedResolved > 0 ? Math.round((totalResolvedConfirmed / totalClassifiedResolved) * 100) : null
+  const resolvedAssumed = totalClassifiedResolved > 0 ? Math.round((totalResolvedAssumed / totalClassifiedResolved) * 100) : null
+  const unresolved = totalClassifiedResolved > 0 ? Math.round((totalUnresolved / totalClassifiedResolved) * 100) : null
   
-  const escalatedHandled = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedHandled / totalClassifiedEscalated) * 100) : 0
-  const escalatedTriggered = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedTriggered / totalClassifiedEscalated) * 100) : 0
+  const escalatedHandled = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedHandled / totalClassifiedEscalated) * 100) : null
+  const escalatedTriggered = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedTriggered / totalClassifiedEscalated) * 100) : null
   
-  const sentimentPositive = totalClassifiedSentiment > 0 ? Math.round((totalSentimentPositive / totalClassifiedSentiment) * 100) : 0
-  const sentimentNegative = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNegative / totalClassifiedSentiment) * 100) : 0
-  const sentimentNeutral = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNeutral / totalClassifiedSentiment) * 100) : 0
+  const sentimentPositive = totalClassifiedSentiment > 0 ? Math.round((totalSentimentPositive / totalClassifiedSentiment) * 100) : null
+  const sentimentNegative = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNegative / totalClassifiedSentiment) * 100) : null
+  const sentimentNeutral = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNeutral / totalClassifiedSentiment) * 100) : null
   
-  const answered = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : 0
-  const unanswered = totalClassifiedAnswered > 0 ? Math.round((totalUnanswered / totalClassifiedAnswered) * 100) : 0
+  const answered = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : null
+  const unanswered = totalClassifiedAnswered > 0 ? Math.round((totalUnanswered / totalClassifiedAnswered) * 100) : null
 
   const resolvedLabels = [
-    `${resolvedConfirmed}% Confirmed`,
-    `${resolvedAssumed}% Assumed`,
-    `${unresolved}% Unresolved`,
+    `${resolvedConfirmed || 0}% Confirmed`,
+    `${resolvedAssumed || 0}% Assumed`,
+    `${unresolved || 0}% Unresolved`,
   ]
 
   const conversationEscalatedLabels = [
-    `${escalatedHandled}% Handled`,
-    `${escalatedTriggered}% Triggered`,
+    `${escalatedHandled || 0}% Handled`,
+    `${escalatedTriggered || 0}% Triggered`,
   ]
 
   const sentimentLabels = [
-    `${sentimentPositive}% Positive`,
-    `${sentimentNegative}% Negative`,
-    `${sentimentNeutral}% Neutral`,
+    `${sentimentPositive || 0}% Positive`,
+    `${sentimentNegative || 0}% Negative`,
+    `${sentimentNeutral || 0}% Neutral`,
   ]
 
   const conversationAnsweredLabels = [
-    `${answered}% Answered`,
-    `${unanswered}% Unanswered`,
+    `${answered || 0}% Answered`,
+    `${unanswered || 0}% Unanswered`,
   ]
 
   let resolutionRate = (
@@ -673,7 +673,7 @@ export function getStats(doc, timeDelta) {
   )
   let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
-  return {
+  const finalStats = {
     // Question stats (existing)
     countData,
     messagesData,
@@ -725,6 +725,10 @@ export function getStats(doc, timeDelta) {
     totalAnsweredRate,
     answeredRateData,
   }
+
+  console.log(finalStats)
+
+  return finalStats
 }
 
 export function checkSourceScheduledFromInterval(team, interval) {

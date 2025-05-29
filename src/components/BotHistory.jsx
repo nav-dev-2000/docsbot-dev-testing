@@ -214,11 +214,11 @@ export default function BotHistory({ team, bot }) {
     if (checkPlanPermission(team, 'business').allowed) {
       conversationDatasets.push({
         label: 'Avg Sentiment',
-        data: stats.avgSentimentData.map((val) => (val + 1) * 50), // Convert -1 to 1 scale to 0-100 for display
+        data: stats.avgSentimentData, // Use raw sentiment values (-1 to 1)
         borderColor: '#EDC948',
-        backgroundColor: 'rgba(237, 201, 72, 0.1)',
         tension: 0.3,
-        fill: true,
+        fill: false,
+        yAxisID: 'y1', // Use second y-axis
       })
     }
 
@@ -468,12 +468,12 @@ export default function BotHistory({ team, bot }) {
                   </div>
                 </Tooltip>
                 <Tooltip content="Customer Satisfaction Score - percentage of conversations marked as resolved">
-                  <div className="flex cursor-help flex-col bg-pink-50 p-8 hover:bg-pink-100">
+                  <div className="flex cursor-help flex-col justify-center bg-pink-50 p-8 hover:bg-pink-100">
                     <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
                       CSAT
                     </dt>
                     <dd className="order-first">
-                      {stats.totalCsat != 0 ? (
+                      {stats.totalCsat != null ? (
                         <div className="space-y-2">
                           <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
                             {stats.totalCsat}%
@@ -483,10 +483,12 @@ export default function BotHistory({ team, bot }) {
                             color="pink"
                             size="lg"
                             showValue={false}
+                            isSentiment={true}
+                            gradientType="satisfaction"
                           />
                         </div>
                       ) : (
-                        <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        <div className="h-12 text-3xl font-semibold tracking-tight text-gray-900">
                           N/A
                         </div>
                       )}
@@ -494,12 +496,12 @@ export default function BotHistory({ team, bot }) {
                   </div>
                 </Tooltip>
                 <Tooltip content="Percentage of conversations where the agent could provide an answer">
-                  <div className="flex cursor-help flex-col bg-green-50 p-8 hover:bg-green-100">
+                  <div className="flex cursor-help flex-col justify-center bg-green-50 p-8 hover:bg-green-100">
                     <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
                       Answered Rate
                     </dt>
                     <dd className="order-first">
-                      {stats.totalAnsweredRate != 0 ? (
+                      {stats.totalAnsweredRate != null ? (
                         <div className="space-y-2">
                           <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
                             {stats.totalAnsweredRate}%
@@ -513,7 +515,7 @@ export default function BotHistory({ team, bot }) {
                           />
                         </div>
                       ) : (
-                        <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        <div className="h-12 text-3xl font-semibold tracking-tight text-gray-900">
                           N/A
                         </div>
                       )}
@@ -521,12 +523,12 @@ export default function BotHistory({ team, bot }) {
                   </div>
                 </Tooltip>
                 <Tooltip content="Percentage of conversations not escalated to human support, based on handled/confirmed escalations">
-                  <div className="flex cursor-help flex-col bg-purple-50 p-8 hover:bg-purple-100">
+                  <div className="flex cursor-help flex-col justify-center bg-purple-50 p-8 hover:bg-purple-100">
                     <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
                       Deflection Rate
                     </dt>
                     <dd className="order-first">
-                      {stats.totalConversationDeflectionRate != 0 ? (
+                      {stats.totalConversationDeflectionRate != null ? (
                         <div className="space-y-2">
                           <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
                             {stats.totalConversationDeflectionRate}%
@@ -540,15 +542,15 @@ export default function BotHistory({ team, bot }) {
                           />
                         </div>
                       ) : (
-                        <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        <div className="h-12 text-3xl font-semibold tracking-tight text-gray-900">
                           N/A
                         </div>
                       )}
                     </dd>
                   </div>
                 </Tooltip>
-                <Tooltip content="Average sentiment score from 0% (negative) to 100% (positive)">
-                  <div className="flex cursor-help flex-col bg-yellow-50 p-8 hover:bg-yellow-100">
+                <Tooltip content="Average sentiment score from -1 (negative) to 1 (positive)">
+                  <div className="flex cursor-help flex-col justify-center bg-yellow-50 p-8 hover:bg-yellow-100">
                     <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
                       Avg Sentiment
                     </dt>
@@ -580,16 +582,20 @@ export default function BotHistory({ team, bot }) {
                             </button>
                           </div>
                         </div>
-                      ) : stats.totalAvgSentiment != 0 ? (
+                      ) : stats.totalAvgSentiment != null ? (
                         <div className="space-y-2">
                           <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
-                            {stats.totalAvgSentiment}%
+                            {stats.totalAvgSentiment.toFixed(2)}
                           </div>
                           <Meter
-                            value={stats.totalAvgSentiment}
+                            value={(stats.totalAvgSentiment + 1) * 50}
                             color="yellow"
                             size="lg"
                             showValue={false}
+                            showEmoji={false}
+                            showFullGradient={true}
+                            isSentiment={true}
+                            gradientType="sentiment"
                           />
                         </div>
                       ) : (
@@ -659,6 +665,7 @@ export default function BotHistory({ team, bot }) {
                           options={{
                             maintainAspectRatio: false,
                             responsive: true,
+                            spanGaps: true,
                             plugins: {
                               legend: {
                                 display: true,
@@ -672,6 +679,23 @@ export default function BotHistory({ team, bot }) {
                                   callback: function (value) {
                                     return value + '%'
                                   },
+                                },
+                              },
+                              y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                min: -1,
+                                max: 1,
+                                ticks: {
+                                  stepSize: 0.5,
+                                },
+                                grid: {
+                                  drawOnChartArea: false,
+                                },
+                                title: {
+                                  display: true,
+                                  text: 'Sentiment Score',
                                 },
                               },
                             },
