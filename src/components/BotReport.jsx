@@ -279,7 +279,7 @@ export default function BotReport({ team, bot }) {
       <div className="mb-12">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               Question Topic Report
             </h2>
             <p className="mt-4 text-gray-500">

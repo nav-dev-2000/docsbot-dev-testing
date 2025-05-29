@@ -10,6 +10,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
 import Tooltip from '@/components/Tooltip'
+import Meter from '@/components/Meter'
 
 const intervals = [
   { value: 7, title: 'Week' },
@@ -28,9 +29,26 @@ export default function TeamHistory({ team }) {
   const [pieData, setPieData] = useState(null)
   const [escalatedPieData, setEscalatedPieData] = useState(null)
   const [answerPieData, setAnswerPieData] = useState(null)
+  // Conversation chart data
+  const [conversationPercentLineData, setConversationPercentLineData] =
+    useState(null)
+  const [conversationCountLineData, setConversationCountLineData] =
+    useState(null)
+  const [conversationResolvedPieData, setConversationResolvedPieData] =
+    useState(null)
+  const [conversationEscalatedPieData, setConversationEscalatedPieData] =
+    useState(null)
+  const [conversationSentimentPieData, setConversationSentimentPieData] =
+    useState(null)
+  const [conversationAnsweredPieData, setConversationAnsweredPieData] =
+    useState(null)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
     return !checkPlanPermission(team, 'pro').allowed
+  })
+  // blur for business plan features (sentiment)
+  const [businessBlurEnabled, setBusinessBlurEnabled] = useState(() => {
+    return !checkPlanPermission(team, 'business').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 
@@ -126,6 +144,148 @@ export default function TeamHistory({ team }) {
         ],
       })
     }
+
+    // Set up conversation chart data
+    // Conversation percentage line chart (CSAT, answered rate, deflection rate, avg sentiment)
+    const conversationDatasets = [
+      {
+        label: 'CSAT %',
+        data: stats.csatData,
+        borderColor: '#59A14F',
+        backgroundColor: 'rgba(89, 161, 79, 0.1)',
+        tension: 0.3,
+        fill: true,
+      },
+      {
+        label: 'Answered %',
+        data: stats.answeredRateData,
+        borderColor: '#76B7B2',
+        backgroundColor: 'rgba(118, 183, 178, 0.1)',
+        tension: 0.3,
+        fill: true,
+      },
+      {
+        label: 'Deflection %',
+        data: stats.conversationDeflectionData,
+        borderColor: '#9e74d5',
+        backgroundColor: 'rgba(158, 116, 213, 0.1)',
+        tension: 0.3,
+        fill: true,
+      },
+    ]
+
+    // Only add sentiment data if business plan is allowed
+    if (checkPlanPermission(team, 'business').allowed) {
+      conversationDatasets.push({
+        label: 'Avg Sentiment',
+        data: stats.avgSentimentData, // Use raw sentiment values (-1 to 1)
+        borderColor: '#EDC948',
+        tension: 0.3,
+        fill: false,
+        yAxisID: 'y1', // Use second y-axis
+      })
+    }
+
+    setConversationPercentLineData({
+      labels: stats.labels,
+      datasets: conversationDatasets,
+    })
+
+    // Conversation count line chart
+    setConversationCountLineData({
+      labels: stats.labels,
+      datasets: [
+        {
+          label: 'Total Conversations',
+          data: stats.conversationData,
+          borderColor: '#76B7B2',
+          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Resolved Confirmed',
+          data: stats.resolvedConfirmedData,
+          borderColor: '#59A14F',
+          backgroundColor: 'rgba(89, 161, 79, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Resolved Assumed',
+          data: stats.resolvedAssumedData,
+          borderColor: '#9e74d5',
+          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Unresolved',
+          data: stats.unresolvedData,
+          borderColor: '#E15759',
+          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Escalated Handled',
+          data: stats.escalatedHandledData,
+          borderColor: '#EDC948',
+          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+        {
+          label: 'Escalated Triggered',
+          data: stats.escalatedTriggeredData,
+          borderColor: '#9CA3AF',
+          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          tension: 0.3,
+          fill: true,
+        },
+      ],
+    })
+
+    // Conversation pie charts
+    setConversationResolvedPieData({
+      labels: stats.resolvedLabels,
+      datasets: [
+        {
+          data: stats.resolvedCounts,
+          backgroundColor: ['#59A14F', '#76B7B2', '#E15759'],
+        },
+      ],
+    })
+
+    setConversationEscalatedPieData({
+      labels: stats.conversationEscalatedLabels,
+      datasets: [
+        {
+          data: stats.conversationEscalatedCounts,
+          backgroundColor: ['#E15759', '#EDC948'],
+        },
+      ],
+    })
+
+    setConversationAnsweredPieData({
+      labels: stats.conversationAnsweredLabels,
+      datasets: [
+        {
+          data: stats.conversationAnsweredCounts,
+          backgroundColor: ['#76B7B2', '#E15759'],
+        },
+      ],
+    })
+
+    setConversationSentimentPieData({
+      labels: stats.sentimentLabels,
+      datasets: [
+        {
+          data: stats.sentimentCounts,
+          backgroundColor: ['#59A14F', '#E15759', '#9CA3AF'],
+        },
+      ],
+    })
   }, [stats])
 
   useEffect(() => {
@@ -223,11 +383,427 @@ export default function TeamHistory({ team }) {
 
       {stats && (
         <>
+          {/* Conversation Analytics Panel */}
+          <div className="mb-8">
+            <h3 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">
+              Conversation Analytics
+            </h3>
+            <p className="mb-6 text-gray-500">
+              Analytics about conversations and their outcomes across all team bots, including
+              resolution status, sentiment, and escalations. Only tracked when using agent mode.
+            </p>
+
+            {/* Conversation Metrics Table */}
+            <dl className="mb-6 grid grid-cols-2 gap-0.5 overflow-hidden rounded-2xl text-center lg:grid-cols-3 xl:grid-cols-6">
+              <Tooltip content="Total number of messages during the selected time period, counting towards your plan's message limit.">
+                <div className="flex cursor-help flex-col items-center justify-center bg-gray-50 p-8 hover:bg-gray-100">
+                  <dd className="text-3xl font-semibold tracking-tight text-gray-900">
+                    <LocalStringNum value={stats.totalMessages} />
+                  </dd>
+                  <dt className="text-sm font-semibold leading-6 text-gray-600">
+                    Messages
+                  </dt>
+                </div>
+              </Tooltip>
+              <Tooltip content="Total number of conversations across all team bots in the selected time period">
+                <div className="flex cursor-help flex-col items-center justify-center bg-indigo-50 p-8 hover:bg-indigo-100">
+                  <dd className="text-3xl font-semibold tracking-tight text-gray-900">
+                    <LocalStringNum value={stats.totalConversations} />
+                  </dd>
+                  <dt className="text-sm font-semibold leading-6 text-gray-600">
+                    Conversations
+                  </dt>
+                </div>
+              </Tooltip>
+              <Tooltip content="Customer Satisfaction Score - percentage of conversations marked as resolved">
+                <div className="flex cursor-help flex-col justify-center bg-pink-50 p-8 hover:bg-pink-100">
+                  <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
+                    CSAT
+                  </dt>
+                  <dd className="order-first">
+                    {stats.totalCsat != null ? (
+                      <div className="space-y-2">
+                        <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
+                          {stats.totalCsat}%
+                        </div>
+                        <Meter
+                          value={stats.totalCsat}
+                          color="pink"
+                          size="lg"
+                          showValue={false}
+                          isSentiment={true}
+                          gradientType="satisfaction"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        N/A
+                      </div>
+                    )}
+                  </dd>
+                </div>
+              </Tooltip>
+              <Tooltip content="Percentage of conversations where the agent could provide an answer">
+                <div className="flex cursor-help flex-col justify-center bg-green-50 p-8 hover:bg-green-100">
+                  <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
+                    Answered Rate
+                  </dt>
+                  <dd className="order-first">
+                    {stats.totalAnsweredRate != null ? (
+                      <div className="space-y-2">
+                        <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
+                          {stats.totalAnsweredRate}%
+                        </div>
+                        <Meter
+                          value={stats.totalAnsweredRate}
+                          color="green"
+                          size="lg"
+                          showValue={false}
+                          showEmoji={false}
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        N/A
+                      </div>
+                    )}
+                  </dd>
+                </div>
+              </Tooltip>
+              <Tooltip content="Percentage of conversations not escalated to human support, based on handled/confirmed escalations">
+                <div className="flex cursor-help flex-col justify-center bg-purple-50 p-8 hover:bg-purple-100">
+                  <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
+                    Deflection Rate
+                  </dt>
+                  <dd className="order-first">
+                    {stats.totalConversationDeflectionRate != null ? (
+                      <div className="space-y-2">
+                        <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
+                          {stats.totalConversationDeflectionRate}%
+                        </div>
+                        <Meter
+                          value={stats.totalConversationDeflectionRate}
+                          color="purple"
+                          size="lg"
+                          showValue={false}
+                          showEmoji={false}
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        N/A
+                      </div>
+                    )}
+                  </dd>
+                </div>
+              </Tooltip>
+              <Tooltip content="Average sentiment score from -1 (negative) to 1 (positive)">
+                <div className="flex cursor-help flex-col justify-center bg-yellow-50 p-8 hover:bg-yellow-100">
+                  <dt className="mb-4 text-sm font-semibold leading-6 text-gray-600">
+                    Avg Sentiment
+                  </dt>
+                  <dd className="order-first">
+                    {businessBlurEnabled ? (
+                      <div className="relative space-y-2">
+                        <div className="blur-lg">
+                          <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
+                            85%
+                          </div>
+                          <Meter
+                            value={85}
+                            color="yellow"
+                            size="lg"
+                            showValue={false}
+                            showEmoji={false}
+                            showFullGradient={true}
+                            isSentiment={true}
+                            gradientType="sentiment"
+                          />
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <button
+                            type="button"
+                            className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-3 py-1 text-xs font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            onClick={(e) => setShowUpgrade(true)}
+                          >
+                            <CreditCardIcon
+                              className="mr-1 h-3 w-3 flex-shrink-0"
+                              aria-hidden="true"
+                            />
+                            Upgrade to Business
+                          </button>
+                        </div>
+                      </div>
+                    ) : stats.totalAvgSentiment != null ? (
+                      <div className="space-y-2">
+                        <div className="text-center text-2xl font-semibold tracking-tight text-gray-900">
+                          {stats.totalAvgSentiment.toFixed(2)}
+                        </div>
+                        <Meter
+                          value={(stats.totalAvgSentiment + 1) * 50}
+                          color="yellow"
+                          size="lg"
+                          showValue={false}
+                          showEmoji={false}
+                          showFullGradient={true}
+                          isSentiment={true}
+                          gradientType="sentiment"
+                        />
+                      </div>
+                    ) : (
+                      <div className="text-3xl font-semibold tracking-tight text-gray-900">
+                        N/A
+                      </div>
+                    )}
+                  </dd>
+                </div>
+              </Tooltip>
+            </dl>
+
+            <div className="relative">
+              {blurEnabled && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <div className="max-w-3xl rounded-lg bg-white/90 p-8 text-center shadow-lg backdrop-blur-sm">
+                    <h3 className="mb-4 text-3xl font-bold">
+                      View advanced conversation statistics
+                    </h3>
+                    <p className="mb-8 text-center text-gray-700">
+                      Upgrade to the Pro plan or higher to unlock advanced
+                      conversation statistics. View{' '}
+                      <Link
+                        href="/pricing"
+                        target="_blank"
+                        className="underline"
+                      >
+                        plan details
+                      </Link>
+                      .
+                    </p>
+                    <button
+                      type="button"
+                      className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={(e) => setShowUpgrade(true)}
+                    >
+                      <CreditCardIcon
+                        className="mr-1.5 h-5 w-5 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      Upgrade Plan
+                    </button>
+                    <ModalCheckout
+                      team={team}
+                      open={showUpgrade}
+                      setOpen={setShowUpgrade}
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div
+                className={classNames(
+                  'space-y-6',
+                  blurEnabled ? 'blur-lg' : ''
+                )}
+              >
+                {/* Conversation Percentage Line Chart */}
+                <div className="w-full">
+                  <h4 className="mb-4 text-lg font-semibold text-gray-900">
+                    Daily Conversation Metrics (%)
+                  </h4>
+                  {conversationPercentLineData && (
+                    <div style={{ height: '320px', width: '100%' }}>
+                      <Line
+                        data={conversationPercentLineData}
+                        options={{
+                          maintainAspectRatio: false,
+                          responsive: true,
+                          spanGaps: true,
+                          plugins: {
+                            legend: {
+                              display: true,
+                            },
+                          },
+                          scales: {
+                            y: {
+                              beginAtZero: true,
+                              max: 100,
+                              ticks: {
+                                callback: function (value) {
+                                  return value + '%'
+                                },
+                              },
+                            },
+                            y1: {
+                              type: 'linear',
+                              display: true,
+                              position: 'right',
+                              min: -1,
+                              max: 1,
+                              ticks: {
+                                stepSize: 0.5,
+                              },
+                              grid: {
+                                drawOnChartArea: false,
+                              },
+                              title: {
+                                display: true,
+                                text: 'Sentiment Score',
+                              },
+                            },
+                          },
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Conversation Count Line Chart */}
+                <div className="mt-8 w-full">
+                  <h4 className="mb-4 text-lg font-semibold text-gray-900">
+                    Daily Conversation Counts
+                  </h4>
+                  {conversationCountLineData && (
+                    <div style={{ height: '320px', width: '100%' }}>
+                      <Line
+                        data={conversationCountLineData}
+                        options={{
+                          maintainAspectRatio: false,
+                          responsive: true,
+                          plugins: {
+                            legend: {
+                              display: true,
+                            },
+                          },
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Conversation Pie Charts */}
+                <div className="grid grid-cols-1 items-center space-x-4 align-middle md:grid-cols-2 xl:grid-cols-4">
+                  <Tooltip content="Shows the breakdown of conversation outcomes: Confirmed (customer confirmed), Assumed (AI classified), and Unresolved (AI or user classified)">
+                    <div className="m-auto mt-6 flex h-80 justify-center">
+                      <div className="text-center">
+                        <h5 className="text-md mb-2 font-semibold text-gray-900">
+                          Resolution Status
+                        </h5>
+                        {conversationResolvedPieData && (
+                          <Pie
+                            data={conversationResolvedPieData}
+                            options={{
+                              maintainAspectRatio: true,
+                              responsive: true,
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </Tooltip>
+                  <Tooltip content="Among all escalations, shows the breakdown of escalation outcomes: Triggered (AI detected intent to escalate) vs Handled (user confirmed and escalated)">
+                    <div className="m-auto mt-6 flex h-80 justify-center">
+                      <div className="text-center">
+                        <h5 className="text-md mb-2 font-semibold text-gray-900">
+                          Escalation Status
+                        </h5>
+                        {conversationEscalatedPieData && (
+                          <Pie
+                            data={conversationEscalatedPieData}
+                            options={{
+                              maintainAspectRatio: true,
+                              responsive: true,
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </Tooltip>
+                  <Tooltip content="Shows how often the AI agent determined it could provide an answer, whether to a question or just responding to user.">
+                    <div className="m-auto mt-6 flex h-80 justify-center">
+                      <div className="text-center">
+                        <h5 className="text-md mb-2 font-semibold text-gray-900">
+                          Answered Status
+                        </h5>
+                        {conversationAnsweredPieData && (
+                          <Pie
+                            data={conversationAnsweredPieData}
+                            options={{
+                              maintainAspectRatio: true,
+                              responsive: true,
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </Tooltip>
+                  <Tooltip content="Shows the emotional tone of conversations: Positive (satisfied customers), Negative (frustrated customers), and Neutral (no clear sentiment)">
+                    <div className="m-auto mt-6 flex h-80 justify-center">
+                      <div className="text-center">
+                        <h5 className="text-md mb-2 font-semibold text-gray-900">
+                          Sentiment Distribution
+                        </h5>
+                        {businessBlurEnabled ? (
+                          <div className="relative space-y-2">
+                            <div className="flex items-center justify-center blur-lg">
+                              {conversationSentimentPieData && (
+                                <Pie
+                                  data={conversationSentimentPieData}
+                                  options={{
+                                    maintainAspectRatio: true,
+                                    responsive: true,
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <button
+                                type="button"
+                                className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-3 py-1 text-xs font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                onClick={(e) => setShowUpgrade(true)}
+                              >
+                                <CreditCardIcon
+                                  className="mr-1 h-3 w-3 flex-shrink-0"
+                                  aria-hidden="true"
+                                />
+                                Upgrade to Business
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          conversationSentimentPieData && (
+                            <Pie
+                              data={conversationSentimentPieData}
+                              options={{
+                                maintainAspectRatio: true,
+                                responsive: true,
+                              }}
+                            />
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </Tooltip>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Question Analytics Panel */}
+          <div className="mb-8 mt-24">
+            <h3 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">
+              Question Analytics
+            </h3>
+            <p className="mb-6 text-gray-500">
+              Analytics about individual questions and their ratings across all team bots. In Agent
+              mode, this only includes questions that trigger a documentation lookup.
+            </p>
+          </div>
+
           <dl className="mt-6 grid grid-cols-2 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-3">
             <Tooltip content="All messages that count towards your plan limits, including tool calls">
               <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
-                  Total Messages
+                  Messages
                 </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                   <LocalStringNum value={stats.totalMessages} />
@@ -290,13 +866,16 @@ export default function TeamHistory({ team }) {
             </Tooltip>
           </dl>
 
-          {blurEnabled && (
-            <div className="relative z-10 -mb-72 mt-32 w-full">
-              <div className="flex justify-center py-4 text-center">
-                <div className="max-w-3xl">
-                  <h3 className="text-3xl font-bold">View advanced team statistics</h3>
+          <div className="relative">
+            {blurEnabled && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <div className="max-w-3xl rounded-lg bg-white/90 p-8 text-center shadow-lg backdrop-blur-sm">
+                  <h3 className="mb-4 text-3xl font-bold">
+                    View advanced question statistics
+                  </h3>
                   <p className="mb-8 text-center text-gray-700">
-                    Upgrade to the Pro plan or higher to unlock advance question statistics. View{' '}
+                    Upgrade to the Pro plan or higher to unlock advanced
+                    question statistics. View{' '}
                     <Link href="/pricing" target="_blank" className="underline">
                       plan details
                     </Link>
@@ -304,68 +883,109 @@ export default function TeamHistory({ team }) {
                   </p>
                   <button
                     type="button"
-                    className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 "
+                    className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                     onClick={(e) => setShowUpgrade(true)}
                   >
-                    <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+                    <CreditCardIcon
+                      className="mr-1.5 h-5 w-5 flex-shrink-0"
+                      aria-hidden="true"
+                    />
                     Upgrade Plan
                   </button>
-                  <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+                  <ModalCheckout
+                    team={team}
+                    open={showUpgrade}
+                    setOpen={setShowUpgrade}
+                  />
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <div
-            className={classNames(
-              'items-center space-x-4 align-middle',
-              blurEnabled ? 'blur-lg' : ''
-            )}
-          >
-            <div className="mt-6 h-96 w-full">
-              {lineData && (
-                <Line data={lineData} options={{ maintainAspectRatio: false, responsive: true }} />
+            <div
+              className={classNames(
+                'items-center space-x-4 align-middle',
+                blurEnabled ? 'blur-lg' : ''
               )}
+            >
+              <div
+                style={{ height: '384px', width: '100%', marginTop: '1.5rem' }}
+              >
+                {lineData && (
+                  <Line
+                    data={lineData}
+                    options={{
+                      maintainAspectRatio: false,
+                      responsive: true,
+                      plugins: {
+                        legend: {
+                          display: true,
+                        },
+                      },
+                    }}
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <div
-            className={classNames(
-              'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
-              blurEnabled ? 'blur-lg' : ''
-            )}
-          >
-            <div className="m-auto mt-6 flex h-80 justify-center">
-              {pieData && (
-                <Pie
-                  data={pieData}
-                  options={{
-                    maintainAspectRatio: true,
-                    responsive: true,
-                  }}
-                />
+            <div
+              className={classNames(
+                'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
+                blurEnabled ? 'blur-lg' : ''
               )}
-            </div>
-            <div className="m-auto mt-6 flex h-80 justify-center">
-              {escalatedPieData && (
-                <Pie
-                  data={escalatedPieData}
-                  options={{
-                    maintainAspectRatio: true,
-                    responsive: true,
-                  }}
-                />
-              )}
-            </div>
-            <div className="m-auto mt-6 flex h-80 justify-center">
-              {answerPieData && (
-                <Pie
-                  data={answerPieData}
-                  options={{
-                    maintainAspectRatio: true,
-                    responsive: true,
-                  }}
-                />
-              )}
+            >
+              <Tooltip content="Shows the breakdown of user feedback on answers: Positive (thumbs up), Negative (thumbs down), and No Rating (no feedback given)">
+                <div className="m-auto mt-6 flex h-80 justify-center">
+                  <div className="text-center">
+                    <h5 className="text-md mb-2 font-semibold text-gray-900">
+                      Answer Ratings
+                    </h5>
+                    {pieData && (
+                      <Pie
+                        data={pieData}
+                        options={{
+                          maintainAspectRatio: true,
+                          responsive: true,
+                        }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </Tooltip>
+              <Tooltip content="Shows the breakdown of escalation outcomes: Escalated (user requested human support) vs Not Escalated (conversation stayed with AI)">
+                <div className="m-auto mt-6 flex h-80 justify-center">
+                  <div className="text-center">
+                    <h5 className="text-md mb-2 font-semibold text-gray-900">
+                      Escalation Status
+                    </h5>
+                    {escalatedPieData && (
+                      <Pie
+                        data={escalatedPieData}
+                        options={{
+                          maintainAspectRatio: true,
+                          responsive: true,
+                        }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </Tooltip>
+              <Tooltip content="Shows how often the AI determined it could provide a confident answer to user questions">
+                <div className="m-auto mt-6 flex h-80 justify-center">
+                  <div className="text-center">
+                    <h5 className="text-md mb-2 font-semibold text-gray-900">
+                      Answer Status
+                    </h5>
+                    {answerPieData && (
+                      <Pie
+                        data={answerPieData}
+                        options={{
+                          maintainAspectRatio: true,
+                          responsive: true,
+                        }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </Tooltip>
             </div>
           </div>
         </>

@@ -382,8 +382,8 @@ function Widget({ team, bot }) {
                         </Alert>
                       )}
                       <FieldToggle
-                        label="Enable Agentic Mode"
-                        description="Enable agentic mode to allow the bot to use tools in the widget."
+                        label="Enable Agent Mode"
+                        description="Enable agent mode to allow the bot to use tools in the widget, and track conversations."
                         enabled={isAgent}
                         setEnabled={handleAgentToggle}
                         disabled={isUpdating}

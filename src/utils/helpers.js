@@ -224,8 +224,10 @@ export function getStats(doc, timeDelta) {
   const millisecondDelta = timeDelta * 24 * 60 * 60 * 1000 // convert to milliseconds
 
   let dateCounts = {}
+  let conversationCounts = {}
   let isMonthly = false
   const currDate = new Date()
+  
   if (timeDelta > 30 && doc?.questionHistory) {
     // scrape monthly data
     for (const dateKey in doc.questionHistory) {
@@ -241,6 +243,29 @@ export function getStats(doc, timeDelta) {
           couldAnswer: data?.couldAnswer || null,
           couldNotAnswer: data?.couldNotAnswer || null,
           escalated: data?.escalations || 0,
+        }
+      }
+    }
+
+    // scrape monthly conversation data
+    if (doc?.conversationHistory) {
+      for (const dateKey in doc.conversationHistory) {
+        const date = new Date(`${dateKey}-1`)
+        if (date.getTime() > currDate.getTime() - millisecondDelta) {
+          const data = doc.conversationHistory[dateKey]
+          conversationCounts[dateKey] = {
+            conversations: data.conversations || 0,
+            resolvedConfirmed: data.resolvedConfirmed || 0,
+            resolvedAssumed: data.resolvedAssumed || 0,
+            unresolved: data.unresolved || 0,
+            escalatedHandled: data.escalatedHandled || 0,
+            escalatedTriggered: data.escalatedTriggered || 0,
+            sentimentPositive: data.sentimentPositive || 0,
+            sentimentNegative: data.sentimentNegative || 0,
+            sentimentNeutral: data.sentimentNeutral || 0,
+            answered: data.answered || 0,
+            unanswered: data.unanswered || 0,
+          }
         }
       }
     }
@@ -265,9 +290,32 @@ export function getStats(doc, timeDelta) {
         }
       }
     }
+
+    // scrape daily conversation data
+    if (doc?.conversationHistoryDaily) {
+      for (const dateKey in doc.conversationHistoryDaily) {
+        const date = new Date(dateKey)
+        if (date.getTime() > currDate.getTime() - millisecondDelta) {
+          const data = doc.conversationHistoryDaily[dateKey]
+          conversationCounts[dateKey] = {
+            conversations: data.conversations || 0,
+            resolvedConfirmed: data.resolvedConfirmed || 0,
+            resolvedAssumed: data.resolvedAssumed || 0,
+            unresolved: data.unresolved || 0,
+            escalatedHandled: data.escalatedHandled || 0,
+            escalatedTriggered: data.escalatedTriggered || 0,
+            sentimentPositive: data.sentimentPositive || 0,
+            sentimentNegative: data.sentimentNegative || 0,
+            sentimentNeutral: data.sentimentNeutral || 0,
+            answered: data.answered || 0,
+            unanswered: data.unanswered || 0,
+          }
+        }
+      }
+    }
   }
 
-  // fill in missing dates
+  // fill in missing dates for both question and conversation data
   for (let i = 0; i < timeDelta; i++) {
     const date = isMonthly
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
@@ -275,6 +323,7 @@ export function getStats(doc, timeDelta) {
     const dateKey = isMonthly
       ? `${date.getFullYear()}-${date.getMonth() + 1}`
       : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    
     if (!dateCounts[dateKey]) {
       dateCounts[dateKey] = {
         count: 0,
@@ -286,9 +335,25 @@ export function getStats(doc, timeDelta) {
         escalated: 0,
       }
     }
+
+    if (!conversationCounts[dateKey]) {
+      conversationCounts[dateKey] = {
+        conversations: 0,
+        resolvedConfirmed: 0,
+        resolvedAssumed: 0,
+        unresolved: 0,
+        escalatedHandled: 0,
+        escalatedTriggered: 0,
+        sentimentPositive: 0,
+        sentimentNegative: 0,
+        sentimentNeutral: 0,
+        answered: 0,
+        unanswered: 0,
+      }
+    }
   }
 
-  // split data and labels
+  // split data and labels for questions
   let totalCount = 0,
     totalMessages = 0,
     totalNegative = 0,
@@ -304,6 +369,35 @@ export function getStats(doc, timeDelta) {
     couldNotAnswerData = [],
     escalatedData = [],
     labels = []
+
+  // split data for conversations
+  let totalConversations = 0,
+    totalResolvedConfirmed = 0,
+    totalResolvedAssumed = 0,
+    totalUnresolved = 0,
+    totalEscalatedHandled = 0,
+    totalEscalatedTriggered = 0,
+    totalSentimentPositive = 0,
+    totalSentimentNegative = 0,
+    totalSentimentNeutral = 0,
+    totalAnswered = 0,
+    totalUnanswered = 0
+  let conversationData = [],
+    resolvedConfirmedData = [],
+    resolvedAssumedData = [],
+    unresolvedData = [],
+    escalatedHandledData = [],
+    escalatedTriggeredData = [],
+    sentimentPositiveData = [],
+    sentimentNegativeData = [],
+    sentimentNeutralData = [],
+    answeredData = [],
+    unansweredData = [],
+    csatData = [],
+    conversationDeflectionData = [],
+    avgSentimentData = [],
+    answeredRateData = []
+
   for (let i = timeDelta - 1; i >= 0; i--) {
     const date = isMonthly
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
@@ -311,6 +405,8 @@ export function getStats(doc, timeDelta) {
     const dateKey = isMonthly
       ? `${date.getFullYear()}-${date.getMonth() + 1}`
       : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    
+    // Question data
     countData.push(dateCounts[dateKey].count)
     messagesData.push(dateCounts[dateKey].messages)
     negativeData.push(dateCounts[dateKey].negative)
@@ -327,6 +423,66 @@ export function getStats(doc, timeDelta) {
     totalCouldNotAnswer += dateCounts[dateKey].couldNotAnswer || 0
     totalEscalated += dateCounts[dateKey].escalated
 
+    // Conversation data
+    const dayConversations = conversationCounts[dateKey].conversations
+    const dayResolvedConfirmed = conversationCounts[dateKey].resolvedConfirmed
+    const dayResolvedAssumed = conversationCounts[dateKey].resolvedAssumed
+    const dayUnresolved = conversationCounts[dateKey].unresolved
+    const dayEscalatedHandled = conversationCounts[dateKey].escalatedHandled
+    const dayEscalatedTriggered = conversationCounts[dateKey].escalatedTriggered
+    const daySentimentPositive = conversationCounts[dateKey].sentimentPositive
+    const daySentimentNegative = conversationCounts[dateKey].sentimentNegative
+    const daySentimentNeutral = conversationCounts[dateKey].sentimentNeutral
+    const dayAnswered = conversationCounts[dateKey].answered
+    const dayUnanswered = conversationCounts[dateKey].unanswered
+
+    conversationData.push(dayConversations)
+    resolvedConfirmedData.push(dayResolvedConfirmed)
+    resolvedAssumedData.push(dayResolvedAssumed)
+    unresolvedData.push(dayUnresolved)
+    escalatedHandledData.push(dayEscalatedHandled)
+    escalatedTriggeredData.push(dayEscalatedTriggered)
+    sentimentPositiveData.push(daySentimentPositive)
+    sentimentNegativeData.push(daySentimentNegative)
+    sentimentNeutralData.push(daySentimentNeutral)
+    answeredData.push(dayAnswered)
+    unansweredData.push(dayUnanswered)
+
+    // Calculate daily CSAT (confirmed + assumed resolved / total with resolution status)
+    const dayTotalResolved = dayResolvedConfirmed + dayResolvedAssumed + dayUnresolved
+    const dayCsat = dayTotalResolved > 0 ? Math.round(((dayResolvedConfirmed + dayResolvedAssumed) / dayTotalResolved) * 100) : null
+    csatData.push(dayCsat)
+
+    // Calculate daily conversation deflection rate (conversations not escalated to handled / total conversations)
+    const dayDeflectionRate = dayConversations > 0 ? Math.round(((dayConversations - dayEscalatedHandled) / dayConversations) * 100) : null
+    conversationDeflectionData.push(dayDeflectionRate)
+
+    // Calculate daily average sentiment score (positive=1, neutral=0, negative=-1)
+    const dayTotalSentiment = daySentimentPositive + daySentimentNegative + daySentimentNeutral
+    let dayAvgSentiment = null
+    if (dayTotalSentiment > 0) {
+      const sentimentScore = (daySentimentPositive * 1) + (daySentimentNeutral * 0) + (daySentimentNegative * -1)
+      dayAvgSentiment = Math.round((sentimentScore / dayTotalSentiment) * 100) / 100 // Round to 2 decimal places
+    }
+    avgSentimentData.push(dayAvgSentiment)
+
+    // Calculate daily answered rate (answered / total with answer status)
+    const dayTotalAnswered = dayAnswered + dayUnanswered
+    const dayAnsweredRate = dayTotalAnswered > 0 ? Math.round((dayAnswered / dayTotalAnswered) * 100) : null
+    answeredRateData.push(dayAnsweredRate)
+
+    totalConversations += dayConversations
+    totalResolvedConfirmed += dayResolvedConfirmed
+    totalResolvedAssumed += dayResolvedAssumed
+    totalUnresolved += dayUnresolved
+    totalEscalatedHandled += dayEscalatedHandled
+    totalEscalatedTriggered += dayEscalatedTriggered
+    totalSentimentPositive += daySentimentPositive
+    totalSentimentNegative += daySentimentNegative
+    totalSentimentNeutral += daySentimentNeutral
+    totalAnswered += dayAnswered
+    totalUnanswered += dayUnanswered
+
     labels.push(
       isMonthly
         ? `${date.getMonth() + 1}/${date.getFullYear()}`
@@ -334,7 +490,7 @@ export function getStats(doc, timeDelta) {
     )
   }
 
-  // calculate percentages
+  // calculate percentages for questions
   const counts = [
     totalCount - (totalPositive + totalNegative),
     totalNegative,
@@ -342,14 +498,35 @@ export function getStats(doc, timeDelta) {
   ]
 
   const escalatedCounts = [totalEscalated, totalCount - totalEscalated]
-
   const answerCounts = [totalCouldAnswer, totalCouldNotAnswer]
-
   const totalClassifiedCount = totalCouldAnswer + totalCouldNotAnswer
 
+  // calculate percentages for conversations
+  const resolvedCounts = [totalResolvedConfirmed, totalResolvedAssumed, totalUnresolved]
+  const conversationEscalatedCounts = [totalEscalatedHandled, totalEscalatedTriggered]
+  const sentimentCounts = [totalSentimentPositive, totalSentimentNegative, totalSentimentNeutral]
+  const conversationAnsweredCounts = [totalAnswered, totalUnanswered]
+
+  // Calculate total CSAT, deflection rate, and average sentiment
+  const totalClassifiedResolved = totalResolvedConfirmed + totalResolvedAssumed + totalUnresolved
+  const totalCsat = totalClassifiedResolved > 0 ? Math.round(((totalResolvedConfirmed + totalResolvedAssumed) / totalClassifiedResolved) * 100) : null
+  
+  const totalConversationDeflectionRate = totalConversations > 0 ? Math.round(((totalConversations - totalEscalatedHandled) / totalConversations) * 100) : null
+  
+  const totalClassifiedSentiment = totalSentimentPositive + totalSentimentNegative + totalSentimentNeutral
+  let totalAvgSentiment = null
+  if (totalClassifiedSentiment > 0) {
+    const totalSentimentScore = (totalSentimentPositive * 1) + (totalSentimentNeutral * 0) + (totalSentimentNegative * -1)
+    totalAvgSentiment = Math.round((totalSentimentScore / totalClassifiedSentiment) * 100) / 100 // Round to 2 decimal places
+  }
+
+  const totalClassifiedAnswered = totalAnswered + totalUnanswered
+  const totalAnsweredRate = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : null
+
   // fix 'NaN' strings
-  if (totalCount === 0) {
+  if (totalCount === 0 && totalConversations === 0) {
     return {
+      // Question stats
       countData,
       messagesData,
       negativeData,
@@ -374,9 +551,39 @@ export function getStats(doc, timeDelta) {
       deflectionRate: '0',
       couldAnswerRate: '0',
       timeSaved: 0,
+      // Conversation stats
+      conversationData,
+      resolvedConfirmedData,
+      resolvedAssumedData,
+      unresolvedData,
+      escalatedHandledData,
+      escalatedTriggeredData,
+      sentimentPositiveData,
+      sentimentNegativeData,
+      sentimentNeutralData,
+      answeredData,
+      unansweredData,
+      totalConversations: 0,
+      resolvedCounts,
+      resolvedLabels: [`0% Confirmed`, `0% Assumed`, `0% Unresolved`],
+      conversationEscalatedCounts,
+      conversationEscalatedLabels: [`0% Handled`, `0% Triggered`],
+      sentimentCounts,
+      sentimentLabels: [`0% Positive`, `0% Negative`, `0% Neutral`],
+      conversationAnsweredCounts,
+      conversationAnsweredLabels: [`0% Answered`, `0% Unanswered`],
+      csatData,
+      conversationDeflectionData,
+      avgSentimentData,
+      totalCsat: null,
+      totalConversationDeflectionRate: null,
+      totalAvgSentiment: null,
+      totalAnsweredRate: null,
+      answeredRateData,
     }
   }
 
+  // Question percentages
   const unrated = Math.round(
     ((totalCount - (totalPositive + totalNegative)) / totalCount) * 100,
   )
@@ -406,6 +613,45 @@ export function getStats(doc, timeDelta) {
     `${couldNotAnswer}% Unanswered`,
   ]
 
+  // Conversation percentages - only calculate based on classified data
+  const totalClassifiedEscalated = totalEscalatedHandled + totalEscalatedTriggered
+
+  const resolvedConfirmed = totalClassifiedResolved > 0 ? Math.round((totalResolvedConfirmed / totalClassifiedResolved) * 100) : null
+  const resolvedAssumed = totalClassifiedResolved > 0 ? Math.round((totalResolvedAssumed / totalClassifiedResolved) * 100) : null
+  const unresolved = totalClassifiedResolved > 0 ? Math.round((totalUnresolved / totalClassifiedResolved) * 100) : null
+  
+  const escalatedHandled = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedHandled / totalClassifiedEscalated) * 100) : null
+  const escalatedTriggered = totalClassifiedEscalated > 0 ? Math.round((totalEscalatedTriggered / totalClassifiedEscalated) * 100) : null
+  
+  const sentimentPositive = totalClassifiedSentiment > 0 ? Math.round((totalSentimentPositive / totalClassifiedSentiment) * 100) : null
+  const sentimentNegative = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNegative / totalClassifiedSentiment) * 100) : null
+  const sentimentNeutral = totalClassifiedSentiment > 0 ? Math.round((totalSentimentNeutral / totalClassifiedSentiment) * 100) : null
+  
+  const answered = totalClassifiedAnswered > 0 ? Math.round((totalAnswered / totalClassifiedAnswered) * 100) : null
+  const unanswered = totalClassifiedAnswered > 0 ? Math.round((totalUnanswered / totalClassifiedAnswered) * 100) : null
+
+  const resolvedLabels = [
+    `${resolvedConfirmed || 0}% Confirmed`,
+    `${resolvedAssumed || 0}% Assumed`,
+    `${unresolved || 0}% Unresolved`,
+  ]
+
+  const conversationEscalatedLabels = [
+    `${escalatedHandled || 0}% Handled`,
+    `${escalatedTriggered || 0}% Triggered`,
+  ]
+
+  const sentimentLabels = [
+    `${sentimentPositive || 0}% Positive`,
+    `${sentimentNegative || 0}% Negative`,
+    `${sentimentNeutral || 0}% Neutral`,
+  ]
+
+  const conversationAnsweredLabels = [
+    `${answered || 0}% Answered`,
+    `${unanswered || 0}% Unanswered`,
+  ]
+
   let resolutionRate = (
     ((totalCount - (totalNegative + totalEscalated + totalCouldNotAnswer)) /
       totalCount) *
@@ -427,13 +673,14 @@ export function getStats(doc, timeDelta) {
   )
   let timeSaved = Math.round((totalCount - totalEscalated) * 5)
 
-  /*
-  console.log({
+  const finalStats = {
+    // Question stats (existing)
     countData,
     messagesData,
     negativeData,
     positiveData,
     couldAnswerData,
+    couldNotAnswerData,
     escalatedData,
     labels,
     counts,
@@ -448,29 +695,40 @@ export function getStats(doc, timeDelta) {
     deflectionRate,
     couldAnswerRate: couldAnswer,
     timeSaved,
-  })
-  */
-  return {
-    countData,
-    messagesData,
-    negativeData,
-    positiveData,
-    couldAnswerData,
-    escalatedData,
-    labels,
-    counts,
-    percentageLabels,
-    escalatedCounts,
-    escalatedLabels,
-    answerCounts,
-    answerLabels,
-    totalCount,
-    totalMessages,
-    resolutionRate,
-    deflectionRate,
-    couldAnswerRate: couldAnswer,
-    timeSaved,
+    // Conversation stats (new)
+    conversationData,
+    resolvedConfirmedData,
+    resolvedAssumedData,
+    unresolvedData,
+    escalatedHandledData,
+    escalatedTriggeredData,
+    sentimentPositiveData,
+    sentimentNegativeData,
+    sentimentNeutralData,
+    answeredData,
+    unansweredData,
+    totalConversations,
+    resolvedCounts,
+    resolvedLabels,
+    conversationEscalatedCounts,
+    conversationEscalatedLabels,
+    sentimentCounts,
+    sentimentLabels,
+    conversationAnsweredCounts,
+    conversationAnsweredLabels,
+    csatData,
+    conversationDeflectionData,
+    avgSentimentData,
+    totalCsat,
+    totalConversationDeflectionRate,
+    totalAvgSentiment,
+    totalAnsweredRate,
+    answeredRateData,
   }
+
+  console.log(finalStats)
+
+  return finalStats
 }
 
 export function checkSourceScheduledFromInterval(team, interval) {

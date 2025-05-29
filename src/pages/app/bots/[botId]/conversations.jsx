@@ -24,6 +24,7 @@ import {
   ArrowPathIcon,
   NoSymbolIcon,
   PencilSquareIcon,
+  ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -282,6 +283,7 @@ function Conversations({ team, bot, preConversations }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isSummarizing, setIsSummarizing] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   // Function to fetch a single conversation with full history
   const fetchConversation = async (conversationId) => {
@@ -527,6 +529,18 @@ function Conversations({ team, bot, preConversations }) {
     }
   }
 
+  // Function to copy conversation link
+  const copyConversationLink = () => {
+    if (!conversation) return
+    
+    const conversationUrl = `${window.location.origin}/app/bots/${bot.id}/conversations?conversationId=${conversation.id}`
+    navigator.clipboard.writeText(conversationUrl)
+    setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 2000)
+  }
+
   if (!bot) return null
 
   const title = [bot.name, 'Conversations']
@@ -708,7 +722,32 @@ function Conversations({ team, bot, preConversations }) {
                 ) : null}
               </div>
             </div>
-            <div className="ml-4 lg:mr-2 xl:mr-4">
+            <div className="ml-4 flex items-center space-x-4 lg:mr-2 xl:mr-4">
+              <Tooltip
+                content={
+                  copied
+                    ? 'Copied!'
+                    : 'Copy a link to this conversation to share with team members or support.'
+                }
+              >
+                <button
+                  className="flex items-center text-gray-400 hover:text-gray-600"
+                  onClick={copyConversationLink}
+                  disabled={copied}
+                >
+                  {copied ? (
+                    <CheckIcon
+                      className="h-4 w-4"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <ClipboardDocumentIcon
+                      className="h-4 w-4"
+                      aria-hidden="true"
+                    />
+                  )}
+                </button>
+              </Tooltip>
               <Paginator
                 perPage={conversations.pagination.perPage}
                 totalCount={conversations.pagination.viewableCount}

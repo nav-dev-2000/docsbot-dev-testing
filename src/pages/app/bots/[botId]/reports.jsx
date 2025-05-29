@@ -38,7 +38,7 @@ function Reports({ team, bot }) {
         </Link>
       </div>
 
-      <BotHistory team={team} botId={bot.id} />
+      <BotHistory team={team} bot={bot} />
 
       <BotReport team={team} bot={bot} />
     </DashboardWrap>
