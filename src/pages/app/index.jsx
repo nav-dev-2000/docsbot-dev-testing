@@ -25,6 +25,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
 import Tooltip from '@/components/Tooltip'
+import { getInvitesFromTeam } from '@/lib/dbQueries'
 
 const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   const cardContent = (
@@ -72,7 +73,7 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   ) : cardContent
 }
 
-function Dashboard({ team, purchase }) {
+function Dashboard({ team, purchase, teamInvites = [] }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
   const [user] = useAuthState(auth)
@@ -90,6 +91,9 @@ function Dashboard({ team, purchase }) {
     }
   }, [])
 
+  // Calculate team members count (current members + invites)
+  const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
+
   const cards = [
     {
       name: 'Bots',
@@ -99,12 +103,6 @@ function Dashboard({ team, purchase }) {
       icon: ServerStackIcon,
       stat: team?.botCount || 0,
       limit: stripePlan(team).bots,
-    },
-    {
-      name: 'Sources',
-      href: false,
-      icon: DocumentTextIcon,
-      stat: team?.sourceCount || 0,
     },
     {
       name: 'Source Pages',
@@ -121,6 +119,15 @@ function Dashboard({ team, purchase }) {
       icon: ChatBubbleBottomCenterTextIcon,
       stat: team?.questionCount || 0,
       limit: stripePlan(team).questions,
+    },
+    {
+      name: 'Team Members',
+      href: '/app/team',
+      linkText: 'Manage',
+      tooltip: 'Current team members including pending invites. Your plan allows up to ' + stripePlan(team).teamMembers + ' members.',
+      icon: UsersIcon,
+      stat: teamMembersCount,
+      limit: stripePlan(team).teamMembers,
     },
     {
       name: 'Current Plan',
@@ -310,6 +317,9 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
 
   if (data?.props?.team) {
+    // Fetch team invites for member count calculation
+    data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
+
     //check for session_id in query params
     if (context.query.session_id) {
       //get checkout session data from stripe

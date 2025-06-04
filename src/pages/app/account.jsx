@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail, sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -12,6 +12,7 @@ import {
   DocumentTextIcon,
   Square3Stack3DIcon,
   ChatBubbleBottomCenterTextIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -21,44 +22,108 @@ import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
-import { getBots } from '@/lib/dbQueries'
-import { getUserRole } from '@/utils/function.utils'
+import { getBots, getInvitesFromTeam } from '@/lib/dbQueries'
+import { getUserRole, canUserCreateDeleteBot } from '@/utils/function.utils'
 import ModalPasswordReset from '@/components/ModalPasswordReset'
+import Tooltip from '@/components/Tooltip'
 
-function Account({ team, bots, checkout }) {
+const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
+  const cardContent = (
+    <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
+      <div className="p-5">
+        <div className="flex items-center">
+          <div className="flex-shrink-0">
+            <CardIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />
+          </div>
+          <div className="ml-5 w-0 flex-1">
+            <dl>
+              <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
+              <dd>
+                <div className="text-lg font-medium text-gray-900">
+                  <LocalStringNum value={stat} />
+                  {limit && (
+                    <span className="text-sm text-gray-500">
+                      {' '}
+                      / <LocalStringNum value={limit} />
+                    </span>
+                  )}
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      {href && (
+        <div className="bg-gray-50 px-5 py-3">
+          <div className="text-sm">
+            <Link href={href} className="font-medium text-cyan-700 hover:text-cyan-900">
+              {linkText}
+              <ArrowRightIcon className="-mr-0.5 ml-1 inline h-3 w-3" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+
+  return tooltip ? (
+    <Tooltip content={tooltip}>
+      {cardContent}
+    </Tooltip>
+  ) : cardContent
+}
+
+function Account({ team, bots, checkout, teamInvites = [] }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
   const [sentPasswordReset, setSentPasswordReset] = useState(false)
+  const [canModify, setModify] = useState(false)
+
+  useEffect(() => {
+    if (team && user) {
+      setModify(canUserCreateDeleteBot(team, user.uid))
+    }
+  }, [team, user])
+
+  // Calculate team members count (current members + invites)
+  const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
 
   const cards = [
     {
       name: 'Current Plan',
-      href: false,
-      linkText: 'Manage',
       icon: CheckBadgeIcon,
       stat: stripePlan(team).name,
     },
     {
-      name: 'Bot Limit',
-      href: false,
-      linkText: 'View all',
+      name: 'Bots',
+      tooltip: 'You can create up to ' + stripePlan(team).bots + ' bots.',
       icon: ServerStackIcon,
-      stat: <LocalStringNum value={stripePlan(team).bots} />,
+      stat: team?.botCount || 0,
+      limit: stripePlan(team).bots,
     },
     {
-      name: 'Source Page Limit',
+      name: 'Source Pages',
       href: false,
-      linkText: 'Get more',
+      tooltip: 'A source page is the greater of 5000 characters of processed text or one document/web page.',
       icon: Square3Stack3DIcon,
-      stat: <LocalStringNum value={stripePlan(team).pages} />,
+      stat: team?.pageCount || 0,
+      limit: stripePlan(team).pages,
     },
     {
-      name: 'Message Limit',
+      name: 'Messages',
       href: false,
-      linkText: 'Get more',
+      tooltip: 'User messages in current month',
       icon: ChatBubbleBottomCenterTextIcon,
-      stat: <LocalStringNum value={stripePlan(team).questions} />,
+      stat: team?.questionCount || 0,
+      limit: stripePlan(team).questions,
+    },
+    {
+      name: 'Team Members',
+      tooltip: 'Current team members including pending invites. Your plan allows up to ' + stripePlan(team).teamMembers + ' members.',
+      icon: UsersIcon,
+      stat: teamMembersCount,
+      limit: stripePlan(team).teamMembers,
     },
   ]
 
@@ -79,36 +144,19 @@ function Account({ team, bots, checkout }) {
 
       <Alert title={errorText} type="error" />
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
-          <div key={card.name} className="overflow-hidden rounded-lg bg-white shadow">
-            <div className="p-5">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <card.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
-                </div>
-                <div className="ml-5 w-0 flex-1">
-                  <dl>
-                    <dt className="truncate text-sm font-medium text-gray-500">{card.name}</dt>
-                    <dd>
-                      <div className="text-lg font-medium text-gray-900">{card.stat}</div>
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </div>
-            {card.href && (
-              <div className="bg-gray-50 px-5 py-3">
-                <div className="text-sm">
-                  <Link href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
-                    {card.linkText}
-                    <ArrowRightIcon className="-mr-0.5 ml-1 inline h-3 w-3" aria-hidden="true" />
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
+          <Card
+            key={card.name}
+            name={card.name}
+            href={card.href}
+            linkText={card.linkText}
+            tooltip={card.tooltip}
+            CardIcon={card.icon}
+            stat={card.stat}
+            limit={card.limit}
+          />
         ))}
       </div>
 
@@ -205,6 +253,9 @@ export const getServerSideProps = async (context) => {
       }
     }
     data.props.bots = await getBots(data.props.team)
+    
+    // Fetch team invites for member count calculation
+    data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
   }
 
   // Check if session_id is present in the query parameters
