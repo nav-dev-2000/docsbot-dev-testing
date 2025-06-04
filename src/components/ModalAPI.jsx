@@ -42,7 +42,7 @@ export default function ModalAPI({ team, bot, integrations }) {
     slackConnection.slackBotUserId && slackConnection.slackTeamId
 
   // Check if user has power plan
-  const hasPowerPlan = checkPlanPermission(team, 'power').allowed
+  const hasPowerPlan = checkPlanPermission(team, 'personal').allowed
 
   // Add an effect to listen for postMessage events from the Slack OAuth callback window
   useEffect(() => {
@@ -907,8 +907,8 @@ export default function ModalAPI({ team, bot, integrations }) {
                           icon={<SlackLogo className="h-8 w-8" />}
                           isNew={true}
                           minPlan={
-                            !checkPlanPermission(team, 'power', 'slack').allowed
-                              ? checkPlanPermission(team, 'power', 'slack')
+                            !checkPlanPermission(team, 'personal', 'slack').allowed
+                              ? checkPlanPermission(team, 'personal', 'slack')
                                   .requiredPlanLabel
                               : undefined
                           }
@@ -940,9 +940,9 @@ export default function ModalAPI({ team, bot, integrations }) {
                         title="Workflow Automations"
                         icon={<BoltIcon className="h-8 w-8 text-cyan-600" />}
                         minPlan={
-                          !checkPlanPermission(team, 'power', 'automations')
+                          !checkPlanPermission(team, 'personal', 'automations')
                             .allowed
-                            ? checkPlanPermission(team, 'power', 'automations')
+                            ? checkPlanPermission(team, 'personal', 'automations')
                                 .requiredPlanLabel
                             : undefined
                         }

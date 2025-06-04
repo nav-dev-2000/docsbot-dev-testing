@@ -28,7 +28,7 @@ export function ChatPage({ team, bot }) {
           <AskStreaming teamId={team.id} bot={bot} isPublic={true} />
         )}
       </main>
-      {!checkPlanPermission(team, 'pro', 'branding').allowed && (
+      {!checkPlanPermission(team, 'business', 'branding').allowed && (
         <div className="mb-4 mt-32 text-center">
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">{bot.labels.poweredBy}</span>

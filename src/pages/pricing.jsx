@@ -9,16 +9,18 @@ import CTASection from '@/components/CTASection'
 import { Testimonials } from '@/components/Testimonials'
 import TrustedBy from '@/components/TrustedBy'
 import { motion } from 'framer-motion'
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect, useCallback, Fragment } from 'react'
 import AIHero from '@/components/AIHero'
-import { CheckIcon, PlusIcon, CheckBadgeIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, PlusIcon, CheckBadgeIcon, MinusIcon } from '@heroicons/react/20/solid'
 import {
   frequencies,
   pricingTiers,
   enterpriseFeatures,
   currencies,
+  featureDefinitions,
 } from '@/constants/pricing.constants'
 import { RadioGroup } from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 import sony from '@/images/logos/logo-sony.svg'
 import nuro from '@/images/avatars/sony-logo.jpg'
@@ -27,6 +29,7 @@ import aoyagi from '@/images/avatars/aoyagi.jpg'
 import { BannerSale } from '@/components/HeaderBanners'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { useRouter } from 'next/router'
 
 // Add this component for reusability
 const ScrollFadeIn = ({ children, delay = 0 }) => {
@@ -45,6 +48,132 @@ const ScrollFadeIn = ({ children, delay = 0 }) => {
 // Add this helper function at the top level
 const formatNumber = (num) => {
   return num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+// Helper function to render feature values
+const renderFeatureValue = (value, tierName) => {
+  if (typeof value === 'boolean') {
+    return value ? (
+      <CheckIcon aria-hidden="true" className="inline-block size-4 fill-green-600" />
+    ) : (
+      <MinusIcon aria-hidden="true" className="inline-block size-4 fill-gray-400" />
+    )
+  }
+  return <span className="text-sm/6 text-gray-950">{value}</span>
+}
+
+// Helper function to get differentiating features for each tier
+const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
+  const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
+  
+  // Always include core limits that users care about most
+  const coreLimits = ['docsBots', 'sourcePages', 'messagesPerMonth', 'teamUsers']
+  const features = []
+  
+  // Add core limits first (always show these)
+  coreLimits.forEach(key => {
+    const value = currentTier.features[key]
+    if (value !== undefined && value !== false && value !== 0) {
+      features.push([key, value])
+    }
+  })
+  
+  // For Free tier, also show basic included features
+  if (tierIndex === 0) {
+    Object.entries(currentTier.features).forEach(([key, value]) => {
+      if (!coreLimits.includes(key) && typeof value === 'boolean' && value === true) {
+        features.push([key, value])
+      }
+    })
+    return features
+  }
+  
+  // For other tiers, add what's new or improved (excluding core limits already added)
+  const differentiatingFeatures = []
+  
+  // Add other improved limits (excluding core limits already handled)
+  Object.entries(currentTier.features).forEach(([key, value]) => {
+    if (coreLimits.includes(key)) return // Skip core limits, already added
+    
+    const prevValue = previousTier?.features[key]
+    const featureDef = featureDefinitions[key]
+    
+    if (featureDef?.category === 'limits') {
+      // Show if it's a meaningful increase
+      if (typeof value === 'number' && typeof prevValue === 'number' && value > prevValue) {
+        differentiatingFeatures.push([key, value])
+      } else if (typeof value === 'string' && value !== prevValue && value !== 'false' && value !== '') {
+        differentiatingFeatures.push([key, value])
+      }
+    }
+  })
+  
+  // Add newly enabled features (false -> true, or false -> string value)
+  Object.entries(currentTier.features).forEach(([key, value]) => {
+    if (coreLimits.includes(key)) return // Skip core limits, already added
+    
+    const prevValue = previousTier?.features[key]
+    
+    if (featureDefinitions[key]?.category !== 'limits') {
+      if ((prevValue === false || prevValue === 0 || prevValue === '') && 
+          (value === true || (typeof value === 'string' && value !== 'false' && value !== '') || (typeof value === 'number' && value > 0))) {
+        differentiatingFeatures.push([key, value])
+      }
+    }
+  })
+  
+  // Combine core limits with differentiating features
+  const allFeatures = [...features, ...differentiatingFeatures]
+  
+  // Prioritize by importance and limit to 8 features total
+  return allFeatures
+    .sort((a, b) => {
+      const [aKey] = a
+      const [bKey] = b
+      
+      // Core limits always come first
+      if (coreLimits.includes(aKey) && !coreLimits.includes(bKey)) return -1
+      if (!coreLimits.includes(aKey) && coreLimits.includes(bKey)) return 1
+      if (coreLimits.includes(aKey) && coreLimits.includes(bKey)) {
+        return coreLimits.indexOf(aKey) - coreLimits.indexOf(bKey)
+      }
+      
+      // Then by category priority
+      const aCat = featureDefinitions[aKey]?.category
+      const bCat = featureDefinitions[bKey]?.category
+      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, features: 4, sources: 5, customization: 6, support: 7 }
+      return (priority[aCat] || 99) - (priority[bCat] || 99)
+    })
+    .slice(0, 14)
+}
+
+// Create sections for comparison table
+const createComparisonSections = (activeTiers) => {
+  const tierNames = activeTiers.map(tier => tier.name)
+  
+  // Group features by category
+  const featuresByCategory = Object.entries(featureDefinitions).reduce((acc, [key, def]) => {
+    if (!acc[def.category]) {
+      acc[def.category] = []
+    }
+    acc[def.category].push({ key, ...def })
+    return acc
+  }, {})
+
+  // Create sections structure
+  const sections = Object.entries(featuresByCategory).map(([category, features]) => ({
+    name: category.charAt(0).toUpperCase() + category.slice(1),
+    features: features.map(feature => ({
+      name: feature.label,
+      tiers: tierNames.reduce((tierAcc, tierName) => {
+        const tier = activeTiers.find(t => t.name === tierName)
+        tierAcc[tierName] = tier?.features[feature.key] || false
+        return tierAcc
+      }, {})
+    }))
+  }))
+
+  return sections
 }
 
 // Add this new component near the top of the file
@@ -100,8 +229,8 @@ export const AiSupportSavingsCalculator = () => {
   const closeRate = 0.75
 
   const planName =
-    supportTickets < 500 ? 'Power' : supportTickets < 10000 ? 'Pro' : 'Business'
-  const planCost = supportTickets < 500 ? 41 : supportTickets < 10000 ? 83 : 416
+    supportTickets < 500 ? 'Personal' : supportTickets < 15000 ? 'Standard' : 'Business'
+  const planCost = supportTickets < 500 ? 41 : supportTickets < 15000 ? 124 : 416
   const timeSavings = Math.round(
     (supportTickets * closeRate * timePerTicket) / 60,
   )
@@ -149,7 +278,7 @@ export const AiSupportSavingsCalculator = () => {
             delay={0.2}
           />
           <p className="mb-12 mt-6 text-lg text-gray-500 sm:text-xl/8">
-            AI chatbots can handle Tier 1 support inquiries instantly, 24/7, at
+            AI agents can handle Tier 1 support inquiries instantly, 24/7, at
             a fraction of the cost of human agents. They can also assist your
             support team by providing instant access to knowledge, drafting
             responses, and handling repetitive queries - allowing your agents to
@@ -249,6 +378,15 @@ export default function PricingPage() {
   const user = true; //hide sale stuff for now
   const [frequency, setFrequency] = useState(frequencies[0])
   const [currency, setCurrency] = useState('USD')
+  const router = useRouter()
+  
+  // Check if we should show legacy plans based on URL parameter
+  const showLegacyPlans = router.query.showLegacy === 'true'
+  const activeTiers = showLegacyPlans 
+    ? pricingTiers.filter(tier => 
+        tier.legacy || ['hobby', 'personal', 'pro', 'standard', 'business'].includes(tier.id)
+      )
+    : pricingTiers.filter(tier => !tier.legacy)
 
   return (
     <>
@@ -357,6 +495,29 @@ export default function PricingPage() {
                     </p>
                   </motion.div>
 
+                  {showLegacyPlans && (
+                    <div className="mx-auto mb-8 max-w-2xl rounded-lg bg-yellow-50 p-4 text-center">
+                      <p className="text-sm font-medium text-yellow-800">
+                        <span className="inline-flex items-center">
+                          <svg className="mr-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          Showing legacy plans
+                        </span>
+                        <br />
+                        <span className="text-xs text-yellow-700">
+                          Legacy plans are no longer available for new signups or plan changes.{' '}
+                          <Link
+                            href="/pricing"
+                            className="text-yellow-600 hover:text-yellow-500 underline"
+                          >
+                            Hide legacy plans
+                          </Link>
+                        </span>
+                      </p>
+                    </div>
+                  )}
+
                   {!user && <BannerSale />}
 
                   {/* Period and Currency Switchers */}
@@ -425,8 +586,11 @@ export default function PricingPage() {
                   </div>
 
                   <div className="relative mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-0">
-                    <div className="isolate mx-auto grid max-w-md grid-cols-1 gap-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-                      {pricingTiers.map((tier, index) => (
+                    <div className={clsx(
+                      "isolate mx-auto grid max-w-md grid-cols-1 gap-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-2",
+                      showLegacyPlans ? "xl:grid-cols-5" : "xl:grid-cols-4"
+                    )}>
+                      {activeTiers.map((tier, index) => (
                         <div
                           key={tier.id}
                           className={clsx(
@@ -446,7 +610,7 @@ export default function PricingPage() {
                           >
                             <div
                               className={clsx(
-                                'rounded-3xl bg-white p-6 pb-9',
+                                'rounded-3xl bg-white p-6 pb-4 flex flex-col h-full',
                                 tier.mostPopular
                                   ? 'shadow-2xl ring-1 ring-cyan-600'
                                   : 'shadow-2xl ring-1 ring-black/5',
@@ -464,9 +628,14 @@ export default function PricingPage() {
                                 >
                                   {tier.name}{' '}
                                   <span className="sr-only">plan</span>
+                                  {tier.legacy && (
+                                    <span className="ml-2 inline-flex items-center rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-800">
+                                      Legacy
+                                    </span>
+                                  )}
                                 </h3>
                                 {tier.mostPopular ? (
-                                  <p className="rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600">
+                                  <p className="rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600 text-nowrap">
                                     Most popular
                                   </p>
                                 ) : null}
@@ -598,36 +767,65 @@ export default function PricingPage() {
                                 )}
                               </div>
                               <div className="mt-8">
-                                <Link
-                                  href={tier.href}
-                                  aria-label={`Signup for the ${tier.name} plan`}
-                                  className="bg-animation inline-block w-full rounded-md bg-cyan-600 px-3.5 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
-                                >
-                                  Get started
-                                </Link>
+                                {tier.legacy ? (
+                                  <button
+                                    disabled
+                                    className="inline-block w-full rounded-md bg-gray-400 px-3.5 py-2 text-center text-sm/6 font-semibold text-white shadow-sm cursor-not-allowed opacity-60"
+                                  >
+                                    Legacy Plan
+                                  </button>
+                                ) : (
+                                  <Link
+                                    href={tier.href}
+                                    aria-label={`Signup for the ${tier.name} plan`}
+                                    className="bg-animation inline-block w-full rounded-md bg-cyan-600 px-3.5 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                                  >
+                                    Get started
+                                  </Link>
+                                )}
                               </div>
                               <div className="mt-8">
                                 <h3 className="text-sm/6 font-medium text-gray-950">
                                   {index === 0
                                     ? 'Including:'
-                                    : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
+                                    : `Everything in ${activeTiers[index - 1]?.name || 'Free'} plan, and:`}
                                 </h3>
                                 <ul className="mt-3 space-y-3">
-                                  {tier.features.map((feature) => (
-                                    <li
-                                      key={feature}
-                                      className="group flex items-start gap-4 text-sm/6 text-gray-600"
-                                    >
-                                      <span className="inline-flex h-6 items-center">
-                                        <PlusIcon
-                                          aria-hidden="true"
-                                          className="size-4 fill-gray-400"
-                                        />
-                                      </span>
-                                      {feature}
-                                    </li>
-                                  ))}
+                                  {getDifferentiatingFeatures(tier, index, activeTiers).map(([key, value]) => {
+                                    const featureDef = featureDefinitions[key]
+                                    if (!featureDef) return null
+                                    
+                                    let displayText = featureDef.label
+                                    if (typeof value === 'string' && value !== 'true') {
+                                      displayText = `${featureDef.label}: ${value}`
+                                    } else if (typeof value === 'number') {
+                                      displayText = `${value} ${featureDef.label}`
+                                    }
+                                    
+                                    return (
+                                      <li
+                                        key={key}
+                                        className="group flex items-start gap-2 text-sm/6 text-gray-600"
+                                      >
+                                        <span className="inline-flex h-6 items-center">
+                                          <PlusIcon
+                                            aria-hidden="true"
+                                            className="size-4 fill-gray-400"
+                                          />
+                                        </span>
+                                        {displayText}
+                                      </li>
+                                    )
+                                  })}
                                 </ul>
+                              </div>
+                              <div className="mt-auto text-center">
+                                <a
+                                  href="#comparison-table"
+                                  className="text-sm font-medium text-cyan-600 hover:text-cyan-500"
+                                >
+                                  Compare all features →
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -729,28 +927,10 @@ export default function PricingPage() {
             <ScrollFadeIn>
               <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
                 <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Other Plans
+                  Need more?
                 </h2>
-                <div className="mx-auto mt-12 flex max-w-2xl flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:max-w-none lg:flex-row lg:items-center">
-                  <div className="lg:min-w-0 lg:flex-1">
-                    <h3 className="text-lg font-semibold leading-8 tracking-tight text-cyan-600">
-                      Personal
-                    </h3>
-                    <p className="mt-1 text-base leading-7 text-gray-600">
-                      Try DocsBot free for personal use. No credit card
-                      required. Import document files or urls with up to 50
-                      pages of content and start chatting with your bot. Free
-                      bots will be deleted after 30 days.
-                    </p>
-                  </div>
-                  <Link
-                    href="/register"
-                    className="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-cyan-600 ring-1 ring-inset ring-cyan-600 hover:ring-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"
-                  >
-                    Try free <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                </div>
 
+                {/* Enterprise Plan */}
                 <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
                   <div className="p-8 sm:p-10 lg:flex-auto">
                     <h3 className="text-2xl font-bold tracking-tight text-gray-900">
@@ -819,6 +999,188 @@ export default function PricingPage() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </ScrollFadeIn>
+
+            <ScrollFadeIn>
+              {/* Feature Comparison Table */}
+              <div id="comparison-table" className="bg-white py-18 sm:py-24">
+                <div className="mx-auto max-w-4xl px-6 text-center lg:max-w-7xl lg:px-8">
+                  <h2 className="text-balance text-3xl font-semibold tracking-tight text-gray-950 sm:text-4xl lg:text-pretty">
+                    Compare all features across plans
+                  </h2>
+                  <p className="mb-12 mt-6 text-lg text-gray-500 sm:text-xl/8">
+                    Choose the plan that's right for your needs. All plans include our core AI features with different limits and capabilities.
+                  </p>
+                </div>
+                
+                <div className="mx-auto max-w-2xl px-6 pt-16 sm:pt-24 lg:max-w-7xl lg:px-8">
+                  {(() => {
+                    const sections = createComparisonSections(activeTiers)
+                    
+                    return (
+                      <>
+                        <table className="w-full text-left max-sm:hidden">
+                          <caption className="sr-only">Pricing plan comparison</caption>
+                          <colgroup>
+                            <col className={clsx(
+                              activeTiers.length === 5 ? "w-2/7" : "w-2/6"
+                            )} />
+                            {activeTiers.map(() => (
+                              <col key={Math.random()} className={clsx(
+                                activeTiers.length === 5 ? "w-1/7" : "w-1/6"
+                              )} />
+                            ))}
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <td className="p-0" />
+                              {activeTiers.map((tier) => (
+                                <th key={tier.name} scope="col" className="p-0">
+                                  <div className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                                    {tier.name} <span className="sr-only">plan</span>
+                                  </div>
+                                </th>
+                              ))}
+                            </tr>
+                            <tr>
+                              <th className="p-0" />
+                              {activeTiers.map((tier) => (
+                                <td key={tier.name} className="px-0 pb-0 pt-3">
+                                  {tier.legacy ? (
+                                    <button
+                                      disabled
+                                      className="inline-block rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm cursor-not-allowed opacity-60 text-nowrap"
+                                    >
+                                      Legacy Plan
+                                    </button>
+                                  ) : (
+                                    <Link
+                                      href={tier.href}
+                                      aria-label={`Get started with the ${tier.name} plan`}
+                                      className="inline-block rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 text-nowrap"
+                                    >
+                                      Get started
+                                    </Link>
+                                  )}
+                                </td>
+                              ))}
+                            </tr>
+                          </thead>
+                          {sections.map((section) => (
+                            <tbody key={section.name} className="group">
+                              <tr>
+                                <th scope="colgroup" colSpan={activeTiers.length + 1} className="px-0 pb-0 pt-10 group-first-of-type:pt-5">
+                                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold text-gray-950">
+                                    {section.name}
+                                  </div>
+                                </th>
+                              </tr>
+                              {section.features.map((feature) => (
+                                <tr key={feature.name} className="border-b border-gray-100 last:border-none">
+                                  <th scope="row" className="px-0 py-4 text-sm/6 font-normal text-gray-600">
+                                    {feature.name}
+                                  </th>
+                                  {activeTiers.map((tier) => (
+                                    <td key={tier.name} className="p-4 max-sm:text-center">
+                                      {typeof feature.tiers[tier.name] === 'string' || typeof feature.tiers[tier.name] === 'number' ? (
+                                        <>
+                                          <span className="sr-only">{tier.name} includes:</span>
+                                          <span className="text-sm/6 text-gray-950">{feature.tiers[tier.name]}</span>
+                                        </>
+                                      ) : (
+                                        <>
+                                          {feature.tiers[tier.name] === true ? (
+                                            <CheckIcon aria-hidden="true" className="inline-block size-4 fill-green-600" />
+                                          ) : (
+                                            <MinusIcon aria-hidden="true" className="inline-block size-4 fill-gray-400" />
+                                          )}
+
+                                          <span className="sr-only">
+                                            {feature.tiers[tier.name] === true
+                                              ? `Included in ${tier.name}`
+                                              : `Not included in ${tier.name}`}
+                                          </span>
+                                        </>
+                                      )}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          ))}
+                        </table>
+                        
+                        {/* Mobile view */}
+                        <TabGroup className="sm:hidden">
+                          <TabList className="flex">
+                            {activeTiers.map((tier) => (
+                              <Tab
+                                key={tier.name}
+                                className="w-1/4 border-b border-gray-100 py-4 text-base/8 font-medium text-cyan-600 data-[selected]:border-cyan-600 [&:not([data-focus])]:focus:outline-none"
+                              >
+                                {tier.name}
+                              </Tab>
+                            ))}
+                          </TabList>
+                          <TabPanels as={Fragment}>
+                            {activeTiers.map((tier) => (
+                              <TabPanel key={tier.name}>
+                                {tier.legacy ? (
+                                  <button
+                                    disabled
+                                    className="mt-8 block rounded-md bg-gray-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm cursor-not-allowed opacity-60"
+                                  >
+                                    Legacy Plan
+                                  </button>
+                                ) : (
+                                  <Link
+                                    href={tier.href}
+                                    className="mt-8 block rounded-md bg-white px-3.5 py-2.5 text-center text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                  >
+                                    Get started
+                                  </Link>
+                                )}
+                                {sections.map((section) => (
+                                  <Fragment key={section.name}>
+                                    <div className="-mx-6 mt-10 rounded-lg bg-gray-50 px-6 py-3 text-sm/6 font-semibold text-gray-950 group-first-of-type:mt-5">
+                                      {section.name}
+                                    </div>
+                                    <dl>
+                                      {section.features.map((feature) => (
+                                        <div
+                                          key={feature.name}
+                                          className="grid grid-cols-2 border-b border-gray-100 py-4 last:border-none"
+                                        >
+                                          <dt className="text-sm/6 font-normal text-gray-600">{feature.name}</dt>
+                                          <dd className="text-center">
+                                            {typeof feature.tiers[tier.name] === 'string' || typeof feature.tiers[tier.name] === 'number' ? (
+                                              <span className="text-sm/6 text-gray-950">{feature.tiers[tier.name]}</span>
+                                            ) : (
+                                              <>
+                                                {feature.tiers[tier.name] === true ? (
+                                                  <CheckIcon aria-hidden="true" className="inline-block size-4 fill-green-600" />
+                                                ) : (
+                                                  <MinusIcon aria-hidden="true" className="inline-block size-4 fill-gray-400" />
+                                                )}
+
+                                                <span className="sr-only">{feature.tiers[tier.name] === true ? 'Yes' : 'No'}</span>
+                                              </>
+                                            )}
+                                          </dd>
+                                        </div>
+                                      ))}
+                                    </dl>
+                                  </Fragment>
+                                ))}
+                              </TabPanel>
+                            ))}
+                          </TabPanels>
+                        </TabGroup>
+                      </>
+                    )
+                  })()}
                 </div>
               </div>
             </ScrollFadeIn>

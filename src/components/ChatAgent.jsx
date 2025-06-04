@@ -1031,7 +1031,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         : !team?.openAIKey
           ? 'OpenAI API key required to change models. Configure on the API page.'
           : !checkPlanPermission(team, 'hobby').allowed
-            ? 'Upgrade to Hobby plan to change models.'
+            ? 'Upgrade to Personal plan to change models.'
             : 'Change model'
       : 'Change model'
 
@@ -1128,7 +1128,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }
 
   const handleImageSelect = (e) => {
-    if (!checkPlanPermission(team, 'power').allowed) {
+    if (!checkPlanPermission(team, 'personal').allowed) {
       setPendingUpgrade(true)
       return
     }
@@ -1281,9 +1281,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   />
                   <Tooltip
                     content={
-                      checkPlanPermission(team, 'power').allowed
+                      checkPlanPermission(team, 'personal').allowed
                         ? 'Add an image'
-                        : 'Upgrade to Power plan to enable image uploads'
+                        : 'Upgrade to the Personal plan to enable image uploads'
                     }
                   >
                     <button
@@ -1292,13 +1292,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                         'cursor-pointer rounded-md p-2 text-gray-600 hover:text-cyan-600',
                         selectedImages.length >= 4 &&
                           'cursor-not-allowed opacity-50',
-                        !checkPlanPermission(team, 'power').allowed &&
+                        !checkPlanPermission(team, 'personal').allowed &&
                           'opacity-50',
                       )}
                       onClick={(e) => {
                         e.stopPropagation()
                         setErrorText(null)
-                        if (!checkPlanPermission(team, 'power').allowed) {
+                        if (!checkPlanPermission(team, 'personal').allowed) {
                           setPendingUpgrade(true)
                           return
                         }
@@ -1315,7 +1315,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       content={
                         checkPlanPermission(team, 'hobby').allowed
                           ? 'Enable research mode'
-                          : 'Upgrade to Hobby plan to enable research mode'
+                          : 'Upgrade to the Personal plan to enable research mode'
                       }
                     >
                       <button

@@ -114,6 +114,7 @@ export function stripePlan(team) {
     'FVasEcNLTWpySb5ZNlF3' === team.id
   ) {
     return {
+      id: 'staff',
       name: 'Staff',
       bots: 1000,
       pages: 1000000,
@@ -130,6 +131,7 @@ export function stripePlan(team) {
     if (['active', 'trialing'].includes(team?.stripeSubscriptionStatus)) {
       for (const planKey in plans) {
         const plan = plans[planKey]
+        plan.id = planKey
         for (const frequency in plan.prices.current) {
           if (plan.prices.current[frequency] === team.stripeSubscriptionPlan) {
             return plan
@@ -146,7 +148,8 @@ export function stripePlan(team) {
     }
   }
 
-  return {
+  return {  
+    id: 'free',
     name: 'Free',
     bots: 1,
     pages: 50,
@@ -179,37 +182,61 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
   const planLevels = {
     free: 1,
     hobby: 2,
-    power: 3,
+    personal: 3,
     pro: 4,
-    business: 5,
-    enterprise: 6,
+    standard: 5,
+    business: 6,
+    enterprise: 7,
   }
 
-  const currentPlanLevel = planLevels[currentPlan.name.toLowerCase()] || 0
+  const currentPlanLevel = planLevels[currentPlan.id] || 0
 
   // If a specific plan is provided, check if current plan matches or exceeds it
   if (requiredPlan) {
-    let requiredPlanLevel = planLevels[requiredPlan.toLowerCase()] || 999
+    requiredPlan = requiredPlan.toLowerCase()
+    let requiredPlanLevel = planLevels[requiredPlan] || 999
 
-    // If checking for a source type feature
-    if (feature == 'source') {
-      // Check if the team was created before March 27, 2025 and the required plan is 'power'
-      // If so, downgrade the required plan to 'hobby' for grandfathered accounts (truto sources)
-      if (requiredPlan.toLowerCase() === 'power' && team.createdAt) {
+    // Check if the team was created before March 27, 2025 and the required plan is 'personal'
+    // If so, downgrade the required plan to 'hobby' for grandfathered accounts (truto sources)
+    if (requiredPlan === 'personal' && team.createdAt) {
+      const createdDate = new Date(team.createdAt)
+      const cutoffDate = new Date('2025-03-28')
+
+      if (createdDate < cutoffDate) {
+        // Downgrade required plan level for grandfathered accounts
+        requiredPlanLevel = planLevels['hobby']
+      }
+    }
+
+    // grandfathered old power (personal) for helpscout
+    if (feature == 'helpscout') {
+      if (requiredPlan === 'standard' && team.createdAt) {
         const createdDate = new Date(team.createdAt)
-        const cutoffDate = new Date('2025-03-28')
-
+        const cutoffDate = new Date('2025-05-28')
         if (createdDate < cutoffDate) {
           // Downgrade required plan level for grandfathered accounts
-          requiredPlanLevel = planLevels['hobby']
+          requiredPlanLevel = planLevels['personal']
+        }
+      }
+    }
+
+    // grandfathered old pro (standard) for branding
+    if (feature == 'branding') {
+      if (team.createdAt) {
+        const createdDate = new Date(team.createdAt)
+        const cutoffDate = new Date('2025-06-03')
+        if (createdDate < cutoffDate) {
+          // Downgrade required plan level for grandfathered accounts
+          requiredPlanLevel = planLevels['pro']
         }
       }
     }
 
     return {
       allowed: currentPlanLevel >= requiredPlanLevel || isEnterprise,
-      requiredPlanLabel:
-        requiredPlan.charAt(0).toUpperCase() + requiredPlan.slice(1),
+      requiredPlanLabel: requiredPlan === 'hobby' ? 'Personal' : 
+                        requiredPlan === 'pro' ? 'Standard' :
+                        requiredPlan.charAt(0).toUpperCase() + requiredPlan.slice(1),
     }
   }
 
@@ -835,50 +862,41 @@ export const fbEvent = (name, options = {}) => {
   window.fbq('track', name, options)
 }
 
-export const getNeededStripeProduct = (team) => {
+export const getNeededStripeProduct = (team, teamInvites = []) => {
   const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
 
   if (team) {
     const hobbyPlanLimit = plans['hobby']
-    const powerPlanLimit = plans['power']
+    const personalPlanLimit = plans['personal']
     const proPlanLimit = plans['pro']
+    const standardPlanLimit = plans['standard']
     const businessPlanLimit = plans['business']
+    const plansArray = Object.entries(plans).map(([key, value]) => ({ id: key, ...value }))
+    const currentMemberCount = Object.keys(team?.roles || {}).length + teamInvites.length
 
-    const plansArray = Object.values(plans)
-
-    if (
-      hobbyPlanLimit.bots >= team?.botCount &&
-      hobbyPlanLimit.pages >= team?.pageCount &&
-      hobbyPlanLimit.questions >= team?.questionCount &&
-      hobbyPlanLimit.teamMembers >= team?.roles.length
-    ) {
-      return ''
-    } else if (
-      powerPlanLimit.bots >= team?.botCount &&
-      powerPlanLimit.pages >= team?.pageCount &&
-      powerPlanLimit.questions >= team?.questionCount &&
-      powerPlanLimit.teamMembers >= team?.roles.length
+   if (
+      personalPlanLimit.bots >= team?.botCount &&
+      personalPlanLimit.pages >= team?.pageCount &&
+      personalPlanLimit.questions >= team?.questionCount &&
+      personalPlanLimit.teamMembers >= currentMemberCount
     ) {
       const prices = []
       plansArray.map((item) => {
-        if (item.name?.toLowerCase() !== 'hobby') {
+        if (item.id !== 'hobby') {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)
         }
       })
       return prices
     } else if (
-      proPlanLimit.bots >= team?.botCount &&
-      proPlanLimit.pages >= team?.pageCount &&
-      proPlanLimit.questions >= team?.questionCount &&
-      proPlanLimit.teamMembers >= team?.roles.length
+      standardPlanLimit.bots >= team?.botCount &&
+      standardPlanLimit.pages >= team?.pageCount &&
+      standardPlanLimit.questions >= team?.questionCount &&
+      standardPlanLimit.teamMembers >= currentMemberCount
     ) {
       const prices = []
       plansArray.map((item) => {
-        if (
-          item.name?.toLowerCase() !== 'hobby' &&
-          item.name?.toLowerCase() !== 'power'
-        ) {
+        if (item.id !== 'hobby' && item.id !== 'personal' && item.id !== 'pro') {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)
         }
@@ -888,14 +906,15 @@ export const getNeededStripeProduct = (team) => {
       businessPlanLimit.bots >= team?.botCount &&
       businessPlanLimit.pages >= team?.pageCount &&
       businessPlanLimit.questions >= team?.questionCount &&
-      businessPlanLimit.teamMembers >= team?.roles.length
+      businessPlanLimit.teamMembers >= currentMemberCount
     ) {
       const prices = []
       plansArray.map((item) => {
         if (
-          item.name?.toLowerCase() !== 'hobby' &&
-          item.name?.toLowerCase() !== 'power' &&
-          item.name?.toLowerCase() !== 'pro'
+          item.id !== 'hobby' &&
+          item.id !== 'personal' &&
+          item.id !== 'pro' &&
+          item.id !== 'standard'
         ) {
           const priceList = Object.values(item?.prices?.current)
           prices.push(priceList)

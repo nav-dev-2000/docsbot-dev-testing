@@ -52,7 +52,7 @@ export default function ModalCheckout({ team, open, setOpen }) {
                     .
                   </p>
                   <div className="py-8">
-                    <Checkout team={team} />
+                    <Checkout team={team} upgrade={true} />
                   </div>
                 </div>
               </Dialog.Panel>

@@ -6,8 +6,8 @@ import classNames from '@/utils/classNames'
 
 const intervals = [
   {value: 'none', title: 'Never'},
-  {value: 'monthly', title: 'Monthly', plan: 'Power'},
-  {value: 'weekly', title: 'Weekly', plan: 'Pro'},
+  {value: 'monthly', title: 'Monthly', plan: 'Personal'},
+  {value: 'weekly', title: 'Weekly', plan: 'Standard'},
   {value: 'daily', title: 'Daily', plan: 'Enterprise'},
 ]
 

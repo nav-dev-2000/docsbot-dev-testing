@@ -223,7 +223,7 @@ export default function BotReport({ team, bot }) {
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return !checkPlanPermission(team, 'business').allowed
+    return !checkPlanPermission(team, 'business', 'analytics').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 

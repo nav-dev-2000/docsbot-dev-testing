@@ -27,7 +27,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
   const [isProcessing, setIsProcessing] = useState(true)
   // blur is disabled for pro and higher plans
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return !checkPlanPermission(team, 'power').allowed
+    return !checkPlanPermission(team, 'standard', 'helpscout').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 
@@ -679,7 +679,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
           <div className="max-w-3xl">
           <h3 className="text-3xl font-bold">Setup Help Scout Auto replies</h3>
               <p className="mb-8 text-center text-gray-700">
-                Upgrade to the Power plan or higher to reduce support queues and speed up Help Scout responses! View{' '}
+                Upgrade to the Standard plan or higher to reduce support queues and speed up Help Scout responses! View{' '}
                 <Link href="/pricing" target="_blank" className="underline">
                   plan details
                 </Link>

@@ -41,7 +41,7 @@ const handler = async (req, res) => {
       return res.status(400).json({ message: 'Missing startDate or endDate' })
     }
 
-    if (!checkPlanPermission(team, 'power').allowed) {
+    if (!checkPlanPermission(team, 'personal').allowed) {
       return res.status(402).json({
         message: 'Please upgrade your plan to enable log exporting.',
       })

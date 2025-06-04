@@ -3,6 +3,7 @@ import { getURL, getNeededStripeProduct } from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
+import { getInvitesFromTeam } from '@/lib/dbQueries'
 
 export default async function createCheckoutSession(req, res) {
   let check = null
@@ -16,12 +17,13 @@ export default async function createCheckoutSession(req, res) {
   //TODO check if their role has billing access
 
   if (req.method === 'POST') {
-    const { tier, frequency, email } = req.body
+    const { tier, frequency, email, upgrade } = req.body
 
     try {
       if (tier) {
         const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
         const price = plans[tier]?.prices?.current?.[frequency]
+        const teamInvites = await getInvitesFromTeam(team.id)
 
         if (!price) throw Error('Please select a valid plan.')
 
@@ -30,7 +32,7 @@ export default async function createCheckoutSession(req, res) {
           team?.botCount > planLimits.bots ||
           team?.pageCount >= planLimits.pages ||
           team?.questionCount >= planLimits.questions ||
-          team?.roles.length >= planLimits.teamMembers
+          Object.keys(team?.roles || {}).length + teamInvites.length >= planLimits.teamMembers
         ) {
           throw Error('This plan does not fit your current usage.')
         }
@@ -93,7 +95,8 @@ export default async function createCheckoutSession(req, res) {
           limit: 100,
         })
 
-        const neededProducts = getNeededStripeProduct(team)
+        const teamInvites = await getInvitesFromTeam(team.id)
+        const neededProducts = getNeededStripeProduct(team, teamInvites)
 
         //This command will disable non-default portal configs: stripe billing_portal configurations list --active=true --is-default=false | jq -r '.data[].id' | xargs -I {} stripe billing_portal configurations update {} --active=false
 
@@ -153,6 +156,14 @@ export default async function createCheckoutSession(req, res) {
         }
         if (configId) {
           sessionConfig['configuration'] = configId
+        }
+        if (upgrade) {
+          sessionConfig['flow_data'] = {
+            type: 'subscription_update',
+            subscription_update: {
+              subscription: team.stripeSubscriptionId,
+            },
+          }
         }
         const { url } = await stripe.billingPortal.sessions.create(sessionConfig)
 

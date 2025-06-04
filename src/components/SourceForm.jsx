@@ -702,7 +702,7 @@ export default function SourceForm({ team, bot, sources, setSources, setOpenSour
                           Learn from public images in HTML/Markdown
                           {!checkPlanPermission(team, 'pro').allowed && (
                             <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                              {checkPlanPermission(team, 'pro').requiredPlanLabel}
+                              {checkPlanPermission(team, 'standard').requiredPlanLabel}
                             </span>
                           )}
                         </label>

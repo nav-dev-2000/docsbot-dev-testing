@@ -335,8 +335,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     embeddingModel,
     isAgent,
     tools,
+    imageUploads,
     temperature,
+    copyFrom,
   } = req.body
+
+  if (copyFrom && !checkPlanPermission(team, 'pro', 'duplicate').allowed) {
+    throw new Error('Duplicating bots is not available at your plan level.')
+  }
 
   const botData = {}
 
@@ -418,9 +424,9 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (helpscoutPrompt !== undefined) {
-    if (helpscoutPrompt && !checkPlanPermission(team, 'power').allowed && !isSuperAdmin(userId)) {
+    if (helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
       throw new Error(
-        'Custom helpscout prompts are not available at your plan level.',
+        'Custom Help prompts are not available at your plan level.',
       )
     }
     botData.helpscoutPrompt = helpscoutPrompt
@@ -492,10 +498,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (branding !== undefined) {
-    if (branding === false && !checkPlanPermission(team, 'pro', 'branding').allowed) {
+    if (branding === false && !checkPlanPermission(team, 'business', 'branding').allowed) {
       throw new Error('Disabling branding is not available at your plan level.')
     }
     botData.branding = !!branding
+  }
+
+  if (imageUploads !== undefined) {
+    if (imageUploads && !checkPlanPermission(team, 'standard', 'screenshots').allowed) {
+      throw new Error('Widget screenshot uploads are not available at your plan level.')
+    }
+    botData.imageUploads = !!imageUploads
   }
 
   if (supportLink !== undefined) {
@@ -544,7 +557,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (glossary !== undefined) {
     // Check if the team has Pro plan permissions
     if (glossary && glossary.length > 0 && !checkPlanPermission(team, 'pro', 'glossary').allowed && !isSuperAdmin(userId)) {
-      throw new Error('Glossary feature is only available on the Pro plan or higher.')
+      throw new Error('Glossary feature is only available on the Standard plan or higher.')
     }
     
     botData.glossary = glossary || []

@@ -89,6 +89,11 @@ function Widget({ team, bot }) {
       followup_rating: { enabled: true },
     },
   )
+  const [imageUploads, setImageUploads] = useState(
+    ((bot.imageUploads === undefined || bot.imageUploads) &&
+      checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
+      false,
+  )
   const iconRef = useRef(null)
   const avatarRef = useRef(null)
   const logoRef = useRef(null)
@@ -99,11 +104,24 @@ function Widget({ team, bot }) {
   }, [team, user])
 
   useEffect(() => {
-    if (!branding && !checkPlanPermission(team, 'pro', 'branding').allowed) {
+    if (
+      !branding &&
+      !checkPlanPermission(team, 'business', 'branding').allowed
+    ) {
       setShowUpgrade(true)
       setBranding(true)
     }
   }, [branding, team])
+
+  useEffect(() => {
+    if (
+      imageUploads &&
+      !checkPlanPermission(team, 'standard', 'imageUploads').allowed
+    ) {
+      setShowUpgrade(true)
+      setImageUploads(false)
+    }
+  }, [imageUploads, team])
 
   useEffect(() => {
     if (icon === 'custom') {
@@ -168,6 +186,7 @@ function Widget({ team, bot }) {
       headerAlignment,
       isAgent,
       tools,
+      imageUploads,
     }
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -375,7 +394,8 @@ function Widget({ team, bot }) {
                               className="text-blue-600 underline hover:text-blue-500"
                             >
                               set your agent instructions
-                            </button> and please test!
+                            </button>{' '}
+                            and please test!
                           </strong>{' '}
                           Start with a preset role and adjust, then update or
                           remove any instructions that may conflict.
@@ -775,6 +795,32 @@ function Widget({ team, bot }) {
                           />
                         </div>
 
+                        {isAgent && (
+                          <div className="mt-4">
+                            <FieldToggle
+                              label="Image Uploads"
+                              description="Allow users to upload images like screenshots to the chat."
+                              enabled={imageUploads}
+                              setEnabled={setImageUploads}
+                              disabled={isUpdating}
+                              isNew={true}
+                              planLabel={
+                                !checkPlanPermission(
+                                  team,
+                                  'standard',
+                                  'imageUploads',
+                                ).allowed
+                                  ? checkPlanPermission(
+                                      team,
+                                      'standard',
+                                      'imageUploads',
+                                    ).requiredPlanLabel
+                                  : null
+                              }
+                            />
+                          </div>
+                        )}
+
                         <div className="mt-4">
                           <FieldToggle
                             label="Show Branding"
@@ -783,9 +829,9 @@ function Widget({ team, bot }) {
                             setEnabled={setBranding}
                             disabled={isUpdating}
                             planLabel={
-                              !checkPlanPermission(team, 'pro', 'branding')
+                              !checkPlanPermission(team, 'business', 'branding')
                                 .allowed
-                                ? checkPlanPermission(team, 'pro', 'branding')
+                                ? checkPlanPermission(team, 'business', 'branding')
                                     .requiredPlanLabel
                                 : null
                             }
@@ -936,6 +982,7 @@ function Widget({ team, bot }) {
               supportLink,
               isAgent,
               tools,
+              imageUploads,
             }}
           />
         </div>

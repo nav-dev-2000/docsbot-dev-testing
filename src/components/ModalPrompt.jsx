@@ -248,7 +248,7 @@ export default function ModalPrompt({
     setErrorText('')
     setSuccessText('')
 
-    //show upgrade modal if they are not power and doing anything other than erasing the prompt
+    //show upgrade modal if they are not paid and doing anything other than erasing the prompt
     if (
       prompt &&
       !checkPlanPermission(team, 'hobby').allowed &&
@@ -400,7 +400,7 @@ export default function ModalPrompt({
                           {!checkPlanPermission(team, 'hobby').allowed && (
                             <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                               {
-                                checkPlanPermission(team, 'hobby')
+                                checkPlanPermission(team, 'personal')
                                   .requiredPlanLabel
                               }
                             </span>

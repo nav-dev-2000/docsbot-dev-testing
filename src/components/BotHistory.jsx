@@ -47,11 +47,15 @@ export default function BotHistory({ team, bot }) {
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return !checkPlanPermission(team, 'pro').allowed
+    return !checkPlanPermission(team, 'standard', 'analytics').allowed
+  })
+  // blur for pro plan features (question stats)
+  const [proBlurEnabled, setProBlurEnabled] = useState(() => {
+    return !checkPlanPermission(team, 'pro', 'analytics').allowed
   })
   // blur for business plan features (sentiment)
   const [businessBlurEnabled, setBusinessBlurEnabled] = useState(() => {
-    return !checkPlanPermission(team, 'business').allowed
+    return !checkPlanPermission(team, 'business', 'analytics').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 
@@ -211,7 +215,7 @@ export default function BotHistory({ team, bot }) {
     ]
 
     // Only add sentiment data if business plan is allowed
-    if (checkPlanPermission(team, 'business').allowed) {
+    if (checkPlanPermission(team, 'business', 'analytics').allowed) {
       conversationDatasets.push({
         label: 'Avg Sentiment',
         data: stats.avgSentimentData, // Use raw sentiment values (-1 to 1)
@@ -616,13 +620,8 @@ export default function BotHistory({ team, bot }) {
                         View advanced conversation statistics
                       </h3>
                       <p className="mb-8 text-center text-gray-700">
-                        Upgrade to the Pro plan or higher to unlock advanced
-                        conversation statistics. View{' '}
-                        <Link
-                          href="/pricing"
-                          target="_blank"
-                          className="underline"
-                        >
+                        Upgrade to the Standard plan or higher to unlock conversation statistics. View{' '}
+                        <Link href="/pricing" target="_blank" className="underline">
                           plan details
                         </Link>
                         .
@@ -942,15 +941,14 @@ export default function BotHistory({ team, bot }) {
           </dl>
 
           <div className="relative">
-            {blurEnabled && (
+            {proBlurEnabled && (
               <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <div className="max-w-3xl rounded-lg bg-white/90 p-8 text-center shadow-lg backdrop-blur-sm">
                   <h3 className="mb-4 text-3xl font-bold">
                     View advanced question statistics
                   </h3>
                   <p className="mb-8 text-center text-gray-700">
-                    Upgrade to the Pro plan or higher to unlock advanced
-                    question statistics. View{' '}
+                    Upgrade to the Standard plan or higher to unlock advanced question statistics. View{' '}
                     <Link href="/pricing" target="_blank" className="underline">
                       plan details
                     </Link>
@@ -979,7 +977,7 @@ export default function BotHistory({ team, bot }) {
             <div
               className={classNames(
                 'items-center space-x-4 align-middle',
-                blurEnabled ? 'blur-lg' : '',
+                proBlurEnabled ? 'blur-lg' : '',
               )}
             >
               <div
@@ -1004,7 +1002,7 @@ export default function BotHistory({ team, bot }) {
             <div
               className={classNames(
                 'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
-                blurEnabled ? 'blur-lg' : '',
+                proBlurEnabled ? 'blur-lg' : '',
               )}
             >
               <Tooltip content="Shows the breakdown of user feedback on answers: Positive (thumbs up), Negative (thumbs down), and No Rating (no feedback given)">

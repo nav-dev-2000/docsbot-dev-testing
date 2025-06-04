@@ -220,7 +220,7 @@ export default async function handler(req, res) {
 
       // Only allow true for paid plans
       if (processImages && !checkPlanPermission(team, 'pro', 'image').allowed) {
-        return res.status(402).send({ message: 'Image processing requires Pro plan or higher.' })
+        return res.status(402).send({ message: 'Image processing requires Standard plan or higher.' })
       }
     } else {
       processImages = false

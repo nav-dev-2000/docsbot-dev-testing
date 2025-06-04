@@ -63,6 +63,7 @@ export default function WidgetPreview({
   supportLink,
   isAgent,
   tools,
+  imageUploads,
 }) {
   const [footerMarkdown, setFooterMarkdown] = useState('')
 
@@ -210,6 +211,9 @@ export default function WidgetPreview({
               }}
               disabled
             />
+            {imageUploads && isAgent && (
+              <PhotoIcon className="absolute right-10 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300" />
+            )}
             <button
               className="absolute right-1 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-xl fill-gray-300"
               onMouseOver={(e) => {

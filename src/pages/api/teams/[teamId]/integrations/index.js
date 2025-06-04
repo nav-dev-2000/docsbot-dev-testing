@@ -52,9 +52,9 @@ export default async function handler(req, res) {
     }
 
     // must be pro plan or higher
-    if (!checkPlanPermission(team, 'power').allowed) {
+    if (!checkPlanPermission(team, 'standard', 'helpscout').allowed) {
       return res.status(402).json({
-        message: 'Please upgrade to the Power plan or higher to add integrations.',
+        message: 'Please upgrade to the Standard plan or higher to add integrations.',
       })
     }
 

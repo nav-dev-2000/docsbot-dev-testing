@@ -11,11 +11,12 @@ import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon, PencilIcon } from '@heroicons/react/20/solid'
 import Router from 'next/router'
-import { isSuperAdmin } from '@/utils/helpers'
+import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
 import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
+import ModalCheckout from '@/components/ModalCheckout'
 import { teamMembersRoles } from '@/constants/permissions.constants'
 import { canUserInvite, canUserModifyTeam } from '@/utils/function.utils'
 
@@ -161,6 +162,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   const [weaviateUrl, setWeaviateUrl] = useState(team.weaviateUrl || '')
   const [weaviateApiKey, setWeaviateApiKey] = useState('')
   const [isUpdating, setIsUpdating] = useState(false)
+  const [showUpgrade, setShowUpgrade] = useState(false)
   // const [selectedRole, setSelectedRole] = useState(null)
   const [selectedMemberId, setSelectedMemberId] = useState(null)
   const [roles] = useState(teamMembersRoles)
@@ -311,6 +313,18 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
     }
   }
 
+  const handleInviteMember = () => {
+    // Check if team has reached member limit
+    const plan = stripePlan(currTeam)
+    const currentMemberCount = Object.keys(currTeam.roles).length + currTeamInvites.length
+    
+    if (currentMemberCount >= plan.teamMembers && !isSuperAdmin(userId)) {
+      setShowUpgrade(true)
+    } else {
+      setToInvite(true)
+    }
+  }
+
   useEffect(() => {
     updateTeamUsers()
   }, [currTeam])
@@ -319,6 +333,8 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
     <DashboardWrap page="Team" team={currTeam}>
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
+
+      <ModalCheckout team={currTeam} open={showUpgrade} setOpen={setShowUpgrade} />
 
       {inviteList.map(({ teamId, teamName, inviteId, role }) => (
         <InviteRequest
@@ -390,9 +406,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
               <div className="ml-4 mt-4 flex-shrink-0">
                 <button
                   type="button"
-                  onClick={() => {
-                    setToInvite(true)
-                  }}
+                  onClick={handleInviteMember}
                   className="relative inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-25"
                 >
                   <PlusIcon className="mr-2 h-5 w-5" aria-hidden="true" />

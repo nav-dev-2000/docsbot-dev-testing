@@ -58,7 +58,7 @@ export default async function handler(req, res) {
           icon: bot.icon || 'default',
           alignment: bot.alignment || 'right',
           botIcon: bot.botIcon || false,
-          branding: bot.branding === false && checkPlanPermission(team, 'pro', 'branding').allowed ? false : true,
+          branding: bot.branding === false && checkPlanPermission(team, 'business', 'branding').allowed ? false : true,
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
@@ -69,6 +69,7 @@ export default async function handler(req, res) {
           isAgent: bot.isAgent || false,
           useEscalation: bot.tools?.human_escalation?.enabled === undefined ? true : bot.tools.human_escalation.enabled,
           useFeedback: bot.tools?.followup_rating?.enabled === undefined ? true : bot.tools.followup_rating.enabled,
+          useImageUploads: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
         }
 
         //temp fix for feedbackYes

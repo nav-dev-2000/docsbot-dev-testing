@@ -475,7 +475,7 @@ function Conversations({ team, bot, preConversations }) {
     if (!conversationId || isSummarizing) return
 
     // Check if user has pro permissions
-    if (!checkPlanPermission(team, 'pro').allowed) {
+    if (!checkPlanPermission(team, 'standard').allowed) {
       setShowUpgrade(true)
       return
     }
@@ -793,8 +793,8 @@ function Conversations({ team, bot, preConversations }) {
                             isSummarizing && 'animate-spin',
                           )}
                         />
-                        {!checkPlanPermission(team, 'pro').allowed && (
-                          <span className="sr-only">Pro feature</span>
+                        {!checkPlanPermission(team, 'standard').allowed && (
+                          <span className="sr-only">Standard plan feature</span>
                         )}
                       </button>
                     </Tooltip>
@@ -808,9 +808,9 @@ function Conversations({ team, bot, preConversations }) {
                       {isSummarizing
                         ? 'Generating summary...'
                         : 'Generate summary'}
-                      {!checkPlanPermission(team, 'pro').allowed && (
+                      {!checkPlanPermission(team, 'standard').allowed && (
                         <span className="ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                          Pro
+                          Standard
                         </span>
                       )}
                     </button>

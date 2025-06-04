@@ -76,7 +76,7 @@ export const BotCopyModal = ({ team, bot }) => {
         <button
           className="flex items-center text-sm text-gray-600 hover:text-gray-800"
           onClick={() => {
-            if (!checkPlanPermission(team, 'power').allowed) {
+            if (!checkPlanPermission(team, 'pro', 'duplicate').allowed) {
               setShowUpgrade(true)
             } else {
               setOpen(true)

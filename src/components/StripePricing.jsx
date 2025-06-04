@@ -1,5 +1,5 @@
 import Alert from '@/components/Alert'
-import { CheckBadgeIcon, CheckIcon } from '@heroicons/react/24/solid'
+import { CheckBadgeIcon, CheckIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
@@ -8,8 +8,94 @@ import {
   pricingTiers,
   currencies,
   enterpriseFeatures,
+  featureDefinitions,
 } from '@/constants/pricing.constants'
 import SocialFaces from '@/components/SocialFaces'
+
+// Helper function to get differentiating features for each tier
+const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
+  const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
+  
+  // Always include core limits that users care about most
+  const coreLimits = ['docsBots', 'sourcePages', 'messagesPerMonth', 'teamUsers']
+  const features = []
+  
+  // Add core limits first (always show these)
+  coreLimits.forEach(key => {
+    const value = currentTier.features[key]
+    if (value !== undefined && value !== false && value !== 0) {
+      features.push([key, value])
+    }
+  })
+  
+  // For Free tier, also show basic included features
+  if (tierIndex === 0) {
+    Object.entries(currentTier.features).forEach(([key, value]) => {
+      if (!coreLimits.includes(key) && typeof value === 'boolean' && value === true) {
+        features.push([key, value])
+      }
+    })
+    return features.slice(0, 8)
+  }
+  
+  // For other tiers, add what's new or improved (excluding core limits already added)
+  const differentiatingFeatures = []
+  
+  // Add other improved limits (excluding core limits already handled)
+  Object.entries(currentTier.features).forEach(([key, value]) => {
+    if (coreLimits.includes(key)) return // Skip core limits, already added
+    
+    const prevValue = previousTier?.features[key]
+    const featureDef = featureDefinitions[key]
+    
+    if (featureDef?.category === 'limits') {
+      // Show if it's a meaningful increase
+      if (typeof value === 'number' && typeof prevValue === 'number' && value > prevValue) {
+        differentiatingFeatures.push([key, value])
+      } else if (typeof value === 'string' && value !== prevValue && value !== 'false' && value !== '') {
+        differentiatingFeatures.push([key, value])
+      }
+    }
+  })
+  
+  // Add newly enabled features (false -> true, or false -> string value)
+  Object.entries(currentTier.features).forEach(([key, value]) => {
+    if (coreLimits.includes(key)) return // Skip core limits, already added
+    
+    const prevValue = previousTier?.features[key]
+    
+    if (featureDefinitions[key]?.category !== 'limits') {
+      if ((prevValue === false || prevValue === 0 || prevValue === '') && 
+          (value === true || (typeof value === 'string' && value !== 'false' && value !== '') || (typeof value === 'number' && value > 0))) {
+        differentiatingFeatures.push([key, value])
+      }
+    }
+  })
+  
+  // Combine core limits with differentiating features
+  const allFeatures = [...features, ...differentiatingFeatures]
+  
+  // Prioritize by importance and limit to 8 features total
+  return allFeatures
+    .sort((a, b) => {
+      const [aKey] = a
+      const [bKey] = b
+      
+      // Core limits always come first
+      if (coreLimits.includes(aKey) && !coreLimits.includes(bKey)) return -1
+      if (!coreLimits.includes(aKey) && coreLimits.includes(bKey)) return 1
+      if (coreLimits.includes(aKey) && coreLimits.includes(bKey)) {
+        return coreLimits.indexOf(aKey) - coreLimits.indexOf(bKey)
+      }
+      
+      // Then by category priority
+      const aCat = featureDefinitions[aKey]?.category
+      const bCat = featureDefinitions[bKey]?.category
+      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, features: 4, sources: 5, customization: 6, support: 7 }
+      return (priority[aCat] || 99) - (priority[bCat] || 99)
+    })
+    .slice(0, 14)
+}
 
 export function StripePricingTable({ team, email, setErrorText }) {
   const [enterprise, setEnterprise] = useState(false)
@@ -53,13 +139,14 @@ export function StripePricingTable({ team, email, setErrorText }) {
   }
 
   const isDisableSelectPlanButton = (id) => {
+    console.log(id)
     const planLimits = plans[id]
     let isDisableButton = false
     if (
       team?.botCount > planLimits.bots ||
       team?.pageCount >= planLimits.pages ||
       team?.questionCount >= planLimits.questions ||
-      team?.roles.length >= planLimits.teamMembers
+      Object.keys(team?.roles || {}).length >= planLimits.teamMembers
     ) {
       isDisableButton = true
     }
@@ -139,8 +226,10 @@ export function StripePricingTable({ team, email, setErrorText }) {
             ))}
           </RadioGroup>
         </div>
-        <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
-          {pricingTiers.map((tier, index) => (
+        <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
+          {pricingTiers
+            .filter(tier => !tier.legacy && tier.showInStripe !== false)
+            .map((tier, index) => (
             <div
               key={tier.id}
               className={clsx(
@@ -171,7 +260,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
               </p>
               {frequency?.value === 'monthly' ? (
                 <>
-                <p className="mt-6 flex items-baseline gap-x-1">
+                <p className="mt-2 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-600">
                     {currencies[currency].symbol}
                     {tier.price[currency][frequency?.value].toFixed(0)}
@@ -219,22 +308,44 @@ export function StripePricingTable({ team, email, setErrorText }) {
               <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
                 {index === 0
                   ? 'Including:'
-                  : `Everything in ${pricingTiers[index - 1]?.name || 'Free'} plan, and:`}
+                  : `Everything in ${pricingTiers.filter(tier => !tier.legacy && tier.showInStripe !== false)[index - 1]?.name || 'Free'} plan, and:`}
               </h3>
-              <ul
-                role="list"
-                className="mt-4 columns-2 space-y-3 text-sm leading-6 text-gray-600 xl:mt-6 xl:columns-1"
-              >
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckIcon
-                      className="h-6 w-5 flex-none text-cyan-600"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
+              <ul className="mt-3 space-y-3">
+                {getDifferentiatingFeatures(tier, index, pricingTiers.filter(tier => !tier.legacy && tier.showInStripe !== false)).map(([key, value]) => {
+                  const featureDef = featureDefinitions[key]
+                  if (!featureDef) return null
+                  
+                  let displayText = featureDef.label
+                  if (typeof value === 'string' && value !== 'true') {
+                    displayText = `${featureDef.label}: ${value}`
+                  } else if (typeof value === 'number') {
+                    displayText = `${value} ${featureDef.label}`
+                  }
+                  
+                  return (
+                    <li
+                      key={key}
+                      className="group flex items-start gap-4 text-sm/6 text-gray-600"
+                    >
+                      <span className="inline-flex h-6 items-center">
+                        <PlusIcon
+                          aria-hidden="true"
+                          className="size-4 fill-gray-400"
+                        />
+                      </span>
+                      {displayText}
+                    </li>
+                  )
+                })}
               </ul>
+              <div className="mt-6 text-center">
+                <Link
+                  href="/pricing#comparison-table"
+                  className="text-sm font-medium text-cyan-600 hover:text-cyan-500"
+                >
+                  Compare all features →
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -286,7 +397,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
-                What’s included
+                What's included
               </h4>
               <div className="h-px flex-auto bg-gray-100" />
             </div>

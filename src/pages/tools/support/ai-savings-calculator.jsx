@@ -90,8 +90,8 @@ export const AiSupportSavingsCalculator = () => {
   const [hourlyRate, setHourlyRate] = useState(18)
   const closeRate = 0.75
 
-  const planName = supportTickets < 500 ? 'Power' : 'Pro'
-  const planCost = supportTickets < 500 ? 41 : 83
+  const planName = supportTickets < 500 ? 'Personal' : 'Standard'
+  const planCost = supportTickets < 500 ? 41 : 124
   const timeSavings = Math.round((supportTickets * closeRate * timePerTicket) / 60)
   const costSavings = Math.round(timeSavings * hourlyRate - planCost)
 
@@ -277,7 +277,7 @@ export default function Calculate({ starRatingData }) {
                   GPT-Powered Customer Support
                 </p>
                 <p className="mt-6 text-lg leading-8 text-gray-300 text-justify sm:text-center">
-                  Experience instant, accurate, and 24/7 multilingual support with DocsBot AI. Train
+                  Experience instant, accurate, 24/7 multilingual support with DocsBot AI. Train
                   your chatbot from your existing content and documentation in minutes to start
                   delighting your customers and saving on support costs today.
                 </p>

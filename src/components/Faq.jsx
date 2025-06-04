@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Can a get a free trial of a higher plan?",
-    answer: "Instead of a free trial, we have a free tier lifetime plan that allows you to experience our core features. For qualifying businesses, ask us to enable access to all features of the Pro plan for 14 days, including multiple DocsBots, advanced analytics, and team collaboration features. You can test all source types, integrations, and customization options without any commitment.",
+    answer: "Instead of a free trial, we have a free tier lifetime plan that allows you to experience our core features. For qualifying businesses, ask us to enable access to all features of the Standard plan for 14 days, including multiple DocsBots, advanced analytics, and team collaboration features. You can test all source types, integrations, and customization options without any commitment.",
   },
   {
     question: "How do I upgrade or downgrade my plan?",
@@ -32,11 +32,11 @@ const faqs = [
   },
   {
     question: "Can I customize the chat widget appearance?",
-    answer: "Yes! All plans include basic widget customization like colors and position. Pro and higher plans also get access to unbranded widgets and advanced customization options including custom CSS, custom icons, and the ability to fully integrate the chat experience into your website's design.",
+    answer: "Yes! All plans include basic widget customization like colors and position. Higher plans also get access to advanced customization options including custom CSS, custom icons, and the ability to fully integrate the chat experience into your website's design. Business plans also get access to unbranded widgets.",
   },
   {
     question: "What kind of analytics do you provide?",
-    answer: "Basic analytics (available on Power plan and up) include question volume, answered stats, and satisfaction rates. Advanced analytics (Pro and up) add detailed user interaction data with graphs, unanswered question reports, and AI-powered insights to improve your documentation and bot responses. Business plans also get access to our AI question reports for deeper analysis of topics question topics with clustering.",
+    answer: "Basic analytics (available on Personal plan and up) include question volume, answered stats, and satisfaction rates. Advanced analytics (Standard and up) add detailed user interaction data for questions and conversations with graphs, unanswered question reports, and AI-powered insights to improve your documentation and bot responses. Business plans also get access to sentiment, topic analysis, and our AI question reports for deeper analysis of topics and question topics with clustering.",
   },
   {
     question: "How secure is DocsBot?",
