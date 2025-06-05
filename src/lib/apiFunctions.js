@@ -658,7 +658,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (isAgent !== undefined) {
     botData.isAgent = Boolean(isAgent)
-    if (isAgent && !bot?.agentPrompt) {
+    if (isAgent && !bot?.agentPrompt && !agentPrompt) {
       throw new Error('Please set your agent instructions before enabling agent mode.')
     }
   } else if (!isUpdate) {

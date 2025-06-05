@@ -153,6 +153,10 @@ You can also interact with the widget using the following API if you want to cre
 
 If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event`, `history`, `metadata`, and if Agent Mode is enabled `ticket` objects. The `event` object is the click event and the `history` object is the chat history array. `metadata` merely contains the metadata you passed to the widget. When you provide an argument for `ticket` and Agent mode is enabled, then we will use AI to summarize the conversation and write a ticket. This object contains { `subject`, `message` }. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history or AI written ticket.
 
+{% callout title="Ticket Creation Plan Limitations" %}
+The ticket creation endpoint is only available on our Standard plan and above. If you are on a lower/legacy plan, `ticket` object will be null.
+{% /callout %}
+
 ### Example Code
 
 #### History Array

@@ -210,7 +210,7 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
 
     // grandfathered old power (personal) for helpscout
     if (feature == 'helpscout') {
-      if (requiredPlan === 'standard' && team.createdAt) {
+      if (team.createdAt) {
         const createdDate = new Date(team.createdAt)
         const cutoffDate = new Date('2025-05-28')
         if (createdDate < cutoffDate) {

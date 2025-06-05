@@ -27,7 +27,7 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
   const [isProcessing, setIsProcessing] = useState(true)
   // blur is disabled for pro and higher plans
   const [blurEnabled, setBlurEnabled] = useState(() => {
-    return !checkPlanPermission(team, 'standard', 'helpscout').allowed
+    return !checkPlanPermission(team, 'pro', 'helpscout').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
 
