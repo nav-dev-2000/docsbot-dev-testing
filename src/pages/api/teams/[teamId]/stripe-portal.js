@@ -32,7 +32,7 @@ export default async function createCheckoutSession(req, res) {
           team?.botCount > planLimits.bots ||
           team?.pageCount >= planLimits.pages ||
           team?.questionCount >= planLimits.questions ||
-          Object.keys(team?.roles || {}).length + teamInvites.length >= planLimits.teamMembers
+          Object.keys(team?.roles || {}).length + teamInvites.length > planLimits.teamMembers
         ) {
           throw Error('This plan does not fit your current usage.')
         }
