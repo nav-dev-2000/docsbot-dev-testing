@@ -163,8 +163,8 @@ export function stripePlan(team) {
 /**
  * Checks if a team has permission for a specific feature based on their plan level
  * @param {Object} team - The team object containing subscription information
- * @param {string} feature - The feature to check permission for (e.g., 'youtube', 'notion', etc.)
  * @param {string} [requiredPlan=null] - Optional specific plan to check against
+ * @param {string} [feature=null] - The feature to check permission for (e.g., 'youtube', 'notion', etc.)
  * @returns {Object} Object containing { allowed: boolean, requiredPlanLabel: string }
  */
 export function checkPlanPermission(team, requiredPlan = null, feature = null) {
