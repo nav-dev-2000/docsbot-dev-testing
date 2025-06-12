@@ -340,7 +340,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     copyFrom,
   } = req.body
 
-  if (copyFrom && !checkPlanPermission(team, 'pro', 'duplicate').allowed) {
+  if (copyFrom && !checkPlanPermission(team, 'personal', 'duplicate').allowed) {
     throw new Error('Duplicating bots is not available at your plan level.')
   }
 
