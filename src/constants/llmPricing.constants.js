@@ -86,8 +86,8 @@ export const LLM_PRICING = {
       page_slug: 'o3',
       context: '200K/100K',
       provider: 'OpenAI',
-      input_token_cost_per_million: 10,
-      output_token_cost_per_million: 40,
+      input_token_cost_per_million: 2,
+      output_token_cost_per_million: 8,
     },
     {
       model_name: 'o3-mini',
