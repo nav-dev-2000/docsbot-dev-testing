@@ -716,6 +716,7 @@ ${JSON.stringify({
       }
 
       // Get the prompt to make sure it exists
+      let tags = []
       const prompt = await getPrompt(slug)
       if (prompt) {
         // Delete the prompt from the database
@@ -723,6 +724,7 @@ ${JSON.stringify({
 
         // Revalidate related ISR paths to clear the cache
         category = prompt.category
+        tags = prompt.tags
       }
 
      
@@ -733,8 +735,8 @@ ${JSON.stringify({
       ]
 
       // If the prompt has tags, also revalidate the tag pages
-      if (prompt.tags && Array.isArray(prompt.tags)) {
-        prompt.tags.forEach(tag => {
+      if (tags && Array.isArray(tags)) {
+        tags.forEach(tag => {
           pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
         })
       }
@@ -758,8 +760,8 @@ ${JSON.stringify({
       ]
 
       // Add tag URLs to purge if present
-      if (prompt.tags && Array.isArray(prompt.tags)) {
-        prompt.tags.forEach(tag => {
+      if (tags && Array.isArray(tags)) {
+        tags.forEach(tag => {
           urlsToPurge.push(`https://docsbot.ai/prompts/tags?tag=${encodeURIComponent(tag)}`)
         })
       }
