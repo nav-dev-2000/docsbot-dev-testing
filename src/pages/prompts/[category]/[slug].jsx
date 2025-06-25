@@ -32,7 +32,7 @@ const PromptDisplay = ({ prompt, category, slug, isSuperAdminUser }) => {
     if (confirm('Are you sure you want to delete this prompt? This action cannot be undone.')) {
       setIsDeleting(true)
       try {
-        const response = await fetch(`/api/tools/prompt-generator?slug=${slug}`, {
+        const response = await fetch(`/api/tools/prompt-generator?slug=${slug}&category=${category}`, {
           method: 'DELETE',
         })
 

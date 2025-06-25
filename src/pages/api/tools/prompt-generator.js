@@ -696,7 +696,7 @@ ${JSON.stringify({
         .json({ message: `Prompt "${slug}" doesn't exist!` })
     }
   } else if (req.method === 'DELETE') {
-    const { slug } = req.query
+    let { slug, category } = req.query
 
     if (!slug) {
       return res.status(400).json({ message: 'Missing slug parameter' })
@@ -717,15 +717,15 @@ ${JSON.stringify({
 
       // Get the prompt to make sure it exists
       const prompt = await getPrompt(slug)
-      if (!prompt) {
-        return res.status(404).json({ message: `Prompt "${slug}" not found` })
+      if (prompt) {
+        // Delete the prompt from the database
+        await firestore.collection('prompts').doc(slug).delete()
+
+        // Revalidate related ISR paths to clear the cache
+        category = prompt.category
       }
 
-      // Delete the prompt from the database
-      await firestore.collection('prompts').doc(slug).delete()
-
-      // Revalidate related ISR paths to clear the cache
-      const category = prompt.category
+     
       const pathsToRevalidate = [
         `/prompts/${category}/${slug}`,  // The prompt page itself
         `/prompts/${category}`,          // The category listing page
