@@ -335,7 +335,7 @@ Take a step back and think step-by-step about how to achieve the best possible r
 
 # STEPS
 
-- Extract the most potent takeaway and recommendation into a propery called takeaway. This should be a 15-word sentence that captures the most important essence of the content.
+- Extract the most potent takeaway and recommendation into a property called takeaway. This should be a 15-word sentence that captures the most important essence of the content.
 
 - Extract the 15 to 30 of the most surprising, insightful, and/or interesting questions and answers that can be collected from the content into a section called faqs.
 
@@ -387,6 +387,8 @@ Take a step back and think step-by-step about how to achieve the best possible r
                   },
                 },
                 required: ['question', 'answer'],
+                minItems: 15,
+                maxItems: 30,
                 additionalProperties: false,
               },
               description:
@@ -493,6 +495,8 @@ Take a step back and think step-by-step about how to achieve the best possible r
                 required: ['question', 'options'],
                 additionalProperties: false,
               },
+              minItems: 10,
+              maxItems: 15,
             },
             is_ai: {
               type: 'boolean',

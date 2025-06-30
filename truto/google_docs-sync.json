@@ -36,7 +36,8 @@
       "resource": "file-storage/drive-items",
       "method": "list",
       "query": {
-        "drive_item_id": "{{drive_items.id}}"
+        "drive_item_id": "{{drive_items.id}}",
+        "trashed": "false"
       },
       "integrated_account_id": "{{args.integrated_account_id}}",
       "loop_on": "drive_items",
@@ -44,7 +45,8 @@
         "if": "{{resources.file-storage.drive-items.has_children:bool}}",
         "config": {
           "query": {
-            "parent": "{{resources.file-storage.drive-items.id}}"
+            "parent": "{{resources.file-storage.drive-items.id}}",
+            "trashed": "false"
           }
         }
       }
