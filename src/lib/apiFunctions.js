@@ -409,7 +409,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (customPrompt !== undefined) {
     // Check if their plan allows custom prompts
-    if (customPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+    if (customPrompt && isUpdate && customPrompt !== bot?.customPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.customPrompt = customPrompt
@@ -417,14 +417,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (agentPrompt !== undefined) {
     // Check if their plan allows custom prompts on updates
-    if (agentPrompt && isUpdate && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+    if (agentPrompt && isUpdate && agentPrompt !== bot?.agentPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
       throw new Error('Custom prompts are not available at your plan level.')
     }
     botData.agentPrompt = agentPrompt
   }
 
   if (helpscoutPrompt !== undefined) {
-    if (helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
+    if (helpscoutPrompt && isUpdate && helpscoutPrompt !== bot?.helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
       throw new Error(
         'Custom Help prompts are not available at your plan level.',
       )
