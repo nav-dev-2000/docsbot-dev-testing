@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import iuLogo from '@/images/logos/iu-logo-words.svg'
+import castosLogo from '@/images/logos/castos.svg'
 import dollieLogo from '@/images/logos/logo-dollie.png'
 import extendifyLogo from '@/images/logos/logo-extendify.png'
 import conversionLogo from '@/images/logos/logo-conversion.svg'
@@ -12,20 +12,6 @@ import WPMUDEVLogo from '@/components/WPMUDEVLogo'
 export default function TrustedBy({ props }) {
   return (
       <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 md:max-w-none md:grid-cols-4 xl:grid-cols-8" {...props}>
-        <Link
-          href="https://infiniteuploads.com"
-          target="_blank"
-          title="Infinite Uploads"
-          className="flex justify-center "
-        >
-          <Image
-            className="max-h-8 w-full object-contain"
-            src={iuLogo}
-            alt="Infinite Uploads Logo"
-            width={125}
-            height={32}
-          />
-        </Link>
 
         <Image
           className="max-h-8 w-full object-contain"
@@ -35,6 +21,14 @@ export default function TrustedBy({ props }) {
           height={26}
         />
 
+        <Image
+          className="max-h-8 w-full object-contain"
+          src={castosLogo}
+          alt="Castos Logo"
+          width={125}
+          height={26}
+        />
+      
         <Image
           className="max-h-8 w-full object-contain"
           src={extendifyLogo}

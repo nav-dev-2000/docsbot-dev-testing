@@ -25,7 +25,6 @@ const footerNavigation = {
   pages: NAVIGATION,
   tools: [
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
-    { name: 'Infinite Uploads', href: 'https://infiniteuploads.com' },
   ],
   comparisons: comparisons.slice(0, 8),
   tools2: [
