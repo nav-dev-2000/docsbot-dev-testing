@@ -291,7 +291,7 @@ export default function ModalSource({
     const lowercasedTerm = searchTerm.toLowerCase()
     const filtered = source.indexedUrls.filter(
       (item) =>
-        item.title.toLowerCase().includes(lowercasedTerm) ||
+        (item.title && item.title.toLowerCase().includes(lowercasedTerm)) ||
         (item.source && item.source.toLowerCase().includes(lowercasedTerm)),
     )
     setFilteredUrls(filtered)

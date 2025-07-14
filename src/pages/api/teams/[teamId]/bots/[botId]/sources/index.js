@@ -60,7 +60,7 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, scheduleInterval, faqs, processImages, trutoIntegrationID, trutoFiles } = req.body
+    let { type, title, url, file, scheduleInterval, faqs, processImages, trutoIntegrationID, trutoFiles, urls } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -113,6 +113,45 @@ export default async function handler(req, res) {
             'Invalid YouTube URL. Please provide a valid YouTube video or channel URL.',
         })
       }
+    }
+
+    // Handle urls for urls source type
+    let indexedUrls = null
+    if (type === 'urls' && urls) {
+      // Validate urls
+      if (!Array.isArray(urls)) {
+        return res.status(400).send({ message: 'Invalid parameter "urls". Must be an array.' })
+      }
+
+      // Validate each URL and remove duplicates
+      const validatedUrls = []
+      const seenUrls = new Set()
+
+      for (const urlItem of urls) {
+        const trimmedUrl = urlItem?.trim()
+        if (!trimmedUrl) continue
+
+        if (!isValidURL(trimmedUrl)) {
+          return res.status(400).send({ 
+            message: `Invalid URL in urls: ${trimmedUrl}. Please provide valid full URLs.` 
+          })
+        }
+
+        // Remove duplicates
+        if (!seenUrls.has(trimmedUrl)) {
+          seenUrls.add(trimmedUrl)
+          validatedUrls.push(trimmedUrl)
+        }
+      }
+
+      indexedUrls = validatedUrls
+    }
+
+    // For urls source type, either file or urls should be provided
+    if (type === 'urls' && !file && (!indexedUrls || indexedUrls.length === 0)) {
+      return res.status(400).send({ 
+        message: 'Invalid parameter. Either provide a file or urls for urls source type.' 
+      })
     }
 
     title = title?.trim() || null
@@ -238,6 +277,7 @@ export default async function handler(req, res) {
         chunkCount: 0,
         faqs,
         processImages,
+        indexedUrls,
       }
 
       if (scheduleInterval && scheduleInterval !== 'none') {

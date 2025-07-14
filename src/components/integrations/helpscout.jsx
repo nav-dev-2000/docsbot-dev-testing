@@ -301,9 +301,17 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 max-h-96 overflow-y-auto">
           {filteredTags.map((tag) => (
-            <div key={tag.id} className="flex items-center space-x-2 rounded-md border border-gray-200 p-2 hover:bg-gray-50">
+            <div
+              key={tag.id}
+              className={clsx(
+                "flex items-center space-x-2 rounded-md border p-2 hover:bg-gray-50",
+                tag.assignedBot && tag.assignedBot !== 'none'
+                  ? "border-cyan-600 bg-cyan-100"
+                  : "border-gray-200"
+              )}
+            >
               <span className="w-1/2 truncate text-xs font-bold text-gray-800">{tag.name}</span>
               <BotSelect
                 onChange={(e) => updateHelpScoutTag(tag, e.target.value)}
