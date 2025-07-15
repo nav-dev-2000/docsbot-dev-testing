@@ -1,11 +1,15 @@
 ---
-title: Streaming Chat API
+title: Streaming Chat API (Legacy)
 description: The chat API is used to create a full chat interface in your product.
 ---
 
 The chat API is used to create a full chat interface in your product. You pass it a question plus chat history, and it returns the next answer along with its sources. It also returns the new chat history array to pass back with the next response. This is the endpoint you should use if you want to create a full chat interface in your product.
 
 ---
+
+{% callout type="warning" title="Legacy API - Use Chat Agent API Instead" %}
+*This Streaming Chat API is legacy and deprecated.* For new integrations, we strongly recommend using the [Chat Agent API](/documentation/developer/chat-agent) instead. The Chat Agent API is our latest and most powerful API that supports modern streaming responses (SSE), multimodal chats, and advanced agent capabilities. It provides a more modern and feature-rich experience for building conversational interfaces.
+{% /callout %}
 
 {% callout title="Streaming Q/A Ask" %}
 You can also use this API for simpler Q/A bots, just omit the `history` parameter. This will return a single answer and source. This is the endpoint you should use if you want to create a simple Q/A interface in your product where you can stream the reply back to the user as soon as it is available.

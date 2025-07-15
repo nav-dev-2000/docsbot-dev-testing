@@ -1,5 +1,5 @@
 ---
-title: Chat Agent API (BETA)
+title: Chat Agent API
 description: The Chat Agent API is our latest and most powerful API for integrating conversational chatbots with your product.
 ---
 
@@ -207,3 +207,10 @@ The API returns standard HTTP status codes to indicate the success or failure of
 429 Too Many Requests: Rate limiting exceeded or Team question limit exceeded.
 500 Internal Server Error: Unexpected errors.
 ```
+
+## Related Endpoints
+
+The Chat Agent API also provides additional endpoints for working with conversation data:
+
+- **[Conversation Summarize](/documentation/developer/conversation-summarize)**: Generate summaries of conversations including title, summary text, and sentiment analysis
+- **[Conversation Ticket](/documentation/developer/conversation-ticket)**: Generate structured support tickets from conversations for help desk integration

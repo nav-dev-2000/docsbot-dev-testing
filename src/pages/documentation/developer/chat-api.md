@@ -1,11 +1,15 @@
 ---
-title: Chat API
+title: Chat API (Legacy)
 description: The chat API is used to create Q/A or chat interface in your product.
 ---
 
 The chat API is used to create a Question/Answer and chat bots in your product. You pass it a question plus optional chat history, and it returns the next answer along with its sources. It also returns the new chat history array to pass back with the next response. This is the endpoint you should use if you want to create any Q/A or chat interface in your product.
 
 ---
+
+{% callout type="warning" title="Legacy API - Use Chat Agent API Instead" %}
+*This Chat API is legacy and deprecated.* For new integrations, we strongly recommend using the [Chat Agent API](/documentation/developer/chat-agent) instead. The Chat Agent API is our latest and most powerful API that supports streaming responses, multimodal chats, and advanced agent capabilities. It provides a more modern and feature-rich experience for building conversational interfaces.
+{% /callout %}
 
 ## Request
 

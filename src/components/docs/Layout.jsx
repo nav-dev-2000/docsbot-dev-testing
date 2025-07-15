@@ -46,11 +46,13 @@ const navigation = [
     title: 'Chat API',
     links: [
       { title: 'Overview', href: '/documentation/developer/chat-api-overview' },
-      { title: 'Chat', href: '/documentation/developer/chat-api' },
-      { title: 'Streaming Chat', href: '/documentation/developer/streaming-chat-api' },
       { title: 'Chat Agent (NEW)', href: '/documentation/developer/chat-agent' },
+      { title: 'Conversation Summarize', href: '/documentation/developer/conversation-summarize' },
+      { title: 'Conversation Ticket Creation', href: '/documentation/developer/conversation-ticket' },
       { title: 'Answer Rating & Escalation', href: '/documentation/developer/answer-rating' },
       { title: 'Semantic Search', href: '/documentation/developer/semantic-search-api' },
+      { title: 'Chat (legacy)', href: '/documentation/developer/chat-api' },
+      { title: 'Streaming Chat (legacy)', href: '/documentation/developer/streaming-chat-api' },
     ],
   },
   {
@@ -322,6 +324,83 @@ export function Layout({ children, title, tableOfContents }) {
     section.links.find((link) => link.href === router.pathname)
   )
   let currentSection = useTableOfContents(tableOfContents)
+  
+  const [copySuccess, setCopySuccess] = useState(false)
+
+  const extractTextContent = useCallback(() => {
+    const article = document.querySelector('article')
+    if (!article) return ''
+    
+    let content = ''
+    
+    // Add title
+    if (title) {
+      content += `# ${title}\n\n`
+    }
+    
+    // Extract content from the prose section
+    const proseSection = article.querySelector('.prose') || article
+    const elements = proseSection.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, code, pre')
+    
+    let lastElementType = ''
+    
+    elements.forEach((element) => {
+      const tagName = element.tagName.toLowerCase()
+      const text = element.textContent?.trim()
+      
+      if (!text) return
+      
+      switch (tagName) {
+        case 'h1':
+          content += `\n# ${text}\n\n`
+          break
+        case 'h2':
+          content += `\n## ${text}\n\n`
+          break
+        case 'h3':
+          content += `\n### ${text}\n\n`
+          break
+        case 'h4':
+          content += `\n#### ${text}\n\n`
+          break
+        case 'h5':
+          content += `\n##### ${text}\n\n`
+          break
+        case 'h6':
+          content += `\n###### ${text}\n\n`
+          break
+        case 'p':
+          content += `${text}\n\n`
+          break
+        case 'li':
+          content += `- ${text}\n`
+          break
+        case 'code':
+          if (lastElementType !== 'pre') {
+            content += `\`${text}\``
+          }
+          break
+        case 'pre':
+          content += `\n\`\`\`\n${text}\n\`\`\`\n\n`
+          break
+      }
+      
+      lastElementType = tagName
+    })
+    
+    return content.trim()
+  }, [title])
+
+  const copyToClipboard = useCallback(async () => {
+    try {
+      const content = extractTextContent()
+      await navigator.clipboard.writeText(content)
+      setCopySuccess(true)
+      setTimeout(() => setCopySuccess(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy content: ', err)
+    }
+  }, [extractTextContent])
 
   function isActive(section) {
     if (section.id === currentSection) {
@@ -351,12 +430,39 @@ export function Layout({ children, title, tableOfContents }) {
         <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-8">
           <article>
             {(title || section) && (
-              <header className="mb-9 space-y-1" id="start">
+              <header className="mb-9 space-y-1 relative" id="start">
                 {section && (
                   <p className="font-display text-sm font-medium text-teal-500">{section.title}</p>
                 )}
                 {title && (
-                  <h1 className="font-display text-3xl tracking-tight text-white">{title}</h1>
+                  <div className="sm:flex items-center justify-between gap-2">
+                    <h1 className="font-display text-3xl tracking-tight text-white">{title}</h1>
+                    <button
+                      onClick={copyToClipboard}
+                      className={clsx(
+                        'inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md transition-colors',
+                        copySuccess
+                          ? 'text-green-400 bg-green-900/20 border-green-500/30'
+                          : 'text-slate-300 bg-slate-800 border-slate-700 hover:bg-slate-700 hover:text-white'
+                      )}
+                    >
+                      {copySuccess ? (
+                        <>
+                          <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h2z" />
+                          </svg>
+                          Copy for LLM
+                        </>
+                      )}
+                    </button>
+                  </div>
                 )}
               </header>
             )}
