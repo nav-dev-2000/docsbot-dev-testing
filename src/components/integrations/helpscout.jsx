@@ -14,6 +14,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
 import { checkPlanPermission } from '@/utils/helpers'
 import FieldToggle from '@/components/FieldToggle'
+import clsx from 'clsx'
 
 const generateWebhookURL = (teamId) => `https://api.docsbot.ai/teams/${teamId}/helpscout`
 
