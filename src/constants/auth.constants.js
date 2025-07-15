@@ -13,7 +13,7 @@ export const authDefaults = {
   COOKIE_OPTIONS: {
     maxAge: TWO_WEEKS_IN_SECONDS,
     httpOnly: true,
-    SameSite: 'lax',
+    sameSite: 'strict',
     secure: process.env.NODE_ENV !== 'development',
     path: '/',
   },
