@@ -141,6 +141,18 @@ const ModelSelector = ({ models, selectedModel, onChange, className }) => {
 const ModelPage = ({ model1, model2 }) => {
   const router = useRouter()
 
+  // Safety check - this shouldn't happen with proper getStaticProps, but adding as fallback
+  if (!model1 || !model2) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900">Models not found</h1>
+          <p className="mt-2 text-gray-600">The requested models could not be found.</p>
+        </div>
+      </div>
+    )
+  }
+
   const breadcrumbPages = [
     { name: 'Models', href: '/models', current: false },
     { name: 'Compare', href: null, current: false },
@@ -1411,12 +1423,23 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const model1 = context.params.model1
-  const model2 = context.params.model2
+  const model1Slug = context.params.model1
+  const model2Slug = context.params.model2
+  
+  const model1 = LLMS.find((e) => `${e.slug}` == model1Slug)
+  const model2 = LLMS.find((e) => `${e.slug}` == model2Slug)
+  
+  // Return 404 if either model is not found
+  if (!model1 || !model2) {
+    return {
+      notFound: true,
+    }
+  }
+  
   return {
     props: {
-      model1: LLMS.find((e) => `${e.slug}` == model1),
-      model2: LLMS.find((e) => `${e.slug}` == model2),
+      model1,
+      model2,
     },
   }
 }
