@@ -140,6 +140,8 @@ const ModelSelector = ({ models, selectedModel, onChange, className }) => {
 
 const ModelPage = ({ model1, model2 }) => {
   const router = useRouter()
+  // Add state for scale type - must be before any conditional returns
+  const [priceScale, setPriceScale] = useState('logarithmic')
 
   // Safety check - this shouldn't happen with proper getStaticProps, but adding as fallback
   if (!model1 || !model2) {
@@ -314,9 +316,6 @@ const ModelPage = ({ model1, model2 }) => {
   const providerInfo2 = getProviderInfo(model2.provider)
   const IconComponent1 = providerInfo1.icon
   const IconComponent2 = providerInfo2.icon
-
-  // Add state for scale type
-  const [priceScale, setPriceScale] = useState('logarithmic')
 
   // Add this handler
   const handleModelChange = (newModel1, newModel2) => {
