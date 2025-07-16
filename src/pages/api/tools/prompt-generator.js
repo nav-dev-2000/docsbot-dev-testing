@@ -731,31 +731,6 @@ ${JSON.stringify({
         console.warning('Prompt fetch error, continuing...', error)
       }
 
-     
-      const pathsToRevalidate = [
-        `/prompts/${category}/${slug}`,  // The prompt page itself
-        `/prompts/${category}`,          // The category listing page
-        '/prompts',                      // The main prompts listing page
-      ]
-
-      // If the prompt has tags, also revalidate the tag pages
-      //if (tags && Array.isArray(tags)) {
-      //  tags.forEach(tag => {
-      //    pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
-      //  })
-      //}
-
-      // Revalidate each path
-      await Promise.all(pathsToRevalidate.map(async (path) => {
-        try {
-          await res.revalidate(path)
-          console.log(`Revalidated: ${path}`)
-        } catch (error) {
-          console.error(`Failed to revalidate path ${path}:`, error)
-          // Continue with other revalidations even if one fails
-        }
-      }))
-
       // Clear Cloudflare cache for prompt pages
       const urlsToPurge = [
         `https://docsbot.ai/prompts/${category}/${slug}`,
@@ -769,6 +744,40 @@ ${JSON.stringify({
           urlsToPurge.push(`https://docsbot.ai/prompts/tags?tag=${encodeURIComponent(tag)}`)
         })
       }
+
+      // Use the cloudflare helper to clear the cache
+      try {
+        const cloudflareClearResult = await clearCloudflareCache(null, null, urlsToPurge)
+        console.log(`Cloudflare cache cleared: ${cloudflareClearResult ? 'success' : 'failed'}`)
+        await new Promise(resolve => setTimeout(resolve, 20000))
+      } catch (cloudflareError) {
+        console.error('Error clearing Cloudflare cache:', cloudflareError)
+        // Continue even if Cloudflare purge fails
+      }
+
+      const pathsToRevalidate = [
+        `/prompts/${category}/${slug}`,  // The prompt page itself
+        `/prompts/${category}`,          // The category listing page
+        '/prompts',                      // The main prompts listing page
+      ]
+
+      // If the prompt has tags, also revalidate the tag pages
+      if (tags && Array.isArray(tags)) {
+        tags.forEach(tag => {
+          pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
+        })
+      }
+
+      // Revalidate each path
+      await Promise.all(pathsToRevalidate.map(async (path) => {
+        try {
+          await res.revalidate(path)
+          console.log(`Revalidated: ${path}`)
+        } catch (error) {
+          console.error(`Failed to revalidate path ${path}:`, error)
+          // Continue with other revalidations even if one fails
+        }
+      }))
 
       // Use the cloudflare helper to clear the cache
       try {
