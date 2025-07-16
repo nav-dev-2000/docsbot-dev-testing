@@ -4114,8 +4114,51 @@ const LLMS = [
       },
     },
   },
-  {
-    model_name: 'Grok 3 Beta',
+   {
+  model_name: 'Grok 4',
+  slug: 'grok-4',
+  provider: 'xai',
+  description:
+    'Grok 4 is xAI’s most advanced foundation model, trained on their Colossus supercomputer with ~200,000 GPUs and 10x more compute than Grok 3. It supports multimodal reasoning across text, image, and video, and features advanced agentic capabilities via tool use (Python, internet search). The Grok 4 and Grok 4 Heavy models power xAI’s chatbot on X and lead benchmarks like Humanity’s Last Exam and ARC-AGI.',
+  input_context_window: '1M (App), 256K (API)',
+  maximum_output_tokens: '128K',
+  open_source: false,
+  release_date: '2025-07-09',
+  knowledge_cut_off_date: 'June 2025',
+  api_providers: 'xAI',
+  input_cost_per_million_tokens: 3.0,
+  output_cost_per_million_tokens: 15.0,
+  modalities: {
+    text: true,
+    image: true,
+    voice: true,
+    video: true,
+  },
+  benchmarks: {
+    HumanitysLastExam: {
+     score: 44.4,
+      notes: 'Grok 4 with tools',
+      source: 'https://x.ai/news/grok-4',
+    },
+    ARC_AGI_V2: {
+      score: 15.9,
+      notes: 'ARC-AGI v2, text-only benchmark',
+      source: 'https://x.ai/news/grok-4',
+    },
+    USAMO_2025: {
+      score: 61.9,
+      notes: 'Mapped from USAMO (U.S. Math Olympiad 2025)',
+      source: 'https://x.ai/news/grok-4',
+    },
+    VendingBench: {
+      score: null,
+      notes: '$4,694 profit over 5 episodes; ranked #1 in tool-use benchmark',
+      source: 'https://x.ai/news/grok-4',
+    }
+  }
+},
+{
+    model_name: 'Grok 3',
     slug: 'grok-3',
     provider: 'xai',
     description:

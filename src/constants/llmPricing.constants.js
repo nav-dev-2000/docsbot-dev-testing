@@ -187,6 +187,16 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 4,
     },
     {
+      model_name: 'Grok 4',
+      model_slug: 'grok-4',
+      page_slug: 'grok-4',
+      context: '1M/256K',
+      provider: 'xAI',
+      input_token_cost_per_million: 3.0,
+      output_token_cost_per_million: 15.0,
+    },
+
+    {
       model_name: 'Llama 3.3 70b',
       page_slug: 'llama-3-3-70b-instruct',
       context: '128K/2K',

@@ -78,6 +78,8 @@ export const BENCHMARKS = {
   HellaSwag: 'A challenging sentence completion benchmark',
   HumanEval: 'Evaluates code generation and problem-solving capabilities',
   MATH: 'Tests mathematical problem-solving abilities across various difficulty levels',
+  HumanitysLastExam:
+  'A large-scale benchmark by xAI designed to evaluate deep reasoning and tool use across real-world tasks, simulating general intelligence under realistic constraints',
   IFEval:
     "Tests model's ability to accurately follow explicit formatting instructions, generate appropriate outputs, and maintain consistent instruction adherence across different tasks",
   "Humanity's Last Exam":
