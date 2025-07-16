@@ -717,14 +717,18 @@ ${JSON.stringify({
 
       // Get the prompt to make sure it exists
       let tags = []
-      const prompt = await getPrompt(slug)
-      if (prompt) {
-        // Delete the prompt from the database
-        await firestore.collection('prompts').doc(slug).delete()
+      try {
+        const prompt = await getPrompt(slug)
+        if (prompt) {
+          // Delete the prompt from the database
+          await firestore.collection('prompts').doc(slug).delete()
 
-        // Revalidate related ISR paths to clear the cache
-        category = prompt.category
-        tags = prompt.tags
+          // Revalidate related ISR paths to clear the cache
+          category = prompt.category
+          tags = prompt.tags
+        }
+      } catch (error) {
+        console.warning('Prompt fetch error, continuing...', error)
       }
 
      
@@ -735,11 +739,11 @@ ${JSON.stringify({
       ]
 
       // If the prompt has tags, also revalidate the tag pages
-      if (tags && Array.isArray(tags)) {
-        tags.forEach(tag => {
-          pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
-        })
-      }
+      //if (tags && Array.isArray(tags)) {
+      //  tags.forEach(tag => {
+      //    pathsToRevalidate.push(`/prompts/tags?tag=${encodeURIComponent(tag)}`)
+      //  })
+      //}
 
       // Revalidate each path
       await Promise.all(pathsToRevalidate.map(async (path) => {
