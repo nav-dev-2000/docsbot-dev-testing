@@ -234,7 +234,15 @@ export const getStaticProps = async (context) => {
   }
 
   // Fetch the prompt data using the slug
-  const promptData = await getPrompt(slug)
+  let promptData
+  try {
+    promptData = await getPrompt(slug)
+  } catch (error) {
+    console.error('Error fetching prompt:', slug, error)
+    return {
+      notFound: true, // This will return a 404 Not Found status
+    }
+  }
 
   if (!promptData) {
     console.error('Prompt not found:', slug)
