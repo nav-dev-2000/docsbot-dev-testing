@@ -230,6 +230,7 @@ export const getStaticProps = async (context) => {
     console.error('Invalid category:', category)
     return {
       notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800
     }
   }
 
@@ -241,6 +242,7 @@ export const getStaticProps = async (context) => {
     console.error('Error fetching prompt:', slug, error)
     return {
       notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800,
     }
   }
 
@@ -248,6 +250,7 @@ export const getStaticProps = async (context) => {
     console.error('Prompt not found:', slug)
     return {
       notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800,
     }
   }
 

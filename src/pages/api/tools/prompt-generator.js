@@ -591,15 +591,15 @@ export default async function handler(req, res) {
 You are a content moderator tasked with determining if the following prompt content should be publicly indexed in a library of prompts.
 
 Evaluate if the content meets ALL of these criteria:
-1. Is generally useful for work, school, or business professionals of any kind
-2. Is in English
-3. Does NOT contain any Personally Identifiable Information (PII)
+1. Is generally useful for work, school, or business professionals
+2. Is in English language
+3. Does NOT contain any Personally Identifiable Information (PII) such as personnames, birthdates, email addresses, phone numbers, addresses, IDs, etc
 4. Is NOT branded or promoting a specific product/service
 5. Is NOT potentially offensive, harmful, or inappropriate
-6. Does NOT relate to adult content, gambling, scams, hacking, or illegal activities
-7. Does NOT contain content about sex, nudity, dating, relationships, girlfriends, BDSM, or other adult orNSFW material
-8. Does NOT relate to gambling, betting, casinos, lotteries, or similar activities
-9. Does NOT promote hacks, cheats, or exploits for games or systems
+6. Does NOT relate to adult content, gambling, trading, scams, hacking, or illegal activities
+7. Does NOT contain content about sex, nudity, dating, relationships, girlfriends, BDSM, or other adult or NSFW material
+8. Does NOT relate to gambling, betting, casinos, lotteries, trading, or similar activities
+9. Does NOT involve hacks, cheats, or exploits for games or systems
 10. Does NOT involve generating fake documents, statements, or credentials
 11. Does NOT involve potentially criminal activities in any jurisdiction
 12. Does NOT involve fake receipts, bills, invoices, or other financial documents
