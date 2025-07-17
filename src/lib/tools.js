@@ -32,17 +32,30 @@ export const saveFAQs = async (
   thumbnail,
   summary,
   FAQs,
+  is_ai
 ) => {
-  await firestore.collection('FAQs').doc(encodeURIComponent(url)).set({
-    ip: hashIP(ip),
-    url,
-    title,
-    screenCap,
-    summary,
-    thumbnail,
-    FAQs,
-    createdAt: FieldValue.serverTimestamp(),
-  })
+  // Set expiration: 7 days if not is_ai, otherwise no expiration
+  let expirationDate = undefined
+  if (!is_ai) {
+    expirationDate = new Date()
+    expirationDate.setDate(expirationDate.getDate() + 7)
+  }
+
+  await firestore
+    .collection('FAQs')
+    .doc(encodeURIComponent(url))
+    .set({
+      ip: hashIP(ip),
+      url,
+      title,
+      screenCap,
+      summary,
+      thumbnail,
+      FAQs,
+      is_ai,
+      createdAt: FieldValue.serverTimestamp(),
+      ...(expirationDate && { expiresAt: expirationDate }),
+    })
 }
 
 // Check if an IP has exceeded the rate limit for FAQ requests
@@ -72,37 +85,6 @@ export const getRecentFAQs = async () => {
     FAQs.push(doc.data())
   })
   return FAQs
-}
-
-// Lookup a YouTube video summary by video ID
-export const lookupYoutubeSummary = async (videoId) => {
-  if (!videoId || typeof videoId !== 'string') {
-    throw new Error('Invalid video ID')
-  }
-  const ref = await firestore.collection('yt-summaries').doc(videoId).get()
-  const data = ref.exists ? ref.data() : null
-  if (data && data.createdAt) {
-    data.createdAt = data.createdAt.toDate().toISOString()
-  }
-  return data
-}
-
-// Save a YouTube video summary
-export const saveYoutubeSummary = async (ip, videoId, summaryData) => {
-  if (!videoId || typeof videoId !== 'string') {
-    throw new Error('Invalid video ID')
-  }
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-  await firestore
-    .collection('yt-summaries')
-    .doc(videoId)
-    .set({
-      ip: hashIP(ip),
-      ...summaryData,
-      type: 'summary',
-      thumbnail: thumbnailUrl,
-      createdAt: FieldValue.serverTimestamp(),
-    })
 }
 
 // Check if an IP has exceeded the rate limit for YouTube requests
@@ -135,6 +117,9 @@ export const lookupYoutubeBlogPost = async (videoId) => {
     data.createdAt = data.createdAt.toDate().toISOString()
     data.id = videoId
   }
+  if (data && data.expiresAt) {
+    data.expiresAt = data.expiresAt.toDate().toISOString()
+  }
   return data
 }
 
@@ -143,6 +128,15 @@ export const saveYoutubeBlogPost = async (ip, videoId, blogPostData) => {
   if (!videoId || typeof videoId !== 'string') {
     throw new Error('Invalid video ID')
   }
+
+  // If is_ai is not present or false, add expiresAt 1 month in the future
+  let expiresAt = undefined
+  if (!blogPostData?.is_ai) {
+    expiresAt = new Date()
+    expiresAt.setMonth(expiresAt.getMonth() + 1)
+    blogPostData = { ...blogPostData, expiresAt }
+  }
+
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
   await firestore
     .collection('yt-blog-posts')
@@ -157,10 +151,15 @@ export const saveYoutubeBlogPost = async (ip, videoId, blogPostData) => {
 
 // Save an image tool request
 export const saveImage = async (ip, type, descriptionData) => {
+  // Set expiration to 1 day from now
+  const expirationDate = new Date()
+  expirationDate.setDate(expirationDate.getDate() + 1)
+
   await firestore.collection('image-tools').add({
     ip: hashIP(ip),
     type,
     ...descriptionData,
+    expiresAt: expirationDate,
     createdAt: FieldValue.serverTimestamp(),
   })
 }
@@ -188,7 +187,7 @@ export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
-    //TODO rate limit by type
+  //TODO rate limit by type
   return (
     lookupQuery.docs.length >=
     (isLoggedIn ? LOGGED_IN_RATE_LIMIT * 3 : RATE_LIMIT)
@@ -259,11 +258,11 @@ export const fetchYoutubeSubtitles = async (videoId) => {
     const response = await fetch(apiEndpoint, {
       method: 'POST',
       body: JSON.stringify({
-        video_id: videoId
+        video_id: videoId,
       }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.INTERNAL_API_KEY}`
+        Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`,
       },
     })
 
@@ -278,10 +277,11 @@ export const fetchYoutubeSubtitles = async (videoId) => {
         NoTranscriptFound: 'No transcript found for video',
         TranscriptsDisabled: 'Transcripts are disabled for this video',
         NotTranslatable: 'Video transcript cannot be translated',
-        TranslationLanguageNotAvailable: 'Translation not available in requested language',
+        TranslationLanguageNotAvailable:
+          'Translation not available in requested language',
         NoTranscriptAvailable: 'No transcript available for this video',
         FailedToCreateConsentCookie: 'Failed to create YouTube consent cookie',
-        InvalidVideoId: 'Invalid YouTube video ID provided'
+        InvalidVideoId: 'Invalid YouTube video ID provided',
       }
 
       throw new Error(errorMessages[errorMessage] || 'YouTube API error')
@@ -314,7 +314,17 @@ export const lookupYoutubeTranscript = async (videoId) => {
     throw new Error('Invalid video ID')
   }
   const ref = await firestore.collection('yt-transcripts').doc(videoId).get()
-  return ref.exists ? ref.data() : null
+  if (ref.exists) {
+    const data = ref.data()
+    // If expiresAt exists, update it to +1 months from now
+    const newExpiresAt = new Date()
+    newExpiresAt.setMonth(newExpiresAt.getMonth() + 1)
+    await firestore.collection('yt-transcripts').doc(videoId).update({
+      expiresAt: newExpiresAt,
+    })
+    return data
+  }
+  return null
 }
 
 // Save a YouTube transcript to cache
@@ -322,11 +332,16 @@ export const saveYoutubeTranscript = async (videoId, data) => {
   if (!videoId || typeof videoId !== 'string') {
     throw new Error('Invalid video ID')
   }
+
+  const newExpiresAt = new Date()
+  newExpiresAt.setMonth(newExpiresAt.getMonth() + 1)
+
   await firestore
     .collection('yt-transcripts')
     .doc(videoId)
     .set({
       ...data,
+      expiresAt: newExpiresAt,
       createdAt: FieldValue.serverTimestamp(),
     })
 }
@@ -341,6 +356,9 @@ export const lookupYoutubeData = async (videoId, type) => {
   let data = ref.exists ? ref.data() : null
   if (data && data.createdAt) {
     data.createdAt = data.createdAt.toDate().toISOString()
+  }
+  if (data && data.expiresAt) {
+    data.expiresAt = data.expiresAt.toDate().toISOString()
   }
 
   // Merge metadata from subtitles cache
@@ -359,6 +377,14 @@ export const lookupYoutubeData = async (videoId, type) => {
 export const saveYoutubeData = async (ip, videoId, type, title, data) => {
   if (!videoId || typeof videoId !== 'string') {
     throw new Error('Invalid video ID')
+  }
+  
+  // If is_ai is not present or false, add expiresAt 1 month in the future
+  let expiresAt = undefined
+  if (!data?.is_ai) {
+    expiresAt = new Date()
+    expiresAt.setMonth(expiresAt.getMonth() + 1)
+    data = { ...data, expiresAt }
   }
 
   const docId = `${videoId}-${type}`
@@ -433,10 +459,15 @@ export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
 
     // Add expiration timestamp for non-indexed prompts
     if (data.should_index === false) {
-      // Set expiration to 30 days from now
-      const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 7);
-      data.expiresAt = expirationDate;
+      // Set expiration to 7 days from now
+      const expirationDate = new Date()
+      expirationDate.setDate(expirationDate.getDate() + 7)
+      data.expiresAt = expirationDate
+    } else if (type !== 'prompt') {
+      // Set expiration to 1 days from now
+      const expirationDate = new Date()
+      expirationDate.setDate(expirationDate.getDate() + 1)
+      data.expiresAt = expirationDate
     }
 
     if (!id) {
@@ -472,7 +503,7 @@ export const getPrompt = async (promptId) => {
   }
   const ref = await firestore.collection('prompts').doc(promptId).get()
   if (!ref.exists) return null
-  
+
   const data = ref.data()
   data.id = promptId
   if (data && data.createdAt) {
@@ -485,9 +516,17 @@ export const getPrompt = async (promptId) => {
 }
 
 // Retrieve recent prompts
-export const getPrompts = async (type, category = null, tag = null, limit = 9) => {
+export const getPrompts = async (
+  type,
+  category = null,
+  tag = null,
+  limit = 9,
+) => {
   try {
-    let query = firestore.collection('prompts').where('type', '==', type).where('should_index', '==', true)
+    let query = firestore
+      .collection('prompts')
+      .where('type', '==', type)
+      .where('should_index', '==', true)
 
     if (category) {
       query = query.where('category', '==', category)
@@ -523,7 +562,7 @@ export const getPrompts = async (type, category = null, tag = null, limit = 9) =
 export const checkPromptRateLimit = async (ip, type, isLoggedIn = false) => {
   // Skip rate limiting for localhost
   if (ip === '::1' || ip === '127.0.0.1') {
-    return false;
+    return false
   }
 
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
@@ -555,14 +594,16 @@ export const addOrUpdateRating = async (itemId, ip, rating) => {
 
       if (!ratingDoc.exists) {
         // Generate a random count between 100 and 800
-        const randomCount = Math.floor(Math.random() * (800 - 100 + 1)) + 100;
+        const randomCount = Math.floor(Math.random() * (800 - 100 + 1)) + 100
         // Generate a random rating between 4.9 and 4.99
-        const randomRating = (Math.random() * (4.99 - 4.9) + 4.9).toFixed(2);
+        const randomRating = (Math.random() * (4.99 - 4.9) + 4.9).toFixed(2)
         // Create new rating document
         transaction.set(ratingRef, {
-          ratingCount: randomCount+1,
-          ratingSum: rating + (randomCount * randomRating),
-          averageRating: Number((rating + (randomCount * randomRating)) / (randomCount+1)).toFixed(2)
+          ratingCount: randomCount + 1,
+          ratingSum: rating + randomCount * randomRating,
+          averageRating: Number(
+            (rating + randomCount * randomRating) / (randomCount + 1),
+          ).toFixed(2),
         })
       } else {
         // Update existing rating document
@@ -583,14 +624,14 @@ export const addOrUpdateRating = async (itemId, ip, rating) => {
         transaction.update(ratingRef, {
           ratingCount: newCount,
           ratingSum: newSum,
-          averageRating: Number((newSum / newCount).toFixed(2))
+          averageRating: Number((newSum / newCount).toFixed(2)),
         })
       }
 
       // Set or update the vote
       transaction.set(voteRef, {
         rating,
-        timestamp: FieldValue.serverTimestamp()
+        timestamp: FieldValue.serverTimestamp(),
       })
     })
 
@@ -614,6 +655,6 @@ export const getRating = async (itemId) => {
   const data = doc.data()
   return {
     count: data.ratingCount,
-    rating: data.averageRating
+    rating: data.averageRating,
   }
 }
