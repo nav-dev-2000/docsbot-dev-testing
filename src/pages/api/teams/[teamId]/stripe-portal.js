@@ -131,7 +131,7 @@ export default async function createCheckoutSession(req, res) {
                     (product.adjustable_quantity.maximum === null ||
                       product.adjustable_quantity.maximum === '')
                   ) {
-                    product.adjustable_quantity.maximum = 1
+                    product.adjustable_quantity = { enabled: false }
                   }
                   newProducts.push(product)
                 }
