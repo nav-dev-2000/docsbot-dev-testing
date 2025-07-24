@@ -199,7 +199,7 @@ const ImagePromptGenerator = ({ setHasResults }) => {
                     {promptCopied ? 'Copied!' : 'Copy Prompt'}
                   </button>
                   <Link
-                    href="https://www.basedlabs.ai/?via=docsbot"
+                    href="https://www.basedlabs.ai/generate?via=docsbot"
                     target="_blank"
                     rel="noopener nofollow sponsored"
                     className="inline-flex flex-1 items-center justify-center rounded-md bg-animation px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-700"

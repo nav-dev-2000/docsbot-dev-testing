@@ -169,7 +169,7 @@ export default async function handler(req, res) {
                   },
                   is_ai: {
                     type: 'boolean',
-                    description: 'Whether the topic is related to AI, while not discussing a chatbot building or AI customer support platform.',
+                    description: 'Whether the site is related to AI.',
                   },
                 },
                 required: ['faqs', 'summary', 'title', 'is_ai'],
@@ -213,7 +213,8 @@ export default async function handler(req, res) {
         screenCaptures.full,
         screenCaptures.thumbnail,
         responseData.summary,
-        responseData.faqs
+        responseData.faqs,
+        responseData.is_ai
       )
       return res.status(200).json({
         faqs: responseData.faqs,
