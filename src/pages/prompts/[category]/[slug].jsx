@@ -230,16 +230,27 @@ export const getStaticProps = async (context) => {
     console.error('Invalid category:', category)
     return {
       notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800
     }
   }
 
   // Fetch the prompt data using the slug
-  const promptData = await getPrompt(slug)
+  let promptData
+  try {
+    promptData = await getPrompt(slug)
+  } catch (error) {
+    console.error('Error fetching prompt:', slug, error)
+    return {
+      notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800,
+    }
+  }
 
   if (!promptData) {
     console.error('Prompt not found:', slug)
     return {
       notFound: true, // This will return a 404 Not Found status
+      revalidate: 604800,
     }
   }
 

@@ -1,4 +1,87 @@
 const LLMS = [
+ {
+  model_name: 'Claude 4 Opus',
+  slug: 'claude-4-opus',
+  provider: 'anthropic',
+  description:
+    "Claude 4 Opus is Anthropic’s most advanced model. With a 200K token context window and hybrid reasoning, it's the world’s best coding model and excels at reasoning, tool use, and math. Available on Claude.ai, API, Bedrock, and Vertex AI.",
+  input_context_window: '200K',
+  maximum_output_tokens: '128K',
+  open_source: false,
+  release_date: '2025-05-22',
+  knowledge_cut_off_date: 'April 2025',
+  api_providers:
+    'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+  input_cost_per_million_tokens: 15.0,
+  output_cost_per_million_tokens: 75.0,
+  modalities: {
+    text: true,
+    image: true,
+    voice: false,
+    video: false,
+  },
+  benchmarks: {
+    MMLU: {
+      score: 88.8,
+      source: 'https://www.datacamp.com/blog/claude-4' // :contentReference[oaicite:5]{index=5}
+    },
+    GPQA: {
+      score: 79.6,
+      source: 'https://www.datacamp.com/blog/claude-4' // :contentReference[oaicite:6]{index=6}
+    },
+    'SWE-Bench': {
+      score: 72.5,
+      source: 'https://www.datacamp.com/blog/claude-4' // :contentReference[oaicite:7]{index=7}
+    },
+    TerminalBench: {
+      score: 43.2,
+      source: 'https://www.datacamp.com/blog/claude-4' // :contentReference[oaicite:8]{index=8}
+    }
+  }
+},
+
+  {
+  model_name: 'Claude 4 Sonnet',
+  slug: 'claude-4-sonnet',
+  provider: 'anthropic',
+  description:
+    "Claude 4 Sonnet is Anthropic's balanced flagship model. It features a 200K token context window and excels in hybrid reasoning, coding, and general knowledge tasks. It demonstrates strong performance on coding and mathematical benchmarks, and is available via Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI.",
+  input_context_window: '200K',
+  maximum_output_tokens: '128K',
+  open_source: false,
+  release_date: '2025-05-22',
+  knowledge_cut_off_date: 'April 2025',
+  api_providers:
+    'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+  input_cost_per_million_tokens: 3,
+  output_cost_per_million_tokens: 15,
+  modalities: {
+    text: true,
+    image: true,
+    voice: false,
+    video: false,
+  },
+  benchmarks: {
+    MMLU: {
+      score: 86.5,
+      source: 'https://www.datacamp.com/blog/claude-4',
+    },
+    GPQA: {
+      score: 75.4,
+      notes: 'Diamond tier',
+      source: 'https://www.datacamp.com/blog/claude-4',
+    },
+    'SWE-Bench': {
+      score: 72.7,
+      notes: 'Verified',
+      source: 'https://nodeshift.com/blog/claude-4-opus-vs-sonnet-benchmarks-and-dev-workflow-with-claude-code',
+    },
+    AIME2025: {
+      score: 70.5,
+      source: 'https://www.datacamp.com/blog/claude-4',
+    },
+  },
+},
   {
     model_name: 'Claude Instant 1.2',
     slug: 'claude-instant-1-2',

@@ -252,7 +252,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const industryData = INDUSTRIES.find((e) => `${e.slug}` == context.params.index)
+  
+  // Check if industry exists and has required data
+  if (!industryData || !industryData.supportSection || !industryData.usesSection) {
+    return {
+      notFound: true,
+    }
+  }
+  
   return {
-    props: { ...INDUSTRIES.find((e) => `${e.slug}` == context.params.index) },
+    props: { ...industryData },
   }
 }

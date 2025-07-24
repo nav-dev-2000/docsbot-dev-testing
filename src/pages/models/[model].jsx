@@ -1072,7 +1072,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const model = context.params.model
+  const modelData = LLMS.find((e) => `${e.slug}` == model)
+  
+  // Check if model exists and has valid provider info
+  if (!modelData || !getProviderInfo(modelData.provider)) {
+    return {
+      notFound: true,
+    }
+  }
+  
   return {
-    props: { ...LLMS.find((e) => `${e.slug}` == model) },
+    props: { ...modelData },
   }
 }
