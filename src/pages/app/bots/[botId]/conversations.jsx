@@ -25,6 +25,7 @@ import {
   NoSymbolIcon,
   PencilSquareIcon,
   ClipboardDocumentIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -284,6 +285,7 @@ function Conversations({ team, bot, preConversations }) {
   const [isSummarizing, setIsSummarizing] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [emailCopied, setEmailCopied] = useState(false)
 
   // Function to fetch a single conversation with full history
   const fetchConversation = async (conversationId) => {
@@ -532,12 +534,23 @@ function Conversations({ team, bot, preConversations }) {
   // Function to copy conversation link
   const copyConversationLink = () => {
     if (!conversation) return
-    
+
     const conversationUrl = `${window.location.origin}/app/bots/${bot.id}/conversations?conversationId=${conversation.id}`
     navigator.clipboard.writeText(conversationUrl)
     setCopied(true)
     setTimeout(() => {
       setCopied(false)
+    }, 2000)
+  }
+
+  // Function to copy user email
+  const copyUserEmail = () => {
+    if (!conversation || !conversation.metadata?.email) return
+
+    navigator.clipboard.writeText(conversation.metadata.email)
+    setEmailCopied(true)
+    setTimeout(() => {
+      setEmailCopied(false)
     }, 2000)
   }
 
@@ -585,6 +598,33 @@ function Conversations({ team, bot, preConversations }) {
                   />
                   <span className="ml-1 hidden sm:inline">Back</span>
                 </Link>
+                {conversation.metadata?.name && conversation.metadata?.email && (
+                <Tooltip
+                  content={
+                    emailCopied
+                      ? 'Copied!'
+                      : `${conversation.metadata.name}<br/>${conversation.metadata.email}<br/><small>Click to copy email</small>`
+                  }
+                >
+                  <button
+                    className="flex items-center text-gray-400 hover:text-gray-600"
+                    onClick={copyUserEmail}
+                    disabled={emailCopied}
+                    type="button"
+                  >
+                    {emailCopied ? (
+                      <CheckIcon className="h-4 w-4 text-green-500" aria-hidden="true" />
+                    ) : (
+                      <UserAvatar
+                        alias={conversation.metadata.name}
+                        email={conversation.metadata.email}
+                        className="h-5 w-5 rounded-full"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </button>
+                </Tooltip>
+              )}
                 <Tooltip
                   content={`Created: ${new Date(conversation.createdAt).toISOString()}`}
                 >
@@ -748,6 +788,7 @@ function Conversations({ team, bot, preConversations }) {
                   )}
                 </button>
               </Tooltip>
+              
               <Paginator
                 perPage={conversations.pagination.perPage}
                 totalCount={conversations.pagination.viewableCount}
