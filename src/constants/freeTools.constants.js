@@ -28,6 +28,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Slogan Generator',
+    description: 'Generate slogans with AI',
+    href: '/tools/writing/ai-slogan-generator',
+    ogImage: '/images/og/slogan-generator.png',
+    category: 'Writing',
+  },
+  {
     name: 'AI Paragraph Generator',
     description: 'Generate paragraphs with AI',
     href: '/tools/writing/ai-paragraph-generator',

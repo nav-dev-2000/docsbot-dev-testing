@@ -393,6 +393,72 @@ In the tech world, the life of a software developer often revolves around a rele
       },
     ],
   },
+  slogan: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Generate catchy, memorable slogans for brands based on the provided brand name, industry, keywords/values, and desired tone. Your task is to create unique, compelling taglines that capture the brand's essence and resonate with their target audience.
+
+# Steps
+
+1. **Analyze Brand Context**: Review the brand name, industry, and any provided keywords or values to understand the brand's positioning and target market.
+2. **Apply Tone Guidelines**: Incorporate the specified tone (e.g., professional, playful, bold, luxury) to ensure the slogans match the brand personality.
+3. **Create Memorable Phrases**: Generate slogans that are:
+   - Short and punchy (typically 2-6 words)
+   - Easy to remember and pronounce
+   - Unique to the brand's value proposition
+   - Emotionally engaging
+4. **Ensure Variety**: Create diverse slogan options that explore different angles and approaches while maintaining consistency with the brand and tone.
+5. **Focus on Benefits**: Highlight what makes the brand special, whether it's quality, innovation, reliability, or emotional connection.
+
+# Output Format
+- Provide the requested number of slogans as a numbered list
+- Each slogan should be on its own line
+- Keep slogans concise and impactful
+- No additional formatting or explanations
+
+# Examples
+
+### Input
+- Brand Name: "TechFlow"
+- Industry: "AI tools"
+- Keywords: "fast, powerful, innovative"
+- Tone: "Professional"
+- Count: 5
+
+### Output
+1. Smart Solutions. Fast Results.
+2. Power Your Progress.
+3. Innovation at Speed.
+4. Tech That Works.
+5. Accelerate Your Success.
+
+### Input
+- Brand Name: "Sunny Beans"
+- Industry: "Coffee shop"
+- Keywords: "organic, local, cozy"
+- Tone: "Friendly"
+- Count: 3
+
+### Output
+1. Where Friends Meet Coffee.
+2. Locally Roasted, Globally Loved.
+3. Your Daily Dose of Sunshine.
+
+# Notes
+- Avoid clichéd phrases and overused terms
+- Consider wordplay, alliteration, and rhythm when appropriate for the tone
+- Ensure slogans are legally safe and don't reference competitors
+- Focus on benefits and emotions, not just features
+- Keep the brand's target audience in mind`,
+      },
+      {
+        role: 'user',
+        content: `Brand Name: {{brandName}}\nIndustry: {{industry}}\nKeywords/Values: {{keywords}}\nTone: {{tone}}\nSlogan Count: {{sloganCount}}\n\nGenerate {{sloganCount}} unique slogans for this brand.`,
+      },
+    ],
+  },
   // Add more types here as needed
 }
 
@@ -423,7 +489,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone, paragraphCount, targetLanguage } = req.body
+      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -492,6 +558,39 @@ export default async function handler(req, res) {
         }
       }
 
+      if (type === 'slogan') {
+        if (!brandName || typeof brandName !== 'string' || brandName.trim() === '') {
+          return res.status(400).json({ message: 'Invalid or missing brandName parameter.' })
+        }
+
+        if (!industry || typeof industry !== 'string' || industry.trim() === '') {
+          return res.status(400).json({ message: 'Invalid or missing industry parameter.' })
+        }
+
+        if (
+          !sloganCount ||
+          typeof sloganCount !== 'number' ||
+          sloganCount < 3 ||
+          sloganCount > 10
+        ) {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing sloganCount parameter. Must be between 3 and 10.' })
+        }
+    
+        if (tone && typeof tone !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid or missing tone parameter.' })
+        }
+
+        if (keywords && typeof keywords !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid keywords parameter.' })
+        }
+      }
+
       //validate other type params here
 
       // check if user is logged in or has a valid API key
@@ -521,6 +620,11 @@ export default async function handler(req, res) {
         input,
         tone,
         targetLanguage,
+        paragraphCount,
+        brandName,
+        industry,
+        keywords,
+        sloganCount,
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 
@@ -535,7 +639,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ message: 'Method not allowed' })
     }
   } catch (error) {
-    console.error('Unexpected error in YouTube summarizer API:', error)
+    console.error('Unexpected error in text-prompter API:', error)
     return res.status(500).json({
       message: 'An unexpected error occurred. Please try again later.',
     })
