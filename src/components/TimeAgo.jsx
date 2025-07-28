@@ -14,13 +14,12 @@ export default function TimeAgo({ dateTime, ...props }) {
     return null;
   }
 
-  const offsetInMs = date.getTimezoneOffset() * 60 * 1000;
-  const adjustedDate = new Date(date.getTime() + offsetInMs);
-  const timeAgo = formatDistanceToNowStrict(adjustedDate, { addSuffix: true });
+  // Let the browser handle timezone conversion automatically
+  const timeAgo = formatDistanceToNowStrict(date, { addSuffix: true });
   
   return (
     <NoSSR>
-      <time dateTime={adjustedDate.toISOString()} {...props}>{timeAgo}</time>
+      <time dateTime={date.toISOString()} {...props}>{timeAgo}</time>
     </NoSSR>
   )
 }
