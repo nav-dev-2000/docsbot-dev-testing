@@ -709,13 +709,15 @@ export default function TableQuestions({
                       />
 
                       {canModify && (
+                        <div className="flex justify-end mt-4">
                         <ModalQA
                           team={team}
                           botId={bot.id}
                           question={question}
                           open={qaOpen}
-                          setOpen={setQAOpen}
-                        />
+                            setOpen={setQAOpen}
+                          />
+                        </div>
                       )}
                       {question.sources.length > 0 && (
                         <>

@@ -382,7 +382,7 @@ function Widget({ team, bot }) {
                             target="_blank"
                             className="text-blue-600 underline hover:text-blue-500"
                           >
-                            BETA Agentic mode
+                            Agentic mode
                           </Link>
                           , which provides more intelligent and contextual
                           responses, tool calling to perform actions,

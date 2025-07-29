@@ -55,7 +55,17 @@ import { Dialog, Transition } from '@headlessui/react'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 
-function BotMessage({ team, question, text, id, onRate, rating = 0, labels, botId, canModify }) {
+function BotMessage({
+  team,
+  question,
+  text,
+  id,
+  onRate,
+  rating = 0,
+  labels,
+  botId,
+  canModify,
+}) {
   const [markdown, setMarkdown] = useState(text)
   const [isCopied, setIsCopied] = useState(false)
   const [qaOpen, setQAOpen] = useState(false)
@@ -85,7 +95,7 @@ function BotMessage({ team, question, text, id, onRate, rating = 0, labels, botI
       .catch((error) => {
         console.warn('Error processing markdown:', error)
       })
-      console.log('id ', id)
+    console.log('id ', id)
   }, [text])
 
   return (
@@ -97,7 +107,7 @@ function BotMessage({ team, question, text, id, onRate, rating = 0, labels, botI
         <ModalQA
           team={team}
           botId={botId}
-          question={{ id, question, answer: text}}
+          question={{ id, question, answer: text }}
           open={qaOpen}
           setOpen={setQAOpen}
           hideButton={true}
@@ -105,17 +115,16 @@ function BotMessage({ team, question, text, id, onRate, rating = 0, labels, botI
         <span dangerouslySetInnerHTML={{ __html: markdown }} />
         {id && (
           <div className="mt-4 flex items-center justify-end space-x-1">
-            <Tooltip content="Revise answer">
-              {/* {canModify && ( */}
-                
+            {canModify && (
+              <Tooltip content="Revise answer">
                 <button
                   onClick={() => setQAOpen(true)}
                   className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
                 >
                   <PencilSquareIcon className="h-5 w-5" />
                 </button>
-              {/* )} */}
-            </Tooltip>
+              </Tooltip>
+            )}
             <Tooltip content="View question details">
               <Link
                 href={`/app/bots/${botId}/questions/${id}`}
@@ -598,33 +607,37 @@ function Conversations({ team, bot, preConversations }) {
                   />
                   <span className="ml-1 hidden sm:inline">Back</span>
                 </Link>
-                {conversation.metadata?.name && conversation.metadata?.email && (
-                <Tooltip
-                  content={
-                    emailCopied
-                      ? 'Copied!'
-                      : `${conversation.metadata.name}<br/>${conversation.metadata.email}<br/><small>Click to copy email</small>`
-                  }
-                >
-                  <button
-                    className="flex items-center text-gray-400 hover:text-gray-600"
-                    onClick={copyUserEmail}
-                    disabled={emailCopied}
-                    type="button"
-                  >
-                    {emailCopied ? (
-                      <CheckIcon className="h-4 w-4 text-green-500" aria-hidden="true" />
-                    ) : (
-                      <UserAvatar
-                        alias={conversation.metadata.name}
-                        email={conversation.metadata.email}
-                        className="h-5 w-5 rounded-full"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </button>
-                </Tooltip>
-              )}
+                {conversation.metadata?.name &&
+                  conversation.metadata?.email && (
+                    <Tooltip
+                      content={
+                        emailCopied
+                          ? 'Copied!'
+                          : `${conversation.metadata.name}<br/>${conversation.metadata.email}<br/><small>Click to copy email</small>`
+                      }
+                    >
+                      <button
+                        className="flex items-center text-gray-400 hover:text-gray-600"
+                        onClick={copyUserEmail}
+                        disabled={emailCopied}
+                        type="button"
+                      >
+                        {emailCopied ? (
+                          <CheckIcon
+                            className="h-4 w-4 text-green-500"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <UserAvatar
+                            alias={conversation.metadata.name}
+                            email={conversation.metadata.email}
+                            className="h-5 w-5 rounded-full"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </button>
+                    </Tooltip>
+                  )}
                 <Tooltip
                   content={`Created: ${new Date(conversation.createdAt).toISOString()}`}
                 >
@@ -707,7 +720,8 @@ function Conversations({ team, bot, preConversations }) {
                     </div>
                   </Tooltip>
                 ) : null}
-                {conversation.sentiment || !checkPlanPermission(team, 'business').allowed ? (
+                {conversation.sentiment ||
+                !checkPlanPermission(team, 'business').allowed ? (
                   <Tooltip
                     content={
                       !checkPlanPermission(team, 'business').allowed
@@ -776,10 +790,7 @@ function Conversations({ team, bot, preConversations }) {
                   disabled={copied}
                 >
                   {copied ? (
-                    <CheckIcon
-                      className="h-4 w-4"
-                      aria-hidden="true"
-                    />
+                    <CheckIcon className="h-4 w-4" aria-hidden="true" />
                   ) : (
                     <ClipboardDocumentIcon
                       className="h-4 w-4"
@@ -788,7 +799,7 @@ function Conversations({ team, bot, preConversations }) {
                   )}
                 </button>
               </Tooltip>
-              
+
               <Paginator
                 perPage={conversations.pagination.perPage}
                 totalCount={conversations.pagination.viewableCount}
@@ -814,7 +825,7 @@ function Conversations({ team, bot, preConversations }) {
                     </div>
                   )}
                 </div>
-                <div className="ml-0 sm:mt-0 flex-none sm:ml-4 mt-4">
+                <div className="ml-0 mt-4 flex-none sm:ml-4 sm:mt-0">
                   {conversation.summary ? (
                     <Tooltip
                       content={
@@ -917,7 +928,8 @@ function Conversations({ team, bot, preConversations }) {
                   </>
                 )}
                 {conversation.history.map((message, index) => {
-                  const prevMessage = index > 0 ? conversation.history[index - 1] : null
+                  const prevMessage =
+                    index > 0 ? conversation.history[index - 1] : null
                   if (message['Human']) {
                     return (
                       <UserMessage

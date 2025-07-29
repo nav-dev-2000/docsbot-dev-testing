@@ -1215,8 +1215,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
             {bot.description}
           </p>
-          <Alert title="Welcome to your new AI Agent!" type="info">
-            You are chatting using our new BETA Agent functionality, which
+          <Alert 
+            title="Welcome to your new AI Agent!" 
+            type="info"
+            dismissKey="agent-beta-welcome"
+          >
+            You are chatting using our new Agent functionality, which
             provides more intelligent and contextual responses, tool calling to
             perform actions, as well as image and model selection support! You
             may need to adjust your custom prompt to tune behavior for your use
@@ -1396,11 +1400,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     'text-md block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:px-4',
                     selectedImages.length > 0 ? 'pt-24' : 'pt-3',
                   )}
-                  placeholder={
-                    answers.length
-                      ? bot.labels.inputPlaceholder
-                      : bot.labels.firstMessage
-                  }
+                  placeholder={bot.labels.inputPlaceholder}
                 />
 
                 <button

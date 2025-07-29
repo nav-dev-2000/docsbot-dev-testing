@@ -5,10 +5,54 @@ import { ExclamationTriangleIcon } from '@heroicons/react/20/solid'
 import { CheckCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { InformationCircleIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
+import * as cookie from 'cookie'
 
-export default function Alert({ title, type, children, onClose = noop }) {
+// Utility functions for managing preferences cookie
+const getPreferences = () => {
+  if (typeof window === 'undefined') return {}
+  try {
+    const cookies = cookie.parse(document.cookie || '')
+    const prefsValue = cookies['docsbot-prefs']
+    if (!prefsValue) return {}
+    
+    // The cookie.parse automatically URL decodes, but let's be explicit about JSON parsing
+    const decoded = decodeURIComponent(prefsValue)
+    const parsed = JSON.parse(decoded)
+    return parsed
+  } catch (error) {
+    console.error('Failed to parse preferences cookie:', error)
+    return {}
+  }
+}
+
+const setPreference = (key, value) => {
+  if (typeof window === 'undefined') return
+  try {
+    const prefs = getPreferences()
+    prefs[key] = value
+    const expires = new Date()
+    expires.setDate(expires.getDate() + 365)
+    document.cookie = cookie.serialize('docsbot-prefs', JSON.stringify(prefs), {
+      expires,
+      path: '/',
+      sameSite: 'lax'
+    })
+  } catch (error) {
+    console.error('Failed to set preference:', error)
+  }
+}
+
+const isAlertDismissed = (dismissKey) => {
+  if (!dismissKey) return false
+  const prefs = getPreferences()
+  return prefs[`dismissed-${dismissKey}`] === true
+}
+
+export default function Alert({ title, type, children, onClose = noop, dismissKey }) {
   const [show, setShow] = useState(true)
   const alertRef = useRef(null);
+
+
 
   let icon = null
   let color = null
@@ -38,15 +82,19 @@ export default function Alert({ title, type, children, onClose = noop }) {
     color = 'blue'
   }
 
-  //show whenever params change
+  //show whenever params change, but respect dismissal preferences
   useEffect(() => {
-    setShow(true)
+    if (dismissKey && isAlertDismissed(dismissKey)) {
+      setShow(false)
+    } else {
+      setShow(true)
+    }
     return () => {
       if (alertRef.current && type === 'error') {
         alertRef.current.scrollIntoView({ behavior: 'smooth' })
       }
     }
-  }, [title, children, type])
+  }, [title, children, type, dismissKey])
   
 
   if (!show || !title) return null
@@ -102,6 +150,9 @@ export default function Alert({ title, type, children, onClose = noop }) {
               type="button"
               onClick={() => {
                 setShow(false)
+                if (dismissKey) {
+                  setPreference(`dismissed-${dismissKey}`, true)
+                }
                 onClose()
               }}
               className={clsx(

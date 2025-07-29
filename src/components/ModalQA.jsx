@@ -11,7 +11,7 @@ export default function ModalQA({ team, botId, question, open, setOpen, hideButt
   const [submitting, setSubmitting] = useState(false)
   const [successText, setSuccessText] = useState(null)
   const [errorText, setErrorText] = useState(null)
-  const [questions, setQuestions] = useState([{question: question.question, answer: question.answer}])
+  const [questions, setQuestions] = useState([{question: question.standaloneQuestion || question.question, answer: question.answer}])
   const [showUpgrade, setShowUpgrade] = useState(false)
 
   const saveQuestion = async () => {
@@ -101,11 +101,16 @@ export default function ModalQA({ team, botId, question, open, setOpen, hideButt
       {!hideButton && (
         <button
           type="button"
-          className={"ml-2 flex cursor-pointer items-center justify-end text-sm font-medium " + (question?.revised ? "text-purple-500 hover:text-purple-900" : "text-gray-500 hover:text-gray-900") }
+          className={
+            "flex cursor-pointer py-1 px-2 items-center justify-end text-sm font-medium rounded-md border border-cyan-700 text-cyan-700 bg-white ring-1 ring-cyan-500 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 transition " +
+            (question?.revised
+              ? "font-semibold"
+              : "")
+          }
           onClick={openQA}
         >
-          <PencilSquareIcon className="h-4 w-4 mr-1s" aria-hidden="true" />
-           Revise answer
+          <PencilSquareIcon className="h-4 w-4 mr-1" aria-hidden="true" />
+          Revise answer
         </button>
       )}
 
@@ -147,12 +152,16 @@ export default function ModalQA({ team, botId, question, open, setOpen, hideButt
                   </div>
 
                   <div className="rounded-lg bg-white p-8 shadow">
-                    <h3 className="text-2xl text-bold">Revise Answer</h3>
+                    <h3 className="text-2xl text-bold mb-4">Revise Answer</h3>
                     <Alert type="error" title={errorText} />
                     <Alert type="success" title={successText} />
                     {!submitted && (
                       <>
-                        <Alert type="info" title="This will create or update a Q&A source for your bot. If an existing question exists with a conflicting answer your bot may get confused, so make sure you're only adding questions you haven't answered before." />
+                        <Alert 
+                          type="info" 
+                          title="This will create or update a Q&A source for your bot. If an existing question exists with a conflicting answer your bot may get confused, so make sure you're only adding questions you haven't answered before."
+                          dismissKey="qa-conflicting-answer-warning"
+                        />
                         <QAForm questions={questions} setQuestions={setQuestions} hideAdd={true} canChange={true} />
                         <div className="mt-4 flex flex-shrink-0 items-end justify-end">
                           <button
