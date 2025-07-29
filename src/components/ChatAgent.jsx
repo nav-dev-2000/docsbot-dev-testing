@@ -9,6 +9,7 @@ import {
   UserCircleIcon,
   LightBulbIcon,
   ClipboardIcon,
+  PencilSquareIcon,
   CheckIcon,
   XMarkIcon,
   ArrowTopRightOnSquareIcon,
@@ -44,6 +45,8 @@ import Tooltip from '@/components/Tooltip'
 import clsx from 'clsx'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalQA from '@/components/ModalQA'
+import { canUserEditBot } from '@/utils/function.utils'
 
 export default function Chat({ team, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
@@ -54,6 +57,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [chatHistory, setChatHistory] = useState([])
+  const [canModify, setModify] = useState(false)
   const [ratings, setRatings] = useState({})
   const [isResearchMode, setIsResearchMode] = useState(false)
   const [showQuestion, setShowQuestion] = useState(true)
@@ -122,6 +126,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       description: 'Faster for everyday tasks',
     },
   ]
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserEditBot(team, user.uid))
+  }, [team, user])
 
   useEffect(() => {
     const handleScreenChange = () => {
@@ -782,9 +791,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     )
   }
 
-  const ChatRow = ({ answer }) => {
+  const ChatRow = ({ answer, question }) => {
     const gridItemRef = useRef(null)
     const [expandedImage, setExpandedImage] = useState(null)
+    const [qaOpen, setQAOpen] = useState(false)
 
     useEffect(() => {
       if (gridItemRef.current) {
@@ -911,12 +921,20 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             )}
             id={answer.id || null}
           >
-            <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-                <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
-              </span>
-            </div>
-            {answer.html ? (
+          <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
+            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
+              <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
+            </span>
+          </div>
+          <ModalQA
+            team={team}
+            botId={bot.id}
+            question={{ id: answer.id, question, answer: answer.markdown }}
+            open={qaOpen}
+            setOpen={setQAOpen}
+            hideButton={true}
+          />
+          {answer.html ? (
               <div dir="auto" className={clsx(answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '', 'prose min-w-full p-6 text-start sm:px-8')} dangerouslySetInnerHTML={{ __html: answer.html }} />
             ) : (
               <div
@@ -948,6 +966,16 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   </div>
                 )}
                 <div className="flex items-center justify-between space-x-1">
+                  {answer.id && canModify && (
+                  <Tooltip content="Revise answer">
+                    <button
+                      onClick={() => setQAOpen(true)}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      <PencilSquareIcon className="h-5 w-5" />
+                    </button>
+                  </Tooltip>
+                  )}
                   <button
                     onClick={() =>
                       handleCopyText(answer.markdown, answer.id || '')
@@ -1233,7 +1261,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
         <div className="mt-6">
           {answers.map((answer, index) => (
-            <ChatRow key={index} answer={answer} />
+            <ChatRow
+              key={index}
+              answer={answer}
+              question={answers[index - 1]?.question}
+            />
           ))}
 
           <Alert title={errorText} type="warning" />

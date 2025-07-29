@@ -3,6 +3,7 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot, getConversations, getConversation } from '@/lib/dbQueries'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import {
   ChevronLeftIcon,
   DocumentTextIcon,
@@ -54,6 +55,8 @@ import Tooltip from '@/components/Tooltip'
 import { Dialog, Transition } from '@headlessui/react'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import { canUserEditBot } from '@/utils/function.utils'
+import { auth } from '@/config/firebase-ui.config'
 
 function BotMessage({
   team,
@@ -295,6 +298,8 @@ function Conversations({ team, bot, preConversations }) {
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [copied, setCopied] = useState(false)
   const [emailCopied, setEmailCopied] = useState(false)
+  const [canModify, setModify] = useState(false)
+  const [user] = useAuthState(auth)
 
   // Function to fetch a single conversation with full history
   const fetchConversation = async (conversationId) => {
@@ -335,6 +340,11 @@ function Conversations({ team, bot, preConversations }) {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    if (!team || !user) return
+    setModify(canUserEditBot(team, user.uid))
+  }, [team, user])
 
   // Set initial conversation based on URL param or default to first conversation
   useEffect(() => {
@@ -952,6 +962,7 @@ function Conversations({ team, bot, preConversations }) {
                         rating={ratings[message.id] || message.rating || 0}
                         labels={labels}
                         botId={bot.id}
+                        canModify={canModify}
                       />
                     )
                   }
