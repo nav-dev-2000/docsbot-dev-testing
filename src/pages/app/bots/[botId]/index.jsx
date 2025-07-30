@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalPrompt from '@/components/ModalPrompt'
 
 const sourcePerPage = 60
 
@@ -25,6 +26,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   const [isProcessing, setIsProcessing] = useState(true)
   const [autoOpenSourceIdState, setAutoOpenSourceIdState] = useState(autoOpenSourceId)
   const [showCheckout, setShowCheckout] = useState(false)
+  const [showPromptModal, setShowPromptModal] = useState(false)
   const router = useRouter()
   const { botId } = router.query
 
@@ -200,7 +202,42 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
           </button>
         </Alert>
       )}
+      {!bot.isAgent && (
+        <Alert
+          title="Agent Mode is here!"
+          type="info"
+          dismissKey="agent-mode-landing"
+        >
+          When ready, you can enable our new{' '}
+          <Link
+            href={`/app/bots/${botId}/widget#agent-mode`}
+            className="text-blue-600 underline hover:text-blue-500"
+          >
+            Agentic mode
+          </Link>
+          , which provides more intelligent and contextual responses, tool calling to perform actions,
+          conversaton view, and so much more! When enabling,{' '}
+          <strong>
+            <button
+              type="button"
+              onClick={() => setShowPromptModal(true)}
+              className="text-blue-600 underline hover:text-blue-500"
+            >
+              set your agent instructions
+            </button>{' '}
+            and please test!
+          </strong>{' '}
+          Start with a preset role and adjust, then update or remove any instructions that may conflict.
+        </Alert>
+      )}
       <ModalCheckout team={team} open={showCheckout} setOpen={setShowCheckout} />
+      <ModalPrompt
+        team={team}
+        integrations={integrations}
+        bot={bot}
+        open={showPromptModal}
+        setOpen={setShowPromptModal}
+      />
       <div className="mb-4 flex justify-start">
         <Link
           href={`/app/bots`}

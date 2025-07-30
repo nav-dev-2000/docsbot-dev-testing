@@ -373,7 +373,7 @@ function Widget({ team, bot }) {
               <div className="flex flex-1 flex-col justify-between">
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
-                    <div className="mt-4 border-b border-gray-200 pb-4">
+                    <div id="agent-mode" className="mt-4 border-b border-gray-200 pb-4">
                       {!bot.isAgent && (
                         <Alert title="Agent Mode is here!" type="info">
                           When ready, you can enable our new{' '}
