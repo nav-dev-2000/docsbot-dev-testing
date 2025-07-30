@@ -20,10 +20,17 @@ This endpoint accepts a POST request with the following parameters:
 | **query**   | string        | The query to search for.                                       |
 | **top_k**   | integer       | The number of source chunks to return. Optional, default is 4. |
 | **autocut** | integer/false | Autocut results to num groups. Optional, defaults to `false`   |
+| **alpha** | float | Keyword vs semantic search balance. Optional, default is `0.75`. An alpha of `1` is pure semantic search, while `0` is pure keyword search. |
 | **use_glossary** | boolean | Use the bot's glossary for term replacement. Optional, default is `false`. |
 
 {% callout title="autocut behavior" %}
 Autocut introduces a maximum result counts. This method organizes results into groups based on significant distance jumps, offering a more intuitive way to segregate relevant from irrelevant data. Autocut addresses the reduction of irrelevant information fed into generative searches. Research by highlights the negative impact of irrelevant content on large language models, underscoring the importance of precision in search results. Autocut's design is rooted in the concept of intuitively "cutting" search results at natural breaks, improving AI-driven search efficiencies. When enabled, autocut will return the top num groups of results trimmed by the `top_k` parameter.
+{% /callout %}
+{% callout title="alpha behavior" %}
+Hybrid search results can favor the keyword component or the semantic component. To change the relative weights of the keyword and vector components, set the alpha value in your query.
+
+An alpha of 1 is a pure semantic vector search.
+An alpha of 0 is a pure keyword search.
 {% /callout %}
 
 ## Examples
@@ -36,6 +43,7 @@ curl --request POST 'https://api.docsbot.ai/teams/ZrbLG98bbxZ9EFqiPvyl/bots/oFFi
 --data-raw '{
     "query": "What is WordPress?",
     "top_k": 4
+    "alpha": 0.75
 }'
 ```
 
@@ -47,6 +55,7 @@ myHeaders.append('Content-Type', 'application/json')
 
 var raw = JSON.stringify({
   query: 'What is WordPress?',
+  alpha: 0.75,
 })
 
 var requestOptions = {
@@ -84,6 +93,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS =>'{
     "query": "What is WordPress?",
     "top_k": 4
+    "alpha": 0.75
 }',
   CURLOPT_HTTPHEADER => array(
     'Content-Type: application/json'
