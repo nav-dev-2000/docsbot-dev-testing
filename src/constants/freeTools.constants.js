@@ -202,6 +202,12 @@ export const freeTools = [
     category: 'Customer Support',
   },
   {
+    name: 'Screenshot Help Documentation Generator',
+    href: '/tools/support/screenshot-help-documentation',
+    ogImage: '/images/og/screenshot-help-documentation.png',
+    category: 'Customer Support',
+  },
+  {
     name: 'Support Ticket Summarizer',
     href: '/tools/support/ticket-summarizer',
     ogImage: '/images/og/support-ticket-summarizer.png',

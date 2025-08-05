@@ -120,6 +120,24 @@ const PROMPTS = {
     ],
   },
 ],
+
+  help: [
+    {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          text: 'Analyze this screenshot and create comprehensive help documentation. Identify all user interface elements, buttons, menus, forms, and features visible in the image. Generate step-by-step instructions that would help users understand and navigate this interface effectively.\n\nStructure your response as clean markdown with:\n1. A single descriptive title (H1) that identifies the interface/feature being documented\n2. An overview section explaining what the interface shows\n3. Key features and elements identified\n4. Step-by-step instructions for common tasks\n5. Tips and best practices for using this interface\n6. Troubleshooting notes if applicable\n\nDo not include redundant titles or headers like "Help Documentation" at the beginning. Start directly with a descriptive H1 title of the interface. Focus on being practical and user-friendly. Use clear, concise language that non-technical users can understand. If the image shows error messages or issues, include guidance on how to resolve them.\n\nAdditional context/instructions from user: {{instructions}}\n\nIf the screenshot is not of a user interface or software application, return a message saying "This image does not appear to be a user interface screenshot suitable for help documentation."',
+        },
+        {
+          type: 'image_url',
+          image_url: {
+            url: '{{image_url}}',
+          },
+        },
+      ],
+    },
+  ],
   // Add more types here as needed
 }
 

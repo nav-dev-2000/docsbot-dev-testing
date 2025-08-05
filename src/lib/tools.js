@@ -180,6 +180,11 @@ export const checkYoutubeBlogPostRateLimit = async (ip, isLoggedIn = false) => {
 
 // Check if an IP has exceeded the rate limit for image tool requests
 export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
+  // Skip rate limit for localhost IPs
+  if (ip === '::1' || ip === '127.0.0.1') {
+    return false
+  }
+
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
   const lookupQuery = await firestore
     .collection('image-tools')
