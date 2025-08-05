@@ -19,6 +19,7 @@ import {
   MinusCircleIcon,
   CheckCircleIcon as CheckCircleIconOutline,
   FaceSmileIcon,
+  TagIcon,
   FaceFrownIcon,
   ExclamationCircleIcon,
   XMarkIcon,
@@ -527,6 +528,7 @@ function Conversations({ team, bot, preConversations }) {
                   summary: updatedConversation.summary,
                   title: updatedConversation.title || conv.title,
                   sentiment: updatedConversation.sentiment || conv.sentiment,
+                  topic: updatedConversation.topic || conv.topic,
                 }
               : conv,
           ),
@@ -537,6 +539,7 @@ function Conversations({ team, bot, preConversations }) {
           summary: updatedConversation.summary,
           title: updatedConversation.title || prev.title,
           sentiment: updatedConversation.sentiment || prev.sentiment,
+          topic: updatedConversation.topic || prev.topic,
         }))
       } else {
         const data = await response.json()
@@ -778,6 +781,40 @@ function Conversations({ team, bot, preConversations }) {
                           />
                           <span className="ml-1.5 hidden sm:inline">
                             Neutral
+                          </span>
+                        </div>
+                      ) : null}
+                    </div>
+                  </Tooltip>
+                ) : null}
+                {conversation.topic ||
+                !checkPlanPermission(team, 'business').allowed ? (
+                  <Tooltip
+                    content={
+                      !checkPlanPermission(team, 'business').allowed
+                        ? 'Topic categorization requires Business plan'
+                        : `Conversation topic: ${conversation.topic}`
+                    }
+                  >
+                    <div className="flex items-center text-sm">
+                      {!checkPlanPermission(team, 'business').allowed ? (
+                        <div className="flex items-center text-gray-400">
+                          <NoSymbolIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-1.5 hidden sm:inline">
+                            Topic
+                          </span>
+                        </div>
+                      ) : conversation.topic ? (
+                        <div className="flex items-center text-gray-500">
+                          <TagIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-1.5 hidden sm:inline capitalize">
+                            {conversation.topic}
                           </span>
                         </div>
                       ) : null}
