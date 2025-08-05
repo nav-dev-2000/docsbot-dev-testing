@@ -459,8 +459,79 @@ In the tech world, the life of a software developer often revolves around a rele
       },
     ],
   },
+  pdfSummarize: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Analyze and summarize PDF document content to create clear, comprehensive summaries. Your task is to extract key information, main topics, and important details from the provided PDF text content.
+
+# Steps
+
+1. **Content Analysis**: Review the entire PDF text content to understand the document structure, main topics, and key themes.
+2. **Information Extraction**: Identify the most important points, conclusions, data, and insights from the document.
+3. **Summary Structure**: Organize the information into a logical, easy-to-read format.
+4. **Length Adaptation**: Adjust the summary length based on the specified summary type (brief, detailed, or comprehensive).
+
+# Summary Types
+- **Brief**: 2-3 paragraphs highlighting the main points
+- **Detailed**: 4-6 paragraphs with key sections and important details
+- **Comprehensive**: Full analysis with all major sections and supporting details
+
+# Output Format
+Provide a well-structured markdown summary with:
+- **Document Title/Topic**: Brief description of what the document is about
+- **Main Points**: Key findings, arguments, or topics covered
+- **Key Details**: Important data, statistics, quotes, or specific information
+- **Conclusion**: Summary of outcomes, recommendations, or final thoughts (if applicable)
+
+# Guidelines
+- Use clear, concise language
+- Maintain the original meaning and context
+- Include specific details, numbers, or data when relevant
+- Organize information logically
+- Use markdown formatting for better readability
+- Focus on the most valuable and actionable information
+- **IMPORTANT**: Never use LaTeX, MathJax, or mathematical notation syntax (like \\text{}, \\rightarrow, subscripts with {}, etc.)
+- For chemical formulas, use plain text format (e.g., "CO2" not "\\text{CO}_2", "H2O" not "\\text{H}_2\\text{O}")
+- For mathematical equations, use simple text format (e.g., "6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2")
+- Use → (arrow symbol) instead of \\rightarrow for reactions
+- Use simple superscript/subscript notation when needed (CO₂, H₂O) or plain text (CO2, H2O)
+
+# Example Output Structure
+
+## Document Summary: [Document Title/Topic]
+
+**Main Points:**
+- Key point 1 with supporting details
+- Key point 2 with supporting details
+- Key point 3 with supporting details
+
+**Key Details:**
+- Important statistic or data point
+- Significant quote or finding
+- Relevant dates, numbers, or specific information
+
+**Conclusion:**
+Brief summary of the document's main conclusions or recommendations.
+
+# Notes
+- Preserve factual accuracy and important context
+- Adapt the summary length to match the specified type
+- Focus on actionable insights and key takeaways
+- Maintain professional tone and clarity
+- Always use readable plain text formatting instead of LaTeX or mathematical markup`,
+      },
+      {
+        role: 'user',
+        content: `Summary Type: {{summaryType}}\n\nDocument Content:\n{{input}}`,
+      },
+    ],
+  },
   // Add more types here as needed
 }
+
+
 
 const getChatParams = (type, params) => {
   if (!PROMPTS[type]) {
@@ -489,7 +560,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount } = req.body
+      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount, summaryType } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -584,14 +655,36 @@ export default async function handler(req, res) {
             .json({ message: 'Invalid or missing tone parameter.' })
         }
 
-        if (keywords && typeof keywords !== 'string') {
-          return res
-            .status(400)
-            .json({ message: 'Invalid keywords parameter.' })
-        }
+              if (keywords && typeof keywords !== 'string') {
+        return res
+          .status(400)
+          .json({ message: 'Invalid keywords parameter.' })
+      }
+    }
+
+    if (type === 'pdfSummarize') {
+      if (!input || typeof input !== 'string' || input.trim() === '') {
+        return res
+          .status(400)
+          .json({ message: 'Invalid or missing PDF content. Please upload a valid PDF file.' })
       }
 
-      //validate other type params here
+      if (input.length > 50000) {
+        return res
+          .status(400)
+          .json({
+            message: 'PDF content is too long. Maximum length is 50000 characters.',
+          })
+      }
+
+      if (summaryType && !['brief', 'detailed', 'comprehensive'].includes(summaryType)) {
+        return res
+          .status(400)
+          .json({ message: 'Invalid summary type. Must be brief, detailed, or comprehensive.' })
+      }
+    }
+
+    //validate other type params here
 
       // check if user is logged in or has a valid API key
       let user
@@ -625,6 +718,7 @@ export default async function handler(req, res) {
         industry,
         keywords,
         sloganCount,
+        summaryType,
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 

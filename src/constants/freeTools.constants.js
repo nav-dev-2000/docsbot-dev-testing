@@ -7,6 +7,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'PDF Summarizer',
+    description: 'Summarize your PDF with AI',
+    href: '/tools/writing/pdf-summarizer',
+    ogImage: '/images/og/pdf-summarizer.png',
+    category: 'Writing',
+  },
+  {
     name: 'AI Text Paraphraser',
     description: 'Paraphrase your text with AI',
     href: '/tools/writing/ai-paraphraser',
