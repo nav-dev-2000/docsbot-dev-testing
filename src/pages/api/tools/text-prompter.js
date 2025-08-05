@@ -459,6 +459,137 @@ In the tech world, the life of a software developer often revolves around a rele
       },
     ],
   },
+  pdfQuiz: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `# IDENTITY and PURPOSE
+
+You are an expert quiz generator that creates exactly 10 engaging multiple choice questions from PDF document content.
+
+You take in text content extracted from a PDF document as input and output a quiz with questions, answer choices, and explanations.
+
+Take a step back and think step-by-step about how to achieve the best possible results by following these steps:
+
+# STEPS
+
+1. Carefully analyze the PDF content to identify key concepts, facts, theories, and insights that would make good quiz questions
+2. For each concept, create a clear and focused multiple choice question that tests comprehension and understanding
+3. Generate 4 answer choices for each question:
+   - One correct answer that is clearly accurate based on the document content
+   - Three incorrect but plausible distractors that test common misconceptions or similar concepts
+4. Write a detailed explanation for why the correct answer is right and why the other options are incorrect
+5. Review to ensure questions test understanding, application, and analysis rather than just recall
+6. Ensure questions cover different sections and topics from the PDF content
+
+# OUTPUT INSTRUCTIONS
+
+- Create exactly 10 high-quality multiple choice questions
+- Write clear, unambiguous questions that test comprehension of the PDF content
+- Make all answer choices similar in length and style to avoid obvious correct answers
+- Ensure distractors are plausible but clearly incorrect based on the document
+- Provide thorough explanations for correct answers that reference the source material
+- Vary question types (factual recall, conceptual understanding, application, analysis)
+- Do not repeat content across questions
+- Use proper grammar and professional language
+- Test different levels of Bloom's taxonomy (remember, understand, apply, analyze)
+- Base all questions strictly on the content provided in the PDF
+- You must output exactly 10 questions! DO NOT OUTPUT MORE OR LESS THAN 10 QUESTIONS!
+
+# OUTPUT FORMAT
+
+Return the quiz in JSON format with the following structure:
+{
+  "quiz": {
+    "title": "Quiz based on [brief description of PDF content]",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Question text here?",
+        "options": {
+          "A": "First option",
+          "B": "Second option", 
+          "C": "Third option",
+          "D": "Fourth option"
+        },
+        "correct_answer": "A",
+        "explanation": "Detailed explanation of why A is correct and why B, C, D are incorrect"
+      }
+    ]
+  }
+}`,
+      },
+      {
+        role: 'user',
+        content: `Generate a 10-question multiple choice quiz from the following PDF content:\n\n{{input}}`,
+      },
+    ],
+    response_format: {
+      type: 'json_schema',
+      json_schema: {
+        name: 'pdf_quiz_response',
+        schema: {
+          type: 'object',
+          properties: {
+            quiz: {
+              type: 'object',
+              properties: {
+                title: {
+                  type: 'string',
+                  description: 'Title of the quiz based on PDF content'
+                },
+                questions: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      id: {
+                        type: 'integer',
+                        description: 'Question number'
+                      },
+                      question: {
+                        type: 'string',
+                        description: 'The quiz question'
+                      },
+                      options: {
+                        type: 'object',
+                        properties: {
+                          A: { type: 'string' },
+                          B: { type: 'string' },
+                          C: { type: 'string' },
+                          D: { type: 'string' }
+                        },
+                        required: ['A', 'B', 'C', 'D'],
+                        additionalProperties: false
+                      },
+                      correct_answer: {
+                        type: 'string',
+                        enum: ['A', 'B', 'C', 'D'],
+                        description: 'The correct answer option'
+                      },
+                      explanation: {
+                        type: 'string',
+                        description: 'Explanation of the correct answer'
+                      }
+                    },
+                    required: ['id', 'question', 'options', 'correct_answer', 'explanation'],
+                    additionalProperties: false
+                  },
+                  minItems: 10,
+                  maxItems: 10
+                }
+              },
+              required: ['title', 'questions'],
+              additionalProperties: false
+            }
+          },
+          required: ['quiz'],
+          additionalProperties: false
+        }
+      }
+    }
+  },
   pdfSummarize: {
     model: 'gpt-4o-mini',
     messages: [
@@ -681,6 +812,30 @@ export default async function handler(req, res) {
         return res
           .status(400)
           .json({ message: 'Invalid summary type. Must be brief, detailed, or comprehensive.' })
+      }
+    }
+
+    if (type === 'pdfQuiz') {
+      if (!input || typeof input !== 'string' || input.trim() === '') {
+        return res
+          .status(400)
+          .json({ message: 'Invalid or missing PDF content input parameter.' })
+      }
+
+      if (input.length < 100) {
+        return res
+          .status(400)
+          .json({
+            message: 'PDF content is too short. Minimum length is 100 characters to generate meaningful quiz questions.',
+          })
+      }
+
+      if (input.length > 50000) {
+        return res
+          .status(400)
+          .json({
+            message: 'PDF content is too long. Maximum length is 50,000 characters.',
+          })
       }
     }
 

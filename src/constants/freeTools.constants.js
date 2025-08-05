@@ -61,6 +61,12 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'PDF Quiz Generator',
+    href: '/tools/pdf/pdf-quiz',
+    ogImage: '/images/og/pdf-quiz.png',
+    category: 'Writing',
+  },
+  {
     name: 'YouTube Blog Post Generator',
     description: 'Create blog posts from YouTube video content',
     href: '/tools/youtube-blog-post-generator',
