@@ -623,11 +623,11 @@ Provide a well-structured markdown summary with:
 - Organize information logically
 - Use markdown formatting for better readability
 - Focus on the most valuable and actionable information
-- **IMPORTANT**: Never use LaTeX, MathJax, or mathematical notation syntax (like \\text{}, \\rightarrow, subscripts with {}, etc.)
-- For chemical formulas, use plain text format (e.g., "CO2" not "\\text{CO}_2", "H2O" not "\\text{H}_2\\text{O}")
-- For mathematical equations, use simple text format (e.g., "6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2")
-- Use → (arrow symbol) instead of \\rightarrow for reactions
-- Use simple superscript/subscript notation when needed (CO₂, H₂O) or plain text (CO2, H2O)
+- **CRITICAL**: Never use LaTeX notation like \\text{}, \\rightarrow, subscripts with {}, or any backslash commands
+- For chemical formulas, use plain text: "CO2" not "\\text{CO}_2", "H2O" not "\\text{H}_2\\text{O}"
+- For chemical equations, use simple text: "6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2"
+- Use → (arrow symbol) for reactions, never \\rightarrow
+- Use plain text for subscripts: CO2, H2O, C6H12O6 (not CO₂ or \\text{CO}_2)
 
 # Example Output Structure
 
@@ -656,6 +656,96 @@ Brief summary of the document's main conclusions or recommendations.
       {
         role: 'user',
         content: `Summary Type: {{summaryType}}\n\nDocument Content:\n{{input}}`,
+      },
+    ],
+  },
+  pdfToText: {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Clean up and organize the raw text extracted from a PDF document. 
+
+CRITICAL REQUIREMENT: You must preserve the EXACT original wording from the source text. Do NOT rephrase, paraphrase, change, or "improve" any words or phrases. Your ONLY job is to fix formatting issues and organize content properly while keeping every single word exactly as it appears in the original.
+
+# Steps
+
+1. **Text Cleanup**: Fix spacing issues, remove OCR artifacts, and correct formatting problems from PDF extraction
+2. **Structure Organization**: Organize the text into logical paragraphs and sections with proper line breaks
+3. **Diagram/Chart Processing**: When encountering fragmented text from diagrams, charts, or tables, reconstruct the meaningful information and present it clearly
+4. **EXACT Content Preservation**: Preserve the exact original wording - do NOT rephrase, paraphrase, or change any words
+5. **Format Standardization**: Ensure consistent formatting throughout the text while keeping original wording intact
+
+# Guidelines
+
+- **Preserve ALL Content**: Do not remove, summarize, or change any information - clean and organize it exactly as written
+- **NO Word Changes**: Do NOT rephrase, paraphrase, substitute words, or change the original wording in any way
+- **Fix OCR Issues**: Only correct obvious OCR errors like random line breaks, merged words, or character substitutions
+- **Handle Tables**: When table data appears fragmented, reorganize it into readable format or clear lists using the exact original text
+- **Diagram Text**: Extract and organize any text information found in diagrams or charts using the exact wording found
+- **Preserve Math**: Keep mathematical equations simple and readable - NO LaTeX notation, use plain text format with original wording
+- **Maintain Context**: Keep the logical flow and context of the original document with exact original wording
+- **No Summarization**: This is text extraction and cleanup, not summarization - preserve all content word-for-word
+
+# Output Format
+
+Provide the cleaned text in markdown format with:
+- Proper paragraph breaks using double newlines
+- Headers using # ## ### for section organization
+- Tables formatted as markdown tables when applicable
+- Lists formatted as markdown bullets (-) or numbers (1.)
+- Bold and italic text where appropriate for emphasis
+- Code blocks for technical content when applicable
+- Simple, readable text format for mathematical content (NO LaTeX notation)
+- All original content preserved but properly organized in markdown
+
+# Example
+
+Input (messy PDF extraction):
+CompanyReport2024   
+Sales    Q1   $50000Q2$75000
+Q3$60000    Q4$80000
+Thecompanyperformedwellthisyear
+withstronggrowthinsalesrevenue.
+
+Output:
+# Company Report 2024
+
+## Sales Performance
+
+| Quarter | Revenue |
+|---------|---------|
+| Q1      | $50,000 |
+| Q2      | $75,000 |
+| Q3      | $60,000 |
+| Q4      | $80,000 |
+
+The company performed well this year with strong growth in sales revenue.
+
+For mathematical and chemical content, use simple readable format:
+
+Chemical equation: 6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2
+
+Mathematical equation: E = mc^2
+
+Complex equation: ∫ e^(-x^2) dx = √π
+
+# Notes
+- Focus on readability and organization while preserving ALL original information exactly as written
+- When in doubt, err on the side of including rather than excluding content
+- Use proper markdown syntax for headers, lists, tables, and emphasis
+- Use simple, readable text for mathematical and chemical equations (NO LaTeX notation) with original wording
+- Maintain professional formatting appropriate for the document type
+- Do not add analysis or interpretation - only clean and organize existing content WORD-FOR-WORD
+- NEVER change the original wording, even if it seems incorrect or could be improved
+- NEVER use LaTeX commands like \\text{}, \\rightarrow, or subscript notation with {}
+- Use plain text for chemicals: preserve exactly as written in source (CO2, H2O, etc.)
+- Use → symbol for arrows, not \\rightarrow, but keep the exact text around the arrows
+- Output should be valid markdown that renders beautifully while preserving exact original wording`,
+      },
+      {
+        role: 'user',
+        content: `Raw PDF Text:\n{{input}}`,
       },
     ],
   },
@@ -812,6 +902,15 @@ export default async function handler(req, res) {
         return res
           .status(400)
           .json({ message: 'Invalid summary type. Must be brief, detailed, or comprehensive.' })
+      }
+    }
+
+
+    if (type === 'pdfToText') {
+      if (!input || typeof input !== 'string' || input.trim() === '') {
+        return res
+          .status(400)
+          .json({ message: 'Invalid or missing PDF content. Please upload a valid PDF file.' })
       }
     }
 

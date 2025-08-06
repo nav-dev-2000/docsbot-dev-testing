@@ -14,6 +14,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'PDF to Text Converter',
+    description: 'Convert PDF to text with AI',
+    href: '/tools/writing/pdf-to-text',
+    ogImage: '/images/og/pdf-to-text.png',
+    category: 'Writing',
+  },
+  {
     name: 'AI Text Paraphraser',
     description: 'Paraphrase your text with AI',
     href: '/tools/writing/ai-paraphraser',

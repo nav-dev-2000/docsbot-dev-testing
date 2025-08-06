@@ -47,7 +47,12 @@ const PDFDropZone = ({ file, setFile, isComputing }) => {
       <div className="group relative rounded-lg border-2 border-dashed border-gray-900/25 px-6 py-4">
         <p className="text-sm text-gray-600">{file.name}</p>
         <button
-          onClick={() => setFile(null)}
+          onClick={() => {
+            setFile(null)
+            if (fileInputRef.current) {
+              fileInputRef.current.value = ''
+            }
+          }}
           className="absolute right-2 top-2"
         >
           <XCircleIcon className="h-6 w-6 text-gray-400 hover:text-gray-600" aria-hidden="true" />

@@ -207,7 +207,11 @@ const PDFToImagesGenerator = ({ setHasResults }) => {
 
   const handleSetPdf = (file) => {
     setPdf(file)
-    setFilename(file?.name?.replace('.pdf', '') || 'document')
+    if (file) {
+      setFilename(file.name?.replace('.pdf', '') || 'document')
+    } else {
+      setFilename('document')
+    }
   }
 
   return (
