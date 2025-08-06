@@ -56,6 +56,13 @@ export const freeTools = [
     category: 'Writing',
   },
   {
+    name: 'AI Email Response Generator',
+    description: 'Generate email responses with AI',
+    href: '/tools/writing/email-response-generator',
+    ogImage: '/images/og/email-response-generator.png',
+    category: 'Writing',
+  },
+  {
     name: 'PDF to Image Converter',
     href: '/tools/pdf/to-image',
     ogImage: '/images/og/pdf-image.png',

@@ -50,6 +50,109 @@ Retain the essence and accuracy of the original text while adjusting the languag
       },
     ],
   },
+
+  'email-response': {
+    model: 'gpt-4o-mini',
+    messages: [
+      {
+        role: 'system',
+        content: `Generate professional email responses based on the provided email conversation context, tone, and optional key points. Your task is to create 3 different response variations that are well-structured, contextually appropriate, and maintain the specified tone throughout.
+
+# Steps
+
+1. **Analyze Email Context**: Carefully read and understand the email conversation, including the sender's intent, concerns, any specific requests, and the conversation history.
+2. **Apply Tone Guidelines**: Use the specified tone (Professional, Friendly, Apologetic, or Persuasive) to shape the language, formality, and approach of each response.
+3. **Incorporate Key Points**: If key points are provided, naturally weave them into the responses where relevant and appropriate.
+4. **Use Conversation Context**: Base your response on the actual context provided in the conversation thread - don't make assumptions beyond what's explicitly stated.
+5. **Generate 3 Variations**: Create 3 distinct response options that:
+   - Address the same core issues from the conversation
+   - Maintain the specified tone consistently
+   - Offer different approaches or phrasings
+   - Are complete, professional email responses
+6. **Structure Appropriately**: Each response should include proper email elements like greetings, body content, and appropriate closings.
+
+# Output Format
+
+Provide exactly 3 email response options as an array, where each response is a complete, ready-to-send email. Format as JSON array:
+
+["Response 1 text here", "Response 2 text here", "Response 3 text here"]
+
+Each response should be:
+- Complete and professional
+- Appropriate length (not too brief, not overly long)
+- Contextually relevant to the email conversation
+- Consistent with the specified tone
+- Include natural integration of key points if provided
+- Based only on information available in the conversation context
+
+# Example
+
+**Input Email Context**: 
+"From: john@example.com
+Subject: Order Status Inquiry
+
+Hi, I placed an order last week (#12345) but haven't received any shipping updates. Can you please provide a status update? Thanks, John"
+
+**Tone**: Professional
+**Key Points**: "Shipped yesterday, tracking number available"
+
+**Output**:
+["Dear John,
+
+Thank you for reaching out regarding your order #12345. I'm pleased to inform you that your order shipped yesterday and is currently in transit.
+
+You can track your package using tracking number [tracking-number] on our shipping partner's website. Based on the current shipping schedule, you should receive your order within 2-3 business days.
+
+Please don't hesitate to contact us if you have any additional questions or concerns.
+
+Best regards,
+Customer Service Team",
+
+"Hi John,
+
+Thanks for contacting us about order #12345. Great news - your order actually shipped out yesterday!
+
+I've included your tracking number [tracking-number] below so you can monitor its progress. The package should arrive within the next 2-3 business days.
+
+If you need any other assistance, please let me know.
+
+Kind regards,
+Customer Service Team",
+
+"Hello John,
+
+I appreciate you following up on order #12345. I'm happy to update you that your package shipped yesterday and is on its way to you.
+
+Here's your tracking information: [tracking-number]. You can expect delivery within 2-3 business days based on our standard shipping timeframes.
+
+Should you have any other questions, please feel free to reach out.
+
+Sincerely,
+Customer Service Team"]
+
+# Notes
+
+- Ensure each response directly addresses the concerns raised in the email conversation
+- Maintain professional email etiquette throughout
+- Keep responses concise but comprehensive
+- Use the specified tone consistently across all variations
+- If key points are provided, integrate them naturally without making them feel forced
+- Base responses only on the context provided - avoid hallucinating details not mentioned
+- If the input contains multiple emails in a conversation thread, consider the full context when crafting your response`,
+      },
+      {
+        role: 'user',
+        content: `Email Conversation: {{input}}
+
+Tone: {{tone}}
+
+Key Points: {{keyPoints}}
+
+Generate 3 professional email response variations that address the email conversation above using the specified tone. Include the key points naturally if provided. Base your response only on the context provided in the conversation - do not make assumptions or add details not explicitly mentioned.`,
+      },
+    ],
+  },
+
   paraphrase: {
     model: 'gpt-4o-mini',
     messages: [
@@ -781,7 +884,7 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount, summaryType } = req.body
+      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount, summaryType, keyPoints, responseCount } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -938,7 +1041,41 @@ export default async function handler(req, res) {
       }
     }
 
-    //validate other type params here
+      if (type === 'email-response') {
+        if (!input || typeof input !== 'string' || input.trim() === '') {
+          return res.status(400).json({ message: 'Invalid or missing email context parameter.' })
+        }
+
+        if (input.length > 5000) {
+          return res
+            .status(400)
+            .json({
+              message: 'Email context is too long. Maximum length is 5000 characters.',
+            })
+        }
+
+        if (tone && typeof tone !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid tone parameter.' })
+        }
+
+        if (keyPoints && typeof keyPoints !== 'string') {
+          return res
+            .status(400)
+            .json({ message: 'Invalid keyPoints parameter.' })
+        }
+
+        if (keyPoints && keyPoints.length > 1000) {
+          return res
+            .status(400)
+            .json({
+              message: 'Key points are too long. Maximum length is 1000 characters.',
+            })
+        }
+      }
+
+      //validate other type params here
 
       // check if user is logged in or has a valid API key
       let user
@@ -972,11 +1109,29 @@ export default async function handler(req, res) {
         industry,
         keywords,
         sloganCount,
+        keyPoints,
+        responseCount,
         summaryType,
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 
-      const responseData = chat_completion.choices[0].message.content
+      let responseData = chat_completion.choices[0].message.content
+
+      // Special handling for JSON response types
+      if (type === 'email-response') {
+        try {
+          // Parse the JSON array of responses
+          responseData = JSON.parse(responseData)
+          if (!Array.isArray(responseData) || responseData.length !== 3) {
+            throw new Error('Invalid response format')
+          }
+        } catch (error) {
+          console.error('Error parsing email response:', error)
+          // Fallback: split by likely response separators if JSON parsing fails
+          const responses = responseData.split(/(?:\n\s*\n|\n---\n|\n\d\.\s)/).filter(r => r.trim().length > 20)
+          responseData = responses.slice(0, 3).length === 3 ? responses.slice(0, 3) : [responseData]
+        }
+      }
 
       const tokenUsage = chat_completion.usage.total_tokens
       console.log(`Token usage for this request: ${tokenUsage}`)
