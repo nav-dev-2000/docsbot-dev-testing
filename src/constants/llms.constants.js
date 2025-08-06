@@ -1457,90 +1457,138 @@ const LLMS = [
       },
   },
   {
-    model_name: 'Gemini 2.0 Pro',
-    slug: 'gemini-2-0-pro',
-    provider: 'google',
-    description:
-      "Gemini 2.0 Pro is Google's best model yet for coding performance and complex prompts. It features enhanced capabilities including native tool use, image generation, and speech generation. The model excels at complex reasoning tasks and supports multimodal inputs including text, images, video and audio. Available through Google AI Studio and Vertex AI, it offers significantly improved performance over previous versions while maintaining high efficiency.",
-    input_context_window: '2M',
-    maximum_output_tokens: '8,192',
-    open_source: false,
-    release_date: '2024-12-11',
-    knowledge_cut_off_date: 'August 2024',
-    api_providers: 'Google AI Studio, Vertex AI',
-    input_cost_per_million_tokens: 0.1,
-    output_cost_per_million_tokens: 0.4,
-    modalities: {
-      text: true,
-      image: true,
-      voice: true,
-      video: true,
+  model_name: 'Gemini 2.5 Flash Lite',
+  slug: 'gemini-2.5-flash-lite',
+  provider: 'google',
+  description:
+    "Gemini 2.5 Flash Lite is Google’s fastest and most cost‑efficient model in the 2.5 family, optimized for low‑latency tasks like translation and classification. It supports controllable reasoning (thinking budgets), 1M-token context, and multimodal input (text, image, audio, video) while maintaining high performance across coding, reasoning, math, science, and multimodal understanding benchmarks.",
+  input_context_window: '1M',
+  maximum_output_tokens: '65K',
+  open_source: false,
+  release_date: '2025-06-17',
+  knowledge_cut_off_date: 'January 2025',
+  api_providers: 'Google AI Studio, Vertex AI, Gemini app',
+  input_cost_per_million_tokens: 0.10,
+  output_cost_per_million_tokens: 0.40,
+  modalities: {
+    text: true,
+    image: true,
+    voice: true,
+    video: true,
+  },
+  benchmarks: {
+    "Humanity's Last Exam": {
+      score: 5.1,
+      notes: 'Non‑thinking mode score',
+      source: 'https://deepmind.google/models/gemini/flash-lite/'
     },
-    benchmarks: {
-      'MMLU-Pro': {
-        score: 79.1,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
+    GPQA: {
+      score: 64.6,
+      notes: null,
+      source: 'https://deepmind.google/models/gemini/flash-lite/'
+    },
+    AIME2025: {
+      score: 49.8,
+      notes: null,
+      source: 'https://deepmind.google/models/gemini/flash-lite/'
+    },
+    'SimpleQA': {
+      score: 13.0,
+      notes: null,
+      source: 'https://deepmind.google/models/gemini/flash-lite/'
+    },
+    MMMU: {
+      score: 72.9,
+      notes: null,
+      source: 'https://deepmind.google/models/gemini/flash-lite/'
+    }
+  }
+},
+  {
+    model_name: 'Gemini 2.0 Pro',
+      slug: 'gemini-2-0-pro',
+      provider: 'google',
+      description:
+        "Gemini 2.0 Pro is Google's best model yet for coding performance and complex prompts. It features enhanced capabilities including native tool use, image generation, and speech generation. The model excels at complex reasoning tasks and supports multimodal inputs including text, images, video and audio. Available through Google AI Studio and Vertex AI, it offers significantly improved performance over previous versions while maintaining high efficiency.",
+      input_context_window: '2M',
+      maximum_output_tokens: '8,192',
+      open_source: false,
+      release_date: '2024-12-11',
+      knowledge_cut_off_date: 'August 2024',
+      api_providers: 'Google AI Studio, Vertex AI',
+      input_cost_per_million_tokens: 0.1,
+      output_cost_per_million_tokens: 0.4,
+      modalities: {
+        text: true,
+        image: true,
+        voice: true,
+        video: true,
       },
-      'LiveCodeBench': {
-        score: 36.0,
-        notes: 'v5',
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'Bird-SQL (Dev)': {
-        score: 59.3,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      GPQA: {
-        score: 64.7,
-        notes: 'Diamond',
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      SimpleQA: {
-        score: 44.3,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'FACTS Grounding': {
-        score: 82.8,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'Global MMLU': {
-        score: 86.5,
-        notes: 'lite',
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      MATH: {
-        score: 91.8,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      HiddenMath: {
-        score: 65.2,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'MRCR (1M)': {
-        score: 74.7,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      MMMU: {
-        score: 72.7,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'CoVoST2 (21 lang)': {
-        score: 40.6,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
-      },
-      'EgoSchema (test)': {
-        score: 71.9,
-        notes: null,
-        source: 'https://deepmind.google/technologies/gemini/',
+      benchmarks: {
+        'MMLU-Pro': {
+          score: 79.1,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'LiveCodeBench': {
+          score: 36.0,
+          notes: 'v5',
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'Bird-SQL (Dev)': {
+          score: 59.3,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        GPQA: {
+          score: 64.7,
+          notes: 'Diamond',
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        SimpleQA: {
+          score: 44.3,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'FACTS Grounding': {
+          score: 82.8,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'Global MMLU': {
+          score: 86.5,
+          notes: 'lite',
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        MATH: {
+          score: 91.8,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        HiddenMath: {
+          score: 65.2,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'MRCR (1M)': {
+          score: 74.7,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        MMMU: {
+          score: 72.7,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'CoVoST2 (21 lang)': {
+          score: 40.6,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
+        },
+        'EgoSchema (test)': {
+          score: 71.9,
+          notes: null,
+          source: 'https://deepmind.google/technologies/gemini/',
       },
     },
   },
@@ -3273,6 +3321,7 @@ const LLMS = [
       },
     },
   },
+
   {
     model_name: 'GPT-4.5',
     slug: 'gpt-4-5',
@@ -3329,6 +3378,58 @@ const LLMS = [
     },
   },
   {
+      model_name: 'GPT-OSS',
+      slug: 'gpt-oss',
+      provider: 'openai',
+      description:
+        'GPT‑OSS is OpenAI’s first open-weight release since GPT‑2, featuring two models: GPT‑OSS‑20B and GPT‑OSS‑120B. The larger model is a 117B-parameter mixture-of-experts (MoE) architecture that activates only 5.1B parameters per token, making it efficient to run locally on a single high-end GPU. With a 128K token context window and strong performance in reasoning, math, coding, and health domains, GPT‑OSS rivals o4-mini in benchmarks and supports controllable chain-of-thought reasoning with open access under the Apache 2.0 license.',
+      input_context_window: '128K',
+      maximum_output_tokens: '65K',
+      open_source: true,
+      release_date: '2025-08-05',
+      knowledge_cut_off_date: 'April 2024',
+      api_providers: 'Self-hosted, Hugging Face, AWS, Azure, Databricks',
+      input_cost_per_million_tokens: 0.15,
+      output_cost_per_million_tokens: 0.60,
+      modalities: {
+        text: true,
+        image: false,
+        voice: false,
+        video: false
+      },
+      benchmarks: {
+        MMLU: {
+          score: 82.7,
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        },
+        GPQA: {
+          score: 80.1,
+          notes: 'Diamond',
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        },
+        HealthBench: {
+          score: 83.0,
+          notes: null,
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        },
+        SimpleQA: {
+          score: 66.2,
+          notes: null,
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        },
+        'AIME2024': {
+          score: 69.0,
+          notes: null,
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        },
+        'LiveCodeBench': {
+          score: 42.7,
+          notes: 'v5',
+          source: 'https://openai.com/index/gpt-oss-model-card/'
+        }
+  },
+},
+{
     model_name: 'GPT-4o Mini',
     slug: 'gpt-4o-mini',
     provider: 'openai',

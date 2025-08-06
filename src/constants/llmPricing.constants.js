@@ -265,9 +265,20 @@ export const LLM_PRICING = {
       page_slug: 'gemini-2-5-flash',
       context: '1M',
       provider: 'Google',
-      input_token_cost_per_million: 0.15,
-      output_token_cost_per_million: 0.60,
+      input_token_cost_per_million: 0.30,
+      output_token_cost_per_million: 2.50,
+      
+      
     },
+    {
+      model_name: "Gemini 2.5 Flash Lite",
+      model_slug: "gemini-2.5-flash-lite",
+      page_slug: "gemini-2-5-flash-lite",
+      context: "1M",
+      provider: "Google",
+      input_token_cost_per_million: 0.10,
+      output_token_cost_per_million: 0.40
+    }, 
     {
       model_name: 'Gemini 2.5 Pro',
       model_slug: 'gemini-2.5-pro-preview-03-25',
@@ -468,7 +479,17 @@ export const LLM_PRICING = {
       provider: 'DeepSeek',
       input_token_cost_per_million: 0.55,
       output_token_cost_per_million: 2.19,
-    }
+    },
+    {
+      model_name: 'GPT-OSS',
+      model_slug: 'gpt-oss',
+      page_slug: 'gpt-oss',
+      context: '128K/65K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 0.15,
+      output_token_cost_per_million: 0.60,
+},
+
   ],
   'Audio Models': [
     {
