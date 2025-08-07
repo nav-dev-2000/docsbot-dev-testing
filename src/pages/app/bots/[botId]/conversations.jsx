@@ -28,6 +28,7 @@ import {
   PencilSquareIcon,
   ClipboardDocumentIcon,
   UsersIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -301,6 +302,7 @@ function Conversations({ team, bot, preConversations }) {
   const [emailCopied, setEmailCopied] = useState(false)
   const [canModify, setModify] = useState(false)
   const [user] = useAuthState(auth)
+  const [deleteConfirm, setDeleteConfirm] = useState(null)
 
   // Function to fetch a single conversation with full history
   const fetchConversation = async (conversationId) => {
@@ -576,6 +578,69 @@ function Conversations({ team, bot, preConversations }) {
     }, 2000)
   }
 
+  const deleteConversation = async (conversationId) => {
+    if (!canModify) return
+
+    // If this is the first click, set confirmation state
+    if (deleteConfirm !== conversationId) {
+      setDeleteConfirm(conversationId)
+      // Reset confirmation after 3 seconds
+      setTimeout(() => {
+        setDeleteConfirm(null)
+      }, 3000)
+      return
+    }
+
+    // Reset confirmation state
+    setDeleteConfirm(null)
+
+    const urlParams = [
+      'teams',
+      team.id,
+      'bots',
+      bot.id,
+      'conversations',
+      conversationId,
+    ]
+    const path = '/api/' + urlParams.join('/')
+
+    const response = await fetch(path, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      setConversations((prevConversations) => {
+        const conversationIndex = prevConversations.conversations.findIndex(
+          (conv) => conv.id === conversationId,
+        )
+        const newConversations = [...prevConversations.conversations]
+        newConversations.splice(conversationIndex, 1)
+        return { ...prevConversations, conversations: newConversations }
+      })
+      // Navigate to the previous conversation or back to bot page
+      const currentIndex = conversations.conversations.findIndex(
+        (conv) => conv.id === conversationId,
+      )
+      if (currentIndex > 0) {
+        fetchConversation(conversations.conversations[currentIndex - 1].id)
+      } else if (conversations.conversations.length > 1) {
+        fetchConversation(conversations.conversations[currentIndex + 1].id)
+      } else {
+        // No more conversations, redirect to bot page
+        window.location.href = `/app/bots/${bot.id}`
+      }
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
   if (!bot) return null
 
   const title = [bot.name, 'Conversations']
@@ -652,7 +717,7 @@ function Conversations({ team, bot, preConversations }) {
                     </Tooltip>
                   )}
                 <Tooltip
-                  content={`Created: ${new Date(conversation.createdAt).toISOString()}`}
+                  content={`Created: ${new Date(conversation.createdAt).toUTCString()}`}
                 >
                   <div className="flex items-center text-sm text-gray-500">
                     <CalendarIcon
@@ -660,12 +725,12 @@ function Conversations({ team, bot, preConversations }) {
                       aria-hidden="true"
                     />
                     <span className="ml-1.5 hidden xl:inline">
-                      Created <TimeAgo dateTime={conversation.updatedAt} />
+                      <TimeAgo dateTime={conversation.updatedAt} />
                     </span>
                   </div>
                 </Tooltip>
                 <Tooltip
-                  content={`Updated ${new Date(conversation.updatedAt).toISOString()}`}
+                  content={`Updated: ${new Date(conversation.updatedAt).toUTCString()}`}
                 >
                   <div className="flex items-center text-sm text-gray-500">
                     <ClockIcon
@@ -673,7 +738,7 @@ function Conversations({ team, bot, preConversations }) {
                       aria-hidden="true"
                     />
                     <span className="ml-1.5 hidden xl:inline">
-                      Updated <TimeAgo dateTime={conversation.updatedAt} />
+                      <TimeAgo dateTime={conversation.updatedAt} />
                     </span>
                   </div>
                 </Tooltip>
@@ -846,6 +911,27 @@ function Conversations({ team, bot, preConversations }) {
                   )}
                 </button>
               </Tooltip>
+
+              {canModify && (
+                <Tooltip 
+                  content={
+                    deleteConfirm === conversation.id 
+                      ? "Click again to confirm deletion" 
+                      : "Delete this conversation"
+                  }
+                >
+                  <button
+                    className={`flex items-center rounded-md p-1 ${
+                      deleteConfirm === conversation.id
+                        ? 'bg-red-600 text-white ring-2 ring-red-600 ring-offset-2'
+                        : 'text-gray-400 hover:text-red-600'
+                    }`}
+                    onClick={() => deleteConversation(conversation.id)}
+                  >
+                    <TrashIcon className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                </Tooltip>
+              )}
 
               <Paginator
                 perPage={conversations.pagination.perPage}
@@ -1119,7 +1205,7 @@ function Conversations({ team, bot, preConversations }) {
                         </button>
                       </p>
                       <Tooltip
-                        content={`Updated ${new Date(convo.updatedAt).toISOString()}`}
+                        content={`Updated: ${new Date(convo.updatedAt).toUTCString()}`}
                       >
                         <p className="flex-none text-xs text-gray-600">
                           <TimeAgo dateTime={convo.updatedAt} />
