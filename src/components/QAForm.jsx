@@ -4,7 +4,8 @@ import { XMarkIcon, PlusIcon, BookOpenIcon } from '@heroicons/react/24/outline'
 const placeholders = [
   {
     question: 'How do I cancel my subscription?',
-    answer: 'Rub your tummy, pat your head, and chant “I’m not a customer anymore” three times.',
+    answer:
+      'Rub your tummy, pat your head, and chant “I’m not a customer anymore” three times.',
   },
   {
     question: 'Can we expect more features?',
@@ -17,7 +18,8 @@ const placeholders = [
   },
   {
     question: 'Why do you need access to my camera?',
-    answer: "We don't really, but sometimes we get lonely and it's nice to see people.",
+    answer:
+      "We don't really, but sometimes we get lonely and it's nice to see people.",
   },
   {
     question: 'Why is your interface so confusing?',
@@ -30,11 +32,13 @@ const placeholders = [
   },
   {
     question: 'How do you generate reports?',
-    answer: 'We get our kids to draw beautiful charts for you using only the finest crayons.',
+    answer:
+      'We get our kids to draw beautiful charts for you using only the finest crayons.',
   },
   {
     question: 'Do you handle sales tax?',
-    answer: 'Well no, but if you move your company offshore you can probably ignore it.',
+    answer:
+      'Well no, but if you move your company offshore you can probably ignore it.',
   },
   {
     question: 'How do I apply for a job?',
@@ -42,13 +46,15 @@ const placeholders = [
       'We only hire our customers, so subscribe for a minimum of 100 years and then let’s talk.',
   },
   {
-    question: 'Your product sounds horrible but why do I still feel compelled to purchase?',
+    question:
+      'Your product sounds horrible but why do I still feel compelled to purchase?',
     answer:
       'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
   },
   {
     question: 'What happens if your site goes down?',
-    answer: 'We suggest you have a quick panic attack and then call your therapist.',
+    answer:
+      'We suggest you have a quick panic attack and then call your therapist.',
   },
   {
     question: 'I lost my password, how do I get into my account?',
@@ -57,7 +63,8 @@ const placeholders = [
   },
   {
     question: 'I heard that you got hacked. Is my data safe?',
-    answer: "We assure you, your data is now somewhere safe. We don't know where, but it's safe.",
+    answer:
+      "We assure you, your data is now somewhere safe. We don't know where, but it's safe.",
   },
   {
     question: 'How do I get a refund?',
@@ -75,13 +82,24 @@ const placeholders = [
   },
 ]
 
-export default function QAForm({ setQuestions, questions, hideAdd, canChange }) {
+export default function QAForm({
+  setQuestions,
+  questions,
+  hideAdd,
+  canChange,
+  searchTerm = '',
+  onClearSearch,
+}) {
   const addQuestion = () => {
     setQuestions((questions) => {
       const newQuestions = [...questions]
       newQuestions.push({ question: '', answer: '' })
       return newQuestions
     })
+    // Clear search filter when adding a new question
+    if (onClearSearch) {
+      onClearSearch()
+    }
   }
 
   const removeQuestion = (index) => {
@@ -132,12 +150,18 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
       <>
         {index > 0 && (
           <div className="relative mx-auto mb-2 mt-6 w-2/3">
-            <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div
+              className="absolute inset-0 flex items-center"
+              aria-hidden="true"
+            >
               <div className="w-full border-t border-gray-200" />
             </div>
             <div className="relative flex justify-center">
               <span className="bg-white px-2 text-gray-400">
-                <BookOpenIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                <BookOpenIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
               </span>
             </div>
           </div>
@@ -145,7 +169,9 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
         <div className="relative mb-2 flex items-start">
           <div className="w-full text-sm">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Question</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Question
+              </label>
               <input
                 type="text"
                 value={question}
@@ -164,11 +190,16 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
                 }}
                 tabIndex={(index * 2 + 1).toString()}
                 placeholder={getPlaceholder(index).question}
-                className={"block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm" + (!canChange ? " cursor-not-allowed" : "")}
+                className={
+                  'block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm' +
+                  (!canChange ? ' cursor-not-allowed' : '')
+                }
               />
             </div>
             <div className="mt-2">
-              <label className="block text-sm font-medium text-gray-700">Answer</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Answer
+              </label>
               <textarea
                 type="text"
                 value={answer}
@@ -187,7 +218,10 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
                 }}
                 tabIndex={(index * 2 + 2).toString()}
                 placeholder={getPlaceholder(index).answer}
-                className={"block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm focus:h-48" + (!canChange ? " cursor-not-allowed" : "")}
+                className={
+                  'block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:h-48 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm' +
+                  (!canChange ? ' cursor-not-allowed' : '')
+                }
               />
             </div>
           </div>
@@ -196,11 +230,17 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
               <button
                 type="button"
                 disabled={!canChange}
-                className={"flex h-5 w-5 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" + (!canChange ? " cursor-not-allowed" : "")}
+                className={
+                  'flex h-5 w-5 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white' +
+                  (!canChange ? ' cursor-not-allowed' : '')
+                }
                 onClick={() => removeQuestion(index)}
               >
                 <span className="sr-only">Remove question: {question}</span>
-                <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
+                <XMarkIcon
+                  className="h-5 w-5 text-gray-700"
+                  aria-hidden="true"
+                />
               </button>
             </div>
           )}
@@ -209,25 +249,44 @@ export default function QAForm({ setQuestions, questions, hideAdd, canChange }) 
     )
   }
 
+  const lower = searchTerm.toLowerCase()
+
   return (
     <>
-      {questions.map((question, index) => (
-        <QuestionPrompt key={index} index={index} />
-      ))}
+      {questions.map((question, index) => {
+        const matches =
+          (question.question || '').toLowerCase().includes(lower) ||
+          (question.answer || '').toLowerCase().includes(lower)
+        return (
+          <div key={index} className={matches ? '' : 'hidden'}>
+            <QuestionPrompt index={index} />
+          </div>
+        )
+      })}
       {!hideAdd && (
         <div className="relative mx-auto mt-4 w-2/3">
-          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div
+            className="absolute inset-0 flex items-center"
+            aria-hidden="true"
+          >
             <div className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center">
             <button
               type="button"
               disabled={!canChange}
-              className={"inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" 
-                + (canChange ? " text-gray-900" : " cursor-not-allowed text-gray-400")}
+              className={
+                'inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50' +
+                (canChange
+                  ? ' text-gray-900'
+                  : ' cursor-not-allowed text-gray-400')
+              }
               onClick={() => addQuestion()}
             >
-              <PlusIcon className="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+              <PlusIcon
+                className="-ml-1 -mr-0.5 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
               Add
             </button>
           </div>

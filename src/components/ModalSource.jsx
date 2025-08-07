@@ -74,6 +74,7 @@ export default function ModalSource({
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [changed, setChanged] = useState(false)
   const [questions, setQuestions] = useState(source?.faqs ?? [])
+  const [qaSearchTerm, setQaSearchTerm] = useState('')
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -411,6 +412,33 @@ export default function ModalSource({
                     <Alert title={errorText} type="warning" />
                     {source?.faqs && (
                       <>
+                        <div className="my-4">
+                          <label htmlFor="filter-faqs" className="sr-only">
+                            Search
+                          </label>
+                          <div className="relative flex items-center md:max-w-xs">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-2">
+                              <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
+                            </div>
+                            <input
+                              id="filter-faqs"
+                              name="filter-faqs"
+                              type="text"
+                              value={qaSearchTerm}
+                              onChange={(e) => setQaSearchTerm(e.target.value)}
+                              className="block w-full rounded-md border-0 py-1 pl-8 pr-8 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-xs sm:leading-6"
+                              placeholder="Filter questions..."
+                            />
+                            {qaSearchTerm && (
+                              <button
+                                onClick={() => setQaSearchTerm('')}
+                                className="absolute inset-y-0 right-0 flex items-center pr-2"
+                              >
+                                <XCircleIcon className="h-5 w-5 text-gray-400 hover:text-gray-500" />
+                              </button>
+                            )}
+                          </div>
+                        </div>
                         <QAForm
                           questions={questions}
                           setQuestions={(v) => {
@@ -418,6 +446,8 @@ export default function ModalSource({
                             setQuestions(v)
                           }}
                           canChange={canModify}
+                          searchTerm={qaSearchTerm}
+                          onClearSearch={() => setQaSearchTerm('')}
                         />
                         <div className="flex flex-shrink-0 items-end justify-end">
                           <button
