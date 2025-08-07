@@ -252,6 +252,41 @@ const useCases = [
 
 const faqs = [
   {
+    question: 'How do I use an AI prompt generator?',
+    answer:
+      'Using our AI prompt generator is simple: enter your basic idea or topic, click generate, and get an optimized prompt instantly. Copy the generated prompt and paste it into ChatGPT, Claude, Gemini, or any AI tool for better results.',
+  },
+  {
+    question: 'Is this prompt generator free?',
+    answer:
+      'Yes, our AI prompt generator is completely free with no hidden costs. Generate unlimited prompts for ChatGPT, Claude, and Gemini without any subscription fees or usage limits.',
+  },
+  {
+    question: 'What makes a good AI prompt?',
+    answer:
+      'A good AI prompt is clear, specific, and provides context. Our prompt generator automatically adds these elements, creating detailed instructions that help AI models understand exactly what you want and deliver better responses.',
+  },
+  {
+    question: 'Can I use these prompts with ChatGPT?',
+    answer:
+      'Absolutely! Our generated prompts work perfectly with ChatGPT, Claude, Gemini, and other AI models. Each prompt is optimized for maximum compatibility across all major AI platforms.',
+  },
+  {
+    question: 'What is a prompt generator?',
+    answer:
+      'A prompt generator is an AI-powered tool that creates optimized prompts for AI models like ChatGPT, Claude, and Gemini. It transforms your basic ideas into detailed, effective instructions that help you get better responses from AI systems.',
+  },
+  {
+    question: 'What\'s the best AI prompt tool?',
+    answer:
+      'Our free AI prompt generator is designed to create high-quality prompts for all major AI platforms including ChatGPT, Claude, and Gemini. It requires no login, works instantly, and generates professional-grade prompts optimized for better AI responses.',
+  },
+  {
+    question: 'Do I need to sign up?',
+    answer:
+      'No login or sign-up required! Our AI prompt generator is completely free to use. Simply enter your idea and get optimized prompts instantly. No account creation, no email verification, just immediate access to powerful prompt generation.',
+  },
+  {
     question: 'What is an AI Prompt Generator?',
     answer:
       'An AI Prompt Generator is a tool that uses artificial intelligence to create optimized prompts for various AI models like ChatGPT, Claude, and Gemini. It helps users formulate effective instructions or questions to get the best possible responses from AI systems.',
@@ -262,24 +297,9 @@ const faqs = [
       'Our AI Prompt Generator analyzes your input and uses advanced language models to create an optimized, detailed prompt. It considers factors like clarity, specificity, and context to generate prompts that are more likely to produce high-quality AI responses.',
   },
   {
-    question: 'Can I use this tool for free?',
-    answer:
-      'Yes, our AI Prompt Generator is free to use. You can generate a limited number of prompts per day without creating an account. For increased usage, you can sign up for a free account to get a higher daily limit.',
-  },
-  {
     question: 'What types of prompts can I generate?',
     answer:
       'You can generate prompts for a wide range of purposes, including creative writing, content creation, problem-solving, coding tasks, and more. The tool is versatile and can be used for any scenario where you need to interact with AI language models.',
-  },
-  {
-    question: 'How can I improve the quality of generated prompts?',
-    answer:
-      'To get better results, provide clear and specific information about your desired outcome. You can also use the generated prompt as a starting point and refine it manually to add specific details or context relevant to your needs.',
-  },
-  {
-    question: 'Are the generated prompts compatible with all AI models?',
-    answer:
-      'While our prompts are optimized for popular AI tools like ChatGPT, Claude, and Gemini, they can be used with most AI large language models. However, you may need to make minor adjustments based on the specific requirements of the LLM you\'re using.',
   },
 ]
 
@@ -287,7 +307,7 @@ export default function PromptGeneratorPage({ starRatingData }) {
   return (
     <>
       <NextSeo
-        title="Free AI Prompt Generator & Optimizer | No Login | ChatGPT, Claude, Gemini"
+        title="AI Prompt Generator – Free Tool for ChatGPT, Claude, Gemini (No Login)"
         description="Create powerful, optimized prompts for ChatGPT, Anthropic Claude, Gemini, and more with our free AI Prompt Generator. No sign-up needed. Generate amazing system prompts and instructions for chatbots instantly."
         openGraph={{
           images: [
@@ -323,12 +343,11 @@ export default function PromptGeneratorPage({ starRatingData }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  Free AI Prompt Generator & Optimizer
+                  Free AI Prompt Generator
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
-                  Generate powerful, optimized prompts for ChatGPT, Claude, Gemini, and more. 
-                  Enhance your AI outputs, productivity, and get better results from AI tools. 
-                  No sign-up required!
+                  Instantly generate optimized prompts for ChatGPT, Claude, and Gemini. No login required. 
+                  Just type your idea and get high-quality AI-ready prompts in seconds.
                 </p>
                 <PromptGenerator />
                 <StarRating
