@@ -338,6 +338,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     imageUploads,
     temperature,
     copyFrom,
+    topics,
+    allowOpenEndedTopics,
   } = req.body
 
   if (copyFrom && !checkPlanPermission(team, 'personal', 'duplicate').allowed) {
@@ -704,6 +706,41 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     } else {
       botData.embeddingModel = 'text-embedding-3-small'
     }
+  }
+
+  // Handle topics array
+  if (topics !== undefined) {
+    // Check if the team has Business plan permissions for topic management
+    if (!checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
+      throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
+    }
+    
+    if (Array.isArray(topics)) {
+      // Validate and sanitize topics
+      const validTopics = topics
+        .filter(topic => typeof topic === 'string' && topic.trim().length > 0)
+        .map(topic => topic.trim())
+        .filter((topic, index, arr) => arr.indexOf(topic) === index) // Remove duplicates
+        .slice(0, 100) // Limit to 100 topics
+      
+      botData.topics = validTopics
+    } else {
+      throw new Error('Topics must be an array of strings.')
+    }
+  } else if (!isUpdate) {
+    botData.topics = []
+  }
+
+  // Handle allowOpenEndedTopics boolean
+  if (allowOpenEndedTopics !== undefined) {
+    // Check if the team has Business plan permissions for topic management
+    if (!checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
+      throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
+    }
+    
+    botData.allowOpenEndedTopics = Boolean(allowOpenEndedTopics)
+  } else if (!isUpdate) {
+    botData.allowOpenEndedTopics = true // Default to true
   }
 
   return botData
