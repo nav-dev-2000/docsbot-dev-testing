@@ -89,7 +89,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
 
   const validModels = [
-    /* not yet supported in API
     { id: 'o3', name: 'o3', description: 'Uses advanced reasoning - requires verification' },
     {
       id: 'o4-mini',
@@ -97,17 +96,26 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       description: 'Fastest at advanced reasoning - requires verification',
     },
     {
-      id: 'o3-mini',
-      name: 'o3-mini',
-      description: 'Great at coding and visual reasoning',
+      id: 'gpt-5',
+      name: 'GPT-5',
+      description:
+        'Most cutting-edge general-purpose model',
     },
-    { id: 'o1', name: 'o1', description: 'Uses advanced reasoning' },
-    */
+    {
+      id: 'gpt-5-mini',
+      name: 'GPT-5 mini',
+      description: 'Compact & smart version of GPT-5',
+    },
+    {
+      id: 'gpt-5-nano',
+      name: 'GPT-5 nano',
+      description: 'Fastest version of GPT-5',
+    },
     {
       id: 'gpt-4.1',
       name: 'GPT-4.1',
       description:
-        'Most capable general-purpose model for better instruction following',
+        'Previous generation model for better instruction following',
     },
     {
       id: 'gpt-4.1-mini',
@@ -119,11 +127,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       name: 'GPT-4.1 nano',
       description: 'Fastest version of GPT-4.1',
     },
-    { id: 'gpt-4o', name: 'GPT-4o', description: 'Great for most tasks' },
+    { id: 'gpt-4o', name: 'GPT-4o', description: 'Previous generation model' },
     {
       id: 'gpt-4o-mini',
       name: 'GPT-4o mini',
-      description: 'Faster for everyday tasks',
+      description: 'Previous generation fast model',
     },
   ]
 
@@ -339,8 +347,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           if (msg.event === 'stream') {
             //append to answer
             setCurrentAnswer((prev) => {
-              const newAnswer = prev + msg.data
-              return newAnswer
+              // Handle empty data fields as line breaks to preserve formatting
+              if (msg.data === '') {
+                return prev + '\n'
+              } else {
+                return prev + msg.data
+              }
             })
           } else if (msg.event === 'error') {
             setLoading(false)

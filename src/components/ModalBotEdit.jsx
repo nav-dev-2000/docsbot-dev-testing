@@ -16,14 +16,14 @@ export default function ModalBotEdit({ team, bot, setBot }) {
   const [showOpenAI, setShowOpenAI] = useState(false)
 
   useEffect(() => {
-    if (open && !showOpenAI && !team.openAIKey && (botSettings.model !== 'gpt-4o-mini' && botSettings.model !== 'gpt-4.1-nano' && botSettings.model !== 'gpt-4.1-mini')) {
+    if (open && !showOpenAI && !team.openAIKey && (botSettings.model !== 'gpt-5-nano' && botSettings.model !== 'gpt-5-mini')) {
       setShowOpenAI(true)
     }
   }, [botSettings])
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-5-mini' : 'gpt-5-nano';
       setBotSettings({ ...botSettings, model: defaultModel });
     }
   }, [showOpenAI])

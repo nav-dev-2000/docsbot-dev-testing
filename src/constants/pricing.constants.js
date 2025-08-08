@@ -31,7 +31,7 @@ export const featureDefinitions = {
   duplicateBots: { label: 'Duplicate bots', category: 'customization' },
   glossary: { label: 'Glossary', category: 'customization' },
   
-  gptSupport: { label: 'GPT-4o/4.1 support', category: 'ai' },
+  gptSupport: { label: 'GPT-5 support', category: 'ai' },
   premiumEmbeddings: { label: 'Premium embedding models', category: 'ai' },
   researchMode: { label: 'Research mode', category: 'ai' },
   chatWithImages: { label: 'Chat with images', category: 'ai' },
