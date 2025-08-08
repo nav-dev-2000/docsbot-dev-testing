@@ -2,7 +2,14 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import classNames from '@/utils/classNames'
-import { Fragment, useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import {
+  Fragment,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+  useCallback,
+} from 'react'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import RadioCardSmall from '@/components/RadioCardSmall'
@@ -16,7 +23,15 @@ import {
 } from '@heroicons/react/20/solid'
 import Chart from 'chart.js/auto'
 import { Bar } from 'react-chartjs-2'
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
 import { LLM_PRICING } from '@/constants/llmPricing.constants'
@@ -51,7 +66,7 @@ const modelTypes = [
 
 export async function getStaticProps() {
   const starRatingData = await getRating('gpt-openai-api-pricing-calculator')
-  
+
   return {
     props: {
       starRatingData,
@@ -151,11 +166,11 @@ export default function Calculate({ starRatingData }) {
     const dataByType = {}
 
     Object.entries(filteredPricing).forEach(([category, models]) => {
-      const data = models.map(model => {
+      const data = models.map((model) => {
         const totalCost = getCost(model) * apiCalls
         return {
           label: `${model.provider} - ${model.model_name} ${model.context ? `(${model.context})` : ''}`,
-          value: totalCost
+          value: totalCost,
         }
       })
 
@@ -163,11 +178,11 @@ export default function Calculate({ starRatingData }) {
       data.sort((a, b) => a.value - b.value)
 
       dataByType[category] = {
-        labels: data.map(item => item.label),
+        labels: data.map((item) => item.label),
         datasets: [
           {
             label: 'Total Cost',
-            data: data.map(item => item.value),
+            data: data.map((item) => item.value),
             backgroundColor: 'rgba(8, 145, 178, 0.6)',
             borderColor: 'rgba(8, 145, 178, 1)',
             borderWidth: 1,
@@ -224,13 +239,13 @@ export default function Calculate({ starRatingData }) {
 
   // Add this function to calculate chart height
   const getChartHeight = (models) => {
-    const baseHeight = 200; // Base height for the chart
-    const itemHeight = 30; // Height per item
-    const maxHeight = 800; // Maximum height for the chart
-    
-    const calculatedHeight = baseHeight + (models.length * itemHeight);
-    return Math.min(calculatedHeight, maxHeight) + 'px';
-  };
+    const baseHeight = 200 // Base height for the chart
+    const itemHeight = 30 // Height per item
+    const maxHeight = 800 // Maximum height for the chart
+
+    const calculatedHeight = baseHeight + models.length * itemHeight
+    return Math.min(calculatedHeight, maxHeight) + 'px'
+  }
 
   return (
     <>
@@ -269,10 +284,14 @@ export default function Calculate({ starRatingData }) {
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate and compare the cost of using OpenAI, Azure,
-                  Anthropic Claude, Llama 3, Google Gemini, Mistral, and Cohere
-                  LLM APIs for your AI project with our simple and powerful free
-                  calculator. Latest numbers as of{' '}
-                  <span className="font-bold">April 2025</span>.
+                  Anthropic Claude, Llama, Google Gemini, Mistral, Cohere, and
+                  Grok LLM APIs for your AI project with our simple and powerful
+                  free calculator. Latest numbers as of{' '}
+                  <span className="font-bold">
+                    {new Date().toLocaleString('default', { month: 'short' })}{' '}
+                    {new Date().getFullYear()}
+                  </span>
+                  .
                 </p>
                 <div className="mx-auto mt-10 max-w-xl text-left">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
@@ -523,112 +542,158 @@ export default function Calculate({ starRatingData }) {
 
                   {hasResults ? (
                     <>
-                      {Object.entries(filteredPricing).map(([category, models]) => (
-                        <div key={category} className="mt-6">
-                          <h3 className="text-lg font-semibold text-gray-900">{category}</h3>
-                          
-                          {/* Chart for this category */}
-                          <div 
-                            style={{ height: getChartHeight(models), width: '100%' }} 
-                            ref={(el) => setChartRef(el, category)}
-                          >
-                            <Bar
-                              data={chartDataByType[category]}
-                              options={{
-                                ...chartOptions,
-                                responsive: true,
-                                maintainAspectRatio: false,
-                              }}
-                            />
-                          </div>
+                      {Object.entries(filteredPricing).map(
+                        ([category, models]) => (
+                          <div key={category} className="mt-6">
+                            <h3 className="text-lg font-semibold text-gray-900">
+                              {category}
+                            </h3>
 
-                          {/* Table for this category */}
-                          <div className="mt-6 flow-root">
-                            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                              <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                <table className="min-w-full">
-                                  <thead className="bg-white">
-                                    <tr>
-                                      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
-                                        Provider
-                                      </th>
-                                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Model
-                                      </th>
-                                      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Context
-                                      </th>
-                                      <th scope="col" className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell">
-                                        Input/1M
-                                      </th>
-                                      <th scope="col" className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">
-                                        Output/1M
-                                      </th>
-                                      <th scope="col" className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">
-                                        Per Call
-                                      </th>
-                                      <th scope="col" className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">
-                                        Total
-                                      </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody className="bg-white">
-                                    {models.map((model, modelIdx) => (
-                                      <tr
-                                        key={model.provider + model.model_name + model.context}
-                                        className={classNames(
-                                          modelIdx === 0 ? 'border-gray-300' : 'border-gray-200',
-                                          'border-t'
-                                        )}
-                                      >
-                                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                          {model.provider}
-                                          {model.api_provider && (
-                                            <div className="text-xs text-gray-500">
-                                              via {model.api_provider}
-                                            </div>
-                                          )}
-                                        </td>
-                                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                          {model.page_slug ? (
-                                            <a href={`/models/${model.page_slug}`} className="hover:underline">
-                                              {model.model_name}
-                                            </a>
-                                          ) : (
-                                            model.model_name
-                                          )}
-                                          {model.model_slug && (
-                                            <div className="text-xs text-gray-500">
-                                              {model.model_slug}
-                                            </div>
-                                          )}
-                                        </td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                          {model.context}
-                                        </td>
-                                        <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 pl-6 text-sm text-gray-500 sm:table-cell">
-                                          ${model.input_token_cost_per_million}
-                                        </td>
-                                        <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                          {model.output_token_cost_per_million && (
-                                            <>${model.output_token_cost_per_million}</>
-                                          )}
-                                        </td>
-                                        <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                          ${getCost(model).toFixed(4)}
-                                        </td>
-                                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                          ${(getCost(model) * apiCalls).toFixed(2)}
-                                        </td>
+                            {/* Chart for this category */}
+                            <div
+                              style={{
+                                height: getChartHeight(models),
+                                width: '100%',
+                              }}
+                              ref={(el) => setChartRef(el, category)}
+                            >
+                              <Bar
+                                data={chartDataByType[category]}
+                                options={{
+                                  ...chartOptions,
+                                  responsive: true,
+                                  maintainAspectRatio: false,
+                                }}
+                              />
+                            </div>
+
+                            {/* Table for this category */}
+                            <div className="mt-6 flow-root">
+                              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                  <table className="min-w-full">
+                                    <thead className="bg-white">
+                                      <tr>
+                                        <th
+                                          scope="col"
+                                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                                        >
+                                          Provider
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                                        >
+                                          Model
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                                        >
+                                          Context
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="hidden px-3 py-3.5 pl-6 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                                        >
+                                          Input/1M
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                                        >
+                                          Output/1M
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
+                                        >
+                                          Per Call
+                                        </th>
+                                        <th
+                                          scope="col"
+                                          className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900"
+                                        >
+                                          Total
+                                        </th>
                                       </tr>
-                                    ))}
-                                  </tbody>
-                                </table>
+                                    </thead>
+                                    <tbody className="bg-white">
+                                      {models.map((model, modelIdx) => (
+                                        <tr
+                                          key={
+                                            model.provider +
+                                            model.model_name +
+                                            model.context
+                                          }
+                                          className={classNames(
+                                            modelIdx === 0
+                                              ? 'border-gray-300'
+                                              : 'border-gray-200',
+                                            'border-t',
+                                          )}
+                                        >
+                                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                                            {model.provider}
+                                            {model.api_provider && (
+                                              <div className="text-xs text-gray-500">
+                                                via {model.api_provider}
+                                              </div>
+                                            )}
+                                          </td>
+                                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                                            {model.page_slug ? (
+                                              <a
+                                                href={`/models/${model.page_slug}`}
+                                                className="hover:underline"
+                                              >
+                                                {model.model_name}
+                                              </a>
+                                            ) : (
+                                              model.model_name
+                                            )}
+                                            {model.model_slug && (
+                                              <div className="text-xs text-gray-500">
+                                                {model.model_slug}
+                                              </div>
+                                            )}
+                                          </td>
+                                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            {model.context}
+                                          </td>
+                                          <td className="hidden whitespace-nowrap border-l border-gray-200 px-3 py-4 pl-6 text-sm text-gray-500 sm:table-cell">
+                                            $
+                                            {model.input_token_cost_per_million}
+                                          </td>
+                                          <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                            {model.output_token_cost_per_million && (
+                                              <>
+                                                $
+                                                {
+                                                  model.output_token_cost_per_million
+                                                }
+                                              </>
+                                            )}
+                                          </td>
+                                          <td className="relative whitespace-nowrap border-l border-gray-200 py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                            ${getCost(model).toFixed(4)}
+                                          </td>
+                                          <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                            $
+                                            {(
+                                              getCost(model) * apiCalls
+                                            ).toFixed(2)}
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ),
+                      )}
                     </>
                   ) : (
                     <div className="mt-6 text-center">
@@ -678,284 +743,230 @@ export default function Calculate({ starRatingData }) {
               AI LLM Model Pricing: A Comprehensive Overview
             </h2>
             <p>
-              OpenAI, Anthropic, Google, Cohere, Mistral, and Meta offer a
-              diverse range of models, each tailored to specific tasks and
-              capabilities. Understanding the pricing structure is crucial for
-              businesses and developers looking to integrate these models into
-              their applications. Here&#39;s a detailed look at how they
-              structure their pricing.
+              The landscape of large language models (LLMs) is evolving rapidly,
+              with providers like OpenAI, Anthropic, Google, Meta, and xAI
+              pushing boundaries in reasoning ability, multimodal input/output,
+              and context capacity. Understanding how these models are priced,
+              what factors affect cost, and the strategic direction of each
+              provider is essential for developers, enterprises, and researchers
+              seeking to deploy AI effectively.
             </p>
-            <h3
-              className="text-white"
-              id="1-tokens-the-fundamental-unit-of-pricing-"
-            >
+
+            <h3 className="text-white">
               Tokens: The Fundamental Unit of Pricing
             </h3>
             <p>
-              LLM pricing usually revolves around the concept of
-              &quot;tokens.&quot; A token can be thought of as a piece of a
-              word. To give you a perspective, 1,000 tokens equate to
-              approximately 750 words. For instance, the sentence &quot;This
-              paragraph is 5 tokens&quot; itself is 5 tokens long.
+              All commercial LLMs bill based on tokens, which are small chunks
+              of text the model processes. A token might be as short as one
+              character or as long as a short word, depending on the language
+              and content. As a rule of thumb, 1,000 tokens equates to around
+              750 words in English. APIs usually price input (prompt) and output
+              (completion) tokens separately, with the output rate often higher.
             </p>
             <p>
-              A useful guideline to remember when working with tokens is that,
-              for typical English text, one token usually equates to
-              approximately four characters. This means that a token represents
-              about three-quarters of a word. Non-English languages like
-              Japanese can change this calculation significantly.
+              Token counts can spike with verbose instructions, long documents,
+              or outputs that include detailed explanations. Non-English
+              scripts, code, or emoji can change tokenization, sometimes
+              increasing cost. Managing token usage is therefore a direct lever
+              on AI spend.
             </p>
 
-            <h3
-              className="text-white"
-              id="1-tokens-the-fundamental-unit-of-pricing-"
-            >
-              Context Length
-            </h3>
+            <h3 className="text-white">Context Length</h3>
             <p>
-              With Large Language Models (LLMs), especially those developed by
-              OpenAI, the term "context length" is common. It's an important
-              concept to grasp, as it directly impacts the model's performance,
-              capabilities, and, consequently, the cost. Here's a deep dive into
-              what context length means and why it matters.
-            </p>
-            <h4 className="text-white">What is Context Length?</h4>
-            <p>
-              Context length refers to the amount of information or the number
-              of tokens a model can consider or "remember" from a given input at
-              one time. It's essentially the model's "working memory" when
-              processing a request. For instance, if a model has a context
-              length of 8,000 (8K) tokens, it can consider up to 8,000 tokens
-              from the input and output in a single pass.
-            </p>
-            <h4 className="text-white">Why Does Context Length Matter?</h4>
-            <ul>
-              <li>
-                <strong className="text-white">Complexity of Tasks</strong>:
-                Longer context lengths allow the model to handle more complex
-                tasks that require understanding and processing larger chunks of
-                information. For instance, summarizing a long article or
-                answering questions about a detailed technical document might
-                require a model with a longer context length.
-              </li>
-              <li>
-                <strong className="text-white">
-                  Continuity in Conversations
-                </strong>
-                : In chatbot applications, a longer context ensures that the
-                model remembers more of the previous conversation, leading to
-                more coherent and contextually relevant responses.
-              </li>
-              <li>
-                <strong className="text-white">Cost Implications</strong>:
-                Models with longer context lengths typically come at a higher
-                price point due to the increased computational resources they
-                consume.
-              </li>
-            </ul>
-            <h3
-              className="text-white"
-              id="2-language-models-power-and-flexibility-"
-            >
-              Language Models: Chat, Text Generation, and Reasoning
-            </h3>
-            <p>
-              OpenAI and others offer multiple language models, each with
-              distinct capabilities and price points. The pricing for these
-              models is typically per 1 Million tokens.
+              Context length determines how much information a model can
+              consider in one request. This includes both the prompt and the
+              generated response. Longer contexts enable more advanced use
+              cases: multi-document analysis, sustained conversation without
+              loss of memory, and processing large datasets in a single call.
+              However, larger contexts also consume more tokens, raising cost.
             </p>
             <ul>
               <li>
-                <p>
-                  <strong className="text-white">OpenAI GPT-4o</strong>:{' '}
-                  <Link
-                    className="text-teal-400"
-                    href="https://openai.com/index/hello-gpt-4o/"
-                    target="_blank"
-                  >
-                    GPT-4o
-                  </Link>{' '}
-                  (Omni) is OpenAI's most advanced multimodal model that's 2x
-                  faster and 50% cheaper than GPT-4 Turbo with stronger vision
-                  capabilities. The model has 128K context and an October 2023
-                  knowledge cutoff. It will soon support audio inputs and text,
-                  image, and audio outputs. There is also a mini version with
-                  the same context limit, tokenizer, and knowledge cutoff, but
-                  60% cheaper.
-                </p>
+                <strong className="text-white">Complexity</strong>: With more
+                available context, the model can link concepts across multiple
+                documents, summarize lengthy reports, and answer complex,
+                multi-part questions.
               </li>
               <li>
-                <p>
-                  <strong className="text-white">
-                    OpenAI GPT-4o Realtime and Audio
-                  </strong>
-                  : These new models, available in public beta to all paid
-                  developers, power the Realtime API and Chat Completions API
-                  respectively. Both support text and voice capabilities. For
-                  text, they're priced at $5 per 1M input tokens and $20 per 1M
-                  output tokens. Audio input is priced at $100 per 1M tokens
-                  (approximately $0.06 per minute), and audio output at $200 per
-                  1M tokens (approximately $0.24 per minute). Realtime API is
-                  for streaming audio into and out of the model. Chat
-                  Completions API is for combined text and voice conversations.
-                </p>
+                <strong className="text-white">Continuity</strong>: In
+                conversational AI, a longer context preserves the thread of
+                discussion over many turns, producing more relevant and coherent
+                answers.
               </li>
               <li>
-                <p>
-                  <strong className="text-white">
-                    OpenAI's o1-preview and o1-mini models
-                  </strong>{' '}
-                  represent a significant advancement in AI reasoning,
-                  particularly in complex domains like science, coding, and
-                  math. The o1-preview model excels in thoughtful reasoning,
-                  employing an internal chain-of-thought processing approach
-                  that mirrors human cognition, leading to more accurate and
-                  insightful answers. Meanwhile, the o1-mini model offers a
-                  cost-effective solution for developers, focusing on STEM
-                  domains with high reasoning power at a lower cost. These
-                  models are designed to tackle challenging problems, setting a
-                  new standard in AI capabilities. For more details, visit the{' '}
-                  <a
-                    href="https://docsbot.ai/article/a-new-era-of-ai-reasoning-openais-o1-preview-and-o1-mini-models"
-                    target="_blank"
-                    className="text-teal-400"
-                  >
-                    full article
-                  </a>
-                  .
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">OpenAI GPT-4</strong>: Known
-                  for its broad general knowledge and domain expertise, GPT-4 is
-                  adept at following intricate instructions in natural language
-                  and solving challenging problems with precision. It's also
-                  slower and more expensive than other models. The recently
-                  released GPT-4 Turbo (gpt-4-turbo) is 3x more affordable and
-                  supports an amazing 128K context limit! Also available via
-                  Microsoft's Azure OpenAI Service.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">OpenAI GPT-3.5 Turbo</strong>:
-                  This model is optimized for dialogue, making it ideal for
-                  chatbot applications and conversational interfaces. It is also
-                  the fastest and most cost-effective model for generating text.
-                  Also available via Microsoft's Azure OpenAI Service.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">Anthropic's Claude 3</strong>:
-                  Claude 3 includes three state-of-the-art models in ascending
-                  order of capability: Claude 3 Haiku, Claude 3.5 Sonnet, and
-                  Claude 3 Opus. Each successive model offers increasingly
-                  powerful performance, allowing users to select the optimal
-                  balance of intelligence, speed, and cost for their specific
-                  application. Opus is comparable to GPT-4 in performance, while
-                  Haiku is the most cost-effective model, while still beating
-                  GPT-3.5 Turbo in many benchmarks. 3.5 Sonnet is a newer
-                  release with low pricing, high speed, and performance
-                  comparable to GPT-4o. Claude 3 has a huge 200K context window
-                  and is available via Anthropic's API and claud.ai.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">Llama 3.1</strong>: Llama 3.1
-                  is the latest open-source large language model (LLM) developed
-                  by Meta, the parent company of Facebook. It stands as Meta's
-                  answer to OpenAI's GPT-4 series and Google's AI models such as
-                  Gemini. However, it distinguishes itself by being freely
-                  accessible for both research and commercial endeavors.
-                  Generally similar to GPT-3.5 Turbo in performace, Llama 3 is a
-                  powerful model that can be used for a variety of tasks,
-                  including text generation, summarization, and question
-                  answering. It is also approaching the level of GPT-4 on many
-                  benchmarks for substantially less cost. One downside it Llama
-                  3.1 is primarily an English only model.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">Gemini</strong>: Gemini is the
-                  newest family of multimodal large language models developed by
-                  Google, serving as the successor to PaLM 2. Comprising Gemini
-                  Ultra, Gemini Pro, and Gemini Flash in 1.0 and 1.5 versions,
-                  it was announced on December 6, 2023. Gemini Ultra is
-                  positioned as the first contender to OpenAI's GPT-4, while
-                  Gemini Pro is closer in performance to GPT-3.5. Gemini Pro 1.5
-                  and Gemini Flash 1.5 are the latest publically available
-                  versions, with an industry-leading 1M context window
-                  multimodal support for video, audio, images, and text. Gemini
-                  models are available via Google's Vertex AI Platform.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">PaLM 2</strong>: PaLM 2 is an
-                  older language model from Google boasting enhanced
-                  multilingual, reasoning, and coding capabilities. Trained on
-                  multilingual text from over 100 languages, it excels in
-                  understanding and translating intricate text forms like idioms
-                  and poems. Its dataset, rich with scientific papers and web
-                  content, empowers it with superior logic, reasoning, and
-                  mathematical skills. Additionally, its proficiency in coding
-                  is evident from its training on vast source code datasets,
-                  making it adept in languages from Python to Fortran.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong className="text-white">Mistral</strong>: Mistral AI is
-                  a new exciting startup that has released a number of small
-                  open source models that are very fast and cheap to use.
-                  Mistral 7B and Mixtral 8x7B (Mixtral) are two of their most
-                  popular open models. Mixtral beats Llama 2 and compares in
-                  performance to GPT-3.5 Turbo and is 2.5x cheaper to use.
-                  Mistral Large is a private model with benchmarks approaching
-                  GPT-4 level for reasoning tasks in English, Spanish, French,
-                  German, and Italian.
-                </p>
+                <strong className="text-white">Cost</strong>: A larger context
+                window does not just enable richer conversations—it multiplies
+                the number of tokens processed per request, directly impacting
+                spend.
               </li>
             </ul>
-            <h3
-              className="text-white"
-              id="3-fine-tuning-models-customization-at-its-best-"
-            >
-              Fine-tuning Models
+
+            <h3 className="text-white">
+              Flagship Providers and Their Latest Models
             </h3>
+            <div className="not-prose mt-6 space-y-10">
+              <div>
+                <h4 className="text-lg font-semibold text-white">OpenAI</h4>
+                <ul className="list-disc pl-6">
+                  <li>
+                    <strong className="text-white">GPT-5</strong>: OpenAI’s most
+                    advanced general-purpose model, delivering frontier-level
+                    reasoning, lower hallucination rates, and refined
+                    instruction-following. It supports multimodal inputs (text,
+                    images) and extended contexts beyond 128k tokens, enabling
+                    deep analysis and creative generation for demanding business
+                    and research needs.
+                  </li>
+                  <li>
+                    <strong className="text-white">o3</strong>: Designed for
+                    deliberate, step-by-step reasoning. It shines in tasks
+                    requiring planning, multi-hop logic, and integrated tool use
+                    like code execution or document retrieval.
+                  </li>
+                  <li>
+                    <strong className="text-white">o4-mini</strong>: An
+                    efficient variant balancing cost and capability, optimized
+                    for high-volume workloads where speed and scale matter more
+                    than maximum accuracy.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">Google</h4>
+                <ul className="list-disc pl-6">
+                  <li>
+                    <strong className="text-white">Gemini 2.5 Pro</strong>: A
+                    multimodal powerhouse supporting text, image, audio, and
+                    video understanding with a massive 1M-token context. It
+                    excels in data-heavy analysis, multilingual processing, and
+                    enterprise-scale knowledge work.
+                  </li>
+                  <li>
+                    <strong className="text-white">Gemini 2.5 Flash</strong>:
+                    Optimized for responsiveness and cost-efficiency, making it
+                    ideal for real-time customer interactions and iterative
+                    workflows.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">Meta</h4>
+                <ul className="list-disc pl-6">
+                  <li>
+                    <strong className="text-white">Llama 3.1</strong>:
+                    Open-weight models with parameter sizes up to hundreds of
+                    billions, fine-tuneable for domain-specific applications.
+                    Performance approaches proprietary models for many tasks at
+                    a fraction of the deployment cost.
+                  </li>
+                  <li>
+                    <strong className="text-white">Llama 4</strong>: Introduces
+                    mixture-of-experts routing for efficiency and scalability.
+                    Some variants push context lengths into the multi-million
+                    token range for specialized research use.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">Anthropic</h4>
+                <ul className="list-disc pl-6">
+                  <li>
+                    <strong className="text-white">Claude 4 Sonnet</strong>: A
+                    balanced model offering high performance at moderate cost,
+                    with a 200k-token context. Particularly strong in
+                    summarization, customer support, and content transformation.
+                  </li>
+                  <li>
+                    <strong className="text-white">Claude 4 Opus</strong>:
+                    Premium-tier reasoning with exceptional code generation and
+                    complex analysis capabilities, used for high-stakes
+                    problem-solving.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white">xAI</h4>
+                <ul className="list-disc pl-6">
+                  <li>
+                    <strong className="text-white">Grok 4</strong>: Built for
+                    real-time, knowledge-rich interaction. Integrates live
+                    search, code execution, and supports voice/image I/O.
+                    Designed to function as a connected, always-updating
+                    assistant.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="text-white">Language Models and Pricing</h3>
             <p>
-              OpenAI allows users to create custom models by fine-tuning base
-              models with their training data. Once a model is fine-tuned, users
-              are billed only for the tokens they use in requests to that
-              specific model. This offers a level of customization that can be
-              tailored to specific business needs. It can save costs by
-              eliminating the need to include common system prompts or few-shot
-              examples in every request if it will be used over and over again.
+              Pricing varies by model family and is generally quoted per million
+              tokens, with higher rates for outputs. Large-context models may
+              appear more expensive but can reduce overall calls by processing
+              more data per request. The right model choice balances speed,
+              accuracy, and budget.
             </p>
-            <h3
-              className="text-white"
-              id="4-embedding-models-advanced-functionalities-"
-            >
-              Embedding Models: Semantic Search and Clustering
-            </h3>
             <p>
-              Embedding models are designed to build advanced functionalities
-              like search, clustering, topic modeling, and classification. They
-              are essential for applications that require nuanced understanding
-              and categorization of data like{' '}
-              <Link
-                className="text-teal-400"
-                href="/article/you-shouldnt-build-your-own-ai-support-bot"
-              >
-                AI support chatbots using Retreival Augmented Generation (RAG)
-              </Link>
-              .
+              For high-volume, low-complexity workloads, smaller or optimized
+              models (like o4-mini or Gemini Flash) deliver significant cost
+              savings. For research, engineering, and analytics, top-tier
+              reasoning models justify their higher price with accuracy and
+              reduced human oversight.
             </p>
+
+            <h3 className="text-white">Fine-tuning Models</h3>
+            <p>
+              Fine-tuning lets you adapt a base model to your unique tone, data,
+              and tasks. The process involves training the model on your
+              examples, reducing prompt length and improving response
+              reliability. While training incurs an upfront cost in tokens,
+              long-term usage can be cheaper due to shorter and more efficient
+              prompts.
+            </p>
+            <p>
+              Providers offer supervised fine-tuning and, increasingly,
+              parameter-efficient techniques like LoRA for faster and cheaper
+              adaptation without retraining the full model.
+            </p>
+
+            <h3 className="text-white">Embedding Models</h3>
+            <p>
+              Embeddings convert text into numerical vectors that capture
+              semantic meaning. They are the foundation of search, clustering,
+              recommendation, and retrieval-augmented generation (RAG)
+              pipelines. By comparing vector similarity, applications can find
+              relevant context before passing it to an LLM.
+            </p>
+            <ul>
+              <li>
+                Improve relevance and reduce LLM cost by narrowing input to only
+                relevant passages.
+              </li>
+              <li>
+                Enable personalization by matching user profiles to similar past
+                cases.
+              </li>
+              <li>Store once and query many times for efficiency.</li>
+            </ul>
+
+            <h3 className="text-white">Pricing Strategies</h3>
+            <ul>
+              <li>
+                Match model complexity to the use case—don’t overpay for unused
+                capabilities.
+              </li>
+              <li>
+                Use retrieval to shorten prompts and avoid sending full
+                documents.
+              </li>
+              <li>Cache responses for repeated queries to save cost.</li>
+              <li>
+                Experiment with smaller models for prototype phases before
+                scaling to flagship models.
+              </li>
+            </ul>
           </div>
+
           <RegisterCTA />
 
           {/* Add FreeToolsGrid section with white background */}
