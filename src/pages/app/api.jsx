@@ -37,7 +37,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
   const [copyMessage, setCopyMessage] = useState(null)
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
   const [integrations, setIntegrations] = useState(initialIntegrations)
-  const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'GPT-4.1 mini' : 'GPT-4o mini';
+  const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'GPT-5 mini' : 'GPT-5 nano';
 
   const updateKey = async () => {
     setErrorText('')
@@ -213,7 +213,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
           </>
         ) : (
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-4o/4.1.{' '}
+            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-5.{' '}
             <Link
               className="text-cyan-800 underline"
               href="https://platform.openai.com/api-keys"
@@ -252,7 +252,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
               )}
             </div>
             {team.supportsGPT4 ? (
-              <p className="mt-4 text-sm italic">GPT-4o/4.1 Support Enabled</p>
+              <p className="mt-4 text-sm italic">GPT-5 Support Enabled</p>
             ) : (
               <>
                 <Link
@@ -260,7 +260,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
                   href="https://platform.openai.com/docs/guides/rate-limits#usage-tiers"
                   target="_blank"
                 >
-                  GPT-4o/4.1 access details
+                  GPT-5 access details
                 </Link>
                 <p className="mt-1 text-xs italic">
                   Optional - Once you've added at least $5 credit to OpenAI update your OpenAI API key to unlock other models

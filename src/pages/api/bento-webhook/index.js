@@ -172,7 +172,7 @@ For businesses who want to save time and money on support and copywriting.
 *   Weekly source refresh
 *   10k messages/mo
 *   Private bots
-*   GPT-4o support
+*   GPT-5 support
 *   5 team users
 *   Advanced Analytics
 *   Zapier integration
