@@ -386,7 +386,7 @@ const ModelPage = ({ model1, model2 }) => {
             <span className="text-lg font-medium">Compare</span>
             <div className="w-72">
               <ModelSelector
-                models={LLMS}
+                models={LLMS.filter((m) => !m.redirect_to)}
                 selectedModel={model1}
                 onChange={(newModel) => handleModelChange(newModel, model2)}
               />
@@ -394,7 +394,7 @@ const ModelPage = ({ model1, model2 }) => {
             <span className="text-lg font-medium">to</span>
             <div className="w-72">
               <ModelSelector
-                models={LLMS}
+                models={LLMS.filter((m) => !m.redirect_to)}
                 selectedModel={model2}
                 onChange={(newModel) => handleModelChange(model1, newModel)}
               />
@@ -1360,7 +1360,11 @@ const ModelPage = ({ model1, model2 }) => {
               More Model Comparisons
             </h2>
             <ul className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 lg:grid-cols-3">
-              {LLMS.filter((otherModel) => otherModel.slug !== model1.slug).map(
+              {LLMS.filter(
+                (otherModel) =>
+                  otherModel.slug !== model1.slug &&
+                  !otherModel.redirect_to,
+              ).map(
                 (otherModel) => (
                   <li key={`${model1.slug}-${otherModel.slug}`}>
                     <Link
@@ -1379,7 +1383,7 @@ const ModelPage = ({ model1, model2 }) => {
             <span className="text-lg font-medium">Compare</span>
             <div className="w-72">
               <ModelSelector
-                models={LLMS}
+                models={LLMS.filter((m) => !m.redirect_to)}
                 selectedModel={model1}
                 onChange={(newModel) => handleModelChange(newModel, model2)}
               />
@@ -1387,7 +1391,7 @@ const ModelPage = ({ model1, model2 }) => {
             <span className="text-lg font-medium">to</span>
             <div className="w-72">
               <ModelSelector
-                models={LLMS}
+                models={LLMS.filter((m) => !m.redirect_to)}
                 selectedModel={model2}
                 onChange={(newModel) => handleModelChange(model1, newModel)}
               />
@@ -1432,6 +1436,18 @@ export async function getStaticProps(context) {
   if (!model1 || !model2) {
     return {
       notFound: true,
+    }
+  }
+  
+  // Handle redirects if either model has been renamed/redirected
+  const target1 = model1.redirect_to || model1.slug
+  const target2 = model2.redirect_to || model2.slug
+  if (target1 !== model1Slug || target2 !== model2Slug) {
+    return {
+      redirect: {
+        destination: `/models/compare/${target1}/${target2}`,
+        permanent: true,
+      },
     }
   }
   

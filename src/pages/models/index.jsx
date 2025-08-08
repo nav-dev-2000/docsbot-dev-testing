@@ -10,14 +10,16 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { getProviderInfo, getBenchmarkDescription } from '@/lib/llms'
 
 const ModelsLandingPage = () => {
-  const [filteredModels, setFilteredModels] = useState(LLMS)
+  const [filteredModels, setFilteredModels] = useState(
+    LLMS.filter((m) => !m.redirect_to)
+  )
   const [searchTerm, setSearchTerm] = useState('')
   const [isSearching, setIsSearching] = useState(false)
 
   useEffect(() => {
     const searchModels = () => {
       setIsSearching(true)
-      const filtered = LLMS.filter(
+      const filtered = LLMS.filter((m) => !m.redirect_to).filter(
         (model) =>
           model.model_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           model.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -157,9 +159,12 @@ const ModelsLandingPage = () => {
             <div key={provider} id={provider} className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 {(() => {
-                  const ProviderIcon = getProviderInfo(provider).icon;
-                  return <ProviderIcon className="h-10 w-10 not-sr-only" />;
-                })()} {getProviderInfo(provider)?.displayName}
+                  const info = getProviderInfo(provider)
+                  const ProviderIcon = info?.icon
+                  return ProviderIcon ? (
+                    <ProviderIcon className="h-10 w-10 not-sr-only" />
+                  ) : null
+                })()} {getProviderInfo(provider)?.displayName || provider}
               </h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {models.map((model) => {

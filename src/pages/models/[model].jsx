@@ -1012,7 +1012,10 @@ const ModelPage = ({
             </div>
             <ul className="mt-6 grid grid-cols-1 gap-4 text-justify sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {LLMS.filter(
-                (item) => item.provider === provider && item.slug !== slug,
+                (item) =>
+                  item.provider === provider &&
+                  item.slug !== slug &&
+                  !item.redirect_to,
               ).map((item) => (
                 <li key={item.slug}>
                   <Link
@@ -1039,7 +1042,9 @@ const ModelPage = ({
               </span>
               <div className="w-72">
                 <ModelSelector
-                  models={LLMS.filter((m) => m.slug !== slug)}
+                  models={LLMS.filter(
+                    (m) => m.slug !== slug && !m.redirect_to,
+                  )}
                   selectedModel={compareModel}
                   onChange={handleCompare}
                   className="bg-white"
@@ -1074,8 +1079,24 @@ export async function getStaticProps(context) {
   const model = context.params.model
   const modelData = LLMS.find((e) => `${e.slug}` == model)
   
+  // If model doesn't exist at all
+  if (!modelData) {
+    return { notFound: true }
+  }
+
+  // Handle redirects for deprecated/renamed models
+  const redirectTarget = modelData.redirect_to
+  if (redirectTarget && redirectTarget !== modelData.slug) {
+    return {
+      redirect: {
+        destination: `/models/${redirectTarget}`,
+        permanent: true,
+      },
+    }
+  }
+  
   // Check if model exists and has valid provider info
-  if (!modelData || !getProviderInfo(modelData.provider)) {
+  if (!getProviderInfo(modelData.provider)) {
     return {
       notFound: true,
     }
