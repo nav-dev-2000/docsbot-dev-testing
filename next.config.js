@@ -1,6 +1,7 @@
 const withMarkdoc = require('@markdoc/next.js')
 const { withHeadlessConfig } = require('@headstartwp/next/config')
 const headlessConfig = require('./headless.config')
+const { LLMS } = require('./src/constants/llms.constants')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -52,7 +53,8 @@ const nextConfig = {
     ],
   },
   async redirects() {
-    return [
+    // Keep existing static redirects
+    const existing = [
       {
         source: '/business',
         destination: '/#features',
@@ -148,7 +150,38 @@ const nextConfig = {
         destination: '/tools/support/ai-savings-calculator',
         permanent: true,
       },
+      {
+        source: '/article/gpt-5-release-date-features-what-to-expect-from-openais-next-model',
+        destination: '/article/gpt-5-is-live-on-docsbot-better-answers-fewer-hallucinations-lower-costs',
+        permanent: true,
+      },
     ]
+
+    // Build dynamic model redirects from LLMS
+    const pairs = (LLMS || [])
+      .filter((m) => m && m.redirect_to && m.slug && m.slug !== m.redirect_to)
+      .map((m) => [m.slug, m.redirect_to])
+
+    const modelRedirects = pairs.map(([from, to]) => ({
+      source: `/models/${from}`,
+      destination: `/models/${to}`,
+      permanent: true,
+    }))
+
+    const compareRedirects = pairs.flatMap(([from, to]) => [
+      {
+        source: `/models/compare/${from}/:model2`,
+        destination: `/models/compare/${to}/:model2`,
+        permanent: true,
+      },
+      {
+        source: `/models/compare/:model1/${from}`,
+        destination: `/models/compare/:model1/${to}`,
+        permanent: true,
+      },
+    ])
+
+    return [...existing, ...modelRedirects, ...compareRedirects]
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

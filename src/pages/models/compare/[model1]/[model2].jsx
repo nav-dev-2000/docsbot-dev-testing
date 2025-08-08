@@ -1411,7 +1411,7 @@ const ModelPage = ({ model1, model2 }) => {
 export default ModelPage
 
 export async function getStaticPaths() {
-  let paths = LLMS.flatMap((model1) =>
+  let paths = LLMS.filter((m) => !m.redirect_to).flatMap((model1) =>
     LLMS.filter((model2) => model2.slug !== model1.slug).map((model2) => ({
       params: {
         model1: model1.slug,
@@ -1439,16 +1439,9 @@ export async function getStaticProps(context) {
     }
   }
   
-  // Handle redirects if either model has been renamed/redirected
-  const target1 = model1.redirect_to || model1.slug
-  const target2 = model2.redirect_to || model2.slug
-  if (target1 !== model1Slug || target2 !== model2Slug) {
-    return {
-      redirect: {
-        destination: `/models/compare/${target1}/${target2}`,
-        permanent: true,
-      },
-    }
+  // Handle redirects for deprecated/renamed models
+  if (model1.redirect_to || model2.redirect_to) {
+    return { notFound: true }
   }
   
   return {

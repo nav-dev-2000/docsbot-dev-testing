@@ -48,9 +48,12 @@ async function generateSitemap() {
   const industries = INDUSTRIES.map((item) => `/industry/${item.slug}`)
   const glossary = GLOSSARY.map((item) => `/ai-terms-glossary/term/${item.slug}`)
   const prompts = Object.entries(PROMPT_CATEGORIES).map(([key]) => `/prompts/${key}`)
-  const models = LLMS.map((item) => `/models/${item.slug}`)
-  const modelComparisons = LLMS.flatMap((model1) =>
-    LLMS.filter((model2) => model2.slug !== model1.slug)
+  // Exclude redirected models from sitemap
+  const liveModels = LLMS.filter((item) => !item.redirect_to)
+  const models = liveModels.map((item) => `/models/${item.slug}`)
+  const modelComparisons = liveModels.flatMap((model1) =>
+    liveModels
+      .filter((model2) => model2.slug !== model1.slug)
       .map((model2) => `/models/compare/${model1.slug}/${model2.slug}`)
   )
 

@@ -1087,12 +1087,7 @@ export async function getStaticProps(context) {
   // Handle redirects for deprecated/renamed models
   const redirectTarget = modelData.redirect_to
   if (redirectTarget && redirectTarget !== modelData.slug) {
-    return {
-      redirect: {
-        destination: `/models/${redirectTarget}`,
-        permanent: true,
-      },
-    }
+    return { notFound: true }
   }
   
   // Check if model exists and has valid provider info

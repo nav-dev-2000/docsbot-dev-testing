@@ -3350,7 +3350,7 @@ const LLMS = [
     maximum_output_tokens: '128K',
     open_source: false,
     release_date: '2025-08-07',
-    knowledge_cut_off_date: '2025-07',
+    knowledge_cut_off_date: 'Fall 2024, July 2025 (mini/nano)',
     api_providers: 'OpenAI API, ChatGPT (Free, Plus, Pro, Enterprise)',
     modalities: {
       text: true,
