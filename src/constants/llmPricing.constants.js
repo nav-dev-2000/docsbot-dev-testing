@@ -1,5 +1,15 @@
 export const LLM_PRICING = {
   'Chat/Completion Models': [
+      
+    {
+      model_name: 'GPT-5',
+      model_slug: 'gpt-5',
+      page_slug: 'gpt-5',
+      context: '400K/128K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 1.25,
+      output_token_cost_per_million: 10,
+    },
     {
       model_name: 'GPT-4o',
       model_slug: 'gpt-4o',
@@ -81,6 +91,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 4.40,
     },
     {
+      model_name: 'o3‑pro',
+      model_slug: 'o3-pro-2025-06-10',
+      page_slug: 'o3-pro',
+      context: '200K/100K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 20,
+      output_token_cost_per_million: 80,
+    },
+    {
       model_name: 'o3',
       model_slug: 'o3',
       page_slug: 'o3',
@@ -158,6 +177,15 @@ export const LLM_PRICING = {
       provider: 'OpenAI',
       input_token_cost_per_million: 30,
       output_token_cost_per_million: 60,
+    },  
+    {
+      model_name: 'Claude Opus 4.1',
+      model_slug: 'claude-opus-4-1',
+      page_slug: 'claude-opus-4-1',
+      context: '200K/32K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 15,
+      output_token_cost_per_million: 75,
     },
     {
       model_name: 'Claude 4 Opus',

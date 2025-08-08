@@ -1,4 +1,43 @@
 const LLMS = [
+{
+  model_name: 'Claude Opus 4.1',
+  slug: 'claude-opus-4-1',
+  provider: 'Anthropic',
+  description:
+    'Claude Opus 4.1 is Anthropic’s refined flagship reasoning model (released August 5, 2025), offering enhanced real-world coding, agentic research, creative writing, and hybrid reasoning capabilities. It supports extended thinking with user-visible reasoning summaries and hybrid mode toggles for instant or deep step-by-step reasoning. Available via Anthropic API, Claude Code, Amazon Bedrock, Google Vertex AI, and GitHub Copilot (Pro+ / Enterprise).',
+  input_context_window: '200K',
+  maximum_output_tokens: '32K',
+  open_source: false,
+  release_date: '2025‑08‑05',
+  knowledge_cut_off_date: '2025‑07‑31',
+  api_providers: 'Anthropic API, Claude Code, Amazon Bedrock, Vertex AI, GitHub Copilot',
+  input_cost_per_million_tokens: 15,
+  output_cost_per_million_tokens: 75,
+  modality_discounts: {
+    batch_input: 7.5,
+    batch_output: 37.5,
+    cache_write: 18.75,
+    cache_read: 1.50,
+  },
+  modalities: {
+    text: true,
+    image: true,
+    voice: false,
+    video: false,
+  },
+  benchmarks: {
+    'SWE‑bench Verified': {
+      score: 74.5,
+      notes: 'Real‑world coding score, new state‑of‑the‑art',
+      source: 'https://www.anthropic.com/news/claude-opus-4-1',
+    },
+    'Multi‑file Refactoring': {
+      score: null,
+      notes: 'Significant improvement vs. Opus 4; cleaner fixes',
+      source: 'https://www.anthropic.com/news/claude-opus-4-1',
+    },
+  },
+},
  {
   model_name: 'Claude 4 Opus',
   slug: 'claude-4-opus',
@@ -2827,19 +2866,19 @@ const LLMS = [
     },
   },
   {
-    model_name: 'o3',
-    slug: 'o3',
+    model_name: 'o3-pro',
+    slug: 'o3-pro-2025-06-10',
     provider: 'openai',
     description:
-      'OpenAI o3 is their most capable reasoning model, designed for complex tasks requiring deep reasoning. Released in April 2025, it excels at software engineering, mathematics, and scientific reasoning. The model features three reasoning effort levels (low, medium, high) to balance between deep reasoning and latency. It supports key developer features including function calling, structured outputs, and developer messages. o3 includes vision capabilities for analyzing images and can be accessed through Chat Completions API, Assistants API, and Batch API.',
+      'OpenAI o3-pro is a premium variant of the o3 model, designed to provide deeper and more reliable reasoning on complex tasks. Released in June 2025, o3-pro uses additional compute to “think harder,” making it ideal for challenging problems in research, software engineering, mathematics, and agentic reasoning. It supports all major developer tools including function calling, structured outputs, developer messages, and image inputs. o3-pro is served through the Responses API and supports background mode for long-running tasks.',
     input_context_window: '200K',
     maximum_output_tokens: '100K',
     open_source: false,
-    release_date: '2025-04-16',
+    release_date: '2025-06-10',
     knowledge_cut_off_date: 'May 31, 2024',
-    api_providers: 'OpenAI API',
-    input_cost_per_million_tokens: 10,
-    output_cost_per_million_tokens: 40,
+    api_providers: 'OpenAI Responses API',
+    input_cost_per_million_tokens: 20,
+    output_cost_per_million_tokens: 80,
     modalities: {
       text: true,
       image: true,
@@ -2847,50 +2886,103 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'AIME2024': {
-        score: 91.6,
-        notes: 'no tools, Competition Math',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
       'AIME2025': {
-        score: 88.9,
-        notes: 'no tools',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
-      MMMU: {
-        score: 82.9,
-        notes: '',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
-      MathVista: {
-        score: 87.5,
-        notes: 'Visual Math Reasoning',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
-      'CharXiv-Reasoning': {
-        score: 75.4,
-        notes: 'Scientific Figure Reasoning',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
-      'GPQA': {
-        score: 83.3,
-        notes: 'Diamond, no tools',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
-      },
-      'Humanity\'s Last Exam': {
-        score: 20.32,
-        notes: 'no tools',
-        source: 'https://platform.openai.com/docs/models/o4-mini',
+        score: 91.9,
+        notes: 'Deep reasoning, no tools',
+        source: 'https://openai.com/index/introducing-o3-pro/',
       },
       'SWE-Bench': {
-        score: 69.1,
-        notes: 'Verified',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+        score: 74.9,
+        notes: 'Verified (higher compute)',
+        source: 'https://openai.com/index/introducing-o3-pro/',
+      },
+      'GPQA': {
+        score: 87.0,
+        notes: 'Diamond, improved chain-of-thought',
+        source: 'https://openai.com/index/introducing-o3-pro/',
+      },
+      'MathVista': {
+        score: 89.2,
+        notes: 'Vision + Math integration',
+        source: 'https://openai.com/index/introducing-o3-pro/',
+      },
+      'Humanity\'s Last Exam': {
+        score: 23.4,
+        notes: 'Improved long-form reasoning',
+        source: 'https://openai.com/index/introducing-o3-pro/',
       },
       'Scale MultiChallenge': {
-        score: 56.51,
-        notes: 'Multi-turn instruction following',
-        source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+        score: 60.2,
+        notes: 'Long multi-step tasks',
+        source: 'https://openai.com/index/introducing-o3-pro/',
+          }
+        },
+      },
+,     {
+          model_name: 'o3',
+          slug: 'o3',
+          provider: 'openai',
+          description:
+            'OpenAI o3 is their most capable reasoning model, designed for complex tasks requiring deep reasoning. Released in April 2025, it excels at software engineering, mathematics, and scientific reasoning. The model features three reasoning effort levels (low, medium, high) to balance between deep reasoning and latency. It supports key developer features including function calling, structured outputs, and developer messages. o3 includes vision capabilities for analyzing images and can be accessed through Chat Completions API, Assistants API, and Batch API.',
+          input_context_window: '200K',
+          maximum_output_tokens: '100K',
+          open_source: false,
+          release_date: '2025-04-16',
+          knowledge_cut_off_date: 'May 31, 2024',
+          api_providers: 'OpenAI API',
+          input_cost_per_million_tokens: 2,
+          output_cost_per_million_tokens: 8,
+          modalities: {
+            text: true,
+            image: true,
+            voice: false,
+            video: false,
+          },
+          benchmarks: {
+            'AIME2024': {
+              score: 91.6,
+              notes: 'no tools, Competition Math',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            'AIME2025': {
+              score: 88.9,
+              notes: 'no tools',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            MMMU: {
+              score: 82.9,
+              notes: '',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            MathVista: {
+              score: 87.5,
+              notes: 'Visual Math Reasoning',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            'CharXiv-Reasoning': {
+              score: 75.4,
+              notes: 'Scientific Figure Reasoning',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            'GPQA': {
+              score: 83.3,
+              notes: 'Diamond, no tools',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            'Humanity\'s Last Exam': {
+              score: 20.32,
+              notes: 'no tools',
+              source: 'https://platform.openai.com/docs/models/o4-mini',
+            },
+            'SWE-Bench': {
+              score: 69.1,
+              notes: 'Verified',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
+            },
+            'Scale MultiChallenge': {
+              score: 56.51,
+              notes: 'Multi-turn instruction following',
+              source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
     },
   },
@@ -3482,6 +3574,51 @@ const LLMS = [
       },
     },
   },
+{
+    model_name: 'GPT‑5',
+    slug: 'gpt-5',
+    provider: 'openai',
+    description:
+      "GPT‑5 is OpenAI’s most advanced and versatile model to date, launched on August 7, 2025. It manages reasoning, creative writing, coding, health queries, and visual comprehension within a unified system. Equipped with intelligent routing and adjustable reasoning effort and verbosity, GPT‑5 delivers expert-level responses with reduced hallucinations and enhanced chain‑of‑thought transparency.",
+    input_context_window: '400K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-08-07',
+    knowledge_cut_off_date: '2025-07',
+    api_providers: 'OpenAI API, ChatGPT (Free, Plus, Pro, Enterprise)',
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: false
+    },
+    benchmarks: {
+      SWEBenchVerified: {
+        score: 74.9,
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/'
+      },
+      AiderPolyglot: {
+        score: 88,
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/'
+      },
+      AIME2025: {
+        score: 94.6,
+        source: 'https://openai.com/index/introducing-gpt-5/'
+      },
+      MMMU: {
+        score: 84.2,
+        source: 'https://openai.com/index/introducing-gpt-5/'
+      },
+      HealthBenchHard: {
+        score: 46.2,
+        source: 'https://openai.com/index/introducing-gpt-5/'
+      },
+      GPQA: {
+        score: 88.4,
+        source: 'https://openai.com/index/introducing-gpt-5/'
+    }
+  }
+},
   {
     model_name: 'GPT-4o',
     slug: 'gpt-4o',

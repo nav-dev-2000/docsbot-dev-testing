@@ -1,9 +1,13 @@
 import { teamMembersRoles } from '@/constants/permissions.constants'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export const noop = (f) => f;
 
 export const getUserRole = (team, userId) => {
     if (team && userId) {
+        if (isSuperAdmin(userId)) {
+            return 'admin'
+        }
         return team?.roles[userId]
     }
     else
