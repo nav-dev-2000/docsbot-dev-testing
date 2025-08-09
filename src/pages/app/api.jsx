@@ -213,7 +213,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
           </>
         ) : (
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-5.{' '}
+            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-5 & GPT-4o/4.1. Organization verification is required for GPT-5 and o3/o4. {' '}
             <Link
               className="text-cyan-800 underline"
               href="https://platform.openai.com/api-keys"

@@ -3348,6 +3348,8 @@ const LLMS = [
       'GPT‑5 is OpenAI’s most advanced and versatile model to date, launched on August 7, 2025. It manages reasoning, creative writing, coding, health queries, and visual comprehension within a unified system. Equipped with intelligent routing and adjustable reasoning effort and verbosity, GPT‑5 delivers expert-level responses with reduced hallucinations and enhanced chain‑of‑thought transparency.',
     input_context_window: '400K',
     maximum_output_tokens: '128K',
+    input_cost_per_million_tokens: 1.25,
+    output_cost_per_million_tokens: 10,
     open_source: false,
     release_date: '2025-08-07',
     knowledge_cut_off_date: 'Fall 2024, July 2025 (mini/nano)',
@@ -3359,28 +3361,145 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      SWEBenchVerified: {
-        score: 74.9,
-        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
-      },
-      AiderPolyglot: {
-        score: 88,
-        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
-      },
+      // Intelligence
       AIME2025: {
         score: 94.6,
+        notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      MMMU: {
-        score: 84.2,
-        source: 'https://openai.com/index/introducing-gpt-5/',
-      },
-      HealthBenchHard: {
-        score: 46.2,
+      FrontierMath: {
+        score: 26.3,
+        notes: 'with python tool only',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
       GPQA: {
-        score: 88.4,
+        score: 85.7,
+        notes: 'diamond, no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      HLE: {
+        score: 24.8,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      HMMT2025: {
+        score: 93.3,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Multimodal
+      MMMU: {
+        score: 84.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      MMMUPro: {
+        score: 78.4,
+        notes: 'avg across standard and vision sets',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      CharXivReasoning: {
+        score: 81.1,
+        notes: 'python enabled',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      VideoMMMU: {
+        score: 84.6,
+        notes: 'max frame 256',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      ERQA: {
+        score: 65.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Coding
+      SWELancerIC: {
+        score: 112000,
+        notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'SWE-Bench': {
+        score: 74.9,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
+      },
+      AiderPolyglot: {
+        score: 88.0,
+        notes: 'diff',
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
+      },
+
+      // Instruction Following
+      ScaleMultichallenge: {
+        score: 69.6,
+        notes: 'o3-mini grader',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      InternalAPIInstructionFollowing: {
+        score: 64.0,
+        notes: 'hard',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      COLLIE: {
+        score: 99.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Function Calling
+      Tau2BenchAirline: {
+        score: 62.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      Tau2BenchRetail: {
+        score: 81.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      Tau2BenchTelecom: {
+        score: 96.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Long Context
+      OpenAIMRCR2Needle128k: {
+        score: 95.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      OpenAIMRCR2Needle256k: {
+        score: 86.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      GraphwalksBFS128k: {
+        score: 78.3,
+        notes: '<128k',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      GraphwalksParents128k: {
+        score: 73.3,
+        notes: '<128k',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      BrowseCompLongContext128k: {
+        score: 90.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      BrowseCompLongContext256k: {
+        score: 88.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      VideoMME: {
+        score: 86.7,
+        notes: 'long, with subtitle category',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
     },

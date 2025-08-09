@@ -72,7 +72,7 @@ export default async function handler(req, res) {
           const models = await openai.models.list()
           console.log('models:', models)
           isGPT4 = !!models.data.find(
-            (model) => model.id === 'gpt-4o',
+            (model) => model.id === 'gpt-4.1',
           )
         } else {
           isGPT4 = true
@@ -93,7 +93,7 @@ export default async function handler(req, res) {
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     } else if (openAIKey === false) {
-      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-5-mini' : 'gpt-5-nano';
 
       // walk through each bot, and verify that it's set to default. if not, update it
       const botsSnapshot = await firestore
@@ -103,7 +103,8 @@ export default async function handler(req, res) {
         .get()
 
       botsSnapshot.forEach(async (doc) => {
-        if (doc.get('model') !== 'gpt-4o-mini' && doc.get('model') !== 'gpt-4.1-nano' && doc.get('model') !== 'gpt-4.1-mini') {
+        const allowedModels = ['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-5-nano'] //free models
+        if (!allowedModels.includes(doc.get('model'))) {
           // update bot to default model
           await firestore
             .collection('teams')
