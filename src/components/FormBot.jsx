@@ -23,7 +23,7 @@ export default function FormBot({
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(
     bot?.model ||
-      (checkPlanPermission(team, 'hobby').allowed
+      (checkPlanPermission(team, 'personal').allowed
         ? 'gpt-5-mini'
         : 'gpt-5-nano'),
   )
@@ -130,20 +130,19 @@ export default function FormBot({
 
   //show upgrade if they change model to gpt-5
   useEffect(() => {
-    // For users on the hobby plan:
+    // For users on the personal plan:
     // - They should be able to select gpt-5-mini without any issues
     // - Only show upgrade for gpt-5 if they don't have supportsGPT4
-    if (!checkPlanPermission(team, 'hobby').allowed) {
-      // For non-hobby plans, keep existing behavior
-      if (model === 'gpt-5' || model === 'gpt-5-mini') {
+    if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
+      // For non-personal plans, keep existing behavior
+      if (model === 'gpt-5' || model === 'gpt-5-mini' || model === 'gpt-4.1' || model === 'gpt-4o' || model === 'gpt-4.1-mini' || model === 'gpt-4o-mini') {
         setShowUpgrade(true)
         setModel('gpt-5-nano')
-        console.log('Setting default free plan model to gpt-5-nano')
+        console.log('Setting default free/hobby plan model to gpt-5-nano')
       }
     } else {
       // For hobby plan users
-      if (model === 'gpt-5' && !team.supportsGPT4) {
-        setShowUpgrade(true)
+      if ((model === 'gpt-5' || model === 'gpt-4.1' || model === 'gpt-4o') && !team.supportsGPT4) {
         setModel('gpt-5-mini') // Default to gpt-5-mini since they're on hobby plan
         console.log('Setting default paid plan model to gpt-5-mini')
       }
@@ -485,7 +484,7 @@ export default function FormBot({
             <div className="pl-7 text-sm">
               <label htmlFor="gpt-5" className="font-medium text-gray-900">
                 GPT-5 - Most Powerful
-                {!checkPlanPermission(team, 'hobby').allowed ? (
+                {!checkPlanPermission(team, 'personal').allowed ? (
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                     Paid
                   </span>
@@ -496,7 +495,13 @@ export default function FormBot({
                 )}
               </label>
               <p id="gpt-5-description" className="text-gray-500">
-                Smartest, fastest, most useful model yet, with thinking built in — so you get the best answer, every time.
+                Smartest, fastest, most useful model yet, with thinking built in
+                — so you get the best answer, every time.{' '}
+                {team.supportsGPT4 && (
+                  <span className="font-bold text-xs">
+                    Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                  </span>
+                )}
                 {!team.supportsGPT4 && (
                   <Link
                     href="/app/api"
@@ -526,7 +531,7 @@ export default function FormBot({
             <div className="pl-7 text-sm">
               <label htmlFor="gpt-5-mini" className="font-medium text-gray-900">
                 GPT-5 mini - Best Value
-                {!checkPlanPermission(team, 'hobby').allowed ? (
+                {!checkPlanPermission(team, 'personal').allowed ? (
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                     Paid
                   </span>
@@ -537,7 +542,13 @@ export default function FormBot({
                 )}
               </label>
               <p id="gpt-5-mini-description" className="text-gray-500">
-                Included in paid plans. Smart, fast, and useful model. Good for most support use cases.
+                Included in paid plans. Smart, fast, and useful model. Good for
+                most support use cases.{' '}
+                {team.supportsGPT4 && (
+                  <span className="font-bold text-xs">
+                    Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                  </span>
+                )}
               </p>
             </div>
           </div>
@@ -645,7 +656,8 @@ export default function FormBot({
                     )}
                   </label>
                   <p id="gpt-4.1-description" className="text-gray-500">
-                    Previous generation model good at instruction following. Consider upgrading to GPT-5.
+                    Previous generation model good at instruction following.
+                    Consider upgrading to GPT-5.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
@@ -680,7 +692,8 @@ export default function FormBot({
                     GPT-4.1 mini
                   </label>
                   <p id="gpt-4.1-mini-description" className="text-gray-500">
-                    Faster than GPT-4.1 while still good at instruction following. Consider upgrading to GPT-5 mini.
+                    Faster than GPT-4.1 while still good at instruction
+                    following. Consider upgrading to GPT-5 mini.
                   </p>
                 </div>
               </div>
@@ -707,7 +720,8 @@ export default function FormBot({
                     GPT-4.1 nano
                   </label>
                   <p id="gpt-4.1-nano-description" className="text-gray-500">
-                    Previous generation model. We recommend upgrading to GPT-5 nano.
+                    Previous generation model. We recommend upgrading to GPT-5
+                    nano.
                   </p>
                 </div>
               </div>
@@ -736,7 +750,8 @@ export default function FormBot({
                     )}
                   </label>
                   <p id="gpt-4o-description" className="text-gray-500">
-                    Previous generation general purpose model. Consider upgrading to GPT-5.
+                    Previous generation general purpose model. Consider
+                    upgrading to GPT-5.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
