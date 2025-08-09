@@ -80,7 +80,45 @@ const webhookHandler = async (req, res) => {
               const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
 
               //multi-price subscriptions don't have plan on subscription object
-              const plan = subscription.plan || subscription.items.data[0].plan
+              // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
+              let plan = subscription.plan
+              if (!plan && subscription.items?.data) {
+                if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
+                  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+                  
+                  // Look through all subscription items to find the one that matches our configured plans
+                  for (const item of subscription.items.data) {
+                    const itemPlan = item.plan
+                    // Check if this price ID exists in our configured plans
+                    for (const planKey in plans) {
+                      const configuredPlan = plans[planKey]
+                      // Check current prices
+                      for (const frequency in configuredPlan.prices.current) {
+                        if (configuredPlan.prices.current[frequency] === itemPlan.id) {
+                          plan = itemPlan
+                          break
+                        }
+                      }
+                      // Check old prices if no match found in current
+                      if (!plan && configuredPlan.prices.old) {
+                        for (const oldPrice of configuredPlan.prices.old) {
+                          if (oldPrice === itemPlan.id) {
+                            plan = itemPlan
+                            break
+                          }
+                        }
+                      }
+                      if (plan) break
+                    }
+                    if (plan) break
+                  }
+                }
+                
+                // Fallback to first item if no match found in configured plans
+                if (!plan) {
+                  plan = subscription.items.data[0].plan
+                }
+              }
 
               // save subscription to team
               await transaction.update(firestore.collection('teams').doc(teamId), {
@@ -281,7 +319,45 @@ const webhookHandler = async (req, res) => {
                 })
 
                 //multi-price subscriptions don't have plan on subscription object
-                const plan = session.subscription.plan || session.subscription.items.data[0].plan
+                // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
+                let plan = session.subscription.plan
+                if (!plan && session.subscription.items?.data) {
+                  if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
+                    const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+                    
+                    // Look through all subscription items to find the one that matches our configured plans
+                    for (const item of session.subscription.items.data) {
+                      const itemPlan = item.plan
+                      // Check if this price ID exists in our configured plans
+                      for (const planKey in plans) {
+                        const configuredPlan = plans[planKey]
+                        // Check current prices
+                        for (const frequency in configuredPlan.prices.current) {
+                          if (configuredPlan.prices.current[frequency] === itemPlan.id) {
+                            plan = itemPlan
+                            break
+                          }
+                        }
+                        // Check old prices if no match found in current
+                        if (!plan && configuredPlan.prices.old) {
+                          for (const oldPrice of configuredPlan.prices.old) {
+                            if (oldPrice === itemPlan.id) {
+                              plan = itemPlan
+                              break
+                            }
+                          }
+                        }
+                        if (plan) break
+                      }
+                      if (plan) break
+                    }
+                  }
+                  
+                  // Fallback to first item if no match found in configured plans
+                  if (!plan) {
+                    plan = session.subscription.items.data[0].plan
+                  }
+                }
 
                 // save subscription to team
                 await transaction.update(
@@ -387,7 +463,45 @@ const webhookHandler = async (req, res) => {
               })
 
               //multi-price subscriptions don't have plan on subscription object
-              const plan = invoiceWithSubscription.subscription.plan || invoiceWithSubscription.subscription.items.data[0].plan
+              // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
+              let plan = invoiceWithSubscription.subscription.plan
+              if (!plan && invoiceWithSubscription.subscription.items?.data) {
+                if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
+                  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+                  
+                  // Look through all subscription items to find the one that matches our configured plans
+                  for (const item of invoiceWithSubscription.subscription.items.data) {
+                    const itemPlan = item.plan
+                    // Check if this price ID exists in our configured plans
+                    for (const planKey in plans) {
+                      const configuredPlan = plans[planKey]
+                      // Check current prices
+                      for (const frequency in configuredPlan.prices.current) {
+                        if (configuredPlan.prices.current[frequency] === itemPlan.id) {
+                          plan = itemPlan
+                          break
+                        }
+                      }
+                      // Check old prices if no match found in current
+                      if (!plan && configuredPlan.prices.old) {
+                        for (const oldPrice of configuredPlan.prices.old) {
+                          if (oldPrice === itemPlan.id) {
+                            plan = itemPlan
+                            break
+                          }
+                        }
+                      }
+                      if (plan) break
+                    }
+                    if (plan) break
+                  }
+                }
+                
+                // Fallback to first item if no match found in configured plans
+                if (!plan) {
+                  plan = invoiceWithSubscription.subscription.items.data[0].plan
+                }
+              }
 
               //save subscription to team in case this comes before updated webhook
               await transaction.update(firestore.collection('teams').doc(team.id), {
