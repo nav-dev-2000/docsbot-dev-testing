@@ -80,6 +80,10 @@
         {
             "path": "/api/cron/report-email?key=34hjslm8492hs521ds",
             "schedule": "0 10 1 * *"
+        },
+        {
+            "path": "/api/cron/updateConversationSummaries?key=sjhdf8723hjASD9283",
+            "schedule": "0 * * * *"
         }
     ],
     "functions": {
@@ -101,6 +105,9 @@
             "maxDuration": 300
         },
         "src/pages/api/cron/updateCounts.js": {
+            "maxDuration": 300
+        },
+        "src/pages/api/cron/updateConversationSummaries.js": {
             "maxDuration": 300
         },
         "src/pages/api/tools/youtube-prompter.js": {
