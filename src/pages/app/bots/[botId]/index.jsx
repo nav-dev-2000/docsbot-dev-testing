@@ -24,7 +24,8 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   const [bot, setBot] = useState(preBot)
   const [errorText, setErrorText] = useState(null)
   const [isProcessing, setIsProcessing] = useState(true)
-  const [autoOpenSourceIdState, setAutoOpenSourceIdState] = useState(autoOpenSourceId)
+  const [autoOpenSourceIdState, setAutoOpenSourceIdState] =
+    useState(autoOpenSourceId)
   const [showCheckout, setShowCheckout] = useState(false)
   const [showPromptModal, setShowPromptModal] = useState(false)
   const router = useRouter()
@@ -36,27 +37,29 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
     }
 
     const createdAt = new Date(bot.createdAt)
-    const expirationDate = new Date(createdAt.getTime() + 30 * 24 * 60 * 60 * 1000) // 30 days from creation
+    const expirationDate = new Date(
+      createdAt.getTime() + 30 * 24 * 60 * 60 * 1000,
+    ) // 30 days from creation
     const now = new Date()
     const daysLeft = Math.ceil((expirationDate - now) / (1000 * 60 * 60 * 24))
 
     if (daysLeft <= 0) {
       return {
-        title: "This free bot has expired and will be deleted shortly. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.",
-        type: "warning"
+        title:
+          'This free bot has expired and will be deleted shortly. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.',
+        type: 'warning',
       }
     }
 
     return {
       title: `This free bot will expire in ${daysLeft} days. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.`,
-      type: "warning"
+      type: 'warning',
     }
   }
 
   const expirationAlert = getExpirationAlert()
 
   async function refreshBot() {
-
     const urlParams = ['teams', team.id, 'bots', botId]
     let path = '/api/' + urlParams.join('/')
     const response = await fetch(path, {
@@ -80,7 +83,6 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   }
 
   async function refreshSources() {
-
     const urlParams = ['teams', team.id, 'bots', botId, 'sources']
     let path = '/api/' + urlParams.join('/') + `?page=${page}&limit=${perPage}`
     const response = await fetch(path, {
@@ -91,7 +93,12 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
     })
     if (response.ok) {
       const data = await response.json()
-      setSources(data.sources)
+      setSources((prevSources) =>
+        data.sources.map((source) => {
+          const existing = prevSources?.find((s) => s.id === source.id) || {}
+          return { ...existing, ...source }
+        }),
+      )
       setPaginationData(data.pagination)
     } else {
       try {
@@ -133,7 +140,11 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
 
   useEffect(() => {
     //set processing if there are any sources with status 'indexing'
-    if (sources.some((source) => ['pending', 'indexing', 'processing'].includes(source.status))) {
+    if (
+      sources.some((source) =>
+        ['pending', 'indexing', 'processing'].includes(source.status),
+      )
+    ) {
       setIsProcessing(true)
     } else {
       setIsProcessing(false)
@@ -144,12 +155,15 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
 
   const deleteSource = async (id) => {
     setErrorText('')
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
-    })
+    )
     if (response.ok) {
       const data = await response.json()
       setSources((prev) => prev.filter((source) => source.id !== id))
@@ -165,15 +179,20 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
 
   const retrySource = async (id) => {
     setErrorText('')
-    const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
-    })
+    )
     if (response.ok) {
       const data = await response.json()
-      setSources((prev) => prev.map((source) => source.id === id ? data : source))
+      setSources((prev) =>
+        prev.map((source) => (source.id === id ? data : source)),
+      )
     } else {
       try {
         const data = await response.json()
@@ -190,13 +209,10 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
     <DashboardWrap page="Bots" title={bot.name} team={team}>
       <Alert title={errorText} type="warning" />
       {expirationAlert && (
-        <Alert 
-          title={expirationAlert.title} 
-          type={expirationAlert.type}
-        >
+        <Alert title={expirationAlert.title} type={expirationAlert.type}>
           <button
             onClick={() => setShowCheckout(true)}
-            className="mt-2 inline-flex items-center rounded-md bg-yellow-50 px-3 py-2 text-sm font-semibold text-yellow-800 hover:bg-yellow-100 ring-2 ring-yellow-600 ring-inset focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+            className="mt-2 inline-flex items-center rounded-md bg-yellow-50 px-3 py-2 text-sm font-semibold text-yellow-800 ring-2 ring-inset ring-yellow-600 hover:bg-yellow-100 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
           >
             Upgrade Now
           </button>
@@ -215,8 +231,9 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
           >
             Agentic mode
           </Link>
-          , which provides more intelligent and contextual responses, tool calling to perform actions,
-          conversaton view, and so much more! When enabling,{' '}
+          , which provides more intelligent and contextual responses, tool
+          calling to perform actions, conversaton view, and so much more! When
+          enabling,{' '}
           <strong>
             <button
               type="button"
@@ -227,10 +244,15 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
             </button>{' '}
             and please test!
           </strong>{' '}
-          Start with a preset role and adjust, then update or remove any instructions that may conflict.
+          Start with a preset role and adjust, then update or remove any
+          instructions that may conflict.
         </Alert>
       )}
-      <ModalCheckout team={team} open={showCheckout} setOpen={setShowCheckout} />
+      <ModalCheckout
+        team={team}
+        open={showCheckout}
+        setOpen={setShowCheckout}
+      />
       <ModalPrompt
         team={team}
         integrations={integrations}
@@ -251,12 +273,36 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
         </Link>
       </div>
 
-      <BotCard team={team} bot={bot} integrations={integrations} setBot={setBot} />
+      <BotCard
+        team={team}
+        bot={bot}
+        integrations={integrations}
+        setBot={setBot}
+      />
       <SourceFailed {...{ team, bot, sources, deleteSource, retrySource }} />
 
-      <SourceGrid {...{ team, bot, sources, setSources, autoOpenSourceId: autoOpenSourceIdState, paginationData, handleChangePage, retrySource }} />
+      <SourceGrid
+        {...{
+          team,
+          bot,
+          sources,
+          setSources,
+          autoOpenSourceId: autoOpenSourceIdState,
+          paginationData,
+          handleChangePage,
+          retrySource,
+        }}
+      />
 
-      <SourceForm {...{ team, bot, sources, setSources, setOpenSourceID: setAutoOpenSourceIdState }} />
+      <SourceForm
+        {...{
+          team,
+          bot,
+          sources,
+          setSources,
+          setOpenSourceID: setAutoOpenSourceIdState,
+        }}
+      />
     </DashboardWrap>
   )
 }
@@ -275,7 +321,12 @@ export const getServerSideProps = async (context) => {
       }
     }
 
-    data.props.preSources = await getSources(data.props.team.id, data.props.preBot, 0, sourcePerPage)
+    data.props.preSources = await getSources(
+      data.props.team.id,
+      data.props.preBot,
+      0,
+      sourcePerPage,
+    )
     data.props.integrations = await getTeamIntegrations(data.props.team.id)
     data.props.autoOpenSourceId = sourceId ? sourceId : null
   }
