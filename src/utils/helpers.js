@@ -257,7 +257,7 @@ export function getStats(doc, timeDelta) {
   let isMonthly = false
   const currDate = new Date()
   
-  if (timeDelta > 30 && doc?.questionHistory) {
+  if (timeDelta > 90 && doc?.questionHistory) {
     // scrape monthly data
     for (const dateKey in doc.questionHistory) {
       // if date is within the timeDelta, add to our dateCounts
@@ -308,7 +308,7 @@ export function getStats(doc, timeDelta) {
 
     isMonthly = true
     timeDelta = Math.floor(timeDelta / 30)
-  } else if (doc?.questionHistoryDaily) {
+    } else if (doc?.questionHistoryDaily) {
     // scrape daily data
     for (const dateKey in doc.questionHistoryDaily) {
       // if date is within the timeDelta, add to our dateCounts
@@ -364,8 +364,8 @@ export function getStats(doc, timeDelta) {
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
       : new Date(currDate - i * 24 * 60 * 60 * 1000)
     const dateKey = isMonthly
-      ? `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
-      : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+      ? `${date.getFullYear()}-${date.getMonth() + 1}`
+      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     
     if (!dateCounts[dateKey]) {
       dateCounts[dateKey] = {
@@ -456,8 +456,8 @@ export function getStats(doc, timeDelta) {
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
       : new Date(currDate - i * 24 * 60 * 60 * 1000)
     const dateKey = isMonthly
-      ? `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
-      : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+      ? `${date.getFullYear()}-${date.getMonth() + 1}`
+      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     
     // Question data
     countData.push(dateCounts[dateKey].count)

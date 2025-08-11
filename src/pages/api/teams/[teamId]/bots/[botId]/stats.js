@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     let { timeDelta } = req.query
 
     // check if timeDelta is valid and a number
-    if (!timeDelta || isNaN(timeDelta) || timeDelta < 0 || timeDelta > 90) {
+    if (!timeDelta || isNaN(timeDelta) || timeDelta < 0 || timeDelta > 365) {
       timeDelta = 30
     }
 
