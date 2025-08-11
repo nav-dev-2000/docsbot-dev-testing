@@ -6,6 +6,27 @@ import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
 import { stripePlan } from '@/utils/helpers'
 
+// Helper function to clean up daily stats objects by removing entries older than 93 days
+function cleanDailyStats(dailyStats) {
+  if (!dailyStats || typeof dailyStats !== 'object') {
+    return dailyStats
+  }
+
+  const cutoffDate = new Date()
+  cutoffDate.setDate(cutoffDate.getDate() - 93)
+
+  const cleanedStats = {}
+  for (const [date, stats] of Object.entries(dailyStats)) {
+    // Use Date object comparison like in getStats()
+    const dateObj = new Date(date)
+    if (dateObj.getTime() > cutoffDate.getTime()) {
+      cleanedStats[date] = stats
+    }
+  }
+
+  return cleanedStats
+}
+
 export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
@@ -114,18 +135,18 @@ export default async function handler(request, response) {
               ...prevHistory,
               [`${currentYear}-${currentMonth}`]: monthly,
             },
-            questionHistoryDaily: {
+            questionHistoryDaily: cleanDailyStats({
               ...prevHistoryDaily,
               ...daily,
-            },
+            }),
             conversationHistory: {
               ...prevConversationHistory,
               [`${currentYear}-${currentMonth}`]: conversationMonthly,
             },
-            conversationHistoryDaily: {
+            conversationHistoryDaily: cleanDailyStats({
               ...prevConversationHistoryDaily,
               ...conversationDaily,
-            },
+            }),
           }
 
           const embedded = botDoc.data().embedded || false
@@ -275,10 +296,10 @@ export default async function handler(request, response) {
               couldNotAnswer: couldNotAnswerTotal,
             },
           },
-          questionHistoryDaily: {
+          questionHistoryDaily: cleanDailyStats({
             ...prevHistoryDaily,
             ...questionHistoryDailyNew,
-          },
+          }),
           conversationHistory: {
             ...prevConversationHistory,
             [`${currentYear}-${currentMonth}`]: {
@@ -295,10 +316,10 @@ export default async function handler(request, response) {
               unanswered: unansweredTotal,
             },
           },
-          conversationHistoryDaily: {
+          conversationHistoryDaily: cleanDailyStats({
             ...prevConversationHistoryDaily,
             ...conversationHistoryDailyNew,
-          },
+          }),
           needsUpdate: false,
         })
       } catch (error) {

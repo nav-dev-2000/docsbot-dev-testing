@@ -16,6 +16,7 @@ const intervals = [
   { value: 7, title: 'Week' },
   { value: 30, title: 'Month' },
   { value: 90, title: 'Quarter' },
+  { value: 365, title: 'Year' },
 ]
 
 const defaultSelected = 30
