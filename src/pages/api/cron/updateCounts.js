@@ -195,6 +195,20 @@ export default async function handler(request, response) {
 
           //loop through daily conversation stats
           for (const [day, value] of Object.entries(conversationDaily)) {
+            const {
+              conversations = 0,
+              resolvedConfirmed = 0,
+              resolvedAssumed = 0,
+              unresolved = 0,
+              escalatedHandled = 0,
+              escalatedTriggered = 0,
+              sentimentPositive = 0,
+              sentimentNegative = 0,
+              sentimentNeutral = 0,
+              answered = 0,
+              unanswered = 0,
+            } = value
+
             conversationHistoryDailyNew[day] = conversationHistoryDailyNew[day] || {
               conversations: 0,
               resolvedConfirmed: 0,
@@ -208,17 +222,17 @@ export default async function handler(request, response) {
               answered: 0,
               unanswered: 0,
             }
-            conversationHistoryDailyNew[day].conversations += value.conversations
-            conversationHistoryDailyNew[day].resolvedConfirmed += value.resolvedConfirmed
-            conversationHistoryDailyNew[day].resolvedAssumed += value.resolvedAssumed
-            conversationHistoryDailyNew[day].unresolved += value.unresolved
-            conversationHistoryDailyNew[day].escalatedHandled += value.escalatedHandled
-            conversationHistoryDailyNew[day].escalatedTriggered += value.escalatedTriggered
-            conversationHistoryDailyNew[day].sentimentPositive += value.sentimentPositive
-            conversationHistoryDailyNew[day].sentimentNegative += value.sentimentNegative
-            conversationHistoryDailyNew[day].sentimentNeutral += value.sentimentNeutral
-            conversationHistoryDailyNew[day].answered += value.answered
-            conversationHistoryDailyNew[day].unanswered += value.unanswered
+            conversationHistoryDailyNew[day].conversations += conversations
+            conversationHistoryDailyNew[day].resolvedConfirmed += resolvedConfirmed
+            conversationHistoryDailyNew[day].resolvedAssumed += resolvedAssumed
+            conversationHistoryDailyNew[day].unresolved += unresolved
+            conversationHistoryDailyNew[day].escalatedHandled += escalatedHandled
+            conversationHistoryDailyNew[day].escalatedTriggered += escalatedTriggered
+            conversationHistoryDailyNew[day].sentimentPositive += sentimentPositive
+            conversationHistoryDailyNew[day].sentimentNegative += sentimentNegative
+            conversationHistoryDailyNew[day].sentimentNeutral += sentimentNeutral
+            conversationHistoryDailyNew[day].answered += answered
+            conversationHistoryDailyNew[day].unanswered += unanswered
           }
         }
 

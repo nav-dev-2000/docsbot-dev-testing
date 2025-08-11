@@ -252,6 +252,8 @@ export function getStats(doc, timeDelta) {
 
   let dateCounts = {}
   let conversationCounts = {}
+  let conversationTopics = {}
+  let conversationTopicsByDate = {}
   let isMonthly = false
   const currDate = new Date()
   
@@ -292,6 +294,13 @@ export function getStats(doc, timeDelta) {
             sentimentNeutral: data.sentimentNeutral || 0,
             answered: data.answered || 0,
             unanswered: data.unanswered || 0,
+          }
+          if (data?.topics) {
+            conversationTopicsByDate[dateKey] = { ...data.topics }
+            for (const [topic, count] of Object.entries(data.topics)) {
+              conversationTopics[topic] =
+                (conversationTopics[topic] || 0) + count
+            }
           }
         }
       }
@@ -337,6 +346,13 @@ export function getStats(doc, timeDelta) {
             answered: data.answered || 0,
             unanswered: data.unanswered || 0,
           }
+          if (data?.topics) {
+            conversationTopicsByDate[dateKey] = { ...data.topics }
+            for (const [topic, count] of Object.entries(data.topics)) {
+              conversationTopics[topic] =
+                (conversationTopics[topic] || 0) + count
+            }
+          }
         }
       }
     }
@@ -348,8 +364,8 @@ export function getStats(doc, timeDelta) {
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
       : new Date(currDate - i * 24 * 60 * 60 * 1000)
     const dateKey = isMonthly
-      ? `${date.getFullYear()}-${date.getMonth() + 1}`
-      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+      ? `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
+      : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
     
     if (!dateCounts[dateKey]) {
       dateCounts[dateKey] = {
@@ -378,7 +394,17 @@ export function getStats(doc, timeDelta) {
         unanswered: 0,
       }
     }
+
+    // Ensure all topics that have been seen have a 0 value for missing dates
+    if (!conversationTopicsByDate[dateKey]) {
+      conversationTopicsByDate[dateKey] = {}
+    }
   }
+  const topicList = Object.keys(conversationTopics)
+  const conversationTopicData = {}
+  topicList.forEach((topic) => {
+    conversationTopicData[topic] = []
+  })
 
   // split data and labels for questions
   let totalCount = 0,
@@ -430,8 +456,8 @@ export function getStats(doc, timeDelta) {
       ? new Date(currDate - i * 30 * 24 * 60 * 60 * 1000)
       : new Date(currDate - i * 24 * 60 * 60 * 1000)
     const dateKey = isMonthly
-      ? `${date.getFullYear()}-${date.getMonth() + 1}`
-      : `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+      ? `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
+      : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
     
     // Question data
     countData.push(dateCounts[dateKey].count)
@@ -475,6 +501,12 @@ export function getStats(doc, timeDelta) {
     answeredData.push(dayAnswered)
     unansweredData.push(dayUnanswered)
 
+    const topicsForDate = conversationTopicsByDate[dateKey] || {}
+    topicList.forEach((topic) => {
+      // Ensure every topic that has been seen gets a value (0 if not present for this date)
+      conversationTopicData[topic].push(topicsForDate[topic] || 0)
+    })
+
     // Calculate daily CSAT (confirmed + assumed resolved / total with resolution status)
     const dayTotalResolved = dayResolvedConfirmed + dayResolvedAssumed + dayUnresolved
     const dayCsat = dayTotalResolved > 0 ? Math.round(((dayResolvedConfirmed + dayResolvedAssumed) / dayTotalResolved) * 100) : null
@@ -516,6 +548,24 @@ export function getStats(doc, timeDelta) {
         : `${date.getMonth() + 1}/${date.getDate()}`,
     )
   }
+
+  // Calculate the total number of conversations that have a topic assigned
+  const totalConversationsWithTopic = Object.values(conversationTopics).reduce((sum, count) => sum + count, 0)
+
+  // Labels for line chart (just topic names)
+  const conversationTopicLabels = topicList
+  
+  // Labels for pie chart (with percentages)
+  const conversationTopicPieLabels = topicList.map(
+    (topic) => {
+      const count = conversationTopics[topic] || 0
+      const percent = totalConversationsWithTopic > 0 ? Math.round((count / totalConversationsWithTopic) * 100) : 0
+      return `${topic} (${percent}%)`
+    }
+  )
+  const conversationTopicCounts = topicList.map(
+    (topic) => conversationTopics[topic] || 0,
+  )
 
   // calculate percentages for questions
   const counts = [
@@ -607,6 +657,10 @@ export function getStats(doc, timeDelta) {
       totalAvgSentiment: null,
       totalAnsweredRate: null,
       answeredRateData,
+      conversationTopicLabels,
+      conversationTopicPieLabels,
+      conversationTopicCounts,
+      conversationTopicData,
     }
   }
 
@@ -751,6 +805,10 @@ export function getStats(doc, timeDelta) {
     totalAvgSentiment,
     totalAnsweredRate,
     answeredRateData,
+    conversationTopicLabels,
+    conversationTopicPieLabels,
+    conversationTopicCounts,
+    conversationTopicData,
   }
 
   console.log(finalStats)

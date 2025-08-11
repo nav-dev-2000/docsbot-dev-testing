@@ -178,7 +178,7 @@ export async function getConversationStats(
     .doc(botId)
     .collection('conversations')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .select('createdAt', 'resolved', 'escalated', 'sentiment', 'answered')
+    .select('createdAt', 'resolved', 'escalated', 'sentiment', 'answered', 'topic')
     .get()
 
   const monthly = {
@@ -193,6 +193,7 @@ export async function getConversationStats(
     sentimentNeutral: 0,
     answered: 0,
     unanswered: 0,
+    topics: {},
   }
   const daily = {}
 
@@ -219,6 +220,7 @@ export async function getConversationStats(
       sentimentNeutral: 0,
       answered: 0,
       unanswered: 0,
+      topics: {},
     }
 
     // Count total conversations
@@ -256,6 +258,16 @@ export async function getConversationStats(
     } else if (conversationData?.sentiment === 'neutral') {
       monthly.sentimentNeutral += 1
       daily[day].sentimentNeutral += 1
+    }
+
+    // Track topics
+    if (conversationData?.topic) {
+      const topic = conversationData.topic
+      monthly.topics = monthly.topics || {}
+      monthly.topics[topic] = (monthly.topics[topic] || 0) + 1
+
+      daily[day].topics = daily[day].topics || {}
+      daily[day].topics[topic] = (daily[day].topics[topic] || 0) + 1
     }
 
     // Track answered status

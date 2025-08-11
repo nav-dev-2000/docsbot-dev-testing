@@ -1,13 +1,14 @@
 import { Listbox, Transition } from '@headlessui/react'
 import { useEffect, Fragment, useState } from 'react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { CreditCardIcon } from '@heroicons/react/24/outline'
+import { CreditCardIcon, TagIcon } from '@heroicons/react/24/outline'
 import Chart from 'chart.js/auto'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalTopicManagement from '@/components/ModalTopicManagement'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
 import Tooltip from '@/components/Tooltip'
@@ -18,6 +19,7 @@ const intervals = [
   { value: 7, title: 'Week' },
   { value: 30, title: 'Month' },
   { value: 90, title: 'Quarter' },
+  { value: 365, title: 'Year' },
 ]
 
 const defaultSelected = 30
@@ -44,6 +46,9 @@ export default function BotHistory({ team, bot }) {
     useState(null)
   const [conversationAnsweredPieData, setConversationAnsweredPieData] =
     useState(null)
+  // Topics chart data
+  const [topicsLineData, setTopicsLineData] = useState(null)
+  const [topicsPieData, setTopicsPieData] = useState(null)
   const [isProcessing, setIsProcessing] = useState(false)
   // blur is only enabled when we've reached our plan limit
   const [blurEnabled, setBlurEnabled] = useState(() => {
@@ -58,6 +63,7 @@ export default function BotHistory({ team, bot }) {
     return !checkPlanPermission(team, 'business', 'analytics').allowed
   })
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [showTopicManagement, setShowTopicManagement] = useState(false)
 
   const updateData = async (timeDelta) => {
     if (isProcessing) return
@@ -326,6 +332,47 @@ export default function BotHistory({ team, bot }) {
         },
       ],
     })
+
+    // Set up topics chart data
+    if (stats.conversationTopicLabels && stats.conversationTopicLabels.length > 0) {
+      // Topics line chart data
+      const topicDatasets = stats.conversationTopicLabels.map((topic, index) => {
+        const colors = [
+          '#76B7B2', '#E15759', '#59A14F', '#9e74d5', '#EDC948', 
+          '#9CA3AF', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'
+        ]
+        const topicData = stats.conversationTopicData[topic] || []
+        return {
+          label: topic,
+          data: topicData,
+          borderColor: colors[index % colors.length],
+          backgroundColor: colors[index % colors.length] + '20',
+          tension: 0.3,
+        }
+      })
+
+      setTopicsLineData({
+        labels: stats.labels,
+        datasets: topicDatasets,
+      })
+
+      // Topics pie chart data
+      setTopicsPieData({
+        labels: stats.conversationTopicPieLabels,
+        datasets: [
+          {
+            data: stats.conversationTopicCounts,
+            backgroundColor: stats.conversationTopicLabels.map((topic, index) => {
+              const colors = [
+                '#76B7B2', '#E15759', '#59A14F', '#9e74d5', '#EDC948', 
+                '#9CA3AF', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'
+              ]
+              return colors[index % colors.length]
+            }),
+          },
+        ],
+      })
+    }
   }, [stats])
 
   useEffect(() => {
@@ -655,7 +702,7 @@ export default function BotHistory({ team, bot }) {
                   {/* Conversation Percentage Line Chart */}
                   <div className="w-full">
                     <h4 className="mb-4 text-lg font-semibold text-gray-900">
-                      Daily Conversation Metrics (%)
+                      Conversation Metrics (%)
                     </h4>
                     {conversationPercentLineData && (
                       <div style={{ height: '320px', width: '100%' }}>
@@ -707,7 +754,7 @@ export default function BotHistory({ team, bot }) {
                   {/* Conversation Count Line Chart */}
                   <div className="mt-8 w-full">
                     <h4 className="mb-4 text-lg font-semibold text-gray-900">
-                      Daily Conversation Counts
+                      Conversation Counts
                     </h4>
                     {conversationCountLineData && (
                       <div style={{ height: '320px', width: '100%' }}>
@@ -833,6 +880,133 @@ export default function BotHistory({ team, bot }) {
                   </div>
                 </div>
               </div>
+
+              {/* Topics Analytics Section - Business Plan Only */}
+              {bot?.isAgent && stats.conversationTopicLabels && stats.conversationTopicLabels.length > 0 && (
+                <div className="mt-12">
+                  <div className="relative">
+                    {businessBlurEnabled && (
+                      <div className="absolute inset-0 z-10 flex items-center justify-center">
+                        <div className="max-w-3xl rounded-lg bg-white/90 p-8 text-center shadow-lg backdrop-blur-sm">
+                          <h3 className="mb-4 text-3xl font-bold">
+                            View conversation topics analytics
+                          </h3>
+                          <p className="mb-8 text-center text-gray-700">
+                            Upgrade to the Business plan or higher to unlock conversation topics analytics. View{' '}
+                            <Link href="/pricing" target="_blank" className="underline">
+                              plan details
+                            </Link>
+                            .
+                          </p>
+                          <button
+                            type="button"
+                            className="text-md inline-flex w-64 cursor-pointer items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-3 font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            onClick={(e) => setShowUpgrade(true)}
+                          >
+                            <CreditCardIcon
+                              className="mr-1.5 h-5 w-5 flex-shrink-0"
+                              aria-hidden="true"
+                            />
+                            Upgrade to Business
+                          </button>
+                          <ModalCheckout
+                            team={team}
+                            open={showUpgrade}
+                            setOpen={setShowUpgrade}
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    <div
+                      className={classNames(
+                        'space-y-6',
+                        businessBlurEnabled ? 'blur-lg' : '',
+                      )}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h4 className="text-2xl font-bold tracking-tight text-gray-900">
+                            Conversation Topics Analytics
+                          </h4>
+                          <p className="text-gray-500">
+                            Track conversation topics over time and see the distribution of topics discussed with your customers.
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => setShowTopicManagement(true)}
+                          className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                        >
+                          <TagIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+                          Manage Topics
+                        </button>
+                      </div>
+
+                      {/* Topics Charts - Side by Side on larger screens */}
+                      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                        {/* Topics Line Chart - 2/3 width on large screens */}
+                        <div className="lg:col-span-2">
+                          <h5 className="mb-4 text-lg font-semibold text-gray-900">
+                            Conversation Topics
+                          </h5>
+                          {topicsLineData && (
+                            <div style={{ height: '320px', width: '100%' }}>
+                              <Line
+                                data={topicsLineData}
+                                options={{
+                                  maintainAspectRatio: false,
+                                  responsive: true,
+                                  spanGaps: true,
+                                  plugins: {
+                                    legend: {
+                                      display: true,
+                                      position: 'top',
+                                    },
+                                  },
+                                  scales: {
+                                    y: {
+                                      beginAtZero: true,
+                                      ticks: {
+                                        stepSize: 1,
+                                      },
+                                    },
+                                  },
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Topics Pie Chart - 1/3 width on large screens */}
+                        <div className="lg:col-span-1">
+                          <h5 className="mb-4 text-lg font-semibold text-gray-900">
+                            Total Topics Distribution
+                          </h5>
+                          <div className="flex justify-center">
+                            <div className="h-80 w-full max-w-80">
+                              {topicsPieData && (
+                                <Pie
+                                  data={topicsPieData}
+                                  options={{
+                                    maintainAspectRatio: true,
+                                    responsive: true,
+                                    plugins: {
+                                      legend: {
+                                        display: true,
+                                        position: 'bottom',
+                                      },
+                                    },
+                                  }}
+                                />
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="mb-8">
@@ -1063,6 +1237,14 @@ export default function BotHistory({ team, bot }) {
           </div>
         </>
       )}
+
+      {/* Topic Management Modal */}
+      <ModalTopicManagement
+        open={showTopicManagement}
+        setOpen={setShowTopicManagement}
+        team={team}
+        bot={bot}
+      />
     </div>
   )
 }
