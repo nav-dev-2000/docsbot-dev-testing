@@ -400,7 +400,17 @@ export function getStats(doc, timeDelta) {
       conversationTopicsByDate[dateKey] = {}
     }
   }
-  const topicList = Object.keys(conversationTopics)
+  const allowedTopicsSet = Array.isArray(doc?.topics) && doc.topics.length > 0
+    ? new Set(doc.topics.map(String))
+    : null
+  const effectiveConversationTopics = allowedTopicsSet
+    ? Object.fromEntries(
+        Object.entries(conversationTopics).filter(([topic]) =>
+          allowedTopicsSet.has(topic),
+        ),
+      )
+    : conversationTopics
+  const topicList = Object.keys(effectiveConversationTopics)
   const conversationTopicData = {}
   topicList.forEach((topic) => {
     conversationTopicData[topic] = []
@@ -503,8 +513,8 @@ export function getStats(doc, timeDelta) {
 
     const topicsForDate = conversationTopicsByDate[dateKey] || {}
     topicList.forEach((topic) => {
-      // Ensure every topic that has been seen gets a value (0 if not present for this date)
-      conversationTopicData[topic].push(topicsForDate[topic] || 0)
+      const value = topicsForDate[topic] || 0
+      conversationTopicData[topic].push(value)
     })
 
     // Calculate daily CSAT (confirmed + assumed resolved / total with resolution status)
@@ -549,23 +559,19 @@ export function getStats(doc, timeDelta) {
     )
   }
 
-  // Calculate the total number of conversations that have a topic assigned
-  const totalConversationsWithTopic = Object.values(conversationTopics).reduce((sum, count) => sum + count, 0)
+  // Calculate the total number of conversations that have a topic assigned (filtered if topics list provided)
+  const totalConversationsWithTopic = Object.values(effectiveConversationTopics).reduce((sum, count) => sum + count, 0)
 
   // Labels for line chart (just topic names)
   const conversationTopicLabels = topicList
   
   // Labels for pie chart (with percentages)
-  const conversationTopicPieLabels = topicList.map(
-    (topic) => {
-      const count = conversationTopics[topic] || 0
-      const percent = totalConversationsWithTopic > 0 ? Math.round((count / totalConversationsWithTopic) * 100) : 0
-      return `${topic} (${percent}%)`
-    }
-  )
-  const conversationTopicCounts = topicList.map(
-    (topic) => conversationTopics[topic] || 0,
-  )
+  const conversationTopicPieLabels = topicList.map((topic) => {
+    const count = effectiveConversationTopics[topic] || 0
+    const percent = totalConversationsWithTopic > 0 ? Math.round((count / totalConversationsWithTopic) * 100) : 0
+    return `${topic} (${percent}%)`
+  })
+  const conversationTopicCounts = topicList.map((topic) => effectiveConversationTopics[topic] || 0)
 
   // calculate percentages for questions
   const counts = [
