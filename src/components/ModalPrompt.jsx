@@ -13,6 +13,8 @@ import {
   InformationCircleIcon,
   LightBulbIcon,
   ArrowPathIcon,
+  BugAntIcon,
+  PhotoIcon,
 } from '@heroicons/react/24/outline'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
@@ -26,6 +28,16 @@ import { canUserEditBot } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
+import remarkExternalLinks from 'remark-external-links'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
+import { preprocessLaTeX } from '@/utils/helpers'
 
 export default function ModalPrompt({
   team,
@@ -54,6 +66,29 @@ export default function ModalPrompt({
   const [showGeneratePopover, setShowGeneratePopover] = useState(false)
   const popoverRef = useRef(null)
   const buttonRef = useRef(null)
+  
+  // Debug functionality state
+  const [showDebugModal, setShowDebugModal] = useState(false)
+  const [debugDesiredBehavior, setDebugDesiredBehavior] = useState('')
+  const [debugUndesiredBehavior, setDebugUndesiredBehavior] = useState('')
+  const [debugAnalysis, setDebugAnalysis] = useState('')
+  const [isDebugging, setIsDebugging] = useState(false)
+  const [debugAnalysisHtml, setDebugAnalysisHtml] = useState('')
+  
+  // Debug image upload state
+  const [debugSelectedImages, setDebugSelectedImages] = useState([])
+  const debugFileInputRef = useRef(null)
+  
+  // Debug progress text
+  const debugLoadingText = [
+    'Analyzing prompt structure...',
+    'Identifying behavioral patterns...',
+    'Evaluating instruction clarity...',
+    'Detecting potential improvements...',
+    'Generating optimization suggestions...',
+    'Finalizing recommendations...',
+  ]
+  const [debugLoadingIndex, setDebugLoadingIndex] = useState(0)
 
   // Use external open state if provided, otherwise use local state
   const isOpen = open !== undefined ? open : localOpen
@@ -68,6 +103,46 @@ export default function ModalPrompt({
       }
     }
   }, [showGeneratePopover, activeTab, prompt, hsPrompt])
+
+  // Debug loading text effect
+  useEffect(() => {
+    if (isDebugging) {
+      const interval = setInterval(() => {
+        setDebugLoadingIndex((prevIndex) => {
+          if (prevIndex < debugLoadingText.length - 1) {
+            return prevIndex + 1
+          }
+          clearInterval(interval)
+          return prevIndex
+        })
+      }, 8000) // 8 seconds per text, total 48 seconds
+
+      return () => clearInterval(interval)
+    } else {
+      setDebugLoadingIndex(0)
+    }
+  }, [isDebugging, debugLoadingText.length])
+
+  // Process markdown for debug analysis
+  useEffect(() => {
+    if (debugAnalysis) {
+      unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+        .use(remarkMath, { singleDollarTextMath: false })
+        .use(remarkRehype)
+        .use(rehypeKatex)
+        .use(rehypeStringify)
+        .process(preprocessLaTeX(debugAnalysis))
+        .then((file) => {
+          setDebugAnalysisHtml(String(file))
+        })
+        .catch((error) => {
+          console.error('Error processing markdown:', error)
+        })
+    }
+  }, [debugAnalysis])
 
   useEffect(() => {
     if (!team || !user) return
@@ -330,6 +405,127 @@ export default function ModalPrompt({
     setIsGenerating(false)
   }
 
+  async function debugPrompt() {
+    if (!debugDesiredBehavior.trim() && !debugUndesiredBehavior.trim()) {
+      setErrorText('Please fill in at least one of the behavior fields (desired or undesired).')
+      return
+    }
+
+    setIsDebugging(true)
+    setErrorText('')
+    
+    // Get the current prompt based on active tab
+    let currentPrompt = ''
+    if (activeTab === 'regular') {
+      currentPrompt = prompt
+    } else if (activeTab === 'agent') {
+      currentPrompt = agentPrompt
+    } else if (activeTab === 'helpscout') {
+      currentPrompt = hsPrompt
+    }
+
+    if (!currentPrompt.trim()) {
+      setErrorText('Please enter a prompt before debugging.')
+      setIsDebugging(false)
+      return
+    }
+
+    try {
+      const imageUrls = debugSelectedImages.map(img => img.url)
+      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/prompt-debug`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: currentPrompt,
+          desiredBehavior: debugDesiredBehavior,
+          undesiredBehavior: debugUndesiredBehavior,
+          image_urls: imageUrls,
+        }),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        setDebugAnalysis(data.analysis)
+      } else {
+        const errorData = await response.json()
+        setErrorText(errorData.message || 'Failed to analyze prompt. Please try again.')
+      }
+    } catch (error) {
+      setErrorText('An error occurred while analyzing the prompt.')
+    }
+    setIsDebugging(false)
+  }
+
+  const resetDebugModal = () => {
+    setShowDebugModal(false)
+    setDebugDesiredBehavior('')
+    setDebugUndesiredBehavior('')
+    setDebugAnalysis('')
+    setDebugAnalysisHtml('')
+    setDebugSelectedImages([])
+    setErrorText('')
+  }
+
+  const handleDebugImageSelect = (e) => {
+    const files = Array.from(e.target.files)
+    if (files.length === 0) return
+
+    // Check if adding these files would exceed the limit
+    if (debugSelectedImages.length + files.length > 4) {
+      setErrorText('Maximum 4 images allowed')
+      return
+    }
+
+    files.forEach((file) => {
+      if (!file.type.startsWith('image/')) {
+        setErrorText('Please select only image files')
+        return
+      }
+
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const img = new Image()
+        img.onload = () => {
+          // Calculate new dimensions while maintaining aspect ratio
+          let width = img.width
+          let height = img.height
+          const maxSize = 1200
+
+          if (width > height && width > maxSize) {
+            height = (height * maxSize) / width
+            width = maxSize
+          } else if (height > maxSize) {
+            width = (width * maxSize) / height
+            height = maxSize
+          }
+
+          // Create canvas and resize image
+          const canvas = document.createElement('canvas')
+          canvas.width = width
+          canvas.height = height
+          const ctx = canvas.getContext('2d')
+          ctx.drawImage(img, 0, 0, width, height)
+
+          // Convert to base64
+          const base64 = canvas.toDataURL('image/jpeg', 0.8)
+          setDebugSelectedImages((prev) => [...prev, { url: base64, file }])
+        }
+        img.src = e.target.result
+      }
+      reader.readAsDataURL(file)
+    })
+  }
+
+  const removeDebugImage = (index) => {
+    setDebugSelectedImages((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  const triggerDebugFileInput = () => {
+    debugFileInputRef.current.click()
+  }
+
   return (
     <>
       {/* Only show button if setOpen is not provided externally */}
@@ -507,7 +703,17 @@ export default function ModalPrompt({
                                 </a>
                               ))}
                             </nav>
-                            <div className="relative">
+                            <div className="relative flex items-center space-x-2">
+                              <Tooltip content="Debug your prompt behavior">
+                                <button
+                                  type="button"
+                                  onClick={() => setShowDebugModal(true)}
+                                  className="my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400"
+                                >
+                                  <BugAntIcon className="mr-1 h-5 w-5" />
+                                  <span className="hidden sm:inline">Debug</span>
+                                </button>
+                              </Tooltip>
                               <Tooltip content="Generate or improve your prompt">
                                 <button
                                   ref={buttonRef}
@@ -743,6 +949,224 @@ export default function ModalPrompt({
                       </div>
                     </div>
                   </form>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      {/* Debug Modal */}
+      <Transition.Root show={showDebugModal} as={Fragment}>
+        <Dialog as="div" className="relative z-20" onClose={resetDebugModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={resetDebugModal}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  <div className="">
+                    <Dialog.Title
+                      as="h3"
+                      className="mb-4 text-xl font-medium leading-6 text-gray-900"
+                    >
+                      <div className="flex items-center">
+                        <BugAntIcon className="mr-2 h-6 w-6 text-cyan-600" />
+                        <span>Debug Prompt Behavior</span>
+                      </div>
+                    </Dialog.Title>
+
+                    <Alert title={errorText} type="error" />
+
+                    {!debugAnalysis ? (
+                      <div className="space-y-4">
+                        {!isDebugging ? (
+                          <>
+                            <p className="text-sm text-gray-600">
+                              Describe what you want your agent to do versus what it's actually doing. 
+                              Our AI will analyze your prompt/instructions and suggest specific improvements.
+                            </p>
+
+                            <div>
+                              <label htmlFor="desired-behavior" className="block text-sm font-medium text-gray-700">
+                                What should your bot do? <span className="text-gray-400">(Optional)</span>
+                              </label>
+                              <p className="mt-1 text-xs text-gray-500">
+                                Describe the desired behavior (e.g., "answer questions professionally and cite sources")
+                              </p>
+                              <textarea
+                                id="desired-behavior"
+                                rows={3}
+                                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                placeholder="Describe what you want your bot to do (optional)..."
+                                value={debugDesiredBehavior}
+                                onChange={(e) => setDebugDesiredBehavior(e.target.value)}
+                              />
+                            </div>
+
+                            <div>
+                              <label htmlFor="undesired-behavior" className="block text-sm font-medium text-gray-700">
+                                What is your bot doing wrong? <span className="text-gray-400">(Optional)</span>
+                              </label>
+                              <p className="mt-1 text-xs text-gray-500">
+                                Describe the problematic behavior (e.g., "gives generic answers without using provided context")
+                              </p>
+                              <textarea
+                                id="undesired-behavior"
+                                rows={3}
+                                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                placeholder="Describe what your bot is doing wrong (optional)..."
+                                value={debugUndesiredBehavior}
+                                onChange={(e) => setDebugUndesiredBehavior(e.target.value)}
+                              />
+                            </div>
+
+                            {/* Image Upload Section */}
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700">
+                                Screenshots (Optional)
+                              </label>
+                              <p className="mt-1 text-xs text-gray-500">
+                                Upload any conversation screenshots to help illustrate the issue
+                              </p>
+                              
+                              <input
+                                type="file"
+                                ref={debugFileInputRef}
+                                onChange={handleDebugImageSelect}
+                                accept="image/*"
+                                multiple
+                                className="hidden"
+                              />
+                              
+                              <div className="mt-2">
+                                <button
+                                  type="button"
+                                  onClick={triggerDebugFileInput}
+                                  disabled={debugSelectedImages.length >= 4}
+                                  className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50"
+                                >
+                                  <PhotoIcon className="mr-2 h-4 w-4" />
+                                  Add Screenshot
+                                </button>
+                                {debugSelectedImages.length > 0 && (
+                                  <p className="mt-1 text-xs text-gray-500">
+                                    {debugSelectedImages.length}/4 images selected
+                                  </p>
+                                )}
+                              </div>
+
+                              {debugSelectedImages.length > 0 && (
+                                <div className="mt-3 flex flex-wrap gap-2">
+                                  {debugSelectedImages.map((image, index) => (
+                                    <div key={index} className="relative">
+                                      <img
+                                        src={image.url}
+                                        alt={`Screenshot ${index + 1}`}
+                                        className="h-20 w-20 rounded-lg object-cover"
+                                      />
+                                      <button
+                                        type="button"
+                                        onClick={() => removeDebugImage(index)}
+                                        className="absolute -right-1 -top-1 rounded-full bg-gray-500 p-1 text-white hover:bg-gray-600"
+                                      >
+                                        <XMarkIcon className="h-3 w-3" />
+                                      </button>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+
+                            <div className="flex justify-end space-x-3 pt-4">
+                              <button
+                                type="button"
+                                className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
+                                onClick={resetDebugModal}
+                              >
+                                Cancel
+                              </button>
+                              <button
+                                type="button"
+                                className="inline-flex justify-center align-middle rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 sm:text-sm"
+                                onClick={debugPrompt}
+                                disabled={isDebugging || (!debugDesiredBehavior.trim() && !debugUndesiredBehavior.trim())}
+                              >
+                                Analyze Prompt
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="text-center py-8">
+                            <LoadingSpinner />
+                            <p className="mt-4 animate-pulse text-gray-600">
+                              {debugLoadingText[debugLoadingIndex]}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="text-lg font-medium text-gray-900 mb-3">Analysis & Suggestions</h4>
+                          <div 
+                            className="prose prose-sm max-w-none bg-gray-50 rounded-lg p-4 border"
+                            dangerouslySetInnerHTML={{ __html: debugAnalysisHtml }}
+                          />
+                        </div>
+
+                        <div className="flex justify-end space-x-3 pt-4">
+                          <button
+                            type="button"
+                            className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
+                            onClick={resetDebugModal}
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            className="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
+                            onClick={() => {
+                              setDebugAnalysis('')
+                              setDebugDesiredBehavior('')
+                              setDebugUndesiredBehavior('')
+                            }}
+                          >
+                            Analyze Another Issue
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

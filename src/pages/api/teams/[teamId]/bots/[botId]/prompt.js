@@ -1,6 +1,7 @@
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries'
 import { phTrack } from '@/lib/posthog'
+import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import OpenAI from 'openai'
 
 const openai = new OpenAI({
@@ -116,6 +117,13 @@ const handler = async (req, res) => {
   const { botId } = req.query
 
   if (req.method === 'POST') {
+    // Check if user has permission to edit prompts
+    if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+      return res.status(403).json({ 
+        message: 'Custom prompts are not available at your plan level.' 
+      })
+    }
+
     // Grab bot
     const bot = await getBot(team.id, botId)
     if (!bot) {
