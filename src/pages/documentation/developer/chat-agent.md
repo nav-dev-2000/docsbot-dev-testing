@@ -36,6 +36,7 @@ Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 | **image_urls**         | array           | List of image URLs to include with the question as context. Optional, defaults to `null`.                                                                                                                                   |
 | **model**               | string          | Override the model used for this request. Requires an OpenAI API key to be set on your team. Optional, defaults to the model configured for the bot. Examples: `gpt-4o`, `gpt-4.1`, `gpt-4.1-mini`.                  |
 | **default_language**   | string          | The default language to use if the language of the conversation is unclear. Use locale codes like 'en' or 'en-US'. Optional, defaults to the bot's configured language.                  |
+| **reasoning_effort**   | string          | Reasoning depth for the response. Requires authentication to override default. Options: 'minimal' (GPT-5 only, uses least reasoning), 'low' (light reasoning), 'medium' (balanced reasoning), 'high' (most reasoning). Defaults: GPT-5 → 'minimal', other reasoning models → 'low', non-reasoning models → ignored. Optional, defaults to model-specific default. |
 
 
 {% callout title="Vision" %}
@@ -56,7 +57,8 @@ Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which m
   "full_source": false,
   "stream": false,
   "auto_cut": false,
-  "image_urls": ["http://example.com/image1.jpg", "data:image/jpeg;base64,XXXXXXXX"]
+  "image_urls": ["http://example.com/image1.jpg", "data:image/jpeg;base64,XXXXXXXX"],
+  "reasoning_effort": "medium"
 }
 ```
 
