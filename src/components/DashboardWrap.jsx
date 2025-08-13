@@ -13,6 +13,7 @@ import {
   ChevronRightIcon,
   ChevronUpDownIcon,
   UserGroupIcon,
+  BellIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
 import { useCallback } from 'react'
@@ -30,6 +31,8 @@ import { getUserRole } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
+import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
+import * as cookie from 'cookie'
 
 export default function DashboardWrap({
   page,
@@ -58,6 +61,96 @@ export default function DashboardWrap({
     })
   }
 
+  // Utility functions for managing preferences cookie (same as Alert.jsx)
+  const getPreferences = () => {
+    if (typeof window === 'undefined') return {}
+    try {
+      const cookies = cookie.parse(document.cookie || '')
+      const prefsValue = cookies['docsbot-prefs']
+      if (!prefsValue) return {}
+
+      // The cookie.parse automatically URL decodes, but let's be explicit about JSON parsing
+      const decoded = decodeURIComponent(prefsValue)
+      const parsed = JSON.parse(decoded)
+      return parsed
+    } catch (error) {
+      console.error('Failed to parse preferences cookie:', error)
+      return {}
+    }
+  }
+
+  const setPreference = (key, value) => {
+    if (typeof window === 'undefined') return
+    try {
+      const prefs = getPreferences()
+      prefs[key] = value
+      const expires = new Date()
+      expires.setDate(expires.getDate() + 365)
+      document.cookie = cookie.serialize(
+        'docsbot-prefs',
+        JSON.stringify(prefs),
+        {
+          expires,
+          path: '/',
+          sameSite: 'lax',
+        },
+      )
+    } catch (error) {
+      console.error('Failed to set preference:', error)
+    }
+  }
+
+  const getLastDismissedDate = () => {
+    const prefs = getPreferences()
+    return prefs['dismissed-feature-updates'] || null
+  }
+
+  const setLastDismissedDate = (date) => {
+    setPreference('dismissed-feature-updates', date)
+  }
+
+  const sortedUpdates = FEATURE_UPDATES.slice().sort(
+    (a, b) => new Date(b.date) - new Date(a.date),
+  )
+  const latestUpdateDate = sortedUpdates[0]?.date
+  const [hasUnreadUpdates, setHasUnreadUpdates] = useState(false)
+  const [shouldWiggle, setShouldWiggle] = useState(false)
+
+  useEffect(() => {
+    try {
+      const lastDismissedDate = getLastDismissedDate()
+
+      // Check if there are any updates newer than the last dismissed date
+      if (latestUpdateDate) {
+        setHasUnreadUpdates(
+          !lastDismissedDate ||
+            new Date(latestUpdateDate) > new Date(lastDismissedDate),
+        )
+      }
+    } catch (e) {
+      // noop
+    }
+  }, [latestUpdateDate])
+
+  useEffect(() => {
+    if (!hasUnreadUpdates) return
+    const intervalId = setInterval(() => {
+      setShouldWiggle(true)
+      setTimeout(() => setShouldWiggle(false), 1500)
+    }, 15000)
+    return () => clearInterval(intervalId)
+  }, [hasUnreadUpdates])
+
+  const markUpdatesAsRead = () => {
+    if (!latestUpdateDate) return
+    try {
+      setLastDismissedDate(latestUpdateDate)
+      setHasUnreadUpdates(false)
+    } catch (e) {
+      // noop
+    }
+  }
+
   useEffect(() => {
     if (posthog && team && router.asPath === '/app') {
       posthog?.group('team', team.id, {
@@ -68,7 +161,13 @@ export default function DashboardWrap({
   }, [posthog, team, router])
 
   useEffect(() => {
-    if (user && team && 'Beacon' in window && Beacon !== undefined && typeof Beacon === 'function') {
+    if (
+      user &&
+      team &&
+      'Beacon' in window &&
+      Beacon !== undefined &&
+      typeof Beacon === 'function'
+    ) {
       const ident = {
         email: user.email,
       }
@@ -84,14 +183,12 @@ export default function DashboardWrap({
         }
         ident['storage-plan'] = stripePlan(team).name
         if (team.stripeCustomerId) {
-          ident[
-            'stripe-customer'
-          ] = `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
+          ident['stripe-customer'] =
+            `https://dashboard.stripe.com/customers/${team.stripeCustomerId}`
         }
         if (team.stripeSubscriptionId) {
-          ident[
-            'stripe-subscription'
-          ] = `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
+          ident['stripe-subscription'] =
+            `https://dashboard.stripe.com/subscriptions/${team.stripeSubscriptionId}`
         }
       }
       Beacon('identify', ident)
@@ -126,8 +223,11 @@ export default function DashboardWrap({
       )
       setDashboardNavigation(filteredNavigation)
     } else {
-      const finalNavigation = isSuperAdmin(user?.uid) 
-        ? [...navigation, { name: 'Staff Tools', href: '/app/staff', icon: UserGroupIcon }]
+      const finalNavigation = isSuperAdmin(user?.uid)
+        ? [
+            ...navigation,
+            { name: 'Staff Tools', href: '/app/staff', icon: UserGroupIcon },
+          ]
         : navigation
       setCurrentPageLink(finalNavigation.find((nav) => nav.name === page)?.href)
       setDashboardNavigation(finalNavigation)
@@ -168,7 +268,11 @@ export default function DashboardWrap({
 
   return (
     <>
-      <NextSeo title={pageTitle} description="DocsBot AI Dashboard" noindex={true} />
+      <NextSeo
+        title={pageTitle}
+        description="DocsBot AI Dashboard"
+        noindex={true}
+      />
       <main>
         <div>
           <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -335,9 +439,9 @@ export default function DashboardWrap({
                     className="ml-2 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm"
                     href={'/app/team'}
                   >
-                <p className="flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
-                  {team?.name || ''}
-                </p>
+                    <p className="flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
+                      {team?.name || ''}
+                    </p>
                     <ChevronUpDownIcon
                       className="h-5 w-5 flex-shrink-0 text-gray-400"
                       aria-hidden="true"
@@ -346,6 +450,101 @@ export default function DashboardWrap({
                   </Link>
                 </Tooltip>
                 <div className="ml-2 flex flex-none items-center md:ml-6">
+                  {/* Notifications dropdown */}
+                  <Menu as="div" className="relative ml-3">
+                    <div>
+                      <Menu.Button
+                        className={clsx(
+                          'relative rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                          shouldWiggle && 'animate-bounce',
+                        )}
+                        aria-label="Open notifications"
+                      >
+                        <BellIcon className="h-6 w-6" aria-hidden="true" />
+                        {hasUnreadUpdates && (
+                          <span className="absolute right-1.5 top-1 inline-flex h-2 w-2 rounded-full bg-cyan-500 ring-2 ring-white"></span>
+                        )}
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                      afterLeave={markUpdatesAsRead}
+                    >
+                      <Menu.Items className="absolute right-0 z-10 mt-2 w-96 max-w-[92vw] origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="border-b border-gray-200 px-4 pb-2">
+                          <div className="text-md font-semibold text-gray-700">
+                            What's New
+                          </div>
+                          <div className="text-xs text-gray-400">
+                            Product updates and improvements
+                          </div>
+                        </div>
+                        <div className="max-h-80 overflow-y-auto">
+                          {(() => {
+                            const lastDismissedDate = getLastDismissedDate()
+                            return sortedUpdates.map((update, idx) => {
+                              // An update is unread if there's no dismissed date yet, or if this update is newer than the last dismissed date
+                              const isUnread =
+                                !lastDismissedDate ||
+                                new Date(update.date) >
+                                  new Date(lastDismissedDate)
+
+                              return (
+                                <div
+                                  key={idx}
+                                  className={clsx(
+                                    'px-4 py-3',
+                                    isUnread
+                                      ? 'bg-cyan-600 text-white'
+                                      : 'hover:bg-gray-50',
+                                  )}
+                                >
+                                  <div className="flex items-start justify-between">
+                                    <div
+                                      className={clsx(
+                                        'text-sm font-medium',
+                                        isUnread
+                                          ? 'text-white'
+                                          : 'text-gray-900',
+                                      )}
+                                    >
+                                      {update.title}
+                                    </div>
+                                    <div
+                                      className={clsx(
+                                        'ml-3 shrink-0 text-xs',
+                                        isUnread
+                                          ? 'text-cyan-100'
+                                          : 'text-gray-400',
+                                      )}
+                                    >
+                                      {update.date}
+                                    </div>
+                                  </div>
+                                  <div
+                                    className={clsx(
+                                      'mt-1 text-sm',
+                                      isUnread
+                                        ? 'text-cyan-50'
+                                        : 'text-gray-600',
+                                    )}
+                                  >
+                                    {update.description}
+                                  </div>
+                                </div>
+                              )
+                            })
+                          })()}
+                        </div>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>
@@ -397,7 +596,7 @@ export default function DashboardWrap({
                                 href={item.href}
                                 className={clsx(
                                   active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
+                                  'block px-4 py-2 text-sm text-gray-700',
                                 )}
                               >
                                 {item.name}
@@ -412,7 +611,7 @@ export default function DashboardWrap({
                               href="#"
                               className={clsx(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-gray-700',
                               )}
                               onClick={signUserOut}
                             >
@@ -433,7 +632,7 @@ export default function DashboardWrap({
                 <div
                   className={clsx(
                     'mx-auto px-4 sm:px-6 md:px-8',
-                    fullWidth ? '' : 'max-w-7xl'
+                    fullWidth ? '' : 'max-w-7xl',
                   )}
                 >
                   {children}
