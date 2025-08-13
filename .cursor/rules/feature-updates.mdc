@@ -1,4 +1,12 @@
-# Rules for Feature Updates
+---
+name: Feature Updates Rules
+description: Guidelines for maintaining the product feature updates list.
+scope:
+  - src/constants/featureUpdates.constants.js
+  - src/components/**
+  - src/pages/**
+apply: auto
+---
 
 - Always add new product features and noteworthy improvements to `src/constants/featureUpdates.constants.js`.
 - Keep the list ordered descending by `date` (newest first). Use ISO format `YYYY-MM-DD`.

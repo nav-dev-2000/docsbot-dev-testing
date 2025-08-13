@@ -1,6 +1,11 @@
 export const FEATURE_UPDATES = [
   {
     date: '2025-08-13',
+    title: 'Widget option: keepFooterVisible',
+    description: 'New keepFooterVisible option keeps custom footer text visible after a conversation starts in the embed widget.'
+  },
+  {
+    date: '2025-08-13',
     title: 'Notification center in dashboard',
     description: 'A new bell icon in the dashboard header shows a drop-down with the latest feature updates. Unread updates are highlighted.'
   },

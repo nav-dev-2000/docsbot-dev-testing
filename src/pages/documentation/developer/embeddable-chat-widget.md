@@ -271,8 +271,9 @@ options: {
       feedbackYes: "Yes", //only used with Agent mode off
       feedbackNo: "No", //only used with Agent mode off
       resetChat: "Reset conversation", //title text
-      footerMessage: "", // if set will show at conversation start. Supports Markdown
+      footerMessage: "", // if set will show at conversation start. Supports Markdown. Set keepFooterVisible: true to keep it visible after a conversation starts.
     },, // Override all the default labels for your own language.
+  keepFooterVisible: false, // Keep the footerMessage visible after a conversation starts. Default is false.
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
   customCSS: '', // Custom CSS to override the default styles.
