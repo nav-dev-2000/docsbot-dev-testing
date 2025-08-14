@@ -452,40 +452,50 @@ export default function DashboardWrap({
                 <div className="ml-2 flex flex-none items-center md:ml-6">
                   {/* Notifications dropdown */}
                   <Menu as="div" className="relative ml-3">
-                    <div>
-                      <Menu.Button
-                        className={clsx(
-                          'relative rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
-                          shouldWiggle && 'animate-bounce',
-                        )}
-                        aria-label="Open notifications"
-                      >
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
-                        {hasUnreadUpdates && (
-                          <span className="absolute right-1.5 top-1 inline-flex h-2 w-2 rounded-full bg-cyan-500 ring-2 ring-white"></span>
-                        )}
-                      </Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                      afterLeave={markUpdatesAsRead}
-                    >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-96 max-w-[92vw] origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div className="border-b border-gray-200 px-4 pb-2">
-                          <div className="text-md font-semibold text-gray-700">
-                            What's New
-                          </div>
-                          <div className="text-xs text-gray-400">
-                            Product updates and improvements
-                          </div>
+                    {({ close }) => (
+                      <>
+                        <div>
+                          <Menu.Button
+                            className={clsx(
+                              'relative rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                              shouldWiggle && 'animate-bounce',
+                            )}
+                            aria-label="Open notifications"
+                          >
+                            <BellIcon className="h-6 w-6" aria-hidden="true" />
+                            {hasUnreadUpdates && (
+                              <span className="absolute right-1.5 top-1 inline-flex h-2 w-2 rounded-full bg-cyan-500 ring-2 ring-white"></span>
+                            )}
+                          </Menu.Button>
                         </div>
-                        <div className="max-h-80 overflow-y-auto">
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                          afterLeave={markUpdatesAsRead}
+                        >
+                          <Menu.Items className="fixed inset-0 z-50 w-full max-w-none rounded-none flex flex-col bg-white py-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none md:absolute md:right-0 md:inset-auto md:z-10 md:mt-2 md:w-96 md:max-w-[92vw] md:rounded-md md:flex-none origin-top-right">
+                            <div className="border-b border-gray-200 px-4 pb-2 sticky top-0 bg-gray-50 z-10 flex justify-between items-center">
+                              <div>
+                                <div className="text-md font-semibold text-gray-700">
+                                  What's New
+                                </div>
+                                <div className="text-xs text-gray-400">
+                                  Product updates and improvements
+                                </div>
+                              </div>
+                              <button 
+                                className="block md:hidden p-2 text-gray-400 hover:text-gray-600"
+                                onClick={close}
+                              >
+                                <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                              </button>
+                            </div>
+                        <div className="flex-1 overflow-y-auto md:max-h-96 md:flex-none">
                           {(() => {
                             const lastDismissedDate = getLastDismissedDate()
                             return sortedUpdates.map((update, idx) => {
@@ -542,8 +552,10 @@ export default function DashboardWrap({
                             })
                           })()}
                         </div>
-                      </Menu.Items>
-                    </Transition>
+                          </Menu.Items>
+                        </Transition>
+                      </>
+                    )}
                   </Menu>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
