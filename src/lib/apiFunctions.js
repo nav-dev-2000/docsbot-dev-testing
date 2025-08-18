@@ -410,12 +410,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
-    if (model !== 'gpt-4o-mini' && model !== 'gpt-4.1-nano' && model !== 'gpt-4.1-mini' && model !== 'gpt-5-mini' && model !== 'gpt-5-nano' && !team?.openAIKey) {
+    if (!['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5-nano'].includes(model) && !team?.openAIKey) {
       throw new Error('Please add your OpenAI API key to enable this model.')
     }
     botData.model = model
   } else if (!isUpdate) {
-    const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-5-mini' : 'gpt-5-nano';
+    const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-5-mini' : 'gpt-4o-mini';
     botData.model = defaultModel
   }
 

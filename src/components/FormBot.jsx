@@ -25,7 +25,7 @@ export default function FormBot({
     bot?.model ||
       (checkPlanPermission(team, 'personal').allowed
         ? 'gpt-5-mini'
-        : 'gpt-5-nano'),
+        : 'gpt-4o-mini'),
   )
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
@@ -131,22 +131,24 @@ export default function FormBot({
   //show upgrade if they change model to gpt-5
   useEffect(() => {
     // For users on the personal plan:
-    // - They should be able to select gpt-5-mini without any issues
-    // - Only show upgrade for gpt-5 if they don't have supportsGPT4
+    // - They should be able to select gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini without any issues
+    // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
     if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
       // For non-personal plans, keep existing behavior
-      if (model === 'gpt-5' || model === 'gpt-5-mini' || model === 'gpt-4.1' || model === 'gpt-4o' || model === 'gpt-4.1-mini' || model === 'gpt-4o-mini') {
+      if (['gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o', 'gpt-4.1-mini'].includes(model)) {
         setShowUpgrade(true)
-        setModel('gpt-5-nano')
-        console.log('Setting default free/hobby plan model to gpt-5-nano')
+        setModel('gpt-4o-mini')
+        console.log('Setting default free/hobby plan model to gpt-4o-mini')
       }
     } else {
-      // For hobby plan users
-      if ((model === 'gpt-5' || model === 'gpt-4.1' || model === 'gpt-4o') && !team.supportsGPT4) {
-        setModel('gpt-5-mini') // Default to gpt-5-mini since they're on hobby plan
+      // For paid plan users (personal and above)
+      // Only restrict full GPT-4 models (gpt-5, gpt-4.1, gpt-4o) if they don't have supportsGPT4
+      // Allow all mini/nano variants regardless of OpenAI key status
+      if (['gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) && !team.supportsGPT4) {
+        setModel('gpt-5-mini') // Default to gpt-5-mini since they're on paid plan
         console.log('Setting default paid plan model to gpt-5-mini')
       }
-      // If they're selecting gpt-5-mini and have hobby plan, don't change anything
+      // If they're selecting gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, don't change anything
     }
   }, [model, team, checkPlanPermission])
 
@@ -627,6 +629,7 @@ export default function FormBot({
             </div>
           )}
 
+          {/* Full GPT-4 models - only shown in full form and require supportsGPT4 */}
           {!short && (
             <>
               <div className="relative flex items-start">

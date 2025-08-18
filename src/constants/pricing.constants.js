@@ -139,7 +139,7 @@ export const pricingTiers = [
       privateBots: true,
       duplicateBots: false,
       glossary: false,
-      gptSupport: true,
+      gptSupport: false,
       premiumEmbeddings: true,
       researchMode: true,
       imageTraining: false,

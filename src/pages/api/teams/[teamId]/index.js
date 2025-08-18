@@ -93,7 +93,7 @@ export default async function handler(req, res) {
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     } else if (openAIKey === false) {
-      const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-5-mini' : 'gpt-5-nano';
+      const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-5-mini' : 'gpt-4o-mini';
 
       // walk through each bot, and verify that it's set to default. if not, update it
       const botsSnapshot = await firestore
@@ -103,7 +103,10 @@ export default async function handler(req, res) {
         .get()
 
       botsSnapshot.forEach(async (doc) => {
-        const allowedModels = ['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-5-nano'] //free models
+        // For paid users, allow more models even without OpenAI key
+        const allowedModels = checkPlanPermission(team, 'personal').allowed 
+          ? ['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-4.1-mini', 'gpt-5-nano', 'gpt-5-mini'] //paid models
+          : ['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-5-nano'] //free models
         if (!allowedModels.includes(doc.get('model'))) {
           // update bot to default model
           await firestore
