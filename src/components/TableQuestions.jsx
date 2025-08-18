@@ -68,7 +68,7 @@ export default function TableQuestions({
   const [exportOpen, setExportOpen] = useState(false)
   const [exporting, setExporting] = useState(false)
   const [dateRange, setDateRange] = useState({
-    startDate: bot.createdAt,
+    startDate: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
     endDate: new Date(),
   })
   const [user] = useAuthState(auth)
