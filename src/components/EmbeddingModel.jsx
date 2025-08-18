@@ -10,6 +10,10 @@ export default function EmbeddingModel({ bot }) {
     label = 'v3'
     Icon = CohereIcon
     title = 'Cohere Embeddings v3'
+  } else if (bot.embeddingModel === 'embed-v4.0') {
+    label = 'v4'
+    Icon = CohereIcon
+    title = 'Cohere Embeddings v4'
   } else if (bot.embeddingModel === 'text-embedding-3-large') {
     label = 'v3 Large'
     title = 'OpenAI Embeddings Large v3'

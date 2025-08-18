@@ -701,7 +701,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (!isUpdate) { //Only can set embedding model on new bots
-    const embeddingModelWhitelist = ['text-embedding-ada-002', 'text-embedding-3-large', 'embed-multilingual-v3.0', 'text-embedding-3-small'];
+    const embeddingModelWhitelist = ['text-embedding-ada-002', 'text-embedding-3-large', 'embed-multilingual-v3.0', 'text-embedding-3-small', 'embed-v4.0'];
     if (embeddingModel !== undefined && !embeddingModelWhitelist.includes(embeddingModel)) {
       throw new Error('The specified embedding model is not allowed. Please choose from the following: ' + embeddingModelWhitelist.join(', '));
     }
@@ -711,7 +711,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       if (botData.language === 'en') {
         botData.embeddingModel = embeddingModel || 'text-embedding-3-large'
       } else {
-        botData.embeddingModel = embeddingModel || 'embed-multilingual-v3.0'
+        botData.embeddingModel = embeddingModel || 'embed-v4.0'
       }
     } else {
       botData.embeddingModel = 'text-embedding-3-small'

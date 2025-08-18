@@ -19,7 +19,7 @@ Bot objects have the following properties:
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **indexId** | string | Used internally. |
 | **model** | string | The OpenAI model. Currently supports `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`, `gpt-4o-mini`, etc. |
-| **embeddingModel** | string/null | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. If null assumes `text-embedding-ada-002`. |
+| **embeddingModel** | string/null | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, `embed-multilingual-v3.0`, and `embed-v4.0` (Cohere) depending on your plan. If null assumes `text-embedding-ada-002`. |
 | **customPrompt** | string | Any custom prompt for the bot. |
 | **language** | string | The bot language. Supports many languages such as `en`, `es`, and `jp`. |
 | **rateLimitMessages** | number | The maximum number of messages a user can send in a given time period. |
@@ -179,7 +179,7 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **privacy** | string | The bot privacy. Can be `public` or `private`. |
 | **language** | string | The bot language. Can be `en` or `jp`. |
 | **model** | string | The OpenAI model. Currently supports `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`, `gpt-4o-mini`, etc. |
-| **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, and `embed-multilingual-v3.0` depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-multilingual-v3.0` for paid non-English bots. If copying from another bot, the embedding model must be the same as the source bot. |
+| **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, `embed-multilingual-v3.0`, and `embed-v4.0` (Cohere) depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-v4.0` for paid non-English bots. If copying from another bot, the embedding model must be the same as the source bot. |
 | **copyFrom** | string | (Optional) The ID of an existing bot in your team to copy from. If provided, the new bot will be created as a copy of the specified bot, with all sources copied over after creation. |
 
 

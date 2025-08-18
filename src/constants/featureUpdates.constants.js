@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-08-18',
+    title: 'Cohere embeddings v4 support',
+    description: 'Added Cohere embeddings v4. Now default for paid non-English bots on creation.'
+  },
+  {
     date: '2025-08-13',
     title: 'Widget option: keepFooterVisible',
     description: 'New keepFooterVisible option keeps custom footer text visible after a conversation starts in the embed widget.'
