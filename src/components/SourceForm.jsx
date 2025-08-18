@@ -770,6 +770,12 @@ export default function SourceForm({
                     Learn how to connect to this source
                   </Link>
                 )}
+                {selectedSourceType?.id === 'google_docs' && (
+                  <Alert
+                    type="warning"
+                    title="Connecting never-before-used Google accounts is temporarily blocked while we await verification from Google for our integration. We apologize for the inconvenience!"
+                  />
+                )}
                 {selectedSourceType?.id === 'csv' && (
                   <a
                     href="/csv-import-template.csv"
