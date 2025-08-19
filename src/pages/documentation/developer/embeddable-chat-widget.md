@@ -279,12 +279,13 @@ options: {
   customCSS: '', // Custom CSS to override the default styles.
   inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000 if widget is signed/authenticated.
   contextItems: 6, // Number of sources to lookup for the bot to answer from. Default is 6. Research mode uses 16 (more expensive token usage).
+  suggestedQuestions: 3, // override number of random suggested questions (default 3)
   questions: [
     "What is DocsBot?",
     "What services does DocsBot offer?",
     "How do I embed the DocsBot chat widget?",
     "Can I view the question and answer history of my DocsBot interactions?"
-  ] // Array of example questions to show in the widget. Three are picked at random.
+  ] // Array of example questions to show in the widget. Suggestions are picked at random.
 }
 ```
 
