@@ -128,6 +128,21 @@ export default function SourceForm({
     }
   }, [selectedSourceType, url, file, title, questions, urls])
 
+  // Reset image processing when not applicable
+  useEffect(() => {
+    if (
+      selectedSourceType?.id === 'document' &&
+      !(fileName && (/\.(html?|md|zip)$/i.test(fileName)))
+    ) {
+      setProcessImages(false)
+    }
+  }, [fileName, selectedSourceType])
+
+  const showProcessImagesOption =
+    selectedSourceType?.fieldImages &&
+    (selectedSourceType.id !== 'document' ||
+      (fileName && /\.(html?|md|zip)$/i.test(fileName)))
+
   const resetState = () => {
     setFile(null)
     setFileName(null)
@@ -305,7 +320,7 @@ export default function SourceForm({
       payload.scheduleInterval = scheduleInterval
     }
 
-    if (selectedSourceType.fieldImages) {
+    if (showProcessImagesOption) {
       payload.processImages = processImages
     }
 
@@ -1102,7 +1117,7 @@ https://example.com/page2`}
                     </p>
                   </div>
                 )}
-                {selectedSourceType?.fieldImages && (
+                {showProcessImagesOption && (
                   <div className="mt-4">
                     <div className="relative flex items-start">
                       <div className="flex h-5 items-center">
