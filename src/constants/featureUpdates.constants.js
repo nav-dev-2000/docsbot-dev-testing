@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-08-20',
+    title: 'Support callback metadata enhancements',
+    description: 'Widget supportCallback now includes conversationId and conversationUrl in metadata for easier ticket integrations.'
+  },
+  {
     date: '2025-08-18',
     title: 'Cohere embeddings v4 support',
     description: 'Added Cohere embeddings v4. Now default for paid non-English bots on creation.'

@@ -77,13 +77,24 @@ DocsBotAI.init({
         name: metadata.name || null,
         email: metadata.email || null,
       });
-      // Prefill the ticket (Pro+ plan only)
-      if (ticket) {
-        FreshworksWidget('prefill', 'ticketForm', {
-          subject: ticket.subject,
-          description: ticket.message
-        });
-      }
+    // Prefill the ticket (Pro+ plan only)
+    if (ticket) {
+      FreshworksWidget('prefill', 'ticketForm', {
+        subject: ticket.subject,
+        description: ticket.message,
+        // Store conversation link in a hidden custom field for agents
+        custom_fields: {
+          cf_conversation_url: metadata.conversationUrl || ''
+        }
+      });
+    } else if (metadata.conversationUrl) {
+      // Store conversation link in a hidden custom field for agents
+      FreshworksWidget('prefill', 'ticketForm', {
+        custom_fields: {
+          cf_conversation_url: metadata.conversationUrl
+        }
+      });
+    }
     },
 })
 </script>

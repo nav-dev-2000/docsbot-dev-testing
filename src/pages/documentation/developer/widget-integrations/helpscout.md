@@ -48,7 +48,7 @@ DocsBotAI.init({
   // optionally identify logged in user for chat logs
   metadata: {
     name: "Bilbo Baggins",
-    email: "bilbo@shire.net"
+    email: "bilbo@shire.net",
   }
   supportCallback: function (event, history, metadata, ticket) {
     event.preventDefault() // Prevent default behavior opening the url.
@@ -63,8 +63,19 @@ DocsBotAI.init({
         email: metadata.email || null, //assuming you identified the user above
         subject: ticket.subject,
         text: ticket.message
-      });          
-    }         
+      });
+    } else {
+      Beacon('prefill', {
+        name: metadata.name || null,
+        email: metadata.email || null,
+      });
+    }
+    if (metadata.conversationUrl) {
+      // Pass conversation link as session data for agents
+      Beacon('session-data', {
+        conversationUrl: metadata.conversationUrl
+      });
+    }
   },
 })
 ```

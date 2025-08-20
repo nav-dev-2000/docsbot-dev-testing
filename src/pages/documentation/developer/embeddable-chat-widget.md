@@ -149,58 +149,6 @@ You can also interact with the widget using the following API if you want to cre
 
 `DocsBotAI.init()` is used to initialize the widget. It takes an object with the various properties. The only required property is the `id` property which is the unique id of your bot created from your `teamId` and `botId`. You can find this id on the [Bot](/app/bots) page for your specific bot.
 
-### Support Callback
-
-If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. This function will be called with the `event`, `history`, `metadata`, and if Agent Mode is enabled `ticket` objects. The `event` object is the click event and the `history` object is the chat history array. `metadata` merely contains the metadata you passed to the widget. When you provide an argument for `ticket` and Agent mode is enabled, then we will use AI to summarize the conversation and write a ticket. This object contains { `subject`, `message` }. You could use this for example to open your own support modal or live chat widget, or prefilling and submitting a support ticket with the chat history or AI written ticket.
-
-{% callout title="Ticket Creation Plan Limitations" %}
-The ticket creation endpoint is only available on our Standard plan and above. If you are on a lower/legacy plan, `ticket` object will be null.
-{% /callout %}
-
-### Example Code
-
-#### History Array
-
-```js
-[
-  {
-      "Human": "hi",
-      "timestamp": "2025-05-08T22:56:28.514357"
-  },
-  {
-      "AI": "Hello! How can I assist you today?",
-      "timestamp": "2025-05-08T22:56:30.645700",
-      "type": "answer"
-  },
-  {
-      "Human": "How do i connect to Zapier?",
-      "timestamp": "2025-05-23T14:54:47.215796"
-  },
-  {
-      "AI": "Visit the integrations tab in your bot...",
-      "timestamp": "2025-05-23T14:54:52.215796"
-  },
-  {
-      "AI": "Did that answer your question?",
-      "timestamp": "2025-05-23T14:54:55.215796"
-  }
-]
-```
-
-```js
-DocsBotAI.init({
-  id: 'YOUR_ID_HERE',
-  supportCallback: function (event, history, metadata, ticket) {
-    event.preventDefault() // Optionally prevent default behavior opening the url.
-    console.log(history) // Safely access the chat history.
-    console.log(ticket) //AI generated { `subject`, `message` }
-    DocsBotAI.close() // Close the widget.
-  },
-}).then(() => {
-  // Safely do stuff here after the widget is loaded.
-})
-```
-
 ### User Identification/Metadata
 
 If you would like to record the user's name, email, or any other custom variables you can optionally pass an `identify` object with the properties you would like to record. These properties will be recorded in the question `metadata` of the chat history allowing you to view it in the chat logs or export it via the questions API endpoint. This can be useful to identify the user or metadata about them such as their subscription plan or any other custom data you would like to record. *This information is also visible to the AI model to provide answers or call tools.* You could for example provide a list of their latest orders and links to their status or other personalized data to answer common questions.
@@ -328,6 +276,62 @@ DocsBotAI.init({
 
 If you would like to integrate the DocsBot widget with a support form on your site, you can simply add the url that contains or support form in your widget settings on our bot edit page. When the user clicks the link in the widget, it will open the url in a new tab.
 
+### Support Callback
+
+If you would like to run a callback when the user clicks the support link in the widget you can pass a `supportCallback` function. The callback receives the `event`, `history`, and `metadata` objects, and when Agent Mode is enabled a fourth `ticket` object.
+
+The `metadata` object includes any values passed through `identify.metadata`. In Agent Mode it also contains:
+
+- `conversationId` – the ID of the current conversation.
+- `conversationUrl` – a direct link to view the conversation in your DocsBot dashboard.
+
+You can use this callback to open your own support modal or live chat widget, or to prefill and submit a support ticket with the chat history or AI written ticket.
+
+{% callout title="Ticket Creation Plan Limitations" %}
+The ticket creation endpoint is only available on our Standard plan and above. If you are on a lower/legacy plan, `ticket` will be `null`.
+{% /callout %}
+
+#### History Array
+
+```js
+[
+  {
+      "Human": "hi",
+      "timestamp": "2025-05-08T22:56:28.514357"
+  },
+  {
+      "AI": "Hello! How can I assist you today?",
+      "timestamp": "2025-05-08T22:56:30.645700",
+      "type": "answer"
+  },
+  {
+      "Human": "How do i connect to Zapier?",
+      "timestamp": "2025-05-23T14:54:47.215796"
+  },
+  {
+      "AI": "Visit the integrations tab in your bot...",
+      "timestamp": "2025-05-23T14:54:52.215796"
+  },
+  {
+      "AI": "Did that answer your question?",
+      "timestamp": "2025-05-23T14:54:55.215796"
+  }
+]
+```
+
+```js
+DocsBotAI.init({
+  id: 'YOUR_ID_HERE',
+  supportCallback: function (event, history, metadata, ticket) {
+    event.preventDefault() // Optionally prevent default behavior opening the url.
+    console.log(metadata.conversationUrl) // direct link to the conversation
+    console.log(ticket) // AI generated { `subject`, `message` }
+    DocsBotAI.close() // Close the widget.
+  },
+}).then(() => {
+  // Safely do stuff here after the widget is loaded.
+})
+```
 ### Integration with other Support Widgets
 
 If your business uses an existing software product for support tickets or live chat, you can integrate it with our AI widget, allowing your users to click the get support link in the DocsBot Widget to talk to a human! Here are some examples of integrating with the most popular providers:
@@ -347,10 +351,11 @@ If you would like to integrate with a different support widget, please let us kn
 ```js
 DocsBotAI.init({
   id: 'YOUR_ID_HERE',
-  supportCallback: function (event, history) {
+  supportCallback: function (event, history, metadata) {
     event.preventDefault() // Prevent default behavior opening the url.
     DocsBotAI.unmount() // Hide the DocsBot widget.
     // Run some JS here to open your support widget.
+    console.log(metadata.conversationId)
   },
 })
 ```
