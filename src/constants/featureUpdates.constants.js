@@ -1,6 +1,11 @@
 export const FEATURE_UPDATES = [
   {
     date: '2025-08-21',
+    title: 'Redesigned Chat Share Page with Agent Mode Support',
+    description: 'The public chat share page has been completely redesigned with a modern layout using the chat widget design, and enhanced support for agent mode bots.'
+  },
+  {
+    date: '2025-08-21',
     title: 'Widget option: suggestedQuestions',
     description: 'Control how many random suggested questions appear in the embed widget.'
   },

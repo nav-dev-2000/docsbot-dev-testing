@@ -520,7 +520,7 @@ export default function ModalAPI({ team, bot, integrations }) {
     return (
       <>
         <p className="text-md text-gray-800">
-          Share these public links for people to interact with your bot.
+          Share this public link for people to interact with your bot.
         </p>
         <div className="mt-3 flex flex-col space-y-2">
           <Link
@@ -541,24 +541,7 @@ export default function ModalAPI({ team, bot, integrations }) {
             <LinkIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             Chat Page
           </Link>
-          <Link
-            target="_blank"
-            href={`/ask/${team.id}/${bot.id}`}
-            onClick={(e) => {
-              if (bot.privacy === 'private' || bot.status !== 'ready') {
-                e.preventDefault()
-              }
-            }}
-            className={classNames(
-              bot.privacy === 'private' || bot.status !== 'ready'
-                ? 'cursor-not-allowed opacity-50'
-                : '',
-              'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 opacity-70 hover:opacity-100',
-            )}
-          >
-            <LinkIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-            Q/A Page (legacy)
-          </Link>
+          
         </div>
       </>
     )
@@ -882,7 +865,7 @@ export default function ModalAPI({ team, bot, integrations }) {
                     </h2>
 
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                      {/* Chat Widget Card - Added First */}
+                      {/* Chat Widget Card */}
                       <IntegrationCard
                         title="Chat Widget"
                         icon={
