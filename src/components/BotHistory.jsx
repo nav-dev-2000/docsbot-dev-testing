@@ -15,6 +15,23 @@ import Tooltip from '@/components/Tooltip'
 import Meter from '@/components/Meter'
 import RobotIcon from './RobotIcon'
 
+const hexToRgba = (hex, alpha) => {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
+
+const createLineGradient = (color) => (context) => {
+  const chart = context.chart
+  const { ctx, chartArea } = chart
+  if (!chartArea) return null
+  const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
+  gradient.addColorStop(0, 'rgba(255,255,255,0.7)')
+  gradient.addColorStop(1, hexToRgba(color, 0.4))
+  return gradient
+}
+
 const intervals = [
   { value: 7, title: 'Week' },
   { value: 30, title: 'Month' },
@@ -112,7 +129,7 @@ export default function BotHistory({ team, bot }) {
           label: 'All Questions',
           data: stats.countData,
           borderColor: '#76B7B2',
-          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          backgroundColor: createLineGradient('#76B7B2'),
           tension: 0.3,
           fill: true,
         },
@@ -120,7 +137,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Rated Negative',
           data: stats.negativeData,
           borderColor: '#E15759',
-          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          backgroundColor: createLineGradient('#E15759'),
           tension: 0.3,
           fill: true,
         },
@@ -128,7 +145,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Rated Positive',
           data: stats.positiveData,
           borderColor: '#59A14F',
-          backgroundColor: 'rgba(0, 204, 102, 0.1)',
+          backgroundColor: createLineGradient('#59A14F'),
           tension: 0.3,
           fill: true,
         },
@@ -136,7 +153,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Could Answer',
           data: stats.couldAnswerData,
           borderColor: '#9e74d5',
-          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          backgroundColor: createLineGradient('#9e74d5'),
           tension: 0.3,
           fill: true,
         },
@@ -144,7 +161,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Escalations',
           data: stats.escalatedData,
           borderColor: '#EDC948',
-          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          backgroundColor: createLineGradient('#EDC948'),
           tension: 0.3,
           fill: true,
         },
@@ -152,7 +169,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Total Messages',
           data: stats.messagesData,
           borderColor: '#9CA3AF',
-          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          backgroundColor: createLineGradient('#9CA3AF'),
           tension: 0.3,
           fill: false,
         },
@@ -198,7 +215,7 @@ export default function BotHistory({ team, bot }) {
         label: 'CSAT %',
         data: stats.csatData,
         borderColor: '#59A14F',
-        backgroundColor: 'rgba(89, 161, 79, 0.1)',
+        backgroundColor: createLineGradient('#59A14F'),
         tension: 0.3,
         fill: true,
       },
@@ -206,7 +223,7 @@ export default function BotHistory({ team, bot }) {
         label: 'Answered %',
         data: stats.answeredRateData,
         borderColor: '#76B7B2',
-        backgroundColor: 'rgba(118, 183, 178, 0.1)',
+        backgroundColor: createLineGradient('#76B7B2'),
         tension: 0.3,
         fill: true,
       },
@@ -214,7 +231,7 @@ export default function BotHistory({ team, bot }) {
         label: 'Deflection %',
         data: stats.conversationDeflectionData,
         borderColor: '#9e74d5',
-        backgroundColor: 'rgba(158, 116, 213, 0.1)',
+        backgroundColor: createLineGradient('#9e74d5'),
         tension: 0.3,
         fill: true,
       },
@@ -245,7 +262,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Total Conversations',
           data: stats.conversationData,
           borderColor: '#76B7B2',
-          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          backgroundColor: createLineGradient('#76B7B2'),
           tension: 0.3,
           fill: true,
         },
@@ -253,7 +270,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Resolved Confirmed',
           data: stats.resolvedConfirmedData,
           borderColor: '#59A14F',
-          backgroundColor: 'rgba(89, 161, 79, 0.1)',
+          backgroundColor: createLineGradient('#59A14F'),
           tension: 0.3,
           fill: true,
         },
@@ -261,7 +278,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Resolved Assumed',
           data: stats.resolvedAssumedData,
           borderColor: '#9e74d5',
-          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          backgroundColor: createLineGradient('#9e74d5'),
           tension: 0.3,
           fill: true,
         },
@@ -269,7 +286,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Unresolved',
           data: stats.unresolvedData,
           borderColor: '#E15759',
-          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          backgroundColor: createLineGradient('#E15759'),
           tension: 0.3,
           fill: true,
         },
@@ -277,7 +294,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Escalated Handled',
           data: stats.escalatedHandledData,
           borderColor: '#EDC948',
-          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          backgroundColor: createLineGradient('#EDC948'),
           tension: 0.3,
           fill: true,
         },
@@ -285,7 +302,7 @@ export default function BotHistory({ team, bot }) {
           label: 'Escalated Triggered',
           data: stats.escalatedTriggeredData,
           borderColor: '#9CA3AF',
-          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          backgroundColor: createLineGradient('#9CA3AF'),
           tension: 0.3,
           fill: true,
         },
@@ -346,7 +363,7 @@ export default function BotHistory({ team, bot }) {
           label: topic,
           data: topicData,
           borderColor: colors[index % colors.length],
-          backgroundColor: colors[index % colors.length] + '20',
+          backgroundColor: createLineGradient(colors[index % colors.length]),
           tension: 0.3,
         }
       })
@@ -364,7 +381,7 @@ export default function BotHistory({ team, bot }) {
             data: stats.conversationTopicCounts,
             backgroundColor: stats.conversationTopicLabels.map((topic, index) => {
               const colors = [
-                '#76B7B2', '#E15759', '#59A14F', '#9e74d5', '#EDC948', 
+                '#76B7B2', '#E15759', '#59A14F', '#9e74d5', '#EDC948',
                 '#9CA3AF', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4'
               ]
               return colors[index % colors.length]
