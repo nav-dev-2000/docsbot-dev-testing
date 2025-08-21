@@ -58,7 +58,7 @@ const SinglePage = ({ seo }) => {
         ) : (
           <>
             <ContentSection title={data.post.title.rendered} post={data.post}>
-              <BlocksRenderer html={data.post.contentReplaced} />
+              <BlocksRenderer html={data.post.contentReplaced || replaceATagsWithLinks(data.post.content?.rendered || '')} />
               {data.post.terms?.category && (
                 <div className="mt-8 flex items-center gap-x-4 border-t border-gray-200 pt-4 text-xs">
                   <a
