@@ -27,8 +27,8 @@ const createLineGradient = (color) => (context) => {
   const { ctx, chartArea } = chart
   if (!chartArea) return null
   const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom)
-  gradient.addColorStop(0, 'rgba(255,255,255,0.7)')
-  gradient.addColorStop(1, hexToRgba(color, 0.4))
+  gradient.addColorStop(0, hexToRgba(color, 0.2))
+  gradient.addColorStop(1, hexToRgba(color, 0))
   return gradient
 }
 
@@ -246,6 +246,7 @@ export default function BotHistory({ team, bot }) {
         tension: 0.3,
         fill: false,
         yAxisID: 'y1', // Use second y-axis
+        order: 99,
       })
     }
 
