@@ -12,6 +12,28 @@ import LocalStringNum from '@/components/LocalStringNum'
 import Tooltip from '@/components/Tooltip'
 import Meter from '@/components/Meter'
 
+const hexToRgba = (hex, alpha) => {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
+
+const createLineGradient = (color) => (context) => {
+  const chart = context.chart
+  const { ctx, chartArea } = chart
+  if (!chartArea) return null
+  const gradient = ctx.createLinearGradient(
+    0,
+    chartArea.top,
+    0,
+    chartArea.bottom,
+  )
+  gradient.addColorStop(0, hexToRgba(color, 0.2))
+  gradient.addColorStop(1, hexToRgba(color, 0))
+  return gradient
+}
+
 const intervals = [
   { value: 7, title: 'Week' },
   { value: 30, title: 'Month' },
@@ -23,7 +45,7 @@ const defaultSelected = 30
 
 export default function TeamHistory({ team }) {
   const [selected, setSelected] = useState(
-    intervals.filter((interval) => interval.value === defaultSelected)[0]
+    intervals.filter((interval) => interval.value === defaultSelected)[0],
   )
   const [stats, setStats] = useState(null)
   const [lineData, setLineData] = useState(null)
@@ -71,7 +93,7 @@ export default function TeamHistory({ team }) {
           label: 'All Questions',
           data: stats.countData,
           borderColor: '#76B7B2',
-          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          backgroundColor: createLineGradient('#76B7B2'),
           tension: 0.3,
           fill: true,
         },
@@ -79,7 +101,7 @@ export default function TeamHistory({ team }) {
           label: 'Rated Negative',
           data: stats.negativeData,
           borderColor: '#E15759',
-          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          backgroundColor: createLineGradient('#E15759'),
           tension: 0.3,
           fill: true,
         },
@@ -87,7 +109,7 @@ export default function TeamHistory({ team }) {
           label: 'Rated Positive',
           data: stats.positiveData,
           borderColor: '#59A14F',
-          backgroundColor: 'rgba(0, 204, 102, 0.1)',
+          backgroundColor: createLineGradient('#59A14F'),
           tension: 0.3,
           fill: true,
         },
@@ -95,7 +117,7 @@ export default function TeamHistory({ team }) {
           label: 'Could Answer',
           data: stats.couldAnswerData,
           borderColor: '#9e74d5',
-          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          backgroundColor: createLineGradient('#9e74d5'),
           tension: 0.3,
           fill: true,
         },
@@ -103,7 +125,7 @@ export default function TeamHistory({ team }) {
           label: 'Escalations',
           data: stats.escalatedData,
           borderColor: '#EDC948',
-          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          backgroundColor: createLineGradient('#EDC948'),
           tension: 0.3,
           fill: true,
         },
@@ -111,7 +133,7 @@ export default function TeamHistory({ team }) {
           label: 'Total Messages',
           data: stats.messagesData,
           borderColor: '#9CA3AF',
-          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          backgroundColor: createLineGradient('#9CA3AF'),
           tension: 0.3,
           fill: false,
         },
@@ -157,7 +179,7 @@ export default function TeamHistory({ team }) {
         label: 'CSAT %',
         data: stats.csatData,
         borderColor: '#59A14F',
-        backgroundColor: 'rgba(89, 161, 79, 0.1)',
+        backgroundColor: createLineGradient('#59A14F'),
         tension: 0.3,
         fill: true,
       },
@@ -165,7 +187,7 @@ export default function TeamHistory({ team }) {
         label: 'Answered %',
         data: stats.answeredRateData,
         borderColor: '#76B7B2',
-        backgroundColor: 'rgba(118, 183, 178, 0.1)',
+        backgroundColor: createLineGradient('#76B7B2'),
         tension: 0.3,
         fill: true,
       },
@@ -173,7 +195,7 @@ export default function TeamHistory({ team }) {
         label: 'Deflection %',
         data: stats.conversationDeflectionData,
         borderColor: '#9e74d5',
-        backgroundColor: 'rgba(158, 116, 213, 0.1)',
+        backgroundColor: createLineGradient('#9e74d5'),
         tension: 0.3,
         fill: true,
       },
@@ -204,7 +226,7 @@ export default function TeamHistory({ team }) {
           label: 'Total Conversations',
           data: stats.conversationData,
           borderColor: '#76B7B2',
-          backgroundColor: 'rgba(118, 183, 178, 0.1)',
+          backgroundColor: createLineGradient('#76B7B2'),
           tension: 0.3,
           fill: true,
         },
@@ -212,7 +234,7 @@ export default function TeamHistory({ team }) {
           label: 'Resolved Confirmed',
           data: stats.resolvedConfirmedData,
           borderColor: '#59A14F',
-          backgroundColor: 'rgba(89, 161, 79, 0.1)',
+          backgroundColor: createLineGradient('#59A14F'),
           tension: 0.3,
           fill: true,
         },
@@ -220,7 +242,7 @@ export default function TeamHistory({ team }) {
           label: 'Resolved Assumed',
           data: stats.resolvedAssumedData,
           borderColor: '#9e74d5',
-          backgroundColor: 'rgba(158, 116, 213, 0.1)',
+          backgroundColor: createLineGradient('#9e74d5'),
           tension: 0.3,
           fill: true,
         },
@@ -228,7 +250,7 @@ export default function TeamHistory({ team }) {
           label: 'Unresolved',
           data: stats.unresolvedData,
           borderColor: '#E15759',
-          backgroundColor: 'rgba(225, 87, 89, 0.1)',
+          backgroundColor: createLineGradient('#E15759'),
           tension: 0.3,
           fill: true,
         },
@@ -236,7 +258,7 @@ export default function TeamHistory({ team }) {
           label: 'Escalated Handled',
           data: stats.escalatedHandledData,
           borderColor: '#EDC948',
-          backgroundColor: 'rgba(237, 201, 72, 0.1)',
+          backgroundColor: createLineGradient('#EDC948'),
           tension: 0.3,
           fill: true,
         },
@@ -244,7 +266,7 @@ export default function TeamHistory({ team }) {
           label: 'Escalated Triggered',
           data: stats.escalatedTriggeredData,
           borderColor: '#9CA3AF',
-          backgroundColor: 'rgba(156, 163, 175, 0.1)',
+          backgroundColor: createLineGradient('#9CA3AF'),
           tension: 0.3,
           fill: true,
         },
@@ -306,7 +328,8 @@ export default function TeamHistory({ team }) {
               Team Statistics
             </h2>
             <p className="mt-4 text-gray-500">
-              Statistics about the messages you or users have asked all team bots.
+              Statistics about the messages you or users have asked all team
+              bots.
             </p>
           </div>
           <div className="mt-4 w-28 sm:mt-0 sm:flex-none">
@@ -326,7 +349,10 @@ export default function TeamHistory({ team }) {
                     <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6">
                       <span className="block truncate">{selected.title}</span>
                       <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                        <ChevronUpDownIcon
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
                       </span>
                     </Listbox.Button>
 
@@ -343,8 +369,10 @@ export default function TeamHistory({ team }) {
                             key={interval.value}
                             className={({ active }) =>
                               classNames(
-                                active ? 'bg-cyan-600 text-white' : 'text-gray-900',
-                                'relative cursor-default select-none py-1 pl-3 pr-9'
+                                active
+                                  ? 'bg-cyan-600 text-white'
+                                  : 'text-gray-900',
+                                'relative cursor-default select-none py-1 pl-3 pr-9',
                               )
                             }
                             value={interval}
@@ -354,8 +382,10 @@ export default function TeamHistory({ team }) {
                                 <div className="flex">
                                   <span
                                     className={classNames(
-                                      selected ? 'font-semibold' : 'font-normal',
-                                      'block truncate text-gray-900'
+                                      selected
+                                        ? 'font-semibold'
+                                        : 'font-normal',
+                                      'block truncate text-gray-900',
                                     )}
                                   >
                                     {interval.title}
@@ -366,10 +396,13 @@ export default function TeamHistory({ team }) {
                                   <span
                                     className={classNames(
                                       active ? 'text-white' : 'text-cyan-600',
-                                      'absolute inset-y-0 right-0 flex items-center pr-4'
+                                      'absolute inset-y-0 right-0 flex items-center pr-4',
                                     )}
                                   >
-                                    <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                    <CheckIcon
+                                      className="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
                                   </span>
                                 ) : null}
                               </>
@@ -394,8 +427,9 @@ export default function TeamHistory({ team }) {
               Conversation Analytics
             </h3>
             <p className="mb-6 text-gray-500">
-              Analytics about conversations and their outcomes across all team bots, including
-              resolution status, sentiment, and escalations. Only tracked when using agent mode.
+              Analytics about conversations and their outcomes across all team
+              bots, including resolution status, sentiment, and escalations.
+              Only tracked when using agent mode.
             </p>
 
             {/* Conversation Metrics Table */}
@@ -607,7 +641,7 @@ export default function TeamHistory({ team }) {
               <div
                 className={classNames(
                   'space-y-6',
-                  blurEnabled ? 'blur-lg' : ''
+                  blurEnabled ? 'blur-lg' : '',
                 )}
               >
                 {/* Conversation Percentage Line Chart */}
@@ -799,8 +833,9 @@ export default function TeamHistory({ team }) {
               Question Analytics
             </h3>
             <p className="mb-6 text-gray-500">
-              Analytics about individual questions and their ratings across all team bots. In Agent
-              mode, this only includes questions that trigger a documentation lookup.
+              Analytics about individual questions and their ratings across all
+              team bots. In Agent mode, this only includes questions that
+              trigger a documentation lookup.
             </p>
           </div>
 
@@ -817,7 +852,9 @@ export default function TeamHistory({ team }) {
             </Tooltip>
             <Tooltip content="Only counts lookup questions, not all messages">
               <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
-                <dt className="text-sm font-semibold leading-6 text-gray-600">User questions</dt>
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  User questions
+                </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
                   <LocalStringNum value={stats.totalCount} />
                 </dd>
@@ -909,7 +946,7 @@ export default function TeamHistory({ team }) {
             <div
               className={classNames(
                 'items-center space-x-4 align-middle',
-                proBlurEnabled ? 'blur-lg' : ''
+                proBlurEnabled ? 'blur-lg' : '',
               )}
             >
               <div
@@ -934,7 +971,7 @@ export default function TeamHistory({ team }) {
             <div
               className={classNames(
                 'grid items-center space-x-4 align-middle sm:grid-cols-1 lg:grid-cols-3',
-                proBlurEnabled ? 'blur-lg' : ''
+                proBlurEnabled ? 'blur-lg' : '',
               )}
             >
               <Tooltip content="Shows the breakdown of user feedback on answers: Positive (thumbs up), Negative (thumbs down), and No Rating (no feedback given)">
