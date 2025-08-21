@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-08-21',
+    title: 'Widget option: suggestedQuestions',
+    description: 'Control how many random suggested questions appear in the embed widget.'
+  },
+  {
     date: '2025-08-20',
     title: 'Support callback metadata enhancements',
     description: 'Widget supportCallback now includes conversationId and conversationUrl in metadata for easier ticket integrations.'
@@ -109,24 +114,24 @@ export const FEATURE_UPDATES = [
     title: 'Free AI Slogan Generator Tool',
     description: 'Create catchy slogans with the new free AI Slogan Generator tool.'
   },
-{
-  date: '2025-07-30',
-  title: 'Allow Single-Character Questions',
-  description: 'API and Widgets now accept single-character questions, improving support for languages like Japanese.'
-},
-{
-  date: '2025-07-13',
-  title: 'Paste or Enter URLs in URL List Source',
-  description: 'You can now paste or manually enter a list of URLs when using the URL List source type.'
-},
-{
-  date: '2025-05-02',
-  title: 'Default Language Parameter for Chat Agent API',
-  description: 'Chat Agent API now supports a default language parameter as a fallback if AI cannot detect the language. Used by the widget (browser language).'
-},
-{
-  date: '2025-04-30',
-  title: 'New API Endpoint for Ticket Writing on Escalation',
-  description: 'Added an API endpoint to write support tickets automatically on escalation, used by supportCallback in the chat widget.'
-},
+  {
+    date: '2025-07-30',
+    title: 'Allow Single-Character Questions',
+    description: 'API and Widgets now accept single-character questions, improving support for languages like Japanese.'
+  },
+  {
+    date: '2025-07-13',
+    title: 'Paste or Enter URLs in URL List Source',
+    description: 'You can now paste or manually enter a list of URLs when using the URL List source type.'
+  },
+  {
+    date: '2025-05-02',
+    title: 'Default Language Parameter for Chat Agent API',
+    description: 'Chat Agent API now supports a default language parameter as a fallback if AI cannot detect the language. Used by the widget (browser language).'
+  },
+  {
+    date: '2025-04-30',
+    title: 'New API Endpoint for Ticket Writing on Escalation',
+    description: 'Added an API endpoint to write support tickets automatically on escalation, used by supportCallback in the chat widget.'
+  },
 ]
