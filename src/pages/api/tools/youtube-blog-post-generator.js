@@ -27,7 +27,7 @@ const getVideoId = (url) => {
   }
 
   const matchId = url.match(
-    /(?:youtube.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu.be\/)([^"&?\/\s]{11})/i
+    /(?:youtube.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|live)\/|.*[?&]v=)|youtu.be\/)([^"&?\/\s]{11})/i
   )
   if (matchId && matchId.length) {
     return matchId[1]
