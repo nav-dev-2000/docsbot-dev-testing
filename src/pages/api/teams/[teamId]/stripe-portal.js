@@ -4,6 +4,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { getInvitesFromTeam } from '@/lib/dbQueries'
+import * as cookie from 'cookie'
 
 export default async function createCheckoutSession(req, res) {
   let check = null
@@ -45,15 +46,33 @@ export default async function createCheckoutSession(req, res) {
           allow_promotion_codes: true,
           mode: 'subscription',
         }
+        const cookies = cookie.parse(req.headers.cookie || '')
+        const couponId = cookies['docsbot_coupon']
+        const hasSubscription =
+          team.stripeCustomerId &&
+          ['active', 'trialing', 'past_due', 'incomplete'].includes(
+            team.stripeSubscriptionStatus
+          )
         if (team.stripeCustomerId) {
           params.customer = team.stripeCustomerId
         } else {
           params.tax_id_collection = { enabled: true }
           params.customer_email = email
           if (team.canTrial) {
-            params.subscription_data = { 
+            params.subscription_data = {
               trial_period_days: 14,
             }
+          }
+        }
+        if (couponId && !hasSubscription) {
+          delete params.allow_promotion_codes
+          if (couponId === 'paul-higgins') {
+            params.subscription_data = {
+              ...(params.subscription_data || {}),
+              trial_period_days: 30,
+            }
+          } else {
+            params.discounts = [{ coupon: couponId }]
           }
         }
 

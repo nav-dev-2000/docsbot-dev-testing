@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail, sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { stripe } from '@/utils/stripe'
-import Script from 'next/script'
 import {
   ServerStackIcon,
   ArrowRightIcon,
@@ -85,6 +83,7 @@ function Account({ team, bots, checkout, teamInvites = [] }) {
       setModify(canUserCreateDeleteBot(team, user.uid))
     }
   }, [team, user])
+
 
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length

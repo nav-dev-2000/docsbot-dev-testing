@@ -8,6 +8,8 @@ import { StripePricingTable } from '@/components/StripePricing'
 import { stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
+import * as cookie from 'cookie'
+import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
 
 export default function Checkout({ team, children, upgrade = false }) {
   const [user] = useAuthState(auth)
@@ -17,6 +19,7 @@ export default function Checkout({ team, children, upgrade = false }) {
       ['active', 'trialing', 'past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)
   )
   const [opening, setOpening] = useState(false)
+  const [dealMessage, setDealMessage] = useState(null)
 
   // Check if current plan is legacy
   const currentPlan = stripePlan(team)
@@ -35,6 +38,16 @@ export default function Checkout({ team, children, upgrade = false }) {
       setErrorText('Your subscription is scheduled to cancel at the end of your billing period.')
     }
   }, [team.stripeSubscriptionCancelAtPeriodEnd])
+
+  useEffect(() => {
+    if (!isStripeCustomer) {
+      const cookies = cookie.parse(document.cookie || '')
+      const couponId = cookies['docsbot_coupon']
+      if (couponId) {
+        setDealMessage(DEALS[couponId]?.message || DEFAULT_DEAL.message)
+      }
+    }
+  }, [isStripeCustomer])
 
   async function openPortal() {
     setErrorText(null)
@@ -109,7 +122,8 @@ export default function Checkout({ team, children, upgrade = false }) {
   return (
     <>
       <Alert title={errorText} type="error" />
-      
+      {dealMessage && <Alert title={dealMessage} type="success" />}
+
       {isLegacyPlan && (
         <div className="mb-6 rounded-md bg-yellow-50 p-4">
           <div className="flex">
