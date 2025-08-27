@@ -714,85 +714,89 @@ export default function ModalPrompt({
                                   <span className="hidden sm:inline">Debug</span>
                                 </button>
                               </Tooltip>
-                              <Tooltip content="Generate or improve your prompt">
-                                <button
-                                  ref={buttonRef}
-                                  type="button"
-                                  onClick={() =>
-                                    setShowGeneratePopover(!showGeneratePopover)
-                                  }
-                                  disabled={isGenerating}
-                                  className={
-                                    'my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400'
-                                  }
+                              {activeTab !== 'agent' && (
+                                <Tooltip content="Generate or improve your prompt">
+                                  <button
+                                    ref={buttonRef}
+                                    type="button"
+                                    onClick={() =>
+                                      setShowGeneratePopover(!showGeneratePopover)
+                                    }
+                                    disabled={isGenerating}
+                                    className={
+                                      'my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400'
+                                    }
+                                  >
+                                    <SparklesIcon
+                                      className={clsx(
+                                        'mr-1 h-5 w-5',
+                                        isGenerating && 'animate-ping',
+                                      )}
+                                    />{' '}
+                                    <span className="hidden sm:inline">
+                                      {showGeneratePopover
+                                        ? 'Cancel'
+                                        : 'Generate'}
+                                    </span>
+                                  </button>
+                                </Tooltip>
+                              )}
+                              {activeTab !== 'agent' && (
+                                <Transition
+                                  show={showGeneratePopover}
+                                  enter="transition ease-out duration-200"
+                                  enterFrom="opacity-0 translate-y-1"
+                                  enterTo="opacity-100 translate-y-0"
+                                  leave="transition ease-in duration-150"
+                                  leaveFrom="opacity-100 translate-y-0"
+                                  leaveTo="opacity-0 translate-y-1"
                                 >
-                                  <SparklesIcon
-                                    className={clsx(
-                                      'mr-1 h-5 w-5',
-                                      isGenerating && 'animate-ping',
-                                    )}
-                                  />{' '}
-                                  <span className="hidden sm:inline">
-                                    {showGeneratePopover
-                                      ? 'Cancel'
-                                      : 'Generate'}
-                                  </span>
-                                </button>
-                              </Tooltip>
-                              <Transition
-                                show={showGeneratePopover}
-                                enter="transition ease-out duration-200"
-                                enterFrom="opacity-0 translate-y-1"
-                                enterTo="opacity-100 translate-y-0"
-                                leave="transition ease-in duration-150"
-                                leaveFrom="opacity-100 translate-y-0"
-                                leaveTo="opacity-0 translate-y-1"
-                              >
-                                <div
-                                  ref={popoverRef}
-                                  className="absolute right-0 z-10 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                >
-                                  <div className="rounded-lg bg-gray-50 p-0">
-                                    <textarea
-                                      className="h-24 w-full resize-none rounded border-0 bg-gray-50 p-0 px-2 pt-2 text-sm leading-snug focus:border-0 focus:ring-0"
-                                      placeholder="Describe what you're using the agent for..."
-                                      value={actionInput}
-                                      onChange={(e) =>
-                                        setActionInput(e.target.value)
-                                      }
-                                      tabIndex={10}
-                                    />
-                                    <div className="flex items-center justify-between px-2 pb-2">
-                                      <span className="flex items-center text-xs text-gray-400">
-                                        <ExclamationTriangleIcon className="h-5 w-5 pr-1" />
-                                        Replaces custom prompt
-                                      </span>
-                                      <div className="flex items-center">
-                                        <Tooltip content="Clear the prompt">
+                                  <div
+                                    ref={popoverRef}
+                                    className="absolute right-0 z-10 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                  >
+                                    <div className="rounded-lg bg-gray-50 p-0">
+                                      <textarea
+                                        className="h-24 w-full resize-none rounded border-0 bg-gray-50 p-0 px-2 pt-2 text-sm leading-snug focus:border-0 focus:ring-0"
+                                        placeholder="Describe what you're using the agent for..."
+                                        value={actionInput}
+                                        onChange={(e) =>
+                                          setActionInput(e.target.value)
+                                        }
+                                        tabIndex={10}
+                                      />
+                                      <div className="flex items-center justify-between px-2 pb-2">
+                                        <span className="flex items-center text-xs text-gray-400">
+                                          <ExclamationTriangleIcon className="h-5 w-5 pr-1" />
+                                          Replaces custom prompt
+                                        </span>
+                                        <div className="flex items-center">
+                                          <Tooltip content="Clear the prompt">
+                                            <button
+                                              className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                                              onClick={() => setActionInput('')}
+                                              disabled={!actionInput}
+                                              tabIndex={12}
+                                            >
+                                              <XCircleIcon className="h-5 w-5" />
+                                            </button>
+                                          </Tooltip>
                                           <button
-                                            className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-                                            onClick={() => setActionInput('')}
-                                            disabled={!actionInput}
-                                            tabIndex={12}
+                                            className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                            onClick={generatePrompt}
+                                            disabled={isGenerating}
+                                            tabIndex={11}
                                           >
-                                            <XCircleIcon className="h-5 w-5" />
+                                            {isGenerating
+                                              ? 'Generating...'
+                                              : 'Create'}
                                           </button>
-                                        </Tooltip>
-                                        <button
-                                          className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                          onClick={generatePrompt}
-                                          disabled={isGenerating}
-                                          tabIndex={11}
-                                        >
-                                          {isGenerating
-                                            ? 'Generating...'
-                                            : 'Create'}
-                                        </button>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                              </Transition>
+                                </Transition>
+                              )}
                             </div>
                           </div>
                           <div className="-mt-1 flex-grow">
