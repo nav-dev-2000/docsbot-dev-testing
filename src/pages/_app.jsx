@@ -229,12 +229,16 @@ export default function App({ Component, pageProps }) {
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
+  let message = ticket.message;
+  if (metadata.conversationUrl) {
+    message += "\n\nConversation: " + metadata.conversationUrl;
+  }
   Beacon('open');
   if (ticket) {
     // Add ticket subject and message to Beacon
     Beacon('prefill', {
       subject: ticket.subject,
-      text: ticket.message
+      text: message
     });          
   }         
 },});`}
