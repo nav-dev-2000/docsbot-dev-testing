@@ -99,7 +99,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       id: 'gpt-5',
       name: 'GPT-5',
       description:
-        'Most cutting-edge general-purpose model',
+        'Most cutting-edge general-purpose model - requires verification',
     },
     {
       id: 'gpt-5-mini',

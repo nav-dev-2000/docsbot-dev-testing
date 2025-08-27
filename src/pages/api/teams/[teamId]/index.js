@@ -93,7 +93,7 @@ export default async function handler(req, res) {
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     } else if (openAIKey === false) {
-      const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-5-mini' : 'gpt-4o-mini';
+      const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
 
       // walk through each bot, and verify that it's set to default. if not, update it
       const botsSnapshot = await firestore

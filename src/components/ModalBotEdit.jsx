@@ -28,10 +28,16 @@ export default function ModalBotEdit({ team, bot, setBot }) {
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-5-mini' : 'gpt-4o-mini';
-      setBotSettings({ ...botSettings, model: defaultModel });
+      // Only set default model if no model is already set or if the current model requires an API key
+      const currentModel = botSettings.model || bot?.model;
+      const modelsThatRequireAPIKey = ['gpt-5', 'gpt-4.1', 'gpt-4o'];
+      
+      if (!currentModel || modelsThatRequireAPIKey.includes(currentModel)) {
+        const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+        setBotSettings({ ...botSettings, model: defaultModel });
+      }
     }
-  }, [showOpenAI])
+  }, [showOpenAI, botSettings.model, bot?.model])
 
   async function updateBot() {
     setErrorText('')

@@ -24,7 +24,7 @@ export default function FormBot({
   const [model, setModel] = useState(
     bot?.model ||
       (checkPlanPermission(team, 'personal').allowed
-        ? 'gpt-5-mini'
+        ? 'gpt-4.1-mini'
         : 'gpt-4o-mini'),
   )
   const [questions, setQuestions] = useState(bot?.questions || [])
@@ -142,11 +142,11 @@ export default function FormBot({
       }
     } else {
       // For paid plan users (personal and above)
-      // Only restrict full GPT-4 models (gpt-5, gpt-4.1, gpt-4o) if they don't have supportsGPT4
-      // Allow all mini/nano variants regardless of OpenAI key status
+      // If they select a full model without OpenAI key, revert to a mini model
+      // The modal will be triggered by NewBotPanel/ModalBotEdit components
       if (['gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) && !team.supportsGPT4) {
-        setModel('gpt-5-mini') // Default to gpt-5-mini since they're on paid plan
-        console.log('Setting default paid plan model to gpt-5-mini')
+        setModel('gpt-4.1-mini') // Default to gpt-5-mini since they're on paid plan
+        console.log('Reverting to gpt-4.1-mini for paid plan user without OpenAI key')
       }
       // If they're selecting gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, don't change anything
     }
@@ -480,7 +480,7 @@ export default function FormBot({
                 className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                 checked={model === 'gpt-5'}
                 onChange={() => setModel('gpt-5')}
-                disabled={disabled || !team.supportsGPT4}
+                disabled={disabled}
               />
             </div>
             <div className="pl-7 text-sm">
@@ -490,11 +490,7 @@ export default function FormBot({
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                     Paid
                   </span>
-                ) : (
-                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                    New!
-                  </span>
-                )}
+                ) : null}
               </label>
               <p id="gpt-5-description" className="text-gray-500">
                 Smartest, fastest, most useful model yet, with thinking built in
@@ -537,11 +533,7 @@ export default function FormBot({
                   <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                     Paid
                   </span>
-                ) : (
-                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                    New!
-                  </span>
-                )}
+                ) : null}
               </label>
               <p id="gpt-5-mini-description" className="text-gray-500">
                 Included in paid plans. Smart, fast, and useful model. Good for
@@ -570,11 +562,8 @@ export default function FormBot({
               />
             </div>
             <div className="pl-7 text-sm">
-              <label htmlFor="gpt-5-nano" className="font-medium text-gray-900">
+              <label htmlFor="gpt-5-nano" className="font-medium text-gray-600">
                 GPT-5 nano - Fast & Cost Effective
-                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                  New!
-                </span>
               </label>
               <p id="gpt-5-nano-description" className="text-gray-500">
                 Included in all plans. Affordable & extremely fast model.
@@ -586,17 +575,17 @@ export default function FormBot({
           {model === 'gpt-4.5-preview' && (
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-4.5-preview"
-                  name="model"
-                  value="gpt-4.5-preview"
-                  aria-describedby="gpt-4.5-preview-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-4.5-preview'}
-                  onChange={() => setModel('gpt-4.5-preview')}
-                  disabled={disabled || !team.supportsGPT4}
-                />
+                                  <input
+                    id="gpt-4.5-preview"
+                    name="model"
+                    value="gpt-4.5-preview"
+                    aria-describedby="gpt-4.5-preview-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4.5-preview'}
+                    onChange={() => setModel('gpt-4.5-preview')}
+                    disabled={disabled}
+                  />
               </div>
               <div className="pl-7 text-sm">
                 <label
@@ -629,9 +618,7 @@ export default function FormBot({
             </div>
           )}
 
-          {/* Full GPT-4 models - only shown in full form and require supportsGPT4 */}
-          {!short && (
-            <>
+
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -643,24 +630,29 @@ export default function FormBot({
                     className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                     checked={model === 'gpt-4.1'}
                     onChange={() => setModel('gpt-4.1')}
-                    disabled={disabled || !team.supportsGPT4}
+                    disabled={disabled}
                   />
                 </div>
                 <div className="pl-7 text-sm">
                   <label
                     htmlFor="gpt-4.1"
-                    className="font-medium text-gray-600"
+                    className="font-medium text-gray-900"
                   >
-                    GPT-4.1
-                    {!checkPlanPermission(team, 'hobby').allowed && (
+                    GPT-4.1 
+                    {!checkPlanPermission(team, 'hobby').allowed ? (
                       <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
                         Paid
                       </span>
+                    ) : team.supportsGPT4 ? (
+                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                        Recommended
+                      </span>
+                    ) : (
+                      null
                     )}
                   </label>
                   <p id="gpt-4.1-description" className="text-gray-500">
                     Previous generation model good at instruction following.
-                    Consider upgrading to GPT-5.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
@@ -690,13 +682,18 @@ export default function FormBot({
                 <div className="pl-7 text-sm">
                   <label
                     htmlFor="gpt-4.1-mini"
-                    className="font-medium text-gray-600"
+                    className="font-medium text-gray-900"
                   >
                     GPT-4.1 mini
+                    {!team.supportsGPT4 && (
+                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                        Recommended
+                      </span>
+                    )}
                   </label>
                   <p id="gpt-4.1-mini-description" className="text-gray-500">
                     Faster than GPT-4.1 while still good at instruction
-                    following. Consider upgrading to GPT-5 mini.
+                    following.
                   </p>
                 </div>
               </div>
@@ -723,12 +720,13 @@ export default function FormBot({
                     GPT-4.1 nano
                   </label>
                   <p id="gpt-4.1-nano-description" className="text-gray-500">
-                    Previous generation model. We recommend upgrading to GPT-5
-                    nano.
+                    Previous generation model. We recommend upgrading to at least GPT-4.1 mini.
                   </p>
                 </div>
               </div>
-
+          {/* Full GPT-4 models - only shown in full form and require supportsGPT4 */}
+          {!short && (
+            <>
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -740,7 +738,7 @@ export default function FormBot({
                     className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                     checked={model === 'gpt-4o'}
                     onChange={() => setModel('gpt-4o')}
-                    disabled={disabled || !team.supportsGPT4}
+                    disabled={disabled}
                   />
                 </div>
                 <div className="pl-7 text-sm">
@@ -754,7 +752,7 @@ export default function FormBot({
                   </label>
                   <p id="gpt-4o-description" className="text-gray-500">
                     Previous generation general purpose model. Consider
-                    upgrading to GPT-5.
+                    upgrading to GPT-4.1.
                     {!team.supportsGPT4 && (
                       <Link
                         href="/app/api"
@@ -769,7 +767,7 @@ export default function FormBot({
             </>
           )}
 
-          {model === 'gpt-4o-mini' && (
+          {model === 'gpt-4o-mini' || !checkPlanPermission(team, 'personal').allowed && (
             <div className="relative flex items-start">
               <div className="absolute flex h-5 items-center">
                 <input
@@ -792,7 +790,7 @@ export default function FormBot({
                   GPT-4o mini
                 </label>
                 <p id="gpt-4o-mini-description" className="text-gray-500">
-                  Previous generation model. Consider upgrading to GPT-5 mini.
+                  Previous generation model. Consider upgrading to GPT-4.1 mini.
                 </p>
               </div>
             </div>
@@ -810,7 +808,7 @@ export default function FormBot({
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                   checked={model === 'gpt-4-turbo'}
                   onChange={() => setModel('gpt-4-turbo')}
-                  disabled={disabled || !team.supportsGPT4}
+                  disabled={disabled}
                 />
               </div>
               <div className="pl-7 text-sm">
@@ -826,7 +824,7 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4-turbo-description" className="text-gray-500">
-                  Previous generation model. Consider upgrading to GPT-5.
+                  Previous generation model. Recommend upgrading to GPT-4.1.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -852,7 +850,7 @@ export default function FormBot({
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
                   checked={model === 'gpt-4'}
                   onChange={() => setModel('gpt-4')}
-                  disabled={disabled || !team.supportsGPT4}
+                  disabled={disabled}
                 />
               </div>
               <div className="pl-7 text-sm">
@@ -865,7 +863,7 @@ export default function FormBot({
                   )}
                 </label>
                 <p id="gpt-4-description" className="text-gray-500">
-                  Previous generation model. Consider upgrading to GPT-5.
+                  Previous generation model. Recommend upgrading to GPT-4.1.
                   {!team.supportsGPT4 && (
                     <Link
                       href="/app/api"
@@ -902,7 +900,7 @@ export default function FormBot({
                   GPT 3.5 Turbo - Legacy
                 </label>
                 <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                  Previous generation model. Consider upgrading to GPT-5 nano.
+                  Previous generation model. Recommend upgrading to GPT-4.1.
                 </p>
               </div>
             </div>
