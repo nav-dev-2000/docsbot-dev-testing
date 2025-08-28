@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-08-28',
+    title: 'FreeScout ticket source',
+    description: 'Import and learn from closed tickets in FreeScout mailboxes with configurable history.',
+  },
+  {
     date: '2025-08-21',
     title: 'Redesigned Chat Share Page with Agent Mode Support',
     description: 'The public chat share page has been completely redesigned with a modern layout using the chat widget design, and enhanced support for agent mode bots.'

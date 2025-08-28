@@ -19,6 +19,7 @@ import DropboxLogo from '@/components/DropboxLogo'
 import BoxLogo from '@/components/BoxLogo'
 import HelpScoutLogo from '@/components/HelpScoutLogo'
 import ZendeskLogo from '@/components/ZendeskLogo'
+import FreeScoutLogo from '@/components/FreeScoutLogo'
 import SharepointLogo from '@/components/SharepointLogo'
 import GitBookLogo from '@/components/GitBookLogo'
 import GithubLogo from '@/components/GithubLogo'
@@ -180,7 +181,7 @@ export const sourceTypes = [
   {
     id: 'notion',
     title: 'Notion',
-    description: 'Answer questions from the content of Notion pages (BETA)',
+    description: 'Answer questions from the content of Notion pages',
     fullDescription: 'Connect to Notion via our partner Truto and select which pages to learn from. We will download the pages, parse the content, and add them to this bot. Does not yet support Notion databases like embedded tables, boards, calendars, galleries, and lists.',
     icon: NotionLogo,
     isTruto: 'notion',
@@ -198,7 +199,7 @@ export const sourceTypes = [
   {
     id: 'confluence',
     title: 'Confluence',
-    description: 'Answer questions from all Confluence pages (BETA)',
+    description: 'Answer questions from all Confluence pages',
     fullDescription: 'Integrate with Confluence through our partner Truto, and effortlessly import content from all Confluence pages for your selected spaces.',
     icon: ConfluenceLogo,
     isTruto: 'confluence',
@@ -212,6 +213,25 @@ export const sourceTypes = [
     fieldImages: false,
     category: 'Productivity',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-your-confluence-pages',
+  },
+  {
+    id: 'zendesk',
+    title: 'Zendesk Guide',
+    description: 'Answer questions from Zendesk Guide/Help Center articles',
+    fullDescription: 'Connect to Zendesk via our partner Truto to select and import all published Help Center articles. We do not currently index community posts, only articles.',
+    icon: ZendeskLogo,
+    isTruto: 'zendesk-help-center',
+    minPlan: 'personal',
+    coming: false,
+    isNew: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    fieldImages: true,
+    category: 'Productivity',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zendesk-documentation',
   },
   {
     id: 'salesforce',
@@ -231,6 +251,7 @@ export const sourceTypes = [
     category: 'Productivity',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-salesforce-pages',
   },
+  /*
   {
     id: 'gitbook',
     title: 'GitBook',
@@ -249,7 +270,6 @@ export const sourceTypes = [
     category: 'Productivity',
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-gitbook',
   },
-  /*
   {
     id: 'guru',
     title: 'Guru',
@@ -493,7 +513,7 @@ export const sourceTypes = [
   {
     id: 'helpscout',
     title: 'Help Scout Tickets',
-    description: 'Answer questions from closed Help Scout tickets (BETA)',
+    description: 'Answer questions from closed Help Scout tickets',
     fullDescription: 'Connect to Help Scout via our partner Truto to import recent closed tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
     icon: HelpScoutLogo,
     isTruto: 'helpscout',
@@ -512,7 +532,7 @@ export const sourceTypes = [
   {
     id: 'freshdesk',
     title: 'Freshdesk Tickets',
-    description: 'Answer questions from Freshdesk tickets (BETA)',
+    description: 'Answer questions from Freshdesk tickets',
     fullDescription: 'Connect to Freshdesk via our partner Truto to import recent resolved/closed tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
     icon: FreshdeskLogo,
     isTruto: 'freshdesk',
@@ -531,7 +551,7 @@ export const sourceTypes = [
   {
     id: 'zendesk-tickets',
     title: 'Zendesk Tickets',
-    description: 'Answer questions from Zendesk tickets (BETA)',
+    description: 'Answer questions from Zendesk tickets',
     fullDescription: 'Connect to Zendesk via our partner Truto to select and import all solved tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
     icon: ZendeskLogo,
     isTruto: 'zendesk',
@@ -548,23 +568,23 @@ export const sourceTypes = [
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-zendesk-tickets',
   },
   {
-    id: 'zendesk',
-    title: 'Zendesk Guide',
-    description: 'Answer questions from Zendesk Guide/Help Center articles (BETA)',
-    fullDescription: 'Connect to Zendesk via our partner Truto to select and import all published Help Center articles. We do not currently index community posts, only articles.',
-    icon: ZendeskLogo,
-    isTruto: 'zendesk-help-center',
-    minPlan: 'personal',
+    id: 'freescout',
+    title: 'FreeScout Tickets',
+    description: 'Answer questions from FreeScout tickets (BETA)',
+    fullDescription:
+      'Connect to FreeScout to import recent closed tickets from a selected mailbox. We transform conversations into generic FAQs without personal information. Requires the FreeScout API & Webhooks module to be installed.',
+    icon: FreeScoutLogo,
+    minPlan: 'standard',
+    isNew: true,
     coming: false,
-    isNew: false,
-    fieldUrl: false,
+    fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
     fieldSchedule: true,
     fieldQA: false,
     fieldImages: true,
     category: 'Customer Support',
-    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zendesk-documentation',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-freescout-tickets',
   },
   {
     id: 'intercom',

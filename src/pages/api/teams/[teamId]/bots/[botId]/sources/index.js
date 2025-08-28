@@ -60,7 +60,22 @@ export default async function handler(req, res) {
     }
 
     //data validation
-    let { type, title, url, file, scheduleInterval, faqs, processImages, trutoIntegrationID, trutoFiles, urls } = req.body
+    let {
+      type,
+      title,
+      url,
+      file,
+      scheduleInterval,
+      faqs,
+      processImages,
+      trutoIntegrationID,
+      trutoFiles,
+      urls,
+      freescoutUrl,
+      freescoutKey,
+      freescoutMailbox,
+      freescoutMonths,
+    } = req.body
 
     if (!type || !sourceTypes.find((sourceType) => sourceType.id === type)) {
       return res.status(400).send({ message: 'Invalid parameter "type".' })
@@ -295,6 +310,17 @@ export default async function handler(req, res) {
           scheduleInterval,
         )
         data = { ...data, scheduled, scheduleInterval }
+      }
+
+      if (type === 'freescout') {
+        data = {
+          ...data,
+          freescoutUrl: freescoutUrl || url,
+          freescoutKey,
+          freescoutMailbox,
+          freescoutMonths:
+            Math.min(Math.max(parseInt(freescoutMonths) || 3, 1), 12),
+        }
       }
 
       // we only allow 1 qa source per bot, so we'll need to check if another qa source exists.
