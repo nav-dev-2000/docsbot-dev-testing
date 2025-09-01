@@ -194,40 +194,76 @@ function BotMessage({
   )
 }
 
-function UserMessage({ text, alias, email, image_urls }) {
+function UserMessage({ text, alias, email, image_urls, timestamp, showHeader }) {
   const [expandedImage, setExpandedImage] = useState(null)
 
   return (
     <>
+      {showHeader && timestamp && (
+        <div className="mb-1 flex max-w-3xl items-start justify-start">
+          <div className="mr-3 hidden h-10 w-10 flex-none sm:flex lg:hidden xl:flex"></div>
+          <div className="text-xs text-gray-400">
+            <LocaleDateTime date={timestamp} />
+          </div>
+        </div>
+      )}
       <div className="mb-4 flex max-w-3xl items-start justify-start">
         <UserAvatar
           alias={alias}
           email={email}
           className="mr-3 hidden h-10 w-10 flex-none rounded-full bg-gray-50 sm:flex lg:hidden xl:flex"
         />
-        <div
-          dir="auto"
-          className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
-        >
-          {image_urls && image_urls.length > 0 && (
-            <div className="mb-2 grid grid-cols-4 gap-2">
-              {image_urls.map((imageUrl, index) => (
-                <button
-                  key={index}
-                  onClick={() => setExpandedImage(imageUrl)}
-                  className="relative overflow-hidden rounded-lg hover:opacity-90"
-                >
-                  <img
-                    src={imageUrl}
-                    alt={`User uploaded image ${index + 1}`}
-                    className="m-0 h-20 w-20 rounded-lg object-cover"
-                  />
-                </button>
-              ))}
+        {timestamp ? (
+          <Tooltip content={`${new Date(timestamp).getFullYear()}-${new Date(timestamp).getMonth() + 1}-${new Date(timestamp).getDate()} ${new Date(timestamp).toLocaleTimeString('en-US')}`}>
+            <div
+              dir="auto"
+              className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
+            >
+              {image_urls && image_urls.length > 0 && (
+                <div className="mb-2 grid grid-cols-4 gap-2">
+                  {image_urls.map((imageUrl, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setExpandedImage(imageUrl)}
+                      className="relative overflow-hidden rounded-lg hover:opacity-90"
+                    >
+                      <img
+                        src={imageUrl}
+                        alt={`User uploaded image ${index + 1}`}
+                        className="m-0 h-20 w-20 rounded-lg object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+              {text}
             </div>
-          )}
-          {text}
-        </div>
+          </Tooltip>
+        ) : (
+          <div
+            dir="auto"
+            className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
+          >
+            {image_urls && image_urls.length > 0 && (
+              <div className="mb-2 grid grid-cols-4 gap-2">
+                {image_urls.map((imageUrl, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setExpandedImage(imageUrl)}
+                    className="relative overflow-hidden rounded-lg hover:opacity-90"
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={`User uploaded image ${index + 1}`}
+                      className="m-0 h-20 w-20 rounded-lg object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+            {text}
+          </div>
+        )}
       </div>
 
       <Transition.Root show={!!expandedImage} as={Fragment}>
@@ -1064,12 +1100,19 @@ function Conversations({ team, bot, preConversations }) {
                   const prevMessage =
                     index > 0 ? conversation.history[index - 1] : null
                   if (message['Human']) {
+                    const currentTs = message.timestamp
+                    const prevTs = prevMessage?.timestamp
+                    const showHeader = currentTs && prevTs
+                      ? new Date(currentTs).getTime() - new Date(prevTs).getTime() > 1000 * 60 * 60
+                      : false
                     return (
                       <UserMessage
                         text={message['Human']}
                         alias={conversation.alias}
                         email={conversation.email}
                         image_urls={message.image_urls}
+                        timestamp={message.timestamp}
+                        showHeader={showHeader}
                         key={index}
                       />
                     )
