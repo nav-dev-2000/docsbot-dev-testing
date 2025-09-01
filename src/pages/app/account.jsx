@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { updateEmail, sendPasswordResetEmail } from 'firebase/auth'
+import { updateEmail } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
 import {
   ServerStackIcon,
@@ -21,7 +21,7 @@ import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 import { getBots, getInvitesFromTeam } from '@/lib/dbQueries'
-import { getUserRole, canUserCreateDeleteBot } from '@/utils/function.utils'
+import { getUserRole, canUserManageBilling } from '@/utils/function.utils'
 import ModalPasswordReset from '@/components/ModalPasswordReset'
 import Tooltip from '@/components/Tooltip'
 
@@ -71,18 +71,11 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   ) : cardContent
 }
 
-function Account({ team, bots, checkout, teamInvites = [] }) {
+function Account({ team, bots, checkout, teamInvites = [], role, canManageBilling }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
-  const [sentPasswordReset, setSentPasswordReset] = useState(false)
-  const [canModify, setModify] = useState(false)
-
-  useEffect(() => {
-    if (team && user) {
-      setModify(canUserCreateDeleteBot(team, user.uid))
-    }
-  }, [team, user])
+  const isOwner = role === 'owner'
 
 
   // Calculate team members count (current members + invites)
@@ -159,10 +152,12 @@ function Account({ team, bots, checkout, teamInvites = [] }) {
         ))}
       </div>
 
-      <div className="mt-6 rounded-lg bg-white p-8 shadow">
-        <Checkout team={team} />
-        <Cancel team={team} bots={bots} />
-      </div>
+      {canManageBilling && (
+        <div className="mt-6 rounded-lg bg-white p-8 shadow">
+          <Checkout team={team} />
+          <Cancel team={team} bots={bots} />
+        </div>
+      )}
 
       <div className="mt-6 gap-6 md:grid md:grid-cols-2">
         <div className="rounded-lg bg-white p-8 shadow">
@@ -220,17 +215,19 @@ function Account({ team, bots, checkout, teamInvites = [] }) {
           </div>
         </div>
 
-        <div className="rounded-lg bg-white p-8 shadow">
-          <h3 className="text-2xl font-bold">Delete Team Account</h3>
-          <p className="text-md mt-2 text-justify text-gray-800">
-            You can delete your team account here. This will delete all of your bots, sources,
-            questions, keys, any other data, and remove all team members. This action cannot be
-            undone and you should cancel any subscriptions before deleting your team account.
-          </p>
-          <div className="mt-5 flex justify-end">
-            <ModalDeleteAccount team={team} />
+        {isOwner && (
+          <div className="rounded-lg bg-white p-8 shadow">
+            <h3 className="text-2xl font-bold">Delete Team Account</h3>
+            <p className="text-md mt-2 text-justify text-gray-800">
+              You can delete your team account here. This will delete all of your bots, sources,
+              questions, keys, any other data, and remove all team members. This action cannot be
+              undone and you should cancel any subscriptions before deleting your team account.
+            </p>
+            <div className="mt-5 flex justify-end">
+              <ModalDeleteAccount team={team} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </DashboardWrap>
   )
@@ -241,18 +238,13 @@ export const getServerSideProps = async (context) => {
 
   if (data?.props?.team) {
     const role = getUserRole(data.props.team, data.props.userId)
-
-    // redirect non-owners to dashboard
-    if (role === 'viewer' || role === 'editor') {
-      return {
-        redirect: {
-          destination: '/app',
-          permanent: false,
-        },
-      }
-    }
+    data.props.role = role
+    data.props.canManageBilling = canUserManageBilling(
+      data.props.team,
+      data.props.userId,
+    )
     data.props.bots = await getBots(data.props.team)
-    
+
     // Fetch team invites for member count calculation
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
   }

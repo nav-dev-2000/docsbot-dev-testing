@@ -1,4 +1,5 @@
 export const FEATURE_UPDATES = [
+
   {
     date: '2025-08-31',
     title: 'Enhanced Date Range Picker in Analytics',

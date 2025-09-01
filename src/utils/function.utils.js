@@ -47,6 +47,14 @@ export const canUserModifyTeam = (team, userId) => {
 
 export const canUserDeleteTeam = (team, userId) => {
     const role = getUserRole(team, userId)
+    if (role === 'owner') {
+        return true
+    }
+    return false
+}
+
+export const canUserManageBilling = (team, userId) => {
+    const role = getUserRole(team, userId)
     if (role === 'owner' || role === 'admin') {
         return true
     }

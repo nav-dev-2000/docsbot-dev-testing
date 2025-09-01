@@ -1,10 +1,11 @@
 import { stripe } from '@/utils/stripe'
 import { getURL, getNeededStripeProduct } from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { bentoTrack, teamOwner } from '@/lib/bento'
+import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { getInvitesFromTeam } from '@/lib/dbQueries'
 import * as cookie from 'cookie'
+import { canUserManageBilling } from '@/utils/function.utils'
 
 export default async function createCheckoutSession(req, res) {
   let check = null
@@ -15,7 +16,11 @@ export default async function createCheckoutSession(req, res) {
   }
   const { userId, team } = check
 
-  //TODO check if their role has billing access
+  if (!canUserManageBilling(team, userId)) {
+    return res.status(403).json({
+      message: 'Unauthorized action; please contact your team owner.',
+    })
+  }
 
   if (req.method === 'POST') {
     const { tier, frequency, email, upgrade } = req.body
