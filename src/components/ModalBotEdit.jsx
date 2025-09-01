@@ -33,7 +33,7 @@ export default function ModalBotEdit({ team, bot, setBot }) {
       const modelsThatRequireAPIKey = ['gpt-5', 'gpt-4.1', 'gpt-4o'];
       
       if (!currentModel || modelsThatRequireAPIKey.includes(currentModel)) {
-        const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+        const defaultModel = 'gpt-4.1-mini';
         setBotSettings({ ...botSettings, model: defaultModel });
       }
     }

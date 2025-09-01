@@ -25,7 +25,7 @@ export async function getBots(team, resultLimit = 1000) {
     let bot = { id: doc.id, ...doc.data() }
     bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
     if (!bot.model) {
-      bot.model = 'gpt-4o-mini'
+      bot.model = 'gpt-4.1-mini'
     }
     // if the bot is missing labels, populate with defaults
     bot.labels = {
@@ -322,7 +322,7 @@ export async function getBot(teamId, botId) {
     bot.signature = `${hmac.digest('hex')}:${expires}`
 
     if (!bot.model) {
-      bot.model = 'gpt-4o-mini'
+      bot.model = 'gpt-4.1-mini'
     }
 
     // if the bot is missing labels, populate with defaults

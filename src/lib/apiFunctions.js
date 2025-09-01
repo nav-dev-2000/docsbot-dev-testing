@@ -415,7 +415,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     botData.model = model
   } else if (!isUpdate) {
-    const defaultModel = checkPlanPermission(team, 'personal').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+    const defaultModel = 'gpt-4.1-mini';
     botData.model = defaultModel
   }
 

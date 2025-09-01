@@ -22,10 +22,7 @@ export default function FormBot({
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(
-    bot?.model ||
-      (checkPlanPermission(team, 'personal').allowed
-        ? 'gpt-4.1-mini'
-        : 'gpt-4o-mini'),
+    bot?.model ||'gpt-4.1-mini'
   )
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
@@ -56,6 +53,23 @@ export default function FormBot({
   const [temperature, setTemperature] = useState(bot?.temperature || 0)
   const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
   const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
+
+  // Define which models should be shown based on conditions
+  const modelVisibility = {
+    'gpt-5': !short || (checkPlanPermission(team, 'personal').allowed),
+    'gpt-4.1': !short || (checkPlanPermission(team, 'personal').allowed),
+    'gpt-5-mini': true,
+    'gpt-4.1-mini': true,
+    'gpt-5-nano': !short,
+    'gpt-4.1-nano': !short,
+    'gpt-4.5-preview': model === 'gpt-4.5-preview',
+    'gpt-4o': !short,
+    'gpt-4o-mini': model === 'gpt-4o-mini',
+    'gpt-4-turbo': model === 'gpt-4-turbo',
+    'gpt-4': model === 'gpt-4',
+    'gpt-3.5-turbo': model === 'gpt-3.5-turbo',
+    'gpt-3.5-turbo-0613': model === 'gpt-3.5-turbo-0613',
+  }
 
   useEffect(() => {
     setBotSettings({
@@ -135,10 +149,10 @@ export default function FormBot({
     // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
     if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
       // For non-personal plans, keep existing behavior
-      if (['gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o', 'gpt-4.1-mini'].includes(model)) {
+      if (['gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o'].includes(model)) {
         setShowUpgrade(true)
-        setModel('gpt-4o-mini')
-        console.log('Setting default free/hobby plan model to gpt-4o-mini')
+        setModel('gpt-4.1-mini')
+        console.log('Setting default free/hobby plan model to gpt-4.1-mini')
       }
     } else {
       // For paid plan users (personal and above)
@@ -464,161 +478,43 @@ export default function FormBot({
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend className="text-sm font-medium text-gray-900">
-          OpenAI Model
-        </legend>
-        <div className="mt-2 space-y-2">
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="gpt-5"
-                name="model"
-                value="gpt-5"
-                aria-describedby="gpt-5-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={model === 'gpt-5'}
-                onChange={() => setModel('gpt-5')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="gpt-5" className="font-medium text-gray-900">
-                GPT-5 - Most Powerful
-                {!checkPlanPermission(team, 'personal').allowed ? (
-                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                    Paid
-                  </span>
-                ) : null}
-              </label>
-              <p id="gpt-5-description" className="text-gray-500">
-                Smartest, fastest, most useful model yet, with thinking built in
-                — so you get the best answer, every time.{' '}
-                {team.supportsGPT4 && (
-                  <span className="font-bold text-xs">
-                    Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                  </span>
-                )}
-                {!team.supportsGPT4 && (
-                  <Link
-                    href="/app/api"
-                    className="ml-1 inline-block underline hover:text-gray-800"
-                  >
-                    Get access
-                  </Link>
-                )}
-              </p>
-            </div>
-          </div>
-
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="gpt-5-mini"
-                name="model"
-                value="gpt-5-mini"
-                aria-describedby="gpt-5-mini-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={model === 'gpt-5-mini'}
-                onChange={() => setModel('gpt-5-mini')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="gpt-5-mini" className="font-medium text-gray-900">
-                GPT-5 mini - Best Value
-                {!checkPlanPermission(team, 'personal').allowed ? (
-                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                    Paid
-                  </span>
-                ) : null}
-              </label>
-              <p id="gpt-5-mini-description" className="text-gray-500">
-                Included in paid plans. Smart, fast, and useful model. Good for
-                most support use cases.{' '}
-                {team.supportsGPT4 && (
-                  <span className="font-bold text-xs">
-                    Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                  </span>
-                )}
-              </p>
-            </div>
-          </div>
-
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="gpt-5-nano"
-                name="model"
-                value="gpt-5-nano"
-                aria-describedby="gpt-5-nano-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={model === 'gpt-5-nano'}
-                onChange={() => setModel('gpt-5-nano')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label htmlFor="gpt-5-nano" className="font-medium text-gray-600">
-                GPT-5 nano - Fast & Cost Effective
-              </label>
-              <p id="gpt-5-nano-description" className="text-gray-500">
-                Included in all plans. Affordable & extremely fast model.
-              </p>
-            </div>
-          </div>
-
-          {/* Legacy GPT-4 models for existing bots */}
-          {model === 'gpt-4.5-preview' && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                                  <input
-                    id="gpt-4.5-preview"
+        <fieldset>
+          <legend className="text-sm font-medium text-gray-900">
+            OpenAI Model
+          </legend>
+          <div className="mt-2 space-y-2">
+            {/* Render models based on visibility rules */}
+            {modelVisibility['gpt-5'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-5"
                     name="model"
-                    value="gpt-4.5-preview"
-                    aria-describedby="gpt-4.5-preview-description"
+                    value="gpt-5"
+                    aria-describedby="gpt-5-description"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4.5-preview'}
-                    onChange={() => setModel('gpt-4.5-preview')}
+                    checked={model === 'gpt-5'}
+                    onChange={() => setModel('gpt-5')}
                     disabled={disabled}
                   />
-              </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="gpt-4.5-preview"
-                  className="font-medium text-gray-600"
-                >
-                  GPT-4.5 - Not Recommended
-                  <span className="ml-4 inline-flex items-center rounded-full bg-orange-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                    Retiring June 2025
-                  </span>
-                  {!checkPlanPermission(team, 'hobby').allowed && (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-5" className="font-medium text-gray-900">
+                    GPT-5 - Most Powerful
+                  </label>
+                  <p id="gpt-5-description" className="text-gray-500">
+                    Smartest, fastest, most useful model yet, with thinking built in
+                    — so you get the best answer, every time.{' '}
+                    <span className="font-bold text-xs">
+                      Requires <Link href="https://help.openai.com/en/articles/10910291/api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
                     </span>
-                  )}
-                </label>
-                <p id="gpt-4.5-preview-description" className="text-gray-500">
-                  Very slow, expensive ($0.27/question), and low rate limits.
-                  Not recommended for most use cases.
-                  {!team.supportsGPT4 && (
-                    <Link
-                      href="/app/api"
-                      className="ml-1 inline-block underline hover:text-gray-800"
-                    >
-                      Get access
-                    </Link>
-                  )}
-                </p>
+                  </p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-
+            {modelVisibility['gpt-4.1'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -638,33 +534,50 @@ export default function FormBot({
                     htmlFor="gpt-4.1"
                     className="font-medium text-gray-900"
                   >
-                    GPT-4.1 
-                    {!checkPlanPermission(team, 'hobby').allowed ? (
-                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                        Paid
-                      </span>
-                    ) : team.supportsGPT4 ? (
-                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                        Recommended
-                      </span>
-                    ) : (
-                      null
-                    )}
+                    GPT-4.1
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                      Recommended
+                    </span>
                   </label>
                   <p id="gpt-4.1-description" className="text-gray-500">
                     Previous generation model good at instruction following.
-                    {!team.supportsGPT4 && (
-                      <Link
-                        href="/app/api"
-                        className="ml-1 inline-block underline hover:text-gray-800"
-                      >
-                        Get access
-                      </Link>
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {modelVisibility['gpt-5-mini'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-5-mini"
+                    name="model"
+                    value="gpt-5-mini"
+                    aria-describedby="gpt-5-mini-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-5-mini'}
+                    onChange={() => setModel('gpt-5-mini')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-5-mini" className="font-medium text-gray-900">
+                    GPT-5 mini - Best Value
+                  </label>
+                  <p id="gpt-5-mini-description" className="text-gray-500">
+                    Smart, fast, and useful model. Good for most support use cases.{' '}
+                    {team.supportsGPT4 && (
+                      <span className="font-bold text-xs">
+                        Requires <Link href="https://help.openai.com/en/articles/10910291/api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                      </span>
                     )}
                   </p>
                 </div>
               </div>
+            )}
 
+            {modelVisibility['gpt-4.1-mini'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -692,12 +605,39 @@ export default function FormBot({
                     )}
                   </label>
                   <p id="gpt-4.1-mini-description" className="text-gray-500">
-                    Faster than GPT-4.1 while still good at instruction
-                    following.
+                    Faster than GPT-4.1 while still good at instruction following.
                   </p>
                 </div>
               </div>
+            )}
 
+            {modelVisibility['gpt-5-nano'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-5-nano"
+                    name="model"
+                    value="gpt-5-nano"
+                    aria-describedby="gpt-5-nano-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-5-nano'}
+                    onChange={() => setModel('gpt-5-nano')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-5-nano" className="font-medium text-gray-600">
+                    GPT-5 nano - Fast & Cost Effective
+                  </label>
+                  <p id="gpt-5-nano-description" className="text-gray-500">
+                    Included in all plans. Affordable & extremely fast model.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {modelVisibility['gpt-4.1-nano'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -724,9 +664,42 @@ export default function FormBot({
                   </p>
                 </div>
               </div>
-          {/* Full GPT-4 models - only shown in full form and require supportsGPT4 */}
-          {!short && (
-            <>
+            )}
+
+            {modelVisibility['gpt-4.5-preview'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-4.5-preview"
+                    name="model"
+                    value="gpt-4.5-preview"
+                    aria-describedby="gpt-4.5-preview-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4.5-preview'}
+                    onChange={() => setModel('gpt-4.5-preview')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label
+                    htmlFor="gpt-4.5-preview"
+                    className="font-medium text-gray-600"
+                  >
+                    GPT-4.5 - Not Recommended
+                    <span className="ml-4 inline-flex items-center rounded-full bg-orange-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                      Retiring June 2025
+                    </span>
+                  </label>
+                  <p id="gpt-4.5-preview-description" className="text-gray-500">
+                    Very slow, expensive ($0.27/question), and low rate limits.
+                    Not recommended for most use cases.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {modelVisibility['gpt-4o'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
                   <input
@@ -744,201 +717,167 @@ export default function FormBot({
                 <div className="pl-7 text-sm">
                   <label htmlFor="gpt-4o" className="font-medium text-gray-600">
                     GPT-4o
-                    {!checkPlanPermission(team, 'hobby').allowed && (
-                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                        Paid
-                      </span>
-                    )}
                   </label>
                   <p id="gpt-4o-description" className="text-gray-500">
                     Previous generation general purpose model. Consider
                     upgrading to GPT-4.1.
-                    {!team.supportsGPT4 && (
-                      <Link
-                        href="/app/api"
-                        className="ml-1 inline-block underline hover:text-gray-800"
-                      >
-                        Get access
-                      </Link>
-                    )}
                   </p>
                 </div>
               </div>
-            </>
-          )}
+            )}
 
-          {model === 'gpt-4o-mini' || !checkPlanPermission(team, 'personal').allowed && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-4o-mini"
-                  name="model"
-                  value="gpt-4o-mini"
-                  aria-describedby="gpt-4o-mini-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-4o-mini'}
-                  onChange={() => setModel('gpt-4o-mini')}
-                  disabled={disabled}
-                />
+            {modelVisibility['gpt-4o-mini'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-4o-mini"
+                    name="model"
+                    value="gpt-4o-mini"
+                    aria-describedby="gpt-4o-mini-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4o-mini'}
+                    onChange={() => setModel('gpt-4o-mini')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label
+                    htmlFor="gpt-4o-mini"
+                    className="font-medium text-gray-600"
+                  >
+                    GPT-4o mini
+                  </label>
+                  <p id="gpt-4o-mini-description" className="text-gray-500">
+                    Previous generation model. Consider upgrading to GPT-4.1 mini.
+                  </p>
+                </div>
               </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="gpt-4o-mini"
-                  className="font-medium text-gray-600"
-                >
-                  GPT-4o mini
-                </label>
-                <p id="gpt-4o-mini-description" className="text-gray-500">
-                  Previous generation model. Consider upgrading to GPT-4.1 mini.
-                </p>
-              </div>
-            </div>
-          )}
+            )}
 
-          {model === 'gpt-4-turbo' && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-4-turbo"
-                  name="model"
-                  value="gpt-4-turbo"
-                  aria-describedby="gpt-4-turbo-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-4-turbo'}
-                  onChange={() => setModel('gpt-4-turbo')}
-                  disabled={disabled}
-                />
+            {modelVisibility['gpt-4-turbo'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-4-turbo"
+                    name="model"
+                    value="gpt-4-turbo"
+                    aria-describedby="gpt-4-turbo-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4-turbo'}
+                    onChange={() => setModel('gpt-4-turbo')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label
+                    htmlFor="gpt-4-turbo"
+                    className="font-medium text-gray-600"
+                  >
+                    GPT-4 Turbo - Legacy
+                  </label>
+                  <p id="gpt-4-turbo-description" className="text-gray-500">
+                    Previous generation model. Recommend upgrading to GPT-4.1.
+                  </p>
+                </div>
               </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="gpt-4-turbo"
-                  className="font-medium text-gray-600"
-                >
-                  GPT-4 Turbo - Legacy
-                  {!checkPlanPermission(team, 'hobby').allowed && (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
-                    </span>
-                  )}
-                </label>
-                <p id="gpt-4-turbo-description" className="text-gray-500">
-                  Previous generation model. Recommend upgrading to GPT-4.1.
-                  {!team.supportsGPT4 && (
-                    <Link
-                      href="/app/api"
-                      className="ml-1 inline-block underline hover:text-gray-800"
-                    >
-                      Get access
-                    </Link>
-                  )}
-                </p>
-              </div>
-            </div>
-          )}
+            )}
 
-          {model === 'gpt-4' && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-4"
-                  name="model"
-                  value="gpt-4"
-                  aria-describedby="gpt-4-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-4'}
-                  onChange={() => setModel('gpt-4')}
-                  disabled={disabled}
-                />
+            {modelVisibility['gpt-4'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-4"
+                    name="model"
+                    value="gpt-4"
+                    aria-describedby="gpt-4-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-4'}
+                    onChange={() => setModel('gpt-4')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-4" className="font-medium text-gray-600">
+                    GPT-4 - Legacy
+                  </label>
+                  <p id="gpt-4-description" className="text-gray-500">
+                    Previous generation model. Recommend upgrading to GPT-4.1.
+                  </p>
+                </div>
               </div>
-              <div className="pl-7 text-sm">
-                <label htmlFor="gpt-4" className="font-medium text-gray-600">
-                  GPT-4 - Legacy
-                  {!checkPlanPermission(team, 'hobby').allowed && (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
-                    </span>
-                  )}
-                </label>
-                <p id="gpt-4-description" className="text-gray-500">
-                  Previous generation model. Recommend upgrading to GPT-4.1.
-                  {!team.supportsGPT4 && (
-                    <Link
-                      href="/app/api"
-                      className="ml-1 inline-block underline hover:text-gray-800"
-                    >
-                      Get access
-                    </Link>
-                  )}
-                </p>
-              </div>
-            </div>
-          )}
+            )}
 
-          {model === 'gpt-3.5-turbo' && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-3.5-turbo"
-                  name="model"
-                  value="gpt-3.5-turbo"
-                  aria-describedby="gpt-3.5-turbo-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-3.5-turbo'}
-                  onChange={() => setModel('gpt-3.5-turbo')}
-                  disabled={disabled}
-                />
+            {modelVisibility['gpt-3.5-turbo'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-3.5-turbo"
+                    name="model"
+                    value="gpt-3.5-turbo"
+                    aria-describedby="gpt-3.5-turbo-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-3.5-turbo'}
+                    onChange={() => setModel('gpt-3.5-turbo')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label
+                    htmlFor="gpt-3.5-turbo"
+                    className="font-medium text-gray-600"
+                  >
+                    GPT 3.5 Turbo - Legacy
+                  </label>
+                  <p id="gpt-3.5-turbo-description" className="text-gray-500">
+                    Previous generation model. Recommend upgrading to GPT-4.1.
+                  </p>
+                </div>
               </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="gpt-3.5-turbo"
-                  className="font-medium text-gray-600"
-                >
-                  GPT 3.5 Turbo - Legacy
-                </label>
-                <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                  Previous generation model. Recommend upgrading to GPT-4.1.
-                </p>
-              </div>
-            </div>
-          )}
+            )}
 
-          {model === 'gpt-3.5-turbo-0613' && (
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="gpt-3.5-turbo-0613"
-                  name="model"
-                  value="gpt-3.5-turbo-0613"
-                  aria-describedby="gpt-3.5-turbo-0613-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={model === 'gpt-3.5-turbo-0613'}
-                  onChange={() => setModel('gpt-3.5-turbo-0613')}
-                  disabled={disabled}
-                />
+            {modelVisibility['gpt-3.5-turbo-0613'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-3.5-turbo-0613"
+                    name="model"
+                    value="gpt-3.5-turbo-0613"
+                    aria-describedby="gpt-3.5-turbo-0613-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-3.5-turbo-0613'}
+                    onChange={() => setModel('gpt-3.5-turbo-0613')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label
+                    htmlFor="gpt-3.5-turbo-0613"
+                    className="font-medium text-gray-500"
+                  >
+                    GPT 3.5 Turbo (Old June 2023 Version) - Legacy
+                  </label>
+                  <p
+                    id="gpt-3.5-turbo-0613-description"
+                    className="text-gray-500"
+                  >
+                    The previous model retiring June 2024. Not recommended.
+                  </p>
+                </div>
               </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="gpt-3.5-turbo-0613"
-                  className="font-medium text-gray-500"
-                >
-                  GPT 3.5 Turbo (Old June 2023 Version) - Legacy
-                </label>
-                <p
-                  id="gpt-3.5-turbo-0613-description"
-                  className="text-gray-500"
-                >
-                  The previous model retiring June 2024. Not recommended.
-                </p>
-              </div>
-            </div>
-          )}
+            )}
         </div>
-      </fieldset>
+        {short && (
+          <p className="mt-2 text-xs text-gray-500">
+            More model choices available later in your bot settings
+          </p>
+        )}
+        </fieldset>
+
 
       <div className="grid grid-cols-2 gap-4">
         <div>

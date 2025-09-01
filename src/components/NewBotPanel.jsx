@@ -31,7 +31,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'gpt-4.1-mini' : 'gpt-4o-mini';
+      const defaultModel = 'gpt-4.1-mini';
       setBotSettings({ ...botSettings, model: defaultModel });
     }
   }, [showOpenAI])
