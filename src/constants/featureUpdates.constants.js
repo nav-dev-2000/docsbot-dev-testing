@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-08-31',
+    title: 'Enhanced Date Range Picker in Analytics',
+    description: 'Analytics now features a flexible date range picker with custom shortcuts (7 days, 30 days, quarter, year) and visual date range display.'
+  },
+  {
     date: '2025-08-28',
     title: 'FreeScout ticket source',
     description: 'Import and learn from closed tickets in FreeScout mailboxes with configurable history.',

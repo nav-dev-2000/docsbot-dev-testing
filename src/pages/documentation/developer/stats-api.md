@@ -1,6 +1,6 @@
 ---
 title: Bot Statistics - Admin API
-description: How to accewss bot statistics with the admin API.
+description: How to access bot statistics with the admin API.
 ---
 
 Once you have collected question and answer data, you can analyze bot performance using the statistics API. This provides aggregated metrics and chart data to help you understand how your bot is performing. {% .lead %}
@@ -9,47 +9,98 @@ Once you have collected question and answer data, you can analyze bot performanc
 
 ## Get Bot Statistics
 
-This endpoint provides aggregated statistics for a bot over a specified time period. It accepts a GET request with the following parameters:
+This endpoint provides aggregated statistics for a bot over a specified time period. It accepts a GET request with either a day delta or an explicit date range and remains backwards compatible with existing usage:
 
 `GET https://docsbot.ai/api/teams/:teamId/bots/:botId/stats?timeDelta=30`
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/stats?startDate=2024-06-01&endDate=2024-06-30`
 
 ### URL Parameters
 
-| Property      | Type   | Description                                                                                |
-| ------------- | ------ | ------------------------------------------------------------------------------------------ |
-| **timeDelta** | number | The time period in days to analyze. Common values are 7 (week), 30 (month), 90 (quarter). |
+| Property       | Type     | Description                                                                                                  |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| **timeDelta**  | number   | The time period in days to analyze. Common values: 7 (week), 30 (month), 90 (quarter), 365 (year).           |
+| **startDate**  | string   | Start of date range (ISO 8601 or YYYY-MM-DD). Must be provided together with `endDate`.                      |
+| **endDate**    | string   | End of date range (ISO 8601 or YYYY-MM-DD). Must be provided together with `startDate`.                      |
+
+### Parameter Logic
+
+The API uses the following logic to determine which date range to use:
+
+1. **Explicit Date Range**: If both `startDate` and `endDate` are provided and valid, the API will use this range
+2. **Relative Date Range**: If no valid explicit range is provided, the API falls back to `timeDelta` (defaults to 30 days)
+3. **Validation**: 
+   - Date ranges are clamped to a maximum of 365 days for performance
+   - Invalid dates or ranges result in fallback to the default 30-day period
+   - `timeDelta` must be between 0 and 365 days
 
 ### Examples
 
 #### cURL
 
 ```bash
+# Relative date range (backwards compatible)
 curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=30' \
---header 'Authorization: Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
+--header 'Authorization: Bearer YOUR_TOKEN'
+
+# Explicit date range (ISO format)
+curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?startDate=2024-06-01T00:00:00.000Z&endDate=2024-06-30T23:59:59.999Z' \
+--header 'Authorization: Bearer YOUR_TOKEN'
+
+# Explicit date range (YYYY-MM-DD format)
+curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?startDate=2024-06-01&endDate=2024-06-30' \
+--header 'Authorization: Bearer YOUR_TOKEN'
+
+# Common relative ranges
+curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=7' \  # Last week
+--header 'Authorization: Bearer YOUR_TOKEN'
+
+curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=90' \ # Last quarter
+--header 'Authorization: Bearer YOUR_TOKEN'
+
+curl --request GET 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=365' \ # Last year
+--header 'Authorization: Bearer YOUR_TOKEN'
 ```
 
 #### JavaScript (Fetch)
 
 ```js
-var myHeaders = new Headers()
-myHeaders.append(
-  'Authorization',
-  'Bearer c0f5c347f0138f76a005921ec723f38185554327f69349dcf220a6f6531ab673'
-)
+const headers = new Headers({ Authorization: 'Bearer YOUR_TOKEN' })
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow',
+// Relative date range (backwards compatible)
+fetch('https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=30', { headers })
+  .then((r) => r.json())
+  .then(console.log)
+
+// Explicit date range
+fetch('https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?startDate=2024-06-01&endDate=2024-06-30', { headers })
+  .then((r) => r.json())
+  .then(console.log)
+
+// Helper function for common date ranges
+function getBotStats(teamId, botId, token, options = {}) {
+  const { timeDelta, startDate, endDate } = options
+  const params = new URLSearchParams()
+  
+  if (startDate && endDate) {
+    params.append('startDate', startDate)
+    params.append('endDate', endDate)
+  } else if (timeDelta) {
+    params.append('timeDelta', timeDelta)
+  } else {
+    params.append('timeDelta', 30) // default
+  }
+  
+  return fetch(`https://docsbot.ai/api/teams/${teamId}/bots/${botId}/stats?${params}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  }).then(r => r.json())
 }
 
-fetch(
-  'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/SQMV36O8xi43xbZRzYLy/stats?timeDelta=30',
-  requestOptions
-)
-  .then((response) => response.json())
-  .then((result) => console.log(result))
-  .catch((error) => console.log('error', error))
+// Usage examples
+getBotStats('FOX1XkWo8VMx3hp6Zjkb', 'SQMV36O8xi43xbZRzYLy', 'YOUR_TOKEN', { timeDelta: 7 })
+getBotStats('FOX1XkWo8VMx3hp6Zjkb', 'SQMV36O8xi43xbZRzYLy', 'YOUR_TOKEN', { 
+  startDate: '2024-06-01', 
+  endDate: '2024-06-30' 
+})
 ```
 
 ### Response
@@ -59,6 +110,8 @@ The response is a JSON object containing aggregated statistics and chart data:
 ```json
 {
   "totalCount": 841,
+  "totalMessages": 1205,
+  "totalConversations": 156,
   "resolutionRate": "78.5",
   "couldAnswerRate": "92.3",
   "deflectionRate": "85.7",
@@ -70,6 +123,7 @@ The response is a JSON object containing aggregated statistics and chart data:
   "positiveData": [8, 10, 6, "..."],
   "couldAnswerData": [11, 14, 7, "..."],
   "escalatedData": [1, 2, 1, "..."],
+  "messagesData": [18, 22, 12, "..."],
   
   "percentageLabels": ["Neutral", "Negative", "Positive"],
   "counts": [120, 45, 676],
@@ -78,31 +132,91 @@ The response is a JSON object containing aggregated statistics and chart data:
   "escalatedCounts": [120, 721],
   
   "answerLabels": ["Could Answer", "Could Not Answer"],
-  "answerCounts": [776, 65]
+  "answerCounts": [776, 65],
+  
+  "conversationData": [5, 8, 3, "..."],
+  "resolvedConfirmedData": [3, 6, 2, "..."],
+  "resolvedAssumedData": [1, 1, 1, "..."],
+  "unresolvedData": [1, 1, 0, "..."],
+  "escalatedHandledData": [0, 0, 0, "..."],
+  "escalatedTriggeredData": [0, 0, 0, "..."],
+  "csatData": [85, 88, 92, "..."],
+  "answeredRateData": [90, 87, 95, "..."],
+  "conversationDeflectionData": [80, 85, 88, "..."],
+  "avgSentimentData": [0.2, 0.3, 0.1, "..."],
+  "resolvedLabels": ["Confirmed", "Assumed", "Unresolved"],
+  "resolvedCounts": [45, 23, 12],
+  "conversationEscalatedLabels": ["Triggered", "Handled"],
+  "conversationEscalatedCounts": [8, 15],
+  "sentimentLabels": ["Positive", "Negative", "Neutral"],
+  "sentimentCounts": [67, 12, 34],
+  "conversationAnsweredLabels": ["Answered", "Not Answered"],
+  "conversationAnsweredCounts": [134, 22],
+  "conversationTopicLabels": ["General", "Technical", "Billing"],
+  "conversationTopicData": {
+    "General": [2, 3, 1, "..."],
+    "Technical": [1, 2, 1, "..."],
+    "Billing": [1, 1, 0, "..."]
+  },
+  "conversationTopicPieLabels": ["General", "Technical", "Billing"],
+  "conversationTopicCounts": [45, 23, 12]
 }
 ```
 
 ### Response Object Properties
 
-| Property             | Type       | Description                                                                |
-| -------------------- | ---------- | -------------------------------------------------------------------------- |
-| **totalCount**       | number     | Total number of user messages in the time period.                         |
-| **resolutionRate**   | string     | Percentage of questions resolved without negative rating or escalation.    |
-| **couldAnswerRate**  | string     | Percentage of questions the AI determined it could confidently answer.     |
-| **deflectionRate**   | string     | Percentage of questions that didn't require escalation to human support.   |
-| **timeSaved**        | number     | Estimated time saved for support staff in minutes (based on 5min/ticket).  |
-| **labels**           | string[]   | Date labels for the line chart.                                            |
-| **countData**        | number[]   | All messages count per date.                                              |
-| **negativeData**     | number[]   | Negatively rated answers per date.                                       |
-| **positiveData**     | number[]   | Positively rated answers per date.                                       |
-| **couldAnswerData**  | number[]   | Questions AI could answer per date.                                        |
-| **escalatedData**    | number[]   | Escalated questions per date.                                              |
-| **percentageLabels** | string[]   | Labels for rating distribution (Neutral, Negative, Positive).              |
-| **counts**           | number[]   | Counts for rating distribution.                                            |
-| **escalatedLabels**  | string[]   | Labels for escalation distribution (Escalated, Not Escalated).             |
-| **escalatedCounts**  | number[]   | Counts for escalation distribution.                                        |
-| **answerLabels**     | string[]   | Labels for answer capability distribution (Could Answer, Could Not Answer).|
-| **answerCounts**     | number[]   | Counts for answer capability distribution.                                 |
+| Property                     | Type       | Description                                                                |
+| ---------------------------- | ---------- | -------------------------------------------------------------------------- |
+| **totalCount**               | number     | Total number of user questions in the time period.                        |
+| **totalMessages**            | number     | Total number of messages (including tool calls) in the time period.       |
+| **totalConversations**       | number     | Total number of conversations in the time period (agent mode only).       |
+| **resolutionRate**           | string     | Percentage of questions resolved without negative rating or escalation.    |
+| **couldAnswerRate**          | string     | Percentage of questions the AI determined it could confidently answer.     |
+| **deflectionRate**           | string     | Percentage of questions that didn't require escalation to human support.   |
+| **timeSaved**                | number     | Estimated time saved for support staff in minutes (based on 5min/ticket).  |
+| **labels**                   | string[]   | Date labels for the line chart. Uses M/D for daily ranges and M/YYYY for monthly. |
+| **countData**                | number[]   | All questions count per date.                                              |
+| **negativeData**             | number[]   | Negatively rated answers per date.                                         |
+| **positiveData**             | number[]   | Positively rated answers per date.                                         |
+| **couldAnswerData**          | number[]   | Questions AI could answer per date.                                        |
+| **escalatedData**            | number[]   | Escalated questions per date.                                              |
+| **messagesData**             | number[]   | All messages count per date.                                               |
+| **percentageLabels**         | string[]   | Labels for rating distribution (Neutral, Negative, Positive).              |
+| **counts**                   | number[]   | Counts for rating distribution.                                            |
+| **escalatedLabels**          | string[]   | Labels for escalation distribution (Escalated, Not Escalated).             |
+| **escalatedCounts**          | number[]   | Counts for escalation distribution.                                        |
+| **answerLabels**             | string[]   | Labels for answer capability distribution (Could Answer, Could Not Answer).|
+| **answerCounts**             | number[]   | Counts for answer capability distribution.                                 |
+| **conversationData**         | number[]   | Total conversations per date (agent mode only).                            |
+| **resolvedConfirmedData**    | number[]   | Confirmed resolved conversations per date (agent mode only).               |
+| **resolvedAssumedData**      | number[]   | Assumed resolved conversations per date (agent mode only).                 |
+| **unresolvedData**           | number[]   | Unresolved conversations per date (agent mode only).                       |
+| **escalatedHandledData**     | number[]   | Handled escalations per date (agent mode only).                            |
+| **escalatedTriggeredData**   | number[]   | Triggered escalations per date (agent mode only).                          |
+| **csatData**                 | number[]   | Customer satisfaction scores per date (agent mode only).                   |
+| **answeredRateData**         | number[]   | Answered rate percentages per date (agent mode only).                      |
+| **conversationDeflectionData**| number[]   | Deflection rate percentages per date (agent mode only).                    |
+| **avgSentimentData**         | number[]   | Average sentiment scores per date (agent mode only, business plan).        |
+| **resolvedLabels**           | string[]   | Labels for conversation resolution (Confirmed, Assumed, Unresolved).       |
+| **resolvedCounts**           | number[]   | Counts for conversation resolution.                                        |
+| **conversationEscalatedLabels**| string[]  | Labels for conversation escalation (Triggered, Handled).                   |
+| **conversationEscalatedCounts**| number[]  | Counts for conversation escalation.                                        |
+| **sentimentLabels**          | string[]   | Labels for sentiment distribution (Positive, Negative, Neutral).           |
+| **sentimentCounts**          | number[]   | Counts for sentiment distribution.                                         |
+| **conversationAnsweredLabels**| string[]  | Labels for conversation answer status (Answered, Not Answered).            |
+| **conversationAnsweredCounts**| number[]  | Counts for conversation answer status.                                     |
+| **conversationTopicLabels**  | string[]   | Labels for conversation topics (agent mode only, business plan).           |
+| **conversationTopicData**    | object     | Topic data per date, keyed by topic name (agent mode only, business plan). |
+| **conversationTopicPieLabels**| string[]  | Labels for topic distribution pie chart (agent mode only, business plan).  |
+| **conversationTopicCounts**  | number[]   | Counts for topic distribution (agent mode only, business plan).            |
+
+### Notes
+
+- **Agent Mode Data**: Conversation-related fields are only available when the bot is configured in agent mode
+- **Plan Restrictions**: Some fields (like sentiment data and topic analytics) require specific plan levels
+- **Date Range Limits**: Maximum range is 365 days for performance reasons
+- **Backwards Compatibility**: The API maintains full backwards compatibility with existing `timeDelta` usage
+- **Error Handling**: Invalid date ranges or parameters will fall back to default 30-day period
 
 ## Visualization Examples
 

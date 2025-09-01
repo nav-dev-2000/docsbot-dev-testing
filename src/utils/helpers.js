@@ -247,7 +247,25 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
   }
 }
 
-export function getStats(doc, timeDelta) {
+export function getStats(doc, timeDeltaOrRange) {
+  let currDate = new Date()
+  let timeDelta = 30
+  if (typeof timeDeltaOrRange === 'object' && timeDeltaOrRange !== null) {
+    const start = timeDeltaOrRange.startDate ? new Date(timeDeltaOrRange.startDate) : null
+    const end = timeDeltaOrRange.endDate ? new Date(timeDeltaOrRange.endDate) : null
+    if (end && !isNaN(end.getTime())) {
+      currDate = end
+    }
+    if (start && !isNaN(start.getTime()) && end && !isNaN(end.getTime())) {
+      const dayMs = 24 * 60 * 60 * 1000
+      const diffMs = end.getTime() - start.getTime()
+      timeDelta = Math.max(1, Math.floor(diffMs / dayMs) + 1)
+    } else if (typeof timeDeltaOrRange.timeDelta === 'number') {
+      timeDelta = timeDeltaOrRange.timeDelta
+    }
+  } else {
+    timeDelta = Number(timeDeltaOrRange)
+  }
   const millisecondDelta = timeDelta * 24 * 60 * 60 * 1000 // convert to milliseconds
 
   let dateCounts = {}
@@ -255,7 +273,6 @@ export function getStats(doc, timeDelta) {
   let conversationTopics = {}
   let conversationTopicsByDate = {}
   let isMonthly = false
-  const currDate = new Date()
   
   if (timeDelta > 90 && doc?.questionHistory) {
     // scrape monthly data

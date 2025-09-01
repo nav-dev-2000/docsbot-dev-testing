@@ -9,22 +9,22 @@ import ModalTopicManagement from '@/components/ModalTopicManagement'
 import { QueueListIcon, ChevronLeftIcon, TagIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
-function Reports({ team, bot }) {
-  const [errorText, setErrorText] = useState(null)
-  const [infoText, setInfoText] = useState(null)
-  const [showTopicModal, setShowTopicModal] = useState(false)
-
-  if (!bot) return null
-
-  const title = [bot.name, 'Reports']
-
-  return (
-    <DashboardWrap page="Bots" title={title} team={team}>
-      <Alert title={infoText} type="info" />
-      <Alert title={errorText} type="warning" />
-
-      <div className="mb-4 flex justify-between">
-        <Link
+ function Reports({ team, bot }) {
+   const [errorText, setErrorText] = useState(null)
+   const [infoText, setInfoText] = useState(null)
+   const [showTopicModal, setShowTopicModal] = useState(false)
+ 
+   if (!bot) return null
+ 
+   const title = [bot.name, 'Reports']
+ 
+   return (
+     <DashboardWrap page="Bots" title={title} team={team}>
+       <Alert title={infoText} type="info" />
+       <Alert title={errorText} type="warning" />
+ 
+       <div className="mb-4 flex justify-between">
+<Link
           href={`/app/bots/${bot.id}`}
           className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
         >
@@ -48,14 +48,14 @@ function Reports({ team, bot }) {
             Logs
           </Link>
         </div>
-      </div>
+              </div>
 
-      <BotHistory team={team} bot={bot} />
-
-      <BotReport team={team} bot={bot} />
-
-      <ModalTopicManagement
-        team={team}
+        <BotHistory team={team} bot={bot} />
+ 
+        <BotReport team={team} bot={bot} />
+ 
+        <ModalTopicManagement
+team={team}
         bot={bot}
         open={showTopicModal}
         setOpen={setShowTopicModal}

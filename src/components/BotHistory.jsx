@@ -1,7 +1,5 @@
-import { Listbox, Transition } from '@headlessui/react'
-import { useEffect, Fragment, useState } from 'react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { CreditCardIcon, TagIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+import { CreditCardIcon, TagIcon, CalendarIcon } from '@heroicons/react/24/outline'
 import Chart from 'chart.js/auto'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
@@ -14,6 +12,7 @@ import LocalStringNum from '@/components/LocalStringNum'
 import Tooltip from '@/components/Tooltip'
 import Meter from '@/components/Meter'
 import RobotIcon from './RobotIcon'
+import Datepicker from 'react-tailwindcss-datepicker'
 
 const hexToRgba = (hex, alpha) => {
   const r = parseInt(hex.slice(1, 3), 16)
@@ -32,19 +31,38 @@ const createLineGradient = (color) => (context) => {
   return gradient
 }
 
-const intervals = [
-  { value: 7, title: 'Week' },
-  { value: 30, title: 'Month' },
-  { value: 90, title: 'Quarter' },
-  { value: 365, title: 'Year' },
-]
 
-const defaultSelected = 30
+export default function BotHistory({ team, bot, dateRange = null }) {
+  // Set default date range to last 30 days
+  const getDefaultDateRange = () => {
+    const endDate = new Date()
+    const startDate = new Date()
+    startDate.setDate(startDate.getDate() - 30)
+    return { startDate, endDate }
+  }
 
-export default function BotHistory({ team, bot }) {
-  const [selected, setSelected] = useState(
-    intervals.filter((interval) => interval.value === defaultSelected)[0],
-  )
+  const [selectedDateRange, setSelectedDateRange] = useState(getDefaultDateRange())
+
+  // Format date range for display
+  const formatDateRange = (dateRange) => {
+    if (!dateRange?.startDate || !dateRange?.endDate) return 'Select date range'
+    
+    const startDate = new Date(dateRange.startDate)
+    const endDate = new Date(dateRange.endDate)
+    
+    const startFormatted = startDate.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric',
+      year: startDate.getFullYear() !== endDate.getFullYear() ? 'numeric' : undefined
+    })
+    const endFormatted = endDate.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric',
+      year: 'numeric'
+    })
+    
+    return `${startFormatted} - ${endFormatted}`
+  }
   const [stats, setStats] = useState(null)
   const [lineData, setLineData] = useState(null)
   const [pieData, setPieData] = useState(null)
@@ -82,7 +100,7 @@ export default function BotHistory({ team, bot }) {
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [showTopicManagement, setShowTopicManagement] = useState(false)
 
-  const updateData = async (timeDelta) => {
+  const updateData = async (rangeOrDelta) => {
     if (isProcessing) return
     setStats(null)
 
@@ -91,7 +109,21 @@ export default function BotHistory({ team, bot }) {
       'Content-Type': 'application/json',
     }
 
-    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/stats?timeDelta=${timeDelta}`
+    let apiUrl = `/api/teams/${team.id}/bots/${bot.id}/stats`
+    if (
+      rangeOrDelta &&
+      typeof rangeOrDelta === 'object' &&
+      rangeOrDelta.startDate &&
+      rangeOrDelta.endDate
+    ) {
+      const start = new Date(rangeOrDelta.startDate)
+      const end = new Date(rangeOrDelta.endDate)
+      apiUrl += `?startDate=${encodeURIComponent(start.toISOString())}&endDate=${encodeURIComponent(end.toISOString())}`
+    } else {
+      const delta = typeof rangeOrDelta === 'number' ? rangeOrDelta : 30
+      apiUrl += `?timeDelta=${delta}`
+    }
+
     try {
       setIsProcessing(true)
       const response = await fetch(apiUrl, {
@@ -118,6 +150,25 @@ export default function BotHistory({ team, bot }) {
       console.warn(e)
     }
   }
+
+  useEffect(() => {
+    updateData(selectedDateRange)
+  }, [])
+
+  // React to external dateRange changes (reports page datepicker)
+  useEffect(() => {
+    if (dateRange && dateRange.startDate && dateRange.endDate) {
+      setSelectedDateRange(dateRange)
+      updateData(dateRange)
+    }
+  }, [dateRange?.startDate, dateRange?.endDate])
+
+  // React to internal dateRange changes
+  useEffect(() => {
+    if (selectedDateRange && selectedDateRange.startDate && selectedDateRange.endDate) {
+      updateData(selectedDateRange)
+    }
+  }, [selectedDateRange?.startDate, selectedDateRange?.endDate])
 
   useEffect(() => {
     if (!stats) return
@@ -393,10 +444,6 @@ export default function BotHistory({ team, bot }) {
     }
   }, [stats])
 
-  useEffect(() => {
-    updateData(selected.value)
-  }, [])
-
   return (
     <div className="mx-0 mt-4 rounded-lg bg-white p-4 shadow-lg lg:p-8">
       <div className="mb-4">
@@ -405,90 +452,60 @@ export default function BotHistory({ team, bot }) {
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               Bot Analytics
             </h2>
+            <div className="mt-2 inline-flex items-center rounded-full bg-cyan-100 px-3 py-1 text-sm font-semibold text-cyan-800">
+              <CalendarIcon className="mr-1.5 h-4 w-4" />
+              {formatDateRange(selectedDateRange)}
+            </div>
           </div>
-          <div className="mt-4 w-28 sm:mt-0 sm:flex-none">
-            <Listbox
-              value={selected}
+          <div className="mt-4 w-64 sm:mt-0 sm:flex-none">
+            <div className="block text-sm font-medium text-gray-700 mb-1">
+              Timeframe
+            </div>
+            <Datepicker
+              value={selectedDateRange}
               onChange={(val) => {
-                setSelected(val)
-                updateData(val.value)
+                setSelectedDateRange(val)
               }}
-            >
-              {({ open }) => (
-                <>
-                  <Listbox.Label className="block text-sm font-medium text-gray-700">
-                    Timeframe
-                  </Listbox.Label>
-                  <div className="relative mt-1">
-                    <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-600 sm:text-sm sm:leading-6">
-                      <span className="block truncate">{selected.title}</span>
-                      <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                        <ChevronUpDownIcon
-                          className="h-5 w-5 text-gray-400"
-                          aria-hidden="true"
-                        />
-                      </span>
-                    </Listbox.Button>
-
-                    <Transition
-                      show={open}
-                      as={Fragment}
-                      leave="transition ease-in duration-100"
-                      leaveFrom="opacity-100"
-                      leaveTo="opacity-0"
-                    >
-                      <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                        {intervals.map((interval) => (
-                          <Listbox.Option
-                            key={interval.value}
-                            className={({ active }) =>
-                              classNames(
-                                active
-                                  ? 'bg-cyan-600 text-white'
-                                  : 'text-gray-900',
-                                'relative cursor-default select-none py-1 pl-3 pr-9',
-                              )
-                            }
-                            value={interval}
-                          >
-                            {({ selected, active }) => (
-                              <>
-                                <div className="flex">
-                                  <span
-                                    className={classNames(
-                                      selected
-                                        ? 'font-semibold'
-                                        : 'font-normal',
-                                      'block truncate text-gray-900',
-                                    )}
-                                  >
-                                    {interval.title}
-                                  </span>
-                                </div>
-
-                                {selected ? (
-                                  <span
-                                    className={classNames(
-                                      active ? 'text-white' : 'text-cyan-600',
-                                      'absolute inset-y-0 right-0 flex items-center pr-4',
-                                    )}
-                                  >
-                                    <CheckIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  </span>
-                                ) : null}
-                              </>
-                            )}
-                          </Listbox.Option>
-                        ))}
-                      </Listbox.Options>
-                    </Transition>
-                  </div>
-                </>
-              )}
-            </Listbox>
+              primaryColor="cyan"
+              placeholder="Select date range"
+              useRange={true}
+              showShortcuts={true}
+              configs={{
+                shortcuts: {
+                  'Last 7 Days': {
+                    text: 'Last 7 Days',
+                    period: {
+                      start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
+                      end: new Date()
+                    }
+                  },
+                  'Last 30 Days': {
+                    text: 'Last 30 Days',
+                    period: {
+                      start: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+                      end: new Date()
+                    }
+                  },
+                  'Last Quarter': {
+                    text: 'Last Quarter',
+                    period: {
+                      start: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
+                      end: new Date()
+                    }
+                  },
+                  'Last Year': {
+                    text: 'Last Year',
+                    period: {
+                      start: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000),
+                      end: new Date()
+                    }
+                  }
+                }
+              }}
+              minDate={new Date(Date.now() - 365 * 24 * 60 * 60 * 1000)}
+              maxDate={new Date()}
+              classNames={{ container: 'z-10' }}
+            />
           </div>
         </div>
       </div>
