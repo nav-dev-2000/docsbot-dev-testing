@@ -24,18 +24,18 @@ export default async function handler(req, res) {
       paths: {
         [`/teams/${teamId}/bots/${botId}/search`]: {
           post: {
-            description: 'Search for documentation chunks about a topic',
+            summary: 'Search for documentation chunks about a topic',
             operationId: 'Retrieval Search',
             ['x-openai-isConsequential']: false,
             requestBody: {
-              content: {
-                'application/json': {
-                  schema: {
-                    $ref: '#/components/schemas/Query',
-                  },
-                },
-              },
               required: true,
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/Query"
+                  }
+                }
+              }
             },
             responses: {
               200: {
@@ -100,45 +100,98 @@ export default async function handler(req, res) {
             },
           },
           Query: {
-            title: 'Query',
-            required: ['query'],
-            type: 'object',
             properties: {
               query: {
-                title: 'Query',
-                description: 'A detailed and full search topic query',
-                type: 'string',
+                type: "string",
+                title: "Query"
+              },
+              use_glossary: {
+                type: "boolean",
+                title: "Use glossary to modify query for better results",
+                default: false
               },
               top_k: {
-                title: 'Top K',
-                description: 'The number of source results to return',
-                type: 'integer',
-                default: 4,
+                anyOf: [
+                  {
+                    type: "integer"
+                  },
+                  {
+                    type: "null"
+                  }
+                ],
+                title: "The number of source results to return",
+                default: 5
               },
+              alpha: {
+                anyOf: [
+                  {
+                    type: "number",
+                    maximum: 1,
+                    minimum: 0
+                  },
+                  {
+                    type: "null"
+                  }
+                ],
+                title: "Keyword vs semantic search balance",
+                description: "Hybrid search results can favor the keyword component or the semantic component. To change the relative weights of the keyword and vector components, set the alpha value in your query.\n\nAn alpha of 1 is a pure semantic vector search.\nAn alpha of 0 is a pure keyword search.",
+                default: 0.75
+              }
             },
+            type: "object",
+            required: [
+              "query"
+            ],
+            title: "Query"
           },
           QuerySource: {
-            title: 'QuerySource',
-            required: ['content'],
-            type: 'object',
             properties: {
               title: {
-                title: 'The title of the source',
-                type: 'string',
+                anyOf: [
+                  {
+                    type: "string"
+                  },
+                  {
+                    type: "null"
+                  }
+                ],
+                title: "The title of the source"
               },
               url: {
-                title: 'The url of the source',
-                type: 'string',
+                anyOf: [
+                  {
+                    type: "string"
+                  },
+                  {
+                    type: "null"
+                  }
+                ],
+                title: "The url of the source"
               },
               page: {
-                title: 'For PDFs, the page number of the source in the PDF',
-                type: 'integer',
+                anyOf: [
+                  {
+                    type: "integer"
+                  },
+                  {
+                    type: "null"
+                  }
+                ],
+                title: "For PDFs, the page number of the source in the PDF"
               },
               content: {
-                title: 'The raw text content of the source.',
-                type: 'string',
-              },
+                type: "string",
+                title: "The raw text content of the source."
+              }
             },
+            type: "object",
+            required: [
+              "title",
+              "url",
+              "page",
+              "content"
+            ],
+            title: "QuerySource"
           },
           ValidationError: {
             title: 'ValidationError',
