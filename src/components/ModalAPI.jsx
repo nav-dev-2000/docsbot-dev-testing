@@ -577,6 +577,15 @@ export default function ModalAPI({ team, bot, integrations }) {
   }
 
   const APIInfo = () => {
+    const [copiedTeamId, setCopiedTeamId] = useState(false)
+    const [copiedBotId, setCopiedBotId] = useState(false)
+
+    const handleCopy = (text, setCopied) => {
+      navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+
     return (
       <>
         <p className="text-md text-gray-800">
@@ -596,10 +605,23 @@ export default function ModalAPI({ team, bot, integrations }) {
                 className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
               />
               <button
-                onClick={() => navigator.clipboard.writeText(team.id)}
-                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 hover:text-gray-700"
+                onClick={() => handleCopy(team.id, setCopiedTeamId)}
+                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
               >
-                <ClipboardIcon className="h-4 w-4" aria-hidden="true" />
+                <span className="relative h-4 w-4">
+                  <ClipboardIcon
+                    className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${
+                      copiedTeamId ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <CheckIcon
+                    className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${
+                      copiedTeamId ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`}
+                    aria-hidden="true"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -614,10 +636,23 @@ export default function ModalAPI({ team, bot, integrations }) {
                 className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
               />
               <button
-                onClick={() => navigator.clipboard.writeText(bot.id)}
-                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 hover:text-gray-700"
+                onClick={() => handleCopy(bot.id, setCopiedBotId)}
+                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
               >
-                <ClipboardIcon className="h-4 w-4" aria-hidden="true" />
+                <span className="relative h-4 w-4">
+                  <ClipboardIcon
+                    className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${
+                      copiedBotId ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <CheckIcon
+                    className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${
+                      copiedBotId ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`}
+                    aria-hidden="true"
+                  />
+                </span>
               </button>
             </div>
           </div>
