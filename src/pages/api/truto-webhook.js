@@ -141,9 +141,29 @@ export default async function handler(req, res) {
 
     try {
       await QueueSourceRegest(team_id, bot_id, source_id)
+    } catch (error) {
+      // Save the failed source status to the DB
+      try {
+        await db
+          .collection('teams')
+          .doc(team_id)
+          .collection('bots')
+          .doc(bot_id)
+          .collection('sources')
+          .doc(source_id)
+          .update({
+            status: 'failed',
+            error: error.message || 'Failed to process source from Truto webhook',
+          });
+      } catch (dbError) {
+        console.error('Failed to update source status in DB:', dbError);
+      }
+      console.error(error)
+    }
+    try {
       await purgeOrphans(team_id, bot_id, integrated_account_id)
     } catch (error) {
-      console.error(error)
+      console.error('Failed to purge orphans:', error);
     }
     return res.status(200).send({ message: 'OK' })
   } else {
