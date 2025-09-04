@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'GET') {
     const json = {
-      openapi: '3.0.2',
+      openapi: '3.1.0',
       info: {
         title: `${bot.name} Retrieval API`,
         description: `For querying indexed documentation chunks based on natural language queries. Always use to find answers to questions and retrieve relevant information related to ${bot.name}.`,
