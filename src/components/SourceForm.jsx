@@ -74,12 +74,12 @@ export default function SourceForm({
   // Check if all FreeScout fields are valid
   const isFreescoutFormValid = () => {
     return (
-      url && 
-      isValidURL(url) && 
-      freescoutKey && 
-      isValidFreescoutApiKey(freescoutKey) && 
-      freescoutMailbox && 
-      freescoutMonths >= 1 && 
+      url &&
+      isValidURL(url) &&
+      freescoutKey &&
+      isValidFreescoutApiKey(freescoutKey) &&
+      freescoutMailbox &&
+      freescoutMonths >= 1 &&
       freescoutMonths <= 12
     )
   }
@@ -212,7 +212,8 @@ export default function SourceForm({
         }
         const data = await response.json()
         // Handle the new FreeScout response format with _embedded.mailboxes
-        const boxes = data?._embedded?.mailboxes || data?.mailboxes || data?.data || []
+        const boxes =
+          data?._embedded?.mailboxes || data?.mailboxes || data?.data || []
         setFreescoutMailboxes(boxes)
       } catch (e) {
         setFreescoutMailboxes([])
@@ -224,17 +225,29 @@ export default function SourceForm({
       }
     }
     // Only fetch mailboxes if API key is valid and we have required fields
-    if (selectedSourceType?.id === 'freescout' && url && freescoutKey && isValidFreescoutApiKey(freescoutKey)) {
+    if (
+      selectedSourceType?.id === 'freescout' &&
+      url &&
+      freescoutKey &&
+      isValidFreescoutApiKey(freescoutKey)
+    ) {
       fetchMailboxes()
     } else {
       setFreescoutMailboxes([])
       if (freescoutKey && !isValidFreescoutApiKey(freescoutKey)) {
-        setMailboxError('Invalid API key format. Please enter a valid 32-character hex string.')
+        setMailboxError(
+          'Invalid API key format. Please enter a valid 32-character hex string.',
+        )
       } else if (freescoutKey && !url) {
         setMailboxError('Please enter the FreeScout instance URL.')
       } else if (url && !isValidURL(url)) {
         setMailboxError('Please enter a valid FreeScout instance URL.')
-      } else if (freescoutKey && url && isValidFreescoutApiKey(freescoutKey) && !freescoutMailbox) {
+      } else if (
+        freescoutKey &&
+        url &&
+        isValidFreescoutApiKey(freescoutKey) &&
+        !freescoutMailbox
+      ) {
         setMailboxError('Please select a mailbox to continue.')
       }
     }
@@ -675,16 +688,18 @@ export default function SourceForm({
       const file = droppedFiles[0]
 
       // Check if file type is acceptable
-      const acceptedTypes = Object.values(selectedSourceType?.fileTypes || {})
+      const fileTypes = selectedSourceType?.fileTypes || {}
+      const acceptedTypes = [
+        ...Object.values(fileTypes),
+        ...Object.keys(fileTypes).map((ext) => `.${ext}`),
+      ]
       if (acceptedTypes.length > 0) {
         const fileExtension = '.' + file.name.split('.').pop().toLowerCase()
         const fileType = file.type
 
         const isValidType = acceptedTypes.some(
           (acceptedType) =>
-            fileType === acceptedType ||
-            acceptedType === fileExtension ||
-            acceptedType.includes(fileExtension),
+            fileType === acceptedType || acceptedType === fileExtension,
         )
 
         if (!isValidType) {
@@ -947,7 +962,9 @@ export default function SourceForm({
                         htmlFor="url"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        {selectedSourceType?.id === 'freescout' ? 'FreeScout Instance URL' : 'Source URL'}
+                        {selectedSourceType?.id === 'freescout'
+                          ? 'FreeScout Instance URL'
+                          : 'Source URL'}
                       </label>
                       <span className="text-sm capitalize text-gray-500">
                         {selectedSourceType.fieldUrl}
@@ -968,7 +985,9 @@ export default function SourceForm({
                         disabled={isUpdating}
                         onChange={(e) => setUrl(e.target.value)}
                         className={`block w-full rounded-md pl-10 focus:ring-cyan-500 sm:text-sm ${
-                          selectedSourceType?.id === 'freescout' && url && !isValidURL(url)
+                          selectedSourceType?.id === 'freescout' &&
+                          url &&
+                          !isValidURL(url)
                             ? 'border-red-300 focus:border-red-500'
                             : 'border-gray-300 focus:border-cyan-500'
                         }`}
@@ -1011,11 +1030,13 @@ export default function SourceForm({
                         }`}
                         placeholder="Enter 32-character API key"
                       />
-                      {freescoutKey && !isValidFreescoutApiKey(freescoutKey) && (
-                        <p className="mt-1 text-sm text-red-500">
-                          Invalid API key format. Must be a 32-character hex string.
-                        </p>
-                      )}
+                      {freescoutKey &&
+                        !isValidFreescoutApiKey(freescoutKey) && (
+                          <p className="mt-1 text-sm text-red-500">
+                            Invalid API key format. Must be a 32-character hex
+                            string.
+                          </p>
+                        )}
                       {url && (
                         <p className="mt-2 text-sm text-gray-500">
                           You'll need the{' '}
@@ -1102,39 +1123,96 @@ export default function SourceForm({
                         Number of past months of tickets to index (1-12).
                       </p>
                     </div>
-                    
+
                     {/* FreeScout validation summary */}
                     {selectedSourceType?.id === 'freescout' && (
                       <div className="mb-4 rounded-md border p-3">
                         <div className="flex items-start">
                           <div className="flex-shrink-0">
                             {isFreescoutFormValid() ? (
-                              <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              <svg
+                                className="h-5 w-5 text-green-400"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                             ) : (
-                              <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                              <svg
+                                className="h-5 w-5 text-yellow-400"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                             )}
                           </div>
                           <div className="ml-3">
-                            <h3 className={`text-sm font-medium ${isFreescoutFormValid() ? 'text-green-800' : 'text-yellow-800'}`}>
-                              {isFreescoutFormValid() ? 'All fields are valid' : 'Please complete all required fields'}
+                            <h3
+                              className={`text-sm font-medium ${isFreescoutFormValid() ? 'text-green-800' : 'text-yellow-800'}`}
+                            >
+                              {isFreescoutFormValid()
+                                ? 'All fields are valid'
+                                : 'Please complete all required fields'}
                             </h3>
                             <div className="mt-2 text-sm">
-                              <ul className={`list-disc space-y-1 pl-5 ${isFreescoutFormValid() ? 'text-green-700' : 'text-yellow-700'}`}>
-                                <li className={url && isValidURL(url) ? 'text-green-600' : 'text-yellow-600'}>
-                                  {url && isValidURL(url) ? '✓' : '○'} FreeScout instance URL
+                              <ul
+                                className={`list-disc space-y-1 pl-5 ${isFreescoutFormValid() ? 'text-green-700' : 'text-yellow-700'}`}
+                              >
+                                <li
+                                  className={
+                                    url && isValidURL(url)
+                                      ? 'text-green-600'
+                                      : 'text-yellow-600'
+                                  }
+                                >
+                                  {url && isValidURL(url) ? '✓' : '○'} FreeScout
+                                  instance URL
                                 </li>
-                                <li className={freescoutKey && isValidFreescoutApiKey(freescoutKey) ? 'text-green-600' : 'text-yellow-600'}>
-                                  {freescoutKey && isValidFreescoutApiKey(freescoutKey) ? '✓' : '○'} Valid API key
+                                <li
+                                  className={
+                                    freescoutKey &&
+                                    isValidFreescoutApiKey(freescoutKey)
+                                      ? 'text-green-600'
+                                      : 'text-yellow-600'
+                                  }
+                                >
+                                  {freescoutKey &&
+                                  isValidFreescoutApiKey(freescoutKey)
+                                    ? '✓'
+                                    : '○'}{' '}
+                                  Valid API key
                                 </li>
-                                <li className={freescoutMailbox ? 'text-green-600' : 'text-yellow-600'}>
-                                  {freescoutMailbox ? '✓' : '○'} Mailbox selected
+                                <li
+                                  className={
+                                    freescoutMailbox
+                                      ? 'text-green-600'
+                                      : 'text-yellow-600'
+                                  }
+                                >
+                                  {freescoutMailbox ? '✓' : '○'} Mailbox
+                                  selected
                                 </li>
-                                <li className={freescoutMonths >= 1 && freescoutMonths <= 12 ? 'text-green-600' : 'text-yellow-600'}>
-                                  {freescoutMonths >= 1 && freescoutMonths <= 12 ? '✓' : '○'} Months to index (1-12)
+                                <li
+                                  className={
+                                    freescoutMonths >= 1 &&
+                                    freescoutMonths <= 12
+                                      ? 'text-green-600'
+                                      : 'text-yellow-600'
+                                  }
+                                >
+                                  {freescoutMonths >= 1 && freescoutMonths <= 12
+                                    ? '✓'
+                                    : '○'}{' '}
+                                  Months to index (1-12)
                                 </li>
                               </ul>
                             </div>
@@ -1369,9 +1447,14 @@ https://example.com/page2`
                               id="file-upload"
                               name="file-upload"
                               type="file"
-                              accept={Object.values(
-                                selectedSourceType?.fileTypes,
-                              ).join(',')}
+                              accept={[
+                                ...Object.values(
+                                  selectedSourceType?.fileTypes || {},
+                                ),
+                                ...Object.keys(
+                                  selectedSourceType?.fileTypes || {},
+                                ).map((ext) => `.${ext}`),
+                              ].join(',')}
                               onChange={handleFileChange}
                               className="sr-only"
                               disabled={
@@ -1530,7 +1613,11 @@ https://example.com/page2`
                 disabled={isUpdating || !validated}
                 onClick={createSource}
                 className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
-                title={!validated && selectedSourceType?.id === 'freescout' ? 'Please complete all required FreeScout fields' : ''}
+                title={
+                  !validated && selectedSourceType?.id === 'freescout'
+                    ? 'Please complete all required FreeScout fields'
+                    : ''
+                }
               >
                 {isUpdating ? (
                   <LoadingSpinner className="mr-3" />
