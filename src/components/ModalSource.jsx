@@ -391,6 +391,13 @@ export default function ModalSource({
                           </h3>
                         </Tooltip>
                       )}
+                      {source?.type === 'freescout' && source?.freescoutMonths && (
+                        <Tooltip content="Number of months of FreeScout ticket history included.">
+                          <h3 className="flex-end cursor-help text-sm font-medium text-gray-500">
+                            {source.freescoutMonths} Month{source.freescoutMonths > 1 ? 's' : ''}
+                          </h3>
+                        </Tooltip>
+                      )}
                       {source?.processImages && (
                         <Tooltip
                           content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}
