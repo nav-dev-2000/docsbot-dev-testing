@@ -70,6 +70,16 @@ const GLOSSARY = [
     question: 'What is an agent?',
   },
   {
+    term: 'Agentic RAG',
+    definition:
+      'Agentic RAG combines retrieval-augmented generation with an LLM agent that iteratively gathers and applies information to answer queries.',
+    long_definition:
+      '## Overview\nAgentic Retrieval-Augmented Generation (agentic RAG) extends traditional RAG systems with an autonomous agent that manages multiple rounds of retrieval and reasoning. Instead of a single search, the agent plans queries, reviews results, and decides on further actions before forming a response.\n\n### How It Works\n- **Iterative retrieval:** The agent issues successive searches to build a richer context.\n- **Planning and reasoning:** Retrieved facts are evaluated and organized prior to generating an answer, lowering the risk of hallucinations.\n\n### Applications\nAgentic RAG is helpful for research assistants, complex question answering, and any task where contextual information must be assembled from diverse sources.',
+    slug: 'agentic-rag',
+    letter: 'a',
+    question: 'What is Agentic RAG?',
+  },
+  {
     term: 'Algorithm',
     definition:
       'An algorithm is a set of well-defined instructions or procedures designed to perform a specific task or solve a particular problem, often used in computing and data processing.',
@@ -520,6 +530,16 @@ const GLOSSARY = [
     question: 'What is domain adaptation?',
   },
   {
+    term: 'DSPy',
+    definition:
+      'DSPy is a framework for building declarative, self-improving LLM pipelines that automatically search for better prompts and parameters.',
+    long_definition:
+      '## Overview\nDSPy (Declarative Self-improving Python) lets developers compose language model workflows from modular components. The framework optimizes prompts or instructions using data-driven search so that pipelines become more reliable over time.\n\n### Key Features\n- **Declarative modules:** Tasks are described at a high level while DSPy handles prompt generation.\n- **Automatic optimization:** The system learns from examples or feedback to refine prompts and parameters.\n\n### Applications\nDSPy aids in constructing robust chatbots, data extraction routines, and other LLM-backed tools without hand-tuning every prompt.',
+    slug: 'dspy',
+    letter: 'd',
+    question: 'What is DSPy?',
+  },
+  {
     term: 'Embedding Space',
     definition:
       'Embedding space refers to a multidimensional mathematical space where data elements or features are represented as continuous vectors, facilitating easier manipulation and computation for machine learning tasks.',
@@ -678,6 +698,16 @@ const GLOSSARY = [
     slug: 'generative-pre-trained-transformer-gpt',
     letter: 'g',
     question: 'What is a Generative Pre-trained Transformer (GPT)?',
+  },
+  {
+    term: 'GEPA',
+    definition:
+      'GEPA is a four-step agent workflow—Gather, Evaluate, Plan, Act—used to structure how autonomous systems solve tasks.',
+    long_definition:
+      '## Overview\nGEPA (Gather, Evaluate, Plan, Act) describes a loop that guides agentic systems through deliberate problem solving. The agent first gathers information, evaluates what it has, plans a course of action, and then acts on that plan.\n\n### Steps\n- **Gather:** Collect observations or data from tools and environments.\n- **Evaluate:** Analyze the information to determine relevance and gaps.\n- **Plan:** Formulate a strategy or sequence of steps.\n- **Act:** Execute the plan and record results for the next cycle.\n\n### Use Cases\nGEPA helps design reliable AI agents for research, workflow automation, and other tasks where explicit reasoning stages improve outcomes.',
+    slug: 'gepa',
+    letter: 'g',
+    question: 'What is GEPA?',
   },
   {
     term: 'GPT-4o Model (OpenAI)',
@@ -1110,6 +1140,16 @@ const GLOSSARY = [
     question: 'What is RLHF?',
   },
   {
+    term: 'Reasoning (LLM)',
+    definition:
+      'Reasoning in large language models refers to their ability to perform step-by-step logical inference instead of relying only on surface patterns.',
+    long_definition:
+      '## Overview\nReasoning enables large language models to break down problems into intermediate steps and derive conclusions. Beyond pattern matching, the model evaluates evidence and follows logical chains.\n\n### Techniques\n- **Chain-of-thought prompting:** Encourages models to show intermediate reasoning steps.\n- **Self-consistency:** Runs multiple reasoning paths and selects the most common answer to improve reliability.\n\n### Applications\nEffective reasoning powers math solvers, code assistants, and decision-support agents that require more than factual recall.',
+    slug: 'reasoning-llm',
+    letter: 'r',
+    question: 'What is reasoning in LLMs?',
+  },
+  {
     term: 'Reinforcement Learning',
     definition:
       'Reinforcement learning is a type of machine learning where an agent interacts with its environment, receiving rewards or penalties based on its actions and learning optimal behaviors through trial and error.',
@@ -1290,6 +1330,16 @@ const GLOSSARY = [
     question: 'What is task-oriented dialogue?',
   },
   {
+    term: 'Test-time compute (TTC)',
+    definition:
+      'Test-time compute refers to extra computation spent during inference, such as running multiple model passes, to improve answer quality.',
+    long_definition:
+      '## Overview\nTest-time compute (TTC) is the additional processing performed when a model is used rather than when it is trained. By allocating more compute at inference—through longer reasoning chains, multiple samples, or ensemble techniques—models can achieve higher accuracy.\n\n### Techniques\n- **Self-consistency:** Sample several reasoning paths and choose the most common result.\n- **Iterative decoding:** Allow the model to revisit and refine earlier steps.\n\n### Trade-offs\nWhile TTC can boost performance, it increases latency and cost, so systems balance quality gains against computational expense.',
+    slug: 'test-time-compute-ttc',
+    letter: 't',
+    question: 'What is test-time compute (TTC)?',
+  },
+  {
     term: 'Text Generation',
     definition:
       'Text generation is a process in large language models that involves generating new text based on a given prompt or input, leveraging learned language patterns to create coherent text.',
@@ -1328,6 +1378,16 @@ const GLOSSARY = [
     slug: 'tokenization',
     letter: 't',
     question: 'What is tokenization?',
+  },
+  {
+    term: 'Tool Calling',
+    definition:
+      'Tool calling allows an AI model to invoke external functions or APIs during a conversation to fetch data or take actions.',
+    long_definition:
+      '## Overview\nTool calling is a capability where a language model selects and executes predefined functions. The model sends structured inputs, receives results, and uses them to craft its reply.\n\n### Benefits\n- **Dynamic knowledge:** Accesses up-to-date information from APIs or databases.\n- **Action taking:** Enables workflows like sending emails or triggering automations.\n\n### Example\nA support bot might call a ticketing API to check order status and respond with the retrieved details.',
+    slug: 'tool-calling',
+    letter: 't',
+    question: 'What is tool calling?',
   },
   {
     term: 'Tools',
