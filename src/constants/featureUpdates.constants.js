@@ -1,5 +1,4 @@
 export const FEATURE_UPDATES = [
-
   {
     date: '2025-09-09',
     title: 'FreeScout months in source details',

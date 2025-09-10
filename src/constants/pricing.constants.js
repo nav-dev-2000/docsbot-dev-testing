@@ -40,7 +40,7 @@ export const featureDefinitions = {
   questionAnalytics: { label: 'Question analytics', category: 'analytics' },
   advancedAnalytics: { label: 'Conversation analytics', category: 'analytics' },
   conversationSummaries: { label: 'Conversation summaries & insights', category: 'analytics' },
-  conversationReports: { label: 'Conversation topic reports *', category: 'analytics' },
+  conversationReports: { label: 'Conversation topic reports', category: 'analytics' },
   sentimentAnalysis: { label: 'Conversation sentiment analysis', category: 'analytics' },
   aiQuestionReports: { label: 'AI question reports', category: 'analytics' },
   
