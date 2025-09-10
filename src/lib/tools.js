@@ -663,3 +663,32 @@ export const getRating = async (itemId) => {
     rating: data.averageRating,
   }
 }
+
+// Check if an IP has exceeded the rate limit for demo bot creation
+export const checkDemoBotRateLimit = async (ip, isLoggedIn = false) => {
+  // Skip rate limit for localhost IPs
+  if (ip === '::1' || ip === '127.0.0.1') {
+    return false
+  }
+
+  const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
+  const lookupQuery = await firestore
+    .collection('demo-bots')
+    .where('ip', '==', hashIP(ip))
+    .where('createdAt', '>', timeDelta)
+    .get()
+
+  // Demo bots are limited to 1 per day for unauthenticated users, 3 for authenticated users
+  const demoBotLimit = 1
+  return lookupQuery.docs.length >= demoBotLimit
+}
+
+// Save demo bot creation record for rate limiting
+export const saveDemoBotRecord = async (ip, siteURL, botId) => {
+  await firestore.collection('demo-bots').add({
+    ip: hashIP(ip),
+    siteURL,
+    botId,
+    createdAt: FieldValue.serverTimestamp(),
+  })
+}

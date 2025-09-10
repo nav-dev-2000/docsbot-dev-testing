@@ -148,10 +148,13 @@ function Widget({ team, bot }) {
       uploadBytes(storageRef, file)
         .then((snapshot) => {
           //get public url for file
-          const url =
-            'https://cdn.docsbot.ai/' +
-            encodeURIComponent(filepath) +
-            '?alt=media'
+          const url = process.env.NODE_ENV === 'development'
+            ? 'https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/' +
+              encodeURIComponent(filepath) +
+              '?alt=media'
+            : 'https://cdn.docsbot.ai/' +
+              encodeURIComponent(filepath) +
+              '?alt=media'
           //const url = 'https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/' + encodeURIComponent(filepath) + '?alt=media'
           if (type === 'icon') setIcon(url)
           if (type === 'avatar') setBotIcon(url)

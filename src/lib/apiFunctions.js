@@ -5,9 +5,9 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot, getTeam } from '@/lib/dbQueries'
 import { deleteTenant } from '@/lib/weaviate'
 import { QueueSourceExpel } from '@/lib/service'
-import axios from 'axios'
 import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
+import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import crypto from 'crypto'
 import { DeleteIntegratedAccount, BulkDeleteIntegratedAccounts } from '@/lib/truto'
 import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
@@ -439,6 +439,13 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     
     botData.agentPrompt = agentPrompt
+  } else if (!isUpdate) {
+    // Set default CUSTOMER_SUPPORT agentPrompt for new bots
+    const supportPrompt = PRESET_PROMPTS.CUSTOMER_SUPPORT?.prompt || ''
+    botData.agentPrompt = supportPrompt
+      .replace(/{company_name}/g, botData.name || 'your company')
+      .replace(/{old_prompt}\n/g, '')
+      .replace(/{old_prompt}/g, '')
   }
 
   if (helpscoutPrompt !== undefined) {

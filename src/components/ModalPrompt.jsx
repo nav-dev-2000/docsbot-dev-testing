@@ -943,7 +943,11 @@ export default function ModalPrompt({
                                   </div>
                                 )}
                                 <iframe
-                                  src={`https://docsbot.ai/iframe/${team.id}/${bot.id}?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
+                                  src={`${
+                                    process.env.NODE_ENV === 'development'
+                                      ? `http://localhost:3000/iframe/${team.id}/${bot.id}`
+                                      : `https://docsbot.ai/iframe/${team.id}/${bot.id}`
+                                  }?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
                                   allowTransparency="true"
                                   className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
                                 ></iframe>

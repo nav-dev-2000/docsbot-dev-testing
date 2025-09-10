@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import Script from 'next/script'
 
 export function ChatPage({ team, bot, signature, agent }) {
-  const pageTitle = `${bot.name} Chatbot`
+  const pageTitle = `${bot.name} Chatbot Demo`
 
   return (
     <>
@@ -39,7 +39,9 @@ export function ChatPage({ team, bot, signature, agent }) {
           <Script id="docsbot">
             {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";const n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});let t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));const o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};
               DocsBotAI.init({
-                id: "${team.id}/${bot.id}"${signature ? `, signature: "${signature}"` : ''}${agent ? ', options: { isAgent: true }' : ''}
+                id: "${team.id}/${bot.id}"${signature ? `, signature: "${signature}"` : ''}${agent || process.env.NODE_ENV === 'development'
+                  ? `, options: {${agent ? ' isAgent: true,' : ''} localDev: ${process.env.NODE_ENV === 'development' ? 'true' : 'false'} }`
+                  : ''}
               });`}
           </Script>
           <div id="docsbot-widget-embed" className="h-full w-full bg-transparent py-0.5"></div>
