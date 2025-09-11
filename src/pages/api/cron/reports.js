@@ -1,3 +1,14 @@
+/**
+ * Reports Generation Cron Job
+ * 
+ * This cron job runs monthly to queue report generation for eligible bots.
+ * 
+ * Development testing:
+ * curl -X GET "http://localhost:3000/api/cron/reports"
+ * 
+ * Production: Protected by CRON_SECRET environment variable
+ */
+
 import { getFirestore, FieldPath } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { teamOwner, bentoTrack } from '@/lib/bento'
@@ -8,8 +19,13 @@ export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  if (!request.query.key || request.query.key !== '34hjslm8492hs521ds') {
-    response.status(404).end()
+  // Check for CRON_SECRET authorization (bypass in development if not set)
+  const authHeader = request.headers.authorization
+  const expectedSecret = process.env.CRON_SECRET
+  
+  // In development, bypass protection if CRON_SECRET is not set
+  if (expectedSecret && (!authHeader || authHeader !== `Bearer ${expectedSecret}`)) {
+    response.status(401).json({ message: 'Unauthorized' })
     return
   }
 

@@ -1,3 +1,14 @@
+/**
+ * Update Conversation Summaries Cron Job
+ * 
+ * This cron job runs every hour to generate summaries for conversations.
+ * 
+ * Development testing:
+ * curl -X GET "http://localhost:3000/api/cron/update-conversation-summaries"
+ * 
+ * Production: Protected by CRON_SECRET environment variable
+ */
+
 import { getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { checkPlanPermission } from '@/utils/helpers'
@@ -7,12 +18,17 @@ export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  if (!request.query.key || request.query.key !== 'sjhdf8723hjASD9283') {
-    response.status(404).end()
+  // Check for CRON_SECRET authorization (bypass in development if not set)
+  const authHeader = request.headers.authorization
+  const expectedSecret = process.env.CRON_SECRET
+  
+  // In development, bypass protection if CRON_SECRET is not set
+  if (expectedSecret && (!authHeader || authHeader !== `Bearer ${expectedSecret}`)) {
+    response.status(401).json({ message: 'Unauthorized' })
     return
   }
 
-  console.log('cron updateConversationSummaries started!')
+  console.log('cron update-conversation-summaries started!')
 
   try {
     const twelveHoursAgo = new Date(Date.now() - 12 * 60 * 60 * 1000)
@@ -74,9 +90,9 @@ export default async function handler(request, response) {
     for (let i = 0; i < fetchTasks.length; i += concurrency) {
       await Promise.all(fetchTasks.slice(i, i + concurrency).map((fn) => fn()))
     }
-    console.log(`cron updateConversationSummaries completed with ${fetchTasks.length} summaries generated`)
+    console.log(`cron update-conversation-summaries completed with ${fetchTasks.length} summaries generated`)
   } catch (error) {
-    console.warn('Error running updateConversationSummaries:', error)
+    console.warn('Error running update-conversation-summaries:', error)
     response.status(500).json({ message: error })
     return
   }

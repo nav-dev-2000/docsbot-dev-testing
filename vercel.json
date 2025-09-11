@@ -62,28 +62,32 @@
     ],
     "crons": [
         {
-            "path": "/api/cron/reingest?key=iuefhisue24182",
+            "path": "/api/cron/reingest",
             "schedule": "0 * * * *"
         },
         {
-            "path": "/api/cron/updateCounts?key=aowidjaowd3721",
+            "path": "/api/cron/update-counts",
             "schedule": "0 0 * * *"
         },
         {
-            "path": "/api/cron/crawler?key=efjl95hdjysgq26912",
+            "path": "/api/cron/crawler",
             "schedule": "* * * * *"
         },
         {
-            "path": "/api/cron/reports?key=34hjslm8492hs521ds",
+            "path": "/api/cron/reports",
             "schedule": "10 * 1 * *"
         },
         {
-            "path": "/api/cron/report-email?key=34hjslm8492hs521ds",
+            "path": "/api/cron/report-email",
             "schedule": "0 10 1 * *"
         },
         {
-            "path": "/api/cron/updateConversationSummaries?key=sjhdf8723hjASD9283",
+            "path": "/api/cron/update-conversation-summaries",
             "schedule": "0 * * * *"
+        },
+        {
+            "path": "/api/cron/cleanup-demo-bots",
+            "schedule": "0 2 * * *"
         }
     ],
     "functions": {
@@ -104,14 +108,17 @@
         "src/pages/api/cron/crawler.js": {
             "maxDuration": 300
         },
-        "src/pages/api/cron/updateCounts.js": {
+        "src/pages/api/cron/update-counts.js": {
             "maxDuration": 300
         },
-        "src/pages/api/cron/updateConversationSummaries.js": {
+        "src/pages/api/cron/update-conversation-summaries.js": {
             "maxDuration": 300
         },
         "src/pages/api/tools/youtube-prompter.js": {
             "maxDuration": 120
+        },
+        "src/pages/api/cron/cleanup-demo-bots.js": {
+            "maxDuration": 300
         }
     },
     "rewrites": [

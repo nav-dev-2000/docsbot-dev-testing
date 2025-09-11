@@ -1,3 +1,14 @@
+/**
+ * Update Counts Cron Job
+ * 
+ * This cron job runs daily at midnight UTC to update team and bot statistics.
+ * 
+ * Development testing:
+ * curl -X GET "http://localhost:3000/api/cron/update-counts"
+ * 
+ * Production: Protected by CRON_SECRET environment variable
+ */
+
 import { getFirestore, Filter } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getQuestionStats, getConversationStats } from '@/lib/dbQueries'
@@ -31,12 +42,17 @@ export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
 
-  if (!request.query.key || request.query.key !== 'aowidjaowd3721') {
-    response.status(404).end()
+  // Check for CRON_SECRET authorization (bypass in development if not set)
+  const authHeader = request.headers.authorization
+  const expectedSecret = process.env.CRON_SECRET
+  
+  // In development, bypass protection if CRON_SECRET is not set
+  if (expectedSecret && (!authHeader || authHeader !== `Bearer ${expectedSecret}`)) {
+    response.status(401).json({ message: 'Unauthorized' })
     return
   }
 
-  console.log('cron updateCounts started!')
+  console.log('cron update-counts started!')
 
   try {
     const teamsSnapshot = await firestore
