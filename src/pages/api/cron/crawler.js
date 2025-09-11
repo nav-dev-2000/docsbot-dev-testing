@@ -68,7 +68,7 @@ export default async function handler(request, response) {
         })
 
         if (result.status !== 200) {
-          throw new Error(`Apify API returned status ${response.status}`)
+          throw new Error(`Apify API returned status ${result.status}`)
         }
 
         console.log(

@@ -49,7 +49,7 @@ DocsBotAI.init({
     },
 })
 </script>
-``
+```
 
 ## Zendesk Web Widget (messaging) Integration
 
