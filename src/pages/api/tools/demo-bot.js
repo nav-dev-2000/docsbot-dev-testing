@@ -7,6 +7,7 @@ import { createTenant } from '@/lib/weaviate'
 import { QueueSourceIngest } from '@/lib/service'
 import { isValidURL, sanitizeURL } from '@/utils/helpers'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
+import { i18n } from '@/constants/strings.constants'
 import { crawlAndExtract } from '@/utils/crawlHelpers'
 import { checkDemoBotRateLimit, saveDemoBotRecord } from '@/lib/tools'
 import crypto from 'crypto'
@@ -123,7 +124,7 @@ export default async function handler(req, res) {
         description: botConfig.description || '',
         color: botConfig.buttonColor || '',
         privacy: 'public',
-        language: 'en',
+        language: botConfig.language || 'en',
         model: 'gpt-4.1-mini',
         temperature: 0,
         agentPrompt: supportPrompt
@@ -133,6 +134,7 @@ export default async function handler(req, res) {
           .replace(/{old_prompt}/g, ''),
         labels: {
           firstMessage: botConfig.firstMessage,
+          ...i18n[botConfig.language || 'en']?.labels || i18n.en.labels,
         },
         allowedDomains: [],
         icon: '',
@@ -166,7 +168,8 @@ export default async function handler(req, res) {
         chunkCount: 0,
         questionCount: 0,
         supportLink: botConfig.supportUrl || `mailto:support@${url.hostname}`,
-        screenshotUrl: botConfig.screenshotUrl // Temporary, will be updated
+        screenshotUrl: botConfig.screenshotUrl,
+        widgetType: botConfig.widgetType || 'other'
       }
 
       const docRef = await firestore

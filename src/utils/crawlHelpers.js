@@ -216,7 +216,7 @@ export const crawlAndExtract = async (url) => {
         {
           role: 'system',
           content:
-            "Analyze the provided website content, screenshot, and metadata to create a custom chatbot configuration. Generate a compelling bot name, description, and visual customizations that would work well for this specific website. Use the website metadata (title, description, og:image, etc.) to better understand the brand and purpose. Look for logos, brand colors, and support/contact information. The bot should feel like it belongs to this website and can help visitors with questions about their products, services, or content. Additionally, analyze the ELEMENTS section to detect any support widgets (Help Scout, Zendesk, Freshdesk, Intercom, HubSpot) and classify the widgetType accordingly. If no common widgets are detected, use 'other'.",
+            "Analyze the provided website content, screenshot, and metadata to create a custom chatbot configuration. Generate a compelling bot name, description, and visual customizations that would work well for this specific website. Use the website metadata (title, description, og:image, etc.) to better understand the brand and purpose. Look for logos, brand colors, and support/contact information. The bot should feel like it belongs to this website and can help visitors with questions about their products, services, or content. Additionally, analyze the ELEMENTS section to detect any support widgets (Help Scout, Zendesk, Freshdesk, Intercom, HubSpot) and classify the widgetType accordingly. If no common widgets are detected, use 'other'. Finally, detect the primary language of the website content and return the closest matching language code from the available options: en, jp, ar, zh, zh_tw, cs, da, nl, fil, fi, fr, de, el, he, hi, hu, id, it, ko, no, pl, pt, ro, ru, sr, es, sw, sv, th, tr. If the language cannot be determined or doesn't match any of these options, default to 'en'.",
         },
         {
           role: 'user',
@@ -251,7 +251,7 @@ export const crawlAndExtract = async (url) => {
               },
               firstMessage: {
                 type: 'string',
-                description: 'The first message the bot will show inviting the user to start a conversation',
+                description: 'The first message the bot will show inviting the user to start a conversation, no em dash or new line characters',
               },
               supportUrl: {
                 type: 'string',
@@ -271,8 +271,13 @@ export const crawlAndExtract = async (url) => {
                 enum: ['helpscout', 'zendesk', 'freshdesk', 'intercom', 'hubspot', 'other'],
                 description: 'The type of support widget detected on the website, or "other" if none of the common widgets are found'
               },
+              language: {
+                type: 'string',
+                enum: ['en', 'jp', 'ar', 'zh', 'zh_tw', 'cs', 'da', 'nl', 'fil', 'fi', 'fr', 'de', 'el', 'he', 'hi', 'hu', 'id', 'it', 'ko', 'no', 'pl', 'pt', 'ro', 'ru', 'sr', 'es', 'sw', 'sv', 'th', 'tr'],
+                description: 'The primary language of the website content, detected from the website text and metadata'
+              },
             },
-            required: ['name', 'description', 'firstMessage', 'supportUrl', 'logoUrl', 'buttonColor', 'widgetType'],
+            required: ['name', 'description', 'firstMessage', 'supportUrl', 'logoUrl', 'buttonColor', 'widgetType', 'language'],
             additionalProperties: false,
           },
         },
@@ -299,7 +304,7 @@ export const crawlAndExtract = async (url) => {
     throw new Error('Invalid JSON response from OpenAI. Please try again.')
   }
 
-  if (!botConfig?.name || !botConfig?.description) {
+  if (!botConfig?.name || !botConfig?.description || !botConfig?.language) {
     throw new Error('Invalid bot configuration from OpenAI. Please try again.')
   }
 
