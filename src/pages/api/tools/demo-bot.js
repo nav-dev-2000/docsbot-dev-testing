@@ -5,7 +5,7 @@ import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
 import { createTenant } from '@/lib/weaviate'
 import { QueueSourceIngest } from '@/lib/service'
-import { isValidURL } from '@/utils/helpers'
+import { isValidURL, sanitizeURL } from '@/utils/helpers'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import { crawlAndExtract } from '@/utils/crawlHelpers'
 import { checkDemoBotRateLimit, saveDemoBotRecord } from '@/lib/tools'
@@ -61,8 +61,14 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { siteURL, isDemo } = req.body
 
-    if (!siteURL || !isValidURL(siteURL)) {
-      return res.status(400).json({ message: 'Invalid or missing siteURL parameter' })
+    if (!siteURL) {
+      return res.status(400).json({ message: 'Missing siteURL parameter' })
+    }
+
+    // Sanitize the URL to ensure it has https:// protocol and proper format
+    const sanitizedURL = sanitizeURL(siteURL)
+    if (!sanitizedURL) {
+      return res.status(400).json({ message: 'Invalid siteURL parameter' })
     }
 
     // Check auth header for INTERNAL_API_KEY if isDemo is true
@@ -86,8 +92,8 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: 'Demo team ID not configured. Please set NEXT_PUBLIC_DEMO_TEAM_ID environment variable.' })
     }
 
-    const url = new URL(siteURL)
-    const hrefURL = `${url.protocol}//${url.hostname}/`
+    const url = new URL(sanitizedURL)
+    const hrefURL = sanitizedURL
 
     // we cannot generate the bot in hong kong
     if (process.env?.VERCEL_REGION === 'hkg1') {
@@ -288,7 +294,7 @@ export default async function handler(req, res) {
       // Save demo bot record for rate limiting (only for unauthenticated users)
       if (!isDemo) {
         const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-        await saveDemoBotRecord(ip, siteURL, botId)
+        await saveDemoBotRecord(ip, sanitizedURL, botId)
       }
 
       // Return bot details
