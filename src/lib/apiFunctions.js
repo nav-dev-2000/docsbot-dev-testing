@@ -451,7 +451,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   if (helpscoutPrompt !== undefined) {
     if (helpscoutPrompt && isUpdate && helpscoutPrompt !== bot?.helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
       throw new Error(
-        'Custom Help prompts are not available at your plan level.',
+        'Custom Help Scout prompts are not available at your plan level.',
       )
     }
     botData.helpscoutPrompt = helpscoutPrompt
@@ -734,7 +734,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   // Handle topics array
   if (topics !== undefined) {
     // Check if the team has Business plan permissions for topic management
-    if (!checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
+    // Skip validation when copying a bot
+    if (!copyFrom && !checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
       throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
     }
     
@@ -757,7 +758,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   // Handle allowOpenEndedTopics boolean
   if (allowOpenEndedTopics !== undefined) {
     // Check if the team has Business plan permissions for topic management
-    if (!checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
+    // Skip validation when copying a bot
+    if (!copyFrom && !checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
       throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
     }
     
