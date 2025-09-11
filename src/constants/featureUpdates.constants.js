@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-09-11',
+    title: 'API & Widget Integration Documentation',
+    description: 'Added Conversations API docs and integration guides for Zoho Chat, Gorgias, and LiveChat widgets.'
+  },
+  {
     date: '2025-09-09',
     title: 'FreeScout months in source details',
     description: 'FreeScout sources now display the selected ticket months in source metadata.'
