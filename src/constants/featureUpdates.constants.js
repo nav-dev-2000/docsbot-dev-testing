@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-09-12',
+    title: 'Widget option: reasoningEffort',
+    description: 'Control agent mode response depth with new reasoningEffort option in the chat widget.'
+  },
+  {
     date: '2025-09-11',
     title: 'API & Widget Integration Documentation',
     description: 'Added Conversations API docs and integration guides for Zoho Chat, Gorgias, and LiveChat widgets.'
