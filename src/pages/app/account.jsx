@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { updateEmail } from 'firebase/auth'
+import { updateEmail, sendPasswordResetEmail, updateProfile } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
 import {
   ServerStackIcon,
@@ -24,6 +24,7 @@ import { getBots, getInvitesFromTeam } from '@/lib/dbQueries'
 import { getUserRole, canUserManageBilling } from '@/utils/function.utils'
 import ModalPasswordReset from '@/components/ModalPasswordReset'
 import Tooltip from '@/components/Tooltip'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   const cardContent = (
@@ -74,9 +75,19 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
 function Account({ team, bots, checkout, teamInvites = [], role, canManageBilling }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
+  const [successText, setSuccessText] = useState(null)
   const [newEmail, setNewEmail] = useState('')
+  const [sentPasswordReset, setSentPasswordReset] = useState(false)
+  const [canModify, setModify] = useState(false)
+  const [newDisplayName, setNewDisplayName] = useState('')
+  const [isUpdatingName, setIsUpdatingName] = useState(false)
+  const isGoogleAccount = user?.providerData?.some((p) => p.providerId === 'google.com')
   const isOwner = role === 'owner'
 
+
+  useEffect(() => {
+    setNewDisplayName(user?.displayName || '')
+  }, [user])
 
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
@@ -135,6 +146,7 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
       )} */}
 
       <Alert title={errorText} type="error" />
+      <Alert title={successText} type="success" />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
@@ -160,6 +172,64 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
       )}
 
       <div className="mt-6 gap-6 md:grid md:grid-cols-2">
+        <div className="rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">Update your name</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            You can update your display name here. This will update your name across the app.
+          </p>
+          {isGoogleAccount ? (
+            <p className="mt-3 text-sm text-gray-500">
+              Your account is linked to Google. To change your name, update it in your Google account.
+            </p>
+          ) : (
+          <div>
+            <label htmlFor="display_name" className="block text-sm font-medium text-gray-700">
+              Display Name
+            </label>
+            <div className="mt-1 flex rounded-md shadow-sm">
+              <div className="relative flex flex-grow items-stretch focus-within:z-10">
+                <input
+                  type="text"
+                  id="display_name"
+                  value={newDisplayName}
+                  onChange={(e) => setNewDisplayName(e.target.value)}
+                  className={`block w-full rounded-none rounded-l-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm ${
+                    isUpdatingName ? 'bg-gray-100 text-gray-500' : ''
+                  }`}
+                  placeholder="Your name"
+                  disabled={isGoogleAccount || isUpdatingName}
+                  required
+                />
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsUpdatingName(true)
+                  updateProfile(auth.currentUser, { displayName: newDisplayName })
+                    .then(() => {
+                      setSuccessText('Name updated successfully')
+                      setErrorText(null)
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    })
+                    .catch((error) => {
+                      setErrorText(error.message)
+                      setSuccessText(null)
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    })
+                    .finally(() => {
+                      setIsUpdatingName(false)
+                    })
+                }}
+                className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                disabled={isGoogleAccount || !newDisplayName || newDisplayName === (user?.displayName || '') || isUpdatingName}
+              >
+                {isUpdatingName ? <LoadingSpinner /> : 'Update'}
+              </button>
+            </div>
+          </div>
+          )}
+        </div>
+
         <div className="rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">Update your email address</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
@@ -187,13 +257,17 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
                 onClick={() => {
                   updateEmail(auth.currentUser, newEmail)
                     .then(() => {
-                      alert('Email updated successfully')
+                      setSuccessText('Email updated successfully')
+                      setErrorText(null)
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
                     })
                     .catch((error) => {
                       setErrorText(
                         error.message +
                           " If you havn't recently logged in to your account, you may need log out then back in to change your email address for security reasons."
                       )
+                      setSuccessText(null)
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
                     })
                 }}
                 className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"

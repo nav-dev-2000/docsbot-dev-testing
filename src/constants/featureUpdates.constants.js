@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-09-16',
+    title: 'Account Display Name Updates',
+    description: 'Users can now update their display name directly from the account page.'
+  },
+  {
     date: '2025-09-12',
     title: 'Widget option: reasoningEffort',
     description: 'Control agent mode response depth with new reasoningEffort option in the chat widget.'
