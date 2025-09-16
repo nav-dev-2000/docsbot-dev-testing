@@ -98,7 +98,7 @@ export default function WidgetPreview({
           <div className="relative w-full">
             <button
               className="absolute right-0 top-0 font-semibold focus:outline-none"
-              title="Reset conversation"
+              title={labels.resetChat}
             >
               <ArrowPathIcon className="h-4 w-4" />
             </button>
@@ -204,7 +204,7 @@ export default function WidgetPreview({
           <div className="relative">
             <input
               type="text"
-              placeholder="Send a message..."
+              placeholder={labels.inputPlaceholder}
               className="w-full rounded-2xl border border-gray-300 bg-white py-3 pl-4 pr-12 text-sm text-gray-700 placeholder-gray-500 focus:border-gray-300 focus:outline-none"
               style={{
                 borderColor: color,
@@ -243,7 +243,7 @@ export default function WidgetPreview({
           {branding && (
             <div className="mt-1 flex w-full items-center justify-center text-center">
               <button className="flex items-center justify-center text-xs font-semibold text-gray-500 hover:text-gray-800">
-                Powered by{' '}
+                {labels.poweredBy}{' '}
                 <Image
                   src={docsbotLogo}
                   alt="DocsBot Logo"
@@ -345,7 +345,7 @@ function BotMessage({
             {sources && !hideSources && (
               <>
                 <div className="mt-3 border-t border-gray-300 pt-3 text-sm font-semibold text-gray-700">
-                  Sources
+                  {labels.sources}
                 </div>
                 <div className="">
                   <a
