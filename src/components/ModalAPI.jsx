@@ -721,7 +721,7 @@ export default function ModalAPI({ team, bot, integrations }) {
             Make
           </Link>
           <Link
-            href="https://suretriggers.com/integrations/docsbot?aff=5abd7bee"
+            href="https://ottokit.com/integrations/docsbot?aff=5abd7bee"
             target="_blank"
             className={classNames(
               'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
@@ -731,13 +731,13 @@ export default function ModalAPI({ team, bot, integrations }) {
             )}
           >
             <Image
-              src="/images/logo-timeline/suretriggers.svg"
-              alt="SureTriggers Logo"
+              src="/images/logo-timeline/ottokit.png"
+              alt="OttoKit Logo"
               width={16}
               height={16}
               className="mr-2"
             />
-            SureTriggers
+            OttoKit
           </Link>
           <Link
             href="https://payments.pabbly.com/api/affurl/RVYZ07kQyUZ0Z1HUKZ1m/CNd76ecbplizUZ1mp?target=9Z2AHyhSldo6KI1Fn"

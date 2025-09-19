@@ -367,7 +367,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
               <h4 className="text-lg font-medium">Workflow Automations</h4>
             </div>
             <p className="mt-2 text-sm text-gray-600">
-              Connect to Zapier, Make, SureTriggers and other automation platforms.
+              Connect to Zapier, Make, OttoKit and other automation platforms.
             </p>
           </div>
           
