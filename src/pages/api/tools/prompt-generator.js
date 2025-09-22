@@ -97,246 +97,46 @@ export default async function handler(req, res) {
     }
 
     // Define forbidden words that should cause rejection
-    const forbidden_words = [
-      'sexual',
-      'tit',
-      'tits',
-      'titties',
-      'titty',
-      'tittyfuck',
-      'tittyfucker',
-      'cum',
-      'cumshot',
-      'cumshots',
-      'cumming',
-      'porn',
-      'nude',
-      'naked',
-      'xxx',
-      'hentai',
-      'aviator',
-      '1win',
-      'blox',
-      'bloxfruits',
-      'milf',
-      'pussy',
-      'betika',
-      '91 club',
-      '91club',
-      'gift card',
-      'color prediction',
-      'quotex',
-      'betting',
-      'casino',
-      'slot machine',
-      'bdsm',
-      'bondage',
-      'fetish',
-      'kink',
-      'game hack',
-      'mating',
-      'code generator',
-      'lottery',
-      'quatex',
-      'bukkake',
-      'bank statement',
-      'femdom',
-      '1xbet',
-      'tiranga',
-      'pornhub',
-      'redtube',
-      'xvideos',
-      'youporn',
-      'xhamster',
-      'xnxx',
-      'robux',
-      'roblox',
-      'aimbot',
-      'cheat',
-      'cheater',
-      'cheats',
-      'scam',
-      'receipt',
-      'cheats',
-      'spanking',
-      'spank',
-      'spanked',
-      'cuckold',
-      'cuckolded',
-      'futa',
-      'futanari',
-      'girlfriend',
-      'boyfriend',
-      'girlfriends',
-      'boyfriends',
-      'otp',
-      'otpcode',
-      'seed phrase',
-      'sexting',
-      'sext',
-      'amateur',
-      'anal',
-      'analannie',
-      'analsex',
-      'areola',
-      'aroused',
-      'assfuck',
-      'assfucker',
-      'asslick',
-      'asslicker',
-      'asslover',
-      'assmunch',
-      'assmuncher',
-      'asspacker',
-      'asspirate',
-      'asswhore',
-      'asswipe',
-      'backdoor',
-      'barelylegal',
-      'beatoff',
-      'beat-off',
-      'beatyourmeat',
-      'bestiality',
-      'biatch',
-      'bicurious',
-      'bisexual',
-      'bi-sexual',
-      'bitchslap',
-      'blowjob',
-      'bondage',
-      'boner',
-      'boob',
-      'boobies',
-      'boobs',
-      'brothel',
-      'butt',
-      'buttbang',
-      'buttfuck',
-      'buttfucker',
-      'buttmunch',
-      'buttpirate',
-      'buttplug',
-      'cameltoe',
-      'carpetmuncher',
-      'clit',
-      'clitoris',
-      'cock',
-      'cockblock',
-      'cocklicker',
-      'cocklover',
-      'cockrider',
-      'cocksucker',
-      'cocksucking',
-      'cocktease',
-      'coitus',
-      'condom',
-      'cunnilingus',
-      'cum',
-      'cumbubble',
-      'cumfest',
-      'cumjockey',
-      'cumming',
-      'cumquat',
-      'cumshot',
-      'deepthroat',
-      'dildo',
-      'doggiestyle',
-      'doggystyle',
-      'escort',
-      'erotic',
-      'erection',
-      'fellatio',
-      'fingerfuck',
-      'fister',
-      'fisting',
-      'fuck',
-      'fuckable',
-      'fucked',
-      'fucker',
-      'fuckface',
-      'fucking',
-      'gangbang',
-      'handjob',
-      'hardon',
-      'hooker',
-      'incest',
-      'intercourse',
-      'jackoff',
-      'jerkoff',
-      'jizz',
-      'lesbo',
-      'lesbian',
-      'livesex',
-      'masturbate',
-      'masturbation',
-      'milf',
-      'muff',
-      'naked',
-      'nymph',
-      'oral sex',
-      'orgasm',
-      'orgy',
-      'phone sex',
-      'playboy',
-      'porn',
-      'porno',
-      'pornography',
-      'prostitute',
-      'pussy',
-      'rimjob',
-      'semen',
-      'sexed',
-      'sexing',
-      'sextoy',
-      'sexual',
-      'sexually',
-      'slut',
-      'scam',
-      'threesome',
-      'tit',
-      'titfuck',
-      'titjob',
-      'tits',
-      'twat',
-      'upskirt',
-      'vibrator',
-      'virginbreaker',
-      'wank',
-      'wanker',
-      'xxx',
-      'abbo',
-      'abo',
-      'alligatorbait',
-      'beaner',
-      'chink',
-      'coon',
-      'dago',
-      'darkie',
-      'dyke',
-      'fag',
-      'faggot',
-      'gook',
-      'honkey',
-      'jigaboo',
-      'kike',
-      'mulatto',
-      'nigger',
-      'porchmonkey',
-      'raghead',
-      'spic',
-      'wetback',
-      'white trash',
-      'wigger',
-      'zipperhead',
-      'wop',
-      'USDT'
-    ]
+    const FORBIDDEN_WORDS = [
+  '1win','1xbet','91 club','91club','abbo','abo','aadhaar','aadhar','aimbot','alligatorbait','amateur',
+  'anal','analannie','analsex','areola','aroused','assfuck','assfucker','asslick','asslicker','asslover',
+  'assmunch','assmuncher','asspacker','asspirate','asswhore','asswipe','aviator','backdoor','barelylegal',
+  'bank statement','beaner','beat-off','beatoff','beatyourmeat','bet365','betfair','betika','betting',
+  'bestiality','bi-sexual','biatch','bicurious','bisexual','bitchslap','blox','bloxfruits','blowjob',
+  'boner','boob','boobies','boobs','bondage','brothel','bukkake','butt','buttbang','buttfuck','buttfucker',
+  'buttmunch','buttpirate','buttplug','cameltoe','camgirl','camsex','carpetmuncher','casino','cashapp free',
+  'chastity','cheat','cheater','cheats','chink','clit','clitoris','cock','cockblock','cocklicker','cocklover',
+  'cockrider','cocksucker','cocksucking','cocktease','code generator','color prediction','condom','coon',
+  'coitus','crypto','cuckold','cuckolded','cum','cumbubble','cumfest','cumjockey','cumquat','cumming',
+  'cumshot','cumshots','cunnilingus','darkie','dago','debit card generator','deepthroat','dildo','discount code',
+  'doggiestyle','doggystyle','dyke','erotic','erection','escort','fake','fag','faggot','fellatio','femdom',
+  'fetish','fingerfuck','fister','fisting','fuck','fuckable','fucked','fucker','fuckface','fucking','futa',
+  'futanari','gangbang','gift card','girlfriend','girlfriends','gook','hack','handjob','hardon','hentai',
+  'honkey','hooker','incest','instant loan','intercourse','jackoff','jackpot','jerkoff','jigaboo','jizz',
+  'kamasutra','kike','kink','lesbian','lesbo','loan approval','livesex','lottery','lucky draw','ludo',
+  'masturbate','masturbation','mating','milf','mulatto','muff','naked','nigger','nude','nymph','onlyfans',
+  'oral sex','orgasm','orgy','otp','otpcode','pan card','passport','payPal free','phone sex','playboy',
+  'porn','pornhub','porno','pornography','predictions','prediction','prostitute','promo code','pussy',
+  'quatex','quotex','raghead','receipt','redtube','rimjob','roblox','robux','roleplay','roulette','rummy',
+  'scam','seed phrase','semen','sexed','sexing','sext','sexting','sextoy','sexual','sexually','slut',
+  'slot machine','spank','spanked','spanking','spic','spin','spanking','stake','sugar baby','sugar daddy',
+  'tits','tit','titfuck','titjob','tiranga','titty','titties','tittyfuck','tittyfucker','teen patti',
+  'threesome','titfuck','twat','upskirt','usdt','vibrator','venmo free','virginbreaker','voucher','wank',
+  'wanker','webcam','wetback','white trash','wigger','wop','xhamster','xnxx','xvideos','xxx','youporn',
+  'zipperhead', 'pregnant', 'sexy','mines', 'BDSM','airdrop','ada','bnb','binance','binance free','bitcoin','btc','cardano','claim tokens','coinbase free',
+  'crypto faucet','crypto giveaway','dai','defi','dex','doge','dogecoin','eth','ethereum','free bitcoin',
+  'free crypto','free usdt','hash rate','ico','initial coin offering','litecoin','ltc','metamask','metaverse coin',
+  'mining rig','phantom wallet','polkadot','presale','private key','pump signal','recover wallet','ripple',
+  'seed phrase','shiba inu','shib','signal group','sol','solana','staking','token sale','tron','trust wallet',
+  'trx','unlock wallet','usdc','wallet seed','xrp','yield farming'
+];
+
 
     // Function to check if text contains any forbidden words (with word boundaries)
     const containsForbiddenWords = (text) => {
       if (!text) return false
       const lowerText = text.toLowerCase()
-      return forbidden_words.some((word) => {
+      return FORBIDDEN_WORDS.some((word) => {
         // Create a regex with word boundaries to match whole words only
         const regex = new RegExp(`\\b${word}\\b`, 'i')
         return regex.test(lowerText)
@@ -347,7 +147,7 @@ export default async function handler(req, res) {
     if (containsForbiddenWords(input)) {
       return res.status(400).json({
         message:
-          'Your request contains inappropriate content that violates our content policy and cannot be processed.',
+          'Your request contains inappropriate content that violates our policy and cannot be processed. Our prompt generator is only for business use cases.',
       })
     }
 
@@ -509,7 +309,7 @@ export default async function handler(req, res) {
                 should_index: {
                   type: 'boolean',
                   description:
-                    'True only if the prompt would be generally useful for work, school, or businesses, in English, does not contain any Personally Identifiable Information (persons name, birthdate, email, phone, address, ID numbers, etc), is not branded, and is not potentially offensive, about sex, nudity, girlfriends, or NSFW. Set False if about gambling, Aviator, Blox, 1win, scam bots, gift cards, or other potentially harmful content.',
+                    'Would someone working in a business, professional, or educational setting reasonably search for and use this prompt? Set to true only if the prompt is clearly business, workplace, educational, or professional (not personal, games, hobbies, entertainment, religion, politics, dating, lifestyle, or creative roleplay); written in English with a professional tone; contains no PII, product promotions, or political/religious agendas; and avoids unsafe or inappropriate content (adult, scams, gambling, hacking, fake documents, redeem/coupon codes, violence, drugs, or illegal activity). Otherwise, it is false.',
                 },
               },
               required: [
@@ -588,35 +388,63 @@ export default async function handler(req, res) {
           // Function to verify if content should be indexed using GPT-4o-mini
           const verifyContentShouldBeIndexed = async (content) => {
             const VERIFICATION_PROMPT = `
-You are a content moderator tasked with determining if the following prompt content should be publicly indexed in a library of prompts.
+You are a content moderator tasked with determining if the following prompt should be publicly indexed in a professional prompt library.  
 
-Evaluate if the content meets ALL of these criteria:
-1. Is generally useful for work, school, or business professionals
-2. Is in English language
-3. Does NOT contain any Personally Identifiable Information (PII) such as personnames, birthdates, email addresses, phone numbers, addresses, IDs, etc
-4. Is NOT branded or promoting a specific product/service
-5. Is NOT potentially offensive, harmful, or inappropriate
-6. Does NOT relate to adult content, gambling, trading, scams, hacking, or illegal activities
-7. Does NOT contain content about sex, nudity, dating, relationships, girlfriends, BDSM, or other adult or NSFW material
-8. Does NOT relate to gambling, betting, casinos, lotteries, trading, or similar activities
-9. Does NOT involve hacks, cheats, or exploits for games or systems
-10. Does NOT involve generating fake documents, statements, or credentials
-11. Does NOT involve potentially criminal activities in any jurisdiction
-12. Does NOT involve fake receipts, bills, invoices, or other financial documents
+The guiding principle is:  
+Would someone working in a business, professional, or educational setting reasonably search for and use this prompt?  
+- If yes → shouldIndex = true.  
+- If no → shouldIndex = false.  
 
-Content to evaluate:
-${JSON.stringify({
-  name: content.name,
-  short_description: content.short_description,
-  prompt: content.prompt,
-  tags: content.tags,
-})}
+A prompt is **shouldIndex = true** only if it meets ALL of the following criteria:  
+
+### 1. Business/Professional Relevance  
+- Must be clearly useful in a business, workplace, educational, or professional context.  
+- Acceptable categories include:  
+  - Customer support, help desks, FAQs, ticket deflection.  
+  - Internal knowledge access (HR, onboarding, sales, operations, training).  
+  - Research over technical, academic, or regulatory documentation.  
+  - Business communication, management, productivity, planning, reporting, analysis.  
+  - Professional writing (emails, reports, proposals, policies, training material).  
+- Prompts primarily about personal life, games, hobbies, entertainment, religion, politics, dating, lifestyle, or creative roleplay are **shouldIndex = false**.  
+
+### 2. Language & Professionalism  
+- Must be in English.  
+- Must use professional or educational tone (not memes, slang, or casual roleplay).  
+
+### 3. Privacy & Neutrality  
+- Must NOT contain Personally Identifiable Information (PII) such as names, phone numbers, emails, addresses, or IDs.  
+- Must NOT promote or advertise a specific product, service, or company.  
+- Must NOT promote religious, spiritual, or political agendas.  
+
+### 4. Safety & Appropriateness  
+- Must NOT be offensive, unsafe, or inappropriate.  
+- Must NOT involve adult, NSFW, or romantic content of any kind (sex, nudity, fetishes, chastity, dating, erotic roleplay).  
+- Must NOT involve scams, vouchers, coupons, codes, cracks, or exploits.  
+- Must NOT involve gambling, betting, lotteries, or speculative trading.  
+- Must NOT involve hacking, cheats, or system exploits.  
+- Must NOT involve generating fake or fraudulent documents (IDs, invoices, receipts, credentials, statements).  
+- Must NOT involve criminal, violent, or illegal activities in any jurisdiction, including weapons, drugs, or self-harm.  
+
+---
+
+### Classification  
+- If the content meets all criteria and would appeal to a professional/business/educational user → classify as **shouldIndex = true**.  
+- If the content fails any criterion or is not clearly business/professional → classify as **shouldIndex = false**.  
 `.trim()
 
             const verification = await openai.chat.completions.create({
-              model: 'gpt-4.1-nano',
-              messages: [{ role: 'system', content: VERIFICATION_PROMPT }],
-              temperature: 0,
+              model: 'gpt-5-nano',
+              messages: [
+                { role: 'system', content: VERIFICATION_PROMPT },
+                { role: 'user', content: `Prompt content to evaluate:
+                  ${JSON.stringify({
+                    name: content.name,
+                    short_description: content.short_description,
+                    prompt: content.prompt,
+                    tags: content.tags,
+                  })}` },
+              ],
+              store: true,
               response_format: {
                 type: 'json_schema',
                 json_schema: {
@@ -626,18 +454,13 @@ ${JSON.stringify({
                   schema: {
                     type: 'object',
                     properties: {
-                      reason: {
-                        type: 'string',
-                        description:
-                          'A short explanation of why the content should or should not be indexed',
-                      },
                       shouldIndex: {
                         type: 'boolean',
                         description:
-                          'True ONLY if the content meets ALL criteria for indexing, otherwise false',
+                          'True ONLY if the prompt content meets ALL criteria for indexing, otherwise false',
                       },
                     },
-                    required: ['reason', 'shouldIndex'],
+                    required: ['shouldIndex'],
                     additionalProperties: false,
                   },
                 },
