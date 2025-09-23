@@ -1,5 +1,6 @@
 import OpenAI from 'openai'
 import { lookupFAQs, saveFAQs, checkFAQsRateLimit } from '@/lib/tools'
+import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
 export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 'fra1']
@@ -69,9 +70,22 @@ export default async function handler(req, res) {
       })
     }
 
+    // check if user is logged in or has a valid API key
+    let user
+    let isLoggedIn = false
+    try {
+      user = await getAuthorizedUser({ req })
+      isLoggedIn = true
+    } catch (error) {
+      // User is not logged in and doesn't have a valid API key
+    }
+
     // check rate limit
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    const isRateLimited = await checkFAQsRateLimit(ip)
+    const isRateLimited = await checkFAQsRateLimit(ip, {
+      isLoggedIn,
+      userId: user?.uid,
+    })
     if (isRateLimited) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
     }

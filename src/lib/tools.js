@@ -1,6 +1,7 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import crypto from 'crypto'
+import { stripePlan } from '@/utils/helpers'
 
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -8,6 +9,64 @@ const firestore = getFirestore()
 const RATE_LIMIT = 3 // 3 requests per RATE_LIMIT_TIME minutes
 const RATE_LIMIT_TIME = 1440 // in minutes
 const LOGGED_IN_RATE_LIMIT = 6 // 6 requests per RATE_LIMIT_TIME minutes for logged-in users
+const PAID_PLAN_MULTIPLIER = 5
+
+const getUserRateLimitMultiplier = async (userId) => {
+  if (!userId) {
+    return 1
+  }
+
+  try {
+    const userDoc = await firestore.collection('users').doc(userId).get()
+    if (!userDoc.exists) {
+      return 1
+    }
+
+    const { currentTeam } = userDoc.data() || {}
+    if (!currentTeam) {
+      return 1
+    }
+
+    const teamDoc = await firestore.collection('teams').doc(currentTeam).get()
+    if (!teamDoc.exists) {
+      return 1
+    }
+
+    const teamData = teamDoc.data() || {}
+    const team = {
+      id: teamDoc.id,
+      ...teamData,
+    }
+
+    if (team.createdAt?.toDate) {
+      team.createdAt = team.createdAt.toDate().toISOString()
+    }
+
+    const plan = stripePlan(team)
+    if (plan?.id && plan.id !== 'free') {
+      return PAID_PLAN_MULTIPLIER
+    }
+  } catch (error) {
+    console.error('Error determining user rate limit multiplier:', error)
+  }
+
+  return 1
+}
+
+const resolveRateLimitOptions = async (options) => {
+  let normalizedOptions = {}
+
+  if (typeof options === 'boolean') {
+    normalizedOptions = { isLoggedIn: options }
+  } else if (options && typeof options === 'object') {
+    normalizedOptions = options
+  }
+
+  const { isLoggedIn = false, userId = null } = normalizedOptions
+  const multiplier = await getUserRateLimitMultiplier(userId)
+
+  return { isLoggedIn, multiplier }
+}
 
 // New function to hash IP addresses
 const hashIP = (ip) => {
@@ -59,7 +118,11 @@ export const saveFAQs = async (
 }
 
 // Check if an IP has exceeded the rate limit for FAQ requests
-export const checkFAQsRateLimit = async (ip, isLoggedIn = false) => {
+export const checkFAQsRateLimit = async (ip, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
+  const baseLimit = isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT
+  const limit = baseLimit * multiplier
+
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
   const lookupQuery = await firestore
     .collection('FAQs')
@@ -67,9 +130,7 @@ export const checkFAQsRateLimit = async (ip, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
-  return (
-    lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
-  )
+  return lookupQuery.docs.length >= limit
 }
 
 // Retrieve the 9 most recent FAQs
@@ -88,7 +149,11 @@ export const getRecentFAQs = async () => {
 }
 
 // Check if an IP has exceeded the rate limit for YouTube requests
-export const checkYoutubeRateLimit = async (ip, isLoggedIn = false) => {
+export const checkYoutubeRateLimit = async (ip, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
+  const baseLimit = isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT
+  const limit = baseLimit * multiplier
+
   // Skip rate limit for localhost IPs
   if (ip === '::1' || ip === '127.0.0.1') {
     return false
@@ -101,9 +166,7 @@ export const checkYoutubeRateLimit = async (ip, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
-  return (
-    lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
-  )
+  return lookupQuery.docs.length >= limit
 }
 
 // Lookup a YouTube blog post by video ID
@@ -165,7 +228,11 @@ export const saveImage = async (ip, type, descriptionData) => {
 }
 
 // Check if an IP has exceeded the rate limit for YouTube blog post requests
-export const checkYoutubeBlogPostRateLimit = async (ip, isLoggedIn = false) => {
+export const checkYoutubeBlogPostRateLimit = async (ip, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
+  const baseLimit = isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT
+  const limit = baseLimit * multiplier
+
   const timeDelta = new Date(Date.now() - RATE_LIMIT_TIME * 60 * 1000)
   const lookupQuery = await firestore
     .collection('yt-blog-posts')
@@ -173,13 +240,15 @@ export const checkYoutubeBlogPostRateLimit = async (ip, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
-  return (
-    lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
-  )
+  return lookupQuery.docs.length >= limit
 }
 
 // Check if an IP has exceeded the rate limit for image tool requests
-export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
+export const checkImageRateLimit = async (ip, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
+  const baseLimit = isLoggedIn ? LOGGED_IN_RATE_LIMIT * 3 : RATE_LIMIT
+  const limit = baseLimit * multiplier
+
   // Skip rate limit for localhost IPs
   if (ip === '::1' || ip === '127.0.0.1') {
     return false
@@ -193,10 +262,7 @@ export const checkImageRateLimit = async (ip, isLoggedIn = false) => {
     .get()
 
   //TODO rate limit by type
-  return (
-    lookupQuery.docs.length >=
-    (isLoggedIn ? LOGGED_IN_RATE_LIMIT * 3 : RATE_LIMIT)
-  )
+  return lookupQuery.docs.length >= limit
 }
 
 // Retrieve recent YouTube blog posts
@@ -564,7 +630,11 @@ export const getPrompts = async (
 }
 
 // Check if an IP has exceeded the rate limit for prompt requests
-export const checkPromptRateLimit = async (ip, type, isLoggedIn = false) => {
+export const checkPromptRateLimit = async (ip, type, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
+  const baseLimit = isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT
+  const limit = baseLimit * multiplier
+
   // Skip rate limiting for localhost
   if (ip === '::1' || ip === '127.0.0.1') {
     return false
@@ -578,9 +648,7 @@ export const checkPromptRateLimit = async (ip, type, isLoggedIn = false) => {
     .where('createdAt', '>', timeDelta)
     .get()
 
-  return (
-    lookupQuery.docs.length >= (isLoggedIn ? LOGGED_IN_RATE_LIMIT : RATE_LIMIT)
-  )
+  return lookupQuery.docs.length >= limit
 }
 
 // Add or update a rating
@@ -665,7 +733,8 @@ export const getRating = async (itemId) => {
 }
 
 // Check if an IP has exceeded the rate limit for demo bot creation
-export const checkDemoBotRateLimit = async (ip, isLoggedIn = false) => {
+export const checkDemoBotRateLimit = async (ip, options = {}) => {
+  const { isLoggedIn, multiplier } = await resolveRateLimitOptions(options)
   // Skip rate limit for localhost IPs
   if (ip === '::1' || ip === '127.0.0.1') {
     return false
@@ -679,8 +748,9 @@ export const checkDemoBotRateLimit = async (ip, isLoggedIn = false) => {
     .get()
 
   // Demo bots are limited to 1 per day for unauthenticated users, 3 for authenticated users
-  const demoBotLimit = 1
-  return lookupQuery.docs.length >= demoBotLimit
+  const baseLimit = isLoggedIn ? 3 : 1
+  const limit = baseLimit * multiplier
+  return lookupQuery.docs.length >= limit
 }
 
 // Save demo bot creation record for rate limiting

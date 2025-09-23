@@ -73,10 +73,10 @@ export default async function handler(req, res) {
     // Check if user is logged in or has a valid API key
     let user
     let isLoggedIn = false
-    let isSuperAdmin = false
+    let userIsSuperAdmin = false
     try {
       user = await getAuthorizedUser({ req })
-      isSuperAdmin = isSuperAdmin(user.uid)
+      userIsSuperAdmin = isSuperAdmin(user.uid)
       isLoggedIn = true
     } catch (error) {
       // User is not logged in and doesn't have a valid API key
@@ -84,8 +84,11 @@ export default async function handler(req, res) {
 
     // Check rate limit
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    const isRateLimited = await checkPromptRateLimit(ip, 'prompt', isLoggedIn)
-    if (isRateLimited && !isSuperAdmin) {
+    const isRateLimited = await checkPromptRateLimit(ip, 'prompt', {
+      isLoggedIn,
+      userId: user?.uid,
+    })
+    if (isRateLimited && !userIsSuperAdmin) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
     }
 

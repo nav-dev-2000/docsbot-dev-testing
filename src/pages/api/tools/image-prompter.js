@@ -200,7 +200,10 @@ export default async function handler(req, res) {
 
       // Check rate limit
       const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-      const isRateLimited = await checkImageRateLimit(ip, isLoggedIn)
+      const isRateLimited = await checkImageRateLimit(ip, {
+        isLoggedIn,
+        userId: user?.uid,
+      })
       if (isRateLimited) {
         return res.status(429).json({
           message: `Your IP has been rate limited. Register for a free account to increase your daily limit.`,

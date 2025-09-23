@@ -754,7 +754,10 @@ export default async function handler(req, res) {
 
       // check rate limit
       const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-      const isRateLimited = await checkYoutubeRateLimit(ip, isLoggedIn)
+      const isRateLimited = await checkYoutubeRateLimit(ip, {
+        isLoggedIn,
+        userId: user?.uid,
+      })
       if (isRateLimited) {
         return res
           .status(429)
