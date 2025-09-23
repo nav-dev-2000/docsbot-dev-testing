@@ -224,13 +224,14 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
   const { slug, category } = context.params
+  const REVALIDATE_SECONDS = 60*5 //TODO change to 1 week
 
   // Check if the category is valid
   if (!Object.keys(PROMPT_CATEGORIES).includes(category)) {
     console.error('Invalid category:', category)
     return {
       notFound: true, // This will return a 404 Not Found status
-      revalidate: 604800
+      revalidate: REVALIDATE_SECONDS
     }
   }
 
@@ -242,7 +243,7 @@ export const getStaticProps = async (context) => {
     console.error('Error fetching prompt:', slug, error)
     return {
       notFound: true, // This will return a 404 Not Found status
-      revalidate: 604800,
+      revalidate: REVALIDATE_SECONDS,
     }
   }
 
@@ -250,7 +251,7 @@ export const getStaticProps = async (context) => {
     console.error('Prompt not found:', slug)
     return {
       notFound: true, // This will return a 404 Not Found status
-      revalidate: 604800,
+      revalidate: REVALIDATE_SECONDS,
     }
   }
 
@@ -262,6 +263,6 @@ export const getStaticProps = async (context) => {
       promptData,
       relatedPrompts,
     },
-    revalidate: 604800, // One week in seconds
+    revalidate: REVALIDATE_SECONDS, // One week in seconds
   }
 }
