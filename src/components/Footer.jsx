@@ -46,6 +46,7 @@ const footerNavigation = {
   legal: [
     { name: 'Privacy Policy', href: '/legal/privacy-policy' },
     { name: 'Legal', href: '/legal' },
+    { name: 'Trust Center', href: 'https://trust.docsbot.ai/' },
     { name: 'Press', href: '/press' },
     { name: 'Affiliate Program', href: '/affiliates' },
   ],
