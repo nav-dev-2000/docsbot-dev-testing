@@ -6,6 +6,7 @@ import { PROMPT_CATEGORIES } from '@/constants/promptCategories.constants'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { isSuperAdmin } from '@/utils/helpers'
 import { clearCloudflareCache } from '@/lib/cloudflare'
+import { phTrack } from '@/lib/posthog'
 
 configureFirebaseApp()
 const firestore = getFirestore()
@@ -65,6 +66,20 @@ The final prompt you output should adhere to the following structure. Do not inc
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { input } = req.body
+    const forwardedFor = req.headers['x-forwarded-for']
+    const fallbackIp = req.socket?.remoteAddress || req.connection?.remoteAddress
+    const normalizeIp = (value) => {
+      if (!value) return 'anonymous'
+      if (Array.isArray(value)) {
+        return value[0] || 'anonymous'
+      }
+      if (typeof value === 'string') {
+        return value.split(',')[0].trim() || 'anonymous'
+      }
+      return 'anonymous'
+    }
+
+    const ip = normalizeIp(forwardedFor || fallbackIp)
 
     if (!input) {
       return res.status(400).json({ message: 'Missing input parameter' })
@@ -83,7 +98,6 @@ export default async function handler(req, res) {
     }
 
     // Check rate limit
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
     const isRateLimited = await checkPromptRateLimit(ip, 'prompt', {
       isLoggedIn,
       userId: user?.uid,
@@ -91,6 +105,8 @@ export default async function handler(req, res) {
     if (isRateLimited && !userIsSuperAdmin) {
       return res.status(429).json({ message: `Your IP has been rate limited.` })
     }
+
+    const distinctId = user?.uid || ip || 'anonymous'
 
     // Check if we're in the Hong Kong region
     if (process.env?.VERCEL_REGION === 'hkg1') {
@@ -148,6 +164,10 @@ export default async function handler(req, res) {
 
     // Check the input for forbidden content before calling OpenAI
     if (containsForbiddenWords(input)) {
+      await phTrack(distinctId, 'Prompt Blocked', {
+        reason: 'forbidden_input',
+        tool: 'prompt-generator',
+      })
       return res.status(400).json({
         message:
           'Your request contains inappropriate content that violates our policy and cannot be processed. Our prompt generator is only for business use cases.',
@@ -333,6 +353,7 @@ export default async function handler(req, res) {
       const responseData = JSON.parse(
         chat_completion.choices[0]?.message?.content,
       )
+      let notIndexReason = null
 
       // Check if the response data contains any forbidden words
       if (responseData) {
@@ -342,6 +363,7 @@ export default async function handler(req, res) {
         // Check if any forbidden words are in the JSON string
         if (containsForbiddenWords(jsonString)) {
           responseData.should_index = false
+          notIndexReason = 'response_forbidden_content'
         }
       }
 
@@ -383,6 +405,7 @@ export default async function handler(req, res) {
       // Override should_index to false if it's a duplicate
       if (isDuplicate) {
         responseData.should_index = false
+        notIndexReason = notIndexReason || 'duplicate_slug'
       }
 
       // Double-check should_index with GPT-4o-mini if it's currently set to true
@@ -490,10 +513,14 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
 
           // Override should_index based on the verification result
           responseData.should_index = shouldBeIndexed
+          if (!shouldBeIndexed) {
+            notIndexReason = notIndexReason || 'verification_result_false'
+          }
         } catch (verificationError) {
           console.error('Error during content verification:', verificationError)
           // If verification fails, err on the side of caution and set should_index to false
           responseData.should_index = false
+          notIndexReason = notIndexReason || 'verification_error'
         }
       }
 
@@ -501,6 +528,21 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
       await addPrompt(ip, 'prompt', responseData, newId)
 
       responseData.slug = newId
+
+      await phTrack(
+        distinctId,
+        responseData.should_index ? 'Prompt Indexed' : 'Prompt Not Indexed',
+        {
+          slug: newId,
+          name: responseData.name,
+          category: responseData.category,
+          should_index: responseData.should_index,
+          ...(responseData.tags && { tags: responseData.tags }),
+          ...(responseData.should_index
+            ? {}
+            : { reason: notIndexReason || 'model_decision' }),
+        },
+      )
 
       return res.status(200).json(responseData)
     } catch (e) {
