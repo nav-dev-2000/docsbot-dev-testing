@@ -194,7 +194,7 @@ const PDFSummarizer = () => {
         posthog?.capture('Free Tool', {
         tool: 'PDF Summarizer',
         action: 'Success',
-        category: 'Writing',
+        category: 'Productivity',
         fileSize: file.size,
         summaryType: summaryType,
       })
@@ -206,7 +206,7 @@ const PDFSummarizer = () => {
         tool: 'PDF Summarizer',
         action: 'Error',
         error: error.message,
-        category: 'Writing',
+        category: 'Productivity',
       })
     }
   }
@@ -353,7 +353,7 @@ const PDFSummarizer = () => {
         open={showSignupModal}
         setOpen={setShowSignupModal}
         toolName="PDF Summarizer"
-        toolCategory="Writing"
+        toolCategory="Productivity"
       />
     </div>
   )
@@ -681,7 +681,7 @@ export default function PDFSummarizerPage({ starRatingData }) {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <FreeToolsGrid category="Writing" />
+          <FreeToolsGrid category="Productivity" />
         </div>
       </main>
       <Footer />

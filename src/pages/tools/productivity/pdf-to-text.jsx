@@ -194,7 +194,7 @@ const PDFToText = () => {
         posthog?.capture('Free Tool', {
         tool: 'PDF to Text Converter',
         action: 'Success',
-        category: 'Writing',
+        category: 'Productivity',
         fileSize: file.size,
       })
     } catch (error) {
@@ -205,7 +205,7 @@ const PDFToText = () => {
         tool: 'PDF to Text Converter',
         action: 'Error',
         error: error.message,
-        category: 'Writing',
+        category: 'Productivity',
       })
     }
   }
@@ -377,7 +377,7 @@ const PDFToText = () => {
         open={showSignupModal}
         setOpen={setShowSignupModal}
         toolName="PDF to Text Converter"
-        toolCategory="Writing"
+        toolCategory="Productivity"
       />
     </div>
   )
@@ -701,7 +701,7 @@ export default function PDFToTextPage({ starRatingData }) {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <FreeToolsGrid category="Writing" />
+          <FreeToolsGrid category="Productivity" />
         </div>
       </main>
       <Footer />

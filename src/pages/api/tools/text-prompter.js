@@ -153,6 +153,54 @@ Generate 3 professional email response variations that address the email convers
     ],
   },
 
+  'answer-generator': {
+    model: 'gpt-5-mini',
+    reasoning_effort: 'low',
+    messages: [
+      {
+        role: 'system',
+        content: `You are an expert AI answer generator that produces accurate, well-structured responses tailored to the user's goals.
+
+# Core Requirements
+
+- Follow the requested tone, answer length, and format preference exactly.
+- Base every statement on the provided question and optional context.
+- Organize information so it is easy to skim and reuse in documentation, study guides, or customer replies.
+- Avoid generic disclaimers; focus on actionable insights and factual clarity.
+- Do not provide links or urls in the response.
+
+# Formatting Rules
+
+- **Structured Paragraphs**: Deliver 2-5 cohesive paragraphs with clear transitions.
+- **Bullet Points**: Provide a short intro sentence followed by a bulleted list with bolded lead phrases.
+- **Step-by-Step**: Present a numbered list where each step includes what to do and why it matters.
+
+# Length Guidance
+
+- **Concise**: 2-3 sentences or bullets focusing on the direct answer.
+- **Comprehensive**: Include background, key takeaways, and supporting details.
+- **In-Depth**: Offer thorough explanations, examples, and nuanced recommendations.
+
+# Output Expectations
+
+- Reference relevant context when provided.
+- Highlight important facts with **bold** text when helpful.
+- Return only the final answer without additional commentary.
+- Response should be in markdown format using markdown formatting.`,
+      },
+      {
+        role: 'user',
+        content: `Question: {{input}}
+Tone: {{tone}}
+Answer Length: {{answerLength}}
+Format Preference: {{formatPreference}}
+Additional Context: {{context}}
+
+Generate a helpful answer that follows the tone, length, and format instructions above.`,
+      },
+    ],
+  },
+
   paraphrase: {
     model: 'gpt-4o-mini',
     messages: [
@@ -884,7 +932,23 @@ const getChatParams = (type, params) => {
 export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      const { type, input, tone, paragraphCount, targetLanguage, brandName, industry, keywords, sloganCount, summaryType, keyPoints, responseCount } = req.body
+      const {
+        type,
+        input,
+        tone,
+        paragraphCount,
+        targetLanguage,
+        brandName,
+        industry,
+        keywords,
+        sloganCount,
+        summaryType,
+        keyPoints,
+        responseCount,
+        context,
+        answerLength,
+        formatPreference,
+      } = req.body
 
       if (!type || !PROMPTS[type]) {
         return res
@@ -1041,6 +1105,52 @@ export default async function handler(req, res) {
       }
     }
 
+      if (type === 'answer-generator') {
+        if (!input || typeof input !== 'string' || input.trim() === '') {
+          return res.status(400).json({ message: 'Invalid or missing question parameter.' })
+        }
+
+        if (input.length > 4000) {
+          return res
+            .status(400)
+            .json({ message: 'Question is too long. Maximum length is 4000 characters.' })
+        }
+
+        if (context && (typeof context !== 'string' || context.length > 6000)) {
+          return res
+            .status(400)
+            .json({ message: 'Context must be under 6000 characters.' })
+        }
+
+        if (tone && typeof tone !== 'string') {
+          return res.status(400).json({ message: 'Invalid tone parameter.' })
+        }
+
+        const allowedLengths = [
+          'Concise',
+          'Comprehensive',
+          'In-Depth',
+          'Quick Snapshot',
+          'Balanced Breakdown',
+          'Deep Dive',
+        ]
+        if (answerLength && !allowedLengths.includes(answerLength)) {
+          return res.status(400).json({ message: 'Invalid answerLength parameter.' })
+        }
+
+        const allowedFormats = [
+          'Structured Paragraphs',
+          'Bullet Points',
+          'Step-by-Step',
+          'Guided Paragraphs',
+          'Bullet Answers',
+          'Step-by-Step Playbook',
+        ]
+        if (formatPreference && !allowedFormats.includes(formatPreference)) {
+          return res.status(400).json({ message: 'Invalid formatPreference parameter.' })
+        }
+      }
+
       if (type === 'email-response') {
         if (!input || typeof input !== 'string' || input.trim() === '') {
           return res.status(400).json({ message: 'Invalid or missing email context parameter.' })
@@ -1115,6 +1225,9 @@ export default async function handler(req, res) {
         keyPoints,
         responseCount,
         summaryType,
+        context: context || 'No additional context provided.',
+        answerLength: answerLength || 'Comprehensive',
+        formatPreference: formatPreference || 'Structured Paragraphs',
       })
       const chat_completion = await openai.chat.completions.create(chatParams)
 

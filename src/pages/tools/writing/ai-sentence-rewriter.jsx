@@ -196,7 +196,7 @@ const AISentenceRewriter = () => {
 
           <label
             htmlFor="original-text"
-            className="block w-full text-left text-sm font-medium text-gray-700 flex items-center gap-2"
+            className="w-full text-left text-sm font-medium text-gray-700 flex items-center gap-2"
           >
             <PencilIcon className="h-4 w-4" aria-hidden="true" />
             <span>Your Sentence to Transform</span>

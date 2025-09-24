@@ -151,6 +151,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/tools/writing/pdf-summarizer',
+        destination: '/tools/productivity/pdf-summarizer',
+        permanent: true,
+      },
+      {
+        source: '/tools/writing/pdf-to-text',
+        destination: '/tools/productivity/pdf-to-text',
+        permanent: true,
+      },
+      {
         source: '/article/gpt-5-release-date-features-what-to-expect-from-openais-next-model',
         destination: '/article/gpt-5-is-live-on-docsbot-better-answers-fewer-hallucinations-lower-costs',
         permanent: true,
