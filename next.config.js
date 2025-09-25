@@ -165,6 +165,26 @@ const nextConfig = {
         destination: '/article/gpt-5-is-live-on-docsbot-better-answers-fewer-hallucinations-lower-costs',
         permanent: true,
       },
+      {
+        source: '/prompts/general/ai-answer-generator',
+        destination: '/tools/productivity/ai-answer-generator',
+        permanent: true,
+      },
+      {
+        source: '/prompts/research/comprehensive-answer-generation-1',
+        destination: '/tools/productivity/ai-answer-generator',
+        permanent: true,
+      },
+      {
+        source: '/prompts/education/answer-questions',
+        destination: '/tools/productivity/ai-answer-generator',
+        permanent: true,
+      },
+      {
+        source: '/prompts/education/explanatory-answer-generator',
+        destination: '/tools/productivity/ai-answer-generator',
+        permanent: true,
+      },
     ]
 
     // Build dynamic model redirects from LLMS
