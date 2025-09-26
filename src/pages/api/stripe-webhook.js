@@ -536,6 +536,14 @@ const webhookHandler = async (req, res) => {
                     ],
                   },
                 })
+                phTrack(teamOwner(team), 'Subscription Payment', {
+                  plan: plan.name,
+                  amount: invoice.amount_paid,
+                  currency: invoice.currency,
+                  interval: plan.interval,
+                  subscriptionId: invoiceWithSubscription.subscription.id,
+                  customerId: invoice.customer,
+                }, team.id)
               } catch (e) {
                 console.log('Error sending bento track', e)
               }
