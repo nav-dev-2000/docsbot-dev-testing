@@ -79,7 +79,40 @@ const LLMS = [
       },
     },
   },
-
+    {
+    model_name: 'Claude 4.5 Sonnet',
+    slug: 'claude-4-5-sonnet',
+    provider: 'anthropic',
+    description:
+      "Claude 4.5 Sonnet is Anthropic’s newest balanced flagship. It delivers major gains in coding, long-horizon planning, and real-world computer use, including sustained autonomous work (30+ hours observed). It’s available on Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI.",
+    input_context_window: '200K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-09-29',
+    knowledge_cut_off_date: 'April 2025',
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+    input_cost_per_million_tokens: 3,
+    output_cost_per_million_tokens: 15,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      'SWE-Bench Verified': {
+        score: null,
+        notes: 'State of the art per Anthropic',
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5', // :contentReference[oaicite:0]{index=0}
+      },
+      OSWorld: {
+        score: 61.4,
+        notes: 'Real-world computer use benchmark',
+        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+      },
+    },
+  },
   {
     model_name: 'Claude 4 Sonnet',
     slug: 'claude-4-sonnet',
@@ -3337,6 +3370,46 @@ const LLMS = [
         notes: '0-shot',
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
+      },
+    },
+  },
+    {
+    model_name: 'GPT-5 Codex',
+    slug: 'gpt-5-codex',
+    provider: 'openai',
+    description:
+      "GPT-5 Codex is OpenAI’s GPT-5 variant optimized for agentic software engineering inside Codex. It excels at building full projects, refactoring large codebases, debugging, and code review. It supports images/screenshots for frontend work and runs in the Codex CLI, IDE extension, and cloud. Available in Codex surfaces and the OpenAI API (Responses API).",
+    input_context_window: '400K',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2025-09-15',
+    knowledge_cut_off_date: 'September 30, 2024',
+    api_providers: 'OpenAI API (Responses), ChatGPT Codex (CLI, IDE, Cloud)',
+    input_cost_per_million_tokens: 1.25,
+    output_cost_per_million_tokens: 10.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      'SWE-Bench Verified': {
+        score: null,
+        notes:
+          'Reported on all 500 tasks; optimized for agentic coding & large refactors',
+        source: 'https://openai.com/index/introducing-upgrades-to-codex/',
+      },
+      'Context Window': {
+        score: 400000,
+        notes: 'Input context tokens (max output 128K)',
+        source: 'https://platform.openai.com/docs/models/gpt-5-codex',
+      },
+      'Code Review Eval': {
+        score: null,
+        notes:
+          'Trained to detect critical issues; outperforms GPT-5 in review usefulness per OpenAI write-up',
+        source: 'https://openai.com/index/introducing-upgrades-to-codex/',
       },
     },
   },

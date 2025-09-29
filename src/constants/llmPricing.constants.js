@@ -2,6 +2,16 @@ export const LLM_PRICING = {
   'Chat/Completion Models': [
       
     {
+      model_name: 'GPT-5 Codex',
+      model_slug: 'gpt-5-codex',
+      // inferred / reported context window (e.g. 400K)  
+      context: '400K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 1.25,       // $1.25 per million input tokens :contentReference[oaicite:0]{index=0}  
+      output_token_cost_per_million: 10         // $10 per million output tokens :contentReference[oaicite:1]{index=1}  
+},
+
+    {
       model_name: 'GPT-5',
       model_slug: 'gpt-5',
       page_slug: 'gpt-5',
@@ -196,6 +206,16 @@ export const LLM_PRICING = {
       input_token_cost_per_million: 30,
       output_token_cost_per_million: 60,
     },  
+    {
+      model_name: 'Claude Sonnet 4.5',
+      model_slug: 'claude-sonnet-4.5',
+      // context isn’t always publicly stated in detail; use whatever Anthropic indicates or omit
+      context: '—',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 3,          // $3 per million input tokens :contentReference[oaicite:2]{index=2}  
+      output_token_cost_per_million: 15         // $15 per million output tokens :contentReference[oaicite:3]{index=3}  
+    },
+
     {
       model_name: 'Claude Opus 4.1',
       model_slug: 'claude-opus-4-1',
