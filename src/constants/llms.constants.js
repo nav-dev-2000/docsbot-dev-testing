@@ -27,15 +27,41 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE‑bench Verified': {
+      'SWE‑bench': {
         score: 74.5,
-        notes: 'Real‑world coding score, new state‑of‑the‑art',
+        notes: 'Verified',
         source: 'https://www.anthropic.com/news/claude-opus-4-1',
       },
       'Multi‑file Refactoring': {
         score: null,
         notes: 'Significant improvement vs. Opus 4; cleaner fixes',
         source: 'https://www.anthropic.com/news/claude-opus-4-1',
+      },
+      OSWorld: {
+        score: 44.4,
+        notes: 'Real-world computer use benchmark',
+        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+      },
+      'AIME2025': {
+        score: 78,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'GPQA': {
+        score: 81,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+        notes: 'Diamond',
+      },
+      MMMLU: {
+        score: 89.5,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      MMMU: {
+        score: 77.1,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'Finance Agent': {
+        score: 50.9,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
     },
   },
@@ -101,15 +127,36 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE-Bench Verified': {
-        score: null,
-        notes: 'State of the art per Anthropic',
+      'SWE-Bench': {
+        score: 77.2,
+        notes: 'Verified',
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5', // :contentReference[oaicite:0]{index=0}
       },
       OSWorld: {
         score: 61.4,
         notes: 'Real-world computer use benchmark',
         source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+      },
+      'AIME2025': {
+        score: 87,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'GPQA': {
+        score: 83.4,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+        notes: 'Diamond',
+      },
+      MMMLU: {
+        score: 89.1,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      MMMU: {
+        score: 77.8,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'Finance Agent': {
+        score: 55.3,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
     },
   },
@@ -140,8 +187,8 @@ const LLMS = [
         source: 'https://www.datacamp.com/blog/claude-4',
       },
       GPQA: {
-        score: 75.4,
-        notes: 'Diamond tier',
+        score: 76.1,
+        notes: 'Diamond',
         source: 'https://www.datacamp.com/blog/claude-4',
       },
       'SWE-Bench': {
@@ -153,6 +200,23 @@ const LLMS = [
       AIME2025: {
         score: 70.5,
         source: 'https://www.datacamp.com/blog/claude-4',
+      },
+      OSWorld: {
+        score: 42.2,
+        notes: 'Real-world computer use benchmark',
+        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+      },
+      MMMLU: {
+        score: 86.5,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      MMMU: {
+        score: 74.4,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'Finance Agent': {
+        score: 44.5,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
     },
   },
@@ -3394,22 +3458,154 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE-Bench Verified': {
-        score: null,
-        notes:
-          'Reported on all 500 tasks; optimized for agentic coding & large refactors',
-        source: 'https://openai.com/index/introducing-upgrades-to-codex/',
+      // Intelligence
+      AIME2025: {
+        score: 94.6,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'Context Window': {
-        score: 400000,
-        notes: 'Input context tokens (max output 128K)',
-        source: 'https://platform.openai.com/docs/models/gpt-5-codex',
+      FrontierMath: {
+        score: 26.3,
+        notes: 'with python tool only',
+        source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'Code Review Eval': {
-        score: null,
-        notes:
-          'Trained to detect critical issues; outperforms GPT-5 in review usefulness per OpenAI write-up',
-        source: 'https://openai.com/index/introducing-upgrades-to-codex/',
+      GPQA: {
+        score: 85.7,
+        notes: 'diamond, no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      HLE: {
+        score: 24.8,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      HMMT2025: {
+        score: 93.3,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Multimodal
+      MMMU: {
+        score: 84.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      MMMUPro: {
+        score: 78.4,
+        notes: 'avg across standard and vision sets',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      CharXivReasoning: {
+        score: 81.1,
+        notes: 'python enabled',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      VideoMMMU: {
+        score: 84.6,
+        notes: 'max frame 256',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      ERQA: {
+        score: 65.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Coding
+      SWELancerIC: {
+        score: 112000,
+        notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'SWE-Bench': {
+        score: 74.5,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
+      },
+      AiderPolyglot: {
+        score: 88.0,
+        notes: 'diff',
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
+      },
+
+      // Instruction Following
+      ScaleMultichallenge: {
+        score: 69.6,
+        notes: 'o3-mini grader',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      InternalAPIInstructionFollowing: {
+        score: 64.0,
+        notes: 'hard',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      COLLIE: {
+        score: 99.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Function Calling
+      Tau2BenchAirline: {
+        score: 62.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      Tau2BenchRetail: {
+        score: 81.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      Tau2BenchTelecom: {
+        score: 96.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Long Context
+      OpenAIMRCR2Needle128k: {
+        score: 95.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      OpenAIMRCR2Needle256k: {
+        score: 86.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      GraphwalksBFS128k: {
+        score: 78.3,
+        notes: '<128k',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      GraphwalksParents128k: {
+        score: 73.3,
+        notes: '<128k',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      BrowseCompLongContext128k: {
+        score: 90.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      BrowseCompLongContext256k: {
+        score: 88.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      VideoMME: {
+        score: 86.7,
+        notes: 'long, with subtitle category',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      MMMLU: {
+        score: 89.4,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'Finance Agent': {
+        score: 46.9,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
     },
   },
@@ -3574,6 +3770,14 @@ const LLMS = [
         score: 86.7,
         notes: 'long, with subtitle category',
         source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      MMMLU: {
+        score: 89.4,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+      'Finance Agent': {
+        score: 46.9,
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
     },
   },
