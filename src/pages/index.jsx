@@ -36,6 +36,7 @@ import IntegrationsFeatures from '@/components/IntegrationsFeatures'
 import DeployFeatures from '@/components/DeployFeatures'
 import CTASection from '@/components/CTASection'
 import VideoPlayer from '@/components/VideoPlayer'
+import SecuritySection from '@/components/SecuritySection'
 
 const features = [
   {
@@ -720,6 +721,8 @@ export default function Home() {
             <IntegrationsFeatures />
 
             <DeployFeatures />
+
+            <SecuritySection />
 
             <Testimonials />
 

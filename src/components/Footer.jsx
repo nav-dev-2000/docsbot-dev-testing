@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import docsbotLogo from '@/images/docsbot-logo.png'
+import gdprImage from '@/images/gdpr.webp'
+import soc2Image from '@/images/soc-2.webp'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { ALTERNATIVES } from '@/constants/alternatives.constants'
 import { INDUSTRIES } from '@/constants/industries.constants'
@@ -105,6 +107,28 @@ export default function Footer() {
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
               ))}
+            </div>
+            <div className="space-y-3">
+              <div className="flex items-center gap-4">
+                <a
+                  className="block shrink-0"
+                  title="SOC 2 Type II certified"
+                  href="https://trust.docsbot.ai"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image alt="SOC 2 Type II certification badge" className="h-20 w-auto" src={soc2Image} />
+                </a>
+                <a
+                  className="block shrink-0"
+                  title="GDPR compliant"
+                  href="https://docsbot.ai/legal/gdpr"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Image alt="GDPR compliance badge" className="h-20 w-auto" src={gdprImage} />
+                </a>
+              </div>
             </div>
             <iframe
               src="https://docsbot.instatus.com/embed-status/e21b573c/light-md"
