@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'Do I need to provide my own OpenAI API key?',
     answer:
-      'Access to the capable GPT-4o mini or GPT-4.1 nano models is included with your plan question limit, and works well for most use cases. To access other models such as the most powerful GPT-4o or GPT-4.1 you need to provide your own OpenAI API key. Instead of simply reselling API access at a premium, we think it is much fairer to have you only pay for the usage you need. We also think it is important for you to have full control and ownership of your data. This also prevents rate limits from causing outages for you if another of our customers has a spike in usage. Each question uses <$0.008 of credit, so costs are minimal. We store your API key securely with AES256 encryption, and it is only used to make calls to OpenAI on your behalf.',
+      'Access to GPT-4o mini, GPT-4.1 nano, GPT-4.1 mini, GPT-5 mini, and GPT-5 nano is included in your plan question limits and covers most use cases. To run other GPT-4 or GPT-5 variants you need to connect your own OpenAI API key so usage bills directly through your account, and your DocsBot plan must allow those models. This keeps costs fair, gives you full control of your data, and avoids shared rate limits. Each call typically uses <$0.008 of credit. We store your API key securely with AES256 encryption and only use it to call OpenAI on your behalf.',
   },
   {
     question: "Can a get a free trial of a higher plan?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "How secure is DocsBot?",
-    answer: "We take security seriously. All data is encrypted in transit and at rest, and we use industry-standard security practices. Business and Enterprise plans include additional security features like IP logging and SSO options. For organizations with specific security requirements, we offer Enterprise plans with Azure OpenAI Service integration and self-hosted options for your training data.",
+    answer: "We take security seriously. All data is encrypted in transit and at rest, and we use industry-standard security practices. DocsBot is SOC 2 Type II certified and GDPR compliant. Business and Enterprise plans include additional security features like IP logging and SSO options. For organizations with specific security requirements, we offer Enterprise plans with Azure OpenAI Service integration and self-hosted options for your training data.",
   },
   {
     question: "What support options are available?",
@@ -68,7 +68,7 @@ const faqs = [
   },
   {
     question: "What are your privacy protections?",
-    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to provide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. Please see our privacy policy and DPAfor more details: https://docsbot.ai/legal/privacy-policy.",
+    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to provide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. Please see our privacy policy and DPA for more details: https://docsbot.ai/legal/privacy-policy.",
   },
   {
     question: "Are you GDPR compliant?",
@@ -95,24 +95,22 @@ export default function Faq() {
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Frequently Asked Questions
             </h2>
-            <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+            <div className="mt-10 space-y-6 divide-y divide-gray-900/10">
               {faqs.map((faq) => (
-                <Disclosure key={faq.question} as="div" className="pt-6">
-                  <dt>
-                    <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
-                      <span className="text-base/7 font-semibold">{faq.question}</span>
-                      <span className="ml-6 flex h-7 items-center">
-                        <PlusIcon aria-hidden="true" className="size-6 group-data-[open]:hidden" />
-                        <MinusIcon aria-hidden="true" className="size-6 [.group:not([data-open])_&]:hidden" />
-                      </span>
-                    </DisclosureButton>
-                  </dt>
-                  <DisclosurePanel as="dd" className="mt-2 pr-12">
+                <Disclosure key={faq.question} as="section" className="pt-6">
+                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
+                    <span className="text-base/7 font-semibold">{faq.question}</span>
+                    <span className="ml-6 flex h-7 items-center">
+                      <PlusIcon aria-hidden="true" className="size-6 group-data-[open]:hidden" />
+                      <MinusIcon aria-hidden="true" className="size-6 [.group:not([data-open])_&]:hidden" />
+                    </span>
+                  </DisclosureButton>
+                  <DisclosurePanel as="div" className="mt-2 pr-12">
                     <p className="text-base/7 text-gray-600">{faq.answer}</p>
                   </DisclosurePanel>
                 </Disclosure>
               ))}
-            </dl>
+            </div>
           </div>
         </div>
       </div>
