@@ -41,36 +41,36 @@ export default function SecuritySection({
   return (
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="text-center text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
             {eyebrow}
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-6 sm:mt-8 sm:flex-row">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 sm:mt-8 sm:flex-nowrap">
             <a
-              className="shrink-0"
+              className="order-2 shrink-0 sm:order-1"
               href="https://trust.docsbot.ai"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Image
                 alt="SOC 2 Type II certification badge"
-                className="h-16 w-auto sm:h-24"
+                className="h-24 w-auto sm:h-28"
                 priority
                 src={soc2Image}
               />
             </a>
-            <h2 className="text-pretty text-center text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">
+            <h2 className="order-1 w-full text-pretty text-center text-4xl font-semibold tracking-tight text-gray-900 sm:order-2 sm:w-auto sm:text-5xl lg:text-balance">
               {title}
             </h2>
             <a
-              className="shrink-0"
+              className="order-3 shrink-0 sm:order-3"
               href="https://docsbot.ai/legal/gdpr"
               rel="noopener noreferrer"
               target="_blank"
             >
               <Image
                 alt="GDPR compliance badge"
-                className="h-16 w-auto sm:h-24"
+                className="h-24 w-auto sm:h-28"
                 priority
                 src={gdprImage}
               />
