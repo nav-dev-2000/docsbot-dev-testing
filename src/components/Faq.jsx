@@ -1,82 +1,119 @@
 /* This example requires Tailwind CSS v3.0+ */
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { FAQPageJsonLd } from 'next-seo';
+import Link from 'next/link'
+import { FAQPageJsonLd } from 'next-seo'
 
 const faqs = [
   {
+    id: 1,
     question: "Does it work with languages other than English?",
-    answer: "Yes! Unlike traditional search, DocsBot inherits GPT's understanding of any language found on the Internet. So even if you train from your documentation in English, it can still find answers and respond in the language of the question!"
+    answer:
+      "Yes. DocsBot understands and responds in any language you need, even when your documentation is English-only. Supports over 100 languages!",
   },
   {
+    id: 2,
     question: 'How does DocsBot work?',
     answer:
-      "It's a bit technical, but here is a brief overview. We use OpenAI's embedding and ChatGPT APIs, as well as vector databases to store our index. All ingested documentation is cleaned up and divided into smaller chunks and labeled by source. We then generate a vector representation of each chunk and store it in our vector DB index. When a user asks a question, we convert it to an embedding, and perform an advanced semantic & keyword search for closest matches to the user's query. Then we take the most relevant chunks, included them as context along with the original question, and use the ChatGPT API to generate a response in markdown format that we then convert to HTML and display to the user.",
+      "We clean and chunk your sources, and use a cutting-edge agentic RAG pipeline to retrieve, rerank, and use the most relevant matches as context for the AI to answer the question.",
   },
   {
+    id: 3,
     question: 'Do I need to provide my own OpenAI API key?',
     answer:
-      'Access to GPT-4o mini, GPT-4.1 nano, GPT-4.1 mini, GPT-5 mini, and GPT-5 nano is included in your plan question limits and covers most use cases. To run other GPT-4 or GPT-5 variants you need to connect your own OpenAI API key so usage bills directly through your account, and your DocsBot plan must allow those models. This keeps costs fair, gives you full control of your data, and avoids shared rate limits. Each call typically uses <$0.008 of credit. We store your API key securely with AES256 encryption and only use it to call OpenAI on your behalf.',
+      "GPT-4o, 4.1, and GPT-5 mini models are included, perfect for most use cases. Bring your own OpenAI key to use other models; we encrypt and use it only for API calls.",
   },
   {
-    question: "Can a get a free trial of a higher plan?",
-    answer: "Instead of a free trial, we have a free tier lifetime plan that allows you to experience our core features. For qualifying businesses, ask us to enable access to all features of the Standard plan for 14 days, including multiple DocsBots, advanced analytics, and team collaboration features. You can test all source types, integrations, and customization options without any commitment.",
+    id: 4,
+    question: 'Can a get a free trial of a higher plan?',
+    answer:
+      "We offer a free tier so you can test our core features. Eligible businesses can request a Standard plan trial with full features or rely on our 14-day money-back guarantee.",
   },
   {
-    question: "How do I upgrade or downgrade my plan?",
-    answer: "You can change your plan at any time from your account dashboard. When upgrading, the new features and limits become available immediately, and we'll prorate any remaining time from your current plan. When downgrading, the new limits take effect immediately as well, and any unused credit will be applied on next billing cycle.",
+    id: 5,
+    question: 'How do I upgrade or downgrade my plan?',
+    answer:
+      "Change plans anytime in the dashboard. Upgrades and downgrades activate instantly and unused credit is applied to the next billing cycle.",
   },
   {
-    question: "What happens if I exceed my monthly question limit?",
-    answer: "If you reach your monthly question limit, your bot will continue to function but will display a message suggesting users try again later. You can upgrade your plan at any time to increase your limit, or wait for it to reset at the start of your next billing cycle. Business plan customers can customize rate limiting to better manage high traffic periods.",
+    id: 6,
+    question: 'What happens if I exceed my monthly message limit?',
+    answer:
+      "Your bot keeps running but warns visitors. Upgrade for a higher limit or wait for the monthly limit reset in the next calendar month.",
   },
   {
-    question: "Can I customize the chat widget appearance?",
-    answer: "Yes! All plans include basic widget customization like colors and position. Higher plans also get access to advanced customization options including custom CSS, custom icons, and the ability to fully integrate the chat experience into your website's design. Business plans also get access to unbranded widgets.",
+    id: 7,
+    question: 'Can I customize the chat widget appearance?',
+    answer:
+      "All plans can adjust basic colors, styling, and placement; higher tiers unlock custom CSS and unbranded widgets.",
   },
   {
-    question: "What kind of analytics do you provide?",
-    answer: "Basic analytics (available on Personal plan and up) include question volume, answered stats, and satisfaction rates. Advanced analytics (Standard and up) add detailed user interaction data for questions and conversations with graphs, unanswered question reports, and AI-powered insights to improve your documentation and bot responses. Business plans also get access to sentiment, topic analysis, and our AI question reports for deeper analysis of topics and question topics with clustering.",
+    id: 8,
+    question: 'What kind of analytics do you provide?',
+    answer:
+      "Analytics vary by plan. Basics cover usage, while higher tiers unlock deeper reports, topics, sentiment, resolution rates, satisfaction, and AI-driven analysis.",
   },
   {
-    question: "How secure is DocsBot?",
-    answer: "We take security seriously. All data is encrypted in transit and at rest, and we use industry-standard security practices. DocsBot is SOC 2 Type II certified and GDPR compliant. Business and Enterprise plans include additional security features like IP logging and SSO options. For organizations with specific security requirements, we offer Enterprise plans with Azure OpenAI Service integration and self-hosted options for your training data.",
+    id: 9,
+    question: 'How secure is DocsBot?',
+    answer:
+      "We take security seriously with end-to-end encryption, granular access controls, data segmentation, and SOC 2 Type II audited controls.",
+    moreInfoHref: 'https://trust.docsbot.ai',
   },
   {
-    question: "What support options are available?",
-    answer: "All plans include access to our documentation, AI, and email support with 24-hour response times. Enterprise plans can include custom SLAs and dedicated support channels.",
+    id: 10,
+    question: 'What support options are available?',
+    answer:
+      "All plans include docs, AI, and email support with response times based on plan. Enterprise customers can add custom SLAs and dedicated channels.",
   },
   {
-    question: "Can I import my existing chat history?",
-    answer: "Yes! You can import existing chat logs and support tickets to train your bot. This is especially useful for support teams looking to automate responses to common questions. We support importing from various formats including CSV, JSON, and direct integration with help desk platforms like Freshdesk, Zendesk, Intercom, and Help Scout.",
+    id: 11,
+    question: 'Can I import my existing ticket history?',
+    answer:
+      "Yes. Import chat logs or tickets via CSV, or integrations like Zendesk, Intercom, Freshdesk, Help Scout, and more.",
   },
   {
-    question: "What types of content sources can I use?",
-    answer: "All paid plans support a wide range of source types including websites (via sitemap or crawler), PDFs, Word documents, Markdown files, HTML, RSS feeds, GitHub repositories, and more. You can also manually add content or use our API to programmatically update your knowledge base.",
+    id: 12,
+    question: 'What types of content sources can I use?',
+    answer:
+      "Use websites, PDFs, Word docs, Markdown, HTML, RSS feeds, spreadsheets, manual entries, or our API. We support 28+ source types.",
   },
   {
-    question: "Can I automatically update my DocsBot sources?",
-    answer: "Yes you can enable scheduled source updates for compatible sources like URLs, RSS feeds, and Sitemaps. Depending on your plan you can do this monthly, weekly, or daily. You can also manually refresh your sources at any time on all plans."
+    id: 13,
+    question: 'Can I automatically update my DocsBot sources?',
+    answer:
+      "Schedule refreshes for compatible sources like web, cloud storage, or help desk platforms daily, weekly, or monthly, and trigger manual updates anytime.",
   },
   {
+    id: 14,
     question: "What are source 'Pages'?",
-    answer: "When you train your bot using various sources we calculate how many pages were imported. Each page is equivalent to 5000 characters of cleaned-up raw text. For example if you import your website via sitemap that may have hundreds or thousands of pages depending on the URL count and how much text is on each. Different plans have different page limits depending on your needs."
+    answer:
+      "A page is about 5k characters of cleaned text. Plan limits vary with how many pages you ingest. UTF-8 languages like Chinese, Japanese, and Korean can use more characters per page.",
   },
   {
-    question: "Do you have an API I can use?",
-    answer: "Yes! We have a public API that you can use to integrate DocsBot into your own applications. You can find the documentation here: https://docsbot.ai/documentation/developer. We also have our admin API for managing your DocsBots and sources."
+    id: 15,
+    question: 'Do you have an API I can use?',
+    answer: 'Yes. Our developer docs cover the public API along with admin endpoints and usage guides.',
+    moreInfoHref: '/documentation/developer',
   },
   {
-    question: "What are your privacy protections?",
-    answer: "We generally don't store PII unless you specifically upload it, or a user provides it in a question to your bots. We store queries and responses in our database to be able to provide and improve on the service. Queries and responses also pass through OpenAI and are subject to their privacy policy as well. Please see our privacy policy and DPA for more details: https://docsbot.ai/legal/privacy-policy.",
+    id: 16,
+    question: 'What are your privacy protections?',
+    answer:
+      "We store queries to run the service and don't retain PII unless you upload it. Review our privacy policy for details.",
+    moreInfoHref: '/legal/privacy-policy',
   },
   {
-    question: "Are you GDPR compliant?",
-    answer: "Yes, we are GDPR compliant. We act as a data processor for our customers and provide all necessary tools and documentation to help you maintain GDPR compliance. This includes Data Processing Agreements (DPAs), data export capabilities, and the ability to delete user data on request. We also ensure that all data processing activities are conducted in accordance with GDPR principles and that data is stored securely within EU-based servers or has proper data transfer protections when required. For Enterprise customers, we can offer additional GDPR-specific features and customizations.",
+    id: 17,
+    question: 'Are you GDPR compliant?',
+    answer:
+      "Yes. We act as your data processor, provide DPAs, exports, deletion tools, and EU storage or protected transfers.",
+      moreInfoHref: '/legal/gdpr'
   },
   {
-    question: "Do you have an affiliate program?",
-    answer: "Yes! We have a generous affiliate program that pays out 25% of the revenue from any customer you refer to us for the first 12 months of their account. This includes plan upgrades, and can provide as much as a $1,500 commission per referral! We provide a 60 day cookie and 45 day payout schedule via PayPal. You can signup here: https://docsbot.firstpromoter.com/.",
+    id: 18,
+    question: 'Do you have an affiliate program?',
+    answer:
+      'Yes. Earn 25% for 12 months on referrals with a 60-day cookie and 45-day PayPal payouts managed through FirstPromoter.',
+    moreInfoHref: 'https://docsbot.firstpromoter.com/',
   },
 ]
 
@@ -84,31 +121,54 @@ export default function Faq() {
   return (
     <>
       <FAQPageJsonLd
-        mainEntity={faqs.map(faq => ({
+        mainEntity={faqs.map((faq) => ({
           questionName: faq.question,
           acceptedAnswerText: faq.answer,
         }))}
       />
       <div id="faq" className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Frequently Asked Questions
             </h2>
-            <div className="mt-10 space-y-6 divide-y divide-gray-900/10">
+            <p className="mt-6 text-base/7 text-gray-600">
+              Have a question we haven't covered?{' '}
+              <button
+                type="button"
+                className="text-cyan-600 hover:text-cyan-500 font-semibold underline focus:outline-none"
+                onClick={() => {
+                  if (window.DocsBotAI && typeof window.DocsBotAI.open === 'function') {
+                    window.DocsBotAI.open();
+                  } else {
+                    // Optionally, dispatch a custom event if widget is loaded via event listeners
+                    const event = new Event('docsbot_open_widget');
+                    document.dispatchEvent(event);
+                  }
+                }}
+              >
+                Ask our DocsBot AI agent
+              </button>
+              .
+            </p>
+          </div>
+          <div className="mt-20">
+            <div className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:grid-cols-3 lg:gap-x-10">
               {faqs.map((faq) => (
-                <Disclosure key={faq.question} as="section" className="pt-6">
-                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
-                    <span className="text-base/7 font-semibold">{faq.question}</span>
-                    <span className="ml-6 flex h-7 items-center">
-                      <PlusIcon aria-hidden="true" className="size-6 group-data-[open]:hidden" />
-                      <MinusIcon aria-hidden="true" className="size-6 [.group:not([data-open])_&]:hidden" />
-                    </span>
-                  </DisclosureButton>
-                  <DisclosurePanel as="div" className="mt-2 pr-12">
-                    <p className="text-base/7 text-gray-600">{faq.answer}</p>
-                  </DisclosurePanel>
-                </Disclosure>
+                <div key={faq.id}>
+                  <h3 className="text-base/7 font-semibold text-gray-900">{faq.question}</h3>
+                  <p className="mt-2 text-base/7 text-gray-600">{faq.answer}</p>
+                  {faq.moreInfoHref ? (
+                    <Link
+                      href={faq.moreInfoHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-block text-sm font-semibold text-cyan-600 hover:text-cyan-500"
+                    >
+                      More information &rarr;
+                    </Link>
+                  ) : null}
+                </div>
               ))}
             </div>
           </div>
