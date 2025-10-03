@@ -1,5 +1,15 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-10-03',
+    title: 'Printable Question Topic Reports',
+    description: 'Print or download question topic reports as PDFs directly from the bot reports page.'
+  },
+  {
+    date: '2025-10-01',
+    title: 'SOC 2 Type II Certification',
+    description: 'We are now SOC 2 Type II certified proving our commitment to security and compliance. For more information, see our blog post.'
+  },
+  {
     date: '2025-09-16',
     title: 'Account Display Name Updates',
     description: 'Users can now update their display name directly from the account page.'
