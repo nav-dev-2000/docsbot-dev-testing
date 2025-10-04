@@ -46,16 +46,17 @@ const footerNavigation = {
   ],
   industries,
   legal: [
-    { name: 'Privacy Policy', href: '/legal/privacy-policy' },
-    { name: 'Legal', href: '/legal' },
-    { name: 'Trust Center', href: 'https://trust.docsbot.ai/' },
-    { name: 'Press', href: '/press' },
+    { name: 'Privacy Policy', href: '/legal/privacy-policy', rel: 'nofollow' },
+    { name: 'Legal', href: '/legal', rel: 'nofollow' },
+    { name: 'Trust Center', href: 'https://trust.docsbot.ai/', rel: 'nofollow' },
+    { name: 'Press', href: '/press', rel: 'nofollow' },
     { name: 'Affiliate Program', href: '/affiliates' },
   ],
   social: [
     {
       name: 'X/Twitter',
       href: 'https://x.com/docsbotai/',
+      rel: 'nofollow',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -65,6 +66,7 @@ const footerNavigation = {
     {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/company/docsbot-ai',
+      rel: 'nofollow',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 20" {...props}>
           <path d="M17.0391667,17.0433333 L14.0775,17.0433333 L14.0775,12.4025 C14.0775,11.2958333 14.055,9.87166667 12.5341667,9.87166667 C10.99,9.87166667 10.7541667,11.0758333 10.7541667,12.3208333 L10.7541667,17.0433333 L7.7925,17.0433333 L7.7925,7.5 L10.6375,7.5 L10.6375,8.80083333 L10.6758333,8.80083333 C11.0733333,8.05083333 12.04,7.25916667 13.4841667,7.25916667 C16.485,7.25916667 17.04,9.23416667 17.04,11.805 L17.04,17.0433333 L17.0391667,17.0433333 Z M4.4475,6.19416667 C3.49416667,6.19416667 2.72833333,5.4225 2.72833333,4.47333333 C2.72833333,3.525 3.495,2.75416667 4.4475,2.75416667 C5.3975,2.75416667 6.1675,3.525 6.1675,4.47333333 C6.1675,5.4225 5.39666667,6.19416667 4.4475,6.19416667 Z M5.9325,17.0433333 L2.9625,17.0433333 L2.9625,7.5 L5.9325,7.5 L5.9325,17.0433333 Z M18.5208333,0 L1.47583333,0 C0.66,0 0,0.645 0,1.44083333 L0,18.5591667 C0,19.3558333 0.66,20 1.47583333,20 L18.5183333,20 C19.3333333,20 20,19.3558333 20,18.5591667 L20,1.44083333 C20,0.645 19.3333333,0 18.5183333,0 L18.5208333,0 Z"/>
@@ -74,6 +76,7 @@ const footerNavigation = {
     {
       name: 'GitHub',
       href: 'https://github.com/uglyrobot/',
+      rel: 'nofollow',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -102,7 +105,12 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               {footerNavigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-400 hover:text-gray-500"
+                  rel={item.rel}
+                >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
                 </a>
@@ -123,7 +131,7 @@ export default function Footer() {
                   className="block shrink-0"
                   title="GDPR compliant"
                   href="https://docsbot.ai/legal/gdpr"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   target="_blank"
                 >
                   <Image alt="GDPR compliance badge" className="h-20 w-auto" src={gdprImage} />
@@ -146,7 +154,11 @@ export default function Footer() {
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.pages.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -156,7 +168,11 @@ export default function Footer() {
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.legal.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -168,7 +184,11 @@ export default function Footer() {
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools2.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -177,12 +197,16 @@ export default function Footer() {
               </div>
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
-            <div className="mt-12 md:mt-0">
+              <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">Other Products</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.tools.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -192,20 +216,28 @@ export default function Footer() {
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.comparisons.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
-              
+
               <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">For Industries</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {footerNavigation.industries.map((item) => (
                     <li key={item.name} className="leading-tight">
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-base text-gray-500 hover:text-gray-900"
+                        rel={item.rel}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -218,7 +250,7 @@ export default function Footer() {
         <EmailSubscribe />
         <div className="mt-12 border-t border-gray-200 py-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2024 UglyRobot, LLC. All rights reserved.
+            &copy; 2025 UglyRobot, LLC. All rights reserved.
           </p>
         </div>
       </div>
