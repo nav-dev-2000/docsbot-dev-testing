@@ -26,6 +26,7 @@ import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Testimonials } from '@/components/Testimonials'
+import MattCromwellQuote from '@/components/MattCromwellQuote'
 import TrustedBy from '@/components/TrustedBy'
 import SocialFaces from '@/components/SocialFaces'
 import HowItWorks from '@/components/HowItWorks'
@@ -723,6 +724,8 @@ export default function Home() {
             <DeployFeatures />
 
             <SecuritySection />
+
+            <MattCromwellQuote />
 
             <Testimonials />
 
