@@ -66,6 +66,13 @@ The final prompt you output should adhere to the following structure. Do not inc
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { input } = req.body
+    const blockedCountries = new Set(['IN', 'PK', 'BD', 'LK'])
+    const countryHeader = req.headers['cf-ipcountry']
+    const countryCode = Array.isArray(countryHeader)
+      ? countryHeader[0]?.toUpperCase()
+      : typeof countryHeader === 'string'
+        ? countryHeader.toUpperCase()
+        : undefined
     const forwardedFor = req.headers['x-forwarded-for']
     const fallbackIp = req.socket?.remoteAddress || req.connection?.remoteAddress
     const normalizeIp = (value) => {
@@ -107,6 +114,18 @@ export default async function handler(req, res) {
     }
 
     const distinctId = user?.uid || ip || 'anonymous'
+
+    if (countryCode && blockedCountries.has(countryCode)) {
+      await phTrack(distinctId, 'Prompt Blocked', {
+        reason: 'region_restriction',
+        tool: 'prompt-generator',
+        country: countryCode,
+      })
+
+      return res.status(403).json({
+        message: `The prompt generator is not available in your country.`,
+      })
+    }
 
     // Check if we're in the Hong Kong region
     if (process.env?.VERCEL_REGION === 'hkg1') {

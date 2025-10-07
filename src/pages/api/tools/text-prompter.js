@@ -1,6 +1,7 @@
 import OpenAI from 'openai'
 import { addPrompt, getPrompt, checkPromptRateLimit } from '@/lib/tools'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import { phTrack } from '@/lib/posthog'
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
 export const preferredRegion = [
@@ -950,6 +951,29 @@ export default async function handler(req, res) {
         formatPreference,
       } = req.body
 
+      const blockedCountries = new Set(['IN', 'PK', 'BD', 'LK'])
+      const countryHeader = req.headers['cf-ipcountry']
+      const countryCode = Array.isArray(countryHeader)
+        ? countryHeader[0]?.toUpperCase()
+        : typeof countryHeader === 'string'
+          ? countryHeader.toUpperCase()
+          : undefined
+
+      const forwardedFor = req.headers['x-forwarded-for']
+      const fallbackIp = req.socket?.remoteAddress || req.connection?.remoteAddress
+      const normalizeIp = (value) => {
+        if (!value) return 'anonymous'
+        if (Array.isArray(value)) {
+          return value[0] || 'anonymous'
+        }
+        if (typeof value === 'string') {
+          return value.split(',')[0].trim() || 'anonymous'
+        }
+        return 'anonymous'
+      }
+
+      const ip = normalizeIp(forwardedFor || fallbackIp)
+
       if (!type || !PROMPTS[type]) {
         return res
           .status(400)
@@ -1197,8 +1221,21 @@ export default async function handler(req, res) {
         // User is not logged in and doesn't have a valid API key
       }
 
+      const distinctId = user?.uid || ip || 'anonymous'
+
+      if (countryCode && blockedCountries.has(countryCode)) {
+        await phTrack(distinctId, 'Prompt Blocked', {
+          reason: 'region_restriction',
+          tool: 'text-prompter',
+          country: countryCode,
+        })
+
+        return res.status(403).json({
+          message: `The prompt tools are not available in your country.`,
+        })
+      }
+
       // check rate limit
-      const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
       const isRateLimited = await checkPromptRateLimit(ip, type, {
         isLoggedIn,
         userId: user?.uid,
