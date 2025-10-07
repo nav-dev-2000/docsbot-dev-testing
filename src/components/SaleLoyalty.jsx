@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { CheckIcon } from '@heroicons/react/20/solid'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePostHog } from 'posthog-js/react'
 import { currencies, pricingTiers } from '@/constants/pricing.constants'
+import { RadioGroup } from '@headlessui/react'
 
 const Countdown = dynamic(() => import('react-countdown'), {
   ssr: false,
@@ -165,10 +166,15 @@ export default function SaleLoyalty({
   expiresAt,
 }) {
   const posthog = usePostHog()
-  const currencyCode = useMemo(() => {
+  const defaultCurrency = useMemo(() => {
     const code = team?.stripeSubscriptionCurrency?.toUpperCase()
     return code && currencies[code] ? code : 'USD'
   }, [team?.stripeSubscriptionCurrency])
+  const [currencyCode, setCurrencyCode] = useState(defaultCurrency)
+
+  useEffect(() => {
+    setCurrencyCode(defaultCurrency)
+  }, [defaultCurrency])
 
   const standardAnnualSavings = STANDARD_ANNUAL_SAVINGS[currencyCode] ?? STANDARD_ANNUAL_SAVINGS.USD
   const businessAnnualSavings = BUSINESS_ANNUAL_SAVINGS[currencyCode] ?? BUSINESS_ANNUAL_SAVINGS.USD
@@ -278,7 +284,34 @@ export default function SaleLoyalty({
       <p className="mx-auto mt-6 max-w-4xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl">
       <strong>DocsBot <Link href="https://docsbot.ai/2026-plan-pricing-update-faq" target="_blank" className="text-cyan-700 underline">prices are changing</Link> on March 1, 2026.</strong> Your loyalty offer is ready. Upgrade early to unlock more features, higher limits, and 12 months of savings.
       </p>
-      <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+      <div className="mx-auto mt-8 max-w-4xl sm:mt-10">
+        <div className="flex justify-center">
+          <RadioGroup
+            value={currencyCode}
+            onChange={setCurrencyCode}
+            className="grid grid-cols-5 gap-x-1 rounded-md bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+          >
+            <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
+            {Object.keys(currencies).map((option) => (
+              <RadioGroup.Option
+                key={option}
+                value={option}
+                className={({ checked }) =>
+                  classNames(
+                    checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
+                    'cursor-pointer rounded-md px-2.5 py-1'
+                  )
+                }
+              >
+                <span>
+                  {currencies[option].symbol} {currencies[option].label}
+                </span>
+              </RadioGroup.Option>
+            ))}
+          </RadioGroup>
+        </div>
+      </div>
+      <div className="mx-auto mt-6 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-10 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
         {tiers.map((tier, tierIdx) => (
           <div
             key={tier.id}
