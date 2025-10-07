@@ -10,6 +10,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
 import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
+import SaleLoyalty from '@/components/SaleLoyalty'
 
 export default function Checkout({ team, children, upgrade = false }) {
   const [user] = useAuthState(auth)
@@ -24,6 +25,7 @@ export default function Checkout({ team, children, upgrade = false }) {
   // Check if current plan is legacy
   const currentPlan = stripePlan(team)
   const isLegacyPlan = pricingTiers.find(tier => tier.id === currentPlan?.id)?.legacy === true
+  const isLegacyProPlan = currentPlan?.id === 'pro' && isLegacyPlan
 
   useEffect(() => {
     if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
@@ -49,7 +51,9 @@ export default function Checkout({ team, children, upgrade = false }) {
     }
   }, [isStripeCustomer])
 
-  async function openPortal() {
+  async function openPortal(options = {}) {
+    const { tier, upgrade: upgradeOverride } = options
+    const shouldUpgrade = typeof upgradeOverride === 'boolean' ? upgradeOverride : upgrade
     setErrorText(null)
     setOpening(true)
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
@@ -57,7 +61,7 @@ export default function Checkout({ team, children, upgrade = false }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ upgrade }),
+      body: JSON.stringify({ upgrade: shouldUpgrade, tier }),
     })
     if (response.ok) {
       const data = await response.json()
@@ -138,8 +142,8 @@ export default function Checkout({ team, children, upgrade = false }) {
               </h3>
               <div className="mt-2 text-sm text-yellow-700">
                 <p>
-                  You're currently on the {currentPlan?.name} plan, which is no longer available to new customers. 
-                  While you can continue using this plan, consider upgrading to one of our current plans to access the latest features and better value.{' '}
+                  You're currently on the {currentPlan?.name} plan, which is no longer available to new customers since May, 2025. 
+                  While you can continue using this plan <Link href="https://docsbot.ai/2026-plan-pricing-update-faq" target="_blank" className="font-medium underline text-yellow-700 hover:text-yellow-600">for now</Link>, consider upgrading to one of our current plans to access the latest features and better value.{' '}
                   <Link href="/pricing?showLegacy=true" target="_blank" className="font-medium underline text-yellow-700 hover:text-yellow-600">
                     Compare to current plans &rarr;
                   </Link>
@@ -167,7 +171,22 @@ export default function Checkout({ team, children, upgrade = false }) {
           {!!team.stripeCustomerId && (
             <div className="flex justify-center text-center">
               {isStripeCustomer ? (
-                <div className="max-w-2xl">
+                <div className="flex w-full max-w-5xl flex-col items-center">
+                  {isLegacyProPlan && (
+                    <div className="mb-10 w-full">
+                      <SaleLoyalty
+                        team={team}
+                        onApplyStandard={() =>
+                          openPortal({ tier: 'standard', upgrade: true })
+                        }
+                        onApplyBusiness={() =>
+                          openPortal({ tier: 'business', upgrade: true })
+                        }
+                        isProcessing={opening}
+                        expiresAt="2025-10-22T04:59:00.000Z"
+                      />
+                    </div>
+                  )}
                   {team.stripeSubscriptionCancelAtPeriodEnd && (
                     <div className="mb-6 flex justify-center text-center">
                       <button

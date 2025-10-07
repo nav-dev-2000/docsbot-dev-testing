@@ -26,7 +26,7 @@ export default async function createCheckoutSession(req, res) {
     const { tier, frequency, email, upgrade } = req.body
 
     try {
-      if (tier) {
+      if (tier && !upgrade) {
         const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
         const price = plans[tier]?.prices?.current?.[frequency]
         const teamInvites = await getInvitesFromTeam(team.id)
@@ -189,11 +189,67 @@ export default async function createCheckoutSession(req, res) {
           sessionConfig['configuration'] = configId
         }
         if (upgrade) {
-          sessionConfig['flow_data'] = {
-            type: 'subscription_update',
-            subscription_update: {
-              subscription: team.stripeSubscriptionId,
-            },
+          if (!team.stripeSubscriptionId) {
+            throw Error('No subscription found for upgrade.')
+          }
+
+          if (tier) { //loyalty discount sale
+            const subscription = await stripe.subscriptions.retrieve(team.stripeSubscriptionId)
+            const subscriptionItem = subscription?.items?.data?.[0]
+
+            if (!subscriptionItem) {
+              throw Error('Unable to locate subscription item for upgrade.')
+            }
+
+            const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
+            const interval = team.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
+            const targetPriceId = plans?.[tier]?.prices?.current?.[interval]
+
+            if (!targetPriceId) {
+              throw Error('Unable to determine upgrade price.')
+            }
+
+            let loyaltyCoupons;
+            if (process.env.NODE_ENV !== 'development') {
+              loyaltyCoupons = {
+                standard: { month: 'R3YT5qyO' },
+                business: { month: '0L0eu61M', year: '6Clm8zIr' },
+              }
+            } else {
+              loyaltyCoupons = {
+                standard: { month: '0uJbTqYQ' },
+                business: { month: 'mnS353ze', year: 'MdcbxKHm' },
+              }
+            }
+
+            const coupon = loyaltyCoupons?.[tier]?.[team.stripeSubscriptionInterval]
+
+            const flowData = {
+              type: 'subscription_update_confirm',
+              subscription_update_confirm: {
+                subscription: team.stripeSubscriptionId,
+                items: [
+                  {
+                    id: subscriptionItem.id,
+                    price: targetPriceId,
+                    quantity: subscriptionItem.quantity || 1,
+                  },
+                ],
+              },
+            }
+
+            if (coupon) {
+              flowData.subscription_update_confirm.discounts = [{ coupon }]
+            }
+
+            sessionConfig['flow_data'] = flowData
+          } else {
+            sessionConfig['flow_data'] = {
+              type: 'subscription_update',
+              subscription_update: {
+                subscription: team.stripeSubscriptionId,
+              },
+            }
           }
         }
         const { url } = await stripe.billingPortal.sessions.create(sessionConfig)
