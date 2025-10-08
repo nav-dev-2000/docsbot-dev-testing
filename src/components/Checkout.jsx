@@ -173,7 +173,7 @@ export default function Checkout({ team, children, upgrade = false }) {
               {isStripeCustomer ? (
                 <div className="flex w-full max-w-5xl flex-col items-center">
                   {isLegacyProPlan && (
-                    <div className="mb-10 w-full">
+                    <div className="mb-10 w-full border-y border-gray-200">
                       <SaleLoyalty
                         team={team}
                         onApplyStandard={() =>

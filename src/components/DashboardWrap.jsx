@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useCallback } from 'react'
 import { Dialog } from '@headlessui/react'
 import {
   Bars3BottomLeftIcon,
@@ -16,7 +16,6 @@ import {
   BellIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
-import { useCallback } from 'react'
 import clsx from 'clsx'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -33,6 +32,7 @@ import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
 import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
 import * as cookie from 'cookie'
+import { LoyaltyBanner } from '@/components/HeaderBanners'
 
 export default function DashboardWrap({
   page,
@@ -50,6 +50,7 @@ export default function DashboardWrap({
   const [currentPageLink, setCurrentPageLink] = useState('')
   const posthog = usePostHog()
   const logoutUser = useCallback(logout, [])
+
   const signUserOut = () => {
     signOut(auth).then(() => {
       logoutUser({
@@ -637,7 +638,12 @@ export default function DashboardWrap({
                 </div>
               </div>
             </div>
+
             {header}
+
+            {!router.pathname.includes('/conversations') && router.pathname !== '/app/account' && (
+              <LoyaltyBanner team={team} user={user} fullWidth={fullWidth} />
+            )}
 
             <main className="flex-1">
               <div className="py-4 sm:py-8">

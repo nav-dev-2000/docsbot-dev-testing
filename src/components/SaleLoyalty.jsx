@@ -133,9 +133,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function CountdownTicker({ deadline }) {
+export function CountdownTicker({ deadline, className }) {
+  const defaultClassName = 'text-md font-bold text-cyan-600'
+  const effectiveClassName = className || defaultClassName
+
   if (!deadline || Number.isNaN(deadline.getTime())) {
-    return <span>Ends soon</span>
+    return <span className={effectiveClassName}>Ends soon</span>
   }
 
   return (
@@ -143,13 +146,13 @@ function CountdownTicker({ deadline }) {
       date={deadline}
       renderer={({ days, hours, minutes, seconds, completed }) => {
         if (completed) {
-          return <span className="text-lg font-semibold text-cyan-600">Offer ended</span>
+          return <span className={effectiveClassName}>Offer ended</span>
         }
 
         const pad = (value) => value.toString().padStart(2, '0')
 
         return (
-          <span className="text-md font-bold text-cyan-600">
+          <span className={effectiveClassName}>
             {pad(days)}d {pad(hours)}h {pad(minutes)}m {pad(seconds)}s
           </span>
         )
@@ -261,7 +264,7 @@ export default function SaleLoyalty({
   ])
 
   return (
-    <div className="relative isolate bg-white px-6 py-6 sm:py-12 lg:px-8 border-y border-gray-200">
+    <div className="relative isolate bg-white px-6 py-6 sm:py-12 lg:px-8">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
