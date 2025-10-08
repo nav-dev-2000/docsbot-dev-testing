@@ -1,5 +1,6 @@
 import { MegaphoneIcon, SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CountdownTicker } from '@/components/SaleLoyalty'
@@ -11,6 +12,11 @@ import Alert from '@/components/Alert'
 import news from '/public/latest-news.json'
 import clsx from 'clsx'
 import * as cookie from 'cookie'
+
+const Countdown = dynamic(() => import('react-countdown'), {
+  ssr: false,
+  loading: () => <span className="text-white">Loading...</span>,
+})
 
 // Utility functions for managing banner dismissal cookie (7-day expiration)
 const getBannerPreferences = () => {
