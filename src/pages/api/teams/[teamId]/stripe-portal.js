@@ -122,6 +122,20 @@ export default async function createCheckoutSession(req, res) {
         const teamInvites = await getInvitesFromTeam(team.id)
         const neededProducts = getNeededStripeProduct(team, teamInvites)
 
+        // If upgrading to a specific tier, validate the target tier can support current usage
+        if (upgrade && tier) {
+          const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
+          const interval = team.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
+          const targetPriceId = plans?.[tier]?.prices?.current?.[interval]
+          
+          if (targetPriceId) {
+            const allPrices = neededProducts.flat()
+            if (!allPrices.includes(targetPriceId)) {
+              throw Error('Your current usage exceeds the limits of your current and selected plan. Please select a higher tier plan to upgrade to.')
+            }
+          }
+        }
+
         //This command will disable non-default portal configs: stripe billing_portal configurations list --active=true --is-default=false | jq -r '.data[].id' | xargs -I {} stripe billing_portal configurations update {} --active=false
 
         const getConfigId = async (currentConfigs, neededProducts) => {
