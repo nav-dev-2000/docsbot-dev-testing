@@ -9,7 +9,8 @@ import ModalCheckout from '@/components/ModalCheckout'
 import { checkPlanPermission } from '@/utils/helpers'
 
 export default function ModalTopicManagement({ team, bot, open, setOpen }) {
-  const [topics, setTopics] = useState(bot?.topics || [])
+  const TOPIC_LIMIT = 50
+  const [topics, setTopics] = useState((bot?.topics || []).slice(0, TOPIC_LIMIT))
   const [allowOpenEndedTopics, setAllowOpenEndedTopics] = useState(
     bot?.allowOpenEndedTopics !== undefined ? bot.allowOpenEndedTopics : true
   )
@@ -39,8 +40,12 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
   // Reset state when modal opens/closes
   useEffect(() => {
     if (open) {
-      setTopics(bot?.topics || [])
-      setAllowOpenEndedTopics(bot?.allowOpenEndedTopics !== undefined ? bot.allowOpenEndedTopics : true)
+      const initialTopics = (bot?.topics || []).slice(0, TOPIC_LIMIT)
+      setTopics(initialTopics)
+      const shouldDisableAI = initialTopics.length >= TOPIC_LIMIT
+      const initialAllowOpenEnded =
+        bot?.allowOpenEndedTopics !== undefined ? bot.allowOpenEndedTopics : true
+      setAllowOpenEndedTopics(shouldDisableAI ? false : initialAllowOpenEnded)
       setSearchTerm('')
       setNewTopic('')
       setEditingIndex(-1)
@@ -59,10 +64,38 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
     }
   }, [open])
 
+  useEffect(() => {
+    if (topics.length >= TOPIC_LIMIT && allowOpenEndedTopics) {
+      setAllowOpenEndedTopics(false)
+    }
+  }, [topics, allowOpenEndedTopics])
+
+  const isAtTopicLimit = topics.length >= TOPIC_LIMIT
+  const remainingTopics = TOPIC_LIMIT - topics.length
+
+  const handleAllowOpenEndedToggle = (value) => {
+    if (!canManageTopics) {
+      setShowUpgrade(true)
+      return
+    }
+
+    if (isAtTopicLimit && value) {
+      setErrorText(`You already have the maximum of ${TOPIC_LIMIT} topics. Remove one to enable AI-generated topics.`)
+      return
+    }
+
+    setErrorText(null)
+    setAllowOpenEndedTopics(value)
+  }
+
   const addTopic = () => {
     if (!newTopic.trim()) return
-    
+
     const trimmedTopic = newTopic.trim()
+    if (topics.length >= TOPIC_LIMIT) {
+      setErrorText(`You can only have up to ${TOPIC_LIMIT} topics. Remove one before adding another.`)
+      return
+    }
     if (topics.includes(trimmedTopic)) {
       setErrorText('Topic already exists')
       return
@@ -272,9 +305,15 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
                             label="Allow New Topic Detection"
                             description="When enabled, the AI will automatically detect and suggest new topics from conversations. Disable this to only choose from the below topics."
                             enabled={allowOpenEndedTopics}
-                            setEnabled={canManageTopics ? setAllowOpenEndedTopics : () => setShowUpgrade(true)}
+                            setEnabled={handleAllowOpenEndedToggle}
+                            disabled={isAtTopicLimit}
                             planLabel={!canManageTopics ? topicPermission.requiredPlanLabel : null}
                           />
+                          {isAtTopicLimit && (
+                            <p className="mt-2 text-xs text-amber-600">
+                              You have reached the maximum of {TOPIC_LIMIT} topics. Remove a topic to enable AI-generated topics or add new ones.
+                            </p>
+                          )}
                         </div>
                       </div>
 
@@ -304,23 +343,33 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
                             <input
                               ref={newTopicInputRef}
                               type="text"
-                              className="flex-1 block w-full px-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                              className="flex-1 block w-full px-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm disabled:cursor-not-allowed disabled:bg-gray-100"
                               placeholder="Add new topic..."
                               value={newTopic}
                               onChange={(e) => setNewTopic(e.target.value)}
                               onKeyDown={(e) => handleKeyDown(e, 'add')}
+                              disabled={isAtTopicLimit}
                             />
                             <button
                               type="button"
                               onClick={canManageTopics ? addTopic : () => setShowUpgrade(true)}
                               className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                              disabled={isAtTopicLimit}
                             >
                               <PlusIcon className="h-4 w-4" aria-hidden="true" />
                             </button>
                           </div>
                         </div>
-                        
-                        
+
+                        {!isAtTopicLimit && (
+                          <p className="mt-2 text-xs text-gray-500">
+                            {remainingTopics === 1
+                              ? 'You can add 1 more topic.'
+                              : `You can add ${remainingTopics} more topics.`}
+                          </p>
+                        )}
+
+
                       </div>
 
                       {/* Topics List */}

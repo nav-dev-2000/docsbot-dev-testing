@@ -12,6 +12,8 @@ import crypto from 'crypto'
 import { DeleteIntegratedAccount, BulkDeleteIntegratedAccounts } from '@/lib/truto'
 import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 
+const TOPIC_LIMIT = 50
+
 export const deleteSource = async (
   teamId,
   bot,
@@ -341,6 +343,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     topics,
     allowOpenEndedTopics,
   } = req.body
+
+  let allowOpenEndedTopicsValue = allowOpenEndedTopics
 
   if (copyFrom && !checkPlanPermission(team, 'personal', 'duplicate').allowed) {
     throw new Error('Duplicating bots is not available at your plan level.')
@@ -744,9 +748,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       const validTopics = topics
         .filter(topic => typeof topic === 'string' && topic.trim().length > 0)
         .map(topic => topic.trim())
-        .filter((topic, index, arr) => arr.indexOf(topic) === index) // Remove duplicates
-        .slice(0, 100) // Limit to 100 topics
-      
+        // Remove duplicates
+        .filter((topic, index, arr) => arr.indexOf(topic) === index)
+
+      if (validTopics.length > TOPIC_LIMIT) {
+        throw new Error(`You can only have up to ${TOPIC_LIMIT} topics.`)
+      }
+
+      if (validTopics.length === TOPIC_LIMIT) {
+        allowOpenEndedTopicsValue = false
+      }
+
       botData.topics = validTopics
     } else {
       throw new Error('Topics must be an array of strings.')
@@ -756,14 +768,14 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   // Handle allowOpenEndedTopics boolean
-  if (allowOpenEndedTopics !== undefined) {
+  if (allowOpenEndedTopicsValue !== undefined) {
     // Check if the team has Business plan permissions for topic management
     // Skip validation when copying a bot
     if (!copyFrom && !checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
       throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
     }
-    
-    botData.allowOpenEndedTopics = Boolean(allowOpenEndedTopics)
+
+    botData.allowOpenEndedTopics = Boolean(allowOpenEndedTopicsValue)
   } else if (!isUpdate) {
     botData.allowOpenEndedTopics = true // Default to true
   }
