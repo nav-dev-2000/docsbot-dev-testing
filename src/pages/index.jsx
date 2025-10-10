@@ -18,7 +18,7 @@ import {
   ArrowPathIcon,
   SparklesIcon,
 } from '@heroicons/react/20/solid'
-import qaHeader from '@/images/header-screenshot.webp'
+import AskAIModels from '@/components/AskAIModels'
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -161,6 +161,7 @@ const researchFeatures = [
     icon: ArrowPathIcon,
   },
 ]
+
 
 // Add this component for reusability
 const ScrollFadeIn = ({ children, delay = 0 }) => {
@@ -731,12 +732,14 @@ export default function Home() {
 
             <AIHero />
 
-            <CTASection 
+            <CTASection
               heading="Enough excuses. Create your free chatbot today."
               description="Join the thousands of companies using DocsBot to turn their existing content into instant, accurate answers for customers and employees. Reduce costs, increase productivity, and become the AI hero of your organization."
               infoHref="/pricing"
               infoText="Pricing & Plans"
             />
+
+            <AskAIModels />
 
             <Faq />
           </main>
