@@ -145,6 +145,16 @@ export const QueueSourceRegest = async (teamId, botId, sourceId, uData = {}) => 
     throw new Error('You have reached your page limit.')
   }
 
+  if (
+    team?.lastError?.type === 'source' &&
+    team?.lastError?.botId === botId &&
+    team?.lastError?.sourceId === sourceId
+  ) {
+    await firestore.collection('teams').doc(teamId).update({
+      lastError: FieldValue.delete(),
+    })
+  }
+
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'regest',
