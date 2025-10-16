@@ -3437,6 +3437,71 @@ const LLMS = [
       },
     },
   },
+  {
+    model_name: 'GPT-5 Pro',
+    slug: 'gpt-5-pro',
+    provider: 'openai',
+    description:
+    "GPT-5 Pro is the extended-reasoning variant of GPT-5. It uses scaled, efficient test-time compute to deliver the highest accuracy and most comprehensive answers across difficult, economically valuable tasks. External experts preferred GPT-5 Pro over GPT-5 Thinking on complex prompts, with fewer major errors.",
+    input_context_window: null,
+    maximum_output_tokens: null,
+    open_source: false,
+    release_date: '2025-08-07',
+    knowledge_cut_off_date: null,
+    api_providers: 'ChatGPT (Pro tier); GPT-5 Pro replaces o3-pro',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+    text: true,
+    image: true,
+    voice: true,
+    video: false
+    },
+    benchmarks: {
+    'SWE-Bench Verified': {
+      score: 74.9,
+      notes:
+        'Real-world coding benchmark; reported for GPT-5 family. Pro shares the coding stack and focuses on deeper reasoning.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    },
+    'Aider Polyglot': {
+      score: 88.0,
+      notes:
+        'Code editing/refactoring benchmark; reported for GPT-5 family.',
+      source: 'https://openai.com/index/introducing-gpt-5-for-developers/'
+    },
+    'MMMU (Multimodal Understanding)': {
+      score: 84.2,
+      notes:
+        'Multimodal understanding across image+text tasks; reported for GPT-5 family.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    },
+    'HealthBench Hard': {
+      score: 46.2,
+      notes:
+        'Difficult subset of health reasoning tasks; reported for GPT-5 family.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    },
+    'AIME 2025 (no tools)': {
+      score: 94.6,
+      notes:
+        'Math benchmark; reported for GPT-5 family without tool use.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    },
+    'GPQA (no tools)': {
+      score: 88.4,
+      notes:
+        'State-of-the-art result explicitly attributed to GPT-5 Pro with extended reasoning.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    },
+    'Expert Preference (real-world reasoning prompts)': {
+      score: null,
+      notes:
+        'External experts preferred GPT-5 Pro over “GPT-5 Thinking” 67.8% of the time; GPT-5 Pro made 22% fewer major errors across health, science, math, and coding.',
+      source: 'https://openai.com/index/introducing-gpt-5/'
+    }
+    }
+},
     {
     model_name: 'GPT-5 Codex',
     slug: 'gpt-5-codex',

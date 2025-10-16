@@ -1,5 +1,15 @@
 export const LLM_PRICING = {
   'Chat/Completion Models': [
+
+    {
+      model_name: 'GPT-5 Pro',
+      model_slug: 'gpt-5-pro',
+      // inferred / reported extended context window (up to 512K input)  
+      context: '512K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 2.0,       // $2.00 per million input tokens
+      output_token_cost_per_million: 10        // $10 per million output tokens
+},
       
     {
       model_name: 'GPT-5 Codex',
