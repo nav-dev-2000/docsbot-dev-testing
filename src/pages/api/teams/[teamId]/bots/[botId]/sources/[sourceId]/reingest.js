@@ -161,8 +161,42 @@ export default async function handler(req, res) {
         .json({ message: 'Only sources of a dynamic type (URLs) can be refreshed!' })
     }
 
+    let crawlerJSFlag = false
+    let shouldUpdateCrawlerJS = false
+    if (
+      req.body &&
+      Object.prototype.hasOwnProperty.call(req.body, 'crawlerJS')
+    ) {
+      if (typeof req.body.crawlerJS !== 'boolean') {
+        return res
+          .status(400)
+          .json({ message: 'Invalid parameter "crawlerJS". Must be a boolean.' })
+      }
+
+      if (req.body.crawlerJS && !isSuperAdmin(userId)) {
+        return res.status(403).json({
+          message: 'Only super admins can enable JavaScript parsing for refreshes.',
+        })
+      }
+
+      crawlerJSFlag = req.body.crawlerJS
+      shouldUpdateCrawlerJS = true
+    }
+
+    const sourceRef = firestore
+      .collection('teams')
+      .doc(team.id)
+      .collection('bots')
+      .doc(botId)
+      .collection('sources')
+      .doc(sourceId)
+
     try {
       if ((!source.scheduleInterval || source.scheduleInterval === 'none')) {
+        if (shouldUpdateCrawlerJS) {
+          await sourceRef.update({ crawlerJS: crawlerJSFlag })
+        }
+
         await QueueSourceRegest(team.id, botId, sourceId)
         return res.status(200).json({ message: 'success' })
       }
@@ -171,20 +205,14 @@ export default async function handler(req, res) {
       const nextSchedule = checkSourceScheduledFromInterval(team, source.scheduleInterval)
 
       // update and reingest source
-      await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .doc(botId)
-        .collection('sources')
-        .doc(sourceId)
-        .update({
-          scheduled: nextSchedule,
-        })
+      await sourceRef.update({
+        scheduled: nextSchedule,
+        ...(shouldUpdateCrawlerJS ? { crawlerJS: crawlerJSFlag } : {}),
+      })
 
       await QueueSourceRegest(team.id, botId, sourceId)
 
-      
+
       phTrack(userId, 'Source Refreshed', {}, team.id)
 
       return res.status(200).json({ newScheduled: nextSchedule.toJSON() })

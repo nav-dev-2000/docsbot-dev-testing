@@ -53,6 +53,7 @@ export default function SourceForm({
     canUserModifySources(team, user?.uid),
   )
   const [processImages, setProcessImages] = useState(false)
+
   const [trutoIntegrationID, setTrutoIntegrationID] = useState(null)
   const [trutoFiles, setTrutoFiles] = useState(null)
   // State for URL list (urls source type)

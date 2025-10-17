@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
-import { ArrowPathIcon, ClockIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ClockIcon, CommandLineIcon } from '@heroicons/react/24/outline'
 import ModalSource from '@/components/ModalSource'
 import Paginator from '@/components/Paginator'
+import Tooltip from '@/components/Tooltip'
 
 export default function SourceGrid({
   team,
@@ -75,6 +76,14 @@ export default function SourceGrid({
                 <div className="flex flex-1 items-center justify-between ">
                   <div className="flex items-center text-sm">
                     <p className="font-medium text-gray-900 hover:text-gray-600">{source.name}</p>
+                    {source.crawlerJS && (
+                      <Tooltip content="Javascript parsing enabled">
+                        <CommandLineIcon
+                          className="ml-2 h-4 w-4 text-amber-500"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    )}
                     {source.pageCount ? (
                       <p className="ml-2 text-xs text-gray-500">{source.pageCount} Source pages</p>
                     ) : null}

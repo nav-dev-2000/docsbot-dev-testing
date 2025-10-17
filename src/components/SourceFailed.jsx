@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export default function SourceFailed({
   team,
@@ -9,8 +12,10 @@ export default function SourceFailed({
   sources,
   deleteSource,
   retrySource,
+  refreshSourceWithCrawlerJS,
 }) {
   const [fullSources, setFullSources] = useState([])
+  const [user] = useAuthState(auth)
 
   useEffect(() => {
     const newSources = []
@@ -64,16 +69,34 @@ export default function SourceFailed({
         )}
         
         {source.type !== 'youtube' && !source?.carbonId && (
-          <button
-            className="mt-4 flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
-            type="button"
-            onClick={(e) => {
-              e.preventDefault()
-              retrySource(source.id)
-            }}
-          >
-            <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Retry
-          </button>
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+            <button
+              className="flex items-center text-gray-400 hover:text-gray-600 focus:text-gray-500"
+              type="button"
+              onClick={(e) => {
+                e.preventDefault()
+                retrySource(source.id)
+              }}
+            >
+              <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" /> Retry
+            </button>
+            {refreshSourceWithCrawlerJS &&
+              isSuperAdmin(user?.uid) &&
+              ['urls', 'sitemap'].includes(source.type) &&
+              !source.crawlerJS && (
+                <button
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-700 focus:text-cyan-700"
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    refreshSourceWithCrawlerJS(source.id)
+                  }}
+                >
+                  <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" />
+                  Refresh with JavaScript
+                </button>
+              )}
+          </div>
         )}
       </Alert>
     )

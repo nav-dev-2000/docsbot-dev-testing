@@ -8,7 +8,7 @@ import {
   getSources,
   getSource,
 } from '@/lib/dbQueries'
-import { stripePlan, checkPlanPermission } from '@/utils/helpers'
+import { stripePlan, checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { sourceTypes, isTrutoSourceType } from '@/constants/sourceTypes.constants'
@@ -71,6 +71,7 @@ export default async function handler(req, res) {
       trutoIntegrationID,
       trutoFiles,
       urls,
+      crawlerJS,
       freescoutUrl,
       freescoutKey,
       freescoutMailbox,
@@ -280,6 +281,28 @@ export default async function handler(req, res) {
       processImages = false
     }
 
+    if (crawlerJS !== undefined) {
+      if (typeof crawlerJS !== 'boolean') {
+        return res
+          .status(400)
+          .send({ message: 'Invalid parameter "crawlerJS". Must be a boolean.' })
+      }
+
+      if (!['urls', 'sitemap'].includes(type)) {
+        return res.status(400).send({
+          message: 'JavaScript parsing is only available for URL list and sitemap sources.',
+        })
+      }
+
+      if (crawlerJS && !isSuperAdmin(userId)) {
+        return res.status(403).send({
+          message: 'Only super admins can enable JavaScript parsing for new crawler sources.',
+        })
+      }
+    } else {
+      crawlerJS = false
+    }
+
     try {
       let data = {
         createdAt: FieldValue.serverTimestamp(),
@@ -292,6 +315,7 @@ export default async function handler(req, res) {
         chunkCount: 0,
         faqs,
         processImages,
+        crawlerJS,
         indexedUrls,
       }
 

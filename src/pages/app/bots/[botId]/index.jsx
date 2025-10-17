@@ -203,6 +203,53 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
     }
   }
 
+  const refreshSourceWithCrawlerJS = async (id) => {
+    setErrorText('')
+    const response = await fetch(
+      `/api/teams/${team.id}/bots/${bot.id}/sources/${id}/reingest`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ crawlerJS: true }),
+      },
+    )
+
+    if (response.ok) {
+      let data = {}
+      try {
+        data = await response.json()
+      } catch (e) {
+        data = {}
+      }
+
+      setSources((prev) =>
+        prev.map((source) =>
+          source.id === id
+            ? {
+                ...source,
+                status: 'pending',
+                refreshing: true,
+                crawlerJS: true,
+                scheduled:
+                  data?.newScheduled !== undefined
+                    ? data.newScheduled
+                    : source.scheduled ?? null,
+              }
+            : source,
+        ),
+      )
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Something went wrong, please try again.')
+      } catch (e) {
+        setErrorText('Error ' + response.status + ', please try again.')
+      }
+    }
+  }
+
   if (!bot) return null
 
   return (
@@ -279,7 +326,10 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
         integrations={integrations}
         setBot={setBot}
       />
-      <SourceFailed {...{ team, bot, sources, deleteSource, retrySource }} />
+      <SourceFailed
+        {...{ team, bot, sources, deleteSource, retrySource }}
+        refreshSourceWithCrawlerJS={refreshSourceWithCrawlerJS}
+      />
 
       <SourceGrid
         {...{
