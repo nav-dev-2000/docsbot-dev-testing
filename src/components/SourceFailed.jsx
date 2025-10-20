@@ -93,7 +93,7 @@ export default function SourceFailed({
                   }}
                 >
                   <ArrowPathIcon className="mr-1 h-4 w-4" aria-hidden="true" />
-                  Refresh with JavaScript
+                  Retry with JS
                 </button>
               )}
           </div>

@@ -14,6 +14,7 @@ import {
   BookOpenIcon,
   UserIcon,
   UserGroupIcon,
+  CommandLineIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -403,12 +404,20 @@ export default function ModalSource({
                           content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}
                         >
                           <span className="flex-end cursor-help items-center text-sm font-medium text-gray-500">
-                            <PhotoIcon className="ml-2 mr-1 inline-flex h-4 w-4 text-gray-500" />
+                            <PhotoIcon className="ml-2 inline-flex h-4 w-4 text-gray-500" />
                             {source?.processedImages?.processed
                               ? `${source.processedImages.processed} `
                               : ''}
                             Images
                           </span>
+                        </Tooltip>
+                      )}
+                      {source?.crawlerJS && (
+                        <Tooltip content="Javascript parsing enabled">
+                          <CommandLineIcon
+                            className="ml-2 mr-1 inline-flex h-4 w-4 text-gray-500"
+                            aria-hidden="true"
+                          />
                         </Tooltip>
                       )}
                       <h3 className="flex-end text-sm font-medium text-gray-500">
