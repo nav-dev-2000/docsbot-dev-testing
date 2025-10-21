@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useMemo } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -35,6 +35,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
 import React from 'react'
+import FieldToggle from '@/components/FieldToggle'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export const getTrutoIcon = (icon) => {
   switch (icon) {
@@ -78,17 +80,35 @@ export default function ModalSource({
   const [qaSearchTerm, setQaSearchTerm] = useState('')
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
+  const [isSuperAdminUser, setIsSuperAdminUser] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredUrls, setFilteredUrls] = useState(source?.indexedUrls ?? [])
   const [filteredTrutoSelected, setFilteredTrutoSelected] = useState(
     Array.isArray(source?.trutoSelected) ? source?.trutoSelected : [],
   )
   const [isTruto, setIsTruto] = useState(isTrutoSourceType(source?.type))
+  const [crawlerJsEnabled, setCrawlerJsEnabled] = useState(
+    !!source?.crawlerJS,
+  )
+  const originalScheduleInterval = source?.scheduleInterval ?? 'none'
+  const canToggleCrawlerJs =
+    isSuperAdminUser &&
+    ['urls', 'sitemap'].includes(source?.type) &&
+    !source?.carbonId
+  const scheduleChanged = scheduleInterval !== originalScheduleInterval
+  const shouldUpdateCrawlerJs =
+    canToggleCrawlerJs && crawlerJsEnabled !== !!source?.crawlerJS
+  const hasPendingSourceUpdates = scheduleChanged || shouldUpdateCrawlerJs
 
   useEffect(() => {
     if (!team || !user) return
     setModify(canUserModifySources(team, user.uid))
+    setIsSuperAdminUser(isSuperAdmin(user.uid))
   }, [team, user])
+
+  useEffect(() => {
+    setCrawlerJsEnabled(!!source?.crawlerJS)
+  }, [source?.crawlerJS])
 
   const fetchSourceDetails = async () => {
     if (source.id) {
@@ -159,40 +179,126 @@ export default function ModalSource({
   const updateSource = async () => {
     setErrorText('')
     setSubmitting(true)
-    const response = await fetch(
-      `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ scheduleInterval }),
-      },
-    )
-    if (response.ok) {
-      const { newScheduled } = await response.json()
-      setSources((sources) =>
-        sources.map((s) =>
-          s.id === source?.id ? { ...source, scheduled: newScheduled } : s,
-        ),
-      )
+    if (!hasPendingSourceUpdates) {
       setSubmitting(false)
-    } else {
-      try {
-        const data = await response.json()
-        if (data.message.includes('upgrade')) {
-          setShowUpgrade(true)
-          setScheduleInterval(source?.scheduleInterval ?? 'none')
-        } else {
+      return
+    }
+
+    let updatedSourceFields = {}
+    let updatedScheduled = source?.scheduled ?? null
+
+    if (scheduleChanged) {
+      const response = await fetch(
+        `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ scheduleInterval }),
+        },
+      )
+
+      if (response.ok) {
+        let data = {}
+        try {
+          data = await response.json()
+        } catch (e) {
+          data = {}
+        }
+
+        updatedSourceFields = {
+          ...updatedSourceFields,
+          scheduleInterval,
+        }
+
+        if (scheduleInterval === 'none') {
+          updatedScheduled = null
+        } else if (data?.newScheduled !== undefined) {
+          updatedScheduled = data.newScheduled
+        }
+      } else {
+        try {
+          const data = await response.json()
+          if (data.message?.includes('upgrade')) {
+            setShowUpgrade(true)
+            setScheduleInterval(originalScheduleInterval)
+          } else {
+            setErrorText(
+              data.message || 'Something went wrong, please try again.',
+            )
+          }
+        } catch (e) {
+          setErrorText('Error ' + response.status + ', please try again.')
+        }
+        setSubmitting(false)
+        return
+      }
+    }
+
+    if (shouldUpdateCrawlerJs) {
+      const response = await fetch(
+        `/api/teams/${team.id}/bots/${bot.id}/sources/${source?.id}/reingest`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ crawlerJS: crawlerJsEnabled }),
+        },
+      )
+
+      if (response.ok) {
+        let data = {}
+        try {
+          data = await response.json()
+        } catch (e) {
+          data = {}
+        }
+
+        updatedSourceFields = {
+          ...updatedSourceFields,
+          crawlerJS: crawlerJsEnabled,
+          status: 'pending',
+          refreshing: true,
+        }
+
+        if (data?.newScheduled !== undefined) {
+          updatedScheduled = data.newScheduled
+        }
+      } else {
+        try {
+          const data = await response.json()
           setErrorText(
             data.message || 'Something went wrong, please try again.',
           )
+        } catch (e) {
+          setErrorText('Error ' + response.status + ', please try again.')
         }
-      } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again.')
+        setCrawlerJsEnabled(!!source?.crawlerJS)
+        setSubmitting(false)
+        return
       }
-      setSubmitting(false)
     }
+
+    if (hasPendingSourceUpdates) {
+      setSources((sources) =>
+        sources.map((s) =>
+          s.id === source?.id
+            ? {
+                ...s,
+                ...(scheduleChanged ? { scheduleInterval } : {}),
+                ...(scheduleChanged || shouldUpdateCrawlerJs
+                  ? { scheduled: updatedScheduled ?? null }
+                  : {}),
+                ...updatedSourceFields,
+              }
+            : s,
+        ),
+      )
+    }
+
+    setSubmitting(false)
   }
 
   const patchSource = async () => {
@@ -722,7 +828,20 @@ export default function ModalSource({
                     {(showInterval && !source?.carbonId) && (
                       <>
                         <Alert title={locked} type="info" />
-                        <div className="mt-4 max-w-sm justify-start">
+                        <div className="mt-4 max-w-sm space-y-4">
+                          {canToggleCrawlerJs && (
+                            <FieldToggle
+                              label="Enable JavaScript crawling"
+                              description="Render pages with JavaScript before indexing this source."
+                              enabled={crawlerJsEnabled}
+                              setEnabled={setCrawlerJsEnabled}
+                              disabled={
+                                submitting ||
+                                submittingRefresh ||
+                                locked !== null
+                              }
+                            />
+                            )}
                           <ScheduleSelect
                             team={team}
                             onSelect={setScheduleInterval}
@@ -811,11 +930,15 @@ export default function ModalSource({
                             </button>
                             <button
                               disabled={
-                                submitting || submittingRefresh || locked !== null || !canModify
+                                submitting ||
+                                submittingRefresh ||
+                                locked !== null ||
+                                !canModify ||
+                                !hasPendingSourceUpdates
                               }
                               onClick={updateSource}
                               className={
-                                'ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm' +
+                                'ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-500' +
                                 (canModify
                                   ? ' bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
                                   : ' cursor-not-allowed bg-gray-300')
