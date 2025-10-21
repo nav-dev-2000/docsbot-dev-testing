@@ -98,6 +98,9 @@
             "memory": 3008,
             "maxDuration": 300
         },
+        "src/pages/api/teams/[teamId]/bots/[botId]/prompt-debug.js": {
+            "maxDuration": 300
+        },
         "src/pages/api/teams/[teamId]/bots/[botId]/stats.js": {
             "memory": 2048,
             "maxDuration": 120
