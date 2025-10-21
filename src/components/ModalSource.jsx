@@ -828,31 +828,35 @@ export default function ModalSource({
                     {(showInterval && !source?.carbonId) && (
                       <>
                         <Alert title={locked} type="info" />
-                        <div className="mt-4 max-w-sm space-y-4">
-                          {canToggleCrawlerJs && (
-                            <FieldToggle
-                              label="Enable JavaScript crawling"
-                              description="Render pages with JavaScript before indexing this source."
-                              enabled={crawlerJsEnabled}
-                              setEnabled={setCrawlerJsEnabled}
-                              disabled={
-                                submitting ||
-                                submittingRefresh ||
-                                locked !== null
-                              }
+                        <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                          <div className="flex-1 space-y-4 max-w-xs">
+                            <ScheduleSelect
+                              team={team}
+                              onSelect={setScheduleInterval}
+                              defaultSelected={scheduleInterval}
                             />
-                            )}
-                          <ScheduleSelect
-                            team={team}
-                            onSelect={setScheduleInterval}
-                            defaultSelected={scheduleInterval}
-                          />
-                          <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
-                            {source?.scheduled
-                              ? 'Refresh scheduled for ' +
-                                new Date(source?.scheduled).toUTCString()
-                              : 'This source will not be refreshed.'}
-                          </h1>
+                            <h1 className="flex-end inline-flex pl-0.5 text-sm font-medium text-gray-500">
+                              {source?.scheduled
+                                ? 'Refresh scheduled for ' +
+                                  new Date(source?.scheduled).toUTCString()
+                                : 'This source will not be refreshed.'}
+                            </h1>
+                          </div>
+                          {canToggleCrawlerJs && (
+                            <div className="sm:w-64">
+                              <FieldToggle
+                                label="Enable JS Execution"
+                                description="Execute JavaScript on pages for this source (Super Admin only)."
+                                enabled={crawlerJsEnabled}
+                                setEnabled={setCrawlerJsEnabled}
+                                disabled={
+                                  submitting ||
+                                  submittingRefresh ||
+                                  locked !== null
+                                }
+                              />
+                            </div>
+                          )}
                         </div>
                       </>
                     )}
