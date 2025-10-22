@@ -105,7 +105,16 @@ export const BENCHMARKS = {
 }
 
 export const getProviderInfo = (providerName) => {
-  return PROVIDER_INFO[providerName]
+  const providerInfo = PROVIDER_INFO[providerName]
+  
+  if (!providerInfo) {
+    throw new Error(
+      `Provider "${providerName}" not found in PROVIDER_INFO. ` +
+      `Available providers: ${Object.keys(PROVIDER_INFO).join(', ')}`
+    )
+  }
+  
+  return providerInfo
 }
 
 export const getBenchmarkDescription = (key) => {

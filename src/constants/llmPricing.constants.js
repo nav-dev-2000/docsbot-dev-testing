@@ -333,7 +333,7 @@ export const LLM_PRICING = {
       model_slug: 'gemini-3',
       page_slug: 'gemini-3',
       context: 'TBD',
-      provider: 'Google DeepMind',
+      provider: 'Google',
       input_token_cost_per_million: 'TBD',
       output_token_cost_per_million: 'TBD',
     },

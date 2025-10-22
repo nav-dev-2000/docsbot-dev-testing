@@ -1452,9 +1452,9 @@ const LLMS = [
   {
     model_name: 'Gemini 3',
     slug: 'gemini-3',
-    provider: 'Google DeepMind',
+    provider: 'google',
     description:
-      'Gemini 3 is the next-generation flagship model from Google DeepMind. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 1.5 Pro.',
+      'Gemini 3 is the next-generation flagship model from Google. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 1.5 Pro.',
     input_context_window: 'TBD',
     maximum_output_tokens: 'TBD',
     open_source: false,
