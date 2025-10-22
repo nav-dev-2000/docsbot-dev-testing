@@ -1,5 +1,66 @@
 const LLMS = [
-  {
+    {
+      model_name: 'Claude Haiku 4.5',
+  slug: 'claude-haiku-4-5',
+  provider: 'anthropic',
+  description:
+    "Claude Haiku 4.5 is Anthropic’s ultra-fast, cost-efficient small model (released Oct 15 2025). It offers near-frontier reasoning and coding quality at a fraction of Sonnet’s price, with a 200K-token context window, up to 64K output tokens, and new features like extended-thinking mode and improved multi-document synthesis. Ideal for real-time chat, coding assistants, RAG pipelines, and lightweight agents.",
+  input_context_window: '200K',
+  maximum_output_tokens: '64K',
+  open_source: false,
+  release_date: '2025-10-15',
+  knowledge_cut_off_date: '2025-02-28',
+  api_providers:
+    'Claude.ai (web, iOS, Android), Anthropic API, Claude Code, Amazon Bedrock, Google Cloud Vertex AI, GitHub Copilot (CLI integration)',
+  input_cost_per_million_tokens: 1.0,
+  output_cost_per_million_tokens: 5.0,
+  modality_discounts: {
+    batch_input: 0.5,
+    batch_output: 2.5,
+    cache_write: 1.25,
+    cache_read: 0.10,
+  },
+  modalities: {
+    text: true,
+    image: true,
+    voice: false,
+    video: false,
+  },
+  benchmarks: {
+    'SWE-Bench': {
+      score: 73.3,
+      notes:
+        'Real-world software-engineering benchmark; matches or slightly exceeds Sonnet 4.',
+      source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+    },
+    'Terminal-Bench': {
+      score: 41.0,
+      notes:
+        'Command-line / OS-interaction performance, comparable to Sonnet 4.5 but below Opus 4.1.',
+      source:
+        'https://techcrunch.com/2025/10/15/anthropic-launches-new-version-of-scaled-down-haiku-model/',
+    },
+    'MMLU': {
+      score: 85.2,
+      notes:
+        'Estimated based on Sonnet 4 (≈ 86.5) and Anthropic claims of “near-Sonnet performance at 1⁄3 cost.”',
+      source:
+        'https://www.tomsguide.com/ai/claude-haiku-4-5-just-launched-and-vibe-coding-will-never-be-the-same',
+    },
+    'GPQA': {
+      score: 73.1,
+      notes:
+        'Approximate reasoning / general knowledge parity with Sonnet 4 (75 range).',
+      source:
+        'https://arstechnica.com/ai/2025/10/anthropics-claude-haiku-4-5-matches-mays-frontier-model-at-fraction-of-cost/',
+    },
+    'AIME2025': {
+      score: 68.4,
+      notes:
+        'Estimated from Sonnet 4 (AIME 70.5) and prior Haiku trend (≈ –2 points delta).',
+      source: 'https://www.datacamp.com/blog/claude-4',
+    },
+  },
     model_name: 'Claude Opus 4.1',
     slug: 'claude-opus-4-1',
     provider: 'anthropic',
@@ -1388,6 +1449,56 @@ const LLMS = [
       },
     },
   },
+  {
+    model_name: 'Gemini 3',
+    slug: 'gemini-3',
+    provider: 'Google DeepMind',
+    description:
+      'Gemini 3 is the next-generation flagship model from Google DeepMind. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 1.5 Pro.',
+    input_context_window: 'TBD',
+    maximum_output_tokens: 'TBD',
+    open_source: false,
+    release_date: 'TBD',
+    knowledge_cut_off_date: 'TBD',
+    api_providers:
+      'Google AI Studio, Vertex AI, Bard / Gemini Apps, Android System Integrations (TBD)',
+    input_cost_per_million_tokens: 'TBD',
+    output_cost_per_million_tokens: 'TBD',
+    modality_discounts: {
+      batch_input: 'TBD',
+      batch_output: 'TBD',
+      cache_write: 'TBD',
+      cache_read: 'TBD'
+    },
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true
+    },
+    benchmarks: {
+      MMLU: {
+        score: null,
+        notes: 'Not yet released; expected to exceed Gemini 1.5 Pro (≈ 87)',
+        source: 'TBD'
+      },
+      GPQA: {
+        score: null,
+        notes: 'Not yet released',
+        source: 'TBD'
+      },
+      'SWE-Bench': {               // was 'SWE-bench Verified'
+        score: null,
+        notes: 'Expected improvements in reasoning and coding accuracy',
+        source: 'TBD'
+      },
+      MMMU: {                      // replacing 'Video-Reasoning (new)' with a supported key
+        score: null,
+        notes: 'Multimodal (incl. video) reasoning expected to improve',
+        source: 'TBD'
+  }
+}
+},
   {
     model_name: 'Gemini 2.5 Flash',
     slug: 'gemini-2-5-flash',

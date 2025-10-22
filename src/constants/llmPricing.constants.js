@@ -217,6 +217,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 60,
     },  
     {
+      model_name: 'Claude Haiku 4.5',
+      model_slug: 'claude-haiku-4-5',
+      page_slug: 'claude-haiku-4-5',
+      context: 'TBD',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 1.0,
+      output_token_cost_per_million: 5.0,
+    },
+    {
       model_name: 'Claude Sonnet 4.5',
       model_slug: 'claude-sonnet-4-5',
       page_slug: 'claude-sonnet-4-5',
@@ -318,6 +327,15 @@ export const LLM_PRICING = {
       api_provider: 'Deepinfra/Groq',
       input_token_cost_per_million: 0.59,
       output_token_cost_per_million: 0.79,
+    },
+    {
+      model_name: 'Gemini 3',
+      model_slug: 'gemini-3',
+      page_slug: 'gemini-3',
+      context: 'TBD',
+      provider: 'Google DeepMind',
+      input_token_cost_per_million: 'TBD',
+      output_token_cost_per_million: 'TBD',
     },
     {
       model_name: 'Gemini 2.5 Flash',
