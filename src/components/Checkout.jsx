@@ -172,7 +172,7 @@ export default function Checkout({ team, children, upgrade = false }) {
             <div className="flex justify-center text-center">
               {isStripeCustomer ? (
                 <div className="flex w-full max-w-5xl flex-col items-center">
-                  {isLegacyProPlan && (
+                  {/*isLegacyProPlan && (
                     <div className="mb-10 w-full border-y border-gray-200">
                       <SaleLoyalty
                         team={team}
@@ -186,7 +186,7 @@ export default function Checkout({ team, children, upgrade = false }) {
                         expiresAt="2025-10-22T04:59:00.000Z"
                       />
                     </div>
-                  )}
+                  )*/}
                   {team.stripeSubscriptionCancelAtPeriodEnd && (
                     <div className="mb-6 flex justify-center text-center">
                       <button

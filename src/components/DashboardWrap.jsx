@@ -641,9 +641,9 @@ export default function DashboardWrap({
 
             {header}
 
-            {!router.pathname.includes('/conversations') && router.pathname !== '/app/account' && (
+            {/* {!router.pathname.includes('/conversations') && router.pathname !== '/app/account' && (
               <LoyaltyBanner team={team} user={user} fullWidth={fullWidth} />
-            )}
+            )} */}
 
             <main className="flex-1">
               <div className="py-4 sm:py-8">
