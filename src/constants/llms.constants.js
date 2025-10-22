@@ -1,66 +1,66 @@
 const LLMS = [
-    {
-      model_name: 'Claude Haiku 4.5',
-  slug: 'claude-haiku-4-5',
-  provider: 'anthropic',
-  description:
-    "Claude Haiku 4.5 is Anthropic’s ultra-fast, cost-efficient small model (released Oct 15 2025). It offers near-frontier reasoning and coding quality at a fraction of Sonnet’s price, with a 200K-token context window, up to 64K output tokens, and new features like extended-thinking mode and improved multi-document synthesis. Ideal for real-time chat, coding assistants, RAG pipelines, and lightweight agents.",
-  input_context_window: '200K',
-  maximum_output_tokens: '64K',
-  open_source: false,
-  release_date: '2025-10-15',
-  knowledge_cut_off_date: '2025-02-28',
-  api_providers:
-    'Claude.ai (web, iOS, Android), Anthropic API, Claude Code, Amazon Bedrock, Google Cloud Vertex AI, GitHub Copilot (CLI integration)',
-  input_cost_per_million_tokens: 1.0,
-  output_cost_per_million_tokens: 5.0,
-  modality_discounts: {
-    batch_input: 0.5,
-    batch_output: 2.5,
-    cache_write: 1.25,
-    cache_read: 0.10,
-  },
-  modalities: {
-    text: true,
-    image: true,
-    voice: false,
-    video: false,
-  },
-  benchmarks: {
-    'SWE-Bench': {
-      score: 73.3,
-      notes:
-        'Real-world software-engineering benchmark; matches or slightly exceeds Sonnet 4.',
-      source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+  {
+    model_name: 'Claude Haiku 4.5',
+    slug: 'claude-haiku-4-5',
+    provider: 'anthropic',
+    description:
+      'Claude Haiku 4.5 is Anthropic’s ultra-fast, cost-efficient small model (released Oct 15 2025). It offers near-frontier reasoning and coding quality at a fraction of Sonnet’s price, with a 200K-token context window, up to 64K output tokens, and new features like extended-thinking mode and improved multi-document synthesis. Ideal for real-time chat, coding assistants, RAG pipelines, and lightweight agents.',
+    input_context_window: '200K',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2025-10-15',
+    knowledge_cut_off_date: '2025-02-28',
+    api_providers:
+      'Claude.ai (web, iOS, Android), Anthropic API, Claude Code, Amazon Bedrock, Google Cloud Vertex AI, GitHub Copilot (CLI integration)',
+    input_cost_per_million_tokens: 1.0,
+    output_cost_per_million_tokens: 5.0,
+    modality_discounts: {
+      batch_input: 0.5,
+      batch_output: 2.5,
+      cache_write: 1.25,
+      cache_read: 0.1,
     },
-    'Terminal-Bench': {
-      score: 41.0,
-      notes:
-        'Command-line / OS-interaction performance, comparable to Sonnet 4.5 but below Opus 4.1.',
-      source:
-        'https://techcrunch.com/2025/10/15/anthropic-launches-new-version-of-scaled-down-haiku-model/',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
     },
-    'MMLU': {
-      score: 85.2,
-      notes:
-        'Estimated based on Sonnet 4 (≈ 86.5) and Anthropic claims of “near-Sonnet performance at 1⁄3 cost.”',
-      source:
-        'https://www.tomsguide.com/ai/claude-haiku-4-5-just-launched-and-vibe-coding-will-never-be-the-same',
+    benchmarks: {
+      'SWE-Bench': {
+        score: 73.3,
+        notes:
+          'Real-world software-engineering benchmark; matches or slightly exceeds Sonnet 4.',
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      'Terminal-Bench': {
+        score: 41.0,
+        notes:
+          'Command-line / OS-interaction performance, comparable to Sonnet 4.5 but below Opus 4.1.',
+        source:
+          'https://techcrunch.com/2025/10/15/anthropic-launches-new-version-of-scaled-down-haiku-model/',
+      },
+      MMLU: {
+        score: 85.2,
+        notes:
+          'Estimated based on Sonnet 4 (≈ 86.5) and Anthropic claims of “near-Sonnet performance at 1⁄3 cost.”',
+        source:
+          'https://www.tomsguide.com/ai/claude-haiku-4-5-just-launched-and-vibe-coding-will-never-be-the-same',
+      },
+      GPQA: {
+        score: 73.1,
+        notes:
+          'Approximate reasoning / general knowledge parity with Sonnet 4 (75 range).',
+        source:
+          'https://arstechnica.com/ai/2025/10/anthropics-claude-haiku-4-5-matches-mays-frontier-model-at-fraction-of-cost/',
+      },
+      AIME2025: {
+        score: 68.4,
+        notes:
+          'Estimated from Sonnet 4 (AIME 70.5) and prior Haiku trend (≈ –2 points delta).',
+        source: 'https://www.datacamp.com/blog/claude-4',
+      },
     },
-    'GPQA': {
-      score: 73.1,
-      notes:
-        'Approximate reasoning / general knowledge parity with Sonnet 4 (75 range).',
-      source:
-        'https://arstechnica.com/ai/2025/10/anthropics-claude-haiku-4-5-matches-mays-frontier-model-at-fraction-of-cost/',
-    },
-    'AIME2025': {
-      score: 68.4,
-      notes:
-        'Estimated from Sonnet 4 (AIME 70.5) and prior Haiku trend (≈ –2 points delta).',
-      source: 'https://www.datacamp.com/blog/claude-4',
-    },
-  },
     model_name: 'Claude Opus 4.1',
     slug: 'claude-opus-4-1',
     provider: 'anthropic',
@@ -101,13 +101,14 @@ const LLMS = [
       OSWorld: {
         score: 44.4,
         notes: 'Real-world computer use benchmark',
-        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+        source:
+          'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
       },
-      'AIME2025': {
+      AIME2025: {
         score: 78,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'GPQA': {
+      GPQA: {
         score: 81,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
         notes: 'Diamond',
@@ -166,12 +167,12 @@ const LLMS = [
       },
     },
   },
-    {
+  {
     model_name: 'Claude 4.5 Sonnet',
     slug: 'claude-4-5-sonnet',
     provider: 'anthropic',
     description:
-      "Claude 4.5 Sonnet is Anthropic’s newest balanced flagship. It delivers major gains in coding, long-horizon planning, and real-world computer use, including sustained autonomous work (30+ hours observed). It’s available on Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI.",
+      'Claude 4.5 Sonnet is Anthropic’s newest balanced flagship. It delivers major gains in coding, long-horizon planning, and real-world computer use, including sustained autonomous work (30+ hours observed). It’s available on Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI.',
     input_context_window: '200K',
     maximum_output_tokens: '128K',
     open_source: false,
@@ -196,13 +197,14 @@ const LLMS = [
       OSWorld: {
         score: 61.4,
         notes: 'Real-world computer use benchmark',
-        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+        source:
+          'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
       },
-      'AIME2025': {
+      AIME2025: {
         score: 87,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'GPQA': {
+      GPQA: {
         score: 83.4,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
         notes: 'Diamond',
@@ -265,7 +267,8 @@ const LLMS = [
       OSWorld: {
         score: 42.2,
         notes: 'Real-world computer use benchmark',
-        source: 'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
+        source:
+          'https://www.investing.com/news/company-news/anthropic-launches-claude-sonnet-45-claims-worlds-best-coding-model-4261494', // :contentReference[oaicite:1]{index=1}
       },
       MMMLU: {
         score: 86.5,
@@ -1450,55 +1453,27 @@ const LLMS = [
     },
   },
   {
-    model_name: 'Gemini 3',
-    slug: 'gemini-3',
+    model_name: 'Gemini 3 Pro',
+    slug: 'gemini-3-pro',
     provider: 'google',
     description:
-      'Gemini 3 is the next-generation flagship model from Google. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 1.5 Pro.',
-    input_context_window: 'TBD',
+      'Gemini 3 Pro is the next-generation flagship model from Google. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 2.5 Pro.',
+    input_context_window: '1M-2M (expected)',
     maximum_output_tokens: 'TBD',
     open_source: false,
-    release_date: 'TBD',
+    release_date: 'Nov, 2025',
     knowledge_cut_off_date: 'TBD',
-    api_providers:
-      'Google AI Studio, Vertex AI, Bard / Gemini Apps, Android System Integrations (TBD)',
-    input_cost_per_million_tokens: 'TBD',
-    output_cost_per_million_tokens: 'TBD',
-    modality_discounts: {
-      batch_input: 'TBD',
-      batch_output: 'TBD',
-      cache_write: 'TBD',
-      cache_read: 'TBD'
-    },
+    api_providers: 'Google AI Studio, Vertex AI, Gemini app',
+    input_cost_per_million_tokens: 0.1,
+    output_cost_per_million_tokens: 0.4,
     modalities: {
       text: true,
       image: true,
       voice: true,
-      video: true
+      video: true,
     },
-    benchmarks: {
-      MMLU: {
-        score: null,
-        notes: 'Not yet released; expected to exceed Gemini 1.5 Pro (≈ 87)',
-        source: 'TBD'
-      },
-      GPQA: {
-        score: null,
-        notes: 'Not yet released',
-        source: 'TBD'
-      },
-      'SWE-Bench': {               // was 'SWE-bench Verified'
-        score: null,
-        notes: 'Expected improvements in reasoning and coding accuracy',
-        source: 'TBD'
-      },
-      MMMU: {                      // replacing 'Video-Reasoning (new)' with a supported key
-        score: null,
-        notes: 'Multimodal (incl. video) reasoning expected to improve',
-        source: 'TBD'
-  }
-}
-},
+    benchmarks: {},
+  },
   {
     model_name: 'Gemini 2.5 Flash',
     slug: 'gemini-2-5-flash',
@@ -3553,7 +3528,7 @@ const LLMS = [
     slug: 'gpt-5-pro',
     provider: 'openai',
     description:
-    "GPT-5 Pro is the extended-reasoning variant of GPT-5. It uses scaled, efficient test-time compute to deliver the highest accuracy and most comprehensive answers across difficult, economically valuable tasks. External experts preferred GPT-5 Pro over GPT-5 Thinking on complex prompts, with fewer major errors.",
+      'GPT-5 Pro is the extended-reasoning variant of GPT-5. It uses scaled, efficient test-time compute to deliver the highest accuracy and most comprehensive answers across difficult, economically valuable tasks. External experts preferred GPT-5 Pro over GPT-5 Thinking on complex prompts, with fewer major errors.',
     input_context_window: null,
     maximum_output_tokens: null,
     open_source: false,
@@ -3563,62 +3538,60 @@ const LLMS = [
     input_cost_per_million_tokens: null,
     output_cost_per_million_tokens: null,
     modalities: {
-    text: true,
-    image: true,
-    voice: true,
-    video: false
+      text: true,
+      image: true,
+      voice: true,
+      video: false,
     },
     benchmarks: {
-    'SWE-Bench Verified': {
-      score: 74.9,
-      notes:
-        'Real-world coding benchmark; reported for GPT-5 family. Pro shares the coding stack and focuses on deeper reasoning.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
+      'SWE-Bench Verified': {
+        score: 74.9,
+        notes:
+          'Real-world coding benchmark; reported for GPT-5 family. Pro shares the coding stack and focuses on deeper reasoning.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'Aider Polyglot': {
+        score: 88.0,
+        notes: 'Code editing/refactoring benchmark; reported for GPT-5 family.',
+        source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
+      },
+      'MMMU (Multimodal Understanding)': {
+        score: 84.2,
+        notes:
+          'Multimodal understanding across image+text tasks; reported for GPT-5 family.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'HealthBench Hard': {
+        score: 46.2,
+        notes:
+          'Difficult subset of health reasoning tasks; reported for GPT-5 family.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'AIME 2025 (no tools)': {
+        score: 94.6,
+        notes: 'Math benchmark; reported for GPT-5 family without tool use.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'GPQA (no tools)': {
+        score: 88.4,
+        notes:
+          'State-of-the-art result explicitly attributed to GPT-5 Pro with extended reasoning.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      'Expert Preference (real-world reasoning prompts)': {
+        score: null,
+        notes:
+          'External experts preferred GPT-5 Pro over “GPT-5 Thinking” 67.8% of the time; GPT-5 Pro made 22% fewer major errors across health, science, math, and coding.',
+        source: 'https://openai.com/index/introducing-gpt-5/',
+      },
     },
-    'Aider Polyglot': {
-      score: 88.0,
-      notes:
-        'Code editing/refactoring benchmark; reported for GPT-5 family.',
-      source: 'https://openai.com/index/introducing-gpt-5-for-developers/'
-    },
-    'MMMU (Multimodal Understanding)': {
-      score: 84.2,
-      notes:
-        'Multimodal understanding across image+text tasks; reported for GPT-5 family.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
-    },
-    'HealthBench Hard': {
-      score: 46.2,
-      notes:
-        'Difficult subset of health reasoning tasks; reported for GPT-5 family.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
-    },
-    'AIME 2025 (no tools)': {
-      score: 94.6,
-      notes:
-        'Math benchmark; reported for GPT-5 family without tool use.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
-    },
-    'GPQA (no tools)': {
-      score: 88.4,
-      notes:
-        'State-of-the-art result explicitly attributed to GPT-5 Pro with extended reasoning.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
-    },
-    'Expert Preference (real-world reasoning prompts)': {
-      score: null,
-      notes:
-        'External experts preferred GPT-5 Pro over “GPT-5 Thinking” 67.8% of the time; GPT-5 Pro made 22% fewer major errors across health, science, math, and coding.',
-      source: 'https://openai.com/index/introducing-gpt-5/'
-    }
-    }
-},
-    {
+  },
+  {
     model_name: 'GPT-5 Codex',
     slug: 'gpt-5-codex',
     provider: 'openai',
     description:
-      "GPT-5 Codex is OpenAI’s GPT-5 variant optimized for agentic software engineering inside Codex. It excels at building full projects, refactoring large codebases, debugging, and code review. It supports images/screenshots for frontend work and runs in the Codex CLI, IDE extension, and cloud. Available in Codex surfaces and the OpenAI API (Responses API).",
+      'GPT-5 Codex is OpenAI’s GPT-5 variant optimized for agentic software engineering inside Codex. It excels at building full projects, refactoring large codebases, debugging, and code review. It supports images/screenshots for frontend work and runs in the Codex CLI, IDE extension, and cloud. Available in Codex surfaces and the OpenAI API (Responses API).',
     input_context_window: '400K',
     maximum_output_tokens: '128K',
     open_source: false,
@@ -4104,7 +4077,7 @@ const LLMS = [
   },
   {
     slug: 'gpt-4-0125-preview',
-    redirect_to: 'gpt-4-turbo'
+    redirect_to: 'gpt-4-turbo',
   },
   {
     slug: 'gpt-4-1106-preview',
