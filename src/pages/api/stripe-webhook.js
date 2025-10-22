@@ -66,14 +66,25 @@ const webhookHandler = async (req, res) => {
           case 'customer.subscription.deleted':
             await firestore.runTransaction(async (transaction) => {
               const subscription = event.data.object
+              const teamsCollection = firestore.collection('teams')
+
               // get team by customer id
-              const teamsRef = await transaction.get(
-                firestore.collection('teams').where('stripeCustomerId', '==', subscription.customer)
+              let teamsRef = await transaction.get(
+                teamsCollection.where('stripeCustomerId', '==', subscription.customer)
               )
 
+              // fallback to subscription id if customer lookup fails (e.g. async checkout flows)
               if (teamsRef.empty) {
-                console.log(`❌ Team not found for customer ${subscription.customer}`)
-                return
+                teamsRef = await transaction.get(
+                  teamsCollection.where('stripeSubscriptionId', '==', subscription.id)
+                )
+
+                if (teamsRef.empty) {
+                  console.log(
+                    `❌ Team not found for customer ${subscription.customer} or subscription ${subscription.id}`
+                  )
+                  return
+                }
               }
 
               const teamId = teamsRef.docs[0].id
@@ -121,7 +132,7 @@ const webhookHandler = async (req, res) => {
               }
 
               // save subscription to team
-              await transaction.update(firestore.collection('teams').doc(teamId), {
+              const updateData = {
                 stripeSubscriptionId: subscription.id,
                 stripeSubscriptionStatus: subscription.status,
                 stripeSubscriptionProduct: plan.product,
@@ -133,7 +144,9 @@ const webhookHandler = async (req, res) => {
                 stripeSubscriptionQuantity: subscription.quantity || subscription.items.data[0].quantity,
                 stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
                 stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
-              })
+              }
+
+              await transaction.update(teamsCollection.doc(teamId), updateData)
               console.log(`🔔 Subscription updated for team ${teamId}`)
 
               // we also save the questionLimit to the team object as well
@@ -448,13 +461,23 @@ const webhookHandler = async (req, res) => {
           case 'invoice.paid':
             await firestore.runTransaction(async (transaction) => {
               const invoice = event.data.object
+              const teamsCollection = firestore.collection('teams')
+
               //get team by customer id
-              const teamsRef2 = await transaction.get(
-                firestore.collection('teams').where('stripeCustomerId', '==', invoice.customer)
+              let teamsRef2 = await transaction.get(
+                teamsCollection.where('stripeCustomerId', '==', invoice.customer)
               )
+
+              if (teamsRef2.empty && invoice.subscription) {
+                teamsRef2 = await transaction.get(
+                  teamsCollection.where('stripeSubscriptionId', '==', invoice.subscription)
+                )
+              }
+
               if (teamsRef2.empty) {
                 throw new Error('No matching team found')
               }
+
               const team = { id: teamsRef2.docs[0].id, ...teamsRef2.docs[0].data() }
 
               //expand invoice to get subscription
@@ -504,7 +527,7 @@ const webhookHandler = async (req, res) => {
               }
 
               //save subscription to team in case this comes before updated webhook
-              await transaction.update(firestore.collection('teams').doc(team.id), {
+              const updateData = {
                 stripeSubscriptionId: invoiceWithSubscription.subscription.id,
                 stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
                 stripeSubscriptionProduct: plan.product,
@@ -515,7 +538,9 @@ const webhookHandler = async (req, res) => {
                 stripeSubscriptionCancelAtPeriodEnd:
                   invoiceWithSubscription.subscription.cancel_at_period_end,
                 stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
-              })
+              }
+
+              await transaction.update(teamsCollection.doc(team.id), updateData)
 
               try {
                 bentoTrack(teamOwner(team), 'trackPurchase', {
