@@ -170,6 +170,44 @@ export default async function handler(req, res) {
       })
     }
 
+    // Handle urls for website source type
+    if (type === 'website' && urls) {
+      // Validate urls
+      if (!Array.isArray(urls)) {
+        return res.status(400).send({ message: 'Invalid parameter "urls". Must be an array.' })
+      }
+
+      // Validate each URL and remove duplicates
+      const validatedUrls = []
+      const seenUrls = new Set()
+
+      for (const urlItem of urls) {
+        const trimmedUrl = urlItem?.trim()
+        if (!trimmedUrl) continue
+
+        if (!isValidURL(trimmedUrl)) {
+          return res.status(400).send({ 
+            message: `Invalid URL in urls: ${trimmedUrl}. Please provide valid full URLs.` 
+          })
+        }
+
+        // Remove duplicates
+        if (!seenUrls.has(trimmedUrl)) {
+          seenUrls.add(trimmedUrl)
+          validatedUrls.push(trimmedUrl)
+        }
+      }
+
+      indexedUrls = validatedUrls
+    }
+
+    // For website source type, require urls
+    if (type === 'website' && (!indexedUrls || indexedUrls.length === 0)) {
+      return res.status(400).send({ 
+        message: 'Invalid parameter. Please select at least one URL for website source type.' 
+      })
+    }
+
     title = title?.trim() || null
     if (sourceType.fieldTitle === 'required' && !title) {
       return res

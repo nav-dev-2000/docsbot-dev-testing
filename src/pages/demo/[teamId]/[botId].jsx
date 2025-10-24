@@ -6,10 +6,7 @@ import { NextSeo } from 'next-seo'
 import Script from 'next/script'
 import { useState } from 'react'
 
-// Demo team ID from environment variables
-const DEMO_TEAM_ID = process.env.NEXT_PUBLIC_DEMO_TEAM_ID
-
-export function DemoPage({ bot }) {
+export function DemoPage({ teamId, bot }) {
   const pageTitle = `${bot.name} - Live Demo`
   const [isOverlayCollapsed, setIsOverlayCollapsed] = useState(false)
   
@@ -30,7 +27,7 @@ export function DemoPage({ bot }) {
       <Script id="docsbot-demo-widget">
         {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";const n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});let t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));const o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(function(){setTimeout(function(){const button=document.querySelector('#docsbotai-root button');if(button){button.click();}},1000);}).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};
 DocsBotAI.init({
-  id: "${DEMO_TEAM_ID}/${bot.id}", 
+  id: "${teamId}/${bot.id}", 
   options: { 
     localDev: ${process.env.NODE_ENV === 'development' ? 'true' : 'false'},
   }
@@ -62,12 +59,12 @@ DocsBotAI.init({
 
         {/* Demo Content */}
         <div className="relative z-10">
-          {bot.screenshotUrl ? (
+          {bot.brandAnalysis?.screenshotUrl ? (
             /* Website Screenshot Background */
             <div 
               className="h-screen bg-cover bg-top bg-no-repeat relative w-full"
               style={{
-                backgroundImage: `url(${bot.screenshotUrl})`,
+                backgroundImage: `url(${bot.brandAnalysis.screenshotUrl})`,
                 backgroundSize: 'cover',
               }}
             >
@@ -198,14 +195,15 @@ DocsBotAI.init({
 }
 
 export const getServerSideProps = async (context) => {
-  const { botId } = context.params
+  const { teamId, botId } = context.params
 
   const data = { props: {} }
   
   try {
-    data.props.bot = await getBot(DEMO_TEAM_ID, botId)
+    data.props.teamId = teamId
+    data.props.bot = await getBot(teamId, botId)
     
-    // Return 404 if bot doesn't exist or is not a demo bot
+    // Return 404 if bot doesn't exist
     if (!data.props.bot) {
       return {
         notFound: true,
@@ -222,3 +220,4 @@ export const getServerSideProps = async (context) => {
 }
 
 export default DemoPage
+

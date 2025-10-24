@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-10-05',
+    title: 'Guided Bot Onboarding Wizard',
+    description: 'New multi-step onboarding wizard auto-detects branding and sources from your website link to launch bots faster.'
+  },
+  {
     date: '2025-10-03',
     title: 'Printable Question Topic Reports',
     description: 'Print or download question topic reports as PDFs directly from the bot reports page.'

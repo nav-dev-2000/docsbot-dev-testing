@@ -1,9 +1,40 @@
+import { useEffect } from 'react'
 import { getTeam, getBot } from '@/lib/dbQueries'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { NextSeo } from 'next-seo'
 import Script from 'next/script'
+import { usePostHog } from 'posthog-js/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
 
-export function ChatPage({ team, bot, signature, agent }) {
+export function ChatPage({ team, bot, signature, agent, testing, name, email }) {
+  const posthog = usePostHog()
+  const [user] = useAuthState(auth)
+
+  // Track "Bot Tested" event when testing mode is enabled
+  useEffect(() => {
+    if (!testing || !posthog) return
+
+    let hasTrackedTest = false
+
+    const handleAnswerComplete = () => {
+      if (hasTrackedTest) return
+      hasTrackedTest = true
+
+      posthog.capture('Bot Tested', {
+        'Bot name': bot.name,
+        bot_id: bot.id,
+        team_id: team.id,
+        source: 'iframe',
+      })
+    }
+
+    document.addEventListener('docsbot_fetching_answer_complete', handleAnswerComplete)
+
+    return () => {
+      document.removeEventListener('docsbot_fetching_answer_complete', handleAnswerComplete)
+    }
+  }, [testing, posthog, bot.name, bot.id, team.id])
   const pageTitle = `${bot.name} Chatbot Demo`
 
   const widgetConfig = {
@@ -14,14 +45,62 @@ export function ChatPage({ team, bot, signature, agent }) {
     widgetConfig.signature = signature
   }
 
+  // Set user identification - prioritize logged-in user, then URL params
+  const identify = {}
+  if (user) {
+    // Use logged-in user's information
+    if (user.displayName) {
+      identify.name = user.displayName
+    }
+    if (user.email) {
+      identify.email = user.email
+    }
+  } else {
+    // Fall back to URL parameters if not logged in
+    if (name && name.trim() !== '') {
+      identify.name = name
+    }
+    if (email && email.trim() !== '') {
+      identify.email = email
+    }
+  }
+
+  // Override referrer with parent frame location if available (iframe context)
+  try {
+    // Try to access parent window location (may fail due to cross-origin restrictions)
+    if (window.parent && window.parent !== window && window.parent.location.href) {
+      identify.referrer = window.parent.location.href
+    } else {
+      identify.referrer = null
+    }
+  } catch (e) {
+    // Cross-origin access blocked, set to null
+    identify.referrer = null
+  }
+
+  // Only add identify to config if we have at least one property
+  if (Object.keys(identify).length > 0) {
+    widgetConfig.identify = identify
+  }
+
   const isDevelopment = process.env.NODE_ENV === 'development'
   const hasAgentOverride = typeof agent === 'boolean'
+  const hasTestingParam = typeof testing === 'boolean'
+  const hasNameParam = typeof name === 'string' && name.trim() !== ''
 
-  if (hasAgentOverride || isDevelopment) {
+  if (hasAgentOverride || isDevelopment || hasTestingParam || hasNameParam) {
     const options = {}
 
     if (hasAgentOverride) {
       options.isAgent = agent
+    }
+
+    if (hasTestingParam) {
+      options.testing = testing
+    }
+
+    if (hasNameParam) {
+      options.botName = name
     }
 
     options.localDev = isDevelopment
@@ -74,7 +153,7 @@ export function ChatPage({ team, bot, signature, agent }) {
 
 export const getServerSideProps = async (context) => {
   const { teamId, botId } = context.params
-  const { signature, agent } = context.query
+  const { signature, agent, testing, name, email } = context.query
 
   const data = { props: {} }
   data.props.team = await getTeam(teamId)
@@ -93,6 +172,32 @@ export const getServerSideProps = async (context) => {
     }
   } else {
     data.props.agent = null
+  }
+
+  if (typeof testing === 'string') {
+    const testingValue = testing.toLowerCase()
+
+    if (testingValue === 'true' || testingValue === '1') {
+      data.props.testing = true
+    } else if (testingValue === 'false' || testingValue === '0') {
+      data.props.testing = false
+    } else {
+      data.props.testing = null
+    }
+  } else {
+    data.props.testing = null
+  }
+
+  if (typeof name === 'string' && name.trim() !== '') {
+    data.props.name = name
+  } else {
+    data.props.name = null
+  }
+
+  if (typeof email === 'string' && email.trim() !== '') {
+    data.props.email = email
+  } else {
+    data.props.email = null
   }
   
   //return 404 if bot doesn't exist

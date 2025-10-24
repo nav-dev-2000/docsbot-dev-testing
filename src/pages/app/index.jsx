@@ -17,7 +17,6 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
 import { stripePlan } from '@/utils/helpers'
-import NewBotPanel from '@/components/NewBotPanel'
 import classNames from '@/utils/classNames'
 import LocalStringNum from '@/components/LocalStringNum'
 import { auth } from '@/config/firebase-ui.config'
@@ -75,7 +74,6 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
 
 function Dashboard({ team, purchase, teamInvites = [] }) {
   const [errorText, setErrorText] = useState(null)
-  const [open, setOpen] = useState(false)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
 
@@ -84,12 +82,6 @@ function Dashboard({ team, purchase, teamInvites = [] }) {
       setModify(canUserCreateDeleteBot(team, user.uid))
     }
   }, [team, user])
-
-  useEffect(() => {
-    if (!team.botCount) {
-      setOpen(true)
-    }
-  }, [])
 
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
@@ -151,8 +143,7 @@ function Dashboard({ team, purchase, teamInvites = [] }) {
     {
       title: 'New Bot',
       description: canModify ? 'Train a new knowledge base with your custom documentation and content.' : 'Ask an admin to create a new bot for you.',
-      href: '/app/bots',
-      click: setOpen,
+      href: canModify ? '/app/onboarding' : '/app/bots',
       icon: AcademicCapIcon,
       iconForeground: 'text-cyan-700',
       iconBackground: 'bg-cyan-50',
@@ -308,7 +299,6 @@ function Dashboard({ team, purchase, teamInvites = [] }) {
 
       <TeamHistory team={team} />
 
-      <NewBotPanel {...{ team, open, setOpen }} />
     </DashboardWrap>
   )
 }
@@ -319,6 +309,15 @@ export const getServerSideProps = async (context) => {
   if (data?.props?.team) {
     // Fetch team invites for member count calculation
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
+
+    if (!data.props.team.botCount) {
+      return {
+        redirect: {
+          destination: '/app/onboarding',
+          permanent: false,
+        },
+      }
+    }
 
     //check for session_id in query params
     if (context.query.session_id) {

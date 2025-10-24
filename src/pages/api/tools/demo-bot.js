@@ -1,7 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
-import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
 import { createTenant } from '@/lib/weaviate'
 import { QueueSourceIngest } from '@/lib/service'
@@ -11,7 +9,52 @@ import { i18n } from '@/constants/strings.constants'
 import { crawlAndExtract } from '@/utils/crawlHelpers'
 import { checkDemoBotRateLimit, saveDemoBotRecord } from '@/lib/tools'
 import crypto from 'crypto'
-import { v4 as uuidv4 } from 'uuid'
+import { uploadScreenshotToStorage } from '@/utils/crawlHelpers'
+
+const isColorLight = (hexColor) => {
+  if (!hexColor) return false
+  const hex = hexColor.replace('#', '')
+  const r = parseInt(hex.substr(0, 2), 16)
+  const g = parseInt(hex.substr(2, 2), 16)
+  const b = parseInt(hex.substr(4, 2), 16)
+  // Calculate relative luminance
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+  return luminance > 0.5
+}
+
+const selectBestLogo = (logos, selectedColor) => {
+  if (!logos || logos.length === 0) return ''
+  
+  const isLight = isColorLight(selectedColor)
+  
+  // Prefer full logos over icons
+  const fullLogos = logos.filter(logo => logo.type === 'logo')
+  const iconLogos = logos.filter(logo => logo.type === 'icon')
+  
+  const logosToConsider = fullLogos.length > 0 ? fullLogos : iconLogos
+  
+  // Try to find a logo that matches the color mode
+  if (isLight) {
+    // For light colors, prefer dark mode logos (or opaque backgrounds)
+    const darkLogo = logosToConsider.find(logo => 
+      logo.mode === 'dark' || 
+      logo.mode === 'has_opaque_background' ||
+      !logo.mode // If no mode specified, try it
+    )
+    if (darkLogo) return darkLogo.url
+  } else {
+    // For dark colors, prefer light mode logos (or opaque backgrounds)
+    const lightLogo = logosToConsider.find(logo => 
+      logo.mode === 'light' || 
+      logo.mode === 'has_opaque_background' ||
+      !logo.mode // If no mode specified, try it
+    )
+    if (lightLogo) return lightLogo.url
+  }
+  
+  // Fallback to first available logo of any mode
+  return logosToConsider[0]?.url || logos[0]?.url || ''
+}
 
 
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#preferredregion
@@ -19,44 +62,6 @@ export const preferredRegion = ['iad1', 'hnd1', 'lhr1', 'sfo1', 'syd1', 'bom1', 
 
 // Demo team ID from environment variables
 const DEMO_TEAM_ID = process.env.NEXT_PUBLIC_DEMO_TEAM_ID
-
-
-const uploadScreenshotToStorage = async (screenshotUrl, teamId, botId) => {
-  try {
-    // Download the screenshot from Jina AI
-    const response = await fetch(screenshotUrl)
-    if (!response.ok) {
-      throw new Error(`Failed to download screenshot: ${response.statusText}`)
-    }
-    
-    const buffer = Buffer.from(await response.arrayBuffer())
-    
-    // Generate unique filename
-    const uuid = uuidv4()
-    const filepath = `teams/${teamId}/bots/${botId}/images/${uuid}_screenshot.png`
-    
-    // Upload to Firebase Storage
-    const storage = getStorage()
-    const bucket = storage.bucket(`gs://${firebaseConfig.storageBucket}`)
-    const file = bucket.file(filepath)
-    
-    await file.save(buffer, {
-      metadata: {
-        contentType: 'image/png',
-      },
-    })
-    
-    // Return public URL - use staging environment for development
-    const publicUrl = process.env.NODE_ENV === 'development' 
-      ? `https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/${encodeURIComponent(filepath)}?alt=media`
-      : `https://cdn.docsbot.ai/${encodeURIComponent(filepath)}?alt=media`
-    return publicUrl
-  } catch (error) {
-    console.error('Error uploading screenshot to storage:', error)
-    return null
-  }
-}
-
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -119,17 +124,43 @@ export default async function handler(req, res) {
 
       // 3. Create the bot under demo team (first create to get botId)
       const supportPrompt = PRESET_PROMPTS.CUSTOMER_SUPPORT?.prompt || ''
+      
+      // Select initial color - prioritize brand data, fall back to AI-detected/default
+      let initialColor = '#0ea5e9'
+      if (botConfig.colors && botConfig.colors.length > 0) {
+        // Use the first primary brand color from brand.dev
+        initialColor = botConfig.colors[0].hex
+      } else if (botConfig.buttonColor) {
+        // Fall back to AI-detected color if brand data not available
+        initialColor = botConfig.buttonColor
+      }
+      
+      // Select initial logo based on the chosen color
+      let initialLogo = ''
+      if (botConfig.logos && botConfig.logos.length > 0) {
+        // Select best logo from brand data based on the color
+        initialLogo = selectBestLogo(botConfig.logos, initialColor)
+      } else if (botConfig.logoUrl) {
+        // Fall back to AI-detected logo if brand data not available
+        initialLogo = botConfig.logoUrl
+      }
+      
+      // Final fallback for logo if still empty
+      if (!initialLogo) {
+        initialLogo = `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`
+      }
+      
       const initialBotData = {
-        name: botConfig.name,
-        description: botConfig.description || '',
-        color: botConfig.buttonColor || '',
+        name: botConfig.botName,
+        description: botConfig.botDescription || '',
+        color: initialColor,
         privacy: 'public',
         language: botConfig.language || 'en',
         model: 'gpt-4.1-mini',
         temperature: 0,
         agentPrompt: supportPrompt
-          .replace(/{company_name}/g, botConfig.name || 'your company')
-          .replace(/{product_info}/g, botConfig.description || '')
+          .replace(/{company_name}/g, botConfig.businessName || botConfig.botName || 'your company')
+          .replace(/{product_info}/g, botConfig.businessDescription || botConfig.botDescription || '')
           .replace(/{old_prompt}\n/g, '')
           .replace(/{old_prompt}/g, ''),
         labels: {
@@ -139,7 +170,7 @@ export default async function handler(req, res) {
         allowedDomains: [],
         icon: '',
         botIcon: '',
-        logo: botConfig.logoUrl || `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`,
+        logo: initialLogo,
         branding: true,
         imageUploads: true,
         showButtonLabel: false,
@@ -168,8 +199,12 @@ export default async function handler(req, res) {
         chunkCount: 0,
         questionCount: 0,
         supportLink: botConfig.supportUrl || `mailto:support@${url.hostname}`,
-        screenshotUrl: botConfig.screenshotUrl,
-        widgetType: botConfig.widgetType || 'other'
+        widgetType: botConfig.widgetType || 'other',
+        brandAnalysis: {
+          domain: url.hostname,
+          url: hrefURL,
+          ...botConfig, // Include all analysis data (colors, logos, screenshotUrl, businessName, businessDescription, etc.)
+        }
       }
 
       const docRef = await firestore
@@ -186,7 +221,7 @@ export default async function handler(req, res) {
       // Update bot with Firebase screenshot URL if upload was successful
       if (firebaseScreenshotUrl) {
         await docRef.update({
-          screenshotUrl: firebaseScreenshotUrl
+          'brandAnalysis.screenshotUrl': firebaseScreenshotUrl
         })
       }
 
@@ -304,7 +339,7 @@ export default async function handler(req, res) {
       const createdBot = await getBot(DEMO_TEAM_ID, botId)
       return res.status(201).json({
         ...botConfig,
-        demoUrl: `/demo/${botId}`,
+        demoUrl: `/demo/${DEMO_TEAM_ID}/${botId}`,
         screenshotUrl: firebaseScreenshotUrl || botConfig.screenshotUrl, // Use Firebase URL if available, fallback to original
       })
 

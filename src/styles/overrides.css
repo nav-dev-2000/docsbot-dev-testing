@@ -85,3 +85,8 @@
 .hover\:\!cc-bg-surface-info_main\/90:hover{
   background-color: #08a3ca !important;
 }
+
+/* Truto Link SDK */
+#truto-link-iframe {
+  z-index: 20;
+}

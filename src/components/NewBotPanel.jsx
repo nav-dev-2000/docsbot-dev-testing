@@ -7,14 +7,15 @@ import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import FormBot from '@/components/FormBot'
 import ModalCheckout from '@/components/ModalCheckout'
+import useCreateBot from '@/hooks/useCreateBot'
 
 export default function NewBotPanel({ team, open, setOpen }) {
   const [errorText, setErrorText] = useState(null)
-  const [isUpdating, setIsUpdating] = useState(false)
   const [showOpenAI, setShowOpenAI] = useState(false)
   const [botSettings, setBotSettings] = useState({})
   const [showUpgrade, setShowUpgrade] = useState(false)
   const router = useRouter()
+  const { createBot, isCreating, error: createError, resetError } = useCreateBot(team)
 
   useEffect(() => {
     if (open && stripePlan(team).bots <= team.botCount) {
@@ -36,7 +37,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
     }
   }, [showOpenAI])
 
-  async function createBot() {
+  async function handleCreateBot() {
     if (!botSettings.name) {
       setErrorText('Please enter a name for your agent.')
       return
@@ -46,32 +47,15 @@ export default function NewBotPanel({ team, open, setOpen }) {
       return
     }
     setErrorText('')
-    setIsUpdating(true)
+    resetError()
 
-    const urlParams = ['teams', team.id, 'bots']
-    const apiPath = '/api/' + urlParams.join('/')
-
-    const response = await fetch(apiPath, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(botSettings),
-    })
-    if (response.ok) {
-      const data = await response.json()
+    try {
+      const data = await createBot(botSettings)
       setBotSettings({})
-      setIsUpdating(false)
       setOpen(false)
       router.push(`/app/bots/${data.id}`)
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText('Error ' + response.status + ' creating bot, please try again later. Please be patient while our DB provider is trying to scale to meet the extreme demand.')
-      }
-      setIsUpdating(false)
+    } catch (error) {
+      setErrorText(error.message || 'Something went wrong, please try again.')
     }
   }
 
@@ -104,7 +88,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
                       className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl"
                       onSubmit={(e) => {
                         e.preventDefault()
-                        createBot()
+                        handleCreateBot()
                       }}
                     >
                       <div className="h-0 flex-1 overflow-y-auto">
@@ -133,11 +117,16 @@ export default function NewBotPanel({ team, open, setOpen }) {
                         </div>
                         <div className="flex flex-1 flex-col justify-between">
                           <div className="divide-y divide-gray-200 px-4 sm:px-6">
-                            <Alert title={errorText} type="error" />
+                            <Alert title={errorText || createError} type="error" />
                             <div className="space-y-6 pt-6 pb-5">
-                            <FormBot {...{team, setBotSettings }} bot={botSettings} disabled={isUpdating} short={true} />
-                          </div>
-                            <div className=" pt-4 pb-6">
+                              <FormBot
+                                {...{ team, setBotSettings }}
+                                bot={botSettings}
+                                disabled={isCreating}
+                                short={true}
+                              />
+                            </div>
+                            <div className="pt-4 pb-6">
                               <div className="mt-4 flex text-sm">
                                   <InformationCircleIcon
                                     className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -154,14 +143,14 @@ export default function NewBotPanel({ team, open, setOpen }) {
                           type="button"
                           className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                           onClick={() => setOpen(false)}
-                          disabled={isUpdating}
+                          disabled={isCreating}
                         >
                           Cancel
                         </button>
                         <input
                           type="submit"
-                          disabled={isUpdating}
-                          value={isUpdating ? 'Creating...' : 'Create Bot'}
+                          disabled={isCreating}
+                          value={isCreating ? 'Creating...' : 'Create Bot'}
                           className="ml-4 inline-flex justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75"
                         />
                       </div>

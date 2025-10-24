@@ -342,9 +342,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     copyFrom,
     topics,
     allowOpenEndedTopics,
+    widgetType,
+    brandAnalysis,
   } = req.body
 
   let allowOpenEndedTopicsValue = allowOpenEndedTopics
+  let sanitizedLabels
 
   if (copyFrom && !checkPlanPermission(team, 'personal', 'duplicate').allowed) {
     throw new Error('Duplicating bots is not available at your plan level.')
@@ -544,6 +547,19 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.supportLink = supportLink || ''
   }
 
+  if (widgetType !== undefined) {
+    const validWidgetTypes = ['helpscout', 'zendesk', 'freshdesk', 'intercom', 'hubspot', 'other']
+    botData.widgetType = validWidgetTypes.includes(widgetType) ? widgetType : 'other'
+  }
+
+  if (brandAnalysis !== undefined) {
+    // Store the brand analysis data from crawlAndExtract (includes brand colors, logos, screenshots, etc.)
+    // Only save if it's an object with data
+    if (brandAnalysis && typeof brandAnalysis === 'object') {
+      botData.brandAnalysis = brandAnalysis
+    }
+  }
+
   if (showButtonLabel !== undefined) {
     botData.showButtonLabel = !!showButtonLabel
   }
@@ -557,20 +573,39 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (labels !== undefined) {
-    botData.labels = labels || {}
     const validLabels = Object.keys(i18n.en.labels)
-    Object.keys(botData.labels).forEach((label) => {
-      if (!validLabels.includes(label)) {
-        delete botData.labels[label]
+    const incomingLabels =
+      labels && typeof labels === 'object' ? { ...labels } : {}
+
+    sanitizedLabels = {}
+    Object.keys(incomingLabels).forEach((labelKey) => {
+      if (validLabels.includes(labelKey)) {
+        sanitizedLabels[labelKey] = incomingLabels[labelKey]
       }
     })
+
+    botData.labels = sanitizedLabels
   }
 
   if (language !== undefined || !isUpdate) {
-    botData.language = language ? language : 'en'
-    // reset our labels
-    if (bot?.language !== botData.language) {
-      botData.labels = i18n[botData.language].labels
+    const resolvedLanguage = language ? language : 'en'
+    const languageChanged = bot?.language !== resolvedLanguage
+
+    botData.language = resolvedLanguage
+
+    if (languageChanged) {
+      botData.labels = {
+        ...i18n[resolvedLanguage].labels,
+        ...(sanitizedLabels !== undefined ? sanitizedLabels : botData.labels || {}),
+      }
+    } else if (sanitizedLabels !== undefined) {
+      const currentLabels = bot?.labels || i18n[resolvedLanguage].labels
+      botData.labels = {
+        ...currentLabels,
+        ...sanitizedLabels,
+      }
+    } else if (!isUpdate && botData.labels === undefined) {
+      botData.labels = i18n[resolvedLanguage].labels
     }
   }
 

@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getTeam, getBot } from '@/lib/dbQueries'
@@ -7,8 +7,13 @@ import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import { NextSeo } from 'next-seo'
 import Script from 'next/script'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '@/config/firebase-ui.config'
+import { usePostHog } from 'posthog-js/react'
 
 export function ChatPage({ team, bot }) {
+  const [user] = useAuthState(auth)
+  const posthog = usePostHog()
   const pageTitle = `${bot.name} Chatbot`
   
   // Extract color from bot or use default
@@ -17,6 +22,47 @@ export function ChatPage({ team, bot }) {
   // Create gradient colors based on bot color
   const gradientFrom = botColor
   const gradientTo = botColor
+
+  // Track "Bot Tested" event when user is logged in
+  useEffect(() => {
+    if (!user || !posthog) return
+
+    let hasTrackedTest = false
+
+    const handleAnswerComplete = () => {
+      if (hasTrackedTest) return
+      hasTrackedTest = true
+
+      posthog.capture('Bot Tested', {
+        'Bot name': bot.name,
+        bot_id: bot.id,
+        team_id: team.id,
+        source: 'chat_page',
+      })
+    }
+
+    document.addEventListener('docsbot_fetching_answer_complete', handleAnswerComplete)
+
+    return () => {
+      document.removeEventListener('docsbot_fetching_answer_complete', handleAnswerComplete)
+    }
+  }, [user, posthog, bot.name, bot.id, team.id])
+
+  // Build identify object if user is logged in
+  const identify = user ? {
+    ...(user.displayName && { name: user.displayName }),
+    ...(user.email && { email: user.email }),
+  } : undefined
+
+  // Build DocsBotAI init parameters
+  const docsbotParams = {
+    id: `${team.id}/${bot.id}`,
+    ...(identify && { identify }),
+    options: {
+      localDev: process.env.NODE_ENV === 'development',
+      customCSS: ".docsbot-chat-inner-container {border: 0px;}"
+    }
+  }
 
   return (
     <>
@@ -35,7 +81,7 @@ export function ChatPage({ team, bot }) {
         <>
           <Script id="docsbot-share-embed">
             {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(c){return new Promise(function(e,o){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://widget.docsbot.ai/chat.js";const n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n),t.addEventListener("load",function(){window.DocsBotAI.mount({id:c.id,supportCallback:c.supportCallback,identify:c.identify,options:c.options,signature:c.signature});let t;t=function(n){return new Promise(function(e){if(document.querySelector(n))return e(document.querySelector(n));const o=new MutationObserver(function(t){document.querySelector(n)&&(e(document.querySelector(n)),o.disconnect())});o.observe(document.body,{childList:!0,subtree:!0})})},t&&t("#docsbotai-root").then(e).catch(o)}),t.addEventListener("error",function(t){o(t.message)})})};
-DocsBotAI.init({id: "${team.id}/${bot.id}", options: {localDev: ${process.env.NODE_ENV === 'development' ? 'true' : 'false'}, customCSS: ".docsbot-chat-inner-container {border: 0px;}"}});`}
+DocsBotAI.init(${JSON.stringify(docsbotParams)});`}
           </Script>
           
           <div className="overflow-hidden bg-gray-50 py-24 sm:py-32 dark:bg-gray-900 h-full">

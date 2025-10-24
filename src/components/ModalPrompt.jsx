@@ -947,8 +947,7 @@ export default function ModalPrompt({
                                     process.env.NODE_ENV === 'development'
                                       ? `http://localhost:3000/iframe/${team.id}/${bot.id}`
                                       : `https://docsbot.ai/iframe/${team.id}/${bot.id}`
-                                  }?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}`}
-                                  allowTransparency="true"
+                                  }?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}&testing=true`}
                                   className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
                                 ></iframe>
                               </div>

@@ -66,10 +66,10 @@ export default function App({ Component, pageProps }) {
     // Check that PostHog is client-side (used to handle Next.js SSR)
     if (
       typeof window !== 'undefined' &&
-      !router.pathname.startsWith('/chat/') &&
-      !router.pathname.startsWith('/ask/') &&
-      !router.pathname.startsWith('/iframe/')
+      !router.pathname.startsWith('/ask/')
     ) {
+      const isIframe = router.pathname.startsWith('/iframe/')
+      
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
         api_host:
           process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
@@ -79,6 +79,10 @@ export default function App({ Component, pageProps }) {
         persistence: 'localStorage',
         disable_session_recording: true,
         capture_pageleave: false,
+        // Disable automatic pageview tracking for iframe routes
+        capture_pageview: !isIframe,
+        // Disable heatmaps for iframe routes
+        enable_heatmaps: !isIframe,
         // Enable debug mode in development
         loaded: (posthog) => {
           if (process.env.NODE_ENV === 'development') posthog.debug()
@@ -88,21 +92,24 @@ export default function App({ Component, pageProps }) {
   }, [router.pathname])
 
   useEffect(() => {
-    const handleRouteChange = () => {
+    const handleRouteChange = (url) => {
       if (window.bento !== undefined) {
         if (user) {
           window.bento.identify(user.email)
         }
         window.bento.view()
       }
-      posthog?.capture('$pageview')
+      // Don't capture pageviews for iframe routes
+      if (!url.startsWith('/iframe/')) {
+        posthog?.capture('$pageview')
+      }
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [router.events, posthog, user])
 
   useEffect(() => {
     if (user) {
@@ -380,8 +387,11 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
                 {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
               </Script>
               <Script id="docsbot" strategy="lazyOnload">
-              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};
-DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12},supportCallback: function (event, history, metadata, ticket) {
+              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};`}
+              </Script>
+              {!router.asPath.startsWith('/app/onboarding') && (
+                <Script id="docsbot-init" strategy="lazyOnload">
+                  {`DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12},supportCallback: function (event, history, metadata, ticket) {
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
@@ -394,7 +404,8 @@ DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useIma
     });          
   }         
 },});`}
-              </Script>
+                </Script>
+              )}
               <Script id="firstpromoter1">
                 {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 

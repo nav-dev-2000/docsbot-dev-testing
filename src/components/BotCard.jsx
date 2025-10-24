@@ -28,6 +28,7 @@ import { canUserEditBot, canUserCreateDeleteBot } from '@/utils/function.utils'
 import { BotCopyModal } from '@/components/BotCopy'
 import EmbeddingModel from '@/components/EmbeddingModel'
 import Tooltip from '@/components/Tooltip'
+import BotIconDisplay from '@/components/BotIconDisplay'
 
 export default function BotCard({ team, bot, integrations, setBot }) {
   const [user] = useAuthState(auth)
@@ -47,12 +48,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center space-x-5">
             <div className="flex-shrink-0">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-600 to-cyan-700 p-3 shadow-lg">
-                <RobotIcon
-                  className="h-8 w-8 text-cyan-100 sm:h-10 sm:w-10"
-                  aria-hidden="true"
-                />
-              </span>
+              <BotIconDisplay bot={bot} size="medium" />
             </div>
             <div className="mt-4 sm:mt-0 sm:pt-1 sm:text-left">
               <p className="text-xl font-bold text-gray-900 sm:text-2xl">

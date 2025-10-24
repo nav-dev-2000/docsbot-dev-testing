@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { RadioGroup, Disclosure } from '@headlessui/react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { RadioGroup, Disclosure, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { CheckCircleIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
+import { ExclamationTriangleIcon, ArrowLeftIcon } from '@heroicons/react/24/outline'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import {
   PlusIcon,
@@ -13,12 +14,13 @@ import {
 } from '@heroicons/react/24/outline'
 import { ref, uploadBytesResumable } from 'firebase/storage'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import UrlListSelector from '@/components/UrlListSelector'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
 import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
-import classNames from '@/utils/classNames'
+import clsx from 'clsx'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { canUserModifySources } from '@/utils/function.utils'
@@ -28,12 +30,27 @@ import Link from 'next/link'
 export default function SourceForm({
   team,
   bot,
-  sources,
+  sources = [],
   setSources,
-  setOpenSourceID,
+  setOpenSourceID = () => {},
+  initialTypeId = null,
+  onClose = null,
+  minimal = false,
+  autoShowForm = false,
+  prefillWebsiteData = null,
+  onWebsitePrefillComplete = () => {},
 }) {
-  const [showForm, setShowForm] = useState(bot.sourceCount === 0) //show form if bot has no sources
-  const [selectedSourceType, setSelectedSourceType] = useState(null)
+  const initialSourceType = useMemo(
+    () =>
+      initialTypeId
+        ? sourceTypes.find((sourceType) => sourceType.id === initialTypeId) || null
+        : null,
+    [initialTypeId],
+  )
+  const [showForm, setShowForm] = useState(
+    autoShowForm || bot.sourceCount === 0 || Boolean(initialSourceType),
+  ) //show form if bot has no sources
+  const [selectedSourceType, setSelectedSourceType] = useState(initialSourceType)
   const [user] = useAuthState(auth)
   // State to store uploaded file
   const [file, setFile] = useState(null)
@@ -67,6 +84,17 @@ export default function SourceForm({
   const [mailboxError, setMailboxError] = useState(null)
   const [loadingMailboxes, setLoadingMailboxes] = useState(false)
 
+  // State for website source type
+  const [websiteUrls, setWebsiteUrls] = useState([])
+  const [selectedWebsiteUrls, setSelectedWebsiteUrls] = useState([])
+  const [isMappingWebsite, setIsMappingWebsite] = useState(false)
+  const [mappingError, setMappingError] = useState(null)
+  const [websiteStep, setWebsiteStep] = useState(1) // 1: URL input, 2: URL selection, 3: Final settings
+  
+  // State for URL limit dialog
+  const [showUrlLimitDialog, setShowUrlLimitDialog] = useState(false)
+  const shouldEnforceUrlLimitRef = useRef(true)
+
   // FreeScout API key validation regex (32 character hex string)
   const isValidFreescoutApiKey = (key) => {
     return /^[a-f0-9]{32}$/i.test(key)
@@ -85,12 +113,125 @@ export default function SourceForm({
     )
   }
 
+  // Map website using Firecrawl
+  const mapWebsite = async (overrideUrl = null) => {
+    const targetUrl = overrideUrl ?? url
+    const normalizedTargetUrl = normalizeUrl(targetUrl)
+
+    if (!normalizedTargetUrl || !isValidURL(normalizedTargetUrl)) {
+      setMappingError('Please enter a valid URL')
+      return false
+    }
+
+    if (!overrideUrl) {
+      setUrl(normalizedTargetUrl)
+    }
+
+    setIsMappingWebsite(true)
+    setMappingError(null)
+
+    try {
+      const response = await fetch(`/api/teams/${team.id}/bots/${bot.id}/sources/map`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: normalizedTargetUrl }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to scan website')
+      }
+
+      setWebsiteUrls(data.urls)
+      setSelectedWebsiteUrls([]) // Reset selections
+      setWebsiteStep(2) // Move to URL selection step
+
+      return true
+    } catch (error) {
+      console.error('Error mapping website:', error)
+      setMappingError(error.message || 'Failed to scan website')
+      return false
+    } finally {
+      setIsMappingWebsite(false)
+    }
+  }
+
+
+  // Handle website step navigation
+  const handleWebsiteStepNext = () => {
+    if (websiteStep === 1) {
+      // Step 1: Map the website
+      mapWebsite()
+    } else if (websiteStep === 2) {
+      // Step 2: Move to final settings
+      if (selectedWebsiteUrls.length > 0) {
+        setWebsiteStep(3)
+      }
+    }
+  }
+
+  const handleWebsiteStepBack = () => {
+    if (websiteStep === 2) {
+      setWebsiteStep(1)
+      setWebsiteUrls([])
+      setSelectedWebsiteUrls([])
+      setMappingError(null)
+    } else if (websiteStep === 3) {
+      setWebsiteStep(2)
+    }
+  }
+
   useEffect(() => {
     if (showForm && stripePlan(team).pages <= team.pageCount) {
       setShowForm(false)
       setShowUpgrade(true)
     }
   }, [showForm])
+
+  useEffect(() => {
+    if (autoShowForm) {
+      setShowForm(true)
+    }
+  }, [autoShowForm])
+
+  useEffect(() => {
+    if (initialSourceType) {
+      setSelectedSourceType(initialSourceType)
+      setShowForm(true)
+    }
+  }, [initialSourceType])
+
+  useEffect(() => {
+    if (!prefillWebsiteData || selectedSourceType?.id !== 'website') {
+      return
+    }
+
+    const { url: prefillUrl, autoMap } = prefillWebsiteData
+
+    if (prefillUrl && !url) {
+      setUrl(prefillUrl)
+    }
+
+    const shouldAutoMap =
+      autoMap && prefillUrl && websiteStep === 1 && !isMappingWebsite
+
+    if (!shouldAutoMap) {
+      return
+    }
+
+    const runAutoMap = async () => {
+      try {
+        await mapWebsite(prefillUrl)
+      } finally {
+        onWebsitePrefillComplete()
+      }
+    }
+
+    runAutoMap()
+  }, [prefillWebsiteData, selectedSourceType?.id, url, isMappingWebsite, websiteStep, mapWebsite, onWebsitePrefillComplete])
 
   //validate fields
   useEffect(() => {
@@ -110,6 +251,13 @@ export default function SourceForm({
         }
         if (file && urls.length > 0) {
           valid = false // Both provided - not allowed
+        }
+      }
+
+      // Special validation for website source type - require URL and selected URLs
+      if (selectedSourceType.id === 'website') {
+        if (!url || selectedWebsiteUrls.length === 0) {
+          valid = false
         }
       }
       if (selectedSourceType.fieldTitle === 'required' && !title) {
@@ -181,6 +329,8 @@ export default function SourceForm({
     title,
     questions,
     urls,
+    selectedWebsiteUrls,
+    websiteStep,
     freescoutKey,
     freescoutMailbox,
     freescoutMonths,
@@ -257,7 +407,8 @@ export default function SourceForm({
   const showProcessImagesOption =
     selectedSourceType?.fieldImages &&
     (selectedSourceType.id !== 'document' ||
-      (fileName && /\.(html?|md|zip)$/i.test(fileName)))
+      (fileName && /\.(html?|md|zip)$/i.test(fileName))) &&
+    (selectedSourceType.id !== 'website' || websiteStep === 3)
 
   const resetState = () => {
     setFile(null)
@@ -280,15 +431,45 @@ export default function SourceForm({
     setFreescoutMailbox('')
     setFreescoutMailboxes([])
     setFreescoutMonths(3)
+    // Reset website state
+    setWebsiteUrls([])
+    setSelectedWebsiteUrls([])
+    setIsMappingWebsite(false)
+    setMappingError(null)
+    setWebsiteStep(1)
     setMailboxError(null)
     setLoadingMailboxes(false)
   }
 
+  // Helper function to add https:// if no protocol is present
+  const normalizeUrl = (urlString) => {
+    if (!urlString) return urlString
+    const trimmed = urlString.trim()
+    // Check if URL already has a protocol
+    if (!/^https?:\/\//i.test(trimmed)) {
+      return `https://${trimmed}`
+    }
+    return trimmed
+  }
+
   // Helper function to validate and clean URLs
   const isValidURL = (string) => {
+    if (!string) return false
     try {
-      const url = new URL(string)
-      return url.protocol === 'http:' || url.protocol === 'https:'
+      const input = string.trim()
+      const prefixed = input.includes('://') ? input : `https://${input}`
+      const parsed = new URL(prefixed)
+      const { protocol, hostname } = parsed
+      
+      if (!['http:', 'https:'].includes(protocol)) {
+        return false
+      }
+      
+      const isLocalhost = hostname === 'localhost'
+      const isIpAddress = /^\d{1,3}(\.\d{1,3}){3}$/.test(hostname)
+      const hasDomain = hostname.includes('.') && !hostname.endsWith('.')
+      
+      return isLocalhost || isIpAddress || hasDomain
     } catch (_) {
       return false
     }
@@ -393,7 +574,25 @@ export default function SourceForm({
     setUrls((prev) => prev.filter((url) => url !== urlToRemove))
   }
 
-  async function createSource() {
+  const normalizeWebsiteUrls = (urls) => {
+    if (!Array.isArray(urls)) return []
+
+    return urls
+      .map((entry) => {
+        if (typeof entry === 'string') {
+          return entry.trim()
+        }
+
+        if (entry && typeof entry === 'object' && typeof entry.url === 'string') {
+          return entry.url.trim()
+        }
+
+        return ''
+      })
+      .filter((entry) => entry.length > 0)
+  }
+
+  async function createSource(overrideSelectedWebsiteUrls = null) {
     if (!validated) {
       // Provide more specific error message for urls source type
       if (selectedSourceType?.id === 'urls') {
@@ -409,6 +608,30 @@ export default function SourceForm({
       }
       return
     }
+    
+    const effectiveSelectedWebsiteUrls = normalizeWebsiteUrls(
+      Array.isArray(overrideSelectedWebsiteUrls)
+        ? overrideSelectedWebsiteUrls
+        : selectedWebsiteUrls,
+    )
+
+    // Check if user is on free plan and has more than 25 URLs selected for website source type
+    if (
+      shouldEnforceUrlLimitRef.current &&
+      selectedSourceType?.id === 'website' &&
+      effectiveSelectedWebsiteUrls.length > 25
+    ) {
+      const plan = stripePlan(team)
+      if (plan.id === 'free') {
+        setShowUrlLimitDialog(true)
+        return
+      }
+    }
+    
+    if (!shouldEnforceUrlLimitRef.current) {
+      shouldEnforceUrlLimitRef.current = true
+    }
+
     setErrorText('')
     setIsUpdating(true)
 
@@ -417,14 +640,16 @@ export default function SourceForm({
 
     // Prepare payload based on the selected source type requirements
     const payload = {
-      type: selectedSourceType.id,
+      type: selectedSourceType.id === 'website' ? 'urls' : selectedSourceType.id,
     }
 
     // Only include fields that are required or optional for this source type
-    if (selectedSourceType.fieldUrl) {
-      payload.url = url
+    if (selectedSourceType.fieldUrl && selectedSourceType.id !== 'website') {
+      // Normalize URL by adding https:// if no protocol is present
+      const normalizedUrl = normalizeUrl(url)
+      payload.url = normalizedUrl
       if (selectedSourceType.id === 'freescout') {
-        payload.freescoutUrl = url
+        payload.freescoutUrl = normalizedUrl
       }
     }
 
@@ -461,6 +686,13 @@ export default function SourceForm({
     // Include urls for urls source type
     if (selectedSourceType.id === 'urls' && urls.length > 0) {
       payload.urls = urls
+      payload.url = undefined
+    }
+
+    // Include selected URLs for website source type
+    if (selectedSourceType.id === 'website' && effectiveSelectedWebsiteUrls.length > 0) {
+      payload.urls = effectiveSelectedWebsiteUrls
+      payload.url = undefined
     }
 
     if (selectedSourceType.id === 'freescout') {
@@ -490,6 +722,7 @@ export default function SourceForm({
         setSources([data, ...sources])
       }
       resetState()
+      onClose?.()
     } else {
       try {
         const data = await response.json()
@@ -738,18 +971,94 @@ export default function SourceForm({
           open={showUpgrade}
           setOpen={setShowUpgrade}
         />
-        <p className="text-md mb-2 ml-2 mt-8 text-gray-800">
-          Add any{' '}
-          <Link
-            href="/documentation#sources"
-            className="underline hover:text-gray-600"
-          >
-            content sources
-          </Link>{' '}
-          you want your bot to be able to answer questions about. You can always
-          add more later on.
-        </p>
-        <div className="mb-4 rounded-lg bg-white px-4 py-4 shadow sm:px-6">
+        
+        {/* URL Limit Dialog for Free Plan */}
+        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-50">
+          <DialogBackdrop
+            transition
+            className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+          />
+
+          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <DialogPanel
+                transition
+                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+              >
+                <div className="sm:flex sm:items-start">
+                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                      Free Plan URL Limit
+                    </DialogTitle>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500 text-justify">
+                        You've selected {selectedWebsiteUrls.length} URLs, but free plans can only index up to 25 URLs per bot. 
+                        You can limit your selection to 25 URLs, go back to change your selection, or upgrade to a paid plan for unlimited URLs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:mt-6 sm:grid-cols-3 sm:gap-4 sm:pl-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowUrlLimitDialog(false)
+                      setWebsiteStep(2) // Go back to URL selection
+                    }}
+                    className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                  >
+                    <ArrowLeftIcon aria-hidden="true" className="mr-2 size-4" />
+                    Change
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const limitedUrls = normalizeWebsiteUrls(
+                        selectedWebsiteUrls.slice(0, 25),
+                      )
+                      shouldEnforceUrlLimitRef.current = false
+                      setShowUrlLimitDialog(false)
+                      createSource(limitedUrls)
+                    }}
+                    className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-cyan-600 shadow-sm ring-2 ring-inset ring-cyan-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
+                  >
+                    Use 25 URLs
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowUrlLimitDialog(false)
+                      setShowUpgrade(true)
+                    }}
+                    className="inline-flex w-full justify-center rounded-md bg-animation bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
+                  >
+                    Upgrade
+                  </button>
+                </div>
+              </DialogPanel>
+            </div>
+          </div>
+        </Dialog>
+        
+        {!minimal && (
+          <p className="text-md mb-2 ml-2 mt-8 text-gray-800">
+            Add any{' '}
+            <Link
+              href="/documentation#sources"
+              className="underline hover:text-gray-600"
+            >
+              content sources
+            </Link>{' '}
+            you want your bot to be able to answer questions about. You can always
+            add more later on.
+          </p>
+        )}
+        <div
+          className={clsx(
+            'mb-4 px-4 py-4 sm:px-6',
+            minimal ? 'mb-0' : 'bg-white rounded-lg shadow',
+          )}
+        >
           <Alert title={errorText} type="error" />
 
           {!selectedSourceType ? (
@@ -804,7 +1113,7 @@ export default function SourceForm({
                                     value={sourceType}
                                     disabled={sourceType.coming || isUpdating}
                                     className={({ checked, active }) =>
-                                      classNames(
+                                      clsx(
                                         checked
                                           ? 'border-transparent'
                                           : 'border-gray-300',
@@ -869,14 +1178,14 @@ export default function SourceForm({
                                           </span>
                                         </span>
                                         <CheckCircleIcon
-                                          className={classNames(
+                                          className={clsx(
                                             !checked ? 'invisible' : '',
                                             'h-5 w-5 text-cyan-600',
                                           )}
                                           aria-hidden="true"
                                         />
                                         <span
-                                          className={classNames(
+                                          className={clsx(
                                             active ? 'border' : 'border-2',
                                             checked
                                               ? 'border-cyan-500'
@@ -956,7 +1265,176 @@ export default function SourceForm({
                 )}
               </div>
               <div className="col">
-                {selectedSourceType?.fieldUrl && (
+                {/* Multi-step website mapping functionality - show first */}
+                {selectedSourceType.id === 'website' ? (
+                  <div className="mb-4">
+                    {/* Step indicator */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-center space-x-4">
+                        <div className={clsx(
+                          'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                          websiteStep >= 1 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                        )}>
+                          1
+                        </div>
+                        <div className={clsx(
+                          'h-1 w-16',
+                          websiteStep >= 2 ? 'bg-cyan-600' : 'bg-gray-200'
+                        )}></div>
+                        <div className={clsx(
+                          'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                          websiteStep >= 2 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                        )}>
+                          2
+                        </div>
+                        <div className={clsx(
+                          'h-1 w-16',
+                          websiteStep >= 3 ? 'bg-cyan-600' : 'bg-gray-200'
+                        )}></div>
+                        <div className={clsx(
+                          'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                          websiteStep >= 3 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                        )}>
+                          3
+                        </div>
+                      </div>
+                      <div className="mt-2 flex justify-center space-x-16 text-xs text-gray-600">
+                        <span>Scan Website</span>
+                        <span>Select Pages</span>
+                        <span>Settings</span>
+                      </div>
+                    </div>
+
+                    {/* Step 1: URL Input */}
+                    {websiteStep === 1 && (
+                      <div className="mb-4">
+                        <label
+                          htmlFor="website-url"
+                          className="mb-2 block text-sm font-medium text-gray-700"
+                        >
+                          Website URL to scan
+                        </label>
+                        <div className="flex gap-2">
+                          <input
+                            id="website-url"
+                            name="website-url"
+                            type="url"
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            disabled={isUpdating || isMappingWebsite}
+                            className={clsx(
+                              'flex-1 rounded-md shadow-sm focus:ring-cyan-500 sm:text-sm',
+                              isMappingWebsite ? 'bg-gray-100 text-gray-400 border-gray-300' : '',
+                              url && !isValidURL(normalizeUrl(url)) && !isMappingWebsite
+                                ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                                : 'border-gray-300 focus:border-cyan-500',
+                            )}
+                            placeholder="https://example.com"
+                          />
+                          <button
+                            type="button"
+                            onClick={handleWebsiteStepNext}
+                            disabled={isUpdating || isMappingWebsite || !url}
+                            className={clsx(
+                              'rounded-md px-4 py-2 text-sm font-medium flex items-center justify-center',
+                              isMappingWebsite || !url
+                                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                            )}
+                          >
+                            {isMappingWebsite ? (
+                              <>
+                                <LoadingSpinner small />
+                                <span className="ml-2">Scanning...</span>
+                              </>
+                            ) : (
+                              'Scan'
+                            )}
+                          </button>
+                        </div>
+                        {url && !isValidURL(normalizeUrl(url)) && !mappingError && (
+                          <p className="mt-2 text-sm text-red-600">
+                            Please enter a valid URL
+                          </p>
+                        )}
+                        {mappingError && (
+                          <p className="mt-2 text-sm text-red-600">{mappingError}</p>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Step 2: URL Selection */}
+                    {websiteStep === 2 && (
+                      <div className="mb-4">
+                        <div className="mb-4 flex items-center justify-between">
+                          <h3 className="text-lg font-medium text-gray-900">
+                            Select pages to index ({selectedWebsiteUrls.length} selected)
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={handleWebsiteStepBack}
+                            className="text-sm text-gray-600 hover:text-gray-800"
+                          >
+                            ← Back to Scan
+                          </button>
+                        </div>
+                        <UrlListSelector
+                          urls={websiteUrls}
+                          onSelectionChange={setSelectedWebsiteUrls}
+                        />
+                        <div className="mt-4 flex justify-end">
+                          <button
+                            type="button"
+                            onClick={handleWebsiteStepNext}
+                            disabled={selectedWebsiteUrls.length === 0}
+                            className={clsx(
+                              'rounded-md px-4 py-2 text-sm font-medium',
+                              selectedWebsiteUrls.length === 0
+                                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                            )}
+                          >
+                            Continue to Settings →
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Step 3: Final Settings */}
+                    {websiteStep === 3 && (
+                      <div className="mb-4">
+                        <div className="mb-4 flex items-center justify-between">
+                          <h3 className="text-lg font-medium text-gray-900">
+                            Final Settings
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={handleWebsiteStepBack}
+                            className="text-sm text-gray-600 hover:text-gray-800"
+                          >
+                            ← Back to Selection
+                          </button>
+                        </div>
+                        <div className="rounded-md border border-gray-300 bg-gray-50 p-4">
+                          <div className="mb-4">
+                            <h4 className="text-sm font-medium text-gray-900 mb-2">
+                              Selected URLs ({selectedWebsiteUrls.length})
+                            </h4>
+                            <div className="max-h-32 overflow-y-auto text-xs text-gray-600">
+                              {selectedWebsiteUrls.map((url, index) => (
+                                <div key={index} className="truncate">
+                                  {url}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : null}
+
+                {selectedSourceType?.fieldUrl && selectedSourceType.id !== 'website' && (
                   <div className="mb-4">
                     <div className="flex justify-between">
                       <label
@@ -985,13 +1463,12 @@ export default function SourceForm({
                         value={url}
                         disabled={isUpdating}
                         onChange={(e) => setUrl(e.target.value)}
-                        className={`block w-full rounded-md pl-10 focus:ring-cyan-500 sm:text-sm ${
-                          selectedSourceType?.id === 'freescout' &&
-                          url &&
-                          !isValidURL(url)
-                            ? 'border-red-300 focus:border-red-500'
-                            : 'border-gray-300 focus:border-cyan-500'
-                        }`}
+                        className={clsx(
+                          'block w-full rounded-md pl-10 sm:text-sm',
+                          url && !isValidURL(normalizeUrl(url))
+                            ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                            : 'border-gray-300 focus:border-cyan-500 focus:ring-cyan-500'
+                        )}
                         placeholder={
                           selectedSourceType?.id === 'sitemap'
                             ? 'https://example.com/'
@@ -1000,6 +1477,11 @@ export default function SourceForm({
                         aria-describedby="url-description"
                       />
                     </div>
+                    {url && !isValidURL(normalizeUrl(url)) && (
+                      <p className="mt-2 text-sm text-red-600">
+                        Please enter a valid URL
+                      </p>
+                    )}
                     <p
                       className="mt-2 text-sm text-gray-500"
                       id="url-description"
@@ -1267,7 +1749,7 @@ export default function SourceForm({
                   />
                 )}
 
-                {selectedSourceType?.fieldFile && (
+                {selectedSourceType?.fieldFile && selectedSourceType.id !== 'website' && (
                   <div>
                     {/* URL paste functionality for urls source type */}
                     {selectedSourceType.id === 'urls' && (
@@ -1288,7 +1770,7 @@ export default function SourceForm({
                             onPaste={handlePaste}
                             onKeyDown={handleKeyDown}
                             disabled={isUpdating || file}
-                            className={classNames(
+                            className={clsx(
                               'block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm',
                               file ? 'bg-gray-100 text-gray-400' : '',
                             )}
@@ -1357,6 +1839,160 @@ https://example.com/page2`
                       </div>
                     )}
 
+                    {/* Multi-step website mapping functionality */}
+                    {selectedSourceType.id === 'website' && (
+                      <div className="mb-4">
+                        {/* Step indicator */}
+                        <div className="mb-6">
+                          <div className="flex items-center justify-center space-x-4">
+                            <div className={clsx(
+                              'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                              websiteStep >= 1 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                            )}>
+                              1
+                            </div>
+                            <div className={clsx(
+                              'h-1 w-16',
+                              websiteStep >= 2 ? 'bg-cyan-600' : 'bg-gray-200'
+                            )}></div>
+                            <div className={clsx(
+                              'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                              websiteStep >= 2 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                            )}>
+                              2
+                            </div>
+                            <div className={clsx(
+                              'h-1 w-16',
+                              websiteStep >= 3 ? 'bg-cyan-600' : 'bg-gray-200'
+                            )}></div>
+                            <div className={clsx(
+                              'flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium',
+                              websiteStep >= 3 ? 'bg-cyan-600 text-white' : 'bg-gray-200 text-gray-600'
+                            )}>
+                              3
+                            </div>
+                          </div>
+                          <div className="mt-2 flex justify-center space-x-16 text-xs text-gray-600">
+                            <span>Enter URL</span>
+                            <span>Select Pages</span>
+                            <span>Settings</span>
+                          </div>
+                        </div>
+
+                        {/* Step 1: URL Input */}
+                        {websiteStep === 1 && (
+                          <div className="mb-4">
+                        <label
+                          htmlFor="website-url"
+                          className="mb-2 block text-sm font-medium text-gray-700"
+                        >
+                          Website URL to scan
+                        </label>
+                            <div className="flex gap-2">
+                              <input
+                                id="website-url"
+                                name="website-url"
+                                type="url"
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                                disabled={isUpdating || isMappingWebsite}
+                                className={clsx(
+                                  'flex-1 rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm',
+                                  isMappingWebsite ? 'bg-gray-100 text-gray-400' : '',
+                                )}
+                                placeholder="https://example.com"
+                              />
+                          <button
+                            type="button"
+                            onClick={handleWebsiteStepNext}
+                            disabled={isUpdating || isMappingWebsite || !url}
+                            className={clsx(
+                              'rounded-md px-4 py-2 text-sm font-medium',
+                              isMappingWebsite || !url
+                                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                            )}
+                          >
+                            {isMappingWebsite ? 'Scanning...' : 'Scan Website'}
+                          </button>
+                            </div>
+                            {mappingError && (
+                              <p className="mt-2 text-sm text-red-600">{mappingError}</p>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Step 2: URL Selection */}
+                        {websiteStep === 2 && (
+                          <div className="mb-4">
+                            <div className="mb-4 flex items-center justify-between">
+                              <h3 className="text-lg font-medium text-gray-900">
+                                Select pages to index ({selectedWebsiteUrls.length} selected)
+                              </h3>
+                              <button
+                                type="button"
+                                onClick={handleWebsiteStepBack}
+                                className="text-sm text-gray-600 hover:text-gray-800"
+                              >
+                                ← Back to URL
+                              </button>
+                            </div>
+                            <UrlListSelector
+                              urls={websiteUrls}
+                              onSelectionChange={setSelectedWebsiteUrls}
+                            />
+                            <div className="mt-4 flex justify-end">
+                              <button
+                                type="button"
+                                onClick={handleWebsiteStepNext}
+                                disabled={selectedWebsiteUrls.length === 0}
+                                className={clsx(
+                                  'rounded-md px-4 py-2 text-sm font-medium',
+                                  selectedWebsiteUrls.length === 0
+                                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                    : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                )}
+                              >
+                                Continue to Settings →
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Step 3: Final Settings */}
+                        {websiteStep === 3 && (
+                          <div className="mb-4">
+                            <div className="mb-4 flex items-center justify-between">
+                              <h3 className="text-lg font-medium text-gray-900">
+                                Final Settings
+                              </h3>
+                              <button
+                                type="button"
+                                onClick={handleWebsiteStepBack}
+                                className="text-sm text-gray-600 hover:text-gray-800"
+                              >
+                                ← Back to Selection
+                              </button>
+                            </div>
+                            <div className="rounded-md border border-gray-300 bg-gray-50 p-4">
+                              <div className="mb-4">
+                                <h4 className="text-sm font-medium text-gray-900 mb-2">
+                                  Selected URLs ({selectedWebsiteUrls.length})
+                                </h4>
+                                <div className="max-h-32 overflow-y-auto text-xs text-gray-600">
+                                  {selectedWebsiteUrls.map((url, index) => (
+                                    <div key={index} className="truncate">
+                                      {url}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
                     <div className="flex justify-between">
                       <label
                         htmlFor="title"
@@ -1371,7 +2007,7 @@ https://example.com/page2`
                     {file || isUploading ? (
                       <div className="mt-1">
                         <div
-                          className={classNames(
+                          className={clsx(
                             file
                               ? 'border-cyan-500 text-cyan-600'
                               : 'border-gray-300 text-gray-500',
@@ -1401,7 +2037,7 @@ https://example.com/page2`
                     ) : (
                       <label
                         htmlFor="file-upload"
-                        className={classNames(
+                        className={clsx(
                           'mt-1 flex justify-center rounded-md border-2 border-dashed px-6 pb-6 pt-5 text-center transition-colors duration-200',
                           urls.length > 0
                             ? 'cursor-not-allowed border-gray-200 bg-gray-50'
@@ -1419,7 +2055,7 @@ https://example.com/page2`
                       >
                         <div className="space-y-1 text-center">
                           <DocumentArrowUpIcon
-                            className={classNames(
+                            className={clsx(
                               'mx-auto h-12 w-12 transition-colors duration-200',
                               urls.length > 0
                                 ? 'text-gray-200'
@@ -1430,7 +2066,7 @@ https://example.com/page2`
                             aria-hidden="true"
                           />
                           <div
-                            className={classNames(
+                            className={clsx(
                               'text-sm transition-colors duration-200',
                               urls.length > 0
                                 ? 'text-gray-400'
@@ -1467,7 +2103,7 @@ https://example.com/page2`
                             />
                           </div>
                           <p
-                            className={classNames(
+                            className={clsx(
                               'text-xs uppercase transition-colors duration-200',
                               urls.length > 0
                                 ? 'text-gray-400'
@@ -1487,7 +2123,7 @@ https://example.com/page2`
                     )}
                   </div>
                 )}
-                {selectedSourceType?.fieldSchedule && (
+                {selectedSourceType?.fieldSchedule && (selectedSourceType.id !== 'website' || websiteStep === 3) && (
                   <div className="mt-4 justify-start">
                     <ScheduleSelect
                       team={team}
@@ -1504,7 +2140,7 @@ https://example.com/page2`
                     </p>
                   </div>
                 )}
-                {showProcessImagesOption && (
+                {showProcessImagesOption && (selectedSourceType.id !== 'website' || websiteStep === 3) && (
                   <div className="mt-4">
                     <div className="relative flex items-start">
                       <div className="flex h-5 items-center">
@@ -1575,12 +2211,16 @@ https://example.com/page2`
               type="button"
               className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               onClick={() => {
-                setFile(null)
-                if (selectedSourceType) {
-                  setSelectedSourceType(null)
+                if (onClose) {
+                  onClose()
                 } else {
-                  setShowForm(false)
-                  setSelectedSourceType(null)
+                  setFile(null)
+                  if (selectedSourceType) {
+                    setSelectedSourceType(null)
+                  } else {
+                    setShowForm(false)
+                    setSelectedSourceType(null)
+                  }
                 }
               }}
               disabled={isUpdating}
@@ -1609,7 +2249,7 @@ https://example.com/page2`
                   </>
                 )}
               </button>
-            ) : (
+            ) : (selectedSourceType?.id !== 'website' || websiteStep === 3) && (
               <button
                 disabled={isUpdating || !validated}
                 onClick={createSource}
@@ -1640,6 +2280,78 @@ https://example.com/page2`
           open={showUpgrade}
           setOpen={setShowUpgrade}
         />
+        
+        {/* URL Limit Dialog for Free Plan */}
+        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-50">
+          <DialogBackdrop
+            transition
+            className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+          />
+
+          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <DialogPanel
+                transition
+                className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+              >
+                <div className="sm:flex sm:items-start">
+                  <div className="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:size-10">
+                    <ExclamationTriangleIcon aria-hidden="true" className="size-6 text-red-600" />
+                  </div>
+                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                      Free Plan URL Limit
+                    </DialogTitle>
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-500">
+                        You've selected {selectedWebsiteUrls.length} URLs, but free plans can only index up to 25 URLs per bot. 
+                        You can limit your selection to 25 URLs, go back to change your selection, or upgrade to a paid plan for unlimited URLs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:mt-6 sm:grid-cols-3 sm:pl-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowUrlLimitDialog(false)
+                      setWebsiteStep(2) // Go back to URL selection
+                    }}
+                    className="inline-flex w-full items-center justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
+                  >
+                    <ArrowLeftIcon aria-hidden="true" className="mr-2 size-4" />
+                    Change Selection
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const limitedUrls = normalizeWebsiteUrls(
+                        selectedWebsiteUrls.slice(0, 25),
+                      )
+                      shouldEnforceUrlLimitRef.current = false
+                      setShowUrlLimitDialog(false)
+                      createSource(limitedUrls)
+                    }}
+                    className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-cyan-600 shadow-sm ring-2 ring-inset ring-cyan-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
+                  >
+                    Use 25 URLs
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowUrlLimitDialog(false)
+                      setShowUpgrade(true)
+                    }}
+                    className="inline-flex w-full justify-center rounded-md bg-animation bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
+                  >
+                    Upgrade
+                  </button>
+                </div>
+              </DialogPanel>
+            </div>
+          </div>
+        </Dialog>
+        
         {canModifySources ? (
           <div className="mx-auto mt-16 max-w-2xl text-center">
             <DocumentPlusIcon

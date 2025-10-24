@@ -60,15 +60,16 @@ export default function BadgeStatusSource({ source, small = false }) {
 
   if (source.status === 'failed') {
     return (
-      <span
-        className={
-          sizeClass +
-          ' inline-flex cursor-help items-center rounded-full bg-red-100 font-medium text-red-800'
-        }
-        title={source.error}
-      >
-        Failed
-      </span>
+      <Tooltip content={source.error}>
+        <span
+          className={
+            sizeClass +
+            ' inline-flex cursor-help items-center rounded-full bg-red-100 font-medium text-red-800'
+          }
+        >
+          Failed
+        </span>
+      </Tooltip>
     )
   }
 

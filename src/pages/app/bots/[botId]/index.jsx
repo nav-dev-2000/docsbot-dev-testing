@@ -51,10 +51,13 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
       }
     }
 
-    return {
-      title: `This free bot will expire in ${daysLeft} days. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.`,
-      type: 'warning',
+    if (daysLeft < 14) {
+      return {
+        title: `This free bot will expire in ${daysLeft} days. All source data, logs, analytics, and settings will be lost. Upgrade to a paid plan to keep your bot.`,
+        type: 'warning',
+      }
     }
+    return null
   }
 
   const expirationAlert = getExpirationAlert()
