@@ -86,9 +86,8 @@ export function ChatPage({ team, bot, signature, agent, testing, name, email }) 
   const isDevelopment = process.env.NODE_ENV === 'development'
   const hasAgentOverride = typeof agent === 'boolean'
   const hasTestingParam = typeof testing === 'boolean'
-  const hasNameParam = typeof name === 'string' && name.trim() !== ''
 
-  if (hasAgentOverride || isDevelopment || hasTestingParam || hasNameParam) {
+  if (hasAgentOverride || isDevelopment || hasTestingParam) {
     const options = {}
 
     if (hasAgentOverride) {
@@ -97,10 +96,6 @@ export function ChatPage({ team, bot, signature, agent, testing, name, email }) 
 
     if (hasTestingParam) {
       options.testing = testing
-    }
-
-    if (hasNameParam) {
-      options.botName = name
     }
 
     options.localDev = isDevelopment
