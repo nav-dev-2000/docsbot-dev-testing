@@ -362,7 +362,7 @@ export const crawlAndExtract = async (url, metadata = {}) => {
   // Check if we have at least SOME data to work with
   if (!content && !screenCaptures) {
     throw new Error(
-      `We couldn't access ${url}. Please check that the URL is correct and the website is publicly accessible. If the site has strict bot protection, just enter a bot name instead.`
+      `We couldn't access ${url}. Please check that the URL is correct and the website is publicly accessible. If the site has strict bot protection, choose "I don't have a website" instead.`
     )
   }
 

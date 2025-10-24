@@ -400,6 +400,26 @@ function Onboarding({ team }) {
     }
   }, [websiteUrl, lastAnalyzedUrl])
 
+  const refreshBotData = useCallback(
+    async (botIdParam) => {
+      const targetBotId = botIdParam || createdBot?.id
+      if (!team?.id || !targetBotId) return
+      try {
+        const botData = await getBotRequest(team.id, targetBotId)
+        if (botData) {
+          setCreatedBot((prev) => ({
+            ...prev,
+            ...botData,
+            sourceCount: prev?.sourceCount ?? botData.sourceCount,
+          }))
+        }
+      } catch (error) {
+        console.error('Failed to refresh bot data', error)
+      }
+    },
+    [team?.id, createdBot?.id],
+  )
+
   const loadSources = useCallback(
     async (botIdParam, silent = false) => {
       const targetBotId = botIdParam || createdBot?.id
@@ -415,12 +435,34 @@ function Onboarding({ team }) {
           throw new Error('Failed to load sources')
         }
         const data = await response.json()
-        setBotSources(data?.sources || [])
+        const previousSources = botSources
+        const newSources = data?.sources || []
+        
+        setBotSources(newSources)
         setHasLoadedInitialSources(true)
         if (typeof data?.pagination?.totalCount === 'number') {
           setCreatedBot((prev) =>
             prev ? { ...prev, sourceCount: data.pagination.totalCount } : prev,
           )
+        }
+
+        // If sources just finished training (went from pending to ready), refresh bot data
+        const hadPendingSources = previousSources.some(
+          (source) =>
+            !source.status ||
+            !['ready', 'failed', 'warning'].includes(source.status) ||
+            source.refreshing,
+        )
+        const hasPendingSources = newSources.some(
+          (source) =>
+            !source.status ||
+            !['ready', 'failed', 'warning'].includes(source.status) ||
+            source.refreshing,
+        )
+        
+        if (hadPendingSources && !hasPendingSources) {
+          // Sources just finished, refresh bot data to get updated status
+          await refreshBotData(targetBotId)
         }
       } catch (error) {
         console.error('Failed to load sources', error)
@@ -430,7 +472,7 @@ function Onboarding({ team }) {
         }
       }
     },
-    [team?.id, createdBot?.id],
+    [team?.id, createdBot?.id, botSources, refreshBotData],
   )
 
   useEffect(() => {
@@ -642,31 +684,30 @@ function Onboarding({ team }) {
           setAnalysisData(bot.brandAnalysis)
         }
 
-        await loadSources(bot.id)
-        return bot
-      } catch (error) {
-        setStepError(
-          error.message || 'Unable to create your bot. Please try again.',
-        )
-        throw error
-      }
-    },
-    [
-      createdBot,
-      isCreating,
-      botName,
-      botDescription,
-      botLanguage,
-      supportLink,
-      logoUrl,
-      brandColor,
-      widgetType,
-      agentPrompt,
-      temperature,
-      firstMessage,
-      analysisData,
-      createBot,
-      resetError,
+      await loadSources(bot.id)
+      return bot
+    } catch (error) {
+      setStepError(
+        error.message || 'Unable to create your bot. Please try again.',
+      )
+      throw error
+    }
+  },
+  [
+    createdBot,
+    isCreating,
+    botName,
+    botDescription,
+    botLanguage,
+    supportLink,
+    logoUrl,
+    brandColor,
+    widgetType,
+    agentPrompt,
+    temperature,
+    firstMessage,
+    createBot,
+    resetError,
       loadSources,
     ],
   )
@@ -735,7 +776,7 @@ function Onboarding({ team }) {
     }
 
     return filtered
-  }, [team, widgetType, onboardingWebsiteUrl])
+  }, [team, widgetType])
 
   const totalSourceTypes = useMemo(() => {
     return sourceTypes.filter((type) => !type.hide && !type.coming).length
@@ -1909,6 +1950,7 @@ function Onboarding({ team }) {
                   <div className="flex flex-wrap gap-2">
                     {analysisData.logos.map((logo, index) => (
                       <Tooltip
+                        key={index}
                         content={`${logo.type.charAt(0).toUpperCase() + logo.type.slice(1)}${
                           logo.mode === 'has_opaque_background'
                             ? ' • solid background'
