@@ -123,36 +123,34 @@ const selectBestLogo = (logos, selectedColor) => {
   if (!logos || logos.length === 0) return ''
 
   const isLight = isColorLight(selectedColor)
+  const targetMode = isLight ? 'light' : 'dark'
 
-  // Prefer full logos over icons
+  // Separate logos by type
   const fullLogos = logos.filter((logo) => logo.type === 'logo')
   const iconLogos = logos.filter((logo) => logo.type === 'icon')
 
-  const logosToConsider = fullLogos.length > 0 ? fullLogos : iconLogos
+  // Priority 1: Logo with matching color mode
+  const matchingLogo = fullLogos.find((logo) => logo.mode === targetMode)
+  if (matchingLogo) return matchingLogo.url
 
-  // Try to find a logo that matches the color mode
-  if (isLight) {
-    // For light colors, prefer dark mode logos (or opaque backgrounds)
-    const darkLogo = logosToConsider.find(
-      (logo) =>
-        logo.mode === 'dark' ||
-        logo.mode === 'has_opaque_background' ||
-        !logo.mode, // If no mode specified, try it
-    )
-    if (darkLogo) return darkLogo.url
-  } else {
-    // For dark colors, prefer light mode logos (or opaque backgrounds)
-    const lightLogo = logosToConsider.find(
-      (logo) =>
-        logo.mode === 'light' ||
-        logo.mode === 'has_opaque_background' ||
-        !logo.mode, // If no mode specified, try it
-    )
-    if (lightLogo) return lightLogo.url
-  }
+  // Priority 2: Icon with matching color mode
+  const matchingIcon = iconLogos.find((logo) => logo.mode === targetMode)
+  if (matchingIcon) return matchingIcon.url
 
-  // Fallback to first available logo of any mode
-  return logosToConsider[0]?.url || logos[0]?.url || ''
+  // Priority 3: Logo with opaque background
+  const opaqueLogo = fullLogos.find(
+    (logo) => logo.mode === 'has_opaque_background',
+  )
+  if (opaqueLogo) return opaqueLogo.url
+
+  // Priority 4: Icon with opaque background
+  const opaqueIcon = iconLogos.find(
+    (logo) => logo.mode === 'has_opaque_background',
+  )
+  if (opaqueIcon) return opaqueIcon.url
+
+  // Final fallback: any logo or icon
+  return fullLogos[0]?.url || iconLogos[0]?.url || logos[0]?.url || ''
 }
 
 const buildPrompt = (key, name, description) => {
@@ -229,7 +227,7 @@ const OnboardingProgress = ({ currentStep }) => {
       <p className="text-sm font-medium text-gray-900">
         Step {displayIndex} of {steps.length}
       </p>
-      <ol role="list" className="ml-6 flex items-center space-x-5 sm:ml-8">
+      <ol role="list" className="ml-6 hidden items-center space-x-5 sm:ml-8 sm:flex">
         {steps.map((step) => (
           <li key={step.key}>
             {step.status === 'complete' ? (
@@ -314,6 +312,7 @@ function Onboarding({ team }) {
   const colorPickerRef = useRef(null)
   const savePromptButtonRef = useRef(null)
   const analyzingIntervalRef = useRef(null)
+  const botSourcesRef = useRef([])
   const {
     createBot,
     isCreating,
@@ -436,10 +435,11 @@ function Onboarding({ team }) {
           throw new Error('Failed to load sources')
         }
         const data = await response.json()
-        const previousSources = botSources
+        const previousSources = botSourcesRef.current
         const newSources = data?.sources || []
         
         setBotSources(newSources)
+        botSourcesRef.current = newSources
         setHasLoadedInitialSources(true)
         if (typeof data?.pagination?.totalCount === 'number') {
           setCreatedBot((prev) =>
@@ -473,7 +473,7 @@ function Onboarding({ team }) {
         }
       }
     },
-    [team?.id, createdBot?.id, botSources, refreshBotData],
+    [team?.id, createdBot?.id, refreshBotData],
   )
 
   useEffect(() => {
@@ -932,6 +932,11 @@ function Onboarding({ team }) {
     botDescription,
     createdBot?.brandAnalysis?.businessDescription,
   ])
+
+  // Reset botSourcesRef when bot changes to prevent stale data
+  useEffect(() => {
+    botSourcesRef.current = []
+  }, [createdBot?.id])
 
   useEffect(() => {
     if (createdBot?.id) {
@@ -2559,7 +2564,7 @@ function Onboarding({ team }) {
 
                 {/* Right Column - Preview/Sources */}
                 <div
-                  className="relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0"
+                  className="relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0 min-h-[500px]"
                   style={{
                     backgroundImage: `url(${circuitBg.src})`,
                     backgroundSize: 'cover',
@@ -2798,7 +2803,7 @@ function Onboarding({ team }) {
                         />
                       </div>
                     ) : currentStep === 5 ? (
-                      <div className="relative mb-8 mt-16 inline-block max-w-xs">
+                      <div className="relative mb-8 lg:mt-16 inline-block max-w-xs">
                         <div className="rounded-2xl bg-white px-6 py-4 shadow-lg">
                           <h3 className="text-md text-center font-semibold text-gray-900">
                             Congratulations! {botName || createdBot?.name || 'Your bot'} is ready!
@@ -2897,7 +2902,7 @@ function Onboarding({ team }) {
 
                   {currentStep === 5 && (
                     <div className="pointer-events-none absolute bottom-0 left-0 z-0 flex w-full justify-center pb-8">
-                      <RobotAnimationCongrats className="h-auto w-full max-w-md" />
+                      <RobotAnimationCongrats className="h-auto w-full max-w-xs lg:max-w-md" />
                     </div>
                   )}
                 </div>
