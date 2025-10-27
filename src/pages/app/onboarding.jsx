@@ -41,6 +41,7 @@ import {
   ArrowLeftIcon,
   ClipboardDocumentIcon,
   CheckIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline'
 import docsbotLogo from '@/images/docsbot-logo.png'
 import {
@@ -605,9 +606,37 @@ function Onboarding({ team }) {
     }
   }
 
+  // Helper function to check if URL has more than one subdirectory path or query parameters
+  const hasMultipleSubdirectories = (urlString) => {
+    try {
+      const input = urlString.trim()
+      const prefixed = input.includes('://') ? input : `https://${input}`
+      const urlObj = new URL(prefixed)
+      const pathname = urlObj.pathname
+      // Remove leading and trailing slashes, then split by slash
+      const pathSegments = pathname.replace(/^\/+|\/+$/g, '').split('/').filter(segment => segment.length > 0)
+      
+      // Check if URL has query parameters
+      const hasQueryParams = urlObj.search.length > 0
+      
+      // Check if single path segment is longer than 8 characters
+      const hasSingleLongSegment = pathSegments.length === 1 && pathSegments[0].length > 8
+      
+      // Return true if there are multiple subdirectories OR query parameters OR a single long path segment
+      return pathSegments.length > 1 || hasQueryParams || hasSingleLongSegment
+    } catch (e) {
+      return false
+    }
+  }
+
   const isUrlValid = useMemo(
     () => (websiteUrl ? isValidUrlInput(websiteUrl) : false),
     [websiteUrl],
+  )
+
+  const hasUrlPathWarning = useMemo(
+    () => (websiteUrl && isUrlValid ? hasMultipleSubdirectories(websiteUrl) : false),
+    [websiteUrl, isUrlValid],
   )
 
   const ensureBotCreated = useCallback(
@@ -960,7 +989,7 @@ function Onboarding({ team }) {
         return !botName.trim()
       }
       return (
-        isAnalyzing || !websiteUrl.trim() || !isUrlValid || Boolean(urlError)
+        isAnalyzing || !websiteUrl.trim() || !isUrlValid || Boolean(urlError) || hasUrlPathWarning
       )
     }
     if (currentStep === 1) {
@@ -1652,6 +1681,20 @@ function Onboarding({ team }) {
               />
               {urlError && (
                 <p className="mt-2 text-sm text-red-600">{urlError}</p>
+              )}
+              {hasUrlPathWarning && !urlError && (
+                <div className="mt-2 rounded-md bg-yellow-50 p-3 border border-yellow-200">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <ExclamationTriangleIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-yellow-700">
+                        Please enter your main website domain (e.g., https://example.com) rather than a specific page. You'll be able to select which pages to index in the next step.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
               {!isAnalyzing && (
                 <p className="mt-2 text-sm text-gray-500">

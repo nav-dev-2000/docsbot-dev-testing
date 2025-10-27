@@ -100,6 +100,27 @@ export default function SourceForm({
     return /^[a-f0-9]{32}$/i.test(key)
   }
 
+  // Helper function to check if URL has more than one subdirectory path or query parameters
+  const hasMultipleSubdirectories = (urlString) => {
+    try {
+      const urlObj = new URL(normalizeUrl(urlString))
+      const pathname = urlObj.pathname
+      // Remove leading and trailing slashes, then split by slash
+      const pathSegments = pathname.replace(/^\/+|\/+$/g, '').split('/').filter(segment => segment.length > 0)
+      
+      // Check if URL has query parameters
+      const hasQueryParams = urlObj.search.length > 0
+      
+      // Check if single path segment is longer than 8 characters
+      const hasSingleLongSegment = pathSegments.length === 1 && pathSegments[0].length > 8
+      
+      // Return true if there are multiple subdirectories OR query parameters OR a single long path segment
+      return pathSegments.length > 1 || hasQueryParams || hasSingleLongSegment
+    } catch (e) {
+      return false
+    }
+  }
+
   // Check if all FreeScout fields are valid
   const isFreescoutFormValid = () => {
     return (
@@ -1312,7 +1333,7 @@ export default function SourceForm({
                           htmlFor="website-url"
                           className="mb-2 block text-sm font-medium text-gray-700"
                         >
-                          Website URL to scan
+                          Website domain to scan
                         </label>
                         <div className="flex gap-2">
                           <input
@@ -1334,10 +1355,10 @@ export default function SourceForm({
                           <button
                             type="button"
                             onClick={handleWebsiteStepNext}
-                            disabled={isUpdating || isMappingWebsite || !url}
+                            disabled={isUpdating || isMappingWebsite || !url || (url && isValidURL(normalizeUrl(url)) && hasMultipleSubdirectories(url))}
                             className={clsx(
                               'rounded-md px-4 py-2 text-sm font-medium flex items-center justify-center',
-                              isMappingWebsite || !url
+                              isMappingWebsite || !url || (url && isValidURL(normalizeUrl(url)) && hasMultipleSubdirectories(url))
                                 ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                                 : 'bg-cyan-600 text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
                             )}
@@ -1354,8 +1375,55 @@ export default function SourceForm({
                         </div>
                         {url && !isValidURL(normalizeUrl(url)) && !mappingError && (
                           <p className="mt-2 text-sm text-red-600">
-                            Please enter a valid URL
+                            Please enter a valid website URL
                           </p>
+                        )}
+                        {url && isValidURL(normalizeUrl(url)) && hasMultipleSubdirectories(url) && !mappingError && (
+                          <div className="mt-2 rounded-md bg-yellow-50 p-3 border border-yellow-200">
+                            <div className="flex">
+                              <div className="flex-shrink-0">
+                                <ExclamationTriangleIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-sm text-yellow-700">
+                                  The Website source type is designed for main domains or landing pages. For specific URLs on a site, you should use the{' '}
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      // Keep the URL for Single URL source type
+                                      setSelectedSourceType(sourceTypes.find(st => st.id === 'url'))
+                                      setWebsiteStep(1)
+                                      setWebsiteUrls([])
+                                      setSelectedWebsiteUrls([])
+                                    }}
+                                    className="font-medium text-yellow-700 underline hover:text-yellow-600"
+                                  >
+                                    Single URL
+                                  </button>
+                                  {' '}or{' '}
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      // Pre-fill the URL in the URL list
+                                      const normalizedUrl = normalizeUrl(url)
+                                      if (normalizedUrl && isValidURL(normalizedUrl)) {
+                                        setUrls([normalizedUrl])
+                                      }
+                                      setSelectedSourceType(sourceTypes.find(st => st.id === 'urls'))
+                                      setWebsiteStep(1)
+                                      setWebsiteUrls([])
+                                      setSelectedWebsiteUrls([])
+                                      setUrl('') // Clear the URL field for URL List source type
+                                    }}
+                                    className="font-medium text-yellow-700 underline hover:text-yellow-600"
+                                  >
+                                    URL List
+                                  </button>
+                                  {' '}instead.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         )}
                         {mappingError && (
                           <p className="mt-2 text-sm text-red-600">{mappingError}</p>
@@ -1886,7 +1954,7 @@ https://example.com/page2`
                           htmlFor="website-url"
                           className="mb-2 block text-sm font-medium text-gray-700"
                         >
-                          Website URL to scan
+                          Website domain to scan
                         </label>
                             <div className="flex gap-2">
                               <input
