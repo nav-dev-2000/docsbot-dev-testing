@@ -1,16 +1,17 @@
 import Link from 'next/link'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { 
-  ArrowPathIcon, 
-  PencilIcon, 
-  XMarkIcon, 
-  TrashIcon, 
+import {
+  ArrowPathIcon,
+  PencilIcon,
+  XMarkIcon,
+  TrashIcon,
   ChatBubbleLeftEllipsisIcon,
   BoltIcon,
   ArrowTopRightOnSquareIcon,
   LinkIcon,
-  ClipboardIcon
+  ClipboardIcon,
+  CheckIcon
 } from '@heroicons/react/24/outline'
 import { 
   CheckCircleIcon,
@@ -38,6 +39,24 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
   const [integrations, setIntegrations] = useState(initialIntegrations)
   const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'GPT-5 mini' : 'GPT-5 nano';
+  const [copiedApiKey, setCopiedApiKey] = useState(false)
+  const [isCopyableApiKey, setIsCopyableApiKey] = useState(false)
+
+  const handleCopyApiKey = () => {
+    if (
+      !isCopyableApiKey ||
+      !apiKey ||
+      apiKey === 'No Key' ||
+      typeof navigator === 'undefined' ||
+      !navigator.clipboard
+    ) {
+      return
+    }
+
+    navigator.clipboard.writeText(apiKey)
+    setCopiedApiKey(true)
+    setTimeout(() => setCopiedApiKey(false), 2000)
+  }
 
   const updateKey = async () => {
     setErrorText('')
@@ -56,6 +75,8 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
       const data = await response.json()
       setApiKey(data.apiKey)
       setCopyMessage('Copy this key now, you will not be able to view it again.')
+      setCopiedApiKey(false)
+      setIsCopyableApiKey(true)
     } else {
       try {
         const data = await response.json()
@@ -291,18 +312,50 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
             private bots. This key is is tied to your user account and can be used to access all teams
             that you have a role for.
           </p>
-          <div className="mt-4 flex items-center justify-start">
-            <pre className="block">{apiKey}</pre>
-            <a
-              type="button"
-              className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
-              onClick={() => {
-                updateKey()
-              }}
-            >
-              <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-              Change
-            </a>
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
+            {isCopyableApiKey ? (
+              <div className="relative w-full max-w-md">
+                <input
+                  type="text"
+                  readOnly
+                  value={apiKey}
+                  onClick={(e) => e.target.select()}
+                  className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 text-sm shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+                />
+                <button
+                  type="button"
+                  onClick={handleCopyApiKey}
+                  disabled={!isCopyableApiKey}
+                  className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 transition-colors hover:text-gray-700 disabled:cursor-not-allowed disabled:text-gray-300"
+                  aria-label="Copy DocsBot API key"
+                >
+                  <span className="relative h-4 w-4">
+                    <ClipboardIcon
+                      className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${copiedApiKey ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}
+                      aria-hidden="true"
+                    />
+                    <CheckIcon
+                      className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${copiedApiKey ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <pre className="block">{apiKey}</pre>
+            )}
+            <div className="flex items-center gap-2">
+              <a
+                type="button"
+                className="flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
+                onClick={() => {
+                  updateKey()
+                }}
+              >
+                <ArrowPathIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
+                Change
+              </a>
+            </div>
           </div>
           <p className="mt-1 text-justify text-sm text-gray-800">{copyMessage}</p>
         </div>
