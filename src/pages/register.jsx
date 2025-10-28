@@ -82,6 +82,7 @@ function Register({ teamCount }) {
   const authorizeUser = useCallback(postAuth, [])
   useEffect(() => {
     if (user && !userAuthLoading) {
+      const usageTypeForTracking = usageType ?? 'tools'
       //update user profile with name
       updateProfile(user?.user, {
         displayName: name,
@@ -94,15 +95,15 @@ function Register({ teamCount }) {
         onComplete: () => {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
-            window.bento.updateFields({ website: site, user_type: userType, name: name, usage_type: usageType })
+            window.bento.updateFields({ website: site, user_type: userType, name: name, usage_type: usageTypeForTracking })
           }
           if (window.fpr !== undefined) {
             window.fpr("referral",{email: user?.user?.email})
           }
           if (!posthog?._isIdentified()) {
-            posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageType, "User Type": userType })
+            posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageTypeForTracking, "User Type": userType })
           }
-          posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageType })
+          posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageTypeForTracking })
           posthog?.startSessionRecording()
           router.push(redirectPath)
         },
@@ -115,12 +116,13 @@ function Register({ teamCount }) {
     authLoading,
     setAuthLoading,
     onComplete: () => {
+      const usageTypeForTracking = usageType ?? 'tools'
       if (window.bento !== undefined) {
         window.bento.identify(googleUser?.user?.email)
         window.bento.updateFields({
           name: googleUser?.user?.displayName,
           user_type: userType,
-          usage_type: usageType,
+          usage_type: usageTypeForTracking,
           website: site,
         })
       }
@@ -128,9 +130,9 @@ function Register({ teamCount }) {
         window.fpr("referral",{email: googleUser?.user?.email})
       }
       if (!posthog?._isIdentified()) {
-        posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageType, "User Type": userType })
+        posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageTypeForTracking, "User Type": userType })
       }
-      posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageType })
+      posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageTypeForTracking })
       posthog?.startSessionRecording()
       router.push(redirectPath)
     },
