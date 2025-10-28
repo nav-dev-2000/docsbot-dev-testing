@@ -27,6 +27,13 @@ const BLOCKED_DOMAINS = [
   'wikipedia.org',
   'github.com',
   'stackoverflow.com',
+  'gmail.com',
+  'yahoo.com',
+  'hotmail.com',
+  'outlook.com',
+  'aol.com',
+  'msn.com',
+  'live.com',
 ]
 
 /**

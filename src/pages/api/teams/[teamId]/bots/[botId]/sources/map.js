@@ -4,6 +4,111 @@ import { canUserModifySources } from '@/utils/function.utils'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getCacheEntry, setCacheEntry } from '@/utils/cache.utils'
 
+// Blocked domains - popular consumer sites that aren't business websites
+const BLOCKED_DOMAINS = [
+  'google.com',
+  'youtube.com',
+  'facebook.com',
+  'instagram.com',
+  'twitter.com',
+  'x.com',
+  'tiktok.com',
+  'linkedin.com',
+  'reddit.com',
+  'pinterest.com',
+  'snapchat.com',
+  'whatsapp.com',
+  'telegram.org',
+  'discord.com',
+  'twitch.tv',
+  'netflix.com',
+  'amazon.com',
+  'ebay.com',
+  'wikipedia.org',
+  'github.com',
+  'stackoverflow.com',
+  'gmail.com',
+  'yahoo.com',
+  'hotmail.com',
+  'outlook.com',
+  'aol.com',
+  'msn.com',
+  'live.com',
+]
+
+/**
+ * Validates that a URL is safe for server-side requests and appropriate for business use
+ * Blocks: IP addresses, localhost, private networks, consumer sites, and improperly formatted domains
+ */
+const isBusinessUrlValid = (urlString) => {
+  try {
+    const url = new URL(urlString)
+    
+    // Only allow http/https protocols
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return { valid: false, error: 'Only HTTP and HTTPS URLs are allowed.' }
+    }
+    
+    const hostname = url.hostname.toLowerCase()
+    
+    // Block URLs with username/password (e.g., https://user@domain.com or https://email@gmail.com)
+    if (url.username || url.password) {
+      return { valid: false, error: 'URLs with authentication credentials are not allowed.' }
+    }
+    
+    // Block localhost and loopback addresses
+    if (hostname === 'localhost' || 
+        hostname === '0.0.0.0' ||
+        hostname.match(/^127\.\d+\.\d+\.\d+$/)) {
+      return { valid: false, error: 'Localhost URLs are not allowed.' }
+    }
+    
+    // Block all IPv4 addresses (including public IPs)
+    const ipv4Regex = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/
+    if (hostname.match(ipv4Regex)) {
+      return { valid: false, error: 'IP addresses are not allowed. Please use a domain name.' }
+    }
+    
+    // Block IPv6 addresses
+    if (hostname.includes(':') || hostname.match(/^\[[\da-f:]+\]$/i)) {
+      return { valid: false, error: 'IP addresses are not allowed. Please use a domain name.' }
+    }
+    
+    // Block private IP ranges (additional check)
+    const ipMatch = hostname.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
+    if (ipMatch) {
+      const [, a, b, c, d] = ipMatch.map(Number)
+      // 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 169.254.0.0/16 (AWS metadata)
+      if (a === 10 || 
+          (a === 172 && b >= 16 && b <= 31) ||
+          (a === 192 && b === 168) ||
+          (a === 169 && b === 254)) {
+        return { valid: false, error: 'Private network addresses are not allowed.' }
+      }
+    }
+    
+    // Require multi-segment domain (at least domain.tld)
+    const domainParts = hostname.split('.')
+    if (domainParts.length < 2 || domainParts.some(part => !part)) {
+      return { valid: false, error: 'Invalid domain format. Please use a valid domain name.' }
+    }
+    
+    // Block popular consumer domains
+    for (const blockedDomain of BLOCKED_DOMAINS) {
+      if (hostname === blockedDomain || hostname.endsWith(`.${blockedDomain}`)) {
+        return { 
+          valid: false, 
+          error: `${blockedDomain} is not allowed. Please enter a website you own.` 
+        }
+      }
+    }
+    
+    return { valid: true }
+  } catch {
+    return { valid: false, error: 'Invalid URL format.' }
+  }
+}
+
 export default async function handler(req, res) {
   configureFirebaseApp()
   
@@ -31,11 +136,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: 'URL is required' })
   }
 
-  // Validate URL format
-  try {
-    new URL(url)
-  } catch (error) {
-    return res.status(400).json({ message: 'Invalid URL format' })
+  // Validate URL for security and business use
+  const businessValidation = isBusinessUrlValid(url)
+  if (!businessValidation.valid) {
+    return res.status(400).json({ message: businessValidation.error })
   }
 
   const firecrawlApiKey = process.env.FIRECRAWL_API_KEY
