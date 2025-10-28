@@ -1006,7 +1006,7 @@ function Onboarding({ team }) {
       return isCreating ? 'Saving...' : 'Continue'
     }
     if (currentStep === 4) {
-      return 'Continue'
+      return 'Deploy'
     }
     if (currentStep === 5) {
       return 'Go to dashboard'
@@ -1512,13 +1512,13 @@ function Onboarding({ team }) {
     }
 
     if (currentStep === 3) {
-      // Just move to deploy step, don't finish yet
+      // Move to congratulations step
       setCurrentStep(4)
       return
     }
 
     if (currentStep === 4) {
-      // Move to congratulations step
+      // Move to deploy step
       setCurrentStep(5)
       return
     }
@@ -1557,6 +1557,15 @@ function Onboarding({ team }) {
       router.push(`/app/bots/${createdBot.id}`)
     } else {
       router.push('/app/bots')
+    }
+  }
+
+  const handleSkipToDashboard = () => {
+    if (typeof window !== 'undefined') {
+      window.sessionStorage.removeItem(ONBOARDING_SESSION_KEY)
+    }
+    if (createdBot?.id) {
+      router.push(`/app/bots/${createdBot.id}`)
     }
   }
 
@@ -2265,61 +2274,6 @@ function Onboarding({ team }) {
     if (currentStep === 4) {
       return (
         <div className="space-y-8">
-          <StepHeader
-            title="Deploy your chatbot"
-            description="Choose how you want to share your bot with the world. You can always add more integrations later."
-          />
-
-          <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-6">
-            <div className="flex items-start gap-3">
-              <LightBulbIcon className="h-6 w-6 flex-shrink-0 text-cyan-600" />
-              <div className="flex-1">
-                <h4 className="text-base font-semibold text-cyan-900">
-                  Getting started
-                </h4>
-                <ul className="mt-3 space-y-2 text-sm text-cyan-800">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>
-                      <strong>Chat Widget:</strong> Add a chat widget to your
-                      website for instant customer support
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>
-                      <strong>Share Links:</strong> Share a direct link for
-                      people to chat with your bot
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>
-                      <strong>Integrations:</strong> Connect with Slack, Help
-                      Scout, APIs, and more
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-            <div className="flex items-center gap-2">
-              <InformationCircleIcon className="h-5 w-5 flex-shrink-0 text-gray-600" />
-              <p className="text-sm text-gray-700">
-                You can configure all deployment options from your bot dashboard
-                at any time.
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-    if (currentStep === 5) {
-      return (
-        <div className="space-y-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-gray-900">
               🎉 Congratulations!
@@ -2431,13 +2385,68 @@ function Onboarding({ team }) {
       )
     }
 
+    if (currentStep === 5) {
+      return (
+        <div className="space-y-8">
+          <StepHeader
+            title="Deploy your chatbot"
+            description="Choose how you want to share your bot with the world. You can always add more integrations later."
+          />
+
+          <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-6">
+            <div className="flex items-start gap-3">
+              <LightBulbIcon className="h-6 w-6 flex-shrink-0 text-cyan-600" />
+              <div className="flex-1">
+                <h4 className="text-base font-semibold text-cyan-900">
+                  Getting started
+                </h4>
+                <ul className="mt-3 space-y-2 text-sm text-cyan-800">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>
+                      <strong>Chat Widget:</strong> Add a chat widget to your
+                      website for instant customer support
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>
+                      <strong>Share Links:</strong> Share a direct link for
+                      people to chat with your bot
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>
+                      <strong>Integrations:</strong> Connect with Slack, Help
+                      Scout, APIs, and more
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <div className="flex items-center gap-2">
+              <InformationCircleIcon className="h-5 w-5 flex-shrink-0 text-gray-600" />
+              <p className="text-sm text-gray-700">
+                You can configure all deployment options from your bot dashboard
+                at any time.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
     return null
   }
 
   return (
     <>
       {/* Confetti for congratulations step */}
-      {currentStep === 5 && (
+      {currentStep === 4 && (
         <Confetti
           width={typeof window !== 'undefined' ? window.innerWidth : 800}
           height={typeof window !== 'undefined' ? window.innerHeight : 600}
@@ -2517,6 +2526,16 @@ function Onboarding({ team }) {
                           <span />
                         )}
                         <div className="flex items-center gap-3">
+                          {/* Secondary "Go to dashboard" button for congrats step */}
+                          {currentStep === 4 && (
+                            <button
+                              type="button"
+                              onClick={handleSkipToDashboard}
+                              className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-800 focus:ring-offset-2"
+                            >
+                              Go to dashboard
+                            </button>
+                          )}
                           {currentStep === 2 &&
                           pendingSources.length > 0 &&
                           !hasReadySources ? (
@@ -2818,20 +2837,7 @@ function Onboarding({ team }) {
                           )}
                         </div>
                       </div>
-                    ) : currentStep === 4 && createdBot ? (
-                      <div className="max-h-[calc(100vh-16rem)] overflow-y-auto">
-                        <h3 className="mb-4 text-lg font-semibold text-gray-900">
-                          Deployment options
-                        </h3>
-                        <IntegrationsGrid
-                          team={team}
-                          bot={createdBot}
-                          integrations={[]}
-                          compact={true}
-                          openLinksInNewTab={true}
-                        />
-                      </div>
-                    ) : currentStep === 5 ? (
+                    ) : currentStep === 4 ? (
                       <div className="relative mb-8 lg:mt-16 inline-block max-w-xs">
                         <div className="rounded-2xl bg-white px-6 py-4 shadow-lg">
                           <h3 className="text-md text-center font-semibold text-gray-900">
@@ -2850,14 +2856,27 @@ function Onboarding({ team }) {
                           <path d="M0 0 L40 40 L0 20 Z" fill="white" />
                         </svg>
                       </div>
+                    ) : currentStep === 5 && createdBot ? (
+                      <div className="max-h-[calc(100vh-16rem)] overflow-y-auto">
+                        <h3 className="mb-4 text-lg font-semibold text-gray-900">
+                          Deployment options
+                        </h3>
+                        <IntegrationsGrid
+                          team={team}
+                          bot={createdBot}
+                          integrations={[]}
+                          compact={true}
+                          openLinksInNewTab={true}
+                        />
+                        
+                      </div>
                     ) : (
                       <>
                         {currentStep === 0 && !isAnalyzing && (
                           <div className="relative mb-8 inline-block max-w-xs">
                             <div className="rounded-2xl bg-white px-6 py-4 shadow-lg">
                               <h3 className="text-md text-center font-semibold text-gray-900">
-                                Welcome! I'll help you create your first
-                                chatbot.
+                                Welcome! I'll help you create a chatbot.
                               </h3>
                             </div>
                             {/* Arrow pointing down-right */}
@@ -2929,7 +2948,7 @@ function Onboarding({ team }) {
                     </div>
                   )}
 
-                  {currentStep === 5 && (
+                  {currentStep === 4 && (
                     <div className="pointer-events-none absolute bottom-0 left-0 z-0 flex w-full justify-center pb-8">
                       <RobotAnimationCongrats className="h-auto w-full max-w-xs lg:max-w-md" />
                     </div>

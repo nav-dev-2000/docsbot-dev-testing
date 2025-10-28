@@ -55,12 +55,12 @@ const selectBestIcon = (logos, backgroundColor) => {
   const isLight = isColorLight(backgroundColor)
   
   // Try to find an icon that matches the color mode for optimal contrast
-  if (isLight) {
-    // For light backgrounds, prefer dark mode icons
+  if (!isLight) {
+    // For dark backgrounds, prefer dark mode icons
     const darkIcon = iconLogos.find(logo => logo.mode === 'dark')
     if (darkIcon) return { url: darkIcon.url, mode: darkIcon.mode }
   } else {
-    // For dark backgrounds, prefer light mode icons
+    // For light backgrounds, prefer light mode icons
     const lightIcon = iconLogos.find(logo => logo.mode === 'light')
     if (lightIcon) return { url: lightIcon.url, mode: lightIcon.mode }
   }
