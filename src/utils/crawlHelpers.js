@@ -215,6 +215,11 @@ export const retrieveBrandByDomain = async (domain) => {
   try {
     const cached = await getCacheEntry(cacheType, domain, cacheOptions)
     if (cached?.data) {
+      // If cached data is an error, return null (error was already cached)
+      if (cached.data?.isError) {
+        console.log(`Using cached error response for domain: ${domain}`)
+        return null
+      }
       return cached.data
     }
   } catch (cacheError) {
@@ -252,6 +257,20 @@ export const retrieveBrandByDomain = async (domain) => {
         }
 
         return data.brand
+      }
+    }
+
+    // Cache 4xx and 5xx errors to prevent repeated API calls for invalid domains
+    if (response.status >= 400) {
+      console.log(`Caching error response (${response.status}) for domain: ${domain}`)
+      try {
+        await setCacheEntry(cacheType, domain, { 
+          isError: true, 
+          status: response.status,
+          timestamp: new Date().toISOString()
+        }, cacheOptions)
+      } catch (cacheError) {
+        console.error('Failed to write brand error cache', cacheError)
       }
     }
 

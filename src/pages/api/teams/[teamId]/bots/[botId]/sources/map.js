@@ -152,6 +152,13 @@ export default async function handler(req, res) {
     try {
       const cached = await getCacheEntry(cacheType, url, { includePath: true })
       if (cached?.data) {
+        // If cached data is an error response, return it
+        if (cached.data?.isError) {
+          console.log(`Returning cached error response for URL: ${url}`)
+          return res.status(cached.data.status).json({ 
+            message: cached.data.message 
+          })
+        }
         return res.status(200).json({
           success: true,
           ...cached.data,
@@ -177,8 +184,23 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorData = await response.json()
+      const errorMessage = errorData.message || 'Failed to scan website'
+      
+      // Cache 4xx and 5xx errors to prevent repeated API calls for invalid URLs
+      console.log(`Caching error response (${response.status}) for URL: ${url}`)
+      try {
+        await setCacheEntry(cacheType, url, { 
+          isError: true, 
+          status: response.status,
+          message: errorMessage,
+          timestamp: new Date().toISOString()
+        }, { includePath: true })
+      } catch (cacheError) {
+        console.error('Failed to write map error cache', cacheError)
+      }
+      
       return res.status(response.status).json({ 
-        message: errorData.message || 'Failed to scan website' 
+        message: errorMessage
       })
     }
 

@@ -122,6 +122,9 @@
         },
         "src/pages/api/cron/cleanup-demo-bots.js": {
             "maxDuration": 300
+        },
+        "src/pages/api/teams/[teamId]/bots/analyze.js": {
+            "maxDuration": 120
         }
     },
     "rewrites": [
