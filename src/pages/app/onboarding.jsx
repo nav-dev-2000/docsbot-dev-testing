@@ -301,6 +301,7 @@ function Onboarding({ team }) {
   const [hasPrefilledWebsiteSource, setHasPrefilledWebsiteSource] =
     useState(false)
   const [prefillWebsiteSourceData, setPrefillWebsiteSourceData] = useState(null)
+  const [prefillUrl, setPrefillUrl] = useState(null)
   const [agentInstructionsModalOpen, setAgentInstructionsModalOpen] =
     useState(false)
   const [hasInteractedWithBot, setHasInteractedWithBot] = useState(false)
@@ -639,6 +640,28 @@ function Onboarding({ team }) {
     [websiteUrl, isUrlValid],
   )
 
+  // Helper to track onboarding errors
+  const trackOnboardingError = useCallback((errorMessage, step = currentStep) => {
+    if (!posthog) return
+
+    const stepNames = {
+      0: 'Website URL Entry',
+      1: 'Add Sources',
+      2: 'Customize Branding',
+      3: 'Test Bot',
+      4: 'Deploy',
+      5: 'Complete',
+    }
+
+    posthog.capture('Onboarding Error', {
+      message: errorMessage,
+      step,
+      step_name: stepNames[step] || 'Unknown',
+      bot_id: createdBot?.id || null,
+      team_id: team?.id || null,
+    })
+  }, [posthog, currentStep, createdBot?.id, team?.id])
+
   const ensureBotCreated = useCallback(
     async (overrides = {}) => {
       if (createdBot || isCreating) {
@@ -716,9 +739,9 @@ function Onboarding({ team }) {
       await loadSources(bot.id)
       return bot
     } catch (error) {
-      setStepError(
-        error.message || 'Unable to create your bot. Please try again.',
-      )
+      const errorMsg = error.message || 'Unable to create your bot. Please try again.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 0)
       throw error
     }
   },
@@ -737,7 +760,8 @@ function Onboarding({ team }) {
     firstMessage,
     createBot,
     resetError,
-      loadSources,
+    loadSources,
+    trackOnboardingError,
     ],
   )
 
@@ -746,6 +770,8 @@ function Onboarding({ team }) {
       setSourceModalOpen(open)
       if (!open) {
         setSourceModalType(null)
+        setPrefillUrl(null)
+        setPrefillWebsiteSourceData(null)
         if (createdBot?.id) {
           loadSources(createdBot.id)
         }
@@ -1022,80 +1048,9 @@ function Onboarding({ team }) {
 
   const showBackButton = currentStep > 1 && currentStep <= 5
 
-  // Create single URL source AND trigger website source modal when transitioning to step 1
-  useEffect(() => {
-    if (currentStep !== 1) return
-    if (hasPrefilledWebsiteSource) return
-    if (!createdBot?.id) return
-    if (!onboardingWebsiteUrl) return
-    if (!team?.id) return
-    if (!hasLoadedInitialSources) return // Wait for initial sources to load
-    if (botSources.length > 0) return
-
-    // Set flag immediately to prevent re-runs
-    setHasPrefilledWebsiteSource(true)
-
-    const createInitialUrlSourceAndOpenModal = async () => {
-      try {
-        // Normalize URL by adding https:// if no protocol is present
-        let normalizedUrl = onboardingWebsiteUrl.trim()
-        if (!normalizedUrl.match(/^https?:\/\//i)) {
-          normalizedUrl = `https://${normalizedUrl}`
-        }
-
-        // First, create the single URL source
-        const apiPath = `/api/teams/${team.id}/bots/${createdBot.id}/sources`
-        const response = await fetch(apiPath, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            type: 'url',
-            url: normalizedUrl,
-            scheduleInterval: 'none',
-          }),
-        })
-
-        if (response.ok) {
-          // Reload sources after successful creation
-          const targetBotId = createdBot.id
-          const sourcesResponse = await fetch(
-            `/api/teams/${team.id}/bots/${targetBotId}/sources`,
-          )
-          if (sourcesResponse.ok) {
-            const data = await sourcesResponse.json()
-            setBotSources(data?.sources || [])
-          }
-        } else {
-          console.error('Failed to create initial URL source')
-          setHasPrefilledWebsiteSource(false) // Allow retry
-          return
-        }
-
-        // Then, open the website source modal with pre-filled URL
-        setPrefillWebsiteSourceData({
-          url: normalizedUrl,
-          autoMap: true, // Start scanning automatically
-        })
-        setSourceModalType('website')
-        setSourceModalOpen(true)
-      } catch (error) {
-        console.error('Error creating initial URL source:', error)
-        setHasPrefilledWebsiteSource(false) // Allow retry
-      }
-    }
-
-    createInitialUrlSourceAndOpenModal()
-  }, [
-    currentStep,
-    createdBot?.id,
-    onboardingWebsiteUrl,
-    hasPrefilledWebsiteSource,
-    botSources.length,
-    team?.id,
-    hasLoadedInitialSources,
-  ])
+  // Removed automatic URL source creation and modal opening
+  // The URL will be prefilled when user manually clicks on a source type
+  // (see handleSourceTypeClick function)
 
   const handleAutoMapComplete = useCallback(() => {
     setPrefillWebsiteSourceData((prev) =>
@@ -1103,13 +1058,50 @@ function Onboarding({ team }) {
     )
   }, [])
 
+  // Handle source type selection with URL prefilling
+  const handleSourceTypeClick = useCallback(
+    (sourceTypeId) => {
+      // Source types that should have URL prefilled
+      const urlBasedTypes = ['website', 'sitemap', 'url', 'urls']
+      
+      // Clear any previous prefill data first
+      setPrefillWebsiteSourceData(null)
+      setPrefillUrl(null)
+      
+      if (onboardingWebsiteUrl && urlBasedTypes.includes(sourceTypeId)) {
+        // Normalize URL by adding https:// if no protocol is present
+        let normalizedUrl = onboardingWebsiteUrl.trim()
+        if (!normalizedUrl.match(/^https?:\/\//i)) {
+          normalizedUrl = `https://${normalizedUrl}`
+        }
+
+        // Set prefill data for website source type (but don't auto-map)
+        if (sourceTypeId === 'website') {
+          setPrefillWebsiteSourceData({
+            url: normalizedUrl,
+            autoMap: false, // Don't start scanning automatically
+          })
+        } else {
+          // For other URL-based types, use the general prefillUrl
+          setPrefillUrl(normalizedUrl)
+        }
+      }
+
+      setSourceModalType(sourceTypeId)
+      setSourceModalOpen(true)
+    },
+    [onboardingWebsiteUrl],
+  )
+
   const handleAnalyze = async () => {
     setStepError(null)
     if (useManualEntry) {
       return true
     }
     if (!websiteUrl.trim()) {
-      setStepError('Please enter a website URL to analyze.')
+      const errorMsg = 'Please enter a website URL to analyze.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 0)
       return false
     }
     if (!isUrlValid) {
@@ -1235,7 +1227,9 @@ function Onboarding({ team }) {
         },
       })
     } catch (error) {
-      setStepError(error.message || 'Failed to analyze the provided website.')
+      const errorMsg = error.message || 'Failed to analyze the provided website.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 0)
       setIsAnalyzing(false)
       if (analyzingIntervalRef.current) {
         clearInterval(analyzingIntervalRef.current)
@@ -1258,14 +1252,16 @@ function Onboarding({ team }) {
     resetError()
 
     if (!botName.trim()) {
-      setStepError('Please provide a name for your bot before continuing.')
+      const errorMsg = 'Please provide a name for your bot before continuing.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 1)
       return
     }
 
     if (!agentPrompt || !agentPrompt.includes('search_documentation')) {
-      setStepError(
-        'Your instructions must include guidance for the `search_documentation` tool.',
-      )
+      const errorMsg = 'Your instructions must include guidance for the `search_documentation` tool.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 1)
       return
     }
 
@@ -1312,9 +1308,9 @@ function Onboarding({ team }) {
       setCurrentStep(4)
       loadSources(updated.id)
     } catch (error) {
-      setStepError(
-        error.message || 'Unable to update your bot. Please try again.',
-      )
+      const errorMsg = error.message || 'Unable to update your bot. Please try again.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 1)
     }
   }
 
@@ -1323,7 +1319,9 @@ function Onboarding({ team }) {
     if (!file) return
 
     if (!createdBot) {
-      setStepError('Please create a bot first')
+      const errorMsg = 'Please create a bot first'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 2)
       return
     }
 
@@ -1348,9 +1346,9 @@ function Onboarding({ team }) {
       })
       .catch((error) => {
         console.warn(error)
-        setStepError(
-          'Error uploading file, please try again. If the problem persists, try logging out then back in again.',
-        )
+        const errorMsg = 'Error uploading file, please try again. If the problem persists, try logging out then back in again.'
+        setStepError(errorMsg)
+        trackOnboardingError(errorMsg, 2)
         setIsUploadingLogo(false)
       })
   }
@@ -1373,7 +1371,9 @@ function Onboarding({ team }) {
       setIframeLoaded(false) // Reset iframe loaded state when prompt changes
       setHasInteractedWithBot(false) // Reset interaction state to show robot again
     } catch (error) {
-      setStepError(error.message || 'Unable to save changes.')
+      const errorMsg = error.message || 'Unable to save changes.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 3)
     } finally {
       setIsSavingPrompt(false)
     }
@@ -1455,7 +1455,9 @@ function Onboarding({ team }) {
 
       setCurrentStep(3)
     } catch (error) {
-      setStepError(error.message || 'Unable to save branding changes.')
+      const errorMsg = error.message || 'Unable to save branding changes.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 2)
     } finally {
       setIsBrandingSaving(false)
     }
@@ -1472,7 +1474,9 @@ function Onboarding({ team }) {
         return
       }
       if (!botName.trim()) {
-        setStepError('Please provide a name for your bot before continuing.')
+        const errorMsg = 'Please provide a name for your bot before continuing.'
+        setStepError(errorMsg)
+        trackOnboardingError(errorMsg, 0)
         return
       }
       setStepError(null)
@@ -1488,9 +1492,9 @@ function Onboarding({ team }) {
         agentPrompt,
         firstMessage,
       }).catch((error) => {
-        setStepError(
-          error.message || 'Unable to create your bot. Please try again.',
-        )
+        const errorMsg = error.message || 'Unable to create your bot. Please try again.'
+        setStepError(errorMsg)
+        trackOnboardingError(errorMsg, 0)
       })
       return
     }
@@ -1821,8 +1825,7 @@ function Onboarding({ team }) {
                             setShowCheckout(true)
                             return
                           }
-                          setSourceModalType(type.id)
-                          setSourceModalOpen(true)
+                          handleSourceTypeClick(type.id)
                         }}
                         disabled={sourcesDisabled}
                         className={classNames(
@@ -1845,16 +1848,10 @@ function Onboarding({ team }) {
                           <div>
                             <p className="text-sm font-semibold text-gray-900">
                               {type.title}
-                              {!hasAccess ? (
+                              {!hasAccess && (
                                 <span className="ml-2 inline-flex items-center rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600">
                                   {permission.requiredPlanLabel}
                                 </span>
-                              ) : (
-                                type.isNew && (
-                                  <span className="ml-2 inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                                    New
-                                  </span>
-                                )
                               )}
                             </p>
                             <p className="mt-1 text-xs text-gray-500">
@@ -2482,7 +2479,25 @@ function Onboarding({ team }) {
                 {/* Left Column - Form Content */}
                 <div className="p-8 sm:p-12">
                   <div className="space-y-6">
-                    {stepError && <Alert title={stepError} type="error" />}
+                    {stepError && (
+                      <Alert title={stepError} type="error">
+                        {currentStep === 0 && !useManualEntry && (
+                          <div className="mt-2">Or{' '}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setUseManualEntry(true)
+                                setStepError(null)
+                                setUrlError('')
+                              }}
+                              className="font-medium text-red-700 underline hover:text-red-600"
+                            >
+                              set up your bot without a website
+                            </button>
+                          </div>
+                        )}
+                      </Alert>
+                    )}
                     {createError && currentStep === 3 && (
                       <Alert title={createError} type="error" />
                     )}
@@ -2588,6 +2603,20 @@ function Onboarding({ team }) {
                             <p className="text-sm text-gray-500">
                               You haven't added any sources yet. Choose a source
                               type to get started.
+                              {onboardingWebsiteUrl && (
+                                <>
+                                  {' '}
+                                  I recommend{' '}
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSourceTypeClick('website')}
+                                    className="font-medium text-cyan-600 hover:text-cyan-500 focus:outline-none focus:underline"
+                                  >
+                                    training from your website
+                                  </button>{' '}
+                                  first.
+                                </>
+                              )}
                             </p>
                           </div>
                         ) : (
@@ -2958,6 +2987,7 @@ function Onboarding({ team }) {
                         setOpenSourceID={() => {}}
                         prefillWebsiteData={prefillWebsiteSourceData}
                         onWebsitePrefillComplete={handleAutoMapComplete}
+                        prefillUrl={prefillUrl}
                         initialTypeId={sourceModalType}
                         onClose={() => handleSourceModalState(false)}
                         minimal

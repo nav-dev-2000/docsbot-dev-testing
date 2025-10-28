@@ -39,6 +39,7 @@ export default function SourceForm({
   autoShowForm = false,
   prefillWebsiteData = null,
   onWebsitePrefillComplete = () => {},
+  prefillUrl = null, // URL to prefill for any source type
 }) {
   const initialSourceType = useMemo(
     () =>
@@ -166,6 +167,11 @@ export default function SourceForm({
         throw new Error(data.message || 'Failed to scan website')
       }
 
+      // Check if any URLs were found
+      if (!data.urls || data.urls.length === 0) {
+        throw new Error('No pages found on this website')
+      }
+
       setWebsiteUrls(data.urls)
       setSelectedWebsiteUrls([]) // Reset selections
       setWebsiteStep(2) // Move to URL selection step
@@ -253,6 +259,18 @@ export default function SourceForm({
 
     runAutoMap()
   }, [prefillWebsiteData, selectedSourceType?.id, url, isMappingWebsite, websiteStep, mapWebsite, onWebsitePrefillComplete])
+
+  // Handle general URL prefilling for all source types
+  useEffect(() => {
+    if (!prefillUrl || !selectedSourceType?.id) {
+      return
+    }
+
+    // Only prefill if URL field is empty
+    if (!url) {
+      setUrl(prefillUrl)
+    }
+  }, [prefillUrl, selectedSourceType?.id, url])
 
   //validate fields
   useEffect(() => {
@@ -1426,7 +1444,40 @@ export default function SourceForm({
                           </div>
                         )}
                         {mappingError && (
-                          <p className="mt-2 text-sm text-red-600">{mappingError}</p>
+                          <div className="mt-2 rounded-md bg-red-50 p-3">
+                            <div className="flex">
+                              <div className="flex-shrink-0">
+                                <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                </svg>
+                              </div>
+                              <div className="ml-3">
+                                <p className="text-sm text-red-800">
+                                  {mappingError}
+                                  {' '}
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      // Pre-fill the URL in the URL list
+                                      const normalizedUrl = normalizeUrl(url)
+                                      if (normalizedUrl && isValidURL(normalizedUrl)) {
+                                        setUrls([normalizedUrl])
+                                      }
+                                      setSelectedSourceType(sourceTypes.find(st => st.id === 'urls'))
+                                      setWebsiteStep(1)
+                                      setWebsiteUrls([])
+                                      setSelectedWebsiteUrls([])
+                                      setMappingError(null)
+                                      setUrl('') // Clear the URL field for URL List source type
+                                    }}
+                                    className="font-medium text-red-700 underline hover:text-red-600"
+                                  >
+                                    Try URL List instead
+                                  </button>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         )}
                       </div>
                     )}
@@ -1985,7 +2036,40 @@ https://example.com/page2`
                           </button>
                             </div>
                             {mappingError && (
-                              <p className="mt-2 text-sm text-red-600">{mappingError}</p>
+                              <div className="mt-2 rounded-md bg-red-50 p-3">
+                                <div className="flex">
+                                  <div className="flex-shrink-0">
+                                    <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                    </svg>
+                                  </div>
+                                  <div className="ml-3">
+                                    <p className="text-sm text-red-800">
+                                      {mappingError}
+                                      {' '}
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          // Pre-fill the URL in the URL list
+                                          const normalizedUrl = normalizeUrl(url)
+                                          if (normalizedUrl && isValidURL(normalizedUrl)) {
+                                            setUrls([normalizedUrl])
+                                          }
+                                          setSelectedSourceType(sourceTypes.find(st => st.id === 'urls'))
+                                          setWebsiteStep(1)
+                                          setWebsiteUrls([])
+                                          setSelectedWebsiteUrls([])
+                                          setMappingError(null)
+                                          setUrl('') // Clear the URL field for URL List source type
+                                        }}
+                                        className="font-medium text-red-700 underline hover:text-red-600"
+                                      >
+                                        Try URL List instead
+                                      </button>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
                             )}
                           </div>
                         )}
