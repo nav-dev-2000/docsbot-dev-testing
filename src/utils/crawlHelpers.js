@@ -1,6 +1,10 @@
 import { v4 as uuidv4 } from 'uuid'
 import { getStorage } from 'firebase-admin/storage'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getCacheEntry, setCacheEntry } from '@/utils/cache.utils'
 import { firebaseConfig } from '@/config/firebase-ui.config'
+
+configureFirebaseApp()
 
 /**
  * Helper functions for crawling and extracting content from websites
@@ -205,6 +209,18 @@ export const retrieveBrandByDomain = async (domain) => {
     return null
   }
 
+  const cacheType = 'brand-dev'
+  const cacheOptions = { includePath: false }
+
+  try {
+    const cached = await getCacheEntry(cacheType, domain, cacheOptions)
+    if (cached?.data) {
+      return cached.data
+    }
+  } catch (cacheError) {
+    console.error('Failed to read brand cache', cacheError)
+  }
+
   try {
     console.log(`Retrieving brand data for domain: ${domain}`)
     const url = `https://api.brand.dev/v1/brand/retrieve?domain=${encodeURIComponent(domain)}`
@@ -228,6 +244,13 @@ export const retrieveBrandByDomain = async (domain) => {
       const data = await response.json()
       if (data && data.status === 'ok') {
         console.log(`Brand data retrieved successfully for ${domain}`)
+
+        try {
+          await setCacheEntry(cacheType, domain, data.brand, cacheOptions)
+        } catch (cacheError) {
+          console.error('Failed to write brand cache', cacheError)
+        }
+
         return data.brand
       }
     }
@@ -653,10 +676,12 @@ export const crawlAndExtract = async (url, metadata = {}) => {
   */
 
   // Return flat object with screenshot and brand data merged at top level
-  return {
+  const result = {
     ...botConfig,
     ...(screenCaptures?.full ? { screenshotUrl: screenCaptures.full } : {}),
     // Merge brand data properties at top level (colors, logos, socials, etc.)
     ...(brandData || {}),
   }
+
+  return result
 }

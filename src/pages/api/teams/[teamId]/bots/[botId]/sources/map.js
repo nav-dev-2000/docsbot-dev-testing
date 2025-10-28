@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { canUserModifySources } from '@/utils/function.utils'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getCacheEntry, setCacheEntry } from '@/utils/cache.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -43,6 +44,19 @@ export default async function handler(req, res) {
   }
 
   try {
+    const cacheType = 'firecrawl-map'
+    try {
+      const cached = await getCacheEntry(cacheType, url, { includePath: true })
+      if (cached?.data) {
+        return res.status(200).json({
+          success: true,
+          ...cached.data,
+        })
+      }
+    } catch (cacheError) {
+      console.error('Failed to read map cache', cacheError)
+    }
+
     const response = await fetch('https://api.firecrawl.dev/v2/map', {
       method: 'POST',
       headers: {
@@ -73,10 +87,20 @@ export default async function handler(req, res) {
     // Process and collapse URLs by path segments
     const processedUrls = processUrls(data.links, url)
     
+    const payload = {
+      urls: processedUrls,
+      totalCount: data.links.length,
+    }
+
+    try {
+      await setCacheEntry(cacheType, url, payload, { includePath: true })
+    } catch (cacheError) {
+      console.error('Failed to write map cache', cacheError)
+    }
+
     return res.status(200).json({
       success: true,
-      urls: processedUrls,
-      totalCount: data.links.length
+      ...payload,
     })
 
   } catch (error) {

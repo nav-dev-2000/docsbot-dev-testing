@@ -2785,6 +2785,17 @@ function Onboarding({ team }) {
                           className="relative"
                           onMouseEnter={() => setHasInteractedWithBot(true)}
                         >
+                          {!iframeLoaded && (
+                            <div className="flex min-h-[700px] items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
+                              <div className="text-center">
+                                <LoadingSpinner className="mx-auto h-8 w-8 text-cyan-600" />
+                                <p className="mt-3 text-sm text-gray-600">
+                                  Loading chat...
+                                </p>
+                              </div>
+                            </div>
+                          )}
+                          
                           <iframe
                             key={savedAgentPrompt}
                             src={`${
