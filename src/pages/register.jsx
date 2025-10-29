@@ -23,6 +23,11 @@ import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { usePostHog } from 'posthog-js/react'
+import { SIGNUP_ONBOARDING_CACHE_KEY } from '@/constants/storageKeys.constants'
+import {
+  WEBSITE_PATH_WARNING_COPY,
+  validateWebsiteInput,
+} from '@/utils/websiteValidation'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -35,6 +40,8 @@ function Register({ teamCount }) {
   const [name, setName] = useState('')
   const [userType, setUserType] = useState(null)
   const [usageType, setUsageType] = useState(null)
+  const [siteError, setSiteError] = useState('')
+  const [siteWarning, setSiteWarning] = useState('')
   const posthog = usePostHog()
 
   const userTypes = [
@@ -48,6 +55,71 @@ function Register({ teamCount }) {
     { value: 'research', title: 'Document Q&A', description: 'Chat with your docs & files for research or education.' },
     { value: 'content', title: 'Content Creation', description: 'Generate custom content for your blog or social media.' },
   ]
+
+  const persistSignupSelections = useCallback(
+    (normalizedSite) => {
+      if (typeof window === 'undefined') return
+      if (!usageType) return
+      try {
+        const payload = {
+          usageType,
+          site: normalizedSite || null,
+          timestamp: Date.now(),
+        }
+        window.localStorage.setItem(
+          SIGNUP_ONBOARDING_CACHE_KEY,
+          JSON.stringify(payload),
+        )
+      } catch (error) {
+        console.error('Failed to persist onboarding selections', error)
+      }
+    },
+    [usageType],
+  )
+
+  const validateBusinessSite = useCallback(
+    (value) => {
+      const trimmed = value ? value.trim() : ''
+      if (!trimmed) {
+        setSiteError('')
+        setSiteWarning('')
+        return { valid: true, normalizedUrl: null }
+      }
+
+      const result = validateWebsiteInput(trimmed)
+      if (!result.valid) {
+        setSiteError(
+          result.error || 'Enter a valid URL, e.g. https://example.com',
+        )
+        setSiteWarning('')
+        return { valid: false, normalizedUrl: null }
+      }
+
+      if (result.hasPathWarning) {
+        setSiteError('')
+        setSiteWarning(WEBSITE_PATH_WARNING_COPY)
+        return { valid: false, normalizedUrl: result.normalizedUrl }
+      }
+
+      setSiteError('')
+      setSiteWarning('')
+      if (result.normalizedUrl && result.normalizedUrl !== trimmed) {
+        setSite(result.normalizedUrl)
+      }
+
+      return { valid: true, normalizedUrl: result.normalizedUrl }
+    },
+    [setSite, setSiteError, setSiteWarning],
+  )
+
+  const validateBeforeSubmit = useCallback(() => {
+    if (userType !== 'business') {
+      setSiteError('')
+      setSiteWarning('')
+      return { valid: true, normalizedUrl: null }
+    }
+    return validateBusinessSite(site)
+  }, [userType, site, validateBusinessSite])
 
   //set redirect path from query param
   useEffect(() => {
@@ -77,7 +149,16 @@ function Register({ teamCount }) {
     setAuthError(error)
   }, [error])
 
+  useEffect(() => {
+    if (userType !== 'business') {
+      setSiteError('')
+      setSiteWarning('')
+    }
+  }, [userType])
+
   const isAnyAuthMethodLoading = userAuthLoading || googleAuthLoading || authLoading
+  const hasBusinessSiteIssue =
+    userType === 'business' && (Boolean(siteError) || Boolean(siteWarning))
 
   const authorizeUser = useCallback(postAuth, [])
   useEffect(() => {
@@ -105,11 +186,26 @@ function Register({ teamCount }) {
           }
           posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageTypeForTracking })
           posthog?.startSessionRecording()
+          const normalizedSite =
+            userType === 'business' && site.trim() ? site.trim() : null
+          persistSignupSelections(normalizedSite)
           router.push(redirectPath)
         },
       })
     }
-  }, [user, userAuthLoading, authorizeUser, router])
+  }, [
+    user,
+    userAuthLoading,
+    authorizeUser,
+    router,
+    usageType,
+    userType,
+    site,
+    persistSignupSelections,
+    redirectPath,
+    name,
+    posthog,
+  ])
 
   useRegisterGoogleUser({
     googleUser,
@@ -134,6 +230,9 @@ function Register({ teamCount }) {
       }
       posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageTypeForTracking })
       posthog?.startSessionRecording()
+      const normalizedSite =
+        userType === 'business' && site.trim() ? site.trim() : null
+      persistSignupSelections(normalizedSite)
       router.push(redirectPath)
     },
   })
@@ -158,6 +257,10 @@ function Register({ teamCount }) {
               setNotCheckedError(false)
               if (!checked) {
                 setNotCheckedError(true)
+                return
+              }
+              const validation = validateBeforeSubmit()
+              if (!validation.valid) {
                 return
               }
               createUserWithEmailAndPassword(email, password)
@@ -189,9 +292,29 @@ function Register({ teamCount }) {
                   type="url"
                   placeholder="https://mycompany.com"
                   value={site}
-                  onChange={(e) => setSite(e.target.value)}
+                  onChange={(e) => {
+                    setSite(e.target.value)
+                    if (siteError) {
+                      setSiteError('')
+                    }
+                    if (siteWarning) {
+                      setSiteWarning('')
+                    }
+                  }}
+                  onBlur={(event) => validateBusinessSite(event.target.value)}
+                  aria-invalid={Boolean(siteError)}
                 />
-                <p className="col-span-full -mt-4 text-sm text-gray-500">
+                {siteError && (
+                  <p className="col-span-full mt-2 text-sm text-red-600">
+                    {siteError}
+                  </p>
+                )}
+                {!siteError && siteWarning && (
+                  <div className="col-span-full mt-2 rounded-md border border-yellow-200 bg-yellow-50 p-3 text-sm text-yellow-700">
+                    {siteWarning}
+                  </div>
+                )}
+                <p className="col-span-full mt-2 text-sm text-gray-500">
                   If your company has a website, please provide the URL. This will help us better
                   train your bot for your business.
                 </p>
@@ -248,18 +371,24 @@ function Register({ teamCount }) {
                   <Button
                     variant="outline"
                     color="slate"
-                    className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-                    disabled={isAnyAuthMethodLoading}
+                    className={clsx('w-full', {
+                      'opacity-75': isAnyAuthMethodLoading || hasBusinessSiteIssue,
+                    })}
+                    disabled={isAnyAuthMethodLoading || hasBusinessSiteIssue}
                     onClick={(e) => {
                       e.preventDefault()
                       setNotCheckedError(false)
                       if (!checked) {
                         setNotCheckedError(true)
-                        return
-                      }
-                      signInWithGoogle()
-                    }}
-                  >
+                      return
+                    }
+                    const validation = validateBeforeSubmit()
+                    if (!validation.valid) {
+                      return
+                    }
+                    signInWithGoogle()
+                  }}
+                >
                     <span className="mr-3">
                       <GoogleLogo />
                     </span>
@@ -313,8 +442,10 @@ function Register({ teamCount }) {
                     type="submit"
                     variant="solid"
                     color="blue"
-                    className={clsx('w-full', { 'opacity-75': isAnyAuthMethodLoading })}
-                    disabled={isAnyAuthMethodLoading}
+                    className={clsx('w-full', {
+                      'opacity-75': isAnyAuthMethodLoading || hasBusinessSiteIssue,
+                    })}
+                    disabled={isAnyAuthMethodLoading || hasBusinessSiteIssue}
                   >
                     <span>
                       Sign up <span aria-hidden="true">&rarr;</span>

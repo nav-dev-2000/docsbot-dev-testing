@@ -63,6 +63,12 @@ import { usePostHog } from 'posthog-js/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import clsx from 'clsx'
 import { SketchPicker } from 'react-color'
+import { SIGNUP_ONBOARDING_CACHE_KEY } from '@/constants/storageKeys.constants'
+import {
+  validateWebsiteInput,
+  usageTypeToPromptKey,
+  WEBSITE_PATH_WARNING_COPY,
+} from '@/utils/websiteValidation'
 
 const DEFAULT_PROMPT_KEY = 'CUSTOMER_SUPPORT'
 const ONBOARDING_SESSION_KEY = 'docsbot-onboarding-state'
@@ -314,6 +320,35 @@ function Onboarding({ team }) {
   const savePromptButtonRef = useRef(null)
   const analyzingIntervalRef = useRef(null)
   const botSourcesRef = useRef([])
+  const signupSeedAppliedRef = useRef(false)
+  const trimmedWebsiteUrl = websiteUrl.trim()
+  const websiteValidationResult = useMemo(() => {
+    if (!trimmedWebsiteUrl) {
+      return {
+        valid: false,
+        error: '',
+        hasPathWarning: false,
+        normalizedUrl: '',
+      }
+    }
+    const result = validateWebsiteInput(trimmedWebsiteUrl)
+    if (!result.valid) {
+      return {
+        valid: false,
+        error: result.error || '',
+        hasPathWarning: false,
+        normalizedUrl: '',
+      }
+    }
+    return {
+      valid: true,
+      error: '',
+      hasPathWarning: Boolean(result.hasPathWarning),
+      normalizedUrl: result.normalizedUrl,
+    }
+  }, [trimmedWebsiteUrl])
+  const isUrlValid = websiteValidationResult.valid
+  const hasUrlPathWarning = websiteValidationResult.hasPathWarning
   const {
     createBot,
     isCreating,
@@ -391,15 +426,22 @@ function Onboarding({ team }) {
   }, [botLanguage, firstMessageEdited])
 
   useEffect(() => {
-    if (
-      websiteUrl &&
-      lastAnalyzedUrl &&
-      websiteUrl.trim() !== lastAnalyzedUrl
-    ) {
+    if (!websiteUrl || !lastAnalyzedUrl) return
+
+    const normalizedCurrent = websiteValidationResult.valid
+      ? websiteValidationResult.normalizedUrl
+      : websiteUrl.trim()
+
+    if (normalizedCurrent && normalizedCurrent !== lastAnalyzedUrl) {
       setAnalysisData(null)
       setUrlError('')
     }
-  }, [websiteUrl, lastAnalyzedUrl])
+  }, [
+    websiteUrl,
+    lastAnalyzedUrl,
+    websiteValidationResult.valid,
+    websiteValidationResult.normalizedUrl,
+  ])
 
   const refreshBotData = useCallback(
     async (botIdParam) => {
@@ -580,64 +622,105 @@ function Onboarding({ team }) {
     }
   }, [hasHydratedSession, team, createdBot, router])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (!hasHydratedSession) return
+    if (signupSeedAppliedRef.current) return
+
+    const teamBotCount =
+      typeof team?.botCount === 'number' ? team.botCount : 0
+
+    if (createdBot || teamBotCount > 0) {
+      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+      signupSeedAppliedRef.current = true
+      return
+    }
+
+    const stored = window.localStorage.getItem(
+      SIGNUP_ONBOARDING_CACHE_KEY,
+    )
+    if (!stored) {
+      signupSeedAppliedRef.current = true
+      return
+    }
+
+    let parsed = null
+    try {
+      parsed = JSON.parse(stored)
+    } catch (error) {
+      console.error('Failed to parse signup onboarding cache', error)
+      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+      signupSeedAppliedRef.current = true
+      return
+    }
+
+    const { usageType: cachedUsageType, site: cachedSite, timestamp } =
+      parsed || {}
+
+    if (typeof timestamp === 'number') {
+      const oneDayMs = 24 * 60 * 60 * 1000
+      if (Date.now() - timestamp > oneDayMs) {
+        window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+        signupSeedAppliedRef.current = true
+        return
+      }
+    }
+
+    if (typeof cachedUsageType === 'string' && !promptEdited) {
+      const presetKey = usageTypeToPromptKey(cachedUsageType)
+      if (
+        presetKey &&
+        PRESET_PROMPTS[presetKey] &&
+        presetKey !== promptKey
+      ) {
+        setPromptKey(presetKey)
+        setPromptEdited(false)
+        setTemperature(getTemplateTemperature(presetKey))
+      }
+    }
+
+    if (
+      typeof cachedSite === 'string' &&
+      cachedSite.trim() &&
+      !websiteUrl.trim()
+    ) {
+      const validation = validateWebsiteInput(cachedSite.trim())
+      if (validation.valid && !validation.hasPathWarning) {
+        setWebsiteUrl(validation.normalizedUrl)
+        setUseManualEntry(false)
+      }
+    }
+
+    signupSeedAppliedRef.current = true
+  }, [
+    hasHydratedSession,
+    createdBot,
+    team,
+    promptEdited,
+    promptKey,
+    websiteUrl,
+    setPromptKey,
+    setPromptEdited,
+    setTemperature,
+    setWebsiteUrl,
+    setUseManualEntry,
+  ])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const teamBotCount =
+      typeof team?.botCount === 'number' ? team.botCount : 0
+    if (createdBot || teamBotCount > 0) {
+      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+    }
+  }, [createdBot, team])
+
   const localizedLabels = useMemo(
     () => ({
       ...(i18n[botLanguage]?.labels || i18n.en.labels),
       firstMessage: firstMessage || getDefaultFirstMessage(botLanguage),
     }),
     [botLanguage, firstMessage],
-  )
-
-  const isValidUrlInput = (value) => {
-    if (!value) return false
-    try {
-      const input = value.trim()
-      const prefixed = input.includes('://') ? input : `https://${input}`
-      const parsed = new URL(prefixed)
-      const { protocol, hostname } = parsed
-      if (!['http:', 'https:'].includes(protocol)) {
-        return false
-      }
-      const isLocalhost = hostname === 'localhost'
-      const isIpAddress = /^\d{1,3}(\.\d{1,3}){3}$/.test(hostname)
-      const hasDomain = hostname.includes('.') && !hostname.endsWith('.')
-      return isLocalhost || isIpAddress || hasDomain
-    } catch (error) {
-      return false
-    }
-  }
-
-  // Helper function to check if URL has more than one subdirectory path or query parameters
-  const hasMultipleSubdirectories = (urlString) => {
-    try {
-      const input = urlString.trim()
-      const prefixed = input.includes('://') ? input : `https://${input}`
-      const urlObj = new URL(prefixed)
-      const pathname = urlObj.pathname
-      // Remove leading and trailing slashes, then split by slash
-      const pathSegments = pathname.replace(/^\/+|\/+$/g, '').split('/').filter(segment => segment.length > 0)
-      
-      // Check if URL has query parameters
-      const hasQueryParams = urlObj.search.length > 0
-      
-      // Check if single path segment is longer than 8 characters
-      const hasSingleLongSegment = pathSegments.length === 1 && pathSegments[0].length > 8
-      
-      // Return true if there are multiple subdirectories OR query parameters OR a single long path segment
-      return pathSegments.length > 1 || hasQueryParams || hasSingleLongSegment
-    } catch (e) {
-      return false
-    }
-  }
-
-  const isUrlValid = useMemo(
-    () => (websiteUrl ? isValidUrlInput(websiteUrl) : false),
-    [websiteUrl],
-  )
-
-  const hasUrlPathWarning = useMemo(
-    () => (websiteUrl && isUrlValid ? hasMultipleSubdirectories(websiteUrl) : false),
-    [websiteUrl, isUrlValid],
   )
 
   // Helper to track onboarding errors
@@ -649,8 +732,8 @@ function Onboarding({ team }) {
       1: 'Add Sources',
       2: 'Customize Branding',
       3: 'Test Bot',
-      4: 'Deploy',
-      5: 'Complete',
+      4: 'Complete',
+      5: 'Deploy',
     }
 
     posthog.capture('Onboarding Error', {
@@ -1098,14 +1181,24 @@ function Onboarding({ team }) {
     if (useManualEntry) {
       return true
     }
-    if (!websiteUrl.trim()) {
+    const trimmed = websiteUrl.trim()
+    if (!trimmed) {
       const errorMsg = 'Please enter a website URL to analyze.'
       setStepError(errorMsg)
       trackOnboardingError(errorMsg, 0)
       return false
     }
-    if (!isUrlValid) {
-      setUrlError('Enter a valid URL, e.g. https://example.com')
+
+    const validation = validateWebsiteInput(trimmed)
+    if (!validation.valid) {
+      setUrlError(
+        validation.error || 'Enter a valid URL, e.g. https://example.com',
+      )
+      return false
+    }
+
+    if (validation.hasPathWarning) {
+      setUrlError('')
       return false
     }
     setUrlError('')
@@ -1133,11 +1226,12 @@ function Onboarding({ team }) {
         usageType: promptKey,
         promptLabel: PRESET_PROMPTS[promptKey]?.label || promptKey,
       }
-      const trimmed = websiteUrl.trim()
-      const normalizedInput = trimmed.includes('://')
-        ? trimmed
-        : `https://${trimmed}`
+      const normalizedInput = validation.normalizedUrl
+      if (normalizedInput && normalizedInput !== websiteUrl) {
+        setWebsiteUrl(normalizedInput)
+      }
       const data = await analyzeSiteForBot(team.id, normalizedInput, metadata)
+      setLastAnalyzedUrl(normalizedInput)
       const resolvedLanguage = i18n[data.language] ? data.language : 'en'
       setAnalysisData(data)
 
@@ -1688,9 +1782,27 @@ function Onboarding({ team }) {
                     setUrlError('')
                   }
                 }}
-                onBlur={() => {
-                  if (websiteUrl && !isValidUrlInput(websiteUrl)) {
-                    setUrlError('Enter a valid URL, e.g. https://example.com')
+                onBlur={(event) => {
+                  const value = event.target.value || ''
+                  if (!value.trim()) {
+                    setUrlError('')
+                    return
+                  }
+                  const validation = validateWebsiteInput(value.trim())
+                  if (!validation.valid) {
+                    setUrlError(
+                      validation.error ||
+                        'Enter a valid URL, e.g. https://example.com',
+                    )
+                    return
+                  }
+                  setUrlError('')
+                  if (
+                    validation.normalizedUrl &&
+                    !validation.hasPathWarning &&
+                    validation.normalizedUrl !== value.trim()
+                  ) {
+                    setWebsiteUrl(validation.normalizedUrl)
                   }
                 }}
                 aria-invalid={
@@ -1708,7 +1820,7 @@ function Onboarding({ team }) {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-yellow-700">
-                        Please enter your main website domain (e.g., https://example.com) rather than a specific page. You'll be able to select which pages to index in the next step.
+                        {WEBSITE_PATH_WARNING_COPY}
                       </p>
                     </div>
                   </div>
