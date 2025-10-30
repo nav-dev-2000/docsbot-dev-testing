@@ -63,6 +63,21 @@ export default async function handler(req, res) {
     }
 
     res.setHeader('set-cookie', serializedCookie)
+    
+    // Set wizard step for new users
+    if (isNewUser) {
+      const wizardPrefs = {
+        'wizard-step': 0,
+        'wizard-completed': false
+      }
+      const wizardCookie = cookie.serialize('docsbot-prefs', JSON.stringify(wizardPrefs), {
+        expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000), // 1 year
+        path: '/',
+        sameSite: 'lax'
+      })
+      res.setHeader('set-cookie', [serializedCookie, wizardCookie])
+    }
+    
     return res.send({ message: 'success' })
     
   } catch (error) {

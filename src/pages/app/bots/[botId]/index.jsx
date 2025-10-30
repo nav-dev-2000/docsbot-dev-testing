@@ -256,7 +256,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   if (!bot) return null
 
   return (
-    <DashboardWrap page="Bots" title={bot.name} team={team}>
+    <DashboardWrap page="Bots" title={bot.name} team={team} bot={bot}>
       <Alert title={errorText} type="warning" />
       {expirationAlert && (
         <Alert title={expirationAlert.title} type={expirationAlert.type}>

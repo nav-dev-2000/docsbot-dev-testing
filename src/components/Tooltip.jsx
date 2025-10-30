@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-const Tooltip = ({ children, content, placement = 'top' }) => {
+const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
   const childRef = useRef(null);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ const Tooltip = ({ children, content, placement = 'top' }) => {
         theme: 'light',
         placement,
         allowHTML: true,
+        zIndex: zIndex || 9999,
         onCreate: (instance) => {
           const content = instance.popper.querySelector('.tippy-content');
           if (content) {
@@ -28,7 +29,7 @@ const Tooltip = ({ children, content, placement = 'top' }) => {
         }
       };
     }
-  }, [content, placement]);
+  }, [content, placement, zIndex]);
 
   return React.cloneElement(children, { ref: childRef });
 };

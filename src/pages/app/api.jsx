@@ -188,7 +188,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
   }
 
   return (
-    <DashboardWrap page="API/Integrations" team={team}>
+    <DashboardWrap page="API/Integrations" team={team} bots={bots}>
       <Alert title={errorText} type="error" />
       <ModalOpenAI
         {...{

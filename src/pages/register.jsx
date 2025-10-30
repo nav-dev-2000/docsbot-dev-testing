@@ -441,7 +441,7 @@ function Register({ teamCount }) {
                   <Button
                     type="submit"
                     variant="solid"
-                    color="blue"
+                    color="cyan"
                     className={clsx('w-full', {
                       'opacity-75': isAnyAuthMethodLoading || hasBusinessSiteIssue,
                     })}

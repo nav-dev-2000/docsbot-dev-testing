@@ -24,7 +24,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
 import Tooltip from '@/components/Tooltip'
-import { getInvitesFromTeam } from '@/lib/dbQueries'
+import { getInvitesFromTeam, getBots } from '@/lib/dbQueries'
 
 const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   const cardContent = (
@@ -72,7 +72,7 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   ) : cardContent
 }
 
-function Dashboard({ team, purchase, teamInvites = [] }) {
+function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
   const [errorText, setErrorText] = useState(null)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
@@ -208,7 +208,7 @@ function Dashboard({ team, purchase, teamInvites = [] }) {
   } 
 
   return (
-    <DashboardWrap page="Dashboard" team={team}>
+    <DashboardWrap page="Dashboard" team={team} bots={bots}>
       <Alert title={errorText} type="warning" />
       <LastError lastError={team?.lastError} />
       <UpgradeNotice team={team} />
@@ -309,6 +309,9 @@ export const getServerSideProps = async (context) => {
   if (data?.props?.team) {
     // Fetch team invites for member count calculation
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
+    
+    // Fetch bots for wizard redirect
+    data.props.bots = await getBots(data.props.team)
 
     if (!data.props.team.botCount) {
       return {

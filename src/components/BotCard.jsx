@@ -92,13 +92,17 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               </div>
 
               <div className="mt-2 flex-wrap md:flex md:space-x-3">
-                <ModalPrompt
-                  team={team}
-                  bot={bot}
-                  integrations={integrations}
-                />
+                <div data-wizard="custom-instructions">
+                  <ModalPrompt
+                    team={team}
+                    bot={bot}
+                    integrations={integrations}
+                  />
+                </div>
                 {canUserEditBot(team, user?.uid) && (
-                  <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                  <div data-wizard="edit-bot">
+                    <ModalBotEdit team={team} bot={bot} setBot={setBot} />
+                  </div>
                 )}
                 {canUserCreateDeleteBot(team, user?.uid) && (
                   <BotCopyModal team={team} bot={bot} />
@@ -132,6 +136,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                     href={`/app/bots/${bot.id}/conversations`}
                     className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                     disabled={bot.conversationCount <= 0}
+                    data-wizard="conversations"
                   >
                     <ChatBubbleLeftRightIcon
                       className="h-5 w-5 text-gray-400"
@@ -145,6 +150,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                     href={`/app/bots/${bot.id}/questions`}
                     className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                     disabled={bot.questionCount <= 0}
+                    data-wizard="questions"
                   >
                     <QueueListIcon
                       className="h-5 w-5 text-gray-400"
@@ -158,6 +164,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                     href={`/app/bots/${bot.id}/reports`}
                     className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                     disabled={bot.questionCount <= 0}
+                    data-wizard="reports"
                   >
                     <ChartBarIcon
                       className="h-5 w-5 text-gray-400"
@@ -173,6 +180,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 type="button"
                 className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
                 href={`/app/bots/${bot.id}/widget`}
+                data-wizard="widget-settings"
               >
                 <CodeBracketSquareIcon
                   className="mr-0.5 h-4 w-4"
@@ -180,7 +188,9 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 />
                 Widget Embed
               </Link>
-              <ModalAPI team={team} bot={bot} integrations={integrations} />
+              <div data-wizard="integrations">
+                <ModalAPI team={team} bot={bot} integrations={integrations} />
+              </div>
             </div>
           </div>
         </div>

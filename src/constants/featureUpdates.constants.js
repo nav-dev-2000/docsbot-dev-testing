@@ -1,6 +1,11 @@
 export const FEATURE_UPDATES = [
   {
-    date: '2025-10-05',
+    date: '2025-10-29',
+    title: 'Dashboard Tour Wizard',
+    description: 'New & invitedusers now get a guided tour of key dashboard features when they sign up.'
+  },
+  {
+    date: '2025-10-24',
     title: 'Guided Bot Onboarding Wizard',
     description: 'New multi-step onboarding wizard auto-detects branding and sources from your website link to launch bots faster.'
   },

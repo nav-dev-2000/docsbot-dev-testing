@@ -131,7 +131,7 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
   ]
 
   return (
-    <DashboardWrap page="Account" team={team}>
+    <DashboardWrap page="Account" team={team} bots={bots}>
       {/* {checkout && (
         <Script id="gtag-conversion" strategy="lazyOnload">
           {`

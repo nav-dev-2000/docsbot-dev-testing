@@ -5,7 +5,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getAuth } from 'firebase-admin/auth'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam } from '@/lib/dbQueries'
+import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam, getBots } from '@/lib/dbQueries'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { Fragment, useState, useEffect } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
@@ -147,7 +147,7 @@ function TeamSelect({ team, userId, userTeams, changeTeam }) {
   )
 }
 
-function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) {
+function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bots }) {
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
@@ -330,7 +330,7 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites }) 
   }, [currTeam])
 
   return (
-    <DashboardWrap page="Team" team={currTeam}>
+    <DashboardWrap page="Team" team={currTeam} bots={bots}>
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 
@@ -607,6 +607,7 @@ export const getServerSideProps = async (context) => {
     data.props.userTeams = await getTeams(data.props.userId)
     data.props.teamUsers = await getTeamUsers(data.props.team.id)
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
+    data.props.bots = await getBots(data.props.team)
   }
 
   return data

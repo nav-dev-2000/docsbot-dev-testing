@@ -33,6 +33,7 @@ import Tooltip from '@/components/Tooltip'
 import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
 import * as cookie from 'cookie'
 import { LoyaltyBanner } from '@/components/HeaderBanners'
+import DashboardWizard from '@/components/DashboardWizard'
 
 export default function DashboardWrap({
   page,
@@ -41,6 +42,8 @@ export default function DashboardWrap({
   fullWidth = false,
   header = null,
   children,
+  bot = null,
+  bots = null,
 }) {
   const router = useRouter()
   const [user] = useAuthState(auth)
@@ -660,6 +663,9 @@ export default function DashboardWrap({
           </div>
         </div>
       </main>
+      
+      {/* Dashboard Wizard for new users */}
+      <DashboardWizard team={team} user={user} bot={bot} bots={bots} />
     </>
   )
 }

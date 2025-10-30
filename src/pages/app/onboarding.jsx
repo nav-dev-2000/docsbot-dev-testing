@@ -321,6 +321,7 @@ function Onboarding({ team }) {
   const analyzingIntervalRef = useRef(null)
   const botSourcesRef = useRef([])
   const signupSeedAppliedRef = useRef(false)
+  const autoAnalysisTriggeredRef = useRef(false)
   const trimmedWebsiteUrl = websiteUrl.trim()
   const websiteValidationResult = useMemo(() => {
     if (!trimmedWebsiteUrl) {
@@ -714,6 +715,7 @@ function Onboarding({ team }) {
       window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
     }
   }, [createdBot, team])
+
 
   const localizedLabels = useMemo(
     () => ({
@@ -1288,9 +1290,6 @@ function Onboarding({ team }) {
       const initialFirstMessage =
         data.firstMessage || getDefaultFirstMessage(resolvedLanguage)
 
-      console.log('Analyze API firstMessage:', data.firstMessage)
-      console.log('Using firstMessage:', initialFirstMessage)
-
       setFirstMessage(initialFirstMessage)
       setFirstMessageEdited(true) // Mark as edited to prevent useEffect from overwriting with default
       setLastAnalyzedUrl(normalizedInput)
@@ -1340,6 +1339,50 @@ function Onboarding({ team }) {
     setAnalyzingStep(0)
     return true
   }
+
+  // Auto-trigger analysis immediately after signup seed is applied
+  useEffect(() => {
+    if (!signupSeedAppliedRef.current) return
+
+    // Small delay to ensure state updates have been applied
+    const timer = setTimeout(() => {
+      // Check if we have both URL and usage type from signup cache
+      const stored = window.localStorage.getItem(SIGNUP_ONBOARDING_CACHE_KEY)
+      if (!stored) return
+
+      let parsed = null
+      try {
+        parsed = JSON.parse(stored)
+      } catch (error) {
+        return
+      }
+
+      const { usageType: cachedUsageType, site: cachedSite } = parsed || {}
+      
+      // Only auto-trigger if we have both URL and usage type from signup
+      if (
+        cachedSite &&
+        cachedSite.trim() &&
+        cachedUsageType &&
+        !autoAnalysisTriggeredRef.current &&
+        !isAnalyzing &&
+        !useManualEntry &&
+        currentStep === 0
+      ) {
+        autoAnalysisTriggeredRef.current = true
+        
+        // Trigger analysis
+        handleAnalyze().then((success) => {
+          if (success) {
+            setCurrentStep(1)
+          }
+        })
+      }
+    }, 100) // Small delay to ensure state is updated
+
+    return () => clearTimeout(timer)
+  }, [signupSeedAppliedRef.current, isAnalyzing, useManualEntry, currentStep, handleAnalyze])
+
 
   const handleCreateFlow = async () => {
     setStepError(null)
