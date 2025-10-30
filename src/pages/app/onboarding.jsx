@@ -181,6 +181,27 @@ const getDefaultFirstMessage = (language) => {
   return i18n.en.labels.firstMessage
 }
 
+const getDynamicBotNamePlaceholder = (promptKey, websiteUrl) => {
+  // Extract company name from website URL if available
+  let companyName = 'Acme'
+  if (websiteUrl) {
+    try {
+      const url = new URL(websiteUrl.startsWith('http') ? websiteUrl : `https://${websiteUrl}`)
+      const hostname = url.hostname.replace('www.', '')
+      // Extract domain name (e.g., "acme.com" -> "Acme")
+      const domainParts = hostname.split('.')
+      if (domainParts.length > 0) {
+        const domainName = domainParts[0]
+        companyName = domainName.charAt(0).toUpperCase() + domainName.slice(1)
+      }
+    } catch (e) {
+      // Keep default if URL parsing fails
+    }
+  }
+  const promptLabel = PRESET_PROMPTS[promptKey]?.label || 'Support Agent'
+  return `${companyName} ${promptLabel}`
+}
+
 const languageOptions = Object.keys(i18n)
 
 const FOOTER_STEPS = [
@@ -1793,7 +1814,7 @@ function Onboarding({ team }) {
         : 'Let’s start with your website'
       const stepDescription = useManualEntry
         ? 'Provide a name for your bot to continue.'
-        : 'Share your site and we’ll pull in the right details automatically.'
+        : 'Share your site and we’ll use it to automatically set up your bot’s settings and branding.'
 
       return (
         <div className="space-y-8">
@@ -1903,7 +1924,7 @@ function Onboarding({ team }) {
                   id="bot-name"
                   type="text"
                   className="mt-2 block w-full rounded-md border border-gray-300 px-3 py-2 text-base text-gray-900 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-cyan-500"
-                  placeholder="Acme Support Agent"
+                  placeholder={getDynamicBotNamePlaceholder(promptKey, websiteUrl)}
                   value={botName}
                   onChange={(event) => setBotName(event.target.value)}
                 />
@@ -2841,9 +2862,21 @@ function Onboarding({ team }) {
                                         : 'All sources processed!'}
                                   </p>
                                   <p className="mt-1 text-sm text-gray-600">
-                                    {pendingSources.length > 0
-                                      ? 'This usually takes a few moments.'
-                                      : 'Ready to continue to the next step.'}
+                                    {pendingSources.length > 0 ? (
+                                      <>
+                                        Your bot is training in the background. If you're done adding sources,{' '}
+                                        <button
+                                          type="button"
+                                          onClick={handleContinue}
+                                          className="font-medium text-cyan-600 hover:text-cyan-700 underline"
+                                        >
+                                          continue to the next step
+                                        </button>{' '}
+                                        — no need to wait.
+                                      </>
+                                    ) : (
+                                      'Ready to continue to the next step.'
+                                    )}
                                   </p>
                                 </div>
                               </div>

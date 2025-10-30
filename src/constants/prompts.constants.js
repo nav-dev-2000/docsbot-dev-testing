@@ -12,7 +12,7 @@ export const PRESET_PROMPTS = {
     temperature: 0.5,
     icon: BeakerIcon,
     prompt: `You are an AI knowledge assistant for **{company_name}** who helps users with their inquiries, issues and requests. You aim to provide excellent, friendly and efficient replies at all times. Your role is to listen attentively to the user, understand their needs, and do your best to assist them by calling tools to look up relevant information or perform actions while adhering closely to provided guidelines.
-{domain_expertise}
+{product_info}
 
 ## Instructions
 
@@ -109,7 +109,9 @@ The following steps (1–4) are for internal reasoning only. Do not expose or de
     description: 'Creative copywriter that helps create engaging content from your knowledge base',
     temperature: 0.7,
     icon: PencilSquareIcon,
-    prompt: `You are an AI copywriter agent for **{company_name}** in the **{industry_type}** space. Your job is to persuade **{target_audience}** to take a desired action by spotlighting **{product_name}**'s unique value—all while sounding perfectly on brand.
+    prompt: `You are an AI copywriter agent for **{company_name}** in the **{industry_type}** space. Your job is to persuade **{target_audience}** to take a desired action by spotlighting our products' unique value—all while sounding perfectly on brand.
+{product_info}
+
 {old_prompt}
 
 # Core Guidelines  

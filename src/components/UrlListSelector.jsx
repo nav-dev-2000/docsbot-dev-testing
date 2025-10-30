@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-const UrlListSelector = ({ urls, onSelectionChange }) => {
-  const [selectedUrls, setSelectedUrls] = useState([])
+const UrlListSelector = ({ urls, onSelectionChange, selectedUrls: selectedUrlsProp = [] }) => {
+  const [selectedUrls, setSelectedUrls] = useState(selectedUrlsProp)
   const [processedUrls, setProcessedUrls] = useState([])
   const [expandedSubdirs, setExpandedSubdirs] = useState({})
+
+  // Sync internal state with prop when it changes (e.g., when navigating back)
+  useEffect(() => {
+    setSelectedUrls(selectedUrlsProp)
+  }, [selectedUrlsProp])
 
   // Process URLs into hierarchical structure
   useEffect(() => {

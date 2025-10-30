@@ -152,6 +152,7 @@ export default function DashboardWizard({ team, user, bot, bots }) {
   const [overlayStyle, setOverlayStyle] = useState({})
   const [tooltipStyle, setTooltipStyle] = useState({})
   const [arrowOffset, setArrowOffset] = useState(32) // Default left-8 = 32px
+  const [targetRect, setTargetRect] = useState(null)
   const overlayRef = useRef(null)
   const tooltipRef = useRef(null)
 
@@ -175,13 +176,15 @@ export default function DashboardWizard({ team, user, bot, bots }) {
       const step = WIZARD_STEPS[currentStep]
       if (!step.target) {
         // Center position for welcome and complete steps
+        setTargetRect(null)
         setOverlayStyle({
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          zIndex: 9999
+          zIndex: 9999,
+          background: 'rgba(0, 0, 0, 0.5)'
         })
         setTooltipStyle({
           position: 'fixed',
@@ -195,19 +198,22 @@ export default function DashboardWizard({ team, user, bot, bots }) {
 
       const targetElement = document.querySelector(step.target)
       if (!targetElement) {
+        setTargetRect(null)
         // Check if we're on a bot page
         const currentPath = typeof window !== 'undefined' ? window.location.pathname : ''
         const isOnBotPage = /\/app\/bots\/[A-Za-z0-9]+/.test(currentPath)
         
         if (isOnBotPage) {
           // If on a bot page but element not found, show centered dialog instead
+          setTargetRect(null)
           setOverlayStyle({
             position: 'fixed',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: 9999
+            zIndex: 9999,
+            background: 'rgba(0, 0, 0, 0.5)'
           })
           setTooltipStyle({
             position: 'fixed',
@@ -229,6 +235,7 @@ export default function DashboardWizard({ team, user, bot, bots }) {
       }
 
       const rect = targetElement.getBoundingClientRect()
+      setTargetRect(rect)
       const padding = 8
       const margin = 16 // Additional margin between highlighted element and dialog
       const tooltipWidth = 384 // max-w-sm = 24rem = 384px
@@ -389,10 +396,9 @@ export default function DashboardWizard({ team, user, bot, bots }) {
       <div
         ref={overlayRef}
         style={overlayStyle}
-        className="pointer-events-none"
       >
         {/* Highlight cutout for target element */}
-        {step.target && (
+        {step.target && targetRect && (
           <div
             className="pointer-events-none"
             style={{
@@ -405,15 +411,28 @@ export default function DashboardWizard({ team, user, bot, bots }) {
               clipPath: `polygon(
                 0% 0%, 
                 0% 100%, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().left || 0) - 8}px 100%, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().left || 0) - 8}px ${(document.querySelector(step.target)?.getBoundingClientRect().top || 0) - 8}px, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().right || 0) + 8}px ${(document.querySelector(step.target)?.getBoundingClientRect().top || 0) - 8}px, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().right || 0) + 8}px ${(document.querySelector(step.target)?.getBoundingClientRect().bottom || 0) + 8}px, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().left || 0) - 8}px ${(document.querySelector(step.target)?.getBoundingClientRect().bottom || 0) + 8}px, 
-                ${(document.querySelector(step.target)?.getBoundingClientRect().left || 0) - 8}px 100%, 
+                ${targetRect.left - 8}px 100%, 
+                ${targetRect.left - 8}px ${targetRect.top - 8}px, 
+                ${targetRect.right + 8}px ${targetRect.top - 8}px, 
+                ${targetRect.right + 8}px ${targetRect.bottom + 8}px, 
+                ${targetRect.left - 8}px ${targetRect.bottom + 8}px, 
+                ${targetRect.left - 8}px 100%, 
                 100% 100%, 
                 100% 0%
               )`
+            }}
+          />
+        )}
+        {/* Transparent overlay to allow clicks through target element */}
+        {step.target && targetRect && (
+          <div
+            className="pointer-events-none"
+            style={{
+              position: 'absolute',
+              top: `${targetRect.top - 8}px`,
+              left: `${targetRect.left - 8}px`,
+              width: `${targetRect.width + 16}px`,
+              height: `${targetRect.height + 16}px`,
             }}
           />
         )}
@@ -428,8 +447,9 @@ export default function DashboardWizard({ team, user, bot, bots }) {
         {/* Triangle arrow pointing up (when dialog is below target) */}
         {step.target && step.position === 'bottom' && (
           <div
-            className="absolute -top-3"
+            className="absolute"
             style={{
+              top: '-11px',
               left: `${arrowOffset}px`,
               transform: 'translateX(-50%)',
               width: 0,
@@ -444,8 +464,9 @@ export default function DashboardWizard({ team, user, bot, bots }) {
         {/* Triangle arrow pointing down (when dialog is above target) */}
         {step.target && step.position === 'top' && (
           <div
-            className="absolute -bottom-3"
+            className="absolute"
             style={{
+              bottom: '-11px',
               left: `${arrowOffset}px`,
               transform: 'translateX(-50%)',
               width: 0,

@@ -195,6 +195,12 @@ export default function SourceForm({
     } else if (websiteStep === 2) {
       // Step 2: Move to final settings
       if (selectedWebsiteUrls.length > 0) {
+        // Check if user is on free plan and has more than 25 URLs selected
+        const plan = stripePlan(team)
+        if (plan.id === 'free' && selectedWebsiteUrls.length > 25) {
+          setShowUrlLimitDialog(true)
+          return
+        }
         setWebsiteStep(3)
       }
     }
@@ -654,18 +660,8 @@ export default function SourceForm({
         : selectedWebsiteUrls,
     )
 
-    // Check if user is on free plan and has more than 25 URLs selected for website source type
-    if (
-      shouldEnforceUrlLimitRef.current &&
-      selectedSourceType?.id === 'website' &&
-      effectiveSelectedWebsiteUrls.length > 25
-    ) {
-      const plan = stripePlan(team)
-      if (plan.id === 'free') {
-        setShowUrlLimitDialog(true)
-        return
-      }
-    }
+    // Note: URL limit check for website source type is now done in handleWebsiteStepNext
+    // when moving from step 2 to step 3, so we don't need to check here anymore
     
     if (!shouldEnforceUrlLimitRef.current) {
       shouldEnforceUrlLimitRef.current = true
@@ -1055,9 +1051,10 @@ export default function SourceForm({
                       const limitedUrls = normalizeWebsiteUrls(
                         selectedWebsiteUrls.slice(0, 25),
                       )
+                      setSelectedWebsiteUrls(limitedUrls)
                       shouldEnforceUrlLimitRef.current = false
                       setShowUrlLimitDialog(false)
-                      createSource(limitedUrls)
+                      setWebsiteStep(3)
                     }}
                     className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-cyan-600 shadow-sm ring-2 ring-inset ring-cyan-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
                   >
@@ -1486,9 +1483,16 @@ export default function SourceForm({
                     {websiteStep === 2 && (
                       <div className="mb-4">
                         <div className="mb-4 flex items-center justify-between">
-                          <h3 className="text-lg font-medium text-gray-900">
-                            Select pages to index ({selectedWebsiteUrls.length} selected)
-                          </h3>
+                          <div>
+                            <h3 className="text-lg font-medium text-gray-900">
+                              Select pages to index ({selectedWebsiteUrls.length} selected)
+                            </h3>
+                            {stripePlan(team).id === 'free' && (
+                              <p className="text-xs text-gray-500 mt-1">
+                                Free plan includes 25 pages
+                              </p>
+                            )}
+                          </div>
                           <button
                             type="button"
                             onClick={handleWebsiteStepBack}
@@ -1499,6 +1503,7 @@ export default function SourceForm({
                         </div>
                         <UrlListSelector
                           urls={websiteUrls}
+                          selectedUrls={selectedWebsiteUrls}
                           onSelectionChange={setSelectedWebsiteUrls}
                         />
                         <div className="mt-4 flex justify-end">
@@ -2078,9 +2083,16 @@ https://example.com/page2`
                         {websiteStep === 2 && (
                           <div className="mb-4">
                             <div className="mb-4 flex items-center justify-between">
-                              <h3 className="text-lg font-medium text-gray-900">
-                                Select pages to index ({selectedWebsiteUrls.length} selected)
-                              </h3>
+                              <div>
+                                <h3 className="text-lg font-medium text-gray-900">
+                                  Select pages to index ({selectedWebsiteUrls.length} selected)
+                                </h3>
+                                {stripePlan(team).id === 'free' && (
+                                  <p className="text-xs text-gray-500 mt-1">
+                                    Free plan includes 25 pages
+                                  </p>
+                                )}
+                              </div>
                               <button
                                 type="button"
                                 onClick={handleWebsiteStepBack}
@@ -2163,15 +2175,15 @@ https://example.com/page2`
                             file
                               ? 'border-cyan-500 text-cyan-600'
                               : 'border-gray-300 text-gray-500',
-                            'flex items-center justify-between rounded-md border-2 bg-gray-50 px-6 py-4 text-lg shadow-sm',
+                            'flex items-center justify-between rounded-md border-2 bg-gray-50 px-6 py-4 text-sm shadow-sm',
                           )}
                         >
-                          <div className="flex items-center">
+                          <div className="flex items-center min-w-0 flex-1">
                             <PaperClipIcon
-                              className="mr-4 h-6 w-6"
+                              className="mr-4 h-5 w-5 flex-shrink-0"
                               aria-hidden="true"
                             />
-                            {fileName}
+                            <span className="truncate">{fileName}</span>
                           </div>
                           {isUploading && (
                             <p className="flex items-center text-sm">
@@ -2180,7 +2192,7 @@ https://example.com/page2`
                           )}
                           {file && (
                             <CheckCircleIcon
-                              className="h-6 w-6"
+                              className="h-5 w-5 flex-shrink-0"
                               aria-hidden="true"
                             />
                           )}
@@ -2480,9 +2492,10 @@ https://example.com/page2`
                       const limitedUrls = normalizeWebsiteUrls(
                         selectedWebsiteUrls.slice(0, 25),
                       )
+                      setSelectedWebsiteUrls(limitedUrls)
                       shouldEnforceUrlLimitRef.current = false
                       setShowUrlLimitDialog(false)
-                      createSource(limitedUrls)
+                      setWebsiteStep(3)
                     }}
                     className="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-cyan-600 shadow-sm ring-2 ring-inset ring-cyan-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2"
                   >
