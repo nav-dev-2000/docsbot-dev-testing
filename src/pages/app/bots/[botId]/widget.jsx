@@ -919,9 +919,10 @@ function Widget({ team, bot }) {
                           id="domains"
                           value={allowedDomainsText}
                           onChange={(e) => {
-                            setAllowedDomainsText(e.target.value)
+                            const formattedDomains = e.target.value.replace(/\s+/g, ',')
+                            setAllowedDomainsText(formattedDomains)
                             setAllowedDomains(
-                              e.target.value
+                              formattedDomains
                                 .split(',')
                                 .filter((s) => s)
                                 .map((d) =>
