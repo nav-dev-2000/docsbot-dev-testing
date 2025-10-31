@@ -427,19 +427,10 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (customPrompt !== undefined) {
-    // Check if their plan allows custom prompts
-    if (customPrompt && isUpdate && customPrompt !== bot?.customPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
-      throw new Error('Custom prompts are not available at your plan level.')
-    }
     botData.customPrompt = customPrompt
   }
 
   if (agentPrompt !== undefined) {
-    // Check if their plan allows custom prompts on updates
-    if (agentPrompt && isUpdate && agentPrompt !== bot?.agentPrompt && !checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
-      throw new Error('Custom prompts are not available at your plan level.')
-    }
-    
     // Validate that agentPrompt contains "search_documentation" string
     if (agentPrompt && !agentPrompt.includes('search_documentation')) {
       throw new Error('Your agent prompt is missing required instructions on when and how to use the `search_documentation` tool. DocsBot cannot function correctly without them. Please start with one of our preset prompts and customize it as needed.')

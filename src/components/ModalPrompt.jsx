@@ -323,16 +323,6 @@ export default function ModalPrompt({
     setErrorText('')
     setSuccessText('')
 
-    //show upgrade modal if they are not paid and doing anything other than erasing the prompt
-    if (
-      prompt &&
-      !checkPlanPermission(team, 'hobby').allowed &&
-      !isSuperAdmin(user.uid)
-    ) {
-      setShowUpgrade(true)
-      return
-    }
-
     setIsUpdating(true)
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -593,14 +583,6 @@ export default function ModalPrompt({
                       >
                         <div className="flex items-center">
                           <span>Customize Instructions</span>
-                          {!checkPlanPermission(team, 'hobby').allowed && (
-                            <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                              {
-                                checkPlanPermission(team, 'personal')
-                                  .requiredPlanLabel
-                              }
-                            </span>
-                          )}
                           <div className="group relative ml-2">
                             <LightBulbIcon className="h-5 w-5 cursor-pointer text-gray-400 hover:text-gray-500" />
                             <span className="absolute left-0 top-8 z-10 flex w-96 scale-0 gap-3 rounded-lg bg-white p-3 shadow-lg transition-all group-hover:scale-100">

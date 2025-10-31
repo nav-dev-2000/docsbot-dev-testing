@@ -94,15 +94,10 @@ const PRESET_COLORS = [
 
 const ANALYZING_STEPS = [
   "I'm crawling your website...",
-  'Taking a screenshot of your homepage...',
-  'Retrieving your brand assets...',
-  'Analyzing your brand colors and logos...',
+  'Retrieving your brand assets & colors...',
   'Reading through your content...',
-  'Detecting any support widgets...',
   'Understanding your business...',
-  'Crafting the perfect greeting for you...',
   'Generating your custom configuration...',
-  'Putting the finishing touches...',
 ]
 
 const isColorLight = (hexColor) => {
@@ -1229,135 +1224,206 @@ function Onboarding({ team }) {
     setIsAnalyzing(true)
     setAnalyzingStep(0)
 
-    // Start cycling through analyzing steps (but don't loop back)
+    const normalizedInput = validation.normalizedUrl
+    if (normalizedInput && normalizedInput !== websiteUrl) {
+      setWebsiteUrl(normalizedInput)
+    }
+
+    // Start cycling through analyzing steps quickly (1 second each)
+    let messageIndex = 0
     analyzingIntervalRef.current = setInterval(() => {
-      setAnalyzingStep((prevStep) => {
-        const nextStep = prevStep + 1
-        if (nextStep >= ANALYZING_STEPS.length - 1) {
-          // Stop at the last step, clear interval
-          if (analyzingIntervalRef.current) {
-            clearInterval(analyzingIntervalRef.current)
-            analyzingIntervalRef.current = null
-          }
-          return ANALYZING_STEPS.length - 1
+      messageIndex++
+      if (messageIndex >= ANALYZING_STEPS.length) {
+        // Done with messages, clear interval but keep showing last message
+        if (analyzingIntervalRef.current) {
+          clearInterval(analyzingIntervalRef.current)
+          analyzingIntervalRef.current = null
         }
-        return nextStep
-      })
-    }, 3500) // Change message every 3 seconds
-    try {
-      const metadata = {
-        usageType: promptKey,
-        promptLabel: PRESET_PROMPTS[promptKey]?.label || promptKey,
+        // Keep showing the last analyzing step until we move to step 1
+        setAnalyzingStep(ANALYZING_STEPS.length - 1)
+      } else {
+        setAnalyzingStep(messageIndex)
       }
-      const normalizedInput = validation.normalizedUrl
-      if (normalizedInput && normalizedInput !== websiteUrl) {
-        setWebsiteUrl(normalizedInput)
-      }
-      const data = await analyzeSiteForBot(team.id, normalizedInput, metadata)
-      setLastAnalyzedUrl(normalizedInput)
-      const resolvedLanguage = i18n[data.language] ? data.language : 'en'
-      setAnalysisData(data)
+    }, 1000) // Change message every 1 second
 
-      // Use new field names from API
-      if (data.botName) {
-        setBotName(data.botName)
-      }
-      if (data.botDescription) {
-        setBotDescription(data.botDescription)
-      }
-
-      setBotLanguage(resolvedLanguage)
-      setSupportLink(data.supportUrl || '')
-      setWidgetType(data.widgetType || 'other')
-
-      // Select initial color - prioritize brand data, fall back to API/random preset
-      let initialColor = null
-      if (data.colors && data.colors.length > 0) {
-        // Use the first primary brand color from brand.dev
-        initialColor = data.colors[0].hex
-      } else if (data.buttonColor && data.buttonColor !== '#0ea5e9') {
-        // Fall back to AI-detected color if brand data not available and not default
-        initialColor = data.buttonColor
-      }
-      
-      // If no color was detected, randomly select from preset colors
-      if (!initialColor) {
-        const randomIndex = Math.floor(Math.random() * PRESET_COLORS.length)
-        initialColor = PRESET_COLORS[randomIndex]
-      }
-
-      // Select initial logo based on the chosen color
-      let initialLogo = ''
-      if (data.logos && data.logos.length > 0) {
-        // Select best logo from brand data based on the color
-        initialLogo = selectBestLogo(data.logos, initialColor)
-      } else if (data.logoUrl) {
-        // Fall back to AI-detected logo if brand data not available
-        initialLogo = data.logoUrl
-      }
-
-      setBrandColor(initialColor)
-      setLogoUrl(initialLogo)
-
-      const generatedPrompt = buildPrompt(
-        promptKey,
-        data.businessName || botName,
-        data.businessDescription || '',
-      )
-      setAgentPrompt(generatedPrompt)
-      setSavedAgentPrompt(generatedPrompt)
-      setPromptEdited(false)
-
-      const initialFirstMessage =
-        data.firstMessage || getDefaultFirstMessage(resolvedLanguage)
-
-      setFirstMessage(initialFirstMessage)
-      setFirstMessageEdited(true) // Mark as edited to prevent useEffect from overwriting with default
-      setLastAnalyzedUrl(normalizedInput)
-
-      // Extract domain from the normalized URL
-      let scannedDomain = ''
-      try {
-        scannedDomain = new URL(normalizedInput).hostname
-      } catch (_) {
-        const match = normalizedInput.match(/:\/\/([^/]+)/)
-        if (match) scannedDomain = match[1]
-      }
-
-      await ensureBotCreated({
-        name: data.botName || botName,
-        description: data.botDescription || '',
-        language: resolvedLanguage,
-        supportLink: data.supportUrl || '',
-        logo: initialLogo,
-        color: initialColor,
-        widgetType: data.widgetType || 'other',
-        agentPrompt: generatedPrompt,
-        firstMessage: initialFirstMessage,
-        brandAnalysis: {
-          domain: scannedDomain,
-          url: normalizedInput,
-          ...data, // Include all analysis data
-        },
-      })
-    } catch (error) {
-      const errorMsg = error.message || 'Failed to analyze the provided website.'
+    // Create placeholder bot immediately (in parallel with messages)
+    const placeholderName = PRESET_PROMPTS[promptKey]?.label || 'Assistant'
+    const placeholderPrompt = buildPrompt(promptKey, placeholderName, '')
+    
+    let newBot = null
+    
+    // Create the bot immediately
+    const botCreationPromise = ensureBotCreated({
+      name: placeholderName,
+      description: '',
+      language: 'en',
+      supportLink: '',
+      logo: '',
+      color: getInitialColor('#0ea5e9'),
+      widgetType: 'other',
+      agentPrompt: placeholderPrompt,
+      firstMessage: getDefaultFirstMessage('en'),
+    }).then((bot) => {
+      newBot = bot
+      return bot
+    }).catch((error) => {
+      const errorMsg = error.message || 'Unable to create your bot. Please try again.'
       setStepError(errorMsg)
       trackOnboardingError(errorMsg, 0)
-      setIsAnalyzing(false)
-      if (analyzingIntervalRef.current) {
-        clearInterval(analyzingIntervalRef.current)
-        analyzingIntervalRef.current = null
+      throw error
+    })
+
+    // Run the analysis in the background
+    const analysisPromise = (async () => {
+      try {
+        const metadata = {
+          usageType: promptKey,
+          promptLabel: PRESET_PROMPTS[promptKey]?.label || promptKey,
+        }
+        const data = await analyzeSiteForBot(team.id, normalizedInput, metadata)
+        setLastAnalyzedUrl(normalizedInput)
+        const resolvedLanguage = i18n[data.language] ? data.language : 'en'
+        setAnalysisData(data)
+
+        // Use new field names from API
+        if (data.botName) {
+          setBotName(data.botName)
+        }
+        if (data.botDescription) {
+          setBotDescription(data.botDescription)
+        }
+
+        setBotLanguage(resolvedLanguage)
+        setSupportLink(data.supportUrl || '')
+        setWidgetType(data.widgetType || 'other')
+
+        // Select initial color - prioritize brand data, fall back to API/random preset
+        let initialColor = null
+        if (data.colors && data.colors.length > 0) {
+          // Use the first primary brand color from brand.dev
+          initialColor = data.colors[0].hex
+        } else if (data.buttonColor && data.buttonColor !== '#0ea5e9') {
+          // Fall back to AI-detected color if brand data not available and not default
+          initialColor = data.buttonColor
+        }
+        
+        // If no color was detected, randomly select from preset colors
+        if (!initialColor) {
+          const randomIndex = Math.floor(Math.random() * PRESET_COLORS.length)
+          initialColor = PRESET_COLORS[randomIndex]
+        }
+
+        // Select initial logo based on the chosen color
+        let initialLogo = ''
+        if (data.logos && data.logos.length > 0) {
+          // Select best logo from brand data based on the color
+          initialLogo = selectBestLogo(data.logos, initialColor)
+        } else if (data.logoUrl) {
+          // Fall back to AI-detected logo if brand data not available
+          initialLogo = data.logoUrl
+        }
+
+        setBrandColor(initialColor)
+        setLogoUrl(initialLogo)
+
+        const generatedPrompt = buildPrompt(
+          promptKey,
+          data.businessName || data.botName || placeholderName,
+          data.businessDescription || '',
+        )
+        setAgentPrompt(generatedPrompt)
+        setSavedAgentPrompt(generatedPrompt)
+        setPromptEdited(false)
+
+        const initialFirstMessage =
+          data.firstMessage || getDefaultFirstMessage(resolvedLanguage)
+
+        setFirstMessage(initialFirstMessage)
+        setFirstMessageEdited(true)
+
+        // Extract domain from the normalized URL
+        let scannedDomain = ''
+        try {
+          scannedDomain = new URL(normalizedInput).hostname
+        } catch (_) {
+          const match = normalizedInput.match(/:\/\/([^/]+)/)
+          if (match) scannedDomain = match[1]
+        }
+
+        // Wait for bot creation to complete, then update with analyzed data
+        await botCreationPromise
+        
+        if (newBot?.id) {
+          const botPayload = {
+            name: data.botName || placeholderName,
+            description: data.botDescription || '',
+            language: resolvedLanguage,
+            labels: {
+              ...(i18n[resolvedLanguage]?.labels || i18n.en.labels),
+              firstMessage: initialFirstMessage,
+            },
+            temperature: getTemplateTemperature(promptKey),
+            agentPrompt: generatedPrompt,
+            color: initialColor || '',
+            supportLink: data.supportUrl || '',
+            logo: initialLogo,
+            widgetType: data.widgetType || 'other',
+            brandAnalysis: {
+              domain: scannedDomain,
+              url: normalizedInput,
+              ...data, // Include all analysis data
+            },
+          }
+
+          const updated = await updateBotRequest(team.id, newBot.id, botPayload)
+          setCreatedBot(updated)
+          
+          // Sync all local state with the returned bot object
+          setBotName(updated.name || '')
+          setBotDescription(updated.description || '')
+          setBotLanguage(updated.language || 'en')
+          setAgentPrompt(updated.agentPrompt || '')
+          setSavedAgentPrompt(updated.agentPrompt || '')
+          if (typeof updated.temperature === 'number') {
+            setTemperature(updated.temperature)
+          }
+          if (updated.labels?.firstMessage !== undefined) {
+            setFirstMessage(updated.labels.firstMessage)
+          }
+          setSupportLink(updated.supportLink || '')
+          setLogoUrl(updated.logo || '')
+          setBrandColor(getInitialColor(updated.color))
+          setWidgetType(updated.widgetType || 'other')
+          
+          // Restore cached analysis data if it was saved
+          if (updated.brandAnalysis) {
+            setAnalysisData(updated.brandAnalysis)
+          }
+        }
+      } catch (error) {
+        // Analysis failed, but we already created the bot with placeholder data
+        console.error('Site analysis failed:', error)
+        // Optionally show a non-blocking notification to the user
       }
-      setAnalyzingStep(0)
-      return false
-    }
-    setIsAnalyzing(false)
-    if (analyzingIntervalRef.current) {
-      clearInterval(analyzingIntervalRef.current)
-      analyzingIntervalRef.current = null
-    }
-    setAnalyzingStep(0)
+    })()
+
+    // After messages finish cycling, move to step 1
+    setTimeout(async () => {
+      try {
+        // Wait for bot creation to complete
+        await botCreationPromise
+        setCurrentStep(1)
+        // Now reset the analyzing state
+        setIsAnalyzing(false)
+        setAnalyzingStep(0)
+      } catch (error) {
+        // Error already handled in botCreationPromise catch
+        // Reset analyzing state even on error
+        setIsAnalyzing(false)
+        setAnalyzingStep(0)
+      }
+    }, ANALYZING_STEPS.length * 1500)
+
     return true
   }
 
@@ -1392,12 +1458,8 @@ function Onboarding({ team }) {
       ) {
         autoAnalysisTriggeredRef.current = true
         
-        // Trigger analysis
-        handleAnalyze().then((success) => {
-          if (success) {
-            setCurrentStep(1)
-          }
-        })
+        // Trigger analysis (it will handle moving to step 1 internally)
+        handleAnalyze()
       }
     }, 100) // Small delay to ensure state is updated
 
@@ -1624,11 +1686,8 @@ function Onboarding({ team }) {
   const handleContinue = async () => {
     if (currentStep === 0) {
       if (!useManualEntry) {
-        const success = await handleAnalyze()
-        if (!success) {
-          return
-        }
-        setCurrentStep(1)
+        // handleAnalyze now handles moving to step 1 internally
+        await handleAnalyze()
         return
       }
       if (!botName.trim()) {
