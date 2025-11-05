@@ -491,6 +491,7 @@ export const enterpriseFeatures = [
   'Custom feature development',
   'Custom invoices and Purchase Orders',
   'ACH & Wire transfer payment methods',
+  'Extended chat log data retention options',
   'SOC 2 Type II',
   'GDPR compliant',
   'HIPAA available',

@@ -945,8 +945,9 @@ export default function PricingPage() {
                       Use the Microsoft Azure OpenAI Service for
                       Enterprise-grade security with role-based access control
                       (RBAC), private networks, and region restrictions.
-                      Self-hosted options are available to satisfy any data
-                      protection requirements.
+                      Self-hosted options and extended chat log data retention
+                      policies are available to satisfy any data protection
+                      requirements.
                     </p>
                     <div className="mt-10 flex items-center gap-x-4">
                       <h4 className="flex-none text-sm font-semibold leading-6 text-cyan-600">
