@@ -1701,30 +1701,65 @@ function Research({ team, bot }) {
               </Link>
               {selectedJob && (
                 <>
-                  <Tooltip
-                    content={`Created: ${new Date(selectedJob.createdAt).toUTCString()}`}
-                  >
-                    <div className="flex items-center text-sm text-gray-500">
-                      <CalendarIcon
-                        className="h-5 w-5 flex-shrink-0 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span className="ml-1.5 hidden xl:inline">
-                        <TimeAgo dateTime={selectedJob.createdAt} />
-                      </span>
-                    </div>
-                  </Tooltip>
-                  <Tooltip content={`Run time`}>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <ClockIcon
-                        className="h-5 w-5 flex-shrink-0 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span className="ml-1.5 hidden xl:inline">
-                        {formatRuntime(selectedJob)}
-                      </span>
-                    </div>
-                  </Tooltip>
+                  <div className="flex flex-wrap items-center gap-x-2 xl:gap-x-4">
+                    <Tooltip
+                      content={`Created: ${new Date(selectedJob.createdAt).toUTCString()}`}
+                    >
+                      <div className="flex items-center text-sm text-gray-500">
+                        <CalendarIcon
+                          className="h-5 w-5 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="ml-1.5 hidden 2xl:inline">
+                          <TimeAgo dateTime={selectedJob.createdAt} />
+                        </span>
+                      </div>
+                    </Tooltip>
+                    {selectedJob.status === 'completed' && selectedJob.completedAt && (
+                      <Tooltip content={`Run time`}>
+                        <div className="flex items-center text-sm text-gray-500">
+                          <ClockIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                          <span className="ml-1.5 hidden 2xl:inline">
+                            {formatRuntime(selectedJob)}
+                          </span>
+                        </div>
+                      </Tooltip>
+                    )}
+                  </div>
+                  <div className="h-6 border-l border-gray-300"></div>
+                  <div className="flex flex-wrap items-center gap-x-2 xl:gap-x-4">
+                    <Tooltip content="Document search enabled">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <DocumentMagnifyingGlassIcon
+                          className="h-5 w-5 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </Tooltip>
+                    {selectedJob.webSearch && (
+                      <Tooltip content="Web search enabled">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <MagnifyingGlassCircleIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </Tooltip>
+                    )}
+                    {selectedJob.codeInterpreter && (
+                      <Tooltip content="Code interpreter enabled">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <CodeBracketSquareIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </Tooltip>
+                    )}
+                  </div>
                 </>
               )}
             </div>
