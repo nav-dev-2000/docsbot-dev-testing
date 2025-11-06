@@ -32,7 +32,7 @@ This endpoint accepts a websocket request with the following parameters in the i
 | **auth**          | string        | The API key. Required only for private bots.                                                                                                                                                                              |
 | **metadata**      | object        | A user identification object with arbitrary metadata about the the user. Will be saved to the question history log. Keys `referrer`, `email`, and `name` are shown in question history logs. Optional, defaults to `null` |
 | **testing**       | boolean       | Whether to mark question logs as by staff. Optional, defaults to `false`                                                                                                                                                  |
-| **context_items** | integer       | Number of sources to lookup for the bot to answer from. Optional, default is 5. Research mode uses 16 (more expensive token usage).                                                                                       |
+| **context_items** | integer       | Number of sources to lookup for the bot to answer from. Optional, default is 5. Context boost uses 16 (more expensive token usage).                                                                                       |
 | **autocut**       | integer/false | Autocut results to num groups. Optional, defaults to `false`                                                                                                                                                              |
 
 {% callout title="full_source behavior" %}

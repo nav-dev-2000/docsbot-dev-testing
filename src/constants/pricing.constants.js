@@ -32,7 +32,7 @@ export const featureDefinitions = {
   
   gptSupport: { label: 'GPT-5 support', category: 'ai' },
   premiumEmbeddings: { label: 'Premium embedding models', category: 'ai' },
-  researchMode: { label: 'Research mode', category: 'ai' },
+  researchMode: { label: 'Context boost', category: 'ai' },
   chatWithImages: { label: 'Chat with images', category: 'ai' },
   
   basicAnalytics: { label: 'Basic analytics', category: 'analytics' },

@@ -121,6 +121,7 @@ export default async function handler(request, response) {
         let sentimentNeutralTotal = 0
         let answeredTotal = 0
         let unansweredTotal = 0
+        let researchTotal = 0
         let questionHistoryDailyNew = {}
         let conversationHistoryDailyNew = {}
 
@@ -136,25 +137,118 @@ export default async function handler(request, response) {
           const sourcePages = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
           const pageCount = sourcePages.reduce((accumulator, count) => accumulator + count, 0)
 
+          // Count research documents for current calendar month (excluding failed)
+          let researchCount = 0
+          const researchDaily = {}
+          try {
+            // Calculate time delta for current calendar month (same as questionCount)
+            let timeDelta
+            if (currentDay === 1) {
+              // delta is the last 48 hours
+              timeDelta = 48 * 60 * 60 * 1000
+            } else {
+              // delta between the first day of the month and today
+              let startDate = new Date(currentYear, currentMonth - 1, 1)
+              timeDelta = currentDate - startDate
+            }
+
+            const researchSnapshot = await botDoc.ref
+              .collection('research')
+              .where('createdAt', '>', new Date(Date.now() - timeDelta))
+              .select('status', 'createdAt') // Fetch status and createdAt for daily tracking
+              .get()
+
+            // Count documents excluding those with status "failed" and track by day
+            researchSnapshot.forEach((doc) => {
+              const data = doc.data()
+              if (data.status !== 'failed') {
+                researchCount++
+                
+                // Track daily counts
+                const createdDate = data?.createdAt?.toDate()
+                if (createdDate) {
+                  const day =
+                    createdDate.getFullYear() +
+                    '-' +
+                    (createdDate.getMonth() + 1) +
+                    '-' +
+                    createdDate.getDate()
+                  
+                  researchDaily[day] = researchDaily[day] || 0
+                  researchDaily[day] += 1
+                }
+              }
+            })
+          } catch (error) {
+            console.warn(`Error counting research for bot ${botDoc.id}:`, error)
+          }
+
           const prevHistory = botDoc.data().questionHistory || {}
           const prevHistoryDaily = botDoc.data().questionHistoryDaily || {}
           const prevConversationHistory = botDoc.data().conversationHistory || {}
           const prevConversationHistoryDaily = botDoc.data().conversationHistoryDaily || {}
 
+          // Add research count to questionHistoryDaily for bot
+          const botQuestionHistoryDailyNew = { ...prevHistoryDaily }
+          
+          // First, zero out research counts for current month days to avoid double-counting
+          // (since we're recalculating them from the database each time)
+          const currentMonthPrefix = `${currentYear}-${currentMonth}-`
+          for (const day in botQuestionHistoryDailyNew) {
+            if (day.startsWith(currentMonthPrefix)) {
+              if (botQuestionHistoryDailyNew[day]) {
+                botQuestionHistoryDailyNew[day] = {
+                  ...botQuestionHistoryDailyNew[day],
+                  research: 0,
+                }
+              }
+            }
+          }
+          
+          for (const [day, value] of Object.entries(daily)) {
+            if (!botQuestionHistoryDailyNew[day]) {
+              botQuestionHistoryDailyNew[day] = { ...value, research: 0 }
+            } else {
+              botQuestionHistoryDailyNew[day] = {
+                ...botQuestionHistoryDailyNew[day],
+                ...value,
+                research: botQuestionHistoryDailyNew[day].research || 0,
+              }
+            }
+          }
+          // Add research counts to days that have research but no question data
+          for (const [day, count] of Object.entries(researchDaily)) {
+            if (!botQuestionHistoryDailyNew[day]) {
+              botQuestionHistoryDailyNew[day] = {
+                questions: 0,
+                messages: 0,
+                upVotes: 0,
+                downVotes: 0,
+                escalations: 0,
+                couldAnswer: 0,
+                couldNotAnswer: 0,
+                research: 0,
+              }
+            }
+            // Set research count directly (not add) since we zeroed it out above
+            botQuestionHistoryDailyNew[day].research = count
+          }
+
           const botData = {
             questionCount: monthly.messages,
             questionLookupCount: monthly.questions,
             conversationCount: conversationMonthly.conversations,
+            researchCount: researchCount,
             pageCount: pageCount,
             sourceCount: sourceCount,
             questionHistory: {
               ...prevHistory,
-              [`${currentYear}-${currentMonth}`]: monthly,
+              [`${currentYear}-${currentMonth}`]: {
+                ...monthly,
+                research: researchCount,
+              },
             },
-            questionHistoryDaily: cleanDailyStats({
-              ...prevHistoryDaily,
-              ...daily,
-            }),
+            questionHistoryDaily: cleanDailyStats(botQuestionHistoryDailyNew),
             conversationHistory: {
               ...prevConversationHistory,
               [`${currentYear}-${currentMonth}`]: conversationMonthly,
@@ -182,11 +276,11 @@ export default async function handler(request, response) {
           // update bot count
           await botDoc.ref.update(botData)
 
-          botCounts.push({ pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily })
+          botCounts.push({ pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily, researchCount, researchDaily })
         }
 
         // take and sum the results
-        for (const { pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily } of botCounts) {
+        for (const { pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily, researchCount, researchDaily } of botCounts) {
           questionTotal += monthly.messages
           questionLookupTotal += monthly.questions
           pageTotal += pageCount
@@ -196,6 +290,7 @@ export default async function handler(request, response) {
           escalationsTotal += monthly.escalations
           couldAnswerTotal += monthly.couldAnswer
           couldNotAnswerTotal += monthly.couldNotAnswer
+          researchTotal += researchCount
 
           // Add conversation totals
           conversationTotal += conversationMonthly.conversations
@@ -220,6 +315,7 @@ export default async function handler(request, response) {
               escalations: 0,
               couldAnswer: 0,
               couldNotAnswer: 0,
+              research: 0,
             }
             questionHistoryDailyNew[day].questions += value.questions
             questionHistoryDailyNew[day].messages += value.messages
@@ -228,6 +324,24 @@ export default async function handler(request, response) {
             questionHistoryDailyNew[day].escalations += value.escalations
             questionHistoryDailyNew[day].couldAnswer += value.couldAnswer
             questionHistoryDailyNew[day].couldNotAnswer += value.couldNotAnswer
+          }
+
+          //loop through daily research stats
+          for (const [day, count] of Object.entries(researchDaily)) {
+            if (!questionHistoryDailyNew[day]) {
+              questionHistoryDailyNew[day] = {
+                questions: 0,
+                messages: 0,
+                upVotes: 0,
+                downVotes: 0,
+                escalations: 0,
+                couldAnswer: 0,
+                couldNotAnswer: 0,
+                research: 0,
+              }
+            }
+            // Add research count from each bot (sum across all bots)
+            questionHistoryDailyNew[day].research = (questionHistoryDailyNew[day].research || 0) + count
           }
 
           //loop through daily conversation stats
@@ -284,7 +398,9 @@ export default async function handler(request, response) {
           sourceTotal,
           'sources,',
           pageTotal,
-          'source pages'
+          'source pages,',
+          researchTotal,
+          'research jobs',
         )
 
         // update team count && needsUpdate
@@ -293,10 +409,11 @@ export default async function handler(request, response) {
         const prevConversationHistory = teamData.conversationHistory || {}
         const prevConversationHistoryDaily = teamData.conversationHistoryDaily || {}
         const questionLimit = stripePlan(teamData).questions
-        await teamDoc.ref.update({
+        const teamUpdateData = {
           questionCount: questionTotal,
           questionLookupCount: questionLookupTotal,
           conversationCount: conversationTotal,
+          researchCount: researchTotal,
           questionLimit: questionLimit,
           pageCount: pageTotal,
           sourceCount: sourceTotal,
@@ -310,12 +427,29 @@ export default async function handler(request, response) {
               escalations: escalationsTotal,
               couldAnswer: couldAnswerTotal,
               couldNotAnswer: couldNotAnswerTotal,
+              research: researchTotal,
             },
           },
-          questionHistoryDaily: cleanDailyStats({
-            ...prevHistoryDaily,
-            ...questionHistoryDailyNew,
-          }),
+          questionHistoryDaily: cleanDailyStats(
+            (() => {
+              // Zero out research counts for current month days in prevHistoryDaily to avoid double-counting
+              const currentMonthPrefix = `${currentYear}-${currentMonth}-`
+              const merged = { ...prevHistoryDaily }
+              for (const day in merged) {
+                if (day.startsWith(currentMonthPrefix) && merged[day]) {
+                  merged[day] = {
+                    ...merged[day],
+                    research: 0,
+                  }
+                }
+              }
+              // Merge in the new daily stats (which includes research counts from current run)
+              return {
+                ...merged,
+                ...questionHistoryDailyNew,
+              }
+            })(),
+          ),
           conversationHistory: {
             ...prevConversationHistory,
             [`${currentYear}-${currentMonth}`]: {
@@ -337,7 +471,9 @@ export default async function handler(request, response) {
             ...conversationHistoryDailyNew,
           }),
           needsUpdate: false,
-        })
+        }
+
+        await teamDoc.ref.update(teamUpdateData)
       } catch (error) {
         console.warn(`Error updating team ${teamDoc.id} counts:`, error)
         return

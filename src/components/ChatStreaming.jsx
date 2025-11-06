@@ -113,11 +113,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       
       unified()
         .use(remarkParse)
+        .use(remarkMath, { singleDollarTextMath: false })
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath, {
-          singleDollarTextMath: false,
-        })
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
@@ -360,9 +358,9 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       if (currentSource?.content) {
         unified()
           .use(remarkParse)
+          .use(remarkMath, { singleDollarTextMath: false })
           .use(remarkGfm)
           .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMath, { singleDollarTextMath: false })
           .use(remarkRehype)
           .use(rehypeKatex)
           .use(rehypeStringify)

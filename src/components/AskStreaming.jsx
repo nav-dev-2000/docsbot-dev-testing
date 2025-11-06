@@ -56,9 +56,9 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
 
       unified()
         .use(remarkParse)
+        .use(remarkMath, { singleDollarTextMath: false })
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath, { singleDollarTextMath: false })
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)

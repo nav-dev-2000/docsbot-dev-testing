@@ -1008,15 +1008,36 @@ export const getNeededStripeProduct = (team, teamInvites = []) => {
 }
 
 export const preprocessLaTeX = (content) => {
-  // Replace block-level LaTeX delimiters \[ \] with $$ $$
-  const blockProcessedContent = content.replace(
-    /\\\[(.*?)\\\]/gs,
-    (_, equation) => `$$${equation}$$`,
-  )
-  // Replace inline LaTeX delimiters \( \) with $ $
-  const inlineProcessedContent = blockProcessedContent.replace(
-    /\\\((.*?)\\\)/gs,
-    (_, equation) => `$$${equation}$$`,
-  )
-  return inlineProcessedContent
+  if (!content || typeof content !== 'string') return content
+
+  let processed = content
+
+  // 1) Multiline display markers on their own lines: convert line-anchored \[ and \] to $$
+  processed = processed.replace(/^\s*\\\[\s*$/gm, () => '$$')
+  processed = processed.replace(/^\s*\\\]\s*$/gm, () => '$$')
+
+  // 2) Single-line display math: \[ ... \] -> $$...$$
+  processed = processed.replace(/\\\[\s*([^\n]*?)\s*\\\]/g, (_, equation) => {
+    const inner = String(equation).trim()
+    return `$$${inner}$$`
+  })
+
+  // Match inline equations on a single line (avoid greedily spanning multiple blocks)
+  processed = processed.replace(/\\\(([^\n]*?)\\\)/g, (_, equation) => {
+    const inner = String(equation).trim()
+    return `$$${inner}$$`
+  })
+
+  // Convert single-line $...$ to $$...$$, avoiding currency like $100 or $9.99
+  // Conditions:
+  // - Not escaped (no preceding backslash)
+  // - Not $$ delimiter
+  // - Next char after $ is not a digit
+  // - Body contains at least a letter or backslash (typical math), no newlines
+  const singleDollarInline = /(^|[^$\\])\$(?!\$)(?!\d)(?=\S)([^$\n]*[A-Za-z\\][^$\n]*?)\$(?!\$)/g
+  processed = processed.replace(singleDollarInline, (_, pre, body) => {
+    return `${pre}$$${String(body).trim()}$$`
+  })
+
+  return processed
 }

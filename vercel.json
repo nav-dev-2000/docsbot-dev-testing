@@ -88,6 +88,10 @@
         {
             "path": "/api/cron/cleanup-demo-bots",
             "schedule": "0 2 * * *"
+        },
+        {
+            "path": "/api/cron/research-status",
+            "schedule": "*/5 * * * *"
         }
     ],
     "functions": {
@@ -121,6 +125,9 @@
             "maxDuration": 120
         },
         "src/pages/api/cron/cleanup-demo-bots.js": {
+            "maxDuration": 300
+        },
+        "src/pages/api/cron/research-status.js": {
             "maxDuration": 300
         },
         "src/pages/api/teams/[teamId]/bots/analyze.js": {

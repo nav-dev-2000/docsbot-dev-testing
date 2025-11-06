@@ -13,13 +13,13 @@ import {
   CheckIcon,
   XMarkIcon,
   ArrowTopRightOnSquareIcon,
-  BeakerIcon,
+  RectangleStackIcon,
   PhotoIcon,
   CubeIcon,
 } from '@heroicons/react/24/outline'
 import {
   PaperAirplaneIcon,
-  BeakerIcon as BeakerIconSolid,
+  RectangleStackIcon as RectangleStackIconSolid,
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { unified } from 'unified'
@@ -59,9 +59,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const [chatHistory, setChatHistory] = useState([])
   const [canModify, setModify] = useState(false)
   const [ratings, setRatings] = useState({})
-  const [isResearchMode, setIsResearchMode] = useState(false)
+  const [isContextBoost, setIsContextBoost] = useState(false)
   const [showQuestion, setShowQuestion] = useState(true)
-  const [researchDisabled, setResearchDisabled] = useState(
+  const [contextBoostDisabled, setContextBoostDisabled] = useState(
     bot.model === 'gpt-3.5-turbo-0613',
   )
   const [conversationId, setConversationId] = useState(uuidv4())
@@ -192,11 +192,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
       unified()
         .use(remarkParse)
+        .use(remarkMath, { singleDollarTextMath: false })
         .use(remarkGfm)
         .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkMath, {
-          singleDollarTextMath: false,
-        })
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
@@ -281,7 +279,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       image_urls: imageUrls,
       default_language: navigator.language,
     }
-    if (isResearchMode) {
+    if (isContextBoost) {
       body.context_items = 16
     } else {
       body.context_items = 6
@@ -639,9 +637,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       if (currentSource?.content) {
         unified()
           .use(remarkParse)
+          .use(remarkMath, { singleDollarTextMath: false })
           .use(remarkGfm)
           .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMath, { singleDollarTextMath: false })
           .use(remarkRehype)
           .use(rehypeKatex)
           .use(rehypeStringify)
@@ -745,7 +743,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
     const page = source.page ? ` - Page ${source.page}` : ''
 
-    if (source.used === false && !isResearchMode) return null
+    if (source.used === false && !isContextBoost) return null
 
     return (
       <li className="my-1 flex cursor-pointer items-center">
@@ -771,7 +769,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
     const page = source.page ? ` - Page ${source.page}` : ''
 
-    if (source.used === false && !isResearchMode) return null
+    if (source.used === false && !isContextBoost) return null
 
     return (
       <li className="my-1 flex cursor-pointer items-center">
@@ -965,7 +963,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
                 )}
               >
-                {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isResearchMode)).length > 0 && !hideSources && (
+                {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && !hideSources && (
                   <div className="block text-left sm:hidden">
                     <div className="text-sm font-semibold text-gray-800">
                       {bot.labels.sources}
@@ -1043,7 +1041,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </div>
             )}
           </div>
-          {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isResearchMode)).length > 0 && (
+          {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && (
             <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
               <div className="text-sm font-semibold text-gray-800">
                 {bot.labels.sources}
@@ -1362,15 +1360,15 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     <Tooltip
                       content={
                         checkPlanPermission(team, 'hobby').allowed
-                          ? 'Enable research mode'
-                          : 'Upgrade to the Personal plan to enable research mode'
+                          ? 'Enable context boost'
+                          : 'Upgrade to the Personal plan to enable context boost'
                       }
                     >
                       <button
                         type="button"
                         className={clsx(
                           'rounded-md p-2 hover:text-cyan-600',
-                          isResearchMode
+                          isContextBoost
                             ? 'font-bold text-cyan-600'
                             : 'text-gray-600',
                           !checkPlanPermission(team, 'hobby').allowed &&
@@ -1381,13 +1379,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                             setPendingUpgrade(true)
                             return
                           }
-                          setIsResearchMode((prev) => !prev)
+                          setIsContextBoost((prev) => !prev)
                         }}
                       >
-                        {isResearchMode ? (
-                          <BeakerIconSolid className="h-5 w-5" />
+                        {isContextBoost ? (
+                          <RectangleStackIconSolid className="h-5 w-5" />
                         ) : (
-                          <BeakerIcon className="h-5 w-5" />
+                          <RectangleStackIcon className="h-5 w-5" />
                         )}
                       </button>
                     </Tooltip>
@@ -1469,9 +1467,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             </div>
 
             <div className="mb-4 flex items-start justify-between">
-              {isResearchMode && showResearchMode ? (
+              {isContextBoost && showResearchMode ? (
                 <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
-                  Note: Enabling Research Mode passes more source context in
+                  Note: Enabling Context Boost passes more source context in
                   order to answer detailed questions at the expense of more
                   token usage.
                 </p>

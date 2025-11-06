@@ -234,6 +234,38 @@ export const deleteBot = async (teamId, botId) => {
   // Commit the remaining batch
   await conversationsBatch.commit()
 
+  //---------------------------
+  // Delete all research for bot
+  const researchSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('research')
+    .select(FieldPath.documentId()) //less data to retrieve
+    .get()
+
+  // Once we get the results, begin a batch
+  toDelete = []
+  researchSnapshot.forEach(function (doc) {
+    toDelete.push(doc.ref)
+  })
+
+  // Loop through toDelete and delete in batches of 50
+  counter = 0
+  let researchBatch = firestore.batch()
+  for (let i = 0; i < toDelete.length; i++) {
+    researchBatch.delete(toDelete[i])
+    counter++
+    // Commit the batch every 50 operations
+    if (counter % 50 === 0) {
+      await researchBatch.commit()
+      researchBatch = firestore.batch()
+    }
+  }
+  // Commit the remaining batch
+  await researchBatch.commit()
+
   //delete bot
   await firestore
     .collection('teams')

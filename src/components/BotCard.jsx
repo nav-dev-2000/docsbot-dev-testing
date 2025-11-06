@@ -10,6 +10,7 @@ import {
   MagnifyingGlassIcon,
   ChatBubbleLeftRightIcon,
   ChatBubbleBottomCenterTextIcon,
+  BeakerIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -29,6 +30,7 @@ import { BotCopyModal } from '@/components/BotCopy'
 import EmbeddingModel from '@/components/EmbeddingModel'
 import Tooltip from '@/components/Tooltip'
 import BotIconDisplay from '@/components/BotIconDisplay'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export default function BotCard({ team, bot, integrations, setBot }) {
   const [user] = useAuthState(auth)
@@ -117,6 +119,20 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               </div>
               <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
                 <ModalChat team={team} bot={bot} className="" />
+                {isSuperAdmin(user?.uid) && (
+                  <Tooltip content="Deep research agent with advanced reasoning and tool usage">
+                    <Link
+                      href={`/app/bots/${bot.id}/research`}
+                      className="flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <BeakerIcon
+                        className="h-5 w-5 text-cyan-700"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden xl:inline">Research</span>
+                    </Link>
+                  </Tooltip>
+                )}
                 <Tooltip content="Search and preview your bot's knowledge base">
                   <Link
                     href={`/app/bots/${bot.id}/search`}
