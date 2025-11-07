@@ -72,7 +72,7 @@ const remarkMathPlugin =
 // Rotating quotes component for research suggestions
 function RotatingQuotes() {
   const quotes = [
-    "Analyze support conversation themes to spot recurring complaints and gaps.",
+    //"Analyze support conversation themes to spot recurring complaints and gaps.",
     "Audit support sources by comparing our manuals vs online help docs.",
     "Research and compare our product features with a competitor's.",
     "Create a whitepaper for my product combining the manual and web search for common pain points.",
@@ -112,7 +112,7 @@ function RotatingQuotes() {
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <p className="text-sm text-gray-500 italic flex items-center justify-start w-full gap-2">
+        <p className="text-sm text-gray-500 italic flex items-center justify-start text-left w-full gap-2">
           <LightBulbIcon className="h-4 w-4 text-gray-500" />
           "{quotes[currentQuoteIndex]}"
         </p>
@@ -531,7 +531,7 @@ function ResearchInterface({
 }) {
   const [question, setQuestion] = useState('')
   const [selectedModel, setSelectedModel] = useState('o4-mini')
-  const [webSearch, setWebSearch] = useState(true)
+  const [webSearch, setWebSearch] = useState(false)
   const [codeInterpreter, setCodeInterpreter] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -545,12 +545,12 @@ function ResearchInterface({
     {
       id: 'o3',
       name: 'o3',
-      description: 'Uses advanced reasoning - requires verification',
+      description: 'Uses advanced reasoning - Slower & 5x more expensive',
     },
     {
       id: 'o4-mini',
       name: 'o4-mini',
-      description: 'Fastest at advanced reasoning - requires verification',
+      description: 'Fastest at advanced reasoning - Recommended for most tasks',
     },
   ]
 
@@ -839,9 +839,8 @@ function ResearchInterface({
               dismissKey="research-agent-info"
             >
               This agent uses advanced reasoning models and multiple searches to
-              perform deep research tasks. It can search your data, the web, run
-              and analyze code, and provide comprehensive answers with detailed
-              reasoning and tool usage. Research jobs take anywhere from 5 to 20 minutes so it's best to use only for very complex and detailed reports.
+              perform deep research tasks. It can search your data, the web, write and run code for accurate data analysis & math, and provide comprehensive answers with detailed
+              reasoning. Research jobs take anywhere from 5 to 25 minutes so it's optimized to use for very complex or detailed reports, not simple questions.
             </Alert>
           )}
         </div>
@@ -897,6 +896,16 @@ function ResearchInterface({
                 )}
               </div>
             </>
+          )}
+
+          {bot?.privacy === 'private' && webSearch && (
+            <Alert
+              title="Privacy Warning"
+              type="warning"
+              dismissKey="web-search-private-warning"
+            >
+              Enabling web search could potentially leak private information from your training data to websites. The agent may include sensitive content from your knowledge base in web search queries.
+            </Alert>
           )}
 
           <form
