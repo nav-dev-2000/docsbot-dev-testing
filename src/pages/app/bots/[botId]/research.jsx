@@ -37,8 +37,10 @@ import {
   CheckCircleIcon as CheckCircleIconSolid,
   CodeBracketSquareIcon as CodeBracketSquareIconSolid,
   MagnifyingGlassCircleIcon as MagnifyingGlassCircleIconSolid,
+  DocumentMagnifyingGlassIcon as DocumentMagnifyingGlassIconSolid,
 } from '@heroicons/react/24/solid'
 import RobotIcon from '@/components/RobotIcon'
+import UserAvatar from '@/components/UserAvatar'
 import Link from 'next/link'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -68,6 +70,100 @@ const remarkMathPlugin =
   typeof remarkMath === 'function'
     ? remarkMath
     : remarkMath?.default || remarkMath
+
+// Internal reusable UserMessage component matching conversations.jsx styling
+// Supports right-aligned layout (research.jsx) with matching padding and icon sizes
+function UserMessage({ text, alias, email, html, className = '' }) {
+  return (
+    <div className={`mb-4 flex max-w-3xl items-start justify-end ml-auto ${className}`}>
+      <div
+        dir="auto"
+        className={`text-md rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-right text-gray-700 ${html ? 'prose leading-snug first:prose-p:my-0' : ''}`}
+      >
+        {html ? (
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        ) : (
+          text
+        )}
+      </div>
+      {email ? (
+        <UserAvatar
+          alias={alias || 'User'}
+          email={email}
+          className="ml-3 hidden h-10 w-10 flex-none rounded-full bg-gray-50 sm:flex lg:hidden xl:flex"
+        />
+      ) : (
+        <div className="ml-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-gradient-to-r from-cyan-600 to-cyan-700 sm:flex lg:hidden xl:flex">
+          <UserCircleIcon className="h-8 w-8 text-white" />
+        </div>
+      )}
+    </div>
+  )
+}
+
+// Internal reusable BotMessage component matching conversations.jsx styling
+// Supports left-aligned layout (research.jsx) with matching padding and icon sizes
+function BotMessage({ text, html, className = '', children }) {
+  // Extract width-related classes from className for message bubble
+  const widthClasses = []
+  if (className.includes('w-full')) {
+    widthClasses.push('w-full')
+  } else if (className.includes('max-w-4xl')) {
+    widthClasses.push('max-w-4xl')
+  } else {
+    widthClasses.push('max-w-3xl') // Default like conversations.jsx
+  }
+  
+  // Remove width classes from container className
+  const containerClassName = className
+    .replace('w-full', '')
+    .replace('max-w-4xl', '')
+    .replace('mr-12', '')
+    .replace('mt-4', '')
+    .trim()
+  
+  // Build container class - never add max-w-3xl to container (only to message bubble)
+  let containerClass = 'mb-4 flex items-start justify-start'
+  if (className.includes('mr-12')) {
+    containerClass = 'mb-4 flex mr-12 items-start justify-start'
+  } else if (className.includes('mt-4')) {
+    containerClass = `mb-4 mt-4 flex items-start justify-start`
+  }
+  if (containerClassName) {
+    containerClass += ` ${containerClassName}`
+  }
+  
+  const messageWidth = widthClasses.join(' ')
+  
+  return (
+    <div className={containerClass}>
+      <div className="mr-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">
+        <RobotIcon className="h-auto w-4/6 object-scale-down text-white" />
+      </div>
+      {children ? (
+        <div
+          dir="auto"
+          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`}
+        >
+          {children}
+        </div>
+      ) : html ? (
+        <div
+          dir="auto"
+          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      ) : (
+        <div
+          dir="auto"
+          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0 whitespace-pre-wrap`}
+        >
+          {text}
+        </div>
+      )}
+    </div>
+  )
+}
 
 // Rotating quotes component for research suggestions
 function RotatingQuotes() {
@@ -381,7 +477,7 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
   })()
 
   return (
-    <details ref={detailsRef} className="group mt-6 text-left" open={!!defaultOpen}>
+    <details ref={detailsRef} className="group mt-6 ml-12 text-left" open={!!defaultOpen}>
       <summary className="text-md flex cursor-pointer select-none list-none items-center justify-between rounded-md bg-gray-50 px-3 py-2 text-left font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-100">
         <Tooltip content={`Web Searches: ${webSearchesCount} • URLs: ${urlsCount} • Documentation Searches: ${mcpSearchesCount} • Documents: ${mcpFetchesCount}`}>
           <span>Research Steps ({output.length})</span>
@@ -528,6 +624,7 @@ function ResearchInterface({
   onClarificationsContinue,
   setSelectedJob,
   setResearchJobs,
+  selectedJob = null,
 }) {
   const [question, setQuestion] = useState('')
   const [selectedModel, setSelectedModel] = useState('o4-mini')
@@ -615,6 +712,47 @@ function ResearchInterface({
     }
   }, [clarifyingJob])
 
+  // Helper to update selectedJob when tools are toggled (only if job hasn't started)
+  const updateSelectedJobTools = (newWebSearch, newCodeInterpreter) => {
+    if (!setSelectedJob) return
+    
+    // If we're in clarifying mode, update the selectedJob
+    if (clarifyingJob) {
+      const jobStatus = clarifyingJob.status
+      // Don't update if job has already started (queued or in_progress)
+      if (jobStatus === 'queued' || jobStatus === 'in_progress') return
+      
+      // Update selectedJob to reflect tool changes in header
+      setSelectedJob((prev) => {
+        if (!prev) return prev
+        return {
+          ...prev,
+          webSearch: newWebSearch,
+          codeInterpreter: newCodeInterpreter,
+        }
+      })
+      return
+    }
+    
+    // If we're in first step and a job exists, update it only if it hasn't started
+    if (selectedJob) {
+      const jobStatus = selectedJob.status
+      // Don't update if job has already started (queued or in_progress)
+      if (jobStatus === 'queued' || jobStatus === 'in_progress') return
+      
+      // Update selectedJob to reflect tool changes in header
+      setSelectedJob((prev) => {
+        if (!prev) return prev
+        return {
+          ...prev,
+          webSearch: newWebSearch,
+          codeInterpreter: newCodeInterpreter,
+        }
+      })
+    }
+    // If no job exists yet in first step, we don't need to update selectedJob
+  }
+
   const startResearch = async (e) => {
     e.preventDefault()
     if (!question || question.length < 2) {
@@ -646,6 +784,10 @@ function ResearchInterface({
             web_search: webSearch,
             code_interpreter: codeInterpreter,
             docs_search: true,
+            metadata: user?.displayName || user?.email ? {
+              name: user?.displayName || null,
+              email: user?.email || null,
+            } : undefined,
           }),
         })
 
@@ -657,7 +799,16 @@ function ResearchInterface({
           
           // Immediately update the selected job with the response data to show loading state
           if (data.jobId && data.status) {
-            const updatedJob = { ...clarifyingJob, ...data }
+            const updatedJob = { 
+              ...clarifyingJob, 
+              ...data,
+              // Store the answers that were just submitted
+              answers: question,
+              // Ensure summary is preserved from the response
+              summary: data.summary || clarifyingJob.summary,
+              // Preserve metadata from API response or existing
+              metadata: data.metadata || clarifyingJob.metadata,
+            }
             console.log('Updated job:', updatedJob)
             setSelectedJob && setSelectedJob(updatedJob)
             
@@ -672,9 +823,14 @@ function ResearchInterface({
           // Since we already have the updated status, we don't need to fetch immediately
           // The polling will handle status updates for queued/in_progress jobs
         } else {
-          const data = await response.json()
-          console.error('Clarification submission failed:', data)
-          setErrorText(data.message || 'Failed to continue research')
+          try {
+            const data = await response.json()
+            console.error('Clarification submission failed:', data)
+            setErrorText(data.message || 'Failed to continue research')
+          } catch (err) {
+            console.error('Error parsing error response:', err)
+            setErrorText('Failed to continue research')
+          }
         }
       } else {
         // Normal start research flow
@@ -689,6 +845,10 @@ function ResearchInterface({
           model: selectedModel,
           web_search: webSearch,
           code_interpreter: codeInterpreter,
+          metadata: user?.displayName || user?.email ? {
+            name: user?.displayName || null,
+            email: user?.email || null,
+          } : undefined,
         }
 
         const response = await fetch(apiUrl, {
@@ -713,6 +873,10 @@ function ResearchInterface({
               model: selectedModel,
               webSearch: webSearch,
               codeInterpreter: codeInterpreter,
+              metadata: data.metadata || (user?.displayName || user?.email ? {
+                name: user?.displayName || null,
+                email: user?.email || null,
+              } : undefined),
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString(),
             }
@@ -726,8 +890,13 @@ function ResearchInterface({
           
           onJobCreated(data.jobId)
         } else {
-          const data = await response.json()
-          setErrorText(data.message || 'Failed to start research')
+          try {
+            const data = await response.json()
+            setErrorText(data.message || 'Failed to start research')
+          } catch (err) {
+            console.error('Error parsing error response:', err)
+            setErrorText('Failed to start research')
+          }
         }
       }
     } catch (error) {
@@ -825,9 +994,9 @@ function ResearchInterface({
   }
 
   return (
-    <div className="relative flex justify-center py-8">
+    <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12">
+      <div className="flex w-full flex-col text-center">
         <div className="my-auto">
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {clarifyingJob ? clarifyingJob.title : 'Deep Research Agent'}
@@ -853,48 +1022,17 @@ function ResearchInterface({
           {clarifyingJob && (
             <>
               {/* First user message: the original question */}
-              <div className="relative mt-2 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-                <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
-                  <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-                    <UserCircleIcon
-                      className="h-7 w-7 text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                <div
-                  dir="auto"
-                  className="prose min-w-full p-4 px-6 text-start sm:px-8"
-                >
-                  {clarifyingJob.question}
-                </div>
-              </div>
+              <UserMessage
+                text={clarifyingJob.question}
+                alias={clarifyingJob.metadata?.name || 'User'}
+                email={clarifyingJob.metadata?.email}
+              />
 
               {/* Bot reply: clarification questions as a normal message */}
-              <div className="relative mb-4 mt-4 max-w-fit rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
-                <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-                  <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-                    <RobotIcon
-                      className="h-7 w-7 text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                {clarificationsHtml ? (
-                  <div
-                    dir="auto"
-                    className="prose min-w-full p-6 text-start sm:px-8"
-                    dangerouslySetInnerHTML={{ __html: clarificationsHtml }}
-                  />
-                ) : (
-                  <div
-                    dir="auto"
-                    className="prose min-w-full whitespace-pre-wrap p-6 text-start sm:px-8"
-                  >
-                    {clarifyingJob.clarifications}
-                  </div>
-                )}
-              </div>
+              <BotMessage
+                text={clarifyingJob.clarifications}
+                html={clarificationsHtml}
+              />
             </>
           )}
 
@@ -932,7 +1070,11 @@ function ResearchInterface({
                             ? 'font-bold text-cyan-600'
                             : 'text-gray-600',
                         )}
-                        onClick={() => setWebSearch((prev) => !prev)}
+                        onClick={() => {
+                          const newValue = !webSearch
+                          setWebSearch(newValue)
+                          updateSelectedJobTools(newValue, codeInterpreter)
+                        }}
                       >
                         {webSearch ? (
                           <MagnifyingGlassCircleIconSolid className="h-5 w-5" />
@@ -952,7 +1094,11 @@ function ResearchInterface({
                             ? 'font-bold text-cyan-600'
                             : 'text-gray-600',
                         )}
-                        onClick={() => setCodeInterpreter((prev) => !prev)}
+                        onClick={() => {
+                          const newValue = !codeInterpreter
+                          setCodeInterpreter(newValue)
+                          updateSelectedJobTools(webSearch, newValue)
+                        }}
                       >
                         {codeInterpreter ? (
                           <CodeBracketSquareIconSolid className="h-5 w-5" />
@@ -995,7 +1141,7 @@ function ResearchInterface({
                     )}
                     placeholder={
                       clarifyingJob
-                        ? "Please answer the bot's clarification questions..."
+                        ? "Please answer the clarification questions..."
                         : 'Ask a complex research question...'
                     }
                   />
@@ -1037,6 +1183,8 @@ function ResearchInterface({
 
 function ResearchResults({ job, onBack, onJobUpdate }) {
   const [markdown, setMarkdown] = useState('')
+  const [clarificationsHtml, setClarificationsHtml] = useState('')
+  const [summaryHtml, setSummaryHtml] = useState('')
   const [isCopied, setIsCopied] = useState(false)
   const [costInfo, setCostInfo] = useState(null)
   const scrollToBottomRef = useRef(null)
@@ -1051,6 +1199,58 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
       })
     }
   }, [onJobUpdate])
+
+  // Render clarifications as markdown
+  useEffect(() => {
+    const renderClarifications = async () => {
+      if (!job?.clarifications) {
+        setClarificationsHtml('')
+        return
+      }
+      try {
+        const file = await unified()
+          .use(remarkParse)
+          .use(remarkGfm)
+          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+          .use(remarkMathPlugin, { singleDollarTextMath: false })
+          .use(remarkRehype)
+          .use(rehypeKatex)
+          .use(rehypeStringify)
+          .process(preprocessLaTeX(job.clarifications))
+        setClarificationsHtml(String(file))
+      } catch (err) {
+        console.warn('Error rendering clarifications markdown:', err)
+        setClarificationsHtml('')
+      }
+    }
+    renderClarifications()
+  }, [job?.clarifications])
+
+  // Render summary as markdown
+  useEffect(() => {
+    const renderSummary = async () => {
+      if (!job?.summary) {
+        setSummaryHtml('')
+        return
+      }
+      try {
+        const file = await unified()
+          .use(remarkParse)
+          .use(remarkGfm)
+          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
+          .use(remarkMathPlugin, { singleDollarTextMath: false })
+          .use(remarkRehype)
+          .use(rehypeKatex)
+          .use(rehypeStringify)
+          .process(preprocessLaTeX(job.summary))
+        setSummaryHtml(String(file))
+      } catch (err) {
+        console.warn('Error rendering summary markdown:', err)
+        setSummaryHtml('')
+      }
+    }
+    renderSummary()
+  }, [job?.summary])
 
   useEffect(() => {
     //console.log('job', job.result)
@@ -1187,8 +1387,8 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
   }
 
   return (
-    <div className="relative flex justify-center py-8">
-      <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12">
+    <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
+      <div className="flex w-full flex-col text-center">
         <div className="mb-2 flex items-center justify-between">
           <button
             onClick={onBack}
@@ -1222,22 +1422,39 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
           </h2>
         </div>
 
-        <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-          <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
-            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-              <UserCircleIcon
-                className="h-7 w-7 text-white"
-                aria-hidden="true"
-              />
-            </span>
-          </div>
-          <div
-            dir="auto"
-            className="prose min-w-full p-4 px-6 text-start sm:px-8"
-          >
-            {job.question}
-          </div>
-        </div>
+        {/* 1. User question */}
+        <UserMessage
+          text={job.question}
+          alias={job.metadata?.name || 'User'}
+          email={job.metadata?.email}
+        />
+
+        {/* 2. Bot clarifications */}
+        {job?.clarifications && (
+          <BotMessage
+            text={job.clarifications}
+            html={clarificationsHtml}
+            className="mr-12"
+          />
+        )}
+
+        {/* 3. User answers */}
+        {job?.answers && (
+          <UserMessage
+            text={job.answers}
+            alias={job.metadata?.name || 'User'}
+            email={job.metadata?.email}
+          />
+        )}
+
+        {/* 4. Bot summary */}
+        {job?.summary && (
+          <BotMessage
+            text={job.summary}
+            html={summaryHtml}
+            className="mr-12"
+          />
+        )}
 
         {/* Collapsible timeline of tool calls and reasoning */}
         {job?.response?.output && (
@@ -1321,35 +1538,28 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
             </div>
           </div>
         ) : (
-          <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
-            <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-                <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
-              </span>
-            </div>
-            <div dir="auto" className="prose min-w-full p-6 text-start sm:px-8">
-              {markdown ? (
-                <div dangerouslySetInnerHTML={{ __html: markdown }} />
-              ) : (
-                <div className="flex flex-col">
-                  <LoadingDots />
-                  <span className="text-xs mt-2 ml-2 text-gray-500">
-                    Deep research jobs can take many minutes to complete, please wait or check back later...
-                  </span>
-                </div>
-              )}
-            </div>
+          <BotMessage className="mt-4 max-w-4xl">
+            {markdown ? (
+              <div dangerouslySetInnerHTML={{ __html: markdown }} />
+            ) : (
+              <div className="flex flex-col">
+                <LoadingDots />
+                <span className="text-xs mt-2 ml-2 text-gray-500">
+                  Deep research jobs can take many minutes to complete, please wait or check back later...
+                </span>
+              </div>
+            )}
             {job?.status === 'completed' && job?.result && (
-            <div className="mt-2 flex items-center justify-between px-6 pb-4 sm:px-8">
-              {costInfo && (
-                <Tooltip
-                  content={`Input: $${costInfo.input.toFixed(2)}, Output: $${costInfo.output.toFixed(2)}, Tools: $${costInfo.tools.toFixed(2)}`}
-                >
-                  <div className="text-[11px] leading-tight text-gray-500 select-none">
-                    Estimated cost: ${costInfo.total.toFixed(2)}
-                  </div>
-                </Tooltip>
-              )}
+              <div className="mt-4 flex items-center justify-between">
+                {costInfo && (
+                  <Tooltip
+                    content={`Input: $${costInfo.input.toFixed(2)}, Output: $${costInfo.output.toFixed(2)}, Tools: $${costInfo.tools.toFixed(2)}`}
+                  >
+                    <div className="text-[11px] leading-tight text-gray-500 select-none">
+                      Estimated cost: ${costInfo.total.toFixed(2)}
+                    </div>
+                  </Tooltip>
+                )}
                 <Tooltip
                   content={isCopied ? 'Copied!' : 'Copy results to clipboard'}
                 >
@@ -1365,9 +1575,9 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                     )}
                   </button>
                 </Tooltip>
-            </div>
-          )}
-          </div>
+              </div>
+            )}
+          </BotMessage>
         )}
 
         {/* 
@@ -1401,6 +1611,7 @@ function Research({ team, bot }) {
   const [totalCount, setTotalCount] = useState(0)
   const [canModify, setModify] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [emailCopied, setEmailCopied] = useState(false)
   const [deleteConfirm, setDeleteConfirm] = useState(null)
   const [deletingJobId, setDeletingJobId] = useState(null)
   const didInitFromJobId = useRef(false)
@@ -1451,6 +1662,15 @@ function Research({ team, bot }) {
           setSelectedJob(job)
           // also refresh external status if possible
           fetchJobStatus(jobId)
+        } else {
+          try {
+            const data = await response.json()
+            if (data.message) {
+              setErrorText(data.message)
+            }
+          } catch (err) {
+            // Silently ignore parsing errors for deep-link fetch
+          }
         }
       } catch (err) {
         console.warn('Error fetching deep-linked job:', err)
@@ -1502,8 +1722,13 @@ function Research({ team, bot }) {
             (Array.isArray(data.jobs) ? data.jobs.length : 0),
         )
       } else {
-        const data = await response.json()
-        setErrorText(data.message || 'Failed to load research jobs')
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Failed to load research jobs')
+        } catch (err) {
+          console.error('Error parsing error response:', err)
+          setErrorText('Failed to load research jobs')
+        }
       }
     } catch (error) {
       console.error('Error fetching research jobs:', error)
@@ -1531,7 +1756,15 @@ function Research({ team, bot }) {
       if (response.ok) {
         const job = await response.json()
         const existing = researchJobs.find((j) => j.jobId === jobId) || {}
-        const merged = { ...existing, ...job }
+        const merged = { 
+          ...existing, 
+          ...job,
+          // Preserve answers and summary from existing or new data
+          answers: job.answers || existing.answers,
+          summary: job.summary || existing.summary,
+          // Preserve metadata from API response or existing
+          metadata: job.metadata || existing.metadata,
+        }
         setResearchJobs((prev) =>
           prev.map((j) => (j.jobId === jobId ? merged : j)),
         )
@@ -1568,8 +1801,13 @@ function Research({ team, bot }) {
           setSelectedJob(null)
         }
       } else {
-        const data = await response.json()
-        setErrorText(data.message || 'Failed to cancel job')
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Failed to cancel job')
+        } catch (err) {
+          console.error('Error parsing error response:', err)
+          setErrorText('Failed to cancel job')
+        }
       }
     } catch (error) {
       console.error('Error cancelling job:', error)
@@ -1604,8 +1842,13 @@ function Research({ team, bot }) {
           window.history.replaceState({}, '', url.toString())
         }
       } else {
-        const data = await response.json().catch(() => ({}))
-        setErrorText(data.message || 'Failed to delete job')
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Failed to delete job')
+        } catch (err) {
+          console.error('Error parsing error response:', err)
+          setErrorText('Failed to delete job')
+        }
       }
     } catch (err) {
       console.warn('Error deleting job:', err)
@@ -1621,6 +1864,17 @@ function Research({ team, bot }) {
     navigator.clipboard.writeText(jobUrl)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  // Function to copy user email
+  const copyUserEmail = () => {
+    if (!selectedJob || !selectedJob.metadata?.email) return
+
+    navigator.clipboard.writeText(selectedJob.metadata.email)
+    setEmailCopied(true)
+    setTimeout(() => {
+      setEmailCopied(false)
+    }, 2000)
   }
 
   const handleSelectJob = (job) => {
@@ -1677,7 +1931,15 @@ function Research({ team, bot }) {
             }
           }
           const existing = researchJobs.find((j) => j.jobId === jobId) || {}
-          const merged = { ...existing, ...job }
+          const merged = { 
+            ...existing, 
+            ...job,
+            // Preserve answers and summary from existing or new data
+            answers: job.answers || existing.answers,
+            summary: job.summary || existing.summary,
+            // Preserve metadata from API response or existing
+            metadata: job.metadata || existing.metadata,
+          }
           // also update the list entry to ensure we retain camelCase fields from DB/list
           setResearchJobs((prev) =>
             prev.map((j) => (j.jobId === jobId ? merged : j)),
@@ -1710,6 +1972,37 @@ function Research({ team, bot }) {
               </Link>
               {selectedJob && (
                 <>
+                  {selectedJob.metadata?.name &&
+                    selectedJob.metadata?.email && (
+                      <Tooltip
+                        content={
+                          emailCopied
+                            ? 'Copied!'
+                            : `${selectedJob.metadata.name}<br/>${selectedJob.metadata.email}<br/><small>Click to copy email</small>`
+                        }
+                      >
+                        <button
+                          className="flex items-center text-gray-400 hover:text-gray-600"
+                          onClick={copyUserEmail}
+                          disabled={emailCopied}
+                          type="button"
+                        >
+                          {emailCopied ? (
+                            <CheckIcon
+                              className="h-4 w-4 text-green-500"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <UserAvatar
+                              alias={selectedJob.metadata.name}
+                              email={selectedJob.metadata.email}
+                              className="h-5 w-5 rounded-full"
+                              aria-hidden="true"
+                            />
+                          )}
+                        </button>
+                      </Tooltip>
+                    )}
                   <div className="flex flex-wrap items-center gap-x-2 xl:gap-x-4">
                     <Tooltip
                       content={`Created: ${new Date(selectedJob.createdAt).toUTCString()}`}
@@ -1742,32 +2035,42 @@ function Research({ team, bot }) {
                   <div className="flex flex-wrap items-center gap-x-2 xl:gap-x-4">
                     <Tooltip content="Document search enabled">
                       <div className="flex items-center text-sm text-gray-500">
-                        <DocumentMagnifyingGlassIcon
-                          className="h-5 w-5 flex-shrink-0 text-gray-400"
+                        <DocumentMagnifyingGlassIconSolid
+                          className="h-5 w-5 flex-shrink-0 text-cyan-600"
                           aria-hidden="true"
                         />
                       </div>
                     </Tooltip>
-                    {selectedJob.webSearch && (
-                      <Tooltip content="Web search enabled">
-                        <div className="flex items-center text-sm text-gray-500">
+                    <Tooltip content={selectedJob.webSearch ? "Web search enabled" : "Web search disabled"}>
+                      <div className="flex items-center text-sm text-gray-500">
+                        {selectedJob.webSearch ? (
+                          <MagnifyingGlassCircleIconSolid
+                            className="h-5 w-5 flex-shrink-0 text-cyan-600"
+                            aria-hidden="true"
+                          />
+                        ) : (
                           <MagnifyingGlassCircleIcon
                             className="h-5 w-5 flex-shrink-0 text-gray-400"
                             aria-hidden="true"
                           />
-                        </div>
-                      </Tooltip>
-                    )}
-                    {selectedJob.codeInterpreter && (
-                      <Tooltip content="Code interpreter enabled">
-                        <div className="flex items-center text-sm text-gray-500">
+                        )}
+                      </div>
+                    </Tooltip>
+                    <Tooltip content={selectedJob.codeInterpreter ? "Code interpreter enabled" : "Code interpreter disabled"}>
+                      <div className="flex items-center text-sm text-gray-500">
+                        {selectedJob.codeInterpreter ? (
+                          <CodeBracketSquareIconSolid
+                            className="h-5 w-5 flex-shrink-0 text-cyan-600"
+                            aria-hidden="true"
+                          />
+                        ) : (
                           <CodeBracketSquareIcon
                             className="h-5 w-5 flex-shrink-0 text-gray-400"
                             aria-hidden="true"
                           />
-                        </div>
-                      </Tooltip>
-                    )}
+                        )}
+                      </div>
+                    </Tooltip>
                   </div>
                 </>
               )}
@@ -1875,6 +2178,7 @@ function Research({ team, bot }) {
                 }}
                 setSelectedJob={setSelectedJob}
                 setResearchJobs={setResearchJobs}
+                selectedJob={selectedJob}
               />
             ) : (
               <ResearchResults
@@ -1897,6 +2201,7 @@ function Research({ team, bot }) {
               onJobCreated={handleJobCreated}
               setSelectedJob={setSelectedJob}
               setResearchJobs={setResearchJobs}
+              selectedJob={selectedJob}
             />
           )}
         </div>
