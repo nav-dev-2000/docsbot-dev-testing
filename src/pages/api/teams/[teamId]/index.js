@@ -35,7 +35,13 @@ export default async function handler(req, res) {
         })
     }
 
-    let { name, openAIKey, weaviateUrl, weaviateApiKey, canTrial } = req.body
+    let {
+      name,
+      openAIKey,
+      weaviateUrl,
+      weaviateApiKey,
+      canTrial,
+    } = req.body
     let newTeam = {}
     if (name) {
       newTeam.name = name

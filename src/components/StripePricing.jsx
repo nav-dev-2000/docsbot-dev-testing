@@ -18,7 +18,13 @@ const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
   const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
   
   // Always include core limits that users care about most
-  const coreLimits = ['docsBots', 'sourcePages', 'messagesPerMonth', 'teamUsers']
+  const coreLimits = [
+    'docsBots',
+    'sourcePages',
+    'messagesPerMonth',
+    'researchTasksPerMonth',
+    'teamUsers',
+  ]
   const features = []
   
   // Add core limits first (always show these)

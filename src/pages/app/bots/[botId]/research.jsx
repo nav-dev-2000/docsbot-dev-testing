@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef, Fragment, useCallback } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { isSuperAdmin } from '@/utils/helpers'
+import { isSuperAdmin, stripePlan } from '@/utils/helpers'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -25,7 +25,6 @@ import {
   MagnifyingGlassIcon,
   GlobeAltIcon,
   CodeBracketSquareIcon,
-  MagnifyingGlassCircleIcon,
   CursorArrowRaysIcon,
   DocumentMagnifyingGlassIcon,
   CheckCircleIcon,
@@ -36,7 +35,7 @@ import {
 import {
   CheckCircleIcon as CheckCircleIconSolid,
   CodeBracketSquareIcon as CodeBracketSquareIconSolid,
-  MagnifyingGlassCircleIcon as MagnifyingGlassCircleIconSolid,
+  GlobeAltIcon as GlobeAltIconSolid,
   DocumentMagnifyingGlassIcon as DocumentMagnifyingGlassIconSolid,
 } from '@heroicons/react/24/solid'
 import RobotIcon from '@/components/RobotIcon'
@@ -59,6 +58,7 @@ import Tooltip from '@/components/Tooltip'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalOpenAI from '@/components/ModalOpenAI'
 import { canUserEditBot } from '@/utils/function.utils'
 import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
@@ -204,7 +204,7 @@ function RotatingQuotes() {
   return (
     <div className="mb-4 flex justify-center">
       <div 
-        className={`transition-opacity duration-500 text-center max-w-2xl ${
+        className={`transition-opacity duration-500 text-center ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -215,6 +215,204 @@ function RotatingQuotes() {
       </div>
     </div>
   )
+}
+
+const recomputeUsageDerived = (usage) => {
+  if (!usage) return usage
+
+  const monthlyLimit = usage.monthlyLimit
+  const monthlyUsed = usage.monthlyUsed ?? 0
+  const lifetimeLimit = usage.lifetimeLimit
+  const lifetimeUsed = usage.lifetimeUsed ?? 0
+
+  return {
+    ...usage,
+    monthlyRemaining:
+      monthlyLimit === null
+        ? Infinity
+        : Math.max(
+            (typeof monthlyLimit === 'number' ? monthlyLimit : 0) -
+              monthlyUsed,
+            0,
+          ),
+    trialRemaining:
+      typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+        ? Math.max(lifetimeLimit - lifetimeUsed, 0)
+        : 0,
+  }
+}
+
+const buildUsageSnapshot = (team) => {
+  const plan = stripePlan(team || {})
+  const rawMonthlyLimit = plan?.researchTasks
+  const monthlyLimit =
+    typeof rawMonthlyLimit === 'number' && !Number.isNaN(rawMonthlyLimit)
+      ? rawMonthlyLimit
+      : 25
+  const monthlyUsed = Number(team?.researchCount ?? 0) || 0
+
+  const baseUsage = {
+    planId: plan?.id || 'free',
+    planName: plan?.name || 'Free',
+    monthlyLimit,
+    monthlyUsed,
+  }
+
+  const questionHistory =
+    team?.questionHistory && typeof team.questionHistory === 'object'
+      ? Object.values(team.questionHistory)
+      : []
+
+  const historicalCounts = []
+  for (const entry of questionHistory) {
+    if (!entry || typeof entry !== 'object') continue
+    const value = Number(entry?.research ?? entry?.researchCount ?? 0)
+    if (!Number.isNaN(value)) {
+      historicalCounts.push(value)
+    }
+  }
+
+  const researchLifetimeCount = Number(team?.researchLifetimeCount ?? 0)
+  if (!Number.isNaN(researchLifetimeCount) && researchLifetimeCount > 0) {
+    historicalCounts.push(researchLifetimeCount)
+  }
+
+  if (!Number.isNaN(monthlyUsed)) {
+    historicalCounts.push(monthlyUsed)
+  }
+
+  const historicalMaxResearch =
+    historicalCounts.length > 0 ? Math.max(...historicalCounts) : 0
+
+  const rawPlanResearch =
+    plan?.researchTasks ?? plan?.research ?? plan?.researchTasksPerMonth ?? null
+
+  let lifetimeLimit = null
+  let legacyTrialThreshold = null
+
+  if (rawPlanResearch && typeof rawPlanResearch === 'object') {
+    const lifetimeCandidates = [
+      rawPlanResearch.lifetime,
+      rawPlanResearch.trial,
+      rawPlanResearch.tasksLifetime,
+      rawPlanResearch.jobsLifetime,
+    ]
+
+    for (const candidate of lifetimeCandidates) {
+      if (typeof candidate === 'number') {
+        lifetimeLimit = candidate
+        break
+      }
+    }
+  }
+
+  if (lifetimeLimit === null) {
+    const directLifetimeCandidates = [
+      plan?.researchTasksLifetime,
+      plan?.researchLifetime,
+      plan?.research?.lifetime,
+      plan?.research?.trial,
+    ]
+
+    for (const candidate of directLifetimeCandidates) {
+      if (typeof candidate === 'number') {
+        lifetimeLimit = candidate
+        break
+      }
+    }
+  }
+
+  const normalizedPlanId = (baseUsage.planId || '').toLowerCase()
+  const normalizedPlanName = (baseUsage.planName || '').toLowerCase()
+
+  const isLegacyPlan = Boolean(plan?.legacy)
+  const isLegacyPro =
+    isLegacyPlan &&
+    (normalizedPlanId === 'pro' || normalizedPlanName.includes('pro'))
+  const isLegacyPersonal =
+    isLegacyPlan &&
+    (normalizedPlanId === 'personal' || normalizedPlanName.includes('personal'))
+
+  if (lifetimeLimit === null && (isLegacyPro || isLegacyPersonal)) {
+    lifetimeLimit = 1
+    legacyTrialThreshold = 2
+  }
+
+  let lifetimeUsed = Number(team?.researchLifetimeCount ?? 0) || 0
+
+  if (typeof lifetimeLimit === 'number') {
+    if (legacyTrialThreshold !== null) {
+      lifetimeUsed = historicalMaxResearch >= legacyTrialThreshold ? 1 : 0
+    } else if (lifetimeUsed === 0) {
+      lifetimeUsed = historicalMaxResearch
+    }
+  }
+
+  return recomputeUsageDerived({
+    ...baseUsage,
+    lifetimeLimit,
+    lifetimeUsed,
+    historicalMaxResearch,
+    legacyTrialThreshold,
+  })
+}
+
+const formatResearchUsageDisplay = (usage) => {
+  if (!usage) return null
+
+  const {
+    monthlyLimit,
+    monthlyUsed = 0,
+    lifetimeLimit,
+    lifetimeUsed = 0,
+    planName,
+  } = usage
+
+  const hasTrial =
+    typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+
+  const formatRatio = (usedValue, limitValue) => {
+    const used = Number.isFinite(usedValue) ? usedValue : 0
+    if (limitValue === null) {
+      return `${used}/\u221E`
+    }
+    if (typeof limitValue === 'number') {
+      return `${used}/${limitValue}`
+    }
+    return `${used}/\u221E`
+  }
+
+  if (hasTrial && (monthlyLimit === 0 || monthlyLimit === undefined)) {
+    const used = Math.min(lifetimeUsed, lifetimeLimit)
+    return {
+      label: `Deep research trial: ${used} / ${lifetimeLimit}`,
+      tooltip:
+        'Legacy Pro plans include a one-time deep research task trial that can be used before upgrading.',
+      ratio: formatRatio(used, lifetimeLimit),
+    }
+  }
+
+  if (monthlyLimit === null) {
+    return {
+      label: `${monthlyUsed} deep research tasks used`,
+      tooltip: `Your ${planName} plan has a custom deep research task allowance. Contact support to adjust this limit.`,
+      ratio: formatRatio(monthlyUsed, null),
+    }
+  }
+
+  if (typeof monthlyLimit === 'number') {
+    return {
+      label: `${monthlyUsed} / ${monthlyLimit} deep research tasks this month`,
+      tooltip: `Your ${planName} plan includes ${monthlyLimit} deep research tasks per month.`,
+      ratio: formatRatio(monthlyUsed, monthlyLimit),
+    }
+  }
+
+  return {
+    label: `${monthlyUsed} deep research tasks used`,
+    tooltip: `Your ${planName} plan has a custom deep research task allowance.`,
+    ratio: formatRatio(monthlyUsed, monthlyLimit),
+  }
 }
 
 // Renders a compact, collapsible timeline of tool calls and reasoning steps
@@ -282,7 +480,7 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
           return <CursorArrowRaysIcon className="h-4 w-4 text-cyan-600" />
         }
         if (a.type === 'find_in_page') {
-          return <MagnifyingGlassCircleIcon className="h-4 w-4 text-cyan-600" />
+          return <GlobeAltIcon className="h-4 w-4 text-cyan-600" />
         }
         if (a.type === 'search') {
           return <GlobeAltIcon className="h-4 w-4 text-cyan-600" />
@@ -575,7 +773,7 @@ function ResearchJob({ job, onSelect, isSelected, onCancel }) {
       <div className="absolute right-2 top-2 flex space-x-1 lg:right-4">
         {getStatusIcon(job.status)}
         {(job.status === 'queued' || job.status === 'in_progress') && (
-          <Tooltip content="Cancel research">
+          <Tooltip content="Cancel deep research task">
             <button
               onClick={(e) => {
                 e.stopPropagation()
@@ -625,6 +823,9 @@ function ResearchInterface({
   setSelectedJob,
   setResearchJobs,
   selectedJob = null,
+  researchUsage = null,
+  refreshResearchCount,
+  onResearchTaskStarted,
 }) {
   const [question, setQuestion] = useState('')
   const [selectedModel, setSelectedModel] = useState('o4-mini')
@@ -634,15 +835,25 @@ function ResearchInterface({
   const [errorText, setErrorText] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
+  const [showOpenAI, setShowOpenAI] = useState(false)
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
   const [clarificationsHtml, setClarificationsHtml] = useState('')
+
+  const refreshUsage =
+    typeof refreshResearchCount === 'function'
+      ? refreshResearchCount
+      : async () => null
+  const recordResearchTaskStarted =
+    typeof onResearchTaskStarted === 'function'
+      ? onResearchTaskStarted
+      : async () => {}
 
   const validModels = [
     {
       id: 'o3',
       name: 'o3',
-      description: 'Uses advanced reasoning - Slower & 5x more expensive',
+      description: 'Uses advanced reasoning - Slower & 5x more expensive, requires a OpenAI API key',
     },
     {
       id: 'o4-mini',
@@ -671,6 +882,18 @@ function ResearchInterface({
       setPendingUpgrade(false)
     }
   }, [pendingUpgrade])
+
+  useEffect(() => {
+    if (!showOpenAI && !team.openAIKey && selectedModel === 'o3') {
+      setShowOpenAI(true)
+    }
+  }, [selectedModel, showOpenAI, team.openAIKey])
+
+  useEffect(() => {
+    if (!showOpenAI && !team.openAIKey && selectedModel === 'o3') {
+      setSelectedModel('o4-mini')
+    }
+  }, [showOpenAI, team.openAIKey, selectedModel])
 
   // Render clarifications as markdown when present
   useEffect(() => {
@@ -755,14 +978,89 @@ function ResearchInterface({
 
   const startResearch = async (e) => {
     e.preventDefault()
+    
+    // Prevent API calls if upgrade modal is showing
+    if (showUpgrade || pendingUpgrade) {
+      return
+    }
+    
     if (!question || question.length < 2) {
       setErrorText('Please enter a full question.')
       return
     }
 
-    if (!checkPlanPermission(team, 'business').allowed) {
-      setPendingUpgrade(true)
-      return
+    let willConsumeTrial = false
+
+    if (!clarifyingJob) {
+      let usageSnapshot = researchUsage
+
+      try {
+        const fetchedUsage = await refreshUsage()
+        if (fetchedUsage) {
+          usageSnapshot = fetchedUsage
+        }
+      } catch (usageError) {
+        console.warn(
+          'Error refreshing research usage before starting task:',
+          usageError,
+        )
+      }
+
+      if (!usageSnapshot) {
+        setErrorText(
+          'Unable to verify deep research task allowance. Please refresh and try again.',
+        )
+        return
+      }
+
+      const {
+        monthlyLimit,
+        monthlyUsed = 0,
+        lifetimeLimit,
+        lifetimeUsed = 0,
+        historicalMaxResearch = 0,
+        legacyTrialThreshold = null,
+      } = usageSnapshot
+
+      const trialThreshold =
+        legacyTrialThreshold ??
+        (typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+          ? lifetimeLimit
+          : null)
+
+      const hasTrialAllowance = (() => {
+        if (trialThreshold !== null) {
+          return historicalMaxResearch < trialThreshold
+        }
+        if (typeof lifetimeLimit === 'number' && lifetimeLimit > 0) {
+          return lifetimeUsed < lifetimeLimit
+        }
+        return false
+      })()
+
+      const hasMonthlyAllowance =
+        monthlyLimit === null
+          ? true
+          : typeof monthlyLimit === 'number'
+            ? monthlyUsed < monthlyLimit
+            : false
+
+      if (!hasMonthlyAllowance && !hasTrialAllowance) {
+        const zeroTasks =
+          (typeof monthlyLimit === 'number' ? monthlyLimit : 0) === 0 &&
+          !hasTrialAllowance
+
+        setErrorText(
+          zeroTasks
+            ? 'Your plan does not include deep research tasks. Upgrade to unlock them.'
+            : 'You have reached your plan\'s deep research task limit for this month. Upgrade to run more tasks.',
+        )
+        setPendingUpgrade(true)
+        setShowUpgrade(true)
+        return
+      }
+
+      willConsumeTrial = !hasMonthlyAllowance && hasTrialAllowance
     }
 
     setLoading(true)
@@ -812,7 +1110,7 @@ function ResearchInterface({
             console.log('Updated job:', updatedJob)
             setSelectedJob && setSelectedJob(updatedJob)
             
-            // Also update the job in the research jobs list
+            // Also update the job in the research tasks list
             setResearchJobs &&
               setResearchJobs((prev) =>
                 prev.map((j) => (j.jobId === data.jobId ? updatedJob : j)),
@@ -826,10 +1124,10 @@ function ResearchInterface({
           try {
             const data = await response.json()
             console.error('Clarification submission failed:', data)
-            setErrorText(data.message || 'Failed to continue research')
+            setErrorText(data.error || data.message || 'Failed to continue deep research task')
           } catch (err) {
             console.error('Error parsing error response:', err)
-            setErrorText('Failed to continue research')
+            setErrorText('Failed to continue deep research task')
           }
         }
       } else {
@@ -861,7 +1159,7 @@ function ResearchInterface({
           const data = await response.json()
           setQuestion('')
           setErrorText(null) // Clear any previous error messages
-          
+
           // Immediately update the local state with the response data to avoid loading flash
           if (data.jobId) {
             const newJob = {
@@ -881,27 +1179,29 @@ function ResearchInterface({
               updatedAt: new Date().toISOString(),
             }
             
-            // Add the new job to the research jobs list
+            // Add the new job to the research tasks list
             setResearchJobs && setResearchJobs((prev) => [newJob, ...prev])
             
             // Select the new job immediately
             setSelectedJob && setSelectedJob(newJob)
           }
-          
+
           onJobCreated(data.jobId)
+
+          await recordResearchTaskStarted({ consumeTrial: willConsumeTrial })
         } else {
           try {
             const data = await response.json()
-            setErrorText(data.message || 'Failed to start research')
+            setErrorText(data.error || data.message || 'Failed to start deep research task')
           } catch (err) {
             console.error('Error parsing error response:', err)
-            setErrorText('Failed to start research')
+            setErrorText('Failed to start deep research task')
           }
         }
       }
     } catch (error) {
-      console.error('Error starting research:', error)
-      setErrorText('Failed to start research')
+      console.error('Error starting deep research task:', error)
+      setErrorText('Failed to start deep research task')
     } finally {
       setLoading(false)
     }
@@ -912,7 +1212,7 @@ function ResearchInterface({
       <Listbox
         value={selectedModel}
         onChange={setSelectedModel}
-        disabled={loading}
+        disabled={loading || showUpgrade}
       >
         <div className="relative">
           <div className="inline-block">
@@ -921,7 +1221,7 @@ function ResearchInterface({
                 <Listbox.Button
                   className={clsx(
                     'flex items-center p-2 text-xs text-gray-600 hover:text-cyan-600',
-                    loading
+                    loading || showUpgrade
                       ? 'pointer-events-none cursor-not-allowed opacity-50'
                       : 'cursor-pointer',
                   )}
@@ -995,6 +1295,9 @@ function ResearchInterface({
 
   return (
     <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
+      <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {
+        team.openAIKey = key
+      }} />
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
       <div className="flex w-full flex-col text-center">
         <div className="my-auto">
@@ -1009,7 +1312,7 @@ function ResearchInterface({
             >
               This agent uses advanced reasoning models and multiple searches to
               perform deep research tasks. It can search your data, the web, write and run code for accurate data analysis & math, and provide comprehensive answers with detailed
-              reasoning. Research jobs take anywhere from 5 to 25 minutes so it's optimized to use for very complex or detailed reports, not simple questions.
+              reasoning. Research tasks take anywhere from 5 to 25 minutes so it's optimized to use for very complex or detailed reports, not simple questions.
             </Alert>
           )}
         </div>
@@ -1049,12 +1352,12 @@ function ResearchInterface({
           <form
             className="mt-4 flex flex-col justify-center"
             onSubmit={startResearch}
-            disabled={loading}
+            disabled={loading || showUpgrade}
           >
             <fieldset
-              disabled={loading}
-              aria-disabled={loading}
-              className={clsx(loading && 'opacity-75')}
+              disabled={loading || showUpgrade}
+              aria-disabled={loading || showUpgrade}
+              className={clsx((loading || showUpgrade) && 'opacity-75')}
             >
               <div className="mb-1 mt-1 w-full rounded-xl sm:flex sm:shadow-sm">
                 <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
@@ -1063,7 +1366,7 @@ function ResearchInterface({
                     <Tooltip content={'Web Search'}>
                       <button
                         type="button"
-                        disabled={loading}
+                        disabled={loading || showUpgrade}
                         className={clsx(
                           'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
                           webSearch
@@ -1077,9 +1380,9 @@ function ResearchInterface({
                         }}
                       >
                         {webSearch ? (
-                          <MagnifyingGlassCircleIconSolid className="h-5 w-5" />
+                          <GlobeAltIconSolid className="h-5 w-5" />
                         ) : (
-                          <MagnifyingGlassCircleIcon className="h-5 w-5" />
+                          <GlobeAltIcon className="h-5 w-5" />
                         )}
                       </button>
                     </Tooltip>
@@ -1087,7 +1390,7 @@ function ResearchInterface({
                     <Tooltip content={'Code Interpreter'}>
                       <button
                         type="button"
-                        disabled={loading}
+                        disabled={loading || showUpgrade}
                         className={clsx(
                           'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
                           codeInterpreter
@@ -1115,7 +1418,7 @@ function ResearchInterface({
                     name="query"
                     id="query"
                     value={question}
-                    disabled={loading}
+                    disabled={loading || showUpgrade}
                     maxLength={2000}
                     minLength={2}
                     required
@@ -1129,7 +1432,7 @@ function ResearchInterface({
                         e.preventDefault()
                         if (e.shiftKey) {
                           setQuestion((prevQuestion) => `${prevQuestion}\n`)
-                        } else if (!e.shiftKey && !loading) {
+                        } else if (!e.shiftKey && !loading && !showUpgrade) {
                           startResearch(e)
                         }
                       }
@@ -1149,7 +1452,7 @@ function ResearchInterface({
                   <button
                     type="submit"
                     tabIndex={2}
-                    disabled={loading}
+                    disabled={loading || showUpgrade}
                     className="absolute bottom-0 right-0 my-3 mr-2 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
                   >
                     <span className="sr-only">Start research</span>
@@ -1479,9 +1782,9 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
             <div className="rounded-md bg-red-50 p-6 text-start sm:px-8">
               <div className="flex">
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-800">Research Failed</h3>
+                  <h3 className="text-sm font-medium text-red-800">Deep Research Failed</h3>
                   <div className="mt-2 text-sm text-red-700">
-                    <p>{job.response?.error?.message || job.response?.error || 'The research task encountered an error and could not complete.'}</p>
+                    <p>{job.response?.error?.message || job.response?.error || 'The deep research task encountered an error and could not complete.'}</p>
                   </div>
                 </div>
               </div>
@@ -1504,9 +1807,9 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-yellow-800">Research incomplete</h3>
+                  <h3 className="text-sm font-medium text-yellow-800">Deep research incomplete</h3>
                   <div className="mt-2 text-sm text-yellow-700">
-                    <p>{job.response?.error?.message || job.response?.error || 'The research task was not completed.'}</p>
+                    <p>{job.response?.error?.message || job.response?.error || 'The deep research task was not completed.'}</p>
                   </div>
                 </div>
               </div>
@@ -1529,9 +1832,9 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-gray-800">Research cancelled</h3>
+                  <h3 className="text-sm font-medium text-gray-800">Deep research cancelled</h3>
                   <div className="mt-2 text-sm text-gray-700">
-                    <p>The research task was cancelled.</p>
+                    <p>The deep research task was cancelled.</p>
                   </div>
                 </div>
               </div>
@@ -1545,7 +1848,7 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
               <div className="flex flex-col">
                 <LoadingDots />
                 <span className="text-xs mt-2 ml-2 text-gray-500">
-                  Deep research jobs can take many minutes to complete, please wait or check back later...
+                  Deep research tasks can take many minutes to complete, please wait or check back later...
                 </span>
               </div>
             )}
@@ -1600,6 +1903,9 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
 }
 
 function Research({ team, bot }) {
+  const [researchUsage, setResearchUsage] = useState(() =>
+    buildUsageSnapshot(team),
+  )
   const [researchJobs, setResearchJobs] = useState([])
   const [selectedJob, setSelectedJob] = useState(null)
   const [errorText, setErrorText] = useState(null)
@@ -1616,6 +1922,66 @@ function Research({ team, bot }) {
   const [deletingJobId, setDeletingJobId] = useState(null)
   const didInitFromJobId = useRef(false)
   const scrollToBottomRef = useRef(null)
+
+  const refreshResearchCount = useCallback(async () => {
+    if (!team?.id) return null
+    try {
+      const response = await fetch(`/api/teams/${team.id}/research-count`)
+      if (!response.ok) {
+        console.warn('Failed to refresh research count:', response.status)
+        return null
+      }
+      const data = await response.json()
+      const latestCount = Number(data?.researchCount ?? 0) || 0
+      const baseUsage =
+        researchUsage || buildUsageSnapshot(team)
+      const nextUsage = recomputeUsageDerived({
+        ...baseUsage,
+        monthlyUsed: latestCount,
+      })
+      setResearchUsage(nextUsage)
+      return nextUsage
+    } catch (error) {
+      console.warn('Error refreshing research count:', error)
+      return null
+    }
+  }, [team, team?.id, researchUsage])
+
+  const handleResearchTaskStarted = useCallback(
+    ({ consumeTrial = false } = {}) => {
+      setResearchUsage((prev) => {
+        if (!prev) return prev
+
+        const nextUsage = {
+          ...prev,
+          monthlyUsed: (prev.monthlyUsed ?? 0) + 1,
+        }
+
+        if (consumeTrial) {
+          const lifetimeLimit = prev.lifetimeLimit
+          const previousLifetimeUsed = prev.lifetimeUsed ?? 0
+          nextUsage.lifetimeUsed =
+            typeof lifetimeLimit === 'number'
+              ? Math.min(previousLifetimeUsed + 1, lifetimeLimit)
+              : previousLifetimeUsed + 1
+        }
+
+        const currentHistorical = prev.historicalMaxResearch ?? 0
+        const trialThreshold = prev.legacyTrialThreshold ?? null
+        const inferredHistorical = Math.max(
+          currentHistorical,
+          nextUsage.monthlyUsed ?? 0,
+        )
+
+        nextUsage.historicalMaxResearch = consumeTrial && trialThreshold
+          ? Math.max(inferredHistorical, trialThreshold)
+          : inferredHistorical
+
+        return recomputeUsageDerived(nextUsage)
+      })
+    },
+    [],
+  )
 
   useEffect(() => {
     fetchResearchJobs(0)
@@ -1665,8 +2031,8 @@ function Research({ team, bot }) {
         } else {
           try {
             const data = await response.json()
-            if (data.message) {
-              setErrorText(data.message)
+            if (data.error || data.message) {
+              setErrorText(data.error || data.message)
             }
           } catch (err) {
             // Silently ignore parsing errors for deep-link fetch
@@ -1724,15 +2090,15 @@ function Research({ team, bot }) {
       } else {
         try {
           const data = await response.json()
-          setErrorText(data.message || 'Failed to load research jobs')
+          setErrorText(data.error || data.message || 'Failed to load deep research tasks')
         } catch (err) {
           console.error('Error parsing error response:', err)
-          setErrorText('Failed to load research jobs')
+          setErrorText('Failed to load deep research tasks')
         }
       }
     } catch (error) {
-      console.error('Error fetching research jobs:', error)
-      setErrorText('Failed to load research jobs')
+      console.error('Error fetching deep research tasks:', error)
+      setErrorText('Failed to load deep research tasks')
     } finally {
       setLoading(false)
     }
@@ -1803,15 +2169,15 @@ function Research({ team, bot }) {
       } else {
         try {
           const data = await response.json()
-          setErrorText(data.message || 'Failed to cancel job')
+          setErrorText(data.error || data.message || 'Failed to cancel deep research task')
         } catch (err) {
           console.error('Error parsing error response:', err)
-          setErrorText('Failed to cancel job')
+          setErrorText('Failed to cancel deep research task')
         }
       }
     } catch (error) {
-      console.error('Error cancelling job:', error)
-      setErrorText('Failed to cancel job')
+      console.error('Error cancelling deep research task:', error)
+      setErrorText('Failed to cancel deep research task')
     }
   }
 
@@ -1844,15 +2210,15 @@ function Research({ team, bot }) {
       } else {
         try {
           const data = await response.json()
-          setErrorText(data.message || 'Failed to delete job')
+          setErrorText(data.error || data.message || 'Failed to delete deep research task')
         } catch (err) {
           console.error('Error parsing error response:', err)
-          setErrorText('Failed to delete job')
+          setErrorText('Failed to delete deep research task')
         }
       }
     } catch (err) {
-      console.warn('Error deleting job:', err)
-      setErrorText('Failed to delete job')
+      console.warn('Error deleting deep research task:', err)
+      setErrorText('Failed to delete deep research task')
     } finally {
       setDeletingJobId(null)
     }
@@ -1947,7 +2313,7 @@ function Research({ team, bot }) {
           setSelectedJob(merged)
         }
       } catch (error) {
-        console.error('Error fetching new job:', error)
+        console.error('Error fetching new deep research task:', error)
       }
     }, 1000)
   }
@@ -1955,6 +2321,13 @@ function Research({ team, bot }) {
   const title = [bot.name, 'Deep Research']
 
   const Header = () => {
+    const usageDisplay = formatResearchUsageDisplay(researchUsage)
+    const usageTooltipContent = usageDisplay
+      ? usageDisplay.tooltip
+        ? `${usageDisplay.label}<br/>${usageDisplay.tooltip}`
+        : usageDisplay.label
+      : 'Start a deep research task'
+
     return (
       <div className="w-full border-t bg-white p-2 px-2 lg:px-6 lg:pr-80 xl:pr-96">
         <div className="flex items-center justify-between">
@@ -2044,12 +2417,12 @@ function Research({ team, bot }) {
                     <Tooltip content={selectedJob.webSearch ? "Web search enabled" : "Web search disabled"}>
                       <div className="flex items-center text-sm text-gray-500">
                         {selectedJob.webSearch ? (
-                          <MagnifyingGlassCircleIconSolid
+                          <GlobeAltIconSolid
                             className="h-5 w-5 flex-shrink-0 text-cyan-600"
                             aria-hidden="true"
                           />
                         ) : (
-                          <MagnifyingGlassCircleIcon
+                          <GlobeAltIcon
                             className="h-5 w-5 flex-shrink-0 text-gray-400"
                             aria-hidden="true"
                           />
@@ -2077,21 +2450,28 @@ function Research({ team, bot }) {
             </div>
           </div>
           <div className="ml-4 flex items-center space-x-4 lg:mr-2 xl:mr-4">
-            <button
-              type="button"
-              onClick={() => setSelectedJob(null)}
-              className="hidden items-center rounded-md border border-cyan-600 px-2 py-1 text-xs font-medium text-cyan-600 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 sm:inline-flex"
-            >
-              New Research Task
-            </button>
+            {usageDisplay?.ratio && (
+              <span className="whitespace-nowrap text-xs text-gray-500">
+                {usageDisplay.ratio}
+              </span>
+            )}
+            <Tooltip content={usageTooltipContent}>
+              <button
+                type="button"
+                onClick={() => setSelectedJob(null)}
+                className="hidden items-center rounded-md border border-cyan-600 px-2 py-1 text-xs font-medium text-cyan-600 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-600 focus:ring-offset-2 sm:inline-flex"
+              >
+                New Research Task
+              </button>
+            </Tooltip>
             {selectedJob && (
               <>
                 <Tooltip
-                  content={
-                    copied
-                      ? 'Copied!'
-                      : 'Copy a link to this research job to share with team members.'
-                  }
+            content={
+              copied
+                ? 'Copied!'
+                : 'Copy a link to this deep research task to share with team members.'
+            }
                 >
                   <button
                     className="flex items-center text-gray-400 hover:text-gray-600"
@@ -2116,7 +2496,7 @@ function Research({ team, bot }) {
                         ? 'Deleting...'
                         : deleteConfirm === selectedJob.jobId
                         ? 'Click again to confirm deletion'
-                        : 'Delete this research job'
+                        : 'Delete this deep research task'
                     }
                   >
                     <button
@@ -2164,7 +2544,7 @@ function Research({ team, bot }) {
         <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
           {loading ? (
             <div className="flex h-full items-center justify-center p-8 text-gray-500">
-              Loading research jobs...
+              Loading deep research tasks...
             </div>
           ) : selectedJob ? (
             selectedJob.status === 'clarifying' ? (
@@ -2179,6 +2559,9 @@ function Research({ team, bot }) {
                 setSelectedJob={setSelectedJob}
                 setResearchJobs={setResearchJobs}
                 selectedJob={selectedJob}
+                researchUsage={researchUsage}
+                refreshResearchCount={refreshResearchCount}
+                onResearchTaskStarted={handleResearchTaskStarted}
               />
             ) : (
               <ResearchResults
@@ -2202,6 +2585,9 @@ function Research({ team, bot }) {
               setSelectedJob={setSelectedJob}
               setResearchJobs={setResearchJobs}
               selectedJob={selectedJob}
+              researchUsage={researchUsage}
+              refreshResearchCount={refreshResearchCount}
+              onResearchTaskStarted={handleResearchTaskStarted}
             />
           )}
         </div>
@@ -2222,7 +2608,7 @@ function Research({ team, bot }) {
           </ul>
         ) : (
           <div className="flex h-full items-center justify-center p-8 text-gray-500">
-            No research jobs yet. Start your first deep research task!
+            No deep research tasks yet. Start your first deep research task!
           </div>
         )}
       </aside>

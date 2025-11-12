@@ -108,10 +108,35 @@ export const postData = async ({ url, data }) => {
   return res.json()
 }
 
-export function stripePlan(team) {
+const resolveResearchTasksLimit = (value, fallback = 25) => {
+  if (typeof value === 'number' && !Number.isNaN(value)) {
+    return value
+  }
+
+  if (typeof value === 'string') {
+    const parsed = Number(value)
+    if (!Number.isNaN(parsed)) {
+      return parsed
+    }
+  }
+
+  return fallback
+}
+
+export function stripePlan(team = {}) {
+  if (team?.plan && typeof team.plan === 'object') {
+    const normalizedPlan = { ...team.plan }
+    normalizedPlan.researchTasks = resolveResearchTasksLimit(
+      normalizedPlan.researchTasks,
+      normalizedPlan.id === 'free' ? 0 : 25,
+    )
+    return normalizedPlan
+  }
+
+  const teamId = team?.id || ''
   if (
-    'ZrbLG98bbxZ9EFqiPvyl' === team.id ||
-    'FVasEcNLTWpySb5ZNlF3' === team.id
+    teamId === 'ZrbLG98bbxZ9EFqiPvyl' ||
+    teamId === 'FVasEcNLTWpySb5ZNlF3'
   ) {
     return {
       id: 'staff',
@@ -122,33 +147,37 @@ export function stripePlan(team) {
       teamMembers: 100000,
       scheduleInterval: 'daily',
       logLimit: 1000000000,
+      researchTasks: 1000,
     }
   }
 
-  if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
-    const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
+  const plans = getStripePlansFromEnv()
+  const subscriptionPlan = team?.stripeSubscriptionPlan || null
 
-    if (['active', 'trialing'].includes(team?.stripeSubscriptionStatus)) {
-      for (const planKey in plans) {
-        const plan = plans[planKey]
-        plan.id = planKey
-        for (const frequency in plan.prices.current) {
-          if (plan.prices.current[frequency] === team.stripeSubscriptionPlan) {
-            return plan
-          }
-        }
-        if (plan.prices.old) {
-          for (const price of plan.prices.old) {
-            if (price === team.stripeSubscriptionPlan) {
-              return plan
-            }
-          }
+  if (plans && subscriptionPlan) {
+    for (const [planKey, planValue] of Object.entries(plans)) {
+      if (!planValue || typeof planValue !== 'object') continue
+      const planPrices = planValue.prices || {}
+      const currentPrices = planPrices.current || {}
+      const oldPrices = planPrices.old || []
+      const currentMatches = Object.values(currentPrices).includes(
+        subscriptionPlan,
+      )
+      const oldMatches = Array.isArray(oldPrices)
+        ? oldPrices.includes(subscriptionPlan)
+        : false
+
+      if (currentMatches || oldMatches) {
+        return {
+          ...planValue,
+          id: planKey,
+          researchTasks: resolveResearchTasksLimit(planValue.researchTasks),
         }
       }
     }
   }
 
-  return {  
+  return {
     id: 'free',
     name: 'Free',
     bots: 1,
@@ -157,7 +186,30 @@ export function stripePlan(team) {
     teamMembers: 1,
     scheduleInterval: 'none',
     logLimit: 6,
+    researchTasks: resolveResearchTasksLimit(0, 0),
   }
+}
+
+let parsedStripePlansFromEnv
+const getStripePlansFromEnv = () => {
+  if (parsedStripePlansFromEnv !== undefined) {
+    return parsedStripePlansFromEnv
+  }
+
+  const rawPlans = process?.env?.NEXT_PUBLIC_STRIPE_PLANS
+  if (!rawPlans) {
+    parsedStripePlansFromEnv = null
+    return parsedStripePlansFromEnv
+  }
+
+  try {
+    parsedStripePlansFromEnv = JSON.parse(rawPlans)
+  } catch (error) {
+    console.warn('Unable to parse NEXT_PUBLIC_STRIPE_PLANS', error)
+    parsedStripePlansFromEnv = null
+  }
+
+  return parsedStripePlansFromEnv
 }
 
 /**

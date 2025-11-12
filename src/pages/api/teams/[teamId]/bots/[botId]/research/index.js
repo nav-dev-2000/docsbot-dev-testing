@@ -46,7 +46,7 @@ export default async function handler(req, res) {
         .orderBy('createdAt', 'desc')
         .get()
 
-      // Filter out documents with status "deleted" (failed jobs are still shown)
+      // Filter out documents with status "deleted" (failed tasks are still shown)
       const allJobs = snapshot.docs
         .map((doc) => {
           const data = doc.data()
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
         },
       })
     } catch (error) {
-      console.warn('Error getting research jobs:', error)
+      console.warn('Error getting research tasks:', error)
       return res.status(500).json({ message: error.message })
     }
   } else {

@@ -11,6 +11,7 @@ import {
   Square3Stack3DIcon,
   ChatBubbleBottomCenterTextIcon,
   UsersIcon,
+  BeakerIcon,
 } from '@heroicons/react/24/outline'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
@@ -92,18 +93,30 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
 
+  const teamPlan = stripePlan(team)
+  const researchLimitRaw = teamPlan?.researchTasks
+  const researchLimit =
+    typeof researchLimitRaw === 'number' && !Number.isNaN(researchLimitRaw)
+      ? researchLimitRaw
+      : 25
+  const researchUsed = Number(team?.researchCount ?? 0) || 0
+  const hasResearchAllowance = researchLimit > 0
+  const researchTooltip = hasResearchAllowance
+    ? `Your ${teamPlan.name} plan includes ${researchLimit} deep research tasks per month.`
+    : 'Your current plan does not include deep research tasks. Upgrade to unlock them.'
+
   const cards = [
     {
       name: 'Current Plan',
       icon: CheckBadgeIcon,
-      stat: stripePlan(team).name,
+      stat: teamPlan.name,
     },
     {
       name: 'Bots',
-      tooltip: 'You can create up to ' + stripePlan(team).bots + ' bots.',
+      tooltip: 'You can create up to ' + teamPlan.bots + ' bots.',
       icon: ServerStackIcon,
       stat: team?.botCount || 0,
-      limit: stripePlan(team).bots,
+      limit: teamPlan.bots,
     },
     {
       name: 'Source Pages',
@@ -111,7 +124,7 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
       tooltip: 'A source page is the greater of 5000 characters of processed text or one document/web page.',
       icon: Square3Stack3DIcon,
       stat: team?.pageCount || 0,
-      limit: stripePlan(team).pages,
+      limit: teamPlan.pages,
     },
     {
       name: 'Messages',
@@ -119,14 +132,21 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
       tooltip: 'User messages in current month',
       icon: ChatBubbleBottomCenterTextIcon,
       stat: team?.questionCount || 0,
-      limit: stripePlan(team).questions,
+      limit: teamPlan.questions,
+    },
+    {
+      name: 'Research Tasks',
+      tooltip: researchTooltip,
+      icon: BeakerIcon,
+      stat: researchUsed,
+      limit: hasResearchAllowance ? researchLimit : null,
     },
     {
       name: 'Team Members',
-      tooltip: 'Current team members including pending invites. Your plan allows up to ' + stripePlan(team).teamMembers + ' members.',
+      tooltip: 'Current team members including pending invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
       icon: UsersIcon,
       stat: teamMembersCount,
-      limit: stripePlan(team).teamMembers,
+      limit: teamPlan.teamMembers,
     },
   ]
 
@@ -148,7 +168,7 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 2xl:grid-cols-6">
         {/* Card */}
         {cards.map((card) => (
           <Card

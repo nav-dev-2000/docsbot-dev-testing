@@ -1,7 +1,7 @@
 /**
  * Research Status Sync Cron Job
  * 
- * This cron job runs every 5 minutes to sync the status of running research jobs
+ * This cron job runs every 5 minutes to sync the status of running research tasks
  * from the external API to the database. This ensures that job statuses are
  * updated even when users are not actively viewing the page, and captures
  * completion status before jobs expire from the external API.
@@ -33,7 +33,7 @@ export default async function handler(request, response) {
   console.log('cron research-status started!')
 
   try {
-    // Find all research jobs that are still running
+    // Find all research tasks that are still running
     // Only check jobs created in the last 24 hours to avoid checking very old jobs
     const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000)
     
@@ -43,7 +43,7 @@ export default async function handler(request, response) {
       .where('createdAt', '>=', twentyFourHoursAgo)
       .get()
 
-    console.log(`Found ${researchJobsSnapshot.size} running research jobs to check`)
+    console.log(`Found ${researchJobsSnapshot.size} running research tasks to check`)
 
     const updateTasks = []
 
@@ -139,7 +139,7 @@ export default async function handler(request, response) {
       await Promise.all(batch.map((task) => task()))
     }
 
-    console.log(`Completed checking ${researchJobsSnapshot.size} research jobs`)
+    console.log(`Completed checking ${researchJobsSnapshot.size} research tasks`)
     response.status(200).json({ 
       success: true, 
       checked: researchJobsSnapshot.size,

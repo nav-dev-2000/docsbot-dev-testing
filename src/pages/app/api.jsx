@@ -272,7 +272,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
                 </a>
               )}
             </div>
-            {team.supportsGPT4 ? (
+            {team.supportsGPT4 && team.openAIKey ? (
               <p className="mt-4 text-sm italic">GPT-5 Support Enabled</p>
             ) : (
               <>

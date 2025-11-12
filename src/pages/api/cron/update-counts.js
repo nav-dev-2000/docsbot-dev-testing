@@ -400,7 +400,7 @@ export default async function handler(request, response) {
           pageTotal,
           'source pages,',
           researchTotal,
-          'research jobs',
+          'research tasks',
         )
 
         // update team count && needsUpdate

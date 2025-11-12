@@ -105,7 +105,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                         and ownership of your data.
                       </p>
                       <p className="text-xs text-gray-600">
-                        (Creating an account is free and takes less than a minute!)
+                        (Creating an account only takes a few minutes, only pay for what you use!)
                       </p>
                     </div>
 
