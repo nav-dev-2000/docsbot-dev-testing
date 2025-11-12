@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Fragment, useCallback } from 'react'
+import { useState, useEffect, useRef, Fragment, useCallback, useMemo } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
@@ -10,12 +10,13 @@ import {
   ChevronRightIcon,
   DocumentTextIcon,
   ClipboardIcon,
+  ClipboardDocumentIcon,
   CheckIcon,
+  PrinterIcon,
   CalendarIcon,
   ClockIcon,
   XMarkIcon,
   ArrowPathIcon,
-  ClipboardDocumentIcon,
   TrashIcon,
   BeakerIcon,
   CubeIcon,
@@ -51,6 +52,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css'
 import { preprocessLaTeX } from '@/utils/helpers'
+import parse from 'html-react-parser'
 import TimeAgo from '@/components/TimeAgo'
 import clsx from 'clsx'
 import LocaleDateTime from '@/components/LocaleDateTime'
@@ -70,6 +72,160 @@ const remarkMathPlugin =
   typeof remarkMath === 'function'
     ? remarkMath
     : remarkMath?.default || remarkMath
+
+const extractUrlAnnotations = (response) => {
+  if (!response || !Array.isArray(response.output)) return []
+
+  const reversed = [...response.output].reverse()
+  for (const item of reversed) {
+    if (!Array.isArray(item?.content)) continue
+    const annotations = item.content.flatMap((contentItem) =>
+      Array.isArray(contentItem?.annotations)
+        ? contentItem.annotations.filter(
+            (annotation) => annotation?.type === 'url_citation' && annotation?.url,
+          )
+        : [],
+    )
+    if (annotations.length > 0) {
+      return annotations.map((annotation) => ({
+        start: Number(annotation.start_index ?? annotation.startIndex ?? 0),
+        end: Number(annotation.end_index ?? annotation.endIndex ?? 0),
+        title: annotation.title || annotation.url,
+        url: annotation.url,
+      }))
+    }
+  }
+
+  return []
+}
+
+const injectCitationPlaceholders = (text, annotations) => {
+  if (!text || !Array.isArray(annotations) || annotations.length === 0) {
+    return { annotatedText: text || '', footnotes: [] }
+  }
+
+  const sorted = [...annotations]
+    .filter((annotation) =>
+      Number.isFinite(annotation.start) && Number.isFinite(annotation.end) && annotation.end > annotation.start,
+    )
+    .sort((a, b) => a.start - b.start)
+
+  const citationNumbers = new Map()
+  const footnotes = []
+  let output = ''
+  let cursor = 0
+
+  sorted.forEach((annotation) => {
+    const start = Math.max(0, Math.min(text.length, (annotation.start ?? 0) - 1))
+    const end = Math.max(start, Math.min(text.length, annotation.end))
+    const key = annotation.url || `${annotation.title || 'source'}-${start}-${end}`
+
+    if (start < cursor) {
+      return
+    }
+
+    if (cursor < start) {
+      output += text.slice(cursor, start)
+    }
+    cursor = end
+
+    if (!citationNumbers.has(key)) {
+      citationNumbers.set(key, citationNumbers.size + 1)
+      footnotes.push({
+        number: citationNumbers.get(key),
+        title: annotation.title || annotation.url,
+        url: annotation.url,
+      })
+    }
+
+    const citationNumber = citationNumbers.get(key)
+    output += `{{CITATION_${citationNumber}}}`
+  })
+
+  if (cursor < text.length) {
+    output += text.slice(cursor)
+  }
+
+  return { annotatedText: output, footnotes }
+}
+
+const replaceCitationTokens = (html, footnotes, renderFn) => {
+  if (!html || !Array.isArray(footnotes) || footnotes.length === 0) {
+    return html || ''
+  }
+
+  return html.replace(/\{\{CITATION_(\d+)\}\}/g, (_match, value) => {
+    const number = Number(value)
+    if (!Number.isFinite(number)) return ''
+    const footnote = footnotes.find((item) => item.number === number)
+    return renderFn(number, footnote)
+  })
+}
+
+const renderCitationMarkers = (html, footnotes) =>
+  replaceCitationTokens(
+    html,
+    footnotes,
+    (number) => `<span data-citation="${number}"></span>`,
+  )
+
+const renderCitationSupHtml = (html, footnotes) =>
+  replaceCitationTokens(html, footnotes, (number, footnote) => {
+    const title = footnote?.title ? escapeHtml(footnote.title) : ''
+    const supClasses =
+      'relative align-super text-[0.65em] font-semibold text-cyan-600'
+    const linkClasses =
+      'inline-flex items-center justify-center rounded-full px-0.5 text-current no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500'
+    return (
+      `<sup id="citation-${number}" class="${supClasses}">` +
+      `<a href="#footnote-${number}" class="${linkClasses}" aria-label="Jump to source ${number}">${number}</a>` +
+      '</sup>'
+    )
+  })
+
+const escapeRegex = (value = '') => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+const stripCitationLinks = (html, footnotes) => {
+  if (!html || !Array.isArray(footnotes) || footnotes.length === 0) {
+    return html || ''
+  }
+
+  let updated = html
+  footnotes.forEach((footnote) => {
+    if (!footnote?.url) return
+    const pattern = new RegExp(
+      `<a[^>]*?href=["']${escapeRegex(footnote.url)}["'][^>]*>(.*?)<\\/a>`,
+      'gi',
+    )
+    updated = updated.replace(pattern, '$1')
+  })
+
+  return updated
+}
+
+const escapeHtml = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+
+const formatPlainTextForHtml = (value = '') =>
+  escapeHtml(value).replace(/\r?\n/g, '<br />')
+
+const formatLocalDateTime = (value) => {
+  if (!value) return ''
+  try {
+    const formatter = new Intl.DateTimeFormat(undefined, {
+      dateStyle: 'full',
+      timeStyle: 'short',
+    })
+    return formatter.format(new Date(value))
+  } catch (_err) {
+    return new Date(value).toLocaleString()
+  }
+}
 
 // Internal reusable UserMessage component matching conversations.jsx styling
 // Supports right-aligned layout (research.jsx) with matching padding and icon sizes
@@ -1485,11 +1641,13 @@ function ResearchInterface({
 }
 
 function ResearchResults({ job, onBack, onJobUpdate }) {
-  const [markdown, setMarkdown] = useState('')
+  const [resultHtml, setResultHtml] = useState('')
+  const [resultDisplayHtml, setResultDisplayHtml] = useState('')
   const [clarificationsHtml, setClarificationsHtml] = useState('')
   const [summaryHtml, setSummaryHtml] = useState('')
-  const [isCopied, setIsCopied] = useState(false)
+  const [isHtmlCopied, setIsHtmlCopied] = useState(false)
   const [costInfo, setCostInfo] = useState(null)
+  const [footnotes, setFootnotes] = useState([])
   const scrollToBottomRef = useRef(null)
 
   // Expose scroll function to parent component
@@ -1556,10 +1714,23 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
   }, [job?.summary])
 
   useEffect(() => {
-    //console.log('job', job.result)
-    const processedResult = preprocessLaTeX(job.result)
-    //console.log('processedResult', processedResult)
-    if (job.result) {
+    if (!job?.result) {
+      setResultHtml('')
+      setResultDisplayHtml('')
+      setFootnotes([])
+      return
+    }
+
+    const annotations = extractUrlAnnotations(job?.response)
+    const { annotatedText, footnotes: generatedFootnotes } = injectCitationPlaceholders(
+      job.result,
+      annotations,
+    )
+    setFootnotes(generatedFootnotes)
+
+    let isCancelled = false
+
+    const createProcessor = () =>
       unified()
         .use(remarkParse)
         .use(remarkMathPlugin, { singleDollarTextMath: false })
@@ -1568,34 +1739,85 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
         .use(remarkRehype)
         .use(rehypeKatex)
         .use(rehypeStringify)
-        .process(processedResult)
-        .then((file) => {
-          setMarkdown(String(file))
-          console.log('setMarkdown', String(file))
-        })
-        .catch((error) => {
-          //try again without preprocessLaTeX
-          unified()
-            .use(remarkParse)
-            .use(remarkMathPlugin, { singleDollarTextMath: false })
-            .use(remarkGfm)
-            .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-            .use(remarkRehype)
-            .use(rehypeKatex)
-            .use(rehypeStringify)
-            .process(job.result)
-            .then((file) => {
-              setMarkdown(String(file))
-            })
-            .catch((error) => {
-              console.warn('Error processing markdown:', error)
-              setMarkdown(job.result)
-            })
-        })
-    } else {
-      setMarkdown('')
+
+    const renderMarkdown = async () => {
+      const tryProcess = async (source, attemptPreprocess = true) => {
+        try {
+          const file = await createProcessor().process(
+            attemptPreprocess ? preprocessLaTeX(source) : source,
+          )
+          return String(file)
+        } catch (error) {
+          if (attemptPreprocess) {
+            return tryProcess(source, false)
+          }
+          console.warn('Error processing markdown:', error)
+          return source
+        }
+      }
+
+      const html = await tryProcess(annotatedText)
+      if (isCancelled) return
+      const htmlWithMarkers = renderCitationMarkers(html, generatedFootnotes)
+      const htmlWithSuperscripts = renderCitationSupHtml(html, generatedFootnotes)
+      const cleanedMarkers = stripCitationLinks(htmlWithMarkers, generatedFootnotes)
+      const cleanedSuperscripts = stripCitationLinks(
+        htmlWithSuperscripts,
+        generatedFootnotes,
+      )
+      setResultDisplayHtml(cleanedMarkers)
+      setResultHtml(cleanedSuperscripts)
     }
-  }, [job.result])
+
+    renderMarkdown()
+
+    return () => {
+      isCancelled = true
+    }
+  }, [job?.response, job?.result])
+
+  const renderedResultContent = useMemo(() => {
+    if (!resultDisplayHtml) return null
+    let citationKey = 0
+    return parse(resultDisplayHtml, {
+      replace: (domNode) => {
+        if (
+          domNode.type === 'tag' &&
+          domNode.name === 'span' &&
+          domNode.attribs?.['data-citation']
+        ) {
+          const number = Number(domNode.attribs['data-citation'])
+          if (!Number.isFinite(number)) return null
+          const footnote = footnotes.find((item) => item.number === number)
+          if (!footnote) return null
+          const title =
+            footnote.title || footnote.url || `Source ${number}`
+          citationKey += 1
+          return (
+            <Tooltip
+              key={`citation-${number}-${citationKey}`}
+              content={title}
+              placement="top"
+            >
+              <sup
+                id={`citation-${number}`}
+                className="relative align-super text-[0.65em] font-semibold text-cyan-600"
+              >
+                <a
+                  href={`#footnote-${number}`}
+                  className="inline-flex items-center justify-center rounded-full px-0.5 text-current no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
+                  aria-label={`Jump to source ${number}`}
+                >
+                  {number}
+                </a>
+              </sup>
+            </Tooltip>
+          )
+        }
+        return undefined
+      },
+    })
+  }, [resultDisplayHtml, footnotes])
 
   // Compute pricing based on Standard tier deep-research models and tool calls
   useEffect(() => {
@@ -1681,13 +1903,209 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
     })
   }, [job?.response, job?.model])
 
-  const handleCopyText = () => {
-    navigator.clipboard.writeText(job.result)
-    setIsCopied(true)
-    setTimeout(() => {
-      setIsCopied(false)
-    }, 1500)
+  const appendSignature = (content) => {
+    const footer = '\n\nGenerated with DocsBot'
+    if (!content) return footer.trim()
+    return content.endsWith(footer.trim()) ? content : `${content}${footer}`
   }
+
+  const removeSuperscriptLinks = (html) => {
+    if (!html) return ''
+    return html.replace(
+      /<sup([^>]*)>\s*<a[^>]*>(\d+)<\/a>(.*?)<\/sup>/gi,
+      (_match, supAttrs, number, srOnly) => {
+        return `<sup${supAttrs}>${number}${srOnly || ''}</sup>`
+      },
+    )
+  }
+
+  const handleCopyHtml = async () => {
+    if (!resultHtml) return
+    const title = job?.title ? escapeHtml(job.title) : 'Deep Research Findings'
+    const formattedDate = formatLocalDateTime(
+      job?.completedAt || job?.updatedAt || job?.createdAt,
+    )
+    const sourcesHtml =
+      footnotes.length > 0
+        ? `
+            <section style="margin-top:24px;">
+              <h3 style="font-size:16px;font-weight:600;color:#0f172a;margin-bottom:8px;">Sources</h3>
+              <ol style="margin:0;padding-left:20px;font-size:14px;color:#1f2937;line-height:1.6;">
+                ${footnotes
+                  .map((footnote) => {
+                    const safeUrl = footnote.url ? escapeHtml(footnote.url) : ''
+                    const label = footnote.title || footnote.url || `Source ${footnote.number}`
+                    const safeLabel = escapeHtml(label)
+                    const linkMarkup = safeUrl
+                      ? `<a href="${safeUrl}" target="_blank" rel="noopener" style="color:#0e7490;text-decoration:none;">${safeLabel}</a>`
+                      : safeLabel
+                    return `<li style="margin-bottom:6px;">${linkMarkup}</li>`
+                  })
+                  .join('')}
+              </ol>
+            </section>
+          `
+        : ''
+    const htmlContent = `
+      <article style="font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#0f172a;line-height:1.6;">
+        <header style="border-bottom:1px solid #e2e8f0;padding-bottom:16px;margin-bottom:24px;">
+          <p style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#0e7490;margin:0;">Deep Research</p>
+          <h2 style="font-size:26px;margin:8px 0 6px;">${title}</h2>
+          ${formattedDate ? `<p style="font-size:13px;color:#64748b;margin:0;">${formattedDate}</p>` : ''}
+        </header>
+        <section style="font-size:15px;color:#0f172a;">
+          ${removeSuperscriptLinks(resultHtml)}
+        </section>
+        ${sourcesHtml}
+        <footer style="margin-top:32px;text-align:center;font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.2em;">
+          Generated with DocsBot
+        </footer>
+      </article>
+    `.trim()
+
+    try {
+      if (navigator?.clipboard?.write) {
+        const clipboardItem = new ClipboardItem({
+          'text/html': new Blob([htmlContent], { type: 'text/html' }),
+          'text/plain': new Blob([appendSignature(job?.result || '')], { type: 'text/plain' }),
+        })
+        await navigator.clipboard.write([clipboardItem])
+      } else {
+        await navigator.clipboard.writeText(htmlContent)
+      }
+      setIsHtmlCopied(true)
+      setTimeout(() => {
+        setIsHtmlCopied(false)
+      }, 1500)
+    } catch (error) {
+      console.warn('Unable to copy formatted HTML:', error)
+      navigator.clipboard.writeText(appendSignature(job?.result || ''))
+    }
+  }
+
+  const handlePrintReport = useCallback(() => {
+    if (!job?.result) return
+
+    const printWindow = window.open('', '_blank', 'width=900,height=1200,scrollbars=yes')
+    if (!printWindow) {
+      console.warn('Unable to open print preview window')
+      return
+    }
+    printWindow.opener = null
+
+    const origin = window.location.origin
+    const displayTitle = job.title ? escapeHtml(job.title) : 'Deep Research Report'
+    const completedTimestamp = job?.completedAt || job?.updatedAt || job?.createdAt
+    const completedLabel = formatLocalDateTime(completedTimestamp)
+    const requestedBy = job?.metadata?.name ? escapeHtml(job.metadata.name) : ''
+    const requesterEmail = job?.metadata?.email ? escapeHtml(job.metadata.email) : ''
+
+    const metaParts = []
+    if (completedLabel) metaParts.push(completedLabel)
+    if (requestedBy) metaParts.push(`Requested by ${requestedBy}`)
+    if (requesterEmail) metaParts.push(requesterEmail)
+
+    const metaLine = metaParts.join(' • ')
+
+    const sections = [
+      `
+      <section>
+        ${resultHtml}
+      </section>
+    `,
+    ]
+
+    let sourcesSection = ''
+    if (footnotes.length > 0) {
+      const sources = footnotes
+        .map((footnote) => {
+          const safeUrl = footnote.url ? escapeHtml(footnote.url) : ''
+          const label = footnote.title || footnote.url || `Source ${footnote.number}`
+          const safeLabel = escapeHtml(label)
+          const linkMarkup = safeUrl
+            ? `<a href="${safeUrl}" target="_blank" rel="noopener">${safeLabel}</a>`
+            : safeLabel
+          return `
+            <li id="footnote-${footnote.number}">
+              <span class="font-semibold text-slate-900">${footnote.number}.</span>
+              ${linkMarkup}
+            </li>
+          `
+        })
+        .join('')
+
+      sourcesSection = `
+        <section class="mt-12" aria-labelledby="print-sources-heading">
+          <h2 id="print-sources-heading">Sources</h2>
+          <ol class="mt-4 space-y-2">${sources}</ol>
+        </section>
+      `
+    }
+
+    const headStyles = Array.from(
+      document.head?.querySelectorAll('style, link[rel="stylesheet"]') || [],
+    )
+      .map((node) => node.outerHTML)
+      .join('\n')
+
+    const inlineStyles = `
+      <style>
+        @media print {
+          .print-container {
+            padding: 2rem 2.5rem;
+          }
+        }
+      </style>
+    `
+
+    const documentHtml = `
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charSet="utf-8" />
+          <title>${displayTitle}</title>
+          ${headStyles}
+          ${inlineStyles}
+        </head>
+        <body class="bg-white text-slate-900">
+          <div class="print-container mx-auto max-w-3xl px-8 py-12 sm:px-10">
+            <header class="mb-10 border-b border-slate-200 pb-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-600">Deep Research Report</p>
+              <h1 class="mt-2 text-3xl font-bold text-slate-900">${displayTitle}</h1>
+              ${metaLine ? `<p class="mt-3 text-sm text-slate-500">${metaLine}</p>` : ''}
+            </header>
+            <article class="prose prose-slate max-w-none">
+              ${sections.join('\n')}
+              ${sourcesSection}
+            </article>
+            <footer class="mt-16 flex flex-col items-center justify-center gap-3 text-center text-xs uppercase tracking-wider text-slate-500">
+              <span>Generated with DocsBot</span>
+              <img src="${origin}/branding/docsbot-logo.svg" alt="DocsBot logo" class="h-6" />
+            </footer>
+          </div>
+        </body>
+      </html>
+    `
+
+    printWindow.document.open()
+    printWindow.document.write(documentHtml)
+    printWindow.document.close()
+    printWindow.focus()
+
+    const triggerPrint = () => {
+      try {
+        printWindow.print()
+      } catch (err) {
+        console.warn('Unable to trigger print dialog:', err)
+      }
+    }
+
+    if (printWindow.document.readyState === 'complete') {
+      setTimeout(triggerPrint, 300)
+    } else {
+      printWindow.onload = () => setTimeout(triggerPrint, 300)
+    }
+  }, [job, resultHtml, footnotes, clarificationsHtml, summaryHtml, costInfo])
 
   return (
     <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
@@ -1701,21 +2119,32 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
             Back to Research
           </button>
           {job?.status === 'completed' && job?.result && (
-            <Tooltip content="Copy results to clipboard">
-              <button
-                onClick={handleCopyText}
-                className="flex items-center rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-              >
-                {isCopied ? (
-                  <CheckIcon className="h-5 w-5" />
-                ) : (
-                  <ClipboardIcon className="h-5 w-5" />
-                )}
-                <span className="ml-1 text-sm">
-                  {isCopied ? 'Copied' : 'Copy'}
-                </span>
-              </button>
-            </Tooltip>
+            <div className="flex items-center gap-3">
+              <Tooltip content={isHtmlCopied ? 'Copied!' : 'Copy'}>
+                <button
+                  onClick={handleCopyHtml}
+                  className="flex items-center rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  {isHtmlCopied ? (
+                    <CheckIcon className="h-5 w-5" />
+                  ) : (
+                    <ClipboardIcon className="h-5 w-5" />
+                  )}
+                  <span className="ml-1 text-sm">
+                    {isHtmlCopied ? 'Copied' : 'Copy'}
+                  </span>
+                </button>
+              </Tooltip>
+              <Tooltip content="Print formatted report">
+                <button
+                  onClick={handlePrintReport}
+                  className="flex items-center rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  <PrinterIcon className="h-5 w-5" />
+                  <span className="ml-1 text-sm">Print</span>
+                </button>
+              </Tooltip>
+            </div>
           )}
         </div>
 
@@ -1842,8 +2271,40 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
           </div>
         ) : (
           <BotMessage className="mt-4 max-w-4xl">
-            {markdown ? (
-              <div dangerouslySetInnerHTML={{ __html: markdown }} />
+            {renderedResultContent ? (
+              <div className="space-y-6">
+                <div className="prose prose-slate max-w-none text-slate-800">
+                  {renderedResultContent}
+                </div>
+                {footnotes.length > 0 && (
+                  <section className="mt-6 border-t border-gray-200 pt-4" aria-labelledby="docsbot-footnotes-heading">
+                    <h3
+                      id="docsbot-footnotes-heading"
+                      className="text-base font-semibold text-gray-900"
+                    >
+                      Sources
+                    </h3>
+                    <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-gray-700">
+                      {footnotes.map((footnote) => (
+                        <li
+                          key={footnote.number}
+                          id={`footnote-${footnote.number}`}
+                          className="leading-relaxed"
+                        >
+                          <a
+                            href={footnote.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-cyan-600 underline"
+                          >
+                            {footnote.title || footnote.url}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
+              </div>
             ) : (
               <div className="flex flex-col">
                 <LoadingDots />
@@ -1863,21 +2324,31 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                     </div>
                   </Tooltip>
                 )}
-                <Tooltip
-                  content={isCopied ? 'Copied!' : 'Copy results to clipboard'}
-                >
-                  <button
-                    onClick={handleCopyText}
-                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                    title="Copy"
-                  >
-                    {isCopied ? (
-                      <CheckIcon className="h-4 w-4" />
-                    ) : (
-                      <ClipboardIcon className="h-4 w-4" />
-                    )}
-                  </button>
-                </Tooltip>
+                <div className="flex items-center gap-3">
+                  <Tooltip content={isHtmlCopied ? 'Copied!' : 'Copy'}>
+                    <button
+                      onClick={handleCopyHtml}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      title="Copy"
+                    >
+                      {isHtmlCopied ? (
+                        <CheckIcon className="h-4 w-4" />
+                      ) : (
+                        <ClipboardIcon className="h-4 w-4" />
+                      )}
+                    </button>
+                  </Tooltip>
+                  <Tooltip content="Print formatted report">
+                    <button
+                      onClick={handlePrintReport}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      title="Print"
+                      type="button"
+                    >
+                      <PrinterIcon className="h-4 w-4" />
+                    </button>
+                  </Tooltip>
+                </div>
               </div>
             )}
           </BotMessage>
