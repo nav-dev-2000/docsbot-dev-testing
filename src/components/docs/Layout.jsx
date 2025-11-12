@@ -46,9 +46,15 @@ const navigation = [
       { title: 'Conversation Summarize', href: '/documentation/developer/conversation-summarize' },
       { title: 'Conversation Ticket Creation', href: '/documentation/developer/conversation-ticket' },
       { title: 'Answer Rating & Escalation', href: '/documentation/developer/answer-rating' },
-      { title: 'Semantic Search', href: '/documentation/developer/semantic-search-api' },
       { title: 'Chat (legacy)', href: '/documentation/developer/chat-api' },
       { title: 'Streaming Chat (legacy)', href: '/documentation/developer/streaming-chat-api' },
+    ],
+  },
+  {
+    title: 'Search API',
+    links: [
+      { title: 'Semantic Search', href: '/documentation/developer/semantic-search-api' },
+      { title: 'MCP Server', href: '/documentation/developer/mcp-server' },
     ],
   },
   {

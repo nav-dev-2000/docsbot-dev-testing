@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-11-12',
+    title: 'MCP Server',
+    description: 'Our new MCP server can be used in ChatGPT, Claude, or any other app that supports the MCP protocol to search and fetch documentation from your bots. Find it in the "Integrations" tab of your bot dashboard.'
+  },
+  {
     date: '2025-10-29',
     title: 'Dashboard Tour Wizard',
     description: 'New & invitedusers now get a guided tour of key dashboard features when they sign up.'

@@ -24,6 +24,7 @@ import Image from 'next/image'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Tooltip from '@/components/Tooltip'
+import mcpLogo from '@/images/logos/mcp.svg'
 
 // Integration card component for consistent styling
 const IntegrationCard = ({ title, icon, children, isNew, minPlan }) => {
@@ -154,7 +155,7 @@ const SlackInfo = ({
         <div>
           <p className="text-md text-gray-800">
             Connect your Slack workspace to integrate this bot with your paid
-            team's Slack channels as an AI Assistant. (BETA)
+            team's Slack channels as an AI Assistant.
           </p>
           <ul className="mt-2 list-disc pl-5 text-sm text-gray-800">
             <li>
@@ -355,6 +356,149 @@ const HelpScoutInfo = ({ helpScoutIntegration, subscribedTags, bot, openLinksInN
         </p>
       </div>
     </div>
+  )
+}
+
+const MCPIntegrationInfo = ({
+  team,
+  bot,
+  openLinksInNewTab,
+  hasStandardPlan,
+  setShowUpgrade,
+}) => {
+  const serverUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/mcp/`
+  const [copiedEndpoint, setCopiedEndpoint] = useState(false)
+
+  const handleCopy = (text, setCopied) => {
+    if (!hasStandardPlan) {
+      setShowUpgrade(true)
+      return
+    }
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  if (!hasStandardPlan) {
+    return (
+      <>
+        <p className="text-md text-gray-800">
+          Expose this bot as a Model Context Protocol (MCP) server so your
+          documentation can be searched and fetched by clients.
+        </p>
+        <p className="mt-2 text-sm text-gray-800">
+          Upgrade to the Standard plan to enable the DocsBot MCP server
+          integration.
+        </p>
+        <div className="mt-3 space-y-3 text-sm text-gray-800">
+          <div>
+            <span className="font-semibold text-gray-900">MCP server URL</span>
+            <div className="relative mt-1">
+              <input
+                type="text"
+                readOnly
+                value={serverUrl}
+                onClick={(e) => e.target.select()}
+                className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 font-mono text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+              />
+              <button
+                onClick={() => handleCopy(serverUrl, setCopiedEndpoint)}
+                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
+              >
+                <span className="relative h-4 w-4">
+                  <ClipboardIcon
+                    className="absolute inset-0 h-4 w-4"
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={() => setShowUpgrade(true)}
+          className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+        >
+          <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+          Upgrade Plan
+        </button>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <p className="text-md text-gray-800">
+        Expose this bot as a Model Context Protocol (MCP) server so
+        clients can search and fetch trusted documents from its
+        training library.
+      </p>
+      <div className="mt-3 space-y-3 text-sm text-gray-800">
+        <div>
+          <span className="font-semibold text-gray-900">MCP server URL</span>
+          <div className="relative mt-1">
+            <input
+              type="text"
+              readOnly
+              value={serverUrl}
+              onClick={(e) => e.target.select()}
+              className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 font-mono text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+            />
+            <button
+              onClick={() => handleCopy(serverUrl, setCopiedEndpoint)}
+              className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
+            >
+              <span className="relative h-4 w-4">
+                <ClipboardIcon
+                  className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${
+                    copiedEndpoint ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+                  }`}
+                  aria-hidden="true"
+                />
+                <CheckIcon
+                  className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${
+                    copiedEndpoint ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                  }`}
+                  aria-hidden="true"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <span className="font-semibold text-gray-900">Available tools</span>
+          <ul className="mt-1 list-disc space-y-1 pl-5">
+            <li>
+              <code>search</code> – Performs a hybrid search across the bot's
+              indexed sources and returns ranked snippets.
+            </li>
+            <li>
+              <code>fetch</code> – Retrieves the full content for a source that
+              was previously referenced by <code>search</code>.
+            </li>
+          </ul>
+        </div>
+        {bot.privacy === 'private' && (
+          <div>
+            <span className="font-semibold text-gray-900">Authentication</span>
+            <p className="mt-1">
+              Include the <code>Authorization: Bearer &lt;YOUR_DOCSBOT_API_KEY&gt;</code>{' '}
+              header on every request. This is required when your bot is
+              private and recommended for all deployments.
+            </p>
+          </div>
+        )}
+      </div>
+      <Link
+        href="/documentation/developer/mcp-server"
+        target={openLinksInNewTab ? '_blank' : undefined}
+        className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
+      >
+        Read Documentation
+        <ArrowTopRightOnSquareIcon className="ml-1 h-4 w-4" aria-hidden="true" />
+      </Link>
+    </>
   )
 }
 
@@ -726,6 +870,8 @@ export default function IntegrationsGrid({
   })
 
   const hasPowerPlan = checkPlanPermission(team, 'personal').allowed
+  const mcpPlanPermission = checkPlanPermission(team, 'standard')
+  const hasStandardPlan = mcpPlanPermission.allowed
 
   // Check if Slack is connected
   const isSlackConnected =
@@ -934,7 +1080,6 @@ export default function IntegrationsGrid({
           <IntegrationCard
             title="Slack Integration"
             icon={<SlackLogo className="h-8 w-8" />}
-            isNew={true}
             minPlan={
               !checkPlanPermission(team, 'personal', 'slack').allowed
                 ? checkPlanPermission(team, 'personal', 'slack').requiredPlanLabel
@@ -985,6 +1130,30 @@ export default function IntegrationsGrid({
             subscribedTags={subscribedTags}
             bot={bot}
             openLinksInNewTab={openLinksInNewTab}
+          />
+        </IntegrationCard>
+
+        {/* MCP Deep Research Card */}
+        <IntegrationCard
+          title="MCP Server"
+          icon={
+            <Image
+              src={mcpLogo}
+              alt="MCP Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+          }
+          isNew
+          minPlan={!hasStandardPlan ? mcpPlanPermission.requiredPlanLabel : undefined}
+        >
+          <MCPIntegrationInfo
+            team={team}
+            bot={bot}
+            openLinksInNewTab={openLinksInNewTab}
+            hasStandardPlan={hasStandardPlan}
+            setShowUpgrade={setShowUpgrade}
           />
         </IntegrationCard>
 
