@@ -30,7 +30,6 @@ import { BotCopyModal } from '@/components/BotCopy'
 import EmbeddingModel from '@/components/EmbeddingModel'
 import Tooltip from '@/components/Tooltip'
 import BotIconDisplay from '@/components/BotIconDisplay'
-import { isSuperAdmin } from '@/utils/helpers'
 import clsx from 'clsx'
 
 export default function BotCard({ team, bot, integrations, setBot }) {
@@ -120,29 +119,27 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               </div>
               <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
                 <ModalChat team={team} bot={bot} className="" />
-                {isSuperAdmin(user?.uid) && (
-                  <Tooltip content="Deep research agent">
-                    <Link
-                      href={`/app/bots/${bot.id}/research`}
-                      className={clsx(
-                        'flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
-                        bot.status !== 'ready' && 'opacity-50 cursor-not-allowed'
-                      )}
-                      onClick={(e) => {
-                        if (bot.status !== 'ready') {
-                          e.preventDefault()
-                        }
-                      }}
-                      aria-disabled={bot.status !== 'ready'}
-                    >
-                      <BeakerIcon
-                        className="h-5 w-5 text-cyan-700"
-                        aria-hidden="true"
-                      />
-                      <span className="hidden xl:inline">Research</span>
-                    </Link>
-                  </Tooltip>
-                )}
+                <Tooltip content="Deep research agent">
+                  <Link
+                    href={`/app/bots/${bot.id}/research`}
+                    className={clsx(
+                      'flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
+                      bot.status !== 'ready' && 'opacity-50 cursor-not-allowed'
+                    )}
+                    onClick={(e) => {
+                      if (bot.status !== 'ready') {
+                        e.preventDefault()
+                      }
+                    }}
+                    aria-disabled={bot.status !== 'ready'}
+                  >
+                    <BeakerIcon
+                      className="h-5 w-5 text-cyan-700"
+                      aria-hidden="true"
+                    />
+                    <span className="hidden xl:inline">Research</span>
+                  </Link>
+                </Tooltip>
                 <Tooltip content="Search and preview your bot's knowledge base">
                   <Link
                     href={`/app/bots/${bot.id}/search`}

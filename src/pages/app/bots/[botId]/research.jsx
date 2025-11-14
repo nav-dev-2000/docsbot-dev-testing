@@ -4,7 +4,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { isSuperAdmin, stripePlan } from '@/utils/helpers'
+import { stripePlan } from '@/utils/helpers'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -3161,16 +3161,6 @@ function Research({ team, bot }) {
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
   const { botId } = context.params
-
-  // Restrict research page to super admins only
-  if (!isSuperAdmin(data?.props?.userId)) {
-    return {
-      redirect: {
-        destination: `/app/bots/${botId}`,
-        permanent: false,
-      },
-    }
-  }
 
   if (data?.props?.team) {
     data.props.bot = await getBot(data.props.team.id, botId)

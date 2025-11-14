@@ -1,5 +1,10 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-11-14',
+    title: 'Deep Research Agent',
+    description: 'Use advanced reasoning models to perform comprehensive multi-step research tasks by searching and reading all your documentation, browsing the web, and executing code to perform math and data analysis. '
+  },
+  {
     date: '2025-11-12',
     title: 'MCP Server',
     description: 'Our new MCP server can be used in ChatGPT, Claude, or any other app that supports the MCP protocol to search and fetch documentation from your bots. Find it in the "Integrations" tab of your bot dashboard.'
