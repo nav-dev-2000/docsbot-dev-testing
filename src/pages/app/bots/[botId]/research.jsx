@@ -2394,6 +2394,62 @@ function Research({ team, bot }) {
   const didInitFromJobId = useRef(false)
   const scrollToBottomRef = useRef(null)
 
+  const trialNoticeInfo = useMemo(() => {
+    if (!researchUsage) return null
+
+    const {
+      monthlyLimit,
+      lifetimeLimit,
+      trialRemaining = 0,
+      legacyTrialThreshold,
+      historicalMaxResearch = 0,
+      planId,
+      planName,
+    } = researchUsage
+
+    const hasMonthlyAllowance =
+      monthlyLimit === null ||
+      (typeof monthlyLimit === 'number' && monthlyLimit > 0)
+
+    if (hasMonthlyAllowance) {
+      return null
+    }
+
+    const normalizedPlanId = (planId || '').toLowerCase()
+    const isLegacyTrialPlan = Boolean(normalizedPlanId === 'pro' ||
+        normalizedPlanId === 'personal')
+
+    const trialTotal =
+      (typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+        ? lifetimeLimit
+        : null) ??
+      (typeof legacyTrialThreshold === 'number' && legacyTrialThreshold > 0
+        ? legacyTrialThreshold
+        : null) ??
+      (isLegacyTrialPlan ? 2 : null)
+
+    if (typeof trialTotal !== 'number' || trialTotal <= 0) {
+      return null
+    }
+
+    const derivedUsed =
+      typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+        ? Math.max(
+            0,
+            Math.min(trialTotal, trialTotal - trialRemaining),
+          )
+        : Math.max(
+            0,
+            Math.min(trialTotal, historicalMaxResearch || 0),
+          )
+
+    if (derivedUsed >= trialTotal) {
+      return null
+    }
+
+    return { used: derivedUsed, total: trialTotal }
+  }, [researchUsage])
+
   const refreshResearchCount = useCallback(async () => {
     if (!team?.id) return null
     try {
@@ -3011,7 +3067,22 @@ function Research({ team, bot }) {
       header={<Header />}
     >
       <main className="relative lg:pr-80 xl:pr-96">
-        <Alert title={errorText} type="warning" />
+        <div className="mx-auto max-w-4xl">
+          {trialNoticeInfo && (
+            <Alert
+              type="warning"
+              title="Deep Research trial access"
+            >
+              <p className="mb-1">
+              Deep Research isn’t included in your plan, but we’re giving you a few trial tasks so you can see its powerful capabilities.
+              </p>
+              <p className="text-sm font-medium text-slate-700">
+                Trial research tasks: {trialNoticeInfo.used}/{trialNoticeInfo.total}
+              </p>
+            </Alert>
+          )}
+          <Alert title={errorText} type="warning" />
+        </div>
         <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
           {loading ? (
             <div className="flex h-full items-center justify-center p-8 text-gray-500">

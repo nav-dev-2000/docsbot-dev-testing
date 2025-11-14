@@ -657,9 +657,10 @@ export default function Home() {
                         </p>
                         <p className="mt-6 text-lg/8 text-gray-600">
                           Transform your research process with AI-powered
-                          document analysis and insight generation. Quickly find
-                          relevant information and discover hidden connections
-                          across your entire document library.
+                          document analysis, structured reporting, and our new
+                          Deep Research agent. Combine your DocsBot knowledge
+                          base with optional live web search and Code
+                          Interpreter to surface cited insights in minutes.
                         </p>
                         <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                           {researchFeatures.map((feature) => (
