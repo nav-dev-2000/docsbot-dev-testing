@@ -126,7 +126,7 @@ export default async function handler(req, res) {
       if (!youtubeRegex.test(url)) {
         return res.status(400).send({
           message:
-            'Invalid YouTube URL. Please provide a valid YouTube video or channel URL.',
+            'Invalid YouTube URL. Please provide a valid video or playlist URL; channel URLs are not supported.',
         })
       }
     }
