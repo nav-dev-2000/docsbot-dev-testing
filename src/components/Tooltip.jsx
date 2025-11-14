@@ -13,6 +13,7 @@ const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
         placement,
         allowHTML: true,
         zIndex: zIndex || 9999,
+        appendTo: () => document.body,
         onCreate: (instance) => {
           const content = instance.popper.querySelector('.tippy-content');
           if (content) {

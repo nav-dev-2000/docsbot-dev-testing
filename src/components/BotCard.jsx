@@ -114,97 +114,111 @@ export default function BotCard({ team, bot, integrations, setBot }) {
           </div>
           <div className="block">
             <div className="mt-4 flex justify-between lg:mt-0 lg:block">
-              <div className="hidden flex-shrink-0 justify-start sm:flex lg:justify-end">
+              <div className="hidden flex-shrink-0 justify-start lg:flex lg:justify-end">
                 <BadgeStatus status={bot.status} small={false} />
               </div>
-              <div className="flex w-full justify-between space-x-2 sm:justify-end lg:mt-4">
-                <ModalChat team={team} bot={bot} className="" />
-                <Tooltip content="Deep research agent">
-                  <Link
-                    href={`/app/bots/${bot.id}/research`}
-                    className={clsx(
-                      'flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
-                      bot.status !== 'ready' && 'opacity-50 cursor-not-allowed'
-                    )}
-                    onClick={(e) => {
-                      if (bot.status !== 'ready') {
-                        e.preventDefault()
-                      }
-                    }}
-                    aria-disabled={bot.status !== 'ready'}
-                  >
-                    <BeakerIcon
-                      className="h-5 w-5 text-cyan-700"
-                      aria-hidden="true"
-                    />
-                    <span className="hidden xl:inline">Research</span>
-                  </Link>
-                </Tooltip>
-                <Tooltip content="Search and preview your bot's knowledge base">
-                  <Link
-                    href={`/app/bots/${bot.id}/search`}
-                    className={clsx(
-                      'flex font-semibold items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
-                      bot.status !== 'ready' && 'opacity-50 cursor-not-allowed'
-                    )}
-                    onClick={(e) => {
-                      if (bot.status !== 'ready') {
-                        e.preventDefault()
-                      }
-                    }}
-                    aria-disabled={bot.status !== 'ready'}
-                  >
-                    <MagnifyingGlassIcon
-                      className="h-5 w-5 text-cyan-700"
-                      aria-hidden="true"
-                    />
-                    <span className="hidden xl:inline">Search</span>
-                  </Link>
-                </Tooltip>
-              </div>
-              <div className="mt-2 flex w-full justify-between space-x-2 sm:justify-end">
-                <Tooltip content="View user conversation history">
-                  <Link
-                    href={`/app/bots/${bot.id}/conversations`}
-                    className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                    disabled={bot.conversationCount <= 0}
-                    data-wizard="conversations"
-                  >
-                    <ChatBubbleLeftRightIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span className="hidden xl:inline">Conversations</span>
-                  </Link>
-                </Tooltip>
-                <Tooltip content="View user questions and debug or fine-tune bot answers">
-                  <Link
-                    href={`/app/bots/${bot.id}/questions`}
-                    className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                    disabled={bot.questionCount <= 0}
-                    data-wizard="questions"
-                  >
-                    <QueueListIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span className="hidden xl:inline">Questions</span>
-                  </Link>
-                </Tooltip>
-                <Tooltip content="View statistics and reports about the bot's performance and user questions">
-                  <Link
-                    href={`/app/bots/${bot.id}/reports`}
-                    className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                    disabled={bot.questionCount <= 0}
-                    data-wizard="reports"
-                  >
-                    <ChartBarIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span className="hidden xl:inline">Reports</span>
-                  </Link>
-                </Tooltip>
+              <div className="flex w-full flex-col justify-between lg:block lg:w-auto">
+                <div className="flex w-full justify-between space-x-2 md:justify-end lg:mt-4">
+                  <ModalChat team={team} bot={bot} className="" />
+                  <Tooltip content="Deep research agent">
+                    <Link
+                      href={`/app/bots/${bot.id}/research`}
+                      className={clsx(
+                        'flex items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm font-semibold text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
+                        bot.status !== 'ready' &&
+                          'cursor-not-allowed opacity-50',
+                      )}
+                      onClick={(e) => {
+                        if (bot.status !== 'ready') {
+                          e.preventDefault()
+                        }
+                      }}
+                      aria-disabled={bot.status !== 'ready'}
+                    >
+                      <BeakerIcon
+                        className="h-5 w-5 text-cyan-700"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Research
+                      </span>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip content="Search and preview your bot's knowledge base">
+                    <Link
+                      href={`/app/bots/${bot.id}/search`}
+                      className={clsx(
+                        'flex items-center justify-center gap-x-2 rounded-md border border-cyan-700 bg-white px-4 py-3 text-sm font-semibold text-cyan-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50',
+                        bot.status !== 'ready' &&
+                          'cursor-not-allowed opacity-50',
+                      )}
+                      onClick={(e) => {
+                        if (bot.status !== 'ready') {
+                          e.preventDefault()
+                        }
+                      }}
+                      aria-disabled={bot.status !== 'ready'}
+                    >
+                      <MagnifyingGlassIcon
+                        className="h-5 w-5 text-cyan-700"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Search
+                      </span>
+                    </Link>
+                  </Tooltip>
+                </div>
+                <div className="mt-2 flex w-full justify-between space-x-2 md:justify-end">
+                  <Tooltip content="View user conversation history">
+                    <Link
+                      href={`/app/bots/${bot.id}/conversations`}
+                      className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                      disabled={bot.conversationCount <= 0}
+                      data-wizard="conversations"
+                    >
+                      <ChatBubbleLeftRightIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Conversations
+                      </span>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip content="View user questions and debug or fine-tune bot answers">
+                    <Link
+                      href={`/app/bots/${bot.id}/questions`}
+                      className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                      disabled={bot.questionCount <= 0}
+                      data-wizard="questions"
+                    >
+                      <QueueListIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Questions
+                      </span>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip content="View statistics and reports about the bot's performance and user questions">
+                    <Link
+                      href={`/app/bots/${bot.id}/reports`}
+                      className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                      disabled={bot.questionCount <= 0}
+                      data-wizard="reports"
+                    >
+                      <ChartBarIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Reports
+                      </span>
+                    </Link>
+                  </Tooltip>
+                </div>
               </div>
             </div>
             <div className="mt-4 flex justify-between space-x-4 sm:mt-1 sm:justify-end">
@@ -227,7 +241,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+      <div className="grid grid-cols-1 divide-y divide-gray-200 border-t border-gray-200 bg-gray-50 sm:grid-cols-2 sm:divide-x sm:divide-y lg:grid-cols-4 lg:divide-y-0">
         <Tooltip content="Sources added to the bot">
           <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
             <DocumentDuplicateIcon
@@ -241,7 +255,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
           </div>
         </Tooltip>
         <Tooltip content="Indexed source pages. A page is the greater of 5000 processed characters or one document/web page.">
-          <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium">
+          <div className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium sm:!border-t-0">
             <Square3Stack3DIcon
               className="h-5 w-5 text-gray-400"
               aria-hidden="true"
@@ -254,7 +268,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
         </Tooltip>
         <Tooltip content="User messages in current month">
           <Link
-            className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100"
+            className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100 sm:!border-l-0 lg:!border-l lg:border-gray-200"
             href={`/app/bots/${bot.id}/questions`}
           >
             <ChatBubbleBottomCenterTextIcon
@@ -265,6 +279,18 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               <LocalStringNum value={bot.questionCount} />
             </span>{' '}
             <span className="text-gray-600">Messages</span>
+          </Link>
+        </Tooltip>
+        <Tooltip content="Research queries performed">
+          <Link
+            className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100"
+            href={`/app/bots/${bot.id}/research`}
+          >
+            <BeakerIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+            <span className="text-gray-900">
+              <LocalStringNum value={bot.researchCount || 0} />
+            </span>{' '}
+            <span className="text-gray-600">Research tasks</span>
           </Link>
         </Tooltip>
       </div>

@@ -4,7 +4,7 @@ import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot } from '@/lib/dbQueries'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, isSuperAdmin } from '@/utils/helpers'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -280,7 +280,11 @@ function BotMessage({ text, html, className = '', children }) {
   
   // Build container class - never add max-w-3xl to container (only to message bubble)
   let containerClass = 'mb-4 flex items-start justify-start'
-  if (className.includes('mr-12')) {
+  if (className.includes('w-full')) {
+    containerClass = className.includes('mt-4') 
+      ? 'mb-4 mt-4 flex w-full items-start justify-start'
+      : 'mb-4 flex w-full items-start justify-start'
+  } else if (className.includes('mr-12')) {
     containerClass = 'mb-4 flex mr-12 items-start justify-start'
   } else if (className.includes('mt-4')) {
     containerClass = `mb-4 mt-4 flex items-start justify-start`
@@ -290,29 +294,37 @@ function BotMessage({ text, html, className = '', children }) {
   }
   
   const messageWidth = widthClasses.join(' ')
+  const isFullWidth = className.includes('w-full')
+  const messageClass = isFullWidth 
+    ? `text-md prose w-full min-w-full rounded-2xl border bg-white px-6 pt-6 pb-4 text-start leading-snug text-gray-700 first:prose-p:my-0`
+    : `text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`
+  
+  const showAvatar = !isFullWidth
   
   return (
     <div className={containerClass}>
-      <div className="mr-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">
-        <RobotIcon className="h-auto w-4/6 object-scale-down text-white" />
-      </div>
+      {showAvatar && (
+        <div className="mr-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">
+          <RobotIcon className="h-auto w-4/6 object-scale-down text-white" />
+        </div>
+      )}
       {children ? (
         <div
           dir="auto"
-          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`}
+          className={messageClass}
         >
           {children}
         </div>
       ) : html ? (
         <div
           dir="auto"
-          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`}
+          className={messageClass}
           dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
         <div
           dir="auto"
-          className={`text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0 whitespace-pre-wrap`}
+          className={`${messageClass} whitespace-pre-wrap`}
         >
           {text}
         </div>
@@ -831,7 +843,7 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
   })()
 
   return (
-    <details ref={detailsRef} className="group mt-6 ml-12 text-left" open={!!defaultOpen}>
+    <details ref={detailsRef} className="group mt-6 w-full text-left" open={!!defaultOpen}>
       <summary className="text-md flex cursor-pointer select-none list-none items-center justify-between rounded-md bg-gray-50 px-3 py-2 text-left font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-100">
         <Tooltip content={`Web Searches: ${webSearchesCount} • URLs: ${urlsCount} • Documentation Searches: ${mcpSearchesCount} • Documents: ${mcpFetchesCount}`}>
           <span>Research Steps ({output.length})</span>
@@ -1450,7 +1462,7 @@ function ResearchInterface({
   }
 
   return (
-    <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
+    <div className="relative flex h-full flex-col overflow-y-auto overflow-x-visible px-3 pt-4">
       <ModalOpenAI team={team} open={showOpenAI} setOpen={setShowOpenAI} onKey={(key) => {
         team.openAIKey = key
       }} />
@@ -1648,6 +1660,7 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
   const [isHtmlCopied, setIsHtmlCopied] = useState(false)
   const [costInfo, setCostInfo] = useState(null)
   const [footnotes, setFootnotes] = useState([])
+  const [user] = useAuthState(auth)
   const scrollToBottomRef = useRef(null)
 
   // Expose scroll function to parent component
@@ -2108,7 +2121,7 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
   }, [job, resultHtml, footnotes, clarificationsHtml, summaryHtml, costInfo])
 
   return (
-    <div className="relative flex h-full flex-col overflow-y-scroll px-3 pt-4">
+    <div className="relative flex h-full flex-col overflow-y-auto px-3 pt-4">
       <div className="flex w-full flex-col text-center">
         <div className="mb-2 flex items-center justify-between">
           <button
@@ -2200,131 +2213,89 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
         )}
 
         {job.status === 'failed' ? (
-          <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
-            <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-red-500 to-red-600 p-2 shadow-lg">
-                <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
-                </svg>
-              </span>
-            </div>
-            <div className="rounded-md bg-red-50 p-6 text-start sm:px-8">
-              <div className="flex">
-                <div className="ml-3">
-                  <h3 className="text-sm font-medium text-red-800">Deep Research Failed</h3>
-                  <div className="mt-2 text-sm text-red-700">
-                    <p>{job.response?.error?.message || job.response?.error || 'The deep research task encountered an error and could not complete.'}</p>
+          <div className="mb-4 mt-4 flex items-start justify-start">
+            <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
+            <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+              <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
+                <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-red-500 to-red-600 p-2 shadow-lg">
+                  <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
+                  </svg>
+                </span>
+              </div>
+              <div className="rounded-md bg-red-50 p-6 text-start sm:px-8">
+                <div className="flex">
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-red-800">Deep Research Failed</h3>
+                    <div className="mt-2 text-sm text-red-700">
+                      <p>{job.response?.error?.message || job.response?.error || 'The deep research task encountered an error and could not complete.'}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ) : job.status === 'incomplete' ? (
-          <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
-            <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-yellow-500 to-yellow-600 p-2 shadow-lg">
-                <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                </svg>
-              </span>
-            </div>
-            <div className="rounded-md bg-yellow-50 p-6 text-start sm:px-8">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+          <div className="mb-4 mt-4 flex items-start justify-start">
+            <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
+            <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+              <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
+                <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-yellow-500 to-yellow-600 p-2 shadow-lg">
+                  <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                   </svg>
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-sm font-medium text-yellow-800">Deep research incomplete</h3>
-                  <div className="mt-2 text-sm text-yellow-700">
-                    <p>{job.response?.error?.message || job.response?.error || 'The deep research task was not completed.'}</p>
+                </span>
+              </div>
+              <div className="rounded-md bg-yellow-50 p-6 text-start sm:px-8">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fillRule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 6zm0 9a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-yellow-800">Deep research incomplete</h3>
+                    <div className="mt-2 text-sm text-yellow-700">
+                      <p>{job.response?.error?.message || job.response?.error || 'The deep research task was not completed.'}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ) : job.status === 'cancelled' ? (
-          <div className="relative mt-4 rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
-            <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-gray-500 to-gray-600 p-2 shadow-lg">
-                <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
-                </svg>
-              </span>
-            </div>
-            <div className="rounded-md bg-gray-50 p-6 text-start sm:px-8">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <div className="mb-4 mt-4 flex items-start justify-start">
+            <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
+            <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+              <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
+                <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-gray-500 to-gray-600 p-2 shadow-lg">
+                  <svg className="h-7 w-7 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
                   </svg>
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-sm font-medium text-gray-800">Deep research cancelled</h3>
-                  <div className="mt-2 text-sm text-gray-700">
-                    <p>The deep research task was cancelled.</p>
+                </span>
+              </div>
+              <div className="rounded-md bg-gray-50 p-6 text-start sm:px-8">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-gray-800">Deep research cancelled</h3>
+                    <div className="mt-2 text-sm text-gray-700">
+                      <p>The deep research task was cancelled.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ) : (
-          <BotMessage className="mt-4 max-w-4xl">
-            {renderedResultContent ? (
-              <div className="space-y-6">
-                <div className="prose prose-slate max-w-none text-slate-800">
-                  {renderedResultContent}
-                </div>
-                {footnotes.length > 0 && (
-                  <section className="mt-6 border-t border-gray-200 pt-4" aria-labelledby="docsbot-footnotes-heading">
-                    <h3
-                      id="docsbot-footnotes-heading"
-                      className="text-base font-semibold text-gray-900"
-                    >
-                      Sources
-                    </h3>
-                    <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-gray-700">
-                      {footnotes.map((footnote) => (
-                        <li
-                          key={footnote.number}
-                          id={`footnote-${footnote.number}`}
-                          className="leading-relaxed"
-                        >
-                          <a
-                            href={footnote.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-cyan-600 underline"
-                          >
-                            {footnote.title || footnote.url}
-                          </a>
-                        </li>
-                      ))}
-                    </ol>
-                  </section>
-                )}
-              </div>
-            ) : (
-              <div className="flex flex-col">
-                <LoadingDots />
-                <span className="text-xs mt-2 ml-2 text-gray-500">
-                  Deep research tasks can take many minutes to complete, please wait or check back later...
-                </span>
-              </div>
-            )}
-            {job?.status === 'completed' && job?.result && (
-              <div className="mt-4 flex items-center justify-between">
-                {costInfo && (
-                  <Tooltip
-                    content={`Input: $${costInfo.input.toFixed(2)}, Output: $${costInfo.output.toFixed(2)}, Tools: $${costInfo.tools.toFixed(2)}`}
-                  >
-                    <div className="text-[11px] leading-tight text-gray-500 select-none">
-                      Estimated cost: ${costInfo.total.toFixed(2)}
-                    </div>
-                  </Tooltip>
-                )}
-                <div className="flex items-center gap-3">
+          <BotMessage className="mt-4 w-full">
+            <div className="relative pr-12">
+              {job?.status === 'completed' && job?.result && (
+                <div className="absolute top-0 right-0 flex items-center gap-3 pt-1 pr-1">
                   <Tooltip content={isHtmlCopied ? 'Copied!' : 'Copy'}>
                     <button
                       onClick={handleCopyHtml}
@@ -2349,8 +2320,59 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                     </button>
                   </Tooltip>
                 </div>
-              </div>
-            )}
+              )}
+              {renderedResultContent ? (
+                <div className="space-y-6">
+                  <div className="prose prose-slate max-w-none text-slate-800">
+                    {renderedResultContent}
+                  </div>
+                  {footnotes.length > 0 && (
+                    <section className="mt-6 border-t border-gray-200 pt-4" aria-labelledby="docsbot-footnotes-heading">
+                      <h3
+                        id="docsbot-footnotes-heading"
+                        className="text-base font-semibold text-gray-900"
+                      >
+                        Sources
+                      </h3>
+                      <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-gray-700">
+                        {footnotes.map((footnote) => (
+                          <li
+                            key={footnote.number}
+                            id={`footnote-${footnote.number}`}
+                            className="leading-relaxed"
+                          >
+                            <a
+                              href={footnote.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyan-600 underline"
+                            >
+                              {footnote.title || footnote.url}
+                            </a>
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+                  )}
+                </div>
+              ) : (
+                <div className="flex flex-col">
+                  <LoadingDots />
+                  <span className="text-xs mt-2 ml-2 text-gray-500">
+                    Deep research tasks can take many minutes to complete, please wait or check back later...
+                  </span>
+                </div>
+              )}
+              {job?.status === 'completed' && job?.result && costInfo && user && isSuperAdmin(user.uid) && (
+                <div className="mt-4">
+                  <Tooltip content="Only shown to Super Admins.">
+                    <div className="text-[11px] leading-tight text-gray-500 select-none">
+                      Estimated cost: ${costInfo.total.toFixed(2)}
+                    </div>
+                  </Tooltip>
+                </div>
+              )}
+            </div>
           </BotMessage>
         )}
 
