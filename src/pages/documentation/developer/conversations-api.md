@@ -118,7 +118,7 @@ Response is a JSON object with `conversations` as an array of conversation objec
       "escalated": "none",
       "ip": "hashedipaddress",
       "truncated": false,
-      "model": "gpt-5",
+      "model": "gpt-5.1",
       "resolved": "confirmed",
       "alias": "shaggy-trucks"
     },

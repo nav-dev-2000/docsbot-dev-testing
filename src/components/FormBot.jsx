@@ -56,6 +56,7 @@ export default function FormBot({
 
   // Define which models should be shown based on conditions
   const modelVisibility = {
+    'gpt-5.1': !short || (checkPlanPermission(team, 'personal').allowed),
     'gpt-5': !short || (checkPlanPermission(team, 'personal').allowed),
     'gpt-4.1': !short || (checkPlanPermission(team, 'personal').allowed),
     'gpt-5-mini': true,
@@ -142,14 +143,14 @@ export default function FormBot({
     }
   }, [privacy])
 
-  //show upgrade if they change model to gpt-5
+  //show upgrade if they change model to gpt-5 or gpt-5.1
   useEffect(() => {
     // For users on the personal plan:
     // - They should be able to select gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini without any issues
     // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
     if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
       // For non-personal plans, keep existing behavior
-      if (['gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o'].includes(model)) {
+      if (['gpt-5.1', 'gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o'].includes(model)) {
         setShowUpgrade(true)
         setModel('gpt-4.1-mini')
         console.log('Setting default free/hobby plan model to gpt-4.1-mini')
@@ -158,7 +159,7 @@ export default function FormBot({
       // For paid plan users (personal and above)
       // If they select a full model without OpenAI key, revert to a mini model
       // The modal will be triggered by NewBotPanel/ModalBotEdit components
-      if (['gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) && !team.supportsGPT4) {
+      if (['gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) && !team.supportsGPT4) {
         setModel('gpt-4.1-mini') // Default to gpt-5-mini since they're on paid plan
         console.log('Reverting to gpt-4.1-mini for paid plan user without OpenAI key')
       }
@@ -484,6 +485,35 @@ export default function FormBot({
           </legend>
           <div className="mt-2 space-y-2">
             {/* Render models based on visibility rules */}
+            {modelVisibility['gpt-5.1'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-5-1"
+                    name="model"
+                    value="gpt-5.1"
+                    aria-describedby="gpt-5-1-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-5.1'}
+                    onChange={() => setModel('gpt-5.1')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-5-1" className="font-medium text-gray-900">
+                    GPT-5.1 - Adaptive Flagship
+                  </label>
+                  <p id="gpt-5-1-description" className="text-gray-500">
+                    Fastest GPT-5 family model with adaptive reasoning and better instruction following.{' '}
+                    <span className="font-bold text-xs">
+                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            )}
+
             {modelVisibility['gpt-5'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
@@ -501,13 +531,13 @@ export default function FormBot({
                 </div>
                 <div className="pl-7 text-sm">
                   <label htmlFor="gpt-5" className="font-medium text-gray-900">
-                    GPT-5 - Most Powerful
+                    GPT-5 - Powerful General-Purpose Model
                   </label>
                   <p id="gpt-5-description" className="text-gray-500">
                     Smartest, fastest, most useful model yet, with thinking built in
                     — so you get the best answer, every time.{' '}
                     <span className="font-bold text-xs">
-                      Requires <Link href="https://help.openai.com/en/articles/10910291/api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
                     </span>
                   </p>
                 </div>
@@ -569,7 +599,7 @@ export default function FormBot({
                     Smart, fast, and useful model. Good for most support use cases.{' '}
                     {team.supportsGPT4 && (
                       <span className="font-bold text-xs">
-                        Requires <Link href="https://help.openai.com/en/articles/10910291/api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                        Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
                       </span>
                     )}
                   </p>

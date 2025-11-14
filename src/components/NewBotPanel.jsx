@@ -25,7 +25,13 @@ export default function NewBotPanel({ team, open, setOpen }) {
   }, [open])
 
   useEffect(() => {
-    if (open && !showOpenAI && !team.openAIKey && botSettings.model && ['gpt-5', 'gpt-4.1', 'gpt-4o'].includes(botSettings.model)) {
+    if (
+      open &&
+      !showOpenAI &&
+      !team.openAIKey &&
+      botSettings.model &&
+      ['gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(botSettings.model)
+    ) {
       setShowOpenAI(true)
     }
   }, [botSettings])

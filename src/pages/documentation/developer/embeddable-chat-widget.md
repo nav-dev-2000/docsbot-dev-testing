@@ -227,7 +227,7 @@ options: {
   customCSS: '', // Custom CSS to override the default styles.
   inputLimit: 500, // Limit the number of characters in the question input. Default is 500, can be set to max 2000 if widget is signed/authenticated.
   contextItems: 6, // Number of sources to lookup for the bot to answer from. Default is 6. Context boost uses 16 (more expensive token usage).
-  reasoningEffort: 'medium', // Optional reasoning depth in agent mode (default: 'minimal'). Valid values: 'minimal', 'low', 'medium', 'high'. Requires signed request.
+  reasoningEffort: 'medium', // Optional reasoning depth in agent mode (default: 'none' for GPT-5.1, 'minimal' for GPT-5). Valid values: 'none', 'minimal', 'low', 'medium', 'high'. Requires signed request.
   suggestedQuestions: 3, // override number of random suggested questions (default 3)
   questions: [
     "What is DocsBot?",

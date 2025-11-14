@@ -57,6 +57,7 @@ import TimeAgo from '@/components/TimeAgo'
 import clsx from 'clsx'
 import LocaleDateTime from '@/components/LocaleDateTime'
 import Tooltip from '@/components/Tooltip'
+import ResearchActionButtons from '@/components/ResearchActionButtons'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -2040,7 +2041,6 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
             : safeLabel
           return `
             <li id="footnote-${footnote.number}">
-              <span class="font-semibold text-slate-900">${footnote.number}.</span>
               ${linkMarkup}
             </li>
           `
@@ -2132,32 +2132,11 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
             Back to Research
           </button>
           {job?.status === 'completed' && job?.result && (
-            <div className="flex items-center gap-3">
-              <Tooltip content={isHtmlCopied ? 'Copied!' : 'Copy'}>
-                <button
-                  onClick={handleCopyHtml}
-                  className="flex items-center rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  {isHtmlCopied ? (
-                    <CheckIcon className="h-5 w-5" />
-                  ) : (
-                    <ClipboardIcon className="h-5 w-5" />
-                  )}
-                  <span className="ml-1 text-sm">
-                    {isHtmlCopied ? 'Copied' : 'Copy'}
-                  </span>
-                </button>
-              </Tooltip>
-              <Tooltip content="Print formatted report">
-                <button
-                  onClick={handlePrintReport}
-                  className="flex items-center rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                >
-                  <PrinterIcon className="h-5 w-5" />
-                  <span className="ml-1 text-sm">Print</span>
-                </button>
-              </Tooltip>
-            </div>
+            <ResearchActionButtons
+              onCopy={handleCopyHtml}
+              onPrint={handlePrintReport}
+              isCopied={isHtmlCopied}
+            />
           )}
         </div>
 
@@ -2293,36 +2272,19 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
           </div>
         ) : (
           <BotMessage className="mt-4 w-full">
-            <div className="relative pr-12">
-              {job?.status === 'completed' && job?.result && (
-                <div className="absolute top-0 right-0 flex items-center gap-3 pt-1 pr-1">
-                  <Tooltip content={isHtmlCopied ? 'Copied!' : 'Copy'}>
-                    <button
-                      onClick={handleCopyHtml}
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      title="Copy"
-                    >
-                      {isHtmlCopied ? (
-                        <CheckIcon className="h-4 w-4" />
-                      ) : (
-                        <ClipboardIcon className="h-4 w-4" />
-                      )}
-                    </button>
-                  </Tooltip>
-                  <Tooltip content="Print formatted report">
-                    <button
-                      onClick={handlePrintReport}
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      title="Print"
-                      type="button"
-                    >
-                      <PrinterIcon className="h-4 w-4" />
-                    </button>
-                  </Tooltip>
-                </div>
-              )}
+            <div className="relative">
               {renderedResultContent ? (
-                <div className="space-y-6">
+                <div className="space-y-2">
+                  {job?.status === 'completed' && job?.result && (
+                    <div className="flex justify-end">
+                      <ResearchActionButtons
+                        onCopy={handleCopyHtml}
+                        onPrint={handlePrintReport}
+                        isCopied={isHtmlCopied}
+                        compact={true}
+                      />
+                    </div>
+                  )}
                   <div className="prose prose-slate max-w-none text-slate-800">
                     {renderedResultContent}
                   </div>
@@ -2354,6 +2316,23 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                       </ol>
                     </section>
                   )}
+                  {job?.status === 'completed' && job?.result && (
+                    <div className={`flex pt-4 border-t border-gray-200 ${costInfo && user && isSuperAdmin(user.uid) ? 'justify-between items-center' : 'justify-end'}`}>
+                      {costInfo && user && isSuperAdmin(user.uid) && (
+                        <Tooltip content="Only shown to Super Admins.">
+                          <div className="text-xs leading-tight text-gray-500 select-none">
+                            Estimated cost: ${costInfo.total.toFixed(2)}
+                          </div>
+                        </Tooltip>
+                      )}
+                      <ResearchActionButtons
+                        onCopy={handleCopyHtml}
+                        onPrint={handlePrintReport}
+                        isCopied={isHtmlCopied}
+                        compact={true}
+                      />
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="flex flex-col">
@@ -2361,15 +2340,6 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                   <span className="text-xs mt-2 ml-2 text-gray-500">
                     Deep research tasks can take many minutes to complete, please wait or check back later...
                   </span>
-                </div>
-              )}
-              {job?.status === 'completed' && job?.result && costInfo && user && isSuperAdmin(user.uid) && (
-                <div className="mt-4">
-                  <Tooltip content="Only shown to Super Admins.">
-                    <div className="text-[11px] leading-tight text-gray-500 select-none">
-                      Estimated cost: ${costInfo.total.toFixed(2)}
-                    </div>
-                  </Tooltip>
                 </div>
               )}
             </div>

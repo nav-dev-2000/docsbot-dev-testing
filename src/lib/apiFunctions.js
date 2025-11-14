@@ -442,6 +442,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4.1-mini',
       'gpt-4.1-nano',
       'gpt-4.1',
+      'gpt-5.1',
       'gpt-5',
       'gpt-5-mini',
       'gpt-5-nano',
