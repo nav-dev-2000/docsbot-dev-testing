@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { getTeam, getBot } from '@/lib/dbQueries'
-import docsbotLogo from '@/images/docsbot-logo.png'
 import { EyeSlashIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import { NextSeo } from 'next-seo'
@@ -92,19 +90,13 @@ DocsBotAI.init(${JSON.stringify(docsbotParams)});`}
                 
                 {!checkPlanPermission(team, 'business', 'branding').allowed && (
                   <div className="mt-16 text-center">
-                    <p>
+                    <p className="mt-4">
                       <Link
                         href="/"
                         target="_blank"
-                        className="text-sm text-gray-500 dark:text-gray-300 underline hover:text-gray-600"
+                        className="text-xs text-gray-500 dark:text-gray-300 underline hover:text-gray-600"
                       >
                         {bot.labels.create}
-                      </Link>
-                    </p>
-                    <p className="flex items-start justify-center text-gray-500 dark:text-gray-400 text-md">
-                      <Link href="/" target="_blank" className="block">
-                        <span className="sr-only">DocsBot AI</span>
-                        <Image className="" src={docsbotLogo} alt="DocsBot Logo" height={24} width={95} />
                       </Link>
                     </p>
                   </div>
