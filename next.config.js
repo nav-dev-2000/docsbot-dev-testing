@@ -185,6 +185,11 @@ const nextConfig = {
         destination: '/tools/productivity/ai-answer-generator',
         permanent: true,
       },
+      {
+        source: '/industry/customer-service-support',
+        destination: '/customer-support',
+        permanent: true,
+      },
     ]
 
     // Build dynamic model redirects from LLMS

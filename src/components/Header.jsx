@@ -14,6 +14,7 @@ import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import { NAVIGATION } from '@/constants/navigation.constants'
 import { HeaderBanner, HeaderBannerSale } from '@/components/HeaderBanners'
 import { usePostHog } from 'posthog-js/react'
+import { NavItem } from '@ui/NavItem'
 
 export default function Header({transparent = false}) {
   const [user] = useAuthState(auth)
@@ -55,18 +56,18 @@ export default function Header({transparent = false}) {
               </div>
             </div>
             <div className="hidden space-x-4 lg:space-x-8 md:ml-10 md:flex">
-              {NAVIGATION.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={clsx(
-                    'text-base font-medium text-white hover:border-b-2 border-solid border-teal-500',
-                    router.asPath === item.href && 'border-b-2'
-                  )}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {NAVIGATION.map((item) => {
+                const { children, ...itemProps } = item;
+                return (
+                  <NavItem
+                    key={item.name}
+                    href={itemProps.href}
+                    name={itemProps.name}
+                    active={router.asPath === itemProps.href}
+                    {...(children && { children })}
+                  />
+                );
+              })}
             </div>
           </div>
           {user ? (

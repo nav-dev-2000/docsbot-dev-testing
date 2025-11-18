@@ -1,0 +1,208 @@
+import clsx from 'clsx'
+import Image from 'next/image'
+import { Section, SectionContent } from '@/components/customer-support/elements'
+import { AskAIModels } from './call-to-action'
+import { StarIcon } from '@heroicons/react/16/solid'
+
+import aoyagi from '@/images/avatars/aoyagi.jpg'
+import arturo from '@/images/avatars/testimony1.jpeg'
+import avery from '@/images/avatars/testimony7.png'
+import cromwell from '@/images/avatars/testimony4.jpeg'
+import benic from '@/images/avatars/testimony5.jpeg'
+import wingarc from '@/images/avatars/wingarc.png'
+import gareth from '@/images/avatars/avatar-default.jpg'
+import tejeda from '@/images/avatars/testimony8.jpeg'
+import gobinda from '@/images/avatars/testimony2.jpeg'
+import davids from '@/images/avatars/davids.jpeg'
+import bowe from '@/images/avatars/testimony8.jpeg'
+
+const data = [
+    [
+        {
+            body: 'DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!',
+            author: {
+                name: 'Yukitoshi Aoyagi',
+                role: 'GM, Customer Success @ WingArc1st Inc.',
+                imageUrl: aoyagi,
+            },
+        },
+        {
+            body: "Really excited to see what this can do for WordPress support. The chat responses are already saving us time, I'm looking forward to getting it integrated with Help Scout as well. Very promising, worth a watch!",
+            author: {
+                name: 'Jack Arturo',
+                role: 'Founder and CEO of Very Good Plugins',
+                imageUrl: arturo,
+            },
+        },
+        {
+            body: "DocsBot has become an essential part of my courses, assisting students with assignments, exams, and projects, while reinforcing key concepts from our lecture discussions. By adopting this technology, I've been able to offer a richer, more engaging learning experience that empowers students to take control of their own education.",
+            author: {
+                name: 'Brian D. Avery',
+                role: 'Instructional Associate Professor',
+                imageUrl: avery,
+            },
+        },
+        {
+            body: 'While there seem to be a ton of these types of "bots" getting launched all the time, few of them are so well designed from a UI and a usability perspective. The ability to train the bot on your own content library in really intuitive ways sets DocsBot apart. Love it!',
+            author: {
+                name: 'Matt Cromwell',
+                role: 'Customer Experience at StellarWP',
+                imageUrl: cromwell,
+            },
+        },
+    ],
+    [
+        {
+            body: 'This is a product that will save time for a lot of startups and indie hackers that are usually short of staff.',
+            author: {
+                name: 'Igor Benić',
+                role: 'Soloprenuer/Web Developer',
+                imageUrl: benic,
+            },
+        },
+        {
+            body: '企業のビジネスにとって、運用ループを構築することは非常に重要です。AIボットにおいても同様であり、そこには回答を提供するだけでなく、顧客の質問を素早くキャッチして、質問の細部にまで目を通すことが含まれます。DocsBotは、AIボット運用における私たちのニーズを完璧に把握し、信じられないほどの速さで新機能を追加しています。この素晴らしいパートナーシップに心から感謝します！',
+            author: {
+                name: 'Yukitoshi Aoyagi',
+                role: 'Customer Success 部長 @ ウイングアーク1st株式会社',
+                imageUrl: wingarc,
+            },
+        },
+        {
+            body: 'DocsBot is amazing! I want to thank you for your great work on this product. I have tried a few others, and nothing compares.',
+            author: {
+                name: 'Gareth P.',
+                role: 'IT & Marketing Manager',
+                imageUrl: gareth,
+            },
+        },
+    ],
+    [
+        {
+            body: "We were invested in building our own RAG, but the ease of use of your service made me stop our efforts, even though we're all technical people here! Good job.",
+            author: {
+                name: 'Geovanny Tejeda',
+                role: 'CTO @ BotPro',
+                imageUrl: tejeda,
+            },
+        },
+        {
+            body: "I have tested it in the beta phase; it's an amazing tool to create your own ai bot that will give answers based on your training materials; I mean; you can train this bot to answer your common queries.",
+            author: {
+                name: 'Gobinda Tarafdar',
+                role: 'Senior Digital Strategist - Product Co-Ordinator',
+                imageUrl: gobinda,
+            },
+        },
+        {
+            body: "I think this is a very natural application for AI. It was already the case that you could pretty much find answers to questions by searching the FAQ. This is an even better way of doing that. I believe that this will be a big area for AI, saving on frontline customer support... and I think the AI will do a really good job eliminating level one, it'll start to eating into level two.",
+            author: {
+                name: 'David Sacks',
+                role: 'All-In Podcast, VC Craft Ventures',
+                imageUrl: davids,
+            },
+        },
+        {
+            body: "Huge fan of this.. We're using it for our product Dollie, to index our knowledge base and our site to provide first line of support for our customers and help them get started faster with our product using the embedded widget.",
+            author: {
+                name: 'Bowe Frankema',
+                role: 'Founder Dollie',
+                imageUrl: bowe,
+            },
+        },
+    ],
+]
+
+const BoxStar = () => {
+    return (
+        <StarIcon
+            className="w-4 md:w-6 h-4 md:h-6 text-amber-400"
+        />
+    );
+}
+
+const Box = ({ author, role, avatar, content, className }) => {
+    return (
+        <div
+            className={clsx(
+                'w-full md:w-[460px] lg:w-[600px]',
+                'px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 rounded-lg bg-neutral-100 text-gray-900',
+                'flex flex-col gap-4 md:gap-8',
+                className,
+            )}
+        >
+            <div
+                className="flex flex-row gap-2 items-center"
+                aria-hidden="true"
+            >
+                <BoxStar />
+                <BoxStar />
+                <BoxStar />
+                <BoxStar />
+                <BoxStar />
+            </div>
+
+            <blockquote className="flex-1 text-sm/6 md:text-base/6">
+                <p>{ content }</p>
+            </blockquote>
+
+            <figcaption className="flex flex-row lg:flex-col gap-4 lg:gap-2 text-base/6 md:text-lg/6 font-semibold">
+                { avatar && (
+                    <Image
+                        src={ avatar }
+                        alt={`${author} avatar image`}
+                        className="size-10 hidden md:block rounded-full bg-gray-50"
+                        aria-hidden={true}
+                    />
+                )}
+
+                <span className="block">
+                    { author }
+                    <span className="block text-sm font-400">
+                        { role }
+                    </span>
+                </span>
+            </figcaption>
+        </div>
+    );
+}
+
+export const Testimonials = ({ title, description }) => {
+    return (
+        <Section className="!pb-0">
+            <SectionContent
+                title={ title }
+                description={ description }
+            >
+                <div className="md:-mx-[40rem] flex flex-col gap-y-8">
+                    { data?.map( ( row, index ) => {
+                        const rowSize = row.length;
+
+                        return (
+                            <div
+                                key={`testimonial-row-${index}`}
+                                className={`overflow-hidden flex flex-col md:flex-row gap-x-8 gap-y-4 justify-center`}
+                            >
+                                {row?.map( ( item, subIndex ) => {
+                                    return (
+                                        <Box
+                                            key={`testimonial-row-${index}-col-${subIndex}`}
+                                            author={ item.author.name }
+                                            role={ item.author.role }
+                                            avatar={ item.author.imageUrl }
+                                            content={ item.body }
+                                        />
+                                    );
+                                })}
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <AskAIModels
+                    className="mt-16"
+                />
+            </SectionContent>
+        </Section>
+    );
+}

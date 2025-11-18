@@ -475,12 +475,12 @@ export default function Home() {
                           >
                             Get Instant Answers
                           </Link>
-                          {/* <Link
-                            href="/features"
-                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          <Link
+                            href="/customer-support"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md border-2 border-cyan-600 bg-transparent px-3.5 py-2.5 text-sm font-semibold text-cyan-600 hover:border-cyan-700 hover:text-cyan-700"
                           >
                             Learn More <ArrowRightIcon className="size-4" />
-                          </Link> */}
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -533,17 +533,17 @@ export default function Home() {
                         </dl>
                         <div className="mt-10 flex gap-4">
                           <Link
-                            href="/register"
+                            href="/customer-support"
                             className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
                           >
                             Enhance Your Support Quality
                           </Link>
-                          {/* <Link
-                            href="/features"
-                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          <Link
+                            href="/customer-support"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md border-2 border-cyan-600 bg-transparent px-3.5 py-2.5 text-sm font-semibold text-cyan-600 hover:border-cyan-700 hover:text-cyan-700"
                           >
                             Learn More <ArrowRightIcon className="size-4" />
-                          </Link> */}
+                          </Link>
                         </div>
                       </div>
                     </div>

@@ -1,5 +1,14 @@
 export const NAVIGATION = [
-  { name: 'Use Cases', href: '/#uses' },
+  {
+    name: 'Use Cases',
+    href: '/#uses',
+    children: [
+      {
+        name: 'Customer Success',
+        href: '/customer-support'
+      }
+    ]
+  },
   { name: 'Features', href: '/#features' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Docs', href: '/documentation' },

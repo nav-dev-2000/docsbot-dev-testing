@@ -7,7 +7,10 @@ import { createPortal } from 'react-dom';
 export default function VideoPlayer({ 
   videoSrc = "https://cdn.docsbot.com/docsbot-intro.mp4", 
   posterSrc = "/video/docsbot-intro.webp",
-  className = ""
+  className = "",
+  isVideoFullScreen = false,
+  isVideoPlaying = false,
+  onClose,
 }) {
   const smallVideoSrc = videoSrc.replace('.mp4', '-720p.mp4');
   const videoSources = [
@@ -18,8 +21,8 @@ export default function VideoPlayer({
     { src: videoSrc.replace('.mp4', '-480p.mp4'), type: "video/mp4" } // 480p as default/fallback
   ];
   
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(isVideoFullScreen);
+  const [isPlaying, setIsPlaying] = useState(isVideoPlaying);
   const videoRef = useRef(null);
   const fullscreenVideoRef = useRef(null);
   const overlayRef = useRef(null);
@@ -72,6 +75,10 @@ export default function VideoPlayer({
     
     setIsFullscreen(false);
     setIsPlaying(false);
+
+    if (onClose) {
+      onClose()
+    }
     
     // Restart the small video with mute
     if (videoRef.current) {
