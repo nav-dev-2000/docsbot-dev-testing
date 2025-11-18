@@ -65,43 +65,261 @@ const PROVIDER_INFO = {
 }
 
 export const BENCHMARKS = {
-  MMLU: 'Massive Multitask Language Understanding - Tests knowledge across 57 subjects including mathematics, history, law, and more',
-  'MMLU-Pro':
-    'A more robust MMLU benchmark with harder, reasoning-focused questions, a larger choice set, and reduced prompt sensitivity',
-  'Global MMLU':
-    'A multilingual version of the MMLU benchmark that tests knowledge across multiple languages and cultures',
-  GPQA: 'Graduate-level Physics Questions Assessment - Tests advanced physics knowledge with Diamond Science level questions',
-  AIME2024:
-    'American Invitational Mathematics Examination 2024 - Evaluates advanced mathematical problem-solving abilities',
-  AIME2025:
-    'American Invitational Mathematics Examination 2025 - Tests cutting-edge mathematical reasoning capabilities',
-  HellaSwag: 'A challenging sentence completion benchmark',
-  HumanEval: 'Evaluates code generation and problem-solving capabilities',
-  MATH: 'Tests mathematical problem-solving abilities across various difficulty levels',
-  HumanitysLastExam:
-  'A large-scale benchmark by xAI designed to evaluate deep reasoning and tool use across real-world tasks, simulating general intelligence under realistic constraints',
-  IFEval:
-    "Tests model's ability to accurately follow explicit formatting instructions, generate appropriate outputs, and maintain consistent instruction adherence across different tasks",
-  "Humanity's Last Exam":
-    'A challenging benchmark that tests models on complex reasoning tasks without tool use',
-  LiveCodeBench:
-    'A benchmark that continuously collects new coding problems from platforms like LeetCode, AtCoder, and CodeForces to evaluate LLMs on unseen problems, ensuring contamination-free assessment of their coding capabilities',
-  'SWE-Bench':
-    'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
-  SimpleQA:
-    'A benchmark that evaluates basic question-answering capabilities across common knowledge domains',
-  MMMU: 'Massive Multitask Multimodal Understanding - Tests understanding across text, images, audio, and video',
-  DocVQA:
-    'Document Visual Question Answering - Evaluates the ability of AI models to comprehend and answer questions based on document images',
-  ChartQA:
-    'Chart Visual Question Answering - Evaluates the ability of AI models to comprehend and answer questions based on chart images',
-  MathVista:
-    'Evaluates the mathematical reasoning abilities of AI models within visual contexts',
-  MTOB: "Machine Translation from One Book - Evaluates LLMs' ability to translate between English and low-resource languages (like Kalamang) using only half of a grammar book as reference",
-  'MTOB-full':
-    "Machine Translation from One Book (Full) - Evaluates LLMs' ability to translate between English and low-resource languages using a complete grammar book as the only reference material",
-  LMArena:
-    'A benchmark that evaluates chat model performance through ELO ratings, where models compete against each other in head-to-head comparisons judged by users',
+  AIDERPolyglot: {
+    title: 'AiderPolyglot',
+    description: 'Evaluates code generation capabilities across multiple programming languages using diff-based assessment',
+  },
+  AIME2024: {
+    title: 'AIME 2024',
+    description: 'American Invitational Mathematics Examination 2024 - Evaluates advanced mathematical problem-solving abilities',
+  },
+  AIME2025: {
+    title: 'AIME 2025',
+    description: 'American Invitational Mathematics Examination 2025 - Tests cutting-edge mathematical reasoning capabilities',
+  },
+  AIME2025WithTools: {
+    title: 'AIME 2025 (with tools)',
+    description: 'American Invitational Mathematics Examination 2025 with code execution tools - Evaluates mathematical reasoning with computational assistance',
+  },
+  ARCAGI2: {
+    title: 'ARC-AGI-2',
+    description: 'Visual reasoning puzzles benchmark, ARC Prize Verified, testing abstract reasoning and visual problem-solving',
+  },
+  BirdSQLDev: {
+    title: 'Bird-SQL (Dev)',
+    description: 'Evaluates SQL query generation and database interaction capabilities',
+  },
+  BrowseCompLongContext128k: {
+    title: 'BrowseComp Long Context (128k)',
+    description: 'Evaluates long context browsing and comprehension capabilities at 128k context length',
+  },
+  BrowseCompLongContext256k: {
+    title: 'BrowseComp Long Context (256k)',
+    description: 'Evaluates long context browsing and comprehension capabilities at 256k context length',
+  },
+  ChartQA: {
+    title: 'ChartQA',
+    description: 'Chart Visual Question Answering - Evaluates the ability of AI models to comprehend and answer questions based on chart images',
+  },
+  CharXivReasoning: {
+    title: 'CharXiv Reasoning',
+    description: 'Evaluates information synthesis from complex charts and scientific visualizations',
+  },
+  COLLIE: {
+    title: 'COLLIE',
+    description: 'Evaluates instruction following and task completion capabilities',
+  },
+  CoVoST2_21lang: {
+    title: 'CoVoST2 (21 languages)',
+    description: 'Evaluates speech translation capabilities across 21 languages',
+  },
+  DocVQA: {
+    title: 'DocVQA',
+    description: 'Document Visual Question Answering - Evaluates the ability of AI models to comprehend and answer questions based on document images',
+  },
+  EgoSchemaTest: {
+    title: 'EgoSchema (test)',
+    description: 'Evaluates video understanding and temporal reasoning capabilities',
+  },
+  ERQA: {
+    title: 'ERQA',
+    description: 'Evaluates visual question answering capabilities',
+  },
+  ExpertPreference: {
+    title: 'Expert Preference',
+    description: 'Evaluates expert preferences for model outputs on real-world reasoning prompts',
+  },
+  FACTSBenchmarkSuite: {
+    title: 'FACTS Benchmark Suite',
+    description: 'Evaluates held-out internal grounding, parametric knowledge, multimodal understanding, and search retrieval capabilities',
+  },
+  FACTSGrounding: {
+    title: 'FACTS Grounding',
+    description: 'Evaluates grounding capabilities for held-out internal benchmarks',
+  },
+  FinanceAgent: {
+    title: 'Finance Agent',
+    description: 'Evaluates agents on core financial analyst tasks, measuring their ability to interpret and analyze financial data',
+  },
+  FrontierMath: {
+    title: 'FrontierMath',
+    description: 'Evaluates advanced mathematical reasoning with Python tool assistance',
+  },
+  GlobalMMLU: {
+    title: 'Global MMLU',
+    description: 'A multilingual version of the MMLU benchmark that tests knowledge across multiple languages and cultures',
+  },
+  GlobalPIQA: {
+    title: 'Global PIQA',
+    description: 'Evaluates commonsense reasoning across 100 languages and cultures',
+  },
+  GPQA: {
+    title: 'GPQA',
+    description: 'Graduate-level Physics Questions Assessment - Tests advanced physics knowledge with Diamond Science level questions',
+  },
+  GraphwalksBFS128k: {
+    title: 'Graphwalks BFS (128k)',
+    description: 'Evaluates long context graph traversal capabilities using breadth-first search at 128k context length',
+  },
+  GraphwalksParents128k: {
+    title: 'Graphwalks Parents (128k)',
+    description: 'Evaluates long context graph traversal capabilities using parent relationships at 128k context length',
+  },
+  HellaSwag: {
+    title: 'HellaSwag',
+    description: 'A challenging sentence completion benchmark',
+  },
+  HMMT2025: {
+    title: 'HMMT 2025',
+    description: 'Harvard-MIT Mathematics Tournament 2025 - Evaluates advanced mathematical problem-solving abilities',
+  },
+  HumanEval: {
+    title: 'HumanEval',
+    description: 'Evaluates code generation and problem-solving capabilities',
+  },
+  HumanitysLastExam: {
+    title: "Humanity's Last Exam",
+    description: 'A large-scale benchmark by xAI designed to evaluate deep reasoning and tool use across real-world tasks, simulating general intelligence under realistic constraints',
+  },
+  HumanitysLastExamWithTools: {
+    title: "Humanity's Last Exam (with tools)",
+    description: 'A challenging benchmark that tests models on complex reasoning tasks with search and code execution tools',
+  },
+  IFEval: {
+    title: 'IFEval',
+    description: "Tests model's ability to accurately follow explicit formatting instructions, generate appropriate outputs, and maintain consistent instruction adherence across different tasks",
+  },
+  InternalAPIInstructionFollowing: {
+    title: 'Internal API Instruction Following',
+    description: 'Evaluates hard instruction following tasks for API usage',
+  },
+  LMArena: {
+    title: 'LM Arena',
+    description: 'A benchmark that evaluates chat model performance through ELO ratings, where models compete against each other in head-to-head comparisons judged by users',
+  },
+  LiveCodeBench: {
+    title: 'LiveCodeBench',
+    description: 'A benchmark that continuously collects new coding problems from platforms like LeetCode, AtCoder, and CodeForces to evaluate LLMs on unseen problems, ensuring contamination-free assessment of their coding capabilities',
+  },
+  LiveCodeBenchPro: {
+    title: 'LiveCodeBench Pro',
+    description: 'A competitive coding benchmark featuring problems from Codeforces, ICPC, and IOI, evaluated using Elo ratings (higher is better)',
+    format: 'number',
+  },
+  MATH: {
+    title: 'MATH',
+    description: 'Tests mathematical problem-solving abilities across various difficulty levels',
+  },
+  MathArenaApex: {
+    title: 'Math Arena Apex',
+    description: 'A challenging benchmark featuring difficult math contest problems that test advanced mathematical reasoning',
+  },
+  MathVista: {
+    title: 'MathVista',
+    description: 'Evaluates the mathematical reasoning abilities of AI models within visual contexts',
+  },
+  MMMU: {
+    title: 'MMMU',
+    description: 'Massive Multitask Multimodal Understanding - Tests understanding across text, images, audio, and video',
+  },
+  MMMUPro: {
+    title: 'MMMU Pro',
+    description: 'A more advanced version of MMMU that evaluates multimodal understanding and reasoning across standard and vision sets',
+  },
+  MRCRv2_128k: {
+    title: 'MRCR v2 (128k)',
+    description: 'Long context performance benchmark at 128k context length, measuring average performance on needle-in-haystack tasks',
+  },
+  MRCRv2_1M: {
+    title: 'MRCR v2 (1M)',
+    description: 'Long context performance benchmark at 1M context length, measuring pointwise performance on needle-in-haystack tasks',
+  },
+  MMLU: {
+    title: 'MMLU',
+    description: 'Massive Multitask Language Understanding - Tests knowledge across 57 subjects including mathematics, history, law, and more',
+  },
+  MMLUPro: {
+    title: 'MMLU Pro',
+    description: 'A more robust MMLU benchmark with harder, reasoning-focused questions, a larger choice set, and reduced prompt sensitivity',
+  },
+  MTOB: {
+    title: 'MTOB',
+    description: "Machine Translation from One Book - Evaluates LLMs' ability to translate between English and low-resource languages (like Kalamang) using only half of a grammar book as reference",
+  },
+  MTOBFull: {
+    title: 'MTOB (Full)',
+    description: "Machine Translation from One Book (Full) - Evaluates LLMs' ability to translate between English and low-resource languages using a complete grammar book as the only reference material",
+  },
+  MultiFileRefactoring: {
+    title: 'Multi-file Refactoring',
+    description: 'Evaluates ability to refactor code across multiple files with cleaner fixes',
+  },
+  OmniDocBench15: {
+    title: 'OmniDocBench 1.5',
+    description: 'OCR benchmark measuring overall edit distance (lower is better) - Evaluates optical character recognition accuracy',
+    format: 'number',
+  },
+  OpenAIMRCR2Needle128k: {
+    title: 'OpenAI MRCR2 Needle (128k)',
+    description: 'Long context performance benchmark at 128k context length',
+  },
+  OpenAIMRCR2Needle256k: {
+    title: 'OpenAI MRCR2 Needle (256k)',
+    description: 'Long context performance benchmark at 256k context length',
+  },
+  ScaleMultichallenge: {
+    title: 'Scale Multichallenge',
+    description: 'Evaluates instruction following capabilities using o3-mini grader',
+  },
+  ScreenSpotPro: {
+    title: 'ScreenSpot Pro',
+    description: 'Evaluates screen understanding capabilities, testing models on their ability to interpret and reason about screen layouts and UI elements',
+  },
+  SimpleQA: {
+    title: 'SimpleQA',
+    description: 'A benchmark that evaluates basic question-answering capabilities across common knowledge domains',
+  },
+  SWEBench: {
+    title: 'SWE-Bench Verified',
+    description: 'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
+  },
+  SWELancerIC: {
+    title: 'SWE-Lancer IC',
+    description: 'Evaluates freelance coding tasks on IC SWE Diamond level tasks, measured in monetary value ($112K)',
+  },
+  Tau2Bench: {
+    title: 'Tau2Bench',
+    description: 'Evaluates agentic tool use capabilities, testing models on their ability to effectively use tools in agentic scenarios',
+  },
+  Tau2BenchAirline: {
+    title: 'Tau2Bench Airline',
+    description: 'Evaluates function calling capabilities in airline domain scenarios',
+  },
+  Tau2BenchRetail: {
+    title: 'Tau2Bench Retail',
+    description: 'Evaluates function calling capabilities in retail domain scenarios',
+  },
+  Tau2BenchTelecom: {
+    title: 'Tau2Bench Telecom',
+    description: 'Evaluates function calling capabilities in telecom domain scenarios',
+  },
+  TerminalBench: {
+    title: 'Terminal-Bench 2.0',
+    description: 'Evaluates agentic terminal coding capabilities using the Terminus-2 agent framework',
+  },
+  VendingBench2: {
+    title: 'Vending-Bench 2',
+    description: 'Long-horizon agentic tasks benchmark measuring net worth (mean), where higher scores indicate better performance',
+    format: 'currency',
+  },
+  VideoMME: {
+    title: 'VideoMME',
+    description: 'Long-form video understanding benchmark with subtitle category evaluation',
+  },
+  VideoMMMU: {
+    title: 'Video-MMMU',
+    description: 'Evaluates knowledge acquisition from videos, testing multimodal understanding of video content',
+  },
 }
 
 export const getProviderInfo = (providerName) => {
@@ -117,6 +335,29 @@ export const getProviderInfo = (providerName) => {
   return providerInfo
 }
 
+export const getBenchmarkTitle = (key) => {
+  return BENCHMARKS[key]?.title || key
+}
+
 export const getBenchmarkDescription = (key) => {
-  return BENCHMARKS[key] || 'Description not available'
+  return BENCHMARKS[key]?.description || 'Description not available'
+}
+
+export const formatBenchmarkScore = (key, score) => {
+  const format = BENCHMARKS[key]?.format || 'percent'
+  
+  switch (format) {
+    case 'currency':
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(score)
+    case 'number':
+      return score.toString()
+    case 'percent':
+    default:
+      return `${score}%`
+  }
 }

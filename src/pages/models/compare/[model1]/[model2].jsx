@@ -29,7 +29,7 @@ import {
   InformationCircleIcon,
   EqualsIcon,
 } from '@heroicons/react/24/outline'
-import { getProviderInfo, getBenchmarkDescription, BENCHMARKS } from '@/lib/llms'
+import { getProviderInfo, getBenchmarkDescription, getBenchmarkTitle, formatBenchmarkScore, BENCHMARKS } from '@/lib/llms'
 import { useRouter } from 'next/router'
 import {
   DocumentTextIcon,
@@ -297,11 +297,14 @@ const ModelPage = ({ model1, model2 }) => {
       Object.entries(model1.benchmarks).forEach(([benchmark, data1]) => {
         const data2 = model2.benchmarks[benchmark]
         if (data1?.score && data2?.score) {
+          const benchmarkTitle = getBenchmarkTitle(benchmark)
+          const formattedScore1 = formatBenchmarkScore(benchmark, data1.score)
+          const formattedScore2 = formatBenchmarkScore(benchmark, data2.score)
           faqs.push({
-            question: `How do ${model1.model_name} and ${model2.model_name} compare on the ${benchmark} benchmark?`,
+            question: `How do ${model1.model_name} and ${model2.model_name} compare on the ${benchmarkTitle} benchmark?`,
             answer: `${model2.model_name} ${
               data2.score > data1.score ? 'outperforms' : 'scores lower than'
-            } ${model1.model_name} on ${benchmark} (${data2.score}% vs ${data1.score}%).`,
+            } ${model1.model_name} on ${benchmarkTitle} (${formattedScore2} vs ${formattedScore1}).`,
           })
         }
       })
@@ -1262,7 +1265,7 @@ const ModelPage = ({ model1, model2 }) => {
                           <tr key={key}>
                             <td className="py-4 pl-4 pr-3 sm:pl-0">
                               <div className="text-sm font-medium text-white">
-                                {key}
+                                {getBenchmarkTitle(key)}
                               </div>
                               <div className="text-sm text-gray-300">
                                 {getBenchmarkDescription(key)}
@@ -1276,7 +1279,7 @@ const ModelPage = ({ model1, model2 }) => {
                                 {model.benchmarks?.[key] ? (
                                   <div>
                                     <div className="text-xl font-bold text-cyan-400">
-                                      {model.benchmarks[key].score}%
+                                      {formatBenchmarkScore(key, model.benchmarks[key].score)}
                                     </div>
                                     <div className="mt-1 text-gray-300">
                                       {model.benchmarks[key].notes}

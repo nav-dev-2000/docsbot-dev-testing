@@ -22,7 +22,7 @@ import {
 import { LLM_PRICING } from '@/constants/llmPricing.constants'
 import { Disclosure } from '@headlessui/react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
-import { getProviderInfo, getBenchmarkDescription, BENCHMARKS } from '@/lib/llms'
+import { getProviderInfo, getBenchmarkDescription, getBenchmarkTitle, formatBenchmarkScore, BENCHMARKS } from '@/lib/llms'
 import { useRouter } from 'next/router'
 import {
   DocumentTextIcon,
@@ -210,9 +210,11 @@ const ModelPage = ({
     if (benchmarks) {
       Object.entries(benchmarks).forEach(([benchmark, data]) => {
         if (data && data.score) {
+          const benchmarkTitle = getBenchmarkTitle(benchmark)
+          const formattedScore = formatBenchmarkScore(benchmark, data.score)
           faqs.push({
-            question: `What are ${provider} ${model_name}'s results on the ${benchmark} benchmark?`,
-            answer: `${model_name} achieved a score of ${data.score}%${data.notes ? ` (${data.notes})` : ''} on the ${benchmark} benchmark${data.source ? `. Source: ${data.source}` : ''}.`,
+            question: `What are ${provider} ${model_name}'s results on the ${benchmarkTitle} benchmark?`,
+            answer: `${model_name} achieved a score of ${formattedScore}${data.notes ? ` (${data.notes})` : ''} on the ${benchmarkTitle} benchmark${data.source ? `. Source: ${data.source}` : ''}.`,
           })
         }
       })
@@ -922,7 +924,7 @@ const ModelPage = ({
                           <tr key={key}>
                             <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">
                               <div className="text-sm font-medium text-white">
-                                {key}
+                                {getBenchmarkTitle(key)}
                               </div>
                               <div className="text-sm text-gray-300">
                                 {getBenchmarkDescription(key)}
@@ -931,7 +933,7 @@ const ModelPage = ({
                             <td className="px-3 py-4 text-center">
                               <div>
                                 <div className="text-xl font-bold text-cyan-400">
-                                  {benchmarks[key].score}%
+                                  {formatBenchmarkScore(key, benchmarks[key].score)}
                                 </div>
                                 <div className="mt-1 text-gray-300">
                                   {benchmarks[key].notes}

@@ -339,13 +339,22 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 0.79,
     },
     {
-      model_name: 'Gemini 3',
-      model_slug: 'gemini-3',
-      page_slug: 'gemini-3',
-      context: 'TBD',
+      model_name: 'Gemini 3 Pro',
+      model_slug: 'gemini-3-pro',
+      page_slug: 'gemini-3-pro',
+      context: '200K',
       provider: 'Google',
-      input_token_cost_per_million: 'TBD',
-      output_token_cost_per_million: 'TBD',
+      input_token_cost_per_million: 2.0,
+      output_token_cost_per_million: 12.0,
+    },
+    {
+      model_name: 'Gemini 3 Pro',
+      model_slug: 'gemini-3-pro',
+      page_slug: 'gemini-3-pro',
+      context: '1M',
+      provider: 'Google',
+      input_token_cost_per_million: 4.0,
+      output_token_cost_per_million: 18.0,
     },
     {
       model_name: 'Gemini 2.5 Flash',
@@ -355,8 +364,6 @@ export const LLM_PRICING = {
       provider: 'Google',
       input_token_cost_per_million: 0.30,
       output_token_cost_per_million: 2.50,
-      
-      
     },
     {
       model_name: "Gemini 2.5 Flash Lite",

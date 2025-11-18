@@ -27,40 +27,64 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE-Bench': {
+      SWEBench: {
         score: 73.3,
-        notes:
-          'Real-world software-engineering benchmark; matches or slightly exceeds Sonnet 4.',
+        notes: 'Verified',
         source: 'https://www.anthropic.com/news/claude-haiku-4-5',
       },
-      'Terminal-Bench': {
+      TerminalBench: {
         score: 41.0,
-        notes:
-          'Command-line / OS-interaction performance, comparable to Sonnet 4.5 but below Opus 4.1.',
-        source:
-          'https://techcrunch.com/2025/10/15/anthropic-launches-new-version-of-scaled-down-haiku-model/',
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
       },
-      MMLU: {
-        score: 85.2,
-        notes:
-          'Estimated based on Sonnet 4 (≈ 86.5) and Anthropic claims of “near-Sonnet performance at 1⁄3 cost.”',
-        source:
-          'https://www.tomsguide.com/ai/claude-haiku-4-5-just-launched-and-vibe-coding-will-never-be-the-same',
+      Tau2BenchRetail: {
+        score: 83.2,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
       },
-      GPQA: {
-        score: 73.1,
-        notes:
-          'Approximate reasoning / general knowledge parity with Sonnet 4 (75 range).',
-        source:
-          'https://arstechnica.com/ai/2025/10/anthropics-claude-haiku-4-5-matches-mays-frontier-model-at-fraction-of-cost/',
+      Tau2BenchAirline: {
+        score: 63.6,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      Tau2BenchTelecom: {
+        score: 83.0,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      OSWorld: {
+        score: 50.7,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
       },
       AIME2025: {
-        score: 68.4,
-        notes:
-          'Estimated from Sonnet 4 (AIME 70.5) and prior Haiku trend (≈ –2 points delta).',
-        source: 'https://www.datacamp.com/blog/claude-4',
+        score: 80.7,
+        notes: 'No tools',
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      AIME2025WithTools: {
+        score: 96.3,
+        notes: 'Python',
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      GPQA: {
+        score: 73.0,
+        notes: 'Diamond',
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      MMMLU: {
+        score: 83.0,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
+      },
+      MMMU: {
+        score: 73.2,
+        notes: 'Validation',
+        source: 'https://www.anthropic.com/news/claude-haiku-4-5',
       },
     },
+  },
+  {
     model_name: 'Claude Opus 4.1',
     slug: 'claude-opus-4-1',
     provider: 'anthropic',
@@ -88,12 +112,12 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE‑bench': {
+      SWEBench: {
         score: 74.5,
         notes: 'Verified',
         source: 'https://www.anthropic.com/news/claude-opus-4-1',
       },
-      'Multi‑file Refactoring': {
+      MultiFileRefactoring: {
         score: null,
         notes: 'Significant improvement vs. Opus 4; cleaner fixes',
         source: 'https://www.anthropic.com/news/claude-opus-4-1',
@@ -121,7 +145,7 @@ const LLMS = [
         score: 77.1,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'Finance Agent': {
+      FinanceAgent: {
         score: 50.9,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
@@ -157,7 +181,7 @@ const LLMS = [
         score: 79.6,
         source: 'https://www.datacamp.com/blog/claude-4', // :contentReference[oaicite:6]{index=6}
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 72.5,
         source: 'https://www.datacamp.com/blog/claude-4', // :contentReference[oaicite:7]{index=7}
       },
@@ -189,7 +213,7 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE-Bench': {
+      SWEBench: {
         score: 77.2,
         notes: 'Verified',
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5', // :contentReference[oaicite:0]{index=0}
@@ -217,7 +241,7 @@ const LLMS = [
         score: 77.8,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'Finance Agent': {
+      FinanceAgent: {
         score: 55.3,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
@@ -254,7 +278,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://www.datacamp.com/blog/claude-4',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 72.7,
         notes: 'Verified',
         source:
@@ -278,7 +302,7 @@ const LLMS = [
         score: 74.4,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'Finance Agent': {
+      FinanceAgent: {
         score: 44.5,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
@@ -434,7 +458,7 @@ const LLMS = [
         source:
           'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 78,
         notes: '0-shot CoT',
         source: 'https://www.anthropic.com/news/3-5-models-and-computer-use',
@@ -492,7 +516,7 @@ const LLMS = [
         source:
           'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 54.9,
         notes: '0-shot CoT',
         source:
@@ -549,7 +573,7 @@ const LLMS = [
         source:
           'https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 67.9,
         notes: '0-shot CoT',
         source:
@@ -601,7 +625,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: null,
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 65.0,
         notes: '0-shot CoT',
         source: 'https://www.anthropic.com/claude/haiku',
@@ -996,7 +1020,7 @@ const LLMS = [
         notes: 'Python programming',
         source: 'https://cohere.com/blog/command-a',
       },
-      'Bird-SQL': {
+      BirdSQL: {
         score: 59.5,
         notes: null,
         source: 'https://cohere.com/blog/command-a',
@@ -1119,7 +1143,7 @@ const LLMS = [
         notes: '5-shot',
         source: 'https://huggingface.co/google/gemma-2-27b-it',
       },
-      'MMMU-Pro': null,
+      MMMUPro: null,
       HellaSwag: {
         score: 86.4,
         notes: '10-shot',
@@ -1163,7 +1187,7 @@ const LLMS = [
         notes: '5-shot',
         source: 'https://huggingface.co/google/gemma-2-9b-it',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 52.08,
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
@@ -1308,7 +1332,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: null,
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 75.8,
         notes: '0-shot',
         source:
@@ -1392,8 +1416,8 @@ const LLMS = [
     slug: 'gemini-2-5-pro',
     provider: 'google',
     description:
-      "Gemini 2.5 Pro is Google's most intelligent AI model, designed as a thinking model capable of reasoning through its thoughts before responding. It leads common benchmarks by meaningful margins and showcases strong reasoning and code capabilities. The model excels at creating visually compelling web apps, agentic code applications, and code transformation. With native multimodality and a long context window, it can comprehend vast datasets and handle complex problems from different information sources.",
-    input_context_window: '1M (2M soon)',
+      "Gemini 2.5 Pro is Google's older intelligent AI model, designed as a thinking model capable of reasoning through its thoughts before responding. It leads common benchmarks by meaningful margins and showcases strong reasoning and code capabilities. The model excels at creating visually compelling web apps, agentic code applications, and code transformation. With native multimodality and a long context window, it can comprehend vast datasets and handle complex problems from different information sources.",
+    input_context_window: '1M',
     maximum_output_tokens: '64K',
     open_source: false,
     release_date: '2025-03-25',
@@ -1408,23 +1432,23 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      "Humanity's Last Exam": {
-        score: 18.8,
-        notes: 'State-of-the-art across models without tool use',
+      HumanitysLastExam: {
+        score: 21.6,
+        notes: 'No tools',
         source:
-          'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
-      'SWE-Bench': {
-        score: 63.8,
-        notes: 'Verified, With custom agent setup',
+      ARCAGI2: {
+        score: 4.9,
+        notes: null,
         source:
-          'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
       GPQA: {
-        score: 84,
-        notes: 'Diamond Science',
+        score: 86.4,
+        notes: 'Diamond Science, No tools',
         source:
-          'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
       AIME2024: {
         score: 92,
@@ -1433,22 +1457,118 @@ const LLMS = [
           'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
       },
       AIME2025: {
-        score: 86.7,
+        score: 88.0,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MathArenaApex: {
+        score: 0.5,
         notes: null,
         source:
-          'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
-      'Global MMLU': {
+      MMMUPro: {
+        score: 68.0,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      ScreenSpotPro: {
+        score: 11.4,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      CharXivReasoning: {
+        score: 69.6,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      OmniDocBench15: {
+        score: 0.145,
+        notes: 'Overall Edit Distance, lower is better',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      VideoMMMU: {
+        score: 83.6,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      LiveCodeBenchPro: {
+        score: 1775,
+        notes: 'Elo Rating, higher is better',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      TerminalBench: {
+        score: 32.6,
+        notes: 'Terminus-2 agent',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      SWEBench: {
+        score: 59.6,
+        notes: 'Verified, Single attempt',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      Tau2Bench: {
+        score: 54.9,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      VendingBench2: {
+        score: 573.64,
+        notes: 'Net worth (mean), higher is better',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      FACTSBenchmarkSuite: {
+        score: 63.4,
+        notes: 'Held out internal grounding, parametric, MM, and search retrieval benchmarks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      SimpleQA: {
+        score: 54.5,
+        notes: 'Verified, Parametric knowledge',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      GlobalMMLU: {
         score: 89.8,
         notes: 'Lite',
         source:
           'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
       },
-      MMMU: {
-        score: 81.7,
+      MMMLU: {
+        score: 89.5,
+        notes: 'Multilingual Q&A',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      GlobalPIQA: {
+        score: 91.5,
         notes: null,
         source:
-          'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MRCRv2_128k: {
+        score: 58.0,
+        notes: '8-needle, average',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MRCRv2_1M: {
+        score: 16.4,
+        notes: '8-needle, pointwise',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
     },
   },
@@ -1457,22 +1577,161 @@ const LLMS = [
     slug: 'gemini-3-pro',
     provider: 'google',
     description:
-      'Gemini 3 Pro is the next-generation flagship model from Google. Details about its capabilities, context window, pricing, and modalities are not yet publicly confirmed. Expected to advance multimodal reasoning, coding, and agentic capabilities beyond Gemini 2.5 Pro.',
-    input_context_window: '1M-2M (expected)',
-    maximum_output_tokens: 'TBD',
+      'Gemini 3 Pro is Google\'s most intelligent model, designed to help bring any idea to life through state-of-the-art reasoning and multimodal understanding. It excels as the world\'s best model for multimodal tasks and stands as Google\'s most powerful agentic and coding model, delivering richer visualizations and deeper interactivity. The model significantly outperforms Gemini 2.5 Pro across all major benchmarks, achieving breakthrough scores on reasoning tasks like Humanity\'s Last Exam and GPQA Diamond, setting new standards in mathematics with MathArena Apex, and demonstrating exceptional performance in multimodal reasoning across video, images, and factual accuracy tasks.',
+    input_context_window: '1M',
+    maximum_output_tokens: '64K',
     open_source: false,
-    release_date: 'Nov, 2025',
-    knowledge_cut_off_date: 'TBD',
+    release_date: '2025-11-18',
+    knowledge_cut_off_date: 'January 2025',
     api_providers: 'Google AI Studio, Vertex AI, Gemini app',
-    input_cost_per_million_tokens: 0.1,
-    output_cost_per_million_tokens: 0.4,
+    input_cost_per_million_tokens: 2.0,
+    output_cost_per_million_tokens: 12.0,
     modalities: {
       text: true,
       image: true,
       voice: true,
       video: true,
     },
-    benchmarks: {},
+    benchmarks: {
+      HumanitysLastExam: {
+        score: 37.5,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      HumanitysLastExamWithTools: {
+        score: 45.8,
+        notes: 'With search and code execution',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      ARCAGI2: {
+        score: 31.1,
+        notes: 'Visual reasoning puzzles, ARC Prize Verified',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      GPQA: {
+        score: 91.9,
+        notes: 'Diamond, Scientific knowledge, No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      AIME2025: {
+        score: 95.0,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      AIME2025WithTools: {
+        score: 100,
+        notes: 'With code execution',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MathArenaApex: {
+        score: 23.4,
+        notes: 'Challenging Math Contest problems',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MMMU: {
+        score: 81.0,
+        notes: 'Pro, Multimodal understanding and reasoning',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      ScreenSpotPro: {
+        score: 72.7,
+        notes: 'Screen understanding',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      CharXivReasoning: {
+        score: 81.4,
+        notes: 'Information synthesis from complex charts',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      OmniDocBench15: {
+        score: 0.115,
+        notes: 'OCR, Overall Edit Distance (lower is better)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      VideoMMMU: {
+        score: 87.6,
+        notes: 'Knowledge acquisition from videos',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      LiveCodeBenchPro: {
+        score: 2439,
+        notes: 'Competitive coding problems from Codeforces, ICPC, and IOI, Elo Rating (higher is better)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      TerminalBench: {
+        score: 54.2,
+        notes: '2.0, Agentic terminal coding, Terminus-2 agent',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      SWEBench: {
+        score: 76.2,
+        notes: 'Verified, Agentic coding, Single attempt',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      Tau2Bench: {
+        score: 85.4,
+        notes: 'Agentic tool use',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      VendingBench2: {
+        score: 5478.16,
+        notes: 'Long-horizon agentic tasks, Net worth (mean), higher is better',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      FACTSBenchmarkSuite: {
+        score: 70.5,
+        notes: 'Held out internal grounding, parametric, MM, and search retrieval benchmarks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      SimpleQA: {
+        score: 72.1,
+        notes: 'Parametric knowledge',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MMMLU: {
+        score: 91.8,
+        notes: 'Multilingual Q&A',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      GlobalPIQA: {
+        score: 93.4,
+        notes: 'Commonsense reasoning across 100 Languages and Cultures',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MRCRv2_128k: {
+        score: 77.0,
+        notes: 'Long context performance, 128k (average)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MRCRv2_1M: {
+        score: 26.3,
+        notes: 'Long context performance, 1M (pointwise)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+    },
   },
   {
     model_name: 'Gemini 2.5 Flash',
@@ -1495,7 +1754,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      "Humanity's Last Exam": {
+      HumanitysLastExam: {
         score: 12.1,
         notes: 'State-of-the-art across models without tool use',
         source:
@@ -1519,7 +1778,7 @@ const LLMS = [
         source:
           'https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 88.4,
         notes: 'Lite',
         source:
@@ -1566,7 +1825,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      "Humanity's Last Exam": {
+      HumanitysLastExam: {
         score: 5.1,
         notes: 'Non‑thinking mode score',
         source: 'https://deepmind.google/models/gemini/flash-lite/',
@@ -1614,7 +1873,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 79.1,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1624,7 +1883,7 @@ const LLMS = [
         notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Bird-SQL (Dev)': {
+      BirdSQLDev: {
         score: 59.3,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1639,12 +1898,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'FACTS Grounding': {
+      FACTSGrounding: {
         score: 82.8,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 86.5,
         notes: 'lite',
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1659,7 +1918,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'MRCR (1M)': {
+      MRCRv2_1M: {
         score: 74.7,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1669,12 +1928,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'CoVoST2 (21 lang)': {
+      CoVoST2_21lang: {
         score: 40.6,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'EgoSchema (test)': {
+      EgoSchemaTest: {
         score: 71.9,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1702,7 +1961,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 77.6,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1712,7 +1971,7 @@ const LLMS = [
         notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Bird-SQL (Dev)': {
+      BirdSQLDev: {
         score: 58.7,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1727,12 +1986,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'FACTS Grounding': {
+      FACTSGrounding: {
         score: 84.6,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 83.4,
         notes: 'Lite',
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1747,7 +2006,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'MRCR (1M)': {
+      MRCRv2_1M: {
         score: 70.5,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1757,12 +2016,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'CoVoST2 (21 lang)': {
+      CoVoST2_21lang: {
         score: 39.0,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'EgoSchema (test)': {
+      EgoSchemaTest: {
         score: 71.1,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1790,7 +2049,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 71.6,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1800,7 +2059,7 @@ const LLMS = [
         notes: 'v5',
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Bird-SQL (Dev)': {
+      BirdSQLDev: {
         score: 57.4,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1815,12 +2074,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'FACTS Grounding': {
+      FACTSGrounding: {
         score: 83.6,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 78.2,
         notes: 'Lite',
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1835,7 +2094,7 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'MRCR (1M)': {
+      MRCRv2_1M: {
         score: 58.0,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1845,12 +2104,12 @@ const LLMS = [
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'CoVoST2 (21 lang)': {
+      CoVoST2_21lang: {
         score: 38.4,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
       },
-      'EgoSchema (test)': {
+      EgoSchemaTest: {
         score: 67.2,
         notes: null,
         source: 'https://deepmind.google/technologies/gemini/',
@@ -1879,7 +2138,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: null,
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 67.3,
         notes: '0-shot',
         source:
@@ -1942,7 +2201,7 @@ const LLMS = [
     },
     benchmarks: {
       MMLU: null,
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 58.7,
         notes: '0-shot',
         source:
@@ -1985,7 +2244,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 74.3,
         notes: 'Reasoning & Knowledge',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2025,7 +2284,7 @@ const LLMS = [
         notes: 'half book, eng→kpv/kgv→eng',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'MTOB-full': {
+      MTOBFull: {
         score: '39.7/36.3',
         notes: 'full book, eng→kpv/kgv→eng',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2078,7 +2337,7 @@ const LLMS = [
         notes: '10/01/2024-02/01/2025',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 80.5,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2088,7 +2347,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 64.6,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2098,7 +2357,7 @@ const LLMS = [
         notes: 'half book, eng→kpv/kgv→eng',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'MTOB-full': {
+      MTOBFull: {
         score: '50.8/46.7',
         notes: 'full book, eng→kpv/kgv→eng',
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2136,22 +2395,22 @@ const LLMS = [
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'MATH-500': {
+      MATH500: {
         score: 95,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 82.2,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'GPQA Diamond': {
+      GPQADiamond: {
         score: 73.7,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 85.8,
         notes: null,
         source: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/',
@@ -2190,7 +2449,7 @@ const LLMS = [
         source:
           'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct#benchmarks---english-text',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 68.9,
         notes: '5-shot, CoT',
         source:
@@ -2375,7 +2634,7 @@ const LLMS = [
         source:
           'https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 62.84,
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
@@ -2623,7 +2882,7 @@ const LLMS = [
         notes: '5-shot',
         source: 'https://mistral.ai/news/mistral-large-2407/',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 50.69,
         notes: null,
         source:
@@ -2842,17 +3101,17 @@ const LLMS = [
         notes: 'Visual Math Reasoning',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      "Humanity's Last Exam": {
+      HumanitysLastExam: {
         score: 14.28,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      'CharXiv-Reasoning': {
+      CharXivReasoning: {
         score: 72,
         notes: 'Scientific Figure Reasoning',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 68.1,
         notes: 'Verified',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
@@ -2885,7 +3144,7 @@ const LLMS = [
         notes: 'Deep reasoning, no tools',
         source: 'https://openai.com/index/introducing-o3-pro/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 74.9,
         notes: 'Verified (higher compute)',
         source: 'https://openai.com/index/introducing-o3-pro/',
@@ -2900,12 +3159,12 @@ const LLMS = [
         notes: 'Vision + Math integration',
         source: 'https://openai.com/index/introducing-o3-pro/',
       },
-      "Humanity's Last Exam": {
+      HumanitysLastExam: {
         score: 23.4,
         notes: 'Improved long-form reasoning',
         source: 'https://openai.com/index/introducing-o3-pro/',
       },
-      'Scale MultiChallenge': {
+      ScaleMultichallenge: {
         score: 60.2,
         notes: 'Long multi-step tasks',
         source: 'https://openai.com/index/introducing-o3-pro/',
@@ -2953,7 +3212,7 @@ const LLMS = [
         notes: 'Visual Math Reasoning',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      'CharXiv-Reasoning': {
+      CharXivReasoning: {
         score: 75.4,
         notes: 'Scientific Figure Reasoning',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
@@ -2963,17 +3222,17 @@ const LLMS = [
         notes: 'Diamond, no tools',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      "Humanity's Last Exam": {
+      HumanitysLastExam: {
         score: 20.32,
         notes: 'no tools',
         source: 'https://platform.openai.com/docs/models/o4-mini',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 69.1,
         notes: 'Verified',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
       },
-      'Scale MultiChallenge': {
+      ScaleMultichallenge: {
         score: 56.51,
         notes: 'Multi-turn instruction following',
         source: 'https://openai.com/index/introducing-o3-and-o4-mini/',
@@ -3196,12 +3455,12 @@ const LLMS = [
         notes: 'pass@1',
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 87.3,
         notes: 'pass@1',
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'MMLU-Pro': null,
+      MMLUPro: null,
       MMMU: {
         score: 74.8,
         notes: null,
@@ -3219,7 +3478,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 54.6,
         notes: 'Verified',
         source: 'https://openai.com/index/gpt-4-1/',
@@ -3262,7 +3521,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 78.5,
         notes: null,
         source: 'https://openai.com/index/gpt-4-1/',
@@ -3284,7 +3543,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 23.6,
         notes: 'Verified',
         source: 'https://openai.com/index/gpt-4-1/',
@@ -3327,12 +3586,12 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 66.9,
         notes: null,
         source: 'https://openai.com/index/gpt-4-1/',
       },
-      'MMLU-Pro': null,
+      MMLUPro: null,
       MMMU: {
         score: 55.4,
         notes: null,
@@ -3406,12 +3665,12 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/gpt-4.5-benchmarks',
       },
-      'SWE-Lancer': {
+      SWELancerIC: {
         score: 32.6,
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-4-5/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 38.0,
         notes: 'Verified',
         source: 'https://openai.com/index/introducing-gpt-4-5/',
@@ -3497,7 +3756,7 @@ const LLMS = [
         source:
           'https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 63.09,
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
@@ -3544,41 +3803,41 @@ const LLMS = [
       video: false,
     },
     benchmarks: {
-      'SWE-Bench Verified': {
+      SWEBench: {
         score: 74.9,
         notes:
           'Real-world coding benchmark; reported for GPT-5 family. Pro shares the coding stack and focuses on deeper reasoning.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'Aider Polyglot': {
+      AiderPolyglot: {
         score: 88.0,
         notes: 'Code editing/refactoring benchmark; reported for GPT-5 family.',
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
       },
-      'MMMU (Multimodal Understanding)': {
+      MMMU: {
         score: 84.2,
         notes:
           'Multimodal understanding across image+text tasks; reported for GPT-5 family.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'HealthBench Hard': {
+      HealthBenchHard: {
         score: 46.2,
         notes:
           'Difficult subset of health reasoning tasks; reported for GPT-5 family.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'AIME 2025 (no tools)': {
+      AIME2025: {
         score: 94.6,
         notes: 'Math benchmark; reported for GPT-5 family without tool use.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'GPQA (no tools)': {
+      GPQA: {
         score: 88.4,
         notes:
           'State-of-the-art result explicitly attributed to GPT-5 Pro with extended reasoning.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'Expert Preference (real-world reasoning prompts)': {
+      ExpertPreference: {
         score: null,
         notes:
           'External experts preferred GPT-5 Pro over “GPT-5 Thinking” 67.8% of the time; GPT-5 Pro made 22% fewer major errors across health, science, math, and coding.',
@@ -3623,7 +3882,7 @@ const LLMS = [
         notes: 'diamond, no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      HLE: {
+      HumanitysLastExam: {
         score: 24.8,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
@@ -3667,7 +3926,7 @@ const LLMS = [
         notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 74.5,
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
@@ -3752,7 +4011,7 @@ const LLMS = [
         score: 89.4,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'Finance Agent': {
+      FinanceAgent: {
         score: 46.9,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
@@ -3796,7 +4055,7 @@ const LLMS = [
         notes: 'diamond, no tools',
         source: 'https://openai.com/index/introducing-gpt-5-1-for-developers/',
       },
-      HLE: {
+      HumanitysLastExam: {
         score: 24.8,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
@@ -3840,7 +4099,7 @@ const LLMS = [
         notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 76.3,
         notes: 'Verified',
         source: 'https://openai.com/index/introducing-gpt-5-1-for-developers/',
@@ -3960,7 +4219,7 @@ const LLMS = [
         notes: 'diamond, no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      HLE: {
+      HumanitysLastExam: {
         score: 24.8,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5/',
@@ -4004,7 +4263,7 @@ const LLMS = [
         notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 74.9,
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
@@ -4089,7 +4348,7 @@ const LLMS = [
         score: 89.4,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
-      'Finance Agent': {
+      FinanceAgent: {
         score: 46.9,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
       },
@@ -4122,12 +4381,12 @@ const LLMS = [
         source:
           'https://github.com/openai/simple-evals?tab=readme-ov-file#benchmark-results',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 74.68,
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
       },
-      'Global MMLU': {
+      GlobalMMLU: {
         score: 81.4,
         notes: '',
         source: 'https://openai.com/index/gpt-4-1/',
@@ -4159,7 +4418,7 @@ const LLMS = [
         source:
           'https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/',
       },
-      'SWE-Bench': {
+      SWEBench: {
         score: 33.2,
         notes: 'Verified',
         source: 'https://openai.com/index/gpt-4-1/',
@@ -4215,7 +4474,7 @@ const LLMS = [
         notes: '5-shot',
         source: 'https://arxiv.org/pdf/2303.08774v5.pdf',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 63.71,
         notes: null,
         source: 'https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro',
@@ -4432,7 +4691,7 @@ const LLMS = [
         notes: 'ARC-AGI v2, text-only benchmark',
         source: 'https://x.ai/news/grok-4',
       },
-      USAMO_2025: {
+      USAMO2025: {
         score: 61.9,
         notes: 'Mapped from USAMO (U.S. Math Olympiad 2025)',
         source: 'https://x.ai/news/grok-4',
@@ -4465,7 +4724,7 @@ const LLMS = [
       video: true,
     },
     benchmarks: {
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 79.9,
         notes: 'Base model',
         source: 'https://x.ai/blog/grok-3',
@@ -4522,7 +4781,7 @@ const LLMS = [
         notes: '0-shot CoT',
         source: 'https://x.ai/blog/grok-2',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 75.5,
         notes: '0-shot CoT',
         source: 'https://x.ai/blog/grok-2',
@@ -4571,7 +4830,7 @@ const LLMS = [
         notes: 'EM',
         source: 'https://github.com/deepseek-ai/DeepSeek-V3',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 75.9,
         notes: 'EM',
         source: 'https://github.com/deepseek-ai/DeepSeek-V3',
@@ -4630,7 +4889,7 @@ const LLMS = [
         notes: 'Pass@1',
         source: 'https://github.com/deepseek-ai/DeepSeek-R1',
       },
-      'MMLU-Pro': {
+      MMLUPro: {
         score: 84.0,
         notes: 'EM',
         source: 'https://github.com/deepseek-ai/DeepSeek-R1',
