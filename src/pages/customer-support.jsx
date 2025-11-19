@@ -485,7 +485,7 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        title="AI Customer Support Chatbot - Automate Support 24/7 | DocsBot AI"
+        title="AI Customer Support - Automate Support 24/7 | DocsBot AI"
         description="AI chatbot for customer service that resolves 84% of support tickets instantly. Customer service AI chatbot for websites that speaks your tone, runs 24/7, and needs no code. Automate customer support with AI."
         openGraph={{
           type: 'website',

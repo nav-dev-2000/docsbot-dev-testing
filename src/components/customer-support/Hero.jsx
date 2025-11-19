@@ -164,8 +164,7 @@ const HeroContentRight = ({ image }) => {
     const FIRST_DELAY = 1200; // ms before showing first bubble
     const ANSWER_DELAY = 900; // ms after question before answer
     const EXIT_DURATION_MS = 350; // matches motion transition duration
-    const RELOAD_GAP_MS = 250;    // extra time between exit and next intro
-    const RELOAD_STAGGER_MS = 300; // delay between question intro and answer intro
+    const RELOAD_GAP_MS = 750;    // extra time between exit and next intro
     const [showQuestion, setShowQuestion] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
 
@@ -173,6 +172,12 @@ const HeroContentRight = ({ image }) => {
       initial: { y: 24, opacity: 0 },        // slide in + fade in
       animate: { y: 0, opacity: 1 },         // settled
       exit: { y: 24, opacity: 0 },           // slide down + fade out
+    }
+
+    const questionBubbleVariants = {
+      initial: { y: 24, opacity: 0 },        // slide in + fade in
+      animate: { y: 0, opacity: 1 },         // settled
+      exit: { y: 0, opacity: 0 },            // fade out only, no movement
     }
 
     useEffect(() => {
@@ -198,8 +203,8 @@ const HeroContentRight = ({ image }) => {
 
                 // question enters first
                 setShowQuestion(true)
-                // answer follows after a small stagger
-                const answerEnterTimeout = setTimeout(() => setShowAnswer(true), RELOAD_STAGGER_MS)
+                // answer follows after ANSWER_DELAY
+                const answerEnterTimeout = setTimeout(() => setShowAnswer(true), ANSWER_DELAY)
 
                 // store nested timeout ids on the closure for cleanup
                 timeouts.push(answerEnterTimeout)
@@ -238,7 +243,7 @@ const HeroContentRight = ({ image }) => {
                     {showQuestion && (
                         <motion.div
                             key={bubbleKeys[0]}
-                            variants={bubbleVariants}
+                            variants={questionBubbleVariants}
                             initial="initial"
                             animate="animate"
                             exit="exit"

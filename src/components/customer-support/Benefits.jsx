@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { FAQPageJsonLd } from "next-seo";
 import { Section, SectionContent } from "@/components/customer-support/elements";
 
 const personas = {
@@ -288,11 +289,20 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
 
   const theme = 'medium';
 
+  // Create FAQ data from personas for JSON-LD
+  const faqs = Object.values(personas).map((persona) => ({
+    questionName: persona.question,
+    acceptedAnswerText: `${persona.paragraphs.join(' ')}`,
+  }));
+
     return (
         <Section
           theme={ theme }
           className="lg:gap-6"
         >
+            <FAQPageJsonLd
+              mainEntity={faqs}
+            />
             {(title || description) && (
               <SectionContent
                 theme={ theme }
@@ -304,14 +314,13 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
 
             {/* Hidden structured content for SEO/Markdown conversion */}
             <div className="sr-only">
-              <h2>Choose your role and see what DocsBot can do for you.</h2>
               <ul>
                 {Object.entries(personas).map(([key, persona]) => (
                   <li key={key}>
-                    <strong>{persona.label}</strong>
+                    <h3>{persona.label}</h3>
                     <div>
                       <p><strong>{persona.headline}</strong></p>
-                      <p><strong>Question:</strong> {persona.question}</p>
+                      <p>{persona.question}</p>
                       {persona.paragraphs.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                       ))}
