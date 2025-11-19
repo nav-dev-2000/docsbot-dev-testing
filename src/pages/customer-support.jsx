@@ -356,7 +356,7 @@ export default function Home() {
   const propsHero = {
     title: 'Clone Your Team. AI for Customer Success.',
     subtitle: "AI Customer Support Agents",
-    description: "AI bots for customer service that resolve 84% of support tickets instantly. DocsBot's AI support agents speak your tone, run 24/7, and need no code to set up.",
+    description: "Resolve 84% of support tickets instantly. DocsBot speaks your tone, runs 24/7, and needs no code to set up.",
     primaryButton: {
       href: '/register',
       label: 'Get Started Free',
@@ -383,8 +383,8 @@ export default function Home() {
   }
 
   const propsFeatures = {
-    title: 'AI Support is a Better Customer Experience.',
-    description: 'DocsBot meets customers where they are—faster, and in their language.',
+    title: 'AI That Brings People Together',
+    description: 'Meets your customers where they are—faster, and in their language.',
     data: dataFeatures,
     banner: {
       variant: "juggling",
