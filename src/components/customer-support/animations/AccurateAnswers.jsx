@@ -3,30 +3,9 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 import { DocumentIcon } from "@heroicons/react/24/outline"
-import { PlayCircleIcon } from "@heroicons/react/24/solid"
 
 import { CircularRevealTransition, BlurCrossfadeTransition } from "@/components/customer-support/transitions"
 import { ChatBubble, SonarPulse } from "@/components/customer-support/animation-elements"
-
-const PreviewScene = ({ onPlay }) => {
-    return (
-        <div className="size-full bg-gradient-to-r from-cyan-600 to-cyan-300">
-            <div className="size-full flex flex-col items-center justify-center gap-4">
-                <button
-                    type="button"
-                    onClick={onPlay}
-                    className="inline-flex items-center justify-center rounded-full bg-white/90 pl-3 pr-6 py-3 shadow-lg hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-                >
-                    <PlayCircleIcon className="size-10 text-cyan-600" />
-
-                    <span className="ml-3 text-sm font-semibold text-slate-900">
-                        Play animation
-                    </span>
-                </button>
-            </div>
-        </div>
-    )
-}
 
 const SceneOne = () => {
     const bubbleProps = {
@@ -180,7 +159,6 @@ const SceneThree = () => {
 export const AccurateAnswers = () => {
     // Phases: s1 -> reveal12 -> s2 -> reveal23 -> s3 -> blur31 -> (loop)
     const [phase, setPhase] = useState("s1");
-    const [isPlaying, setIsPlaying] = useState(false);
     
     // Per-phase dwell (ms) — tweak to taste per scene
     const DWELL_MS = {
@@ -223,9 +201,9 @@ export const AccurateAnswers = () => {
         return () => mo.disconnect();
     }, []);
 
-    // Phase scheduler (only runs when active and playing)
+    // Phase scheduler (only runs when active)
     useEffect(() => {
-        if (!isActive || !isPlaying) return;
+        if (!isActive) return;
 
         if (timerRef.current) {
             clearTimeout(timerRef.current);
@@ -253,7 +231,7 @@ export const AccurateAnswers = () => {
                 timerRef.current = null;
             }
         };
-    }, [phase, isActive, isPlaying]);
+    }, [phase, isActive]);
 
     // Reset when inactive
     useEffect(() => {
@@ -264,7 +242,6 @@ export const AccurateAnswers = () => {
             }
 
             setPhase("s1");
-            setIsPlaying(false);
         }
     }, [isActive]);
 
@@ -272,15 +249,6 @@ export const AccurateAnswers = () => {
     if (!isActive) {
         content = (
             <div className="size-full bg-cyan-300" loading="lazy" decoding="async" />
-        );
-    } else if (!isPlaying) {
-        content = (
-            <PreviewScene
-                onPlay={() => {
-                    setIsPlaying(true);
-                    setPhase("s1");
-                }}
-            />
         );
     } else if (phase === "s1") {
         content = <SceneOne />;

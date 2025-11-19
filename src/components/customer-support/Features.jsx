@@ -129,7 +129,11 @@ const FeaturesDesktop = ({ features }) => {
                                 style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
                                 aria-hidden={featureIndex !== selectedIndex}
                             >
-                                <div className="w-[calc(.25rem*211)] overflow-hidden rounded-xl bg-white shadow-lg ring-1 shadow-slate-900/5 ring-slate-500/10">
+                                <div className={clsx(
+                                    "w-[calc(.25rem*211)] overflow-hidden rounded-xl bg-white shadow-lg ring-1 shadow-slate-900/5 ring-slate-500/10",
+                                    "transition-all duration-300 ease-in-out",
+                                    "hover:ring-2 hover:ring-cyan-500/60 hover:shadow-xl hover:shadow-cyan-500/25 hover:scale-[1.015]"
+                                )}>
                                     {feature.animation && (
                                         <div className="w-[52.75rem] h-[calc(52.75rem/2)]">
                                             <feature.animation />

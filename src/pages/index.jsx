@@ -681,31 +681,31 @@ export default function Home() {
                             href="/register"
                             className="bg-animation flex-1 rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white hover:bg-cyan-700"
                           >
-                            Accelerate Your Research & Copywriting
+                            Accelerate Your Research
                           </Link>
-                          {/* <Link
-                            href="/features"
-                            className="flex flex-1 items-center justify-center gap-2 rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-200"
+                          <Link
+                            href="/article/deep-research-is-now-available-on-docsbot"
+                            className="flex flex-1 items-center justify-center gap-2 rounded-md border-2 border-cyan-600 bg-transparent px-3.5 py-2.5 text-sm font-semibold text-cyan-600 hover:border-cyan-700 hover:text-cyan-700"
                           >
                             Learn More <ArrowRightIcon className="size-4" />
-                          </Link> */}
+                          </Link>
                         </div>
                       </div>
                     </div>
                   </ScrollFadeIn>
 
                   <ParallaxImage className="sm:px-6 lg:px-0">
-                    <div className="relative isolate overflow-hidden bg-cyan-600 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
+                    <div className="relative isolate overflow-hidden bg-cyan-600 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-12 sm:pr-0 sm:pt-12 lg:mx-0 lg:max-w-none">
                       <div
                         aria-hidden="true"
                         className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-teal-500 opacity-20 ring-1 ring-inset ring-white"
                       />
                       <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
                         <Image
-                          alt="Research assistant screenshot"
-                          src="/video/uses-research.webp"
-                          width={829}
-                          height={741}
+                          alt="Deep Research screenshot"
+                          src="/video/uses-deep-research.webp"
+                          width={1200}
+                          height={886}
                           className="-mb-12 w-[36rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10"
                         />
                       </div>
