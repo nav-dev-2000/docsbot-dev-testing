@@ -45,9 +45,9 @@ export const NavItem: React.FC<NavItemProps> = ({ href, name, active = false, ch
     }, [])
 
     const cssParent = clsx(
-        'text-base font-medium text-white hover:border-b-2 border-solid border-teal-500',
+        'text-base font-medium text-white border-b-2 border-solid border-transparent hover:border-teal-500 transition-colors',
         {
-            ['border-b-2']: active,
+            ['border-teal-500']: active,
         },
     )
 
