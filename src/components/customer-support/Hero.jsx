@@ -39,7 +39,7 @@ const Title = ({ content, className }) => {
     const restOfTitle = clone?.slice(1).join(' ') || '';
 
     return (
-        <h1 className={clsx('relative text-pretty text-5xl font-semibold tracking-tight text-neutral-50 sm:text-7xl', className)}>
+        <div className={clsx('relative text-pretty text-5xl font-semibold tracking-tight text-neutral-50 sm:text-7xl', className)}>
             <span
                 className="relative text-transparent [-webkit-text-stroke:1px_#14b8a6] before:content-[attr(data-text)] before:absolute before:top-1 before:left-1 before:inset-0 before:text-neutral-50 before:[-webkit-text-stroke:0]"
                 data-text={ clonedWord }
@@ -47,15 +47,15 @@ const Title = ({ content, className }) => {
                 { clonedWord }
             </span>{" "}
             { restOfTitle }
-        </h1>
+        </div>
     );
 }
 
 const Subtitle = ({ content, className }) => {
     return (
-        <div className={clsx( 'text-base/7 font-semibold text-teal-500', className )}>
+        <h1 className={clsx( 'text-base/7 font-semibold text-teal-500', className )}>
             { content }
-        </div>
+        </h1>
     );
 }
 

@@ -67,6 +67,7 @@ import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Paginator from '@/components/Paginator'
+import { usePostHog } from 'posthog-js/react'
 
 // Normalize remark-math import across ESM/CJS to avoid runtime issues
 const remarkMathPlugin =
@@ -1008,6 +1009,7 @@ function ResearchInterface({
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
   const [clarificationsHtml, setClarificationsHtml] = useState('')
+  const posthog = usePostHog()
 
   const refreshUsage =
     typeof refreshResearchCount === 'function'
@@ -1358,6 +1360,18 @@ function ResearchInterface({
           onJobCreated(data.jobId)
 
           await recordResearchTaskStarted({ consumeTrial: willConsumeTrial })
+
+          // Track deep research job creation in PostHog
+          if (posthog && user) {
+            posthog.capture('Deep Research Job Created', {
+              botId: bot.id,
+              botName: bot.name,
+              teamId: team.id,
+              model: selectedModel,
+              webSearch: webSearch,
+              codeInterpreter: codeInterpreter,
+            })
+          }
         } else {
           try {
             const data = await response.json()
