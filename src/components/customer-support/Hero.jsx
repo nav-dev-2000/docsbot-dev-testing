@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import clsx from 'clsx'
 import { Button } from '@/components/customer-support/elements'
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import humanHero from '@/images/app-demo/docsbot-hero-human.webp'
 import humanAvatar from '@/images/app-demo/docsbot-avatar-human.webp'
 import RobotIconSolid from '../RobotIconSolid'
 import { motion, AnimatePresence } from 'framer-motion'
+import { FAQPageJsonLd } from 'next-seo'
 
 const HeroGrid = () => {
     return (
@@ -66,6 +67,49 @@ const Description = ({ content, className }) => {
     );
 }
 
+const heroFaqs = [
+    {
+        question: 'How can DocsBot improve my customer support?',
+        answer:
+            'DocsBot resolves as much as 86% of repeat questions automatically, giving customers instant answers and reducing ticket load.'
+    },
+    {
+        question: 'What can DocsBot do for my support team?',
+        answer:
+            'It acts as an always-on teammate that pulls from your docs, knowledge bases, and product content to deliver accurate responses and free your team for higher-value work.'
+    },
+    {
+        question: 'How does DocsBot make customer success better?',
+        answer:
+            'It provides fast, consistent answers across all channels, improving satisfaction and helping customers stay productive without waiting for human assistance.'
+    },
+    {
+        question: 'Why should I use DocsBot for support automation?',
+        answer:
+            'It expands support capacity without hiring, handles routine questions around the clock, and integrates directly into your existing workflows.'
+    },
+    {
+        question: "What's the benefit of using AI in customer support?",
+        answer:
+            'It gives hours back to your team by handling common questions instantly while ensuring your human agents can focus on complex issues that require expertise.'
+    },
+    {
+        question: 'Can DocsBot reduce my support costs?',
+        answer:
+            'It cuts operational costs by automating high-volume inquiries and reducing the need for additional support staff as your customer base grows.'
+    },
+    {
+        question: 'Does DocsBot work with my existing tools?',
+        answer:
+            'It connects with help desks, chat widgets, and internal systems so you can deploy AI assistance without changing platforms.'
+    },
+    {
+        question: "How accurate is DocsBot's AI?",
+        answer:
+            'Accuracy comes from using your own documentation, guides, and product knowledge, ensuring answers match your voice, policies, and product behavior.'
+    },
+]
+
 const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondaryButton }) => {
     return (
         <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
@@ -107,38 +151,11 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
 }
 
 const HeroContentRight = ({ image }) => {
-    const questions = [
-        'How can DocsBot improve my customer support?',
-        'What can DocsBot do for my support team?',
-        'How does DocsBot make customer success better?',
-        'Why should I use DocsBot for support automation?',
-        "What's the benefit of using AI in customer support?",
-    ]
+    const faqs = heroFaqs
 
-    const answers = [
-        'Resolve 70% of queries automatically',
-        'Support Reimagined: AI-Powered, Human-Centered',
-        'Rethink Support. Deliver Better Experiences at Scale.',
-        'Customer Success, Supercharged with AI-Driven Outcomes',
-        'Give Hours Back to Your Team. Let AI Handle the Rest.',
-        'Grow Your Support Capacity Without the Overhead',
-    ]
-
-    const bubbles = [
-        {
-            type: 'user',
-            pool: questions,
-            initial: questions[0],
-        },
-        {
-            type: 'bot',
-            pool: answers,
-            initial: answers[0],
-        },
-    ]
-
-    const [phrasesRand, setPhrasesRand] = useState(() => bubbles.map(b => b.initial))
+    const [phrasesRand, setPhrasesRand] = useState(() => [faqs[0].question, faqs[0].answer])
     const [bubbleKeys, setBubbleKeys] = useState([0, 1])
+    const keyCounterRef = useRef(0)
     const FIRST_DELAY = 1200; // ms before showing first bubble
     const ANSWER_DELAY = 900; // ms after question before answer
     const EXIT_DURATION_MS = 350; // matches motion transition duration
@@ -154,12 +171,11 @@ const HeroContentRight = ({ image }) => {
     }
 
     useEffect(() => {
-        const pickRandoms = () => (
-            bubbles.map(b => {
-                const idx = Math.floor(Math.random() * b.pool.length)
-                return b.pool[idx]
-            })
-        )
+        const pickRandomFaq = () => {
+            const idx = Math.floor(Math.random() * faqs.length)
+            const selectedFaq = faqs[idx]
+            return [selectedFaq.question, selectedFaq.answer]
+        }
 
         const runCycle = () => {
             // 1) trigger exits (question first, then answer a beat later)
@@ -168,9 +184,12 @@ const HeroContentRight = ({ image }) => {
 
             // 2) after exit finishes + a small gap, change phrases and re-intro with stagger
             const introTimeout = setTimeout(() => {
-                const next = pickRandoms()
+                const next = pickRandomFaq()
+                // Increment counter and update keys first to ensure AnimatePresence detects the change
+                keyCounterRef.current += 1
+                setBubbleKeys([keyCounterRef.current, keyCounterRef.current + 1])
+                // Update the phrases - this will be used when the component remounts with the new key
                 setPhrasesRand(next)
-                setBubbleKeys([Math.random(), Math.random()])
 
                 // question enters first
                 setShowQuestion(true)
@@ -279,22 +298,30 @@ const HeroContentRight = ({ image }) => {
 
 export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero }) => {
     return (
-        <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
-            <HeroGrid />
+        <>
+            <FAQPageJsonLd
+                mainEntity={heroFaqs.map((faq) => ({
+                    questionName: faq.question,
+                    acceptedAnswerText: faq.answer,
+                }))}
+            />
+            <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
+                <HeroGrid />
 
-            <div className="mx-auto max-w-7xl px-4 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
-                <HeroContentLeft
-                    title={ title }
-                    subtitle={ subtitle }
-                    description={ description }
-                    primaryButton={ primaryButton }
-                    secondaryButton={ secondaryButton }
-                />
+                <div className="mx-auto max-w-7xl px-4 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
+                    <HeroContentLeft
+                        title={ title }
+                        subtitle={ subtitle }
+                        description={ description }
+                        primaryButton={ primaryButton }
+                        secondaryButton={ secondaryButton }
+                    />
 
-                <HeroContentRight
-                    image={ heroImage }
-                />
+                    <HeroContentRight
+                        image={ heroImage }
+                    />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
