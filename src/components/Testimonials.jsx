@@ -18,6 +18,8 @@ import aoyagi from '@/images/avatars/aoyagi.jpg'
 import davidf from '@/images/avatars/davidf.jpeg'
 import davids from '@/images/avatars/davids.jpeg'
 import jasonc from '@/images/avatars/jasonc.jpeg'
+import steveburge from '@/images/avatars/steve-burge.jpg'
+import zachkatz from '@/images/avatars/zach-katz.jpg'
 import SocialFaces from '@/components/SocialFaces'
 import Link from 'next/link'
 
@@ -150,11 +152,19 @@ const testimonials = [
         },
       },
       {
-        body: "If all the level one support people, some chunk of them can now do level two support...the customers are going to get greater hands on care, more customers will get access to a higher level of service. The organization can afford to do that. They'll be more competitive in the marketplace because customers feel better taken care of.",
+        body: "I absolutely love DocsBot, and I'm a huge proponent. In my experience, it's about 60 percent in terms of giving a REALLY good answer. That's not to say it isn't incredible, because it is, and DocsBot still saves us a ton of time. It's great.",
         author: {
-          name: 'David Friedberg',
-          role: 'All-In Podcast, Investor, Founder/CEO of TPB',
-          imageUrl: davidf,
+          name: 'Zach Katz',
+          role: 'Founder of Gravity Kit',
+          imageUrl: zachkatz,
+        },
+      },
+      {
+        body: "We've been testing DocsBot and the results are really quite impressive. The answer isn't in our docs, but DocsBot did great!",
+        author: {
+          name: 'Steve Burge',
+          role: 'PublishPress',
+          imageUrl: steveburge,
         },
       },
     ],

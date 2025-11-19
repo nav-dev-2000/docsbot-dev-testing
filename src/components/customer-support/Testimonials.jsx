@@ -15,6 +15,8 @@ import tejeda from '@/images/avatars/testimony8.jpeg'
 import gobinda from '@/images/avatars/testimony2.jpeg'
 import davids from '@/images/avatars/davids.jpeg'
 import bowe from '@/images/avatars/testimony8.jpeg'
+import steveburge from '@/images/avatars/steve-burge.jpg'
+import zachkatz from '@/images/avatars/zach-katz.jpg'
 
 const data = [
     [
@@ -50,6 +52,14 @@ const data = [
                 imageUrl: cromwell,
             },
         },
+        {
+            body: "We've been testing DocsBot and the results are really quite impressive. The answer isn't in our docs, but DocsBot did great!",
+            author: {
+                name: 'Steve Burge',
+                role: 'PublishPress',
+                imageUrl: steveburge,
+            },
+        },
     ],
     [
         {
@@ -74,6 +84,14 @@ const data = [
                 name: 'Gareth P.',
                 role: 'IT & Marketing Manager',
                 imageUrl: gareth,
+            },
+        },
+        {
+            body: "I absolutely love DocsBot, and I'm a huge proponent. In my experience, it's about 60 percent in terms of giving a REALLY good answer. That's not to say it isn't incredible, because it is, and DocsBot still saves us a ton of time. It's great.",
+            author: {
+                name: 'Zach Katz',
+                role: 'Founder of Gravity Kit',
+                imageUrl: zachkatz,
             },
         },
     ],
@@ -168,32 +186,73 @@ const Box = ({ author, role, avatar, content, className }) => {
 }
 
 export const Testimonials = ({ title, description }) => {
+    // Different animation durations for each row (in seconds)
+    // Lower duration = faster scroll
+    const animationDurations = [120, 150, 135]; // Row 0: fastest, Row 1: slowest, Row 2: medium-fast
+
     return (
         <Section className="!pb-0">
             <SectionContent
                 title={ title }
                 description={ description }
             >
+                <style jsx>{`
+                    @keyframes scroll-right {
+                        0% {
+                            transform: translateX(0);
+                        }
+                        100% {
+                            transform: translateX(-50%);
+                        }
+                    }
+                    @keyframes scroll-left {
+                        0% {
+                            transform: translateX(-50%);
+                        }
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                    .scroll-row-0 {
+                        animation: scroll-right ${animationDurations[0]}s linear infinite;
+                    }
+                    .scroll-row-1 {
+                        animation: scroll-left ${animationDurations[1]}s linear infinite;
+                    }
+                    .scroll-row-2 {
+                        animation: scroll-right ${animationDurations[2]}s linear infinite;
+                    }
+                `}</style>
                 <div className="md:-mx-[40rem] flex flex-col gap-y-8">
                     { data?.map( ( row, index ) => {
-                        const rowSize = row.length;
+                        // Duplicate the row items for seamless loop
+                        const duplicatedRow = [...row, ...row];
 
                         return (
                             <div
                                 key={`testimonial-row-${index}`}
-                                className={`overflow-hidden flex flex-col md:flex-row gap-x-8 gap-y-4 justify-center`}
+                                className="overflow-hidden"
                             >
-                                {row?.map( ( item, subIndex ) => {
-                                    return (
-                                        <Box
-                                            key={`testimonial-row-${index}-col-${subIndex}`}
-                                            author={ item.author.name }
-                                            role={ item.author.role }
-                                            avatar={ item.author.imageUrl }
-                                            content={ item.body }
-                                        />
-                                    );
-                                })}
+                                <div
+                                    className={`flex flex-row gap-x-8 gap-y-4 justify-start scroll-row-${index}`}
+                                    style={{
+                                        width: 'fit-content',
+                                        transform: index === 1 ? 'translateX(-50%)' : undefined,
+                                    }}
+                                >
+                                    {duplicatedRow?.map( ( item, subIndex ) => {
+                                        return (
+                                            <Box
+                                                key={`testimonial-row-${index}-col-${subIndex}`}
+                                                author={ item.author.name }
+                                                role={ item.author.role }
+                                                avatar={ item.author.imageUrl }
+                                                content={ item.body }
+                                                className="flex-shrink-0"
+                                            />
+                                        );
+                                    })}
+                                </div>
                             </div>
                         );
                     })}

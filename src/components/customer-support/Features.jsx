@@ -55,6 +55,7 @@ const FeaturesMobile = ({ features }) => {
     return (
         <div
             className="w-full max-w-2xl flex flex-col gap-8 mx-auto lg:hidden"
+            aria-hidden="true"
         >
             {features.map((feature) => (
                 <div

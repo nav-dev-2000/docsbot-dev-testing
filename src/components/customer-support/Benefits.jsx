@@ -302,6 +302,25 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
               />
             )}
 
+            {/* Hidden structured content for SEO/Markdown conversion */}
+            <div className="sr-only">
+              <h2>Choose your role and see what DocsBot can do for you.</h2>
+              <ul>
+                {Object.entries(personas).map(([key, persona]) => (
+                  <li key={key}>
+                    <strong>{persona.label}</strong>
+                    <div>
+                      <p><strong>{persona.headline}</strong></p>
+                      <p><strong>Question:</strong> {persona.question}</p>
+                      {persona.paragraphs.map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="max-w-7xl mx-auto mt-16">
                 <div ref={buttonsRef} className="flex flex-wrap justify-center gap-3 mb-8">
                     {Object.entries(personas).map(([key, persona], index) => (
@@ -335,6 +354,8 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="max-w-4xl mx-auto"
+                            aria-label="A chat widget conversation with the selected persona"
+                            role="region"
                         >
                         <div className="bg-gray-900 rounded-2xl shadow-2xl ring-1 ring-gray-700 overflow-hidden">
                             {/* Chat Header */}

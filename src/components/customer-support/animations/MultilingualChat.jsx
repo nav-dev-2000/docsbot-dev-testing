@@ -29,7 +29,7 @@ const Conversation = () => {
         "Parlez-vous français?",
         "Oui, je parle français. Comment puis-je vous aider aujourd'hui?",
         "Which other languages do you speak?",
-        "I can communicate in several languages including English, Spanish, French, German, Italian, Portuguese, and more. Let me know if you'd like to continue in any specific language!",
+        "I can communicate in 100+ languages including English, Spanish, French, German, Italian, Portuguese, and more. Let me know if you'd like to continue in any specific language!",
     ];
 
     const animatedCount = bubbles.length - 1; // first bubble is static
@@ -123,6 +123,7 @@ export const MultilingualChat = () => {
 
     return (
       <div ref={rootRef} className="relative size-full bg-gradient-to-tr from-slate-100 to-slate-300">
+        <h4 className="sr-only">Demo animation showing chat conversations in multiple languages</h4>
         {isActive && (
             <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-10">
                 <Chat />

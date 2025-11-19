@@ -297,6 +297,7 @@ export const AccurateAnswers = () => {
 
     return (
         <div ref={rootRef} className="relative size-full">
+            <h4 className="sr-only">Demo animation showing chat conversations with accurate answers</h4>
             {content}
         </div>
     );

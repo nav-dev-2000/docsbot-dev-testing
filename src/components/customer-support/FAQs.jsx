@@ -2,18 +2,28 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import { Section, SectionContent } from "@/components/customer-support/elements";
 import { Banner } from "./call-to-action";
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { FAQPageJsonLd } from 'next-seo'
 
 export const Faq = ({ title, description, data, banner }) => {
     return (
-        <Section>
+        <>
+            {data && (
+                <FAQPageJsonLd
+                    mainEntity={data.map((faq) => ({
+                        questionName: faq.question,
+                        acceptedAnswerText: faq.answer,
+                    }))}
+                />
+            )}
+            <Section>
             <SectionContent
                 title={title}
                 description={description}
             >
-                <dl className="lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                <div className="lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                     {data?.map((faq) => (
                         <Disclosure key={faq.question} className="group" as="div">
-                            <dt>
+                            <div>
                                 <DisclosureButton className="px-8 py-6 group-data-[open]:rounded-t-lg group-[:not([data-open])]:rounded-lg flex w-full items-start justify-between text-left text-gray-900 bg-gray-100">
                                     <span className="text-base/7 font-semibold">{faq.question}</span>
                                     <span className="ml-6 flex h-7 items-center">
@@ -21,14 +31,14 @@ export const Faq = ({ title, description, data, banner }) => {
                                         <MinusSmallIcon aria-hidden="true" className="size-6 group-[:not([data-open])]:hidden" />
                                     </span>
                                 </DisclosureButton>
-                            </dt>
+                            </div>
 
-                            <DisclosurePanel as="dd" className="px-8 pb-6 rounded-b-lg bg-gray-100 text-gray-600">
+                            <DisclosurePanel as="div" className="px-8 pb-6 rounded-b-lg bg-gray-100 text-gray-600">
                                 <p className="text-base/7">{faq.answer}</p>
                             </DisclosurePanel>
                         </Disclosure>
                     ))}
-                </dl>
+                </div>
 
                 { banner && (
                     <Banner
@@ -38,5 +48,6 @@ export const Faq = ({ title, description, data, banner }) => {
                 )}
             </SectionContent>
         </Section>
+        </>
     )
 }

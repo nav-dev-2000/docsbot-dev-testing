@@ -158,17 +158,17 @@ const dataSecurity = [
     },
     {
         title: 'Granular access controls',
-        description: 'Independent auditors validate our controls annually so your organization can rely on consistent safeguards.',
+        description: 'Role-based permissions let you control who can access what, ensuring your team sees only what they need.',
         icon: LockClosedIcon,
     },
     {
         title: 'GDPR-ready governance',
-        description: 'Independent auditors validate our controls annually so your organization can rely on consistent safeguards.',
+        description: 'Built-in data protection tools, export capabilities, and EU storage options keep you compliant from day one.',
         icon: GlobeAltIcon,
     },
     {
         title: 'Encryption end-to-end',
-        description: 'Independent auditors validate our controls annually so your organization can rely on consistent safeguards.',
+        description: 'Your data is encrypted in transit and at rest, protecting sensitive information throughout its entire lifecycle.',
         icon: ServerStackIcon,
     },
 ];
@@ -202,25 +202,25 @@ const dataAnalytics = [
 
 const dataResults = [
   {
-    title: 'Questions Annually',
-    description: 'DocsBot helps millions of users get faster, more accurate answers to their questions every year.',
-    note: '4.7M',
+    title: 'Questions Answered',
+    description: 'Millions of customer questions have been accurately answered by DocsBot’s AI this year.',
+    note: '4M',
     background: 'neutral-100',
     foreground: 'gray-900',
     className: 'lg:flex-1 lg:self-stretch',
   },
   {
-    title: 'Questions Answered Instantly',
-    description: 'Most customer questions resolved automatically, no ticket needed.',
-    note: '84%',
+    title: 'Automated Conversation Resolutions',
+    description: 'Most customer conversations resolved automatically, no escalation to human agents needed.',
+    note: '86%',
     background: 'gray-900',
     foreground: 'neutral-50',
     className: 'sm:w-10/12 lg:w-full lg:flex-1 lg:gap-y-[10rem]',
   },
   {
-    title: 'Deflected Questions',
+    title: 'Conversations Deflected',
     description: 'Resolve customer inquiries before they ever reach a human for lighter queues and happier customers.',
-    note: '98%',
+    note: '95%',
     background: 'teal-500',
     foreground: 'neutral-50',
     className: 'sm:w-11/12 lg:w-full lg:flex-1 lg:gap-y-[12rem] lg:mt-12',
