@@ -321,8 +321,14 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
               </ul>
             </div>
 
-            <div className="max-w-7xl mx-auto mt-16">
-                <div ref={buttonsRef} className="flex flex-wrap justify-center gap-3 mb-8">
+            <div
+              className="max-w-7xl mx-auto md:mt-8 lg:mt-12 px-6"
+              aria-hidden="true"
+            >
+                <div
+                  ref={buttonsRef}
+                  className="flex flex-col md:flex-row md:flex-wrap md:items-center lg:justify-center gap-3 mb-8"
+                >
                     {Object.entries(personas).map(([key, persona], index) => (
                         <motion.button
                             key={key}
@@ -353,7 +359,7 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="max-w-4xl mx-auto"
+                            className="max-w-7xl lg:max-w-4xl mx-auto"
                             aria-label="A chat widget conversation with the selected persona"
                             role="region"
                         >

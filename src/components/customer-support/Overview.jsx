@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { Section, SectionContent } from "@/components/customer-support/elements"
-import { ChevronRightIcon } from "@heroicons/react/20/solid"
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/20/solid"
 
 const Block = ({ title, content, icon, className }) => {
     const BlockIcon = icon;
@@ -8,22 +8,32 @@ const Block = ({ title, content, icon, className }) => {
     return (
         <div
             className={clsx(
-                'h-full p-6 pb-12 rounded-xl bg-gray-100',
+                'flex flex-col gap-6 p-6 rounded-xl bg-gray-100',
+                'md:h-full md:pb-12',
                 className,
             )}
         >
-            { icon && (
-                <div className="size-9 flex items-center justify-center mb-8 rounded-lg bg-cyan-600">
-                    <BlockIcon className="size-6 text-white" />
-                </div>
-            )}
+            <div
+                className={clsx(
+                    'flex flex-row items-center gap-4',
+                    'md:flex-col md:items-start lg:gap-8',
+                )}
+            >
+                { icon && (
+                    <div className="size-9 flex items-center justify-center rounded-lg bg-cyan-600">
+                        <BlockIcon className="size-6 text-white" />
+                    </div>
+                )}
 
-            { title && (
-                <h3 className="mb-2 text-gray-900 text-lg font-semibold">{ title }</h3>
-            )}
+                { title && (
+                    <h3 className="text-gray-900 text-lg font-semibold">
+                        { title }
+                    </h3>
+                )}
+            </div>
 
             { content && (
-                <p className="text-gray-900/60">{ content }</p>
+                <p className="text-gray-900/60 text-pretty">{ content }</p>
             )}
         </div>
     );
@@ -40,9 +50,14 @@ const BlockWrapper = ({ title, description, icon, blockClassName, hasArrow }) =>
             />
 
             {hasArrow && (
-                <ChevronRightIcon
-                    className="absolute size-10 top-1/2 left-full -translate-y-1/2 animate-bounce text-gray-900"
-                />
+                <>
+                    <ChevronDownIcon
+                        className="size-10 md:hidden mx-auto text-gray-900 animate-bounce"
+                    />
+                    <ChevronRightIcon
+                        className="size-10 absolute top-1/2 left-full -translate-y-1/2 hidden md:block text-gray-900 animate-bounce"
+                    />
+                </>
             )}
         </div>
     )
@@ -57,9 +72,7 @@ export const Overview = ({title, description, data}) => {
                 title={title}
                 description={description}
             >
-                <div
-                    className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-8"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 md:mt-6">
                     {data.map((item, index) => {
                         return (
                             <BlockWrapper

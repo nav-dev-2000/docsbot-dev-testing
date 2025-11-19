@@ -112,7 +112,7 @@ const heroFaqs = [
 
 const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondaryButton }) => {
     return (
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <div className="mx-auto lg:max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
             <Subtitle
                 content={ subtitle }
                 className="mt-24 sm:mt-32 lg:mt-16"
@@ -129,7 +129,12 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
             />
             
             {( primaryButton || secondaryButton ) && (
-                <div className="flex flex-col lg:flex-row items-center gap-y-4 lg:gap-y-0 lg:gap-x-6 mt-8 lg:mt-10">
+                <div
+                    className={clsx(
+                        'flex flex-col gap-4 mt-8',
+                        'md:flex-row md:items-center md:gap-6 md:mt-10',
+                    )}
+                >
                     { primaryButton && (
                         <Button
                             {...primaryButton}
@@ -308,7 +313,7 @@ export const Hero = ({ title, subtitle, description, primaryButton, secondaryBut
             <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
                 <HeroGrid />
 
-                <div className="mx-auto max-w-7xl px-4 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
+                <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
                     <HeroContentLeft
                         title={ title }
                         subtitle={ subtitle }

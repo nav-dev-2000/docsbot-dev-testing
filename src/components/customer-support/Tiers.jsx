@@ -15,7 +15,7 @@ export const Tiers = ({ title, description, data }) => {
                 description={ description }
             >
                 { data && (
-                    <div className="relative mx-auto grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:mt-16 lg:max-w-none lg:grid-cols-2">
+                    <div className="relative mx-auto grid max-w-xl grid-cols-1 gap-y-8 md:mx-0 lg:mt-16 lg:max-w-none lg:grid-cols-2">
                         { data?.map(( tier, index ) => (
                             <Fragment key={ tier.id }>
                                 <div

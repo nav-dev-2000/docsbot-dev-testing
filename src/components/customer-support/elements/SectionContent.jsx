@@ -4,7 +4,7 @@ import { Title, Description } from '@/components/customer-support/elements'
 export const SectionContent = ({ theme = 'light', title, titleClass, description, descriptionClass, isBoxed = true, isBoxedHeader = true, className, children }) => {
     return (
         <div className={clsx(
-            'flex flex-col gap-8 px-4 lg:px-8',
+            'flex flex-col gap-8 px-6 lg:px-8',
             {
                 ['w-full max-w-7xl mx-auto']: isBoxed,
             },
@@ -15,7 +15,7 @@ export const SectionContent = ({ theme = 'light', title, titleClass, description
                     className={clsx(
                         'flex flex-col gap-4',
                         {
-                            ['max-w-2xl mx-auto']: isBoxedHeader,
+                            ['lg:max-w-2xl mx-auto']: isBoxedHeader,
                         },
                     )}
                 >
