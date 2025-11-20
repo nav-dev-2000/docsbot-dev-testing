@@ -21,28 +21,33 @@ const Feature = ({ feature, isActive, className, ...props }) => {
             )}
             {...props}
         >
-            <div
-                className={clsx(
-                    'w-9 rounded-lg',
-                    {
-                        ['bg-cyan-600']: isActive,
-                        ['bg-gray-400']: !isActive,
-                    },
-                )}
-            >
-                <svg aria-hidden="true" className="h-9 w-9" fill="none">
-                    <feature.icon />
-                </svg>
-            </div>
+            <div className={clsx(
+                'flex items-center gap-2',
+                'sm:flex-col sm:items-start sm:gap-4',
+            )}>
+                <div
+                    className={clsx(
+                        'w-9 flex-none rounded-lg',
+                        {
+                            ['bg-cyan-600']: isActive,
+                            ['bg-gray-400']: !isActive,
+                        },
+                    )}
+                >
+                    <svg aria-hidden="true" className="h-9 w-9" fill="none">
+                        <feature.icon />
+                    </svg>
+                </div>
 
-            <h3
-                className={clsx(
-                    'mt-6 text-lg/8 font-semibold',
-                    isActive ? 'text-cyan-600' : 'text-gray-900/80',
-                )}
-            >
-                {feature.name}
-            </h3>
+                <h3
+                    className={clsx(
+                        'flex-1 text-lg/6 sm:text-lg/8 font-semibold',
+                        isActive ? 'text-cyan-600' : 'text-gray-900/80',
+                    )}
+                >
+                    {feature.name}
+                </h3>
+            </div>
 
             <p className="mt-2 text-base/6 text-gray-900">
                 {feature.summary}
@@ -54,13 +59,16 @@ const Feature = ({ feature, isActive, className, ...props }) => {
 const FeaturesMobile = ({ features }) => {
     return (
         <div
-            className="w-full max-w-2xl flex flex-col gap-8 mx-auto lg:hidden"
+            className="w-full flex flex-col gap-8 mx-auto lg:hidden"
             aria-hidden="true"
         >
             {features.map((feature) => (
                 <div
                     key={feature.summary}
-                    className="flex flex-col gap-y-8 p-8 border border-gray-200 rounded-2xl"
+                    className={clsx(
+                        'flex flex-col gap-4',
+                        'sm:p-6 sm:border sm:border-gray-200 sm:rounded-2xl',
+                    )}
                 >
                     <Feature
                         feature={feature}
@@ -68,7 +76,7 @@ const FeaturesMobile = ({ features }) => {
                     />
 
                     {feature.animation && (
-                        <div className="w-[52.75rem] max-w-full h-[calc(52.75rem/2)]">
+                        <div className="w-full h-[calc(52.75rem/2)] sm:rounded-xl sm:overflow-hidden">
                             <feature.animation />
                         </div>
                     )}
@@ -176,7 +184,7 @@ export const Features = ({ title, description, data, banner }) => {
                 { banner && (
                     <Banner
                         { ...banner }
-                        className="mt-16"
+                        className="sm:mt-4 md:mt-8 lg:mt-16"
                     />
                 )}
             </SectionContent>

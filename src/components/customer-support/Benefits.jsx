@@ -3,92 +3,19 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FAQPageJsonLd } from "next-seo";
 import { Section, SectionContent } from "@/components/customer-support/elements";
 
-const personas = {
-  supportManager: {
-    label: "Support Managers & Heads of Support",
-    headline: "The Real Value of DocsBot for Support Leaders",
-    question: "What's the real value of DocsBot for me as a support leader?",
-    paragraphs: [
-      "In short? DocsBot helps you deflect up to 90% of your repetitive tickets, reduce team burnout, and scale support without scaling headcount. It's like giving your team a high-performing AI teammate—one that never sleeps, learns from your best agents, and gets smarter over time.",
-      "DocsBot fully automates Tier 1, so your team can focus on complex issues instead of answering the same questions over and over. And when something needs human eyes, Human Escalation Classification steps in—escalating smoothly and even drafting the ticket for your team, complete with context.",
-      "Plus, you get advanced analytics that surface content gaps, trending topics, and performance insights—so you can improve support and documentation in lockstep. No extra engineering. No complicated setup. Just better support, right out of the box.",
-    ],
-  },
-  frontlineRep: {
-    label: "Frontline Support Reps",
-    headline: "Making Your Day Smoother",
-    question: "As a frontline support rep, how will DocsBot benefit me?",
-    paragraphs: [
-      "DocsBot makes your day smoother by taking repetitive tasks off your plate and helping you respond faster. It suggests accurate, on-brand replies right inside the tools you already use—like Slack, Zendesk, and HelpScout—so you can stay focused without jumping between tabs or digging through docs.",
-      "You'll spend less time on FAQs and more time on the conversations that really need your expertise. And because the AI learns from every interaction, your suggestions get better the more you use it.",
-      "Fewer distractions. Smarter replies. More satisfying work.",
-    ],
-  },
-  customerExperience: {
-    label: "CSMs & Customer Experience Teams",
-    headline: "Strengthening Your CX Impact",
-    question: "How could DocsBot strengthen our CSMs and CX teams?",
-    paragraphs: [
-      "DocsBot takes the pressure off your team by handling Tier 1 questions automatically—delivering fast, on-brand answers across every channel so your CSMs can focus on what matters most: building relationships, not chasing down repetitive tickets.",
-      "It doesn't just deflect workload—it gives you insight. With built-in sentiment and trend tracking, DocsBot highlights friction points and emerging issues before they become churn risks.",
-      "Your team stays focused on driving value and delivering exceptional experiences, not putting out fires.",
-    ],
-  },
-  docsWriters: {
-    label: "Technical Writers & Documentation Owners",
-    headline: "Turning Docs Into a Living Support Engine",
-    question: "What does DocsBot offer for technical writers and our team handling documentation?",
-    paragraphs: [
-      "Great question! DocsBot turns your documentation into a living, breathing support engine. It ingests long-form content—like docs, videos, wikis, and more—and instantly makes it searchable, actionable, and ready to deliver fast, accurate answers.",
-      "No more static pages collecting dust. DocsBot surfaces dynamic suggestions in real time, meeting users where they are—without rewrites or reformatting. And it learns from every interaction, so your content keeps getting sharper without extra effort.",
-      "Smarter docs. Stronger support. Zero rework.",
-    ],
-  },
-  opsAdmins: {
-    label: "Ops Admins",
-    headline: "Making Life Easier for Ops Admins",
-    question: "How does DocsBot make life easier for Ops Admins?",
-    paragraphs: [
-      "DocsBot is no-code by default—just connect your content, and you're live. It plugs right into tools like Slack, Zendesk, WordPress, and Freshdesk with zero IT support needed. Setup takes minutes, not weeks.",
-      "It's also easy to maintain: no model training, no constant tinkering, and no worrying about keeping docs and bots in sync. DocsBot does that for you.",
-      "Fast to deploy. Easy to manage. Built to scale.",
-    ],
-  },
-  revOps: {
-    label: "RevOps Teams",
-    headline: "Why DocsBot Matters to RevOps",
-    question: "Why does DocsBot matter to RevOps?",
-    paragraphs: [
-      "DocsBot gives you unified insights across teams—tracking what customers ask, how support performs, and where content or product gaps exist. That means less guesswork and more data-driven decisions.",
-      "It also improves operational efficiency by automating repetitive tasks, reducing ticket volume, and freeing up teams across the org to focus on high-leverage work. And because it integrates with your core systems, there's no data lost between platforms.",
-      "One tool. Cross-team impact. Measurable ROI.",
-    ],
-  },
-  founders: {
-    label: "Founders & Scaling SaaS Leaders",
-    headline: "The Advantage for Growing SaaS Teams",
-    question: "What's the advantage of DocsBot for founders or growing SaaS teams?",
-    paragraphs: [
-      "DocsBot lets you scale support without scaling headcount. From day one, your AI agent handles customer questions—trained instantly on your docs, with no engineering lift or ramp-up time.",
-      "That means your team stays lean and focused on growth, while DocsBot delivers fast, on-brand answers 24/7. It's a zero-maintenance setup with high-impact ROI—perfect for startups and scaleups that need to move fast without sacrificing customer experience.",
-      "Launch in minutes. Support at scale. No extra hires required.",
-    ],
-  },
-};
-
-export const Benefits = ({ title, description, initialPersonaKey }) => {
+export const Benefits = ({ title, description, initialPersonaKey, personas = {} }) => {
   const [selectedKey, setSelectedKey] = useState(() => {
     // Prefer a URL hash if present and valid (client-only)
     if (typeof window !== 'undefined') {
       const hash = window.location.hash?.replace('#', '');
-      if (hash && personas[hash]) return hash;
+      if (hash && personas && personas[hash]) return hash;
     }
     // Otherwise, use the provided prop if valid
-    return initialPersonaKey && personas[initialPersonaKey]
+    return initialPersonaKey && personas && personas[initialPersonaKey]
       ? initialPersonaKey
       : null;
   });
-  const selected = selectedKey ? personas[selectedKey] : null;
+  const selected = selectedKey && personas ? personas[selectedKey] : null;
 
   const [index, setIndex] = useState(0);
   const [typedLines, setTypedLines] = useState([]);
@@ -101,7 +28,7 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
   const isInView = useInView(buttonsRef, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || !personas) return;
     const applyHash = () => {
       const hash = window.location.hash?.replace('#', '');
       if (hash && personas[hash]) setSelectedKey(hash);
@@ -111,7 +38,7 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
     // Also respond if the hash changes
     window.addEventListener('hashchange', applyHash);
     return () => window.removeEventListener('hashchange', applyHash);
-  }, []);
+  }, [personas]);
 
   useEffect(() => {
     if (!selected) return;
@@ -338,7 +265,7 @@ export const Benefits = ({ title, description, initialPersonaKey }) => {
                   ref={buttonsRef}
                   className="flex flex-col md:flex-row md:flex-wrap md:items-center lg:justify-center gap-3 mb-8"
                 >
-                    {Object.entries(personas).map(([key, persona], index) => (
+                    {personas && Object.entries(personas).map(([key, persona], index) => (
                         <motion.button
                             key={key}
                             onClick={() => setSelectedKey(key)}

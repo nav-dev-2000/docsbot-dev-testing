@@ -131,7 +131,13 @@ export const Results = ({ title, description, data }) => {
                 description={ description }
             >
                 { data?.length > 0 && (
-                    <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
+                    <div
+                        className={clsx(
+                            'lg:max-w-none',
+                            'flex flex-col lg:flex-row lg:items-end gap-8',
+                            'lg:mt-12',
+                        )}
+                    >
                         { data?.map(( item, index ) => {
                             return (
                                 <Box

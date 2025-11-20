@@ -143,14 +143,15 @@ const Box = ({ author, role, avatar, content, className }) => {
     return (
         <div
             className={clsx(
-                'w-full md:w-[460px] lg:w-[600px]',
-                'px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 rounded-lg bg-neutral-100 text-gray-900',
+                'w-full max-w-[320px] md:max-w-[460px] lg:max-w-[600px]',
                 'flex flex-col gap-4 md:gap-8',
+                'p-4 md:p-6 lg:p-8',
+                'rounded-lg bg-neutral-100 text-gray-900',
                 className,
             )}
         >
             <div
-                className="flex flex-row gap-2 items-center"
+                className="flex items-center gap-1 md:gap-2"
                 aria-hidden="true"
             >
                 <BoxStar />
@@ -160,11 +161,11 @@ const Box = ({ author, role, avatar, content, className }) => {
                 <BoxStar />
             </div>
 
-            <blockquote className="flex-1 text-sm/6 md:text-base/6">
-                <p>{ content }</p>
+            <blockquote className="text-sm/6 md:text-base/6 text-gray-900">
+                <p className="text-pretty tracking-wide">{ content }</p>
             </blockquote>
 
-            <figcaption className="flex flex-row lg:flex-col gap-4 lg:gap-2 text-base/6 md:text-lg/6 font-semibold">
+            <figcaption className="flex flex-col gap-2 text-base/6 lg:text-lg/6 font-semibold">
                 { avatar && (
                     <Image
                         src={ avatar }
@@ -223,7 +224,8 @@ export const Testimonials = ({ title, description }) => {
                         animation: scroll-right ${animationDurations[2]}s linear infinite;
                     }
                 `}</style>
-                <div className="md:-mx-[40rem] flex flex-col gap-y-8">
+
+                <div className="-mx-6 md:-mx-[40rem] flex flex-col gap-y-4 lg:gap-y-8">
                     { data?.map( ( row, index ) => {
                         // Duplicate the row items for seamless loop
                         const duplicatedRow = [...row, ...row];
@@ -234,11 +236,13 @@ export const Testimonials = ({ title, description }) => {
                                 className="overflow-hidden"
                             >
                                 <div
-                                    className={`flex flex-row gap-x-8 gap-y-4 justify-start scroll-row-${index}`}
-                                    style={{
-                                        width: 'fit-content',
-                                        transform: index === 1 ? 'translateX(-50%)' : undefined,
-                                    }}
+                                    className={clsx(
+                                        'w-fit flex justify-start gap-4 lg:gap-8',
+                                        `scroll-row-${index}`,
+                                        {
+                                            ['-translate-x-1/2']: index === 1,
+                                        },
+                                    )}
                                 >
                                     {duplicatedRow?.map( ( item, subIndex ) => {
                                         return (

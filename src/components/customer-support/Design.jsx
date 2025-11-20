@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Description, Section, SectionContent, Title } from "@/components/customer-support/elements"
 import demo from '@/images/app-demo/docsbot-personalize-widget.webp'
+import demoMobile from '@/images/app-demo/docsbot-personalize-widget-mobile.webp'
 
 export const Design = ({ title, description }) => {
     const theme = 'medium'
@@ -28,11 +29,20 @@ export const Design = ({ title, description }) => {
                     </div>
 
                     <div className="basis-1/2 grow-0 shrink-0 mt-8 md:mt-12 lg:mt-0">
-                        <div className="overflow-hidden w-[60rem] h-full">
+                        <div
+                            className="overflow-hidden md:w-[60rem] h-full"
+                        >
+                            <Image
+                                src={demoMobile}
+                                alt="Bot widget personalization settings (mobile)"
+                                className="md:hidden"
+                                aria-hidden="true"
+                            />
+
                             <Image
                                 src={demo}
                                 alt="Bot widget personalization settings"
-                                className="-translate-x-44 md:-translate-x-40 lg:translate-x-0"
+                                className="hidden md:block -translate-x-44 md:-translate-x-40 lg:translate-x-0"
                             />
                         </div>
                     </div>

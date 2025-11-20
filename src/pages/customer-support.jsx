@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/20/solid'
 
 import Head from 'next/head'
-import { NextSeo } from 'next-seo'
+import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MattCromwellQuote from '@/components/MattCromwellQuote'
@@ -44,6 +44,122 @@ import screenshotVisualization from "@/images/app-demo/docsbot-insights-visualiz
 import screenshotReports from "@/images/app-demo/docsbot-insights-reports.webp"
 
 // Define: Data
+const heroFaqs = [
+  {
+    question: 'How can DocsBot improve my customer support?',
+    answer:
+      'DocsBot resolves as much as 86% of repeat questions automatically, giving customers instant answers and reducing ticket load.'
+  },
+  {
+    question: 'What can DocsBot do for my support team?',
+    answer:
+      'It acts as an always-on teammate that pulls from your docs, knowledge bases, and product content to deliver accurate responses and free your team for higher-value work.'
+  },
+  {
+    question: 'How does DocsBot make customer success better?',
+    answer:
+      'It provides fast, consistent answers across all channels, improving satisfaction and helping customers stay productive without waiting for human assistance.'
+  },
+  {
+    question: 'Why should I use DocsBot for support automation?',
+    answer:
+      'It expands support capacity without hiring, handles routine questions around the clock, and integrates directly into your existing workflows.'
+  },
+  {
+    question: "What's the benefit of using AI in customer support?",
+    answer:
+      'It gives hours back to your team by handling common questions instantly while ensuring your human agents can focus on complex issues that require expertise.'
+  },
+  {
+    question: 'Can DocsBot reduce my support costs?',
+    answer:
+      'It cuts operational costs by automating high-volume inquiries and reducing the need for additional support staff as your customer base grows.'
+  },
+  {
+    question: 'Does DocsBot work with my existing tools?',
+    answer:
+      'It connects with help desks, chat widgets, and internal systems so you can deploy AI assistance without changing platforms.'
+  },
+  {
+    question: "How accurate is DocsBot's AI?",
+    answer:
+      'Accuracy comes from using your own documentation, guides, and product knowledge, ensuring answers match your voice, policies, and product behavior.'
+  },
+]
+
+const personas = {
+  supportManager: {
+    label: "Support Managers & Heads of Support",
+    headline: "The Real Value of DocsBot for Support Leaders",
+    question: "What's the real value of DocsBot for me as a support leader?",
+    paragraphs: [
+      "In short? DocsBot helps you deflect up to 90% of your repetitive tickets, reduce team burnout, and scale support without scaling headcount. It's like giving your team a high-performing AI teammate—one that never sleeps, learns from your best agents, and gets smarter over time.",
+      "DocsBot fully automates Tier 1, so your team can focus on complex issues instead of answering the same questions over and over. And when something needs human eyes, Human Escalation Classification steps in—escalating smoothly and even drafting the ticket for your team, complete with context.",
+      "Plus, you get advanced analytics that surface content gaps, trending topics, and performance insights—so you can improve support and documentation in lockstep. No extra engineering. No complicated setup. Just better support, right out of the box.",
+    ],
+  },
+  frontlineRep: {
+    label: "Frontline Support Reps",
+    headline: "Making Your Day Smoother",
+    question: "As a frontline support rep, how will DocsBot benefit me?",
+    paragraphs: [
+      "DocsBot makes your day smoother by taking repetitive tasks off your plate and helping you respond faster. It suggests accurate, on-brand replies right inside the tools you already use—like Slack, Zendesk, and HelpScout—so you can stay focused without jumping between tabs or digging through docs.",
+      "You'll spend less time on FAQs and more time on the conversations that really need your expertise. And because the AI learns from every interaction, your suggestions get better the more you use it.",
+      "Fewer distractions. Smarter replies. More satisfying work.",
+    ],
+  },
+  customerExperience: {
+    label: "CSMs & Customer Experience Teams",
+    headline: "Strengthening Your CX Impact",
+    question: "How could DocsBot strengthen our CSMs and CX teams?",
+    paragraphs: [
+      "DocsBot takes the pressure off your team by handling Tier 1 questions automatically—delivering fast, on-brand answers across every channel so your CSMs can focus on what matters most: building relationships, not chasing down repetitive tickets.",
+      "It doesn't just deflect workload—it gives you insight. With built-in sentiment and trend tracking, DocsBot highlights friction points and emerging issues before they become churn risks.",
+      "Your team stays focused on driving value and delivering exceptional experiences, not putting out fires.",
+    ],
+  },
+  docsWriters: {
+    label: "Technical Writers & Documentation Owners",
+    headline: "Turning Docs Into a Living Support Engine",
+    question: "What does DocsBot offer for technical writers and our team handling documentation?",
+    paragraphs: [
+      "Great question! DocsBot turns your documentation into a living, breathing support engine. It ingests long-form content—like docs, videos, wikis, and more—and instantly makes it searchable, actionable, and ready to deliver fast, accurate answers.",
+      "No more static pages collecting dust. DocsBot surfaces dynamic suggestions in real time, meeting users where they are—without rewrites or reformatting. And it learns from every interaction, so your content keeps getting sharper without extra effort.",
+      "Smarter docs. Stronger support. Zero rework.",
+    ],
+  },
+  opsAdmins: {
+    label: "Ops Admins",
+    headline: "Making Life Easier for Ops Admins",
+    question: "How does DocsBot make life easier for Ops Admins?",
+    paragraphs: [
+      "DocsBot is no-code by default—just connect your content, and you're live. It plugs right into tools like Slack, Zendesk, WordPress, and Freshdesk with zero IT support needed. Setup takes minutes, not weeks.",
+      "It's also easy to maintain: no model training, no constant tinkering, and no worrying about keeping docs and bots in sync. DocsBot does that for you.",
+      "Fast to deploy. Easy to manage. Built to scale.",
+    ],
+  },
+  revOps: {
+    label: "RevOps Teams",
+    headline: "Why DocsBot Matters to RevOps",
+    question: "Why does DocsBot matter to RevOps?",
+    paragraphs: [
+      "DocsBot gives you unified insights across teams—tracking what customers ask, how support performs, and where content or product gaps exist. That means less guesswork and more data-driven decisions.",
+      "It also improves operational efficiency by automating repetitive tasks, reducing ticket volume, and freeing up teams across the org to focus on high-leverage work. And because it integrates with your core systems, there's no data lost between platforms.",
+      "One tool. Cross-team impact. Measurable ROI.",
+    ],
+  },
+  founders: {
+    label: "Founders & Scaling SaaS Leaders",
+    headline: "The Advantage for Growing SaaS Teams",
+    question: "What's the advantage of DocsBot for founders or growing SaaS teams?",
+    paragraphs: [
+      "DocsBot lets you scale support without scaling headcount. From day one, your AI agent handles customer questions—trained instantly on your docs, with no engineering lift or ramp-up time.",
+      "That means your team stays lean and focused on growth, while DocsBot delivers fast, on-brand answers 24/7. It's a zero-maintenance setup with high-impact ROI—perfect for startups and scaleups that need to move fast without sacrificing customer experience.",
+      "Launch in minutes. Support at scale. No extra hires required.",
+    ],
+  },
+}
+
 const dataOverview = [
   {
     title: "Build",
@@ -406,6 +522,7 @@ export default function Home() {
     title: 'Upgrade How You Work',
     description: 'Choose your role and see what DocsBot can do for you.',
     initialPersonaKey: 'supportManager',
+    personas: personas,
   }
 
   const propsTiers = {
@@ -482,8 +599,28 @@ export default function Home() {
     },
   }
 
+  // Combine all FAQs for JSON-LD schema
+  const allFaqs = [
+    // Hero FAQs
+    ...heroFaqs.map(faq => ({
+      questionName: faq.question,
+      acceptedAnswerText: faq.answer,
+    })),
+    // Persona chat responses (questions + paragraphs as answers)
+    ...Object.values(personas).map(persona => ({
+      questionName: persona.question,
+      acceptedAnswerText: `${persona.paragraphs.join('\n\n')}`,
+    })),
+    // Main FAQ data
+    ...dataFaq.map(faq => ({
+      questionName: faq.question,
+      acceptedAnswerText: faq.answer,
+    })),
+  ]
+
   return (
     <>
+      <FAQPageJsonLd mainEntity={allFaqs} />
       <NextSeo
         title="AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot AI"
         description="Make support faster and less stressful with an AI chatbot that’s available 24/7, resolves 84% of tickets, and speaks in your tone—no coding required."
@@ -524,7 +661,7 @@ export default function Home() {
           <Header transparent />
 
           <main>
-            <Hero { ...propsHero } />
+            <Hero { ...propsHero } heroFaqs={heroFaqs} />
 
             <Brands />
 
@@ -541,7 +678,7 @@ export default function Home() {
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
-              <Benefits { ...propsBenefits } />
+              <Benefits { ...propsBenefits } personas={personas} />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

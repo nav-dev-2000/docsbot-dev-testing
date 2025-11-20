@@ -2,20 +2,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import { Section, SectionContent } from "@/components/customer-support/elements";
 import { Banner } from "./call-to-action";
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
-import { FAQPageJsonLd } from 'next-seo'
 
 export const Faq = ({ title, description, data, banner }) => {
     return (
-        <>
-            {data && (
-                <FAQPageJsonLd
-                    mainEntity={data.map((faq) => ({
-                        questionName: faq.question,
-                        acceptedAnswerText: faq.answer,
-                    }))}
-                />
-            )}
-            <Section>
+        <Section>
             <SectionContent
                 title={title}
                 description={description}
@@ -48,6 +38,5 @@ export const Faq = ({ title, description, data, banner }) => {
                 )}
             </SectionContent>
         </Section>
-        </>
     )
 }

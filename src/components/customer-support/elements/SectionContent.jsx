@@ -15,7 +15,7 @@ export const SectionContent = ({ theme = 'light', title, titleClass, description
                     className={clsx(
                         'flex flex-col gap-4',
                         {
-                            ['lg:max-w-2xl mx-auto']: isBoxedHeader,
+                            ['lg:max-w-2xl lg:mx-auto']: isBoxedHeader,
                         },
                     )}
                 >

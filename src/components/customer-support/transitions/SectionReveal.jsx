@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 const getOffset = (dir, distance = 24) => {
@@ -11,6 +11,35 @@ const getOffset = (dir, distance = 24) => {
         case 'left': return { x: distance }
         case 'right': return { x: -distance }
     }
+}
+
+const useIsDesktop = (breakpoint = 1024) => {
+    const [isDesktop, setIsDesktop] = useState(false)
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return
+
+        const mq = window.matchMedia(`(min-width: ${breakpoint}px)`)
+
+        const update = (event) => {
+            setIsDesktop(event.matches)
+        }
+
+        // Set initial value
+        setIsDesktop(mq.matches)
+
+        if (typeof mq.addEventListener === 'function') {
+            mq.addEventListener('change', update)
+        }
+
+        return () => {
+            if (typeof mq.removeEventListener === 'function') {
+                mq.removeEventListener('change', update)
+            }
+        }
+    }, [breakpoint])
+
+    return isDesktop
 }
 
 export const SectionReveal = ({
@@ -25,12 +54,21 @@ export const SectionReveal = ({
 }) => {
     const prefersReducedMotion = useReducedMotion()
     const offset = getOffset(direction) ?? { x: 0, y: 0 }
+    const isDesktop = useIsDesktop(1024)
 
-    const variants = prefersReducedMotion
-        ? { hidden: { opacity: 0 }, show: { opacity: 1 } }
+    const variants = prefersReducedMotion || !isDesktop
+        ? {
+            hidden: { opacity: 1, x: 0, y: 0 },
+            show: { opacity: 1, x: 0, y: 0 },
+        }
         : {
             hidden: { opacity: 0, ...offset },
-            show: { opacity: 1, x: 0, y: 0, transition: { duration, delay } },
+            show: {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                transition: { duration, delay },
+            },
         }
 
     const MotionAs = motion.create(As)

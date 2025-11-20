@@ -8,8 +8,6 @@ import humanHero from '@/images/app-demo/docsbot-hero-human.webp'
 import humanAvatar from '@/images/app-demo/docsbot-avatar-human.webp'
 import RobotIconSolid from '../RobotIconSolid'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FAQPageJsonLd } from 'next-seo'
-
 const HeroGrid = () => {
     return (
         <svg
@@ -39,7 +37,12 @@ const Title = ({ content, className }) => {
     const restOfTitle = clone?.slice(1).join(' ') || '';
 
     return (
-        <div className={clsx('relative text-pretty text-5xl font-semibold tracking-tight text-neutral-50 sm:text-7xl', className)}>
+        <h1
+            className={clsx(
+                'relative text-neutral-50 text-7xl font-semibold tracking-tight text-pretty',
+                className
+            )}
+        >
             <span
                 className="relative text-transparent [-webkit-text-stroke:1px_#14b8a6] before:content-[attr(data-text)] before:absolute before:top-1 before:left-1 before:inset-0 before:text-neutral-50 before:[-webkit-text-stroke:0]"
                 data-text={ clonedWord }
@@ -47,72 +50,36 @@ const Title = ({ content, className }) => {
                 { clonedWord }
             </span>{" "}
             { restOfTitle }
-        </div>
+        </h1>
     );
 }
 
 const Subtitle = ({ content, className }) => {
     return (
-        <h1 className={clsx( 'text-base/7 font-semibold text-teal-500', className )}>
-            { content }
-        </h1>
-    );
-}
-
-const Description = ({ content, className }) => {
-    return (
-        <p className={clsx( 'text-pretty text-lg text-gray-500 sm:text-xl/8', className )}>
+        <p
+            className={clsx(
+                'inline-flex px-3 py-1 rounded-full',
+                'bg-teal-500/10 ring-1 ring-inset ring-teal-500/20',
+                'text-teal-200 text-sm/6 font-semibold',
+                className
+            )}
+        >
             { content }
         </p>
     );
 }
 
-const heroFaqs = [
-    {
-        question: 'How can DocsBot improve my customer support?',
-        answer:
-            'DocsBot resolves as much as 86% of repeat questions automatically, giving customers instant answers and reducing ticket load.'
-    },
-    {
-        question: 'What can DocsBot do for my support team?',
-        answer:
-            'It acts as an always-on teammate that pulls from your docs, knowledge bases, and product content to deliver accurate responses and free your team for higher-value work.'
-    },
-    {
-        question: 'How does DocsBot make customer success better?',
-        answer:
-            'It provides fast, consistent answers across all channels, improving satisfaction and helping customers stay productive without waiting for human assistance.'
-    },
-    {
-        question: 'Why should I use DocsBot for support automation?',
-        answer:
-            'It expands support capacity without hiring, handles routine questions around the clock, and integrates directly into your existing workflows.'
-    },
-    {
-        question: "What's the benefit of using AI in customer support?",
-        answer:
-            'It gives hours back to your team by handling common questions instantly while ensuring your human agents can focus on complex issues that require expertise.'
-    },
-    {
-        question: 'Can DocsBot reduce my support costs?',
-        answer:
-            'It cuts operational costs by automating high-volume inquiries and reducing the need for additional support staff as your customer base grows.'
-    },
-    {
-        question: 'Does DocsBot work with my existing tools?',
-        answer:
-            'It connects with help desks, chat widgets, and internal systems so you can deploy AI assistance without changing platforms.'
-    },
-    {
-        question: "How accurate is DocsBot's AI?",
-        answer:
-            'Accuracy comes from using your own documentation, guides, and product knowledge, ensuring answers match your voice, policies, and product behavior.'
-    },
-]
+const Description = ({ content, className }) => {
+    return (
+        <p className={clsx( 'text-pretty text-lg text-white/70 sm:text-xl/8', className )}>
+            { content }
+        </p>
+    );
+}
 
 const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondaryButton }) => {
     return (
-        <div className="mx-auto lg:max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+        <div className="mx-auto lg:max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8 text-center lg:text-left">
             <Subtitle
                 content={ subtitle }
                 className="mt-24 sm:mt-32 lg:mt-16"
@@ -120,7 +87,7 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
 
             <Title
                 content={ title }
-                className="mt-2 lg:mt-10"
+                className="mt-2 lg:mt-6"
             />
 
             <Description
@@ -132,7 +99,7 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
                 <div
                     className={clsx(
                         'flex flex-col gap-4 mt-8',
-                        'md:flex-row md:items-center md:gap-6 md:mt-10',
+                        'md:flex-row md:items-center md:justify-center lg:justify-normal md:gap-6 md:mt-10',
                     )}
                 >
                     { primaryButton && (
@@ -155,10 +122,15 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
     );
 }
 
-const HeroContentRight = ({ image }) => {
+const HeroContentRight = ({ image, heroFaqs = [] }) => {
     const faqs = heroFaqs
 
-    const [phrasesRand, setPhrasesRand] = useState(() => [faqs[0].question, faqs[0].answer])
+    const [phrasesRand, setPhrasesRand] = useState(() => {
+        if (faqs.length > 0) {
+            return [faqs[0].question, faqs[0].answer]
+        }
+        return ['', '']
+    })
     const [bubbleKeys, setBubbleKeys] = useState([0, 1])
     const keyCounterRef = useRef(0)
     const FIRST_DELAY = 1200; // ms before showing first bubble
@@ -181,6 +153,8 @@ const HeroContentRight = ({ image }) => {
     }
 
     useEffect(() => {
+        if (faqs.length === 0) return;
+        
         const pickRandomFaq = () => {
             const idx = Math.floor(Math.random() * faqs.length)
             const selectedFaq = faqs[idx]
@@ -221,7 +195,7 @@ const HeroContentRight = ({ image }) => {
             clearInterval(interval)
             timeouts.forEach(clearTimeout)
         }
-    }, []);
+    }, [faqs]);
 
     useEffect(() => {
         const t1 = setTimeout(() => setShowQuestion(true), FIRST_DELAY);
@@ -306,32 +280,25 @@ const HeroContentRight = ({ image }) => {
     );
 }
 
-export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero }) => {
+export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero, heroFaqs = [] }) => {
     return (
-        <>
-            <FAQPageJsonLd
-                mainEntity={heroFaqs.map((faq) => ({
-                    questionName: faq.question,
-                    acceptedAnswerText: faq.answer,
-                }))}
-            />
-            <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
-                <HeroGrid />
+        <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
+            <HeroGrid />
 
-                <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
-                    <HeroContentLeft
-                        title={ title }
-                        subtitle={ subtitle }
-                        description={ description }
-                        primaryButton={ primaryButton }
-                        secondaryButton={ secondaryButton }
-                    />
+            <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
+                <HeroContentLeft
+                    title={ title }
+                    subtitle={ subtitle }
+                    description={ description }
+                    primaryButton={ primaryButton }
+                    secondaryButton={ secondaryButton }
+                />
 
-                    <HeroContentRight
-                        image={ heroImage }
-                    />
-                </div>
+                <HeroContentRight
+                    image={ heroImage }
+                    heroFaqs={ heroFaqs }
+                />
             </div>
-        </>
+        </div>
     );
 }
