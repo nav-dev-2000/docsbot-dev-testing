@@ -263,7 +263,7 @@ export const Testimonials = ({ title, description }) => {
                 </div>
 
                 <AskAIModels
-                    className="mt-16"
+                    className="my-16"
                 />
             </SectionContent>
         </Section>

@@ -66,7 +66,7 @@ export const AskAIModels = ({ className, ...props }) => {
     return (
         <aside
             className={clsx(
-                'relative isolate overflow-hidden bg-gray-900 px-6 py-16 text-center shadow-2xl sm:rounded-3xl sm:px-16',
+                'relative isolate overflow-hidden bg-gray-900 px-6 py-16 text-center shadow-2xl sm:rounded-3xl sm:px-16 ',
                 className,
             )}
             { ...props }

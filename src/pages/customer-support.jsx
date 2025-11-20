@@ -32,6 +32,7 @@ import { Analytics } from '@/components/customer-support/Analytics'
 import { Design } from '@/components/customer-support/Design'
 import { Pricing } from '@/components/customer-support/Pricing'
 import { Results } from '@/components/customer-support/Results'
+import { CaseStudies } from '@/components/customer-support/CaseStudies'
 import { Testimonials } from '@/components/customer-support/Testimonials'
 import { Faq } from '@/components/customer-support/FAQs'
 
@@ -575,6 +576,12 @@ export default function Home() {
     data: dataResults,
   }
 
+  const propsCaseStudies = {
+    title: 'Customer Stories',
+    description:
+      'See how market leaders pair AI agents with their support teams to deliver faster, more confident answers.',
+  }
+
   const propsTestimonials = {
     title: 'Testimonials',
     description: "What support professionals are saying (Don't take our word for it)",
@@ -709,6 +716,10 @@ export default function Home() {
 
             <SectionReveal direction="down" amount={0.25}>
               <Testimonials { ...propsTestimonials } />
+            </SectionReveal>
+
+            <SectionReveal direction="down" amount={0.25}>
+              <CaseStudies { ...propsCaseStudies } />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
