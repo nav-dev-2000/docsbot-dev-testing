@@ -10,7 +10,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
 import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
-import SaleLoyalty from '@/components/SaleLoyalty'
+import SaleLoyalty, { LOYALTY_SALE_DEADLINE } from '@/components/SaleLoyalty'
 
 export default function Checkout({ team, children, upgrade = false }) {
   const [user] = useAuthState(auth)
@@ -25,7 +25,9 @@ export default function Checkout({ team, children, upgrade = false }) {
   // Check if current plan is legacy
   const currentPlan = stripePlan(team)
   const isLegacyPlan = pricingTiers.find(tier => tier.id === currentPlan?.id)?.legacy === true
-  const isLegacyProPlan = currentPlan?.id === 'pro' && isLegacyPlan
+  const isProPlan = currentPlan?.id === 'pro'
+  const isStandardPlan = currentPlan?.id === 'standard'
+  const isLoyaltyEligible = isStripeCustomer && (isProPlan || isStandardPlan)
 
   useEffect(() => {
     if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
@@ -172,21 +174,18 @@ export default function Checkout({ team, children, upgrade = false }) {
             <div className="flex justify-center text-center">
               {isStripeCustomer ? (
                 <div className="flex w-full max-w-5xl flex-col items-center">
-                  {/*isLegacyProPlan && (
+                  {isLoyaltyEligible && (
                     <div className="mb-10 w-full border-y border-gray-200">
                       <SaleLoyalty
                         team={team}
-                        onApplyStandard={() =>
-                          openPortal({ tier: 'standard', upgrade: true })
-                        }
                         onApplyBusiness={() =>
                           openPortal({ tier: 'business', upgrade: true })
                         }
                         isProcessing={opening}
-                        expiresAt="2025-10-22T04:59:00.000Z"
+                        expiresAt={new Date(LOYALTY_SALE_DEADLINE)}
                       />
                     </div>
-                  )*/}
+                  )}
                   {team.stripeSubscriptionCancelAtPeriodEnd && (
                     <div className="mb-6 flex justify-center text-center">
                       <button

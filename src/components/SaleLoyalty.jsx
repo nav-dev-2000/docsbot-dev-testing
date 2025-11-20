@@ -23,14 +23,16 @@ const featuresMap = {
     '+2 staff accounts',
   ],
   business: [
-    '10x higher bot, page, message limits',
+    'Deep Research Agent',
+    'MCP server',
+    'Up to 10x higher bot, page, message limits',
     'Conversation topic reports',
     'Conversation sentiment analysis',
     'AI question reports',
     'Rate limiting',
     'Priority support',
     'SOC 2 Type II security',
-    'One-on-one AI strategy call with our CEO'
+    'One-on-one AI strategy call with our CEO',
   ],
 }
 
@@ -41,6 +43,12 @@ const currencyLocales = {
   GBP: 'en-GB',
   AUD: 'en-AU',
 }
+
+export const LOYALTY_SALE_DEADLINE = '2025-12-02T15:00:00.000Z'
+const CYBER_MONDAY_LABEL_SWITCH_UTC = Date.UTC(2025, 10, 29, 0, 0, 0) // 2025-11-29T00:00:00Z
+
+export const getLoyaltyEventLabel = () =>
+  Date.now() >= CYBER_MONDAY_LABEL_SWITCH_UTC ? 'Cyber Monday' : 'Black Friday'
 
 const LOYALTY_DISCOUNTED_MONTHLY = {
   standard: {
@@ -113,14 +121,6 @@ const formatCurrency = (value, currencyCode) => {
   }
 }
 
-const STANDARD_ANNUAL_SAVINGS = {
-  USD: 300,
-  JPY: 44000,
-  EUR: 276,
-  GBP: 228,
-  AUD: 480,
-}
-
 const BUSINESS_ANNUAL_SAVINGS = {
   USD: 2400,
   JPY: 360000,
@@ -163,7 +163,6 @@ export function CountdownTicker({ deadline, className }) {
 
 export default function SaleLoyalty({
   team,
-  onApplyStandard,
   onApplyBusiness,
   isProcessing = false,
   expiresAt,
@@ -179,10 +178,9 @@ export default function SaleLoyalty({
     setCurrencyCode(defaultCurrency)
   }, [defaultCurrency])
 
-  const standardAnnualSavings = STANDARD_ANNUAL_SAVINGS[currencyCode] ?? STANDARD_ANNUAL_SAVINGS.USD
   const businessAnnualSavings = BUSINESS_ANNUAL_SAVINGS[currencyCode] ?? BUSINESS_ANNUAL_SAVINGS.USD
 
-  const fallbackDate = useMemo(() => new Date('2025-10-22T04:59:00.000Z'), [])
+  const fallbackDate = useMemo(() => new Date(LOYALTY_SALE_DEADLINE), [])
   const countdownDate = useMemo(() => {
     if (expiresAt instanceof Date && !Number.isNaN(expiresAt.getTime())) {
       return expiresAt
@@ -196,28 +194,13 @@ export default function SaleLoyalty({
     return fallbackDate
   }, [expiresAt, fallbackDate])
 
-  const formattedStandardSavings = useMemo(
-    () => formatCurrency(standardAnnualSavings, currencyCode),
-    [currencyCode, standardAnnualSavings],
-  )
-
   const formattedBusinessSavings = useMemo(
     () => formatCurrency(businessAnnualSavings, currencyCode),
     [currencyCode, businessAnnualSavings],
   )
 
-  const standardMonthlyPrice = useMemo(
-    () => getTierMonthlyPrice('standard', currencyCode),
-    [currencyCode],
-  )
-
   const businessMonthlyPrice = useMemo(
     () => getTierMonthlyPrice('business', currencyCode),
-    [currencyCode],
-  )
-
-  const discountedStandardMonthly = useMemo(
-    () => getDiscountedMonthlyPrice('standard', currencyCode),
     [currencyCode],
   )
 
@@ -226,19 +209,10 @@ export default function SaleLoyalty({
     [currencyCode],
   )
 
+  const loyaltyEventLabel = useMemo(() => getLoyaltyEventLabel(), [])
+  const isSaleExpired = countdownDate && countdownDate.getTime() <= Date.now()
+
   const tiers = useMemo(() => [
-    {
-      name: 'Upgrade to Standard',
-      id: 'tier-standard',
-      oldMonthlyPrice: formatCurrency(standardMonthlyPrice, currencyCode),
-      newMonthlyPrice: formatCurrency(discountedStandardMonthly, currencyCode),
-      priceSuffix: '/month',
-      creditLabel: formattedStandardSavings,
-      description: 'Best for internal knowledge sharing',
-      features: [...featuresMap.standard, FULL_COMPARISON_KEY],
-      featured: false,
-      onApply: onApplyStandard,
-    },
     {
       name: 'Upgrade to Business',
       id: 'tier-business',
@@ -246,7 +220,7 @@ export default function SaleLoyalty({
       newMonthlyPrice: formatCurrency(discountedBusinessMonthly, currencyCode),
       priceSuffix: '/month',
       creditLabel: formattedBusinessSavings,
-      description: 'For external support and improving CSAT',
+      description: 'Unlock Deep Research + MCP for external support teams',
       features: [...featuresMap.business, FULL_COMPARISON_KEY],
       featured: true,
       onApply: onApplyBusiness,
@@ -255,13 +229,15 @@ export default function SaleLoyalty({
     businessMonthlyPrice,
     currencyCode,
     discountedBusinessMonthly,
-    discountedStandardMonthly,
     formattedBusinessSavings,
-    formattedStandardSavings,
     onApplyBusiness,
-    onApplyStandard,
-    standardMonthlyPrice,
   ])
+
+  if (isSaleExpired) {
+    return null
+  }
+
+  const isSingleTier = tiers.length === 1
 
   return (
     <div className="relative isolate bg-white px-6 py-6 sm:py-12 lg:px-8">
@@ -285,7 +261,8 @@ export default function SaleLoyalty({
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-4xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl">
-      <strong>DocsBot <Link href="https://docsbot.ai/2026-plan-pricing-update-faq" target="_blank" className="text-cyan-700 underline">prices are changing</Link> on March 1, 2026.</strong> Your loyalty offer is ready. Upgrade early to unlock more features, higher limits, and 12 months of savings.
+        <strong>The DocsBot {loyaltyEventLabel} loyalty offer is live.</strong>{' '}
+        Upgrade to Business with an unparalleled offer to unlock more features, higher limits, and 12 months of savings.
       </p>
       <div className="mx-auto mt-8 max-w-4xl sm:mt-10">
         <div className="flex justify-center">
@@ -314,12 +291,20 @@ export default function SaleLoyalty({
           </RadioGroup>
         </div>
       </div>
-      <div className="mx-auto mt-6 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-10 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
+      <div
+        className={classNames(
+          'mx-auto mt-6 sm:mt-10',
+          isSingleTier
+            ? 'max-w-4xl'
+            : 'grid max-w-lg grid-cols-1 items-center gap-y-6 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2',
+        )}
+      >
         {tiers.map((tier, tierIdx) => (
           <div
             key={tier.id}
             className={classNames(
-              tier.featured ? 'relative bg-gray-900 shadow-2xl' : 'bg-white/60 sm:mx-8 lg:mx-0',
+              'w-full',
+              tier.featured ? 'relative bg-white shadow-2xl' : 'bg-white/60 sm:mx-8 lg:mx-0',
               tier.featured
                 ? ''
                 : tierIdx === 0
@@ -328,45 +313,47 @@ export default function SaleLoyalty({
               'rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10',
             )}
           >
-            <h3
-              id={tier.id}
-              className={classNames(
-                tier.featured ? 'text-cyan-400' : 'text-cyan-600',
-                'text-base font-semibold leading-7 uppercase text-left',
-              )}
-            >
-              {tier.name}
-            </h3>
-            <p className="mt-4 flex items-baseline gap-x-2">
-              <span
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <h3
+                id={tier.id}
                 className={classNames(
-                  tier.featured ? 'text-gray-300' : 'text-gray-500',
-                  'text-2xl leading-6 line-through',
+                  tier.featured ? 'text-cyan-600' : 'text-cyan-600',
+                  'text-base font-semibold leading-7 uppercase text-left',
                 )}
               >
-                {tier.oldMonthlyPrice}
-              </span>
-              <span
-                className={classNames(
-                  tier.featured ? 'text-white' : 'text-gray-900',
-                  'text-4xl font-semibold tracking-tight',
-                )}
-              >
-                {tier.newMonthlyPrice}
-              </span>
-              <span
-                className={classNames(
-                  tier.featured ? 'text-gray-400' : 'text-gray-500',
-                  'text-base font-semibold leading-6',
-                )}
-              >
-                {tier.priceSuffix}
-              </span>
-            </p>
+                {tier.name}
+              </h3>
+              <div className="flex items-baseline gap-x-2 text-left sm:justify-end sm:text-right">
+                <span
+                  className={classNames(
+                    tier.featured ? 'text-gray-500' : 'text-gray-500',
+                    'text-2xl leading-6 line-through',
+                  )}
+                >
+                  {tier.oldMonthlyPrice}
+                </span>
+                <span
+                  className={classNames(
+                    tier.featured ? 'text-gray-900' : 'text-gray-900',
+                    'text-4xl font-semibold tracking-tight',
+                  )}
+                >
+                  {tier.newMonthlyPrice}
+                </span>
+                <span
+                  className={classNames(
+                    tier.featured ? 'text-gray-500' : 'text-gray-500',
+                    'text-base font-semibold leading-6',
+                  )}
+                >
+                  {tier.priceSuffix}
+                </span>
+              </div>
+            </div>
             <p
               className={classNames(
-                tier.featured ? 'text-cyan-400' : 'text-cyan-600',
-                'mt-2 text-sm font-semibold tracking-wide',
+                tier.featured ? 'text-cyan-600' : 'text-cyan-600',
+                'mt-2 text-sm font-semibold tracking-wide text-right',
               )}
             >
               After {tier.creditLabel} loyalty credit
@@ -374,19 +361,25 @@ export default function SaleLoyalty({
             <ul
               role="list"
               className={classNames(
-                tier.featured ? 'text-gray-300' : 'text-gray-600',
-                'mt-4 space-y-3 text-base leading-6 sm:mt-6',
+                tier.featured ? 'text-gray-600' : 'text-gray-600',
+                'mt-4 grid grid-cols-1 gap-3 text-base leading-6 sm:mt-6 sm:grid-cols-2',
               )}
             >
               {tier.features.map((feature) => (
-                <li key={feature} className="flex gap-x-3">
+                <li
+                  key={feature}
+                  className={classNames(
+                    'flex gap-x-3',
+                    feature === FULL_COMPARISON_KEY && 'col-span-1 sm:col-span-2',
+                  )}
+                >
                   {feature === FULL_COMPARISON_KEY ? (
-                    <div className="pl-8">
+                    <div className="flex w-full justify-end pr-2 sm:pr-4">
                       <Link
                         href="/pricing?showLegacy=true"
                         target="_blank"
                         className={classNames(
-                          tier.featured ? 'text-cyan-400' : 'text-cyan-600',
+                          tier.featured ? 'text-cyan-600' : 'text-cyan-600',
                           'underline decoration-cyan-400 underline-offset-4',
                         )}
                       >
@@ -398,7 +391,7 @@ export default function SaleLoyalty({
                       <CheckIcon
                         aria-hidden="true"
                         className={classNames(
-                          tier.featured ? 'text-cyan-400' : 'text-cyan-700',
+                          tier.featured ? 'text-cyan-700' : 'text-cyan-700',
                           'h-6 w-5 flex-none',
                         )}
                       />
@@ -434,13 +427,13 @@ export default function SaleLoyalty({
       </div>
       <div className="mx-auto mt-10 max-w-3xl text-center text-md text-gray-500">
         <p>
-          Available exclusively for legacy Pro members.{' '}
-          <Link href="/pricing?showLegacy=true" target="_blank" className="font-semibold text-cyan-600 underline">
+          Available exclusively for Legacy Pro and Standard members.{' '}
+          <Link href="/pricing" target="_blank" className="font-semibold text-cyan-600 underline">
             View full plan comparison
-          </Link> or the <Link href="https://docsbot.ai/2026-plan-pricing-update-faq" target="_blank" className="font-semibold text-cyan-600 underline">FAQ</Link>.
+          </Link>.
         </p>
         <p className="mt-3 text-sm text-gray-400">
-          Credit must be applied by October 21, 2025, 11:59pm CST.
+          Credit must be applied by December 2, 2025, 9:00am CST.
         </p>
       </div>
     </div>

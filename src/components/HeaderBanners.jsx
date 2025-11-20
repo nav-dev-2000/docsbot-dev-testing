@@ -3,12 +3,10 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { CountdownTicker } from '@/components/SaleLoyalty'
+import SaleLoyalty, { CountdownTicker, LOYALTY_SALE_DEADLINE, getLoyaltyEventLabel } from '@/components/SaleLoyalty'
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import { canUserManageBilling } from '@/utils/function.utils'
 import { pricingTiers, currencies } from '@/constants/pricing.constants'
-import SaleLoyalty from '@/components/SaleLoyalty'
-import Alert from '@/components/Alert'
 import news from '/public/latest-news.json'
 import clsx from 'clsx'
 import * as cookie from 'cookie'
@@ -56,22 +54,6 @@ const isBannerDismissed = (dismissKey) => {
   if (!dismissKey) return false
   const prefs = getBannerPreferences()
   return prefs[`dismissed-${dismissKey}`] === true
-}
-
-// Check if an Alert component was dismissed (checks docsbot-prefs cookie)
-const isAlertDismissed = (dismissKey) => {
-  if (!dismissKey || typeof window === 'undefined') return false
-  try {
-    const cookies = cookie.parse(document.cookie || '')
-    const prefsValue = cookies['docsbot-prefs']
-    if (!prefsValue) return false
-    
-    const decoded = decodeURIComponent(prefsValue)
-    const parsed = JSON.parse(decoded)
-    return parsed[`dismissed-${dismissKey}`] === true
-  } catch (error) {
-    return false
-  }
 }
 
 const BUSINESS_ANNUAL_SAVINGS = {
@@ -173,23 +155,21 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
   const [isApplying, setIsApplying] = useState(false)
   const [error, setError] = useState(null)
   const [isDismissed, setIsDismissed] = useState(false)
-  const [showIntermediateAlert, setShowIntermediateAlert] = useState(true)
 
-  const deadline = useMemo(() => new Date('2025-10-22T04:59:00.000Z'), [])
+  const deadline = useMemo(() => new Date(LOYALTY_SALE_DEADLINE), [])
+  const loyaltyEventLabel = useMemo(() => getLoyaltyEventLabel(), [])
+  const isSaleExpired = deadline && deadline.getTime() <= Date.now()
   
-  const dismissKey = 'loyalty-banner-2025'
-  const intermediateAlertKey = 'legacy-plan-warning-2025'
+  const dismissKey = 'loyalty-banner-2025-business'
 
   const currentPlan = useMemo(() => {
     if (!team) return null
     return stripePlan(team)
   }, [team])
 
-  const isLegacyProPlan = useMemo(() => {
-    if (!currentPlan || currentPlan.id !== 'pro') return false
-    const tier = pricingTiers.find((t) => t.id === currentPlan.id)
-    return tier?.legacy === true
-  }, [currentPlan])
+  const isProPlan = useMemo(() => currentPlan?.id === 'pro', [currentPlan?.id])
+
+  const isStandardPlan = useMemo(() => currentPlan?.id === 'standard', [currentPlan?.id])
 
   const isStripeCustomer = useMemo(() => {
     if (!team?.stripeCustomerId) return false
@@ -202,7 +182,12 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
     return canUserManageBilling(team, user.uid)
   }, [team, user?.uid])
 
-  const showOffer = Boolean(team && canManageBilling && isLegacyProPlan && isStripeCustomer)
+  const showOffer = Boolean(
+    team &&
+    canManageBilling &&
+    isStripeCustomer &&
+    (isProPlan || isStandardPlan)
+  )
 
   const maxSavings = useMemo(() => {
     const currencyCode = team?.stripeSubscriptionCurrency?.toUpperCase()
@@ -255,7 +240,6 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
     [team?.id],
   )
 
-  const handleApplyStandard = useCallback(() => applyCredit('standard'), [applyCredit])
   const handleApplyBusiness = useCallback(() => applyCredit('business'), [applyCredit])
 
   const handleDismiss = (e) => {
@@ -263,13 +247,6 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
     setIsDismissed(true)
     setBannerPreference(`dismissed-${dismissKey}`, true, 7) // 7 days
   }
-
-  useEffect(() => {
-    // Check if intermediate alert was dismissed
-    if (isAlertDismissed(intermediateAlertKey)) {
-      setShowIntermediateAlert(false)
-    }
-  }, [intermediateAlertKey])
 
   useEffect(() => {
     // Check if loyalty banner was dismissed
@@ -287,33 +264,7 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
   }, [showOffer, isModalOpen])
 
   if (!showOffer) return null
-
-  // Show intermediate alert first
-  if (showIntermediateAlert) {
-    return (
-      <div className="pt-4">
-        <div className={clsx('mx-auto px-4 sm:px-6 md:px-8', fullWidth ? '' : 'max-w-7xl')}>
-          <Alert 
-            title="You're on a Legacy Plan" 
-            type="warning"
-            dismissKey={intermediateAlertKey}
-          >
-            <p>
-              You're currently on the {currentPlan?.name} plan, which is no longer available to new customers since May, 2025. 
-              While you can continue using this plan{' '}
-              <Link href="https://docsbot.ai/2026-plan-pricing-update-faq" target="_blank" className="font-semibold underline hover:text-yellow-600">
-                for now
-              </Link>
-              , we have an exclusive loyalty offer available to help you upgrade to one of our current plans with significant savings.{' '}
-              <Link href="/app/account" className="font-semibold underline hover:text-yellow-600">
-                View your offer &rarr;
-              </Link>
-            </p>
-          </Alert>
-        </div>
-      </div>
-    )
-  }
+  if (isSaleExpired) return null
 
   // Once intermediate alert is dismissed, show loyalty banner (if not dismissed)
   if (isDismissed) return null
@@ -332,7 +283,9 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
                 <MegaphoneIcon className="h-5 w-5" aria-hidden="true" />
               </span>
               <div className="flex flex-1 flex-col items-start gap-0.5 text-sm sm:text-base xl:flex-none xl:flex-row xl:items-center xl:gap-2">
-                <span className="font-semibold">Loyalty credit available: Save up to {maxSavings} this year</span>
+                <span className="font-semibold">
+                  {loyaltyEventLabel} loyalty credit available: Save up to {maxSavings} this year
+                </span>
                 <span className="hidden xl:inline">—</span>
                 <span className="text-xs sm:text-sm">
                   Expires <CountdownTicker deadline={deadline} className="font-semibold text-white" />
@@ -401,10 +354,9 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
                   <div className="px-0 pb-6 pt-6 sm:pb-8 sm:pt-8">
                     <SaleLoyalty
                       team={team}
-                      onApplyStandard={handleApplyStandard}
                       onApplyBusiness={handleApplyBusiness}
                       isProcessing={isApplying}
-                      expiresAt="2025-10-22T04:59:00.000Z"
+                      expiresAt={new Date(LOYALTY_SALE_DEADLINE)}
                     />
                   </div>
                 </Dialog.Panel>
