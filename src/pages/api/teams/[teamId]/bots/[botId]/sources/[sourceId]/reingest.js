@@ -5,7 +5,12 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
 import { QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isSuperAdmin } from '@/utils/helpers'
-import { canSourceTypeSchedule, isTrutoSourceType, sourceTypes } from '@/constants/sourceTypes.constants'
+import {
+  canSourceTypeSchedule,
+  isTrutoSourceType,
+  sourceTypes,
+  YOUTUBE_PLAYLIST_REGEX,
+} from '@/constants/sourceTypes.constants'
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
@@ -46,6 +51,13 @@ export default async function handler(req, res) {
       return res
         .status(403)
         .json({ message: 'Only sources of a dynamic type (URLs) can be refreshed!' })
+    }
+
+    if (source.type === 'youtube' && !YOUTUBE_PLAYLIST_REGEX.test(source.url)) {
+      return res.status(400).json({
+        message:
+          'Only YouTube playlist sources support refresh scheduling. Please delete and recreate this source with a playlist URL.',
+      })
     }
 
     try {
@@ -159,6 +171,13 @@ export default async function handler(req, res) {
       return res
         .status(403)
         .json({ message: 'Only sources of a dynamic type (URLs) can be refreshed!' })
+    }
+
+    if (source.type === 'youtube' && !YOUTUBE_PLAYLIST_REGEX.test(source.url)) {
+      return res.status(400).json({
+        message:
+          'Only YouTube playlist sources support refresh scheduling. Please delete and recreate this source with a playlist URL.',
+      })
     }
 
     let crawlerJSFlag = false

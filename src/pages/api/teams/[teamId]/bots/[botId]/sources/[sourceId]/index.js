@@ -6,7 +6,7 @@ import { stripePlan } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
+import { isTrutoSourceType, YOUTUBE_PLAYLIST_REGEX } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
@@ -59,9 +59,11 @@ export default async function handler(req, res) {
         .json({ message: 'Only new failed sources can be retried currently.' })
     }
 
-    // Error if it's a YouTube source
-    if (source.type === 'youtube') {
-      return res.status(400).json({ message: 'YouTube sources cannot be retried manually. Please delete and recreate the source.' })
+    // Error if it's a YouTube video source (playlists are allowed to retry)
+    if (source.type === 'youtube' && !YOUTUBE_PLAYLIST_REGEX.test(source.url)) {
+      return res
+        .status(400)
+        .json({ message: 'YouTube video sources cannot be retried manually. Please delete and recreate the source.' })
     }
 
     if (isTrutoSourceType(source.type)) {

@@ -37,6 +37,9 @@ import GongLogo from '@/components/GongLogo'
 import OutlookLogo from '@/components/OutlookLogo'
 import GmailLogo from '@/components/GmailLogo'
 
+export const YOUTUBE_PLAYLIST_REGEX =
+  /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/playlist\?list=[\w-]+/
+
 export const sourceTypes = [
    // Web
    {
@@ -154,7 +157,7 @@ export const sourceTypes = [
     fieldUrl: 'required',
     fieldTitle: false,
     fieldFile: false,
-    fieldSchedule: false,
+    fieldSchedule: true,
     fieldQA: false,
     fieldImages: false,
     category: 'Web',

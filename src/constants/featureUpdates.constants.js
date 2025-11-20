@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-11-20',
+    title: 'Schedule YouTube playlist refreshes',
+    description:
+      'Schedule automatic retries and refreshes for eligible YouTube playlist sources directly from the sources form.',
+  },
+  {
     date: '2025-11-15',
     title: 'GPT-5.1 Model Support',
     description:

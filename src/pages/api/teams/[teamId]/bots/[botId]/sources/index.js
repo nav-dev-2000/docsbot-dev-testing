@@ -11,7 +11,11 @@ import {
 import { stripePlan, checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
-import { sourceTypes, isTrutoSourceType } from '@/constants/sourceTypes.constants'
+import {
+  sourceTypes,
+  isTrutoSourceType,
+  YOUTUBE_PLAYLIST_REGEX,
+} from '@/constants/sourceTypes.constants'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isValidURL } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
@@ -127,6 +131,12 @@ export default async function handler(req, res) {
         return res.status(400).send({
           message:
             'Invalid YouTube URL. Please provide a valid video or playlist URL; channel URLs are not supported.',
+        })
+      }
+
+      if (scheduleInterval && scheduleInterval !== 'none' && !YOUTUBE_PLAYLIST_REGEX.test(url)) {
+        return res.status(400).send({
+          message: 'YouTube refresh scheduling is only available for playlist URLs.',
         })
       }
     }
