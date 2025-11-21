@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
@@ -42,6 +42,32 @@ const iconMap = {
   'life-ring': faLifeRing,
   question: faQuestion,
   book: faBook,
+}
+
+const PRESET_COLORS = [
+  '#F44336',
+  '#E91E63',
+  '#9C27B0',
+  '#673AB7',
+  '#3F51B5',
+  '#2196F3',
+  '#03A9F4',
+  '#00BCD4',
+  '#009688',
+  '#4CAF50',
+  '#FFEB3B',
+  '#FF9800',
+  '#FF5722',
+  '#607D8B',
+  '#FFFFFF',
+  '#000000',
+]
+
+const transparentCheckerboardStyle = {
+  backgroundImage:
+    'linear-gradient(45deg, #f3f4f6 25%, transparent 25%), linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f3f4f6 75%), linear-gradient(-45deg, transparent 75%, #f3f4f6 75%)',
+  backgroundSize: '8px 8px',
+  backgroundPosition: '0 0, 0 4px, 4px -4px, -4px 0px',
 }
 
 function Widget({ team, bot }) {
@@ -94,9 +120,25 @@ function Widget({ team, bot }) {
       checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
       false,
   )
+  const [showColorPicker, setShowColorPicker] = useState(false)
   const iconRef = useRef(null)
   const avatarRef = useRef(null)
   const logoRef = useRef(null)
+  const colorPickerRef = useRef(null)
+
+  const brandLogos = useMemo(() => bot?.brandAnalysis?.logos || [], [bot])
+  const brandIcons = useMemo(
+    () => brandLogos.filter((logo) => logo.type === 'icon'),
+    [brandLogos],
+  )
+  const brandIconOptions = useMemo(
+    () => (brandIcons.length > 0 ? brandIcons : brandLogos),
+    [brandIcons, brandLogos],
+  )
+  const brandColors = useMemo(
+    () => bot?.brandAnalysis?.colors || [],
+    [bot],
+  )
 
   useEffect(() => {
     if (!team || !user) return
@@ -133,6 +175,25 @@ function Widget({ team, bot }) {
       avatarRef.current.click()
     }
   }, [icon, botIcon])
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        colorPickerRef.current &&
+        !colorPickerRef.current.contains(event.target)
+      ) {
+        setShowColorPicker(false)
+      }
+    }
+
+    if (showColorPicker) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showColorPicker])
 
   function handleFileChange(e, type) {
     const file = e.target.files[0]
@@ -413,50 +474,234 @@ function Widget({ team, bot }) {
                         isNew={true}
                       />
                     </div>
-                    <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-                      <div className="flex-none">
-                        <label className="mb-2 block text-sm font-medium text-gray-900">
-                          Widget Color
-                        </label>
-                        <SketchPicker
-                          color={color}
-                          onChange={(color) => setColor(color.hex)}
-                          disableAlpha={true}
-                          presetColors={[
-                            '#F44336',
-                            '#E91E63',
-                            '#9C27B0',
-                            '#673AB7',
-                            '#3F51B5',
-                            '#2196F3',
-                            '#03A9F4',
-                            '#00BCD4',
-                            '#009688',
-                            '#4CAF50',
-                            '#FFEB3B',
-                            '#FF9800',
-                            '#FF5722',
-                            '#607D8B',
-                            '#FFFFFF',
-                            '#000000',
-                          ]}
-                        />
+                    <div className="grid gap-6 lg:grid-cols-2">
+                      <div className="space-y-6">
+                        <div>
+                          <label className="mb-2 block text-sm font-medium text-gray-900">
+                            Widget Color
+                          </label>
+                          <div className="relative mt-2 flex flex-wrap gap-4">
+                            <div className="flex items-center">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setShowColorPicker(!showColorPicker)
+                                }
+                                className="flex items-center gap-3 rounded-md border border-gray-300 px-3 py-2 shadow-sm hover:border-gray-400"
+                              >
+                                <span
+                                  className="h-8 w-8 rounded border border-gray-200"
+                                  style={{ backgroundColor: color }}
+                                />
+                                <span className="text-sm text-gray-700">
+                                  {color}
+                                </span>
+                              </button>
+                              {showColorPicker && (
+                                <div
+                                  ref={colorPickerRef}
+                                  className="absolute left-0 top-full z-10 mt-2"
+                                >
+                                  <SketchPicker
+                                    color={color}
+                                    onChange={(newColor) =>
+                                      setColor(newColor.hex)
+                                    }
+                                    disableAlpha={true}
+                                    presetColors={PRESET_COLORS}
+                                  />
+                                </div>
+                              )}
+                            </div>
+                            {brandColors.length > 0 && (
+                              <div className="-mt-3">
+                                <p className="mb-2 text-xs text-gray-500">
+                                  Detected brand colors:
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {brandColors.map((brandColor, index) => (
+                                    <button
+                                      key={`${brandColor.hex}-${index}`}
+                                      type="button"
+                                      onClick={() => setColor(brandColor.hex)}
+                                      className={`relative flex h-10 w-10 items-center justify-center rounded-md border-2 transition-all ${
+                                        color.toLowerCase() ===
+                                        brandColor.hex.toLowerCase()
+                                          ? 'border-cyan-600 ring-2 ring-cyan-600 ring-offset-2'
+                                          : 'border-gray-300 hover:border-gray-400'
+                                      }`}
+                                      title={brandColor.name || brandColor.hex}
+                                    >
+                                      <span
+                                        className="h-8 w-8 rounded"
+                                        style={{ backgroundColor: brandColor.hex }}
+                                      />
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        <div>
+                          <FieldRadioIcon
+                            type="bot"
+                            label="Bot Avatar"
+                            icon={botIcon}
+                            setIcon={setBotIcon}
+                            disabled={isUpdating}
+                            imageOptions={brandIconOptions}
+                          />
+                          <input
+                            ref={avatarRef}
+                            type="file"
+                            accept="image/png, image/jpeg, image/gif, image/webp"
+                            onChange={(e) => handleFileChange(e, 'avatar')}
+                            className="sr-only"
+                          />
+                        </div>
+                        <div className="space-y-6">
+                          <div className="w-full">
+                            <label
+                              htmlFor="logo"
+                              className="block text-sm font-medium text-gray-900"
+                            >
+                              Header Logo
+                            </label>
+                            {brandLogos.length > 0 && (
+                              <div className="mt-2">
+                                <p className="mb-2 text-xs text-gray-500">
+                                  Detected brand logos:
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {brandLogos.map((brandLogo, index) => (
+                                    <button
+                                      key={`${brandLogo.url}-${index}`}
+                                      type="button"
+                                      onClick={() => setLogo(brandLogo.url)}
+                                      className={
+                                        'relative flex h-16 w-20 items-center justify-center rounded-md border-2 p-2 transition-all ' +
+                                        (logo === brandLogo.url
+                                          ? 'border-cyan-600 ring-2 ring-cyan-600 ring-offset-2'
+                                          : 'border-gray-200 hover:border-gray-400')
+                                      }
+                                      style={transparentCheckerboardStyle}
+                                    >
+                                      <img
+                                        src={brandLogo.url}
+                                        alt={`${brandLogo.type || 'brand'} logo`}
+                                        className="max-h-full max-w-full object-contain"
+                                      />
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            <div className="relative mt-2 flex items-center gap-x-3">
+                              {logo ? (
+                                <div
+                                  className="relative flex h-12 min-w-32 items-center justify-center rounded border border-gray-200 px-3 py-1"
+                                  style={transparentCheckerboardStyle}
+                                >
+                                  <img
+                                    src={logo}
+                                    alt="logo"
+                                    className="max-h-10 w-auto max-w-full"
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => setLogo(null)}
+                                    className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                                  >
+                                    <XMarkIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                                    <span className="sr-only">Remove logo</span>
+                                  </button>
+                                </div>
+                              ) : (
+                                <PhotoIcon
+                                  className="h-12 w-12 text-gray-300"
+                                  aria-hidden="true"
+                                />
+                              )}
+                              <input
+                                ref={logoRef}
+                                type="file"
+                                id="logo"
+                                accept="image/png, image/jpeg, image/gif, image/webp"
+                                onChange={(e) => handleFileChange(e, 'logo')}
+                                className="sr-only"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => logoRef.current.click()}
+                                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                              >
+                                {logo ? 'Change' : 'Upload'}
+                              </button>
+                            </div>
+                          </div>
+                          <div className="w-full">
+                            <label className="block text-sm font-medium text-gray-900">
+                              Header Alignment
+                            </label>
+                            <fieldset className="mt-4">
+                              <legend className="sr-only">Alignment</legend>
+                              <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
+                                <div className="flex items-center">
+                                  <input
+                                    id="logo-left"
+                                    name="headerAlignment"
+                                    type="radio"
+                                    checked={headerAlignment === 'left'}
+                                    onChange={() => setHeaderAlignment('left')}
+                                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                  />
+                                  <label
+                                    htmlFor="logo-left"
+                                    className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                  >
+                                    Left
+                                  </label>
+                                </div>
+                                <div className="flex items-center">
+                                  <input
+                                    id="logo-center"
+                                    name="headerAlignment"
+                                    type="radio"
+                                    checked={headerAlignment === 'center'}
+                                    onChange={() => setHeaderAlignment('center')}
+                                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                  />
+                                  <label
+                                    htmlFor="logo-center"
+                                    className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                                  >
+                                    Center
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-col justify-between space-y-4 sm:space-y-0">
-                        <FieldRadioIcon
-                          type="icon"
-                          label="Button Icon"
-                          icon={icon}
-                          setIcon={setIcon}
-                          disabled={isUpdating}
-                        />
-                        <input
-                          ref={iconRef}
-                          type="file"
-                          accept="image/png, image/jpeg, image/gif, image/webp"
-                          onChange={(e) => handleFileChange(e, 'icon')}
-                          className="sr-only"
-                        />
+                      <div className="space-y-4">
+                        <div>
+                          <FieldRadioIcon
+                            type="icon"
+                            label="Button Icon"
+                            icon={icon}
+                            setIcon={setIcon}
+                            disabled={isUpdating}
+                            imageOptions={brandIconOptions}
+                          />
+                          <input
+                            ref={iconRef}
+                            type="file"
+                            accept="image/png, image/jpeg, image/gif, image/webp"
+                            onChange={(e) => handleFileChange(e, 'icon')}
+                            className="sr-only"
+                          />
+                        </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
                             Button Alignment
@@ -531,115 +776,6 @@ function Widget({ team, bot }) {
                             />
                           </div>
                         </div>
-                      </div>
-                    </div>
-
-                    <FieldRadioIcon
-                      type="bot"
-                      label="Bot Avatar"
-                      icon={botIcon}
-                      setIcon={setBotIcon}
-                      disabled={isUpdating}
-                    />
-                    <input
-                      ref={avatarRef}
-                      type="file"
-                      accept="image/png, image/jpeg, image/gif, image/webp"
-                      onChange={(e) => handleFileChange(e, 'avatar')}
-                      className="sr-only"
-                    />
-                    <div className="flex flex-col justify-between space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0">
-                      <div className="w-full">
-                        <label
-                          htmlFor="logo"
-                          className="block text-sm font-medium text-gray-900"
-                        >
-                          Header Logo
-                        </label>
-                        <div className="relative mt-2 flex items-center gap-x-3">
-                          {logo ? (
-                            <div className="flex">
-                              <img
-                                src={logo}
-                                alt="logo"
-                                className="max-h-9 w-auto group-hover:opacity-75"
-                              />
-                              <button
-                                type="button"
-                                onClick={() => setLogo(null)}
-                                className="focus:outline-none"
-                              >
-                                <XMarkIcon
-                                  className="h-4 w-4 text-gray-400 hover:text-gray-500"
-                                  aria-hidden="true"
-                                />
-                                <span className="sr-only">Remove logo</span>
-                              </button>
-                            </div>
-                          ) : (
-                            <PhotoIcon
-                              className="h-12 w-12 text-gray-300"
-                              aria-hidden="true"
-                            />
-                          )}
-                          <input
-                            ref={logoRef}
-                            type="file"
-                            id="logo"
-                            accept="image/png, image/jpeg, image/gif, image/webp"
-                            onChange={(e) => handleFileChange(e, 'logo')}
-                            className="sr-only"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => logoRef.current.click()}
-                            className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                          >
-                            {logo ? 'Change' : 'Upload'}
-                          </button>
-                        </div>
-                      </div>
-                      <div className="w-full">
-                        <label className="block text-sm font-medium text-gray-900">
-                          Header Alignment
-                        </label>
-                        <fieldset className="mt-4">
-                          <legend className="sr-only">Alignment</legend>
-                          <div className="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-                            <div className="flex items-center">
-                              <input
-                                id="logo-left"
-                                name="headerAlignment"
-                                type="radio"
-                                checked={headerAlignment === 'left'}
-                                onChange={() => setHeaderAlignment('left')}
-                                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
-                              />
-                              <label
-                                htmlFor="logo-left"
-                                className="ml-3 block text-sm font-medium leading-6 text-gray-900"
-                              >
-                                Left
-                              </label>
-                            </div>
-                            <div className="flex items-center">
-                              <input
-                                id="logo-center"
-                                name="headerAlignment"
-                                type="radio"
-                                checked={headerAlignment === 'center'}
-                                onChange={() => setHeaderAlignment('center')}
-                                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
-                              />
-                              <label
-                                htmlFor="logo-center"
-                                className="ml-3 block text-sm font-medium leading-6 text-gray-900"
-                              >
-                                Center
-                              </label>
-                            </div>
-                          </div>
-                        </fieldset>
                       </div>
                     </div>
 
