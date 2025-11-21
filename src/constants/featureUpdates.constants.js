@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-11-21',
+    title: 'Widget Settings Refresh',
+    description:
+      'Widget settings now show detected brand colors, logos, icons, and avatar options when available for faster edits.',
+  },
+  {
     date: '2025-11-20',
     title: 'Schedule YouTube playlist refreshes',
     description:
