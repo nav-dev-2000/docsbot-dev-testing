@@ -39,7 +39,7 @@ const Title = ({ content, className }) => {
     return (
         <h1
             className={clsx(
-                'relative text-neutral-50 text-7xl font-semibold tracking-tight text-pretty',
+                'relative text-neutral-50 text-6xl md:text-7xl font-semibold tracking-tight text-pretty',
                 className
             )}
         >

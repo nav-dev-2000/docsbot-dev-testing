@@ -3,13 +3,12 @@ import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { ChatBotActions, ChatBubble, SonarPulse } from "@/components/customer-support/animation-elements";
 import { CircularRevealTransition, BlurCrossfadeTransition } from "@/components/customer-support/transitions";
-import circuit from "@/images/app-demo/circuit-pattern.png";
 import ZendeskLogo from "@/components/ZendeskLogo";
 import RobotIconSolid from "@/components/RobotIconSolid";
 import { FaceSmileIcon } from "@heroicons/react/24/outline";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
-const SceneOne = memo(() => {
+const SceneOne = memo(({ onComplete }) => {
     const prefersReducedMotion = useReducedMotion();
     const bubbleProps = {
         shadowSize: 'md',
@@ -31,9 +30,23 @@ const SceneOne = memo(() => {
     const [showActions, setShowActions] = useState(false)
 
     useEffect(() => {
-        const id = setTimeout(() => setShowActions(true), delay3 * 1000)
-        return () => clearTimeout(id)
-    }, [])
+        const actionsDelayMs = prefersReducedMotion ? 0 : delay3 * 1000;
+        const totalDurationMs = prefersReducedMotion ? 0 : (delay3 + DUR_3) * 1000;
+
+        const actionsTimer = setTimeout(() => setShowActions(true), actionsDelayMs);
+
+        let completeTimer;
+        if (onComplete) {
+            completeTimer = setTimeout(() => {
+                onComplete();
+            }, totalDurationMs + 800);
+        }
+
+        return () => {
+            clearTimeout(actionsTimer);
+            if (completeTimer) clearTimeout(completeTimer);
+        };
+    }, [prefersReducedMotion, onComplete]);
 
     return (
         <div className="size-full bg-gradient-to-r from-teal-200 to-cyan-600">
@@ -95,8 +108,17 @@ const SceneOne = memo(() => {
 });
 SceneOne.displayName = 'SceneOne';
 
-const SceneTwo = memo(() => {
+const SceneTwo = memo(({ onComplete, timeout = 2500 }) => {
     const prefersReducedMotion = useReducedMotion();
+
+    useEffect(() => {
+        if (!onComplete) return;
+        const timer = setTimeout(() => {
+            onComplete();
+        }, timeout);
+        return () => clearTimeout(timer);
+    }, [onComplete, timeout]);
+
     const boxCss = 'flex items-center justify-center rounded-lg shadow-md'
 
     const ConnectionDot = ({ delay = 0 }) => (
@@ -143,7 +165,7 @@ const SceneTwo = memo(() => {
             className="pointer-events-none size-full relative bg-cyan-600"
             aria-hidden={true}
         >
-            <div className="overflow-hidden size-full max-w-[80%] lg:max-w-[60%] max-h-[100%] relative mx-auto">
+            <div className="overflow-hidden size-full sm:max-w-[80%] lg:max-w-[60%] max-h-[100%] relative mx-auto">
                 <div className="size-full flex flex-col items-center justify-center gap-8">
                     <SonarPulse sizeClass="size-96">
                         <ConnectionBot />
@@ -155,7 +177,7 @@ const SceneTwo = memo(() => {
 });
 SceneTwo.displayName = 'SceneTwo';
 
-const SceneThree = memo(() => {
+const SceneThree = memo(({ onComplete }) => {
     const prefersReducedMotion = useReducedMotion();
 
     const FormField = ({ label, content, isTextarea = false }) => {
@@ -238,6 +260,11 @@ const SceneThree = memo(() => {
                         ease: "easeOut",
                         delay: prefersReducedMotion ? 0 : 0.4,
                     }}
+                    onAnimationComplete={() => {
+                        if (onComplete) {
+                            setTimeout(() => onComplete(), 800)
+                        }
+                    }}
                 >
                     <TicketForm />
                 </motion.div>
@@ -247,21 +274,23 @@ const SceneThree = memo(() => {
 });
 SceneThree.displayName = 'SceneThree';
 
-export const SmartEscalation = () => {
-    // Phases: s1 -> reveal12 -> s2 -> reveal23 -> s3 -> blur31 -> (loop)
-    const [phase, setPhase] = useState("s1");
-    
-    // Per-phase dwell (ms)
-    const DWELL_MS = {
-      s1: 4400,
-      s2: 900,
-      s3: 3800,
-    };
+const MaskOne = () => {
+    return (
+        <div className="size-full bg-gradient-to-r from-teal-200 to-cyan-600" />
+    )
+}
 
+const MaskThree = () => {
+    return (
+        <div className="size-full bg-gradient-to-tr from-slate-100 to-slate-300" />
+    )
+}
+
+export const SmartEscalation = () => {
     const rootRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const lastActiveRef = useRef(null);
-    const timerRef = useRef(null);
+    const [phase, setPhase] = useState("s1");
 
     useEffect(() => {
         const node = rootRef.current;
@@ -293,46 +322,7 @@ export const SmartEscalation = () => {
     }, []);
 
     useEffect(() => {
-        // Do not schedule timers if tab panel is inactive
-        if (!isActive) return;
-
-        // Clear any previous timer
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
-            timerRef.current = null;
-        }
-
-        let id;
-        if (phase === "s1" || phase === "s2" || phase === "s3") {
-            const dwell = DWELL_MS[phase] ?? 2500;
-
-            id = window.setTimeout(() => {
-                if (phase === "s1") setPhase("reveal12");
-                if (phase === "s2") setPhase("reveal23");
-                if (phase === "s3") setPhase("blur31");
-            }, dwell);
-
-            timerRef.current = id;
-        }
-
-        return () => {
-            if (id) clearTimeout(id);
-
-            if (timerRef.current) {
-                clearTimeout(timerRef.current);
-                timerRef.current = null;
-            }
-        };
-    }, [phase, isActive]);
-
-    useEffect(() => {
         if (!isActive) {
-            // Stop and reset to initial state when inactive
-            if (timerRef.current) {
-                clearTimeout(timerRef.current);
-                timerRef.current = null;
-            }
-
             setPhase("s1");
         }
     }, [isActive]);
@@ -346,49 +336,62 @@ export const SmartEscalation = () => {
                 decoding="async"
             />
         );
-    } else if (phase === "s1") {
-        content = <SceneOne />;
-    } else if (phase === "reveal12") {
-        content = (
-            <CircularRevealTransition
-                from={SceneOne}
-                to={SceneTwo}
-                start
-                duration={0.9}
-                ease="easeInOut"
-                origin={{ xPercent: 50, yPercent: 50 }}
-                onComplete={() => setPhase("s2")}
-            />
-        );
-    } else if (phase === "s2") {
-        content = <SceneTwo />;
-    } else if (phase === "reveal23") {
-        content = (
-            <CircularRevealTransition
-                from={SceneTwo}
-                to={SceneThree}
-                start
-                duration={0.9}
-                ease="easeInOut"
-                origin={{ xPercent: 50, yPercent: 50 }}
-                onComplete={() => setPhase("s3")}
-            />
-        );
-    } else if (phase === "s3") {
-        content = <SceneThree />;
-    } else if (phase === "blur31") {
-        content = (
-            <BlurCrossfadeTransition
-                from={SceneThree}
-                to={SceneOne}
-                start
-                duration={0.6}
-                ease="easeOut"
-                onComplete={() => setPhase("s1")}
-            />
-        );
     } else {
-        content = <SceneOne />;
+        if (phase === "s1") {
+            content = (
+                <SceneOne
+                    onComplete={() => setPhase("t1")}
+                />
+            )
+        } else if (phase === "t1") {
+            content = (
+                <CircularRevealTransition
+                    from={SceneOne}
+                    to={SceneTwo}
+                    start
+                    duration={0.5}
+                    ease="easeInOut"
+                    origin={{ xPercent: 50, yPercent: 50 }}
+                    onComplete={() => setPhase("s2")}
+                />
+            )
+        } else if (phase === "s2") {
+            content = (
+                <SceneTwo
+                    onComplete={() => setPhase("t2")}
+                    timeout={1200}
+                />
+            );
+        } else if (phase === "t2") {
+            content = (
+                <CircularRevealTransition
+                    from={SceneTwo}
+                    to={MaskThree}
+                    start
+                    duration={0.5}
+                    ease="easeInOut"
+                    origin={{ xPercent: 50, yPercent: 50 }}
+                    onComplete={() => setPhase("s3")}
+                />
+            )
+        } else if (phase === "s3") {
+            content = (
+                <SceneThree
+                    onComplete={() => setPhase("t3")}
+                />
+            )
+        } else if (phase === "t3") {
+            content = (
+                <BlurCrossfadeTransition
+                    from={SceneThree}
+                    to={MaskOne}
+                    start
+                    duration={0.5}
+                    ease="easeOut"
+                    onComplete={() => setPhase("s1")}
+                />
+            )
+        }
     }
 
     return (

@@ -7,7 +7,7 @@ import { DocumentIcon } from "@heroicons/react/24/outline"
 import { CircularRevealTransition, BlurCrossfadeTransition } from "@/components/customer-support/transitions"
 import { ChatBubble, SonarPulse } from "@/components/customer-support/animation-elements"
 
-const SceneOne = () => {
+const SceneOne = ({ onComplete }) => {
     const bubbleProps = {
         shadowSize: 'md',
         shadowColor: 'gray-900/60',
@@ -45,6 +45,11 @@ const SceneOne = () => {
                         variants={slideIn}
                         transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                         className="w-full"
+                        onAnimationComplete={() => {
+                            if (onComplete) {
+                                setTimeout(() => onComplete(), 400)
+                            }
+                        }}
                     >
                         <ChatBubble
                             isBot={false}
@@ -59,7 +64,7 @@ const SceneOne = () => {
     )
 }
 
-const SceneTwo = () => {
+const SceneTwo = ({ onComplete, timeout = 2500 }) => {
     const boxCss = 'flex items-center justify-center rounded-lg shadow-md'
     const boxSize = 16
     const iconSize = boxSize / 2
@@ -83,6 +88,14 @@ const SceneTwo = () => {
         )
     }
 
+    useEffect(() => {
+        if (!onComplete) return
+
+        const timer = setTimeout(() => onComplete(), timeout)
+
+        return () => clearTimeout(timer)
+    }, [onComplete, timeout])
+
     return (
         <div className="size-full relative bg-cyan-600">
             <div className="overflow-hidden size-full max-w-[80%] lg:max-w-[60%] max-h-[100%] flex flex-col items-center justify-center gap-8 mx-auto">
@@ -96,7 +109,7 @@ const SceneTwo = () => {
     )
 }
 
-const SceneThree = () => {
+const SceneThree = ({ onComplete }) => {
     const bubbleProps = {
         shadowSize: 'md',
         shadowColor: 'gray-900/60',
@@ -140,6 +153,10 @@ const SceneThree = () => {
                             animate="visible"
                             variants={slideIn}
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                            onAnimationComplete={() => {
+                                if (!onComplete) return
+                                setTimeout(() => onComplete(), 400)
+                            }}
                         >
                             <ChatBubble
                                 isBot={true}
@@ -156,16 +173,20 @@ const SceneThree = () => {
     )
 }
 
+const MaskOne = () => {
+    return (
+        <div className="size-full bg-gradient-to-r from-cyan-600 to-cyan-300" />
+    )
+}
+
+const MaskTwo = () => {
+    return (
+        <div className="size-full relative bg-cyan-600" />
+    )
+}
+
 export const AccurateAnswers = () => {
-    // Phases: s1 -> reveal12 -> s2 -> reveal23 -> s3 -> blur31 -> (loop)
     const [phase, setPhase] = useState("s1");
-    
-    // Per-phase dwell (ms) — tweak to taste per scene
-    const DWELL_MS = {
-        s1: 2200,
-        s2: 900,
-        s3: 3800,
-    };
 
     const rootRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
@@ -201,46 +222,9 @@ export const AccurateAnswers = () => {
         return () => mo.disconnect();
     }, []);
 
-    // Phase scheduler (only runs when active)
-    useEffect(() => {
-        if (!isActive) return;
-
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
-            timerRef.current = null;
-        }
-
-        let id;
-        if (phase === "s1" || phase === "s2" || phase === "s3") {
-            const dwell = DWELL_MS[phase] ?? 2500;
-            
-            id = window.setTimeout(() => {
-                if (phase === "s1") setPhase("reveal12");
-                if (phase === "s2") setPhase("reveal23");
-                if (phase === "s3") setPhase("blur31");
-            }, dwell);
-
-            timerRef.current = id;
-        }
-
-        return () => {
-            if (id) clearTimeout(id);
-
-            if (timerRef.current) {
-                clearTimeout(timerRef.current);
-                timerRef.current = null;
-            }
-        };
-    }, [phase, isActive]);
-
     // Reset when inactive
     useEffect(() => {
         if (!isActive) {
-            if (timerRef.current) {
-                clearTimeout(timerRef.current);
-                timerRef.current = null;
-            }
-
             setPhase("s1");
         }
     }, [isActive]);
@@ -250,49 +234,62 @@ export const AccurateAnswers = () => {
         content = (
             <div className="size-full bg-cyan-300" loading="lazy" decoding="async" />
         );
-    } else if (phase === "s1") {
-        content = <SceneOne />;
-    } else if (phase === "reveal12") {
-        content = (
-            <CircularRevealTransition
-                from={SceneOne}
-                to={SceneTwo}
-                start
-                duration={0.9}
-                ease="easeInOut"
-                origin={{ xPercent: 50, yPercent: 50 }}
-                onComplete={() => setPhase("s2")}
-            />
-        );
-    } else if (phase === "s2") {
-        content = <SceneTwo />;
-    } else if (phase === "reveal23") {
-        content = (
-            <CircularRevealTransition
-                from={SceneTwo}
-                to={SceneThree}
-                start
-                duration={0.9}
-                ease="easeInOut"
-                origin={{ xPercent: 50, yPercent: 50 }}
-                onComplete={() => setPhase("s3")}
-            />
-        );
-    } else if (phase === "s3") {
-        content = <SceneThree />;
-    } else if (phase === "blur31") {
-        content = (
-            <BlurCrossfadeTransition
-                from={SceneThree}
-                to={SceneOne}
-                start
-                duration={0.6}
-                ease="easeOut"
-                onComplete={() => setPhase("s1")}
-            />
-        );
     } else {
-        content = <SceneOne />;
+        if (phase === "s1") {
+            content = (
+                <SceneOne
+                    onComplete={() => setPhase("t1")}
+                />
+            );
+        } else if (phase === "t1") {
+            content = (
+                <CircularRevealTransition
+                    from={SceneOne}
+                    to={MaskTwo}
+                    start
+                    duration={0.5}
+                    ease="easeInOut"
+                    origin={{ xPercent: 50, yPercent: 50 }}
+                    onComplete={() => setPhase("s2")}
+                />
+            );
+        } else if (phase === "s2") {
+            content = (
+                <SceneTwo
+                    onComplete={() => setPhase("t2")}
+                    timeout={1200}
+                />
+            );
+        } else if (phase === "t2") {
+            content = (
+                <CircularRevealTransition
+                    from={SceneTwo}
+                    to={MaskOne}
+                    start
+                    duration={0.5}
+                    ease="easeInOut"
+                    origin={{ xPercent: 50, yPercent: 50 }}
+                    onComplete={() => setPhase("s3")}
+                />
+            );
+        } else if (phase === "s3") {
+            content = (
+                <SceneThree
+                    onComplete={() => setPhase("t3")}
+                />
+            );
+        } else if (phase === "t3") {
+            content = (
+                <BlurCrossfadeTransition
+                    from={MaskOne}
+                    to={MaskTwo}
+                    start
+                    duration={0.5}
+                    ease="easeOut"
+                    onComplete={() => setPhase("s1")}
+                />
+            );
+        }
     }
 
     return (

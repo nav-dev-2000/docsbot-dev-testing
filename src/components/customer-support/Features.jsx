@@ -112,7 +112,7 @@ const FeaturesDesktop = ({ features }) => {
                             feature={{
                                 ...feature,
                                 name: (
-                                    <Tab className="data-selected:not-data-focus:outline-hidden">
+                                    <Tab className="outline-none">
                                         <span className="absolute inset-0" />
                                         {feature.name}
                                     </Tab>

@@ -19,15 +19,13 @@ const Conversation = () => {
     // Timing (seconds)
     const BUBBLE_DELAY = 1.5;  // delay between each animated bubble start
     const RESTART_DELAY = 2.5; // wait after the final bubble before loop restarts
-    const POP_IN = 0.30;       // pop/zoom-in duration for each bubble
+    const POP_IN = 0.50;       // pop/zoom-in duration for each bubble
     const GLOBAL_START_DELAY = 1.0; // delay before second bubble starts its pop-in
 
     const bubbles = [
         "Hello there, it's nice to meet you! What brings you here today?",
         "¿Podemos hablar en español?",
         "Claro, podemos hablar en español. ¿En qué puedo ayudarte hoy?",
-        "Parlez-vous français?",
-        "Oui, je parle français. Comment puis-je vous aider aujourd'hui?",
         "Which other languages do you speak?",
         "I can communicate in 100+ languages including English, Spanish, French, German, Italian, Portuguese, and more. Let me know if you'd like to continue in any specific language!",
     ];
@@ -62,11 +60,10 @@ const Conversation = () => {
                 return (
                     <motion.div
                         key={idx + 1}
-                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{
                             opacity: [0, 0, 1, 1, 0],            // off -> on at start -> stay on -> reset at loop end
                             y:       [10, 10, 0, 0, 0],          // slide up once, then hold position
-                            scale:   [0.9, 0.9, 1.06, 1.0, 1.0], // pop/overshoot -> settle -> hold
                         }}
                         transition={{
                             duration: totalDuration,
@@ -89,9 +86,10 @@ const Conversation = () => {
 
 const Chat = () => {
     return (
-        <div className="overflow-hidden h-full max-h-full flex flex-col rounded-t-lg bg-white shadow-lg">
+        <div className="overflow-hidden flex flex-col rounded-t-lg bg-white shadow-lg">
             <ChatHeader
                 className="flex-none"
+                isActive={true}
             />
 
             <Conversation />
@@ -125,7 +123,7 @@ export const MultilingualChat = () => {
       <div ref={rootRef} className="relative size-full bg-gradient-to-tr from-slate-100 to-slate-300">
         <h4 className="sr-only">Demo animation showing chat conversations in multiple languages</h4>
         {isActive && (
-            <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-10">
+            <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-5">
                 <Chat />
             </div>
         )}

@@ -214,13 +214,24 @@ export default function Header({transparent = false}) {
             <div className="pt-5 pb-6">
               <div className="space-y-1 px-2">
                 {NAVIGATION.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
-                  >
-                    {item.name}
-                  </a>
+                  <>
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </a>
+                    {item.children && item.children.map((subitem) => (
+                      <a
+                        key={subitem.name}
+                        href={subitem.href}
+                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
+                      >
+                        → {subitem.name}
+                      </a>
+                    ))}
+                  </>
                 ))}
               </div>
               <div className="mt-6 px-5">
