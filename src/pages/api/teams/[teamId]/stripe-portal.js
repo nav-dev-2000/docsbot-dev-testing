@@ -122,6 +122,18 @@ export default async function createCheckoutSession(req, res) {
         const teamInvites = await getInvitesFromTeam(team.id)
         const neededProducts = getNeededStripeProduct(team, teamInvites)
 
+        const sanitizeSubscriptionUpdateFeatures = (features) => {
+          if (!features?.subscription_update) return features
+          const subscriptionFeatures = features.subscription_update
+          if (
+            subscriptionFeatures.billing_cycle_anchor === '' ||
+            subscriptionFeatures.billing_cycle_anchor === null
+          ) {
+            delete subscriptionFeatures.billing_cycle_anchor
+          }
+          return features
+        }
+
         // If upgrading to a specific tier, validate the target tier can support current usage
         if (upgrade && tier) {
           const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
@@ -182,7 +194,7 @@ export default async function createCheckoutSession(req, res) {
                   privacy_policy_url: 'https://docsbot.ai/legal/privacy-policy',
                   terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service',
                 },
-                features: existingConfig.features,
+                features: sanitizeSubscriptionUpdateFeatures(existingConfig.features),
               })
               configId = newConfig?.id
               console.log('New portal config created', configId)
