@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Section, SectionContent } from "@/components/customer-support/elements";
 import { Banner } from "./call-to-action";
@@ -5,12 +6,23 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
 export const Faq = ({ title, description, data, banner }) => {
     return (
-        <Section>
+        <Section
+            className={clsx({
+                ['pt-8 lg:pt-8']: !Boolean(title && description),
+            })}
+        >
             <SectionContent
                 title={title}
                 description={description}
             >
-                <div className="lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                <div
+                    className={clsx(
+                        'grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8',
+                        {
+                            ['lg:mt-10']: Boolean(title || description),
+                        },
+                    )}
+                >
                     {data?.map((faq) => (
                         <Disclosure key={faq.question} className="group" as="div">
                             <div>
