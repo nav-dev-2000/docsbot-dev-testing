@@ -35,6 +35,36 @@ const relevantEvents = new Set([
   'radar.early_fraud_warning.created',
 ])
 
+const findConfiguredPlan = (items, configuredPlans) => {
+  if (!items?.length) return null
+
+  for (const item of items) {
+    const itemPlan = item.plan
+
+    if (configuredPlans) {
+      for (const planKey in configuredPlans) {
+        const configuredPlan = configuredPlans[planKey]
+
+        for (const frequency in configuredPlan.prices.current) {
+          if (configuredPlan.prices.current[frequency] === itemPlan.id) {
+            return itemPlan
+          }
+        }
+
+        if (configuredPlan.prices.old) {
+          for (const oldPrice of configuredPlan.prices.old) {
+            if (oldPrice === itemPlan.id) {
+              return itemPlan
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return items[0]?.plan ?? null
+}
+
 //add Slack webhook
 const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL, {
   username: 'DocsBot-AI',
@@ -67,6 +97,9 @@ const webhookHandler = async (req, res) => {
             await firestore.runTransaction(async (transaction) => {
               const subscription = event.data.object
               const teamsCollection = firestore.collection('teams')
+              const configuredPlans =
+                process?.env?.NEXT_PUBLIC_STRIPE_PLANS &&
+                JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
 
               // get team by customer id
               let teamsRef = await transaction.get(
@@ -94,42 +127,13 @@ const webhookHandler = async (req, res) => {
               // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
               let plan = subscription.plan
               if (!plan && subscription.items?.data) {
-                if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
-                  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-                  
-                  // Look through all subscription items to find the one that matches our configured plans
-                  for (const item of subscription.items.data) {
-                    const itemPlan = item.plan
-                    // Check if this price ID exists in our configured plans
-                    for (const planKey in plans) {
-                      const configuredPlan = plans[planKey]
-                      // Check current prices
-                      for (const frequency in configuredPlan.prices.current) {
-                        if (configuredPlan.prices.current[frequency] === itemPlan.id) {
-                          plan = itemPlan
-                          break
-                        }
-                      }
-                      // Check old prices if no match found in current
-                      if (!plan && configuredPlan.prices.old) {
-                        for (const oldPrice of configuredPlan.prices.old) {
-                          if (oldPrice === itemPlan.id) {
-                            plan = itemPlan
-                            break
-                          }
-                        }
-                      }
-                      if (plan) break
-                    }
-                    if (plan) break
-                  }
-                }
-                
-                // Fallback to first item if no match found in configured plans
-                if (!plan) {
-                  plan = subscription.items.data[0].plan
-                }
+                plan = findConfiguredPlan(subscription.items.data, configuredPlans)
               }
+
+              const previousItems = event.data.previous_attributes?.items?.data
+              const previousPlan = previousItems
+                ? findConfiguredPlan(previousItems, configuredPlans)
+                : null
 
               // save subscription to team
               const updateData = {
@@ -163,8 +167,8 @@ const webhookHandler = async (req, res) => {
 
               //if changing plan
               if (
-                event.data.previous_attributes?.items?.data[0]?.plan?.id &&
-                event.data.previous_attributes?.items?.data[0]?.plan?.id !== plan.id
+                previousPlan?.id &&
+                previousPlan.id !== plan.id
               ) {
                 // Send the Slack notification
                 try {
@@ -184,11 +188,11 @@ const webhookHandler = async (req, res) => {
                           {
                             title: 'Old Amount',
                             value: `${
-                              event.data.previous_attributes.items.data[0].plan.currency == 'jpy'
-                                ? event.data.previous_attributes.items.data[0].plan.amount
-                                : event.data.previous_attributes.items.data[0].plan.amount / 100
-                            } ${event.data.previous_attributes.items.data[0].plan.currency.toUpperCase()} ${
-                              event.data.previous_attributes.items.data[0].plan.interval
+                              previousPlan.currency == 'jpy'
+                                ? previousPlan.amount
+                                : previousPlan.amount / 100
+                            } ${previousPlan.currency.toUpperCase()} ${
+                              previousPlan.interval
                             }ly`,
                             short: true,
                           },
