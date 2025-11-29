@@ -12,6 +12,7 @@ import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
 import Alert from '@/components/Alert'
 import { usePostHog } from 'posthog-js/react'
+import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
 
 export default function Cancel({ team, bots }) {
   const posthog = usePostHog()
@@ -39,7 +40,7 @@ export default function Cancel({ team, bots }) {
   }, [open])
 
   useEffect(() => {
-    if (currentStep === 3 && reason && details) {
+    if (currentStep === 4 && reason && details) {
       let prompt = `Cancelation reason: ${
         reasons.find((item) => item.id === reason).value
       }\nFollowup question: ${
@@ -183,6 +184,10 @@ export default function Cancel({ team, bots }) {
       text: "We're sorry to see you go! To start the cancellation process for your DocsBot AI subscription, click 'Next'. Your feedback is valuable to us, and we'd appreciate it if you could share your reasons for cancellation in the next steps.",
     },
     {
+      title: 'See What’s New',
+      text: 'With support from customers like you, we’ve been hard at work innovating and making DocsBot AI even better. Here are some of our favorite recent highlights:',
+    },
+    {
       title: 'Share Your Thoughts',
       text: 'Your feedback helps us improve DocsBot AI. Please select your main reason for cancelling your subscription from the options below.',
     },
@@ -199,6 +204,29 @@ export default function Cancel({ team, bots }) {
       text: "Are you absolutely sure you are ready to cancel your DocsBot AI plan? By clicking 'Confirm', cancellation will be scheduled for the end of your current billing period, after which all bots, question logs, reports, and other data will be deleted!",
     },
   ]
+
+  const FeatureHighlights = () => {
+    const recentUpdates = FEATURE_UPDATES.slice(0, 6)
+
+    return (
+      <div className="mt-6">
+        <div className="grid gap-4 sm:grid-cols-2">
+          {recentUpdates.map((update) => (
+            <div
+              key={`${update.date}-${update.title}`}
+              className="flex h-full flex-col justify-between rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
+            >
+              <div>
+                <h4 className="text-sm font-semibold text-gray-900">{update.title}</h4>
+                <p className="mt-2 text-sm text-gray-600">{update.description}</p>
+              </div>
+              <p className="mt-4 text-xs font-medium text-cyan-700">{update.date}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   const reasons = [
     {
@@ -403,8 +431,10 @@ export default function Cancel({ team, bots }) {
                             {steps[currentStep].text}
                           </p>
                           {currentStep === 1 ? (
-                            <CancelReason />
+                            <FeatureHighlights />
                           ) : currentStep === 2 ? (
+                            <CancelReason />
+                          ) : currentStep === 3 ? (
                             <div className="my-4">
                               <label
                                 htmlFor="details"
@@ -425,7 +455,7 @@ export default function Cancel({ team, bots }) {
                                 defaultValue={details}
                               />
                             </div>
-                          ) : currentStep === 3 ? (
+                          ) : currentStep === 4 ? (
                             resultHtml ? (
                               <div
                                 className="prose my-4 text-sm text-gray-800"
@@ -469,19 +499,19 @@ export default function Cancel({ team, bots }) {
                           }
                         }}
                         disabled={
-                          currentStep === 1 && !reason
+                          currentStep === 2 && !reason
                             ? true
-                            : currentStep === 2 &&
+                            : currentStep === 3 &&
                                 (!details || details.length <= 5)
                               ? true
-                              : currentStep === 3 && !answerDone
+                              : currentStep === 4 && !answerDone
                                 ? true
                                 : false
                         }
                       >
                         {currentStep === steps.length - 1
                           ? 'Confirm Cancellation'
-                          : currentStep === 3
+                          : currentStep === 4
                             ? 'I still want to cancel'
                             : 'Next'}
                       </button>
