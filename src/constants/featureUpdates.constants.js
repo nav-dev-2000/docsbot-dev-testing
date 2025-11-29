@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-11-29',
+    title: 'Copy button on widget responses',
+    description:
+      'Add a widget setting to enable a copy button after widget responses, off by default.',
+  },
+  {
     date: '2025-11-21',
     title: 'Widget Settings Refresh',
     description:

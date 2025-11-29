@@ -3000,6 +3000,7 @@ function Onboarding({ team }) {
                           icon={createdBot.icon || 'default'}
                           botIcon={createdBot.botIcon || 'none'}
                           showButtonLabel={createdBot.showButtonLabel || false}
+                          showCopyButton={createdBot.showCopyButton || false}
                           labels={localizedLabels}
                           hideSources={createdBot.hideSources || false}
                           supportLink={supportLink}

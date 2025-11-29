@@ -54,6 +54,7 @@ You can customize the widget to match your brand and desired behaviour on your b
 - **Button Text** - Choose the text that will appear in the floating button if any.
 - **Bot avatar** - Choose the avatar icon that will appear for your bot, or none at all.
 - **Custom support link** - Choose a custom support link that will appear in the widget for user's to contact you directly if they need to.
+- **Copy button** - Toggle a copy-to-clipboard button after answers.
 - **Language** - Choose the language that the widget will be displayed in.
 
 Here is a list of the languages we currently support, if you would like to see another language added please let us know:
@@ -199,6 +200,7 @@ options: {
   botIcon: false, //icon for bot avatar can be "comment", "robot", "life-ring", "info", "book", or an image url. Default is false.
   supportLink: "https://docsbot.ai/", //link to your support page. If null|false, and no supportCallback is set, no button will be shown.
   showButtonLabel: true, // Show the button text label or not.
+  showCopyButton: false, // Show a copy button after answers. Default is false.
   hideSources: false, // Hide the sources in answers. Default is false. True to hide all, or pass an array of type to hide like ['qa', 'crawler']
   noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'gdrive', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
   labels: {
@@ -220,7 +222,9 @@ options: {
       feedbackNo: "No", //only used with Agent mode off
       resetChat: "Reset conversation", //title text
       footerMessage: "", // if set will show at conversation start. Supports Markdown. Set keepFooterVisible: true to keep it visible after a conversation starts.
-    },, // Override all the default labels for your own language.
+      copyResponse: 'Copy response',
+      copied: 'Copied!',
+    }, // Override all the default labels for your own language.
   keepFooterVisible: false, // Keep the footerMessage visible after a conversation starts. Default is false.
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.

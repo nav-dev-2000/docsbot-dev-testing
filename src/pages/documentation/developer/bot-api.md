@@ -41,6 +41,7 @@ Bot objects have the following properties:
 | **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/pricing) for more information |
 | **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
+| **showCopyButton** | boolean | If true, display a copy-to-clipboard button after answers. Defaults to false. |
 | **hideSources** | boolean | If true, the widget will not display the sources of its answers. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
 
@@ -275,6 +276,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **branding** | boolean | Enables or disables branding. Please check our [plans](https://docsbot.ai/pricing) for more information |
 | **supportLink** | string | This link will appear after the bot replies. An empty string will disable this. |
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
+| **showCopyButton** | boolean | If true, display a copy-to-clipboard button after answers. Defaults to false. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
 
 **Note**: Each of these properties are optional! If a property is absent in a request its value won't be updated.
@@ -303,6 +305,7 @@ curl --request PUT 'https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/iADcT
     "branding":true,
     "supportLink":"",
     "showButtonLabel":false,
+    "showCopyButton":false,
 }'
 ```
 
@@ -322,20 +325,33 @@ var raw = JSON.stringify({
   "allowedDomains": ["docsbot.ai", "app.docsbot.ai"],
   "color":"#1292EE",
   "icon":"default",
-  "alignment":"right",
-  "botIcon":false,
-  "branding":true,
-  "supportLink":"",
-  "showButtonLabel":false,
-  "labels": {
+    "alignment":"right",
+    "botIcon":false,
+    "branding":true,
+    "supportLink":"",
+    "showButtonLabel":false,
+    "showCopyButton":false,
+    "labels": {
+    "poweredBy":"Powered by",
+    "inputPlaceholder":"Send a message...",
     "firstMessage":"What can I help you with?",
     "sources":"Sources",
-    "getSupport":"Contact",
     "helpful":"Rate as helpful",
-    "poweredBy":"Powered by",
     "unhelpful":"Rate as unhelpful",
+    "getSupport":"Contact support",
     "floatingButton":"Help",
-    "inputPlaceholder":"Send a message..."
+    "suggestions":"Not sure what to ask?",
+    "close":"Close",
+    "create":"Create your own!",
+    "thinking":"Thinking...",
+    "rateLimitMessage":"You are sending messages too fast. Please slow down.",
+    "feedbackMessage":"Was this answer helpful?",
+    "feedbackYes":"Yes",
+    "feedbackNo":"No",
+    "resetChat":"Reset conversation",
+    "footerMessage":"",
+    "copyResponse":"Copy response",
+    "copied":"Copied!"
   }
 });
 
@@ -373,6 +389,7 @@ Response is the new JSON bot object:
   "sourceCount":1,
   "chunkCount":157,
   "showButtonLabel":false,
+  "showCopyButton":false,
   "botIcon":false,
   "allowedDomains": ["docsbot.ai", "app.docsbot.ai"],
   "color":"#1292EE",
@@ -381,14 +398,26 @@ Response is the new JSON bot object:
   "alignment":"right",
   "supportLink":"",
   "labels": {
+    "poweredBy":"Powered by",
+    "inputPlaceholder":"Send a message...",
     "firstMessage":"What can I help you with?",
     "sources":"Sources",
-    "getSupport":"Contact",
     "helpful":"Rate as helpful",
-    "poweredBy":"Powered by",
     "unhelpful":"Rate as unhelpful",
+    "getSupport":"Contact support",
     "floatingButton":"Help",
-    "inputPlaceholder":"Send a message..."
+    "suggestions":"Not sure what to ask?",
+    "close":"Close",
+    "create":"Create your own!",
+    "thinking":"Thinking...",
+    "rateLimitMessage":"You are sending messages too fast. Please slow down.",
+    "feedbackMessage":"Was this answer helpful?",
+    "feedbackYes":"Yes",
+    "feedbackNo":"No",
+    "resetChat":"Reset conversation",
+    "footerMessage":"",
+    "copyResponse":"Copy response",
+    "copied":"Copied!"
   }
 }
 ```

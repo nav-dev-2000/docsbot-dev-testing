@@ -61,6 +61,7 @@ export default async function handler(req, res) {
           branding: bot.branding === false && checkPlanPermission(team, 'business', 'branding').allowed ? false : true,
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
+          showCopyButton: bot.showCopyButton || false,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
           questions: bot.questions || [],
           hideSources: bot.hideSources || false,

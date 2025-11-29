@@ -354,6 +354,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     branding,
     supportLink,
     showButtonLabel,
+    showCopyButton,
     labels,
     questions,
     glossary,
@@ -586,6 +587,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (showButtonLabel !== undefined) {
     botData.showButtonLabel = !!showButtonLabel
+  }
+
+  if (showCopyButton !== undefined) {
+    botData.showCopyButton = !!showCopyButton
+  } else if (!isUpdate && bot?.showCopyButton === undefined) {
+    botData.showCopyButton = false
   }
 
   if (hideSources !== undefined) {

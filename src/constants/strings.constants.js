@@ -20,6 +20,8 @@ export const i18n = {
       feedbackNo: "No",
       resetChat: "Reset conversation",
       footerMessage: "",
+      copyResponse: 'Copy response',
+      copied: 'Copied!',
     },
   },
   jp: {
@@ -43,6 +45,8 @@ export const i18n = {
       feedbackNo: "いいえ",
       resetChat: "会話をリセット",
       footerMessage: "",
+      copyResponse: '回答をコピー',
+      copied: 'コピーしました！',
     },
   },
   ar: {
@@ -67,6 +71,8 @@ export const i18n = {
       feedbackNo: "لا",
       resetChat: "إعادة المحادثة",
       footerMessage: "",
+      copyResponse: 'انسخ الرد',
+      copied: 'تم النسخ!',
     },
   },
   zh: {
@@ -90,6 +96,8 @@ export const i18n = {
       feedbackNo: "否",
       resetChat: "重置对话",
       footerMessage: "",
+      copyResponse: '复制回复',
+      copied: '已复制！',
     },
   },
   zh_tw: {
@@ -113,6 +121,8 @@ export const i18n = {
       feedbackNo: "否",
       resetChat: "重新開始對話",
       footerMessage: "",
+      copyResponse: '複製回覆',
+      copied: '已複製！',
     },
   },
   cs: {
@@ -136,6 +146,8 @@ export const i18n = {
       feedbackNo: "Ne",
       resetChat: "Resetovat konverzaci",
       footerMessage: "",
+      copyResponse: 'Zkopírovat odpověď',
+      copied: 'Zkopírováno!',
     },
   },
   da: {
@@ -159,6 +171,8 @@ export const i18n = {
       feedbackNo: "Nej",
       resetChat: "Nulstil samtalen",
       footerMessage: "",
+      copyResponse: 'Kopiér svar',
+      copied: 'Kopieret!',
     },
   },
   nl: {
@@ -182,6 +196,8 @@ export const i18n = {
       feedbackNo: "Nee",
       resetChat: "Gesprek resetten",
       footerMessage: "",
+      copyResponse: 'Antwoord kopiëren',
+      copied: 'Gekopieerd!',
     },
   },
   fil: {
@@ -205,6 +221,8 @@ export const i18n = {
       feedbackNo: "Hindi",
       resetChat: "I-reset ang usapan",
       footerMessage: "",
+      copyResponse: 'Kopyahin ang tugon',
+      copied: 'Nakopya!',
     },
   },
   fi: {
@@ -228,6 +246,8 @@ export const i18n = {
       feedbackNo: "Ei",
       resetChat: "Nollaa keskustelu",
       footerMessage: "",
+      copyResponse: 'Kopioi vastaus',
+      copied: 'Kopioitu!',
     },
   },
   fr: {
@@ -251,6 +271,8 @@ export const i18n = {
       feedbackNo: "Non",
       resetChat: "Réinitialiser la conversation",
       footerMessage: "",
+      copyResponse: 'Copier la réponse',
+      copied: 'Copié !',
     },
   },
   de: {
@@ -274,6 +296,8 @@ export const i18n = {
       feedbackNo: "Nein",
       resetChat: "Konversation zurücksetzen",
       footerMessage: "",
+      copyResponse: 'Antwort kopieren',
+      copied: 'Kopiert!',
     },
   },
   el: {
@@ -297,6 +321,8 @@ export const i18n = {
       feedbackNo: "Όχι",
       resetChat: "Επαναφορά συνομιλίας",
       footerMessage: "",
+      copyResponse: 'Αντιγραφή απάντησης',
+      copied: 'Αντιγράφηκε!',
     },
   },
   he: {
@@ -321,6 +347,8 @@ export const i18n = {
       feedbackNo: "לא",
       resetChat: "איפוס שיחה",
       footerMessage: "",
+      copyResponse: 'העתק תגובה',
+      copied: 'הועתק!',
     },
   },
   hi: {
@@ -343,6 +371,9 @@ export const i18n = {
       feedbackYes: "हाँ",
       feedbackNo: "नहीं",
       resetChat: "बातचीत को रीसेट करें",
+      footerMessage: "",
+      copyResponse: 'उत्तर कॉपी करें',
+      copied: 'कॉपी हो गया!',
     },
   },
   hu: {
@@ -366,6 +397,8 @@ export const i18n = {
       feedbackNo: "Nem",
       resetChat: "Beszélgetés visszaállítása",
       footerMessage: "",
+      copyResponse: 'Válasz másolása',
+      copied: 'Másolva!',
     },
   },
   id: {
@@ -389,6 +422,8 @@ export const i18n = {
       feedbackNo: "Tidak",
       resetChat: "Atur ulang percakapan",
       footerMessage: "",
+      copyResponse: 'Salin tanggapan',
+      copied: 'Disalin!',
     },
   },
   it: {
@@ -412,6 +447,8 @@ export const i18n = {
       feedbackNo: "No",
       resetChat: "Ripristina conversazione",
       footerMessage: "",
+      copyResponse: 'Copia risposta',
+      copied: 'Copiato!',
     },
   },
   ko: {
@@ -435,6 +472,8 @@ export const i18n = {
       feedbackNo: "아니요",
       resetChat: "대화 재설정",
       footerMessage: "",
+      copyResponse: '답변 복사',
+      copied: '복사되었습니다!',
     },
   },
   no: {
@@ -458,6 +497,8 @@ export const i18n = {
       feedbackNo: "Nei",
       resetChat: "Tilbakestill samtalen",
       footerMessage: "",
+      copyResponse: 'Kopier svar',
+      copied: 'Kopiert!',
     },
   },
   pl: {
@@ -481,6 +522,8 @@ export const i18n = {
       feedbackNo: "Nie",
       resetChat: "Zresetuj rozmowę",
       footerMessage: "",
+      copyResponse: 'Skopiuj odpowiedź',
+      copied: 'Skopiowano!',
     },
   },
   pt: {
@@ -503,6 +546,9 @@ export const i18n = {
       feedbackYes: "Sim",
       feedbackNo: "Não",
       resetChat: "Redefinir conversa",
+      footerMessage: "",
+      copyResponse: 'Copiar resposta',
+      copied: 'Copiado!',
     },
   },
   ro: {
@@ -526,6 +572,8 @@ export const i18n = {
       feedbackNo: "Nu",
       resetChat: "Resetați conversația",
       footerMessage: "",
+      copyResponse: 'Copiază răspunsul',
+      copied: 'Copiat!',
     },
   },
   ru: {
@@ -549,6 +597,8 @@ export const i18n = {
       feedbackNo: "Нет",
       resetChat: "Сбросить беседу",
       footerMessage: "",
+      copyResponse: 'Копировать ответ',
+      copied: 'Скопировано!',
     },
   },
   sr: {
@@ -572,6 +622,8 @@ export const i18n = {
       feedbackNo: "Ne",
       resetChat: "Resetuj razgovor",
       footerMessage: "",
+      copyResponse: 'Копирај одговор',
+      copied: 'Копирано!',
     },
   },
   es: {
@@ -594,6 +646,9 @@ export const i18n = {
       feedbackYes: "Sí",
       feedbackNo: "No",
       resetChat: "Restablecer conversación",
+      footerMessage: "",
+      copyResponse: 'Copiar respuesta',
+      copied: '¡Copiado!',
     },
   },
   sw: {
@@ -617,6 +672,8 @@ export const i18n = {
       feedbackNo: "Hapana",
       resetChat: "Rudisha mazungumzo",
       footerMessage: "",
+      copyResponse: 'Nakili jibu',
+      copied: 'Imenakiliwa!',
     },
   },
   sv: {
@@ -640,6 +697,8 @@ export const i18n = {
       feedbackNo: "Nej",
       resetChat: "Återställ samtalet",
       footerMessage: "",
+      copyResponse: 'Kopiera svar',
+      copied: 'Kopierat!',
     },
   },
   th: {
@@ -662,6 +721,9 @@ export const i18n = {
       feedbackYes: "ใช่",
       feedbackNo: "ไม่",
       resetChat: "รีเซ็ตบทสนทนา",
+      footerMessage: "",
+      copyResponse: 'คัดลอกคำตอบ',
+      copied: 'คัดลอกแล้ว!',
     },
   },
   tr: {
@@ -685,6 +747,8 @@ export const i18n = {
       feedbackNo: "Hayır",
       resetChat: "Konuşmayı sıfırla",
       footerMessage: "",
+      copyResponse: 'Yanıtı kopyala',
+      copied: 'Kopyalandı!',
     },
   },
 }

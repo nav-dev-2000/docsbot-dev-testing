@@ -3,6 +3,7 @@ import {
   XMarkIcon,
   PhotoIcon,
   ArrowTopRightOnSquareIcon,
+  DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline'
 import { ArrowPathIcon } from '@heroicons/react/20/solid'
 import {
@@ -60,6 +61,7 @@ export default function WidgetPreview({
   showButtonLabel,
   labels,
   hideSources,
+  showCopyButton,
   supportLink,
   isAgent,
   tools,
@@ -83,6 +85,9 @@ export default function WidgetPreview({
         })
     }
   }, [labels.footerMessage])
+
+  const copyButtonEnabled =
+    showCopyButton ?? bot?.showCopyButton ?? false
 
   return (
     <div className="sticky top-20">
@@ -147,7 +152,15 @@ export default function WidgetPreview({
             text={
               "Thanks! Is there anything specific you would like to know about DocsBot or our [Embeddable Chat Widget](https://docsbot.ai/documentation/developer/embeddable-chat-widget)? I'm here to assist you!"
             }
-            {...{ botIcon, iconMap, labels, color, sources: true, hideSources }}
+            {...{
+              botIcon,
+              iconMap,
+              labels,
+              color,
+              sources: true,
+              hideSources,
+              showCopyButton: copyButtonEnabled,
+            }}
           />
 
           {tools?.followup_rating?.enabled === undefined
@@ -293,6 +306,7 @@ function BotMessage({
   supportLink,
   feedback,
   support,
+  showCopyButton,
 }) {
   const avatarBgColor = getLighterColor(color || '#1292EE', 0.6)
   const avatarFontColor = decideTextColor(avatarBgColor)
@@ -344,8 +358,19 @@ function BotMessage({
             <span dangerouslySetInnerHTML={{ __html: markdown }} />
             {sources && !hideSources && (
               <>
-                <div className="mt-3 border-t border-gray-300 pt-3 text-sm font-semibold text-gray-700">
+                <div className="mt-0 flex items-center justify-between border-b border-gray-300 pt-2 text-sm font-semibold text-gray-700 mb-2">
                   {labels.sources}
+                  {showCopyButton && (
+                    <button
+                      type="button"
+                      className="text-gray-500 transition-colors hover:text-gray-800"
+                      aria-label={labels?.copyResponse || 'Copy response'}
+                      title={labels?.copyResponse || 'Copy response'}
+                    >
+                      <span className="sr-only">{labels?.copyResponse || 'Copy response'}</span>
+                      <DocumentDuplicateIcon className="h-3 w-3" />
+                    </button>
+                  )}
                 </div>
                 <div className="">
                   <a

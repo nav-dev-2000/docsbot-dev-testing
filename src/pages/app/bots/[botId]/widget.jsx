@@ -106,6 +106,9 @@ function Widget({ team, bot }) {
     bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
   )
   const [hideSources, setHideSources] = useState(bot.hideSources)
+  const [showCopyButton, setShowCopyButton] = useState(
+    bot.showCopyButton || false,
+  )
   const [isAgent, setIsAgent] = useState(
     bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
   )
@@ -246,6 +249,7 @@ function Widget({ team, bot }) {
       showButtonLabel,
       labels,
       hideSources,
+      showCopyButton,
       logo,
       headerAlignment,
       isAgent,
@@ -841,7 +845,7 @@ function Widget({ team, bot }) {
                             })
                           }
                           disabled={isUpdating}
-                          isNew={isAgent}
+                          isNew={false}
                         />
 
                         <div className="mt-4">
@@ -921,7 +925,7 @@ function Widget({ team, bot }) {
                             })
                           }
                           disabled={isUpdating}
-                          isNew={true}
+                          isNew={false}
                         />
 
                         <div className="mt-4">
@@ -931,6 +935,17 @@ function Widget({ team, bot }) {
                             enabled={!hideSources}
                             setEnabled={() => setHideSources(!hideSources)}
                             disabled={isUpdating}
+                          />
+                        </div>
+
+                        <div className="mt-4">
+                          <FieldToggle
+                            label="Show Copy Button"
+                            description="Display a copy-to-clipboard button after answers."
+                            enabled={showCopyButton}
+                            setEnabled={() => setShowCopyButton(!showCopyButton)}
+                            disabled={isUpdating}
+                            isNew={true}
                           />
                         </div>
 
@@ -1119,6 +1134,7 @@ function Widget({ team, bot }) {
               showButtonLabel,
               labels,
               hideSources,
+              showCopyButton,
               supportLink,
               isAgent,
               tools,
