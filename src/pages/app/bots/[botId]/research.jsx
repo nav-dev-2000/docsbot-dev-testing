@@ -1361,8 +1361,8 @@ function ResearchInterface({
 
           await recordResearchTaskStarted({ consumeTrial: willConsumeTrial })
 
-          // Track deep research job creation in PostHog
-          if (posthog && user) {
+          // Track deep research job creation in PostHog (only after initial response with title)
+          if (posthog && user && data.jobId && data.title) {
             posthog.capture('Deep Research Job Created', {
               botId: bot.id,
               botName: bot.name,
@@ -1370,6 +1370,7 @@ function ResearchInterface({
               model: selectedModel,
               webSearch: webSearch,
               codeInterpreter: codeInterpreter,
+              title: data.title,
             })
           }
         } else {
