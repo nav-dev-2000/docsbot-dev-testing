@@ -176,6 +176,21 @@ const getDefaultFirstMessage = (language) => {
   return i18n.en.labels.firstMessage
 }
 
+const getInitialLanguage = () => {
+  if (typeof window !== 'undefined') {
+    const browserLanguage = window.navigator?.language?.split('-')[0]?.toLowerCase()
+    if (browserLanguage) {
+      const normalizedLanguage = browserLanguage === 'ja' ? 'jp' : browserLanguage
+
+      if (i18n[normalizedLanguage]) {
+        return normalizedLanguage
+      }
+    }
+  }
+
+  return 'en'
+}
+
 const getDynamicBotNamePlaceholder = (promptKey, websiteUrl) => {
   // Extract company name from website URL if available
   let companyName = 'Acme'
@@ -288,8 +303,10 @@ function Onboarding({ team }) {
   const [analysisData, setAnalysisData] = useState(null)
   const [botName, setBotName] = useState('')
   const [botDescription, setBotDescription] = useState('')
-  const [botLanguage, setBotLanguage] = useState('en')
-  const [firstMessage, setFirstMessage] = useState(getDefaultFirstMessage('en'))
+  const [botLanguage, setBotLanguage] = useState(getInitialLanguage)
+  const [firstMessage, setFirstMessage] = useState(() =>
+    getDefaultFirstMessage(getInitialLanguage()),
+  )
   const [firstMessageEdited, setFirstMessageEdited] = useState(false)
   const [promptKey, setPromptKey] = useState(DEFAULT_PROMPT_KEY)
   const [agentPrompt, setAgentPrompt] = useState(
@@ -1972,21 +1989,47 @@ function Onboarding({ team }) {
                 No problem! Give your bot a name to get started. Or switch back
                 to using a website (recommended).
               </p>
-              <div className="mt-4">
-                <label
-                  className="text-sm font-medium text-gray-700"
-                  htmlFor="bot-name"
-                >
-                  Bot name
-                </label>
-                <input
-                  id="bot-name"
-                  type="text"
-                  className="mt-2 block w-full rounded-md border border-gray-300 px-3 py-2 text-base text-gray-900 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-cyan-500"
-                  placeholder={getDynamicBotNamePlaceholder(promptKey, websiteUrl)}
-                  value={botName}
-                  onChange={(event) => setBotName(event.target.value)}
-                />
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    className="text-sm font-medium text-gray-700"
+                    htmlFor="bot-name"
+                  >
+                    Bot name
+                  </label>
+                  <input
+                    id="bot-name"
+                    type="text"
+                    className="mt-2 block w-full rounded-md border border-gray-300 px-3 py-2 text-base text-gray-900 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-cyan-500"
+                    placeholder={getDynamicBotNamePlaceholder(promptKey, websiteUrl)}
+                    value={botName}
+                    onChange={(event) => setBotName(event.target.value)}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="manual-language"
+                    className="flex items-center gap-1.5 text-sm font-medium text-gray-900"
+                  >
+                    Language
+                    <Tooltip content="Sets the default language for prompts and widget labels. The bot will still detect and respond in the language used in messages.">
+                      <InformationCircleIcon className="h-4 w-4 text-gray-500" />
+                    </Tooltip>
+                  </label>
+                  <select
+                    id="manual-language"
+                    name="manual-language"
+                    className="mt-2 block w-full rounded-md border border-gray-300 shadow-sm py-2.5 pl-3 pr-10 text-gray-900 focus:border-cyan-500 focus:outline-none focus:ring-cyan-500 sm:text-md sm:leading-6"
+                    value={botLanguage}
+                    onChange={(event) => setBotLanguage(event.target.value)}
+                  >
+                    {languageOptions.map((key) => (
+                      <option key={key} value={key}>
+                        {i18n[key].name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
               <button
                 type="button"
