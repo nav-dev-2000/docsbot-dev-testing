@@ -176,15 +176,17 @@ const getDefaultFirstMessage = (language) => {
   return i18n.en.labels.firstMessage
 }
 
+const normalizeLanguageCode = (language) => {
+  const normalized = language?.toLowerCase?.()
+  const mapped = normalized === 'ja' ? 'jp' : normalized
+  return i18n[mapped] ? mapped : 'en'
+}
+
 const getInitialLanguage = () => {
   if (typeof window !== 'undefined') {
     const browserLanguage = window.navigator?.language?.split('-')[0]?.toLowerCase()
     if (browserLanguage) {
-      const normalizedLanguage = browserLanguage === 'ja' ? 'jp' : browserLanguage
-
-      if (i18n[normalizedLanguage]) {
-        return normalizedLanguage
-      }
+      return normalizeLanguageCode(browserLanguage)
     }
   }
 
@@ -597,7 +599,8 @@ function Onboarding({ team }) {
         setCreatedBot(botData)
         setBotName(botData.name || '')
         setBotDescription(botData.description || '')
-        setBotLanguage(botData.language || 'en')
+        const hydratedLanguage = normalizeLanguageCode(botData.language)
+        setBotLanguage(hydratedLanguage)
         setAgentPrompt(botData.agentPrompt || '')
         setSavedAgentPrompt(botData.agentPrompt || '')
         if (typeof botData.temperature === 'number') {
@@ -617,7 +620,7 @@ function Onboarding({ team }) {
         const restoredMessage =
           typeof labels.firstMessage === 'string'
             ? labels.firstMessage
-            : getDefaultFirstMessage(botData.language || 'en')
+            : getDefaultFirstMessage(hydratedLanguage)
         setFirstMessage(restoredMessage)
         setFirstMessageEdited(true)
         setPromptEdited(true)
@@ -792,7 +795,9 @@ function Onboarding({ team }) {
       }
 
       const descriptionValue = overrides.description ?? botDescription
-      const languageValue = overrides.language ?? botLanguage
+      const languageValue = normalizeLanguageCode(
+        overrides.language ?? botLanguage,
+      )
       const supportLinkValue = overrides.supportLink ?? supportLink
       const logoValue = overrides.logo ?? logoUrl
       const colorValue = overrides.color ?? brandColor
@@ -835,7 +840,7 @@ function Onboarding({ team }) {
         // Sync all local state with the returned bot object for safety
         setBotName(bot.name || '')
         setBotDescription(bot.description || '')
-        setBotLanguage(bot.language || 'en')
+        setBotLanguage(normalizeLanguageCode(bot.language))
         setSupportLink(bot.supportLink || '')
         setLogoUrl(bot.logo || '')
         setBrandColor(getInitialColor(bot.color))
@@ -1299,7 +1304,7 @@ function Onboarding({ team }) {
         }
         const data = await analyzeSiteForBot(team.id, normalizedInput, metadata)
         setLastAnalyzedUrl(normalizedInput)
-        const resolvedLanguage = i18n[data.language] ? data.language : 'en'
+        const resolvedLanguage = normalizeLanguageCode(data.language)
         setAnalysisData(data)
 
         // Use new field names from API
@@ -1394,11 +1399,11 @@ function Onboarding({ team }) {
 
           const updated = await updateBotRequest(team.id, newBot.id, botPayload)
           setCreatedBot(updated)
-          
+
           // Sync all local state with the returned bot object
           setBotName(updated.name || '')
           setBotDescription(updated.description || '')
-          setBotLanguage(updated.language || 'en')
+          setBotLanguage(normalizeLanguageCode(updated.language))
           setAgentPrompt(updated.agentPrompt || '')
           setSavedAgentPrompt(updated.agentPrompt || '')
           if (typeof updated.temperature === 'number') {
@@ -1527,7 +1532,7 @@ function Onboarding({ team }) {
       // Sync all local state with the returned bot object for safety
       setBotName(updated.name || '')
       setBotDescription(updated.description || '')
-      setBotLanguage(updated.language || 'en')
+      setBotLanguage(normalizeLanguageCode(updated.language))
       setAgentPrompt(updated.agentPrompt || '')
       setSavedAgentPrompt(updated.agentPrompt || '')
       setHasUnsavedPromptChanges(false)
@@ -1683,7 +1688,7 @@ function Onboarding({ team }) {
       // Update any other fields that might have changed
       setBotName(updated.name || '')
       setBotDescription(updated.description || '')
-      setBotLanguage(updated.language || 'en')
+      setBotLanguage(normalizeLanguageCode(updated.language))
       setWidgetType(updated.widgetType || 'other')
       setAgentPrompt(updated.agentPrompt || '')
       if (typeof updated.temperature === 'number') {

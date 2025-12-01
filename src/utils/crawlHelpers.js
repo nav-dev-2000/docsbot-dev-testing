@@ -6,6 +6,45 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 
 configureFirebaseApp()
 
+const SUPPORTED_LANGUAGES = [
+  'en',
+  'jp',
+  'ar',
+  'zh',
+  'zh_tw',
+  'cs',
+  'da',
+  'nl',
+  'fil',
+  'fi',
+  'fr',
+  'de',
+  'el',
+  'he',
+  'hi',
+  'hu',
+  'id',
+  'it',
+  'ko',
+  'no',
+  'pl',
+  'pt',
+  'ro',
+  'ru',
+  'sr',
+  'es',
+  'sw',
+  'sv',
+  'th',
+  'tr',
+]
+
+const normalizeLanguageCode = (language) => {
+  const normalized = (language || '').toLowerCase()
+  const mapped = normalized === 'ja' ? 'jp' : normalized
+  return SUPPORTED_LANGUAGES.includes(mapped) ? mapped : 'en'
+}
+
 /**
  * Helper functions for crawling and extracting content from websites
  */
@@ -445,7 +484,7 @@ export const crawlAndExtract = async (url, metadata = {}) => {
     {
       role: 'system',
       content:
-        "Analyze the provided business website content, screenshot, metadata, and any onboarding guidance to create a custom chatbot configuration. Generate a compelling bot name, description, and visual customizations that would work well for this specific website. If BRAND_DATA is provided, prioritize using that data for brand information (description, slogan, etc.) as it comes from a specialized brand API. Otherwise, use the website metadata (title, description, og:image, etc.) to understand the brand and purpose. Look for logos, brand colors, and support/contact information. The bot should feel like it belongs to this website and can help visitors with questions about their products, services, or content. Additionally, analyze the ELEMENTS section to detect any support widgets (Help Scout, Zendesk, Freshdesk, Intercom, HubSpot) and classify the widgetType accordingly. If no common widgets are detected, use 'other'. Finally, detect the primary language of the website content and return the closest matching language code from the available options: en, jp, ar, zh, zh_tw, cs, da, nl, fil, fi, fr, de, el, he, hi, hu, id, it, ko, no, pl, pt, ro, ru, sr, es, sw, sv, th, tr. If the language cannot be determined or doesn't match any of these options, default to 'en'. Align the configuration with any provided usage metadata describing the intended assistant behavior.",
+        "Analyze the provided business website content, screenshot, metadata, and any onboarding guidance to create a custom chatbot configuration. Generate a compelling bot name, description, and visual customizations that would work well for this specific website. If BRAND_DATA is provided, prioritize using that data for brand information (description, slogan, etc.) as it comes from a specialized brand API. Otherwise, use the website metadata (title, description, og:image, etc.) to understand the brand and purpose. Look for logos, brand colors, and support/contact information. The bot should feel like it belongs to this website and can help visitors with questions about their products, services, or content. Additionally, analyze the ELEMENTS section to detect any support widgets (Help Scout, Zendesk, Freshdesk, Intercom, HubSpot) and classify the widgetType accordingly. If no common widgets are detected, use 'other'. Finally, detect the primary language of the website content and return the closest matching language code from the available options: en, jp, ar, zh, zh_tw, cs, da, nl, fil, fi, fr, de, el, he, hi, hu, id, it, ko, no, pl, pt, ro, ru, sr, es, sw, sv, th, tr. If the language cannot be determined or doesn't match any of these options, default to 'en'. Align the configuration with any provided usage metadata describing the intended assistant behavior. When identifying Japanese content, always respond with the 'jp' language code instead of 'ja'.",
     },
   ]
 
@@ -559,40 +598,9 @@ export const crawlAndExtract = async (url, metadata = {}) => {
               },
               language: {
                 type: 'string',
-                enum: [
-                  'en',
-                  'jp',
-                  'ar',
-                  'zh',
-                  'zh_tw',
-                  'cs',
-                  'da',
-                  'nl',
-                  'fil',
-                  'fi',
-                  'fr',
-                  'de',
-                  'el',
-                  'he',
-                  'hi',
-                  'hu',
-                  'id',
-                  'it',
-                  'ko',
-                  'no',
-                  'pl',
-                  'pt',
-                  'ro',
-                  'ru',
-                  'sr',
-                  'es',
-                  'sw',
-                  'sv',
-                  'th',
-                  'tr',
-                ],
+                enum: SUPPORTED_LANGUAGES,
                 description:
-                  'The primary language of the website content, detected from the website text and metadata',
+                  "The primary language of the website content, detected from the website text and metadata. Use 'jp' for Japanese (not 'ja').",
               },
             },
             required: [
@@ -631,6 +639,10 @@ export const crawlAndExtract = async (url, metadata = {}) => {
   } catch (error) {
     console.error(error)
     throw new Error('Invalid JSON response from OpenAI. Please try again.')
+  }
+
+  if (botConfig) {
+    botConfig.language = normalizeLanguageCode(botConfig.language)
   }
 
   if (!botConfig?.botName || !botConfig?.botDescription || !botConfig?.language) {
