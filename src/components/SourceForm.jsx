@@ -48,6 +48,15 @@ export default function SourceForm({
         : null,
     [initialTypeId],
   )
+  const documentSourceMimeTypes = useMemo(() => {
+    const documentSource = sourceTypes.find(
+      (sourceType) => sourceType.id === 'document',
+    )
+
+    if (!documentSource?.fileTypes) return []
+
+    return Array.from(new Set(Object.values(documentSource.fileTypes)))
+  }, [])
   const [showForm, setShowForm] = useState(
     autoShowForm || bot.sourceCount === 0 || Boolean(initialSourceType),
   ) //show form if bot has no sources
@@ -860,9 +869,30 @@ export default function SourceForm({
         integrationType === 'googledrive' ||
         integrationType === 'sharepoint'
       ) {
+        const googleDrivePickerConfig =
+          integrationType === 'googledrive'
+            ? {
+                selectableMimeTypes: Array.from(
+                  new Set([
+                    ...documentSourceMimeTypes,
+                    'application/vnd.google-apps.document',
+                    'application/vnd.google-apps.spreadsheet',
+                    'application/vnd.google-apps.presentation',
+                  ]),
+                ),
+                views: [
+                  {
+                    includeFolders: true,
+                    selectFolderEnabled: false,
+                  },
+                ],
+              }
+            : undefined
+
         const selectedFiles = await showFilePicker(
           integrationType,
           tokenResponse.accountToken,
+          googleDrivePickerConfig,
         )
         if (!selectedFiles?.length) {
           throw new Error('No files selected')
@@ -1265,12 +1295,6 @@ export default function SourceForm({
                   >
                     Learn how to connect to this source
                   </Link>
-                )}
-                {selectedSourceType?.id === 'google_docs' && (
-                  <Alert
-                    type="warning"
-                    title="Connecting never-before-used Google accounts is temporarily blocked while we await verification from Google for our integration. We apologize for the inconvenience!"
-                  />
                 )}
                 {selectedSourceType?.id === 'csv' && (
                   <a
