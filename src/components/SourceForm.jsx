@@ -1300,6 +1300,16 @@ export default function SourceForm({
                     Learn how to connect to this source
                   </Link>
                 )}
+                {selectedSourceType?.id === 'google_docs' && (
+                  <Alert
+                    title="Awaiting final verification from Google"
+                    type="warning"
+                  >
+                    We are awaiting final verification from the Google Verification
+                    Team for our app. If you experience an error connecting,
+                    please try again tomorrow.
+                  </Alert>
+                )}
                 {selectedSourceType?.id === 'csv' && (
                   <a
                     href="/csv-import-template.csv"
