@@ -121,6 +121,7 @@ const webhookHandler = async (req, res) => {
               }
 
               const teamId = teamsRef.docs[0].id
+              const teamLink = `https://docsbot.ai/app/team?switchTeam=${teamId}`
               const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
 
               //multi-price subscriptions don't have plan on subscription object
@@ -170,6 +171,8 @@ const webhookHandler = async (req, res) => {
                 previousPlan?.id &&
                 previousPlan.id !== plan.id
               ) {
+                const ownerEmail = await getTeamEmail(teamObj)
+
                 // Send the Slack notification
                 try {
                   await slack.send({
@@ -181,8 +184,13 @@ const webhookHandler = async (req, res) => {
                         text: `Old plan ${stripePlan(teamObj).name}`,
                         fields: [
                           {
+                            title: 'Customer Email',
+                            value: `${ownerEmail}`,
+                            short: true,
+                          },
+                          {
                             title: 'Team',
-                            value: `${teamObj.name}`,
+                            value: `<${teamLink}|${teamObj.name}>`,
                             short: false,
                           },
                           {
@@ -261,7 +269,6 @@ const webhookHandler = async (req, res) => {
               ) {
                 // grab owner email
                 let owner = await getTeamEmail(teamObj);
-
                 // Send the Slack notification
                 try {
                   await slack.send({
@@ -278,7 +285,7 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Team',
-                            value: `${teamObj.name}`,
+                            value: `<${teamLink}|${teamObj.name}>`,
                             short: true,
                           },
                           {
@@ -412,6 +419,7 @@ const webhookHandler = async (req, res) => {
                 // Send the Slack notification
                 try {
                   const team = await getTeam(checkoutSession.client_reference_id)
+                  const teamLink = `https://docsbot.ai/app/team?switchTeam=${checkoutSession.client_reference_id}`
                   phTrack(teamOwner(team), 'Subscribed', {
                     plan: planName,
                     amount:
@@ -439,6 +447,11 @@ const webhookHandler = async (req, res) => {
                           {
                             title: 'Customer',
                             value: `${session.customer_details.name} (${session.customer_details.email})`,
+                            short: true,
+                          },
+                          {
+                            title: 'Team',
+                            value: `<${teamLink}|${team?.name || checkoutSession.client_reference_id}>`,
                             short: true,
                           },
                           {
@@ -607,6 +620,7 @@ const webhookHandler = async (req, res) => {
               }
               
               const teamId = teamsRef.docs[0].id
+              const teamLink = `https://docsbot.ai/app/team?switchTeam=${teamId}`
               const teamData = teamsRef.docs[0].data()
               
               // Cancel the subscription immediately
@@ -642,7 +656,7 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Team',
-                            value: `${teamData.name}`,
+                            value: `<${teamLink}|${teamData.name}>`,
                             short: true,
                           },
                           {
