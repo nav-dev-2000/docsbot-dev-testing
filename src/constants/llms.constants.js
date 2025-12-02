@@ -1,4 +1,86 @@
 const LLMS = [
+  
+  {
+    model_name: "Claude Opus 4.5",
+    slug: "claude-opus-4-5",
+    provider: "anthropic",
+    description:
+      "Claude Opus 4.5 is Anthropic’s flagship frontier reasoning and agentic model (released November 2025), optimized for advanced coding, autonomous tool use, real-world computer interaction, and long-horizon multi-step workflows. It supports hybrid reasoning with extended thinking controlled via an effort parameter.",
+    input_context_window: "200K",
+    maximum_output_tokens: "64K",
+    open_source: false,
+    release_date: "2025-11-24",
+    knowledge_cutoff_date: "2025-05",
+    api_providers:
+      "Anthropic API, Amazon Bedrock, Google Vertex AI, Claude developer platform",
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+    },
+    benchmarks: {
+      SWEBench: {
+        score: 80.9,
+        notes: "Verified",
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      TerminalBench: {
+        score: 59.3,
+        notes: null,
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      Tau2BenchRetail: {
+        score: 88.9,
+        notes: null,
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      Tau2BenchTelecom: {
+        score: 98.2,
+        notes: null,
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      OSWorld: {
+        score: 66.3,
+        notes: null,
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      AIME2025: {
+        score: 92.77,
+        notes: "No tools",
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      AIME2025WithTools: {
+        score: 100.0,
+        notes: "Python",
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      GPQA: {
+        score: 87.0,
+        notes: "Diamond",
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      MMMU: {
+        score: 80.7,
+        notes: "Validation",
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
+      MMLU: {
+        score: 90.8,
+        notes: null,
+        source: "https://www.anthropic.com/news/claude-opus-4-5",
+    },
+  },
+},
+
   {
     model_name: 'Claude Haiku 4.5',
     slug: 'claude-haiku-4-5',
@@ -84,6 +166,7 @@ const LLMS = [
       },
     },
   },
+
   {
     model_name: 'Claude Opus 4.1',
     slug: 'claude-opus-4-1',
