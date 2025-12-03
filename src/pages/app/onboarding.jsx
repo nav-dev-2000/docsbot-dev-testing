@@ -1274,17 +1274,19 @@ function Onboarding({ team }) {
     
     let newBot = null
     
+    const initialLanguage = getInitialLanguage()
+
     // Create the bot immediately
     const botCreationPromise = ensureBotCreated({
       name: placeholderName,
       description: '',
-      language: 'en',
+      language: initialLanguage,
       supportLink: '',
       logo: '',
       color: getInitialColor('#0ea5e9'),
       widgetType: 'other',
       agentPrompt: placeholderPrompt,
-      firstMessage: getDefaultFirstMessage('en'),
+      firstMessage: getDefaultFirstMessage(initialLanguage),
     }).then((bot) => {
       newBot = bot
       return bot
