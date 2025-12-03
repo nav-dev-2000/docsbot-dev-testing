@@ -61,29 +61,6 @@ const getHelpScoutToken = async () => {
   return tokenJson.access_token
 }
 
-const fetchCustomerProperties = async (token) => {
-  const propertiesResponse = await fetch('https://api.helpscout.net/v2/customer-properties', {
-    headers: { Authorization: `Bearer ${token}` },
-  })
-
-  if (!propertiesResponse.ok) {
-    const message = await propertiesResponse.text()
-    throw new Error(`Failed to load Help Scout customer properties: ${message}`)
-  }
-
-  const propertiesJson = await propertiesResponse.json()
-  const propertyMap = {}
-
-  const properties = propertiesJson?._embedded?.properties || []
-  for (const property of properties) {
-    if (property.slug) {
-      propertyMap[property.slug] = property
-    }
-  }
-
-  return propertyMap
-}
-
 const findCustomerId = async (payload, token, email) => {
   const directId =
     payload?.customer?.id ||
@@ -289,51 +266,39 @@ export default async function handler(req, res) {
       return res.status(200).json({ message: 'Could not resolve Help Scout customer' })
     }
 
-    const propertyMap = await fetchCustomerProperties(token)
-    
-    const fields = Object.entries(metadata)
+    // Build JSON Patch operations for updating properties by slug
+    const operations = Object.entries(metadata)
       .map(([slug, value]) => {
-        const property = propertyMap[slug]
-        if (!property) {
-          console.warn('Help Scout webhook: Property not found in propertyMap', {
-            slug,
-            value,
-            availablePropertySlugs: Object.keys(propertyMap),
-          })
+        if (typeof value === 'undefined' || value === null || value === '') {
+          console.warn('Help Scout webhook: Property value is undefined, null, or empty', { slug })
           return null
         }
-        if (typeof value === 'undefined' || value === null) {
-          console.warn('Help Scout webhook: Property value is undefined or null', { slug, property })
-          return null
+        return {
+          op: 'replace',
+          path: `/${slug}`,
+          value: String(value),
         }
-        return { id: property.id, value: String(value) }
       })
       .filter(Boolean)
 
-    if (!fields.length) {
-      console.warn('Help Scout webhook: No matching Help Scout properties found', {
+    if (!operations.length) {
+      console.warn('Help Scout webhook: No valid metadata to update', {
         customerId,
         metadataKeys: Object.keys(metadata),
-        availablePropertySlugs: Object.keys(propertyMap),
         metadataValues: metadata,
       })
-      return res.status(200).json({ message: 'No matching Help Scout properties found' })
+      return res.status(200).json({ message: 'No valid metadata to update' })
     }
 
     const updateResponse = await fetch(
       `https://api.helpscout.net/v2/customers/${customerId}/properties`,
       {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          properties: {
-            type: 'customer',
-            fields,
-          },
-        }),
+        body: JSON.stringify(operations),
       },
     )
 
@@ -350,7 +315,8 @@ export default async function handler(req, res) {
     console.info('Help Scout webhook: Customer metadata updated', {
       customerId,
       matchedEmail,
-      fieldsCount: fields.length,
+      operationsCount: operations.length,
+      updatedProperties: Object.keys(metadata),
     })
     return res.status(200).json({ message: 'Customer metadata updated' })
   } catch (error) {
