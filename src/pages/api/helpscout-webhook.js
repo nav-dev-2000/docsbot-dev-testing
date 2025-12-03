@@ -74,7 +74,8 @@ const fetchCustomerProperties = async (token) => {
   const propertiesJson = await propertiesResponse.json()
   const propertyMap = {}
 
-  for (const property of propertiesJson?._embedded?.properties || []) {
+  const properties = propertiesJson?._embedded?.properties || []
+  for (const property of properties) {
     if (property.slug) {
       propertyMap[property.slug] = property
     }
@@ -289,10 +290,22 @@ export default async function handler(req, res) {
     }
 
     const propertyMap = await fetchCustomerProperties(token)
+    
     const fields = Object.entries(metadata)
       .map(([slug, value]) => {
         const property = propertyMap[slug]
-        if (!property || typeof value === 'undefined' || value === null) return null
+        if (!property) {
+          console.warn('Help Scout webhook: Property not found in propertyMap', {
+            slug,
+            value,
+            availablePropertySlugs: Object.keys(propertyMap),
+          })
+          return null
+        }
+        if (typeof value === 'undefined' || value === null) {
+          console.warn('Help Scout webhook: Property value is undefined or null', { slug, property })
+          return null
+        }
         return { id: property.id, value: String(value) }
       })
       .filter(Boolean)
@@ -301,6 +314,8 @@ export default async function handler(req, res) {
       console.warn('Help Scout webhook: No matching Help Scout properties found', {
         customerId,
         metadataKeys: Object.keys(metadata),
+        availablePropertySlugs: Object.keys(propertyMap),
+        metadataValues: metadata,
       })
       return res.status(200).json({ message: 'No matching Help Scout properties found' })
     }
