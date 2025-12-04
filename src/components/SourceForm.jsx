@@ -82,6 +82,8 @@ export default function SourceForm({
 
   const [trutoIntegrationID, setTrutoIntegrationID] = useState(null)
   const [trutoFiles, setTrutoFiles] = useState(null)
+  // Use ref to store title synchronously for Truto sources to avoid race conditions
+  const trutoTitleRef = useRef(null)
   // State for URL list (urls source type)
   const [urls, setUrls] = useState([])
   const [urlInput, setUrlInput] = useState('')
@@ -477,6 +479,7 @@ export default function SourceForm({
     setProcessImages(false)
     setTrutoIntegrationID(null)
     setTrutoFiles(null)
+    trutoTitleRef.current = null
     setUrls([])
     setUrlInput('')
     setIsDragOver(false)
@@ -705,6 +708,13 @@ export default function SourceForm({
       payload.title = title
     }
 
+    // Include title for Truto sources if it exists (even if fieldTitle is false)
+    // Use ref value if available, otherwise use state
+    const trutoTitle = trutoTitleRef.current || title
+    if (selectedSourceType.isTruto && trutoTitle) {
+      payload.title = trutoTitle
+    }
+
     if (selectedSourceType.fieldQA) {
       payload.faqs = questions
     }
@@ -827,6 +837,12 @@ export default function SourceForm({
 
   const openTrutoUI = async (integrationType) => {
     if (isUpdating) return
+    
+    // Skip if running on server-side
+    if (typeof window === 'undefined') {
+      return
+    }
+    
     let trutoID = trutoIntegrationID
     setErrorText('')
 
@@ -864,8 +880,13 @@ export default function SourceForm({
       }
 
       console.log('Token response:', tokenResponse)
-      if (tokenResponse?.label) {
-        setTitle('Account: ' + tokenResponse.label)
+      
+      // Set title from label if available, before triggering source creation
+      // Store in ref for synchronous access when createSource is called
+      const accountLabel = tokenResponse?.label ? 'Account: ' + tokenResponse.label : null
+      if (accountLabel) {
+        trutoTitleRef.current = accountLabel
+        setTitle(accountLabel)
       }
 
       // Only show file picker for Google Docs
@@ -876,6 +897,7 @@ export default function SourceForm({
         const googleDrivePickerConfig =
           integrationType === 'googledrive'
             ? {
+                appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
                 selectableMimeTypes: Array.from(
                   new Set([
                     ...documentSourceMimeTypes,
@@ -903,9 +925,19 @@ export default function SourceForm({
         }
 
         console.log('Selected files:', selectedFiles)
+        
+        // Ensure title is set before triggering source creation via useEffect
+        // Use a small delay to ensure state has updated
+        if (accountLabel) {
+          setTitle(accountLabel)
+        }
         setTrutoFiles(selectedFiles.length)
       } else {
         // For other integrations, just set files to 1 and proceed
+        // Ensure title is set before triggering source creation
+        if (accountLabel) {
+          setTitle(accountLabel)
+        }
         setTrutoFiles(1)
       }
     } catch (error) {

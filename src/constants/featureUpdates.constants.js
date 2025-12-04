@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-04',
+    title: 'Add files to existing Google Drive sources',
+    description:
+      'You can now add files to your existing Google Drive source types without creating a new source.',
+  },
+  {
     date: '2025-11-29',
     title: 'Copy button on widget responses',
     description:

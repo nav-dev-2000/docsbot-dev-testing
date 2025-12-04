@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useMemo, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -15,6 +15,7 @@ import {
   UserIcon,
   UserGroupIcon,
   CommandLineIcon,
+  PlusIcon,
 } from '@heroicons/react/24/outline'
 import SourceDelete from '@/components/SourceDelete'
 import Alert from '@/components/Alert'
@@ -86,9 +87,13 @@ export default function ModalSource({
   const [filteredTrutoSelected, setFilteredTrutoSelected] = useState(
     Array.isArray(source?.trutoSelected) ? source?.trutoSelected : [],
   )
-  const [isTruto, setIsTruto] = useState(isTrutoSourceType(source?.type))
   const [crawlerJsEnabled, setCrawlerJsEnabled] = useState(
     !!source?.crawlerJS,
+  )
+  const [addingFiles, setAddingFiles] = useState(false)
+  const trutoIntegrationType = useMemo(
+    () => isTrutoSourceType(source?.type),
+    [source?.type],
   )
   const originalScheduleInterval = source?.scheduleInterval ?? 'none'
   const canToggleCrawlerJs =
@@ -99,6 +104,15 @@ export default function ModalSource({
   const shouldUpdateCrawlerJs =
     canToggleCrawlerJs && crawlerJsEnabled !== !!source?.crawlerJS
   const hasPendingSourceUpdates = scheduleChanged || shouldUpdateCrawlerJs
+  const documentSourceMimeTypes = useMemo(() => {
+    const documentSource = sourceTypes.find(
+      (sourceType) => sourceType.id === 'document',
+    )
+
+    if (!documentSource?.fileTypes) return []
+
+    return Array.from(new Set(Object.values(documentSource.fileTypes)))
+  }, [])
 
   useEffect(() => {
     if (!team || !user) return
@@ -349,6 +363,42 @@ export default function ModalSource({
     setSubmitting(false)
   }
 
+  const getTrutoToken = async () => {
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'fetchTrutoToken']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    if (response.ok) {
+      const data = await response.json()
+      return data.token
+    }
+  }
+
+  const getTrutoIntegrationToken = async (accountID) => {
+    const urlParams = ['teams', team.id, 'bots', bot.id, 'fetchTrutoToken']
+    const apiPath = '/api/' + urlParams.join('/')
+
+    const response = await fetch(apiPath, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        accountID,
+      }),
+    })
+    if (response.ok) {
+      return await response.json()
+    } else {
+      console.log(await response.json())
+    }
+  }
+
   const refreshSource = async () => {
     setErrorText('')
     setSubmittingRefresh(true)
@@ -380,6 +430,77 @@ export default function ModalSource({
       }
     }
     setSubmittingRefresh(false)
+  }
+
+  const openTrutoFilePicker = async () => {
+    if (addingFiles || submittingRefresh || submitting || locked !== null) return
+
+    if (!trutoIntegrationType) return
+
+    // Skip if running on server-side
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    setErrorText('')
+    const trutoID = source?.trutoIntegrationID
+
+    if (!trutoID) {
+      setErrorText('Source integration ID not found. Please refresh the page.')
+      return
+    }
+
+    try {
+      setAddingFiles(true)
+
+      const trutoSDK = await import('@truto/truto-link-sdk')
+      const { showFilePicker } = trutoSDK
+
+      const tokenResponse = await getTrutoIntegrationToken(trutoID)
+      if (!tokenResponse?.accountToken) {
+        throw new Error('Failed to get integration token')
+      }
+
+      const googleDrivePickerConfig =
+        trutoIntegrationType === 'googledrive'
+          ? {
+              appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
+              selectableMimeTypes: Array.from(
+                new Set([
+                  ...documentSourceMimeTypes,
+                  'application/vnd.google-apps.document',
+                  'application/vnd.google-apps.spreadsheet',
+                  'application/vnd.google-apps.presentation',
+                ]),
+              ),
+              views: [
+                {
+                  includeFolders: true,
+                  selectFolderEnabled: false,
+                },
+              ],
+              truto_upsert_drive_items: true,
+            }
+          : undefined
+
+      console.log(googleDrivePickerConfig)
+      const selectedFiles = await showFilePicker(
+        trutoIntegrationType,
+        tokenResponse.accountToken,
+        googleDrivePickerConfig,
+      )
+
+      if (!selectedFiles?.length) {
+        throw new Error('No files selected')
+      }
+
+      await refreshSource()
+    } catch (error) {
+      console.error('Truto UI error:', error)
+      setErrorText(`Failed to connect: ${error.message || 'Please try again'}`)
+    } finally {
+      setAddingFiles(false)
+    }
   }
 
   useEffect(() => {
@@ -909,6 +1030,35 @@ export default function ModalSource({
                         </div>
                         {showInterval && !source?.carbonId && (
                           <div className="flex flex-shrink-0 items-end justify-end">
+                            {trutoIntegrationType === 'googledrive' && (
+                              <button
+                                type="button"
+                                className={
+                                  'mr-4 inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-50' +
+                                  (canModify
+                                    ? ' border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
+                                    : ' cursor-not-allowed border-gray-200 bg-gray-300')
+                                }
+                                onClick={openTrutoFilePicker}
+                                disabled={
+                                  submitting ||
+                                  submittingRefresh ||
+                                  locked !== null ||
+                                  !canModify ||
+                                  addingFiles
+                                }
+                              >
+                                {addingFiles ? (
+                                  <LoadingSpinner className="mr-3" />
+                                ) : (
+                                  <PlusIcon
+                                    className="mr-2 h-5 w-5"
+                                    aria-hidden="true"
+                                  />
+                                )}
+                                Add files
+                              </button>
+                            )}
                             <button
                               type="button"
                               className={
@@ -922,7 +1072,7 @@ export default function ModalSource({
                                 submitting || submittingRefresh || locked !== null || !canModify
                               }
                             >
-                              { submittingRefresh ? (
+                              {submittingRefresh ? (
                                 <LoadingSpinner className="mr-3" />
                               ) : (
                                 <ArrowPathIcon
