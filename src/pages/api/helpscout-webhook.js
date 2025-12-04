@@ -312,6 +312,85 @@ export default async function handler(req, res) {
       return res.status(502).json({ message: 'Failed to update customer properties', error: message })
     }
 
+    // Update company/organization field only if not already set
+    if (team.name) {
+      try {
+        const customerResponse = await fetch(
+          `https://api.helpscout.net/v2/customers/${customerId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        )
+
+        if (customerResponse.ok) {
+          const customerData = await customerResponse.json()
+          // Check multiple possible locations for organization field
+          const currentOrganization =
+            customerData?._embedded?.organization?.name ||
+            customerData?._embedded?.organization ||
+            customerData?.organization ||
+            customerData?.organizationName ||
+            null
+
+          // Log customer data structure for debugging (first time only)
+          if (!currentOrganization) {
+            console.info('Help Scout webhook: Customer organization check', {
+              customerId,
+              hasEmbedded: !!customerData?._embedded,
+              embeddedKeys: customerData?._embedded ? Object.keys(customerData._embedded) : [],
+              topLevelKeys: Object.keys(customerData || {}).slice(0, 10), // First 10 keys for debugging
+            })
+          }
+
+          // Only update if organization is not already set
+          if (!currentOrganization || (typeof currentOrganization === 'string' && currentOrganization.trim() === '')) {
+            const updateCustomerResponse = await fetch(
+              `https://api.helpscout.net/v2/customers/${customerId}`,
+              {
+                method: 'PATCH',
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify([
+                  {
+                    op: 'replace',
+                    path: '/organization',
+                    value: team.name,
+                  },
+                ]),
+              },
+            )
+
+            if (!updateCustomerResponse.ok) {
+              const message = await updateCustomerResponse.text()
+              console.warn('Help Scout webhook: Failed to update customer organization', {
+                customerId,
+                status: updateCustomerResponse.status,
+                error: message,
+              })
+            } else {
+              console.info('Help Scout webhook: Customer organization updated', {
+                customerId,
+                organization: team.name,
+              })
+            }
+          } else {
+            console.info('Help Scout webhook: Customer organization already set, skipping update', {
+              customerId,
+              currentOrganization,
+            })
+          }
+        }
+      } catch (error) {
+        // Log but don't fail the request if organization update fails
+        console.warn('Help Scout webhook: Error checking/updating customer organization', {
+          customerId,
+          error: error.message,
+        })
+      }
+    }
+
     console.info('Help Scout webhook: Customer metadata updated', {
       customerId,
       matchedEmail,
