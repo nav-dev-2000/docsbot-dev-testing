@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getBot, getSources, getTeamIntegrations } from '@/lib/dbQueries'
 import BotCard from '@/components/BotCard'
-import SourceForm from '@/components/SourceForm'
 import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
 import Link from 'next/link'
@@ -13,6 +13,11 @@ import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalPrompt from '@/components/ModalPrompt'
+
+const SourceForm = dynamic(() => import('@/components/SourceForm'), {
+  ssr: false,
+  loading: () => null,
+})
 
 const sourcePerPage = 60
 

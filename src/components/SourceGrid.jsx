@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import classNames from '@/utils/classNames'
 import { ClockIcon, CommandLineIcon } from '@heroicons/react/24/outline'
-import ModalSource from '@/components/ModalSource'
 import Paginator from '@/components/Paginator'
 import Tooltip from '@/components/Tooltip'
+
+const ModalSource = dynamic(() => import('@/components/ModalSource'), {
+  ssr: false,
+})
 
 export default function SourceGrid({
   team,

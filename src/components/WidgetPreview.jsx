@@ -68,6 +68,11 @@ export default function WidgetPreview({
   imageUploads,
 }) {
   const [footerMarkdown, setFooterMarkdown] = useState('')
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     if (labels.footerMessage) {
@@ -253,7 +258,7 @@ export default function WidgetPreview({
               <span dangerouslySetInnerHTML={{ __html: footerMarkdown }} />
             </div>
           )}
-          {branding && (
+          {isMounted && branding && (
             <div className="mt-1 flex w-full items-center justify-center text-center">
               <button className="flex items-center justify-center text-xs font-semibold text-gray-500 hover:text-gray-800">
                 {labels.poweredBy}{' '}

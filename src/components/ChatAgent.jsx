@@ -811,6 +811,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     const gridItemRef = useRef(null)
     const [expandedImage, setExpandedImage] = useState(null)
     const [qaOpen, setQAOpen] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+      setIsMounted(true)
+    }, [])
 
     useEffect(() => {
       if (gridItemRef.current) {
@@ -846,7 +851,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </span>
             </div>
             <div dir="auto" className="prose min-w-full p-4 px-6 text-start sm:px-8">
-              {answer.images && answer.images.length > 0 && (
+              {isMounted && answer.images && answer.images.length > 0 && (
                 <div className="mb-2 flex flex-wrap gap-2">
                   {answer.images.map((imageUrl, index) => (
                     <button

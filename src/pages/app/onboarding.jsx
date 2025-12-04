@@ -9,6 +9,7 @@ import {
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Dialog, Transition } from '@headlessui/react'
 import Alert from '@/components/Alert'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
@@ -25,7 +26,6 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
-import SourceForm from '@/components/SourceForm'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import BadgeStatusSource from '@/components/BadgeStatusSource'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -69,6 +69,15 @@ import {
   usageTypeToPromptKey,
   WEBSITE_PATH_WARNING_COPY,
 } from '@/utils/websiteValidation'
+
+const SourceForm = dynamic(() => import('@/components/SourceForm'), {
+  ssr: false,
+  loading: () => (
+    <div className="mt-6">
+      <LoadingSpinner />
+    </div>
+  ),
+})
 
 const DEFAULT_PROMPT_KEY = 'CUSTOMER_SUPPORT'
 const ONBOARDING_SESSION_KEY = 'docsbot-onboarding-state'

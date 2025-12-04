@@ -224,34 +224,15 @@ const nextConfig = {
       require('./scripts/latest-news')
     }
 
-    // Handle @truto/truto-link-sdk client-side only
-    if (!isServer) {
-      // Suppress warnings for dynamic requires in truto SDK
-      // These warnings occur because the SDK uses dynamic requires that webpack can't statically analyze
-      config.module = config.module || {}
-      config.module.exprContextCritical = false
-      config.module.unknownContextCritical = false
-      
-      // Ensure Node.js modules are not bundled for client-side
-      config.resolve = config.resolve || {}
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-        path: false,
-        crypto: false,
-      }
-      
-      // Ignore warnings from truto SDK about dynamic requires
-      config.ignoreWarnings = [
-        ...(config.ignoreWarnings || []),
-        {
-          module: /node_modules\/@truto\/truto-link-sdk/,
-          message: /Critical dependency/,
-        },
-      ]
-    }
+    // Silence known dynamic require warning from @truto/truto-link-sdk client bundle
+    // The SDK ships dynamic requires that webpack flags but are safe in our client-only usage.
+    config.ignoreWarnings = [
+      ...(config.ignoreWarnings || []),
+      {
+        module: /node_modules\/@truto\/truto-link-sdk/,
+        message: /Critical dependency/,
+      },
+    ]
 
     return config
   },

@@ -38,6 +38,7 @@ import Tooltip from '@/components/Tooltip'
 import React from 'react'
 import FieldToggle from '@/components/FieldToggle'
 import { isSuperAdmin } from '@/utils/helpers'
+import { showFilePicker } from '@truto/truto-link-sdk'
 
 export const getTrutoIcon = (icon) => {
   switch (icon) {
@@ -452,9 +453,6 @@ export default function ModalSource({
 
     try {
       setAddingFiles(true)
-
-      const trutoSDK = await import('@truto/truto-link-sdk')
-      const { showFilePicker } = trutoSDK
 
       const tokenResponse = await getTrutoIntegrationToken(trutoID)
       if (!tokenResponse?.accountToken) {

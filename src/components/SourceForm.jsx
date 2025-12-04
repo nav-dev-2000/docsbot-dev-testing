@@ -25,6 +25,7 @@ import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
 import { canUserModifySources } from '@/utils/function.utils'
 import Link from 'next/link'
+import authenticate, { showFilePicker } from '@truto/truto-link-sdk'
 
 export default function SourceForm({
   team,
@@ -848,11 +849,6 @@ export default function SourceForm({
 
     try {
       setIsUpdating(true)
-
-      // Dynamically import Truto SDK (client-side only)
-      const trutoSDK = await import('@truto/truto-link-sdk')
-      const authenticate = trutoSDK.default
-      const { showFilePicker } = trutoSDK
 
       if (!trutoID) {
         const token = await getTrutoToken()
