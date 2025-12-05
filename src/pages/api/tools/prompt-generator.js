@@ -162,7 +162,7 @@ export default async function handler(req, res) {
   'threesome','titfuck','twat','uncensor','uncensored','upskirt','usdt','vibrator','venmo free','virginbreaker','voucher','wank',
   'wanker','webcam','wetback','white trash','wigger','wop','xhamster','xnxx','xvideos','xxx','youporn',
   'zipperhead','asmr','aunty','BDSM','airdrop','ada','bnb','binance','binance free','bitcoin','btc','cardano','claim tokens','coinbase free',
-  'crypto faucet','crypto giveaway','dai','defi','dex','doge','dogecoin','daughter','eth','ethereum','father','free bitcoin',
+  'crypto faucet','crypto giveaway','dai','defi','dex','doge','dogecoin','daughter','eth','ethereum','father','free bitcoin','gainzalgo',
   'free crypto','free usdt','hash rate','ico','initial coin offering','litecoin','ltc','metamask','metaverse coin',
   'mining rig','phantom wallet','polkadot','presale','private key','pump signal','recover wallet','ripple',
   'seed phrase','shiba inu','shib','signal group','sol','solana','staking','token sale','tron','trust wallet',
