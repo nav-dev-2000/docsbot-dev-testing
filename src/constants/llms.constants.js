@@ -1,16 +1,17 @@
 const LLMS = [
-  
   {
     model_name: "Claude Opus 4.5",
     slug: "claude-opus-4-5",
     provider: "anthropic",
     description:
       "Claude Opus 4.5 is Anthropic’s flagship frontier reasoning and agentic model (released November 2025), optimized for advanced coding, autonomous tool use, real-world computer interaction, and long-horizon multi-step workflows. It supports hybrid reasoning with extended thinking controlled via an effort parameter.",
-    input_context_window: "200K",
-    maximum_output_tokens: "64K",
+    input_context_window: '200K',
+    maximum_output_tokens: '64K',
     open_source: false,
-    release_date: "2025-11-24",
-    knowledge_cutoff_date: "2025-05",
+    release_date: '2025-11-24',
+    knowledge_cut_off_date: 'March 2025',
+    input_cost_per_million_tokens: 1.0,
+    output_cost_per_million_tokens: 5.0,
     api_providers:
       "Anthropic API, Amazon Bedrock, Google Vertex AI, Claude developer platform",
     modalities: {
@@ -80,7 +81,6 @@ const LLMS = [
     },
   },
 },
-
   {
     model_name: 'Claude Haiku 4.5',
     slug: 'claude-haiku-4-5',
