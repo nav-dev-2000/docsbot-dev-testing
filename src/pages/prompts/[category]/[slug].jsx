@@ -16,6 +16,7 @@ import { isSuperAdmin } from '@/utils/helpers'
 import { useRouter } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import PromptDisclaimer from '@/components/PromptDisclaimer'
 
 const PromptDisplay = ({ prompt, category, slug, isSuperAdminUser }) => {
   const [copied, setCopied] = useState(false)
@@ -187,12 +188,14 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
           </div>
         </div>
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <PromptDisplay 
-            {...promptData} 
+          <PromptDisplay
+            {...promptData}
             slug={promptData.id}
             isSuperAdminUser={isSuperAdminUser}
           />
         </div>
+
+        <PromptDisclaimer />
 
         <RegisterCTA
           customTitle="Use this prompt with a custom-trained chatbot!"
@@ -200,8 +203,8 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
           button="Create Your Free Custom GPT"
         />
 
-        <RelatedPromptsList 
-          prompts={relatedPrompts} 
+        <RelatedPromptsList
+          prompts={relatedPrompts}
           category={promptData.category}
         />
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
