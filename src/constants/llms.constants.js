@@ -3988,8 +3988,8 @@ const LLMS = [
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
       CharXivReasoning: {
-        score: 81.1,
-        notes: 'python enabled',
+        score: 80.3,
+        notes: 'with Python tool',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
       VideoMMMU: {
@@ -4101,6 +4101,91 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT‑5.2',
+    slug: 'gpt-5-2',
+    provider: 'openai',
+    description:
+      'GPT‑5.2 is OpenAI’s most capable model series for professional knowledge work, delivering stronger long-context reasoning, tool use, and multimodal understanding across Instant, Thinking, and Pro variants. It improves spreadsheet and presentation generation, coding, and complex multi-step projects with better speed and reliability.',
+    input_context_window: '400K',
+    maximum_output_tokens: '128K',
+    input_cost_per_million_tokens: 1.75,
+    output_cost_per_million_tokens: 14,
+    open_source: false,
+    release_date: '2025-12-10',
+    knowledge_cut_off_date: 'Mid 2025',
+    api_providers:
+      'OpenAI API (Responses & Chat Completions), ChatGPT (Instant, Thinking, Pro)',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      // Coding
+      SWEBenchPro: {
+        score: 55.6,
+        notes: 'Public',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      SWEBench: {
+        score: 80.0,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
+      // Science & knowledge
+      GPQA: {
+        score: 92.4,
+        notes: 'Diamond, no tools',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      FrontierMathTier1_3: {
+        score: 40.3,
+        notes: 'with Python tool',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      FrontierMathTier4: {
+        score: 14.6,
+        notes: 'with Python tool',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
+      // Multimodal
+      CharXivReasoning: {
+        score: 88.7,
+        notes: 'with Python tool',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
+      // Abstract reasoning
+      ARCAGI1: {
+        score: 86.2,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      ARCAGI2: {
+        score: 52.9,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
+      // Professional tasks
+      GDPvalWinsOrTies: {
+        score: 70.9,
+        notes: 'Knowledge work tasks',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
+      // Tool use
+      Toolathon: {
+        score: 46.3,
+        notes: 'Agent tool calling',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+    },
+  },
+  {
     model_name: 'GPT‑5.1',
     slug: 'gpt-5-1',
     provider: 'openai',
@@ -4133,6 +4218,16 @@ const LLMS = [
         notes: 'with python tool only',
         source: 'https://openai.com/index/introducing-gpt-5-1-for-developers/',
       },
+      FrontierMathTier1_3: {
+        score: 31.0,
+        notes: 'with Python tool',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      FrontierMathTier4: {
+        score: 12.5,
+        notes: 'with Python tool',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
       GPQA: {
         score: 88.1,
         notes: 'diamond, no tools',
@@ -4161,8 +4256,8 @@ const LLMS = [
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
       CharXivReasoning: {
-        score: 81.1,
-        notes: 'python enabled',
+        score: 80.3,
+        notes: 'with Python tool',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
       VideoMMMU: {
@@ -4181,6 +4276,11 @@ const LLMS = [
         score: 112000,
         notes: 'SWE-Lancer: IC SWE Diamond Freelance Coding Tasks, $112K',
         source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+      SWEBenchPro: {
+        score: 50.8,
+        notes: 'Public',
+        source: 'https://openai.com/index/gpt-5-2',
       },
       SWEBench: {
         score: 76.3,
@@ -4210,6 +4310,13 @@ const LLMS = [
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
 
+      // Professional tasks
+      GDPvalWinsOrTies: {
+        score: 38.8,
+        notes: 'Knowledge work tasks',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+
       // Function Calling
       Tau2BenchAirline: {
         score: 67.0,
@@ -4225,6 +4332,11 @@ const LLMS = [
         score: 95.6,
         notes: 'with helper system prompt',
         source: 'https://openai.com/index/introducing-gpt-5-1-for-developers/',
+      },
+      Toolathon: {
+        score: 43.5,
+        notes: 'Agent tool calling',
+        source: 'https://openai.com/index/gpt-5-2',
       },
 
       // Long Context
@@ -4262,6 +4374,18 @@ const LLMS = [
         score: 86.7,
         notes: 'long, with subtitle category',
         source: 'https://openai.com/index/introducing-gpt-5/',
+      },
+
+      // Abstract reasoning
+      ARCAGI1: {
+        score: 72.8,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-5-2',
+      },
+      ARCAGI2: {
+        score: 17.6,
+        notes: 'Verified',
+        source: 'https://openai.com/index/gpt-5-2',
       },
     },
   },

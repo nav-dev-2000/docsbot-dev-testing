@@ -1,26 +1,24 @@
 export const LLM_PRICING = {
   'Chat/Completion Models': [
-
     {
-      model_name: 'GPT-5 Pro',
-      model_slug: 'gpt-5-pro',
-      // inferred / reported extended context window (up to 512K input)  
-      context: '512K',
+      model_name: 'GPT-5.2',
+      model_slug: 'gpt-5-2',
+      page_slug: 'gpt-5-2',
+      context: '400K/128K',
       provider: 'OpenAI',
-      input_token_cost_per_million: 2.0,       // $2.00 per million input tokens
-      output_token_cost_per_million: 10        // $10 per million output tokens
-},
-      
+      input_token_cost_per_million: 1.75,
+      cached_input_token_cost_per_million: 0.175,
+      output_token_cost_per_million: 14,
+    },
     {
-      model_name: 'GPT-5 Codex',
-      model_slug: 'gpt-5-codex',
-      page_slug: 'gpt-5-codex',
-      context: '400K',
+      model_name: 'GPT-5.2 Pro',
+      model_slug: 'gpt-5-2-pro',
+      page_slug: 'gpt-5-2',
+      context: '400K/128K',
       provider: 'OpenAI',
-      input_token_cost_per_million: 1.25,       // $1.25 per million input tokens :contentReference[oaicite:0]{index=0}
-      output_token_cost_per_million: 10         // $10 per million output tokens :contentReference[oaicite:1]{index=1}
-},
-
+      input_token_cost_per_million: 21,
+      output_token_cost_per_million: 168,
+    },
     {
       model_name: 'GPT-5.1',
       model_slug: 'gpt-5-1',
@@ -30,7 +28,15 @@ export const LLM_PRICING = {
       input_token_cost_per_million: 1.25,
       output_token_cost_per_million: 10,
     },
-
+    {
+      model_name: 'GPT-5 Pro',
+      model_slug: 'gpt-5-pro',
+      // inferred / reported extended context window (up to 512K input)
+      context: '512K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 2.0,       // $2.00 per million input tokens
+      output_token_cost_per_million: 10,       // $10 per million output tokens
+    },
     {
       model_name: 'GPT-5',
       model_slug: 'gpt-5',
@@ -39,6 +45,15 @@ export const LLM_PRICING = {
       provider: 'OpenAI',
       input_token_cost_per_million: 1.25,
       output_token_cost_per_million: 10,
+    },
+    {
+      model_name: 'GPT-5 Codex',
+      model_slug: 'gpt-5-codex',
+      page_slug: 'gpt-5-codex',
+      context: '400K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 1.25,       // $1.25 per million input tokens :contentReference[oaicite:0]{index=0}
+      output_token_cost_per_million: 10,        // $10 per million output tokens :contentReference[oaicite:1]{index=1}
     },
     {
       model_name: 'GPT-5 mini',

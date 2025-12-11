@@ -85,6 +85,11 @@ export const BENCHMARKS = {
     title: 'ARC-AGI-2',
     description: 'Visual reasoning puzzles benchmark, ARC Prize Verified, testing abstract reasoning and visual problem-solving',
   },
+  ARCAGI1: {
+    title: 'ARC-AGI-1',
+    description:
+      'Abstract reasoning benchmark (ARC Prize Verified) evaluating core pattern recognition and problem-solving on ARC-AGI-1 tasks',
+  },
   BirdSQLDev: {
     title: 'Bird-SQL (Dev)',
     description: 'Evaluates SQL query generation and database interaction capabilities',
@@ -145,6 +150,14 @@ export const BENCHMARKS = {
     title: 'FrontierMath',
     description: 'Evaluates advanced mathematical reasoning with Python tool assistance',
   },
+  FrontierMathTier1_3: {
+    title: 'FrontierMath (Tier 1–3)',
+    description: 'Advanced mathematics benchmark covering FrontierMath Tier 1–3 tasks with Python assistance',
+  },
+  FrontierMathTier4: {
+    title: 'FrontierMath (Tier 4)',
+    description: 'Advanced mathematics benchmark covering FrontierMath Tier 4 tasks with Python assistance',
+  },
   GlobalMMLU: {
     title: 'Global MMLU',
     description: 'A multilingual version of the MMLU benchmark that tests knowledge across multiple languages and cultures',
@@ -156,6 +169,10 @@ export const BENCHMARKS = {
   GPQA: {
     title: 'GPQA',
     description: 'Graduate-level Physics Questions Assessment - Tests advanced physics knowledge with Diamond Science level questions',
+  },
+  GDPvalWinsOrTies: {
+    title: 'GDPval (wins or ties)',
+    description: 'Economic knowledge work evaluation measuring win/tie rates versus industry professionals across 44 occupations',
   },
   GraphwalksBFS128k: {
     title: 'Graphwalks BFS (128k)',
@@ -283,6 +300,10 @@ export const BENCHMARKS = {
     title: 'SWE-Bench Verified',
     description: 'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
   },
+  SWEBenchPro: {
+    title: 'SWE-Bench Pro',
+    description: 'Evaluates software engineering on multi-language SWE-Bench Pro benchmark of real-world GitHub issues',
+  },
   SWELancerIC: {
     title: 'SWE-Lancer IC',
     description: 'Evaluates freelance coding tasks on IC SWE Diamond level tasks, measured in monetary value ($112K)',
@@ -290,6 +311,10 @@ export const BENCHMARKS = {
   Tau2Bench: {
     title: 'Tau2Bench',
     description: 'Evaluates agentic tool use capabilities, testing models on their ability to effectively use tools in agentic scenarios',
+  },
+  Toolathon: {
+    title: 'Toolathon',
+    description: 'Assesses agentic tool-calling performance across multi-step tasks',
   },
   Tau2BenchAirline: {
     title: 'Tau2Bench Airline',
