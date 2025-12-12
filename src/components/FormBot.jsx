@@ -57,8 +57,7 @@ export default function FormBot({
   // Define which models should be shown based on conditions
   const modelVisibility = {
     'gpt-5.2': true,
-    'gpt-5.1':
-      model === 'gpt-5.1',
+    'gpt-5.1': true,
     'gpt-5':
       model === 'gpt-5',
     'gpt-4.1': !short,
