@@ -1,15 +1,22 @@
-import { useMemo, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
+import { isSuperAdmin } from '@/utils/helpers'
 import {
   ClipboardDocumentCheckIcon,
   ClipboardDocumentListIcon,
   PrinterIcon,
 } from '@heroicons/react/24/outline'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
+import { routePaths } from '@/constants/routePaths.constants'
 
 const YEAR_KEY = '2025'
 
@@ -51,12 +58,19 @@ const serializeReport = (report) => {
   }
 }
 
-export default function TeamYearlyReport({ teamId, report, shareUrl }) {
+export default function TeamYearlyReport({ teamId, report, shareUrl, ogImageUrl }) {
   const [copied, setCopied] = useState(false)
+  const [pendingShare, setPendingShare] = useState(null)
+  const [isPublic, setIsPublic] = useState(Boolean(report?.is_public))
+  const [shareError, setShareError] = useState('')
+  const [isPublishing, setIsPublishing] = useState(false)
   const posthog = usePostHog()
+  const router = useRouter()
+  const [user, authLoading] = useAuthState(auth)
 
   const mainImage = report?.design_image_url || report?.design_cropped_image_url
-  const ogImage = report?.design_cropped_image_url || report?.design_image_url
+  const ogImage = ogImageUrl || report?.design_cropped_image_url || report?.design_image_url
+  const canViewReportImage = isPublic || Boolean(user)
   const generatedAtLabel = useMemo(() => {
     if (!report?.generated_at) return null
     const date = new Date(report.generated_at)
@@ -74,33 +88,108 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
   const shareActions = [
     {
       label: 'Share on X',
+      platform: 'x',
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${tweetText}`,
       Icon: IconX,
     },
     {
       label: 'Share on LinkedIn',
+      platform: 'linkedin',
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       Icon: IconLinkedIn,
     },
     {
       label: 'Share on Facebook',
+      platform: 'facebook',
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       Icon: IconFacebook,
     },
   ]
 
-  const copyLink = async () => {
+  const closeShareModal = () => {
+    setPendingShare(null)
+    setShareError('')
+  }
+
+
+  const publishReport = async () => {
+    if (isPublic) return
+    setIsPublishing(true)
+    setShareError('')
     try {
-      await navigator?.clipboard?.writeText(shareUrl)
-      setCopied(true)
+      const response = await fetch(
+        `/api/teams/${teamId}/yearly-reports/${YEAR_KEY}/share`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ is_public: true }),
+        },
+      )
+
+      if (!response.ok) {
+        throw new Error('Failed to make report public')
+      }
+
+      setIsPublic(true)
+    } catch (error) {
+      setShareError(
+        error?.message || 'Unable to make the report public right now.',
+      )
+      throw error
+    } finally {
+      setIsPublishing(false)
+    }
+  }
+
+  const completeShare = async (share) => {
+    if (user && !isPublic) {
+      await publishReport()
+    }
+
+    if (share?.platform === 'copy') {
+      try {
+        await navigator?.clipboard?.writeText(shareUrl)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch (error) {
+        setCopied(false)
+      }
+    } else if (share?.href) {
+      window.open(share.href, '_blank', 'noopener,noreferrer')
+    }
+
+    if (share?.platform) {
       posthog?.capture('Yearly Report Shared', {
         team_id: teamId,
         year: YEAR_KEY,
-        platform: 'copy',
+        platform: share.platform,
       })
-      setTimeout(() => setCopied(false), 2000)
+    }
+  }
+
+  const requestShare = async (share) => {
+    setShareError('')
+    if (!user && !isPublic) {
+      router.push({
+        pathname: routePaths.LOGIN,
+        query: { redirect: `/${YEAR_KEY}-in-review/${teamId}` },
+      })
+      return
+    }
+    if (user && !isPublic) {
+      setPendingShare(share)
+      return
+    }
+    await completeShare(share)
+  }
+
+  const confirmShare = async () => {
+    if (!pendingShare) return
+    try {
+      await completeShare(pendingShare)
+      closeShareModal()
     } catch (error) {
-      setCopied(false)
+      // Errors are handled via shareError state
     }
   }
 
@@ -139,62 +228,86 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12">
         <div className="space-y-6">
           <div className="report-image-wrapper overflow-hidden rounded-3xl">
-            {mainImage ? (
-              <img
-                src={mainImage}
-                alt={`DocsBot ${YEAR_KEY} report for team ${teamId}`}
-                className="block h-full w-full object-cover"
-                loading="lazy"
-              />
+            {canViewReportImage ? (
+              mainImage ? (
+                <img
+                  src={mainImage}
+                  alt={`DocsBot ${YEAR_KEY} report for team ${teamId}`}
+                  className="block h-full w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex items-center justify-center p-16 text-center text-gray-600">
+                  No report image available for this team.
+                </div>
+              )
             ) : (
-              <div className="flex items-center justify-center p-16 text-center text-gray-600">
-                No report image available for this team.
+              <div className="flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-gray-50 to-gray-100 p-16 text-center text-gray-700">
+                {ogImage && (
+                  <img
+                    src={ogImage}
+                    alt={`DocsBot ${YEAR_KEY} report preview for team ${teamId}`}
+                    className="mb-4 max-w-full rounded-lg"
+                    loading="lazy"
+                  />
+                )}
+                <p className="text-lg font-semibold text-gray-900">
+                  Sign in to view your {YEAR_KEY} report image
+                </p>
+                <p className="max-w-xl text-sm">
+                  This report is private until you choose to share it. Sign in to review the image before making it public.
+                </p>
+                <button
+                  type="button"
+                  onClick={() =>
+                    router.push({
+                      pathname: routePaths.LOGIN,
+                      query: { redirect: `/${YEAR_KEY}-in-review/${teamId}` },
+                    })
+                  }
+                  className="inline-flex items-center justify-center rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  Sign in
+                </button>
               </div>
             )}
           </div>
 
-          <div className="share-actions flex flex-wrap items-center justify-center gap-3 text-center">
-            {shareActions.map((action) => (
-              <a
-                key={action.label}
-                href={action.href}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => {
-                  const platform = action.label.replace('Share on ', '').toLowerCase()
-                  posthog?.capture('Yearly Report Shared', {
-                    team_id: teamId,
-                    year: YEAR_KEY,
-                    platform: platform,
-                  })
-                }}
+          {user && (
+            <div className="share-actions flex flex-wrap items-center justify-center gap-3 text-center">
+              {shareActions.map((action) => (
+                <button
+                  key={action.label}
+                  type="button"
+                  onClick={() => requestShare(action)}
+                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                >
+                  <action.Icon className="h-4 w-4" aria-hidden="true" />
+                  {action.label}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => requestShare({ platform: 'copy' })}
                 className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               >
-                <action.Icon className="h-4 w-4" aria-hidden="true" />
-                {action.label}
-              </a>
-            ))}
-            <button
-              type="button"
-              onClick={copyLink}
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-            >
-              {copied ? (
-                <ClipboardDocumentCheckIcon className="h-4 w-4" aria-hidden="true" />
-              ) : (
-                <ClipboardDocumentListIcon className="h-4 w-4" aria-hidden="true" />
-              )}
-              {copied ? 'Link copied' : 'Copy link'}
-            </button>
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-            >
-              <PrinterIcon className="h-4 w-4" aria-hidden="true" />
-              Print or save as PDF
-            </button>
-          </div>
+                {copied ? (
+                  <ClipboardDocumentCheckIcon className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <ClipboardDocumentListIcon className="h-4 w-4" aria-hidden="true" />
+                )}
+                {copied ? 'Link copied' : 'Copy link'}
+              </button>
+              <button
+                type="button"
+                onClick={handlePrint}
+                className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              >
+                <PrinterIcon className="h-4 w-4" aria-hidden="true" />
+                Print or save as PDF
+              </button>
+            </div>
+          )}
 
           <div className="cta-year-in-review flex justify-center">
             <Link 
@@ -245,6 +358,77 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
           </div>
         </div>
       </main>
+      <Transition.Root show={Boolean(pendingShare)} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={closeShareModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-200"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-150"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500/60 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-50 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-6">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-200"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-semibold leading-6 text-gray-900"
+                  >
+                    Make this report public?
+                  </Dialog.Title>
+                  <div className="mt-3 space-y-3 text-sm text-gray-700">
+                    <p>
+                      Sharing this link will make your DocsBot {YEAR_KEY} report visible to anyone with the URL.
+                    </p>
+                    <p className="text-gray-600">
+                      Confirm to publish and continue with
+                      {pendingShare?.label ? ` ${pendingShare.label.toLowerCase()}` : ' this share action'}.
+                    </p>
+                    {shareError && (
+                      <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
+                        {shareError}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-6 flex justify-end gap-3">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={closeShareModal}
+                      disabled={isPublishing}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+                      onClick={confirmShare}
+                      disabled={isPublishing}
+                    >
+                      {isPublishing ? 'Publishing…' : 'Make public & share'}
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
       <style jsx global>{`
         @media print {
           html,
@@ -320,12 +504,35 @@ export const getServerSideProps = async (context) => {
   const protocol = context.req.headers['x-forwarded-proto'] || 'https'
   const host = context.req.headers.host
   const shareUrl = `${protocol}://${host}/${YEAR_KEY}-in-review/${teamId}`
+  const ogImageUrl =
+    report?.design_cropped_image_url || report?.design_image_url || null
+
+  const isPublic = Boolean(report?.is_public)
+  let hasTeamAccess = false
+  let isAuthenticated = false
+
+  // Check if user is authenticated and has team access
+  try {
+    const { uid } = await getAuthorizedUser(context)
+    isAuthenticated = true
+    
+    // Check permissions using team data we already fetched
+    if (data?.roles?.[uid] || isSuperAdmin(uid)) {
+      hasTeamAccess = true
+    }
+  } catch (error) {
+    isAuthenticated = false
+  }
+
+  const allowFullReport = isPublic || hasTeamAccess
+  const safeReport = allowFullReport ? report : { is_public: isPublic }
 
   return {
     props: {
       teamId,
-      report,
+      report: safeReport,
       shareUrl,
+      ogImageUrl,
     },
   }
 }

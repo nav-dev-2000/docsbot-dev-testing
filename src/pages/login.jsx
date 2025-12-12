@@ -33,12 +33,19 @@ function Login() {
 
   //set redirect path from query param
   useEffect(() => {
-    if (router.query.redirect) {
-      //check if redirect path is valid
-      if (Object.values(routePaths).includes(router.query.redirect)) {
-        setRedirectPath(router.query.redirect)
-        console.log('redirect path set to', router.query.redirect)
-      }
+    const redirectParam = router.query.redirect
+    if (typeof redirectParam !== 'string') return
+
+    const decodedRedirect = decodeURIComponent(redirectParam)
+    const isYearInReviewShare = /^\/\d{4}-in-review\/[A-Za-z0-9]{20}$/.test(
+      decodedRedirect,
+    )
+
+    const isAllowedRedirect =
+      Object.values(routePaths).includes(decodedRedirect) || isYearInReviewShare
+
+    if (isAllowedRedirect) {
+      setRedirectPath(decodedRedirect)
     }
   }, [router.query.redirect])
 
