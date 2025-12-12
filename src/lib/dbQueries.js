@@ -902,6 +902,10 @@ export async function getTeam(teamId) {
     let team = { id: teamRef.id, ...teamRef.data() }
     team.createdAt = team.createdAt.toDate().toJSON() //make serializable
 
+    if (team.yearlyReports) {
+      team.yearlyReports = serializeYearlyReports(team.yearlyReports)
+    }
+
     //use preview key if available otherwise use fake one or null
     team.openAIKey = team.openAIKey
       ? team.openAIKeyPreview
@@ -915,6 +919,21 @@ export async function getTeam(teamId) {
   }
 }
 
+function serializeYearlyReports(reports = {}) {
+  const yearlyReports = {}
+  Object.entries(reports || {}).forEach(([year, report]) => {
+    if (!report) return
+    yearlyReports[year] = {
+      ...report,
+      generated_at:
+        report.generated_at && typeof report.generated_at.toDate === 'function'
+          ? report.generated_at.toDate().toJSON()
+          : report.generated_at,
+    }
+  })
+  return yearlyReports
+}
+
 export async function getTeams(userId) {
   //get teams for user list
   let teams = []
@@ -926,6 +945,9 @@ export async function getTeams(userId) {
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
+      if (team.yearlyReports) {
+        team.yearlyReports = serializeYearlyReports(team.yearlyReports)
+      }
       //use preview key if available otherwise use fake one or null
       team.openAIKey = team.openAIKey
         ? team.openAIKeyPreview
@@ -963,6 +985,9 @@ export async function getUserTeams(userId) {
     teamsSnapshot.forEach((doc) => {
       let team = { id: doc.id, ...doc.data() }
       team.createdAt = team.createdAt.toDate().toJSON() //convert to ISO string
+      if (team.yearlyReports) {
+        team.yearlyReports = serializeYearlyReports(team.yearlyReports)
+      }
       //use preview key if available otherwise use fake one or null
       team.openAIKey = team.openAIKey
         ? team.openAIKeyPreview

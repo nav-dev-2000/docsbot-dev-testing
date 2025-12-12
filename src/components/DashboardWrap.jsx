@@ -34,6 +34,7 @@ import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
 import * as cookie from 'cookie'
 import { LoyaltyBanner } from '@/components/HeaderBanners'
 import DashboardWizard from '@/components/DashboardWizard'
+import YearlyReportNotice from '@/components/YearlyReportNotice'
 
 export default function DashboardWrap({
   page,
@@ -661,6 +662,12 @@ export default function DashboardWrap({
                     fullWidth ? '' : 'max-w-7xl',
                   )}
                 >
+                  {team &&
+                    !router.pathname.includes('/conversations') &&
+                    !router.pathname.includes('/questions') &&
+                    !router.pathname.includes('/research') && (
+                      <YearlyReportNotice team={team} />
+                    )}
                   {children}
                 </div>
               </div>
