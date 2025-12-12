@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
 import { getFirestore } from 'firebase-admin/firestore'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { usePostHog } from 'posthog-js/react'
@@ -196,13 +197,13 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
           </div>
 
           <div className="cta-year-in-review flex justify-center">
-            <a
+            <Link 
               href="https://docsbot.ai/article/docsbot-by-the-numbers-2025-recap-infographic"
               target="_blank"
               className="inline-flex items-center justify-center rounded-lg border border-cyan-200 bg-white px-5 py-2 text-sm font-semibold text-cyan-700 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white"
             >
               See the 2025 recap for all DocsBot customers <ArrowRightIcon className="size-4 ml-1" />
-            </a>
+            </Link>
           </div>
 
           <div className="cta-share flex flex-col items-center justify-center gap-4 rounded-2xl bg-gradient-to-r from-cyan-50 via-white to-indigo-50 px-6 py-6 text-center ring-1 ring-cyan-100">
@@ -214,7 +215,7 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <a
+              <Link
                 href="/register"
                 onClick={() => {
                   posthog?.capture('Yearly Report CTA Clicked', {
@@ -226,8 +227,8 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
                 className="bg-animation inline-flex items-center justify-center rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white"
               >
                 Get started free
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/"
                 onClick={() => {
                   posthog?.capture('Yearly Report CTA Clicked', {
@@ -239,7 +240,7 @@ export default function TeamYearlyReport({ teamId, report, shareUrl }) {
                 className="inline-flex items-center justify-center rounded-full border border-cyan-200 bg-white px-5 py-2 text-sm font-semibold text-cyan-700 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white"
               >
                 More information <ArrowRightIcon className="size-4 ml-1" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
