@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-11',
+    title: 'OpenAI GPT-5.2 model support',
+    description:
+      'Bots can now choose GPT-5.2 with stronger long-context reasoning.',
+  },
+  {
     date: '2025-12-04',
     title: 'Add files to existing Google Drive sources',
     description:

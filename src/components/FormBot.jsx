@@ -22,7 +22,7 @@ export default function FormBot({
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(
-    bot?.model ||'gpt-4.1-mini'
+    bot?.model || 'gpt-4.1-mini'
   )
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
@@ -56,12 +56,16 @@ export default function FormBot({
 
   // Define which models should be shown based on conditions
   const modelVisibility = {
-    'gpt-5.1': !short || (checkPlanPermission(team, 'personal').allowed),
-    'gpt-5': !short || (checkPlanPermission(team, 'personal').allowed),
-    'gpt-4.1': !short || (checkPlanPermission(team, 'personal').allowed),
-    'gpt-5-mini': true,
+    'gpt-5.2': true,
+    'gpt-5.1':
+      model === 'gpt-5.1',
+    'gpt-5':
+      model === 'gpt-5',
+    'gpt-4.1': !short,
+    'gpt-5-mini': checkPlanPermission(team, 'personal').allowed || model === 'gpt-5-mini',
     'gpt-4.1-mini': true,
-    'gpt-5-nano': !short,
+    'gpt-5-nano':
+      (checkPlanPermission(team, 'personal').allowed && !short) || model === 'gpt-5-nano',
     'gpt-4.1-nano': !short,
     'gpt-4.5-preview': model === 'gpt-4.5-preview',
     'gpt-4o': !short,
@@ -143,14 +147,16 @@ export default function FormBot({
     }
   }, [privacy])
 
-  //show upgrade if they change model to gpt-5 or gpt-5.1
+  //show upgrade if they change model to gpt-5.2, gpt-5.1, or gpt-5
   useEffect(() => {
     // For users on the personal plan:
     // - They should be able to select gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini without any issues
     // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
     if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
       // For non-personal plans, keep existing behavior
-      if (['gpt-5.1', 'gpt-5', 'gpt-5-mini', 'gpt-4.1', 'gpt-4o'].includes(model)) {
+      if (
+        ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-5-mini', 'gpt-5-nano', 'gpt-4.1', 'gpt-4o'].includes(model)
+      ) {
         setShowUpgrade(true)
         setModel('gpt-4.1-mini')
         console.log('Setting default free/hobby plan model to gpt-4.1-mini')
@@ -159,7 +165,10 @@ export default function FormBot({
       // For paid plan users (personal and above)
       // If they select a full model without OpenAI key, revert to a mini model
       // The modal will be triggered by NewBotPanel/ModalBotEdit components
-      if (['gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) && !team.supportsGPT4) {
+      if (
+        ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) &&
+        !team.supportsGPT4
+      ) {
         setModel('gpt-4.1-mini') // Default to gpt-5-mini since they're on paid plan
         console.log('Reverting to gpt-4.1-mini for paid plan user without OpenAI key')
       }
@@ -485,6 +494,35 @@ export default function FormBot({
           </legend>
           <div className="mt-2 space-y-2">
             {/* Render models based on visibility rules */}
+            {modelVisibility['gpt-5.2'] && (
+              <div className="relative flex items-start">
+                <div className="absolute flex h-5 items-center">
+                  <input
+                    id="gpt-5-2"
+                    name="model"
+                    value="gpt-5.2"
+                    aria-describedby="gpt-5-2-description"
+                    type="radio"
+                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                    checked={model === 'gpt-5.2'}
+                    onChange={() => setModel('gpt-5.2')}
+                    disabled={disabled}
+                  />
+                </div>
+                <div className="pl-7 text-sm">
+                  <label htmlFor="gpt-5-2" className="font-medium text-gray-900">
+                    GPT-5.2 - Most Powerful
+                  </label>
+                  <p id="gpt-5-2-description" className="text-gray-500">
+                    Latest flagship tuned for long-context work, stronger tool use, and adaptive reasoning.{' '}
+                    <span className="font-bold text-xs">
+                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            )}
+
             {modelVisibility['gpt-5.1'] && (
               <div className="relative flex items-start">
                 <div className="absolute flex h-5 items-center">
@@ -505,7 +543,7 @@ export default function FormBot({
                     GPT-5.1 - Adaptive Flagship
                   </label>
                   <p id="gpt-5-1-description" className="text-gray-500">
-                    Fastest GPT-5 family model with adaptive reasoning and better instruction following.{' '}
+                    Previous flagship with adaptive reasoning and fast responses for complex tasks.{' '}
                     <span className="font-bold text-xs">
                       Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
                     </span>

@@ -2,7 +2,9 @@ import { CubeIcon } from '@heroicons/react/24/outline'
 import Tooltip from '@/components/Tooltip'
 export default function GPTModel({ bot }) {
   let label
-  if (bot.model === 'gpt-5.1') {
+  if (bot.model === 'gpt-5.2') {
+    label = 'GPT-5.2'
+  } else if (bot.model === 'gpt-5.1') {
     label = 'GPT-5.1'
   } else if (bot.model === 'gpt-5') {
     label = 'GPT-5'

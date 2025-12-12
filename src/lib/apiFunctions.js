@@ -423,11 +423,17 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
         throw new Error('GPT-4 models are not available at your plan level.')
       }
     }
-    if (model.startsWith('gpt-5') && model !== 'gpt-5-mini' && model !== 'gpt-5-nano') {
-      if (!team.supportsGPT4) {
-        throw new Error('Your OpenAI account is not approved for GPT-5 models yet.')
-      } else if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+    if (model.startsWith('gpt-5')) {
+      const isFullGPT5Model = model !== 'gpt-5-mini' && model !== 'gpt-5-nano'
+      if (!checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
         throw new Error('GPT-5 models are not available at your plan level.')
+      }
+      if (isFullGPT5Model) {
+        if (!team.supportsGPT4) {
+          throw new Error('Your OpenAI account is not approved for GPT-5 models yet.')
+        } else if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
+          throw new Error('GPT-5 models are not available at your plan level.')
+        }
       }
     }
     //check if model is valid
@@ -443,6 +449,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4.1-mini',
       'gpt-4.1-nano',
       'gpt-4.1',
+      'gpt-5.2',
       'gpt-5.1',
       'gpt-5',
       'gpt-5-mini',

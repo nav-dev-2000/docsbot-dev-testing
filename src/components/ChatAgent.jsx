@@ -89,17 +89,17 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
 
   const validModels = [
-    { id: 'o3', name: 'o3', description: 'Uses advanced reasoning - requires verification' },
     {
-      id: 'o4-mini',
-      name: 'o4-mini',
-      description: 'Fastest at advanced reasoning - requires verification',
+      id: 'gpt-5.2',
+      name: 'GPT-5.2',
+      description:
+        'Most powerful flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
     },
     {
       id: 'gpt-5.1',
       name: 'GPT-5.1',
       description:
-        'New flagship model with the best instruction following and faster responses - requires verification',
+        'Model with the great instruction following and faster responses - requires verification',
     },
     {
       id: 'gpt-5',
@@ -116,6 +116,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       id: 'gpt-5-nano',
       name: 'GPT-5 nano',
       description: 'Fastest version of GPT-5',
+    },
+    { id: 'o3', name: 'o3', description: 'Uses advanced reasoning - requires verification' },
+    {
+      id: 'o4-mini',
+      name: 'o4-mini',
+      description: 'Fastest at advanced reasoning - requires verification',
     },
     {
       id: 'gpt-4.1',
