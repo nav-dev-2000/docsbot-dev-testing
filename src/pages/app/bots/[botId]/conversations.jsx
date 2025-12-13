@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef, Fragment, useMemo } from 'react'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
@@ -55,6 +55,7 @@ import ModalQA from '@/components/ModalQA'
 import Paginator from '@/components/Paginator'
 import Tooltip from '@/components/Tooltip'
 import { Dialog, Transition } from '@headlessui/react'
+import ConversationMetadataViewer from '@/components/ConversationMetadataViewer'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import { canUserEditBot } from '@/utils/function.utils'
@@ -614,6 +615,7 @@ function Conversations({ team, bot, preConversations }) {
     }, 2000)
   }
 
+
   const deleteConversation = async (conversationId) => {
     if (!canModify) return
 
@@ -752,6 +754,7 @@ function Conversations({ team, bot, preConversations }) {
                       </button>
                     </Tooltip>
                   )}
+                <ConversationMetadataViewer metadata={conversation?.metadata} />
                 <Tooltip
                   content={`Created: ${new Date(conversation.createdAt).toUTCString()}`}
                 >

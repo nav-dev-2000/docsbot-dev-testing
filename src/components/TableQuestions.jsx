@@ -45,6 +45,7 @@ import ModalExport from '@/components/ModalExport'
 import Datepicker from 'react-tailwindcss-datepicker'
 import { isSuperAdmin } from '@/utils/helpers'
 import { preprocessLaTeX } from '@/utils/helpers'
+import ConversationMetadataViewer from '@/components/ConversationMetadataViewer'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 
@@ -658,35 +659,40 @@ export default function TableQuestions({
                         />
                       )}
                       <div className="flex-inline p-0">
-                        <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
-                          <img
-                            className="mr-1 inline-block h-5 w-5 rounded-full"
-                            src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
-                            alt="User avatar"
-                          />
-                          {question.alias} asked
-                          {question.metadata?.referrer
-                            ? ` from ${question.metadata.referrer}`
-                            : ''}
-                          :
-                        </h2>
-                        {ipFilter === null && question.ip !== undefined && (
-                          <button
-                            type="button"
-                            className="ml-5 flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                            onClick={() => {
-                              updateIPFilter(question.ip, question.alias)
-                            }}
-                          >
-                            <AdjustmentsHorizontalIcon
-                              className="m-auto h-4 w-4"
-                              aria-hidden="true"
+                        <div className="flex items-center">
+                          <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
+                            <img
+                              className="mr-1 inline-block h-5 w-5 rounded-full"
+                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
+                              alt="User avatar"
                             />
-                            <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
-                              Filter to user
-                            </span>
-                          </button>
-                        )}
+                            {question.alias} asked
+                            {question.metadata?.referrer
+                              ? ` from ${question.metadata.referrer}`
+                              : ''}
+                            :
+                          </h2>
+                          <div className="ml-2 flex items-center gap-2">
+                            <ConversationMetadataViewer metadata={question.metadata} />
+                            {ipFilter === null && question.ip !== undefined && (
+                              <button
+                                type="button"
+                                className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                onClick={() => {
+                                  updateIPFilter(question.ip, question.alias)
+                                }}
+                              >
+                                <AdjustmentsHorizontalIcon
+                                  className="m-auto h-4 w-4"
+                                  aria-hidden="true"
+                                />
+                                <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
+                                  Filter to user
+                                </span>
+                              </button>
+                            )}
+                          </div>
+                        </div>
                       </div>
                       <h2 className="text-xl font-medium text-gray-900">
                         {question.question}

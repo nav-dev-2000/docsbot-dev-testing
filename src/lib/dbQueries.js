@@ -11,6 +11,14 @@ import { sourceTypes } from '@/constants/sourceTypes.constants'
 configureFirebaseApp()
 const firestore = getFirestore()
 
+const sanitizeMetadata = (metadata) => {
+  if (!metadata || typeof metadata !== 'object') {
+    return null
+  }
+
+  return JSON.parse(JSON.stringify(metadata))
+}
+
 export async function getBots(team, resultLimit = 1000) {
   const querySnapshot = await firestore
     .collection('teams')
@@ -744,24 +752,24 @@ export async function getConversations(
   const querySnapshot = await conversationsRef.get()
   let conversations = []
   querySnapshot.forEach((doc) => {
-    let alias = doc.data().ip ? getFakeUserByIp(doc.data().ip) : 'unknown-user'
+    const docData = doc.data()
+    const sanitizedMetadata = sanitizeMetadata(docData.metadata)
+    let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
     //if we identified the user, use the provided data for alias
-    if (doc.data().metadata) {
-      if (doc.data().metadata.name) {
-        alias = doc.data().metadata.name
-        if (doc.data().metadata.email) {
-          //alias += ' (' + doc.data().metadata.email + ')'
-        }
-      } else if (doc.data().metadata.email) {
-        alias = doc.data().metadata.email
+    if (sanitizedMetadata) {
+      if (sanitizedMetadata.name) {
+        alias = sanitizedMetadata.name
+      } else if (sanitizedMetadata.email) {
+        alias = sanitizedMetadata.email
       }
     }
 
-    let question = { 
-      id: doc.id, 
-      ...doc.data(), 
+    let question = {
+      id: doc.id,
+      ...docData,
+      metadata: sanitizedMetadata,
       alias: alias,
-      email: doc.data().metadata?.email // Explicitly set email field for Gravatar
+      email: sanitizedMetadata?.email // Explicitly set email field for Gravatar
     }
     question = JSON.stringify(question, (key, value) => {
       if (value instanceof Timestamp) {
@@ -837,26 +845,25 @@ export async function getConversation(teamId, botId, conversationId) {
     .get()
 
   if (conversationRef.exists) {
-    const docData = conversationRef.data()
-    let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
-    
+    const { metadata, ...restDocData } = conversationRef.data()
+    const sanitizedMetadata = sanitizeMetadata(metadata)
+    let alias = restDocData.ip ? getFakeUserByIp(restDocData.ip) : 'unknown-user'
+
     //if we identified the user, use the provided data for alias
-    if (docData.metadata) {
-      if (docData.metadata.name) {
-        alias = docData.metadata.name
-        if (docData.metadata.email) {
-          //alias += ' (' + docData.metadata.email + ')'
-        }
-      } else if (docData.metadata.email) {
-        alias = docData.metadata.email
+    if (sanitizedMetadata) {
+      if (sanitizedMetadata.name) {
+        alias = sanitizedMetadata.name
+      } else if (sanitizedMetadata.email) {
+        alias = sanitizedMetadata.email
       }
     }
 
-    let conversation = { 
-      id: conversationId, 
-      ...docData, 
+    let conversation = {
+      id: conversationId,
+      ...restDocData,
+      metadata: sanitizedMetadata,
       alias: alias,
-      email: docData.metadata?.email // Explicitly set email field for Gravatar
+      email: sanitizedMetadata?.email // Explicitly set email field for Gravatar
     }
     
     // Convert Timestamps to JSON dates

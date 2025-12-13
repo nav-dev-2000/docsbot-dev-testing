@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-12',
+    title: 'Metadata viewer in logs',
+    description:
+      'View and copy custom conversation/question metadata in your logs. ',
+  },
+  {
     date: '2025-12-11',
     title: 'OpenAI GPT-5.2 model support',
     description:
