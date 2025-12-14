@@ -2,12 +2,15 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 
 export const ChatBotActions = ({
+    content,
     borderColor = 'gray-200',
     shadowSize = 'lg',
-    shadowColor = 'gray-900/40',
+    isInsideChat = false,
     className,
+    bubbleClassName,
+    onComplete,
 }) => {
-    const bubbleCss = 'flex items-center px-4 py-2 border rounded-lg'
+    const bubbleCss = 'flex items-center px-4 py-2 rounded-lg border'
 
     return (
         <div
@@ -19,10 +22,12 @@ export const ChatBotActions = ({
         >
             <motion.div
                 initial={{
+                    borderColor: "#e2e8f0",
                     backgroundColor: "#ffffff",
                     color: "#000000"
                 }}
                 animate={{
+                    borderColor: "#0891b2",
                     backgroundColor: "#0891b2",
                     color: "#ffffff"
                 }}
@@ -34,18 +39,26 @@ export const ChatBotActions = ({
                 }}
                 className={clsx(
                     bubbleCss,
-                    `border-${borderColor} shadow-${shadowSize}`,
+                    {
+                        [`border-${borderColor} shadow-${shadowSize}`]: !isInsideChat,
+                    },
                 )}
+                onAnimationComplete={() => {
+                    setTimeout(() => onComplete?.(), 500)
+                }}
             >
-                Yes, please
+                {content?.yes || 'Yes, please'}
             </motion.div>
 
             <div className={clsx(
-                'bg-white',
                 bubbleCss,
-                `border-${borderColor} shadow-${shadowSize} shadow-${shadowColor}`,
+                {
+                    ['border-slate-200']: isInsideChat,
+                    [`border-${borderColor} bg-white shadow-${shadowSize}`]: !isInsideChat,
+                },
+                bubbleClassName,
             )}>
-                No, thank you
+                {content?.no || 'No, thank you'}
             </div>
         </div>
     )

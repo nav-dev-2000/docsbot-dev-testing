@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion"
 import { sourceTypes } from "@/constants/sourceTypes.constants"
 import clsx from "clsx"
 
-import { Section, SectionContent, Title, Description, Button } from "@/components/customer-support/elements"
+import { Section, SectionContent, Title, Description, Button } from "@/components/elements"
 import RobotIconSolid from "@/components/RobotIconSolid"
 
 const RAW_INTEGRATIONS = sourceTypes

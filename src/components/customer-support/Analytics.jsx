@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Section, SectionContent } from "@/components/customer-support/elements"
+import { Section, SectionContent } from "@/components/elements"
 import { Banner } from './call-to-action'
 
 export const Analytics = ({ title, description, data, banner }) => {

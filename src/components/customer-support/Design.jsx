@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Description, Section, SectionContent, Title } from "@/components/customer-support/elements"
+import { Description, Section, SectionContent, Title } from "@/components/elements"
 import demo from '@/images/app-demo/docsbot-personalize-widget.webp'
 import demoMobile from '@/images/app-demo/docsbot-personalize-widget-mobile.webp'
 

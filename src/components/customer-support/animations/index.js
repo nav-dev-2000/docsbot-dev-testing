@@ -1,3 +1,7 @@
 export * from './AccurateAnswers'
 export * from './MultilingualChat'
 export * from './SmartEscalation'
+export * from './SupportLead'
+export * from './DataConnection'
+export * from './BotAutomation'
+export * from './DeepResearch'

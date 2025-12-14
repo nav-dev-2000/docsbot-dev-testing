@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import clsx from 'clsx'
-import { Button } from '@/components/customer-support/elements'
+import { Button } from '@/components/elements'
 import Image from 'next/image';
 import humanHero from '@/images/app-demo/docsbot-hero-human.webp'
 import humanAvatar from '@/images/app-demo/docsbot-avatar-human.webp'

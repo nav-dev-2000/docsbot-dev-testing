@@ -1,4 +1,4 @@
-import { Section, SectionContent } from './Commons'
+import { Section, SectionContent } from '@/components/elements'
 import { AcademicCapIcon, ChartBarIcon, CloudArrowUpIcon, RocketLaunchIcon } from '@heroicons/react/24/outline'
 
 const features = [

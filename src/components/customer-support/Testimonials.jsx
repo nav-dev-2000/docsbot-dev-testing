@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import Image from 'next/image'
-import { Section, SectionContent } from '@/components/customer-support/elements'
+import { Section, SectionContent } from '@/components/elements'
 import { AskAIModels } from './call-to-action'
 import { StarIcon } from '@heroicons/react/16/solid'
 

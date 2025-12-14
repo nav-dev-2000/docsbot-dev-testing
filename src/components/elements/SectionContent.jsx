@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Title, Description } from '@/components/customer-support/elements'
+import { Title, Description } from '@/components/elements'
 
 export const SectionContent = ({ theme = 'light', title, titleClass, description, descriptionClass, isBoxed = true, isBoxedHeader = true, className, children }) => {
     return (

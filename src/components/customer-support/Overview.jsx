@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { Section, SectionContent } from "@/components/customer-support/elements"
+import { Section, SectionContent } from "@/components/elements"
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/20/solid"
 
 const Block = ({ title, content, icon, className }) => {

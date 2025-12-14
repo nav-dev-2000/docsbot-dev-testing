@@ -1,4 +1,4 @@
-import { Section, SectionContent, Button, Gradient, PricingCalculator } from "@/components/customer-support/elements"
+import { Section, SectionContent, Button, Gradient, PricingCalculator } from "@/components/elements"
 
 export const Pricing = ({ title, description, primaryButton }) => {
     const theme = 'dark'

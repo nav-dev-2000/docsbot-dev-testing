@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FAQPageJsonLd } from "next-seo";
-import { Section, SectionContent } from "@/components/customer-support/elements";
+import { Section, SectionContent } from "@/components/elements";
 
 export const Benefits = ({ title, description, initialPersonaKey, personas = {} }) => {
   const [selectedKey, setSelectedKey] = useState(() => {

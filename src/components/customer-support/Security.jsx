@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { Section, SectionContent } from "@/components/customer-support/elements";
+import { Section, SectionContent } from "@/components/elements";
 
 import gdprImage from '@/images/gdpr.webp'
 import soc2Image from '@/images/soc-2.webp'

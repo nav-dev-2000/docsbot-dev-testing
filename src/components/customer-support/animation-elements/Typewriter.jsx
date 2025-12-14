@@ -19,6 +19,14 @@ export const Typewriter = ({
     const didReallyTypeRef = useRef(false)
     const fullText = typeof children === "string" ? children : String(children)
 
+    const onStartRef = useRef(onStart)
+    const onCompleteRef = useRef(onComplete)
+
+    useEffect(() => {
+        onStartRef.current = onStart
+        onCompleteRef.current = onComplete
+    }, [onStart, onComplete])
+
     useEffect(() => {
         let controls
         let startTimeout
@@ -32,7 +40,7 @@ export const Typewriter = ({
             if (!hasTyped) {
                 setHasTyped(true)
                 didReallyTypeRef.current = true
-                onStart?.(true)
+                onStartRef.current?.(true)
             }
 
             let currentIndex = 0
@@ -53,7 +61,7 @@ export const Typewriter = ({
                     setDisplayed(fullText)
                     setIsTyping(false)
                     if (didReallyTypeRef.current) {
-                        onComplete?.()
+                        onCompleteRef.current?.()
                     }
 
                     // schedule restart if requested
@@ -67,7 +75,7 @@ export const Typewriter = ({
                             }
                             setHasTyped(false)
                             didReallyTypeRef.current = false
-                            onStart?.(false)
+                            onStartRef.current?.(false)
                             if (restartDelay > 0) {
                                 restartKickoffTimeout = setTimeout(() => {
                                     runTyping()
@@ -99,7 +107,8 @@ export const Typewriter = ({
             clearTimeout(restartTimeout)
             clearTimeout(restartKickoffTimeout)
         }
-    }, [fullText, speed, onStart, onComplete, placeholder, startDelay, restartAfter])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fullText, speed, placeholder, startDelay, restartAfter, restartDelay])
 
     return (
         <span
@@ -108,9 +117,9 @@ export const Typewriter = ({
                 className
             )}
         >
-            { displayed }
+            {displayed}
 
-            { isTyping || displayed === fullText && (
+            {isTyping || displayed === fullText && (
                 <motion.span
                     aria-hidden="true"
                     className="inline-block w-0.5 h-4 ml-1 align-middle bg-current"

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Section, SectionContent } from "@/components/customer-support/elements";
+import { Section, SectionContent } from "@/components/elements";
 import { Banner } from "./call-to-action";
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 

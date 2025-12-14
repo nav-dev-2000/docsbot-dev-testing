@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import clsx from "clsx"
 
-import { Section, SectionContent, Button, Arrow } from "@/components/customer-support/elements"
+import { Section, SectionContent, Button, Arrow } from "@/components/elements"
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/16/solid'
 
 export const Tiers = ({ title, description, data }) => {

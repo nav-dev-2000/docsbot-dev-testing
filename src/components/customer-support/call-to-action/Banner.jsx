@@ -1,6 +1,6 @@
 import Image from "next/image"
 import clsx from "clsx"
-import { Button, Gradient } from "@/components/customer-support/elements"
+import { Button, Gradient } from "@/components/elements"
 import botJuggling from "@/images/app-demo/docsbot-mascot-juggling.svg"
 import botConfetti from "@/images/app-demo/docsbot-mascot-confetti.svg"
 import botWaving from "@/images/app-demo/docsbot-mascot-waving.svg"

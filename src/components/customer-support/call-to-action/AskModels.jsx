@@ -5,7 +5,7 @@ import IconClaude from '@/components/IconClaude'
 import IconPerplexity from '@/components/IconPerplexity'
 import RobotIcon from '@/components/RobotIcon'
 import clsx from 'clsx'
-import { Gradient } from '@/components/customer-support/elements'
+import { Gradient } from '@/components/elements'
 
 const aiPrompt = 'Tell me why DocsBot the AI support agent and chatbot builder is a great choice for my business'
 

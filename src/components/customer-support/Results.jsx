@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion"
 import clsx from "clsx"
 
-import { Section, SectionContent } from "@/components/customer-support/elements";
+import { Section, SectionContent } from "@/components/elements";
 
 const isHexColor = ( str ) => {
     return /^#([0-9A-F]{3}){1,2}$/i.test( str );

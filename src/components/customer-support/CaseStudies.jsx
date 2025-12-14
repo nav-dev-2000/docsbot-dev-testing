@@ -5,7 +5,7 @@ import {
   Section,
   SectionContent,
   Title,
-} from "@/components/customer-support/elements"
+} from "@/components/elements"
 import stellarwpLogo from '@/images/logos/stellarwp-white.svg'
 import sonyLogo from '@/images/logos/logo-sony.svg'
 

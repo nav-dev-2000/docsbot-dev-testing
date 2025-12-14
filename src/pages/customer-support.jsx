@@ -17,7 +17,7 @@ import MattCromwellQuote from '@/components/MattCromwellQuote'
 
 // Import: Elements
 import { AccurateAnswers, SmartEscalation, MultilingualChat } from '@/components/customer-support/animations'
-import { VideoOverlay } from '@/components/customer-support/elements'
+import { VideoOverlay } from '@/components/elements'
 
 // Import: Page Sections
 import { Hero } from '@/components/customer-support/Hero'

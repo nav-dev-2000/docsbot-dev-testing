@@ -104,19 +104,28 @@ export default function IntegrationsFeatures() {
   const [setReferenceWindowRef, bounds] = useMeasure()
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const integrations = sourceTypes
-    .map((type) => ({
-      name: type.title,
-      description: type.description,
-      icon: type.icon,
-      coming: type.coming,
-    }))
+  // Duplicate the integrations to create an infinite scroll effect
+  const originalIntegrations = sourceTypes.map((type) => ({
+    name: type.title,
+    description: type.description,
+    icon: type.icon,
+    coming: type.coming,
+  }))
+  const integrations = [...originalIntegrations, ...originalIntegrations]
 
   useMotionValueEvent(scrollX, 'change', (x) => {
     if (!scrollRef.current) return
     const gap = 32 // matches gap-8 in the className
     const width = scrollRef.current.children[0].clientWidth
-    setActiveIndex(Math.round(x / (width + gap)))
+    const itemWidth = width + gap
+    const totalSetWidth = itemWidth * originalIntegrations.length
+
+    // Infinite scroll reset
+    if (x >= totalSetWidth) {
+      scrollRef.current.scrollLeft = x - totalSetWidth
+    }
+
+    setActiveIndex(Math.round(x / itemWidth) % originalIntegrations.length)
   })
 
   function scrollTo(index) {
@@ -151,7 +160,8 @@ export default function IntegrationsFeatures() {
             </svg>
             <span className="relative">Anything</span>
           </span>{' '}
-          with {integrations.filter(i => !i.coming).length + 9}+ Content Sources
+          with {originalIntegrations.filter((i) => !i.coming).length + 9}+
+          Content Sources
         </p>
         <p className="mx-auto mt-5 max-w-7xl text-xl text-gray-500">
           Our intuitive interface makes it easy to index your documentation,
@@ -167,24 +177,24 @@ export default function IntegrationsFeatures() {
           'mt-16 flex gap-8 px-[var(--scroll-padding)]',
           'min-h-[22rem] sm:min-h-[18rem] overflow-visible',
           '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-          'snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth',
+          // removed scroll-smooth to allow instant jump
+          'snap-x snap-mandatory overflow-x-auto overscroll-x-contain',
           '[--scroll-padding:max(theme(spacing.6),calc((100vw-theme(maxWidth.2xl))/2))] lg:[--scroll-padding:max(theme(spacing.8),calc((100vw-theme(maxWidth.7xl))/2))]',
         ])}
       >
         {integrations.map((feature, index) => (
           <FeatureCard
-            key={feature.name}
+            key={`${feature.name}-${index}`}
             {...feature}
             bounds={bounds}
             scrollX={scrollX}
-            onClick={() => scrollTo(index)}
+            onClick={() => scrollTo(index % originalIntegrations.length)}
           />
         ))}
-        <div className="w-[42rem] shrink-0 sm:w-[54rem]" />
       </div>
 
       <div className="mt-0 sm:mt-8 hidden justify-center gap-2 md:flex">
-        {integrations.map((_, index) => (
+        {originalIntegrations.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollTo(index)}
