@@ -1,7 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, isValidElement } from 'react'
 import { motion } from 'framer-motion'
 import { ChatBubble, ChatHeader, LoadingDots, Typewriter, ChatBotActions, ChatInput } from '@/components/customer-support/animation-elements'
 import clsx from 'clsx'
+
+// Helper to extract text content from JSX
+const extractTextFromJSX = (node) => {
+    if (typeof node === 'string') {
+        return node
+    }
+    if (typeof node === 'number') {
+        return String(node)
+    }
+    if (isValidElement(node)) {
+        if (node.props.children) {
+            if (Array.isArray(node.props.children)) {
+                return node.props.children.map(extractTextFromJSX).join('')
+            }
+            return extractTextFromJSX(node.props.children)
+        }
+        return ''
+    }
+    if (Array.isArray(node)) {
+        return node.map(extractTextFromJSX).join('')
+    }
+    return ''
+}
 
 const ChatUserLine = ({ content, onComplete, ...bubbleProps }) => {
     return (
@@ -27,6 +50,8 @@ const ChatUserLine = ({ content, onComplete, ...bubbleProps }) => {
 const ChatBotLine = ({ content, isFirstMsg, onComplete, ...bubbleProps }) => {
     const [isThinking, setIsThinking] = useState(true)
     const [isTyping, setIsTyping] = useState(false)
+    const isJSX = isValidElement(content) || (Array.isArray(content) && content.some(item => isValidElement(item)))
+    const textForTyping = isJSX ? extractTextFromJSX(content) : content
 
     return (
         <ChatBubble
@@ -54,7 +79,7 @@ const ChatBotLine = ({ content, isFirstMsg, onComplete, ...bubbleProps }) => {
                                 }
                             }}
                         >
-                            {content}
+                            {textForTyping}
                         </Typewriter>
                     )}
 
@@ -137,7 +162,7 @@ export const SceneOne = ({ onComplete }) => {
     useEffect(() => {
         setTimeout(() => {
             setInputValue(
-                "Hi, my product images aren't loading on my storefront"
+                "Hi, your product looks like the right fit, where can I find a breakdown of the cost?"
             )
         }, 500)
     }, [])
@@ -165,7 +190,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserFirstMsg && (
                     <ChatUserLine
-                        content="Hi, my product images aren't loading on my storefront"
+                        content="Hi, your product looks like the right fit, where can I find a breakdown of the cost?"
                         onComplete={() => setIsBotFirstMsg(true)}
                         {...bubbleProps}
                     />
@@ -174,12 +199,12 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotFirstMsg && (
                     <ChatMultiline
                         data={[
-                            "I can help troubleshoot that. Let me check your setup…",
-                            'It looks like your CDN is returning a "403 - Access Denied" error for those image URLs.',
+                            "Let me get you the our pricing details...",
+                            <>We have a few different plans to choose from, you can find the details and a pricing comparison on our <a href="/pricing" className="text-blue-600 underline hover:text-blue-800">pricing page</a>.</>,
                         ]}
                         onComplete={() => {
                             setInputValue(
-                                'On, that sounds bad'
+                                'Can you tell me more about the business plans?'
                             )
                         }}
                         {...bubbleProps}
@@ -188,7 +213,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserSecondMsg && (
                     <ChatUserLine
-                        content="Oh, that sounds bad"
+                        content="Can you tell me more about the business plans?"
                         onComplete={() => setIsBotSecondMsg(true)}
                         {...bubbleProps}
                     />
@@ -197,8 +222,8 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotSecondMsg && (
                     <ChatMultiline
                         data={[
-                            "It's usually easy to fix, but in this case your configuration looks correct, so it may be an issue on our side.",
-                            "Would you like to open a support ticket so our technical team can take a closer look?",
+                           "To better assist you I will help connect you with a member of our sales team to review your setup and best options for your business.",
+                           "Would you like to schedule a call with a member of our sales team?",
                         ]}
                         hasActions={true}
                         onComplete={() => onComplete?.()}

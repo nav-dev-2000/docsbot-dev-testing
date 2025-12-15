@@ -13,11 +13,11 @@ const FormHeader = () => {
             </div>
 
             <div className="mb-1 text-lg/6 font-bold">
-                How can we help?
+                Contact our Sales Team
             </div>
 
             <div className="text-white/80">
-                We usually respond in a few hours
+                Provide a bit more information about your specific needs so we can best assist you.
             </div>
         </div>
     )
@@ -121,7 +121,7 @@ const FormBody = ({ onComplete }) => {
 
             <FormField
                 label="Subject"
-                content="Product images failing to load on storefront due to possible CDN issue"
+                content="Shedule a call with a member of our sales team"
             />
 
             <FormField
@@ -149,7 +149,7 @@ const FormBody = ({ onComplete }) => {
 
             <FormField
                 label="How can we help?"
-                content="I'm experiencing an issue where product images on my storefront are not loading. The bot detected that the CDN is returning a 403 - Access Denied error for multiple image URLs, even though my configuration appears correct."
+                content="I'm interested in learning more about your business plans and pricing options and would like to schedule a call with a member of your sales team. We are scaling and your product looks like the right fit."
                 isTextarea
             />
         </div>
