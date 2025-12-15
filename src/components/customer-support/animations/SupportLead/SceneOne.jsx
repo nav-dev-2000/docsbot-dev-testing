@@ -165,7 +165,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserFirstMsg && (
                     <ChatUserLine
-                        content="Hi, my product images aren't loading on my storefront"
+                        content="Hi, your product looks like the right fit, where can I find a breakdown of the cost?"
                         onComplete={() => setIsBotFirstMsg(true)}
                         {...bubbleProps}
                     />
@@ -174,12 +174,12 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotFirstMsg && (
                     <ChatMultiline
                         data={[
-                            "I can help troubleshoot that. Let me check your setup…",
-                            'It looks like your CDN is returning a "403 - Access Denied" error for those image URLs.',
+                            "Let me get you the our pricing details...",
+                           'We have a few different plans to choose from, you can find the details and a pricing comparison on our pricing page.',
                         ]}
                         onComplete={() => {
                             setInputValue(
-                                'On, that sounds bad'
+                                'Can you tell me more about the business plans?'
                             )
                         }}
                         {...bubbleProps}
@@ -188,7 +188,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserSecondMsg && (
                     <ChatUserLine
-                        content="Oh, that sounds bad"
+                        content="Can you tell me more about the business plans?"
                         onComplete={() => setIsBotSecondMsg(true)}
                         {...bubbleProps}
                     />
@@ -197,8 +197,8 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotSecondMsg && (
                     <ChatMultiline
                         data={[
-                            "It's usually easy to fix, but in this case your configuration looks correct, so it may be an issue on our side.",
-                            "Would you like to open a support ticket so our technical team can take a closer look?",
+                           "To better assist you I will help connect you with a member of our sales team to review your setup and best options for your business.",
+                           "Would you like to schedule a call with a member of our sales team?",
                         ]}
                         hasActions={true}
                         onComplete={() => onComplete?.()}
