@@ -12,7 +12,7 @@ const extractTextFromJSX = (node) => {
         return String(node)
     }
     if (isValidElement(node)) {
-        if (node.props.children) {
+        if (node.props.children != null) {
             if (Array.isArray(node.props.children)) {
                 return node.props.children.map(extractTextFromJSX).join('')
             }
@@ -162,7 +162,7 @@ export const SceneOne = ({ onComplete }) => {
     useEffect(() => {
         setTimeout(() => {
             setInputValue(
-                "Hi, your product looks like the right fit, where can I find a breakdown of the cost?"
+                "Hi, where can I find a breakdown of the cost?"
             )
         }, 500)
     }, [])
@@ -190,7 +190,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserFirstMsg && (
                     <ChatUserLine
-                        content="Hi, your product looks like the right fit, where can I find a breakdown of the cost?"
+                        content="Hi, where can I find a breakdown of the cost?"
                         onComplete={() => setIsBotFirstMsg(true)}
                         {...bubbleProps}
                     />
@@ -199,12 +199,12 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotFirstMsg && (
                     <ChatMultiline
                         data={[
-                            "Let me get you the our pricing details...",
+                            "Let me get you our pricing details...",
                             <>We have a few different plans to choose from, you can find the details and a pricing comparison on our <a href="/pricing" className="text-blue-600 underline hover:text-blue-800">pricing page</a>.</>,
                         ]}
                         onComplete={() => {
                             setInputValue(
-                                'Can you tell me more about the business plans?'
+                                'This looks great! I would like to learn more about the business plans.'
                             )
                         }}
                         {...bubbleProps}
@@ -213,7 +213,7 @@ export const SceneOne = ({ onComplete }) => {
 
                 {isUserSecondMsg && (
                     <ChatUserLine
-                        content="Can you tell me more about the business plans?"
+                        content="This looks great! I would like to learn more about the business plans."
                         onComplete={() => setIsBotSecondMsg(true)}
                         {...bubbleProps}
                     />
@@ -222,8 +222,7 @@ export const SceneOne = ({ onComplete }) => {
                 {isBotSecondMsg && (
                     <ChatMultiline
                         data={[
-                           "To better assist you I will help connect you with a member of our sales team to review your setup and best options for your business.",
-                           "Would you like to schedule a call with a member of our sales team?",
+                           "Would you like to schedule a call to review options with a member of our sales team?",
                         ]}
                         hasActions={true}
                         onComplete={() => onComplete?.()}

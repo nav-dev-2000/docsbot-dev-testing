@@ -1,4 +1,4 @@
-export * from './AccurateAnswers'
+export * from './AccurateAnswers/index'
 export * from './MultilingualChat'
 export * from './SmartEscalation'
 export * from './SupportLead'
