@@ -1,5 +1,6 @@
 import { useEffect, useState, isValidElement } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { ChatBubble, ChatHeader, LoadingDots, Typewriter, ChatBotActions, ChatInput } from '@/components/customer-support/animation-elements'
 import clsx from 'clsx'
 
@@ -200,7 +201,7 @@ export const SceneOne = ({ onComplete }) => {
                     <ChatMultiline
                         data={[
                             "Let me get you our pricing details...",
-                            <>We have a few different plans to choose from, you can find the details and a pricing comparison on our <a href="/pricing" className="text-blue-600 underline hover:text-blue-800">pricing page</a>.</>,
+                            <>We have a few different plans to choose from, you can find the details and a pricing comparison on our <Link href="/pricing" className="text-blue-600 underline hover:text-blue-800">pricing page</Link>.</>,
                         ]}
                         onComplete={() => {
                             setInputValue(
