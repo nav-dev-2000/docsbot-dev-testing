@@ -385,9 +385,18 @@ const MCPIntegrationInfo = ({
     if (hasStandardPlan) {
       setLoadingClients(true)
       fetch(`/api/teams/${team.id}/mcp-oauth/clients`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            return res.json().then((errorData) => {
+              throw new Error(errorData.message || `HTTP error! status: ${res.status}`)
+            })
+          }
+          return res.json()
+        })
         .then((data) => {
-          const clients = data.clients || data || []
+          // Ensure clients is always an array
+          // Check if data.clients exists and is an array, otherwise default to empty array
+          const clients = Array.isArray(data?.clients) ? data.clients : []
           // Filter clients that have access to this bot
           const botClients = clients.filter((client) => {
             const botIds = client.bot_ids || client.botIds || []
@@ -397,6 +406,8 @@ const MCPIntegrationInfo = ({
         })
         .catch((error) => {
           console.error('Error fetching MCP clients:', error)
+          // Set empty array on error to prevent UI issues
+          setMcpClients([])
         })
         .finally(() => {
           setLoadingClients(false)

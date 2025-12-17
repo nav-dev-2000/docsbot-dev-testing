@@ -213,13 +213,19 @@ export default async function handler(req, res) {
           }
         } else {
           // Log non-OK responses for debugging
+          // Read response body once and try to parse as JSON
           const errorText = await response.text().catch(() => '')
+          let errorData = {}
+          try {
+            errorData = JSON.parse(errorText)
+          } catch {
+            // If parsing fails, errorData remains {}
+          }
           console.log('External API deny error response:', { status: response.status, body: errorText })
           
           if (response.status === 400 || response.status === 403) {
           // External API explicitly rejected the redirect_uri as invalid
           // Don't fall back to other methods - trust the API's validation
-          const errorData = await response.json().catch(() => ({}))
           return res.status(400).json({
             message: errorData.message || 'Invalid redirect_uri for this client_id',
             safe_redirect: '/app'
