@@ -91,9 +91,14 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
       )
     )
 
+    let destination = routePaths.LOGIN
+    if (context.resolvedUrl) {
+      destination = `${routePaths.LOGIN}?redirect=${encodeURIComponent(context.resolvedUrl)}`
+    }
+
     return {
       redirect: {
-        destination: routePaths.LOGIN,
+        destination,
         permanent: false,
       },
     }

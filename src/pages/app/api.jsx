@@ -11,7 +11,8 @@ import {
   ArrowTopRightOnSquareIcon,
   LinkIcon,
   ClipboardIcon,
-  CheckIcon
+  CheckIcon,
+  KeyIcon
 } from '@heroicons/react/24/outline'
 import { 
   CheckCircleIcon,
@@ -19,7 +20,7 @@ import {
   ShareIcon 
 } from '@heroicons/react/24/solid'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
-import { getUser, getBots, getTeamIntegrations } from '@/lib/dbQueries'
+import { getUser, getBots, getTeamIntegrations, getMcpOAuthClients } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import ModalOpenAI from '@/components/ModalOpenAI'
@@ -29,8 +30,72 @@ import APIIntegration from '@/components/integrations/helpscout'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import SlackLogo from '@/components/SlackLogo'
 import OpenAILogo from '@/components/OpenAILogo'
+import Image from 'next/image'
+import mcpLogo from '@/images/logos/mcp.svg'
 
-function Api({ user, team, bots, integrations: initialIntegrations }) {
+// Helper function to get friendly interface name from domain (shared with authorize.jsx)
+const getInterfaceName = (domain) => {
+  if (!domain) return null
+  
+  const domainLower = domain.toLowerCase()
+  
+  // Map common MCP-supporting domains to friendly names
+  const domainMap = {
+    // Anthropic/Claude
+    'claude.ai': 'Claude',
+    'anthropic.com': 'Claude',
+    'console.anthropic.com': 'Claude Console',
+    
+    // OpenAI/ChatGPT
+    'chatgpt.com': 'ChatGPT',
+    'chat.openai.com': 'ChatGPT',
+    'openai.com': 'ChatGPT',
+    'platform.openai.com': 'OpenAI Platform',
+    
+    // Cursor IDE
+    'cursor.sh': 'Cursor',
+    'cursor.com': 'Cursor',
+    
+    // Continue.dev
+    'continue.dev': 'Continue',
+    
+    // Aider
+    'aider.chat': 'Aider',
+    
+    // Other common MCP clients
+    'github.com': 'GitHub',
+    'github.dev': 'GitHub Codespaces',
+    'vscode.dev': 'VS Code',
+    'code.visualstudio.com': 'VS Code',
+  }
+  
+  // Check exact match first
+  if (domainMap[domainLower]) {
+    return domainMap[domainLower]
+  }
+  
+  // Check if domain contains known patterns
+  if (domainLower.includes('claude') || domainLower.includes('anthropic')) {
+    return 'Claude'
+  }
+  if (domainLower.includes('chatgpt') || domainLower.includes('openai')) {
+    return 'ChatGPT'
+  }
+  if (domainLower.includes('cursor')) {
+    return 'Cursor'
+  }
+  if (domainLower.includes('continue')) {
+    return 'Continue'
+  }
+  if (domainLower.includes('aider')) {
+    return 'Aider'
+  }
+  
+  // Return null if no friendly name found (will use domain as fallback)
+  return null
+}
+
+function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: initialMcpClients = [] }) {
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
   const [openRemoveModal, setOpenRemoveModal] = useState(false)
@@ -41,6 +106,7 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
   const defaultModel = checkPlanPermission(team, 'hobby').allowed ? 'GPT-5 mini' : 'GPT-5 nano';
   const [copiedApiKey, setCopiedApiKey] = useState(false)
   const [isCopyableApiKey, setIsCopyableApiKey] = useState(false)
+  const [mcpClients, setMcpClients] = useState(initialMcpClients)
 
   const handleCopyApiKey = () => {
     if (
@@ -56,6 +122,33 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
     navigator.clipboard.writeText(apiKey)
     setCopiedApiKey(true)
     setTimeout(() => setCopiedApiKey(false), 2000)
+  }
+
+  const handleRevokeMcpAccess = async (clientId) => {
+    if (!confirm('Are you sure you want to revoke access for this MCP client? This will immediately disconnect all bots from this client.')) {
+      return
+    }
+
+    try {
+      const response = await fetch(`/api/teams/${team.id}/mcp-oauth/revoke`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ client_id: clientId }),
+      })
+
+      if (response.ok) {
+        // Refresh the page to get updated data
+        window.location.reload()
+      } else {
+        const errorData = await response.json().catch(() => ({}))
+        setErrorText(errorData.message || 'Failed to revoke MCP OAuth access')
+      }
+    } catch (error) {
+      console.error('Error revoking MCP access:', error)
+      setErrorText('Failed to revoke MCP OAuth access')
+    }
   }
 
   const updateKey = async () => {
@@ -436,11 +529,17 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
           
           <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
             <div className="flex items-center">
-              <OpenAILogo className="mr-2 h-5 w-5" />
-              <h4 className="text-lg font-medium">ChatGPT Custom GPT</h4>
+              <Image
+                src={mcpLogo}
+                alt="MCP Logo"
+                width={20}
+                height={20}
+                className="mr-2 h-5 w-5"
+              />
+              <h4 className="text-lg font-medium">MCP Server</h4>
             </div>
             <p className="mt-2 text-sm text-gray-600">
-              Give your custom GPTs access to your DocsBot training library with our custom action.
+              Expose your bot as a Model Context Protocol server for MCP-compatible clients like Claude and ChatGPT.
             </p>
           </div>
         </div>
@@ -457,6 +556,115 @@ function Api({ user, team, bots, integrations: initialIntegrations }) {
       </div>
 
       <APIIntegration {...{ team, integrations, bots, setErrorText }} />
+
+      {checkPlanPermission(team, 'standard').allowed ? (
+        <div className="mt-8 rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">MCP OAuth Clients</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            Manage MCP (Model Context Protocol) OAuth clients that have been authorized to access your bots. 
+            You can revoke access for any client at any time.
+          </p>
+        
+        {mcpClients.length === 0 ? (
+          <p className="mt-4 text-sm text-gray-600">
+            No MCP OAuth clients have been authorized yet. When an MCP client requests access to your bots, 
+            they will appear here.
+          </p>
+        ) : (
+          <div className="mt-4">
+            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+              <table className="min-w-full divide-y divide-gray-300">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                      Client ID
+                    </th>
+                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                      Authorized Bots
+                    </th>
+                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                      Authorized At
+                    </th>
+                    <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                      <span className="sr-only">Actions</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  {mcpClients.map((client) => {
+                    const authorizedBots = client.bot_ids || client.botIds || []
+                    const botNames = authorizedBots
+                      .map((botId) => {
+                        const bot = bots.find((b) => b.id === botId)
+                        return bot ? bot.name || `Bot ${botId}` : `Bot ${botId}`
+                      })
+                      .join(', ')
+
+                    // Get display name from redirect_domain if available
+                    const redirectDomain = client.redirect_domain
+                    const interfaceName = redirectDomain ? getInterfaceName(redirectDomain) : null
+                    const displayName = interfaceName || redirectDomain || client.client_id || client.clientId || 'Unknown'
+
+                    return (
+                      <tr key={client.client_id || client.clientId}>
+                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-900 sm:pl-6">
+                          <div className="flex flex-col">
+                            <span className="font-semibold">{displayName}</span>
+                            {redirectDomain && displayName !== redirectDomain && (
+                              <span className="text-xs text-gray-500 mt-0.5">{redirectDomain}</span>
+                            )}
+                            {client.client_id && displayName !== client.client_id && (
+                              <span className="text-xs font-mono text-gray-400 mt-0.5">{client.client_id}</span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-3 py-4 text-sm text-gray-500">
+                          {authorizedBots.length > 0 ? (
+                            <div className="max-w-md">
+                              <span className="block truncate" title={botNames}>
+                                {botNames || `${authorizedBots.length} bot(s)`}
+                              </span>
+                              {authorizedBots.length > 0 && (
+                                <span className="text-xs text-gray-400">
+                                  {authorizedBots.length} bot{authorizedBots.length !== 1 ? 's' : ''}
+                                </span>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-gray-400">No bots</span>
+                          )}
+                        </td>
+                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                          {client.authorized_at || client.authorizedAt
+                            ? new Date((client.authorized_at || client.authorizedAt) * 1000).toLocaleDateString()
+                            : 'Unknown'}
+                        </td>
+                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                          <button
+                            onClick={() => handleRevokeMcpAccess(client.client_id || client.clientId)}
+                            className="text-red-600 hover:text-red-900"
+                          >
+                            <TrashIcon className="h-4 w-4" aria-hidden="true" />
+                            <span className="sr-only">Revoke access</span>
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+      </div>
+      ) : (
+        <div className="mt-8 rounded-lg bg-white p-8 shadow">
+          <h3 className="text-2xl font-bold">MCP OAuth Clients</h3>
+          <p className="text-md mt-2 text-justify text-gray-800">
+            MCP OAuth is only available on the Standard plan or higher. Please upgrade your plan to manage MCP OAuth clients.
+          </p>
+        </div>
+      )}
 
     </DashboardWrap>
   )
@@ -481,6 +689,25 @@ export const getServerSideProps = async (context) => {
           permanent: false,
         },
       }
+    }
+
+    // Fetch MCP OAuth clients server-side (only for owners/admins)
+    if (role === 'owner' || role === 'admin') {
+      try {
+        data.props.mcpClients = await getMcpOAuthClients(data.props.team.id)
+        console.log('MCP OAuth Clients from Firestore (SSR):', {
+          teamId: data.props.team.id,
+          uniqueClients: data.props.mcpClients.length,
+        })
+      } catch (error) {
+        console.error('Error fetching MCP OAuth clients:', {
+          error: error.message,
+          stack: error.stack,
+        })
+        data.props.mcpClients = []
+      }
+    } else {
+      data.props.mcpClients = []
     }
   }
 

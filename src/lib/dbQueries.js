@@ -1230,3 +1230,102 @@ export async function getTeamIntegrations(teamId) {
 
   return integrations
 }
+
+export async function getMcpOAuthClients(teamId) {
+  /**
+   * Fetch MCP OAuth clients for a team from Firestore.
+   * Groups tokens by client_id and returns unique clients with their authorized bots.
+   * 
+   * @param {string} teamId - The team ID to fetch clients for
+   * @returns {Array} Array of client objects with client_id, bot_ids, authorized_at, and scopes
+   */
+  try {
+    const tokensSnapshot = await firestore
+      .collection('mcpOauthTokens')
+      .where('team_id', '==', teamId)
+      .get()
+
+    // Group tokens by client_id to show unique clients
+    const clientsMap = new Map()
+
+    tokensSnapshot.forEach((doc) => {
+      const tokenData = doc.data()
+      const clientId = tokenData.client_id
+
+      if (!clientId) {
+        return // Skip tokens without client_id
+      }
+
+      // Get or create client entry
+      if (!clientsMap.has(clientId)) {
+        clientsMap.set(clientId, {
+          client_id: clientId,
+          bot_ids: [],
+          authorized_at: null,
+          scopes: tokenData.scopes || [],
+          redirect_domain: tokenData.redirect_domain || null,
+        })
+      }
+
+      const client = clientsMap.get(clientId)
+      
+      // Update redirect_domain if not set or if this token has a newer one
+      if (tokenData.redirect_domain && !client.redirect_domain) {
+        client.redirect_domain = tokenData.redirect_domain
+      }
+
+      // Merge bot IDs (avoid duplicates)
+      const accessBotIds = tokenData.access_bot_ids || []
+      accessBotIds.forEach((botId) => {
+        if (!client.bot_ids.includes(botId)) {
+          client.bot_ids.push(botId)
+        }
+      })
+
+      // Use authorized_at if present, otherwise calculate from expires_at
+      let authorizedAt = null
+      if (tokenData.authorized_at) {
+        // Use the provided authorized_at timestamp
+        // Handle both Unix timestamp (number) and Firestore Timestamp
+        if (tokenData.authorized_at instanceof Timestamp) {
+          authorizedAt = tokenData.authorized_at.toMillis() / 1000 // Convert to Unix timestamp (seconds)
+        } else if (typeof tokenData.authorized_at === 'number') {
+          authorizedAt = tokenData.authorized_at
+        } else if (tokenData.authorized_at && typeof tokenData.authorized_at.toDate === 'function') {
+          // Handle Firestore Timestamp or other timestamp formats with toDate method
+          authorizedAt = tokenData.authorized_at.toDate().getTime() / 1000
+        } else if (tokenData.authorized_at && typeof tokenData.authorized_at.toMillis === 'function') {
+          // Handle Firestore Timestamp with toMillis method
+          authorizedAt = tokenData.authorized_at.toMillis() / 1000
+        }
+      } else if (tokenData.expires_at) {
+        // Fallback: Calculate authorized_at from expires_at (tokens expire 24h after creation)
+        // Handle both Unix timestamp (number) and Firestore Timestamp
+        let expiresAt = tokenData.expires_at
+        if (expiresAt instanceof Timestamp) {
+          expiresAt = expiresAt.toMillis() / 1000
+        } else if (expiresAt && typeof expiresAt.toDate === 'function') {
+          expiresAt = expiresAt.toDate().getTime() / 1000
+        } else if (expiresAt && typeof expiresAt.toMillis === 'function') {
+          expiresAt = expiresAt.toMillis() / 1000
+        }
+        authorizedAt = expiresAt - 24 * 60 * 60 // Subtract 24 hours
+      }
+
+      if (authorizedAt && (!client.authorized_at || authorizedAt < client.authorized_at)) {
+        client.authorized_at = authorizedAt
+      }
+    })
+
+    // Convert map to array and convert timestamps to serializable format
+    const clients = Array.from(clientsMap.values()).map((client) => ({
+      ...client,
+      authorized_at: client.authorized_at || null,
+    }))
+
+    return clients
+  } catch (error) {
+    console.error('Error fetching MCP OAuth clients:', error)
+    return []
+  }
+}

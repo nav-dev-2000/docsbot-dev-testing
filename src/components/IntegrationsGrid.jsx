@@ -368,6 +368,8 @@ const MCPIntegrationInfo = ({
 }) => {
   const serverUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/mcp/`
   const [copiedEndpoint, setCopiedEndpoint] = useState(false)
+  const [mcpClients, setMcpClients] = useState([])
+  const [loadingClients, setLoadingClients] = useState(false)
 
   const handleCopy = (text, setCopied) => {
     if (!hasStandardPlan) {
@@ -378,6 +380,29 @@ const MCPIntegrationInfo = ({
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
+
+  useEffect(() => {
+    if (hasStandardPlan) {
+      setLoadingClients(true)
+      fetch(`/api/teams/${team.id}/mcp-oauth/clients`)
+        .then((res) => res.json())
+        .then((data) => {
+          const clients = data.clients || data || []
+          // Filter clients that have access to this bot
+          const botClients = clients.filter((client) => {
+            const botIds = client.bot_ids || client.botIds || []
+            return botIds.includes(bot.id)
+          })
+          setMcpClients(botClients)
+        })
+        .catch((error) => {
+          console.error('Error fetching MCP clients:', error)
+        })
+        .finally(() => {
+          setLoadingClients(false)
+        })
+    }
+  }, [team.id, bot.id, hasStandardPlan])
 
   if (!hasStandardPlan) {
     return (
@@ -466,26 +491,80 @@ const MCPIntegrationInfo = ({
             </button>
           </div>
         </div>
-        <div>
-          <span className="font-semibold text-gray-900">Available tools</span>
-          <ul className="mt-1 list-disc space-y-1 pl-5">
-            <li>
-              <code>search</code> – Performs a hybrid search across the bot's
-              indexed sources and returns ranked snippets.
-            </li>
-            <li>
-              <code>fetch</code> – Retrieves the full content for a source that
-              was previously referenced by <code>search</code>.
-            </li>
-          </ul>
-        </div>
         {bot.privacy === 'private' && (
           <div>
-            <span className="font-semibold text-gray-900">Authentication</span>
-            <p className="mt-1">
-              Include the <code>Authorization: Bearer &lt;YOUR_DOCSBOT_API_KEY&gt;</code>{' '}
-              header on every request. This is required when your bot is
-              private and recommended for all deployments.
+            <p className="text-xs text-gray-600">
+              <strong>Note:</strong> Authentication is required for private bots. OAuth clients must be authorized 
+              through the authorization flow before they can access this bot.
+            </p>
+          </div>
+        )}
+        {(loadingClients || mcpClients.length > 0) && (
+          <div>
+            <span className="font-semibold text-gray-900">Connected MCP Clients</span>
+            {loadingClients ? (
+              <p className="mt-1 text-sm text-gray-600">Loading...</p>
+            ) : (
+              <div className="mt-1 max-h-32 overflow-y-auto rounded border border-gray-200 bg-gray-50">
+                <ul className="space-y-1 p-1">
+                  {mcpClients.map((client) => {
+                    // Get display name from redirect_domain if available
+                    const redirectDomain = client.redirect_domain
+                    const getInterfaceName = (domain) => {
+                      if (!domain) return null
+                      const domainLower = domain.toLowerCase()
+                      const domainMap = {
+                        'claude.ai': 'Claude',
+                        'anthropic.com': 'Claude',
+                        'console.anthropic.com': 'Claude Console',
+                        'chatgpt.com': 'ChatGPT',
+                        'chat.openai.com': 'ChatGPT',
+                        'openai.com': 'ChatGPT',
+                        'platform.openai.com': 'OpenAI Platform',
+                        'cursor.sh': 'Cursor',
+                        'cursor.com': 'Cursor',
+                        'continue.dev': 'Continue',
+                        'aider.chat': 'Aider',
+                        'github.com': 'GitHub',
+                        'github.dev': 'GitHub Codespaces',
+                        'vscode.dev': 'VS Code',
+                        'code.visualstudio.com': 'VS Code',
+                      }
+                      if (domainMap[domainLower]) return domainMap[domainLower]
+                      if (domainLower.includes('claude') || domainLower.includes('anthropic')) return 'Claude'
+                      if (domainLower.includes('chatgpt') || domainLower.includes('openai')) return 'ChatGPT'
+                      if (domainLower.includes('cursor')) return 'Cursor'
+                      if (domainLower.includes('continue')) return 'Continue'
+                      if (domainLower.includes('aider')) return 'Aider'
+                      return null
+                    }
+                    const interfaceName = redirectDomain ? getInterfaceName(redirectDomain) : null
+                    const displayName = interfaceName || redirectDomain || client.client_id || client.clientId || 'Unknown'
+                    const clientId = client.client_id || client.clientId
+                    
+                    return (
+                      <li key={clientId} className="text-sm">
+                        <Tooltip content={clientId ? `MCP Client ID: ${clientId}` : 'Unknown Client ID'}>
+                          <div className="flex items-center justify-between rounded bg-white px-2 py-1.5 hover:bg-gray-100 cursor-help">
+                            <span className="text-xs font-medium text-gray-700">{displayName}</span>
+                            {client.authorized_at || client.authorizedAt ? (
+                              <span className="text-[10px] text-gray-400 ml-2 whitespace-nowrap">
+                                {new Date((client.authorized_at || client.authorizedAt) * 1000).toLocaleDateString()}
+                              </span>
+                            ) : null}
+                          </div>
+                        </Tooltip>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            )}
+            <p className="mt-2 text-xs text-gray-600">
+              Manage all MCP OAuth clients from your{' '}
+              <Link href="/app/api" className="text-cyan-600 hover:text-cyan-800 underline">
+                API & Integrations settings
+              </Link>.
             </p>
           </div>
         )}

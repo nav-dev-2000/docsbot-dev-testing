@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-17',
+    title: 'MCP OAuth for private bots',
+    description:
+      'Private bots now support OAuth authentication for MCP clients. Manage authorized clients in API & Integrations settings.',
+  },
+  {
     date: '2025-12-12',
     title: 'Metadata viewer in logs',
     description:
