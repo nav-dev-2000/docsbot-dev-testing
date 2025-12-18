@@ -1767,8 +1767,20 @@ const LLMS = [
           'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
       Tau2Bench: {
-        score: 85.4,
+        score: 90.7,
         notes: 'Agentic tool use',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      Toolathon: {
+        score: 36.4,
+        notes: 'Long-horizon real-world software tasks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+      MCPAtlas: {
+        score: 54.1,
+        notes: 'Multi-step workflows using MCP',
         source:
           'https://deepmind.google/models/evals-methodology/gemini-3-pro',
       },
@@ -1813,6 +1825,181 @@ const LLMS = [
         notes: 'Long context performance, 1M (pointwise)',
         source:
           'https://deepmind.google/models/evals-methodology/gemini-3-pro',
+      },
+    },
+  },
+  {
+    model_name: 'Gemini 3 Flash',
+    slug: 'gemini-3-flash',
+    provider: 'google',
+    description:
+      'Gemini 3 Flash is Google\'s frontier-speed model built to deliver strong multimodal and coding performance at a fraction of Gemini 3 Pro\'s cost. It combines advanced visual and spatial reasoning with faster response times, surpassing Gemini 2.5 Pro on many benchmarks while remaining highly efficient for production workloads.',
+    input_context_window: '1M',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2025-12-17',
+    knowledge_cut_off_date: 'January 2025',
+    api_providers: 'Google AI Studio, Vertex AI, Google Antigravity, Gemini CLI, Android Studio',
+    input_cost_per_million_tokens: 0.5,
+    output_cost_per_million_tokens: 3.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    benchmarks: {
+      HumanitysLastExam: {
+        score: 33.7,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      HumanitysLastExamWithTools: {
+        score: 43.5,
+        notes: 'With search and code execution',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      GPQA: {
+        score: 90.4,
+        notes: 'Diamond',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      AIME2025: {
+        score: 95.2,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      AIME2025WithTools: {
+        score: 100,
+        notes: 'With code execution',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      ARCAGI2: {
+        score: 33.6,
+        notes: 'Visual reasoning puzzles, ARC Prize Verified',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MathArenaApex: {
+        score: null,
+        notes: 'Challenging Math Contest problems (not reported)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MMMU: {
+        score: 81.2,
+        notes: 'Pro, Multimodal understanding and reasoning',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      ScreenSpotPro: {
+        score: 69.1,
+        notes: 'Screen understanding, no tools unless specified',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      CharXivReasoning: {
+        score: 80.3,
+        notes: 'Information synthesis from complex charts',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      OmniDocBench15: {
+        score: 0.121,
+        notes: 'OCR, Overall Edit Distance (lower is better)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      VideoMMMU: {
+        score: 86.9,
+        notes: 'Knowledge acquisition from videos',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      LiveCodeBenchPro: {
+        score: 2316,
+        notes:
+          'Competitive coding problems from Codeforces, ICPC, and IOI, Elo Rating (higher is better)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      TerminalBench: {
+        score: 47.6,
+        notes: '2.0, Agentic terminal coding, Terminus-2 agent',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      SWEBench: {
+        score: 78.0,
+        notes: 'Verified, Agentic coding, Single attempt',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      Tau2Bench: {
+        score: 90.2,
+        notes: 'Agentic tool use',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      Toolathon: {
+        score: 49.4,
+        notes: 'Long-horizon real-world software tasks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MCPAtlas: {
+        score: 57.4,
+        notes: 'Multi-step workflows using MCP',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      VendingBench2: {
+        score: 3635,
+        notes: 'Long-horizon agentic tasks, Net worth (mean), higher is better',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      FACTSBenchmarkSuite: {
+        score: 61.9,
+        notes:
+          'Held out internal grounding, parametric, MM, and search retrieval benchmarks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      SimpleQA: {
+        score: 68.7,
+        notes: 'Verified, Parametric knowledge',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MMMLU: {
+        score: 91.8,
+        notes: 'Multilingual Q&A',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      GlobalPIQA: {
+        score: 92.8,
+        notes: 'Commonsense reasoning across 100 Languages and Cultures',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MRCRv2_128k: {
+        score: 67.2,
+        notes: 'Long context performance, 128k (average)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
+      },
+      MRCRv2_1M: {
+        score: 22.1,
+        notes: 'Long context performance, 1M (pointwise)',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-flash',
       },
     },
   },
