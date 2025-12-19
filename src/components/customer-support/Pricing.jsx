@@ -1,6 +1,6 @@
 import { Section, SectionContent, Button, Gradient, PricingCalculator } from "@/components/elements"
 
-export const Pricing = ({ title, description, primaryButton }) => {
+export const Pricing = ({ title, description, primaryButton, Calculator = PricingCalculator }) => {
     const theme = 'dark'
     
     return (
@@ -14,7 +14,7 @@ export const Pricing = ({ title, description, primaryButton }) => {
                 description={description}
                 isBoxedHeader={false}
             >
-                <PricingCalculator
+                <Calculator
                     className="mt-8"
                 />
                 

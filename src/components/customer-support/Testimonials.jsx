@@ -186,7 +186,7 @@ const Box = ({ author, role, avatar, content, className }) => {
     );
 }
 
-export const Testimonials = ({ title, description }) => {
+export const Testimonials = ({ title, description, aiPrompt }) => {
     // Different animation durations for each row (in seconds)
     // Lower duration = faster scroll
     const animationDurations = [120, 150, 135]; // Row 0: fastest, Row 1: slowest, Row 2: medium-fast
@@ -264,6 +264,7 @@ export const Testimonials = ({ title, description }) => {
 
                 <AskAIModels
                     className="my-16"
+                    aiPrompt={aiPrompt}
                 />
             </SectionContent>
         </Section>

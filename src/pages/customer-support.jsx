@@ -40,8 +40,8 @@ import { SectionReveal } from '@/components/customer-support/transitions'
 
 // Import: Images
 import screenshotLogs from "@/images/app-demo/docsbot-insights-questions.webp"
-import screenshotTopicManagement from "@/images/app-demo/docsbot-insights-topic-management.webp"
 import screenshotVisualization from "@/images/app-demo/docsbot-insights-visualization.webp"
+import screenshotTopicManagement from "@/images/app-demo/docsbot-insights-topic-management.webp"
 import screenshotReports from "@/images/app-demo/docsbot-insights-reports.webp"
 
 // Define: Data

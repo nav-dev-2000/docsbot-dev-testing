@@ -7,11 +7,11 @@ import RobotIcon from '@/components/RobotIcon'
 import clsx from 'clsx'
 import { Gradient } from '@/components/elements'
 
-const aiPrompt = 'Tell me why DocsBot the AI support agent and chatbot builder is a great choice for my business'
+const defaultAIPrompt = 'Tell me why DocsBot the AI support agent and chatbot builder is a great choice for my business'
 
-const encodedAIPrompt = aiPrompt.split(' ').join('+')
-
-const aiAssistantLinks = [
+const getAIAssistantLinks = (aiPrompt) => {
+    const encodedAIPrompt = aiPrompt.split(' ').join('+')
+    return [
     {
         name: 'Ask DocsBot',
         href: '#',
@@ -44,17 +44,20 @@ const aiAssistantLinks = [
             'text-white border border-orange-300 hover:border-orange-400 focus-visible:outline-orange-400',
         style: { backgroundColor: '#c96442' },
     },
-    {
-        name: 'Ask Perplexity',
-        href: `https://www.perplexity.ai/search/new?q=${encodedAIPrompt}`,
-        icon: IconPerplexity,
-        className:
-            'text-white border border-cyan-500/60 hover:border-cyan-400 focus-visible:outline-cyan-400',
-        style: { backgroundColor: '#21808d' },
-    },
-]
+        {
+            name: 'Ask Perplexity',
+            href: `https://www.perplexity.ai/search/new?q=${encodedAIPrompt}`,
+            icon: IconPerplexity,
+            className:
+                'text-white border border-cyan-500/60 hover:border-cyan-400 focus-visible:outline-cyan-400',
+            style: { backgroundColor: '#21808d' },
+        },
+    ]
+}
 
-export const AskAIModels = ({ className, ...props }) => {
+export const AskAIModels = ({ className, aiPrompt, ...props }) => {
+    const prompt = aiPrompt || defaultAIPrompt
+    const aiAssistantLinks = getAIAssistantLinks(prompt)
     const posthog = usePostHog()
 
     const handleModelClick = (modelName) => {

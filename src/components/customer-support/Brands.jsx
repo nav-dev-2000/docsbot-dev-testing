@@ -16,16 +16,16 @@ const Title = ({ text }) => {
     );
 }
 
-export const Brands = () => {
+export const Brands = ({ title = "Trusted by global brands" }) => {
     const cssLogo = {
         size: 'w-[6rem] lg:w-[8rem] h-auto flex-none',
         position: 'object-contain',
     }
 
     return (
-        <div className="bg-gray-900 py-8 sm:py-12">
+        <div className="bg-gray-900 py-8 sm:py-12 border-none">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
-                <Title text="Trusted by global brands" />
+                <Title text={title} />
 
                 <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-4 sm:gap-8 lg:gap-10 mt-8">
                     <Image

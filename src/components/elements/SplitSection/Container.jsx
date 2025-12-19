@@ -77,7 +77,15 @@ export const Container = ({
                             )}
                             aria-hidden="true"
                         >
-                            <Cover />
+                            {typeof Cover === 'function' ? (
+                                <Cover />
+                            ) : (
+                                <img 
+                                    src={typeof Cover === 'string' ? Cover : (Cover?.src || Cover)} 
+                                    alt="" 
+                                    className="h-full w-full object-contain"
+                                />
+                            )}
 
                             <div
                                 className={clsx(

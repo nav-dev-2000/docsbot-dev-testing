@@ -6,6 +6,10 @@ export const NAVIGATION = [
       {
         name: 'Customer Success',
         href: '/customer-support'
+      },
+      {
+        name: 'Internal Knowledge',
+        href: '/internal-knowledge'
       }
     ]
   },

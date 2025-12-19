@@ -108,6 +108,10 @@ const data = [
             label: "Boost Productivity",
             href: "/register",
         },
+        buttonSecondary: {
+            label: "Learn More →",
+            href: "/internal-knowledge",
+        },
         animation: DataConnection,
         background: 'bg-gradient-to-tr from-teal-200 to-cyan-300',
     },

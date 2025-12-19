@@ -32,7 +32,7 @@ export const SliderField = ({ id, label, helper, defaultValue, className, onChan
                 />
             </div>
 
-            <span className="w-[100px] absolute md:relative top-0 right-0 block flex-0 px-4 md:px-2 py-2 md:py-0 border md:border-none rounded-xl text-gray-900 text-sm/6 md:text-base/6">
+            <span className="w-[100px] absolute md:relative top-0 right-0 block flex-0 px-4 md:px-2 py-2 md:py-0 border md:border-none rounded-xl text-gray-900 text-sm/6 md:text-base/6 break-words">
                 {'object' === typeof helper && (
                     <>
                         <span className="block text-lg/tight md:text-2xl/tight font-semibold">

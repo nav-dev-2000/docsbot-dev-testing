@@ -12,7 +12,7 @@ const HeroGrid = () => {
     return (
         <svg
             aria-hidden="true"
-            className="hidden lg:block absolute inset-0 -z-10 size-full stroke-gray-700 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            className="hidden lg:block absolute inset-0 -z-10 size-full stroke-gray-700 [mask-image:linear-gradient(to_bottom,white_80%,transparent)]"
         >
             <defs>
             <pattern
@@ -31,7 +31,29 @@ const HeroGrid = () => {
     );
 }
 
+export const HighlightWord = ({ word }) => (
+    <span
+        className="relative text-transparent [-webkit-text-stroke:1px_#14b8a6] before:content-[attr(data-text)] before:absolute before:top-1 before:left-1 before:inset-0 before:text-neutral-50 before:[-webkit-text-stroke:0]"
+        data-text={word}
+    >
+        {word}
+    </span>
+)
+
 const Title = ({ content, className }) => {
+    if (typeof content !== 'string') {
+        return (
+            <h1
+                className={clsx(
+                    'relative text-neutral-50 text-6xl md:text-7xl font-semibold tracking-tight text-pretty',
+                    className
+                )}
+            >
+                { content }
+            </h1>
+        )
+    }
+
     const clone = content?.toString().trim().split(/\s+/);
     const clonedWord = clone?.[0] || '';
     const restOfTitle = clone?.slice(1).join(' ') || '';
@@ -43,12 +65,7 @@ const Title = ({ content, className }) => {
                 className
             )}
         >
-            <span
-                className="relative text-transparent [-webkit-text-stroke:1px_#14b8a6] before:content-[attr(data-text)] before:absolute before:top-1 before:left-1 before:inset-0 before:text-neutral-50 before:[-webkit-text-stroke:0]"
-                data-text={ clonedWord }
-            >
-                { clonedWord }
-            </span>{" "}
+            <HighlightWord word={clonedWord} />{" "}
             { restOfTitle }
         </h1>
     );
@@ -122,7 +139,7 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
     );
 }
 
-const HeroContentRight = ({ image, heroFaqs = [] }) => {
+const HeroContentRight = ({ image, heroFaqs = [], className, imageContainerClassName, imageClassName, avatar }) => {
     const faqs = heroFaqs
 
     const [phrasesRand, setPhrasesRand] = useState(() => {
@@ -133,6 +150,7 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
     })
     const [bubbleKeys, setBubbleKeys] = useState([0, 1])
     const keyCounterRef = useRef(0)
+    const currentIndexRef = useRef(0)
     const FIRST_DELAY = 1200; // ms before showing first bubble
     const ANSWER_DELAY = 900; // ms after question before answer
     const EXIT_DURATION_MS = 350; // matches motion transition duration
@@ -155,9 +173,10 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
     useEffect(() => {
         if (faqs.length === 0) return;
         
-        const pickRandomFaq = () => {
-            const idx = Math.floor(Math.random() * faqs.length)
-            const selectedFaq = faqs[idx]
+        const pickNextFaq = () => {
+            const nextIndex = (currentIndexRef.current + 1) % faqs.length
+            currentIndexRef.current = nextIndex
+            const selectedFaq = faqs[nextIndex]
             return [selectedFaq.question, selectedFaq.answer]
         }
 
@@ -168,7 +187,7 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
 
             // 2) after exit finishes + a small gap, change phrases and re-intro with stagger
             const introTimeout = setTimeout(() => {
-                const next = pickRandomFaq()
+                const next = pickNextFaq()
                 // Increment counter and update keys first to ensure AnimatePresence detects the change
                 keyCounterRef.current += 1
                 setBubbleKeys([keyCounterRef.current, keyCounterRef.current + 1])
@@ -209,7 +228,7 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
 
     return (
         <div
-            className="relative mt-8"
+            className={clsx("relative mt-8", className)}
             aria-hidden={true}
         >
             <div className="w-full sm:max-w-[80%] md:max-w-[60%] lg:max-w-full absolute lg:static bottom-0 lg:bottom-auto left-1/2 lg:left-0 transform -translate-x-1/2 lg:transform-none flex flex-col gap-4 pb-4 lg:pb-0">
@@ -227,7 +246,7 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
                             <div className="overflow-hidden size-12 flex-none rounded-full shadow-lg shadow-gray-900">
                                 <Image
                                     alt="User avatar"
-                                    src={humanAvatar}
+                                    src={avatar || humanAvatar}
                                     width={48}
                                     height={48}
                                     className="size-12 object-cover"
@@ -267,22 +286,22 @@ const HeroContentRight = ({ image, heroFaqs = [] }) => {
                 </AnimatePresence>
             </div>
 
-            <div className="flex justify-center -mx-4 lg:mx-0">
+            <div className={clsx("flex justify-center -mx-4 lg:mx-0", imageContainerClassName)}>
                 <Image
                     alt="App screenshot"
                     src={image}
                     width={2432}
                     height={1442}
-                    className="w-[70rem] max-w-xl flex-none lg:max-w-none"
+                    className={clsx("w-[70rem] max-w-xl flex-none lg:max-w-none", imageClassName)}
                 />
             </div>
         </div>
     );
 }
 
-export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero, heroFaqs = [] }) => {
+export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero, heroFaqs = [], rightContentClassName, imageContainerClassName, imageClassName, avatar }) => {
     return (
-        <div className="relative isolate overflow-hidden bg-gray-900 -mt-24">
+        <div className="relative isolate overflow-hidden bg-gray-900 -mt-24 border-none">
             <HeroGrid />
 
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:flex lg:px-8 lg:pt-40 lg:pb-0">
@@ -297,6 +316,10 @@ export const Hero = ({ title, subtitle, description, primaryButton, secondaryBut
                 <HeroContentRight
                     image={ heroImage }
                     heroFaqs={ heroFaqs }
+                    className={ rightContentClassName }
+                    imageContainerClassName={ imageContainerClassName }
+                    imageClassName={ imageClassName }
+                    avatar={avatar}
                 />
             </div>
         </div>
