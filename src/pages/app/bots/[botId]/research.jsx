@@ -32,6 +32,7 @@ import {
   ExclamationTriangleIcon,
   XCircleIcon,
   QuestionMarkCircleIcon,
+  BellIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
@@ -215,6 +216,29 @@ const escapeHtml = (value = '') =>
 
 const formatPlainTextForHtml = (value = '') =>
   escapeHtml(value).replace(/\r?\n/g, '<br />')
+
+const arrayBufferToBase64 = (buffer) => {
+  const bytes = new Uint8Array(buffer)
+  let binary = ''
+  for (let i = 0; i < bytes.byteLength; i++) {
+    binary += String.fromCharCode(bytes[i])
+  }
+  return btoa(binary)
+}
+
+const base64ToUint8Array = (base64String = '') => {
+  if (!base64String) return new Uint8Array()
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
+  const rawData = typeof window !== 'undefined' ? window.atob(base64) : ''
+  const outputArray = new Uint8Array(rawData.length)
+
+  for (let i = 0; i < rawData.length; i++) {
+    outputArray[i] = rawData.charCodeAt(i)
+  }
+
+  return outputArray
+}
 
 const formatLocalDateTime = (value) => {
   if (!value) return ''
@@ -996,6 +1020,9 @@ function ResearchInterface({
   researchUsage = null,
   refreshResearchCount,
   onResearchTaskStarted,
+  previousJobStatusesRef,
+  newlyCreatedJobIdsRef,
+  sendJobNotification,
 }) {
   const [question, setQuestion] = useState('')
   const [selectedModel, setSelectedModel] = useState('o4-mini')
@@ -1253,9 +1280,10 @@ function ResearchInterface({
             web_search: webSearch,
             code_interpreter: codeInterpreter,
             docs_search: true,
-            metadata: user?.displayName || user?.email ? {
+            metadata: user?.displayName || user?.email || user?.uid ? {
               name: user?.displayName || null,
               email: user?.email || null,
+              uid: user?.uid || null,
             } : undefined,
           }),
         })
@@ -1268,16 +1296,29 @@ function ResearchInterface({
           
           // Immediately update the selected job with the response data to show loading state
           if (data.jobId && data.status) {
+            const previousStatus = previousJobStatusesRef?.current?.get(data.jobId) || clarifyingJob?.status
+            
             const updatedJob = { 
               ...clarifyingJob, 
               ...data,
               // Store the answers that were just submitted
               answers: question,
               // Ensure summary is preserved from the response
-              summary: data.summary || clarifyingJob.summary,
+              summary: data.summary || clarifyingJob?.summary,
               // Preserve metadata from API response or existing
-              metadata: data.metadata || clarifyingJob.metadata,
+              metadata: data.metadata || clarifyingJob?.metadata,
             }
+            
+            // Check for status transition and send notification if needed
+            if (previousStatus !== updatedJob.status && sendJobNotification) {
+              sendJobNotification(updatedJob, previousStatus)
+            }
+            
+            // Update previous status
+            if (previousJobStatusesRef?.current) {
+              previousJobStatusesRef.current.set(data.jobId, updatedJob.status)
+            }
+            
             console.log('Updated job:', updatedJob)
             setSelectedJob && setSelectedJob(updatedJob)
             
@@ -1314,9 +1355,10 @@ function ResearchInterface({
           model: selectedModel,
           web_search: webSearch,
           code_interpreter: codeInterpreter,
-          metadata: user?.displayName || user?.email ? {
+          metadata: user?.displayName || user?.email || user?.uid ? {
             name: user?.displayName || null,
             email: user?.email || null,
+            uid: user?.uid || null,
           } : undefined,
         }
 
@@ -1342,37 +1384,63 @@ function ResearchInterface({
               model: selectedModel,
               webSearch: webSearch,
               codeInterpreter: codeInterpreter,
-              metadata: data.metadata || (user?.displayName || user?.email ? {
+              metadata: data.metadata || (user?.displayName || user?.email || user?.uid ? {
                 name: user?.displayName || null,
                 email: user?.email || null,
+                uid: user?.uid || null,
               } : undefined),
               createdAt: new Date().toISOString(),
               updatedAt: new Date().toISOString(),
             }
             
+            // Mark this job as newly created so we can prompt for notifications
+            if (newlyCreatedJobIdsRef?.current) {
+              newlyCreatedJobIdsRef.current.add(data.jobId)
+            }
+            
+            // Initialize status tracking for the new job
+            if (previousJobStatusesRef?.current) {
+              previousJobStatusesRef.current.set(data.jobId, newJob.status)
+            }
+            
             // Add the new job to the research tasks list
             setResearchJobs && setResearchJobs((prev) => [newJob, ...prev])
             
-            // Select the new job immediately
-            setSelectedJob && setSelectedJob(newJob)
+          // Select the new job immediately
+          setSelectedJob && setSelectedJob(newJob)
+        }
+
+        // Call onJobCreated and recordResearchTaskStarted, but don't fail the entire operation if these fail
+        if (data.jobId) {
+          try {
+            onJobCreated(data.jobId)
+          } catch (err) {
+            console.error('Error in onJobCreated callback:', err)
           }
 
-          onJobCreated(data.jobId)
-
-          await recordResearchTaskStarted({ consumeTrial: willConsumeTrial })
+          try {
+            await recordResearchTaskStarted({ consumeTrial: willConsumeTrial })
+          } catch (err) {
+            console.error('Error recording research task started:', err)
+          }
 
           // Track deep research job creation in PostHog (only after initial response with title)
-          if (posthog && user && data.jobId && data.title) {
-            posthog.capture('Deep Research Job Created', {
-              botId: bot.id,
-              botName: bot.name,
-              teamId: team.id,
-              model: selectedModel,
-              webSearch: webSearch,
-              codeInterpreter: codeInterpreter,
-              title: data.title,
-            })
+          if (posthog && user && data.title) {
+            try {
+              posthog.capture('Deep Research Job Created', {
+                botId: bot.id,
+                botName: bot.name,
+                teamId: team.id,
+                model: selectedModel,
+                webSearch: webSearch,
+                codeInterpreter: codeInterpreter,
+                title: data.title,
+              })
+            } catch (err) {
+              console.error('Error tracking job creation in PostHog:', err)
+            }
           }
+        }
         } else {
           try {
             const data = await response.json()
@@ -1668,7 +1736,7 @@ function ResearchInterface({
   )
 }
 
-function ResearchResults({ job, onBack, onJobUpdate }) {
+function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notificationPermission, isNotificationSupported, onSubscribeToNotifications }) {
   const [resultHtml, setResultHtml] = useState('')
   const [resultDisplayHtml, setResultDisplayHtml] = useState('')
   const [clarificationsHtml, setClarificationsHtml] = useState('')
@@ -2354,7 +2422,31 @@ function ResearchResults({ job, onBack, onJobUpdate }) {
                   <LoadingDots />
                   <span className="text-xs mt-2 ml-2 text-gray-500">
                     Deep research tasks can take many minutes to complete, please wait or check back later...
+                    {hasPushSubscription && notificationPermission === 'granted' && (
+                      <span className="block mt-1 text-cyan-600">
+                        You'll receive a notification when this task completes.
+                      </span>
+                    )}
                   </span>
+                  {isNotificationSupported && notificationPermission !== 'granted' && (
+                    <div className="mt-3 ml-2">
+                      {notificationPermission === 'denied' ? (
+                        <div className="inline-flex items-center gap-2 rounded-md bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600">
+                          <BellIcon className="h-4 w-4" />
+                          <span>Notifications blocked. Enable them in browser settings to get notified.</span>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={onSubscribeToNotifications}
+                          className="inline-flex items-center gap-2 rounded-md bg-cyan-600 px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 transition-colors"
+                          type="button"
+                        >
+                          <BellIcon className="h-4 w-4" />
+                          Get notified when this task completes
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -2398,8 +2490,283 @@ function Research({ team, bot }) {
   const [emailCopied, setEmailCopied] = useState(false)
   const [deleteConfirm, setDeleteConfirm] = useState(null)
   const [deletingJobId, setDeletingJobId] = useState(null)
+  const [notificationPermission, setNotificationPermission] = useState(() =>
+    typeof window !== 'undefined' && typeof Notification !== 'undefined'
+      ? Notification.permission
+      : 'default',
+  )
+  const [hasPushSubscription, setHasPushSubscription] = useState(false)
   const didInitFromJobId = useRef(false)
   const scrollToBottomRef = useRef(null)
+  const notificationPromptedRef = useRef(false)
+  const notifiedJobIdsRef = useRef(new Set())
+  const pushSubscriptionAttemptedRef = useRef(false)
+  const lastSelectedStatusRef = useRef(null)
+  const newlyCreatedJobIdsRef = useRef(new Set())
+  const previousJobStatusesRef = useRef(new Map()) // Track previous statuses to detect transitions
+
+  const isNotificationSupported =
+    typeof window !== 'undefined' && typeof Notification !== 'undefined'
+
+  const isPushSupported =
+    isNotificationSupported &&
+    typeof navigator !== 'undefined' &&
+    'serviceWorker' in navigator &&
+    'PushManager' in window &&
+    !!process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
+
+  const registerPushSubscription = useCallback(async () => {
+    if (!isPushSupported) return false
+
+    try {
+      const registration = await navigator.serviceWorker.register('/service-worker.js')
+      
+      // Wait for service worker to be ready
+      await registration.update()
+      const readyRegistration = await navigator.serviceWorker.ready
+      
+      // Check if we already have a subscription saved
+      const existing = await readyRegistration.pushManager.getSubscription()
+      
+      // If we already have a subscription and we've attempted before, skip
+      if (existing && pushSubscriptionAttemptedRef.current) {
+        return true
+      }
+      
+      let subscription = existing
+      if (!subscription) {
+        const publicKey = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
+        if (!publicKey) return false
+        
+        subscription = await readyRegistration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: base64ToUint8Array(publicKey),
+        })
+      }
+
+      if (!subscription) return false
+
+      // Extract keys from PushSubscription object
+      const p256dhKey = subscription.getKey('p256dh')
+      const authKey = subscription.getKey('auth')
+      
+      if (!p256dhKey || !authKey) return false
+      
+      const subscriptionData = {
+        endpoint: subscription.endpoint,
+        keys: {
+          p256dh: arrayBufferToBase64(p256dhKey),
+          auth: arrayBufferToBase64(authKey),
+        },
+      }
+      
+      const response = await fetch('/api/notifications/push-subscription', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subscription: subscriptionData }),
+      })
+
+      if (!response.ok) return false
+
+      // Only mark as attempted after successful save
+      pushSubscriptionAttemptedRef.current = true
+      return true
+    } catch (error) {
+      return false
+    }
+  }, [base64ToUint8Array, isPushSupported, team?.id])
+
+  const promptForNotificationPermission = useCallback(() => {
+    if (notificationPromptedRef.current) return
+    if (!isNotificationSupported) return
+
+    notificationPromptedRef.current = true
+
+    if (Notification.permission !== 'default') {
+      setNotificationPermission(Notification.permission)
+      return
+    }
+
+    Notification.requestPermission()
+      .then((permission) => {
+        setNotificationPermission(permission)
+      })
+      .catch(() => {
+        setNotificationPermission(Notification.permission)
+      })
+  }, [isNotificationSupported])
+
+  // Check if push subscription exists
+  const checkPushSubscription = useCallback(async () => {
+    if (!isPushSupported || notificationPermission !== 'granted') {
+      setHasPushSubscription(false)
+      return
+    }
+
+    try {
+      const registration = await navigator.serviceWorker.ready
+      const subscription = await registration.pushManager.getSubscription()
+      setHasPushSubscription(!!subscription)
+    } catch (error) {
+      console.warn('Error checking push subscription:', error)
+      setHasPushSubscription(false)
+    }
+  }, [isPushSupported, notificationPermission])
+
+  useEffect(() => {
+    if (notificationPermission !== 'granted') {
+      setHasPushSubscription(false)
+      return
+    }
+    
+    registerPushSubscription().then(() => {
+      checkPushSubscription()
+    })
+  }, [notificationPermission, registerPushSubscription, checkPushSubscription])
+
+  // Check subscription status when component mounts or notification permission changes
+  useEffect(() => {
+    checkPushSubscription()
+  }, [checkPushSubscription])
+
+  // Handle subscribing to notifications (prompt + register)
+  const handleSubscribeToNotifications = useCallback(async () => {
+    if (!isNotificationSupported) return
+    
+    // Request permission
+    const permission = await Notification.requestPermission()
+    setNotificationPermission(permission)
+    
+    // If granted, register push subscription
+    if (permission === 'granted') {
+      await registerPushSubscription()
+      await checkPushSubscription()
+    }
+  }, [isNotificationSupported, registerPushSubscription, checkPushSubscription])
+
+  // Load notified job IDs from localStorage on mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    try {
+      const stored = localStorage.getItem('docsbot-notified-job-ids')
+      if (stored) {
+        const ids = JSON.parse(stored)
+        notifiedJobIdsRef.current = new Set(ids)
+      }
+    } catch (err) {
+      console.warn('Error loading notified job IDs from localStorage', err)
+    }
+  }, [])
+
+  // Save notified job IDs to localStorage whenever it changes
+  const markJobAsNotified = useCallback((jobId) => {
+    if (!jobId) return
+    notifiedJobIdsRef.current.add(jobId)
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(
+          'docsbot-notified-job-ids',
+          JSON.stringify(Array.from(notifiedJobIdsRef.current)),
+        )
+      } catch (err) {
+        console.warn('Error saving notified job IDs to localStorage', err)
+      }
+    }
+  }, [])
+
+  // Check if a job was created by the current user
+  const isJobCreatedByUser = useCallback(
+    (job) => {
+      // Prefer uid match if available, fallback to email
+      if (user?.uid && job?.metadata?.uid) {
+        return job.metadata.uid === user.uid
+      }
+      if (user?.email && job?.metadata?.email) {
+        return job.metadata.email.toLowerCase() === user.email.toLowerCase()
+      }
+      return false
+    },
+    [user?.uid, user?.email],
+  )
+
+  // Send notification for a job when it transitions to terminal status
+  const sendJobNotification = useCallback(
+    (job, previousStatus) => {
+      if (!isNotificationSupported) return false
+      if (notificationPermission !== 'granted') return false
+      if (!job?.jobId) return false
+      if (!isJobCreatedByUser(job)) return false // Only notify for jobs created by current user
+      if (notifiedJobIdsRef.current.has(job.jobId)) return false // Already notified
+
+      // Only notify for transitions to 'completed' or 'failed' (not 'cancelled')
+      const notifyStatuses = new Set(['completed', 'failed'])
+      if (!notifyStatuses.has(job.status)) return false
+
+      // Only notify if transitioning from a non-terminal status
+      const terminalStatuses = new Set(['completed', 'failed', 'cancelled'])
+      if (terminalStatuses.has(previousStatus)) return false // Already was terminal
+
+      const title = job.title || job.question || 'Deep research task update'
+      const statusLabel = job.status === 'completed' ? 'completed' : 'failed'
+
+      try {
+        new Notification(title, {
+          body: `Deep research task ${statusLabel}.`,
+        })
+        markJobAsNotified(job.jobId)
+        return true
+      } catch (err) {
+        console.warn('Unable to send notification for job', job.jobId, err)
+        return false
+      }
+    },
+    [
+      isNotificationSupported,
+      notificationPermission,
+      isJobCreatedByUser,
+      markJobAsNotified,
+    ],
+  )
+
+  useEffect(() => {
+    if (!isNotificationSupported) return
+    setNotificationPermission(Notification.permission)
+  }, [isNotificationSupported])
+
+  useEffect(() => {
+    if (!selectedJob?.status) {
+      lastSelectedStatusRef.current = selectedJob?.status ?? null
+      return
+    }
+
+    const currentStatus = selectedJob.status
+    const previousStatus = lastSelectedStatusRef.current
+    const isActiveJob = currentStatus === 'queued' || currentStatus === 'in_progress'
+    const isNewlyCreated = selectedJob.jobId && newlyCreatedJobIdsRef.current.has(selectedJob.jobId)
+    
+    // Only prompt for notifications for newly created jobs when they become active
+    // This prevents prompting when loading existing jobs from the server
+    const hasStartedResearch =
+      isNewlyCreated &&
+      (previousStatus === 'clarifying' || previousStatus === null || previousStatus === undefined) &&
+      isActiveJob
+    
+    // Also prompt if a newly created job is selected that's already active
+    const isNewlyCreatedActiveJob = 
+      isNewlyCreated &&
+      isActiveJob &&
+      (previousStatus === null || previousStatus === undefined || previousStatus !== currentStatus)
+
+    if (hasStartedResearch || isNewlyCreatedActiveJob) {
+      promptForNotificationPermission()
+      // Remove from tracking set after prompting to avoid re-prompting
+      if (selectedJob.jobId) {
+        newlyCreatedJobIdsRef.current.delete(selectedJob.jobId)
+      }
+    }
+
+    lastSelectedStatusRef.current = currentStatus
+  }, [promptForNotificationPermission, selectedJob?.status, selectedJob?.jobId])
 
   const trialNoticeInfo = useMemo(() => {
     if (!researchUsage) return null
@@ -2517,10 +2884,6 @@ function Research({ team, bot }) {
     [],
   )
 
-  useEffect(() => {
-    fetchResearchJobs(0)
-  }, [])
-
   // Determine if current user can modify bot
   useEffect(() => {
     if (!team || !user) return
@@ -2597,50 +2960,89 @@ function Research({ team, bot }) {
     }
   }, [selectedJob])
 
-  const fetchResearchJobs = async (page = 0) => {
-    setLoading(true)
-    setErrorText(null)
+  const fetchResearchJobs = useCallback(
+    async (page = 0, { silent = false } = {}) => {
+      if (!team?.id || !bot?.id) return
+      const pageSize = perPage
 
-    try {
-      const path = `/api/teams/${team.id}/bots/${bot.id}/research?page=${page}&perPage=${perPage}`
-      const response = await fetch(path, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      })
+      if (!silent) setLoading(true)
+      if (!silent) setErrorText(null)
 
-      if (response.ok) {
-        const data = await response.json()
-        setResearchJobs(data.jobs || [])
-        // best-effort pagination mapping
-        const pagination = data.pagination || {}
-        setCurrentPage(pagination.page ?? page)
-        setPerPage(pagination.perPage ?? perPage)
-        setTotalCount(
-          pagination.viewableCount ??
-            pagination.totalCount ??
-            data.totalCount ??
-            (Array.isArray(data.jobs) ? data.jobs.length : 0),
-        )
-      } else {
-        try {
+      try {
+        const path = `/api/teams/${team.id}/bots/${bot.id}/research?page=${page}&perPage=${pageSize}`
+        const response = await fetch(path, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+
+        if (response.ok) {
           const data = await response.json()
-          setErrorText(data.error || data.message || 'Failed to load deep research tasks')
-        } catch (err) {
-          console.error('Error parsing error response:', err)
-          setErrorText('Failed to load deep research tasks')
+          const jobs = data.jobs || []
+          
+          // Initialize previous statuses for loaded jobs (but don't send notifications yet)
+          // This prevents notifications on initial page load
+          jobs.forEach((job) => {
+            if (job?.jobId && job?.status) {
+              // Only initialize if we haven't seen this job before
+              if (!previousJobStatusesRef.current.has(job.jobId)) {
+                previousJobStatusesRef.current.set(job.jobId, job.status)
+              }
+            }
+          })
+          
+          setResearchJobs(jobs)
+          // best-effort pagination mapping
+          const pagination = data.pagination || {}
+          setCurrentPage(pagination.page ?? page)
+          setPerPage(pagination.perPage ?? pageSize)
+          setTotalCount(
+            pagination.viewableCount ??
+              pagination.totalCount ??
+              data.totalCount ??
+              (Array.isArray(jobs) ? jobs.length : 0),
+          )
+        } else {
+          try {
+            const data = await response.json()
+            if (!silent) {
+              setErrorText(
+                data.error || data.message || 'Failed to load deep research tasks',
+              )
+            }
+          } catch (err) {
+            console.error('Error parsing error response:', err)
+            if (!silent) setErrorText('Failed to load deep research tasks')
+          }
         }
+      } catch (error) {
+        console.error('Error fetching deep research tasks:', error)
+        if (!silent) setErrorText('Failed to load deep research tasks')
+      } finally {
+        if (!silent) setLoading(false)
       }
-    } catch (error) {
-      console.error('Error fetching deep research tasks:', error)
-      setErrorText('Failed to load deep research tasks')
-    } finally {
-      setLoading(false)
-    }
-  }
+    },
+    [bot?.id, perPage, team?.id],
+  )
+
+  useEffect(() => {
+    fetchResearchJobs(0)
+  }, [fetchResearchJobs])
 
   const changePage = async (page) => {
     await fetchResearchJobs(page)
   }
+
+  // Track status transitions for selectedJob (notifications are handled in fetchJobStatus)
+  useEffect(() => {
+    if (!selectedJob?.jobId || !selectedJob?.status) return
+
+    const currentStatus = selectedJob.status
+    // Initialize or update previous status tracking
+    // This ensures we can detect transitions when fetchJobStatus is called
+    if (!previousJobStatusesRef.current.has(selectedJob.jobId)) {
+      previousJobStatusesRef.current.set(selectedJob.jobId, currentStatus)
+    }
+  }, [selectedJob?.jobId, selectedJob?.status])
 
   const fetchJobStatus = async (jobId) => {
     try {
@@ -2656,6 +3058,10 @@ function Research({ team, bot }) {
       if (response.ok) {
         const job = await response.json()
         const existing = researchJobs.find((j) => j.jobId === jobId) || {}
+        
+        // Track previous status before updating to detect transitions
+        const previousStatus = previousJobStatusesRef.current.get(jobId) || existing.status
+        
         const merged = { 
           ...existing, 
           ...job,
@@ -2665,6 +3071,15 @@ function Research({ team, bot }) {
           // Preserve metadata from API response or existing
           metadata: job.metadata || existing.metadata,
         }
+        
+        // Check for status transition and send notification if needed
+        if (previousStatus !== merged.status) {
+          sendJobNotification(merged, previousStatus)
+        }
+        
+        // Update previous status
+        previousJobStatusesRef.current.set(jobId, merged.status)
+        
         setResearchJobs((prev) =>
           prev.map((j) => (j.jobId === jobId ? merged : j)),
         )
@@ -3111,6 +3526,9 @@ function Research({ team, bot }) {
                 researchUsage={researchUsage}
                 refreshResearchCount={refreshResearchCount}
                 onResearchTaskStarted={handleResearchTaskStarted}
+                previousJobStatusesRef={previousJobStatusesRef}
+                newlyCreatedJobIdsRef={newlyCreatedJobIdsRef}
+                sendJobNotification={sendJobNotification}
               />
             ) : (
               <ResearchResults
@@ -3124,6 +3542,10 @@ function Research({ team, bot }) {
                 onJobUpdate={(scrollFn) => {
                   scrollToBottomRef.current = scrollFn
                 }}
+                hasPushSubscription={hasPushSubscription}
+                notificationPermission={notificationPermission}
+                isNotificationSupported={isNotificationSupported}
+                onSubscribeToNotifications={handleSubscribeToNotifications}
               />
             )
           ) : (
@@ -3137,6 +3559,9 @@ function Research({ team, bot }) {
               researchUsage={researchUsage}
               refreshResearchCount={refreshResearchCount}
               onResearchTaskStarted={handleResearchTaskStarted}
+              previousJobStatusesRef={previousJobStatusesRef}
+              newlyCreatedJobIdsRef={newlyCreatedJobIdsRef}
+              sendJobNotification={sendJobNotification}
             />
           )}
         </div>

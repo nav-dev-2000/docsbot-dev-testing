@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-19',
+    title: 'Deep Research browser notifications',
+    description:
+      'Subscribe to native browser notifications when long-running Deep Research jobs finish.',
+  },
+  {
     date: '2025-12-17',
     title: 'MCP OAuth for private bots',
     description:
