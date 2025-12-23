@@ -1220,19 +1220,32 @@ function ResearchInterface({
         legacyTrialThreshold = null,
       } = usageSnapshot
 
+      const normalizedPlanId = (usageSnapshot.planId || '').toLowerCase()
+
       const trialThreshold =
         legacyTrialThreshold ??
         (typeof lifetimeLimit === 'number' && lifetimeLimit > 0
           ? lifetimeLimit
           : null)
 
+      const fallbackTrialLimit =
+        trialThreshold !== null
+          ? trialThreshold
+          : ['pro', 'personal'].includes(normalizedPlanId)
+            ? 2
+            : null
+
       const hasTrialAllowance = (() => {
-        if (trialThreshold !== null) {
-          return historicalMaxResearch < trialThreshold
+        if (typeof fallbackTrialLimit === 'number') {
+          const trialUsed =
+            legacyTrialThreshold !== null
+              ? historicalMaxResearch
+              : typeof lifetimeLimit === 'number' && lifetimeLimit > 0
+                ? lifetimeUsed
+                : historicalMaxResearch
+          return trialUsed < fallbackTrialLimit
         }
-        if (typeof lifetimeLimit === 'number' && lifetimeLimit > 0) {
-          return lifetimeUsed < lifetimeLimit
-        }
+
         return false
       })()
 
