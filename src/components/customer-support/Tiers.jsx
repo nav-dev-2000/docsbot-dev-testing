@@ -4,7 +4,36 @@ import clsx from "clsx"
 import { Section, SectionContent, Button, Arrow } from "@/components/elements"
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/16/solid'
 
-export const Tiers = ({ title, description, data }) => {
+const defaultData = [
+  {
+    id: 'tier-one',
+    name: 'Tier 1 Support',
+    title: 'Fully Automated. Always Improving.',
+    description: "DocsBot's AI support bots automate the repetitive tickets that slow your team down. But they're not static—they learn from your human support agents, continuously improving based on how your team handles complex cases.",
+    featured: false,
+    highlights: [
+      'Deflect up to 80% of FAQs and common tickets automatically.',
+      'Deliver instant, on-brand answers across channels and in any language.',
+      'Seamless human handoff when needed—no dead ends.',
+      'Learns from human interactions and evolving documentation.',
+    ],
+  },
+  {
+    id: 'tier-two',
+    name: 'Tier 2 Support',
+    title: 'Make Your People More Efficient.',
+    description: 'DocsBot becomes a real-time assistant for your Tier 2 team—surfacing accurate, contextual suggestions to help agents respond faster and with full confidence.',
+    featured: true,
+    highlights: [
+      'Suggests replies based on docs, past tickets, and customer intent.',
+      'Lives inside the tools your team already uses: Zendesk, Slack, HelpScout, Freshdesk.',
+      'Reduces time spent searching, so agents focus on resolving.',
+      'Captures feedback and trends to improve Tier 1 automation.',
+    ],
+  },
+]
+
+export const Tiers = ({ title, description, data = defaultData }) => {
     const theme = 'dark';
 
     return (

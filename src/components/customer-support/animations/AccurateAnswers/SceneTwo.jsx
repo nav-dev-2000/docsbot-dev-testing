@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { DocumentIcon } from "@heroicons/react/24/outline"
 import { SonarPulse } from "@/components/customer-support/animation-elements"
 
-export const SceneTwo = ({ onComplete, timeout = 2500 }) => {
+export const SceneTwo = ({ onComplete, timeout = 6500 }) => {
     const boxCss = 'flex items-center justify-center rounded-lg shadow-md'
     const boxSize = 16
     const iconSize = boxSize / 2

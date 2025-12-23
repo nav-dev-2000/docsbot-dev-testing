@@ -16,7 +16,7 @@ export const Title = ({ content, theme = 'light', className }) => {
     return (
         <h2
             className={clsx(
-                'text-5xl/[3.5rem] font-bold lg:text-center',
+                'text-5xl/[3.5rem] font-bold text-center',
                 {
                     ['text-gray-900']: !isThemeDark,
                     ['text-neutral-50']: isThemeDark,

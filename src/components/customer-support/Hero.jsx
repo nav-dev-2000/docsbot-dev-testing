@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 import clsx from 'clsx'
 import { Button } from '@/components/elements'
 import Image from 'next/image';
-import humanHero from '@/images/app-demo/docsbot-hero-human.webp'
+import womanHeroDocs from '@/images/app-demo/woman-hero-sm.webp'
 import humanAvatar from '@/images/app-demo/docsbot-avatar-human.webp'
 import RobotIconSolid from '../RobotIconSolid'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -124,6 +124,7 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
                             {...primaryButton}
                             theme="opalite"
                             variant="primary"
+                            className="z-30" // Ensure button is clickable above other elements if needed
                         />
                     )}
                     { secondaryButton && (
@@ -131,6 +132,7 @@ const HeroContentLeft = ({ title, subtitle, description, primaryButton, secondar
                             {...secondaryButton}
                             theme="light"
                             variant="secondary"
+                            className="z-30"
                         />
                     )}
                 </div>
@@ -170,6 +172,7 @@ const HeroContentRight = ({ image, heroFaqs = [], className, imageContainerClass
       exit: { y: 0, opacity: 0 },            // fade out only, no movement
     }
 
+    // Only run the FAQ bubble animation
     useEffect(() => {
         if (faqs.length === 0) return;
         
@@ -243,7 +246,7 @@ const HeroContentRight = ({ image, heroFaqs = [], className, imageContainerClass
                             transition={{ duration: 0.35, ease: 'easeOut' }}
                             className="lg:absolute lg:top-[10%] lg:left-[10%] flex flex-row-reverse gap-4 pl-[20%] lg:pl-0 text-sm lg:text-md"
                         >
-                            <div className="overflow-hidden size-12 flex-none rounded-full shadow-lg shadow-gray-900">
+                            <div className="overflow-hidden size-12 flex-none rounded-full bg-cyan-600 shadow-lg shadow-gray-900">
                                 <Image
                                     alt="User avatar"
                                     src={avatar || humanAvatar}
@@ -299,7 +302,7 @@ const HeroContentRight = ({ image, heroFaqs = [], className, imageContainerClass
     );
 }
 
-export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = humanHero, heroFaqs = [], rightContentClassName, imageContainerClassName, imageClassName, avatar }) => {
+export const Hero = ({ title, subtitle, description, primaryButton, secondaryButton, heroImage = womanHeroDocs, heroFaqs = [], rightContentClassName, imageContainerClassName, imageClassName, avatar }) => {
     return (
         <div className="relative isolate overflow-hidden bg-gray-900 -mt-24 border-none">
             <HeroGrid />

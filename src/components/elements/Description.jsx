@@ -16,7 +16,7 @@ export const Description = ({ content, theme = 'light', className }) => {
     return (
         <p
             className={clsx(
-                'text-lg/8 lg:text-center text-pretty',
+                'text-lg/8 text-center text-pretty',
                 {
                     ['text-gray-900/80']: !isThemeDark,
                     ['text-neutral-50/80']: isThemeDark,

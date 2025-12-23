@@ -36,7 +36,7 @@ export const Faq = ({ title, description, data, banner }) => {
                             </div>
 
                             <DisclosurePanel as="div" className="px-8 pb-6 rounded-b-lg bg-gray-100 text-gray-600">
-                                <p className="text-base/7">{faq.answer}</p>
+                                <div className="text-base/7">{typeof faq.answer === 'string' ? <p>{faq.answer}</p> : faq.answer}</div>
                             </DisclosurePanel>
                         </Disclosure>
                     ))}

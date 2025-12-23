@@ -88,7 +88,7 @@ export const AccurateAnswers = () => {
             content = (
                 <SceneTwo
                     onComplete={() => setPhase("t2")}
-                    timeout={2100}
+                    timeout={2000}
                 />
             );
         } else if (phase === "t2") {

@@ -1,27 +1,9 @@
-import { ShieldCheckIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
+
 import {
-  ChatBubbleLeftRightIcon,
-  PencilSquareIcon,
-  Cog6ToothIcon,
-  LifebuoyIcon,
-  ChatBubbleLeftEllipsisIcon,
-  UserGroupIcon,
-  HeartIcon,
-  CloudArrowUpIcon,
-  ClockIcon,
-  CheckCircleIcon,
-  ArrowDownOnSquareStackIcon,
-  LockClosedIcon,
-  AcademicCapIcon,
-  MagnifyingGlassIcon,
-  DocumentChartBarIcon,
-  ArrowPathIcon,
   SparklesIcon,
 } from '@heroicons/react/20/solid'
 import {InfiniteTypewriter} from '@/components/customer-support/animation-elements'
-import imgDeepResearch from '@/images/app-demo/docsbot-deep-research.webp'
 import AskAIModels from '@/components/AskAIModels'
-import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
 import Faq from '@/components/Faq'
@@ -32,8 +14,6 @@ import MattCromwellQuote from '@/components/MattCromwellQuote'
 import TrustedBy from '@/components/TrustedBy'
 import SocialFaces from '@/components/SocialFaces'
 import HowItWorks from '@/components/HowItWorks'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
 import AIHero from '@/components/AIHero'
 import IntegrationsFeatures from '@/components/IntegrationsFeatures'
 import DeployFeatures from '@/components/DeployFeatures'
@@ -42,247 +22,12 @@ import VideoPlayer from '@/components/VideoPlayer'
 import SecuritySection from '@/components/SecuritySection'
 import { UseCases } from '@/components/home/UseCases'
 
-const features = [
-  {
-    name: 'Embeddable Widgets',
-    description:
-      'We make it simple to add DocsBot to your website in minute with fully customizable widgets. Just add a script tag or WordPress plugin (coming soon) and you are ready to go.',
-    icon: ChatBubbleLeftRightIcon,
-  },
-  {
-    name: 'Reply to Support Tickets',
-    description:
-      'Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money! Enable our Help Scout integration or create your own.',
-    icon: LifebuoyIcon,
-  },
-  {
-    name: 'Question/Answer Bots',
-    description:
-      'Make your documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.',
-    icon: ChatBubbleLeftEllipsisIcon,
-  },
-  {
-    name: 'Internal Knowledge Bots',
-    description:
-      'Employees spend too much time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.',
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: 'Custom Copywriting',
-    description:
-      'Need help writing marketing copy and blog posts? With DocsBot, you can do that too. Use a customized ChatGPT that knows everything about your product, so it can help you generate high-quality content in no time.',
-    icon: PencilSquareIcon,
-  },
-  {
-    name: 'Powerful API',
-    description:
-      'Our API allows you to integrate AI chat into your own products. Provide answers to your users from your site, app, or WordPress plugin.',
-    icon: Cog6ToothIcon,
-  },
-]
 
-const customerBotFeatures = [
-  {
-    name: 'Reduce Support Workload',
-    description:
-      'Automatically handle common customer inquiries 24/7, reducing wait times and enabling smooth handovers to human support when needed.',
-    icon: ClockIcon,
-  },
-  {
-    name: 'Consistent & Accurate',
-    description:
-      'Deliver precise, consistent answers based on your documentation, ensuring customers always receive reliable information.',
-    icon: CheckCircleIcon,
-  },
-  {
-    name: 'Scale Your Support',
-    description:
-      'Handle unlimited concurrent conversations while maintaining high satisfaction rates and building customer loyalty.',
-    icon: CloudArrowUpIcon,
-  },
-]
 
-const supportFeatures = [
-  {
-    name: 'Minimize Repetitive Tasks',
-    description:
-      'Free your support team from answering the same questions repeatedly. Let AI handle routine inquiries while your agents focus on complex, high-value interactions that require human expertise.',
-    icon: ArrowDownOnSquareStackIcon,
-  },
-  {
-    name: 'Better Resource Allocation',
-    description:
-      'Optimize your support operations with first-contact resolution and seamless human handovers. Our AI ensures questions are answered instantly, accurately, or escalated to a human when needed.',
-    icon: UserGroupIcon,
-  },
-  {
-    name: 'Boost Team Morale',
-    description:
-      "Transform your support team's daily experience by eliminating mundane tasks. Watch agent satisfaction soar as they engage in meaningful problem-solving instead of repetitive responses.",
-    icon: HeartIcon,
-  },
-]
 
-const internalBotFeatures = [
-  {
-    name: 'Knowledge Retrieval',
-    description:
-      'Instantly surface relevant information from your internal documentation, eliminating time spent searching through multiple systems and databases.',
-    icon: CloudArrowUpIcon,
-  },
-  {
-    name: 'Secure Access',
-    description:
-      'Keep your sensitive information protected with enterprise-grade security while providing seamless access to authorized team members.',
-    icon: LockClosedIcon,
-  },
-  {
-    name: 'Continuous Learning',
-    description:
-      'Your bot automatically stays up-to-date as your documentation evolves, ensuring teams always have access to the latest information.',
-    icon: AcademicCapIcon,
-  },
-]
 
-const researchFeatures = [
-  {
-    name: 'Instant Reference Discovery',
-    description:
-      'Quickly surface relevant citations, data points, and research materials from your document library. Save hours of manual searching and cross-referencing.',
-    icon: MagnifyingGlassIcon,
-  },
-  {
-    name: 'Comprehensive Analysis',
-    description:
-      'Get detailed insights and connections across your research materials. Our AI helps identify patterns and relationships you might have missed.',
-    icon: DocumentChartBarIcon,
-  },
-  {
-    name: 'Content Repurposing',
-    description:
-      'Transform existing content into new formats and insights. Extract key findings and data to create summaries, presentations, or training materials.',
-    icon: ArrowPathIcon,
-  },
-]
 
-// Add this component for reusability
-const ScrollFadeIn = ({ children, delay = 0 }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.7, delay }}
-    >
-      {children}
-    </motion.div>
-  )
-}
 
-const ParallaxImage = ({ children, className = '' }) => {
-  const ref = useRef(null)
-  const [isLargeScreen, setIsLargeScreen] = useState(false)
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024)
-    }
-
-    checkScreenSize()
-    window.addEventListener('resize', checkScreenSize)
-    return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ['10%', '30%'])
-
-  return (
-    <motion.div
-      ref={ref}
-      className={`flex items-start will-change-transform ${className}`}
-      style={{
-        y: isLargeScreen ? y : 0,
-        WebkitBackfaceVisibility: 'hidden',
-        WebkitTransform: 'translate3d(0, 0, 0)',
-      }}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.8 }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-const LazyVideo = ({ src, poster, className }) => {
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log('Video in view, attempting to play...') // Debug log
-
-            // Set source and load video
-            if (!video.src) {
-              video.src = src
-            }
-
-            video.load()
-
-            // Attempt to play
-            const playPromise = video.play()
-            if (playPromise !== undefined) {
-              playPromise
-                .then(() => console.log('Video playback started'))
-                .catch((error) =>
-                  console.error('Video playback failed:', error),
-                )
-            }
-
-            // Disconnect observer after successful intersection
-            observer.disconnect()
-          }
-        })
-      },
-      {
-        root: null,
-        rootMargin: '100px 0px',
-        threshold: 0.1,
-      },
-    )
-
-    observer.observe(video)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [src])
-
-  return (
-    <video
-      ref={videoRef}
-      muted
-      loop
-      playsInline
-      className={className}
-      poster={poster}
-      autoPlay={false}
-      preload="metadata"
-    >
-      <source src={src} type="video/mp4" />
-    </video>
-  )
-}
 
 export default function Home() {
   return (

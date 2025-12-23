@@ -43,7 +43,7 @@ export const SceneOne = ({ onComplete }) => {
                         className="w-full"
                         onAnimationComplete={() => {
                             if (onComplete) {
-                                setTimeout(() => onComplete(), 400)
+                                setTimeout(() => onComplete(), 1000)
                             }
                         }}
                     >

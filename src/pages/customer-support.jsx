@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import React, { useId, useState } from 'react'
 import { ShieldCheckIcon } from '@heroicons/react/24/outline'
 import {
   LockClosedIcon,
@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/20/solid'
 
 import Head from 'next/head'
+import Link from 'next/link'
 import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -43,6 +44,7 @@ import screenshotLogs from "@/images/app-demo/docsbot-insights-questions.webp"
 import screenshotVisualization from "@/images/app-demo/docsbot-insights-visualization.webp"
 import screenshotTopicManagement from "@/images/app-demo/docsbot-insights-topic-management.webp"
 import screenshotReports from "@/images/app-demo/docsbot-insights-reports.webp"
+import docsbotHeroHuman from "@/images/app-demo/docsbot-hero-human.webp"
 
 // Define: Data
 const heroFaqs = [
@@ -125,7 +127,15 @@ const personas = {
     question: "What does DocsBot offer for technical writers and our team handling documentation?",
     paragraphs: [
       "Great question! DocsBot turns your documentation into a living, breathing support engine. It ingests long-form content—like docs, videos, wikis, and more—and instantly makes it searchable, actionable, and ready to deliver fast, accurate answers.",
-      "No more static pages collecting dust. DocsBot surfaces dynamic suggestions in real time, meeting users where they are—without rewrites or reformatting. And it learns from every interaction, so your content keeps getting sharper without extra effort.",
+      (
+        <>
+          No more static pages collecting dust. DocsBot surfaces dynamic suggestions in real time, meeting users where they are—without rewrites or reformatting. And it learns from every interaction, so your content keeps getting sharper without extra effort. For public-facing technical documentation sites, check out our{' '}
+          <Link href="/documentation-chatbot" className="text-cyan-400 hover:text-cyan-300 underline">
+            documentation chatbot solution
+          </Link>
+          .
+        </>
+      ),
       "Smarter docs. Stronger support. Zero rework.",
     ],
   },
@@ -423,14 +433,28 @@ const dataFaq = [
     {
         id: 12,
         question: 'What types of content sources can I use?',
-        answer:
-        "Use websites, PDFs, Word docs, Markdown, HTML, RSS feeds, spreadsheets, manual entries, or our API. We support 28+ source types.",
+        answer: (
+            <>
+                Use websites, PDFs, Word docs, Markdown, HTML, RSS feeds, spreadsheets, manual entries, or our API. We support 28+ source types. Perfect for{' '}
+                <Link href="/documentation-chatbot" className="text-cyan-600 hover:text-cyan-700 underline">
+                    technical documentation chatbots
+                </Link>
+                {' '}and knowledge bases.
+            </>
+        ),
     },
     {
         id: 13,
         question: 'Can I automatically update my DocsBot sources?',
-        answer:
-        "Schedule refreshes for compatible sources like web, cloud storage, or help desk platforms daily, weekly, or monthly, and trigger manual updates anytime.",
+        answer: (
+            <>
+                Schedule refreshes for compatible sources like web, cloud storage, or help desk platforms daily, weekly, or monthly, and trigger manual updates anytime. Great for keeping{' '}
+                <Link href="/documentation-chatbot" className="text-cyan-600 hover:text-cyan-700 underline">
+                    documentation sites
+                </Link>
+                {' '}in sync automatically.
+            </>
+        ),
     },
     {
         id: 14,
@@ -606,6 +630,20 @@ export default function Home() {
     },
   }
 
+  // Helper function to extract text from JSX or string
+  const extractText = (content) => {
+    if (typeof content === 'string') return content;
+    if (React.isValidElement(content)) {
+      if (content.props && content.props.children) {
+        return React.Children.toArray(content.props.children)
+          .map(child => extractText(child))
+          .join('');
+      }
+      return '';
+    }
+    return String(content);
+  };
+
   // Combine all FAQs for JSON-LD schema
   const allFaqs = [
     // Hero FAQs
@@ -616,12 +654,12 @@ export default function Home() {
     // Persona chat responses (questions + paragraphs as answers)
     ...Object.values(personas).map(persona => ({
       questionName: persona.question,
-      acceptedAnswerText: `${persona.paragraphs.join('\n\n')}`,
+      acceptedAnswerText: persona.paragraphs.map(p => extractText(p)).join('\n\n'),
     })),
     // Main FAQ data
     ...dataFaq.map(faq => ({
       questionName: faq.question,
-      acceptedAnswerText: faq.answer,
+      acceptedAnswerText: extractText(faq.answer),
     })),
   ]
 
@@ -668,7 +706,7 @@ export default function Home() {
           <Header transparent />
 
           <main>
-            <Hero { ...propsHero } heroFaqs={heroFaqs} />
+            <Hero { ...propsHero } heroFaqs={heroFaqs} heroImage={docsbotHeroHuman} />
 
             <Brands />
 

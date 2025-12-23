@@ -10,6 +10,10 @@ export const NAVIGATION = [
       {
         name: 'Internal Knowledge',
         href: '/internal-knowledge'
+      },
+      {
+        name: 'Documentation Chatbot',
+        href: '/documentation-chatbot'
       }
     ]
   },

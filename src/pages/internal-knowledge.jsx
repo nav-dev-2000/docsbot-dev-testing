@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import {
   BoltIcon,
   ChatBubbleLeftRightIcon,
@@ -13,6 +13,7 @@ import {
 
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { NextSeo, FAQPageJsonLd } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -44,7 +45,7 @@ import { SectionReveal } from '@/components/customer-support/transitions'
 import screenshotLogs from "@/images/app-demo/docsbot-insights-questions.webp"
 import screenshotReports from "@/images/app-demo/docsbot-insights-reports.webp"
 import screenshotVisualization from "@/images/app-demo/docsbot-insights-visualization.webp"
-import heroImage from "@/images/app-demo/internal-knowledge-hero.png"
+import heroImage from "@/images/app-demo/internal-knowledge-hero.webp"
 import avatar from "@/images/app-demo/internal-knowledge-avatar.png"
 // Define: Data
 const heroFaqs = [
@@ -130,7 +131,15 @@ const personas = {
     paragraphs: [
       "DocsBot makes your technical documentation actually discoverable. Engineers can instantly find architecture decisions, API references, code standards, deployment procedures, and runbooks without context-switching or interrupting teammates.",
       "For on-call rotations, it's invaluable—surface incident response playbooks, troubleshooting guides, and system dependencies in seconds. Reduce MTTR by getting answers faster when every minute counts.",
-      "Onboarding new engineers becomes seamless. They can ask questions about the codebase, development environment setup, and team conventions without feeling like a burden. Your senior engineers get their focus time back.",
+      (
+        <>
+          Onboarding new engineers becomes seamless. They can ask questions about the codebase, development environment setup, and team conventions without feeling like a burden. Your senior engineers get their focus time back. For public-facing technical documentation sites, see our{' '}
+          <Link href="/documentation-chatbot" className="text-cyan-400 hover:text-cyan-300 underline">
+            documentation chatbot solution
+          </Link>
+          .
+        </>
+      ),
     ],
   },
   operations: {
@@ -325,8 +334,15 @@ const dataFaq = [
     {
         id: 2,
         question: "How does an internal knowledge base chatbot work?",
-        answer:
-        "It connects to your existing documentation—wikis, Google Drive, Notion, Confluence, PDFs, and more. DocsBot indexes this content and uses AI to understand questions and provide accurate, contextual answers with source citations.",
+        answer: (
+            <>
+                It connects to your existing documentation—wikis, Google Drive, Notion, Confluence, PDFs, and more. DocsBot indexes this content and uses AI to understand questions and provide accurate, contextual answers with source citations. For public-facing technical documentation, see our{' '}
+                <Link href="/documentation-chatbot" className="text-cyan-600 hover:text-cyan-700 underline">
+                    documentation chatbot solution
+                </Link>
+                .
+            </>
+        ),
     },
     {
         id: 3,
@@ -380,14 +396,28 @@ const dataFaq = [
     {
         id: 11,
         question: 'What types of content sources can I use?',
-        answer:
-        "Use websites, PDFs, Word docs, Markdown, HTML, RSS feeds, spreadsheets, manual entries, or our API. We support 28+ source types.",
+        answer: (
+            <>
+                Use websites, PDFs, Word docs, Markdown, HTML, RSS feeds, spreadsheets, manual entries, or our API. We support 28+ source types. Perfect for{' '}
+                <Link href="/documentation-chatbot" className="text-cyan-600 hover:text-cyan-700 underline">
+                    technical documentation chatbots
+                </Link>
+                {' '}and knowledge bases.
+            </>
+        ),
     },
     {
         id: 12,
         question: 'Can I automatically update my DocsBot sources?',
-        answer:
-        "Schedule refreshes for compatible sources like web, cloud storage, or help desk platforms daily, weekly, or monthly, and trigger manual updates anytime.",
+        answer: (
+            <>
+                Schedule refreshes for compatible sources like web, cloud storage, or help desk platforms daily, weekly, or monthly, and trigger manual updates anytime. Great for keeping{' '}
+                <Link href="/documentation-chatbot" className="text-cyan-600 hover:text-cyan-700 underline">
+                    documentation sites
+                </Link>
+                {' '}in sync automatically.
+            </>
+        ),
     },
     {
         id: 13,
@@ -463,7 +493,7 @@ export default function InternalKnowledge() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   const propsHero = {
-    title: <>Turn <HighlightWord word="every"/> employee into an instant expert (even new hires)</>,
+    title: <>Turn <HighlightWord word="every"/> <HighlightWord word="employee"/> into an instant expert (even new hires)</>,
     subtitle: "Internal AI Knowledge Assistants for Teams",
     description: "Turn your internal documents, SOPs, and company knowledge into instant answers available 24/7 and in any language.",
     primaryButton: {
@@ -568,6 +598,20 @@ export default function InternalKnowledge() {
     },
   }
 
+  // Helper function to extract text from JSX or string
+  const extractText = (content) => {
+    if (typeof content === 'string') return content;
+    if (React.isValidElement(content)) {
+      if (content.props && content.props.children) {
+        return React.Children.toArray(content.props.children)
+          .map(child => extractText(child))
+          .join('');
+      }
+      return '';
+    }
+    return String(content);
+  };
+
   // Combine all FAQs for JSON-LD schema
   const allFaqs = [
     // Hero FAQs
@@ -578,12 +622,12 @@ export default function InternalKnowledge() {
     // Persona chat responses (questions + paragraphs as answers)
     ...Object.values(personas).map(persona => ({
       questionName: persona.question,
-      acceptedAnswerText: `${persona.paragraphs.join('\n\n')}`,
+      acceptedAnswerText: persona.paragraphs.map(p => extractText(p)).join('\n\n'),
     })),
     // Main FAQ data
     ...dataFaq.map(faq => ({
       questionName: faq.question,
-      acceptedAnswerText: faq.answer,
+      acceptedAnswerText: extractText(faq.answer),
     })),
   ]
 
@@ -613,8 +657,6 @@ export default function InternalKnowledge() {
               heroFaqs={heroFaqs}
               heroImage={heroImage}
               avatar={avatar}
-              imageClassName="!w-[45rem]"
-              rightContentClassName="lg:ml-auto lg:mt-20"
             />
 
             <Brands title="Trusted by innovative teams and enterprises globally" />

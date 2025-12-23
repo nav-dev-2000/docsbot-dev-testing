@@ -23,8 +23,16 @@ const industries = Object.entries(INDUSTRIES.reduce((acc, item) => {
     href: `/industry/${items[0].slug}`,
   }))
 
+// Flatten NAVIGATION to include children in pages section
+const flattenedPages = NAVIGATION.flatMap(item => {
+  if (item.children && item.children.length > 0) {
+    return [item, ...item.children];
+  }
+  return [item];
+});
+
 const footerNavigation = {
-  pages: NAVIGATION,
+  pages: flattenedPages,
   tools: [
     { name: 'Imajinn AI', href: 'https://imajinn.ai' },
   ],

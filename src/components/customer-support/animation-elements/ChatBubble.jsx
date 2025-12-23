@@ -15,7 +15,7 @@ const Avatar = ({ avatar, isBot, isInsideChat, shadowSize, shadowColor }) => {
                     ['size-6']: isInsideChat,
                     ['size-8 sm:size-12']: !isInsideChat,
                     ['flex items-center justify-center bg-cyan-600']: isBot,
-                    ['overflow-hidden']: !isBot,
+                    ['overflow-hidden bg-cyan-600']: !isBot,
                 },
             )}
         >

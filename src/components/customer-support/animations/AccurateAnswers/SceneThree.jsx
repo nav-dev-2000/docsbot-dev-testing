@@ -31,7 +31,7 @@ export const SceneThree = ({ onComplete }) => {
                         initial="hidden"
                         animate="visible"
                         variants={slideIn}
-                        transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
+                        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                         onAnimationComplete={() => setShowSecond(true)}
                     >
                         <ChatBubble
@@ -49,7 +49,7 @@ export const SceneThree = ({ onComplete }) => {
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                             onAnimationComplete={() => {
                                 if (!onComplete) return
-                                setTimeout(() => onComplete(), 400)
+                                setTimeout(() => onComplete(), 4000)
                             }}
                         >
                             <ChatBubble

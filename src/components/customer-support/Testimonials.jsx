@@ -18,7 +18,7 @@ import bowe from '@/images/avatars/testimony8.jpeg'
 import steveburge from '@/images/avatars/steve-burge.jpg'
 import zachkatz from '@/images/avatars/zach-katz.jpg'
 
-const data = [
+const defaultData = [
     [
         {
             body: 'DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!',
@@ -226,7 +226,7 @@ export const Testimonials = ({ title, description, aiPrompt }) => {
                 `}</style>
 
                 <div className="-mx-6 md:-mx-[40rem] flex flex-col gap-y-4 lg:gap-y-8">
-                    { data?.map( ( row, index ) => {
+                    { defaultData?.map( ( row, index ) => {
                         // Duplicate the row items for seamless loop
                         const duplicatedRow = [...row, ...row];
 

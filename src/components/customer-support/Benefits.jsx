@@ -1,9 +1,98 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { FAQPageJsonLd } from "next-seo";
+import Link from "next/link";
 import { Section, SectionContent } from "@/components/elements";
 
-export const Benefits = ({ title, description, initialPersonaKey, personas = {} }) => {
+// Helper function to extract text content from JSX or string
+const extractText = (content) => {
+  if (typeof content === 'string') return content;
+  if (React.isValidElement(content)) {
+    // Extract text from React element recursively
+    if (content.props && content.props.children) {
+      return React.Children.toArray(content.props.children)
+        .map(child => extractText(child))
+        .join('');
+    }
+    return '';
+  }
+  return String(content);
+};
+
+const defaultPersonas = {
+  supportManager: {
+    label: "Support Managers & Heads of Support",
+    headline: "The Real Value of DocsBot for Support Leaders",
+    question: "What's the real value of DocsBot for me as a support leader?",
+    paragraphs: [
+      "In short? DocsBot helps you deflect up to 90% of your repetitive tickets, reduce team burnout, and scale support without scaling headcount. It's like giving your team a high-performing AI teammate—one that never sleeps, learns from your best agents, and gets smarter over time.",
+      "DocsBot fully automates Tier 1, so your team can focus on complex issues instead of answering the same questions over and over. And when something needs human eyes, Human Escalation Classification steps in—escalating smoothly and even drafting the ticket for your team, complete with context.",
+      "Plus, you get advanced analytics that surface content gaps, trending topics, and performance insights—so you can improve support and documentation in lockstep. No extra engineering. No complicated setup. Just better support, right out of the box.",
+    ],
+  },
+  frontlineRep: {
+    label: "Frontline Support Reps",
+    headline: "Making Your Day Smoother",
+    question: "As a frontline support rep, how will DocsBot benefit me?",
+    paragraphs: [
+      "DocsBot makes your day smoother by taking repetitive tasks off your plate and helping you respond faster. It suggests accurate, on-brand replies right inside the tools you already use—like Slack, Zendesk, and HelpScout—so you can stay focused without jumping between tabs or digging through docs.",
+      "You'll spend less time on FAQs and more time on the conversations that really need your expertise. And because the AI learns from every interaction, your suggestions get better the more you use it.",
+      "Fewer distractions. Smarter replies. More satisfying work.",
+    ],
+  },
+  customerExperience: {
+    label: "CSMs & Customer Experience Teams",
+    headline: "Strengthening Your CX Impact",
+    question: "How could DocsBot strengthen our CSMs and CX teams?",
+    paragraphs: [
+      "DocsBot takes the pressure off your team by handling Tier 1 questions automatically—delivering fast, on-brand answers across every channel so your CSMs can focus on what matters most: building relationships, not chasing down repetitive tickets.",
+      "It doesn't just deflect workload—it gives you insight. With built-in sentiment and trend tracking, DocsBot highlights friction points and emerging issues before they become churn risks.",
+      "Your team stays focused on driving value and delivering exceptional experiences, not putting out fires.",
+    ],
+  },
+  docsWriters: {
+    label: "Technical Writers & Documentation Owners",
+    headline: "Turning Docs Into a Living Support Engine",
+    question: "What does DocsBot offer for technical writers and our team handling documentation?",
+    paragraphs: [
+      "Great question! DocsBot turns your documentation into a living, breathing support engine. It ingests long-form content—like docs, videos, wikis, and more—and instantly makes it searchable, actionable, and ready to deliver fast, accurate answers.",
+      "No more static pages collecting dust. DocsBot surfaces dynamic suggestions in real time, meeting users where they are—without rewrites or reformatting. And it learns from every interaction, so your content keeps getting sharper without extra effort.",
+      "Smarter docs. Stronger support. Zero rework.",
+    ],
+  },
+  opsAdmins: {
+    label: "Ops Admins",
+    headline: "Making Life Easier for Ops Admins",
+    question: "How does DocsBot make life easier for Ops Admins?",
+    paragraphs: [
+      "DocsBot is no-code by default—just connect your content, and you're live. It plugs right into tools like Slack, Zendesk, WordPress, and Freshdesk with zero IT support needed. Setup takes minutes, not weeks.",
+      "It's also easy to maintain: no model training, no constant tinkering, and no worrying about keeping docs and bots in sync. DocsBot does that for you.",
+      "Fast to deploy. Easy to manage. Built to scale.",
+    ],
+  },
+  revOps: {
+    label: "RevOps Teams",
+    headline: "Why DocsBot Matters to RevOps",
+    question: "Why does DocsBot matter to RevOps?",
+    paragraphs: [
+      "DocsBot gives you unified insights across teams—tracking what customers ask, how support performs, and where content or product gaps exist. That means less guesswork and more data-driven decisions.",
+      "It also improves operational efficiency by automating repetitive tasks, reducing ticket volume, and freeing up teams across the org to focus on high-leverage work. And because it integrates with your core systems, there's no data lost between platforms.",
+      "One tool. Cross-team impact. Measurable ROI.",
+    ],
+  },
+  founders: {
+    label: "Founders & Scaling SaaS Leaders",
+    headline: "The Advantage for Growing SaaS Teams",
+    question: "What's the advantage of DocsBot for founders or growing SaaS teams?",
+    paragraphs: [
+      "DocsBot lets you scale support without scaling headcount. From day one, your AI agent handles customer questions—trained instantly on your docs, with no engineering lift or ramp-up time.",
+      "That means your team stays lean and focused on growth, while DocsBot delivers fast, on-brand answers 24/7. It's a zero-maintenance setup with high-impact ROI—perfect for startups and scaleups that need to move fast without sacrificing customer experience.",
+      "Launch in minutes. Support at scale. No extra hires required.",
+    ],
+  },
+};
+
+export const Benefits = ({ title, description, initialPersonaKey, personas = defaultPersonas }) => {
   const [selectedKey, setSelectedKey] = useState(() => {
     // Prefer a URL hash if present and valid (client-only)
     if (typeof window !== 'undefined') {
@@ -69,18 +158,19 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = {} 
     if (!isTyping || !selected || index >= selected.paragraphs.length) return;
 
     const paragraph = selected.paragraphs[index];
+    const paragraphText = extractText(paragraph);
     let i = 0;
     let line = "";
 
     const interval = setInterval(() => {
-      line += paragraph.charAt(i);
+      line += paragraphText.charAt(i);
       setTypedLines((prev) => {
         const copy = [...prev];
         copy[index] = line;
         return copy;
       });
       i++;
-      if (i >= paragraph.length) {
+      if (i >= paragraphText.length) {
         clearInterval(interval);
         setTimeout(() => setIndex((prev) => prev + 1), 400);
       }
@@ -160,7 +250,7 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = {} 
               })
               .then(() => {
                 // Step 2: Add the previous bot response (from persona)
-                const botResponse = `**${selected.headline}**\n\n${selected.paragraphs.map(p => `• ${p}`).join('\n')}`;
+                const botResponse = `**${selected.headline}**\n\n${selected.paragraphs.map(p => `• ${extractText(p)}`).join('\n')}`;
                 
                 return window.DocsBotAI.addBotMessage(botResponse);
               })
@@ -219,7 +309,7 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = {} 
   // Create FAQ data from personas for JSON-LD
   const faqs = Object.values(personas).map((persona) => ({
     questionName: persona.question,
-    acceptedAnswerText: `${persona.paragraphs.join(' ')}`,
+    acceptedAnswerText: persona.paragraphs.map(p => extractText(p)).join(' '),
   }));
 
     return (
@@ -249,7 +339,7 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = {} 
                       <p><strong>{persona.headline}</strong></p>
                       <p>{persona.question}</p>
                       {persona.paragraphs.map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
+                        <p key={index}>{React.isValidElement(paragraph) ? paragraph : paragraph}</p>
                       ))}
                     </div>
                   </li>
@@ -349,20 +439,34 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = {} 
                                     <div className="bg-gray-800 text-white px-6 py-4 rounded-2xl rounded-bl-md shadow-xl outline outline-white/10">
                                         <p className="font-bold text-white mb-4 text-lg">{selected.headline}</p>
                                         <div className="space-y-3">
-                                        {showBotMessage && typedLines
-                                            .filter(line => line && line.trim().length > 0)
-                                            .map((line, i) => (
+                                        {showBotMessage && selected.paragraphs.map((paragraph, i) => {
+                                            // Only show paragraphs that have started typing (i <= index)
+                                            if (i > index) return null;
+                                            
+                                            const paragraphText = extractText(paragraph);
+                                            const isTypingThis = i === index && isTyping;
+                                            const isComplete = i < index || (i === index && !isTypingThis);
+                                            const typedText = typedLines[i] || '';
+                                            
+                                            return (
                                             <div key={i} className="flex items-start space-x-3">
                                             <span className="text-cyan-400 font-bold text-sm flex-shrink-0 leading-relaxed">•</span>
-                                            <p className="text-gray-300 text-sm leading-relaxed">
-                                                {line}
-                                                {i === typedLines.filter(l => l && l.trim().length > 0).length - 1 &&
-                                                isTyping && index <= selected.paragraphs.length && (
-                                                    <span className="animate-pulse text-cyan-400 font-bold ml-1">|</span>
+                                            <div className="text-gray-300 text-sm leading-relaxed">
+                                                {isComplete ? (
+                                                    // Render full JSX with links when complete
+                                                    React.isValidElement(paragraph) ? paragraph : <span>{paragraph}</span>
+                                                ) : (
+                                                    // Show typed text while typing
+                                                    <>
+                                                        <span>{typedText}</span>
+                                                        {isTypingThis && (
+                                                            <span className="animate-pulse text-cyan-400 font-bold ml-1">|</span>
+                                                        )}
+                                                    </>
                                                 )}
-                                            </p>
                                             </div>
-                                        ))}
+                                            </div>
+                                        )})}
                                         {isTyping && typedLines.filter(line => line && line.trim().length > 0).length === 0 && showBotMessage && (
                                             <div className="flex space-x-1">
                                             <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
