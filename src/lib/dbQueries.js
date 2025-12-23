@@ -886,8 +886,35 @@ export async function getUser(userId) {
   if (userRef.exists) {
     let user = { id: userRef.id, ...userRef.data() }
     user.createdAt = user.createdAt.toDate().toJSON() //make serializable
+    if (user.updatedAt) {
+      user.updatedAt = user.updatedAt instanceof Date 
+        ? user.updatedAt.toJSON() 
+        : user.updatedAt.toDate ? user.updatedAt.toDate().toJSON() 
+        : user.updatedAt
+    }
     user.apiKey = user.apiKey ? user.apiKeyPreview : null
     delete user.apiKeyPreview
+    
+    // Serialize pushSubscriptions array - convert Date objects to JSON strings
+    if (user.pushSubscriptions && Array.isArray(user.pushSubscriptions)) {
+      user.pushSubscriptions = user.pushSubscriptions.map((subscription) => {
+        const serialized = { ...subscription }
+        if (subscription.createdAt) {
+          serialized.createdAt = subscription.createdAt instanceof Date 
+            ? subscription.createdAt.toJSON() 
+            : subscription.createdAt.toDate ? subscription.createdAt.toDate().toJSON() 
+            : subscription.createdAt
+        }
+        if (subscription.updatedAt) {
+          serialized.updatedAt = subscription.updatedAt instanceof Date 
+            ? subscription.updatedAt.toJSON() 
+            : subscription.updatedAt.toDate ? subscription.updatedAt.toDate().toJSON() 
+            : subscription.updatedAt
+        }
+        return serialized
+      })
+    }
+    
     return user
   } else {
     return null
