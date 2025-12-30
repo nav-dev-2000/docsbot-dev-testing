@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-12-30',
+    title: 'Enhanced markdown rendering in chat widget',
+    description:
+      'Improved markdown rendering in chat widget for CJK languages, LaTeX formulas, tables, images, and support for Mermaid diagrams.',
+  },
+  {
     date: '2025-12-19',
     title: 'Deep Research browser notifications',
     description:
