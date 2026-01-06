@@ -10,7 +10,7 @@
  */
 
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore } from 'firebase-admin/firestore'
+import { FieldPath, getFirestore } from 'firebase-admin/firestore'
 import { deleteBot } from '@/lib/apiFunctions'
 
 // Demo team ID from environment variables
@@ -103,13 +103,26 @@ export default async function handler(req, res) {
 
     console.log(`Demo bot cleanup completed. Deleted: ${successCount}, Errors: ${errorCount}`)
 
+    const remainingBotsSnapshot = await firestore
+      .collection('teams')
+      .doc(DEMO_TEAM_ID)
+      .collection('bots')
+      .select(FieldPath.documentId())
+      .get()
+
+    const updatedBotCount = remainingBotsSnapshot.size
+    await firestore.collection('teams').doc(DEMO_TEAM_ID).update({
+      botCount: updatedBotCount,
+    })
+
     return res.status(200).json({
       message: 'Demo bot cleanup completed',
       summary: {
         totalBots,
         botsToDelete: botsToDelete.length,
         deleted: successCount,
-        errors: errorCount
+        errors: errorCount,
+        updatedBotCount
       },
       results: deletionResults
     })
