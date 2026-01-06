@@ -126,6 +126,7 @@ export default async function handler(request, response) {
         let conversationHistoryDailyNew = {}
 
         const botCounts = []
+        const botCount = botsSnapshot.size
 
         for (const botDoc of botsSnapshot.docs) {
           const { monthly, daily } = await getQuestionStats(teamDoc.id, botDoc.id)
@@ -470,6 +471,7 @@ export default async function handler(request, response) {
             ...prevConversationHistoryDaily,
             ...conversationHistoryDailyNew,
           }),
+          botCount: botCount,
           needsUpdate: false,
         }
 
