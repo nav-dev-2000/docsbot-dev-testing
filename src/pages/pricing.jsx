@@ -142,7 +142,7 @@ const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
       // Then by category priority
       const aCat = featureDefinitions[aKey]?.category
       const bCat = featureDefinitions[bKey]?.category
-      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, features: 4, sources: 5, customization: 6, support: 7 }
+      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, features: 4, sources: 5, customization: 6, support: 7, compliance: 8 }
       return (priority[aCat] || 99) - (priority[bCat] || 99)
     })
     .slice(0, 14)

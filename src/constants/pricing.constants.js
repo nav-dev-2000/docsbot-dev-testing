@@ -63,6 +63,7 @@ export const featureDefinitions = {
   soc2: { label: 'SOC 2 Type II', category: 'compliance' },
   gdpr: { label: 'GDPR compliance', category: 'compliance' },
   standardDpa: { label: 'Standard DPA', category: 'compliance' },
+  standardContractTerms: { label: 'Standard contract terms', category: 'compliance' },
   hipaa: { label: 'HIPAA available', category: 'compliance' },
   customDpa: { label: 'Custom DPA', category: 'compliance' },
   dataResidency: { label: 'Data residency options', category: 'compliance' },
@@ -486,6 +487,7 @@ export const pricingTiers = [
       soc2: true,
       gdpr: true,
       standardDpa: true,
+      standardContractTerms: true,
       hipaa: false,
       customDpa: false,
       dataResidency: false,
@@ -511,5 +513,6 @@ export const enterpriseFeatures = [
   'GDPR compliant',
   'HIPAA available',
   'Custom DPA',
+  'Custom contracts & legal addenda',
   'Data residency options',
 ]
