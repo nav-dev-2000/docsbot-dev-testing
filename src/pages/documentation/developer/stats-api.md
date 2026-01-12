@@ -218,6 +218,66 @@ The response is a JSON object containing aggregated statistics and chart data:
 - **Backwards Compatibility**: The API maintains full backwards compatibility with existing `timeDelta` usage
 - **Error Handling**: Invalid date ranges or parameters will fall back to default 30-day period
 
+---
+
+## Bot Reports (Monthly)
+
+This endpoint returns the list of available monthly reports and the report data for a selected month. It accepts a GET request:
+
+`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/reports?month=2024-06`
+
+### Optional URL Parameters
+
+| Property   | Type   | Description                                                                  |
+| ---------- | ------ | ---------------------------------------------------------------------------- |
+| **month**  | string | The report month to fetch (format `YYYY-MM`). Defaults to the latest report. |
+
+### Examples
+
+#### cURL
+
+```bash
+curl --request GET 'https://docsbot.ai/api/teams/YOUR_TEAM_ID/bots/YOUR_BOT_ID/reports?month=2024-06' \
+--header 'Authorization: Bearer YOUR_API_KEY'
+```
+
+#### JavaScript (Fetch)
+
+```js
+var myHeaders = new Headers()
+myHeaders.append('Authorization', 'Bearer YOUR_API_KEY')
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow',
+}
+
+fetch(
+  'https://docsbot.ai/api/teams/YOUR_TEAM_ID/bots/YOUR_BOT_ID/reports?month=2024-06',
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log('error', error))
+```
+
+### Response
+
+Response is a JSON object with `availableReports` (an array of report month IDs) and a `report` object for the selected month.
+
+```json
+{
+  "availableReports": ["2024-06", "2024-05"],
+  "report": {
+    "month": "2024-06",
+    "totalQuestions": 1240,
+    "resolved": 1103,
+    "unresolved": 137
+  }
+}
+```
+
 ## Visualization Examples
 
 The statistics API is designed to work seamlessly with Chart.js for visualization. Here are examples of how to visualize the data using both React Chart.js and vanilla Chart.js.

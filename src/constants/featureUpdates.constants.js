@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2025-01-12',
+    title: 'Admin API documentation expansion',
+    description:
+      'Added Admin API docs for team members/invites, bot reports, and research jobs.',
+  },
+  {
     date: '2025-12-30',
     title: 'Enhanced markdown rendering in chat widget',
     description:

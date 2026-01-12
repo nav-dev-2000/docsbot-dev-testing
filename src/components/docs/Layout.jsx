@@ -62,10 +62,12 @@ const navigation = [
     links: [
       { title: 'Overview', href: '/documentation/developer/admin-api-overview' },
       { title: 'Teams', href: '/documentation/developer/team-api' },
+      { title: 'Team Members & Invites', href: '/documentation/developer/team-members-api' },
       { title: 'Bots', href: '/documentation/developer/bot-api' },
       { title: 'Sources', href: '/documentation/developer/source-api' },
       { title: 'Question History', href: '/documentation/developer/questions-api' },
       { title: 'Conversation History', href: '/documentation/developer/conversations-api' },
+      { title: 'Bot Research Jobs', href: '/documentation/developer/bot-research-api' },
       { title: 'Bot Statistics', href: '/documentation/developer/stats-api' },
     ],
   },
