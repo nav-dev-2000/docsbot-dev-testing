@@ -460,28 +460,28 @@ export default function ModalSource({
       }
 
       const googleDrivePickerConfig =
-        trutoIntegrationType === 'googledrive'
+        trutoIntegrationType === 'google'
           ? {
-              appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
+              //appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
               selectableMimeTypes: Array.from(
                 new Set([
                   ...documentSourceMimeTypes,
                   'application/vnd.google-apps.document',
                   'application/vnd.google-apps.spreadsheet',
                   'application/vnd.google-apps.presentation',
+                  'application/vnd.google-apps.folder',
                 ]),
               ),
               views: [
                 {
                   includeFolders: true,
-                  selectFolderEnabled: false,
+                  selectFolderEnabled: true,
                 },
               ],
               truto_upsert_drive_items: true,
             }
           : undefined
 
-      console.log(googleDrivePickerConfig)
       const selectedFiles = await showFilePicker(
         trutoIntegrationType,
         tokenResponse.accountToken,
@@ -1028,7 +1028,7 @@ export default function ModalSource({
                         </div>
                         {showInterval && !source?.carbonId && (
                           <div className="flex flex-shrink-0 items-end justify-end">
-                            {trutoIntegrationType === 'googledrive' && (
+                            {trutoIntegrationType === 'google' && (
                               <button
                                 type="button"
                                 className={

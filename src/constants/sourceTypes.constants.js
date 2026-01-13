@@ -426,7 +426,7 @@ export const sourceTypes = [
     description: 'Answer questions from the content of document files in Google Drive',
     fullDescription: 'Connect to Google Drive via our partner Truto and select which documents to learn from. We support Docs, Slides, Sheets, .txt, .docx, .pptx, .md, .html, .pdf, .eml, .xlsx, .csv, .tsv documents, images, and audio files. For Sheets, Excel, CSV, and TSV files, supports one table per sheet and the first row should contain the column headers. We will download the documents, parse the content, and add them to this bot.',
     icon: DriveLogo,
-    isTruto: 'googledrive',
+    isTruto: 'google',
     minPlan: 'personal',
     coming: false,
     fieldUrl: false,

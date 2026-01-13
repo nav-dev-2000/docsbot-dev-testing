@@ -887,25 +887,26 @@ export default function SourceForm({
 
       // Only show file picker for Google Docs
       if (
-        integrationType === 'googledrive' ||
+        integrationType === 'google' ||
         integrationType === 'sharepoint'
       ) {
         const googleDrivePickerConfig =
-          integrationType === 'googledrive'
+          integrationType === 'google'
             ? {
-                appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
+                //appId: process.env.NEXT_PUBLIC_TRUTO_GOOGLE_APP_ID,
                 selectableMimeTypes: Array.from(
                   new Set([
                     ...documentSourceMimeTypes,
                     'application/vnd.google-apps.document',
                     'application/vnd.google-apps.spreadsheet',
                     'application/vnd.google-apps.presentation',
+                    'application/vnd.google-apps.folder',
                   ]),
                 ),
                 views: [
                   {
                     includeFolders: true,
-                    selectFolderEnabled: false,
+                    selectFolderEnabled: true,
                   },
                 ],
               }

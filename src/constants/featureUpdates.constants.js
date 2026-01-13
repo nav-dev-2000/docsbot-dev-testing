@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-13',
+    title: 'Google Drive folder selection',
+    description:
+      'Google Drive sources can select folders for recursive indexing!',
+  },
+  {
     date: '2026-01-12',
     title: 'Enhanced markdown rendering throughout the dashboard to match the chat widget',
     description:
