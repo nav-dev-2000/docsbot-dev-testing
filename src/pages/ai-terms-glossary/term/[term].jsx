@@ -7,12 +7,15 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import Breadcrumb from '@/components/Breadcrumb'
 import { GLOSSARY } from '@/constants/glossary.constants'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
 
 const GlossaryTermPage = ({
   letter,
@@ -26,20 +29,6 @@ const GlossaryTermPage = ({
     { name: 'AI Glossary', href: '/ai-terms-glossary', current: false },
     { name: term, href: `/ai-terms-glossary/term/${slug}`, current: true },
   ]
-
-  // Add this function to process markdown
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
-
-  // Process the long_definition
-  const processedLongDefinition = processMarkdown(long_definition)
 
   // Add this function to filter and sort terms by letter
   const getTermsByLetter = (letter) => {
@@ -123,10 +112,14 @@ const GlossaryTermPage = ({
         </div>
 
         <div className="bg-white">
-          <div className="prose prose-sm mx-auto max-w-5xl bg-white px-6 py-12 text-left sm:prose lg:prose-lg xl:prose-xl lg:px-8">
-            <div
-              dangerouslySetInnerHTML={{ __html: processedLongDefinition }}
-            />
+          <div className="mx-auto max-w-5xl bg-white px-6 py-12 text-left lg:px-8">
+            <Streamdown
+              mode="static"
+              isAnimating={false}
+              remarkPlugins={streamdownRemarkPlugins}
+            >
+              {preprocessMath(long_definition)}
+            </Streamdown>
           </div>
         </div>
 

@@ -43,16 +43,16 @@ import {
 import RobotIcon from '@/components/RobotIcon'
 import UserAvatar from '@/components/UserAvatar'
 import Link from 'next/link'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
 import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
+import { renderToStaticMarkup } from 'react-dom/server'
+
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
 import parse from 'html-react-parser'
 import TimeAgo from '@/components/TimeAgo'
 import clsx from 'clsx'
@@ -70,11 +70,6 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import Paginator from '@/components/Paginator'
 import { usePostHog } from 'posthog-js/react'
 
-// Normalize remark-math import across ESM/CJS to avoid runtime issues
-const remarkMathPlugin =
-  typeof remarkMath === 'function'
-    ? remarkMath
-    : remarkMath?.default || remarkMath
 
 const extractUrlAnnotations = (response) => {
   if (!response || !Array.isArray(response.output)) return []
@@ -260,13 +255,19 @@ function UserMessage({ text, alias, email, html, className = '' }) {
     <div className={`mb-4 flex max-w-3xl items-start justify-end ml-auto ${className}`}>
       <div
         dir="auto"
-        className={`text-md rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-right text-gray-700 ${html ? 'prose leading-snug first:prose-p:my-0' : ''}`}
+        className={`text-md rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-right text-gray-700 ${html ? 'leading-snug first:p:my-0' : ''}`}
       >
         {html ? (
           <div dangerouslySetInnerHTML={{ __html: html }} />
-        ) : (
-          text
-        )}
+        ) : text ? (
+          <Streamdown
+            mode="static"
+            isAnimating={false}
+            remarkPlugins={streamdownRemarkPlugins}
+          >
+            {preprocessMath(text)}
+          </Streamdown>
+        ) : null}
       </div>
       {email ? (
         <UserAvatar
@@ -322,8 +323,8 @@ function BotMessage({ text, html, className = '', children }) {
   const messageWidth = widthClasses.join(' ')
   const isFullWidth = className.includes('w-full')
   const messageClass = isFullWidth 
-    ? `text-md prose w-full min-w-full rounded-2xl border bg-white px-6 pt-6 pb-4 text-start leading-snug text-gray-700 first:prose-p:my-0`
-    : `text-md prose ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0`
+    ? `text-md w-full min-w-full rounded-2xl border bg-white px-6 pt-6 pb-4 text-start leading-snug text-gray-700 first:p:my-0`
+    : `text-md ${messageWidth} rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start leading-snug text-gray-700 first:p:my-0`
   
   const showAvatar = !isFullWidth
   
@@ -347,6 +348,19 @@ function BotMessage({ text, html, className = '', children }) {
           className={messageClass}
           dangerouslySetInnerHTML={{ __html: html }}
         />
+      ) : text ? (
+        <div
+          dir="auto"
+          className={`${messageClass} whitespace-pre-wrap`}
+        >
+          <Streamdown
+            mode="static"
+            isAnimating={false}
+            remarkPlugins={streamdownRemarkPlugins}
+          >
+            {preprocessMath(text)}
+          </Streamdown>
+        </div>
       ) : (
         <div
           dir="auto"
@@ -632,34 +646,18 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
   useEffect(() => {
     if (!Array.isArray(output) || output.length === 0) return
     
-    const renderMarkdown = async () => {
-      const newMap = {}
-      const tasks = output.map(async (item, idx) => {
-        if (item?.type !== 'reasoning') return
-        const text = (item.summary || [])
-          .map((s) => s?.text)
-          .filter(Boolean)
-          .join('\n\n')
-        if (!text || !text.trim()) return
-        try {
-          const file = await unified()
-            .use(remarkParse)
-            .use(remarkGfm)
-            .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-            .use(remarkMathPlugin, { singleDollarTextMath: false })
-            .use(remarkRehype)
-            .use(rehypeKatex)
-            .use(rehypeStringify)
-            .process(preprocessLaTeX(text))
-          newMap[idx] = String(file)
-        } catch (err) {
-          // swallow errors; fall back to plain text
-        }
-      })
-      await Promise.all(tasks)
-      setHtmlMap(newMap)
-    }
-    renderMarkdown()
+    const markdownMap = {}
+    output.forEach((item, idx) => {
+      if (item?.type !== 'reasoning') return
+      const text = (item.summary || [])
+        .map((s) => s?.text)
+        .filter(Boolean)
+        .join('\n\n')
+      if (text && text.trim()) {
+        markdownMap[idx] = preprocessLaTeX(text)
+      }
+    })
+    setHtmlMap(markdownMap)
   }, [output])
 
   if (!Array.isArray(output) || output.length === 0) return null
@@ -889,10 +887,15 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
                 </span>
                 <div className="mt-1.5 text-left text-xs leading-5 text-gray-700">
                   {item.type === 'reasoning' && htmlMap[idx] ? (
-                    <div
-                      className="prose prose-sm max-w-none text-left"
-                      dangerouslySetInnerHTML={{ __html: htmlMap[idx] }}
-                    />
+                    <div className="max-w-none text-left">
+                      <Streamdown
+                        mode="static"
+                        isAnimating={false}
+                        remarkPlugins={streamdownRemarkPlugins}
+                      >
+                        {preprocessMath(htmlMap[idx])}
+                      </Streamdown>
+                    </div>
                   ) : item.type === 'code_interpreter_call' &&
                     (item.code || item.action?.code) ? (
                     <>
@@ -1035,7 +1038,7 @@ function ResearchInterface({
   const [showOpenAI, setShowOpenAI] = useState(false)
   const [user] = useAuthState(auth)
   const textareaRef = useRef(null)
-  const [clarificationsHtml, setClarificationsHtml] = useState('')
+  const [clarificationsMarkdown, setClarificationsMarkdown] = useState('')
   const posthog = usePostHog()
 
   const refreshUsage =
@@ -1093,30 +1096,13 @@ function ResearchInterface({
     }
   }, [showOpenAI, team.openAIKey, selectedModel])
 
-  // Render clarifications as markdown when present
+  // Store clarifications markdown when present
   useEffect(() => {
-    const renderClarifications = async () => {
-      if (!clarifyingJob?.clarifications) {
-        setClarificationsHtml('')
-        return
-      }
-      try {
-        const file = await unified()
-          .use(remarkParse)
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMathPlugin, { singleDollarTextMath: false })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(clarifyingJob.clarifications))
-        setClarificationsHtml(String(file))
-      } catch (err) {
-        console.warn('Error rendering clarifications markdown:', err)
-        setClarificationsHtml('')
-      }
+    if (!clarifyingJob?.clarifications) {
+      setClarificationsMarkdown('')
+      return
     }
-    renderClarifications()
+    setClarificationsMarkdown(preprocessLaTeX(clarifyingJob.clarifications))
   }, [clarifyingJob?.clarifications])
 
   // Sync local toggles and model from clarifying job (DB/list API provides camelCase fields)
@@ -1598,8 +1584,7 @@ function ResearchInterface({
 
               {/* Bot reply: clarification questions as a normal message */}
               <BotMessage
-                text={clarifyingJob.clarifications}
-                html={clarificationsHtml}
+                text={clarificationsMarkdown || clarifyingJob.clarifications}
               />
             </>
           )}
@@ -1750,10 +1735,8 @@ function ResearchInterface({
 }
 
 function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notificationPermission, isNotificationSupported, onSubscribeToNotifications }) {
-  const [resultHtml, setResultHtml] = useState('')
-  const [resultDisplayHtml, setResultDisplayHtml] = useState('')
-  const [clarificationsHtml, setClarificationsHtml] = useState('')
-  const [summaryHtml, setSummaryHtml] = useState('')
+  const [clarificationsMarkdown, setClarificationsMarkdown] = useState('')
+  const [summaryMarkdown, setSummaryMarkdown] = useState('')
   const [isHtmlCopied, setIsHtmlCopied] = useState(false)
   const [costInfo, setCostInfo] = useState(null)
   const [footnotes, setFootnotes] = useState([])
@@ -1771,62 +1754,29 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
     }
   }, [onJobUpdate])
 
-  // Render clarifications as markdown
+  // Store clarifications markdown
   useEffect(() => {
-    const renderClarifications = async () => {
-      if (!job?.clarifications) {
-        setClarificationsHtml('')
-        return
-      }
-      try {
-        const file = await unified()
-          .use(remarkParse)
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMathPlugin, { singleDollarTextMath: false })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(job.clarifications))
-        setClarificationsHtml(String(file))
-      } catch (err) {
-        console.warn('Error rendering clarifications markdown:', err)
-        setClarificationsHtml('')
-      }
+    if (!job?.clarifications) {
+      setClarificationsMarkdown('')
+      return
     }
-    renderClarifications()
+    setClarificationsMarkdown(preprocessLaTeX(job.clarifications))
   }, [job?.clarifications])
 
-  // Render summary as markdown
+  // Store summary markdown
   useEffect(() => {
-    const renderSummary = async () => {
-      if (!job?.summary) {
-        setSummaryHtml('')
-        return
-      }
-      try {
-        const file = await unified()
-          .use(remarkParse)
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkMathPlugin, { singleDollarTextMath: false })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(job.summary))
-        setSummaryHtml(String(file))
-      } catch (err) {
-        console.warn('Error rendering summary markdown:', err)
-        setSummaryHtml('')
-      }
+    if (!job?.summary) {
+      setSummaryMarkdown('')
+      return
     }
-    renderSummary()
+    setSummaryMarkdown(preprocessLaTeX(job.summary))
   }, [job?.summary])
+
+  const [resultMarkdown, setResultMarkdown] = useState('')
 
   useEffect(() => {
     if (!job?.result) {
-      setResultHtml('')
-      setResultDisplayHtml('')
+      setResultMarkdown('')
       setFootnotes([])
       return
     }
@@ -1837,97 +1787,37 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
       annotations,
     )
     setFootnotes(generatedFootnotes)
-
-    let isCancelled = false
-
-    const createProcessor = () =>
-      unified()
-        .use(remarkParse)
-        .use(remarkMathPlugin, { singleDollarTextMath: false })
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-
-    const renderMarkdown = async () => {
-      const tryProcess = async (source, attemptPreprocess = true) => {
-        try {
-          const file = await createProcessor().process(
-            attemptPreprocess ? preprocessLaTeX(source) : source,
-          )
-          return String(file)
-        } catch (error) {
-          if (attemptPreprocess) {
-            return tryProcess(source, false)
-          }
-          console.warn('Error processing markdown:', error)
-          return source
-        }
-      }
-
-      const html = await tryProcess(annotatedText)
-      if (isCancelled) return
-      const htmlWithMarkers = renderCitationMarkers(html, generatedFootnotes)
-      const htmlWithSuperscripts = renderCitationSupHtml(html, generatedFootnotes)
-      const cleanedMarkers = stripCitationLinks(htmlWithMarkers, generatedFootnotes)
-      const cleanedSuperscripts = stripCitationLinks(
-        htmlWithSuperscripts,
-        generatedFootnotes,
-      )
-      setResultDisplayHtml(cleanedMarkers)
-      setResultHtml(cleanedSuperscripts)
-    }
-
-    renderMarkdown()
-
-    return () => {
-      isCancelled = true
-    }
+    
+    // Store the markdown - we'll process citations in renderedResultContent
+    setResultMarkdown(preprocessLaTeX(annotatedText))
   }, [job?.response, job?.result])
 
   const renderedResultContent = useMemo(() => {
-    if (!resultDisplayHtml) return null
-    let citationKey = 0
-    return parse(resultDisplayHtml, {
-      replace: (domNode) => {
-        if (
-          domNode.type === 'tag' &&
-          domNode.name === 'span' &&
-          domNode.attribs?.['data-citation']
-        ) {
-          const number = Number(domNode.attribs['data-citation'])
-          if (!Number.isFinite(number)) return null
-          const footnote = footnotes.find((item) => item.number === number)
-          if (!footnote) return null
-          const title =
-            footnote.title || footnote.url || `Source ${number}`
-          citationKey += 1
-          return (
-            <Tooltip
-              key={`citation-${number}-${citationKey}`}
-              content={title}
-              placement="top"
-            >
-              <sup
-                id={`citation-${number}`}
-                className="relative align-super text-[0.65em] font-semibold text-cyan-600"
-              >
-                <a
-                  href={`#footnote-${number}`}
-                  className="inline-flex items-center justify-center rounded-full px-0.5 text-current no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
-                  aria-label={`Jump to source ${number}`}
-                >
-                  {number}
-                </a>
-              </sup>
-            </Tooltip>
-          )
-        }
-        return undefined
-      },
-    })
-  }, [resultDisplayHtml, footnotes])
+    if (!resultMarkdown) return null
+    
+    // Replace citation placeholders with superscript links in the markdown before rendering
+    // Using <sup> with <a> which should pass through sanitization
+    let processedMarkdown = resultMarkdown
+    if (footnotes.length > 0) {
+      processedMarkdown = resultMarkdown.replace(
+        /\{\{CITATION_(\d+)\}\}/g,
+        (_match, num) => `<sup class="citation-ref"><a href="#footnote-${num}" class="citation-link">[${num}]</a></sup>`
+      )
+    } else {
+      // Strip citation placeholders if no footnotes
+      processedMarkdown = resultMarkdown.replace(/\{\{CITATION_\d+\}\}/g, '')
+    }
+    
+    return (
+      <Streamdown
+        mode="static"
+        isAnimating={false}
+        remarkPlugins={streamdownRemarkPlugins}
+      >
+        {preprocessMath(processedMarkdown)}
+      </Streamdown>
+    )
+  }, [resultMarkdown, footnotes])
 
   // Compute pricing based on Standard tier deep-research models and tool calls
   useEffect(() => {
@@ -2030,7 +1920,31 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
   }
 
   const handleCopyHtml = async () => {
-    if (!resultHtml) return
+    if (!resultMarkdown) return
+    
+    // Process markdown the same way as normal view and print view
+    let processedMarkdown = resultMarkdown
+    if (footnotes.length > 0) {
+      processedMarkdown = resultMarkdown.replace(
+        /\{\{CITATION_(\d+)\}\}/g,
+        (_match, num) => `<sup class="citation-ref"><a href="#footnote-${num}" class="citation-link">[${num}]</a></sup>`
+      )
+    } else {
+      processedMarkdown = resultMarkdown.replace(/\{\{CITATION_\d+\}\}/g, '')
+    }
+
+    // Render using Streamdown just like print view
+    const resultHtml = renderToStaticMarkup(
+      <Streamdown
+        mode="static"
+        isAnimating={false}
+        remarkPlugins={streamdownRemarkPlugins}
+        controls={false}
+      >
+        {preprocessMath(processedMarkdown)}
+      </Streamdown>
+    )
+    
     const title = job?.title ? escapeHtml(job.title) : 'Deep Research Findings'
     const formattedDate = formatLocalDateTime(
       job?.completedAt || job?.updatedAt || job?.createdAt,
@@ -2094,7 +2008,7 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
   }
 
   const handlePrintReport = useCallback(() => {
-    if (!job?.result) return
+    if (!job?.result || !resultMarkdown) return
 
     const printWindow = window.open('', '_blank', 'width=900,height=1200,scrollbars=yes')
     if (!printWindow) {
@@ -2117,10 +2031,33 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
 
     const metaLine = metaParts.join(' • ')
 
+    // Process markdown the same way as normal view
+    let processedMarkdown = resultMarkdown
+    if (footnotes.length > 0) {
+      processedMarkdown = resultMarkdown.replace(
+        /\{\{CITATION_(\d+)\}\}/g,
+        (_match, num) => `<sup class="citation-ref"><a href="#footnote-${num}" class="citation-link">[${num}]</a></sup>`
+      )
+    } else {
+      processedMarkdown = resultMarkdown.replace(/\{\{CITATION_\d+\}\}/g, '')
+    }
+
+    // Render using Streamdown just like normal view
+    const renderedHtml = renderToStaticMarkup(
+      <Streamdown
+        mode="static"
+        isAnimating={false}
+        remarkPlugins={streamdownRemarkPlugins}
+        controls={false}
+      >
+        {preprocessMath(processedMarkdown)}
+      </Streamdown>
+    )
+
     const sections = [
       `
       <section>
-        ${resultHtml}
+        ${renderedHtml}
       </section>
     `,
     ]
@@ -2183,7 +2120,7 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
               <h1 class="mt-2 text-3xl font-bold text-slate-900">${displayTitle}</h1>
               ${metaLine ? `<p class="mt-3 text-sm text-slate-500">${metaLine}</p>` : ''}
             </header>
-            <article class="prose prose-slate max-w-none">
+            <article class="max-w-none">
               ${sections.join('\n')}
               ${sourcesSection}
             </article>
@@ -2214,7 +2151,7 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
     } else {
       printWindow.onload = () => setTimeout(triggerPrint, 300)
     }
-  }, [job, resultHtml, footnotes, clarificationsHtml, summaryHtml, costInfo])
+  }, [job, resultMarkdown, footnotes, clarificationsMarkdown, summaryMarkdown, costInfo])
 
   return (
     <div className="relative flex h-full flex-col overflow-y-auto px-3 pt-4">
@@ -2252,8 +2189,7 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
         {/* 2. Bot clarifications */}
         {job?.clarifications && (
           <BotMessage
-            text={job.clarifications}
-            html={clarificationsHtml}
+            text={clarificationsMarkdown || job.clarifications}
             className="mr-12"
           />
         )}
@@ -2270,8 +2206,7 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
         {/* 4. Bot summary */}
         {job?.summary && (
           <BotMessage
-            text={job.summary}
-            html={summaryHtml}
+            text={summaryMarkdown || job.summary}
             className="mr-12"
           />
         )}
@@ -2381,7 +2316,18 @@ function ResearchResults({ job, onBack, onJobUpdate, hasPushSubscription, notifi
                       />
                     </div>
                   )}
-                  <div className="prose prose-slate max-w-none text-slate-800">
+                  <div 
+                    className="max-w-none text-slate-800"
+                    onClick={(e) => {
+                      // Handle citation link clicks for smooth scrolling
+                      const link = e.target.closest('a[href^="#footnote-"]')
+                      if (link) {
+                        e.preventDefault()
+                        const id = link.getAttribute('href').slice(1)
+                        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                      }
+                    }}
+                  >
                     {renderedResultContent}
                   </div>
                   {footnotes.length > 0 && (

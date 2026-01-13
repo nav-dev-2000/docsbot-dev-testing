@@ -58,6 +58,7 @@ const StreamingContent = memo(({ content, isStreaming }) => {
     </Streamdown>
   )
 }, (prevProps, nextProps) => prevProps.content === nextProps.content && prevProps.isStreaming === nextProps.isStreaming)
+StreamingContent.displayName = 'StreamingContent'
 
 // ChatRow component - defined outside Chat to enable proper memoization
 const ChatRow = memo(({ 
@@ -333,6 +334,7 @@ const ChatRow = memo(({
   if (prevProps.ratings !== nextProps.ratings) return false
   return true
 })
+ChatRow.displayName = 'ChatRow'
 
 export default function Chat({ team, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')

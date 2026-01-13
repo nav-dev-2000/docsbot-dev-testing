@@ -11,13 +11,16 @@ import {
   HashtagIcon,
   DocumentTextIcon,
 } from '@heroicons/react/20/solid'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { lookupYoutubeData, getRecentYoutubeVideos } from '@/lib/tools'
 import clsx from 'clsx'
+
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
 
 const copyAsMarkdown = (summary) => {
   let output = `# ${summary.title}\n\n`
@@ -32,15 +35,9 @@ const copyAsMarkdown = (summary) => {
 }
 
 const copyAsHTML = (summary) => {
+  // Simple markdown to HTML conversion for clipboard
   let output = `<h1>${summary.title}</h1>\n`
-  output +=
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(summary.summary)
-      .toString() + '\n\n'
+  output += summary.summary.replace(/\n/g, '<br>') + '\n\n'
   output += `<h2>Key Points</h2>\n`
   summary.keyPoints.forEach((point) => {
     output += `<h3>${point.point}</h3>\n<p>${point.summary}</p>\n`
@@ -72,9 +69,15 @@ const YoutubeSummaryInfo = ({ summary, videoId }) => {
           {summary.short_title || summary.title}
         </h1>
         <div className="mx-none text-left">
-          <div className="prose mx-auto mt-4 w-full max-w-none">
+          <div className="mx-auto mt-4 w-full max-w-none">
             <CarbonAd className="flex justify-center" />
-            <p className="mb-2">{summary.summary}</p>
+            <Streamdown
+              mode="static"
+              isAnimating={false}
+              remarkPlugins={streamdownRemarkPlugins}
+            >
+              {preprocessMath(summary.summary)}
+            </Streamdown>
           </div>
 
           <div className="relative mx-auto mt-2 w-full pb-[56.25%]">

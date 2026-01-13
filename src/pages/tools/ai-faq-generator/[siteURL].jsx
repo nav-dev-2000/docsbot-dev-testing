@@ -9,14 +9,17 @@ import { sanitizeURL } from '@/utils/helpers'
 import RegisterCTA from '@/components/RegisterCTA'
 import Link from 'next/link'
 import { CodeBracketIcon, HashtagIcon } from '@heroicons/react/20/solid'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { Favicon } from '.'
 import clsx from 'clsx'
 import FreeToolsGrid from '@/components/FreeToolsGrid'
+
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
 
 const copyAsMarkdown = (FAQs) => {
   let output = ''
@@ -28,16 +31,14 @@ const copyAsMarkdown = (FAQs) => {
   navigator.clipboard.writeText(output)
 }
 
-const copyAsHTML = (FAQs) => {
+const copyAsHTML = async (FAQs) => {
+  // For clipboard, we still need to generate HTML string
+  // Using a simple markdown-to-HTML conversion for clipboard
   let output = ''
   for (const faq of FAQs) {
     output += `<h3>${faq.question}</h3>\n`
-    output += unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(faq.answer).toString() + '\n\n'
+    // Simple markdown to HTML conversion for clipboard
+    output += faq.answer.replace(/\n/g, '<br>') + '\n\n'
   }
 
   navigator.clipboard.writeText(output)
@@ -110,20 +111,19 @@ const FAQsInfo = ({ FAQs, title, summary, screenCap, site }) => {
         </div>
         <div className="mx-none text-left">
           {FAQs.map((faq) => {
-            const renderedAnswer = unified()
-              .use(remarkParse)
-              .use(remarkGfm)
-              .use(remarkRehype)
-              .use(rehypeStringify)
-              .processSync(faq.answer)
-              .toString()
             return (
               <div
                 key={faq.question}
-                className="prose mt-2 w-full max-w-none border-t border-gray-200 pt-4"
+                className="mt-2 w-full max-w-none border-t border-gray-200 pt-4"
               >
                 <h1 className="text-2xl font-bold text-black">{faq.question}</h1>
-                <div dangerouslySetInnerHTML={{ __html: renderedAnswer }} />
+                <Streamdown
+                  mode="static"
+                  isAnimating={false}
+                  remarkPlugins={streamdownRemarkPlugins}
+                >
+                  {preprocessMath(faq.answer)}
+                </Streamdown>
               </div>
             )
           })}
