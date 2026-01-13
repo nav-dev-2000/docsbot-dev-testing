@@ -20,11 +20,9 @@ import {
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
@@ -38,7 +36,6 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
   const [errorText, setErrorText] = useState(null)
   const [imageDescription, setImageDescription] = useState('')
   const [descriptionCopied, setDescriptionCopied] = useState(false)
-  const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
@@ -131,26 +128,10 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
     window.scrollTo({ top: 200, behavior: 'smooth' })
   }
 
-  const getMarkdownHtml = (text) => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setHtmlContent(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }
-
-  useEffect(() => {
-    if (imageDescription) {
-      getMarkdownHtml(imageDescription)
-    }
-  }, [imageDescription])
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   return (
     <div className="mx-auto max-w-3xl text-center">
@@ -198,10 +179,15 @@ const ImageDescriptionGenerator = ({ setHasResults }) => {
               </div>
               <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
                 <h3 className="text-md mb-2 font-medium">Description</h3>
-                <div
-                  className="prose mb-4 min-w-full text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
+                <div className="prose mb-4 min-w-full text-gray-700">
+                  <Streamdown
+                    mode="static"
+                    isAnimating={false}
+                    remarkPlugins={streamdownRemarkPlugins}
+                  >
+                    {preprocessMath(imageDescription)}
+                  </Streamdown>
+                </div>
                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                   <button
                     onClick={copyDescription}

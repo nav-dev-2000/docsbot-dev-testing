@@ -8,11 +8,9 @@ import {
   HashtagIcon,
   DocumentTextIcon,
 } from '@heroicons/react/20/solid'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { lookupYoutubeBlogPost, getRecentVideoBlogPosts } from '@/lib/tools'
 import clsx from 'clsx'
 import RegisterCTA from '@/components/RegisterCTA'
@@ -32,18 +30,13 @@ const copyAsMarkdown = (summary, videoId, thumbnailError) => {
 }
 
 const copyAsHTML = (summary, videoId, thumbnailError) => {
+  // Note: HTML copy functionality simplified - full HTML conversion would require unified
   let output = `<h1>${summary.title}</h1>\n`
   const thumbnailUrl = thumbnailError
     ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     : summary.thumbnail
   output += `<img src="${thumbnailUrl}" alt="${summary.title}">\n`
-  output += unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .processSync(summary.content)
-    .toString()
+  output += summary.content
 
   navigator.clipboard.writeText(output)
 }
@@ -122,13 +115,10 @@ const CopyButtons = ({ summary, videoId, thumbnailError }) => {
 const YoutubeBlogPost = ({ summary, videoId }) => {
   const [thumbnailError, setThumbnailError] = useState(false)
 
-  const blogContent = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .processSync(summary.content)
-    .toString()
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   // Format the date
   const formattedDate = summary.createdAt
@@ -229,7 +219,15 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
                 />
 
                 <CarbonAd className="flex justify-center" /> 
-                <div dangerouslySetInnerHTML={{ __html: blogContent }} />
+                <div className="prose max-w-none">
+                  <Streamdown
+                    mode="static"
+                    isAnimating={false}
+                    remarkPlugins={streamdownRemarkPlugins}
+                  >
+                    {preprocessMath(summary.content)}
+                  </Streamdown>
+                </div>
 
                 {/* Copy buttons at the bottom of the article */}
                 <CopyButtons

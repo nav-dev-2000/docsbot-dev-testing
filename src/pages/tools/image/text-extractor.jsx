@@ -19,11 +19,9 @@ import {
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { Disclosure } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
@@ -109,7 +107,6 @@ const ImageToTextGenerator = ({ setHasResults }) => {
   const [errorText, setErrorText] = useState(null)
   const [extractedText, setExtractedText] = useState('')
   const [textCopied, setTextCopied] = useState(false)
-  const [htmlContent, setHtmlContent] = useState('')
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
 
@@ -183,26 +180,10 @@ const ImageToTextGenerator = ({ setHasResults }) => {
     setIsComputing(false)
   }
 
-  const getMarkdownHtml = (text) => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setHtmlContent(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }
-
-  useEffect(() => {
-    if (extractedText) {
-      getMarkdownHtml(extractedText)
-    }
-  }, [extractedText])
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   useEffect(() => {
     setHasResults(!!extractedText)
@@ -269,10 +250,15 @@ const ImageToTextGenerator = ({ setHasResults }) => {
                 </div>
                 <div className="mt-4 rounded-lg bg-gray-100 p-4 text-left">
                   <h3 className="text-md mb-2 font-medium">Extracted Text</h3>
-                  <div
-                    className="prose mb-4 min-w-full text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: htmlContent }}
-                  />
+                  <div className="prose mb-4 min-w-full text-gray-700">
+                    <Streamdown
+                      mode="static"
+                      isAnimating={false}
+                      remarkPlugins={streamdownRemarkPlugins}
+                    >
+                      {preprocessMath(extractedText)}
+                    </Streamdown>
+                  </div>
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     <button
                       onClick={copyText}

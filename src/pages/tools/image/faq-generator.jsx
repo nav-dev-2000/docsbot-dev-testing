@@ -12,11 +12,9 @@ import {
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import {
   ChatBubbleLeftRightIcon,
   PencilSquareIcon,
@@ -41,7 +39,6 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
   const [errorText, setErrorText] = useState(null)
   const [faqs, setFaqs] = useState('')
   const [descriptionCopied, setDescriptionCopied] = useState(false)
-  const [htmlContent, setHtmlContent] = useState('')
   const [textCopied, setTextCopied] = useState(false)
   const [markdownCopied, setMarkdownCopied] = useState(false)
   const [showSignupModal, setShowSignupModal] = useState(false)
@@ -143,26 +140,10 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
     window.scrollTo({ top: 200, behavior: 'smooth' })
   }
 
-  const getMarkdownHtml = (text) => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setHtmlContent(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }
-
-  useEffect(() => {
-    if (faqs) {
-      getMarkdownHtml(faqs)
-    }
-  }, [faqs])
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   return (
     <>
@@ -211,10 +192,15 @@ const ImageToFAQGenerator = ({ setHasResults }) => {
                 </div>
                 <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
                   <h3 className="text-md mb-2 font-medium">FAQs</h3>
-                  <div
-                    className="prose mb-4 min-w-full text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: htmlContent }}
-                  />
+                  <div className="prose mb-4 min-w-full text-gray-700">
+                    <Streamdown
+                      mode="static"
+                      isAnimating={false}
+                      remarkPlugins={streamdownRemarkPlugins}
+                    >
+                      {preprocessMath(faqs)}
+                    </Streamdown>
+                  </div>
                   <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
                     <button
                       onClick={copyFAQsAsText}

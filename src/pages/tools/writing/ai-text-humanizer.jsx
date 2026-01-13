@@ -24,11 +24,9 @@ import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
 import { diffWords } from 'diff'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { DocumentDuplicateIcon, ClipboardDocumentIcon } from '@heroicons/react/24/outline'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
 import CarbonAd from '@/components/CarbonAd'
@@ -161,18 +159,10 @@ const TextHumanizer = () => {
     setIsComputing(false)
   }
 
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
-
-  const processedOriginalMarkdown = processMarkdown(input)
-  const processedHumanizedMarkdown = processMarkdown(humanizedText)
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(humanizedText).then(() => {
@@ -278,11 +268,23 @@ const TextHumanizer = () => {
                 )}
                 {activeTab === 'original' ? (
                   <div className="prose prose-sm max-w-none text-left rounded-md bg-gray-100 px-4 py-1">
-                    <div dangerouslySetInnerHTML={{ __html: processedOriginalMarkdown }} />
+                    <Streamdown
+                      mode="static"
+                      isAnimating={false}
+                      remarkPlugins={streamdownRemarkPlugins}
+                    >
+                      {preprocessMath(input)}
+                    </Streamdown>
                   </div>
                 ) : activeTab === 'markdown' ? (
                   <div className="prose prose-sm max-w-none text-left rounded-md bg-gray-100 px-4 py-1">
-                    <div dangerouslySetInnerHTML={{ __html: processedHumanizedMarkdown }} />
+                    <Streamdown
+                      mode="static"
+                      isAnimating={false}
+                      remarkPlugins={streamdownRemarkPlugins}
+                    >
+                      {preprocessMath(humanizedText)}
+                    </Streamdown>
                   </div>
                 ) : (
                   <div className="rounded-md bg-gray-100 p-4">

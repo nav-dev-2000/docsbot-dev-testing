@@ -26,11 +26,9 @@ import {
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
 import CarbonAd from '@/components/CarbonAd'
 
@@ -312,15 +310,10 @@ const GeneratedEmailResult = ({ result }) => {
     })
   }
 
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   return (
     <div className="relative mt-6">
@@ -330,7 +323,6 @@ const GeneratedEmailResult = ({ result }) => {
         </h3>
         <div className="grid gap-4">
           {result.responses.map((response, index) => {
-            const processedContent = processMarkdown(response)
             const wordCount = response.trim().split(/\s+/).length
             
             return (
@@ -356,11 +348,13 @@ const GeneratedEmailResult = ({ result }) => {
                   </div>
                 </div>
                 <div className="prose prose-sm max-w-none text-left">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: processedContent,
-                    }}
-                  />
+                  <Streamdown
+                    mode="static"
+                    isAnimating={false}
+                    remarkPlugins={streamdownRemarkPlugins}
+                  >
+                    {preprocessMath(response)}
+                  </Streamdown>
                 </div>
               </div>
             )

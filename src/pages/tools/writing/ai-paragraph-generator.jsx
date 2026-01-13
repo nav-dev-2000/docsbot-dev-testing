@@ -26,11 +26,9 @@ import {
 import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
 import CarbonAd from '@/components/CarbonAd'
 
@@ -350,17 +348,10 @@ const GeneratedResult = ({ result }) => {
     })
   }
 
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
-
-  const processedContent = processMarkdown(result.text)
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   return (
     <div className="relative mt-6">
@@ -385,11 +376,13 @@ const GeneratedResult = ({ result }) => {
         )}
       </div>
       <div className="prose prose-sm min-h-16 max-w-none rounded-md bg-gray-50 p-4 text-left">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: processedContent,
-          }}
-        />
+        <Streamdown
+          mode="static"
+          isAnimating={false}
+          remarkPlugins={streamdownRemarkPlugins}
+        >
+          {preprocessMath(result.text)}
+        </Streamdown>
       </div>
     </div>
   )

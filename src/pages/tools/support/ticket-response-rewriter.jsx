@@ -25,11 +25,9 @@ import {
 import { PlusIcon, MinusIcon, SparklesIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
 
 const loadingText = [
@@ -352,17 +350,10 @@ const RewriteResult = ({ result }) => {
     })
   }
 
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
-
-  const processedRewriteMarkdown = processMarkdown(result.text)
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
   
   const getStyleName = (styleId) => {
     const style = responseStyles.find(s => s.id === styleId)
@@ -377,11 +368,13 @@ const RewriteResult = ({ result }) => {
         </h3>
       </div>
       <div className="prose prose-h2:mt-0 min-h-16 max-w-none rounded-lg bg-gray-50 p-4 text-left shadow-sm ring-1 ring-gray-200">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: processedRewriteMarkdown,
-          }}
-        />
+        <Streamdown
+          mode="static"
+          isAnimating={false}
+          remarkPlugins={streamdownRemarkPlugins}
+        >
+          {preprocessMath(result.text)}
+        </Streamdown>
       </div>
     </div>
   )

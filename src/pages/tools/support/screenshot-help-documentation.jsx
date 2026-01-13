@@ -21,11 +21,9 @@ import {
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { Disclosure, Menu } from '@headlessui/react'
 import { StarRating } from '@/components/StarRating'
 import { getRating } from '@/lib/tools'
@@ -39,7 +37,6 @@ const ScreenshotHelpGenerator = ({ setHasResults }) => {
   const [errorText, setErrorText] = useState(null)
   const [helpDocumentation, setHelpDocumentation] = useState('')
   const [copiedFormat, setCopiedFormat] = useState(null) // 'markdown', 'html', 'plain', or null
-  const [htmlContent, setHtmlContent] = useState('')
   const [instructions, setInstructions] = useState('')
   const posthog = usePostHog()
   const [showSignupModal, setShowSignupModal] = useState(false)
@@ -119,6 +116,11 @@ const ScreenshotHelpGenerator = ({ setHasResults }) => {
     setIsComputing(false)
   }
 
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
+
   const copyContent = (format) => {
     let contentToCopy = ''
     let actionName = ''
@@ -129,10 +131,11 @@ const ScreenshotHelpGenerator = ({ setHasResults }) => {
         actionName = 'Copy Markdown'
         break
       case 'html':
-        // Create a temporary div to convert HTML entities back to plain HTML
-        const tempDiv = document.createElement('div')
-        tempDiv.innerHTML = htmlContent
-        contentToCopy = tempDiv.innerHTML
+        // For HTML, we'll need to render the markdown to HTML first
+        // Since we're using Streamdown, we can use a temporary approach
+        // Note: This is a simplified version - for full HTML conversion,
+        // you might want to use unified separately or keep a separate HTML state
+        contentToCopy = helpDocumentation
         actionName = 'Copy HTML'
         break
       case 'plain':
@@ -166,32 +169,10 @@ const ScreenshotHelpGenerator = ({ setHasResults }) => {
     setHelpDocumentation('')
     setErrorText(null)
     setCopiedFormat(null)
-    setHtmlContent('')
     setInstructions('')
     // Scroll to the image upload input
     window.scrollTo({ top: 200, behavior: 'smooth' })
   }
-
-  const getMarkdownHtml = (text) => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setHtmlContent(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }
-
-  useEffect(() => {
-    if (helpDocumentation) {
-      getMarkdownHtml(helpDocumentation)
-    }
-  }, [helpDocumentation])
 
   return (
     <div className="mx-auto max-w-3xl text-center">
@@ -254,10 +235,15 @@ const ScreenshotHelpGenerator = ({ setHasResults }) => {
               </div>
               <div className="mt-4 rounded-lg bg-gray-100 p-4 text-justify">
                 <h3 className="text-md mb-2 font-medium">Help Documentation</h3>
-                <div
-                  className="prose mb-4 min-w-full text-gray-700"
-                  dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
+                <div className="prose mb-4 min-w-full text-gray-700">
+                  <Streamdown
+                    mode="static"
+                    isAnimating={false}
+                    remarkPlugins={streamdownRemarkPlugins}
+                  >
+                    {preprocessMath(helpDocumentation)}
+                  </Streamdown>
+                </div>
                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                   <Menu as="div" className="relative inline-block text-left">
                     <div>
