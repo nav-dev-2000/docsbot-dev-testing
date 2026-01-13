@@ -474,7 +474,7 @@ export async function getSource(team, bot, sourceId) {
   }
 }
 
-const convertQuestionDocToData = (id, docData) => {
+export const convertQuestionDocToData = (id, docData) => {
   let alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
   //if we identified the user, use the provided data for alias
   if (docData.metadata) {

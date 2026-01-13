@@ -25,28 +25,53 @@ function Questions({ team, bot, preQuestions, openQuestion=null }) {
   const [errorText, setErrorText] = useState(null)
   const router = useRouter()
   const { botId } = router.query
+  const [searchInput, setSearchInput] = useState('')
 
-  async function changePage(page, ipFilter, rating, escalated, couldAnswer, dateRange) {
+  async function changePage(page, ipFilter, rating, escalated, couldAnswer, dateRange, search = '') {
     setErrorText(null)
-    const urlParams = [
-      'teams',
-      team.id,
-      'bots',
-      botId,
-      'questions?page=' +
-        page + '&' + buildParams(ipFilter, rating, escalated, couldAnswer, dateRange),
-    ]
-    const path = '/api/' + urlParams.join('/')
+    let response;
 
-    const response = await fetch(path, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    if (search && search.trim() !== '') {
+      const path = `/api/teams/${team.id}/bots/${botId}/questions/search`
+      response = await fetch(path, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: search,
+          topK: 50,
+        }),
+      })
+    } else {
+      const urlParams = [
+        'teams',
+        team.id,
+        'bots',
+        botId,
+        'questions?page=' +
+          page + '&' + buildParams(ipFilter, rating, escalated, couldAnswer, dateRange),
+      ]
+      const path = '/api/' + urlParams.join('/')
+
+      response = await fetch(path, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+    }
     if (response.ok) {
       const data = await response.json()
-      setQuestions(data)
+      // The search API returns the questions and pagination inside a data object or directly
+      if (search && search.trim() !== '') {
+        setQuestions({
+          questions: data.questions,
+          pagination: data.pagination
+        })
+      } else {
+        setQuestions(data)
+      }
     } else {
       try {
         const data = await response.json()
@@ -73,6 +98,8 @@ function Questions({ team, bot, preQuestions, openQuestion=null }) {
         changePage={changePage}
         buildParams={buildParams}
         openQuestion={openQuestion}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}  
       />
     </DashboardWrap>
   )

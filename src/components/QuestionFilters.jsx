@@ -1,12 +1,6 @@
 import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Popover, Transition } from '@headlessui/react'
-import {
-  XMarkIcon,
-  LifebuoyIcon,
-  HandThumbDownIcon,
-  HandThumbUpIcon,
-  MinusIcon,
-} from '@heroicons/react/24/outline'
+import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { clsx } from 'clsx'
 
@@ -14,7 +8,7 @@ export default function QuestionFilters({ filterOptions, filters, setFilters }) 
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="">
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 sm:hidden" onClose={setOpen}>
@@ -122,11 +116,11 @@ export default function QuestionFilters({ filterOptions, filters, setFilters }) 
           Filters
         </h2>
 
-        <div className="bg-white">
+        <div className="">
           <div className="flex items-center justify-between">
             <button
               type="button"
-              className="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
+              className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden px-3 py-2 border border-gray-300 rounded-md"
               onClick={() => setOpen(true)}
             >
               Filters
@@ -137,7 +131,7 @@ export default function QuestionFilters({ filterOptions, filters, setFilters }) 
                 <Popover.Group className="-mx-4 flex items-center divide-x divide-gray-200">
                   {filterOptions.map((section, sectionIdx) => (
                     <Popover key={section.name} className="relative inline-block px-4 text-left">
-                      <Popover.Button className="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                      <Popover.Button className="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none">
                         <span>{section.name}</span>
                         <ChevronDownIcon
                           className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
