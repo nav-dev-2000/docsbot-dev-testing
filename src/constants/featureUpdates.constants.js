@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-12',
+    title: 'Enhanced markdown rendering throughout the dashboard to match the chat widget',
+    description:
+      'Chats, question and conversation logs, in addition to chat widget responses, now render markdown better for improved readability and support for CJK languages, LaTeX formulas, tables, images, and new Mermaid diagrams.',
+  },
+  {
     date: '2025-01-12',
     title: 'Admin API documentation expansion',
     description:

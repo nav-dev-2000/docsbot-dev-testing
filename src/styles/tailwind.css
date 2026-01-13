@@ -1,4 +1,5 @@
 @tailwind base;
+@source "../node_modules/streamdown/dist/*.js";
 /*@import './fonts.css';*/
 @import './prism.css';
 /* this should match the WordPress version you're supporting
@@ -6,6 +7,20 @@
 @import './wp-block-library.css';
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --muted: 210 40% 96.1%; /* slate-100 in HSL */
+  --muted-foreground: 215 16% 47%; /* slate-500 in HSL */
+  --background: 0 0% 100%; /* white in HSL */
+  --foreground: 222 47% 11%; /* slate-900 in HSL */
+}
+
+.dark {
+  --muted: 222 47% 11%; /* slate-800 in HSL */
+  --muted-foreground: 215 20% 65%; /* slate-400 in HSL */
+  --background: 222 47% 11%; /* slate-800 in HSL */
+  --foreground: 210 40% 98%; /* slate-50 in HSL */
+}
 
 @layer base {
   body {
@@ -58,4 +73,15 @@
 .animate-fade-slide-x {
   animation: fadeSlideX 0.8s ease-out 0.8s forwards;
   opacity: 0;
+}
+
+/* Ensure pre elements have white background in message containers */
+.bg-cyan-50 pre,
+.text-md.max-w-3xl.rounded-2xl pre {
+  background-color: white !important;
+}
+
+/* White background for mermaid blocks */
+[data-streamdown="mermaid-block"] {
+  background-color: white !important;
 }

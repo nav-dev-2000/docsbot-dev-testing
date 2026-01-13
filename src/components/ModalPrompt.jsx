@@ -28,16 +28,9 @@ import { canUserEditBot } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 
 export default function ModalPrompt({
   team,
@@ -73,7 +66,6 @@ export default function ModalPrompt({
   const [debugUndesiredBehavior, setDebugUndesiredBehavior] = useState('')
   const [debugAnalysis, setDebugAnalysis] = useState('')
   const [isDebugging, setIsDebugging] = useState(false)
-  const [debugAnalysisHtml, setDebugAnalysisHtml] = useState('')
   
   // Debug image upload state
   const [debugSelectedImages, setDebugSelectedImages] = useState([])
@@ -123,26 +115,10 @@ export default function ModalPrompt({
     }
   }, [isDebugging, debugLoadingText.length])
 
-  // Process markdown for debug analysis
-  useEffect(() => {
-    if (debugAnalysis) {
-      unified()
-        .use(remarkParse)
-        .use(remarkMath, { singleDollarTextMath: false })
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .process(preprocessLaTeX(debugAnalysis))
-        .then((file) => {
-          setDebugAnalysisHtml(String(file))
-        })
-        .catch((error) => {
-          console.error('Error processing markdown:', error)
-        })
-    }
-  }, [debugAnalysis])
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   useEffect(() => {
     if (!team || !user) return
@@ -453,7 +429,6 @@ export default function ModalPrompt({
     setDebugDesiredBehavior('')
     setDebugUndesiredBehavior('')
     setDebugAnalysis('')
-    setDebugAnalysisHtml('')
     setDebugSelectedImages([])
     setErrorText('')
   }
@@ -1127,10 +1102,15 @@ export default function ModalPrompt({
                       <div className="space-y-4">
                         <div>
                           <h4 className="text-lg font-medium text-gray-900 mb-3">Analysis & Suggestions</h4>
-                          <div 
-                            className="prose prose-sm max-w-none bg-gray-50 rounded-lg p-4 border"
-                            dangerouslySetInnerHTML={{ __html: debugAnalysisHtml }}
-                          />
+                          <div className="max-w-none bg-gray-50 rounded-lg p-4 border">
+                            <Streamdown
+                              mode="static"
+                              isAnimating={false}
+                              remarkPlugins={streamdownRemarkPlugins}
+                            >
+                              {preprocessMath(debugAnalysis)}
+                            </Streamdown>
+                          </div>
                         </div>
 
                         <div className="flex justify-end space-x-3 pt-4">

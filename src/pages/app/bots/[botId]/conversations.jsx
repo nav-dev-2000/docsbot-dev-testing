@@ -36,16 +36,9 @@ import {
 } from '@heroicons/react/24/solid'
 import RobotIcon from '@/components/RobotIcon'
 import Link from 'next/link'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 import { i18n } from '@/constants/strings.constants'
 import TimeAgo from '@/components/TimeAgo'
 import UserAvatar from '@/components/UserAvatar'
@@ -61,6 +54,11 @@ import ModalCheckout from '@/components/ModalCheckout'
 import { canUserEditBot } from '@/utils/function.utils'
 import { auth } from '@/config/firebase-ui.config'
 
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
+
 function BotMessage({
   team,
   question,
@@ -72,7 +70,6 @@ function BotMessage({
   botId,
   canModify,
 }) {
-  const [markdown, setMarkdown] = useState(text)
   const [isCopied, setIsCopied] = useState(false)
   const [qaOpen, setQAOpen] = useState(false)
 
@@ -84,31 +81,11 @@ function BotMessage({
     }, 1500)
   }
 
-  useEffect(() => {
-    // set answer html
-    unified()
-      .use(remarkParse)
-      .use(remarkMath, { singleDollarTextMath: false })
-      .use(remarkGfm)
-      .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-      .use(remarkRehype)
-      .use(rehypeKatex)
-      .use(rehypeStringify)
-      .process(preprocessLaTeX(text))
-      .then((file) => {
-        setMarkdown(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-    console.log('id ', id)
-  }, [text])
-
   return (
     <div className="mb-4 flex items-start self-end">
       <div
         dir="auto"
-        className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0"
+        className="text-md max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700"
       >
         <ModalQA
           team={team}
@@ -118,7 +95,13 @@ function BotMessage({
           setOpen={setQAOpen}
           hideButton={true}
         />
-        <span dangerouslySetInnerHTML={{ __html: markdown }} />
+        <Streamdown
+          mode="static"
+          isAnimating={false}
+          remarkPlugins={streamdownRemarkPlugins}
+        >
+          {preprocessMath(text)}
+        </Streamdown>
         {id && (
           <div className="mt-4 flex items-center justify-end space-x-1">
             {canModify && (

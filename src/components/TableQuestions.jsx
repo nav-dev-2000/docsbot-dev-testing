@@ -24,15 +24,8 @@ import {
 import Tooltip from '@/components/Tooltip'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
 import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'
 import ModalQA from '@/components/ModalQA'
@@ -44,10 +37,14 @@ import { canUserEditBot } from '@/utils/function.utils'
 import ModalExport from '@/components/ModalExport'
 import Datepicker from 'react-tailwindcss-datepicker'
 import { isSuperAdmin } from '@/utils/helpers'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 import ConversationMetadataViewer from '@/components/ConversationMetadataViewer'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
 
 export default function TableQuestions({
   team,
@@ -449,8 +446,6 @@ export default function TableQuestions({
 
   const Answer = ({ question, questionIdx, children, startOpen = false }) => {
     const [open, setOpen] = useState(startOpen)
-    const [answerHtml, setAnswerHtml] = useState(null)
-    const [shortAnswer, setShortAnswer] = useState(question.answer)
     const [qaOpen, setQAOpen] = useState(false)
     const [copied, setCopied] = useState(false)
     const [disabled, setDisabled] = useState(() => {
@@ -461,30 +456,6 @@ export default function TableQuestions({
         questions.pagination.planLimit
       )
     })
-
-    useEffect(() => {
-      if (question.answer) {
-        if (question.answer.length > 300) {
-          setShortAnswer(question.answer.substring(0, 300) + '...')
-        }
-        // set answer html
-        unified()
-          .use(remarkParse)
-          .use(remarkMath, { singleDollarTextMath: false })
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(question.answer))
-          .then((file) => {
-            setAnswerHtml(String(file))
-          })
-          .catch((error) => {
-            console.warn('Error processing markdown:', error)
-          })
-      }
-    }, [question.answer])
 
     return (
       <>
@@ -710,9 +681,16 @@ export default function TableQuestions({
                           </h3>
                         )}
                       <div
-                        className="prose mt-2 w-full max-w-none border-t border-gray-200 pt-2"
-                        dangerouslySetInnerHTML={{ __html: answerHtml }}
-                      />
+                        className="mt-2 w-full max-w-none border-t border-gray-200 pt-2"
+                      >
+                        <Streamdown
+                          mode="static"
+                          isAnimating={false}
+                          remarkPlugins={streamdownRemarkPlugins}
+                        >
+                          {preprocessMath(question.answer)}
+                        </Streamdown>
+                      </div>
 
                       {canModify && (
                         <div className="flex justify-end mt-4">

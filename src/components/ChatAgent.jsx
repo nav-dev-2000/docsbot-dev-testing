@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, Fragment } from 'react'
+import { useEffect, useState, useRef, Fragment, memo, useMemo, useCallback } from 'react'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
 import {
   HandThumbDownIcon,
@@ -22,16 +22,9 @@ import {
   RectangleStackIcon as RectangleStackIconSolid,
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import LoadingDots from './LoadingDots'
@@ -48,11 +41,303 @@ import ModalCheckout from '@/components/ModalCheckout'
 import ModalQA from '@/components/ModalQA'
 import { canUserEditBot } from '@/utils/function.utils'
 
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
+
+// Separate component for streaming content - defined outside Chat to enable proper memoization
+const StreamingContent = memo(({ content, isStreaming }) => {
+  return (
+    <Streamdown
+      mode={isStreaming ? 'streaming' : 'static'}
+      isAnimating={false}
+      remarkPlugins={streamdownRemarkPlugins}
+    >
+      {preprocessMath(content)}
+    </Streamdown>
+  )
+}, (prevProps, nextProps) => prevProps.content === nextProps.content && prevProps.isStreaming === nextProps.isStreaming)
+
+// ChatRow component - defined outside Chat to enable proper memoization
+const ChatRow = memo(({ 
+  answer, 
+  question, 
+  currentAnswerText, 
+  isStreaming,
+  // Dependencies from Chat scope
+  team,
+  bot,
+  isContextBoost,
+  hideSources,
+  canModify,
+  isCopied,
+  copiedId,
+  ratings,
+  handleCopyText,
+  setRating,
+  askQuestion,
+  Source,
+  SourceResearch,
+}) => {
+  const [expandedImage, setExpandedImage] = useState(null)
+  const [qaOpen, setQAOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (answer.type === 'question') {
+    return (
+      <>
+        <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
+          <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
+            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
+              <UserCircleIcon
+                className="h-7 w-7 text-white"
+                aria-hidden="true"
+              />
+            </span>
+          </div>
+          <div dir="auto" className="prose min-w-full p-4 px-6 text-start sm:px-8">
+            {isMounted && answer.images && answer.images.length > 0 && (
+              <div className="mb-2 flex flex-wrap gap-2">
+                {answer.images.map((imageUrl, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setExpandedImage(imageUrl)}
+                    className="relative overflow-hidden rounded-lg hover:opacity-90"
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={`User uploaded image ${index + 1}`}
+                      className="m-0 h-20 w-20 rounded-lg object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+            {answer.question}
+          </div>
+        </div>
+
+        <Transition.Root show={!!expandedImage} as={Fragment}>
+          <Dialog
+            as="div"
+            className="relative z-10"
+            onClose={setExpandedImage}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all">
+                    <div className="absolute right-0 top-0 z-10 pr-4 pt-4">
+                      <button
+                        type="button"
+                        className="rounded-md bg-white/80 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                        onClick={() => setExpandedImage(null)}
+                      >
+                        <span className="sr-only">Close</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      </button>
+                    </div>
+                    <div
+                      onClick={() => setExpandedImage(null)}
+                      className="cursor-pointer"
+                    >
+                      <img
+                        src={expandedImage}
+                        alt="Expanded view"
+                        className="max-h-[90vh] max-w-[90vw] object-contain"
+                      />
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+      </>
+    )
+  } else {
+    const markdownContent =
+      answer.markdown || (isStreaming ? (currentAnswerText || '') : '')
+    return (
+      <div
+        className={clsx('grid grid-cols-1 gap-4 sm:grid-cols-12')}
+      >
+        <div
+          className={clsx(
+            'relative col-span-1 mt-4 rounded-md border bg-white text-left shadow-sm sm:col-span-8 sm:rounded-lg',
+          )}
+          id={answer.id || null}
+        >
+        <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
+          <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
+            <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
+          </span>
+        </div>
+        <ModalQA
+          team={team}
+          botId={bot.id}
+          question={{ id: answer.id, question, answer: answer.markdown }}
+          open={qaOpen}
+          setOpen={setQAOpen}
+          hideButton={true}
+        />
+        <div
+          dir="auto"
+          className={clsx(
+            answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
+            'min-w-full p-6 text-start sm:px-8',
+          )}
+        >
+          {markdownContent ? (
+            <StreamingContent content={markdownContent} isStreaming={isStreaming} />
+          ) : (
+            <LoadingDots />
+          )}
+        </div>
+
+          {answer.markdown && (
+            <div
+              className={clsx(
+                'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
+              )}
+            >
+              {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && !hideSources && (
+                <div className="block text-left sm:hidden">
+                  <div className="text-sm font-semibold text-gray-800">
+                    {bot.labels.sources}
+                  </div>
+                  <ul className="mt-2">
+                    {answer.sources.map((source, index) => (
+                      <Source key={index} source={source} />
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <div className="flex items-center justify-between space-x-1">
+                {answer.id && canModify && (
+                <Tooltip content="Revise answer">
+                  <button
+                    onClick={() => setQAOpen(true)}
+                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                  >
+                    <PencilSquareIcon className="h-5 w-5" />
+                  </button>
+                </Tooltip>
+                )}
+                <button
+                  onClick={() =>
+                    handleCopyText(answer.markdown, answer.id || '')
+                  }
+                  title="Copy answer to clipboard"
+                  className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                >
+                  {isCopied && copiedId === (answer.id || '') ? (
+                    <CheckIcon className="h-5 w-5" />
+                  ) : (
+                    <ClipboardIcon className="h-5 w-5" />
+                  )}
+                </button>
+                {answer.id && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => setRating(answer.id, 1)}
+                      disabled={ratings[answer.id] === 1}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      <span className="sr-only">{bot.labels.helpful}</span>
+                      <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRating(answer.id, -1)}
+                      disabled={ratings[answer.id] === -1}
+                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      <span className="sr-only">{bot.labels.unhelpful}</span>
+                      <HandThumbDownIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </>
+                )}
+              </div>
+              {answer.options && (
+                <div className="flex items-center justify-between space-x-2">
+                  {Object.entries(answer.options).map(([key, value]) => (
+                    <button
+                      key={key}
+                      onClick={() => askQuestion(value)}
+                      className="rounded-full border border-cyan-500 bg-gray-50 px-3 text-cyan-600 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
+                    >
+                      {value}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && (
+          <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
+            <div className="text-sm font-semibold text-gray-800">
+              {bot.labels.sources}
+            </div>
+            <ul className="mt-2">
+              {answer.sources.map((source, index) => (
+                <SourceResearch key={index} source={source} />
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )
+  }
+}, (prevProps, nextProps) => {
+  // Only re-render if essential props change
+  if (prevProps.answer !== nextProps.answer) return false
+  if (prevProps.question !== nextProps.question) return false
+  if (prevProps.isStreaming !== nextProps.isStreaming) return false
+  if (nextProps.isStreaming) {
+    return prevProps.currentAnswerText === nextProps.currentAnswerText
+  }
+  // For non-streaming rows, also check UI state props
+  if (prevProps.isCopied !== nextProps.isCopied) return false
+  if (prevProps.copiedId !== nextProps.copiedId) return false
+  if (prevProps.ratings !== nextProps.ratings) return false
+  return true
+})
+
 export default function Chat({ team, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
   const [answers, setAnswers] = useState([])
   const [currentAnswer, setCurrentAnswer] = useState('')
-  const [answerHtml, setAnswerHtml] = useState('')
   const [currentSource, setCurrentSource] = useState(null)
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
@@ -75,7 +360,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   )
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
-  const [screenWidth, setScreenWidth] = useState(null)
   const [hideSources, setHideSources] = useState(
     () => bot?.hideSources || false,
   )
@@ -152,26 +436,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     setModify(canUserEditBot(team, user.uid))
   }, [team, user])
 
-  useEffect(() => {
-    const handleScreenChange = () => {
-      setScreenWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', handleScreenChange)
-    return () => {
-      window.removeEventListener('resize', handleScreenChange)
-    }
-  }, [])
-
-  useEffect(() => {
-    let timeoutId = null
-    timeoutId = setTimeout(() => {
-      window.dispatchEvent(new Event('resize'))
-    }, 500)
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [screenWidth])
 
   useEffect(() => {
     const textarea = textareaRef.current
@@ -188,52 +452,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     }
   }, [question])
 
-  //convert markdown to html when answer changes or is appended to
-  useEffect(() => {
-    if (currentAnswer) {
-      // Remove incomplete markdown images, but keep the alt text
-      let filteredAnswer = currentAnswer.replace(
-        /!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm,
-        '$1',
-      )
-      // Remove incomplete markdown links, but keep the link text
-      filteredAnswer = filteredAnswer.replace(
-        /\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm,
-        '$1',
-      )
-
-      unified()
-        .use(remarkParse)
-        .use(remarkMath, { singleDollarTextMath: false })
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .process(preprocessLaTeX(filteredAnswer))
-        .then((file) => {
-          setAnswerHtml(String(file))
-        })
-        .catch((error) => {
-          console.error('Error processing markdown:', error)
-        })
-    }
-  }, [currentAnswer])
-
-  //update answer html when answers change
-  useEffect(() => {
-    if (answers.length > 0 && answerHtml) {
-      const lastAnswer = answers[answers.length - 1]
-      if (lastAnswer.type === 'answer') {
-        setAnswers((prev) => {
-          //edit last answer
-          prev[prev.length - 1].html = answerHtml
-          return [...prev]
-        })
-      }
-    }
-  }, [answerHtml])
-
   // make api call to ask question
   const askQuestion = async (askedQuestion) => {
     if (!askedQuestion || askedQuestion.length < 2) {
@@ -242,7 +460,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     }
     setLoading(true)
     setErrorText(null)
-    setAnswerHtml('')
     setCurrentAnswer('')
     setShowQuestion(false)
     setAnswers((prev) => {
@@ -328,7 +545,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             // Create initial answer object if it doesn't exist
             setAnswers((prev) => {
               if (prev.length === 0 || prev[prev.length - 1].type !== 'answer') {
-                return [...prev, { type: 'answer', html: null, rating: 0 }]
+                return [...prev, { type: 'answer', markdown: '', rating: 0 }]
               }
               return prev
             })
@@ -370,7 +587,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             //strip all empty answers
             if (answers.length > 0) {
               setAnswers((prev) => {
-                return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
               })
             }
             throw new FatalError(msg.data)
@@ -400,7 +617,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 if (answers.length > 0) {
                   setAnswers((prev) => {
                     return [
-                      ...prev.filter((a) => a.type !== 'answer' || a.html),
+                      ...prev.filter((a) => a.type !== 'answer' || a.markdown),
                     ]
                   })
                 }
@@ -421,7 +638,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     ...prev,
                     {
                       type: 'answer',
-                      html: endData.answer,
                       markdown: endData.answer,
                       rating: 0,
                       id: endData.id,
@@ -465,7 +681,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               //strip all empty answers
               if (answers.length > 0) {
                 setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
                 })
               }
               return false
@@ -485,7 +701,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             //strip all empty answers
             if (answers.length > 0) {
               setAnswers((prev) => {
-                return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
               })
             }
             throw err // Re-throw to stop the operation
@@ -502,7 +718,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               //strip all empty answers
               if (answers.length > 0) {
                 setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
                 })
               }
               throw new FatalError('Max retries exceeded')
@@ -525,7 +741,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               setLoading(false)
               if (answers.length > 0) {
                 setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
                 })
               }
               throw new FatalError('Network connection failed')
@@ -554,7 +770,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       //strip all empty answers
       if (answers.length > 0) {
         setAnswers((prev) => {
-          return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+          return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
         })
       }
     }
@@ -642,29 +858,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }
 
   const FullSource = () => {
-    const [content, setContent] = useState(null)
-
-    //convert markdown to html when answer changes or is appended to
-    useEffect(() => {
-      if (currentSource?.content) {
-        unified()
-          .use(remarkParse)
-          .use(remarkMath, { singleDollarTextMath: false })
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(currentSource?.content))
-          .then((file) => {
-            setContent(String(file))
-          })
-          .catch((error) => {
-            console.error('Error processing markdown:', error)
-          })
-      }
-    }, [currentSource])
-
     if (!currentSource) return null
 
     const page = currentSource?.page ? ` - Page ${currentSource?.page}` : ''
@@ -736,10 +929,15 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                           </p>
                         )}
                       </Dialog.Title>
-                      <div
-                        className="prose mt-4 min-w-full text-left"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                      />
+                      <div className="mt-4 min-w-full text-left">
+                        <Streamdown
+                          mode="static"
+                          isAnimating={false}
+                          remarkPlugins={streamdownRemarkPlugins}
+                        >
+                          {preprocessMath(currentSource?.content)}
+                        </Streamdown>
+                      </div>
                     </div>
                   </div>
                 </Dialog.Panel>
@@ -813,267 +1011,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     )
   }
 
-  const ChatRow = ({ answer, question }) => {
-    const gridItemRef = useRef(null)
-    const [expandedImage, setExpandedImage] = useState(null)
-    const [qaOpen, setQAOpen] = useState(false)
-    const [isMounted, setIsMounted] = useState(false)
-
-    useEffect(() => {
-      setIsMounted(true)
-    }, [])
-
-    useEffect(() => {
-      if (gridItemRef.current) {
-        const gridItems = gridItemRef.current.children
-
-        let maxItemHeight = 0
-        Array.from(gridItems).forEach((item) => {
-          const height = item.offsetHeight
-          if (height > maxItemHeight) {
-            maxItemHeight = height
-          }
-        })
-
-        // Only set height if we found a valid height
-        if (maxItemHeight > 0) {
-          Array.from(gridItems).forEach((item) => {
-            item.style.height = `${maxItemHeight}px`
-          })
-        }
-      }
-    }, [])
-
-    if (answer.type === 'question') {
-      return (
-        <>
-          <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-            <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
-              <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-                <UserCircleIcon
-                  className="h-7 w-7 text-white"
-                  aria-hidden="true"
-                />
-              </span>
-            </div>
-            <div dir="auto" className="prose min-w-full p-4 px-6 text-start sm:px-8">
-              {isMounted && answer.images && answer.images.length > 0 && (
-                <div className="mb-2 flex flex-wrap gap-2">
-                  {answer.images.map((imageUrl, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setExpandedImage(imageUrl)}
-                      className="relative overflow-hidden rounded-lg hover:opacity-90"
-                    >
-                      <img
-                        src={imageUrl}
-                        alt={`User uploaded image ${index + 1}`}
-                        className="m-0 h-20 w-20 rounded-lg object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-              {answer.question}
-            </div>
-          </div>
-
-          <Transition.Root show={!!expandedImage} as={Fragment}>
-            <Dialog
-              as="div"
-              className="relative z-10"
-              onClose={setExpandedImage}
-            >
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-              >
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-              </Transition.Child>
-
-              <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div className="flex min-h-full items-center justify-center p-4 text-center">
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    enterTo="opacity-100 translate-y-0 sm:scale-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                  >
-                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all">
-                      <div className="absolute right-0 top-0 z-10 pr-4 pt-4">
-                        <button
-                          type="button"
-                          className="rounded-md bg-white/80 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                          onClick={() => setExpandedImage(null)}
-                        >
-                          <span className="sr-only">Close</span>
-                          <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                      </div>
-                      <div
-                        onClick={() => setExpandedImage(null)}
-                        className="cursor-pointer"
-                      >
-                        <img
-                          src={expandedImage}
-                          alt="Expanded view"
-                          className="max-h-[90vh] max-w-[90vw] object-contain"
-                        />
-                      </div>
-                    </Dialog.Panel>
-                  </Transition.Child>
-                </div>
-              </div>
-            </Dialog>
-          </Transition.Root>
-        </>
-      )
-    } else {
-      return (
-        <div
-          ref={gridItemRef}
-          className={clsx('grid grid-cols-1 gap-4 sm:grid-cols-12')}
-        >
-          <div
-            className={clsx(
-              'relative col-span-1 mt-4 h-fit rounded-md border bg-white text-left shadow-sm sm:col-span-8 sm:rounded-lg',
-            )}
-            id={answer.id || null}
-          >
-          <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
-            <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
-              <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
-            </span>
-          </div>
-          <ModalQA
-            team={team}
-            botId={bot.id}
-            question={{ id: answer.id, question, answer: answer.markdown }}
-            open={qaOpen}
-            setOpen={setQAOpen}
-            hideButton={true}
-          />
-          {answer.html ? (
-              <div dir="auto" className={clsx(answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '', 'prose min-w-full p-6 text-start sm:px-8')} dangerouslySetInnerHTML={{ __html: answer.html }} />
-            ) : (
-              <div
-                className={clsx(
-                  answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8',
-                )}
-              >
-                <LoadingDots />
-              </div>
-            )}
-
-            {(answer.markdown) && (
-              <div
-                className={clsx(
-                  'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
-                )}
-              >
-                {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && !hideSources && (
-                  <div className="block text-left sm:hidden">
-                    <div className="text-sm font-semibold text-gray-800">
-                      {bot.labels.sources}
-                    </div>
-                    <ul className="mt-2">
-                      {answer.sources.map((source, index) => (
-                        <Source key={index} source={source} />
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                <div className="flex items-center justify-between space-x-1">
-                  {answer.id && canModify && (
-                  <Tooltip content="Revise answer">
-                    <button
-                      onClick={() => setQAOpen(true)}
-                      className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                    >
-                      <PencilSquareIcon className="h-5 w-5" />
-                    </button>
-                  </Tooltip>
-                  )}
-                  <button
-                    onClick={() =>
-                      handleCopyText(answer.markdown, answer.id || '')
-                    }
-                    title="Copy answer to clipboard"
-                    className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                  >
-                    {isCopied && copiedId === (answer.id || '') ? (
-                      <CheckIcon className="h-5 w-5" />
-                    ) : (
-                      <ClipboardIcon className="h-5 w-5" />
-                    )}
-                  </button>
-                  {answer.id && (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => setRating(answer.id, 1)}
-                        disabled={ratings[answer.id] === 1}
-                        className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                      >
-                        <span className="sr-only">{bot.labels.helpful}</span>
-                        <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setRating(answer.id, -1)}
-                        disabled={ratings[answer.id] === -1}
-                        className="rounded-sm text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                      >
-                        <span className="sr-only">{bot.labels.unhelpful}</span>
-                        <HandThumbDownIcon
-                          className="h-5 w-5"
-                          aria-hidden="true"
-                        />
-                      </button>
-                    </>
-                  )}
-                </div>
-                {answer.options && (
-                  <div className="flex items-center justify-between space-x-2">
-                    {Object.entries(answer.options).map(([key, value]) => (
-                      <button
-                        key={key}
-                        onClick={() => askQuestion(value)}
-                        className="rounded-full border border-cyan-500 bg-gray-50 px-3 text-cyan-600 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:text-cyan-600"
-                      >
-                        {value}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && (
-            <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
-              <div className="text-sm font-semibold text-gray-800">
-                {bot.labels.sources}
-              </div>
-              <ul className="mt-2">
-                {answer.sources.map((source, index) => (
-                  <SourceResearch key={index} source={source} />
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      )
-    }
-  }
+  // ChatRow is now defined outside of Chat for proper memoization
 
   const ModelSelector = () => {
     const isDisabled =
@@ -1287,13 +1225,61 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         <FullSource />
 
         <div className="mt-6">
-          {answers.map((answer, index) => (
+          {useMemo(() => {
+            // Render all completed messages (everything except the last one if it's streaming)
+            const completedMessages = answers.slice(0, 
+              loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' 
+                ? answers.length - 1 
+                : answers.length
+            )
+            return completedMessages.map((answer, index) => (
+              <ChatRow
+                key={answer.id || `${answer.type}-${index}`}
+                answer={answer}
+                question={answers[index - 1]?.question}
+                currentAnswerText={undefined}
+                isStreaming={false}
+                team={team}
+                bot={bot}
+                isContextBoost={isContextBoost}
+                hideSources={hideSources}
+                canModify={canModify}
+                isCopied={isCopied}
+                copiedId={copiedId}
+                ratings={ratings}
+                handleCopyText={handleCopyText}
+                setRating={setRating}
+                askQuestion={askQuestion}
+                Source={Source}
+                SourceResearch={SourceResearch}
+              />
+            ))
+          // Note: Including UI state props so completed messages update on state changes
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])}
+          {/* Render streaming message separately so only it updates */}
+          {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
             <ChatRow
-              key={index}
-              answer={answer}
-              question={answers[index - 1]?.question}
+              key="streaming-answer"
+              answer={answers[answers.length - 1]}
+              question={answers[answers.length - 2]?.question}
+              currentAnswerText={currentAnswer}
+              isStreaming={true}
+              team={team}
+              bot={bot}
+              isContextBoost={isContextBoost}
+              hideSources={hideSources}
+              canModify={canModify}
+              isCopied={isCopied}
+              copiedId={copiedId}
+              ratings={ratings}
+              handleCopyText={handleCopyText}
+              setRating={setRating}
+              askQuestion={askQuestion}
+              Source={Source}
+              SourceResearch={SourceResearch}
             />
-          ))}
+          )}
 
           <Alert title={errorText} type="warning" />
 

@@ -7,29 +7,26 @@ import {
   LinkIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 
 export default function AskStreaming({ teamId, bot, isPublic = false }) {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
   const [answerId, setAnswerId] = useState(null)
-  const [resultHtml, setResultHtml] = useState('')
   const [sources, setSources] = useState([])
+  
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
   const [loading, setLoading] = useState(false)
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
@@ -46,31 +43,6 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
     }
   }, [question])
 
-  //convert markdown to html when answer changes or is appended to
-  useEffect(() => {
-    if (answer) {
-      // Remove incomplete markdown images, but keep the alt text
-      let filteredAnswer = answer.replace(/!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm, '$1');
-      // Remove incomplete markdown links, but keep the link text
-      filteredAnswer = filteredAnswer.replace(/\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm, '$1');
-
-      unified()
-        .use(remarkParse)
-        .use(remarkMath, { singleDollarTextMath: false })
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .process(preprocessLaTeX(filteredAnswer))
-        .then((file) => {
-          setResultHtml(String(file))
-        })
-        .catch((error) => {
-          console.error('Error processing markdown:', error)
-        })
-    }
-  }, [answer])
 
   // make api call to ask question
   const askQuestion = async () => {
@@ -81,7 +53,6 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
     setLoading(true)
     setErrorText(null)
     setAnswer('')
-    setResultHtml('')
     setSources([])
     setRating(0)
     setAnswerId(null)
@@ -343,7 +314,7 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
           )}
         </div>
 
-        {resultHtml && (
+        {answer && (
           <>
             <div className="relative mt-16 rounded-sm bg-white text-left shadow-sm sm:rounded-lg ">
               <div className="absolute -inset-4 flex h-12 items-center text-2xl font-extrabold tracking-tighter text-gray-800 opacity-25">
@@ -357,10 +328,15 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
                 </svg>
                
               </div>
-              <div
-                className="wpchat-code prose min-w-full p-4 pb-2 sm:p-8 sm:pb-4"
-                dangerouslySetInnerHTML={{ __html: resultHtml }}
-              />
+              <div className="wpchat-code min-w-full p-4 pb-2 sm:p-8 sm:pb-4">
+                <Streamdown
+                  mode="streaming"
+                  isAnimating={loading}
+                  remarkPlugins={streamdownRemarkPlugins}
+                >
+                  {preprocessMath(answer)}
+                </Streamdown>
+              </div>
               {answerId && (
                 <div className="flex items-center justify-end space-x-2 pb-4 pr-4">
                   <button

@@ -20,11 +20,8 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
 import { decideTextColor, getLighterColor } from '@/utils/colors'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
 import { useEffect, useState } from 'react'
 import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import Image from 'next/image'
@@ -49,6 +46,11 @@ const botIconMap = {
   custom: { icon: faPlus, label: 'Custom Icon' },
 }
 
+const streamdownRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+]
+
 export default function WidgetPreview({
   bot,
   color,
@@ -67,29 +69,11 @@ export default function WidgetPreview({
   tools,
   imageUploads,
 }) {
-  const [footerMarkdown, setFooterMarkdown] = useState('')
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
-
-  useEffect(() => {
-    if (labels.footerMessage) {
-      unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkRehype)
-        .use(rehypeStringify)
-        .process(labels.footerMessage)
-        .then((file) => {
-          setFooterMarkdown(String(file))
-        })
-        .catch((error) => {
-          console.warn('Error processing footer markdown:', error)
-        })
-    }
-  }, [labels.footerMessage])
 
   const copyButtonEnabled =
     showCopyButton ?? bot?.showCopyButton ?? false
@@ -254,8 +238,14 @@ export default function WidgetPreview({
             </button>
           </div>
           {labels.footerMessage && (
-            <div className="prose mt-0.5 w-full text-center text-xs text-gray-500 first:prose-p:mt-0 last:prose-p:mb-0">
-              <span dangerouslySetInnerHTML={{ __html: footerMarkdown }} />
+            <div className="mt-0.5 w-full text-center text-xs text-gray-500">
+              <Streamdown
+                mode="static"
+                isAnimating={false}
+                remarkPlugins={streamdownRemarkPlugins}
+              >
+                {labels.footerMessage}
+              </Streamdown>
             </div>
           )}
           {isMounted && branding && (
@@ -319,23 +309,6 @@ function BotMessage({
   const bgColor = getLighterColor(color || '#1292EE')
   const fontColor = decideTextColor(bgColor)
 
-  const [markdown, setMarkdown] = useState(text)
-
-  useEffect(() => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setMarkdown(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }, [text])
-
   return (
     <>
       {!(support && !isAgent) && (
@@ -359,8 +332,14 @@ function BotMessage({
               )}
             </div>
           )}
-          <div className="prose mr-1 rounded-2xl rounded-tl-none bg-[#f1f3f5] px-3 py-3 text-sm leading-snug text-gray-800 first:prose-p:my-0">
-            <span dangerouslySetInnerHTML={{ __html: markdown }} />
+          <div className="mr-1 rounded-2xl rounded-tl-none bg-[#f1f3f5] px-3 py-3 text-sm leading-snug text-gray-800">
+            <Streamdown
+              mode="static"
+              isAnimating={false}
+              remarkPlugins={streamdownRemarkPlugins}
+            >
+              {text}
+            </Streamdown>
             {sources && !hideSources && (
               <>
                 <div className="mt-0 flex items-center justify-between border-b border-gray-300 pt-2 text-sm font-semibold text-gray-700 mb-2">

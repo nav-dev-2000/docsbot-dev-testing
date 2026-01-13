@@ -6,9 +6,9 @@ module.exports = {
   content: [
     './src/**/*.{js,jsx}',
     './node_modules/react-tailwindcss-datepicker/dist/index.esm.js',
+    './node_modules/streamdown/dist/**/*.{js,cjs,mjs}',
   ],
   darkMode: 'class',
-  content: ['./src/**/*.{js,jsx}', './node_modules/react-tailwindcss-datepicker/dist/index.esm.js'],
   theme: {
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -26,6 +26,14 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      colors: {
+        muted: {
+          DEFAULT: 'hsl(var(--muted) / <alpha-value>)',
+          foreground: 'hsl(var(--muted-foreground) / <alpha-value>)',
+        },
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+      },
       borderRadius: {
         '4xl': '2rem',
       },

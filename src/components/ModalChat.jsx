@@ -52,7 +52,7 @@ export default function ModalChat({ team, bot }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-y-auto rounded-lg bg-gray-50 pb-8 text-left shadow-xl transition-all w-full h-[100dvh] sm:my-8 sm:max-w-7xl sm:rounded-lg sm:h-fit">
+                <Dialog.Panel className="relative transform overflow-y-auto rounded-lg bg-gray-50 pb-8 text-left shadow-xl w-full h-[100dvh] sm:my-8 sm:max-w-7xl sm:rounded-lg sm:max-h-[90vh]">
                   <TipsTooltip />
                   <div className="absolute right-0 top-0 z-20 pr-4 pt-4 sm:block">
                     <button

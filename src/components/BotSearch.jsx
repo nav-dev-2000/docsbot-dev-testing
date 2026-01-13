@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import {
   MagnifyingGlassIcon,
   ChevronRightIcon,
@@ -23,8 +21,12 @@ const BotSearch = ({ team, bot, setErrorText }) => {
   const [searchData, setSearchData] = useState([])
   const [selectedButton, setSelectedButton] = useState(-1)
   const [selectedCardData, setSelectedCardData] = useState('')
-  const [htmlContent, setHtmlContent] = useState('')
   const [loading, setLoading] = useState(false)
+  
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
   const [useGlossary, setUseGlossary] = useState(true)
   const textareaRef = useRef(null)
 
@@ -86,27 +88,6 @@ const BotSearch = ({ team, bot, setErrorText }) => {
     }
   }
 
-  const getMarkdownHtml = (text) => {
-    unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .process(text)
-      .then((file) => {
-        setHtmlContent(String(file))
-      })
-      .catch((error) => {
-        console.warn('Error processing markdown:', error)
-      })
-  }
-
-  useEffect(() => {
-    if (selectedCardData) {
-      const htmlContent = getMarkdownHtml(selectedCardData.content)
-      setHtmlContent(htmlContent)
-    }
-  }, [selectedCardData])
 
   return (
     <div
@@ -265,10 +246,15 @@ const BotSearch = ({ team, bot, setErrorText }) => {
               <span>{selectedCardData.title}</span>
             )}
           </div>
-          <div
-            className="prose min-w-full px-4 py-5 sm:p-6"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
+          <div className="min-w-full px-4 py-5 sm:p-6">
+            <Streamdown
+              mode="static"
+              isAnimating={false}
+              remarkPlugins={streamdownRemarkPlugins}
+            >
+              {preprocessMath(selectedCardData?.content || '')}
+            </Streamdown>
+          </div>
         </div>
       ) : null}
     </div>

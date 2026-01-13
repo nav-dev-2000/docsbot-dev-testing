@@ -2,11 +2,9 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
@@ -21,8 +19,12 @@ export default function Cancel({ team, bots }) {
   const [reason, setReason] = useState(null)
   const [details, setDetails] = useState(null)
   const [answer, setAnswer] = useState('')
-  const [resultHtml, setResultHtml] = useState('')
   const [answerDone, setAnswerDone] = useState(false)
+  
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [cancelled, setCancelled] = useState(
@@ -69,28 +71,10 @@ export default function Cancel({ team, bots }) {
     }
   }, [currentStep])
 
-  //convert markdown to html when answer changes or is appended to
-  useEffect(() => {
-    if (answer) {
-      unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .use(remarkRehype)
-        .use(rehypeStringify)
-        .process(answer)
-        .then((file) => {
-          setResultHtml(String(file))
-        })
-        .catch((error) => {
-          console.warn('Error processing markdown:', error)
-        })
-    }
-  }, [answer])
 
   // make api call to ask question
   const askQuestion = async (prompt) => {
     setAnswer('')
-    setResultHtml('')
     setAnswerDone(false)
 
     //get apiBase from env
@@ -456,11 +440,16 @@ export default function Cancel({ team, bots }) {
                               />
                             </div>
                           ) : currentStep === 4 ? (
-                            resultHtml ? (
-                              <div
-                                className="prose my-4 text-sm text-gray-800"
-                                dangerouslySetInnerHTML={{ __html: resultHtml }}
-                              />
+                            answer ? (
+                              <div className="my-4 text-sm text-gray-800">
+                                <Streamdown
+                                  mode="static"
+                                  isAnimating={false}
+                                  remarkPlugins={streamdownRemarkPlugins}
+                                >
+                                  {preprocessMath(answer)}
+                                </Streamdown>
+                              </div>
                             ) : (
                               <div className="my-4">
                                 <LoadingDots />

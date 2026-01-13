@@ -15,15 +15,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
 import remarkExternalLinks from 'remark-external-links'
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import 'katex/dist/katex.min.css'
 import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import classNames from '@/utils/classNames'
@@ -32,14 +25,18 @@ import { grabQuestions } from '@/utils/helpers'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
-import { preprocessLaTeX } from '@/utils/helpers'
+import { preprocessMath } from '@/utils/markdown'
 
 export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
   const [answers, setAnswers] = useState([])
   const [currentAnswer, setCurrentAnswer] = useState('')
-  const [answerHtml, setAnswerHtml] = useState('')
   const [currentSource, setCurrentSource] = useState(null)
+  
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
   const [loading, setLoading] = useState(false)
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
@@ -103,45 +100,23 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     }
   }, [question])
 
-  //convert markdown to html when answer changes or is appended to
+  //update answer markdown when answers change
   useEffect(() => {
-    if (currentAnswer) {
-      // Remove incomplete markdown images, but keep the alt text
-      let filteredAnswer = currentAnswer.replace(/!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm, '$1');
-      // Remove incomplete markdown links, but keep the link text
-      filteredAnswer = filteredAnswer.replace(/\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm, '$1');
-      
-      unified()
-        .use(remarkParse)
-        .use(remarkMath, { singleDollarTextMath: false })
-        .use(remarkGfm)
-        .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-        .use(remarkRehype)
-        .use(rehypeKatex)
-        .use(rehypeStringify)
-        .process(preprocessLaTeX(filteredAnswer))
-        .then((file) => {
-          setAnswerHtml(String(file))
-        })
-        .catch((error) => {
-          console.error('Error processing markdown:', error)
-        })
-    }
-  }, [currentAnswer])
-
-  //update answer html when answers change
-  useEffect(() => {
-    if (answers.length > 0 && answerHtml) {
+    if (answers.length > 0 && currentAnswer) {
       const lastAnswer = answers[answers.length - 1]
       if (lastAnswer.type === 'answer') {
+        // Remove incomplete markdown images, but keep the alt text
+        let filteredAnswer = currentAnswer.replace(/!\[([^\]]*?)(?:\](?:\([^)]*)?)?$/gm, '$1');
+        // Remove incomplete markdown links, but keep the link text
+        filteredAnswer = filteredAnswer.replace(/\[([^\]]*?)(?:\](?:\([^)"]*(?:"[^"]*")?[^)]*)?)?$/gm, '$1');
         setAnswers((prev) => {
           //edit last answer
-          prev[prev.length - 1].html = answerHtml
+          prev[prev.length - 1].markdown = filteredAnswer
           return [...prev]
         })
       }
     }
-  }, [answerHtml])
+  }, [currentAnswer, answers.length])
 
   // make api call to ask question
   const askQuestion = async (askedQuestion) => {
@@ -151,7 +126,6 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     }
     setLoading(true)
     setErrorText(null)
-    setAnswerHtml('')
     setCurrentAnswer('')
     setLoadingMessage('Sending...')
 
@@ -210,7 +184,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
       //strip all empty answers
       if (answers.length > 0) {
         setAnswers((prev) => {
-          return [...prev.filter((a) => a.type !== 'answer' || a.html)]
+          return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
         })
       }
     }
@@ -237,7 +211,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           setLoadingMessage('Checking my sources...')
           setAnswers((prev) => {
             //add new question
-            return [...prev, { type: 'answer', html: null, rating: 0 }]
+            return [...prev, { type: 'answer', markdown: null, rating: 0 }]
           })
         } else if (data.type === 'stream') {
           setLoadingMessage('Answering...')
@@ -351,28 +325,6 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   }
 
   const FullSource = () => {
-    const [content, setContent] = useState(null)
-
-    //convert markdown to html when answer changes or is appended to
-    useEffect(() => {
-      if (currentSource?.content) {
-        unified()
-          .use(remarkParse)
-          .use(remarkMath, { singleDollarTextMath: false })
-          .use(remarkGfm)
-          .use(remarkExternalLinks, { target: '_blank', rel: ['noopener'] })
-          .use(remarkRehype)
-          .use(rehypeKatex)
-          .use(rehypeStringify)
-          .process(preprocessLaTeX(currentSource?.content))
-          .then((file) => {
-            setContent(String(file))
-          })
-          .catch((error) => {
-            console.error('Error processing markdown:', error)
-          })
-      }
-    }, [currentSource])
 
     if (!currentSource) return null
 
@@ -445,10 +397,15 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                           </p>
                         )}
                       </Dialog.Title>
-                      <div
-                        className="prose mt-4 min-w-full text-left"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                      />
+                      <div className="mt-4 min-w-full text-left">
+                        <Streamdown
+                          mode="static"
+                          isAnimating={false}
+                          remarkPlugins={streamdownRemarkPlugins}
+                        >
+                          {preprocessMath(currentSource?.content || '')}
+                        </Streamdown>
+                      </div>
                     </div>
                   </div>
                 </Dialog.Panel>
@@ -545,7 +502,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
               />
             </span>
           </div>
-          <div className="prose min-w-full p-4 px-6 sm:px-8">
+          <div className="min-w-full p-4 px-6 sm:px-8">
             {answer.question}
           </div>
         </div>
@@ -568,19 +525,26 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                 <RobotIcon className="h-7 w-7 text-white" aria-hidden="true" />
               </span>
             </div>
-            {answer.html ? (
+            {answer.markdown ? (
               <div
                 className={classNames(
                   answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8',
+                  'min-w-full p-6 sm:px-8',
                 )}
-                dangerouslySetInnerHTML={{ __html: answer.html }}
-              />
+              >
+                <Streamdown
+                  mode="static"
+                  isAnimating={false}
+                  remarkPlugins={streamdownRemarkPlugins}
+                >
+                  {preprocessMath(answer.markdown)}
+                </Streamdown>
+              </div>
             ) : (
               <div
                 className={classNames(
                   answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-                  'prose min-w-full p-6 sm:px-8',
+                  'min-w-full p-6 sm:px-8',
                 )}
               >
                 <LoadingDots />

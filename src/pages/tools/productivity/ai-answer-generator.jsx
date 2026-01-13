@@ -26,11 +26,9 @@ import {
   CheckIcon,
 } from '@heroicons/react/24/outline'
 import { ClipboardDocumentIcon } from '@heroicons/react/24/solid'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkGfm from 'remark-gfm'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 
 const loadingText = [
   'Generating high-quality answers with advanced AI support...',
@@ -295,15 +293,10 @@ const AIAnswerGeneratorForm = () => {
     }
   }, [generatedAnswer])
 
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   const handleGenerate = async (event) => {
     event.preventDefault()
@@ -361,7 +354,6 @@ const AIAnswerGeneratorForm = () => {
 
       setGeneratedAnswer({
         text: textResponse,
-        html: processMarkdown(textResponse),
       })
 
       posthog?.capture('Free Tool', {
@@ -459,9 +451,16 @@ const AIAnswerGeneratorForm = () => {
           )}
 
           <article
-            className="prose mt-5 max-w-none text-gray-800 prose-headings:text-gray-900 prose-a:text-cyan-600"
-            dangerouslySetInnerHTML={{ __html: generatedAnswer.html }}
-          />
+            className="mt-5 max-w-none text-gray-800"
+          >
+            <Streamdown
+              mode="static"
+              isAnimating={false}
+              remarkPlugins={streamdownRemarkPlugins}
+            >
+              {preprocessMath(generatedAnswer.text)}
+            </Streamdown>
+          </article>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-5">

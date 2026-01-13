@@ -21,11 +21,9 @@ import {
 import { PlusIcon, MinusIcon, SparklesIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkGfm from 'remark-gfm'
+import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import remarkExternalLinks from 'remark-external-links'
+import { preprocessMath } from '@/utils/markdown'
 // import remarkMath from 'remark-math'
 // import rehypeKatex from 'rehype-katex'
 import ToolsSignupModal from '@/components/ToolsSignupModal'
@@ -384,28 +382,21 @@ const PDFToText = () => {
 }
 
 const ExtractionResult = ({ result }) => {
-  const processMarkdown = (text) => {
-    return unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeStringify)
-      .processSync(text)
-      .toString()
-  }
-
-  // No math rendering needed since we output plain readable text
-
-  const processedTextMarkdown = processMarkdown(result.text)
+  const streamdownRemarkPlugins = [
+    ...Object.values(defaultRemarkPlugins),
+    [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
+  ]
 
   return (
     <div className="relative">
-      <div className="prose prose-h2:mt-0 min-h-16 max-w-none rounded-lg bg-gray-50 p-4 text-left shadow-sm ring-1 ring-gray-200 max-h-96 overflow-auto">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: processedTextMarkdown,
-          }}
-        />
+      <div className="min-h-16 max-w-none rounded-lg bg-gray-50 p-4 text-left shadow-sm ring-1 ring-gray-200 max-h-96 overflow-auto">
+        <Streamdown
+          mode="static"
+          isAnimating={false}
+          remarkPlugins={streamdownRemarkPlugins}
+        >
+          {preprocessMath(result.text)}
+        </Streamdown>
       </div>
     </div>
   )

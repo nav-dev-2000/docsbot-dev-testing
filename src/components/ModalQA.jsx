@@ -174,7 +174,10 @@ export default function ModalQA({
                     </button>
                   </div>
 
-                  <div className="rounded-lg bg-white p-8 shadow">
+                  <div 
+                    className="rounded-lg bg-white p-8 shadow"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <h3 className="text-bold mb-4 text-2xl">Revise Answer</h3>
                     <Alert type="error" title={errorText} />
                     <Alert type="success" title={successText} />
