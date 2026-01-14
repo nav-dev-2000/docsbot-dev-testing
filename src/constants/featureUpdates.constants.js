@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-14',
+    title: 'viaSocket automation integration',
+    description:
+      'Connect DocsBot to viaSocket workflows from the Integrations grid.',
+  },
+  {
     date: '2026-01-13',
     title: 'Semantic search for question logs',
     description:

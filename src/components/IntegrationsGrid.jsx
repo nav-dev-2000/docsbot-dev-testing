@@ -702,7 +702,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://zapier.com/apps/docsbot-ai/integrations"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -722,7 +722,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://www.make.com/en/hq/app-invitation/e73df823a271deb12baa80178f4429b7"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -742,7 +742,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://ottokit.com/integrations/docsbot?aff=5abd7bee"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -762,7 +762,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://payments.pabbly.com/api/affurl/RVYZ07kQyUZ0Z1HUKZ1m/CNd76ecbplizUZ1mp?target=9Z2AHyhSldo6KI1Fn"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -782,7 +782,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://pipedream.com/apps/docsbot-ai"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -796,7 +796,7 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
         <Link
           href="https://n8n.io/integrations/docsbot-ai/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className={classNames(
             'col-span-1 inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
             !hasPowerPlan
@@ -812,6 +812,26 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
             className="mr-2"
           />
           n8n
+        </Link>
+        <Link
+          href="https://viasocket.com/integrations/docsbot"
+          target="_blank"
+          rel="noopener"
+          className={classNames(
+            'inline-flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+            !hasPowerPlan
+              ? 'pointer-events-none cursor-not-allowed opacity-50'
+              : '',
+          )}
+        >
+          <Image
+            src="/images/logo-timeline/viasocket.png"
+            alt="viaSocket Logo"
+            width={16}
+            height={16}
+            className="mr-2"
+          />
+          viaSocket
         </Link>
       </div>
       {!hasPowerPlan && (
@@ -1268,4 +1288,3 @@ export default function IntegrationsGrid({
     </>
   )
 }
-
