@@ -13,6 +13,8 @@ function Staff({ team, userId }) {
   const [isUpdating, setIsUpdating] = useState(false)
   const [canTrial, setCanTrial] = useState(team.canTrial || false)
   const [isEnablingTrial, setIsEnablingTrial] = useState(false)
+  const [blogPath, setBlogPath] = useState('')
+  const [isClearingBlogCache, setIsClearingBlogCache] = useState(false)
 
   const changeTeam = async (teamId) => {
     setErrorText('')
@@ -101,6 +103,40 @@ function Staff({ team, userId }) {
         setErrorText('Error ' + response.status + ', please try again.')
       }
       setIsEnablingTrial(false)
+    }
+  }
+
+  const clearBlogCache = async () => {
+    setErrorText('')
+    setSuccessText('')
+
+    if (!blogPath) {
+      setErrorText('Please enter a blog article URL or path.')
+      return
+    }
+
+    setIsClearingBlogCache(true)
+
+    try {
+      const response = await fetch('/api/tools/clear-blog-cache', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ articlePath: blogPath }),
+      })
+
+      if (response.ok) {
+        setSuccessText('Blog cache cleared successfully.')
+        setBlogPath('')
+      } else {
+        const data = await response.json()
+        setErrorText(data.message || 'Failed to clear blog cache.')
+      }
+    } catch (error) {
+      setErrorText('Failed to clear blog cache. Please try again.')
+    } finally {
+      setIsClearingBlogCache(false)
     }
   }
 
@@ -238,6 +274,51 @@ function Staff({ team, userId }) {
             ) : (
               <span className="text-sm text-cyan-600">✓ Trial is enabled</span>
             )}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-white p-4 shadow">
+        <div className="w-full">
+          <h3 className="m-0 text-lg font-medium leading-6 text-gray-900">
+            Blog Cache Tools
+          </h3>
+          <div className="mt-2 max-w-xl text-sm text-gray-500">
+            <p>Clear ISR and Cloudflare cache for a blog article URL or path.</p>
+          </div>
+        </div>
+        <div className="w-full border-t border-gray-200 pt-4">
+          <label
+            htmlFor="blog_url"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Article URL
+          </label>
+          <div className="mt-2 max-w-xl text-xs text-gray-500">
+            <p>
+              Example: https://docsbot.ai/article/content-management-best-practices
+            </p>
+            <p>Or: /article/content-management-best-practices or content-management-best-practices</p>
+          </div>
+          <div className="mt-1 flex rounded-md shadow-sm">
+            <div className="relative flex flex-grow items-stretch focus-within:z-10">
+              <input
+                type="text"
+                id="blog_url"
+                value={blogPath}
+                onChange={(e) => setBlogPath(e.target.value)}
+                className="block w-full rounded-none rounded-l-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                placeholder="https://docsbot.ai/article/your-article"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={clearBlogCache}
+              disabled={isClearingBlogCache}
+              className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 disabled:opacity-25"
+            >
+              {isClearingBlogCache ? 'Clearing...' : 'Clear Cache'}
+            </button>
           </div>
         </div>
       </div>
