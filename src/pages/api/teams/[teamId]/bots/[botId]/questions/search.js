@@ -138,7 +138,7 @@ async function handler(req, res) {
     // 6. Query Firestore for the nearest vectors (COSINE similarity)
     const limit = Math.min(topK, 200); // Let's limit total search results to 200 for performance
     const nearestQuestions = await questionsCollection
-    .select('question', 'answer', 'rating', 'escalation', 'createdAt', 'ip', 'couldAnswer', 'sources', 'deleted')
+    .select('question', 'answer', 'rating', 'escalation', 'createdAt', 'ip', 'couldAnswer', 'sources', 'metadata', 'deleted')
     .findNearest(
       vectorField,
       FieldValue.vector(queryEmbeddingVector),
