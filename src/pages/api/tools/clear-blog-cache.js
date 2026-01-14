@@ -118,12 +118,12 @@ export default async function handler(req, res) {
     })
   }
 
-  const { articlePath, pathSegments } = parsed
+  const { articlePath: normalizedArticlePath, pathSegments } = parsed
 
   const buildId = await getBuildId()
   const urlsToPurge = [
-    `https://docsbot.ai${articlePath}`,
-    ...buildNextDataUrls(buildId, articlePath, pathSegments),
+    `https://docsbot.ai${normalizedArticlePath}`,
+    ...buildNextDataUrls(buildId, normalizedArticlePath, pathSegments),
   ]
 
   try {
@@ -135,15 +135,15 @@ export default async function handler(req, res) {
 
   const revalidatedPaths = []
   try {
-    await res.revalidate(articlePath)
-    revalidatedPaths.push(articlePath)
+    await res.revalidate(normalizedArticlePath)
+    revalidatedPaths.push(normalizedArticlePath)
   } catch (error) {
-    console.error(`Failed to revalidate path ${articlePath}:`, error)
+    console.error(`Failed to revalidate path ${normalizedArticlePath}:`, error)
   }
 
   return res.status(200).json({
     message: 'Blog cache cleared',
-    articlePath,
+    articlePath: normalizedArticlePath,
     urlsToPurge,
     revalidatedPaths,
   })
