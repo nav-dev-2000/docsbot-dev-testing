@@ -41,6 +41,8 @@ function Questions({ team, bot, preQuestions, openQuestion=null }) {
         body: JSON.stringify({
           query: search,
           topK: 50,
+          page: page,
+          perPage: 50,
         }),
       })
     } else {
