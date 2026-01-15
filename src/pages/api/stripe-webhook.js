@@ -34,6 +34,16 @@ const relevantEvents = new Set([
   'customer.subscription.deleted',
   'radar.early_fraud_warning.created',
 ])
+const staffTeamIds = new Set(['ZrbLG98bbxZ9EFqiPvyl', 'FVasEcNLTWpySb5ZNlF3'])
+
+const getQuestionLimit = ({ planId, status, teamId }) => {
+  if (staffTeamIds.has(teamId)) return null
+
+  return stripePlan({
+    stripeSubscriptionPlan: planId,
+    stripeSubscriptionStatus: status,
+  }).questions
+}
 
 const findConfiguredPlan = (items, configuredPlans) => {
   if (!items?.length) return null
@@ -156,11 +166,12 @@ const webhookHandler = async (req, res) => {
 
               // we also save the questionLimit to the team object as well
               // Only update question limit for non-staff teams
-              if (
-                'ZrbLG98bbxZ9EFqiPvyl' !== teamId &&
-                'FVasEcNLTWpySb5ZNlF3' !== teamId
-              ) {
-                const questionLimit = stripePlan({stripeSubscriptionPlan: plan.id, stripeSubscriptionStatus: subscription.status}).questions
+              const questionLimit = getQuestionLimit({
+                planId: plan.id,
+                status: subscription.status,
+                teamId,
+              })
+              if (questionLimit !== null) {
                 await transaction.update(firestore.collection('teams').doc(teamId), {
                   questionLimit,
                 })
@@ -384,21 +395,29 @@ const webhookHandler = async (req, res) => {
                 }
 
                 // save subscription to team
-                await transaction.update(
-                  firestore.collection('teams').doc(checkoutSession.client_reference_id),
-                  {
-                    stripeCustomerId: session.customer,
-                    stripeSubscriptionId: session.subscription.id,
-                    stripeSubscriptionStatus: session.subscription.status,
-                    stripeSubscriptionProduct: plan.product,
-                    stripeSubscriptionPlan: plan.id,
-                    stripeSubscriptionPrice: plan.amount,
-                    stripeSubscriptionCurrency: session.currency,
-                    stripeSubscriptionInterval: plan.interval,
-                    stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
-                    stripeSubscriptionQuantity: session.subscription.quantity || session.subscription.items.data[0].quantity,
-                  }
-                )
+                const teamId = checkoutSession.client_reference_id
+                const questionLimit = getQuestionLimit({
+                  planId: plan.id,
+                  status: session.subscription.status,
+                  teamId,
+                })
+                const updateData = {
+                  stripeCustomerId: session.customer,
+                  stripeSubscriptionId: session.subscription.id,
+                  stripeSubscriptionStatus: session.subscription.status,
+                  stripeSubscriptionProduct: plan.product,
+                  stripeSubscriptionPlan: plan.id,
+                  stripeSubscriptionPrice: plan.amount,
+                  stripeSubscriptionCurrency: session.currency,
+                  stripeSubscriptionInterval: plan.interval,
+                  stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
+                  stripeSubscriptionQuantity:
+                    session.subscription.quantity || session.subscription.items.data[0].quantity,
+                }
+                if (questionLimit !== null) {
+                  updateData.questionLimit = questionLimit
+                }
+                await transaction.update(firestore.collection('teams').doc(teamId), updateData)
 
                 //add teamid to stripe customer metadata
                 await stripe.customers.update(session.customer, {
@@ -406,7 +425,7 @@ const webhookHandler = async (req, res) => {
                 })
 
                 console.log(
-                  `🔔 Subscription created for team ${checkoutSession.client_reference_id}`
+                  `🔔 Subscription created for team ${teamId}`
                 )
 
                 //get plan name with a mock team object
@@ -418,8 +437,8 @@ const webhookHandler = async (req, res) => {
 
                 // Send the Slack notification
                 try {
-                  const team = await getTeam(checkoutSession.client_reference_id)
-                  const teamLink = `https://docsbot.ai/app/team?switchTeam=${checkoutSession.client_reference_id}`
+                  const team = await getTeam(teamId)
+                  const teamLink = `https://docsbot.ai/app/team?switchTeam=${teamId}`
                   phTrack(teamOwner(team), 'Subscribed', {
                     plan: planName,
                     amount:
@@ -451,7 +470,7 @@ const webhookHandler = async (req, res) => {
                           },
                           {
                             title: 'Team',
-                            value: `<${teamLink}|${team?.name || checkoutSession.client_reference_id}>`,
+                            value: `<${teamLink}|${team?.name || teamId}>`,
                             short: true,
                           },
                           {
@@ -555,6 +574,14 @@ const webhookHandler = async (req, res) => {
                 stripeSubscriptionCancelAtPeriodEnd:
                   invoiceWithSubscription.subscription.cancel_at_period_end,
                 stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
+              }
+              const questionLimit = getQuestionLimit({
+                planId: plan.id,
+                status: invoiceWithSubscription.subscription.status,
+                teamId: team.id,
+              })
+              if (questionLimit !== null) {
+                updateData.questionLimit = questionLimit
               }
 
               await transaction.update(teamsCollection.doc(team.id), updateData)
