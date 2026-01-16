@@ -185,6 +185,294 @@ const CouldAnswer = ({ answered, exists }) => {
   )
 }
 
+const ShortAnswer = ({ answer }) => {
+  const maxLength = 150
+  if (!answer) return null
+  if (answer.length <= maxLength) return <span>{answer}</span>
+  return <span>{answer.substring(0, maxLength)}...</span>
+}
+
+const Answer = ({
+  question,
+  questionIdx,
+  children,
+  startOpen = false,
+  team,
+  bot,
+  user,
+  canModify,
+  deleteQuestion,
+  saveRating,
+  updateIPFilter,
+  ipFilter,
+  pagination,
+}) => {
+  const [open, setOpen] = useState(startOpen)
+  const [qaOpen, setQAOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const disabled =
+    questionIdx + pagination.perPage * pagination.page + BLUR_LIMIT_COUNT >=
+    pagination.planLimit
+
+  return (
+    <>
+      {!startOpen && (
+        <button
+          className={
+            (disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'
+          }
+          onClick={() => {
+            if (disabled) return
+            setOpen(true)
+          }}
+          disabled={disabled}
+        >
+          {children}
+        </button>
+      )}
+      <Transition.Root show={open} as={Fragment}>
+        <Dialog as="div" className="z-10 relative" onClose={setOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="z-5 fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                  <div className="absolute right-0 top-0 flex pr-4 pt-4">
+                    <button
+                      type="button"
+                      disabled={!canModify}
+                      className={
+                        'mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2' +
+                        (canModify
+                          ? ' text-red-400 hover:text-red-500'
+                          : ' cursor-not-allowed text-gray-300')
+                      }
+                      onClick={() => deleteQuestion(question.id)}
+                    >
+                      <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" />{' '}
+                      Delete
+                    </button>
+
+                    <button
+                      className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        navigator.clipboard.writeText(
+                          `${window.location.origin}/app/bots/${bot.id}/questions/${question.id}`,
+                        )
+                        setCopied(true)
+                        setTimeout(() => {
+                          setCopied(false)
+                        }, 2000)
+                      }}
+                      disabled={copied}
+                      title="Copy a shareable link to this question to share to team members or support."
+                    >
+                      <ClipboardDocumentIcon
+                        className="mr-1 h-4 w-4"
+                        aria-hidden="true"
+                      />
+                      {copied ? 'Copied!' : 'Copy Share Link'}
+                    </button>
+
+                    {question.conversationId && (
+                      <Tooltip content="View full conversation">
+                        <Link
+                          href={`/app/bots/${bot.id}/conversations?conversationId=${question.conversationId}`}
+                          className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                        >
+                          <ChatBubbleLeftRightIcon
+                            className="mr-1 h-4 w-4"
+                            aria-hidden="true"
+                          />
+                          Conversation
+                        </Link>
+                      </Tooltip>
+                    )}
+
+                    {user && user.uid && isSuperAdmin(user.uid) && (
+                      <Link
+                        href={`https://smith.langchain.com/o/3a7d1270-cdc3-4de5-8a1a-c595a186eb5a/projects/p/7a4e94a1-8115-48bd-a144-fd83defbf4b0/r/${question.run_id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                        title="View run in LangSmith"
+                      >
+                        <ChartBarIcon
+                          className="mr-1 h-4 w-4"
+                          aria-hidden="true"
+                        />
+                        View Trace
+                      </Link>
+                    )}
+
+                    <button
+                      type="button"
+                      disabled={!canModify}
+                      className={
+                        'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
+                        (canModify ? ' ' : ' cursor-not-allowed')
+                      }
+                      onClick={() => saveRating(question.id, 1)}
+                    >
+                      <span className="sr-only">Up vote</span>
+                      <HandThumbUpIcon
+                        className={clsx(
+                          'h-6 w-6',
+                          question.rating > 0 ? 'text-green-600' : 'text-gray-600',
+                        )}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      disabled={!canModify}
+                      className={
+                        'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
+                        (canModify ? ' ' : ' cursor-not-allowed')
+                      }
+                      onClick={() => saveRating(question.id, -1)}
+                    >
+                      <span className="sr-only">Down vote</span>
+                      <HandThumbDownIcon
+                        className={clsx(
+                          'h-6 w-6',
+                          question.rating < 0 ? 'text-red-600' : 'text-gray-600',
+                        )}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="p-8">
+                    {question?.escalation && (
+                      <Alert
+                        title="This user escalated this message to support"
+                        type="info"
+                        className="rounded-t-lg"
+                      />
+                    )}
+                    <div className="flex-inline p-0">
+                      <div className="flex items-center">
+                        <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
+                          <img
+                            className="mr-1 inline-block h-5 w-5 rounded-full"
+                            src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
+                            alt="User avatar"
+                          />
+                          {question.alias} asked
+                          {question.metadata?.referrer
+                            ? ` from ${question.metadata.referrer}`
+                            : ''}
+                          :
+                        </h2>
+                        <div className="ml-2 flex items-center gap-2">
+                          <ConversationMetadataViewer
+                            metadata={question.metadata}
+                          />
+                          {ipFilter === null && question.ip !== undefined && (
+                            <button
+                              type="button"
+                              className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                              onClick={() => {
+                                updateIPFilter(question.ip, question.alias)
+                              }}
+                            >
+                              <AdjustmentsHorizontalIcon
+                                className="m-auto h-4 w-4"
+                                aria-hidden="true"
+                              />
+                              <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
+                                Filter to user
+                              </span>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    <h2 className="text-xl font-medium text-gray-900">
+                      {question.question}
+                    </h2>
+                    {question.standaloneQuestion &&
+                      question.standaloneQuestion.trim() !==
+                        question.answer.trim() &&
+                      question.standaloneQuestion.trim() !==
+                        question.question.trim() && (
+                        <h3 className="mb-1 mt-1 text-sm text-gray-800">
+                          Standalone Question:{' '}
+                          <span className="font-semibold text-gray-900">
+                            {question.standaloneQuestion}
+                          </span>
+                        </h3>
+                      )}
+                    <div className="mt-2 w-full max-w-none border-t border-gray-200 pt-2">
+                      <Streamdown
+                        mode="static"
+                        isAnimating={false}
+                        remarkPlugins={streamdownRemarkPlugins}
+                      >
+                        {preprocessMath(question.answer)}
+                      </Streamdown>
+                    </div>
+
+                    {canModify && (
+                      <div className="flex justify-end mt-4">
+                        <ModalQA
+                          team={team}
+                          botId={bot.id}
+                          question={question}
+                          open={qaOpen}
+                          setOpen={setQAOpen}
+                        />
+                      </div>
+                    )}
+                    {question.sources.length > 0 && (
+                      <>
+                        <h3 className="mt-2 text-base font-medium text-gray-700">
+                          Used Sources:
+                        </h3>
+                        {question.sources.map((source, index) => (
+                          <FullSource key={index} source={source} />
+                        ))}
+                      </>
+                    )}
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+    </>
+  )
+}
+
 export default function TableQuestions({
   team,
   bot,
@@ -551,289 +839,6 @@ export default function TableQuestions({
     setIPAlias(alias)
   }, [])
 
-  const ShortAnswer = ({ answer }) => {
-    const maxLength = 150
-    if (!answer) return null
-    if (answer.length <= maxLength) return <span>{answer}</span>
-    return <span>{answer.substring(0, maxLength)}...</span>
-  }
-
-  const Answer = ({ question, questionIdx, children, startOpen = false }) => {
-    const [open, setOpen] = useState(startOpen)
-    const [qaOpen, setQAOpen] = useState(false)
-    const [copied, setCopied] = useState(false)
-    const [disabled, setDisabled] = useState(() => {
-      return (
-        questionIdx +
-          questions.pagination.perPage * questions.pagination.page +
-          BLUR_LIMIT_COUNT >=
-        questions.pagination.planLimit
-      )
-    })
-
-    return (
-      <>
-        {!startOpen && (
-          <button
-            className={
-              (disabled ? '' : 'cursor-pointer') + 'm-0 block px-3 py-4 text-left'
-            }
-            onClick={() => {
-              if (disabled) return
-              setOpen(true)
-            }}
-            disabled={disabled}
-          >
-            {children}
-          </button>
-        )}
-        <Transition.Root show={open} as={Fragment}>
-          <Dialog as="div" className="z-10 relative" onClose={setOpen}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-            </Transition.Child>
-
-            <div className="z-5 fixed inset-0 overflow-y-auto">
-              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                  enterTo="opacity-100 translate-y-0 sm:scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                    <div className="absolute right-0 top-0 flex pr-4 pt-4">
-                      <button
-                        type="button"
-                        disabled={!canModify}
-                        className={
-                          'mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2' +
-                          (canModify
-                            ? ' text-red-400 hover:text-red-500'
-                            : ' cursor-not-allowed text-gray-300')
-                        }
-                        onClick={() => deleteQuestion(question.id)}
-                      >
-                        <TrashIcon className="mr-1 h-4 w-4" aria-hidden="true" />{' '}
-                        Delete
-                      </button>
-
-                      <button
-                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          navigator.clipboard.writeText(
-                            `${window.location.origin}/app/bots/${bot.id}/questions/${question.id}`,
-                          )
-                          setCopied(true)
-                          setTimeout(() => {
-                            setCopied(false)
-                          }, 2000)
-                        }}
-                        disabled={copied}
-                        title="Copy a shareable link to this question to share to team members or support."
-                      >
-                        <ClipboardDocumentIcon
-                          className="mr-1 h-4 w-4"
-                          aria-hidden="true"
-                        />
-                        {copied ? 'Copied!' : 'Copy Share Link'}
-                      </button>
-
-                      {question.conversationId && (
-                        <Tooltip content="View full conversation">
-                          <Link
-                            href={`/app/bots/${bot.id}/conversations?conversationId=${question.conversationId}`}
-                            className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                          >
-                            <ChatBubbleLeftRightIcon
-                              className="mr-1 h-4 w-4"
-                              aria-hidden="true"
-                            />
-                            Conversation
-                          </Link>
-                        </Tooltip>
-                      )}
-
-                      {user && user.uid && isSuperAdmin(user.uid) && (
-                        <Link
-                          href={`https://smith.langchain.com/o/3a7d1270-cdc3-4de5-8a1a-c595a186eb5a/projects/p/7a4e94a1-8115-48bd-a144-fd83defbf4b0/r/${question.run_id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                          title="View run in LangSmith"
-                        >
-                          <ChartBarIcon
-                            className="mr-1 h-4 w-4"
-                            aria-hidden="true"
-                          />
-                          View Trace
-                        </Link>
-                      )}
-
-                      <button
-                        type="button"
-                        disabled={!canModify}
-                        className={
-                          'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
-                          (canModify ? ' ' : ' cursor-not-allowed')
-                        }
-                        onClick={() => saveRating(question.id, 1)}
-                      >
-                        <span className="sr-only">Up vote</span>
-                        <HandThumbUpIcon
-                          className={clsx(
-                            'h-6 w-6',
-                            question.rating > 0
-                              ? 'text-green-600'
-                              : 'text-gray-600',
-                          )}
-                          aria-hidden="true"
-                        />
-                      </button>
-                      <button
-                        type="button"
-                        disabled={!canModify}
-                        className={
-                          'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
-                          (canModify ? ' ' : ' cursor-not-allowed')
-                        }
-                        onClick={() => saveRating(question.id, -1)}
-                      >
-                        <span className="sr-only">Down vote</span>
-                        <HandThumbDownIcon
-                          className={clsx(
-                            'h-6 w-6',
-                            question.rating < 0
-                              ? 'text-red-600'
-                              : 'text-gray-600',
-                          )}
-                          aria-hidden="true"
-                        />
-                      </button>
-                      <button
-                        type="button"
-                        className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                        onClick={() => setOpen(false)}
-                      >
-                        <span className="sr-only">Close</span>
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
-                    </div>
-                    <div className="p-8">
-                      {question?.escalation && (
-                        <Alert
-                          title="This user escalated this message to support"
-                          type="info"
-                          className="rounded-t-lg"
-                        />
-                      )}
-                      <div className="flex-inline p-0">
-                        <div className="flex items-center">
-                          <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
-                            <img
-                              className="mr-1 inline-block h-5 w-5 rounded-full"
-                              src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
-                              alt="User avatar"
-                            />
-                            {question.alias} asked
-                            {question.metadata?.referrer
-                              ? ` from ${question.metadata.referrer}`
-                              : ''}
-                            :
-                          </h2>
-                          <div className="ml-2 flex items-center gap-2">
-                            <ConversationMetadataViewer metadata={question.metadata} />
-                            {ipFilter === null && question.ip !== undefined && (
-                              <button
-                                type="button"
-                                className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                onClick={() => {
-                                  updateIPFilter(question.ip, question.alias)
-                                }}
-                              >
-                                <AdjustmentsHorizontalIcon
-                                  className="m-auto h-4 w-4"
-                                  aria-hidden="true"
-                                />
-                                <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
-                                  Filter to user
-                                </span>
-                              </button>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <h2 className="text-xl font-medium text-gray-900">
-                        {question.question}
-                      </h2>
-                      {question.standaloneQuestion &&
-                        question.standaloneQuestion.trim() !==
-                          question.answer.trim() &&
-                        question.standaloneQuestion.trim() !==
-                          question.question.trim() && (
-                          <h3 className="mb-1 mt-1 text-sm text-gray-800">
-                            Standalone Question:{' '}
-                            <span className="font-semibold text-gray-900">
-                              {question.standaloneQuestion}
-                            </span>
-                          </h3>
-                        )}
-                      <div
-                        className="mt-2 w-full max-w-none border-t border-gray-200 pt-2"
-                      >
-                        <Streamdown
-                          mode="static"
-                          isAnimating={false}
-                          remarkPlugins={streamdownRemarkPlugins}
-                        >
-                          {preprocessMath(question.answer)}
-                        </Streamdown>
-                      </div>
-
-                      {canModify && (
-                        <div className="flex justify-end mt-4">
-                          <ModalQA
-                            team={team}
-                            botId={bot.id}
-                            question={question}
-                            open={qaOpen}
-                            setOpen={setQAOpen}
-                          />
-                        </div>
-                      )}
-                      {question.sources.length > 0 && (
-                        <>
-                          <h3 className="mt-2 text-base font-medium text-gray-700">
-                            Used Sources:
-                          </h3>
-                          {question.sources.map((source, index) => (
-                            <FullSource key={index} source={source} />
-                          ))}
-                        </>
-                      )}
-                    </div>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition.Root>
-      </>
-    )
-  }
-
   const commonAnswerProps = useMemo(() => ({
     team,
     bot,
@@ -1064,7 +1069,7 @@ export default function TableQuestions({
                           }}
                           className={clsx(
                             "col-start-1 row-start-1 block w-full min-w-0 border-0 bg-white py-2.5 pl-12 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600 sm:pl-11 sm:text-sm/6 rounded-l-lg",
-                            localSearchInput ? "pr-24" : "pr-4"
+                            localSearchInput ? "pr-8" : "pr-4"
                           )}
                         />
                         <MagnifyingGlassIcon
@@ -1267,7 +1272,7 @@ export default function TableQuestions({
                           </td>
                           <td
                             className={clsx(
-                              questionIdx !== questions.length - 1
+                              questionIdx !== questions.questions.length - 1
                                 ? 'border-b border-gray-200'
                                 : '',
                               'max-w-xs overflow-hidden break-words text-sm font-medium text-gray-700 sm:pl-0 lg:table-cell',
@@ -1343,6 +1348,7 @@ export default function TableQuestions({
                             </Answer>
                           </td>
                           <td
+
                             className={clsx(
                               questionIdx !== questions.length - 1
                                 ? 'border-b border-gray-200'
