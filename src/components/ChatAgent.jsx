@@ -22,7 +22,7 @@ import {
   RectangleStackIcon as RectangleStackIconSolid,
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import Alert from '@/components/Alert'
@@ -53,6 +53,7 @@ const StreamingContent = memo(({ content, isStreaming }) => {
       mode={isStreaming ? 'streaming' : 'static'}
       isAnimating={false}
       remarkPlugins={streamdownRemarkPlugins}
+      showMermaidActions={true}
     >
       {preprocessMath(content)}
     </Streamdown>
@@ -936,6 +937,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                           mode="static"
                           isAnimating={false}
                           remarkPlugins={streamdownRemarkPlugins}
+                          showMermaidActions={true}
                         >
                           {preprocessMath(currentSource?.content)}
                         </Streamdown>

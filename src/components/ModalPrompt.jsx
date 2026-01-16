@@ -28,7 +28,7 @@ import { canUserEditBot } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 

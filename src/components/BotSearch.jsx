@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import {

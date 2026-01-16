@@ -21,7 +21,7 @@ import {
 import { PlusIcon, MinusIcon, SparklesIcon } from '@heroicons/react/24/solid'
 import { Disclosure } from '@headlessui/react'
 import { FAQPageJsonLd } from 'next-seo'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import ToolsSignupModal from '@/components/ToolsSignupModal'

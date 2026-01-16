@@ -36,7 +36,7 @@ import {
 } from '@heroicons/react/24/solid'
 import RobotIcon from '@/components/RobotIcon'
 import Link from 'next/link'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import { i18n } from '@/constants/strings.constants'

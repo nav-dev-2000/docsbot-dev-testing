@@ -19,7 +19,7 @@ import {
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { usePostHog } from 'posthog-js/react'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import { Disclosure } from '@headlessui/react'

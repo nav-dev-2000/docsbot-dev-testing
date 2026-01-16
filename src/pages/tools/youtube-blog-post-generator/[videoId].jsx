@@ -8,7 +8,7 @@ import {
   HashtagIcon,
   DocumentTextIcon,
 } from '@heroicons/react/20/solid'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import { lookupYoutubeBlogPost, getRecentVideoBlogPosts } from '@/lib/tools'

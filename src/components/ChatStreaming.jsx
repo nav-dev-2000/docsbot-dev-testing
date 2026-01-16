@@ -15,7 +15,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'

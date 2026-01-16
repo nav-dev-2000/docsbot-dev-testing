@@ -7,7 +7,7 @@ import {
   LinkIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import Alert from '@/components/Alert'
 import { grabQuestions } from '@/utils/helpers'

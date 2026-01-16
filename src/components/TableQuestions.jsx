@@ -25,7 +25,7 @@ import {
 import Tooltip from '@/components/Tooltip'
 import Link from 'next/link'
 import Paginator from '@/components/Paginator'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import Checkout from '@/components/Checkout'
 import Alert from '@/components/Alert'

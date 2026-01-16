@@ -26,7 +26,7 @@ import {
   CheckIcon,
 } from '@heroicons/react/24/outline'
 import { ClipboardDocumentIcon } from '@heroicons/react/24/solid'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 

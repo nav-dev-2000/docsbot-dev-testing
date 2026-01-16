@@ -43,7 +43,7 @@ import {
 import RobotIcon from '@/components/RobotIcon'
 import UserAvatar from '@/components/UserAvatar'
 import Link from 'next/link'
-import { Streamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessLaTeX } from '@/utils/helpers'
 import { preprocessMath } from '@/utils/markdown'
