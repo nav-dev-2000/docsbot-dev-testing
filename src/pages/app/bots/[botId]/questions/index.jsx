@@ -30,20 +30,28 @@ function Questions({ team, bot, preQuestions, openQuestion=null }) {
   async function changePage(page, ipFilter, rating, escalated, couldAnswer, dateRange, search = '') {
     setErrorText(null)
     let response;
+    const perPage = questions?.pagination?.perPage ?? 50
 
     if (search && search.trim() !== '') {
       const path = `/api/teams/${team.id}/bots/${botId}/questions/search`
+      const searchPayload = {
+        query: search,
+        page: page,
+        perPage,
+      }
+
+      if (dateRange?.startDate && dateRange?.endDate) {
+        const endDate = new Date(dateRange.endDate)
+        endDate.setUTCHours(23, 59, 59, 999)
+        searchPayload.startDate = dateRange.startDate.toString()
+        searchPayload.endDate = endDate.toISOString()
+      }
       response = await fetch(path, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          query: search,
-          topK: 50,
-          page: page,
-          perPage: 50,
-        }),
+        body: JSON.stringify(searchPayload),
       })
     } else {
       const urlParams = [

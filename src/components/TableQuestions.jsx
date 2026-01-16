@@ -316,13 +316,16 @@ export default function TableQuestions({
     setLocalSearchInput(searchInput)
   }, [searchInput])
 
+  // When non-date filters change, clear search (search only works with date range)
   useEffect(() => {
     if (!team || !user) return
 
-    // Clear search when filters change
-    setSearchInput('')
-    setLocalSearchInput('')
-    setLastSearchedQuery('')
+    // Clear search when non-date filters change
+    if (lastSearchedQuery) {
+      setSearchInput('')
+      setLocalSearchInput('')
+      setLastSearchedQuery('')
+    }
 
     const performSearch = async () => {
       setSearching(true)
@@ -333,7 +336,7 @@ export default function TableQuestions({
         filters.escalated,
         filters.couldAnswer,
         dateRange,
-        '', // Don't auto-trigger search, only filters
+        '', // Clear search for non-date filters
       )
       setSearching(false)
     }
@@ -344,8 +347,29 @@ export default function TableQuestions({
     filters.rating,
     filters.escalated,
     filters.couldAnswer,
-    dateRange,
   ])
+
+  // When date range changes, preserve search (date range is compatible with search)
+  useEffect(() => {
+    if (!team || !user) return
+
+    const performSearch = async () => {
+      setSearching(true)
+      // Preserve search query when date range changes (if search exists)
+      await changePage(
+        0,
+        ipFilter,
+        filters.rating,
+        filters.escalated,
+        filters.couldAnswer,
+        dateRange,
+        lastSearchedQuery || '', // Preserve search when date range changes
+      )
+      setSearching(false)
+    }
+
+    performSearch()
+  }, [dateRange])
 
   const handleSearch = async () => {
     if (!team || !user) return
@@ -353,7 +377,7 @@ export default function TableQuestions({
     // Sync local input to parent
     setSearchInput(localSearchInput)
     
-    // Clear all filters when performing a search
+    // Clear filters but preserve date range when performing a search
     setIPFilter(null)
     setIPAlias(null)
     setFilters({
@@ -361,10 +385,7 @@ export default function TableQuestions({
       escalated: null,
       couldAnswer: null,
     })
-    setDateRange({
-      startDate: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
-      endDate: new Date(),
-    })
+    // Don't reset dateRange - preserve current date filter
     
     setSearching(true)
     await changePage(
@@ -373,10 +394,7 @@ export default function TableQuestions({
       null,
       null,
       null,
-      {
-        startDate: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
-        endDate: new Date(),
-      },
+      dateRange, // Preserve current date range when searching
       localSearchInput,
     )
     setLastSearchedQuery(localSearchInput)

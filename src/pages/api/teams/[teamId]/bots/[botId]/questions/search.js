@@ -92,7 +92,14 @@ async function handler(req, res) {
   }
 
   const { teamId, botId } = req.query;
-  const { query, topK = 50, page = 0, perPage = 50 } = req.body;
+  const {
+    query,
+    topK,
+    page = 0,
+    perPage = 50,
+    startDate,
+    endDate,
+  } = req.body;
 
   if (!query) {
     return res.status(400).json({
@@ -136,7 +143,13 @@ async function handler(req, res) {
     );
     
     // 6. Query Firestore for the nearest vectors (COSINE similarity)
-    const limit = Math.min(topK, 200); // Let's limit total search results to 200 for performance
+    const safePage = Number.isFinite(Number(page)) ? Number(page) : 0;
+    const safePerPage = Number.isFinite(Number(perPage)) ? Number(perPage) : 50;
+    const paginationLimit = Math.max(safePerPage * (safePage + 1), safePerPage);
+    const limit = Math.min(
+      Math.max(paginationLimit, Number(topK) || 0),
+      200,
+    ); // Let's limit total search results to 200 for performance
     const nearestQuestions = await questionsCollection
     .select('question', 'answer', 'rating', 'escalation', 'createdAt', 'ip', 'couldAnswer', 'sources', 'metadata', 'deleted')
     .findNearest(
@@ -155,18 +168,37 @@ async function handler(req, res) {
       return convertQuestionDocToData(doc.id, doc.data());
     }) || [];
 
-    const start = page * perPage;
-    const results = allResults.slice(start, start + perPage);
+    const rangeStart = startDate ? new Date(startDate) : null;
+    const rangeEnd = endDate ? new Date(endDate) : null;
+    const filteredResults = allResults.filter((result) => {
+      if (!rangeStart && !rangeEnd) {
+        return true;
+      }
+      const createdAt = new Date(result.createdAt);
+      if (Number.isNaN(createdAt.getTime())) {
+        return false;
+      }
+      if (rangeStart && createdAt < rangeStart) {
+        return false;
+      }
+      if (rangeEnd && createdAt > rangeEnd) {
+        return false;
+      }
+      return true;
+    });
+
+    const start = safePage * safePerPage;
+    const results = filteredResults.slice(start, start + safePerPage);
 
     return res.status(200).json({
       success: true,
       questions: results,
       pagination: {
-        perPage,
-        page,
-        viewableCount: allResults.length,
-        totalCount: allResults.length,
-        hasMorePages: start + perPage < allResults.length,
+        perPage: safePerPage,
+        page: safePage,
+        viewableCount: filteredResults.length,
+        totalCount: filteredResults.length,
+        hasMorePages: start + safePerPage < filteredResults.length,
         planLimit: 1000,
       },
       message: "Questions searched successfully",
