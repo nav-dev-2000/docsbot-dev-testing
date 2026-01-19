@@ -16,6 +16,10 @@ import {
   RectangleStackIcon,
   PhotoIcon,
   CubeIcon,
+  DocumentMagnifyingGlassIcon,
+  LifebuoyIcon,
+  BeakerIcon,
+  ChevronDownIcon,
 } from '@heroicons/react/24/outline'
 import {
   PaperAirplaneIcon,
@@ -337,6 +341,92 @@ const ChatRow = memo(({
 })
 ChatRow.displayName = 'ChatRow'
 
+// Component to display tool calls - simplified inline style
+const ToolCallDisplay = memo(({ toolCalls }) => {
+  if (!toolCalls || toolCalls.length === 0) return null
+
+  return (
+    <div className="mt-2 mb-2 flex items-center gap-2 text-left">
+      {toolCalls.map((toolCall, idx) => {
+        const name = toolCall.name || ''
+        
+        if (name === 'search_documentation') {
+          try {
+            const params = typeof toolCall.params === 'string' 
+              ? JSON.parse(toolCall.params) 
+              : toolCall.params
+            
+            const queries = params.query || []
+            const question = params.question || ''
+            
+            return (
+              <div key={toolCall.id || idx} className="flex items-start text-sm gap-2 text-gray-500 mt-4 ms-6">
+                <div className="flex items-center gap-2">
+                  <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+                  <span className="font-medium">Searching documentation:</span>
+                  </div>
+                  {queries.length > 0 && (
+                    <details className="inline group">
+                      <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-1">
+                        {queries.length} {queries.length === 1 ? 'term' : 'terms'}
+                        <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+                      </summary>
+                      <ul className="mt-1 space-y-1 pl-4">
+                        {queries.map((query, qIdx) => (
+                          <li key={qIdx} className="text-xs text-gray-500">
+                            <pre className="inline whitespace-pre-wrap text-xs">{query}</pre>
+                          </li>
+                        ))}
+                        {question && (
+                          <li className="mt-1 text-xs text-gray-500">
+                            <strong>Question:</strong>{' '}
+                            <pre className="inline whitespace-pre-wrap text-xs">{question}</pre>
+                          </li>
+                        )}
+                      </ul>
+                    </details>
+                  )}
+                {queries.length === 0 && question && (
+                  <span className="text-xs text-gray-500">
+                    <strong>Question:</strong>{' '}
+                    <pre className="inline whitespace-pre-wrap text-xs">{question}</pre>
+                  </span>
+                )}
+              </div>
+            )
+          } catch (error) {
+            console.error('Error parsing tool_call data:', error)
+            return (
+              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 mt-4 ms-8">
+                <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+                <span className="font-medium">Searching documentation</span>
+              </div>
+            )
+          }
+        } else if (name === 'human_escalation') {
+          return (
+            <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500">
+              <LifebuoyIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+              <span className="font-medium">Escalating to human</span>
+            </div>
+          )
+        }
+        
+        // Generic tool call
+        return (
+          <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500">
+            <BeakerIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+            <span className="font-medium">Using {name}</span>
+          </div>
+        )
+      })}
+    </div>
+  )
+}, (prevProps, nextProps) => {
+  return prevProps.toolCalls === nextProps.toolCalls
+})
+ToolCallDisplay.displayName = 'ToolCallDisplay'
+
 export default function Chat({ team, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
   const [answers, setAnswers] = useState([])
@@ -374,6 +464,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const posthog = usePostHog()
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
+  const [toolCalls, setToolCalls] = useState([]) // Track tool calls for current conversation
+  const toolCallsRef = useRef([]) // Ref to track tool calls for closure access
 
   const validModels = [
     {
@@ -480,6 +572,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     // Clear selected images after adding to message
     setSelectedImages([])
     setImageUrls([])
+    // Clear tool calls for new question
+    setToolCalls([])
+    toolCallsRef.current = []
 
     //get apiBase from env
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/chat-agent`
@@ -584,9 +679,29 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 return prev + msg.data
               }
             })
+          } else if (msg.event === 'tool_call') {
+            // Handle tool call events
+            try {
+              const toolCallData = JSON.parse(msg.data)
+              const newToolCall = {
+                id: uuidv4(),
+                name: toolCallData.name,
+                params: toolCallData.params,
+                timestamp: Date.now(),
+              }
+              setToolCalls((prev) => {
+                const updated = [...prev, newToolCall]
+                toolCallsRef.current = updated
+                return updated
+              })
+            } catch (error) {
+              console.error('Error parsing tool_call data:', error)
+            }
           } else if (msg.event === 'error') {
             setLoading(false)
             setErrorText(msg.data)
+            setToolCalls([])
+            toolCallsRef.current = []
             //strip all empty answers
             if (answers.length > 0) {
               setAnswers((prev) => {
@@ -635,8 +750,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               }
 
               if (msg.event === 'is_resolved_question') {
+                const currentToolCalls = [...toolCallsRef.current]
                 setAnswers((prev) => {
-                  //add new answer
+                  //add new answer with tool calls
                   return [
                     ...prev,
                     {
@@ -645,15 +761,20 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       rating: 0,
                       id: endData.id,
                       options: endData.options,
+                      toolCalls: currentToolCalls,
                     },
                   ]
                 })
                 setCurrentAnswer(endData.answer)
+                // Clear tool calls for next question
+                setToolCalls([])
+                toolCallsRef.current = []
               } else {
                 if (endData.answer) {
                   setCurrentAnswer(endData.answer)
                 }
 
+                const currentToolCalls = [...toolCallsRef.current]
                 setAnswers((prev) => {
                   const newPrev = [...prev]
                   if (newPrev.length > 0) {
@@ -664,10 +785,14 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       options:
                         endData.options || newPrev[newPrev.length - 1].options,
                       markdown: endData.answer,
+                      toolCalls: currentToolCalls.length > 0 ? currentToolCalls : (newPrev[newPrev.length - 1].toolCalls || []), // Preserve or update tool calls
                     }
                   }
                   return newPrev
                 })
+                // Clear tool calls when answer is complete
+                setToolCalls([])
+                toolCallsRef.current = []
               }
 
               setLoading(false)
@@ -1236,31 +1361,50 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 ? answers.length - 1 
                 : answers.length
             )
-            return completedMessages.map((answer, index) => (
-              <ChatRow
-                key={answer.id || `${answer.type}-${index}`}
-                answer={answer}
-                question={answers[index - 1]?.question}
-                currentAnswerText={undefined}
-                isStreaming={false}
-                team={team}
-                bot={bot}
-                isContextBoost={isContextBoost}
-                hideSources={hideSources}
-                canModify={canModify}
-                isCopied={isCopied}
-                copiedId={copiedId}
-                ratings={ratings}
-                handleCopyText={handleCopyText}
-                setRating={setRating}
-                askQuestion={askQuestion}
-                Source={Source}
-                SourceResearch={SourceResearch}
-              />
-            ))
+            const result = []
+            completedMessages.forEach((answer, index) => {
+              // Render tool calls before answer if they exist
+              if (answer.type === 'answer' && answer.toolCalls && answer.toolCalls.length > 0) {
+                result.push(
+                  <div key={`toolcalls-${answer.id || index}`} className="mt-1">
+                    <ToolCallDisplay toolCalls={answer.toolCalls} />
+                  </div>
+                )
+              }
+              // Render the message (question or answer)
+              result.push(
+                <ChatRow
+                  key={answer.id || `${answer.type}-${index}`}
+                  answer={answer}
+                  question={answers[index - 1]?.question}
+                  currentAnswerText={undefined}
+                  isStreaming={false}
+                  team={team}
+                  bot={bot}
+                  isContextBoost={isContextBoost}
+                  hideSources={hideSources}
+                  canModify={canModify}
+                  isCopied={isCopied}
+                  copiedId={copiedId}
+                  ratings={ratings}
+                  handleCopyText={handleCopyText}
+                  setRating={setRating}
+                  askQuestion={askQuestion}
+                  Source={Source}
+                  SourceResearch={SourceResearch}
+                />
+              )
+            })
+            return result
           // Note: Including UI state props so completed messages update on state changes
           // eslint-disable-next-line react-hooks/exhaustive-deps
           }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])}
+          {/* Render tool calls before streaming answer */}
+          {loading && toolCalls.length > 0 && (
+            <div className="mt-1">
+              <ToolCallDisplay toolCalls={toolCalls} />
+            </div>
+          )}
           {/* Render streaming message separately so only it updates */}
           {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
             <ChatRow
@@ -1495,6 +1639,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       setQuestion('')
                       setErrorText(null)
                       setConversationId(uuidv4())
+                      setToolCalls([])
+                      toolCallsRef.current = []
                     }}
                   >
                     <ArrowPathIcon
