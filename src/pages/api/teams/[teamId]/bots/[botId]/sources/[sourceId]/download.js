@@ -11,6 +11,18 @@ export default async function handler(req, res) {
   configureFirebaseApp()
   const firestore = getFirestore()
   const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+  const buildUrlsCsv = (indexedUrls = []) => {
+    const lines = indexedUrls
+      .map((item) => {
+        if (!item) return null
+        if (typeof item === 'string') return item.trim()
+        return (item.source || item.url || item.link || '').trim()
+      })
+      .filter(Boolean)
+
+    if (lines.length === 0) return ''
+    return `${lines.join('\n')}\n`
+  }
 
   //check if user has access to team
   let check = null
@@ -39,11 +51,38 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error?.message })
   }
 
-  if (!canSourceTypeDownload(source.type) || source?.file === undefined) {
+  if (!canSourceTypeDownload(source.type)) {
     return res.status(400).json({ message: `Source type ${source.type} cannot be downloaded`})
   }
 
   if (req.method === 'GET') {
+    if (!source?.file && source?.type === 'urls' && source?.indexedUrls?.length > 0) {
+      try {
+        const csvContent = buildUrlsCsv(source.indexedUrls)
+        if (csvContent) {
+          const generatedFilePath = `teams/${team.id}/bots/${botId}/sources/${sourceId}/indexed-urls.csv`
+          const generatedFile = bucket.file(generatedFilePath)
+          await generatedFile.save(csvContent, { contentType: 'text/csv' })
+          await firestore
+            .collection('teams')
+            .doc(team.id)
+            .collection('bots')
+            .doc(botId)
+            .collection('sources')
+            .doc(sourceId)
+            .update({ file: generatedFilePath })
+          source.file = generatedFilePath
+        }
+      } catch (error) {
+        console.warn('Error creating urls download file:', error)
+        return res.status(500).json({ message: error?.message })
+      }
+    }
+
+    if (!source?.file) {
+      return res.status(400).json({ message: `Source type ${source.type} cannot be downloaded`})
+    }
+
     const file = bucket.file(source.file)
 
     // sign url for 7 days
