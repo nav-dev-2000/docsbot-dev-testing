@@ -292,7 +292,13 @@ const SlackInfo = ({
   )
 }
 
-const HelpScoutInfo = ({ helpScoutIntegration, subscribedTags, bot, openLinksInNewTab }) => {
+const HelpScoutInfo = ({
+  helpScoutIntegration,
+  subscribedTags,
+  defaultMailboxes,
+  bot,
+  openLinksInNewTab,
+}) => {
   if (!helpScoutIntegration || !helpScoutIntegration?.webhookSecret) {
     return (
       <p className="text-md text-gray-800">
@@ -340,10 +346,27 @@ const HelpScoutInfo = ({ helpScoutIntegration, subscribedTags, bot, openLinksInN
             </tbody>
           </table>
         ) : (
-          <pre className="black text-sm font-medium text-gray-700">
-            This bot is not subscribed to any helpscout tags
-          </pre>
+          <p className="text-sm font-medium text-gray-700">
+            This bot is not subscribed to any Help Scout tags.
+          </p>
         )}
+        <div className="mt-4">
+          <p className="text-sm font-semibold text-gray-900">Default mailboxes</p>
+          {defaultMailboxes.length > 0 ? (
+            <ul className="mt-2 space-y-1 text-sm text-gray-600">
+              {defaultMailboxes.map((mailbox) => (
+                <li key={mailbox.id} className="flex items-center gap-2">
+                  <span className="font-medium text-gray-800">{mailbox.name}</span>
+                  <span className="text-gray-400">{mailbox.slug}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-2 text-sm text-gray-600">
+              This bot is not assigned as a default mailbox listener.
+            </p>
+          )}
+        </div>
         <p className="text-md mt-3">
           You can edit subscribed tags in your{' '}
           <Link
@@ -970,6 +993,7 @@ export default function IntegrationsGrid({
 }) {
   const helpScoutIntegration = integrations?.find((i) => i.id === 'helpscout')
   const [subscribedTags, setSubscribedTags] = useState([])
+  const [defaultMailboxes, setDefaultMailboxes] = useState([])
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [isConnectingSlack, setIsConnectingSlack] = useState(false)
   const [slackConnection, setSlackConnection] = useState({
@@ -1033,6 +1057,7 @@ export default function IntegrationsGrid({
 
   useEffect(() => {
     if (!helpScoutIntegration || !helpScoutIntegration?.tags) {
+      setSubscribedTags([])
       return
     }
 
@@ -1045,6 +1070,29 @@ export default function IntegrationsGrid({
     }
 
     setSubscribedTags(tags)
+  }, [helpScoutIntegration, bot.id])
+
+  useEffect(() => {
+    if (
+      !helpScoutIntegration ||
+      !helpScoutIntegration?.mailboxes ||
+      !helpScoutIntegration?.assignedMailboxes
+    ) {
+      setDefaultMailboxes([])
+      return
+    }
+
+    const assignedMailboxIds = new Set(
+      Object.entries(helpScoutIntegration.assignedMailboxes)
+        .filter(([, assignedBotId]) => assignedBotId === bot.id)
+        .map(([mailboxId]) => String(mailboxId)),
+    )
+
+    const assignedMailboxes = helpScoutIntegration.mailboxes.filter((mailbox) =>
+      assignedMailboxIds.has(String(mailbox.id)),
+    )
+
+    setDefaultMailboxes(assignedMailboxes)
   }, [helpScoutIntegration, bot.id])
 
   const handleConnectSlack = async () => {
@@ -1238,6 +1286,7 @@ export default function IntegrationsGrid({
           <HelpScoutInfo
             helpScoutIntegration={helpScoutIntegration}
             subscribedTags={subscribedTags}
+            defaultMailboxes={defaultMailboxes}
             bot={bot}
             openLinksInNewTab={openLinksInNewTab}
           />
