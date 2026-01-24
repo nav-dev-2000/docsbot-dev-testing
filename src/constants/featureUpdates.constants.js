@@ -1,6 +1,18 @@
 export const FEATURE_UPDATES = [
   {
-    date: '2026-02-14',
+    date: '2026-01-23',
+    title: 'Major Agent API upgrade for more powerful capabilities',
+    description:
+      'Major Agent API upgrade with OpenAI Responses API, tool calls, reasoning summaries, and multi-step loops to provide more accurate answers.',
+  },
+  {
+    date: '2026-01-23',
+    title: 'Dashboard chat shows reasoning and tool calls',
+    description:
+      'Chat dashboard shows reasoning events and search tool calls, plus a new reasoning selector for dashboard chats.',
+  },
+  {
+    date: '2026-01-14',
     title: 'viaSocket automation integration',
     description:
       'Connect DocsBot to viaSocket workflows from the Integrations grid.',

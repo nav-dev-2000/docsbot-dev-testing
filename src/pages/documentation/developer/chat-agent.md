@@ -73,6 +73,8 @@ When `stream` is `False` (default), the response is an array of JSON objects wit
 
 When `stream` is `True`, the response is a [SSE stream of events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), each containing the same properties as above mapped to the proper SSE fields `event` and `data`. In this case data is a JSON string that must be parsed. It is recommended to use a package like [Better SSE](https://www.npmjs.com/package/better-sse) to handle SSE streams in the browser. See this [response example](/sse-response.txt) for more details.
 
+The Chat Agent API can also emit `tool_call` and `reasoning` events. These can be used to show tool usage or reasoning summaries in your UI. Reasoning events only appear for reasoning-capable models (like GPT-5 family), and are most common when you increase `reasoning_effort`.
+
 ### The data object
 
 Data objects found in the `data` could have the following properties depending on the event type:
@@ -85,6 +87,9 @@ Data objects found in the `data` could have the following properties depending o
 | **id**          | string  | Unique identifier for the query or response used for rating. Not present for `is_resolved_question`.                                                                                                   |
 | **couldAnswer** | boolean | Indicates whether an answer could be generated for the query or not.                                                                                                         |
 | **options**     | object  | Preset `yes` and `no` options for the user to respond to the answer. Only for `is_resolved_question` or `support_escalation` event types. While optional, these can be displayed as clickable preset messages in the chat UI. |
+| **name**        | string  | Tool name for `tool_call` events.                                                                                                                                                                     |
+| **params**      | string  | JSON string of tool parameters for `tool_call` events.                                                                                                                                                |
+| **text**        | string  | Reasoning summary text for `reasoning` events. Can be an empty string.                                                                                                                                |
 
 ### The source object
 
@@ -195,6 +200,90 @@ The `support_escalation` event is triggered when LLM determines that the user re
 ### stream
 
 When streaming response is enabled via the `stream` parameter, the answer is initially sent as a stream of `stream` events so that you can display the progress to the user as it's generated. Each `stream` event is a token to be appended to the latest message, which is commonly parsed as markdown for proper formatting. When the answer streaming is complete it will be followed by a different event type such as `lookup_answer` that contains the final full answer to display. See this [response example](/sse-response.txt) for more details.
+
+### tool_call
+
+The `tool_call` event reports a tool invocation from the agent. It includes the tool `name` and JSON `params`, which you can render to show what the agent is doing in real time.
+
+### reasoning
+
+The `reasoning` event includes a reasoning summary in `text`. The summary can be empty, and these events only appear for reasoning-capable models (like GPT-5 family), primarily when `reasoning_effort` is set above the default.
+
+### Example Response with Tool Call + Reasoning
+
+```json
+[
+  {
+    "event": "reasoning",
+    "data": {
+      "text": "**Searching for product info**\n\nI need to get information about the DocsBot product. My plan is to call the search_documentation tool, which should help me look it up directly. It’s nice that there's a tool available for this! I'll make sure to use it to find the details I need efficiently. This way, I can provide the accurate information without any fuss. Alright, let’s go ahead and call that tool!"
+    }
+  },
+  {
+    "event": "tool_call",
+    "data": {
+      "name": "search_documentation",
+      "params": "{\"query\": [\"DocsBot improve customer support use case\", \"DocsBot customer support chatbot knowledge base answer tickets\"], \"question\": \"What is a way I can use DocsBot to improve my customer support?\"}"
+    }
+  },
+  {
+    "event": "reasoning",
+    "data": {
+      "text": ""
+    }
+  },
+  {
+    "event": "lookup_answer",
+    "data": {
+      "answer": "You can use **DocsBot to turn your existing support documentation (or FAQs) into an AI-powered customer support chatbot** that answers customers instantly **24/7**—reducing response times and repetitive tickets while keeping answers consistent.\n\n### One practical way to do this\n1. **Use your current help docs/FAQs (or resolved Zendesk tickets)** as the knowledge source so the bot’s answers match what your team already supports.\n2. **Deploy the bot on your website or in your app** so customers can self-serve common questions immediately.\n3. **Let the bot handle routine inquiries** (setup, troubleshooting, product usage, account management), and **escalate complex cases to humans**—so agents spend time where it matters most.\n\nThis approach is specifically positioned to help with **high support volume, long wait times, and inconsistent support quality**, while scaling without adding headcount.\n\nRelevant pages:\n- Customer support tools overview: https://docsbot.ai/tools/support\n- DocsBot customer support bots: https://docsbot.ai\n- Zendesk ticket-based training guide: https://docsbot.ai/documentation/doc/training-a-chatbot-from-zendesk-tickets",
+      "history": [
+        {
+          "Human": "Think carefully and thoroughly analyze, with only one search call: What is a way I can use DocsBot to improve my customer support?",
+          "timestamp": "2026-01-23T14:45:13.682375"
+        },
+        {
+          "AI": "You can use **DocsBot to turn your existing support documentation (or FAQs) into an AI-powered customer support chatbot** that answers customers instantly **24/7**—reducing response times and repetitive tickets while keeping answers consistent.\n\n### One practical way to do this\n1. **Use your current help docs/FAQs (or resolved Zendesk tickets)** as the knowledge source so the bot’s answers match what your team already supports.\n2. **Deploy the bot on your website or in your app** so customers can self-serve common questions immediately.\n3. **Let the bot handle routine inquiries** (setup, troubleshooting, product usage, account management), and **escalate complex cases to humans**—so agents spend time where it matters most.\n\nThis approach is specifically positioned to help with **high support volume, long wait times, and inconsistent support quality**, while scaling without adding headcount.\n\nRelevant pages:\n- Customer support tools overview: https://docsbot.ai/tools/support\n- DocsBot customer support bots: https://docsbot.ai\n- Zendesk ticket-based training guide: https://docsbot.ai/documentation/doc/training-a-chatbot-from-zendesk-tickets",
+          "timestamp": "2026-01-23T14:45:37.154080",
+          "type": "lookup_answer",
+          "id": "eFF694XdkYYWfx7pRRCe"
+        }
+      ],
+      "sources": [
+        {
+          "type": "sitemap",
+          "url": "https://docsbot.ai/tools/support",
+          "title": "Free AI Customer Support Tools - DocsBot AI",
+          "page": null,
+          "used": true
+        },
+        {
+          "type": "url",
+          "url": "https://docsbot.ai",
+          "title": "DocsBot AI - Custom chatbots from your documentation",
+          "page": null,
+          "used": true
+        },
+        {
+          "type": "sitemap",
+          "url": "https://docsbot.ai/tools/support",
+          "title": "Free AI Customer Support Tools - DocsBot AI",
+          "page": null,
+          "used": true
+        },
+        {
+          "type": "sitemap",
+          "url": "https://docsbot.ai/documentation/doc/training-a-chatbot-from-zendesk-tickets",
+          "title": "Training a Chatbot from Zendesk Tickets - DocsBot AI",
+          "page": null,
+          "used": true
+        }
+      ],
+      "id": "eFF694XdkYYWfx7pRRCe",
+      "couldAnswer": true
+    }
+  }
+]
+```
 
 ## Error Handling
 
