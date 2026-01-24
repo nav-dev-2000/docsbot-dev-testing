@@ -40,6 +40,7 @@ export default function SourceForm({
   prefillWebsiteData = null,
   onWebsitePrefillComplete = () => {},
   prefillUrl = null, // URL to prefill for any source type
+  maintenanceActive = false,
 }) {
   const initialSourceType = useMemo(
     () =>
@@ -58,7 +59,8 @@ export default function SourceForm({
     return Array.from(new Set(Object.values(documentSource.fileTypes)))
   }, [])
   const [showForm, setShowForm] = useState(
-    autoShowForm || bot.sourceCount === 0 || Boolean(initialSourceType),
+    (autoShowForm || bot.sourceCount === 0 || Boolean(initialSourceType)) &&
+      !maintenanceActive,
   ) //show form if bot has no sources
   const [selectedSourceType, setSelectedSourceType] = useState(initialSourceType)
   const [user] = useAuthState(auth)
@@ -236,17 +238,25 @@ export default function SourceForm({
   }, [showForm])
 
   useEffect(() => {
+    if (!maintenanceActive) return
+    setShowForm(false)
+    setSelectedSourceType(null)
+  }, [maintenanceActive])
+
+  useEffect(() => {
     if (autoShowForm) {
+      if (maintenanceActive) return
       setShowForm(true)
     }
-  }, [autoShowForm])
+  }, [autoShowForm, maintenanceActive])
 
   useEffect(() => {
     if (initialSourceType) {
+      if (maintenanceActive) return
       setSelectedSourceType(initialSourceType)
       setShowForm(true)
     }
-  }, [initialSourceType])
+  }, [initialSourceType, maintenanceActive])
 
   useEffect(() => {
     if (!prefillWebsiteData || selectedSourceType?.id !== 'website') {
@@ -2591,8 +2601,22 @@ https://example.com/page2`
             <div className="mt-8">
               {
                 <button
-                  className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white"
-                  onClick={() => setShowForm(true)}
+                  className={clsx(
+                    'inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm focus:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 active:text-white',
+                    maintenanceActive
+                      ? 'cursor-not-allowed opacity-60'
+                      : 'hover:bg-cyan-700 hover:text-white',
+                  )}
+                  onClick={() => {
+                    if (maintenanceActive) return
+                    setShowForm(true)
+                  }}
+                  disabled={maintenanceActive}
+                  title={
+                    maintenanceActive
+                      ? 'Vector database maintenance is in progress. Please try again in a few hours.'
+                      : ''
+                  }
                   data-wizard="add-sources"
                 >
                   <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />

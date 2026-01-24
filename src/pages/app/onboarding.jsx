@@ -65,6 +65,10 @@ import clsx from 'clsx'
 import { SketchPicker } from 'react-color'
 import { SIGNUP_ONBOARDING_CACHE_KEY } from '@/constants/storageKeys.constants'
 import {
+  VECTOR_DB_MAINTENANCE_ENABLED,
+  VECTOR_DB_MAINTENANCE_STATUS_PAGE,
+} from '@/constants/maintenance.constants'
+import {
   validateWebsiteInput,
   usageTypeToPromptKey,
   WEBSITE_PATH_WARNING_COPY,
@@ -400,6 +404,7 @@ function Onboarding({ team }) {
     error: createError,
     resetError,
   } = useCreateBot(team)
+  const isMaintenanceActive = VECTOR_DB_MAINTENANCE_ENABLED && !createdBot
 
   useEffect(() => {
     if (useManualEntry) {
@@ -798,6 +803,12 @@ function Onboarding({ team }) {
         return createdBot
       }
 
+      if (isMaintenanceActive) {
+        throw new Error(
+          'Vector database maintenance is in progress. Please try again in a few hours.',
+        )
+      }
+
       const name = (overrides.name ?? botName)?.trim()
       if (!name) {
         return null
@@ -894,6 +905,7 @@ function Onboarding({ team }) {
     resetError,
     loadSources,
     trackOnboardingError,
+    isMaintenanceActive,
     ],
   )
 
@@ -1148,6 +1160,9 @@ function Onboarding({ team }) {
 
   const isPrimaryDisabled = () => {
     if (currentStep === 0) {
+      if (isMaintenanceActive) {
+        return true
+      }
       if (useManualEntry) {
         return !botName.trim()
       }
@@ -1226,6 +1241,14 @@ function Onboarding({ team }) {
   )
 
   const handleAnalyze = async () => {
+    if (isMaintenanceActive) {
+      const errorMsg =
+        'Vector database maintenance is in progress. Creating bots is temporarily disabled. Please try again in a few hours.'
+      setStepError(errorMsg)
+      trackOnboardingError(errorMsg, 0)
+      return false
+    }
+
     setStepError(null)
     if (useManualEntry) {
       return true
@@ -1718,6 +1741,13 @@ function Onboarding({ team }) {
 
   const handleContinue = async () => {
     if (currentStep === 0) {
+      if (isMaintenanceActive) {
+        const errorMsg =
+          'Vector database maintenance is in progress. Creating bots is temporarily disabled. Please try again in a few hours.'
+        setStepError(errorMsg)
+        trackOnboardingError(errorMsg, 0)
+        return
+      }
       if (!useManualEntry) {
         // handleAnalyze now handles moving to step 1 internally
         await handleAnalyze()
@@ -2782,6 +2812,27 @@ function Onboarding({ team }) {
                 {/* Left Column - Form Content */}
                 <div className="p-8 sm:p-12">
                   <div className="space-y-6">
+                    {isMaintenanceActive && currentStep === 0 && (
+                      <Alert title="Vector database maintenance" type="warning">
+                        <p>
+                          Creating bots is temporarily disabled while we perform
+                          vector database maintenance. Please try again in a few
+                          hours.
+                        </p>
+                        <p className="mt-2">
+                          Check{' '}
+                          <Link
+                            href={VECTOR_DB_MAINTENANCE_STATUS_PAGE}
+                            className="font-medium text-yellow-900 underline hover:text-yellow-800"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            docsbot.instatus.com
+                          </Link>{' '}
+                          for updates.
+                        </p>
+                      </Alert>
+                    )}
                     {stepError && (
                       <Alert title={stepError} type="error">
                         {currentStep === 0 && !useManualEntry && (

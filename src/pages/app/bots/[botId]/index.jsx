@@ -13,6 +13,11 @@ import { ChevronLeftIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalPrompt from '@/components/ModalPrompt'
+import {
+  VECTOR_DB_MAINTENANCE_ENABLED,
+  VECTOR_DB_MAINTENANCE_MESSAGE,
+  VECTOR_DB_MAINTENANCE_STATUS_PAGE,
+} from '@/constants/maintenance.constants'
 
 const SourceForm = dynamic(() => import('@/components/SourceForm'), {
   ssr: false,
@@ -35,6 +40,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
   const [showPromptModal, setShowPromptModal] = useState(false)
   const router = useRouter()
   const { botId } = router.query
+  const isMaintenanceActive = VECTOR_DB_MAINTENANCE_ENABLED
 
   const getExpirationAlert = () => {
     if (checkPlanPermission(team, 'hobby').allowed) {
@@ -334,6 +340,23 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
         integrations={integrations}
         setBot={setBot}
       />
+      {isMaintenanceActive && (
+        <Alert title="Vector database maintenance" type="warning">
+          <p>{VECTOR_DB_MAINTENANCE_MESSAGE}</p>
+          <p className="mt-2">
+            Check{' '}
+            <Link
+              href={VECTOR_DB_MAINTENANCE_STATUS_PAGE}
+              className="font-medium text-yellow-900 underline hover:text-yellow-800"
+              target="_blank"
+              rel="noreferrer"
+            >
+              docsbot.instatus.com
+            </Link>{' '}
+            for updates.
+          </p>
+        </Alert>
+      )}
       <SourceFailed
         {...{ team, bot, sources, deleteSource, retrySource }}
         refreshSourceWithCrawlerJS={refreshSourceWithCrawlerJS}
@@ -359,6 +382,7 @@ function Bot({ team, preBot, preSources, autoOpenSourceId, integrations }) {
           sources,
           setSources,
           setOpenSourceID: setAutoOpenSourceIdState,
+          maintenanceActive: isMaintenanceActive,
         }}
       />
     </DashboardWrap>

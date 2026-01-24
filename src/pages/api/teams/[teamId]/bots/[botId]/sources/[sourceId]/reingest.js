@@ -14,6 +14,10 @@ import {
 import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
+import {
+  isVectorDbMaintenanceEnabled,
+  vectorDbMaintenanceResponse,
+} from '@/lib/maintenance'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -47,6 +51,10 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+
     if (!canSourceTypeSchedule(source.type)) {
       return res
         .status(403)
@@ -101,6 +109,10 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'PATCH') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+
     try {
       const { faqs } = req.body
 
@@ -131,6 +143,10 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'POST') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+
     if (isTrutoSourceType(source.type)) {
       try {
         try {

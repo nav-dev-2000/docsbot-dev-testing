@@ -11,6 +11,10 @@ import { phTrack } from '@/lib/posthog'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import { clearCloudflareCache } from '@/lib/cloudflare'
+import {
+  isVectorDbMaintenanceEnabled,
+  vectorDbMaintenanceResponse,
+} from '@/lib/maintenance'
 
 const router = createRouter()
 
@@ -28,6 +32,10 @@ router.post(async (req, res) => {
   const { userId, team } = check
 
   try {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+
     //check user is allowed to create bot or not
     if (!canUserCreateDeleteBot(team, userId)) {
       return res.status(403).json({

@@ -11,6 +11,10 @@ import { deleteSource } from '@/lib/apiFunctions'
 import { canUserModifySources } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
 import { GetTrutoSelected, RunSyncJob, GetSyncJobID } from '@/lib/truto'
+import {
+  isVectorDbMaintenanceEnabled,
+  vectorDbMaintenanceResponse,
+} from '@/lib/maintenance'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -45,6 +49,9 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
 
     //check user is allowed to edit this source or not
     if (!canUserModifySources(team, userId)) {
@@ -139,6 +146,9 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
 
     //check user is allowed to delete this source or not
     if (!canUserModifySources(team, userId)) {

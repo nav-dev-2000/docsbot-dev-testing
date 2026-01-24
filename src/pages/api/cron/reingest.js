@@ -18,6 +18,10 @@ import { checkSourceScheduledFromInterval } from '@/utils/helpers'
 import { getTeam } from '@/lib/dbQueries'
 import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
 import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
+import {
+  isVectorDbMaintenanceEnabled,
+  vectorDbMaintenanceResponse,
+} from '@/lib/maintenance'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -30,6 +34,12 @@ export default async function handler(request, response) {
   // In development, bypass protection if CRON_SECRET is not set
   if (expectedSecret && (!authHeader || authHeader !== `Bearer ${expectedSecret}`)) {
     response.status(401).json({ message: 'Unauthorized' })
+    return
+  }
+
+  if (isVectorDbMaintenanceEnabled()) {
+    console.log('cron reingest skipped: vector DB maintenance active')
+    response.status(200).json({ skipped: true, ...vectorDbMaintenanceResponse() })
     return
   }
 

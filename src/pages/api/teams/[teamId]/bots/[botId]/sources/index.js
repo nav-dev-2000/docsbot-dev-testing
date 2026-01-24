@@ -20,6 +20,10 @@ import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isValidURL } from '@/utils/helpers'
 import { canUserModifySources } from '@/utils/function.utils'
 import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
+import {
+  isVectorDbMaintenanceEnabled,
+  vectorDbMaintenanceResponse,
+} from '@/lib/maintenance'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -49,6 +53,10 @@ export default async function handler(req, res) {
 
   //create source
   if (req.method === 'POST') {
+    if (isVectorDbMaintenanceEnabled()) {
+      return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+
     //check user is allowed to edit bot or not
     if (!canUserModifySources(team, userId)) {
       return res.status(403).json({
