@@ -20,6 +20,7 @@ import {
   LifebuoyIcon,
   BeakerIcon,
   ChevronDownIcon,
+  SparklesIcon,
 } from '@heroicons/react/24/outline'
 import {
   PaperAirplaneIcon,
@@ -342,11 +343,11 @@ const ChatRow = memo(({
 ChatRow.displayName = 'ChatRow'
 
 // Component to display tool calls - simplified inline style
-const ToolCallDisplay = memo(({ toolCalls }) => {
+const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true }) => {
   if (!toolCalls || toolCalls.length === 0) return null
 
   return (
-    <div className="mt-2 mb-2 flex items-center gap-2 text-left">
+    <div className="mb-2 flex flex-col text-left">
       {toolCalls.map((toolCall, idx) => {
         const name = toolCall.name || ''
         
@@ -358,48 +359,65 @@ const ToolCallDisplay = memo(({ toolCalls }) => {
             
             const queries = params.query || []
             const question = params.question || ''
+            // Combine queries and question into a single list
+            const allTerms = question ? [...queries, question] : queries
             
+            // If there are terms, use expandable details
+            if (allTerms.length > 0) {
+              return (
+                <details key={toolCall.id || idx} className="group ms-6 text-sm text-gray-500">
+                  <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
+                    {isStreamingStarted ? (
+                      <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+                    ) : (
+                      <div className="relative w-4 h-4 flex-shrink-0">
+                        <div className="h-4 w-4 rounded-full border border-gray-300"></div>
+                        <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
+                      </div>
+                    )}
+                    <span className="font-medium">{isStreamingStarted ? 'Searched documentation:' : 'Searching documentation:'}</span>
+                    <span className="group-open:hidden">{allTerms.length} {allTerms.length === 1 ? 'term' : 'terms'}</span>
+                    <span className="hidden group-open:inline text-gray-400 text-xs">Hide terms</span>
+                    <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
+                  </summary>
+                  <ul className="mt-2 ms-6 space-y-1">
+                    {allTerms.map((term, termIdx) => (
+                      <li key={termIdx} className="text-xs text-gray-500">
+                        <pre className="inline whitespace-pre-wrap text-xs">{term}</pre>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )
+            }
+            
+            // No terms at all, just show the label
             return (
-              <div key={toolCall.id || idx} className="flex items-start text-sm gap-2 text-gray-500 mt-4 ms-6">
-                <div className="flex items-center gap-2">
+              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 ms-6">
+                {isStreamingStarted ? (
                   <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-                  <span className="font-medium">Searching documentation:</span>
+                ) : (
+                  <div className="relative w-4 h-4 flex-shrink-0">
+                    <div className="h-4 w-4 rounded-full border border-gray-300"></div>
+                    <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
                   </div>
-                  {queries.length > 0 && (
-                    <details className="inline group">
-                      <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-1">
-                        {queries.length} {queries.length === 1 ? 'term' : 'terms'}
-                        <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
-                      </summary>
-                      <ul className="mt-1 space-y-1 pl-4">
-                        {queries.map((query, qIdx) => (
-                          <li key={qIdx} className="text-xs text-gray-500">
-                            <pre className="inline whitespace-pre-wrap text-xs">{query}</pre>
-                          </li>
-                        ))}
-                        {question && (
-                          <li className="mt-1 text-xs text-gray-500">
-                            <strong>Question:</strong>{' '}
-                            <pre className="inline whitespace-pre-wrap text-xs">{question}</pre>
-                          </li>
-                        )}
-                      </ul>
-                    </details>
-                  )}
-                {queries.length === 0 && question && (
-                  <span className="text-xs text-gray-500">
-                    <strong>Question:</strong>{' '}
-                    <pre className="inline whitespace-pre-wrap text-xs">{question}</pre>
-                  </span>
                 )}
+                <span className="font-medium">{isStreamingStarted ? 'Searched documentation' : 'Searching documentation'}</span>
               </div>
             )
           } catch (error) {
             console.error('Error parsing tool_call data:', error)
             return (
-              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 mt-4 ms-8">
-                <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-                <span className="font-medium">Searching documentation</span>
+              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 ms-8">
+                {isStreamingStarted ? (
+                  <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+                ) : (
+                  <div className="relative w-4 h-4 flex-shrink-0">
+                    <div className="h-4 w-4 rounded-full border border-gray-300"></div>
+                    <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
+                  </div>
+                )}
+                <span className="font-medium">{isStreamingStarted ? 'Searched documentation' : 'Searching documentation'}</span>
               </div>
             )
           }
@@ -423,9 +441,82 @@ const ToolCallDisplay = memo(({ toolCalls }) => {
     </div>
   )
 }, (prevProps, nextProps) => {
-  return prevProps.toolCalls === nextProps.toolCalls
+  return prevProps.toolCalls === nextProps.toolCalls && prevProps.isStreamingStarted === nextProps.isStreamingStarted
 })
 ToolCallDisplay.displayName = 'ToolCallDisplay'
+
+// Brain icon for reasoning display
+const BrainIcon = ({ className }) => (
+  <svg viewBox="18 58 115 98" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path fillRule="evenodd" clipRule="evenodd" d="M129.49 114.51C129.121 116.961 128.187 119.293 126.762 121.322C125.337 123.351 123.461 125.021 121.28 126.2C120.676 126.535 120.043 126.816 119.39 127.04C120.22 138.04 102.74 142.04 93.32 139.42L96.82 151.66L87.82 151.98L72.07 129.43C66.76 130.93 60.49 131.65 56.44 125.15C56.0721 124.553 55.7382 123.935 55.44 123.3C54.4098 123.51 53.3614 123.617 52.31 123.62C49.31 123.62 44.31 122.72 41.77 120.96C39.7563 119.625 38.1588 117.75 37.16 115.55C31.75 116.29 27.16 115.02 24.16 111.88C20.36 107.97 19.28 101.51 21.26 94.58C23.87 85.33 31.81 74.91 47.59 71C48.9589 69.2982 50.5972 67.8322 52.44 66.66C62.35 60.31 78.44 59.76 90.65 65.79C95.3836 64.9082 100.27 65.376 104.75 67.14C113.53 70.43 119.91 77.31 121.11 84.3C123.487 85.5317 125.433 87.4568 126.69 89.82C129.32 94.76 129.69 99.71 127.92 103.71C129.587 107.049 130.138 110.835 129.49 114.51ZM123.01 109.31C121.612 110.048 120.056 110.434 118.475 110.434C116.894 110.434 115.338 110.048 113.94 109.31L114.67 104.46C117.75 104.76 120.26 103.8 121.57 101.83C123.04 99.64 122.81 96.39 120.95 92.9C118.87 88.99 114.38 88.37 111.89 88.34H111.73C105.49 88.34 99.13 91.89 96.56 96.52L92.82 94.73C93.5553 92.3449 94.8046 90.15 96.48 88.3C95.0376 87.0754 93.9474 85.4887 93.3217 83.703C92.696 81.9173 92.5574 79.9971 92.92 78.14L96.61 77.8C96.7789 79.302 97.4 80.7172 98.3911 81.8583C99.3822 82.9994 100.697 83.8125 102.16 84.19C105.238 82.8161 108.58 82.1335 111.95 82.19C112.43 82.19 112.89 82.24 113.36 82.27C110.969 78.0312 107.18 74.7545 102.64 73C91.56 68.7 84.09 75.37 82.38 77.67C78.26 83.19 80.9 88.41 82.91 91.8L79.61 94.8C76.736 92.314 74.8075 88.9127 74.15 85.17C69.92 86.44 64.24 86.17 61.06 80.74L64.06 78.68C67.43 81.2 72.78 80.98 75.32 77.87C75.9252 76.4949 76.6905 75.1959 77.6 74C79.044 72.093 80.7864 70.4316 82.76 69.08C74.47 66.82 62.76 67.19 55.68 71.73C53.7668 72.841 52.192 74.4517 51.1244 76.3895C50.0569 78.3274 49.5368 80.5192 49.62 82.73C49.62 86.3 52.42 91.94 56.19 92.82L54 97.07C51.5946 96.5129 49.4109 95.2487 47.73 93.44L44.48 97.58L41.23 96L44.41 87.68C43.8904 86.064 43.624 84.3774 43.62 82.68C43.628 81.3361 43.7687 79.9963 44.04 78.68C34.04 82.81 29.1 89.68 27.29 95.96C25.9 100.79 26.44 105.15 28.72 107.49C30.53 109.35 33.3 109.79 35.91 109.62L42.91 104.17L45.21 106.11L43.13 112.93C44.22 116.4 47.79 118.19 54.3 116.93C54.6375 114.169 55.7272 111.554 57.45 109.37C58.7133 107.552 60.3846 106.056 62.33 105L65.75 95.79L69.17 95.64L68.8 103.19C74.55 102.6 80.98 103.77 86.97 102.87L88.07 106.87C79.29 110.93 70.3 104.31 62.15 113.04C59.22 116.18 60.34 118.91 62.15 121.66C64.76 125.59 69.66 123.23 74.67 121.66C82.26 119.34 87.77 117.66 98.16 118.51C95.68 113.8 95.92 108.11 99.24 101.85L104.13 103.78C100.7 111.69 103.91 116.27 106.13 118.29C109.56 121.41 114.72 122.35 118.13 120.47C119.436 119.749 120.559 118.737 121.412 117.513C122.265 116.289 122.825 114.885 123.05 113.41C123.275 112.051 123.258 110.663 123 109.31H123.01Z"/>
+  </svg>
+)
+
+// Component to display a single reasoning item
+const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false }) => {
+  if (!text || !text.trim()) {
+    // Show "Thinking..." or "Thought" when reasoning is active but text is empty
+    if (isStreaming || hasFollowingEvent) {
+      return (
+        <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
+          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !hasFollowingEvent && "animate-wobble")} />
+          <span className="font-medium">{hasFollowingEvent ? 'Thought' : 'Thinking...'}</span>
+        </div>
+      )
+    }
+    return null
+  }
+
+  // Get truncated preview (first ~150 chars or first 2 sentences)
+  const getPreview = (text) => {
+    // Strip markdown for preview
+    const plainText = text.replace(/[#*_`~\[\]]/g, '').replace(/\n+/g, ' ')
+    const sentences = plainText.match(/[^.!?]+[.!?]+/g) || [plainText]
+    const firstTwo = sentences.slice(0, 2).join('')
+    if (firstTwo.length > 150) {
+      return firstTwo.substring(0, 150).trim()
+    }
+    if (sentences.length > 2) {
+      return firstTwo.trim()
+    }
+    return plainText.length > 150 ? plainText.substring(0, 150).trim() : plainText
+  }
+  
+  const preview = getPreview(text)
+  const needsExpansion = text.length > preview.length + 20 // Add buffer for markdown chars
+
+  if (needsExpansion) {
+    return (
+      <details className="group mt-2 ms-6 text-sm text-gray-500">
+        <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
+          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && "animate-wobble")} />
+          <span className="group-open:hidden">{preview}...</span>
+          <span className="hidden group-open:inline text-gray-400 text-xs">Hide thinking</span>
+          <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
+        </summary>
+        <div className="mt-2 ms-6 text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
+          <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
+            {text}
+          </Streamdown>
+        </div>
+      </details>
+    )
+  }
+
+  return (
+    <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
+      <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && "animate-wobble")} />
+      <div className="text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
+        <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
+          {text}
+        </Streamdown>
+      </div>
+    </div>
+  )
+}, (prevProps, nextProps) => {
+  return prevProps.text === nextProps.text && prevProps.isStreaming === nextProps.isStreaming && prevProps.hasFollowingEvent === nextProps.hasFollowingEvent
+})
+ReasoningItem.displayName = 'ReasoningItem'
 
 export default function Chat({ team, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
@@ -444,6 +535,79 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   )
   const [conversationId, setConversationId] = useState(uuidv4())
   const [selectedModel, setSelectedModel] = useState(bot.model)
+  
+  // Models that support reasoning effort
+  // GPT-5.1 series: gpt-5.1, gpt-5.2
+  // GPT-5.0 series: gpt-5, gpt-5-mini, gpt-5-nano
+  // O-series: o1, o1-mini, o3, o3-mini, o4, o4-mini
+  const reasoningModels = [
+    'gpt-5.1', 'gpt-5.2',  // GPT-5.1 series
+    'gpt-5', 'gpt-5-mini', 'gpt-5-nano',  // GPT-5.0 series
+    'o1', 'o1-mini', 'o3', 'o3-mini', 'o4', 'o4-mini'  // O-series
+  ]
+  
+  // Check if a model is a reasoning model
+  const isReasoningModel = (model) => {
+    return reasoningModels.includes(model)
+  }
+  
+  // Get default reasoning effort based on model
+  const getDefaultReasoningEffort = (model) => {
+    // GPT-5.1 series: default "none"
+    if (model === 'gpt-5.1' || model === 'gpt-5.2') {
+      return 'none'
+    }
+    // GPT-5.0 series: default "minimal"
+    if (model === 'gpt-5' || model === 'gpt-5-mini' || model === 'gpt-5-nano') {
+      return 'minimal'
+    }
+    // O-series: default "low"
+    if (model.startsWith('o')) {
+      return 'low'
+    }
+    // Non-reasoning models
+    return null
+  }
+  
+  // Get supported reasoning effort values for a model (ordered highest to lowest)
+  const getSupportedReasoningEfforts = (model) => {
+    // GPT-5.1 series: "high", "medium", "low", "none"
+    if (model === 'gpt-5.1' || model === 'gpt-5.2') {
+      return ['high', 'medium', 'low', 'none']
+    }
+    // GPT-5.0 series: "high", "medium", "low", "minimal"
+    if (model === 'gpt-5' || model === 'gpt-5-mini' || model === 'gpt-5-nano') {
+      return ['high', 'medium', 'low', 'minimal']
+    }
+    // O-series: "high", "medium", "low"
+    if (model.startsWith('o')) {
+      return ['high', 'medium', 'low']
+    }
+    // Non-reasoning models
+    return []
+  }
+  
+  const [reasoningEffort, setReasoningEffort] = useState(
+    getDefaultReasoningEffort(bot.model)
+  )
+  
+  // Update reasoning effort when model changes
+  // Preserve current value if it's supported by the new model, otherwise use default
+  useEffect(() => {
+    const defaultEffort = getDefaultReasoningEffort(selectedModel)
+    const supportedValues = getSupportedReasoningEfforts(selectedModel)
+    
+    setReasoningEffort((currentEffort) => {
+      // If current effort is valid for the new model, keep it
+      if (currentEffort && supportedValues.includes(currentEffort)) {
+        return currentEffort
+      }
+      // Otherwise use the default for the new model
+      return defaultEffort
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedModel])
+  
   const [questions, setQuestions] = useState(
     bot.questions
       ? bot.questions.length >= 4
@@ -464,8 +628,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const posthog = usePostHog()
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
-  const [toolCalls, setToolCalls] = useState([]) // Track tool calls for current conversation
-  const toolCallsRef = useRef([]) // Ref to track tool calls for closure access
+  const [agentEvents, setAgentEvents] = useState([]) // Track tool calls and reasoning in order
+  const agentEventsRef = useRef([]) // Ref to track agent events for closure access
 
   const validModels = [
     {
@@ -572,9 +736,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     // Clear selected images after adding to message
     setSelectedImages([])
     setImageUrls([])
-    // Clear tool calls for new question
-    setToolCalls([])
-    toolCallsRef.current = []
+    // Clear agent events for new question
+    setAgentEvents([])
+    agentEventsRef.current = []
 
     //get apiBase from env
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/chat-agent`
@@ -616,6 +780,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     //only send model if they can
     if (team?.supportsGPT4 && team?.openAIKey && checkPlanPermission(team, 'hobby').allowed) {
       body.model = selectedModel
+      // Add reasoning_effort if model supports it
+      if (isReasoningModel(selectedModel) && reasoningEffort) {
+        body.reasoning_effort = reasoningEffort
+      }
     }
     
     class FatalError extends Error {}
@@ -683,31 +851,48 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             // Handle tool call events
             try {
               const toolCallData = JSON.parse(msg.data)
-              const newToolCall = {
+              const newEvent = {
                 id: uuidv4(),
+                type: 'tool_call',
                 name: toolCallData.name,
                 params: toolCallData.params,
                 timestamp: Date.now(),
               }
-              setToolCalls((prev) => {
-                const updated = [...prev, newToolCall]
-                toolCallsRef.current = updated
+              setAgentEvents((prev) => {
+                const updated = [...prev, newEvent]
+                agentEventsRef.current = updated
                 return updated
               })
             } catch (error) {
               console.error('Error parsing tool_call data:', error)
             }
+          } else if (msg.event === 'reasoning') {
+            // Handle reasoning summary events
+            try {
+              const reasoningData = JSON.parse(msg.data)
+              const newEvent = {
+                id: uuidv4(),
+                type: 'reasoning',
+                text: reasoningData.text || '',
+                timestamp: Date.now(),
+              }
+              setAgentEvents((prev) => {
+                const updated = [...prev, newEvent]
+                agentEventsRef.current = updated
+                return updated
+              })
+            } catch (error) {
+              console.error('Error parsing reasoning data:', error)
+            }
           } else if (msg.event === 'error') {
             setLoading(false)
             setErrorText(msg.data)
-            setToolCalls([])
-            toolCallsRef.current = []
-            //strip all empty answers
-            if (answers.length > 0) {
-              setAnswers((prev) => {
-                return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-              })
-            }
+            setAgentEvents([])
+            agentEventsRef.current = []
+            //strip all empty answers (always run - don't check stale closure value)
+            setAnswers((prev) => {
+              return prev.filter((a) => a.type !== 'answer' || a.markdown)
+            })
             throw new FatalError(msg.data)
           } else {
             try {
@@ -732,13 +917,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 setErrorText('Incomplete response received. Please try again.')
                 setLoading(false)
                 //strip all empty answers
-                if (answers.length > 0) {
-                  setAnswers((prev) => {
-                    return [
-                      ...prev.filter((a) => a.type !== 'answer' || a.markdown),
-                    ]
-                  })
-                }
+                setAnswers((prev) => {
+                  return prev.filter((a) => a.type !== 'answer' || a.markdown)
+                })
                 return false
               }
 
@@ -750,9 +931,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               }
 
               if (msg.event === 'is_resolved_question') {
-                const currentToolCalls = [...toolCallsRef.current]
+                // Filter out empty reasoning events when saving
+                const currentEvents = agentEventsRef.current.filter(
+                  e => e.type !== 'reasoning' || (e.text && e.text.trim())
+                )
                 setAnswers((prev) => {
-                  //add new answer with tool calls
+                  //add new answer with agent events
                   return [
                     ...prev,
                     {
@@ -761,20 +945,23 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       rating: 0,
                       id: endData.id,
                       options: endData.options,
-                      toolCalls: currentToolCalls,
+                      agentEvents: currentEvents,
                     },
                   ]
                 })
                 setCurrentAnswer(endData.answer)
-                // Clear tool calls for next question
-                setToolCalls([])
-                toolCallsRef.current = []
+                // Clear agent events for next question
+                setAgentEvents([])
+                agentEventsRef.current = []
               } else {
                 if (endData.answer) {
                   setCurrentAnswer(endData.answer)
                 }
 
-                const currentToolCalls = [...toolCallsRef.current]
+                // Filter out empty reasoning events when saving
+                const currentEvents = agentEventsRef.current.filter(
+                  e => e.type !== 'reasoning' || (e.text && e.text.trim())
+                )
                 setAnswers((prev) => {
                   const newPrev = [...prev]
                   if (newPrev.length > 0) {
@@ -785,14 +972,14 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       options:
                         endData.options || newPrev[newPrev.length - 1].options,
                       markdown: endData.answer,
-                      toolCalls: currentToolCalls.length > 0 ? currentToolCalls : (newPrev[newPrev.length - 1].toolCalls || []), // Preserve or update tool calls
+                      agentEvents: currentEvents.length > 0 ? currentEvents : (newPrev[newPrev.length - 1].agentEvents || []),
                     }
                   }
                   return newPrev
                 })
-                // Clear tool calls when answer is complete
-                setToolCalls([])
-                toolCallsRef.current = []
+                // Clear agent events when answer is complete
+                setAgentEvents([])
+                agentEventsRef.current = []
               }
 
               setLoading(false)
@@ -807,11 +994,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               setErrorText('Error processing response. Please try again.')
               setLoading(false)
               //strip all empty answers
-              if (answers.length > 0) {
-                setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-                })
-              }
+              setAnswers((prev) => {
+                return prev.filter((a) => a.type !== 'answer' || a.markdown)
+              })
               return false
             }
           }
@@ -827,11 +1012,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             )
             setLoading(false)
             //strip all empty answers
-            if (answers.length > 0) {
-              setAnswers((prev) => {
-                return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-              })
-            }
+            setAnswers((prev) => {
+              return prev.filter((a) => a.type !== 'answer' || a.markdown)
+            })
             throw err // Re-throw to stop the operation
           } else if (err instanceof RetriableError && !hasReceivedEvents) {
             // Only retry if we haven't received any events yet
@@ -844,11 +1027,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               )
               setLoading(false)
               //strip all empty answers
-              if (answers.length > 0) {
-                setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-                })
-              }
+              setAnswers((prev) => {
+                return prev.filter((a) => a.type !== 'answer' || a.markdown)
+              })
               throw new FatalError('Max retries exceeded')
             }
 
@@ -867,11 +1048,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 'Unable to connect to the server. Please check your connection and try again.',
               )
               setLoading(false)
-              if (answers.length > 0) {
-                setAnswers((prev) => {
-                  return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-                })
-              }
+              //strip all empty answers
+              setAnswers((prev) => {
+                return prev.filter((a) => a.type !== 'answer' || a.markdown)
+              })
               throw new FatalError('Network connection failed')
             }
 
@@ -896,11 +1076,9 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       )
       setLoading(false)
       //strip all empty answers
-      if (answers.length > 0) {
-        setAnswers((prev) => {
-          return [...prev.filter((a) => a.type !== 'answer' || a.markdown)]
-        })
-      }
+      setAnswers((prev) => {
+        return prev.filter((a) => a.type !== 'answer' || a.markdown)
+      })
     }
 
     if (testing) {
@@ -1249,6 +1427,121 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     )
   }
 
+  const ReasoningSelector = () => {
+    // Only show if model supports reasoning
+    if (!isReasoningModel(selectedModel) || !reasoningEffort) {
+      return null
+    }
+
+    // Get supported values for the current model
+    const supportedValues = getSupportedReasoningEfforts(selectedModel)
+    
+    // Map of all possible reasoning effort options
+    const allReasoningOptions = {
+      none: { value: 'none', label: 'None', description: 'Least reasoning (GPT-5.1 default)' },
+      minimal: { value: 'minimal', label: 'Minimal', description: 'Minimal reasoning (GPT-5 default)' },
+      low: { value: 'low', label: 'Low', description: 'Light reasoning (O-series default)' },
+      medium: { value: 'medium', label: 'Medium', description: 'Balanced reasoning' },
+      high: { value: 'high', label: 'High', description: 'Maximum reasoning depth' },
+    }
+    
+    // Filter options to only show supported values for this model
+    const reasoningOptions = supportedValues.map(value => allReasoningOptions[value])
+
+    const isDisabled =
+      !team?.supportsGPT4 ||
+      !team?.openAIKey ||
+      !checkPlanPermission(team, 'hobby').allowed
+
+    return (
+      <Listbox value={reasoningEffort} onChange={setReasoningEffort}>
+        <div className="relative">
+          <div className="inline-block">
+            <Tooltip content="Reasoning effort" placement="top">
+              <div>
+                <Listbox.Button
+                  className={clsx(
+                    'flex cursor-pointer items-center p-2 text-xs',
+                    isDisabled
+                      ? 'cursor-not-allowed text-gray-400 opacity-50'
+                      : 'text-gray-600 hover:text-cyan-600',
+                  )}
+                  onClick={(e) => {
+                    if (!checkPlanPermission(team, 'hobby').allowed) {
+                      setPendingUpgrade(true)
+                    }
+                    if (isDisabled) {
+                      e.preventDefault()
+                    }
+                  }}
+                >
+                  <SparklesIcon className="mr-1 h-5 w-5" aria-hidden="true" />
+                  {reasoningOptions.find((opt) => opt.value === reasoningEffort)?.label || reasoningEffort}
+                </Listbox.Button>
+              </div>
+            </Tooltip>
+          </div>
+
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Listbox.Options className="absolute bottom-full left-0 z-10 mb-2 max-h-72 w-72 origin-bottom-right divide-y divide-gray-200 overflow-hidden overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+              {reasoningOptions.map((option) => (
+                <Listbox.Option
+                  key={option.value}
+                  value={option.value}
+                  className={({ active }) =>
+                    clsx(
+                      'group cursor-default select-none p-2 text-sm',
+                      active ? 'bg-cyan-600 text-white' : 'text-gray-900',
+                      isDisabled && 'cursor-not-allowed opacity-50',
+                    )
+                  }
+                >
+                  {({ selected, active }) => (
+                    <div className="flex flex-col text-left">
+                      <div className="flex justify-between">
+                        <p
+                          className={clsx(
+                            'font-normal',
+                            selected && 'font-semibold',
+                          )}
+                        >
+                          {option.label}
+                        </p>
+                        {selected && (
+                          <span
+                            className={active ? 'text-white' : 'text-cyan-600'}
+                          >
+                            <CheckIcon className="h-4 w-4" aria-hidden="true" />
+                          </span>
+                        )}
+                      </div>
+                      <p
+                        className={clsx(
+                          'mt-1 text-xs',
+                          active ? 'text-cyan-200' : 'text-gray-500',
+                        )}
+                      >
+                        {option.description}
+                      </p>
+                    </div>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+    )
+  }
+
   const handleImageSelect = (e) => {
     if (!checkPlanPermission(team, 'personal').allowed) {
       setPendingUpgrade(true)
@@ -1363,13 +1656,31 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             )
             const result = []
             completedMessages.forEach((answer, index) => {
-              // Render tool calls before answer if they exist
-              if (answer.type === 'answer' && answer.toolCalls && answer.toolCalls.length > 0) {
-                result.push(
-                  <div key={`toolcalls-${answer.id || index}`} className="mt-1">
-                    <ToolCallDisplay toolCalls={answer.toolCalls} />
-                  </div>
-                )
+              // Render agent events (reasoning and tool calls) in order before answer
+              if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
+                const agentEvents = []
+                answer.agentEvents.forEach((event, eventIndex) => {
+                  const hasFollowingEvent = eventIndex < answer.agentEvents.length - 1
+                  if (event.type === 'reasoning') {
+                    agentEvents.push(
+                      <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} />
+                    )
+                  } else if (event.type === 'tool_call') {
+                    agentEvents.push(
+                      <div key={`toolcall-${answer.id || index}-${eventIndex}`} className="mt-2">
+                        <ToolCallDisplay toolCalls={[event]} isStreamingStarted={true} />
+                      </div>
+                    )
+                  }
+                })
+                // Wrap all agent events in a container with extra top margin
+                if (agentEvents.length > 0) {
+                  result.push(
+                    <div key={`agent-events-${answer.id || index}`} className="mt-4">
+                      {agentEvents}
+                    </div>
+                  )
+                }
               }
               // Render the message (question or answer)
               result.push(
@@ -1399,10 +1710,24 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           // Note: Including UI state props so completed messages update on state changes
           // eslint-disable-next-line react-hooks/exhaustive-deps
           }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])}
-          {/* Render tool calls before streaming answer */}
-          {loading && toolCalls.length > 0 && (
-            <div className="mt-1">
-              <ToolCallDisplay toolCalls={toolCalls} />
+          {/* Render agent events (reasoning and tool calls) while loading, in order */}
+          {loading && agentEvents.length > 0 && (
+            <div className="mt-4">
+              {agentEvents.map((event, eventIndex) => {
+                const hasFollowingEvent = eventIndex < agentEvents.length - 1
+                if (event.type === 'reasoning') {
+                  return (
+                    <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} />
+                  )
+                } else if (event.type === 'tool_call') {
+                  return (
+                    <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
+                      <ToolCallDisplay toolCalls={[event]} isStreamingStarted={currentAnswer.length > 0} />
+                    </div>
+                  )
+                }
+                return null
+              })}
             </div>
           )}
           {/* Render streaming message separately so only it updates */}
@@ -1542,6 +1867,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     </Tooltip>
                   )}
                   <ModelSelector />
+                  <ReasoningSelector />
                 </div>
                 {selectedImages.length > 0 && (
                   <div className="absolute left-0 right-0 top-0 flex flex-wrap gap-2 p-3 pb-2">
@@ -1639,8 +1965,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                       setQuestion('')
                       setErrorText(null)
                       setConversationId(uuidv4())
-                      setToolCalls([])
-                      toolCallsRef.current = []
+                      setAgentEvents([])
+                      agentEventsRef.current = []
                     }}
                   >
                     <ArrowPathIcon

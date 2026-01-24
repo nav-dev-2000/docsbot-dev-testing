@@ -65,10 +65,19 @@ module.exports = {
           '60%': { transform: 'translate(-50%, 10%)', opacity: '1' },
           '80%': { transform: 'translate(-50%, -5%)' },
           '100%': { transform: 'translate(-50%, 0)' }
+        },
+        'wobble': {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '15%': { transform: 'rotate(-12deg)' },
+          '30%': { transform: 'rotate(9deg)' },
+          '45%': { transform: 'rotate(-6deg)' },
+          '60%': { transform: 'rotate(3deg)' },
+          '75%': { transform: 'rotate(-1deg)' }
         }
       },
       animation: {
-        'bounce-slide-down': 'bounce-slide-down 0.5s ease-out'
+        'bounce-slide-down': 'bounce-slide-down 0.5s ease-out',
+        'wobble': 'wobble 1s ease-in-out infinite'
       }
     },
   },
