@@ -41,6 +41,7 @@ import { isSuperAdmin } from '@/utils/helpers'
 import { preprocessMath } from '@/utils/markdown'
 import ConversationMetadataViewer from '@/components/ConversationMetadataViewer'
 import QuestionSkeleton from '@/components/QuestionSkeleton'
+import HelpScoutLogo from '@/components/HelpScoutLogo'
 
 const BLUR_LIMIT_COUNT = 2 // the amount of questions to blur before the plan limit
 const streamdownRemarkPlugins = [
@@ -308,6 +309,24 @@ const Answer = ({
                         </Link>
                       </Tooltip>
                     )}
+
+                    {question.metadata?.helpscoutReply === true &&
+                      question.metadata?.helpscoutConversationUrl && (
+                        <Tooltip content="View conversation in Help Scout">
+                          <a
+                            href={question.metadata.helpscoutConversationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
+                          >
+                            <HelpScoutLogo
+                              className="mr-1 h-4 w-4 text-[#1292ee]"
+                              aria-hidden="true"
+                            />
+                            Help Scout
+                          </a>
+                        </Tooltip>
+                      )}
 
                     {user && user.uid && isSuperAdmin(user.uid) && (
                       <Link

@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-25',
+    title: 'Help Scout integration enhancements',
+    description:
+      'Save Help Scout replies to conversation logs for review, AI summaries, topic/resolution/sentiment stats, and deep links to the Help Scout dashboard. Ability to skip AI replies when needed via Help Scout instructions.',
+  },
+  {
     date: '2026-01-23',
     title: 'Major Agent API upgrade for more powerful capabilities',
     description:

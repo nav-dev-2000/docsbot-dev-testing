@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Tooltip from '@/components/Tooltip'
+import HelpScoutLogo from '@/components/HelpScoutLogo'
 
 // Format key: convert underscores to spaces and capitalize
 const formatKey = (key) => {
@@ -18,6 +19,18 @@ const formatKey = (key) => {
 
 export default function ConversationMetadataViewer({ metadata }) {
   const [copiedKeys, setCopiedKeys] = useState(new Set())
+
+  // Check if this is a Help Scout conversation
+  const isHelpScoutConversation = useMemo(() => {
+    if (!metadata || typeof metadata !== 'object') {
+      return false
+    }
+    return (
+      metadata.helpscoutReply === true &&
+      metadata.helpscoutConversationUrl &&
+      typeof metadata.helpscoutConversationUrl === 'string'
+    )
+  }, [metadata])
 
   // Check if metadata has fields other than name and email
   const hasMetadata = useMemo(() => {
@@ -169,6 +182,22 @@ export default function ConversationMetadataViewer({ metadata }) {
       >
         {String(value)}
       </button>
+    )
+  }
+
+  // If Help Scout conversation, show Help Scout icon instead of metadata dropdown
+  if (isHelpScoutConversation) {
+    return (
+      <Tooltip content="View conversation in Help Scout">
+        <a
+          href={metadata.helpscoutConversationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+        >
+          <HelpScoutLogo className="h-5 w-5 text-[#1292ee]" aria-hidden="true" />
+        </a>
+      </Tooltip>
     )
   }
 
