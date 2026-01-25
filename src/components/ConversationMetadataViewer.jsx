@@ -25,11 +25,7 @@ export default function ConversationMetadataViewer({ metadata }) {
     if (!metadata || typeof metadata !== 'object') {
       return false
     }
-    return (
-      metadata.helpscoutReply === true &&
-      metadata.helpscoutConversationUrl &&
-      typeof metadata.helpscoutConversationUrl === 'string'
-    )
+    return metadata.helpscoutReply === true
   }, [metadata])
 
   // Check if metadata has fields other than name and email
@@ -187,16 +183,29 @@ export default function ConversationMetadataViewer({ metadata }) {
 
   // If Help Scout conversation, show Help Scout icon instead of metadata dropdown
   if (isHelpScoutConversation) {
+    const hasUrl =
+      metadata.helpscoutConversationUrl &&
+      typeof metadata.helpscoutConversationUrl === 'string'
+    const icon = (
+      <HelpScoutLogo className="h-5 w-5 text-[#1292ee]" aria-hidden="true" />
+    )
+
     return (
-      <Tooltip content="View conversation in Help Scout">
-        <a
-          href={metadata.helpscoutConversationUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
-        >
-          <HelpScoutLogo className="h-5 w-5 text-[#1292ee]" aria-hidden="true" />
-        </a>
+      <Tooltip content={hasUrl ? 'View conversation in Help Scout' : 'Help Scout conversation'}>
+        {hasUrl ? (
+          <a
+            href={metadata.helpscoutConversationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+          >
+            {icon}
+          </a>
+        ) : (
+          <div className="flex items-center text-gray-400">
+            {icon}
+          </div>
+        )}
       </Tooltip>
     )
   }

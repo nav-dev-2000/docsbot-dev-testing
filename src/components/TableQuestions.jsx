@@ -310,9 +310,15 @@ const Answer = ({
                       </Tooltip>
                     )}
 
-                    {question.metadata?.helpscoutReply === true &&
-                      question.metadata?.helpscoutConversationUrl && (
-                        <Tooltip content="View conversation in Help Scout">
+                    {question.metadata?.helpscoutReply === true && (
+                      <Tooltip
+                        content={
+                          question.metadata?.helpscoutConversationUrl
+                            ? 'View conversation in Help Scout'
+                            : 'Help Scout conversation'
+                        }
+                      >
+                        {question.metadata?.helpscoutConversationUrl ? (
                           <a
                             href={question.metadata.helpscoutConversationUrl}
                             target="_blank"
@@ -325,8 +331,17 @@ const Answer = ({
                             />
                             Help Scout
                           </a>
-                        </Tooltip>
-                      )}
+                        ) : (
+                          <div className="mr-6 flex items-center text-xs text-gray-400">
+                            <HelpScoutLogo
+                              className="mr-1 h-4 w-4 text-[#1292ee]"
+                              aria-hidden="true"
+                            />
+                            Help Scout
+                          </div>
+                        )}
+                      </Tooltip>
+                    )}
 
                     {user && user.uid && isSuperAdmin(user.uid) && (
                       <Link
