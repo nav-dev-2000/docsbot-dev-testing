@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-26',
+    title: 'GPT-5 mini default for new bots',
+    description:
+      'New bots now default to GPT-5 mini. GPT-5 mini and GPT-5.2 are now our recommended models.',
+  },
+  {
     date: '2026-01-25',
     title: 'Help Scout integration enhancements',
     description:

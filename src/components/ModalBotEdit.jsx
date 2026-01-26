@@ -6,7 +6,6 @@ import Alert from '@/components/Alert'
 import FormBot from '@/components/FormBot'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import Tooltip from '@/components/Tooltip'
-import { checkPlanPermission } from '@/utils/helpers'
 
 export default function ModalBotEdit({ team, bot, setBot }) {
   const [open, setOpen] = useState(false)
@@ -31,9 +30,9 @@ export default function ModalBotEdit({ team, bot, setBot }) {
       // Only set default model if no model is already set or if the current model requires an API key
       const currentModel = botSettings.model || bot?.model;
       const modelsThatRequireAPIKey = ['gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'];
+      const defaultModel = 'gpt-5-mini'
       
       if (!currentModel || modelsThatRequireAPIKey.includes(currentModel)) {
-        const defaultModel = 'gpt-4.1-mini';
         setBotSettings({ ...botSettings, model: defaultModel });
       }
     }

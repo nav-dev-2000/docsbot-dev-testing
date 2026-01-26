@@ -425,7 +425,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     if (model.startsWith('gpt-5')) {
       const isFullGPT5Model = model !== 'gpt-5-mini' && model !== 'gpt-5-nano'
-      if (!checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
+      if (isFullGPT5Model && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
         throw new Error('GPT-5 models are not available at your plan level.')
       }
       if (isFullGPT5Model) {
@@ -463,7 +463,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     botData.model = model
   } else if (!isUpdate) {
-    const defaultModel = 'gpt-4.1-mini';
+    const defaultModel = 'gpt-5-mini'
     botData.model = defaultModel
   }
 

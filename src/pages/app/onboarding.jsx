@@ -834,11 +834,12 @@ function Onboarding({ team }) {
 
       resetError()
       try {
+        const defaultModel = 'gpt-5-mini'
         const botPayload = {
           name,
           description: descriptionValue || '',
           privacy: 'public',
-          model: 'gpt-4.1-mini',
+          model: defaultModel,
           language: languageValue,
           labels: labelsValue,
           temperature: temperatureValue,

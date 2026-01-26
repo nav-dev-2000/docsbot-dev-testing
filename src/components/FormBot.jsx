@@ -17,12 +17,13 @@ export default function FormBot({
   disabled,
   short = false,
 }) {
+  const defaultModel = 'gpt-5-mini'
   const [language, setLanguage] = useState(bot?.language || 'en')
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
   const [model, setModel] = useState(
-    bot?.model || 'gpt-4.1-mini'
+    bot?.model || defaultModel
   )
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
@@ -61,7 +62,7 @@ export default function FormBot({
     'gpt-5':
       model === 'gpt-5',
     'gpt-4.1': !short,
-    'gpt-5-mini': checkPlanPermission(team, 'personal').allowed || model === 'gpt-5-mini',
+    'gpt-5-mini': true,
     'gpt-4.1-mini': true,
     'gpt-5-nano':
       (checkPlanPermission(team, 'personal').allowed && !short) || model === 'gpt-5-nano',
@@ -154,7 +155,7 @@ export default function FormBot({
     if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
       // For non-personal plans, keep existing behavior
       if (
-        ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-5-mini', 'gpt-5-nano', 'gpt-4.1', 'gpt-4o'].includes(model)
+        ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-5-nano', 'gpt-4.1', 'gpt-4o'].includes(model)
       ) {
         setShowUpgrade(true)
         setModel('gpt-4.1-mini')
@@ -168,8 +169,8 @@ export default function FormBot({
         ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(model) &&
         !team.supportsGPT4
       ) {
-        setModel('gpt-4.1-mini') // Default to gpt-5-mini since they're on paid plan
-        console.log('Reverting to gpt-4.1-mini for paid plan user without OpenAI key')
+        setModel('gpt-5-mini') // Default to gpt-5-mini since they're on paid plan
+        console.log('Reverting to gpt-5-mini for paid plan user without OpenAI key')
       }
       // If they're selecting gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, don't change anything
     }
@@ -511,6 +512,9 @@ export default function FormBot({
                 <div className="pl-7 text-sm">
                   <label htmlFor="gpt-5-2" className="font-medium text-gray-900">
                     GPT-5.2 - Most Powerful
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                      Recommended
+                    </span>
                   </label>
                   <p id="gpt-5-2-description" className="text-gray-500">
                     Latest flagship tuned for long-context work, stronger tool use, and adaptive reasoning.{' '}
@@ -602,9 +606,6 @@ export default function FormBot({
                     className="font-medium text-gray-900"
                   >
                     GPT-4.1
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                      Recommended
-                    </span>
                   </label>
                   <p id="gpt-4.1-description" className="text-gray-500">
                     Previous generation model good at instruction following.
@@ -631,6 +632,9 @@ export default function FormBot({
                 <div className="pl-7 text-sm">
                   <label htmlFor="gpt-5-mini" className="font-medium text-gray-900">
                     GPT-5 mini - Best Value
+                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                      Recommended
+                    </span>
                   </label>
                   <p id="gpt-5-mini-description" className="text-gray-500">
                     Smart, fast, and useful model. Good for most support use cases.{' '}
@@ -665,11 +669,6 @@ export default function FormBot({
                     className="font-medium text-gray-900"
                   >
                     GPT-4.1 mini
-                    {!team.supportsGPT4 && (
-                      <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                        Recommended
-                      </span>
-                    )}
                   </label>
                   <p id="gpt-4.1-mini-description" className="text-gray-500">
                     Faster than GPT-4.1 while still good at instruction following.

@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { useRouter } from 'next/router'
-import { stripePlan, checkPlanPermission } from '@/utils/helpers'
+import { stripePlan } from '@/utils/helpers'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import FormBot from '@/components/FormBot'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -38,7 +38,7 @@ export default function NewBotPanel({ team, open, setOpen }) {
 
   useEffect(() => {
     if (!showOpenAI && !team.openAIKey) {
-      const defaultModel = 'gpt-4.1-mini';
+      const defaultModel = 'gpt-5-mini'
       setBotSettings({ ...botSettings, model: defaultModel });
     }
   }, [showOpenAI])
