@@ -1,7 +1,7 @@
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getTeam, getTeamUsers, getInvitesFromTeam } from '@/lib/dbQueries'
+import { getTeam, getTeamUsers, getInvitesFromTeam, getUserTeams } from '@/lib/dbQueries'
 import { isSuperAdmin } from '@/utils/helpers'
 import { getAuth } from 'firebase-admin/auth'
 import crypto from 'crypto'
@@ -39,15 +39,34 @@ export default async function handler(req, res) {
         ) {
           //get user via email from firebase
           const user = await getAuth().getUserByEmail(currentTeam)
-          if (user) {
-            const userRef = await firestore.collection('users').doc(user.uid).get()
-            if (userRef.exists) {
-              currentTeam = userRef.data().currentTeam
-            } else {
-              return res.status(404).json({ message: 'User not found in DB' })
-            }
-          } else {
+          if (!user) {
             return res.status(404).json({ message: 'No user found with that email' })
+          }
+
+          const userRef = await firestore.collection('users').doc(user.uid).get()
+          if (!userRef.exists) {
+            return res.status(404).json({ message: 'User not found in DB' })
+          }
+
+          const teams = await getUserTeams(user.uid)
+          const userCurrentTeam = userRef.data().currentTeam
+          const currentTeamMatch = teams.find((team) => team.id === userCurrentTeam)
+
+          if (currentTeamMatch) {
+            currentTeam = currentTeamMatch.id
+          } else if (teams.length === 1) {
+            currentTeam = teams[0].id
+          } else if (teams.length > 1) {
+            return res.status(409).json({
+              message: 'Multiple teams found for this user. Please select a team.',
+              teams: teams.map((team) => ({
+                id: team.id,
+                name: team.name,
+                botCount: team.botCount ?? 0,
+              })),
+            })
+          } else {
+            return res.status(404).json({ message: 'No teams found for that user.' })
           }
         }
       } catch (error) {
