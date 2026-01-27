@@ -32,6 +32,20 @@ import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
 import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 
+// Helper function to get company name from bot metadata, team metadata, or bot name
+const getCompanyName = (bot, team) => {
+  // Check bot metadata/brandAnalysis first
+  if (bot?.brandAnalysis?.businessName) {
+    return bot.brandAnalysis.businessName
+  }
+  // Check team metadata
+  if (team?.metadata?.companyName) {
+    return team.metadata.companyName
+  }
+  // Fallback to bot name
+  return bot?.name || 'your company'
+}
+
 export default function ModalPrompt({
   team,
   integrations,
@@ -135,6 +149,9 @@ export default function ModalPrompt({
     // Check if agentPrompt matches any preset after variable replacement
     let matchedPreset = ''
     for (const [presetKey, presetData] of Object.entries(PRESET_PROMPTS)) {
+      // Skip HELPSCOUT preset for agent prompt matching
+      if (presetKey === 'HELPSCOUT') continue
+      
       const replacedPrompt = presetData.prompt
         .replace(/{company_name}/g, bot.name)
         .replace(/{old_prompt}\n/g, prompt ? prompt + '\n' : '')
@@ -212,13 +229,17 @@ export default function ModalPrompt({
   const handlePresetChange = (value) => {
     setSelectedPreset(value)
 
-    // Don't modify agentPrompt if "custom" is selected
-    if (value && value !== 'custom') {
+    // Don't modify agentPrompt if "custom" is selected or if HELPSCOUT is selected
+    if (value && value !== 'custom' && value !== 'HELPSCOUT') {
       const presetPrompt = PRESET_PROMPTS[value]?.prompt || ''
       if (activeTab === 'agent') {
+        // Get product info from brandAnalysis if available
+        const productInfo = bot?.brandAnalysis?.businessDescription || ''
+        const productInfoWithNewline = productInfo ? '\n' + productInfo : ''
         setAgentPrompt(
           presetPrompt
             .replace(/{company_name}/g, bot.name)
+            .replace(/{product_info}/g, productInfoWithNewline)
             .replace(/{old_prompt}\n/g, prompt ? prompt + '\n' : '')
             .replace(/{old_prompt}/g, prompt ? prompt + '\n' : ''),
         )
@@ -238,6 +259,20 @@ export default function ModalPrompt({
     setHSPrompt(e.target.value)
   }
 
+  const handleUseHelpScoutTemplate = () => {
+    const companyName = getCompanyName(bot, team)
+    // Get product info from brandAnalysis if available, otherwise use empty string
+    const productInfo = bot?.brandAnalysis?.businessDescription || ''
+    const productInfoWithNewline = productInfo ? '\n' + productInfo : ''
+    const template = PRESET_PROMPTS.HELPSCOUT?.prompt || ''
+    const filledTemplate = template
+      .replace(/{company_name}/g, companyName)
+      .replace(/{product_info}/g, productInfoWithNewline)
+      .replace(/{old_prompt}\n/g, '')
+      .replace(/{old_prompt}/g, '')
+    setHSPrompt(filledTemplate)
+  }
+
   const handleReset = () => {
     if (hasUnsavedChanges) {
       const confirmed = window.confirm(
@@ -255,6 +290,9 @@ export default function ModalPrompt({
           // Check if original agentPrompt matches any preset
           let matchedPreset = ''
           for (const [presetKey, presetData] of Object.entries(PRESET_PROMPTS)) {
+            // Skip HELPSCOUT preset for agent prompt matching
+            if (presetKey === 'HELPSCOUT') continue
+            
             const replacedPrompt = presetData.prompt
               .replace(/{company_name}/g, bot.name)
               .replace(/{old_prompt}\n/g, bot.customPrompt ? bot.customPrompt + '\n' : '')
@@ -671,7 +709,7 @@ export default function ModalPrompt({
                                   <span className="hidden sm:inline">Debug</span>
                                 </button>
                               </Tooltip>
-                              {activeTab !== 'agent' && (
+                              {activeTab !== 'agent' && activeTab !== 'helpscout' && (
                                 <Tooltip content="Generate or improve your prompt">
                                   <button
                                     ref={buttonRef}
@@ -698,7 +736,7 @@ export default function ModalPrompt({
                                   </button>
                                 </Tooltip>
                               )}
-                              {activeTab !== 'agent' && (
+                              {activeTab !== 'agent' && activeTab !== 'helpscout' && (
                                 <Transition
                                   show={showGeneratePopover}
                                   enter="transition ease-out duration-200"
@@ -818,17 +856,39 @@ export default function ModalPrompt({
                             )}
                             {activeTab === 'helpscout' &&
                               helpScoutIntegration && (
-                                <div className="h-full">
+                                <div className="mt-4 h-fit">
                                   <label
                                     htmlFor="helpscoutPrompt"
                                     className="sr-only"
                                   >
                                     Custom Help Scout Prompt
                                   </label>
-                                  <div className="mt-1 h-full">
+                                  <div className="mb-2 flex items-center justify-between">
+                                    <Tooltip
+                                      content='<div class="text-sm"><p class="mb-2 font-semibold">Simply prompt for what it should not respond to</p><p class="text-gray-300">For example: Vacation or ticket auto-responders, spam emails, sales emails</p></div>'
+                                      placement="top"
+                                    >
+                                      <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-100 px-3 py-1 text-xs font-medium text-cyan-800 cursor-help">
+                                        <span className="relative flex h-2 w-2">
+                                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+                                          <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500"></span>
+                                        </span>
+                                        New: Ability to prompt the AI when it should not respond
+                                      </span>
+                                    </Tooltip>
+                                    <button
+                                      type="button"
+                                      onClick={handleUseHelpScoutTemplate}
+                                      disabled={isUpdating || !canModify}
+                                      className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                      Use Recommended Template
+                                    </button>
+                                  </div>
+                                  <div className="mt-2">
                                     <textarea
                                       id="helpscoutPrompt"
-                                      className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                      className="block min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                       placeholder="Enter any custom prompt here, this will be used for helpscout responses."
                                       value={hsPrompt}
                                       onChange={handleHSPromptChange}

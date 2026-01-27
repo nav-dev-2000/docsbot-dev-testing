@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-27',
+    title: 'Help Scout: Control when AI should not respond',
+    description:
+      'Prompt the AI when it should not respond in Help Scout. For example: vacation auto-responders, spam emails, or sales emails. New recommended Help Scout prompt template available.',
+  },
+  {
     date: '2026-01-26',
     title: 'GPT-5 mini default for new bots',
     description:

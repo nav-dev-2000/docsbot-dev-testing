@@ -2,10 +2,11 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore } from 'firebase-admin/firestore'
 import { QueueIntegration } from '@/lib/service'
-import { getTeamIntegrations } from '@/lib/dbQueries'
+import { getTeamIntegrations, getBots } from '@/lib/dbQueries'
 import { canUserModifyTeam } from '@/utils/function.utils'
 import { integrationTypes } from '@/constants/integrationTypes.constants'
 import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
+import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -80,6 +81,16 @@ export default async function handler(req, res) {
     }
 
     try {
+      // Check if integration already exists
+      const existingIntegration = await firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('integrations')
+        .doc(type)
+        .get()
+      
+      const isNewIntegration = !existingIntegration.exists
+
       // mark integration as pending
       await firestore.collection('teams').doc(team.id).collection('integrations').doc(type).set({
         type,
@@ -87,6 +98,55 @@ export default async function handler(req, res) {
         appID,
         appSecret,
       })
+
+      // If this is a new Help Scout integration, set default prompt for all bots
+      if (isNewIntegration && type === 'helpscout' && PRESET_PROMPTS.HELPSCOUT) {
+        try {
+          const bots = await getBots(team, 1000)
+          const batch = firestore.batch()
+          let batchCount = 0
+          const maxBatchSize = 500
+
+          for (const bot of bots) {
+            // Only set prompt if bot doesn't already have a Help Scout prompt
+            if (!bot.helpscoutPrompt) {
+              const companyName = bot?.brandAnalysis?.businessName || 
+                                 team?.metadata?.companyName || 
+                                 bot?.name || 
+                                 'your company'
+              
+              const defaultPrompt = PRESET_PROMPTS.HELPSCOUT.prompt
+                .replace(/{company_name}/g, companyName)
+                .replace(/{product_info}/g, '')
+                .replace(/{old_prompt}\n/g, '')
+                .replace(/{old_prompt}/g, '')
+
+              const botRef = firestore
+                .collection('teams')
+                .doc(team.id)
+                .collection('bots')
+                .doc(bot.id)
+              
+              batch.update(botRef, { helpscoutPrompt: defaultPrompt })
+              batchCount++
+
+              // Firestore batch limit is 500 operations
+              if (batchCount >= maxBatchSize) {
+                await batch.commit()
+                batchCount = 0
+              }
+            }
+          }
+
+          // Commit remaining updates
+          if (batchCount > 0) {
+            await batch.commit()
+          }
+        } catch (promptError) {
+          // Log error but don't fail the integration creation
+          console.error('Error setting default Help Scout prompts:', promptError)
+        }
+      }
 
       await QueueIntegration(team.id, type, appID, appSecret)
       return res.status(200).json({ newIntegration: {status: 'pending', type} })

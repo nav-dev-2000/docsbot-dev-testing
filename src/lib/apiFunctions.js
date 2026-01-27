@@ -488,12 +488,22 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (helpscoutPrompt !== undefined) {
-    if (helpscoutPrompt && isUpdate && helpscoutPrompt !== bot?.helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
+    // Trim whitespace to check if prompt is effectively empty
+    const trimmedPrompt = typeof helpscoutPrompt === 'string' ? helpscoutPrompt.trim() : helpscoutPrompt
+    
+    if (trimmedPrompt && isUpdate && trimmedPrompt !== bot?.helpscoutPrompt && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
       throw new Error(
         'Custom Help Scout prompts are not available at your plan level.',
       )
     }
-    botData.helpscoutPrompt = helpscoutPrompt
+    // Validate that helpscoutPrompt is not empty and contains "search_documentation" string
+    if (!trimmedPrompt || trimmedPrompt.length === 0) {
+      throw new Error('Help Scout prompt cannot be empty. Use our recommended template as a starting point.')
+    }
+    if (!trimmedPrompt.includes('search_documentation')) {
+      throw new Error('Your Help Scout prompt is missing required instructions on when and how to use the `search_documentation` tool. DocsBot cannot function correctly without them. Please start with our template prompt and customize it as needed.')
+    }
+    botData.helpscoutPrompt = trimmedPrompt
   }
 
   if (allowedDomains !== undefined) {

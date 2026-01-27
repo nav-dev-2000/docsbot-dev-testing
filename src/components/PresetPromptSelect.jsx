@@ -14,10 +14,12 @@ export default function PresetPromptSelect({
   defaultOptionDescription = 'Start with an empty prompt',
 }) {
   const presetOptions = [
-    ...Object.entries(PRESET_PROMPTS).map(([key, value]) => ({
-      id: key,
-      ...value,
-    })),
+    ...Object.entries(PRESET_PROMPTS)
+      .filter(([key]) => key !== 'HELPSCOUT')
+      .map(([key, value]) => ({
+        id: key,
+        ...value,
+      })),
   ]
 
   const getDisplayInfo = () => {

@@ -113,6 +113,9 @@ export default function FormBot({
   ])
 
   const handleAgentPromptChange = (value) => {
+    // Don't allow HELPSCOUT preset for agent prompts
+    if (value === 'HELPSCOUT') return
+    
     setAgentRole(value)
     setAgentPrompt(
       (PRESET_PROMPTS[value]?.prompt || '')
@@ -129,7 +132,8 @@ export default function FormBot({
 
   // Update agentPrompt when botName changes if a preset role is selected
   useEffect(() => {
-    if (agentRole && PRESET_PROMPTS[agentRole]) {
+    // Don't allow HELPSCOUT preset for agent prompts
+    if (agentRole && agentRole !== 'HELPSCOUT' && PRESET_PROMPTS[agentRole]) {
       setAgentPrompt(
         (PRESET_PROMPTS[agentRole]?.prompt || '')
           .replace(/{company_name}/g, botName)

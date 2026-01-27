@@ -1079,6 +1079,9 @@ function Onboarding({ team }) {
     // Check if agentPrompt matches any preset after variable replacement
     let matchedPreset = ''
     for (const [presetKey, presetData] of Object.entries(PRESET_PROMPTS)) {
+      // Skip HELPSCOUT preset for agent prompt matching
+      if (presetKey === 'HELPSCOUT') continue
+      
       const replacedPrompt = presetData.prompt
         .replace(/{company_name}/g, botName)
         .replace(/{product_info}/g, productInfo)
@@ -1659,8 +1662,8 @@ function Onboarding({ team }) {
   const handleModalPresetChange = (value) => {
     setSelectedModalPreset(value)
 
-    // Don't modify agentPrompt if "custom" is selected
-    if (value && value !== 'custom') {
+    // Don't modify agentPrompt if "custom" is selected or if HELPSCOUT is selected
+    if (value && value !== 'custom' && value !== 'HELPSCOUT') {
       const presetPrompt = PRESET_PROMPTS[value]?.prompt || ''
 
       // Get product info from brandAnalysis if available

@@ -18,6 +18,7 @@ import {
   CheckCircleIcon,
   MinusCircleIcon,
   ChevronLeftIcon,
+  ChevronDownIcon,
   ChartBarIcon,
   ChatBubbleLeftRightIcon,
   MagnifyingGlassIcon,
@@ -211,9 +212,20 @@ const Answer = ({
   const [open, setOpen] = useState(startOpen)
   const [qaOpen, setQAOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const usedSourcesCount = question.sources?.filter(s => s?.used).length || 0
+  const totalSourcesCount = question.sources?.length || 0
+  // Default to showing all if zero sources were used, otherwise show only used
+  const [showAllSources, setShowAllSources] = useState(usedSourcesCount === 0)
   const disabled =
     questionIdx + pagination.perPage * pagination.page + BLUR_LIMIT_COUNT >=
     pagination.planLimit
+
+  // Reset showAllSources when modal opens or question changes
+  useEffect(() => {
+    if (open) {
+      setShowAllSources(usedSourcesCount === 0)
+    }
+  }, [open, question.id, usedSourcesCount])
 
   return (
     <>
@@ -488,12 +500,37 @@ const Answer = ({
                     )}
                     {question.sources.length > 0 && (
                       <>
-                        <h3 className="mt-2 text-base font-medium text-gray-700">
-                          Used Sources:
-                        </h3>
-                        {question.sources.map((source, index) => (
-                          <FullSource key={index} source={source} />
-                        ))}
+                        <div className="mt-2 flex items-center justify-between">
+                          <h3 className="text-base font-medium text-gray-700">
+                            Sources:
+                          </h3>
+                          <span className="text-xs text-gray-500">
+                            {usedSourcesCount}/{totalSourcesCount} used
+                          </span>
+                        </div>
+                        {question.sources
+                          .filter((source) => showAllSources || source?.used)
+                          .map((source, index) => (
+                            <FullSource key={index} source={source} />
+                          ))}
+                        {usedSourcesCount > 0 && usedSourcesCount < totalSourcesCount && (
+                          <button
+                            type="button"
+                            onClick={() => setShowAllSources(!showAllSources)}
+                            className="mt-2 flex items-center text-sm text-gray-600 hover:text-gray-900 focus:outline-none"
+                          >
+                            <ChevronDownIcon
+                              className={clsx(
+                                'mr-1 h-4 w-4 transition-transform duration-200',
+                                showAllSources ? 'rotate-180' : '',
+                              )}
+                              aria-hidden="true"
+                            />
+                            {showAllSources
+                              ? 'Show only used sources'
+                              : `Show unused sources (${totalSourcesCount - usedSourcesCount} hidden)`}
+                          </button>
+                        )}
                       </>
                     )}
                   </div>
