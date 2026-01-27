@@ -153,6 +153,23 @@ export function stripePlan(team = {}) {
 
   const plans = getStripePlansFromEnv()
   const subscriptionPlan = team?.stripeSubscriptionPlan || null
+  const subscriptionStatus = team?.stripeSubscriptionStatus || null
+
+  // If subscription is canceled, inactive, incomplete, or not active, return Free plan
+  const activeStatuses = ['active', 'trialing', 'past_due']
+  if (subscriptionStatus && !activeStatuses.includes(subscriptionStatus)) {
+    return {
+      id: 'free',
+      name: 'Free',
+      bots: 1,
+      pages: 50,
+      questions: 100,
+      teamMembers: 1,
+      scheduleInterval: 'none',
+      logLimit: 6,
+      researchTasks: resolveResearchTasksLimit(0, 0),
+    }
+  }
 
   if (plans && subscriptionPlan) {
     for (const [planKey, planValue] of Object.entries(plans)) {

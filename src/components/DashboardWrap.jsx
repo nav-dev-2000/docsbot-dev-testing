@@ -32,7 +32,7 @@ import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
 import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
 import * as cookie from 'cookie'
-import { LoyaltyBanner } from '@/components/HeaderBanners'
+import AnnualSaleBanner from '@/components/AnnualSaleBanner'
 import DashboardWizard from '@/components/DashboardWizard'
 import YearlyReportNotice from '@/components/YearlyReportNotice'
 
@@ -647,7 +647,7 @@ export default function DashboardWrap({
 
             {!router.pathname.includes('/conversations') &&
               router.pathname !== '/app/account' && (
-                <LoyaltyBanner
+                <AnnualSaleBanner
                   team={team}
                   user={user}
                   fullWidth={fullWidth}

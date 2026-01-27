@@ -5,12 +5,15 @@ import { auth } from '@/config/firebase-ui.config'
 import { CheckCircleIcon, CreditCardIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { StripePricingTable } from '@/components/StripePricing'
+import AnnualSalePricingTable from '@/components/AnnualSalePricingTable'
 import { stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
 import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
 import SaleLoyalty, { LOYALTY_SALE_DEADLINE } from '@/components/SaleLoyalty'
+import AnnualSaleUpgradePricingTable from '@/components/AnnualSaleUpgradePricingTable'
+import { getAnnualSalePersonaMessage } from '@/components/annualSaleConfig'
 
 export default function Checkout({ team, children, upgrade = false }) {
   const [user] = useAuthState(auth)
@@ -27,6 +30,7 @@ export default function Checkout({ team, children, upgrade = false }) {
   const isLegacyPlan = pricingTiers.find(tier => tier.id === currentPlan?.id)?.legacy === true
   const isProPlan = currentPlan?.id === 'pro'
   const isStandardPlan = currentPlan?.id === 'standard'
+  const showAnnualSaleUpgrade = Boolean(getAnnualSalePersonaMessage(team))
   const isLoyaltyEligible = isStripeCustomer && (isProPlan || isStandardPlan)
 
   useEffect(() => {
@@ -168,7 +172,7 @@ export default function Checkout({ team, children, upgrade = false }) {
       ) : (
         <div className="">
           {!isStripeCustomer && (
-            <StripePricingTable team={team} email={user?.email} setErrorText={setErrorText} />
+            <AnnualSalePricingTable team={team} email={user?.email} setErrorText={setErrorText} />
           )}
           {!!team.stripeCustomerId && (
             <div className="flex justify-center text-center">
@@ -186,6 +190,56 @@ export default function Checkout({ team, children, upgrade = false }) {
                       />
                     </div>
                   )}
+                  {(() => {
+                    const currentId = stripePlan(team)?.id
+                    const visibleTiers = pricingTiers.filter(
+                      (tier) => !tier.legacy && tier.showInStripe !== false
+                    )
+                    const currentIndex = visibleTiers.findIndex(
+                      (tier) => tier.id === currentId
+                    )
+                    const hasUpgradeOptions = currentIndex >= 0 && currentIndex < visibleTiers.length - 1
+
+                    if (!hasUpgradeOptions) {
+                      return (
+                        <div className="mb-10 w-full">
+                          <div className="rounded-2xl border border-cyan-100 bg-gradient-to-r from-cyan-50 via-white to-emerald-50 px-6 py-5 text-center shadow-sm">
+                            <p className="text-sm font-semibold text-cyan-700">
+                              You&apos;re on our highest self-serve plan.
+                            </p>
+                            <p className="mt-1 text-sm text-gray-600">
+                              Need more capacity or a custom plan? Talk to us about Enterprise.
+                            </p>
+                            <a
+                              href="mailto:human@docsbot.ai?subject=DocsBot%20Enterprise%20Upgrade%20Request"
+                              className="mt-3 inline-flex items-center justify-center rounded-full bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            >
+                              Contact Sales
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    }
+
+                    return (
+                      <div className="mb-10 w-full">
+                        {showAnnualSaleUpgrade ? (
+                          <AnnualSaleUpgradePricingTable
+                            team={team}
+                            email={user?.email}
+                            setErrorText={setErrorText}
+                          />
+                        ) : (
+                          <StripePricingTable
+                            team={team}
+                            email={user?.email}
+                            setErrorText={setErrorText}
+                            mode="upgrade"
+                          />
+                        )}
+                      </div>
+                    )
+                  })()}
                   {team.stripeSubscriptionCancelAtPeriodEnd && (
                     <div className="mb-6 flex justify-center text-center">
                       <button

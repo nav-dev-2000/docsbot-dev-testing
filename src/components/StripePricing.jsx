@@ -11,6 +11,7 @@ import {
   enterpriseFeatures,
   featureDefinitions,
 } from '@/constants/pricing.constants'
+import { stripePlan } from '@/utils/helpers'
 import SocialFaces from '@/components/SocialFaces'
 
 // Helper function to get differentiating features for each tier
@@ -104,9 +105,21 @@ const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
     .slice(0, 14)
 }
 
-export function StripePricingTable({ team, email, setErrorText }) {
+export function StripePricingTable({
+  team,
+  email,
+  setErrorText,
+  mode = 'checkout',
+  saleConfig = null,
+  defaultFrequency = null,
+}) {
   const [enterprise, setEnterprise] = useState(false)
-  const [frequency, setFrequency] = useState(frequencies[0])
+  const [frequency, setFrequency] = useState(() => {
+    if (defaultFrequency) {
+      return frequencies.find((option) => option.value === defaultFrequency) || frequencies[0]
+    }
+    return frequencies[0]
+  })
   const [currency, setCurrency] = useState(
     team.stripeSubscriptionCurrency
       ? team.stripeSubscriptionCurrency.toUpperCase()
@@ -116,16 +129,33 @@ export function StripePricingTable({ team, email, setErrorText }) {
   const [plans] = useState(
     JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [],
   )
+  const isUpgrade = mode === 'upgrade'
+  const currentPlanId = stripePlan(team)?.id || null
+  const upgradeInterval =
+    team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
+  const allowUpgradeFrequencyToggle = isUpgrade && saleConfig?.forceAnnualInUpgrade
+  const forcedUpgradeFrequency = allowUpgradeFrequencyToggle ? frequency.value : upgradeInterval
+  const displayFrequency = isUpgrade
+    ? frequencies.find((option) => option.value === forcedUpgradeFrequency) || frequencies[0]
+    : frequency
 
   async function openPortal(tier) {
     setErrorText(null)
     setOpening(true)
+    const shouldApplyAnnualSale = shouldShowAnnualSale && displayFrequency.value === 'annually'
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ tier, frequency: frequency.value, email }),
+      body: JSON.stringify({
+        tier,
+        frequency: displayFrequency.value,
+        currency,
+        email,
+        upgrade: isUpgrade,
+        ...(shouldApplyAnnualSale ? { sale: saleConfig?.id } : {}),
+      }),
     })
     if (response.ok) {
       const data = await response.json()
@@ -160,10 +190,31 @@ export function StripePricingTable({ team, email, setErrorText }) {
     return isDisableButton
   }
 
+  const visibleTiers = pricingTiers.filter((tier) => !tier.legacy && tier.showInStripe !== false)
+  const currentTierIndex = visibleTiers.findIndex((tier) => tier.id === currentPlanId)
+  const upgradeTiers = isUpgrade ? visibleTiers : visibleTiers
+
+  const shouldShowAnnualSale = Boolean(saleConfig)
+  const personaSaleMessage =
+    saleConfig?.getUpgradeMessage?.(team) ||
+    saleConfig?.getCheckoutMessage?.(team) ||
+    saleConfig?.message
+  const frequencyOptions = frequencies
+  const isCurrencyLocked = isUpgrade && Boolean(team?.stripeSubscriptionCurrency)
+
   return (
     <div>
       <div className="mb-2 text-center">
-        <h2 className="mb-2 text-3xl font-bold">Choose a Plan</h2>
+        {shouldShowAnnualSale && personaSaleMessage && (
+          <div className="mb-4 flex justify-center">
+            <div className="bg-animation rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white shadow">
+              {personaSaleMessage}
+            </div>
+          </div>
+        )}
+        <h2 className="mb-2 text-3xl font-bold">
+          {isUpgrade ? 'Switch to a higher plan' : 'Choose a Plan'}
+        </h2>
         {false && (
           <Alert
             type="info"
@@ -172,8 +223,9 @@ export function StripePricingTable({ team, email, setErrorText }) {
           />
         )}
         <p className="text-lg text-gray-800">
-          Please choose a plan that fits your needs. You can upgrade or
-          downgrade at any time.
+          {isUpgrade
+            ? 'Upgrade to access more capacity and features. Changes apply immediately.'
+            : 'Please choose a plan that fits your needs. You can upgrade or downgrade at any time.'}
         </p>
         <p className="text-md mx-auto flex items-center justify-center font-semibold text-teal-500">
           <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back
@@ -182,61 +234,90 @@ export function StripePricingTable({ team, email, setErrorText }) {
       </div>
 
       <div className="mx-auto my-10">
-        <div className="flex justify-center">
-          <RadioGroup
-            value={frequency}
-            onChange={setFrequency}
-            className="grid grid-cols-2 gap-x-1 rounded-lg bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
-          >
-            <RadioGroup.Label className="sr-only">
-              Payment frequency
-            </RadioGroup.Label>
-            {frequencies.map((option) => (
-              <RadioGroup.Option
-                key={option.value}
-                value={option}
-                className={({ checked }) =>
-                  clsx(
-                    checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-lg px-8 py-2',
-                  )
-                }
+        {!isUpgrade || allowUpgradeFrequencyToggle ? (
+          <>
+            <div className="flex justify-center">
+              <RadioGroup
+                value={frequency}
+                onChange={setFrequency}
+                className="grid grid-cols-2 gap-x-1 rounded-lg bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
               >
-                <span>{option.label}</span>
-              </RadioGroup.Option>
-            ))}
-          </RadioGroup>
-        </div>
-        <p className="mt-2 text-center text-sm text-gray-600">Two months free with annual plans!</p>
-        <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
-          <RadioGroup
-            value={currency}
-            onChange={setCurrency}
-            className="grid grid-cols-5 gap-x-1 rounded-md bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
-          >
-            <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
-            {Object.keys(currencies).map((option) => (
-              <RadioGroup.Option
-                key={option}
-                value={option}
-                className={({ checked }) =>
-                  clsx(
-                    checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
-                    'cursor-pointer rounded-md px-2.5 py-1',
-                  )
-                }
-              >
-                <span>
-                  {currencies[option].symbol} {currencies[option].label}
-                </span>
-              </RadioGroup.Option>
-            ))}
-          </RadioGroup>
-        </div>
+                <RadioGroup.Label className="sr-only">
+                  Payment frequency
+                </RadioGroup.Label>
+                {frequencyOptions.map((option) => (
+                  <RadioGroup.Option
+                    key={option.value}
+                    value={option}
+                    className={({ checked }) =>
+                      clsx(
+                        checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
+                        'cursor-pointer rounded-lg px-8 py-2',
+                      )
+                    }
+                  >
+                    <span>{option.label}</span>
+                  </RadioGroup.Option>
+                ))}
+              </RadioGroup>
+            </div>
+            {shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
+              <div className="mt-3 flex justify-center">
+                <div className="bg-animation rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white shadow">
+                  {saleConfig?.message || '34% off annual plans applied.'}
+                </div>
+              </div>
+            ) : (
+              <p className="mt-2 text-center text-sm text-gray-600">
+                Two months free with annual plans!
+              </p>
+            )}
+          </>
+        ) : shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
+          <p className="mt-2 text-center text-sm text-gray-600">
+            {saleConfig?.message || '34% off annual plans applied.'}
+          </p>
+        ) : (
+          <p className="mt-2 text-center text-sm text-gray-600">
+            {`Showing ${displayFrequency.label.toLowerCase()} pricing to match your current billing interval. Open the billing portal to change to monthly plans.`}
+          </p>
+        )}
+        {!isCurrencyLocked && (
+          <div className="mt-4 flex justify-center xl:-mt-4 xl:justify-end">
+            <RadioGroup
+              value={currency}
+              onChange={setCurrency}
+              className="grid grid-cols-5 gap-x-1 rounded-md bg-gray-50 p-1 text-center text-sm font-semibold leading-5 ring-1 ring-inset ring-gray-200"
+            >
+              <RadioGroup.Label className="sr-only">Currency</RadioGroup.Label>
+              {Object.keys(currencies).map((option) => (
+                <RadioGroup.Option
+                  key={option}
+                  value={option}
+                  className={({ checked }) =>
+                    clsx(
+                      checked ? 'bg-cyan-600 text-white' : 'text-gray-500',
+                      'cursor-pointer rounded-md px-2.5 py-1',
+                    )
+                  }
+                >
+                  <span>
+                    {currencies[option].symbol} {currencies[option].label}
+                  </span>
+                </RadioGroup.Option>
+              ))}
+            </RadioGroup>
+          </div>
+        )}
         <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
-          {pricingTiers
-            .filter(tier => !tier.legacy && tier.showInStripe !== false)
-            .map((tier, index) => (
+          {upgradeTiers.map((tier, index) => {
+            const annualSaleTotal = shouldShowAnnualSale && displayFrequency.value === 'annually'
+              ? saleConfig?.annualTotals?.[tier.id]?.[currency]
+              : null
+            const annualTotal = annualSaleTotal ?? tier.price[currency][displayFrequency.value]
+            const monthlyEquivalent = annualTotal / 12
+            const isLowerOrCurrentTier = isUpgrade && currentTierIndex >= 0 && index <= currentTierIndex
+            return (
             <div
               key={tier.id}
               className={clsx(
@@ -265,12 +346,12 @@ export function StripePricingTable({ team, email, setErrorText }) {
               <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">
                 {tier.description}
               </p>
-              {frequency?.value === 'monthly' ? (
+              {displayFrequency?.value === 'monthly' ? (
                 <>
                 <p className="mt-2 flex items-baseline gap-x-1">
                   <span className="text-4xl font-bold tracking-tight text-gray-600">
                     {currencies[currency].symbol}
-                    {tier.price[currency][frequency?.value].toFixed(0)}
+                    {tier.price[currency][displayFrequency?.value].toFixed(0)}
                   </span>
                   <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                     /month
@@ -279,10 +360,16 @@ export function StripePricingTable({ team, email, setErrorText }) {
               </>
               ) : (
                 <>
-                  <p className="mt-6 flex items-baseline gap-x-1">
+                  <p className="mt-6 flex items-baseline gap-x-2">
+                    {shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
+                      <span className="text-xl font-semibold tracking-tight text-gray-400 line-through">
+                        {currencies[currency].symbol}
+                        {tier.price[currency].monthly.toFixed(0)}
+                      </span>
+                    ) : null}
                     <span className="text-4xl font-bold tracking-tight text-gray-600">
                       {currencies[currency].symbol}
-                      {(tier.price[currency][frequency?.value] / 12).toFixed(0)}
+                      {monthlyEquivalent.toFixed(0)}
                     </span>
                     <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
                       /month
@@ -290,10 +377,23 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   </p>
                   <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
                     (
-                    <span className="text-xl font-bold tracking-tight ">
-                      {currencies[currency].symbol}
-                      {(tier.price[currency][frequency?.value]).toFixed(0)}
-                    </span>
+                    {shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
+                      <>
+                        <span className="text-xl font-semibold tracking-tight text-gray-400 line-through">
+                          {currencies[currency].symbol}
+                          {tier.price[currency].annually.toFixed(0)}
+                        </span>
+                        <span className="text-xl font-bold tracking-tight text-gray-700">
+                          {currencies[currency].symbol}
+                          {annualTotal.toFixed(0)}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-xl font-bold tracking-tight ">
+                        {currencies[currency].symbol}
+                        {annualTotal.toFixed(0)}
+                      </span>
+                    )}
                     <span className="-ml-0.5 text-sm font-semibold leading-6 ">/annually</span>
                     )
                   </p>
@@ -302,7 +402,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
               <button
                 aria-describedby={tier.id}
                 onClick={() => openPortal(tier.id)}
-                disabled={opening || isDisableSelectPlanButton(tier.id)}
+                disabled={opening || isDisableSelectPlanButton(tier.id) || isLowerOrCurrentTier}
                 className={clsx(
                   tier.mostPopular
                     ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
@@ -310,15 +410,15 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   'mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800 disabled:cursor-not-allowed disabled:opacity-50',
                 )}
               >
-                Subscribe
+                {isUpgrade ? (isLowerOrCurrentTier ? 'Current plan' : 'Upgrade') : 'Subscribe'}
               </button>
               <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
                 {index === 0
                   ? 'Including:'
-                  : `Everything in ${pricingTiers.filter(tier => !tier.legacy && tier.showInStripe !== false)[index - 1]?.name || 'Free'} plan, and:`}
+                  : `Everything in ${upgradeTiers[index - 1]?.name || 'Free'} plan, and:`}
               </h3>
-              <ul className="mt-3 space-y-3">
-                {getDifferentiatingFeatures(tier, index, pricingTiers.filter(tier => !tier.legacy && tier.showInStripe !== false)).map(([key, value]) => {
+              <ul className="mt-3 space-y-3 text-left">
+                {getDifferentiatingFeatures(tier, index, upgradeTiers).map(([key, value]) => {
                   const featureDef = featureDefinitions[key]
                   if (!featureDef) return null
                   
@@ -332,15 +432,12 @@ export function StripePricingTable({ team, email, setErrorText }) {
                   return (
                     <li
                       key={key}
-                      className="group flex items-start gap-4 text-sm/6 text-gray-600"
+                      className="group grid grid-cols-[20px_1fr] items-start gap-3 text-sm/6 text-gray-600"
                     >
-                      <span className="inline-flex h-6 items-center">
-                        <PlusIcon
-                          aria-hidden="true"
-                          className="size-4 fill-gray-400"
-                        />
+                      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center text-gray-400">
+                        <PlusIcon aria-hidden="true" className="size-4" />
                       </span>
-                      {displayText}
+                      <span className="min-w-0 leading-6">{displayText}</span>
                     </li>
                   )
                 })}
@@ -354,7 +451,7 @@ export function StripePricingTable({ team, email, setErrorText }) {
                 </Link>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 

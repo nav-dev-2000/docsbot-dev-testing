@@ -7,6 +7,29 @@ import { getInvitesFromTeam } from '@/lib/dbQueries'
 import * as cookie from 'cookie'
 import { canUserManageBilling } from '@/utils/function.utils'
 
+const ANNUAL_SALE_COUPONS = {
+  production: {
+    personal: 'QXPNAW0W',
+    standard: '5WDmnk8x',
+    business: 'FWMt2MJQ',
+  },
+  test: {
+    personal: '7pj7aaX3',
+    standard: 'd2Lh1UEY',
+    business: '1RAyTdmz',
+  },
+}
+
+const getAnnualSaleCoupon = (tier) => {
+  if (!tier) return null
+  const envKey = process.env.NODE_ENV === 'development' ? 'test' : 'production'
+  return ANNUAL_SALE_COUPONS[envKey]?.[tier] ?? null
+}
+
+const resolvePriceId = (plans, tier, frequency) => {
+  return plans?.[tier]?.prices?.current?.[frequency] || null
+}
+
 export default async function createCheckoutSession(req, res) {
   let check = null
   try {
@@ -23,12 +46,14 @@ export default async function createCheckoutSession(req, res) {
   }
 
   if (req.method === 'POST') {
-    const { tier, frequency, email, upgrade } = req.body
+    const { tier, frequency, email, upgrade, sale, currency } = req.body
+    const isAnnualSale = sale === 'annual-2026'
 
     try {
       if (tier && !upgrade) {
         const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-        const price = plans[tier]?.prices?.current?.[frequency]
+        const selectedFrequency = isAnnualSale ? 'annually' : frequency
+        const price = resolvePriceId(plans, tier, selectedFrequency)
         const teamInvites = await getInvitesFromTeam(team.id)
 
         if (!price) throw Error('Please select a valid plan.')
@@ -50,6 +75,9 @@ export default async function createCheckoutSession(req, res) {
           client_reference_id: team.id,
           allow_promotion_codes: true,
           mode: 'subscription',
+        }
+        if (currency) {
+          params.currency = currency.toLowerCase()
         }
         const cookies = cookie.parse(req.headers.cookie || '')
         const couponId = cookies['docsbot_coupon']
@@ -79,6 +107,15 @@ export default async function createCheckoutSession(req, res) {
           } else {
             params.discounts = [{ coupon: couponId }]
           }
+        }
+
+        if (isAnnualSale) {
+          const annualCoupon = getAnnualSaleCoupon(tier)
+          if (!annualCoupon) {
+            throw Error('Unable to apply annual sale coupon.')
+          }
+          delete params.allow_promotion_codes
+          params.discounts = [{ coupon: annualCoupon }]
         }
 
         //cyber monday
@@ -138,7 +175,7 @@ export default async function createCheckoutSession(req, res) {
         if (upgrade && tier) {
           const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
           const interval = team.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
-          const targetPriceId = plans?.[tier]?.prices?.current?.[interval]
+          const targetPriceId = resolvePriceId(plans, tier, interval)
           
           if (targetPriceId) {
             const allPrices = neededProducts.flat()
@@ -219,7 +256,7 @@ export default async function createCheckoutSession(req, res) {
             throw Error('No subscription found for upgrade.')
           }
 
-          if (tier) { //loyalty discount sale
+          if (tier) {
             const subscription = await stripe.subscriptions.retrieve(team.stripeSubscriptionId)
             const subscriptionItem = subscription?.items?.data?.[0]
 
@@ -229,46 +266,53 @@ export default async function createCheckoutSession(req, res) {
 
             const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
             const interval = team.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
-            const targetPriceId = plans?.[tier]?.prices?.current?.[interval]
+            const targetPriceId = isAnnualSale
+              ? resolvePriceId(plans, tier, 'annually')
+              : resolvePriceId(plans, tier, interval)
 
             if (!targetPriceId) {
               throw Error('Unable to determine upgrade price.')
             }
 
-            let loyaltyCoupons;
-            if (process.env.NODE_ENV !== 'development') {
-              loyaltyCoupons = {
-                standard: { month: 'R3YT5qyO' },
-                business: { month: '0L0eu61M', year: '6Clm8zIr' },
+            if (isAnnualSale) {
+              const annualCoupon = getAnnualSaleCoupon(tier)
+              if (!annualCoupon) {
+                throw Error('Unable to apply annual sale coupon.')
               }
+
+              const flowData = {
+                type: 'subscription_update_confirm',
+                subscription_update_confirm: {
+                  subscription: team.stripeSubscriptionId,
+                  items: [
+                    {
+                      id: subscriptionItem.id,
+                      price: targetPriceId,
+                      quantity: subscriptionItem.quantity || 1,
+                    },
+                  ],
+                  discounts: [{ coupon: annualCoupon }],
+                },
+              }
+
+              sessionConfig['flow_data'] = flowData
             } else {
-              loyaltyCoupons = {
-                standard: { month: '0uJbTqYQ' },
-                business: { month: 'mnS353ze', year: 'MdcbxKHm' },
+              const flowData = {
+                type: 'subscription_update_confirm',
+                subscription_update_confirm: {
+                  subscription: team.stripeSubscriptionId,
+                  items: [
+                    {
+                      id: subscriptionItem.id,
+                      price: targetPriceId,
+                      quantity: subscriptionItem.quantity || 1,
+                    },
+                  ],
+                },
               }
+
+              sessionConfig['flow_data'] = flowData
             }
-
-            const coupon = loyaltyCoupons?.[tier]?.[team.stripeSubscriptionInterval]
-
-            const flowData = {
-              type: 'subscription_update_confirm',
-              subscription_update_confirm: {
-                subscription: team.stripeSubscriptionId,
-                items: [
-                  {
-                    id: subscriptionItem.id,
-                    price: targetPriceId,
-                    quantity: subscriptionItem.quantity || 1,
-                  },
-                ],
-              },
-            }
-
-            if (coupon) {
-              flowData.subscription_update_confirm.discounts = [{ coupon }]
-            }
-
-            sessionConfig['flow_data'] = flowData
           } else {
             sessionConfig['flow_data'] = {
               type: 'subscription_update',

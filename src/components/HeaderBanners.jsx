@@ -6,55 +6,15 @@ import { Dialog, Transition } from '@headlessui/react'
 import SaleLoyalty, { CountdownTicker, LOYALTY_SALE_DEADLINE, getLoyaltyEventLabel } from '@/components/SaleLoyalty'
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import { canUserManageBilling } from '@/utils/function.utils'
-import { pricingTiers, currencies } from '@/constants/pricing.constants'
+import { currencies } from '@/constants/pricing.constants'
 import news from '/public/latest-news.json'
 import clsx from 'clsx'
-import * as cookie from 'cookie'
+import { isBannerDismissed, setBannerPreference } from '@/utils/bannerPreferences'
 
 const Countdown = dynamic(() => import('react-countdown'), {
   ssr: false,
   loading: () => <span className="text-white">Loading...</span>,
 })
-
-// Utility functions for managing banner dismissal cookie (7-day expiration)
-const getBannerPreferences = () => {
-  if (typeof window === 'undefined') return {}
-  try {
-    const cookies = cookie.parse(document.cookie || '')
-    const prefsValue = cookies['docsbot-banner-prefs']
-    if (!prefsValue) return {}
-    
-    const decoded = decodeURIComponent(prefsValue)
-    const parsed = JSON.parse(decoded)
-    return parsed
-  } catch (error) {
-    console.error('Failed to parse banner preferences cookie:', error)
-    return {}
-  }
-}
-
-const setBannerPreference = (key, value, days = 7) => {
-  if (typeof window === 'undefined') return
-  try {
-    const prefs = getBannerPreferences()
-    prefs[key] = value
-    const expires = new Date()
-    expires.setDate(expires.getDate() + days)
-    document.cookie = cookie.serialize('docsbot-banner-prefs', JSON.stringify(prefs), {
-      expires,
-      path: '/',
-      sameSite: 'lax'
-    })
-  } catch (error) {
-    console.error('Failed to set banner preference:', error)
-  }
-}
-
-const isBannerDismissed = (dismissKey) => {
-  if (!dismissKey) return false
-  const prefs = getBannerPreferences()
-  return prefs[`dismissed-${dismissKey}`] === true
-}
 
 const BUSINESS_ANNUAL_SAVINGS = {
   USD: 2400,
