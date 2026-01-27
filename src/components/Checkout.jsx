@@ -6,7 +6,7 @@ import { CheckCircleIcon, CreditCardIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { StripePricingTable } from '@/components/StripePricing'
 import AnnualSalePricingTable from '@/components/AnnualSalePricingTable'
-import { stripePlan } from '@/utils/helpers'
+import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
@@ -32,6 +32,7 @@ export default function Checkout({ team, children, upgrade = false }) {
   const isStandardPlan = currentPlan?.id === 'standard'
   const showAnnualSaleUpgrade = Boolean(getAnnualSalePersonaMessage(team))
   const isLoyaltyEligible = isStripeCustomer && (isProPlan || isStandardPlan)
+  const isEnterprisePlan = checkPlanPermission(team, 'enterprise').allowed
 
   useEffect(() => {
     if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
@@ -205,10 +206,14 @@ export default function Checkout({ team, children, upgrade = false }) {
                         <div className="mb-10 w-full">
                           <div className="rounded-2xl border border-cyan-100 bg-gradient-to-r from-cyan-50 via-white to-emerald-50 px-6 py-5 text-center shadow-sm">
                             <p className="text-sm font-semibold text-cyan-700">
-                              You&apos;re on our highest self-serve plan.
+                              {isEnterprisePlan
+                                ? 'Thanks for being an Enterprise customer.'
+                                : "You're on our highest self-serve plan."}
                             </p>
                             <p className="mt-1 text-sm text-gray-600">
-                              Need more capacity or a custom plan? Talk to us about Enterprise.
+                              {isEnterprisePlan
+                                ? 'Contact our sales team for customizations and changes.'
+                                : 'Need more capacity or a custom plan? Talk to us about Enterprise.'}
                             </p>
                             <a
                               href="mailto:human@docsbot.ai?subject=DocsBot%20Enterprise%20Upgrade%20Request"
