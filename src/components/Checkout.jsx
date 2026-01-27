@@ -199,21 +199,42 @@ export default function Checkout({ team, children, upgrade = false }) {
                     const currentIndex = visibleTiers.findIndex(
                       (tier) => tier.id === currentId
                     )
-                    const hasUpgradeOptions = currentIndex >= 0 && currentIndex < visibleTiers.length - 1
+                    // Legacy plans should show upgrade options, only Business plan should show "highest self-serve plan"
+                    const isBusinessPlan = currentId === 'business'
+                    const hasUpgradeOptions = isLegacyPlan || (currentIndex >= 0 && currentIndex < visibleTiers.length - 1)
 
-                    if (!hasUpgradeOptions) {
+                    // Show "highest self-serve plan" message only for Business plan (not legacy plans)
+                    if (isBusinessPlan && !isEnterprisePlan) {
                       return (
                         <div className="mb-10 w-full">
                           <div className="rounded-2xl border border-cyan-100 bg-gradient-to-r from-cyan-50 via-white to-emerald-50 px-6 py-5 text-center shadow-sm">
                             <p className="text-sm font-semibold text-cyan-700">
-                              {isEnterprisePlan
-                                ? 'Thanks for being an Enterprise customer.'
-                                : "You're on our highest self-serve plan."}
+                              You're on our highest self-serve plan.
                             </p>
                             <p className="mt-1 text-sm text-gray-600">
-                              {isEnterprisePlan
-                                ? 'Contact our sales team for customizations and changes.'
-                                : 'Need more capacity or a custom plan? Talk to us about Enterprise.'}
+                              Need more capacity or a custom plan? Talk to us about Enterprise.
+                            </p>
+                            <a
+                              href="mailto:human@docsbot.ai?subject=DocsBot%20Enterprise%20Upgrade%20Request"
+                              className="mt-3 inline-flex items-center justify-center rounded-full bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            >
+                              Contact Sales
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    }
+
+                    // Show enterprise message for Enterprise plans
+                    if (isEnterprisePlan) {
+                      return (
+                        <div className="mb-10 w-full">
+                          <div className="rounded-2xl border border-cyan-100 bg-gradient-to-r from-cyan-50 via-white to-emerald-50 px-6 py-5 text-center shadow-sm">
+                            <p className="text-sm font-semibold text-cyan-700">
+                              Thanks for being an Enterprise customer.
+                            </p>
+                            <p className="mt-1 text-sm text-gray-600">
+                              Contact our sales team for customizations and changes.
                             </p>
                             <a
                               href="mailto:human@docsbot.ai?subject=DocsBot%20Enterprise%20Upgrade%20Request"
