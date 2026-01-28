@@ -33,12 +33,14 @@ import {
   XCircleIcon,
   QuestionMarkCircleIcon,
   BellIcon,
+  ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline'
 import {
   CheckCircleIcon as CheckCircleIconSolid,
   CodeBracketSquareIcon as CodeBracketSquareIconSolid,
   GlobeAltIcon as GlobeAltIconSolid,
   DocumentMagnifyingGlassIcon as DocumentMagnifyingGlassIconSolid,
+  ChatBubbleLeftRightIcon as ChatBubbleLeftRightIconSolid,
 } from '@heroicons/react/24/solid'
 import RobotIcon from '@/components/RobotIcon'
 import UserAvatar from '@/components/UserAvatar'
@@ -376,7 +378,9 @@ function BotMessage({ text, html, className = '', children }) {
 // Rotating quotes component for research suggestions
 function RotatingQuotes() {
   const quotes = [
-    //"Analyze support conversation themes to spot recurring complaints and gaps.",
+    "Analyze support conversation themes to spot recurring complaints and gaps.",
+    "Identify common customer questions and create a comprehensive FAQ from support history.",
+    "Review customer support interactions to find documentation gaps and improvement opportunities.",
     "Audit support sources by comparing our manuals vs online help docs.",
     "Research and compare our product features with a competitor's.",
     "Create a whitepaper for my product combining the manual and web search for common pain points.",
@@ -387,7 +391,9 @@ function RotatingQuotes() {
     "Turn a product release note and manual into a full blog article with supporting research.",
     "Convert our troubleshooting guide into a step-by-step help center article.",
     "Compare quarterly financial reports against competitor filings to highlight performance gaps.",
-    "Generate a sales playbook for prospect from my SOPs and market research."
+    "Generate a sales playbook for prospect from my SOPs and market research.",
+    "Analyze chatbot interactions to understand user intent patterns and improve responses.",
+    "Review previous customer questions to identify trending issues and prepare proactive solutions."
   ]
 
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
@@ -451,12 +457,17 @@ const recomputeUsageDerived = (usage) => {
 }
 
 const buildUsageSnapshot = (team) => {
+  // Staff localhost testing team - allow unlimited deep research jobs
+  const STAFF_TESTING_TEAM_ID = 'nG4F5A3BFSBzdYc5TZIX'
+  
   const plan = stripePlan(team || {})
   const rawMonthlyLimit = plan?.researchTasks
   const monthlyLimit =
-    typeof rawMonthlyLimit === 'number' && !Number.isNaN(rawMonthlyLimit)
-      ? rawMonthlyLimit
-      : 25
+    team?.id === STAFF_TESTING_TEAM_ID
+      ? null // Unlimited for staff testing team
+      : typeof rawMonthlyLimit === 'number' && !Number.isNaN(rawMonthlyLimit)
+        ? rawMonthlyLimit
+        : 25
   const monthlyUsed = Number(team?.researchCount ?? 0) || 0
 
   const baseUsage = {
@@ -686,7 +697,12 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
         return <CheckCircleIcon className="h-4 w-4 text-green-600" />
       case 'mcp_call':
         const toolName = item.name || 'unknown'
+        const serverLabel = item.server_label || ''
         if (toolName === 'search') {
+          // Check if this is a question history search by server_label
+          if (serverLabel === 'question_history_search') {
+            return <ChatBubbleLeftRightIcon className="h-4 w-4 text-teal-600" />
+          }
           return <DocumentMagnifyingGlassIcon className="h-4 w-4 text-blue-600" />
         } else if (toolName === 'fetch') {
           return <DocumentTextIcon className="h-4 w-4 text-purple-600" />
@@ -796,6 +812,7 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
         const args = item.arguments ? JSON.parse(item.arguments) : {}
         const output = item.output ? JSON.parse(item.output) : {}
         const toolName = item.name || 'unknown'
+        const serverLabel = item.server_label || ''
         
         // Skip MCP calls with no arguments
         if (!item.arguments || Object.keys(args).length === 0) {
@@ -803,6 +820,15 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
         }
         
         if (toolName === 'search') {
+          // Check if this is a question history search by server_label
+          if (serverLabel === 'question_history_search') {
+            return (
+              <>
+                <strong>Search question history for:</strong>{' '}
+                "<pre className="inline whitespace-pre-wrap text-xs">{args.query || 'No query'}</pre>"
+              </>
+            )
+          }
           return (
             <>
               <strong>Search docs for:</strong>{' '}
@@ -812,6 +838,15 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
         }
         
         if (toolName === 'fetch') {
+          // Check if this is a question history fetch by server_label
+          if (serverLabel === 'question_history_search') {
+            return (
+              <>
+                <strong>Read conversation:</strong>{' '}
+                "<pre className="inline whitespace-pre-wrap text-xs">{output.title || output.url || 'No title'}</pre>"
+              </>
+            )
+          }
           return (
             <>
               <strong>Open document:</strong>{' '}
@@ -842,11 +877,12 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
   }
 
   // compute summary metrics for tooltip
-  const { webSearchesCount, urlsCount, mcpSearchesCount, mcpFetchesCount } = (() => {
+  const { webSearchesCount, urlsCount, mcpSearchesCount, mcpFetchesCount, questionHistorySearchesCount } = (() => {
     let webSearches = 0
     const urls = new Set()
     let mcpSearches = 0
     let mcpFetches = 0
+    let questionHistorySearches = 0
     for (const item of output) {
       if (item?.type === 'web_search_call') {
         const a = item.action || {}
@@ -856,20 +892,32 @@ function OutputTimeline({ output, defaultOpen = false, onScrollToBottom }) {
       }
       if (item?.type === 'mcp_call') {
         const toolName = item.name || 'unknown'
+        const serverLabel = item.server_label || ''
         if (toolName === 'search') {
-          mcpSearches += 1
+          // Check if this is a question history search by server_label
+          if (serverLabel === 'question_history_search') {
+            questionHistorySearches += 1
+          } else {
+            mcpSearches += 1
+          }
         } else if (toolName === 'fetch') {
           mcpFetches += 1
         }
       }
     }
-    return { webSearchesCount: webSearches, urlsCount: urls.size, mcpSearchesCount: mcpSearches, mcpFetchesCount: mcpFetches }
+    return { 
+      webSearchesCount: webSearches, 
+      urlsCount: urls.size, 
+      mcpSearchesCount: mcpSearches, 
+      mcpFetchesCount: mcpFetches,
+      questionHistorySearchesCount: questionHistorySearches
+    }
   })()
 
   return (
     <details ref={detailsRef} className="group mt-6 w-full text-left" open={!!defaultOpen}>
       <summary className="text-md flex cursor-pointer select-none list-none items-center justify-between rounded-md bg-gray-50 px-3 py-2 text-left font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-100">
-        <Tooltip content={`Web Searches: ${webSearchesCount} • URLs: ${urlsCount} • Documentation Searches: ${mcpSearchesCount} • Documents: ${mcpFetchesCount}`}>
+        <Tooltip content={`Web Searches: ${webSearchesCount} • URLs: ${urlsCount} • Documentation Searches: ${mcpSearchesCount} • Question History Searches: ${questionHistorySearchesCount} • Documents: ${mcpFetchesCount}`}>
           <span>Research Steps ({output.length})</span>
         </Tooltip>
         <ChevronRightIcon className="h-4 w-4 text-gray-500 transition-transform duration-150 group-open:rotate-90" />
@@ -1031,6 +1079,7 @@ function ResearchInterface({
   const [selectedModel, setSelectedModel] = useState('o4-mini')
   const [webSearch, setWebSearch] = useState(false)
   const [codeInterpreter, setCodeInterpreter] = useState(false)
+  const [questionHistory, setQuestionHistory] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
@@ -1117,10 +1166,13 @@ function ResearchInterface({
     if (clarifyingJob.codeInterpreter !== undefined) {
       setCodeInterpreter(Boolean(clarifyingJob.codeInterpreter))
     }
+    if (clarifyingJob.questionHistory !== undefined) {
+      setQuestionHistory(Boolean(clarifyingJob.questionHistory))
+    }
   }, [clarifyingJob])
 
   // Helper to update selectedJob when tools are toggled (only if job hasn't started)
-  const updateSelectedJobTools = (newWebSearch, newCodeInterpreter) => {
+  const updateSelectedJobTools = (newWebSearch, newCodeInterpreter, newQuestionHistory) => {
     if (!setSelectedJob) return
     
     // If we're in clarifying mode, update the selectedJob
@@ -1136,6 +1188,7 @@ function ResearchInterface({
           ...prev,
           webSearch: newWebSearch,
           codeInterpreter: newCodeInterpreter,
+          questionHistory: newQuestionHistory,
         }
       })
       return
@@ -1154,6 +1207,7 @@ function ResearchInterface({
           ...prev,
           webSearch: newWebSearch,
           codeInterpreter: newCodeInterpreter,
+          questionHistory: newQuestionHistory,
         }
       })
     }
@@ -1235,8 +1289,12 @@ function ResearchInterface({
         return false
       })()
 
+      // Staff localhost testing team - allow unlimited deep research jobs
+      const STAFF_TESTING_TEAM_ID = 'nG4F5A3BFSBzdYc5TZIX'
+      const isStaffTestingTeam = team?.id === STAFF_TESTING_TEAM_ID
+
       const hasMonthlyAllowance =
-        monthlyLimit === null
+        isStaffTestingTeam || monthlyLimit === null
           ? true
           : typeof monthlyLimit === 'number'
             ? monthlyUsed < monthlyLimit
@@ -1278,6 +1336,7 @@ function ResearchInterface({
             model: selectedModel,
             web_search: webSearch,
             code_interpreter: codeInterpreter,
+            question_history: questionHistory,
             docs_search: true,
             metadata: user?.displayName || user?.email || user?.uid ? {
               name: user?.displayName || null,
@@ -1354,6 +1413,7 @@ function ResearchInterface({
           model: selectedModel,
           web_search: webSearch,
           code_interpreter: codeInterpreter,
+          question_history: questionHistory,
           metadata: user?.displayName || user?.email || user?.uid ? {
             name: user?.displayName || null,
             email: user?.email || null,
@@ -1383,6 +1443,7 @@ function ResearchInterface({
               model: selectedModel,
               webSearch: webSearch,
               codeInterpreter: codeInterpreter,
+              questionHistory: questionHistory,
               metadata: data.metadata || (user?.displayName || user?.email || user?.uid ? {
                 name: user?.displayName || null,
                 email: user?.email || null,
@@ -1433,6 +1494,7 @@ function ResearchInterface({
                 model: selectedModel,
                 webSearch: webSearch,
                 codeInterpreter: codeInterpreter,
+                questionHistory: questionHistory,
                 title: data.title,
               })
             } catch (err) {
@@ -1626,13 +1688,37 @@ function ResearchInterface({
                         onClick={() => {
                           const newValue = !webSearch
                           setWebSearch(newValue)
-                          updateSelectedJobTools(newValue, codeInterpreter)
+                          updateSelectedJobTools(newValue, codeInterpreter, questionHistory)
                         }}
                       >
                         {webSearch ? (
                           <GlobeAltIconSolid className="h-5 w-5" />
                         ) : (
                           <GlobeAltIcon className="h-5 w-5" />
+                        )}
+                      </button>
+                    </Tooltip>
+                    {/* Question History toggle as icon button */}
+                    <Tooltip content={'Question History'}>
+                      <button
+                        type="button"
+                        disabled={loading || showUpgrade}
+                        className={clsx(
+                          'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
+                          questionHistory
+                            ? 'font-bold text-cyan-600'
+                            : 'text-gray-600',
+                        )}
+                        onClick={() => {
+                          const newValue = !questionHistory
+                          setQuestionHistory(newValue)
+                          updateSelectedJobTools(webSearch, codeInterpreter, newValue)
+                        }}
+                      >
+                        {questionHistory ? (
+                          <ChatBubbleLeftRightIconSolid className="h-5 w-5" />
+                        ) : (
+                          <ChatBubbleLeftRightIcon className="h-5 w-5" />
                         )}
                       </button>
                     </Tooltip>
@@ -1650,7 +1736,7 @@ function ResearchInterface({
                         onClick={() => {
                           const newValue = !codeInterpreter
                           setCodeInterpreter(newValue)
-                          updateSelectedJobTools(webSearch, newValue)
+                          updateSelectedJobTools(webSearch, newValue, questionHistory)
                         }}
                       >
                         {codeInterpreter ? (
@@ -3331,6 +3417,21 @@ function Research({ team, bot }) {
                           />
                         ) : (
                           <GlobeAltIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </div>
+                    </Tooltip>
+                    <Tooltip content={selectedJob.questionHistory ? "Question history enabled" : "Question history disabled"}>
+                      <div className="flex items-center text-sm text-gray-500">
+                        {selectedJob.questionHistory ? (
+                          <ChatBubbleLeftRightIconSolid
+                            className="h-5 w-5 flex-shrink-0 text-cyan-600"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <ChatBubbleLeftRightIcon
                             className="h-5 w-5 flex-shrink-0 text-gray-400"
                             aria-hidden="true"
                           />
