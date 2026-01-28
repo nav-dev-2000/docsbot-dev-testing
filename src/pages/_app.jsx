@@ -2,7 +2,7 @@ import 'focus-visible'
 import '@/styles/tailwind.css'
 import '@/styles/overrides.css'
 import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useRouter, Router } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -14,6 +14,7 @@ import { Link } from '@/components/blog/Link'
 import { DefaultSeo } from 'next-seo'
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
+import { stripePlan } from '@/utils/helpers'
 
 function getNodeText(node) {
   let text = ''
@@ -55,12 +56,70 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
   return sections
 }
 
+function getPlanStatusLabel(team, plan) {
+  if (!team) {
+    return 'free'
+  }
+
+  const status = team?.stripeSubscriptionStatus
+  if (!status) {
+    return plan?.id === 'free' ? 'free' : 'inactive'
+  }
+
+  if (['past_due', 'incomplete'].includes(status)) {
+    return 'overdue'
+  }
+
+  if (['canceled', 'cancelled', 'unpaid'].includes(status)) {
+    return 'cancelled'
+  }
+
+  return status
+}
+
+function escapeInlineScript(value) {
+  return value
+    .replace(/[<>]/g, (char) => (char === '<' ? '\\u003c' : '\\u003e'))
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
+}
+
 export default function App({ Component, pageProps }) {
   const router = useRouter()
-  const [user] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
 
   // eslint-disable-next-line react/prop-types, no-unused-vars
   const { fallback = {}, themeJson = {}, ...props } = pageProps
+  const currentTeam = pageProps?.team
+
+  const docsBotIdentify = useMemo(() => {
+    if (!user) {
+      return null
+    }
+
+    const identify = {}
+
+    if (user.email) {
+      identify.email = user.email
+    }
+
+    if (user.displayName) {
+      identify.name = user.displayName
+    }
+
+    if (currentTeam?.id) {
+      const plan = stripePlan(currentTeam)
+      identify.teamSwitchUrl = `https://docsbot.ai/app/team?switchTeam=${currentTeam.id}`
+      identify.planLevel = plan.name
+      identify.planStatus = getPlanStatusLabel(currentTeam, plan)
+    }
+
+    return Object.keys(identify).length ? identify : null
+  }, [user, currentTeam])
+
+  const docsBotIdentifyConfig = docsBotIdentify
+    ? `identify: ${escapeInlineScript(JSON.stringify(docsBotIdentify))},`
+    : ''
 
   useEffect(() => {
     // Check that PostHog is client-side (used to handle Next.js SSR)
@@ -231,8 +290,11 @@ export default function App({ Component, pageProps }) {
           {`!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});`}
         </Script>
         <Script id="docsbot" strategy="lazyOnload">
-              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};
-  DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12,hideSources: ['helpscout']},supportCallback: function (event, history, metadata, ticket) {
+              {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};`}
+        </Script>
+        {!loading && (
+          <Script id="docsbot-init" strategy="lazyOnload">
+              {`DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12,hideSources: ['helpscout']},${docsBotIdentifyConfig}supportCallback: function (event, history, metadata, ticket) {
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
@@ -249,7 +311,8 @@ export default function App({ Component, pageProps }) {
     });          
   }         
 },});`}
-        </Script>
+          </Script>
+        )}
         <Script
           id="bento-script"
           src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
@@ -389,9 +452,9 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
               <Script id="docsbot" strategy="lazyOnload">
               {`window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};`}
               </Script>
-              {!router.asPath.startsWith('/app/onboarding') && (
+              {!router.asPath.startsWith('/app/onboarding') && !loading && (
                 <Script id="docsbot-init" strategy="lazyOnload">
-                  {`DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12,hideSources: ['helpscout']},supportCallback: function (event, history, metadata, ticket) {
+                  {`DocsBotAI.init({id: "ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW",options: {useImageUpload: true,contextItems: 12,hideSources: ['helpscout']},${docsBotIdentifyConfig}supportCallback: function (event, history, metadata, ticket) {
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
