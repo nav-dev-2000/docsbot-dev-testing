@@ -284,6 +284,12 @@ export default async function createCheckoutSession(req, res) {
                 type: 'subscription_update_confirm',
                 subscription_update_confirm: {
                   subscription: team.stripeSubscriptionId,
+                  ...(isAnnualSale
+                    ? {
+                        billing_cycle_anchor: 'now',
+                        proration_behavior: 'create_prorations',
+                      }
+                    : {}),
                   items: [
                     {
                       id: subscriptionItem.id,
