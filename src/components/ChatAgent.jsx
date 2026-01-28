@@ -783,6 +783,17 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       // Add reasoning_effort if model supports it
       if (isReasoningModel(selectedModel) && reasoningEffort) {
         body.reasoning_effort = reasoningEffort
+        
+        // If reasoning is enabled above the minimum, increase search_limit to 4
+        const defaultEffort = getDefaultReasoningEffort(selectedModel)
+        const supportedValues = getSupportedReasoningEfforts(selectedModel)
+        const defaultIndex = supportedValues.indexOf(defaultEffort)
+        const currentIndex = supportedValues.indexOf(reasoningEffort)
+        
+        // If current reasoning effort is higher than default (lower index = higher effort)
+        if (currentIndex !== -1 && defaultIndex !== -1 && currentIndex < defaultIndex) {
+          body.search_limit = 4
+        }
       }
     }
     

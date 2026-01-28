@@ -1,6 +1,12 @@
 export const FEATURE_UPDATES = [
   {
     date: '2026-01-27',
+    title: 'Agent mode multiple search loops',
+    description:
+      'Bots can perform multiple searches with reasoning in between when documentation isn\'t found. Control limits via custom instructions or the new API parameter.',
+  },
+  {
+    date: '2026-01-27',
     title: 'Help Scout: Control when AI should not respond',
     description:
       'Prompt the AI when it should not respond in Help Scout. For example: vacation auto-responders, spam emails, or sales emails. New recommended Help Scout prompt template available.',

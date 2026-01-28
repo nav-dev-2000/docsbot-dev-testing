@@ -37,6 +37,7 @@ Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 | **model**               | string          | Override the model used for this request. Requires an OpenAI API key to be set on your team. Optional, defaults to the model configured for the bot. Examples: `gpt-4o`, `gpt-4.1`, `gpt-4.1-mini`.                  |
 | **default_language**   | string          | The default language to use if the language of the conversation is unclear. Use locale codes like 'en' or 'en-US'. Optional, defaults to the bot's configured language.                  |
 | **reasoning_effort**   | string          | Reasoning depth for the response. Requires authentication to override default. Options: 'none' (GPT-5.1 only, fastest responses), 'minimal' (GPT-5 only, least reasoning), 'low' (light reasoning), 'medium' (balanced reasoning), 'high' (most reasoning). Defaults: GPT-5.1 → 'none', GPT-5 → 'minimal', other reasoning models → 'low', non-reasoning models → ignored. Optional, defaults to model-specific default. |
+| **search_limit**      | integer         | Maximum number of times the `search_documentation` tool can be called. Requires authentication to override default. Minimum: 1, Maximum: 4. Optional, defaults to bot's `searchDocumentationLimit` or 2. Note: This is a default limit and does not guarantee that many searches will occur. The AI will only perform additional searches based on your custom instructions and if it determines it still hasn't found the required information and needs to try different search queries. |
 
 
 {% callout title="Vision" %}
@@ -58,7 +59,8 @@ Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which m
   "stream": false,
   "auto_cut": false,
   "image_urls": ["http://example.com/image1.jpg", "data:image/jpeg;base64,XXXXXXXX"],
-  "reasoning_effort": "medium"
+  "reasoning_effort": "medium",
+  "search_limit": 3
 }
 ```
 

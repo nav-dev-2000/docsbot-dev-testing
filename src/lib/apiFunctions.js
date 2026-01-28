@@ -377,6 +377,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     allowOpenEndedTopics,
     widgetType,
     brandAnalysis,
+    searchDocumentationLimit,
   } = req.body
 
   let allowOpenEndedTopicsValue = allowOpenEndedTopics
@@ -766,6 +767,15 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.temperature = temp
   } else if (!isUpdate) {
     botData.temperature = 0 // Default to 0 for most precise responses
+  }
+
+  if (searchDocumentationLimit !== undefined) {
+    // Validate searchDocumentationLimit is between 1 and 4
+    const limit = parseInt(searchDocumentationLimit)
+    if (isNaN(limit) || limit < 1 || limit > 4) {
+      throw new Error('searchDocumentationLimit must be a number between 1 and 4.')
+    }
+    botData.searchDocumentationLimit = limit
   }
 
   if (isAgent !== undefined) {
