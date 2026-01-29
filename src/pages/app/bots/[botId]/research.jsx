@@ -1080,6 +1080,7 @@ function ResearchInterface({
   const [webSearch, setWebSearch] = useState(false)
   const [codeInterpreter, setCodeInterpreter] = useState(false)
   const [questionHistory, setQuestionHistory] = useState(false)
+  const [docsSearch, setDocsSearch] = useState(true)
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
@@ -1169,10 +1170,13 @@ function ResearchInterface({
     if (clarifyingJob.questionHistory !== undefined) {
       setQuestionHistory(Boolean(clarifyingJob.questionHistory))
     }
+    if (clarifyingJob.docsSearch !== undefined) {
+      setDocsSearch(Boolean(clarifyingJob.docsSearch))
+    }
   }, [clarifyingJob])
 
   // Helper to update selectedJob when tools are toggled (only if job hasn't started)
-  const updateSelectedJobTools = (newWebSearch, newCodeInterpreter, newQuestionHistory) => {
+  const updateSelectedJobTools = (newWebSearch, newCodeInterpreter, newQuestionHistory, newDocsSearch) => {
     if (!setSelectedJob) return
     
     // If we're in clarifying mode, update the selectedJob
@@ -1189,6 +1193,7 @@ function ResearchInterface({
           webSearch: newWebSearch,
           codeInterpreter: newCodeInterpreter,
           questionHistory: newQuestionHistory,
+          docsSearch: newDocsSearch,
         }
       })
       return
@@ -1208,6 +1213,7 @@ function ResearchInterface({
           webSearch: newWebSearch,
           codeInterpreter: newCodeInterpreter,
           questionHistory: newQuestionHistory,
+          docsSearch: newDocsSearch,
         }
       })
     }
@@ -1224,6 +1230,12 @@ function ResearchInterface({
     
     if (!question || question.length < 2) {
       setErrorText('Please enter a full question.')
+      return
+    }
+
+    // Ensure at least documentation search or question history is selected
+    if (!docsSearch && !questionHistory) {
+      setErrorText('Please enable at least Documentation Search or Question History.')
       return
     }
 
@@ -1337,7 +1349,7 @@ function ResearchInterface({
             web_search: webSearch,
             code_interpreter: codeInterpreter,
             question_history: questionHistory,
-            docs_search: true,
+            docs_search: docsSearch,
             metadata: user?.displayName || user?.email || user?.uid ? {
               name: user?.displayName || null,
               email: user?.email || null,
@@ -1414,6 +1426,7 @@ function ResearchInterface({
           web_search: webSearch,
           code_interpreter: codeInterpreter,
           question_history: questionHistory,
+          docs_search: docsSearch,
           metadata: user?.displayName || user?.email || user?.uid ? {
             name: user?.displayName || null,
             email: user?.email || null,
@@ -1444,6 +1457,7 @@ function ResearchInterface({
               webSearch: webSearch,
               codeInterpreter: codeInterpreter,
               questionHistory: questionHistory,
+              docsSearch: docsSearch,
               metadata: data.metadata || (user?.displayName || user?.email || user?.uid ? {
                 name: user?.displayName || null,
                 email: user?.email || null,
@@ -1674,77 +1688,121 @@ function ResearchInterface({
               <div className="mb-1 mt-1 w-full rounded-xl sm:flex sm:shadow-sm">
                 <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
                   <div className="absolute bottom-0 left-0 z-10 flex items-center gap-0 pl-2">
-                    {/* Web Search toggle as icon button */}
-                    <Tooltip content={'Web Search'}>
-                      <button
-                        type="button"
-                        disabled={loading || showUpgrade}
-                        className={clsx(
-                          'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
-                          webSearch
-                            ? 'font-bold text-cyan-600'
-                            : 'text-gray-600',
-                        )}
-                        onClick={() => {
-                          const newValue = !webSearch
-                          setWebSearch(newValue)
-                          updateSelectedJobTools(newValue, codeInterpreter, questionHistory)
-                        }}
-                      >
-                        {webSearch ? (
-                          <GlobeAltIconSolid className="h-5 w-5" />
-                        ) : (
-                          <GlobeAltIcon className="h-5 w-5" />
-                        )}
-                      </button>
+                    {/* Documentation Search toggle as icon button */}
+                    <Tooltip content={'Documentation Search'}>
+                      <div className="inline-block">
+                        <button
+                          type="button"
+                          disabled={loading || showUpgrade || (docsSearch && !questionHistory)}
+                          className={clsx(
+                            'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
+                            docsSearch
+                              ? 'font-bold text-cyan-600'
+                              : 'text-gray-600',
+                          )}
+                          onClick={() => {
+                            // Prevent disabling if questionHistory is also disabled
+                            if (docsSearch && !questionHistory) {
+                              setErrorText('Please enable at least Documentation Search or Question History.')
+                              return
+                            }
+                            const newValue = !docsSearch
+                            setDocsSearch(newValue)
+                            setErrorText(null)
+                            updateSelectedJobTools(webSearch, codeInterpreter, questionHistory, newValue)
+                          }}
+                        >
+                          {docsSearch ? (
+                            <DocumentMagnifyingGlassIconSolid className="h-5 w-5" />
+                          ) : (
+                            <DocumentMagnifyingGlassIcon className="h-5 w-5" />
+                          )}
+                        </button>
+                      </div>
                     </Tooltip>
                     {/* Question History toggle as icon button */}
                     <Tooltip content={'Question History'}>
-                      <button
-                        type="button"
-                        disabled={loading || showUpgrade}
-                        className={clsx(
-                          'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
-                          questionHistory
-                            ? 'font-bold text-cyan-600'
-                            : 'text-gray-600',
-                        )}
-                        onClick={() => {
-                          const newValue = !questionHistory
-                          setQuestionHistory(newValue)
-                          updateSelectedJobTools(webSearch, codeInterpreter, newValue)
-                        }}
-                      >
-                        {questionHistory ? (
-                          <ChatBubbleLeftRightIconSolid className="h-5 w-5" />
-                        ) : (
-                          <ChatBubbleLeftRightIcon className="h-5 w-5" />
-                        )}
-                      </button>
+                      <div className="inline-block">
+                        <button
+                          type="button"
+                          disabled={loading || showUpgrade || (questionHistory && !docsSearch)}
+                          className={clsx(
+                            'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
+                            questionHistory
+                              ? 'font-bold text-cyan-600'
+                              : 'text-gray-600',
+                          )}
+                          onClick={() => {
+                            // Prevent disabling if docsSearch is also disabled
+                            if (questionHistory && !docsSearch) {
+                              setErrorText('Please enable at least Documentation Search or Question History.')
+                              return
+                            }
+                            const newValue = !questionHistory
+                            setQuestionHistory(newValue)
+                            setErrorText(null)
+                            updateSelectedJobTools(webSearch, codeInterpreter, newValue, docsSearch)
+                          }}
+                        >
+                          {questionHistory ? (
+                            <ChatBubbleLeftRightIconSolid className="h-5 w-5" />
+                          ) : (
+                            <ChatBubbleLeftRightIcon className="h-5 w-5" />
+                          )}
+                        </button>
+                      </div>
+                    </Tooltip>
+                    {/* Web Search toggle as icon button */}
+                    <Tooltip content={'Web Search'}>
+                      <div className="inline-block">
+                        <button
+                          type="button"
+                          disabled={loading || showUpgrade}
+                          className={clsx(
+                            'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
+                            webSearch
+                              ? 'font-bold text-cyan-600'
+                              : 'text-gray-600',
+                          )}
+                          onClick={() => {
+                            const newValue = !webSearch
+                            setWebSearch(newValue)
+                            updateSelectedJobTools(newValue, codeInterpreter, questionHistory, docsSearch)
+                          }}
+                        >
+                          {webSearch ? (
+                            <GlobeAltIconSolid className="h-5 w-5" />
+                          ) : (
+                            <GlobeAltIcon className="h-5 w-5" />
+                          )}
+                        </button>
+                      </div>
                     </Tooltip>
                     {/* Code tools toggle as icon button */}
                     <Tooltip content={'Code Interpreter'}>
-                      <button
-                        type="button"
-                        disabled={loading || showUpgrade}
-                        className={clsx(
-                          'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
-                          codeInterpreter
-                            ? 'font-bold text-cyan-600'
-                            : 'text-gray-600',
-                        )}
-                        onClick={() => {
-                          const newValue = !codeInterpreter
-                          setCodeInterpreter(newValue)
-                          updateSelectedJobTools(webSearch, newValue, questionHistory)
-                        }}
-                      >
-                        {codeInterpreter ? (
-                          <CodeBracketSquareIconSolid className="h-5 w-5" />
-                        ) : (
-                          <CodeBracketSquareIcon className="h-5 w-5" />
-                        )}
-                      </button>
+                      <div className="inline-block">
+                        <button
+                          type="button"
+                          disabled={loading || showUpgrade}
+                          className={clsx(
+                            'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
+                            codeInterpreter
+                              ? 'font-bold text-cyan-600'
+                              : 'text-gray-600',
+                          )}
+                          onClick={() => {
+                            const newValue = !codeInterpreter
+                            setCodeInterpreter(newValue)
+                            updateSelectedJobTools(webSearch, newValue, questionHistory, docsSearch)
+                          }}
+                        >
+                          {codeInterpreter ? (
+                            <CodeBracketSquareIconSolid className="h-5 w-5" />
+                          ) : (
+                            <CodeBracketSquareIcon className="h-5 w-5" />
+                          )}
+                        </button>
+                      </div>
                     </Tooltip>
                     <ModelSelector />
                   </div>
@@ -3400,12 +3458,19 @@ function Research({ team, bot }) {
                   </div>
                   <div className="h-6 border-l border-gray-300"></div>
                   <div className="flex flex-wrap items-center gap-x-2 xl:gap-x-4">
-                    <Tooltip content="Document search enabled">
+                    <Tooltip content={selectedJob.docsSearch ? "Documentation search enabled" : "Documentation search disabled"}>
                       <div className="flex items-center text-sm text-gray-500">
-                        <DocumentMagnifyingGlassIconSolid
-                          className="h-5 w-5 flex-shrink-0 text-cyan-600"
-                          aria-hidden="true"
-                        />
+                        {selectedJob.docsSearch ? (
+                          <DocumentMagnifyingGlassIconSolid
+                            className="h-5 w-5 flex-shrink-0 text-cyan-600"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <DocumentMagnifyingGlassIcon
+                            className="h-5 w-5 flex-shrink-0 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        )}
                       </div>
                     </Tooltip>
                     <Tooltip content={selectedJob.webSearch ? "Web search enabled" : "Web search disabled"}>
