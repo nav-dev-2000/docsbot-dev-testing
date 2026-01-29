@@ -109,6 +109,9 @@ function Widget({ team, bot }) {
   const [showCopyButton, setShowCopyButton] = useState(
     bot.showCopyButton || false,
   )
+  const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
+    bot.linkSafetyEnabled === true,
+  )
   const [isAgent, setIsAgent] = useState(
     bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
   )
@@ -250,6 +253,7 @@ function Widget({ team, bot }) {
       labels,
       hideSources,
       showCopyButton,
+      linkSafetyEnabled,
       logo,
       headerAlignment,
       isAgent,
@@ -857,7 +861,19 @@ function Widget({ team, bot }) {
                           </label>
                           <span className="text-sm text-gray-500">
                             {isAgent
-                              ? 'This link will be used when the user confirms they need to speak to a human. Optional, you can register a JS event instead.'
+                              ? (
+                                <>
+                                  This link will be used when the user confirms they need to speak to a human. Optional, you can{' '}
+                                  <Link
+                                    href="/documentation/developer/embeddable-chat-widget#support-callback"
+                                    target="_blank"
+                                    className="text-cyan-600 underline hover:text-cyan-500"
+                                  >
+                                    register a JS event
+                                  </Link>
+                                  {' '}instead.
+                                </>
+                              )
                               : 'This link will appear after the bot replies.'}
                           </span>
                           <div className="mt-1">
@@ -1052,44 +1068,58 @@ function Widget({ team, bot }) {
                       </div>
                     </div>
                     <div className="w-full">
-                      <label
-                        htmlFor="domains"
-                        className="block text-sm font-medium text-gray-900"
-                      >
-                        Allowed Domains
-                      </label>
-                      <span className="text-sm text-gray-500">
-                        Enter a comma-separated list of domains that are allowed
-                        to embed this widget. Any subdomains must be listed
-                        seperately. Leave blank to allow all domains.
-                      </span>
-                      <div className="mt-1">
-                        <input
-                          type="text"
-                          name="domains"
-                          id="domains"
-                          value={allowedDomainsText}
-                          onChange={(e) => {
-                            const formattedDomains = e.target.value.replace(/\s+/g, ',')
-                            setAllowedDomainsText(formattedDomains)
-                            setAllowedDomains(
-                              formattedDomains
-                                .split(',')
-                                .filter((s) => s)
-                                .map((d) =>
-                                  d
-                                    .trim()
-                                    .toLowerCase()
-                                    .replace(/^(https?:\/\/)/, '') // Remove http:// or https://
-                                    .replace(/\/.*$/, ''),
-                                ) // Remove everything from the first slash onwards
-                                .filter(Boolean),
-                            )
-                          }}
-                          disabled={isUpdating}
-                          placeholder="mysite.com, www.mysite.com, anotherdomain.com, etc"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
-                        />
+                      <div className="grid gap-6 lg:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor="domains"
+                            className="block text-sm font-medium text-gray-900"
+                          >
+                            Allowed Domains
+                          </label>
+                          <span className="text-sm text-gray-500">
+                            Enter a comma-separated list of domains that are allowed
+                            to embed this widget. Any subdomains must be listed
+                            seperately. Leave blank to allow all domains.
+                          </span>
+                          <div className="mt-1">
+                            <input
+                              type="text"
+                              name="domains"
+                              id="domains"
+                              value={allowedDomainsText}
+                              onChange={(e) => {
+                                const formattedDomains = e.target.value.replace(/\s+/g, ',')
+                                setAllowedDomainsText(formattedDomains)
+                                setAllowedDomains(
+                                  formattedDomains
+                                    .split(',')
+                                    .filter((s) => s)
+                                    .map((d) =>
+                                      d
+                                        .trim()
+                                        .toLowerCase()
+                                        .replace(/^(https?:\/\/)/, '') // Remove http:// or https://
+                                        .replace(/\/.*$/, ''),
+                                    ) // Remove everything from the first slash onwards
+                                    .filter(Boolean),
+                                )
+                              }}
+                              disabled={isUpdating}
+                              placeholder="mysite.com, www.mysite.com, anotherdomain.com, etc"
+                              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:text-sm"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <FieldToggle
+                            label="Link Safety"
+                            description="When enabled, clicking links inside the chat widget outside the current site or allowed domains (and their subdomains) will show a confirmation modal."
+                            enabled={linkSafetyEnabled}
+                            setEnabled={setLinkSafetyEnabled}
+                            disabled={isUpdating}
+                            isNew={true}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

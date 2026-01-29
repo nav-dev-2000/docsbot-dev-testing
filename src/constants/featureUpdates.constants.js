@@ -1,5 +1,17 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-01-29',
+    title: 'Widget link safety confirmation',
+    description:
+      'Added link safety feature in widget settings (off by default) to show a confirmation modal when clicking links outside the current site or allowed domains.',
+  },
+  {
+    date: '2026-01-28',
+    title: 'Question history search tool for deep research',
+    description:
+      'Deep research can now search your question history to find past questions and answers. Useful for identifying common bugs, feature requests, documentation gaps, and user patterns.',
+  },
+  {
     date: '2026-01-27',
     title: 'Agent mode multiple search loops',
     description:

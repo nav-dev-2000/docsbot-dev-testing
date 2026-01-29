@@ -62,6 +62,7 @@ export default async function handler(req, res) {
           supportLink: bot.supportLink || false,
           showButtonLabel: bot.showButtonLabel || false,
           showCopyButton: bot.showCopyButton || false,
+          linkSafetyEnabled: bot.linkSafetyEnabled === true,
           labels: bot.labels || i18n[bot.language]?.labels || i18n.en.labels,
           questions: bot.questions || [],
           hideSources: bot.hideSources || false,

@@ -355,6 +355,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     supportLink,
     showButtonLabel,
     showCopyButton,
+    linkSafetyEnabled,
     labels,
     questions,
     glossary,
@@ -611,6 +612,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.showCopyButton = !!showCopyButton
   } else if (!isUpdate && bot?.showCopyButton === undefined) {
     botData.showCopyButton = false
+  }
+
+  if (linkSafetyEnabled !== undefined) {
+    botData.linkSafetyEnabled = !!linkSafetyEnabled
+  } else if (!isUpdate && bot?.linkSafetyEnabled === undefined) {
+    botData.linkSafetyEnabled = false
   }
 
   if (hideSources !== undefined) {

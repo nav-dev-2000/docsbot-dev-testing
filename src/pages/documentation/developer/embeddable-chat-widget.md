@@ -191,6 +191,7 @@ options: {
   allowedDomains: [
     "docsbot.ai"
   ], // Array of domains that the widget is allowed to be embedded on. If empty, any domain is allowed.
+  linkSafetyEnabled: true, // Prompt before navigating to external links outside the current site or allowed domains (and subdomains). Default is false.
   color: "#0891b8", //color of the widget can be any hex color code.
   icon: "default", //icon for floating button can be "default" (comments), "robot", "life-ring", "question", "book", or an image url.
   alignment: "left", //alignment of the widget can be "left" or "right".
