@@ -242,7 +242,83 @@ export default async function createCheckoutSession(req, res) {
           return configId
         }
 
-        const configId = await getConfigId(data, neededProducts)
+        let configId = await getConfigId(data, neededProducts)
+
+        // If upgrading from annual to annual with sale, create a custom config with billing_cycle_anchor reset
+        const isAnnualToAnnualSale = upgrade && tier && isAnnualSale && team.stripeSubscriptionInterval === 'year'
+        if (isAnnualToAnnualSale) {
+          // Check if a config with billing_cycle_anchor: "now" already exists
+          const existingSaleConfig = data.find((item) => {
+            const hasBillingCycleAnchor = 
+              item?.features?.subscription_update?.billing_cycle_anchor === 'now'
+            const hasMatchingProducts = 
+              item?.features?.subscription_update?.products?.length === neededProducts?.length &&
+              item?.features?.subscription_update?.products
+                ?.map((product) => {
+                  return product.prices?.every((price) => neededProducts?.flat().includes(price))
+                })
+                .every((value) => value === true)
+            return hasBillingCycleAnchor && hasMatchingProducts
+          })
+
+          if (existingSaleConfig) {
+            configId = existingSaleConfig.id
+            console.log('Existing annual sale portal config found with billing_cycle_anchor reset', configId)
+          } else {
+            // Get the base config (either the found one or default) to use as template
+            let baseConfig
+            if (configId) {
+              // Retrieve the existing config we found
+              baseConfig = data.find(c => c.id === configId)
+            }
+            
+            // If no base config found, use default
+            if (!baseConfig) {
+              const { data: defaultConfigData } = await stripe.billingPortal.configurations.list({
+                expand: ['data.features.subscription_update.products', 'data.business_profile'],
+                is_default: true,
+              })
+              baseConfig = defaultConfigData[0]
+            }
+            
+            let saleConfig = JSON.parse(JSON.stringify(baseConfig))
+            
+            // Ensure products are filtered correctly if neededProducts is set
+            if (neededProducts && saleConfig.features?.subscription_update?.products) {
+              const filteredProducts = []
+              saleConfig.features.subscription_update.products.forEach((product) => {
+                if (neededProducts.flat()?.includes(product.prices[0])) {
+                  if (
+                    product?.adjustable_quantity &&
+                    (product.adjustable_quantity.maximum === null ||
+                      product.adjustable_quantity.maximum === '')
+                  ) {
+                    product.adjustable_quantity = { enabled: false }
+                  }
+                  filteredProducts.push(product)
+                }
+              })
+              if (filteredProducts.length) {
+                saleConfig.features.subscription_update.products = filteredProducts
+              }
+            }
+            
+            // Set billing_cycle_anchor to "now" to reset billing cycle
+            if (saleConfig.features?.subscription_update) {
+              saleConfig.features.subscription_update.billing_cycle_anchor = 'now'
+            }
+            
+            const salePortalConfig = await stripe.billingPortal.configurations.create({
+              business_profile: {
+                privacy_policy_url: 'https://docsbot.ai/legal/privacy-policy',
+                terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service',
+              },
+              features: sanitizeSubscriptionUpdateFeatures(saleConfig.features),
+            })
+            configId = salePortalConfig.id
+            console.log('New annual sale portal config created with billing_cycle_anchor reset', configId)
+          }
+        }
 
         let sessionConfig = {
           customer: team.stripeCustomerId,
@@ -284,12 +360,6 @@ export default async function createCheckoutSession(req, res) {
                 type: 'subscription_update_confirm',
                 subscription_update_confirm: {
                   subscription: team.stripeSubscriptionId,
-                  ...(isAnnualSale
-                    ? {
-                        billing_cycle_anchor: 'now',
-                        proration_behavior: 'create_prorations',
-                      }
-                    : {}),
                   items: [
                     {
                       id: subscriptionItem.id,
