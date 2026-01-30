@@ -453,14 +453,17 @@ const BrainIcon = ({ className }) => (
 )
 
 // Component to display a single reasoning item
-const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false }) => {
+const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false, isAnswerStreaming = false }) => {
+  // Show "Thought" if there's a following event OR if the answer has started streaming
+  const isComplete = hasFollowingEvent || isAnswerStreaming
+  
   if (!text || !text.trim()) {
     // Show "Thinking..." or "Thought" when reasoning is active but text is empty
     if (isStreaming || hasFollowingEvent) {
       return (
         <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
-          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !hasFollowingEvent && "animate-wobble")} />
-          <span className="font-medium">{hasFollowingEvent ? 'Thought' : 'Thinking...'}</span>
+          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
+          <span className="font-medium">{isComplete ? 'Thought' : 'Thinking...'}</span>
         </div>
       )
     }
@@ -489,7 +492,7 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
     return (
       <details className="group mt-2 ms-6 text-sm text-gray-500">
         <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
-          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && "animate-wobble")} />
+          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
           <span className="group-open:hidden">{preview}...</span>
           <span className="hidden group-open:inline text-gray-400 text-xs">Hide thinking</span>
           <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
@@ -505,7 +508,7 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
 
   return (
     <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
-      <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && "animate-wobble")} />
+      <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
       <div className="text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
         <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
           {text}
@@ -514,7 +517,7 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
     </div>
   )
 }, (prevProps, nextProps) => {
-  return prevProps.text === nextProps.text && prevProps.isStreaming === nextProps.isStreaming && prevProps.hasFollowingEvent === nextProps.hasFollowingEvent
+  return prevProps.text === nextProps.text && prevProps.isStreaming === nextProps.isStreaming && prevProps.hasFollowingEvent === nextProps.hasFollowingEvent && prevProps.isAnswerStreaming === nextProps.isAnswerStreaming
 })
 ReasoningItem.displayName = 'ReasoningItem'
 
@@ -1337,10 +1340,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       !team?.openAIKey ||
       !checkPlanPermission(team, 'hobby').allowed
     const tooltipContent = isDisabled
-      ? !team?.supportsGPT4
-        ? 'GPT-4 access required. Please upgrade your plan or add an OpenAI API key with credit.'
-        : !team?.openAIKey
-          ? 'OpenAI API key required to change models. Configure on the API page.'
+      ? !team?.openAIKey
+        ? 'OpenAI API key required to change models. Configure on the API page.'
+        : !team?.supportsGPT4
+          ? 'GPT-4 access required. Please upgrade your plan or add an OpenAI API key with credit.'
           : !checkPlanPermission(team, 'hobby').allowed
             ? 'Upgrade to Personal plan to change models.'
             : 'Change model'
@@ -1726,14 +1729,15 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             <div className="mt-4">
               {agentEvents.map((event, eventIndex) => {
                 const hasFollowingEvent = eventIndex < agentEvents.length - 1
+                const isAnswerStreaming = currentAnswer.length > 0
                 if (event.type === 'reasoning') {
                   return (
-                    <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} />
+                    <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
                   )
                 } else if (event.type === 'tool_call') {
                   return (
                     <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
-                      <ToolCallDisplay toolCalls={[event]} isStreamingStarted={currentAnswer.length > 0} />
+                      <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
                     </div>
                   )
                 }
