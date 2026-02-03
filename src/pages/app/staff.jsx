@@ -118,7 +118,7 @@ function Staff({ team, userId }) {
     setSuccessText('')
 
     if (!blogPath) {
-      setErrorText('Please enter a blog article URL or path.')
+      setErrorText('Please enter a blog article or documentation URL or path.')
       return
     }
 
@@ -134,14 +134,14 @@ function Staff({ team, userId }) {
       })
 
       if (response.ok) {
-        setSuccessText('Blog cache cleared successfully.')
+        setSuccessText('Cache cleared successfully.')
         setBlogPath('')
       } else {
         const data = await response.json()
-        setErrorText(data.message || 'Failed to clear blog cache.')
+        setErrorText(data.message || 'Failed to clear cache.')
       }
     } catch (error) {
-      setErrorText('Failed to clear blog cache. Please try again.')
+      setErrorText('Failed to clear cache. Please try again.')
     } finally {
       setIsClearingBlogCache(false)
     }
@@ -325,10 +325,10 @@ function Staff({ team, userId }) {
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-white p-4 shadow">
         <div className="w-full">
           <h3 className="m-0 text-lg font-medium leading-6 text-gray-900">
-            Blog Cache Tools
+            Blog & Documentation Cache Tools
           </h3>
           <div className="mt-2 max-w-xl text-sm text-gray-500">
-            <p>Clear ISR and Cloudflare cache for a blog article URL or path.</p>
+            <p>Clear ISR and Cloudflare cache for a blog article or documentation URL or path.</p>
           </div>
         </div>
         <div className="w-full border-t border-gray-200 pt-4">
@@ -336,13 +336,16 @@ function Staff({ team, userId }) {
             htmlFor="blog_url"
             className="block text-sm font-medium text-gray-700"
           >
-            Article URL
+            Article or Documentation URL
           </label>
           <div className="mt-2 max-w-xl text-xs text-gray-500">
             <p>
-              Example: https://docsbot.ai/article/content-management-best-practices
+              Blog example: https://docsbot.ai/article/content-management-best-practices
             </p>
-            <p>Or: /article/content-management-best-practices or content-management-best-practices</p>
+            <p>
+              Documentation example: https://docsbot.ai/documentation/doc/how-to-share-your-ai-chatbot-with-other-users
+            </p>
+            <p>Or: /article/slug, /documentation/doc/slug, or just the slug</p>
           </div>
           <div className="mt-1 flex rounded-md shadow-sm">
             <div className="relative flex flex-grow items-stretch focus-within:z-10">
@@ -352,7 +355,7 @@ function Staff({ team, userId }) {
                 value={blogPath}
                 onChange={(e) => setBlogPath(e.target.value)}
                 className="block w-full rounded-none rounded-l-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                placeholder="https://docsbot.ai/article/your-article"
+                placeholder="https://docsbot.ai/article/your-article or /documentation/doc/slug"
               />
             </div>
             <button

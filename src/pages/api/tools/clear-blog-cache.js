@@ -56,6 +56,18 @@ const normalizeArticlePath = (blogInput) => {
     return null
   }
 
+  // Handle documentation URLs: /documentation/doc/slug
+  if (pathSegments[0] === 'documentation' && pathSegments[1] === 'doc') {
+    if (pathSegments.length < 3) {
+      return null
+    }
+    return {
+      articlePath: `/${pathSegments.join('/')}`,
+      pathSegments: pathSegments,
+    }
+  }
+
+  // Handle blog article URLs: /article/slug
   const normalizedSegments =
     pathSegments[0] === 'article' ? pathSegments : ['article', ...pathSegments]
 
@@ -114,7 +126,7 @@ export default async function handler(req, res) {
   if (!parsed) {
     return res.status(400).json({
       message:
-        'Invalid blog URL or path. Use a docsbot.ai article URL, /article/slug, or a post slug.',
+        'Invalid blog or documentation URL or path. Use a docsbot.ai article/documentation URL, /article/slug, /documentation/doc/slug, or a post slug.',
     })
   }
 
