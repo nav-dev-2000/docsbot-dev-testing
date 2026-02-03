@@ -21,7 +21,7 @@ import classNames from '@/utils/classNames'
 import LocalStringNum from '@/components/LocalStringNum'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { canUserCreateDeleteBot } from '@/utils/function.utils'
+import { canUserCreateDeleteBot, canUserViewBot, getUserRole } from '@/utils/function.utils'
 import TeamHistory from '@/components/TeamHistory'
 import Tooltip from '@/components/Tooltip'
 import { getInvitesFromTeam, getBots } from '@/lib/dbQueries'
@@ -76,6 +76,13 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
   const [errorText, setErrorText] = useState(null)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
+  const currentRole = user && team ? getUserRole(team, user.uid) : null
+  const isNoneRole = currentRole === 'none'
+  const visibleBots =
+    isNoneRole && user && team
+      ? bots.filter((bot) => canUserViewBot(team, bot, user.uid))
+      : bots
+  const visibleBotIds = new Set(visibleBots.map((bot) => bot.id))
 
   useEffect(() => {
     if (team && user) {
@@ -93,8 +100,8 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
       linkText: 'View all',
       tooltip: 'You can create up to ' + stripePlan(team).bots + ' bots.',
       icon: ServerStackIcon,
-      stat: team?.botCount || 0,
-      limit: stripePlan(team).bots,
+      stat: isNoneRole ? visibleBots.length : team?.botCount || 0,
+      limit: isNoneRole ? null : stripePlan(team).bots,
     },
     {
       name: 'Source Pages',
@@ -189,8 +196,10 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
   }
 
   const LastError = ({ lastError }) => {
-    if (!lastError)
-      return null;
+    if (!lastError) return null
+    if (isNoneRole && lastError?.botId && !visibleBotIds.has(lastError.botId)) {
+      return null
+    }
   
     return (
       <Alert title={lastError.type === 'chat' ?
@@ -207,15 +216,22 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
     )
   } 
 
+  const filteredCards = isNoneRole
+    ? cards.filter((card) => card.name === 'Bots')
+    : cards
+  const filteredActions = isNoneRole
+    ? actions.filter((action) => action.title === 'View Bots')
+    : actions
+
   return (
-    <DashboardWrap page="Dashboard" team={team} bots={bots}>
+    <DashboardWrap page="Dashboard" team={team} bots={visibleBots}>
       <Alert title={errorText} type="warning" />
       <LastError lastError={team?.lastError} />
       <UpgradeNotice team={team} />
 
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5">
         {/* Card */}
-        {cards.map((card) => (
+        {filteredCards.map((card) => (
           <Card
             key={card.name}
             name={card.name}
@@ -230,14 +246,14 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
       </div>
 
       <div className="mt-8 divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
-        {actions.map((action, actionIdx) => (
+        {filteredActions.map((action, actionIdx) => (
           <div
             key={action.title}
             className={classNames(
               actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
               actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
-              actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
-              actionIdx === actions.length - 1
+              actionIdx === filteredActions.length - 2 ? 'sm:rounded-bl-lg' : '',
+              actionIdx === filteredActions.length - 1
                 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
                 : '',
               action.disabled ? 'opacity-50' : '',
@@ -311,9 +327,14 @@ export const getServerSideProps = async (context) => {
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
     
     // Fetch bots for wizard redirect
-    data.props.bots = await getBots(data.props.team)
+    const role = getUserRole(data.props.team, data.props.userId)
+    const allBots = await getBots(data.props.team)
+    data.props.bots =
+      role === 'none'
+        ? allBots.filter((bot) => canUserViewBot(data.props.team, bot, data.props.userId))
+        : allBots
 
-    if (!data.props.team.botCount) {
+    if (!data.props.team.botCount && role !== 'none') {
       return {
         redirect: {
           destination: '/app/onboarding',

@@ -667,8 +667,8 @@ export default function TableQuestions({
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    setModify(canUserEditBot(team, user.uid, bot))
+  }, [team, user, bot])
 
   // Sync local search input with prop when it changes externally (e.g., when filters clear it)
   useEffect(() => {

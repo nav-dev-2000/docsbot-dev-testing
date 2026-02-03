@@ -1,6 +1,7 @@
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { GetLinkToken, GetTenantId, GetIntegratedAccountByID, GetIntegratedAccountToken } from '@/lib/truto'
+import { canUserManageIntegrations } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   //check if user has access to team
@@ -17,6 +18,12 @@ export default async function handler(req, res) {
   if (!bot) {
     // doc.data() will be undefined in this case
     return res.status(404).json({ message: "botId doesn't exist." })
+  }
+
+  if (!canUserManageIntegrations(team, userId, bot)) {
+    return res.status(403).json({
+      message: 'You are not allowed to manage integrations for this bot.',
+    })
   }
 
   if (req.method === 'GET') {

@@ -4,6 +4,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getStorage } from 'firebase-admin/storage'
 import { getBot } from '@/lib/dbQueries'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -32,6 +33,12 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
+    if (!canUserModifySources(team, userId, bot)) {
+      return res.status(403).json({
+        message: 'You are not allowed to upload sources in this bot.',
+      })
+    }
+
     const { fileName } = req.query
     try {
       const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)

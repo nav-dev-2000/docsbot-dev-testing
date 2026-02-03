@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-02',
+    title: 'Per-bot roles and permissions',
+    description:
+      'Assign different roles (admin, editor, viewer, none) to team members for individual bots. Override team-level permissions with bot-specific access controls. Ideal for agencies or resellers.',
+  },
+  {
     date: '2026-01-29',
     title: 'Widget link safety confirmation',
     description:

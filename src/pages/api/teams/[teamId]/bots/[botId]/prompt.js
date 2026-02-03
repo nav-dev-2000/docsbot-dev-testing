@@ -3,6 +3,7 @@ import { getBot } from '@/lib/dbQueries'
 import { phTrack } from '@/lib/posthog'
 import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import OpenAI from 'openai'
+import { canUserEditBot } from '@/utils/function.utils'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -128,6 +129,11 @@ const handler = async (req, res) => {
     const bot = await getBot(team.id, botId)
     if (!bot) {
       return res.status(404).json({ message: 'Bot not found' })
+    }
+
+    // Ensure per-bot permission to edit
+    if (!canUserEditBot(team, userId, bot)) {
+      return res.status(403).json({ message: 'You are not allowed to edit this bot.' })
     }
 
     const { input, activeTab } = req.body

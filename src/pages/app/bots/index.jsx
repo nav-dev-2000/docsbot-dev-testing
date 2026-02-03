@@ -18,7 +18,7 @@ import clsx from 'clsx'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
-import { canUserCreateDeleteBot } from '@/utils/function.utils'
+import { canUserCreateDeleteBot, canUserViewBot, getUserRole } from '@/utils/function.utils'
 import BotIconDisplay from '@/components/BotIconDisplay'
 import ModalCheckout from '@/components/ModalCheckout'
 import { stripePlan } from '@/utils/helpers'
@@ -35,6 +35,11 @@ function Bots({ preBots, team }) {
   const [currentTeam, setCurrentTeam] = useState(team)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const router = useRouter()
+  const currentRole = user && currentTeam ? getUserRole(currentTeam, user.uid) : null
+  const visibleBots =
+    currentRole === 'none' && user && currentTeam
+      ? bots.filter((bot) => canUserViewBot(currentTeam, bot, user.uid))
+      : bots
 
   useEffect(() => {
     if (currentTeam && user) {
@@ -240,7 +245,7 @@ function Bots({ preBots, team }) {
 
       <ModalCheckout team={currentTeam} open={showUpgrade} setOpen={setShowUpgrade} />
 
-      <BotsGrid bots={bots} />
+      <BotsGrid bots={visibleBots} />
 
     </DashboardWrap>
   )
@@ -250,7 +255,8 @@ export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
 
   if (data?.props?.team) {
-    if (!data.props.team.botCount) {
+    const role = getUserRole(data.props.team, data.props.userId)
+    if (!data.props.team.botCount && role !== 'none') {
       return {
         redirect: {
           destination: '/app/onboarding',
@@ -259,7 +265,11 @@ export const getServerSideProps = async (context) => {
       }
     }
 
-    data.props.preBots = await getBots(data.props.team)
+    const allBots = await getBots(data.props.team)
+    data.props.preBots =
+      role === 'none'
+        ? allBots.filter((bot) => canUserViewBot(data.props.team, bot, data.props.userId))
+        : allBots
   }
 
   return data

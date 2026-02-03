@@ -186,7 +186,7 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
 
       {canManageBilling && (
         <div className="mt-6 rounded-lg bg-white p-8 shadow">
-          <Checkout team={team} />
+          <Checkout team={team} bots={bots} teamInvites={teamInvites} />
           <Cancel team={team} bots={bots} />
         </div>
       )}
@@ -333,6 +333,14 @@ export const getServerSideProps = async (context) => {
   if (data?.props?.team) {
     const role = getUserRole(data.props.team, data.props.userId)
     data.props.role = role
+    if (role === 'none') {
+      return {
+        redirect: {
+          destination: '/app',
+          permanent: false,
+        },
+      }
+    }
     data.props.canManageBilling = canUserManageBilling(
       data.props.team,
       data.props.userId,

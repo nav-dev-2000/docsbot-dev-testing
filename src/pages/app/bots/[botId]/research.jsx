@@ -2989,9 +2989,9 @@ function Research({ team, bot }) {
 
   // Determine if current user can modify bot
   useEffect(() => {
-    if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    if (!team || !user || !bot) return
+    setModify(canUserEditBot(team, user.uid, bot))
+  }, [team, user, bot])
 
   // Deep-link: select job from URL if provided (run once per page load)
   useEffect(() => {

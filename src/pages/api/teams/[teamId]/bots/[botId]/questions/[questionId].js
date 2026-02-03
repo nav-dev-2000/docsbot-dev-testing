@@ -19,8 +19,9 @@ export default async function handler(req, res) {
   const { userId, team } = check
   const { botId } = req.query
 
+  let bot
   try {
-    const bot = await getBot(team.id, botId)
+    bot = await getBot(team.id, botId)
     if (!bot) {
       // doc.data() will be undefined in this case
       return res.status(404).json({ message: "botId doesn't exist." })
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: error })
   }
 
-  if (!canUserEditBot(team, userId)) {
+  if (!canUserEditBot(team, userId, bot)) {
     return res.status(403).json({ message: 'User does not have permission to edit bot' })
   }
 

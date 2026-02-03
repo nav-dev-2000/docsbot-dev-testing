@@ -17,7 +17,7 @@ import { i18n } from '@/constants/strings.constants'
 import { SketchPicker } from 'react-color'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { canUserEditBot } from '@/utils/function.utils'
+import { canUserManageBotSettings } from '@/utils/function.utils'
 import {
   faComment,
   faComments,
@@ -148,8 +148,8 @@ function Widget({ team, bot }) {
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    setModify(canUserManageBotSettings(team, user.uid, bot))
+  }, [team, user, bot])
 
   useEffect(() => {
     if (

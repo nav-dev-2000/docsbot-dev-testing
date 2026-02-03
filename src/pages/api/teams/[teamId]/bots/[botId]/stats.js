@@ -2,6 +2,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getBot } from '@/lib/dbQueries'
 import { getStats } from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { canUserViewBot } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -56,6 +57,10 @@ export default async function handler(req, res) {
       const bot = await getBot(team.id, botId)
       if (!bot) {
         return res.status(404).json({ message: "botId doesn't exist." })
+      }
+
+      if (!canUserViewBot(team, bot, userId)) {
+        return res.status(403).json({ message: 'You are not allowed to view stats for this bot.' })
       }
 
       return res

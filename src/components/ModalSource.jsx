@@ -117,9 +117,9 @@ export default function ModalSource({
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserModifySources(team, user.uid))
+    setModify(canUserModifySources(team, user.uid, bot))
     setIsSuperAdminUser(isSuperAdmin(user.uid))
-  }, [team, user])
+  }, [team, user, bot])
 
   useEffect(() => {
     setCrawlerJsEnabled(!!source?.crawlerJS)

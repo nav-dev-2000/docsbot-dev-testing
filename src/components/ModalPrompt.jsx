@@ -136,8 +136,8 @@ export default function ModalPrompt({
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    setModify(canUserEditBot(team, user.uid, bot))
+  }, [team, user, bot])
 
   // Check if current agentPrompt matches any preset, if not set to "custom"
   useEffect(() => {

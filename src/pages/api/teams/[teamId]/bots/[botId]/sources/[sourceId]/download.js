@@ -6,6 +6,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import { canSourceTypeDownload } from '@/constants/sourceTypes.constants'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { phTrack } from '@/lib/posthog'
+import { canUserViewBot } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -49,6 +50,13 @@ export default async function handler(req, res) {
   } catch (error) {
     console.warn('Error getting document:', error)
     return res.status(500).json({ message: error?.message })
+  }
+
+  // Check per-bot permission to view bot
+  if (!canUserViewBot(team, bot, userId)) {
+    return res.status(403).json({
+      message: 'You are not allowed to view sources in this bot.',
+    })
   }
 
   if (!canSourceTypeDownload(source.type)) {

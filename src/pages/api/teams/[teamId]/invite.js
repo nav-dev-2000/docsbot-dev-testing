@@ -4,7 +4,7 @@ import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import { getAuth } from 'firebase-admin/auth'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { stripePlan, isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
 import { sendInviteEmail } from '@/utils/emails'
 import { getTeam, acceptInvite } from '@/lib/dbQueries'
 import { phTrack } from '@/lib/posthog'
@@ -52,7 +52,7 @@ export default async function handleInvite(req, res) {
 
       try {
         // grab user and invite them (or send an email if they haven't signed up)
-        const { inviteEmail, role } = req.body
+        const { inviteEmail, role, botOverrides } = req.body
 
         if (!validateEmail(inviteEmail)) {
           throw new Error("Please make sure the email is valid!")
@@ -80,12 +80,46 @@ export default async function handleInvite(req, res) {
           }
         }
 
+        const allowedRoles = new Set(['admin', 'editor', 'viewer', 'none'])
+        const sanitizedOverrides = Array.isArray(botOverrides)
+          ? botOverrides.filter((override) => {
+              if (!override || typeof override !== 'object') return false
+              if (typeof override.botId !== 'string' || !override.botId.trim()) return false
+              if (!allowedRoles.has(override.role)) return false
+              if (override.role === 'default') return false
+              return true
+            })
+          : []
+
+        if ((role === 'admin' || role === 'owner') && sanitizedOverrides.length > 0) {
+          return res.status(400).json({
+            message: 'Bot overrides are not available for admin or owner roles.',
+          })
+        }
+
+        if (role === 'none' && sanitizedOverrides.length === 0) {
+          return res.status(400).json({
+            message: 'Team role None requires at least one bot override.',
+          })
+        }
+
+        // Check if team is on Business plan or higher before allowing bot overrides
+        if (sanitizedOverrides.length > 0) {
+          const planCheck = checkPlanPermission(team, 'business')
+          if (!planCheck.allowed) {
+            return res.status(402).json({
+              message: `Per-bot roles are only available on the ${planCheck.requiredPlanLabel} plan or higher. Please upgrade to use this feature.`,
+            })
+          }
+        }
+
         // add invite!
         await inviteRef.add({
           createdAt: FieldValue.serverTimestamp(),
           email: inviteEmail,
           teamId: team.id, 
-          role: role
+          role: role,
+          botOverrides: sanitizedOverrides,
         });
 
         const inviter = await getAuth().getUser(userId)

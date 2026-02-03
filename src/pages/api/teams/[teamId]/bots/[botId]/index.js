@@ -6,7 +6,7 @@ import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
-import { canUserEditBot, canUserCreateDeleteBot } from '@/utils/function.utils'
+import { canUserCreateDeleteBot, canUserEditBot, canUserManageBotSettings, canUserViewBot } from '@/utils/function.utils'
 import { clearCloudflareCache } from '@/lib/cloudflare'
 
 export default async function handler(req, res) {
@@ -23,18 +23,39 @@ export default async function handler(req, res) {
   const { botId } = req.query
 
   if (req.method === 'PUT') {
-    //check user is allowed to edit bot or not
-    if (!canUserEditBot(team, userId)) {
-      return res.status(403).json({
-        message: 'You are not allowed to edit this bot.',
-      })
-    }
+    // fetch bot first
+    let bot
     try {
-      const bot = await getBot(team.id, botId)
+      bot = await getBot(team.id, botId)
       if (!bot) {
         return res.status(404).json({ message: 'Bot not found' })
       }
+    } catch (error) {
+      return res.status(500).json({ message: error?.message })
+    }
 
+    const canManageSettings = canUserManageBotSettings(team, userId, bot)
+    const canEditPrompt = canUserEditBot(team, userId, bot)
+    const promptFields = ['customPrompt', 'agentPrompt', 'helpscoutPrompt']
+    const bodyKeys = Object.keys(req.body || {})
+
+    if (!canManageSettings) {
+      if (!canEditPrompt) {
+        return res.status(403).json({
+          message: 'You are not allowed to edit this bot.',
+        })
+      }
+
+      const disallowedKeys = bodyKeys.filter((key) => !promptFields.includes(key))
+      if (disallowedKeys.length > 0) {
+        return res.status(403).json({
+          message: 'You are only allowed to edit bot prompts.',
+        })
+      }
+
+      req = { ...req, body: Object.fromEntries(promptFields.map((key) => [key, req.body[key]])) }
+    }
+    try {
       let botData = {}
       try {
         botData = await validateBotParams(req, team, userId, true, bot)
@@ -65,7 +86,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    //check user is allowed to delete bot or not
+    //check user is allowed to delete bot or not (team-level permission)
     if (!canUserCreateDeleteBot(team, userId)) {
       return res.status(403).json({
         message: 'You are not allowed to delete bot.',
@@ -98,12 +119,18 @@ export default async function handler(req, res) {
   } else if (req.method === 'GET') {
     try {
       const bot = await getBot(team.id, botId)
-      if (bot) {
-        return res.json(bot)
-      } else {
-        // doc.data() will be undefined in this case
+      if (!bot) {
         return res.status(404).json({ message: "botId doesn't exist." })
       }
+      
+      // Check per-bot permission to view bot
+      if (!canUserViewBot(team, bot, userId)) {
+        return res.status(403).json({
+          message: 'You are not allowed to view this bot.',
+        })
+      }
+      
+      return res.json(bot)
     } catch (error) {
       console.warn('Error getting document:', error)
       return res.status(500).json({ message: error })

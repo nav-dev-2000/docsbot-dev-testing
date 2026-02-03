@@ -11,7 +11,7 @@ import {
   enterpriseFeatures,
   featureDefinitions,
 } from '@/constants/pricing.constants'
-import { stripePlan } from '@/utils/helpers'
+import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import SocialFaces from '@/components/SocialFaces'
 
 // Helper function to get differentiating features for each tier
@@ -112,6 +112,8 @@ export function StripePricingTable({
   mode = 'checkout',
   saleConfig = null,
   defaultFrequency = null,
+  bots = null,
+  teamInvites = [],
 }) {
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(() => {
@@ -187,6 +189,42 @@ export function StripePricingTable({
     ) {
       isDisableButton = true
     }
+    
+    // Disable downgrade from Business plan if per-bot roles exist
+    if (isUpgrade) {
+      const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
+      const planLevels = { free: 1, hobby: 2, personal: 3, pro: 4, standard: 5, business: 6, enterprise: 7 }
+      const targetTierLevel = planLevels[id] || 0
+      const businessLevel = planLevels['business']
+      const isDowngradingToBelowBusiness = targetTierLevel < businessLevel
+      
+      if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
+        // Check if per-bot roles exist (if bots data is available)
+        if (bots && Array.isArray(bots)) {
+          const teamMemberIds = Object.keys(team?.roles || {})
+          const hasPerBotRoles = bots.some(bot => {
+            if (!bot.roles) return false
+            return Object.keys(bot.roles).some(memberId => {
+              const botRole = bot.roles[memberId]
+              return botRole && botRole !== 'default' && teamMemberIds.includes(memberId)
+            })
+          })
+          
+          const invitesHaveBotOverrides = teamInvites.some(invite => {
+            return invite.botOverrides && Array.isArray(invite.botOverrides) && invite.botOverrides.length > 0
+          })
+          
+          if (hasPerBotRoles || invitesHaveBotOverrides) {
+            isDisableButton = true
+          }
+        } else {
+          // If bots data not available, conservatively disable all downgrades from Business
+          // Backend will allow if no per-bot roles exist
+          isDisableButton = true
+        }
+      }
+    }
+    
     return isDisableButton
   }
 

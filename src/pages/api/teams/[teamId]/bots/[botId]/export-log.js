@@ -7,6 +7,7 @@ import { getBot, getQuestions } from '@/lib/dbQueries';
 import { checkPlanPermission } from '@/utils/helpers';
 import { stringify } from '@vanillaes/csv'
 import { phTrack } from '@/lib/posthog'
+import { canUserExportBotLogs } from '@/utils/function.utils'
 
 // this handler will export the question log of a bot to a csv file
 const handler = async (req, res) => {
@@ -29,6 +30,12 @@ const handler = async (req, res) => {
     const bot = await getBot(team.id, botId)
     if (!bot) {
       return res.status(404).json({ message: 'Bot not found' })
+    }
+
+    if (!canUserExportBotLogs(team, userId, bot)) {
+      return res.status(403).json({
+        message: 'You are not allowed to export logs for this bot.',
+      })
     }
 
     let { ip, rating, escalated, couldAnswer, startDate, endDate } = req.query

@@ -18,6 +18,7 @@ import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
 } from '@/lib/maintenance'
+import { canUserModifySources } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -48,6 +49,13 @@ export default async function handler(req, res) {
   } catch (error) {
     console.warn('Error getting document:', error)
     return res.status(500).json({ message: error?.message })
+  }
+
+  // Check per-bot permission to modify sources
+  if (!canUserModifySources(team, userId, bot)) {
+    return res.status(403).json({
+      message: 'You are not allowed to modify sources in this bot.',
+    })
   }
 
   if (req.method === 'PUT') {

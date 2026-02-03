@@ -11,6 +11,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import OpenAI from 'openai';
 import { CohereClient} from 'cohere-ai';
 import { decryptKey } from '@/lib/encryption';
+import { canUserViewBot } from '@/utils/function.utils';
 
 const cohereClient = new CohereClient({
   token: process.env.COHERE_API_KEY,
@@ -80,8 +81,9 @@ async function handler(req, res) {
   const firestore = getFirestore();
 
   // 1. Verify user access to the team
+  let check = null;
   try {
-    await userTeamCheck(req, res);
+    check = await userTeamCheck(req, res);
   } catch (error) {
     return res.status(403).json({
       success: false,
@@ -90,7 +92,7 @@ async function handler(req, res) {
       error: error?.message || null
     });
   }
-
+  const { userId, team } = check;
   const { teamId, botId } = req.query;
   const {
     query,
@@ -110,11 +112,7 @@ async function handler(req, res) {
   }
 
   try {
-    // 2. Fetch team data to get OpenAI key if available
-    const teamRef = await firestore.collection('teams').doc(teamId).get();
-    const team = teamRef.exists ? { id: teamRef.id, ...teamRef.data() } : null;
-    
-    // 3. Fetch bot configuration to determine embedding model
+    // 2. Fetch bot configuration to determine embedding model
     const bot = await getBot(teamId, botId);
     if (!bot) {
       return res.status(404).json({
@@ -124,9 +122,19 @@ async function handler(req, res) {
       });
     }
 
+    // 4. Check per-bot permission to view bot
+    if (!canUserViewBot(team, bot, userId)) {
+      return res.status(403).json({
+        success: false,
+        data: null,
+        message: "You are not allowed to view questions in this bot",
+        error: null
+      });
+    }
+
     const embeddingModel = bot?.embeddingModel || 'text-embedding-ada-002';
     
-    // 4. Convert search query into an embedding vector
+    // 5. Convert search query into an embedding vector
     const queryEmbeddingVector = await getEmbeddings({
       input: query,
       model: embeddingModel,
@@ -134,7 +142,7 @@ async function handler(req, res) {
       team,
     });
     
-    // 5. Determine the Firestore vector field based on dimensions
+    // 6. Determine the Firestore vector field based on dimensions
     const dimension = getModelDimensions(embeddingModel) ?? 1536;
     const vectorField = `vector_${dimension}`;
     
@@ -142,7 +150,7 @@ async function handler(req, res) {
       `teams/${teamId}/bots/${botId}/questions`
     );
     
-    // 6. Query Firestore for the nearest vectors (COSINE similarity)
+    // 7. Query Firestore for the nearest vectors (COSINE similarity)
     const safePage = Number.isFinite(Number(page)) ? Number(page) : 0;
     const safePerPage = Number.isFinite(Number(perPage)) ? Number(perPage) : 50;
     const paginationLimit = Math.max(safePerPage * (safePage + 1), safePerPage);
@@ -163,7 +171,7 @@ async function handler(req, res) {
 
     const snapshot = await nearestQuestions.get();
 
-    // 7. Format and paginate the results
+    // 8. Format and paginate the results
     const allResults = snapshot?.docs?.map((doc) => {
       return convertQuestionDocToData(doc.id, doc.data());
     }) || [];

@@ -1,7 +1,7 @@
 import { StripePricingTable } from '@/components/StripePricing'
 import { ANNUAL_SALE_CONFIG } from '@/components/annualSaleConfig'
 
-export default function AnnualSaleUpgradePricingTable({ team, email, setErrorText }) {
+export default function AnnualSaleUpgradePricingTable({ team, email, setErrorText, bots = null, teamInvites = [] }) {
   return (
     <StripePricingTable
       team={team}
@@ -10,6 +10,8 @@ export default function AnnualSaleUpgradePricingTable({ team, email, setErrorTex
       mode="upgrade"
       saleConfig={ANNUAL_SALE_CONFIG}
       defaultFrequency="annually"
+      bots={bots}
+      teamInvites={teamInvites}
     />
   )
 }

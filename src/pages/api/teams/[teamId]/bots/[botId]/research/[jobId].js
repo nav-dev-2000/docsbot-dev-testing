@@ -2,6 +2,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { canUserViewBot, canUserEditBot } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(403).json({ message: error?.message })
   }
-  const { team } = check
+  const { userId, team } = check
   const { botId, jobId } = req.query
 
   // Validate bot exists; also needed for bot.signature when cancelling
@@ -38,6 +39,13 @@ export default async function handler(req, res) {
     .doc(jobId)
 
   if (req.method === 'GET') {
+    // Check per-bot permission to view bot
+    if (!canUserViewBot(team, bot, userId)) {
+      return res.status(403).json({
+        message: 'You are not allowed to view research jobs in this bot.',
+      })
+    }
+    
     try {
       const snap = await docRef.get()
       if (!snap.exists) {
@@ -58,6 +66,12 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'DELETE') {
+    // Check per-bot permission to edit bot
+    if (!canUserEditBot(team, userId, bot)) {
+      return res.status(403).json({
+        message: 'You are not allowed to delete research jobs in this bot.',
+      })
+    }
     // First, try to cancel the external task; ignore non-200 errors
     try {
       const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${botId}/research/${jobId}`

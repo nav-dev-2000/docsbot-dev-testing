@@ -366,8 +366,8 @@ function Conversations({ team, bot, preConversations }) {
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    setModify(canUserEditBot(team, user.uid, bot))
+  }, [team, user, bot])
 
   // Set initial conversation based on URL param or default to first conversation
   useEffect(() => {

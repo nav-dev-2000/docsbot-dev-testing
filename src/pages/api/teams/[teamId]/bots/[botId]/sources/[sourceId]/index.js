@@ -8,7 +8,7 @@ import { phTrack } from '@/lib/posthog'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isTrutoSourceType, YOUTUBE_PLAYLIST_REGEX } from '@/constants/sourceTypes.constants'
 import { deleteSource } from '@/lib/apiFunctions'
-import { canUserModifySources } from '@/utils/function.utils'
+import { canUserModifySources, canUserViewBot } from '@/utils/function.utils'
 import { clearLastError } from '@/lib/apiFunctions'
 import { GetTrutoSelected, RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
     }
 
     //check user is allowed to edit this source or not
-    if (!canUserModifySources(team, userId)) {
+    if (!canUserModifySources(team, userId, bot)) {
       return res.status(403).json({
         message: 'You are not allowed to edit this source',
       })
@@ -151,7 +151,7 @@ export default async function handler(req, res) {
     }
 
     //check user is allowed to delete this source or not
-    if (!canUserModifySources(team, userId)) {
+    if (!canUserModifySources(team, userId, bot)) {
       return res.status(403).json({
         message: 'You are not allowed to delete this source',
       })
@@ -194,6 +194,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error })
     }
   } else if (req.method === 'GET') {
+    // Check per-bot permission to view bot
+    if (!canUserViewBot(team, bot, userId)) {
+      return res.status(403).json({
+        message: 'You are not allowed to view sources in this bot.',
+      })
+    }
+    
     if (isTrutoSourceType(source.type) && source.trutoIntegrationID) {
       try {
         source.trutoSelected = await GetTrutoSelected(source.trutoIntegrationID, source.type)

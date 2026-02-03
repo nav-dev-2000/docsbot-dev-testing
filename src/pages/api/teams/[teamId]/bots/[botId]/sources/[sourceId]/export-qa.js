@@ -6,6 +6,7 @@ import { getBot, getSource } from '@/lib/dbQueries'
 import sendEmail from '@/lib/sendEmail'
 import { stringify } from '@vanillaes/csv'
 import { phTrack } from '@/lib/posthog'
+import { canUserViewBot } from '@/utils/function.utils'
 
 // this handler will export the question log of a bot to a csv file
 const handler = async (req, res) => {
@@ -41,6 +42,13 @@ const handler = async (req, res) => {
 
   if ('qa' != source.type) {
     return res.status(400).json({ message: `Source type ${source.type} cannot be exported` })
+  }
+
+  // Check per-bot permission to view bot
+  if (!canUserViewBot(team, bot, userId)) {
+    return res.status(403).json({
+      message: 'You are not allowed to export sources in this bot.',
+    })
   }
 
   if (req.method === 'GET') {

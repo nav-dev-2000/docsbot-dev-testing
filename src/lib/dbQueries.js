@@ -41,6 +41,9 @@ export async function getBots(team, resultLimit = 1000) {
       ...(bot.labels || {}),
     }
 
+    // Initialize roles map if missing
+    bot.roles = bot.roles || {}
+
     // Remove sensitive Slack token information before returning
     Object.keys(bot).forEach((key) => {
       if (key.startsWith('slack')) {
@@ -338,6 +341,9 @@ export async function getBot(teamId, botId) {
       ...i18n[bot.language]?.labels,
       ...(bot.labels || {}),
     }
+
+    // Initialize roles map if missing
+    bot.roles = bot.roles || {}
 
     // Remove sensitive Slack token information before returning
     if (bot.slackBotToken) {
@@ -1180,6 +1186,7 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
     if (inviteDoc.data().teamId !== teamId) {
       throw new Error('You were not invited to this team!')
     }
+    const botOverrides = inviteDoc.data().botOverrides || []
     teamName = teamDoc.data().name
 
     console.log('data:', teamDoc.data().roles, typeof teamDoc.data().roles)
@@ -1196,6 +1203,24 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
       transaction.update(firestore.collection('users').doc(userId), {
         currentTeam: teamId,
       })
+
+      for (const override of botOverrides) {
+        if (!override?.botId || !override?.role) continue
+        const botRef = firestore
+          .collection('teams')
+          .doc(teamId)
+          .collection('bots')
+          .doc(override.botId)
+        const botDoc = await transaction.get(botRef)
+        if (!botDoc.exists) continue
+        const botRoles = botDoc.data().roles || {}
+        transaction.update(botRef, {
+          roles: {
+            ...botRoles,
+            [userId]: override.role,
+          },
+        })
+      }
     }
 
     transaction.delete(inviteRef)

@@ -18,7 +18,7 @@ import {
 } from '@/constants/sourceTypes.constants'
 import { QueueSourceIngest, QueueSourceRegest } from '@/lib/service'
 import { checkSourceScheduledFromInterval, isValidURL } from '@/utils/helpers'
-import { canUserModifySources } from '@/utils/function.utils'
+import { canUserModifySources, canUserViewBot } from '@/utils/function.utils'
 import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
   isVectorDbMaintenanceEnabled,
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
     }
 
     //check user is allowed to edit bot or not
-    if (!canUserModifySources(team, userId)) {
+    if (!canUserModifySources(team, userId, bot)) {
       return res.status(403).json({
         message: 'You are not allowed to add sources in this bot.',
       })
@@ -273,7 +273,7 @@ export default async function handler(req, res) {
           }
         })
       } catch (error) {
-        return res.status(400).send({ message: 'Invalid parameter "faqs".' })
+        return res.status(400).json({ message: 'Invalid parameter "faqs".' })
       }
     }
 
@@ -672,6 +672,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'GET') {
+    //check user is allowed to view bot or not
+    if (!canUserViewBot(team, bot, userId)) {
+      return res.status(403).json({
+        message: 'You are not allowed to view sources in this bot.',
+      })
+    }
+
     const page = parseInt(req.query.page) || 0
     const sourceLimit = parseInt(req.query.limit) || 100
     const ascending = req.query.ascending || false

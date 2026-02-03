@@ -682,7 +682,7 @@ export const getServerSideProps = async (context) => {
     const role = getUserRole(data.props.team, data.props.userId)
 
     // redirect non-owners to dashboard
-    if (role === 'viewer' || role === 'editor') {
+    if (role === 'viewer' || role === 'editor' || role === 'none') {
       return {
         redirect: {
           destination: '/app',

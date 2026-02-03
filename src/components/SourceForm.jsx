@@ -79,7 +79,7 @@ export default function SourceForm({
   const [scheduleInterval, setScheduleInterval] = useState('none')
   const [questions, setQuestions] = useState([{ question: '', answer: '' }])
   const [canModifySources, setCanModifySources] = useState(() =>
-    canUserModifySources(team, user?.uid),
+    canUserModifySources(team, user?.uid, bot),
   )
   const [processImages, setProcessImages] = useState(false)
 

@@ -1,5 +1,7 @@
 import userTeamCheck from '@/lib/userTeamCheck'
 import { clearLastError } from '@/lib/apiFunctions'
+import { canUserModifyTeam } from '@/utils/function.utils'
+import { isSuperAdmin } from '@/utils/helpers'
 
 export default async function handler(req, res) {
   let check = null
@@ -11,11 +13,11 @@ export default async function handler(req, res) {
   const { userId, team } = check
 
   if (req.method === 'POST') {
-    // sanity check user permissions
-    // for now, all team members are allowed to clear errors
-    // if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
-    //   return res.status(403).json({ message: 'Unauthorized action; please contact your team owner.'})
-    // }
+    if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
+      return res.status(403).json({
+        message: 'Unauthorized action; please contact your team owner.',
+      })
+    }
 
     try {
       await clearLastError(team)

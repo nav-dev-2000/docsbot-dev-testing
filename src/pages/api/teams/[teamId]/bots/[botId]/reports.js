@@ -2,6 +2,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
+import { canUserViewBot } from '@/utils/function.utils'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -27,6 +28,10 @@ export default async function handler(req, res) {
         return res.status(404).json({ message: "botId doesn't exist." })
       }
   
+      if (!canUserViewBot(team, bot, userId)) {
+        return res.status(403).json({ message: 'You are not allowed to view reports for this bot.' })
+      }
+
       // grab questions within the last week
       const reports = await firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('reports').select('id').get()
       const availableReports = reports.docs.map(doc => doc.id)

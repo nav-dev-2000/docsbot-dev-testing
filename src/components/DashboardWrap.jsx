@@ -214,15 +214,18 @@ export default function DashboardWrap({
   ]
 
   useEffect(() => {
-    if (
-      currentRole?.toLowerCase() === 'editor' ||
-      currentRole?.toLowerCase() === 'viewer'
-    ) {
-      const filteredNavigation = navigation.filter(
-        (nav) =>
-          !nav.name.toLowerCase().includes('account') &&
-          !nav.name.toLowerCase().includes('api'),
-      )
+    const normalizedRole = currentRole?.toLowerCase()
+    if (normalizedRole === 'editor' || normalizedRole === 'viewer' || normalizedRole === 'none') {
+      const filteredNavigation = navigation.filter((nav) => {
+        const navName = nav.name.toLowerCase()
+        if (navName.includes('account') || navName.includes('api')) {
+          return false
+        }
+        if (normalizedRole === 'none' && navName.includes('team')) {
+          return false
+        }
+        return true
+      })
       setCurrentPageLink(
         filteredNavigation.find((nav) => nav.name === page)?.href,
       )
@@ -239,7 +242,10 @@ export default function DashboardWrap({
     }
   }, [currentRole, user])
 
-  const userNavigation = [{ name: 'Account', href: '/app/account' }]
+  const userNavigation =
+    currentRole?.toLowerCase() === 'none'
+      ? []
+      : [{ name: 'Account', href: '/app/account' }]
 
   const pageTitle = `${page} ${title ? ` | ${Array.isArray(title) ? title.join(' | ') : title}` : ''}`
 

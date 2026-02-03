@@ -695,8 +695,8 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
   useEffect(() => {
     if (!team || !user) return
-    setModify(canUserEditBot(team, user.uid))
-  }, [team, user])
+    setModify(canUserEditBot(team, user.uid, bot))
+  }, [team, user, bot])
 
 
   useEffect(() => {

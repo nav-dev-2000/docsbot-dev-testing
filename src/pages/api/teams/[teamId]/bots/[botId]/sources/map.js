@@ -4,6 +4,7 @@ import { canUserModifySources } from '@/utils/function.utils'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getCacheEntry, setCacheEntry } from '@/utils/cache.utils'
 import { validateBusinessUrl } from '@/utils/websiteValidation'
+import { getBot } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -21,8 +22,19 @@ export default async function handler(req, res) {
   }
 
   const { userId, team } = check
+  const { botId } = req.query
 
-  if (!canUserModifySources(team, userId)) {
+  let bot
+  try {
+    bot = await getBot(team.id, botId)
+    if (!bot) {
+      return res.status(404).json({ message: 'Bot not found' })
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error?.message })
+  }
+
+  if (!canUserModifySources(team, userId, bot)) {
     return res.status(403).json({ message: 'You are not allowed to add sources in this bot.' })
   }
 

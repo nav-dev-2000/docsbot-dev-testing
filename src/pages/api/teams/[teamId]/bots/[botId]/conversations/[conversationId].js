@@ -18,8 +18,9 @@ export default async function handler(req, res) {
   const { userId, team } = check
   const { botId, conversationId } = req.query
 
+  let bot
   try {
-    const bot = await getBot(team.id, botId)
+    bot = await getBot(team.id, botId)
     if (!bot) {
       return res.status(404).json({ message: "botId doesn't exist." })
     }
@@ -42,7 +43,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: 'Failed to fetch conversation' })
     }
   } else if (req.method === 'DELETE') {
-    if (!canUserEditBot(team, userId)) {
+    if (!canUserEditBot(team, userId, bot)) {
       return res.status(403).json({ message: 'User does not have permission to delete conversations' })
     }
     

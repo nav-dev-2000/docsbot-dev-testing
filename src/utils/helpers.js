@@ -1024,11 +1024,32 @@ export const getNeededStripeProduct = (team, teamInvites = []) => {
     const plansArray = Object.entries(plans).map(([key, value]) => ({ id: key, ...value }))
     const currentMemberCount = Object.keys(team?.roles || {}).length + teamInvites.length
 
+    // Helper to resolve researchTasks limit
+    const resolveResearchLimit = (planLimit) => {
+      if (typeof planLimit?.researchTasks === 'number') {
+        return planLimit.researchTasks
+      }
+      if (typeof planLimit?.researchTasks === 'object' && planLimit.researchTasks !== null) {
+        return planLimit.researchTasks.monthly || planLimit.researchTasks.lifetime || 0
+      }
+      return 0
+    }
+
+    // Calculate effective research count (excluding trial research up to 2)
+    const currentPlan = stripePlan(team)
+    const currentPlanResearchLimit = typeof currentPlan?.researchTasks === 'number' 
+      ? currentPlan.researchTasks 
+      : 0
+    // If current plan has no monthly research tasks, they may have used trial research (up to 2)
+    const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
+    const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
+
    if (
       personalPlanLimit.bots >= team?.botCount &&
       personalPlanLimit.pages >= team?.pageCount &&
       personalPlanLimit.questions >= team?.questionCount &&
-      personalPlanLimit.teamMembers >= currentMemberCount
+      personalPlanLimit.teamMembers >= currentMemberCount &&
+      resolveResearchLimit(personalPlanLimit) >= researchCount
     ) {
       const prices = []
       plansArray.map((item) => {
@@ -1042,7 +1063,8 @@ export const getNeededStripeProduct = (team, teamInvites = []) => {
       standardPlanLimit.bots >= team?.botCount &&
       standardPlanLimit.pages >= team?.pageCount &&
       standardPlanLimit.questions >= team?.questionCount &&
-      standardPlanLimit.teamMembers >= currentMemberCount
+      standardPlanLimit.teamMembers >= currentMemberCount &&
+      resolveResearchLimit(standardPlanLimit) >= researchCount
     ) {
       const prices = []
       plansArray.map((item) => {
@@ -1056,7 +1078,8 @@ export const getNeededStripeProduct = (team, teamInvites = []) => {
       businessPlanLimit.bots >= team?.botCount &&
       businessPlanLimit.pages >= team?.pageCount &&
       businessPlanLimit.questions >= team?.questionCount &&
-      businessPlanLimit.teamMembers >= currentMemberCount
+      businessPlanLimit.teamMembers >= currentMemberCount &&
+      resolveResearchLimit(businessPlanLimit) >= researchCount
     ) {
       const prices = []
       plansArray.map((item) => {

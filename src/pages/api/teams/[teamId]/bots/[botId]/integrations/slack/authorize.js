@@ -1,8 +1,9 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
 import userTeamCheck from '@/lib/userTeamCheck'
-import { canUserEditBot } from '@/utils/function.utils'
+import { canUserManageIntegrations } from '@/utils/function.utils'
 import crypto from 'crypto'
+import { getBot } from '@/lib/dbQueries'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -22,8 +23,13 @@ export default async function handler(req, res) {
       return res.status(405).json({ message: 'Method not allowed' })
     }
 
+    const bot = await getBot(team.id, botId)
+    if (!bot) {
+      return res.status(404).json({ message: 'Bot not found' })
+    }
+
     //check user is allowed to edit bot or not
-    if (!canUserEditBot(team, userId)) {
+    if (!canUserManageIntegrations(team, userId, bot)) {
       return res.status(403).json({
         message: 'You are not allowed to edit this bot.',
       })

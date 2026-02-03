@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { isSuperAdmin } from '@/utils/helpers'
-import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers } from '@/lib/dbQueries'
+import { getUserTeams, getInvitesFromEmailAndTeamId, getTeamUsers, getTeam } from '@/lib/dbQueries'
 import { phTrack } from '@/lib/posthog'
 import { canUserModifyTeam } from '@/utils/function.utils'
 
@@ -46,8 +46,61 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
     const { team } = check
-    const { memberId , role } = req.body
+    const { memberId , role, transferOwnership } = req.body
     try {
+      // Handle ownership transfer
+      if (transferOwnership === true) {
+        // Re-fetch team to ensure we have the latest data before making changes
+        const currentTeam = await getTeam(team.id)
+        if (!currentTeam) {
+          throw new Error('Team not found!')
+        }
+
+        // Only current owner can transfer ownership
+        if (currentTeam.roles[userId] !== 'owner' && !isSuperAdmin(userId)) {
+          throw new Error('Only the team owner can transfer ownership!')
+        }
+
+        if (userId === memberId) {
+          throw new Error('You cannot transfer ownership to yourself!')
+        }
+
+        const targetMemberRole = currentTeam.roles[memberId]
+        if (targetMemberRole === undefined) {
+          throw new Error('User is not part of this team!')
+        }
+
+        // Verify target member is an admin
+        if (targetMemberRole !== 'admin') {
+          throw new Error('Ownership can only be transferred to an admin!')
+        }
+
+        // Transfer ownership: new owner becomes owner, current owner becomes admin
+        const newRoles = { ...currentTeam.roles }
+        newRoles[memberId] = 'owner'
+        newRoles[userId] = 'admin'
+
+        await firestore.collection('teams').doc(team.id).update({
+          roles: newRoles
+        })
+
+        // Get updated team and users
+        const updatedTeam = await getTeam(team.id)
+        const updatedTeamUsers = await getTeamUsers(team.id)
+
+        phTrack(userId, 'Team Ownership Transferred', { 
+          "Team name": team.name, 
+          "New owner": memberId 
+        }, team.id)
+
+        return res.status(200).send({ 
+          message: `Ownership has been transferred successfully`, 
+          teamUsers: updatedTeamUsers,
+          team: updatedTeam
+        })
+      }
+
+      // Regular role change (existing logic)
       //check that only admins can change the role of members
       if (!canUserModifyTeam(team, userId) && !isSuperAdmin(userId)) {
         throw new Error('Only team admins can change the role of members!')
