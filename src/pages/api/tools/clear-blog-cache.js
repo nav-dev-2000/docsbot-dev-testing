@@ -23,17 +23,19 @@ const getBuildId = async () => {
   }
 }
 
-const normalizeArticlePath = (blogInput) => {
-  if (!blogInput || typeof blogInput !== 'string') {
+const normalizePath = (input) => {
+  if (!input || typeof input !== 'string') {
     return null
   }
 
-  const trimmedInput = blogInput.trim()
+  const trimmedInput = input.trim()
   if (!trimmedInput) {
     return null
   }
 
   let pathname = trimmedInput
+
+  // If a full URL is provided, accept it as long as it points at docsbot.ai
   if (/^https?:\/\//i.test(trimmedInput)) {
     let parsedUrl
     try {
@@ -49,6 +51,11 @@ const normalizeArticlePath = (blogInput) => {
     pathname = parsedUrl.pathname
   }
 
+  // If a bare slug is provided, assume it's an article slug.
+  if (!pathname.startsWith('/')) {
+    pathname = `/article/${pathname}`
+  }
+
   const trimmedPath = pathname.replace(/\/$/, '')
   const pathSegments = trimmedPath.split('/').filter(Boolean)
 
@@ -56,28 +63,9 @@ const normalizeArticlePath = (blogInput) => {
     return null
   }
 
-  // Handle documentation URLs: /documentation/doc/slug
-  if (pathSegments[0] === 'documentation' && pathSegments[1] === 'doc') {
-    if (pathSegments.length < 3) {
-      return null
-    }
-    return {
-      articlePath: `/${pathSegments.join('/')}`,
-      pathSegments: pathSegments,
-    }
-  }
-
-  // Handle blog article URLs: /article/slug
-  const normalizedSegments =
-    pathSegments[0] === 'article' ? pathSegments : ['article', ...pathSegments]
-
-  if (normalizedSegments.length < 2) {
-    return null
-  }
-
   return {
-    articlePath: `/${normalizedSegments.join('/')}`,
-    pathSegments: normalizedSegments,
+    path: `/${pathSegments.join('/')}`,
+    pathSegments,
   }
 }
 
@@ -109,33 +97,41 @@ export default async function handler(req, res) {
       .json({ message: 'Missing blogUrl or articlePath parameter' })
   }
 
-  try {
-    const user = await getAuthorizedUser({ req })
-    if (!isSuperAdmin(user.uid)) {
+  // Allow INTERNAL_API_KEY (server-to-server) as an alternative to super admin cookies.
+  const authHeader = req.headers.authorization
+  const expectedKey = process.env.INTERNAL_API_KEY
+  const hasInternalKey =
+    authHeader && expectedKey && authHeader === `Bearer ${expectedKey}`
+
+  if (!hasInternalKey) {
+    try {
+      const user = await getAuthorizedUser({ req })
+      if (!isSuperAdmin(user.uid)) {
+        return res
+          .status(403)
+          .json({ message: 'Unauthorized: Only super admins can clear caches' })
+      }
+    } catch (error) {
       return res
-        .status(403)
-        .json({ message: 'Unauthorized: Only super admins can clear caches' })
+        .status(401)
+        .json({ message: 'Unauthorized: Authentication required' })
     }
-  } catch (error) {
-    return res
-      .status(401)
-      .json({ message: 'Unauthorized: Authentication required' })
   }
 
-  const parsed = normalizeArticlePath(blogUrl || articlePath)
+  const parsed = normalizePath(blogUrl || articlePath)
   if (!parsed) {
     return res.status(400).json({
       message:
-        'Invalid blog or documentation URL or path. Use a docsbot.ai article/documentation URL, /article/slug, /documentation/doc/slug, or a post slug.',
+        'Invalid URL or path. Use a docsbot.ai URL, /article/slug, /documentation/..., or a slug.',
     })
   }
 
-  const { articlePath: normalizedArticlePath, pathSegments } = parsed
+  const { path: normalizedPath, pathSegments } = parsed
 
   const buildId = await getBuildId()
   const urlsToPurge = [
-    `https://docsbot.ai${normalizedArticlePath}`,
-    ...buildNextDataUrls(buildId, normalizedArticlePath, pathSegments),
+    `https://docsbot.ai${normalizedPath}`,
+    ...buildNextDataUrls(buildId, normalizedPath, pathSegments),
   ]
 
   try {
@@ -147,15 +143,15 @@ export default async function handler(req, res) {
 
   const revalidatedPaths = []
   try {
-    await res.revalidate(normalizedArticlePath)
-    revalidatedPaths.push(normalizedArticlePath)
+    await res.revalidate(normalizedPath)
+    revalidatedPaths.push(normalizedPath)
   } catch (error) {
-    console.error(`Failed to revalidate path ${normalizedArticlePath}:`, error)
+    console.error(`Failed to revalidate path ${normalizedPath}:`, error)
   }
 
   return res.status(200).json({
-    message: 'Blog cache cleared',
-    articlePath: normalizedArticlePath,
+    message: 'Cache cleared',
+    path: normalizedPath,
     urlsToPurge,
     revalidatedPaths,
   })
