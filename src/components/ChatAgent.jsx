@@ -25,6 +25,7 @@ import {
 import {
   PaperAirplaneIcon,
   RectangleStackIcon as RectangleStackIconSolid,
+  StopIcon,
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
@@ -633,6 +634,75 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
   const [agentEvents, setAgentEvents] = useState([]) // Track tool calls and reasoning in order
   const agentEventsRef = useRef([]) // Ref to track agent events for closure access
+  const abortControllerRef = useRef(null)
+  const currentAnswerRef = useRef('')
+  const messagesEndRef  = useRef(null)
+  const messagesScrollRef = useRef(null)
+  const shouldAutoScrollRef = useRef(true)
+  
+  const updateShouldAutoScroll = useCallback(() => {
+    const el = messagesScrollRef.current
+    if (!el) return
+  
+    const isAtBottom =
+    el.scrollTop + el.clientHeight >= el.scrollHeight - 40
+
+    // HARD STOP auto-scroll if user is not at bottom
+    shouldAutoScrollRef.current = isAtBottom
+  }, [])
+
+
+  useEffect(() => {
+    if (!shouldAutoScrollRef.current) return
+  
+    const el = messagesScrollRef.current
+    if (!el) return
+  
+    // Use requestAnimationFrame to avoid layout thrash during streaming
+    requestAnimationFrame(() => {
+      messagesEndRef.current?.scrollIntoView({
+        block: 'end',
+        behavior: 'auto', // no smooth during streaming
+      })
+    })
+  }, [answers.length, agentEvents.length, currentAnswer])
+
+  const handleStop = (e) => {
+    if (e) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+      abortControllerRef.current = null
+    }
+    // Preserve any streamed content so we don't leave an empty placeholder row
+    const partial = currentAnswerRef.current || ''
+    const partialEvents = agentEventsRef.current.filter(
+      (evt) => evt.type !== 'reasoning' || (evt.text && evt.text.trim()),
+    )
+    setAnswers((prev) => {
+      const next = [...prev]
+      if (next.length === 0) return next
+      const last = next[next.length - 1]
+      if (last.type !== 'answer') return next
+
+      if (partial && partial.trim()) {
+        next[next.length - 1] = {
+          ...last,
+          markdown: partial,
+          agentEvents: partialEvents.length > 0 ? partialEvents : last.agentEvents,
+        }
+      } else {
+        // If the user stopped immediately, remove the empty placeholder answer
+        next.pop()
+      }
+      return next
+    })
+    setAgentEvents([])
+    agentEventsRef.current = []
+    setLoading(false)
+  }
 
   const validModels = [
     {
@@ -716,13 +786,23 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
   // make api call to ask question
   const askQuestion = async (askedQuestion) => {
+    shouldAutoScrollRef.current = true
     if (!askedQuestion || askedQuestion.length < 2) {
       setErrorText('Please enter a full question.')
       return
     }
+
+    // Abort previous request if it exists
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    const ctrl = new AbortController()
+    abortControllerRef.current = ctrl
+
     setLoading(true)
     setErrorText(null)
     setCurrentAnswer('')
+    currentAnswerRef.current = ''
     setShowQuestion(false)
     setAnswers((prev) => {
       //add new question with images
@@ -813,6 +893,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         method: 'POST',
         headers,
         body: JSON.stringify(body),
+        signal: ctrl.signal,
         async onopen(response) {
           console.log(
             'SSE Response:',
@@ -856,9 +937,13 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             setCurrentAnswer((prev) => {
               // Handle empty data fields as line breaks to preserve formatting
               if (msg.data === '') {
-                return prev + '\n'
+                const next = prev + '\n'
+                currentAnswerRef.current = next
+                return next
               } else {
-                return prev + msg.data
+                const next = prev + msg.data
+                currentAnswerRef.current = next
+                return next
               }
             })
           } else if (msg.event === 'tool_call') {
@@ -964,12 +1049,14 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   ]
                 })
                 setCurrentAnswer(endData.answer)
+                currentAnswerRef.current = endData.answer || ''
                 // Clear agent events for next question
                 setAgentEvents([])
                 agentEventsRef.current = []
               } else {
                 if (endData.answer) {
                   setCurrentAnswer(endData.answer)
+                  currentAnswerRef.current = endData.answer || ''
                 }
 
                 // Filter out empty reasoning events when saving
@@ -1082,6 +1169,16 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         },
       })
     } catch (error) {
+      if (error.name === 'AbortError') {
+        if (abortControllerRef.current !== ctrl) {
+          return
+        }
+        setLoading(false)
+        if (abortControllerRef.current === ctrl) {
+          abortControllerRef.current = null
+        }
+        return
+      }
       console.error('Failed to fetch answer:', error)
       setErrorText(
         error instanceof Error
@@ -1093,6 +1190,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
       setAnswers((prev) => {
         return prev.filter((a) => a.type !== 'answer' || a.markdown)
       })
+    }
+
+    if (abortControllerRef.current === ctrl) {
+      abortControllerRef.current = null
     }
 
     if (testing) {
@@ -1629,10 +1730,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }, [pendingUpgrade])
 
   return (
-    <div className="relative flex justify-center py-8">
+    <div className="relative flex justify-center py-4 h-[calc(100dvh-8rem)] overflow-hidden">
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12">
-        <div className="my-auto">
+      <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12 h-full overflow-hidden">
+        <div className="shrink-0">
           {bot.logo && !showResearchMode && (
             <div className="flex items-center justify-center">
               <img src={bot.logo} alt={bot.name} className="max-h-9 w-auto" />
@@ -1660,7 +1761,11 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
         <FullSource />
 
-        <div className="mt-6">
+        <div
+          ref={messagesScrollRef}
+          onScroll={updateShouldAutoScroll}
+          className="mt-4 flex-1 min-h-0 overflow-y-auto pb-4 px-8"
+        >
           {useMemo(() => {
             // Render all completed messages (everything except the last one if it's streaming)
             const completedMessages = answers.slice(0, 
@@ -1795,8 +1900,12 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             </div>
           )}
 
+          <div ref={messagesEndRef} />
+        </div>
+
+        <div className="shrink-0 bg-white/80 backdrop-blur pt-2">
           <form
-            className="mt-4 flex flex-col justify-center"
+            className="mt-2 flex flex-col justify-center"
             onSubmit={(e) => {
               e.preventDefault()
               if (!loading) {
@@ -1938,17 +2047,22 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 />
 
                 <button
-                  type="submit"
+                  type={loading ? 'button' : 'submit'}
                   tabIndex={2}
-                  disabled={loading}
-                  className="absolute bottom-0 right-0 my-3 mr-2 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
+                  onClick={(e) => {
+                    if (loading) {
+                      handleStop(e)
+                    }
+                  }}
+                  className="absolute bottom-0 right-0 my-3 mr-4 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
                 >
-                  <span className="sr-only">{bot.labels.inputPlaceholder}</span>
+                  <span className="sr-only">{loading ? 'Stop generating' : bot.labels.inputPlaceholder}</span>
                   {loading ? (
-                    <div className="flex items-center justify-center">
-                      <div className="relative w-5">
-                        <div className="h-5 w-5 rounded-full border border-teal-400"></div>
-                        <div className="absolute left-0 top-0 h-5 w-5 animate-spin rounded-full border-t-2 border-cyan-600"></div>
+                    <div className="group flex items-center justify-center cursor-pointer">
+                      <div className="relative flex h-6 w-6 items-center justify-center">
+                        <div className="absolute inset-0 rounded-full opacity-25"></div>
+                        <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-cyan-600"></div>
+                        <StopIcon className="relative z-10 h-3 w-3 text-cyan-600 transition-transform duration-200 group-hover:scale-125" />
                       </div>
                     </div>
                   ) : (
@@ -1958,7 +2072,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
               </div>
             </div>
 
-            <div className="mb-4 flex items-start justify-between">
+            <div className="flex items-start justify-between">
               {isContextBoost && showResearchMode ? (
                 <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
                   Note: Enabling Context Boost passes more source context in
@@ -1996,6 +2110,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           </form>
         </div>
       </div>
+      
     </div>
   )
 }
