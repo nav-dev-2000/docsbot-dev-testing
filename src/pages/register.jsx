@@ -185,7 +185,9 @@ function Register({ teamCount }) {
             posthog?.identify(user.user.uid, { email: user.user.email, name: user.user.displayName, "Usage Type": usageTypeForTracking, "User Type": userType })
           }
           posthog?.capture('Signup', { provider: 'email', user_type: userType, usage_type: usageTypeForTracking })
-          posthog?.startSessionRecording()
+          if (userType === 'business' || Math.random() < 0.5) {
+            posthog?.startSessionRecording()
+          }
           const normalizedSite =
             userType === 'business' && site.trim() ? site.trim() : null
           persistSignupSelections(normalizedSite)
@@ -229,7 +231,9 @@ function Register({ teamCount }) {
         posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName, "Usage Type": usageTypeForTracking, "User Type": userType })
       }
       posthog?.capture('Signup', { provider: 'google', user_type: userType, usage_type: usageTypeForTracking })
-      posthog?.startSessionRecording()
+      if (userType === 'business' || Math.random() < 0.5) {
+        posthog?.startSessionRecording()
+      }
       const normalizedSite =
         userType === 'business' && site.trim() ? site.trim() : null
       persistSignupSelections(normalizedSite)

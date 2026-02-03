@@ -101,7 +101,9 @@ function Login() {
         posthog?.identify(googleUser.user.uid, { email: googleUser.user.email, name: googleUser.user.displayName })
       }
       posthog?.capture('Signup', { method: 'Google' })
-      posthog?.startSessionRecording()
+      if (Math.random() < 0.5) {
+        posthog?.startSessionRecording()
+      }
       router.push(redirectPath)
     },
   })

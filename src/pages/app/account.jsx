@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail, sendPasswordResetEmail, updateProfile } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { usePostHog } from 'posthog-js/react'
 import {
   ServerStackIcon,
   ArrowRightIcon,
@@ -84,11 +85,15 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
   const [isUpdatingName, setIsUpdatingName] = useState(false)
   const isGoogleAccount = user?.providerData?.some((p) => p.providerId === 'google.com')
   const isOwner = role === 'owner'
-
+  const posthog = usePostHog()
 
   useEffect(() => {
     setNewDisplayName(user?.displayName || '')
   }, [user])
+
+  useEffect(() => {
+    posthog?.startSessionRecording()
+  }, [posthog])
 
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
