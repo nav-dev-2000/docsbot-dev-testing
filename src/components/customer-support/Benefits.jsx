@@ -395,7 +395,7 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = def
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
                                     <img
-                                        src="/docsbot-icon-sq.svg"
+                                        src="/branding/docsbot-icon-sq.svg"
                                         alt="DocsBot"
                                         className="w-5 h-5"
                                     />
@@ -431,7 +431,7 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = def
                                     <div className="flex items-start space-x-3 max-w-2xl">
                                     <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center flex-shrink-0 mt-1">
                                         <img
-                                        src="/docsbot-icon-sq.svg"
+                                        src="/branding/docsbot-icon-sq.svg"
                                         alt="DocsBot"
                                         className="w-5 h-5"
                                         />

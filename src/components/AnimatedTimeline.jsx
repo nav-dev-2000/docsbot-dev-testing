@@ -51,7 +51,7 @@ export default function AnimatedTimeline({ variant = 'default', alwaysAnimated =
                 : "group-hover:before:animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
             )}>
               <Image
-                src="/docsbot-icon-sq.svg"
+                src="/branding/docsbot-icon-sq.svg"
                 alt="DocsBot Icon"
                 width={72}
                 height={72}
@@ -99,7 +99,7 @@ export default function AnimatedTimeline({ variant = 'default', alwaysAnimated =
                   : "group-hover:before:animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
               )}>
                 <Image
-                  src="/docsbot-icon-sq.svg"
+                  src="/branding/docsbot-icon-sq.svg"
                   alt="DocsBot Icon"
                   width={72}
                   height={72}
