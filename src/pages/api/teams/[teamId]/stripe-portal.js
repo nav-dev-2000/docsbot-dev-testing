@@ -61,6 +61,10 @@ export default async function createCheckoutSession(req, res) {
         if (!price) throw Error('Please select a valid plan.')
 
         const planLimits = plans[tier]
+        if (!planLimits) {
+          throw Error('Invalid plan selected.')
+        }
+        
         // Resolve researchTasks limit (can be number or object)
         const researchTasksLimit = typeof planLimits.researchTasks === 'number' 
           ? planLimits.researchTasks 
@@ -78,14 +82,37 @@ export default async function createCheckoutSession(req, res) {
         const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
         const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
         
-        if (
-          team?.botCount > planLimits.bots ||
-          team?.pageCount >= planLimits.pages ||
-          team?.questionCount >= planLimits.questions ||
-          Object.keys(team?.roles || {}).length + teamInvites.length > planLimits.teamMembers ||
-          researchCount >= researchTasksLimit
-        ) {
-          throw Error('This plan does not fit your current usage.')
+        // Ensure plan limits are numbers for proper comparison
+        const planBotsLimit = Number(planLimits.bots) || 0
+        const planPagesLimit = Number(planLimits.pages) || 0
+        const planQuestionsLimit = Number(planLimits.questions) || 0
+        const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
+        
+        // Get current usage values
+        const currentBots = Number(team?.botCount ?? 0)
+        const currentPages = Number(team?.pageCount ?? 0)
+        const currentQuestions = Number(team?.questionCount ?? 0)
+        const currentTeamMembers = Object.keys(team?.roles || {}).length + teamInvites.length
+        
+        const exceededLimits = []
+        if (currentBots > planBotsLimit) {
+          exceededLimits.push(`bots (${currentBots} > ${planBotsLimit})`)
+        }
+        if (currentPages > planPagesLimit) {
+          exceededLimits.push(`pages (${currentPages} > ${planPagesLimit})`)
+        }
+        if (currentQuestions > planQuestionsLimit) {
+          exceededLimits.push(`questions (${currentQuestions} > ${planQuestionsLimit})`)
+        }
+        if (currentTeamMembers > planTeamMembersLimit) {
+          exceededLimits.push(`team members (${currentTeamMembers} > ${planTeamMembersLimit})`)
+        }
+        if (researchCount > researchTasksLimit) {
+          exceededLimits.push(`research tasks (${researchCount} > ${researchTasksLimit})`)
+        }
+        
+        if (exceededLimits.length > 0) {
+          throw Error(`This plan does not fit your current usage. The following limits are exceeded: ${exceededLimits.join(', ')}.`)
         }
 
         // Check if team is on Business plan and has per bot roles - prevent downgrading

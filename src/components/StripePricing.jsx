@@ -180,12 +180,47 @@ export function StripePricingTable({
   const isDisableSelectPlanButton = (id) => {
     console.log(id)
     const planLimits = plans[id]
+    if (!planLimits) {
+      return false // Don't disable if plan not found
+    }
+    
     let isDisableButton = false
+    
+    // Resolve researchTasks limit (can be number or object)
+    const researchTasksLimit = typeof planLimits.researchTasks === 'number' 
+      ? planLimits.researchTasks 
+      : typeof planLimits.researchTasks === 'object' && planLimits.researchTasks !== null
+        ? (planLimits.researchTasks.monthly || planLimits.researchTasks.lifetime || 0)
+        : 0
+    
+    // Calculate effective research count (excluding trial research up to 2)
+    const currentPlan = stripePlan(team)
+    const currentPlanResearchLimit = typeof currentPlan?.researchTasks === 'number' 
+      ? currentPlan.researchTasks 
+      : 0
+    
+    // If current plan has no monthly research tasks, they may have used trial research (up to 2)
+    const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
+    const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
+    
+    // Ensure plan limits are numbers for proper comparison
+    const planBotsLimit = Number(planLimits.bots) || 0
+    const planPagesLimit = Number(planLimits.pages) || 0
+    const planQuestionsLimit = Number(planLimits.questions) || 0
+    const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
+    
+    // Get current usage values
+    const currentBots = Number(team?.botCount ?? 0)
+    const currentPages = Number(team?.pageCount ?? 0)
+    const currentQuestions = Number(team?.questionCount ?? 0)
+    const currentTeamMembers = Object.keys(team?.roles || {}).length + teamInvites.length
+    
     if (
-      team?.botCount > planLimits.bots ||
-      team?.pageCount >= planLimits.pages ||
-      team?.questionCount >= planLimits.questions ||
-      Object.keys(team?.roles || {}).length > planLimits.teamMembers
+      currentBots > planBotsLimit ||
+      currentPages > planPagesLimit ||
+      currentQuestions > planQuestionsLimit ||
+      currentTeamMembers > planTeamMembersLimit ||
+      researchCount > researchTasksLimit
     ) {
       isDisableButton = true
     }
