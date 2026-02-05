@@ -94,6 +94,14 @@ export const BENCHMARKS = {
     title: 'Bird-SQL (Dev)',
     description: 'Evaluates SQL query generation and database interaction capabilities',
   },
+  BigLawBench: {
+    title: 'BigLaw Bench',
+    description: 'Evaluates legal reasoning and document analysis on large law firm tasks',
+  },
+  BrowseComp: {
+    title: 'BrowseComp',
+    description: 'Evaluates browsing and web comprehension capabilities',
+  },
   BrowseCompLongContext128k: {
     title: 'BrowseComp Long Context (128k)',
     description: 'Evaluates long context browsing and comprehension capabilities at 128k context length',
@@ -109,6 +117,10 @@ export const BENCHMARKS = {
   CharXivReasoning: {
     title: 'CharXiv Reasoning',
     description: 'Evaluates information synthesis from complex charts and scientific visualizations',
+  },
+  CybersecurityCTF: {
+    title: 'Cybersecurity CTF',
+    description: 'Evaluates cybersecurity skills on Capture The Flag challenges',
   },
   COLLIE: {
     title: 'COLLIE',
@@ -173,6 +185,10 @@ export const BENCHMARKS = {
   GDPvalWinsOrTies: {
     title: 'GDPval (wins or ties)',
     description: 'Economic knowledge work evaluation measuring win/tie rates versus industry professionals across 44 occupations',
+  },
+  GDPvalAA: {
+    title: 'GDPval-AA',
+    description: 'Economic knowledge work evaluation focused on accuracy-adjusted GDPval results',
   },
   GraphwalksBFS128k: {
     title: 'Graphwalks BFS (128k)',
@@ -280,9 +296,17 @@ export const BENCHMARKS = {
     title: 'OpenAI MRCR2 Needle (128k)',
     description: 'Long context performance benchmark at 128k context length',
   },
+  OpenAIMRCR2Needle1M: {
+    title: 'OpenAI MRCR2 Needle (1M)',
+    description: 'Long context performance benchmark at 1M context length',
+  },
   OpenAIMRCR2Needle256k: {
     title: 'OpenAI MRCR2 Needle (256k)',
     description: 'Long context performance benchmark at 256k context length',
+  },
+  OSWorld: {
+    title: 'OSWorld',
+    description: 'Evaluates computer use and web navigation tasks in simulated OS environments',
   },
   ScaleMultichallenge: {
     title: 'Scale Multichallenge',

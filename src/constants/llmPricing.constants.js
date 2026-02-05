@@ -242,6 +242,16 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 60,
     },  
     {
+      model_name: 'Claude Opus 4.6',
+      model_slug: 'claude-opus-4-6',
+      page_slug: 'claude-opus-4-6',
+      context: '1M/128K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 25,
+      cached_input_token_cost_per_million: 0.5,
+    },
+    {
       model_name: 'Claude Opus 4.5',
       model_slug: 'claude-opus-4-5',
       page_slug: 'claude-opus-4-5',

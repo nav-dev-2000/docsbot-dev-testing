@@ -78,9 +78,72 @@ const LLMS = [
         score: 90.8,
         notes: null,
         source: "https://www.anthropic.com/news/claude-opus-4-5",
+      },
     },
   },
-},
+  {
+    model_name: 'Claude Opus 4.6',
+    slug: 'claude-opus-4-6',
+    provider: 'anthropic',
+    description:
+      'Claude Opus 4.6 is Anthropic\'s flagship Opus model focused on stronger coding, code review/debugging, and longer-running agentic work. It introduces a 1M-token context window (beta) for Opus-class models, supports up to 128K output tokens, and keeps Opus pricing at $5/$25 per million input/output tokens (higher pricing for prompts over 200K tokens).',
+    input_context_window: '1M (beta)',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2026-02-05',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI',
+    input_cost_per_million_tokens: 5.0,
+    output_cost_per_million_tokens: 25.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+    },
+    benchmarks: {
+      TerminalBench: {
+        score: null,
+        notes: 'Reported as highest score on Terminal-Bench 2.0 (see article/system card for exact number).',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+      HumanitysLastExam: {
+        score: null,
+        notes: 'Reported as leading other frontier models on Humanity\'s Last Exam (see article/system card for exact number).',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+      GDPvalAA: {
+        score: null,
+        notes: 'Outperforms GPT-5.2 by ~144 Elo on GDPval-AA; +190 Elo vs Opus 4.5.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+      BrowseComp: {
+        score: null,
+        notes: 'Reported as best-performing model on BrowseComp.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+      OpenAIMRCR2Needle1M: {
+        score: 76.0,
+        notes: '8-needle, 1M variant; Opus 4.6 vs Sonnet 4.5 18.5%.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+      BigLawBench: {
+        score: 90.2,
+        notes: 'Highest BigLaw Bench score of any Claude model (per article).',
+        source: 'https://www.anthropic.com/news/claude-opus-4-6',
+      },
+    },
+  },
   {
     model_name: 'Claude Haiku 4.5',
     slug: 'claude-haiku-4-5',
@@ -4284,6 +4347,68 @@ const LLMS = [
       FinanceAgent: {
         score: 46.9,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-5.3-Codex',
+    slug: 'gpt-5-3-codex',
+    provider: 'openai',
+    description:
+      'GPT-5.3-Codex is OpenAI\'s most capable agentic coding model, improving on GPT-5.2-Codex with stronger coding performance and faster execution (reported ~25% faster). It\'s designed for long-running tasks involving research, tool use, and complex multi-step execution, and is available across Codex surfaces (app, CLI, IDE extension, and web).',
+    input_context_window: null,
+    maximum_output_tokens: null,
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    open_source: false,
+    release_date: '2026-02-05',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'ChatGPT (paid plans) via Codex (app, CLI, IDE extension, web); OpenAI API access: coming soon',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      code_review: true,
+      debugging: true,
+    },
+    benchmarks: {
+      SWEBenchPro: {
+        score: 56.8,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+      TerminalBench: {
+        score: 77.3,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+      OSWorld: {
+        score: 64.7,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+      GDPvalWinsOrTies: {
+        score: 70.9,
+        notes: 'wins or ties',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+      CybersecurityCTF: {
+        score: 77.6,
+        notes: 'Capture The Flag challenges',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+      SWELancerIC: {
+        score: 81.4,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
       },
     },
   },
