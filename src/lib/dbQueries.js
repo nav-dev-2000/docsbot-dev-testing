@@ -1191,6 +1191,26 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
 
     console.log('data:', teamDoc.data().roles, typeof teamDoc.data().roles)
     const isAdded = teamDoc.data().roles[userId]
+    // Firestore transactions require all reads before any writes.
+    const botOverrideRefs = isAdded === undefined
+      ? botOverrides
+          .filter((override) => override?.botId && override?.role)
+          .map((override) => ({
+            ref: firestore
+              .collection('teams')
+              .doc(teamId)
+              .collection('bots')
+              .doc(override.botId),
+            role: override.role,
+          }))
+      : []
+    const botOverrideDocs = await Promise.all(
+      botOverrideRefs.map(async ({ ref, role }) => ({
+        ref,
+        role,
+        doc: await transaction.get(ref),
+      })),
+    )
     if (isAdded === undefined) {
       transaction.update(teamRef, {
         roles: {
@@ -1204,20 +1224,13 @@ export async function acceptInvite(teamId, userId, inviteId, role) {
         currentTeam: teamId,
       })
 
-      for (const override of botOverrides) {
-        if (!override?.botId || !override?.role) continue
-        const botRef = firestore
-          .collection('teams')
-          .doc(teamId)
-          .collection('bots')
-          .doc(override.botId)
-        const botDoc = await transaction.get(botRef)
-        if (!botDoc.exists) continue
-        const botRoles = botDoc.data().roles || {}
-        transaction.update(botRef, {
+      for (const { doc, ref, role: overrideRole } of botOverrideDocs) {
+        if (!doc.exists) continue
+        const botRoles = doc.data().roles || {}
+        transaction.update(ref, {
           roles: {
             ...botRoles,
-            [userId]: override.role,
+            [userId]: overrideRole,
           },
         })
       }
