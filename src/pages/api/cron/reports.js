@@ -18,6 +18,7 @@ import { QueueReport } from '@/lib/service'
 export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
+  const staffTeamId = 'ZrbLG98bbxZ9EFqiPvyl'
 
   // Check for CRON_SECRET authorization (bypass in development if not set)
   const authHeader = request.headers.authorization
@@ -45,11 +46,19 @@ export default async function handler(request, response) {
       .where('stripeSubscriptionStatus', '==', 'active')
       .get()
 
-    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
+    const teamDocs = [...teamsSnapshot.docs]
+    if (!teamDocs.some((teamDoc) => teamDoc.id === staffTeamId)) {
+      const staffTeamDoc = await firestore.collection('teams').doc(staffTeamId).get()
+      if (staffTeamDoc.exists) {
+        teamDocs.push(staffTeamDoc)
+      }
+    }
+
+    const teamsPromises = teamDocs.map(async (teamDoc) => {
       try {
         const team = teamDoc.data()
         //check if team is Business or staff account
-        if (!checkPlanPermission(team, 'business').allowed && team.id !== 'ZrbLG98bbxZ9EFqiPvyl') {
+        if (!checkPlanPermission(team, 'business').allowed && team.id !== staffTeamId) {
           //console.log('Skipping team', teamDoc.id, 'is not Business+')
           return
         } else {
