@@ -390,7 +390,9 @@ const MCPIntegrationInfo = ({
   setShowUpgrade,
 }) => {
   const serverUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/mcp/`
+  const questionHistoryServerUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/questions/mcp/`
   const [copiedEndpoint, setCopiedEndpoint] = useState(false)
+  const [copiedQuestionHistoryEndpoint, setCopiedQuestionHistoryEndpoint] = useState(false)
   const [mcpClients, setMcpClients] = useState([])
   const [loadingClients, setLoadingClients] = useState(false)
 
@@ -473,6 +475,32 @@ const MCPIntegrationInfo = ({
               </button>
             </div>
           </div>
+          <div>
+            <span className="font-semibold text-gray-900">Question History MCP URL</span>
+            <div className="relative mt-1">
+              <input
+                type="text"
+                readOnly
+                value={questionHistoryServerUrl}
+                onClick={(e) => e.target.select()}
+                className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 font-mono text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+              />
+              <button
+                onClick={() => handleCopy(questionHistoryServerUrl, setCopiedQuestionHistoryEndpoint)}
+                className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
+              >
+                <span className="relative h-4 w-4">
+                  <ClipboardIcon
+                    className="absolute inset-0 h-4 w-4"
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+            </div>
+            <p className="mt-1 text-xs text-gray-600">
+              Requires Standard plan with at least 5,000 logged questions.
+            </p>
+          </div>
         </div>
         <button
           type="button"
@@ -490,8 +518,7 @@ const MCPIntegrationInfo = ({
     <>
       <p className="text-md text-gray-800">
         Expose this bot as a Model Context Protocol (MCP) server so
-        clients can search and fetch trusted documents from its
-        training library.
+        clients can search and fetch trusted documents from its training library and question history.
       </p>
       <div className="mt-3 space-y-3 text-sm text-gray-800">
         <div>
@@ -525,11 +552,48 @@ const MCPIntegrationInfo = ({
             </button>
           </div>
         </div>
+        <div>
+          <span className="font-semibold text-gray-900">Question History MCP URL</span>
+          <div className="relative mt-1">
+            <input
+              type="text"
+              readOnly
+              value={questionHistoryServerUrl}
+              onClick={(e) => e.target.select()}
+              className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 font-mono text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+            />
+            <button
+              onClick={() =>
+                handleCopy(questionHistoryServerUrl, setCopiedQuestionHistoryEndpoint)
+              }
+              className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
+            >
+              <span className="relative h-4 w-4">
+                <ClipboardIcon
+                  className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${
+                    copiedQuestionHistoryEndpoint
+                      ? 'scale-0 opacity-0'
+                      : 'scale-100 opacity-100'
+                  }`}
+                  aria-hidden="true"
+                />
+                <CheckIcon
+                  className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${
+                    copiedQuestionHistoryEndpoint
+                      ? 'scale-100 opacity-100'
+                      : 'scale-0 opacity-0'
+                  }`}
+                  aria-hidden="true"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
         {bot.privacy === 'private' && (
           <div>
             <p className="text-xs text-gray-600">
-              <strong>Note:</strong> Authentication is required for private bots. OAuth clients must be authorized 
-              through the authorization flow before they can access this bot.
+              <strong>Note:</strong> Private bots always require authentication for both MCP endpoints.
+              OAuth clients must be authorized through the authorization flow before they can access this bot.
             </p>
           </div>
         )}

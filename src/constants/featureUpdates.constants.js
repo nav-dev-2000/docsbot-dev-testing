@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-06',
+    title: 'Question History MCP endpoint',
+    description:
+      'AI assistants can now connect to question history to review past support conversations and improve responses.',
+  },
+  {
     date: '2026-02-02',
     title: 'Per-bot roles and permissions',
     description:
