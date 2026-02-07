@@ -298,6 +298,10 @@ export default function App({ Component, pageProps }) {
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
+  var beaconIdent = {};
+  if (metadata.name) beaconIdent.name = metadata.name;
+  if (metadata.email) beaconIdent.email = metadata.email;
+  if (Object.keys(beaconIdent).length) Beacon('identify', beaconIdent);
   let message = ticket.message;
   if (metadata.conversationUrl) {
     message += "\n\nConversation: " + metadata.conversationUrl;
@@ -458,12 +462,20 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
   event.preventDefault();
   DocsBotAI.unmount();
   Beacon('init', '1dc28732-3f1c-4cd0-a15b-825c4aa5e4b2');
+  var beaconIdent = {};
+  if (metadata.name) beaconIdent.name = metadata.name;
+  if (metadata.email) beaconIdent.email = metadata.email;
+  if (Object.keys(beaconIdent).length) Beacon('identify', beaconIdent);
   Beacon('open');
   if (ticket) {
+    let message = ticket.message;
+    if (metadata.conversationUrl) {
+      message += "\\n\\nConversation: " + metadata.conversationUrl;
+    }
     // Add ticket subject and message to Beacon
     Beacon('prefill', {
       subject: ticket.subject,
-      text: ticket.message
+      text: message
     });          
   }         
 },});`}
