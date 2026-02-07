@@ -7,17 +7,20 @@ import { getBot, getQuestions } from '@/lib/dbQueries'
 import TableQuestions from '@/components/TableQuestions'
 
 const buildParams = (ipFilter, rating, escalated, couldAnswer, dateRange) => {
-  const params = []
-  if (ipFilter !== null && ipFilter !== undefined) params.push('ip=' + ipFilter)
-  if (rating !== null && rating !== undefined) params.push('rating=' + rating)
-  if (escalated !== null && escalated !== undefined) params.push('escalated=' + escalated)
-  if (couldAnswer !== null && couldAnswer !== undefined) params.push('couldAnswer=' + couldAnswer)
+  const params = new URLSearchParams()
+  if (ipFilter !== null && ipFilter !== undefined) params.set('ip', ipFilter)
+  if (rating !== null && rating !== undefined) params.set('rating', rating)
+  if (escalated !== null && escalated !== undefined) params.set('escalated', escalated)
+  if (couldAnswer !== null && couldAnswer !== undefined) params.set('couldAnswer', couldAnswer)
   if (dateRange !== null && dateRange !== undefined) {
+    const startDate = new Date(dateRange.startDate)
     const endDate = new Date(dateRange.endDate)
-    endDate.setUTCHours(23, 59, 59, 999)
-    params.push(`startDate=${dateRange.startDate.toString()}&endDate=${endDate.toISOString()}`)
+    startDate.setHours(0, 0, 0, 0)
+    endDate.setHours(23, 59, 59, 999)
+    params.set('startDate', startDate.toISOString())
+    params.set('endDate', endDate.toISOString())
   }
-  return params.join('&')
+  return params.toString()
 }
 
 function Questions({ team, bot, preQuestions, openQuestion=null }) {
@@ -41,9 +44,11 @@ function Questions({ team, bot, preQuestions, openQuestion=null }) {
       }
 
       if (dateRange?.startDate && dateRange?.endDate) {
+        const startDate = new Date(dateRange.startDate)
         const endDate = new Date(dateRange.endDate)
-        endDate.setUTCHours(23, 59, 59, 999)
-        searchPayload.startDate = dateRange.startDate.toString()
+        startDate.setHours(0, 0, 0, 0)
+        endDate.setHours(23, 59, 59, 999)
+        searchPayload.startDate = startDate.toISOString()
         searchPayload.endDate = endDate.toISOString()
       }
       response = await fetch(path, {

@@ -10,9 +10,11 @@ import {
   ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import FieldToggle from '@/components/FieldToggle'
 import FieldRadioIcon from '@/components/FieldRadioIcon'
+import LeadCollectionToolSettings from '@/components/LeadCollectionToolSettings'
 import { i18n } from '@/constants/strings.constants'
 import { SketchPicker } from 'react-color'
 import { auth } from '@/config/firebase-ui.config'
@@ -33,6 +35,10 @@ import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
 import { v4 as uuidv4 } from 'uuid'
 import WidgetPreview from '@/components/WidgetPreview'
+import {
+  isLeadCollectEnabled,
+  sanitizeLeadCollectOptions,
+} from '@/lib/leadCollect'
 
 //icon can be default, robot, life-ring, or question-circle
 const iconMap = {
@@ -70,7 +76,105 @@ const transparentCheckerboardStyle = {
   backgroundPosition: '0 0, 0 4px, 4px -4px, -4px 0px',
 }
 
+const DEFAULT_WIDGET_TOOLS = {
+  human_escalation: { enabled: true },
+  followup_rating: { enabled: true },
+}
+const WIDGET_TOOL_KEYS = ['human_escalation', 'followup_rating']
+
+const normalizeWidgetTools = (tools) => {
+  if (!tools || typeof tools !== 'object' || Array.isArray(tools)) {
+    return { ...DEFAULT_WIDGET_TOOLS }
+  }
+
+  const normalizedTools = Object.entries(tools).reduce((result, [toolName, toolConfig]) => {
+    const isWidgetTool = WIDGET_TOOL_KEYS.includes(toolName)
+
+    if (typeof toolConfig === 'boolean') {
+      result[toolName] = isWidgetTool ? { enabled: toolConfig } : toolConfig
+      return result
+    }
+
+    if (!toolConfig || typeof toolConfig !== 'object') {
+      return result
+    }
+
+    if (isWidgetTool) {
+      result[toolName] = {
+        ...toolConfig,
+        enabled:
+          toolConfig.enabled === undefined ? true : Boolean(toolConfig.enabled),
+      }
+    } else {
+      result[toolName] = { ...toolConfig }
+    }
+    return result
+  }, {})
+
+  if (!normalizedTools.human_escalation) {
+    normalizedTools.human_escalation = { enabled: true }
+  }
+  if (!normalizedTools.followup_rating) {
+    normalizedTools.followup_rating = { enabled: true }
+  }
+
+  return normalizedTools
+}
+
+const serializeWidgetTools = (tools) => {
+  if (!tools || typeof tools !== 'object' || Array.isArray(tools)) {
+    return tools
+  }
+
+  return Object.entries(tools).reduce((result, [toolName, toolConfig]) => {
+    if (!WIDGET_TOOL_KEYS.includes(toolName)) {
+      result[toolName] = toolConfig
+      return result
+    }
+
+    if (typeof toolConfig === 'boolean') {
+      result[toolName] = toolConfig
+      return result
+    }
+
+    if (!toolConfig || typeof toolConfig !== 'object') {
+      return result
+    }
+
+    const enabled =
+      toolConfig.enabled === undefined ? true : Boolean(toolConfig.enabled)
+    if (!enabled) {
+      result[toolName] = false
+      return result
+    }
+
+    result[toolName] = {
+      ...toolConfig,
+      enabled: true,
+    }
+    return result
+  }, {})
+}
+
+const toWidgetLeadCollectState = (leadCollect) => {
+  if (!leadCollect || typeof leadCollect !== 'object') {
+    return false
+  }
+
+  try {
+    const sanitized = sanitizeLeadCollectOptions(leadCollect)
+    if (!isLeadCollectEnabled(sanitized)) {
+      return false
+    }
+    const { enabled, ...persistedLeadCollect } = sanitized
+    return persistedLeadCollect
+  } catch (error) {
+    return leadCollect
+  }
+}
+
 function Widget({ team, bot }) {
+  const router = useRouter()
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [infoText, setInfoText] = useState(null)
@@ -115,12 +219,18 @@ function Widget({ team, bot }) {
   const [isAgent, setIsAgent] = useState(
     bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
   )
-  const [tools, setTools] = useState(
-    bot.tools || {
-      human_escalation: { enabled: true },
-      followup_rating: { enabled: true },
-    },
-  )
+  const [tools, setTools] = useState(() => normalizeWidgetTools(bot.tools))
+  const [leadCollect, setLeadCollect] = useState(() => {
+    if (!bot?.leadCollect) {
+      return false
+    }
+
+    try {
+      return toWidgetLeadCollectState(bot.leadCollect)
+    } catch (error) {
+      return false
+    }
+  })
   const [imageUploads, setImageUploads] = useState(
     ((bot.imageUploads === undefined || bot.imageUploads) &&
       checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
@@ -131,6 +241,9 @@ function Widget({ team, bot }) {
   const avatarRef = useRef(null)
   const logoRef = useRef(null)
   const colorPickerRef = useRef(null)
+  const savedSettingsRef = useRef('')
+  const allowRouteChangeRef = useRef(false)
+  const hasInitializedSavedSettingsRef = useRef(false)
 
   const brandLogos = useMemo(() => bot?.brandAnalysis?.logos || [], [bot])
   const brandIcons = useMemo(
@@ -145,6 +258,63 @@ function Widget({ team, bot }) {
     () => bot?.brandAnalysis?.colors || [],
     [bot],
   )
+
+  const serializeSettings = (settings) => JSON.stringify(settings)
+  const currentSettings = useMemo(
+    () => ({
+      allowedDomains,
+      color,
+      icon,
+      alignment,
+      botIcon: botIcon === 'none' ? false : botIcon,
+      branding,
+      supportLink,
+      showButtonLabel,
+      labels,
+      hideSources,
+      showCopyButton,
+      linkSafetyEnabled,
+      logo,
+      headerAlignment,
+      isAgent,
+      tools: serializeWidgetTools(tools),
+      leadCollect,
+      imageUploads,
+    }),
+    [
+      allowedDomains,
+      color,
+      icon,
+      alignment,
+      botIcon,
+      branding,
+      supportLink,
+      showButtonLabel,
+      labels,
+      hideSources,
+      showCopyButton,
+      linkSafetyEnabled,
+      logo,
+      headerAlignment,
+      isAgent,
+      tools,
+      leadCollect,
+      imageUploads,
+    ],
+  )
+  const currentSettingsSerialized = useMemo(
+    () => serializeSettings(currentSettings),
+    [currentSettings],
+  )
+  const hasUnsavedChanges =
+    hasInitializedSavedSettingsRef.current &&
+    currentSettingsSerialized !== savedSettingsRef.current
+
+  useEffect(() => {
+    if (hasInitializedSavedSettingsRef.current) return
+    savedSettingsRef.current = currentSettingsSerialized
+    hasInitializedSavedSettingsRef.current = true
+  }, [currentSettingsSerialized])
 
   useEffect(() => {
     if (!team || !user) return
@@ -170,6 +340,16 @@ function Widget({ team, bot }) {
       setImageUploads(false)
     }
   }, [imageUploads, team])
+
+  useEffect(() => {
+    if (
+      isLeadCollectEnabled(leadCollect) &&
+      !checkPlanPermission(team, 'personal', 'leadCollect').allowed
+    ) {
+      setShowUpgrade(true)
+      setLeadCollect(false)
+    }
+  }, [leadCollect, team])
 
   useEffect(() => {
     if (icon === 'custom') {
@@ -200,6 +380,50 @@ function Widget({ team, bot }) {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [showColorPicker])
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (!hasUnsavedChanges) return
+      event.preventDefault()
+      event.returnValue = ''
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [hasUnsavedChanges])
+
+  useEffect(() => {
+    const handleRouteChangeStart = (nextUrl) => {
+      if (allowRouteChangeRef.current || !hasUnsavedChanges) return
+      if (nextUrl === router.asPath) return
+
+      const shouldLeave = window.confirm(
+        'You have unsaved changes. Are you sure you want to leave this page?',
+      )
+      if (shouldLeave) {
+        allowRouteChangeRef.current = true
+        return
+      }
+
+      router.events.emit('routeChangeError')
+      // eslint-disable-next-line no-throw-literal
+      throw 'Route change aborted due to unsaved changes.'
+    }
+
+    const resetAllowRouteChange = () => {
+      allowRouteChangeRef.current = false
+    }
+
+    router.events.on('routeChangeStart', handleRouteChangeStart)
+    router.events.on('routeChangeError', resetAllowRouteChange)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChangeStart)
+      router.events.off('routeChangeError', resetAllowRouteChange)
+    }
+  }, [hasUnsavedChanges, router])
 
   function handleFileChange(e, type) {
     const file = e.target.files[0]
@@ -241,25 +465,7 @@ function Widget({ team, bot }) {
     setErrorText('')
     setIsUpdating(true)
 
-    const botSettings = {
-      allowedDomains,
-      color,
-      icon,
-      alignment,
-      botIcon: botIcon === 'none' ? false : botIcon,
-      branding,
-      supportLink,
-      showButtonLabel,
-      labels,
-      hideSources,
-      showCopyButton,
-      linkSafetyEnabled,
-      logo,
-      headerAlignment,
-      isAgent,
-      tools,
-      imageUploads,
-    }
+    const botSettings = currentSettings
 
     const urlParams = ['teams', team.id, 'bots', bot.id]
     const apiPath = '/api/' + urlParams.join('/')
@@ -273,6 +479,7 @@ function Widget({ team, bot }) {
     })
     if (response.ok) {
       const data = await response.json()
+      savedSettingsRef.current = serializeSettings(botSettings)
       setIsUpdating(false)
     } else {
       try {
@@ -1013,6 +1220,29 @@ function Widget({ team, bot }) {
                     </div>
 
                     <div className="w-full">
+                      <LeadCollectionToolSettings
+                        team={team}
+                        value={leadCollect}
+                        onChange={(nextValue) =>
+                          setLeadCollect(toWidgetLeadCollectState(nextValue))
+                        }
+                        leadCollectMessage={
+                          labels?.leadCollectMessage ||
+                          i18n.en.labels.leadCollectMessage ||
+                          ''
+                        }
+                        onLeadCollectMessageChange={(message) =>
+                          setLabels((prev) => ({
+                            ...prev,
+                            leadCollectMessage: message,
+                          }))
+                        }
+                        disabled={isUpdating}
+                        onRequireUpgrade={() => setShowUpgrade(true)}
+                      />
+                    </div>
+
+                    <div className="w-full">
                       <div className="flex items-center justify-between">
                         <div className="flex-grow">
                           <label
@@ -1170,6 +1400,7 @@ function Widget({ team, bot }) {
               supportLink,
               isAgent,
               tools,
+              leadCollect,
               imageUploads,
             }}
           />

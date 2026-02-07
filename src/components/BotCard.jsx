@@ -11,6 +11,7 @@ import {
   ChatBubbleLeftRightIcon,
   ChatBubbleBottomCenterTextIcon,
   BeakerIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import BadgeStatus from '@/components/BadgeStatus'
 import ModalChat from '@/components/ModalChat'
@@ -199,6 +200,20 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                       />
                       <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
                         Questions
+                      </span>
+                    </Link>
+                  </Tooltip>
+                  <Tooltip content="View captured leads">
+                    <Link
+                      href={`/app/bots/${bot.id}/leads`}
+                      className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                    >
+                      <UserGroupIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                        Leads
                       </span>
                     </Link>
                   </Tooltip>

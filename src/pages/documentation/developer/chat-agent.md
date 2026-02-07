@@ -307,3 +307,5 @@ The Chat Agent API also provides additional endpoints for working with conversat
 
 - **[Conversation Summarize](/documentation/developer/conversation-summarize)**: Generate summaries of conversations including title, summary text, and sentiment analysis
 - **[Conversation Ticket](/documentation/developer/conversation-ticket)**: Generate structured support tickets from conversations for help desk integration
+
+- **[Conversation Lead Capture](/documentation/developer/conversation-lead)**: Capture lead information by updating conversation metadata and saving it to a dedicated leads collection

@@ -11,6 +11,11 @@ import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import crypto from 'crypto'
 import { DeleteIntegratedAccount, BulkDeleteIntegratedAccounts } from '@/lib/truto'
 import { isTrutoSourceType } from '@/constants/sourceTypes.constants'
+import {
+  getLeadCollectExtraFields,
+  isLeadCollectEnabled,
+  sanitizeLeadCollectOptions,
+} from '@/lib/leadCollect'
 
 const TOPIC_LIMIT = 50
 
@@ -169,6 +174,34 @@ export const deleteBot = async (teamId, botId) => {
   }
   // Commit the remaining batch
   await questionsBatch.commit()
+
+  //---------------------------
+  // Delete all leads for bot
+  const leadsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('leads')
+    .select(FieldPath.documentId())
+    .get()
+
+  toDelete = []
+  leadsSnapshot.forEach(function (doc) {
+    toDelete.push(doc.ref)
+  })
+
+  counter = 0
+  let leadsBatch = firestore.batch()
+  for (let i = 0; i < toDelete.length; i++) {
+    leadsBatch.delete(toDelete[i])
+    counter++
+    if (counter % 50 === 0) {
+      await leadsBatch.commit()
+      leadsBatch = firestore.batch()
+    }
+  }
+  await leadsBatch.commit()
 
   //---------------------------
   // Delete all reports for bot
@@ -370,6 +403,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     embeddingModel,
     isAgent,
     tools,
+    leadCollect,
     imageUploads,
     temperature,
     copyFrom,
@@ -794,17 +828,24 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (tools !== undefined) {
     // tools is an object, keyed by tool name with enabled boolean
-    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": { "enabled": true } }
+    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": false }
     // Verify the tools schema before assigning
     const validTools = {};
     for (const [toolName, toolConfig] of Object.entries(tools)) {
-      if (typeof toolConfig === 'object' && toolConfig !== null && 'enabled' in toolConfig) {
+      if (typeof toolConfig === 'boolean') {
+        // Keep legacy false|object shape for downstream compatibility.
+        validTools[toolName] = toolConfig;
+      } else if (typeof toolConfig === 'object' && toolConfig !== null) {
+        if (!('enabled' in toolConfig)) {
+          validTools[toolName] = { ...toolConfig };
+          continue;
+        }
         validTools[toolName] = {
           enabled: Boolean(toolConfig.enabled),
           ...toolConfig
         };
       } else {
-        throw new Error(`Invalid tool configuration for "${toolName}". Each tool must be an object with at least an "enabled" boolean property.`);
+        throw new Error(`Invalid tool configuration for "${toolName}". Each tool must be a boolean or an object.`);
       }
     }
     botData.tools = validTools;
@@ -812,6 +853,56 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.tools = {
       human_escalation: { enabled: true },
       followup_rating: { enabled: true },
+    }
+  }
+
+  if (leadCollect !== undefined) {
+    if (!leadCollect) {
+      botData.leadCollect = false
+    } else {
+      let sanitizedLeadCollect
+      try {
+        sanitizedLeadCollect = sanitizeLeadCollectOptions(leadCollect)
+      } catch (error) {
+        throw new Error(`Invalid lead collection settings. ${error.message}`)
+      }
+      const leadCollectEnabled = isLeadCollectEnabled(sanitizedLeadCollect)
+
+      if (
+        leadCollectEnabled &&
+        !checkPlanPermission(team, 'personal', 'leadCollect').allowed &&
+        !isSuperAdmin(userId)
+      ) {
+        throw new Error(
+          'Lead collection is only available on the Personal plan or higher.',
+        )
+      }
+
+      let existingLeadCollect = false
+      try {
+        existingLeadCollect = sanitizeLeadCollectOptions(bot?.leadCollect)
+      } catch (error) {
+        existingLeadCollect = false
+      }
+
+      if (leadCollectEnabled) {
+        const incomingExtraFields = getLeadCollectExtraFields(sanitizedLeadCollect)
+        const existingExtraFields = getLeadCollectExtraFields(existingLeadCollect)
+
+        if (
+          incomingExtraFields.length > existingExtraFields.length &&
+          !checkPlanPermission(team, 'standard', 'leadCollectFields').allowed &&
+          !isSuperAdmin(userId)
+        ) {
+          throw new Error(
+            'Adding lead fields beyond Name and Email is only available on the Standard plan or higher.',
+          )
+        }
+        const { enabled, ...persistedLeadCollect } = sanitizedLeadCollect
+        botData.leadCollect = persistedLeadCollect
+      } else {
+        botData.leadCollect = false
+      }
     }
   }
 

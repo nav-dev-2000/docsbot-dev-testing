@@ -25,6 +25,7 @@ import remarkExternalLinks from 'remark-external-links'
 import { useEffect, useState } from 'react'
 import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import Image from 'next/image'
+import { isLeadCollectEnabled, supportsLeadFieldPlaceholder } from '@/lib/leadCollect'
 
 const iconMap = {
   default: { icon: faComment, label: 'Comment' },
@@ -51,6 +52,22 @@ const streamdownRemarkPlugins = [
   [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
 ]
 
+const normalizeLeadColorValue = (value) => {
+  if (typeof value !== 'string') return '#000000'
+
+  const normalized = value.trim()
+  if (/^#[0-9a-fA-F]{6}$/.test(normalized)) {
+    return normalized
+  }
+
+  if (/^#[0-9a-fA-F]{3}$/.test(normalized)) {
+    const [r, g, b] = normalized.slice(1).split('')
+    return `#${r}${r}${g}${g}${b}${b}`
+  }
+
+  return '#000000'
+}
+
 export default function WidgetPreview({
   bot,
   color,
@@ -67,6 +84,7 @@ export default function WidgetPreview({
   supportLink,
   isAgent,
   tools,
+  leadCollect,
   imageUploads,
 }) {
   const [isMounted, setIsMounted] = useState(false)
@@ -77,6 +95,12 @@ export default function WidgetPreview({
 
   const copyButtonEnabled =
     showCopyButton ?? bot?.showCopyButton ?? false
+  const leadCollectEnabled = isLeadCollectEnabled(leadCollect)
+  const leadCollectMode = leadCollect?.mode || 'before_response'
+  const showLeadCollectBeforeResponse =
+    leadCollectEnabled && leadCollectMode === 'before_response'
+  const showLeadCollectBeforeEscalation =
+    leadCollectEnabled && leadCollectMode === 'before_escalation'
 
   return (
     <div className="sticky top-20">
@@ -136,6 +160,25 @@ export default function WidgetPreview({
           >
             Why are you so amazing?
           </div>
+
+          {showLeadCollectBeforeResponse && (
+            <>
+              <BotMessage
+                text={labels?.leadCollectMessage || 'Before we continue, could you share a few details?'}
+                {...{
+                  botIcon,
+                  labels,
+                  color,
+                  sources: false,
+                }}
+              />
+              <LeadCollectPreview
+                leadCollect={leadCollect}
+                labels={labels}
+                color={color}
+              />
+            </>
+          )}
 
           <BotMessage
             text={
@@ -198,6 +241,26 @@ export default function WidgetPreview({
                       support: true,
                     }}
                   />
+
+                  {showLeadCollectBeforeEscalation && (
+                    <>
+                      <BotMessage
+                        text={labels?.leadCollectMessage || 'Before we continue, could you share a few details?'}
+                        {...{
+                          botIcon,
+                          labels,
+                          color,
+                          isAgent,
+                          sources: false,
+                        }}
+                      />
+                      <LeadCollectPreview
+                        leadCollect={leadCollect}
+                        labels={labels}
+                        color={color}
+                      />
+                    </>
+                  )}
                 </>
               )}
         </div>
@@ -287,6 +350,276 @@ export default function WidgetPreview({
         </div>
       </div>
     </div>
+  )
+}
+
+function LeadCollectPreview({ leadCollect, labels, color }) {
+  const fields = Array.isArray(leadCollect?.fields) ? leadCollect.fields : []
+  const [leadFormValues, setLeadFormValues] = useState({})
+  const [leadFormTouched, setLeadFormTouched] = useState(false)
+  const hasMissingRequired = fields.some(
+    (field, index) =>
+      field?.required &&
+      !String(leadFormValues[field?.key || `field_${index}`] || '').trim(),
+  )
+
+  useEffect(() => {
+    const nextValues = {}
+    fields.forEach((field, index) => {
+      const fieldKey = field?.key || `field_${index}`
+      nextValues[fieldKey] = leadFormValues[fieldKey] ?? ''
+    })
+    setLeadFormValues(nextValues)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [leadCollect?.fields])
+
+  return (
+    <>
+      <div className="docsbot-chat-lead-message-container mb-3 flex w-full justify-start px-0">
+        <div
+          className="docsbot-chat-lead-message mr-1 w-full max-w-full overflow-hidden rounded-2xl border border-gray-200 bg-[#f1f3f5] p-4 text-slate-800 shadow-sm"
+          style={{ containerType: 'inline-size' }}
+        >
+          <div className="w-full">
+            {fields.length > 0 ? (
+              <form
+                className="w-full"
+                onSubmit={(event) => {
+                  event.preventDefault()
+                  setLeadFormTouched(true)
+                }}
+              >
+                <div className="docsbot-lead-fields-grid">
+                  {fields.map((field, index) => {
+                    const fieldKey = field?.key || `field_${index}`
+                    const inputId = `preview-${fieldKey}-${index}`
+                    const label =
+                      field?.label || field?.name || field?.key || `Field ${index + 1}`
+                    const inputType = field?.type || 'text'
+                    const placeholder = field?.placeholder || ''
+                    const selectPlaceholder =
+                      field?.placeholder === 'Select an option'
+                        ? labels?.selectOption || field.placeholder
+                        : field?.placeholder
+                    const fieldValue = leadFormValues[fieldKey] ?? ''
+                    const supportsPlaceholder =
+                      supportsLeadFieldPlaceholder(inputType) &&
+                      inputType !== 'select'
+                    const sharedClassName =
+                      'w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-black/20'
+                    const sharedProps = {
+                      id: inputId,
+                      name: field?.key || fieldKey,
+                      required: Boolean(field?.required),
+                      placeholder: supportsPlaceholder ? placeholder || undefined : undefined,
+                      value: fieldValue,
+                      min: field?.min,
+                      max: field?.max,
+                      step: field?.step,
+                      minLength: field?.minLength,
+                      maxLength: field?.maxLength,
+                      pattern: field?.pattern,
+                      inputMode: field?.inputMode,
+                      onChange: (event) => {
+                        setLeadFormTouched(true)
+                        setLeadFormValues((prev) => ({
+                          ...prev,
+                          [fieldKey]: event.target.value,
+                        }))
+                      },
+                    }
+                    const isLocked = Boolean(
+                      field?.locked || field?.readOnly || field?.disabled,
+                    )
+                    const normalizedColorValue = normalizeLeadColorValue(
+                      fieldValue || field?.value || field?.defaultValue || field?.default,
+                    )
+
+                    const isFullWidthField = inputType === 'textarea'
+
+                    return (
+                      <label
+                        key={inputId}
+                        htmlFor={inputId}
+                        className={`block text-sm text-slate-800${isFullWidthField ? ' docsbot-lead-field-full' : ''}`}
+                      >
+                        <span className="mb-1 block font-semibold">
+                          {label}
+                          {field?.required && (
+                            <span className="ml-1 text-red-600" aria-hidden="true">
+                              *
+                            </span>
+                          )}
+                        </span>
+
+                        {inputType === 'textarea' ? (
+                          <textarea
+                            {...sharedProps}
+                            rows={2}
+                            className={sharedClassName}
+                          />
+                        ) : inputType === 'select' ? (
+                          <select
+                            {...sharedProps}
+                            className={`${sharedClassName} appearance-none pr-10`}
+                            style={{
+                              backgroundImage:
+                                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23475569' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                              backgroundRepeat: 'no-repeat',
+                              backgroundPosition: 'right 12px center',
+                              backgroundSize: '16px 16px',
+                            }}
+                          >
+                            {selectPlaceholder && (
+                              <option value="" disabled={Boolean(field?.required)}>
+                                {selectPlaceholder}
+                              </option>
+                            )}
+                            {(field?.options || []).map((option, optionIndex) => {
+                              const optionValue =
+                                typeof option === 'string' ? option : option?.value
+                              const optionLabel =
+                                typeof option === 'string'
+                                  ? option
+                                  : option?.label || option?.value
+                              return (
+                                <option
+                                  key={`${inputId}-option-${optionIndex}`}
+                                  value={optionValue}
+                                >
+                                  {optionLabel}
+                                </option>
+                              )
+                            })}
+                          </select>
+                        ) : inputType === 'color' ? (
+                          <div
+                            className={`docsbot-color-field rounded-lg border border-gray-300 bg-white pl-1.5 pr-3 py-1.5 shadow-sm transition focus-within:border-gray-900 focus-within:ring-2 focus-within:ring-black/20 ${isLocked ? 'cursor-not-allowed opacity-60' : ''}`}
+                            style={{ width: 'fit-content', maxWidth: '100%' }}
+                          >
+                            <div className="flex items-center gap-3">
+                              <input
+                                id={inputId}
+                                name={field?.key || fieldKey}
+                                type="color"
+                                value={normalizedColorValue}
+                                disabled={isLocked}
+                                onChange={(event) => {
+                                  if (isLocked) return
+                                  setLeadFormTouched(true)
+                                  setLeadFormValues((prev) => ({
+                                    ...prev,
+                                    [field?.key || fieldKey]: event.target.value,
+                                  }))
+                                }}
+                                className="docsbot-color-swatch h-7 w-14 shrink-0 cursor-pointer rounded-md border-0 bg-transparent p-0 disabled:cursor-not-allowed"
+                              />
+                              <span className="whitespace-nowrap font-mono text-sm text-slate-700">
+                                {normalizedColorValue.toUpperCase()}
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <input
+                            {...sharedProps}
+                            type={inputType}
+                            className={sharedClassName}
+                          />
+                        )}
+
+                        {field?.help && (
+                          <span className="mt-1 block text-xs text-slate-500">
+                            {field.help}
+                          </span>
+                        )}
+                      </label>
+                    )
+                  })}
+                </div>
+
+                <div
+                  className={`mt-4 flex items-center gap-3 pt-2 ${
+                    leadFormTouched && hasMissingRequired
+                      ? 'justify-between'
+                      : 'justify-end'
+                  }`}
+                >
+                  {leadFormTouched && hasMissingRequired && (
+                    <div className="text-xs text-red-700">
+                      {labels?.requiredField || 'Please fill out required fields.'}
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    className="rounded-md px-4 py-2 text-sm font-semibold text-white shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-60"
+                    style={{
+                      backgroundColor: color || '#1292ee',
+                      opacity: hasMissingRequired ? 0.6 : 1,
+                      cursor: hasMissingRequired ? 'not-allowed' : 'pointer',
+                    }}
+                    disabled={hasMissingRequired}
+                  >
+                    {labels?.continue || 'Continue'}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <div className="text-xs text-slate-500">
+                {labels?.leadCollectEmpty || 'No fields configured.'}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .docsbot-chat-lead-message .docsbot-lead-fields-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .docsbot-chat-lead-message .docsbot-lead-fields-grid > * + * {
+          margin-top: 0;
+        }
+
+        .docsbot-chat-lead-message .docsbot-lead-field-full {
+          grid-column: 1 / -1;
+        }
+
+        @container (min-width: 480px) {
+          .docsbot-chat-lead-message .docsbot-lead-fields-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .docsbot-color-field {
+          display: inline-flex;
+        }
+
+        input.docsbot-color-swatch[type='color'] {
+          -webkit-appearance: none;
+          appearance: none;
+          padding: 0;
+          border: 0;
+          background: transparent;
+        }
+
+        input.docsbot-color-swatch[type='color']::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+
+        input.docsbot-color-swatch[type='color']::-webkit-color-swatch {
+          border: none;
+          border-radius: 6px;
+        }
+
+        input.docsbot-color-swatch[type='color']::-moz-color-swatch {
+          border: none;
+          border-radius: 6px;
+        }
+      `}</style>
+    </>
   )
 }
 

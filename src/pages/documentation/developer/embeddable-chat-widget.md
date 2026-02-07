@@ -204,6 +204,23 @@ options: {
   showCopyButton: false, // Show a copy button after answers. Default is false.
   hideSources: false, // Hide the sources in answers. Default is false. True to hide all, or pass an array of type to hide like ['qa', 'crawler']
   noURLSourceTypes: ['document', 'notion', 'confluence', 'salesforce', 'gitbook', 'guru', 'url', 'urls', 'sitemap', 'rss', 'wp', 'youtube', 'google_docs', 'gdrive', 'dropbox', 'onedrive', 'box', 'sharepoint', 'zotero', 'zendesk', 'intercom', 'freshdesk', 'servicenow', 'github', 's3', 'gcs'], // Don't allow clicking links to specific source type in answers. String or array of strings.
+  leadCollect: {
+    enabled: true, // set false to keep config saved but disable showing the form
+    mode: 'before_response', // 'before_response' | 'before_escalation'
+    fields: [
+      { key: 'name', label: 'Name', type: 'text', required: true, minLength: 2, maxLength: 80 },
+      { key: 'email', label: 'Email', type: 'email', required: true, maxLength: 120 },
+      { key: 'phone', label: 'Phone', type: 'tel', pattern: '^\\+?[0-9\\s\\-()]{7,20}$' },
+      { key: 'website', label: 'Website', type: 'url', placeholder: 'https://example.com' },
+      { key: 'teamSize', label: 'Team Size', type: 'number', min: 1, max: 50000, step: 1 },
+      { key: 'goLiveDate', label: 'Go Live Date', type: 'date', min: '2025-01-01', max: '2030-12-31' },
+      { key: 'companySize', label: 'Company Size', type: 'select', required: true, options: [
+        { value: '1-10', label: '1-10' },
+        { value: '11-50', label: '11-50' },
+      ]},
+      { key: 'notes', label: 'Anything else?', type: 'textarea' },
+    ],
+  }, // Lead capture form shown before response/escalation.
   labels: {
       poweredBy: 'Powered by',
       inputPlaceholder: 'Send a message...',
@@ -218,9 +235,15 @@ options: {
       create: 'Create your own!',
       thinking: 'Thinking...',
       rateLimitMessage: 'You are sending messages too fast. Please slow down.',
+      leadCollectMessage: 'Before we continue, could you share a few details?', // prompt text before form
+      requiredField: 'Please fill out required fields.',
+      leadCollectEmpty: 'No fields configured.',
+      selectOption: 'Select an option', // used to localize default select placeholders
+      continue: 'Continue',
       feedbackMessage: 'Was this answer helpful?', //only used with Agent mode off
       feedbackYes: "Yes", //only used with Agent mode off
       feedbackNo: "No", //only used with Agent mode off
+      leadCollectConfirmation: '', // currently not shown in the new lead flow
       resetChat: "Reset conversation", //title text
       footerMessage: "", // if set will show at conversation start. Supports Markdown. Set keepFooterVisible: true to keep it visible after a conversation starts.
       copyResponse: 'Copy response',
@@ -242,6 +265,85 @@ options: {
   ] // Array of example questions to show in the widget. Suggestions are picked at random.
 }
 ```
+
+### Lead Collection
+
+Use `options.leadCollect` to require users to complete a lead form before the chat continues.
+
+```ts
+type LeadCollectMode = 'before_response' | 'before_escalation';
+
+type LeadFieldType =
+  | 'text'
+  | 'email'
+  | 'tel'
+  | 'url'
+  | 'number'
+  | 'textarea'
+  | 'select'
+  | 'date'
+  | 'datetime-local'
+  | 'month'
+  | 'time'
+  | 'week'
+  | 'color';
+
+type LeadFieldOption = string | { value: string; label?: string };
+
+interface LeadField {
+  key: string;                  // required, unique metadata key
+  label?: string;
+  type?: LeadFieldType;         // default: 'text'
+  required?: boolean;           // default: false
+  placeholder?: string;         // shown for: text, email, tel, url, textarea, select
+  help?: string;
+  options?: LeadFieldOption[];  // select only, required for select
+  pattern?: string;             // text/email/tel/url
+  min?: string | number;        // number/date/time/datetime-local/month/week
+  max?: string | number;        // number/date/time/datetime-local/month/week
+  step?: string | number;       // number/date/time/datetime-local/month/week
+  minLength?: number;           // text/email/tel/url/textarea
+  maxLength?: number;           // text/email/tel/url/textarea
+  autocomplete?: string;        // auto-derived from type/key when available
+  inputMode?: string;           // auto-derived from type when available
+  // value?: string  <-- ignored
+}
+
+interface LeadCollectOptions {
+  enabled?: boolean;            // default: true
+  mode: LeadCollectMode;        // required
+  fields: LeadField[];          // required, non-empty
+}
+```
+
+Behavior details:
+
+- Prefill source is `identify` metadata only, matched by `field.key`.
+- `field.value` in `leadCollect.fields` is ignored by design.
+- `fields[].key` and select `options[].value` are sanitized to valid HTML input-name chars: `A-Z a-z 0-9 _ . : [ ] -`.
+- `options[].label` is not sanitized and can include spaces/symbols.
+- `autocomplete` and `inputMode` are auto-derived from field type/key when available.
+- Prefilled values are disabled in the form, but still included in the submit payload.
+- Continue stays disabled until required fields are complete.
+- While lead form is visible, chat input/send/upload controls are disabled.
+- Submit flow merges metadata, posts to `/teams/{team_id}/bots/{bot_id}/conversations/{conv_id}/lead`, closes lead messages, then resumes the original flow.
+- `supportCallback` escalation uses the Continue click event context for popup-safe behavior.
+- `datetime` is accepted as input and normalized to `datetime-local`.
+- `rows` is not supported and ignored.
+
+Validation rules:
+
+- `leadCollect.mode` is required and must be `before_response` or `before_escalation`.
+- `fields[].key` is required and must be unique.
+- `fields[].type === 'select'` requires non-empty `options`.
+- Placeholder is ignored for field types that do not support it (`number`, `date`, `datetime-local`, `time`, `month`, `week`, `color`).
+- Unknown keys are pass-through safe and ignored by renderer.
+
+Plan gating:
+
+- Free and Hobby plans: lead collection is disabled in the widget API response.
+- Personal and Pro plans: lead collection is enabled, but only `name` and `email` fields are returned.
+- Standard and above: custom lead fields are supported.
 
 ### Adjusting the Widget Position
 

@@ -310,6 +310,7 @@ function UserMessage({ text, alias, email, image_urls, timestamp, showHeader }) 
 function Conversations({ team, bot, preConversations }) {
   const [conversations, setConversations] = useState(preConversations)
   const [conversation, setConversation] = useState(null)
+  const [missingConversationId, setMissingConversationId] = useState(null)
   const [labels, setLabels] = useState(
     bot.labels || i18n[bot?.language]?.labels || i18n.en.labels,
   )
@@ -352,9 +353,16 @@ function Conversations({ team, bot, preConversations }) {
         }))
 
         setConversation(fullConversation)
+        setMissingConversationId(null)
       } else {
         const data = await response.json()
-        setErrorText(data.message || 'Failed to load conversation')
+        if (response.status === 404) {
+          setConversation(null)
+          setMissingConversationId(conversationId)
+          setErrorText(null)
+        } else {
+          setErrorText(data.message || 'Failed to load conversation')
+        }
       }
     } catch (error) {
       console.error('Error fetching conversation:', error)
@@ -381,7 +389,8 @@ function Conversations({ team, bot, preConversations }) {
       if (targetConversation) {
         fetchConversation(conversationId)
       } else {
-        setConversation(conversations.conversations[0])
+        setConversation(null)
+        setMissingConversationId(conversationId)
       }
     } else if (conversations.conversations[0]) {
       fetchConversation(conversations.conversations[0].id)
@@ -665,6 +674,9 @@ function Conversations({ team, bot, preConversations }) {
   if (!bot) return null
 
   const title = [bot.name, 'Conversations']
+  const conversationHistory = Array.isArray(conversation?.history)
+    ? conversation.history
+    : []
 
   const Header = () => {
     if (!conversation) {
@@ -1082,9 +1094,9 @@ function Conversations({ team, bot, preConversations }) {
                     </div>
                   </>
                 )}
-                {conversation.history.map((message, index) => {
+                {conversationHistory.map((message, index) => {
                   const prevMessage =
-                    index > 0 ? conversation.history[index - 1] : null
+                    index > 0 ? conversationHistory[index - 1] : null
                   if (message['Human']) {
                     const currentTs = message.timestamp
                     const prevTs = prevMessage?.timestamp
@@ -1119,6 +1131,11 @@ function Conversations({ team, bot, preConversations }) {
                     )
                   }
                 })}
+                {conversationHistory.length === 0 && (
+                  <div className="mb-4 rounded-lg border border-gray-200 bg-white p-4 text-sm text-gray-600">
+                    No conversation messages found for this conversation ID.
+                  </div>
+                )}
                 {/* Conversation Navigation Buttons */}
                 <div className="mb-1 mt-8 flex justify-between border-t pt-4">
                   <button
@@ -1147,14 +1164,26 @@ function Conversations({ team, bot, preConversations }) {
               </div>
             ) : (
               <div className="flex h-full items-center justify-center p-8 text-gray-500">
-                No recorded conversations yet. Go ahead and{' '}
-                <Link
-                  href={`/app/bots/${bot.id}`}
-                  className="ml-1 text-cyan-600 hover:text-cyan-700"
-                >
-                  chat with your bot
-                </Link>
-                !
+                {missingConversationId ? (
+                  <>
+                    No conversation created yet for ID{' '}
+                    <code className="mx-1 rounded bg-gray-100 px-1 py-0.5 text-gray-700">
+                      {missingConversationId}
+                    </code>
+                    .
+                  </>
+                ) : (
+                  <>
+                    No recorded conversations yet. Go ahead and{' '}
+                    <Link
+                      href={`/app/bots/${bot.id}`}
+                      className="ml-1 text-cyan-600 hover:text-cyan-700"
+                    >
+                      chat with your bot
+                    </Link>
+                    !
+                  </>
+                )}
               </div>
             )}
           </div>

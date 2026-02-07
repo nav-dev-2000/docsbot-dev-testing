@@ -505,6 +505,29 @@ export const convertQuestionDocToData = (id, docData) => {
   return question
 }
 
+export const convertLeadDocToData = (id, docData) => {
+  const sanitizedMetadata = sanitizeMetadata(docData.metadata)
+  const alias = docData.ip ? getFakeUserByIp(docData.ip) : 'unknown-user'
+
+  let lead = {
+    id,
+    ...docData,
+    metadata: sanitizedMetadata,
+    alias,
+    email: sanitizedMetadata?.email || null,
+  }
+
+  if (lead.createdAt?.toDate) {
+    lead.createdAt = lead.createdAt.toDate().toJSON()
+  }
+
+  if (lead.updatedAt?.toDate) {
+    lead.updatedAt = lead.updatedAt.toDate().toJSON()
+  }
+
+  return lead
+}
+
 const QUESTION_SELECT_LIST = [
   FieldPath.documentId(),
   'createdAt',
@@ -521,6 +544,14 @@ const QUESTION_SELECT_LIST = [
   'deleted',
   'couldAnswer',
   'conversationId',
+]
+
+const LEAD_SELECT_LIST = [
+  FieldPath.documentId(),
+  'createdAt',
+  'updatedAt',
+  'metadata',
+  'ip',
 ]
 
 export async function getQuestions(
@@ -644,6 +675,90 @@ export async function getQuestions(
   }
 
   return { questions, pagination }
+}
+
+export async function getLeads(
+  team,
+  botId,
+  perPage = 50,
+  page = 0,
+  startTime = null,
+  endTime = null,
+) {
+  const offset = page * perPage
+  let snapshot = firestore
+    .collection('teams')
+    .doc(team.id)
+    .collection('bots')
+    .doc(botId)
+    .collection('leads')
+    .select(...LEAD_SELECT_LIST)
+
+  const plan = stripePlan(team)
+  const planLimit = plan.logLimit
+  const pageLimit = offset + perPage >= planLimit ? planLimit - offset : perPage
+
+  if (startTime) {
+    const start = new Date(startTime)
+    if (isNaN(start.getTime())) {
+      throw new Error('Invalid parameter "startTime".')
+    }
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    if (isNaN(end.getTime())) {
+      throw new Error('Invalid parameter "endTime".')
+    }
+    snapshot = snapshot.where('createdAt', '<=', end)
+  }
+
+  const leadsRef = snapshot
+    .orderBy('createdAt', 'desc')
+    .offset(offset)
+    .limit(pageLimit)
+
+  const querySnapshot = await leadsRef.get()
+  let leads = []
+  querySnapshot.forEach((doc) => {
+    const docData = doc.data()
+    const lead = convertLeadDocToData(doc.id, docData)
+    leads.push(lead)
+  })
+
+  snapshot = firestore
+    .collection('teams')
+    .doc(team.id)
+    .collection('bots')
+    .doc(botId)
+    .collection('leads')
+    .orderBy('createdAt', 'desc')
+
+  if (startTime) {
+    const start = new Date(startTime)
+    snapshot = snapshot.where('createdAt', '>=', start)
+  }
+
+  if (endTime) {
+    const end = new Date(endTime)
+    snapshot = snapshot.where('createdAt', '<=', end)
+  }
+
+  const countSnapshot = await snapshot.count().get()
+  const totalCount = countSnapshot.data().count
+  const viewableCount = totalCount > planLimit ? planLimit : totalCount
+
+  const pagination = {
+    perPage,
+    page,
+    viewableCount,
+    totalCount,
+    hasMorePages: offset + perPage < viewableCount,
+    planLimit,
+  }
+
+  return { leads, pagination }
 }
 
 export async function getQuestion(teamId, botId, questionId) {

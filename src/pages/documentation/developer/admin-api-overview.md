@@ -34,3 +34,9 @@ Read more about the [Sources API](/documentation/developer/source-api) endpoints
 Once you've deployed your bot to production, you can view the questions and answers that your users are asking. This is a great way to see how your bot is performing and to see what questions your users are asking. You can also use this data to improve your bot.
 
 Read more about the [Questions API](/documentation/developer/questions-api) endpoint.
+
+## Leads
+
+You can capture leads from conversations, list them with pagination and date filters, export them as CSV, and delete lead records programmatically.
+
+Read more about the [Leads API](/documentation/developer/leads-api) endpoints.

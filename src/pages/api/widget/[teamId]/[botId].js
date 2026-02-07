@@ -2,6 +2,10 @@ import { getBot, getTeam } from '@/lib/dbQueries'
 import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
 import { checkPlanPermission } from '@/utils/helpers'
+import {
+  limitLeadCollectToDefaultFields,
+  sanitizeLeadCollectOptions,
+} from '@/lib/leadCollect'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -21,6 +25,21 @@ function runMiddleware(req, res, fn) {
       return resolve(result)
     })
   })
+}
+
+const getToolEnabled = (toolConfig, defaultEnabled = true) => {
+  if (typeof toolConfig === 'boolean') {
+    return toolConfig
+  }
+
+  if (toolConfig && typeof toolConfig === 'object') {
+    if (toolConfig.enabled === undefined) {
+      return defaultEnabled
+    }
+    return Boolean(toolConfig.enabled)
+  }
+
+  return defaultEnabled
 }
 
 export default async function handler(req, res) {
@@ -69,9 +88,40 @@ export default async function handler(req, res) {
           logo: bot.logo || false,
           headerAlignment: bot.headerAlignment || 'center',
           isAgent: bot.isAgent || false,
-          useEscalation: bot.tools?.human_escalation?.enabled === undefined ? true : bot.tools.human_escalation.enabled,
-          useFeedback: bot.tools?.followup_rating?.enabled === undefined ? true : bot.tools.followup_rating.enabled,
+          useEscalation: getToolEnabled(bot.tools?.human_escalation, true),
+          useFeedback: getToolEnabled(bot.tools?.followup_rating, true),
           useImageUpload: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
+          leadCollect: false,
+        }
+
+        const leadCollectPlan = checkPlanPermission(team, 'personal', 'leadCollect')
+        const leadCollectFieldsPlan = checkPlanPermission(
+          team,
+          'standard',
+          'leadCollectFields',
+        )
+
+        if (leadCollectPlan.allowed) {
+          try {
+            const sanitizedLeadCollect = sanitizeLeadCollectOptions(bot.leadCollect)
+
+            if (sanitizedLeadCollect?.enabled === false) {
+              widget.leadCollect = false
+            } else if (!leadCollectFieldsPlan.allowed) {
+              const limitedLeadCollect = limitLeadCollectToDefaultFields(
+                sanitizedLeadCollect,
+              )
+              widget.leadCollect =
+                Array.isArray(limitedLeadCollect?.fields) &&
+                limitedLeadCollect.fields.length > 0
+                  ? limitedLeadCollect
+                  : false
+            } else {
+              widget.leadCollect = sanitizedLeadCollect
+            }
+          } catch (error) {
+            widget.leadCollect = false
+          }
         }
 
         //temp fix for feedbackYes

@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-07',
+    title: 'Lead collection tool in chat widget',
+    description:
+      'Add a customizable lead collection form to your chat widget to collect lead data from users before they start a conversation or before escalation.',
+  },
+  {
     date: '2026-02-06',
     title: 'Question History MCP endpoint',
     description:
