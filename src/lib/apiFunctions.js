@@ -367,7 +367,6 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     headerAlignment,
     resetkey,
     recordIP,
-    classify,
     embeddingModel,
     isAgent,
     tools,
@@ -761,9 +760,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     }
   }
 
-  if (classify !== undefined) {
-    botData.classify = Boolean(classify)
-  }
+  // Classify is now always enabled for all bots.
+  botData.classify = true
 
   if (temperature !== undefined) {
     // Validate temperature is between 0 and 1

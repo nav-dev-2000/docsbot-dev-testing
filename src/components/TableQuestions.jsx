@@ -634,36 +634,34 @@ export default function TableQuestions({
       },
     ]
 
-    if (bot?.classify) {
-      options.push({
-        id: 'couldAnswer',
-        name: 'Could Answer',
-        options: [
-          { value: null, label: 'All' },
-          {
-            value: true,
-            label: (
-              <span className="flex items-center">
-                <CheckCircleIcon className="mr-1 h-4 w-4 text-green-600" />{' '}
-                Answered
-              </span>
-            ),
-          },
-          {
-            value: false,
-            label: (
-              <span className="flex items-center">
-                <MinusCircleIcon className="mr-1 h-4 w-4 text-red-600" /> Not
-                Answered
-              </span>
-            ),
-          },
-        ],
-      })
-    }
+    options.push({
+      id: 'couldAnswer',
+      name: 'Could Answer',
+      options: [
+        { value: null, label: 'All' },
+        {
+          value: true,
+          label: (
+            <span className="flex items-center">
+              <CheckCircleIcon className="mr-1 h-4 w-4 text-green-600" />{' '}
+              Answered
+            </span>
+          ),
+        },
+        {
+          value: false,
+          label: (
+            <span className="flex items-center">
+              <MinusCircleIcon className="mr-1 h-4 w-4 text-red-600" /> Not
+              Answered
+            </span>
+          ),
+        },
+      ],
+    })
 
     return options
-  }, [bot?.classify])
+  }, [])
 
   useEffect(() => {
     if (!team || !user) return
@@ -1252,14 +1250,12 @@ export default function TableQuestions({
                       >
                         Rating
                       </th>
-                      {bot?.classify && (
-                        <th
-                          scope="col"
-                          className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
-                        >
-                          Could Answer
-                        </th>
-                      )}
+                      <th
+                        scope="col"
+                        className="z-5 sticky top-16 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+                      >
+                        Could Answer
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1273,7 +1269,7 @@ export default function TableQuestions({
                     {!searching && questions.questions.length === 0 && (
                       <tr>
                         <td
-                          colSpan={bot?.classify ? 6 : 5}
+                          colSpan={6}
                           className="px-3 py-10 text-center text-sm text-gray-500"
                         >
                           <div className="flex flex-col items-center justify-center">
@@ -1437,26 +1433,24 @@ export default function TableQuestions({
                               />
                             </Answer>
                           </td>
-                          {bot?.classify && (
-                            <td
-                              className={clsx(
-                                questionIdx !== questions.length - 1
-                                  ? 'border-b border-gray-200'
-                                  : '',
-                                'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell',
-                              )}
-                            >
-                              <Answer
+                          <td
+                            className={clsx(
+                              questionIdx !== questions.length - 1
+                                ? 'border-b border-gray-200'
+                                : '',
+                              'hidden whitespace-nowrap text-sm text-gray-500 lg:table-cell',
+                            )}
+                          >
+                            <Answer
                               {...{ question, questionIdx }}
                               {...commonAnswerProps}
                             >
-                                <CouldAnswer
-                                  answered={question?.couldAnswer}
-                                  exists={question.couldAnswer !== null}
-                                />
-                              </Answer>
-                            </td>
-                          )}
+                              <CouldAnswer
+                                answered={question?.couldAnswer}
+                                exists={question.couldAnswer !== null}
+                              />
+                            </Answer>
+                          </td>
                         </tr>
                       )
                     })}

@@ -446,7 +446,7 @@ function Widget({ team, bot }) {
                 <div className="divide-y divide-gray-200">
                   <div className="space-y-6 pb-5 pt-6">
                     <div id="agent-mode" className="mt-4 border-b border-gray-200 pb-4">
-                      {!bot.isAgent && (
+                      {!bot.isAgent && !bot.agentPrompt && (
                         <Alert title="Agent Mode is here!" type="info">
                           When ready, you can enable our new{' '}
                           <Link
@@ -473,14 +473,16 @@ function Widget({ team, bot }) {
                           remove any instructions that may conflict.
                         </Alert>
                       )}
-                      <FieldToggle
-                        label="Enable Agent Mode"
-                        description="Enable agent mode to allow the bot to use tools in the widget, and track conversations."
-                        enabled={isAgent}
-                        setEnabled={handleAgentToggle}
-                        disabled={isUpdating}
-                        isNew={true}
-                      />
+                      {!bot.agentPrompt && (
+                        <FieldToggle
+                          label="Enable Agent Mode"
+                          description="Enable agent mode to allow the bot to use tools in the widget, and track conversations."
+                          enabled={isAgent}
+                          setEnabled={handleAgentToggle}
+                          disabled={isUpdating}
+                          isNew={true}
+                        />
+                      )}
                     </div>
                     <div className="grid gap-6 lg:grid-cols-2">
                       <div className="space-y-6">

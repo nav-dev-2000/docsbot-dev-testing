@@ -39,13 +39,6 @@ export default function FormBot({
   const [rateLimitIPAllowlist, setRateLimitIPAllowlist] = useState(
     bot?.rateLimitIPAllowlist || [],
   )
-  const [classifySwitch, setClassifySwitch] = useState(() => {
-    if (bot?.classify === undefined) {
-      // default to true
-      return true
-    }
-    return bot?.classify
-  })
   const [rateLimitIPField, setRateLimitIPField] = useState(
     bot?.rateLimitIPAllowlist?.join(', ') || '',
   )
@@ -90,7 +83,7 @@ export default function FormBot({
       rateLimitIPAllowlist,
       labels,
       recordIP,
-      classify: classifySwitch,
+      classify: true,
       temperature,
       agentPrompt,
     })
@@ -107,7 +100,6 @@ export default function FormBot({
     rateLimitIPAllowlist,
     labels,
     recordIP,
-    classifySwitch,
     temperature,
     agentPrompt,
   ])
@@ -1016,17 +1008,6 @@ export default function FormBot({
 
       {!short && (
         <>
-          {(bot?.classify === false || bot?.classify === undefined) && ( //don't allow new selection of classify
-            <div className="mt-4">
-              <FieldToggle
-                label="Classify Answers"
-                description="Classify if the bot could answer the user question in logs. (recommended)"
-                enabled={classifySwitch}
-                setEnabled={setClassifySwitch}
-                disabled={disabled}
-              />
-            </div>
-          )}
           <fieldset
             id="suggested-questions"
             aria-describedby="suggested-questions-description"

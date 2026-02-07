@@ -73,9 +73,7 @@ const handler = async (req, res) => {
         headers.push('ip')
       }
 
-      if (bot?.classify) {
-        headers.push('couldAnswer')
-      }
+      headers.push('couldAnswer')
 
       // write questions to csv file
       csvData.push(headers)
@@ -110,9 +108,7 @@ const handler = async (req, res) => {
          entry.push(ip)
         }
 
-        if (bot?.classify) {
-          entry.push(question.couldAnswer !== null ? (question.couldAnswer ? 'True' : 'False') : 'Unknown')
-        }
+        entry.push(question.couldAnswer !== null ? (question.couldAnswer ? 'True' : 'False') : 'Unknown')
         csvData.push(entry)
       })
 

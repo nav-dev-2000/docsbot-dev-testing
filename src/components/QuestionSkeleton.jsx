@@ -1,4 +1,4 @@
-export default function QuestionSkeleton({ bot }) {
+export default function QuestionSkeleton() {
   return (<>
      <tr className="animate-pulse">
        <td className="hidden py-4 pl-2 pr-2 text-sm lg:table-cell">
@@ -25,11 +25,9 @@ export default function QuestionSkeleton({ bot }) {
        <td className="hidden px-3 py-4 text-sm lg:table-cell">
          <div className="h-6 w-10 rounded bg-gray-200"></div>
        </td>
-       {bot?.classify && (
-         <td className="hidden px-3 py-4 text-sm lg:table-cell">
-           <div className="h-6 w-6 rounded bg-gray-200"></div>
-         </td>
-       )}
+       <td className="hidden px-3 py-4 text-sm lg:table-cell">
+         <div className="h-6 w-6 rounded bg-gray-200"></div>
+       </td>
      </tr>
     </>
   )
