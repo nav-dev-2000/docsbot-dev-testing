@@ -73,6 +73,31 @@ import Paginator from '@/components/Paginator'
 import { usePostHog } from 'posthog-js/react'
 
 
+
+const normalizeResearchJobTools = (job, fallbackJob = null) => ({
+  ...job,
+  webSearch:
+    typeof job?.webSearch === 'boolean'
+      ? job.webSearch
+      : (fallbackJob?.webSearch ?? false),
+  codeInterpreter:
+    typeof job?.codeInterpreter === 'boolean'
+      ? job.codeInterpreter
+      : (fallbackJob?.codeInterpreter ?? false),
+  questionHistory:
+    typeof job?.questionHistory === 'boolean'
+      ? job.questionHistory
+      : typeof job?.mcpQuestionHistorySearch === 'boolean'
+        ? job.mcpQuestionHistorySearch
+        : (fallbackJob?.questionHistory ?? false),
+  docsSearch:
+    typeof job?.docsSearch === 'boolean'
+      ? job.docsSearch
+      : typeof job?.mcpDeepResearch === 'boolean'
+        ? job.mcpDeepResearch
+        : (fallbackJob?.docsSearch ?? true),
+})
+
 const extractUrlAnnotations = (response) => {
   if (!response || !Array.isArray(response.output)) return []
 
@@ -1081,6 +1106,10 @@ function ResearchInterface({
   const [codeInterpreter, setCodeInterpreter] = useState(false)
   const [questionHistory, setQuestionHistory] = useState(false)
   const [docsSearch, setDocsSearch] = useState(true)
+  const webSearchRef = useRef(false)
+  const codeInterpreterRef = useRef(false)
+  const questionHistoryRef = useRef(false)
+  const docsSearchRef = useRef(true)
   const [loading, setLoading] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [showUpgrade, setShowUpgrade] = useState(false)
@@ -1128,6 +1157,42 @@ function ResearchInterface({
   }, [question])
 
   useEffect(() => {
+    webSearchRef.current = webSearch
+  }, [webSearch])
+
+  useEffect(() => {
+    codeInterpreterRef.current = codeInterpreter
+  }, [codeInterpreter])
+
+  useEffect(() => {
+    questionHistoryRef.current = questionHistory
+  }, [questionHistory])
+
+  useEffect(() => {
+    docsSearchRef.current = docsSearch
+  }, [docsSearch])
+
+  const setWebSearchValue = (value) => {
+    webSearchRef.current = value
+    setWebSearch(value)
+  }
+
+  const setCodeInterpreterValue = (value) => {
+    codeInterpreterRef.current = value
+    setCodeInterpreter(value)
+  }
+
+  const setQuestionHistoryValue = (value) => {
+    questionHistoryRef.current = value
+    setQuestionHistory(value)
+  }
+
+  const setDocsSearchValue = (value) => {
+    docsSearchRef.current = value
+    setDocsSearch(value)
+  }
+
+  useEffect(() => {
     if (pendingUpgrade) {
       setShowUpgrade(true)
       setPendingUpgrade(false)
@@ -1158,20 +1223,21 @@ function ResearchInterface({
   // Sync local toggles and model from clarifying job (DB/list API provides camelCase fields)
   useEffect(() => {
     if (!clarifyingJob) return
+    const normalizedClarifyingJob = normalizeResearchJobTools(clarifyingJob)
     if (typeof clarifyingJob.model === 'string') {
       setSelectedModel(clarifyingJob.model)
     }
-    if (clarifyingJob.webSearch !== undefined) {
-      setWebSearch(Boolean(clarifyingJob.webSearch))
+    if (normalizedClarifyingJob.webSearch !== undefined) {
+      setWebSearchValue(Boolean(normalizedClarifyingJob.webSearch))
     }
-    if (clarifyingJob.codeInterpreter !== undefined) {
-      setCodeInterpreter(Boolean(clarifyingJob.codeInterpreter))
+    if (normalizedClarifyingJob.codeInterpreter !== undefined) {
+      setCodeInterpreterValue(Boolean(normalizedClarifyingJob.codeInterpreter))
     }
-    if (clarifyingJob.questionHistory !== undefined) {
-      setQuestionHistory(Boolean(clarifyingJob.questionHistory))
+    if (normalizedClarifyingJob.questionHistory !== undefined) {
+      setQuestionHistoryValue(Boolean(normalizedClarifyingJob.questionHistory))
     }
-    if (clarifyingJob.docsSearch !== undefined) {
-      setDocsSearch(Boolean(clarifyingJob.docsSearch))
+    if (normalizedClarifyingJob.docsSearch !== undefined) {
+      setDocsSearchValue(Boolean(normalizedClarifyingJob.docsSearch))
     }
   }, [clarifyingJob])
 
@@ -1222,6 +1288,11 @@ function ResearchInterface({
 
   const startResearch = async (e) => {
     e.preventDefault()
+
+    const currentWebSearch = webSearchRef.current
+    const currentCodeInterpreter = codeInterpreterRef.current
+    const currentQuestionHistory = questionHistoryRef.current
+    const currentDocsSearch = docsSearchRef.current
     
     // Prevent API calls if upgrade modal is showing
     if (showUpgrade || pendingUpgrade) {
@@ -1234,7 +1305,7 @@ function ResearchInterface({
     }
 
     // Ensure at least documentation search or question history is selected
-    if (!docsSearch && !questionHistory) {
+    if (!currentDocsSearch && !currentQuestionHistory) {
       setErrorText('Please enable at least Documentation Search or Question History.')
       return
     }
@@ -1346,10 +1417,10 @@ function ResearchInterface({
           body: JSON.stringify({
             answers: question,
             model: selectedModel,
-            web_search: webSearch,
-            code_interpreter: codeInterpreter,
-            question_history: questionHistory,
-            docs_search: docsSearch,
+            web_search: currentWebSearch,
+            code_interpreter: currentCodeInterpreter,
+            question_history: currentQuestionHistory,
+            docs_search: currentDocsSearch,
             metadata: user?.displayName || user?.email || user?.uid ? {
               name: user?.displayName || null,
               email: user?.email || null,
@@ -1368,7 +1439,7 @@ function ResearchInterface({
           if (data.jobId && data.status) {
             const previousStatus = previousJobStatusesRef?.current?.get(data.jobId) || clarifyingJob?.status
             
-            const updatedJob = { 
+            const updatedJob = normalizeResearchJobTools({ 
               ...clarifyingJob, 
               ...data,
               // Store the answers that were just submitted
@@ -1377,7 +1448,7 @@ function ResearchInterface({
               summary: data.summary || clarifyingJob?.summary,
               // Preserve metadata from API response or existing
               metadata: data.metadata || clarifyingJob?.metadata,
-            }
+            }, clarifyingJob)
             
             // Check for status transition and send notification if needed
             if (previousStatus !== updatedJob.status && sendJobNotification) {
@@ -1423,10 +1494,10 @@ function ResearchInterface({
         const body = {
           question,
           model: selectedModel,
-          web_search: webSearch,
-          code_interpreter: codeInterpreter,
-          question_history: questionHistory,
-          docs_search: docsSearch,
+          web_search: currentWebSearch,
+          code_interpreter: currentCodeInterpreter,
+          question_history: currentQuestionHistory,
+          docs_search: currentDocsSearch,
           metadata: user?.displayName || user?.email || user?.uid ? {
             name: user?.displayName || null,
             email: user?.email || null,
@@ -1454,10 +1525,10 @@ function ResearchInterface({
               status: data.status || 'clarifying',
               clarifications: data.clarifications,
               model: selectedModel,
-              webSearch: webSearch,
-              codeInterpreter: codeInterpreter,
-              questionHistory: questionHistory,
-              docsSearch: docsSearch,
+              webSearch: currentWebSearch,
+              codeInterpreter: currentCodeInterpreter,
+              questionHistory: currentQuestionHistory,
+              docsSearch: currentDocsSearch,
               metadata: data.metadata || (user?.displayName || user?.email || user?.uid ? {
                 name: user?.displayName || null,
                 email: user?.email || null,
@@ -1506,9 +1577,9 @@ function ResearchInterface({
                 botName: bot.name,
                 teamId: team.id,
                 model: selectedModel,
-                webSearch: webSearch,
-                codeInterpreter: codeInterpreter,
-                questionHistory: questionHistory,
+                webSearch: currentWebSearch,
+                codeInterpreter: currentCodeInterpreter,
+                questionHistory: currentQuestionHistory,
                 title: data.title,
               })
             } catch (err) {
@@ -1702,14 +1773,17 @@ function ResearchInterface({
                           )}
                           onClick={() => {
                             // Prevent disabling if questionHistory is also disabled
-                            if (docsSearch && !questionHistory) {
+                            const currentDocsSearch = docsSearchRef.current
+                            const currentQuestionHistory = questionHistoryRef.current
+
+                            if (currentDocsSearch && !currentQuestionHistory) {
                               setErrorText('Please enable at least Documentation Search or Question History.')
                               return
                             }
-                            const newValue = !docsSearch
-                            setDocsSearch(newValue)
+                            const newValue = !currentDocsSearch
+                            setDocsSearchValue(newValue)
                             setErrorText(null)
-                            updateSelectedJobTools(webSearch, codeInterpreter, questionHistory, newValue)
+                            updateSelectedJobTools(webSearchRef.current, codeInterpreterRef.current, questionHistoryRef.current, newValue)
                           }}
                         >
                           {docsSearch ? (
@@ -1734,14 +1808,17 @@ function ResearchInterface({
                           )}
                           onClick={() => {
                             // Prevent disabling if docsSearch is also disabled
-                            if (questionHistory && !docsSearch) {
+                            const currentQuestionHistory = questionHistoryRef.current
+                            const currentDocsSearch = docsSearchRef.current
+
+                            if (currentQuestionHistory && !currentDocsSearch) {
                               setErrorText('Please enable at least Documentation Search or Question History.')
                               return
                             }
-                            const newValue = !questionHistory
-                            setQuestionHistory(newValue)
+                            const newValue = !currentQuestionHistory
+                            setQuestionHistoryValue(newValue)
                             setErrorText(null)
-                            updateSelectedJobTools(webSearch, codeInterpreter, newValue, docsSearch)
+                            updateSelectedJobTools(webSearchRef.current, codeInterpreterRef.current, newValue, docsSearchRef.current)
                           }}
                         >
                           {questionHistory ? (
@@ -1765,9 +1842,9 @@ function ResearchInterface({
                               : 'text-gray-600',
                           )}
                           onClick={() => {
-                            const newValue = !webSearch
-                            setWebSearch(newValue)
-                            updateSelectedJobTools(newValue, codeInterpreter, questionHistory, docsSearch)
+                            const newValue = !webSearchRef.current
+                            setWebSearchValue(newValue)
+                            updateSelectedJobTools(newValue, codeInterpreterRef.current, questionHistoryRef.current, docsSearchRef.current)
                           }}
                         >
                           {webSearch ? (
@@ -1791,9 +1868,9 @@ function ResearchInterface({
                               : 'text-gray-600',
                           )}
                           onClick={() => {
-                            const newValue = !codeInterpreter
-                            setCodeInterpreter(newValue)
-                            updateSelectedJobTools(webSearch, newValue, questionHistory, docsSearch)
+                            const newValue = !codeInterpreterRef.current
+                            setCodeInterpreterValue(newValue)
+                            updateSelectedJobTools(webSearchRef.current, newValue, questionHistoryRef.current, docsSearchRef.current)
                           }}
                         >
                           {codeInterpreter ? (
@@ -3022,10 +3099,11 @@ function Research({ team, bot }) {
         if (response.ok) {
           const job = await response.json()
           setResearchJobs((prev) => {
-            const exists = prev.some((j) => j.jobId === job.jobId)
-            return exists ? prev : [job, ...prev]
+            const normalizedJob = normalizeResearchJobTools(job)
+            const exists = prev.some((j) => j.jobId === normalizedJob.jobId)
+            return exists ? prev : [normalizedJob, ...prev]
           })
-          setSelectedJob(job)
+          setSelectedJob(normalizeResearchJobTools(job))
           // also refresh external status if possible
           fetchJobStatus(jobId)
         } else {
@@ -3093,7 +3171,7 @@ function Research({ team, bot }) {
             }
           })
           
-          setResearchJobs(jobs)
+          setResearchJobs(jobs.map((job) => normalizeResearchJobTools(job)))
           // best-effort pagination mapping
           const pagination = data.pagination || {}
           setCurrentPage(pagination.page ?? page)
@@ -3165,7 +3243,7 @@ function Research({ team, bot }) {
         // Track previous status before updating to detect transitions
         const previousStatus = previousJobStatusesRef.current.get(jobId) || existing.status
         
-        const merged = { 
+        const merged = normalizeResearchJobTools({ 
           ...existing, 
           ...job,
           // Preserve answers and summary from existing or new data
@@ -3173,7 +3251,7 @@ function Research({ team, bot }) {
           summary: job.summary || existing.summary,
           // Preserve metadata from API response or existing
           metadata: job.metadata || existing.metadata,
-        }
+        }, existing)
         
         // Check for status transition and send notification if needed
         if (previousStatus !== merged.status) {
@@ -3349,7 +3427,7 @@ function Research({ team, bot }) {
             }
           }
           const existing = researchJobs.find((j) => j.jobId === jobId) || {}
-          const merged = { 
+          const merged = normalizeResearchJobTools({ 
             ...existing, 
             ...job,
             // Preserve answers and summary from existing or new data
@@ -3357,7 +3435,7 @@ function Research({ team, bot }) {
             summary: job.summary || existing.summary,
             // Preserve metadata from API response or existing
             metadata: job.metadata || existing.metadata,
-          }
+          }, existing)
           // also update the list entry to ensure we retain camelCase fields from DB/list
           setResearchJobs((prev) =>
             prev.map((j) => (j.jobId === jobId ? merged : j)),

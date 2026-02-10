@@ -4,6 +4,7 @@ import { getBot } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { canUserViewBot } from '@/utils/function.utils'
 
+
 export default async function handler(req, res) {
   configureFirebaseApp()
   const firestore = getFirestore()
