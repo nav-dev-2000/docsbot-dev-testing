@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Link from 'next/link'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
@@ -77,6 +78,15 @@ function Leads({ team, bot, preLeads }) {
         buildParams={buildParams}
         setErrorText={setErrorText}
       />
+
+      <div className="mt-6">
+        <Link
+          href={`/app/bots/${bot.id}/webhooks`}
+          className="text-sm text-cyan-700 hover:text-cyan-900"
+        >
+          Configure webhooks for lead notifications →
+        </Link>
+      </div>
     </DashboardWrap>
   )
 }

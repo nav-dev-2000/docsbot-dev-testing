@@ -304,7 +304,7 @@ export default function App({ Component, pageProps }) {
   if (Object.keys(beaconIdent).length) Beacon('identify', beaconIdent);
   let message = ticket.message;
   if (metadata.conversationUrl) {
-    message += "\n\nConversation: " + metadata.conversationUrl;
+    message += "\\n\\nConversation: " + metadata.conversationUrl;
   }
   Beacon('open');
   if (ticket) {

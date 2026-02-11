@@ -69,6 +69,7 @@ const navigation = [
       { title: 'Question History', href: '/documentation/developer/questions-api' },
       { title: 'Conversation History', href: '/documentation/developer/conversations-api' },
       { title: 'Leads', href: '/documentation/developer/leads-api' },
+      { title: 'Webhooks', href: '/documentation/developer/webhooks-api' },
       { title: 'Bot Research Jobs', href: '/documentation/developer/bot-research-api' },
       { title: 'Bot Statistics', href: '/documentation/developer/stats-api' },
     ],

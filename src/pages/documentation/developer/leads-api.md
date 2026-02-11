@@ -13,6 +13,8 @@ Leads are typically created via the Chat API lead-capture endpoint, often when t
 
 Use [Conversation Lead Capture](/documentation/developer/conversation-lead) for lead creation behavior and request details.
 
+To notify external tools when leads arrive, configure [Webhooks API](/documentation/developer/webhooks-api) subscriptions.
+
 ---
 
 ## Response Objects
@@ -21,27 +23,27 @@ Use [Conversation Lead Capture](/documentation/developer/conversation-lead) for 
 
 Lead objects have the following properties:
 
-| Property      | Type        | Description                                                                                          |
-| ------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
-| **id**        | string      | Lead ID. This is the same as the conversation ID.                                                    |
-| **createdAt** | string      | Lead creation timestamp.                                                                             |
-| **updatedAt** | string/null | Last update timestamp. Present after the first update.                                               |
-| **metadata**  | object      | Arbitrary lead metadata object (email, name, phone, company, etc.).                                 |
-| **ip**        | string      | User IP hash (or raw IP if bot `recordIP: true`).                                                    |
-| **alias**     | string      | Display alias generated from IP unless metadata includes name/email.                                 |
-| **email**     | string/null | Convenience email field derived from metadata when available.                                        |
+| Property      | Type        | Description                                                          |
+| ------------- | ----------- | -------------------------------------------------------------------- |
+| **id**        | string      | Lead ID. This is the same as the conversation ID.                    |
+| **createdAt** | string      | Lead creation timestamp.                                             |
+| **updatedAt** | string/null | Last update timestamp. Present after the first update.               |
+| **metadata**  | object      | Arbitrary lead metadata object (email, name, phone, company, etc.).  |
+| **ip**        | string      | User IP hash (or raw IP if bot `recordIP: true`).                    |
+| **alias**     | string      | Display alias generated from IP unless metadata includes name/email. |
+| **email**     | string/null | Convenience email field derived from metadata when available.        |
 
 ### Pagination object
 
 List responses include a `pagination` object:
 
-| Property          | Type    | Description                                                              |
-| ----------------- | ------- | ------------------------------------------------------------------------ |
-| **perPage**       | number  | Number of leads per page.                                                |
-| **page**          | number  | Current page (0-indexed).                                                |
-| **totalCount**    | number  | Total leads matching filters.                                            |
-| **hasMorePages**  | boolean | Whether more pages exist.                                                |
-| **planLimit**     | number  | Plan max viewable records for logs.                                      |
+| Property         | Type    | Description                         |
+| ---------------- | ------- | ----------------------------------- |
+| **perPage**      | number  | Number of leads per page.           |
+| **page**         | number  | Current page (0-indexed).           |
+| **totalCount**   | number  | Total leads matching filters.       |
+| **hasMorePages** | boolean | Whether more pages exist.           |
+| **planLimit**    | number  | Plan max viewable records for logs. |
 
 ---
 
@@ -97,12 +99,12 @@ Lists leads for a bot.
 
 ### Optional URL Parameters
 
-| Property      | Type   | Description                                                                 |
-| ------------- | ------ | --------------------------------------------------------------------------- |
-| **page**      | number | 0-indexed page number. Default `0`.                                         |
-| **perPage**   | number | Results per page. Default `50`.                                             |
-| **startDate** | string | Filter by lead `createdAt` start time (ISO datetime or parsable date).      |
-| **endDate**   | string | Filter by lead `createdAt` end time (ISO datetime or parsable date).        |
+| Property      | Type   | Description                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------- |
+| **page**      | number | 0-indexed page number. Default `0`.                                    |
+| **perPage**   | number | Results per page. Default `50`.                                        |
+| **startDate** | string | Filter by lead `createdAt` start time (ISO datetime or parsable date). |
+| **endDate**   | string | Filter by lead `createdAt` end time (ISO datetime or parsable date).   |
 
 ### Permissions
 
@@ -154,10 +156,10 @@ Exports leads matching a date range to a signed CSV URL.
 
 ### Required URL Parameters
 
-| Property      | Type   | Description                                    |
-| ------------- | ------ | ---------------------------------------------- |
-| **startDate** | string | Start datetime for `createdAt` filter.         |
-| **endDate**   | string | End datetime for `createdAt` filter.           |
+| Property      | Type   | Description                            |
+| ------------- | ------ | -------------------------------------- |
+| **startDate** | string | Start datetime for `createdAt` filter. |
+| **endDate**   | string | End datetime for `createdAt` filter.   |
 
 ### Permissions
 
@@ -212,9 +214,9 @@ curl --request DELETE 'https://docsbot.ai/api/teams/YOUR_TEAM_ID/bots/YOUR_BOT_I
 
 Common errors across lead endpoints:
 
-| Status | Meaning |
-| ------ | ------- |
+| Status | Meaning                                            |
+| ------ | -------------------------------------------------- |
 | `400`  | Invalid method or missing/invalid required params. |
-| `403`  | Authentication or permission denied. |
-| `404`  | Bot or lead/conversation ID not found. |
-| `500`  | Internal server error. |
+| `403`  | Authentication or permission denied.               |
+| `404`  | Bot or lead/conversation ID not found.             |
+| `500`  | Internal server error.                             |

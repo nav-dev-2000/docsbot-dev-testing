@@ -6,6 +6,7 @@ import getFakeUserByIp from '@/utils/fakeUsers'
 import { i18n } from '@/constants/strings.constants'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
+import { mapWebhookEntries } from '@/lib/webhooks'
 import crypto from 'crypto'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 configureFirebaseApp()
@@ -31,7 +32,10 @@ export async function getBots(team, resultLimit = 1000) {
   let bots = []
   querySnapshot.forEach((doc) => {
     let bot = { id: doc.id, ...doc.data() }
-    bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+    bot.createdAt = bot.createdAt?.toDate?.()?.toJSON?.() ?? bot.createdAt
+    if (bot.updatedAt?.toDate) {
+      bot.updatedAt = bot.updatedAt.toDate().toJSON()
+    }
     if (!bot.model) {
       bot.model = 'gpt-4.1-mini'
     }
@@ -43,6 +47,9 @@ export async function getBots(team, resultLimit = 1000) {
 
     // Initialize roles map if missing
     bot.roles = bot.roles || {}
+
+    // Remove webhooks to avoid serializing nested Firestore Timestamps
+    delete bot.webhooks
 
     // Remove sensitive Slack token information before returning
     Object.keys(bot).forEach((key) => {
@@ -319,7 +326,10 @@ export async function getBot(teamId, botId) {
   const botSnapshot = await botRef.get()
   if (botSnapshot.exists) {
     let bot = { id: botSnapshot.id, ...botSnapshot.data() }
-    bot.createdAt = bot.createdAt.toDate().toJSON() //make serializable
+    bot.createdAt = bot.createdAt?.toDate?.()?.toJSON?.() ?? bot.createdAt
+    if (bot.updatedAt?.toDate) {
+      bot.updatedAt = bot.updatedAt.toDate().toJSON()
+    }
 
     //create an expiring hmac token for the bot so that it can be used to authenticate with the API
     if (!bot.signatureKey) {
@@ -344,6 +354,11 @@ export async function getBot(teamId, botId) {
 
     // Initialize roles map if missing
     bot.roles = bot.roles || {}
+
+    // Replace raw webhooks (Firestore Timestamps) with serializable array
+    if (bot.webhooks && typeof bot.webhooks === 'object' && !Array.isArray(bot.webhooks)) {
+      bot.webhooks = mapWebhookEntries(bot.webhooks)
+    }
 
     // Remove sensitive Slack token information before returning
     if (bot.slackBotToken) {

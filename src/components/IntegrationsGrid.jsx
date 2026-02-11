@@ -72,7 +72,7 @@ const ChatWidgetInfo = ({ bot, openLinksInNewTab }) => {
       <div className="mt-4">
         <Link
           href={`/app/bots/${bot.id}/widget`}
-          target={openLinksInNewTab ? "_blank" : undefined}
+          target={openLinksInNewTab ? '_blank' : undefined}
           className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
         >
           <ChatBubbleLeftEllipsisIcon className="mr-2 h-4 w-4" />
@@ -85,11 +85,12 @@ const ChatWidgetInfo = ({ bot, openLinksInNewTab }) => {
 
 const ShareLinksInfo = ({ team, bot }) => {
   const hasScreenshot = bot.brandAnalysis?.screenshotUrl
-  
+
   return (
     <>
       <p className="text-md text-gray-800">
-        Share {hasScreenshot ? 'these public links' : 'this public link'} for people to interact with your bot.
+        Share {hasScreenshot ? 'these public links' : 'this public link'} for
+        people to interact with your bot.
       </p>
       <div className="mt-3 flex flex-col space-y-2">
         <Link
@@ -127,7 +128,10 @@ const ShareLinksInfo = ({ team, bot }) => {
                 'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50',
               )}
             >
-              <ArrowTopRightOnSquareIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+              <ArrowTopRightOnSquareIcon
+                className="mr-2 h-4 w-4"
+                aria-hidden="true"
+              />
               Demo Page
             </Link>
           </Tooltip>
@@ -204,8 +208,8 @@ const SlackInfo = ({
         </div>
         <Link
           href="https://docsbot.ai/documentation/doc/slack-integration"
-          target={openLinksInNewTab ? "_blank" : undefined}
-          rel={openLinksInNewTab ? "noopener noreferrer" : undefined}
+          target={openLinksInNewTab ? '_blank' : undefined}
+          rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
           className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
         >
           Read documentation
@@ -278,8 +282,8 @@ const SlackInfo = ({
       </div>
       <Link
         href="https://docsbot.ai/documentation/doc/slack-integration"
-        target={openLinksInNewTab ? "_blank" : undefined}
-        rel={openLinksInNewTab ? "noopener noreferrer" : undefined}
+        target={openLinksInNewTab ? '_blank' : undefined}
+        rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
         className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
       >
         Read documentation
@@ -303,12 +307,12 @@ const HelpScoutInfo = ({
     return (
       <p className="text-md text-gray-800">
         If you use Help Scout, you can use our replies feature to generate a
-        draft/published reply or note to customer support tickets. This can
-        save your support staff precious time and guide them by pre-writing
-        answers to common issues. Please configure the{' '}
+        draft/published reply or note to customer support tickets. This can save
+        your support staff precious time and guide them by pre-writing answers
+        to common issues. Please configure the{' '}
         <Link
           href="/app/api"
-          target={openLinksInNewTab ? "_blank" : undefined}
+          target={openLinksInNewTab ? '_blank' : undefined}
           className="text-cyan-600 underline hover:text-cyan-800"
         >
           Help Scout integration
@@ -351,12 +355,16 @@ const HelpScoutInfo = ({
           </p>
         )}
         <div className="mt-4">
-          <p className="text-sm font-semibold text-gray-900">Default mailboxes</p>
+          <p className="text-sm font-semibold text-gray-900">
+            Default mailboxes
+          </p>
           {defaultMailboxes.length > 0 ? (
             <ul className="mt-2 space-y-1 text-sm text-gray-600">
               {defaultMailboxes.map((mailbox) => (
                 <li key={mailbox.id} className="flex items-center gap-2">
-                  <span className="font-medium text-gray-800">{mailbox.name}</span>
+                  <span className="font-medium text-gray-800">
+                    {mailbox.name}
+                  </span>
                   <span className="text-gray-400">{mailbox.slug}</span>
                 </li>
               ))}
@@ -371,7 +379,7 @@ const HelpScoutInfo = ({
           You can edit subscribed tags in your{' '}
           <Link
             href="/app/api"
-            target={openLinksInNewTab ? "_blank" : undefined}
+            target={openLinksInNewTab ? '_blank' : undefined}
             className="text-cyan-600 underline hover:text-cyan-800"
           >
             Integrations tab
@@ -379,6 +387,36 @@ const HelpScoutInfo = ({
         </p>
       </div>
     </div>
+  )
+}
+
+const WebhooksInfo = ({ bot, openLinksInNewTab }) => {
+  return (
+    <>
+      <p className="text-md text-gray-800">
+        Send event-based notifications to Zapier or any endpoint using REST
+        hooks.
+      </p>
+      <ul className="mt-2 list-disc pl-5 text-gray-800">
+        <li>
+          Events include <code>lead.created</code>,{' '}
+          <code>deep_research.done</code>, <code>conversation.escalated</code>,
+          and <code>conversation.rated</code>
+        </li>
+        <li>Compatible with Zapier Subscribe/Unsubscribe flow</li>
+        <li>Supports multiple webhook events per subscription</li>
+      </ul>
+      <div className="mt-4">
+        <Link
+          href={`/app/bots/${bot.id}/webhooks`}
+          target={openLinksInNewTab ? '_blank' : undefined}
+          className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+        >
+          <LinkIcon className="mr-2 h-4 w-4" />
+          Manage Webhooks
+        </Link>
+      </div>
+    </>
   )
 }
 
@@ -392,7 +430,8 @@ const MCPIntegrationInfo = ({
   const serverUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/mcp/`
   const questionHistoryServerUrl = `https://api.docsbot.ai/teams/${team.id}/bots/${bot.id}/questions/mcp/`
   const [copiedEndpoint, setCopiedEndpoint] = useState(false)
-  const [copiedQuestionHistoryEndpoint, setCopiedQuestionHistoryEndpoint] = useState(false)
+  const [copiedQuestionHistoryEndpoint, setCopiedQuestionHistoryEndpoint] =
+    useState(false)
   const [mcpClients, setMcpClients] = useState([])
   const [loadingClients, setLoadingClients] = useState(false)
 
@@ -413,7 +452,9 @@ const MCPIntegrationInfo = ({
         .then((res) => {
           if (!res.ok) {
             return res.json().then((errorData) => {
-              throw new Error(errorData.message || `HTTP error! status: ${res.status}`)
+              throw new Error(
+                errorData.message || `HTTP error! status: ${res.status}`,
+              )
             })
           }
           return res.json()
@@ -476,7 +517,9 @@ const MCPIntegrationInfo = ({
             </div>
           </div>
           <div>
-            <span className="font-semibold text-gray-900">Question History MCP URL</span>
+            <span className="font-semibold text-gray-900">
+              Question History MCP URL
+            </span>
             <div className="relative mt-1">
               <input
                 type="text"
@@ -486,7 +529,12 @@ const MCPIntegrationInfo = ({
                 className="block w-full truncate rounded border border-gray-300 bg-gray-100 p-2 pr-8 font-mono text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
               />
               <button
-                onClick={() => handleCopy(questionHistoryServerUrl, setCopiedQuestionHistoryEndpoint)}
+                onClick={() =>
+                  handleCopy(
+                    questionHistoryServerUrl,
+                    setCopiedQuestionHistoryEndpoint,
+                  )
+                }
                 className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
               >
                 <span className="relative h-4 w-4">
@@ -507,7 +555,10 @@ const MCPIntegrationInfo = ({
           onClick={() => setShowUpgrade(true)}
           className="mt-4 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
         >
-          <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+          <CreditCardIcon
+            className="mr-1.5 h-5 w-5 flex-shrink-0"
+            aria-hidden="true"
+          />
           Upgrade Plan
         </button>
       </>
@@ -517,8 +568,9 @@ const MCPIntegrationInfo = ({
   return (
     <>
       <p className="text-md text-gray-800">
-        Expose this bot as a Model Context Protocol (MCP) server so
-        clients can search and fetch trusted documents from its training library and question history.
+        Expose this bot as a Model Context Protocol (MCP) server so clients can
+        search and fetch trusted documents from its training library and
+        question history.
       </p>
       <div className="mt-3 space-y-3 text-sm text-gray-800">
         <div>
@@ -538,13 +590,17 @@ const MCPIntegrationInfo = ({
               <span className="relative h-4 w-4">
                 <ClipboardIcon
                   className={`absolute inset-0 h-4 w-4 transition-all duration-200 ${
-                    copiedEndpoint ? 'scale-0 opacity-0' : 'scale-100 opacity-100'
+                    copiedEndpoint
+                      ? 'scale-0 opacity-0'
+                      : 'scale-100 opacity-100'
                   }`}
                   aria-hidden="true"
                 />
                 <CheckIcon
                   className={`absolute inset-0 h-4 w-4 text-green-500 transition-all duration-200 ${
-                    copiedEndpoint ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    copiedEndpoint
+                      ? 'scale-100 opacity-100'
+                      : 'scale-0 opacity-0'
                   }`}
                   aria-hidden="true"
                 />
@@ -553,7 +609,9 @@ const MCPIntegrationInfo = ({
           </div>
         </div>
         <div>
-          <span className="font-semibold text-gray-900">Question History MCP URL</span>
+          <span className="font-semibold text-gray-900">
+            Question History MCP URL
+          </span>
           <div className="relative mt-1">
             <input
               type="text"
@@ -564,7 +622,10 @@ const MCPIntegrationInfo = ({
             />
             <button
               onClick={() =>
-                handleCopy(questionHistoryServerUrl, setCopiedQuestionHistoryEndpoint)
+                handleCopy(
+                  questionHistoryServerUrl,
+                  setCopiedQuestionHistoryEndpoint,
+                )
               }
               className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 transition-colors hover:text-gray-700"
             >
@@ -592,14 +653,17 @@ const MCPIntegrationInfo = ({
         {bot.privacy === 'private' && (
           <div>
             <p className="text-xs text-gray-600">
-              <strong>Note:</strong> Private bots always require authentication for both MCP endpoints.
-              OAuth clients must be authorized through the authorization flow before they can access this bot.
+              <strong>Note:</strong> Private bots always require authentication
+              for both MCP endpoints. OAuth clients must be authorized through
+              the authorization flow before they can access this bot.
             </p>
           </div>
         )}
         {(loadingClients || mcpClients.length > 0) && (
           <div>
-            <span className="font-semibold text-gray-900">Connected MCP Clients</span>
+            <span className="font-semibold text-gray-900">
+              Connected MCP Clients
+            </span>
             {loadingClients ? (
               <p className="mt-1 text-sm text-gray-600">Loading...</p>
             ) : (
@@ -629,25 +693,51 @@ const MCPIntegrationInfo = ({
                         'code.visualstudio.com': 'VS Code',
                       }
                       if (domainMap[domainLower]) return domainMap[domainLower]
-                      if (domainLower.includes('claude') || domainLower.includes('anthropic')) return 'Claude'
-                      if (domainLower.includes('chatgpt') || domainLower.includes('openai')) return 'ChatGPT'
+                      if (
+                        domainLower.includes('claude') ||
+                        domainLower.includes('anthropic')
+                      )
+                        return 'Claude'
+                      if (
+                        domainLower.includes('chatgpt') ||
+                        domainLower.includes('openai')
+                      )
+                        return 'ChatGPT'
                       if (domainLower.includes('cursor')) return 'Cursor'
                       if (domainLower.includes('continue')) return 'Continue'
                       if (domainLower.includes('aider')) return 'Aider'
                       return null
                     }
-                    const interfaceName = redirectDomain ? getInterfaceName(redirectDomain) : null
-                    const displayName = interfaceName || redirectDomain || client.client_id || client.clientId || 'Unknown'
+                    const interfaceName = redirectDomain
+                      ? getInterfaceName(redirectDomain)
+                      : null
+                    const displayName =
+                      interfaceName ||
+                      redirectDomain ||
+                      client.client_id ||
+                      client.clientId ||
+                      'Unknown'
                     const clientId = client.client_id || client.clientId
-                    
+
                     return (
                       <li key={clientId} className="text-sm">
-                        <Tooltip content={clientId ? `MCP Client ID: ${clientId}` : 'Unknown Client ID'}>
-                          <div className="flex items-center justify-between rounded bg-white px-2 py-1.5 hover:bg-gray-100 cursor-help">
-                            <span className="text-xs font-medium text-gray-700">{displayName}</span>
+                        <Tooltip
+                          content={
+                            clientId
+                              ? `MCP Client ID: ${clientId}`
+                              : 'Unknown Client ID'
+                          }
+                        >
+                          <div className="flex cursor-help items-center justify-between rounded bg-white px-2 py-1.5 hover:bg-gray-100">
+                            <span className="text-xs font-medium text-gray-700">
+                              {displayName}
+                            </span>
                             {client.authorized_at || client.authorizedAt ? (
-                              <span className="text-[10px] text-gray-400 ml-2 whitespace-nowrap">
-                                {new Date((client.authorized_at || client.authorizedAt) * 1000).toLocaleDateString()}
+                              <span className="ml-2 whitespace-nowrap text-[10px] text-gray-400">
+                                {new Date(
+                                  (client.authorized_at ||
+                                    client.authorizedAt) * 1000,
+                                ).toLocaleDateString()}
                               </span>
                             ) : null}
                           </div>
@@ -660,9 +750,13 @@ const MCPIntegrationInfo = ({
             )}
             <p className="mt-2 text-xs text-gray-600">
               Manage all MCP OAuth clients from your{' '}
-              <Link href="/app/api" className="text-cyan-600 hover:text-cyan-800 underline">
+              <Link
+                href="/app/api"
+                className="text-cyan-600 underline hover:text-cyan-800"
+              >
                 API & Integrations settings
-              </Link>.
+              </Link>
+              .
             </p>
           </div>
         )}
@@ -673,7 +767,10 @@ const MCPIntegrationInfo = ({
         className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
       >
         Read Documentation
-        <ArrowTopRightOnSquareIcon className="ml-1 h-4 w-4" aria-hidden="true" />
+        <ArrowTopRightOnSquareIcon
+          className="ml-1 h-4 w-4"
+          aria-hidden="true"
+        />
       </Link>
     </>
   )
@@ -763,8 +860,8 @@ const GPTActionInfo = ({ team, bot, openLinksInNewTab }) => {
       </div>
       <Link
         href="https://docsbot.ai/documentation/doc/how-to-create-openai-gpt-chatbots-with-access-to-your-trained-documentation"
-        target={openLinksInNewTab ? "_blank" : undefined}
-        rel={openLinksInNewTab ? "noopener noreferrer" : undefined}
+        target={openLinksInNewTab ? '_blank' : undefined}
+        rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
         className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
       >
         Read documentation
@@ -777,7 +874,12 @@ const GPTActionInfo = ({ team, bot, openLinksInNewTab }) => {
   )
 }
 
-const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinksInNewTab }) => {
+const WorkflowAutomationsInfo = ({
+  team,
+  hasPowerPlan,
+  setShowUpgrade,
+  openLinksInNewTab,
+}) => {
   return (
     <>
       <p className="text-md text-gray-800">
@@ -936,8 +1038,8 @@ const WorkflowAutomationsInfo = ({ team, hasPowerPlan, setShowUpgrade, openLinks
       )}
       <Link
         href="https://docsbot.ai/documentation#integrations"
-        target={openLinksInNewTab ? "_blank" : undefined}
-        rel={openLinksInNewTab ? "noopener noreferrer" : undefined}
+        target={openLinksInNewTab ? '_blank' : undefined}
+        rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
         className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
       >
         Read documentation
@@ -1033,7 +1135,7 @@ const APIInfo = ({ team, bot, openLinksInNewTab }) => {
         <div className="mt-3 flex justify-end">
           <Link
             href="/documentation/developer"
-            target={openLinksInNewTab ? "_blank" : undefined}
+            target={openLinksInNewTab ? '_blank' : undefined}
             className="inline-flex items-center text-sm text-cyan-600 hover:text-cyan-800"
           >
             API Documentation
@@ -1281,7 +1383,9 @@ export default function IntegrationsGrid({
 
   return (
     <>
-      <div className={`grid grid-cols-1 gap-6 ${compact ? 'sm:grid-cols-1' : 'sm:grid-cols-2 lg:grid-cols-3'}`}>
+      <div
+        className={`grid grid-cols-1 gap-6 ${compact ? 'sm:grid-cols-1' : 'sm:grid-cols-2 lg:grid-cols-3'}`}
+      >
         {/* Chat Widget Card */}
         <IntegrationCard
           title="Chat Widget"
@@ -1293,7 +1397,10 @@ export default function IntegrationsGrid({
         </IntegrationCard>
 
         {/* Share Links Card */}
-        <IntegrationCard title="Share Links" icon={<ShareIcon className="h-8 w-8" />}>
+        <IntegrationCard
+          title="Share Links"
+          icon={<ShareIcon className="h-8 w-8" />}
+        >
           <ShareLinksInfo team={team} bot={bot} />
         </IntegrationCard>
 
@@ -1304,7 +1411,8 @@ export default function IntegrationsGrid({
             icon={<SlackLogo className="h-8 w-8" />}
             minPlan={
               !checkPlanPermission(team, 'personal', 'slack').allowed
-                ? checkPlanPermission(team, 'personal', 'slack').requiredPlanLabel
+                ? checkPlanPermission(team, 'personal', 'slack')
+                    .requiredPlanLabel
                 : undefined
             }
           >
@@ -1369,7 +1477,9 @@ export default function IntegrationsGrid({
             />
           }
           isNew
-          minPlan={!hasStandardPlan ? mcpPlanPermission.requiredPlanLabel : undefined}
+          minPlan={
+            !hasStandardPlan ? mcpPlanPermission.requiredPlanLabel : undefined
+          }
         >
           <MCPIntegrationInfo
             team={team}
@@ -1385,7 +1495,19 @@ export default function IntegrationsGrid({
           title="ChatGPT Custom GPT"
           icon={<OpenAILogo className="h-8 w-8" />}
         >
-          <GPTActionInfo team={team} bot={bot} openLinksInNewTab={openLinksInNewTab} />
+          <GPTActionInfo
+            team={team}
+            bot={bot}
+            openLinksInNewTab={openLinksInNewTab}
+          />
+        </IntegrationCard>
+
+        {/* Webhooks Card */}
+        <IntegrationCard
+          title="Webhooks"
+          icon={<LinkIcon className="h-8 w-8 text-cyan-600" />}
+        >
+          <WebhooksInfo bot={bot} openLinksInNewTab={openLinksInNewTab} />
         </IntegrationCard>
 
         {/* API Documentation Card */}
@@ -1393,7 +1515,11 @@ export default function IntegrationsGrid({
           title="API Documentation"
           icon={<CodeBracketSquareIcon className="h-8 w-8" />}
         >
-          <APIInfo team={team} bot={bot} openLinksInNewTab={openLinksInNewTab} />
+          <APIInfo
+            team={team}
+            bot={bot}
+            openLinksInNewTab={openLinksInNewTab}
+          />
         </IntegrationCard>
       </div>
 

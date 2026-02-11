@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-10',
+    title: 'Webhook support',
+    description:
+      'Subscribe to bot events (lead capture, deep research, escalation, rating) via REST hooks. Zapier-ready, per-bot storage, multi-event subscriptions. Configure in Integrations.',
+  },
+  {
     date: '2026-02-07',
     title: 'Lead collection tool in chat widget',
     description:
@@ -33,7 +39,7 @@ export const FEATURE_UPDATES = [
     date: '2026-01-27',
     title: 'Agent mode multiple search loops',
     description:
-      'Bots can perform multiple searches with reasoning in between when documentation isn\'t found. Control limits via custom instructions or the new API parameter.',
+      "Bots can perform multiple searches with reasoning in between when documentation isn't found. Control limits via custom instructions or the new API parameter.",
   },
   {
     date: '2026-01-27',
@@ -85,7 +91,8 @@ export const FEATURE_UPDATES = [
   },
   {
     date: '2026-01-12',
-    title: 'Enhanced markdown rendering throughout the dashboard to match the chat widget',
+    title:
+      'Enhanced markdown rendering throughout the dashboard to match the chat widget',
     description:
       'Chats, question and conversation logs, in addition to chat widget responses, now render markdown better for improved readability and support for CJK languages, LaTeX formulas, tables, images, and new Mermaid diagrams.',
   },

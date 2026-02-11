@@ -40,3 +40,9 @@ Read more about the [Questions API](/documentation/developer/questions-api) endp
 You can capture leads from conversations, list them with pagination and date filters, export them as CSV, and delete lead records programmatically.
 
 Read more about the [Leads API](/documentation/developer/leads-api) endpoints.
+
+## Webhooks
+
+Set up lead event webhooks for automation tools like Zapier. You can create subscriptions, return sample leads for trigger setup, and unsubscribe cleanly.
+
+Read more about the [Webhooks API](/documentation/developer/webhooks-api) endpoints.
