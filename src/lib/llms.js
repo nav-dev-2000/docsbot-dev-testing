@@ -8,6 +8,9 @@ import {
   CohereLogo,
   AmazonLogo,
   DeepSeekLogo,
+  ZhipuLogo,
+  MiniMaxLogo,
+  MoonshotLogo,
 } from '@/components/ModelLogos'
 import OpenAIIcon from '@/components/OpenAIIcon'
 
@@ -62,6 +65,21 @@ const PROVIDER_INFO = {
     url: 'https://www.deepseek.com/',
     icon: DeepSeekLogo,
   },
+  zhipu: {
+    displayName: 'Zhipu AI (Z.ai)',
+    url: 'https://z.ai',
+    icon: ZhipuLogo,
+  },
+  minimax: {
+    displayName: 'MiniMax',
+    url: 'https://www.minimax.io',
+    icon: MiniMaxLogo,
+  },
+  moonshot: {
+    displayName: 'Moonshot AI',
+    url: 'https://kimi.ai',
+    icon: MoonshotLogo,
+  },
 }
 
 export const BENCHMARKS = {
@@ -80,6 +98,10 @@ export const BENCHMARKS = {
   AIME2025WithTools: {
     title: 'AIME 2025 (with tools)',
     description: 'American Invitational Mathematics Examination 2025 with code execution tools - Evaluates mathematical reasoning with computational assistance',
+  },
+  AIME2026: {
+    title: 'AIME 2026',
+    description: 'American Invitational Mathematics Examination 2026 - Evaluates advanced mathematical problem-solving abilities (contest-level math)',
   },
   ARCAGI2: {
     title: 'ARC-AGI-2',
@@ -102,6 +124,10 @@ export const BENCHMARKS = {
     title: 'BrowseComp',
     description: 'Evaluates browsing and web comprehension capabilities',
   },
+  BrowseCompWithContext: {
+    title: 'BrowseComp (with context management)',
+    description: 'BrowseComp variant evaluated with context management strategies for longer multi-turn browsing tasks',
+  },
   BrowseCompLongContext128k: {
     title: 'BrowseComp Long Context (128k)',
     description: 'Evaluates long context browsing and comprehension capabilities at 128k context length',
@@ -121,6 +147,10 @@ export const BENCHMARKS = {
   CybersecurityCTF: {
     title: 'Cybersecurity CTF',
     description: 'Evaluates cybersecurity skills on Capture The Flag challenges',
+  },
+  CyberGym: {
+    title: 'CyberGym',
+    description: 'Agentic cybersecurity benchmark measuring practical exploit/defense tasks in sandboxed environments',
   },
   COLLIE: {
     title: 'COLLIE',
@@ -205,6 +235,10 @@ export const BENCHMARKS = {
   HMMT2025: {
     title: 'HMMT 2025',
     description: 'Harvard-MIT Mathematics Tournament 2025 - Evaluates advanced mathematical problem-solving abilities',
+  },
+  HMMTNov2025: {
+    title: 'HMMT Nov 2025',
+    description: 'Harvard-MIT Mathematics Tournament November 2025 - Evaluates advanced mathematical problem-solving abilities',
   },
   HumanEval: {
     title: 'HumanEval',
@@ -339,6 +373,55 @@ export const BENCHMARKS = {
   Toolathon: {
     title: 'Toolathon',
     description: 'Assesses agentic tool-calling performance across multi-step tasks',
+  },
+  ToolDecathlon: {
+    title: 'Tool-Decathlon',
+    description: 'Agentic tool-use benchmark evaluating performance across a suite of diverse tool tasks',
+  },
+  BFCLMultiTurn: {
+    title: 'BFCL Multi-Turn',
+    description: 'Berkeley Function Calling Leaderboard (BFCL) multi-turn tool-use benchmark',
+  },
+  MEWC: {
+    title: 'MEWC',
+    description: 'Multi-Expert Workflow Coordination benchmark measuring coordination across specialized tools/agents',
+  },
+  VIBEPro: {
+    title: 'VIBE-Pro',
+    description: 'Office/productivity agent benchmark focused on real-world work tasks',
+  },
+  MultiSWEBench: {
+    title: 'Multi-SWE-Bench',
+    description: 'Multi-language SWE-Bench-style benchmark evaluating software engineering across multiple stacks',
+  },
+  SWEBenchMultilingual: {
+    title: 'SWE-Bench Multilingual',
+    description: 'Multilingual version of SWE-Bench evaluating software engineering performance across languages',
+  },
+  MCPAtlas: {
+    title: 'MCP-Atlas',
+    description: 'Tool-use benchmark focused on MCP (Model Context Protocol) tasks; typically reported on a public subset',
+  },
+  MCPUniverse: {
+    title: 'MCP-Universe',
+    description: 'Tool-use benchmark measuring success rate across MCP tool-use tasks/environments',
+  },
+  MCPMark: {
+    title: 'MCP-Mark',
+    description: 'Tool-use benchmark measuring pass@1 on MCP tasks',
+  },
+  BrowseCompZh: {
+    title: 'BrowseComp Zh',
+    description: 'Chinese BrowseComp variant measuring browsing + comprehension performance on Chinese tasks',
+  },
+  Codeforces: {
+    title: 'Codeforces',
+    description: 'Competitive programming benchmark reported as Codeforces rating (higher is better)',
+    format: 'number',
+  },
+  IMOAnswerBench: {
+    title: 'IMO Answer Bench',
+    description: 'Olympiad-style math benchmark focused on solution/answer correctness',
   },
   Tau2BenchAirline: {
     title: 'Tau2Bench Airline',
