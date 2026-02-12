@@ -204,9 +204,18 @@ function WebhooksPage({ team, bot, preWebhooks = [] }) {
           >
             <h1 className="text-2xl font-bold text-gray-900">Webhooks</h1>
             <p className="mt-2 text-sm text-gray-600">
-              Create REST hook subscriptions for bot events such as lead creation
-              and deep research completion. Compatible with Zapier, Make, and any
-              HTTP endpoint. See the{' '}
+              Create webhook subscriptions for bot events like lead capture, deep
+              research completion, conversation escalation, and conversation
+              rating. Send events to any HTTPS endpoint, or use our{' '}
+              <Link
+                href="https://zapier.com/apps/docsbot-ai/integrations"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-600 underline hover:text-cyan-800"
+              >
+                Zapier integration
+              </Link>{' '}
+              for no-code automation. See the{' '}
               <Link
                 href="/documentation/developer/webhooks-api"
                 className="text-cyan-600 underline hover:text-cyan-800"

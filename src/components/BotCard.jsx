@@ -204,18 +204,23 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                     </Link>
                   </Tooltip>
                   <Tooltip content="View captured leads">
-                    <Link
-                      href={`/app/bots/${bot.id}/leads`}
-                      className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-                    >
-                      <UserGroupIcon
-                        className="h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
-                        Leads
+                    <div className="relative inline-flex">
+                      <span className="pointer-events-none absolute -right-1 -top-1 inline-flex items-center rounded-full bg-cyan-600 bg-animate px-2 py-0.5 text-[10px] font-medium text-white">
+                        New!
                       </span>
-                    </Link>
+                      <Link
+                        href={`/app/bots/${bot.id}/leads`}
+                        className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                      >
+                        <UserGroupIcon
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="hidden sm:inline md:hidden lg:hidden xl:inline">
+                          Leads
+                        </span>
+                      </Link>
+                    </div>
                   </Tooltip>
                   <Tooltip content="View statistics and reports about the bot's performance and user questions">
                     <Link

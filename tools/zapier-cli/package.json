@@ -1,0 +1,23 @@
+{
+  "name": "docs-bot-ai",
+  "version": "2.0.1",
+  "description": "DocsBot AI provides instant & accurate answers for you, your customers, or your team with AI powered chatbots trained with your existing content and documentation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testTimeout 10000"
+  },
+  "engines": {
+    "node": ">=v22",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "zapier-platform-core": "18.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.6.0"
+  },
+  "private": true,
+  "zapier": {
+    "convertedByCLIVersion": "18.1.1"
+  }
+}

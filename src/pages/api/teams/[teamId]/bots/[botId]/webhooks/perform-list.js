@@ -4,6 +4,7 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { canUserViewBot } from '@/utils/function.utils'
 import {
   WEBHOOK_EVENT_LEAD_CREATED,
+  WEBHOOK_EVENT_DEEP_RESEARCH_DONE,
   WEBHOOK_EVENT_CONVERSATION_ESCALATED,
   WEBHOOK_EVENT_CONVERSATION_RATED,
 } from '@/lib/webhooks'
@@ -101,8 +102,29 @@ const SAMPLE_RATED_PAYLOADS = [
   },
 ]
 
+const SAMPLE_RESEARCH_PAYLOADS = [
+  {
+    event: WEBHOOK_EVENT_DEEP_RESEARCH_DONE,
+    teamId: '__teamId__',
+    botId: '__botId__',
+    research: {
+      jobId: 'job_sample_001',
+      status: 'completed',
+      title: 'Root cause analysis',
+      question: 'Why auth latency increased',
+      createdAt: '2026-02-10T14:30:00.000Z',
+      completedAt: '2026-02-10T14:45:00.000Z',
+      metadata: {
+        uid: 'user_123',
+      },
+      answer: '## Summary\n\nAuth latency increased due to...',
+    },
+  },
+]
+
 const SAMPLE_PAYLOADS_BY_EVENT = {
   [WEBHOOK_EVENT_LEAD_CREATED]: SAMPLE_LEAD_PAYLOADS,
+  [WEBHOOK_EVENT_DEEP_RESEARCH_DONE]: SAMPLE_RESEARCH_PAYLOADS,
   [WEBHOOK_EVENT_CONVERSATION_ESCALATED]: SAMPLE_ESCALATED_PAYLOADS,
   [WEBHOOK_EVENT_CONVERSATION_RATED]: SAMPLE_RATED_PAYLOADS,
 }

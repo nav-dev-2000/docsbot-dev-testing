@@ -5,6 +5,8 @@ description: Create and manage lead webhooks for Zapier-compatible REST Hooks.
 
 The **Webhooks API** lets you create, list, update, and delete webhook subscriptions for each bot. It supports multiple event triggers and is designed to work with Zapier REST Hook triggers. {% .lead %}
 
+Use our Zapier integration here: [DocsBot + Zapier](https://zapier.com/apps/docsbot-ai/integrations).
+
 ---
 
 ## Zapier REST Hook Mapping
@@ -13,7 +15,6 @@ Use these endpoints in Zapier Trigger API Configuration:
 
 - **Subscribe**: `POST /api/teams/:teamId/bots/:botId/webhooks`
 - **Unsubscribe**: `DELETE /api/teams/:teamId/bots/:botId/webhooks/:webhookId`
-- **Perform List**: `GET /api/teams/:teamId/bots/:botId/webhooks/perform-list`
 
 For Subscribe, pass `bundle.targetUrl` as `targetUrl`. Use the response `id` in Unsubscribe.
 
@@ -35,7 +36,6 @@ For Subscribe, pass `bundle.targetUrl` as `targetUrl`. Use the response `id` in 
 - `GET /api/teams/:teamId/bots/:botId/webhooks/:webhookId`: Get one webhook.
 - `PATCH /api/teams/:teamId/bots/:botId/webhooks/:webhookId`: Update status, target URL, label, expiration.
 - `DELETE /api/teams/:teamId/bots/:botId/webhooks/:webhookId`: Delete webhook.
-- `GET /api/teams/:teamId/bots/:botId/webhooks/perform-list`: Return sample payloads (supports `?event=` for field mapping).
 - `POST /api/teams/:teamId/bots/:botId/webhooks/deliver-lead`: Trigger a lead webhook delivery test.
 - `POST /api/teams/:teamId/bots/:botId/webhooks/deliver-research`: Trigger a deep research webhook delivery test.
 - `POST /api/teams/:teamId/bots/:botId/webhooks/deliver-escalated`: Trigger a conversation.escalated webhook delivery test.
@@ -83,14 +83,6 @@ For Subscribe, pass `bundle.targetUrl` as `targetUrl`. Use the response `id` in 
   "id": "abc123"
 }
 ```
-
----
-
-## Perform List (Sample Data)
-
-`GET https://docsbot.ai/api/teams/:teamId/bots/:botId/webhooks/perform-list?limit=3&event=lead.created`
-
-Returns sample payloads for the requested event type. Use for Zapier field mapping when configuring a trigger. Optional `event` query param: `lead.created` (default), `conversation.escalated`, or `conversation.rated`. Response is an array of objects matching the delivery payload schema.
 
 ---
 

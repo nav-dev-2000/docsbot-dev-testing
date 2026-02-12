@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-02-12',
+    title: 'Zapier integration update',
+    description:
+      'Updated Zapier with our Chat Agent API, Semantic Search, Conversation Ticket and Summary actions, plus triggers for leads, deep research, escalations, and ratings.',
+  },
+  {
     date: '2026-02-10',
     title: 'Webhook support',
     description:

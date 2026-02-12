@@ -1,11 +1,8 @@
 import clsx from 'clsx'
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import Datepicker from 'react-tailwindcss-datepicker'
 import {
-  ArrowDownTrayIcon,
   ChatBubbleLeftRightIcon,
-  ChevronLeftIcon,
   FaceFrownIcon,
   TrashIcon,
 } from '@heroicons/react/24/outline'
@@ -13,7 +10,6 @@ import Paginator from '@/components/Paginator'
 import Tooltip from '@/components/Tooltip'
 import LocaleDateTime from '@/components/LocaleDateTime'
 import UserAvatar from '@/components/UserAvatar'
-import ModalExport from '@/components/ModalExport'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
@@ -61,16 +57,10 @@ export default function TableLeads({
   team,
   bot,
   leads,
+  dateRange,
   changePage,
-  buildParams,
   setErrorText,
 }) {
-  const [dateRange, setDateRange] = useState({
-    startDate: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
-    endDate: new Date(),
-  })
-  const [exportOpen, setExportOpen] = useState(false)
-  const [exporting, setExporting] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [canModify, setCanModify] = useState(false)
   const [deleteConfirmId, setDeleteConfirmId] = useState(null)
@@ -113,45 +103,6 @@ export default function TableLeads({
     fetchLeads()
   }, [team, bot, dateRange])
 
-  const downloadLeads = async () => {
-    if (exporting) return
-    setExporting(true)
-
-    const params = buildParams(dateRange)
-    const apiUrl = `/api/teams/${team.id}/bots/${bot.id}/leads/export${
-      params ? `?${params}` : ''
-    }`
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        },
-      })
-
-      if (response.ok) {
-        const { url } = await response.json()
-        const link = document.createElement('a')
-        link.href = url
-        link.click()
-        link.remove()
-        setExportOpen(false)
-      } else {
-        try {
-          const { message } = await response.json()
-          setErrorText(message)
-        } catch (error) {
-          setErrorText('Something went wrong, please try again.')
-        }
-      }
-    } catch (error) {
-      setErrorText('Something went wrong, please try again.')
-    }
-
-    setExporting(false)
-  }
-
   const deleteLead = async (leadId) => {
     if (!canModify) return
     if (deleteConfirmId !== leadId) {
@@ -192,49 +143,7 @@ export default function TableLeads({
 
   return (
     <>
-      <div className="mb-4 flex flex-col gap-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Link
-            href={`/app/bots/${bot.id}`}
-            className="text-md flex items-center font-medium text-gray-500 hover:text-gray-700"
-          >
-            <ChevronLeftIcon
-              className="mr-1 h-4 w-4 flex-shrink-0 text-gray-400"
-              aria-hidden="true"
-            />
-            Back
-          </Link>
-
-          <div className="flex w-full flex-wrap items-center justify-end gap-2 sm:w-auto">
-            <div className="light w-full sm:w-[26rem] overflow-visible">
-              <Datepicker
-                value={dateRange}
-                primaryColor="cyan"
-                onChange={(value) => {
-                  if (value?.startDate && value?.endDate) {
-                    setDateRange(value)
-                  }
-                }}
-                useRange={true}
-                showShortcuts={true}
-                classNames={{
-                  container: 'z-10',
-                  input:
-                    'py-2 text-base sm:text-sm/6 border-0 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-cyan-600',
-                }}
-              />
-            </div>
-            <button
-              type="button"
-              onClick={() => setExportOpen(true)}
-              className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
-            >
-              <ArrowDownTrayIcon className="mr-2 h-4 w-4 text-gray-400" />
-              Export Leads
-            </button>
-          </div>
-        </div>
-
+      <div className="mb-4">
         <div
           className={clsx(
             'flex justify-end',
@@ -254,7 +163,7 @@ export default function TableLeads({
 
       <div className="mt-2 flow-root">
         {leadRows.length === 0 ? (
-          <div className="mx-2 my-6 rounded-xl border border-gray-200 bg-white px-6 py-12 text-center shadow-sm">
+          <div className="my-6 rounded-xl border border-gray-200 bg-white px-6 py-12 text-center shadow-sm">
             <FaceFrownIcon className="mx-auto h-12 w-12 text-gray-400" />
             <p className="mt-4 text-xl font-semibold text-gray-700">
               No leads found
@@ -262,10 +171,18 @@ export default function TableLeads({
             <p className="mt-2 text-sm text-gray-500">
               Try a different date range to find captured leads.
             </p>
+            <div className="mt-4">
+              <Link
+                href={`/app/bots/${bot.id}/widget`}
+                className="inline-flex items-center rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-sm font-medium text-cyan-700 hover:bg-cyan-100"
+              >
+                Configure Lead Collection Tool
+              </Link>
+            </div>
           </div>
         ) : (
-          <div className="-mx-2 -my-2 overflow-x-auto">
-            <div className="inline-block min-w-full py-2 align-middle sm:px-2">
+          <div className="overflow-x-auto">
+            <div className="inline-block min-w-full py-2 align-middle">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
@@ -410,15 +327,6 @@ export default function TableLeads({
           </div>
         )}
       </div>
-
-      <ModalExport
-        team={team}
-        bot={bot}
-        open={exportOpen}
-        setOpen={setExportOpen}
-        downloadLogs={downloadLeads}
-        isProcessing={exporting}
-      />
     </>
   )
 }
