@@ -680,7 +680,7 @@ function Widget({ team, bot }) {
                           remove any instructions that may conflict.
                         </Alert>
                       )}
-                      {!bot.agentPrompt && (
+                      {!bot.isAgent && (
                         <FieldToggle
                           label="Enable Agent Mode"
                           description="Enable agent mode to allow the bot to use tools in the widget, and track conversations."
