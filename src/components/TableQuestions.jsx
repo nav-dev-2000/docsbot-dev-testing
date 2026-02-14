@@ -268,8 +268,8 @@ const Answer = ({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                  <div className="absolute right-0 top-0 flex pr-4 pt-4">
+                <Dialog.Panel className="relative flex max-h-[calc(100vh-2rem)] transform flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:max-h-[calc(100vh-4rem)] sm:w-full sm:max-w-5xl">
+                  <div className="absolute right-0 top-0 left-0 z-10 flex justify-end bg-white/90 pr-4 pt-4 backdrop-blur-sm">
                     <button
                       type="button"
                       disabled={!canModify}
@@ -416,7 +416,7 @@ const Answer = ({
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>
-                  <div className="p-8">
+                  <div className="flex-1 overflow-y-auto p-8">
                     {question?.escalation && (
                       <Alert
                         title="This user escalated this message to support"
