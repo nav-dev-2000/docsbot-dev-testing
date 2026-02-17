@@ -27,6 +27,7 @@ Question objects have the following properties:
 | **escalation**         | boolean      | Whether the question was escalated to support.                                                                        |
 | **metadata**           | object       | A user identification object with arbitrary metadata about the the user if it was sent with the chat request.         |
 | **couldAnswer**        | boolean/null | Whether the bot could answer the question if classify is enabled for the bot.                                         |
+| **deleted**            | boolean      | Whether the question has been deleted. Deleted questions remain in the list but have `question`, `answer`, and `sources` set to `null`. See [Delete Questions](#delete-questions) for details. |
 
 ### The Source object
 
@@ -149,9 +150,15 @@ Response is a JSON object with `questions` as an array of question objects, and 
 
 ## Delete Questions
 
-This endpoint lets you delete questions from your bot's question log. It accepts a DELETE request with no query parameters
+This endpoint lets you delete questions from your bot's question log. It accepts a DELETE request with no query parameters:
 
 `DELETE https://docsbot.ai/api/teams/:teamId/bots/:botId/questions/:questionId`
+
+To get the question ID when using the Chat Agent API, use the `id` from the `lookup_answer` event in the response, or fetch the conversation via the [Conversations API](/documentation/developer/conversations-api) and read the `id` from messages with `type === "lookup_answer"`. See the [Chat Agent API](/documentation/developer/chat-agent) for details.
+
+{% callout title="Soft delete behavior" %}
+Delete is a soft delete: questions are not removed from the database. Instead, they are flagged with `deleted: true` and their content (`question`, `answer`, `sources`, etc.) is cleared. This allows us to retain records for plan usage tracking, analytics, and reports. Deleted questions still appear in the List Questions response—the API does not support filtering by `deleted` due to index limitations. If you need to exclude deleted questions, filter them client-side (e.g. `questions.filter(q => !q.deleted)`).
+{% /callout %}
 
 
 ### Examples

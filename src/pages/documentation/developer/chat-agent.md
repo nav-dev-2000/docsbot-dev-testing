@@ -86,7 +86,7 @@ Data objects found in the `data` could have the following properties depending o
 | **answer**      | string  | The answer to the query or question.                                                                                                                                                                   |
 | **history**     | array   | An array containing the history of interactions related to the query, including user inputs and AI responses. Always included.                                                                         |
 | **sources**     | array   | An array of sources used to generate the answer. Only for `lookup_answer`.                                                                                                                             |
-| **id**          | string  | Unique identifier for the query or response used for rating. Not present for `is_resolved_question`.                                                                                                   |
+| **id**          | string  | The question ID. Use this for rating, or for fetching/deleting the question from logs via the [Question History API](/documentation/developer/questions-api). Present only for `lookup_answer` events; not present for `is_resolved_question` or other event types. |
 | **couldAnswer** | boolean | Indicates whether an answer could be generated for the query or not.                                                                                                         |
 | **options**     | object  | Preset `yes` and `no` options for the user to respond to the answer. Only for `is_resolved_question` or `support_escalation` event types. While optional, these can be displayed as clickable preset messages in the chat UI. |
 | **name**        | string  | Tool name for `tool_call` events.                                                                                                                                                                     |
@@ -190,6 +190,10 @@ When the event type is `answer`, the agent provides a simple response from the c
 ### lookup_answer
 
 When the event type is `lookup_answer`, the retriever tool provides the answer along with sources from your bot's training data. This is the most common event type and is used for general questions and queries, and the response is nearly identical to our older chat APIs. Only used when `document_retriever` argument is set to `true` (default).
+
+{% callout title="Deleting questions programmatically" %}
+To delete a question after a Chat Agent response, use the `id` from the `lookup_answer` event—it is the question ID required by the [Question History API](/documentation/developer/questions-api) delete endpoint. **Non-streaming:** find the event with `event === "lookup_answer"` and read `data.id`. **Streaming:** when you receive an SSE event with `event: "lookup_answer"`, parse the data and use `data.id`. If you only have a `conversationId`, fetch the conversation via the [Conversations API](/documentation/developer/conversations-api) and extract the `id` from each message in `history` where `type === "lookup_answer"` (other types like `is_resolved_question` do not have an `id`).
+{% /callout %}
 
 ### is_resolved_question
 

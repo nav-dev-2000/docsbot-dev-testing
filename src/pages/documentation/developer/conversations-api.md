@@ -46,7 +46,7 @@ Message objects found in the `history` array have the following properties:
 | **Human**    | string/null  | The human user's message content (present only for user messages).          |
 | **AI**       | string/null  | The AI assistant's message content (present only for AI messages).          |
 | **type**     | string/null  | The type of AI response (`answer`, `lookup_answer`, `is_resolved_question`, `support_escalation`, etc.). Present only for AI messages. |
-| **id**       | string/null  | The unique identifier for the AI response. Present only for AI messages.    |
+| **id**       | string/null  | The question ID. Present only for messages with `type === "lookup_answer"`. Use this for rating, or for fetching/deleting the question from logs via the [Question History API](/documentation/developer/questions-api). Not present for `is_resolved_question`, `support_escalation`, or other AI message types. |
 | **options**  | object/null  | Interactive options presented to the user (e.g., yes/no buttons). Present only for AI messages with interactive elements. |
 
 ---
