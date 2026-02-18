@@ -263,22 +263,16 @@ export default async function createCheckoutSession(req, res) {
           })
           
           if (hasPerBotRoles || invitesHaveBotOverrides) {
-            // If they have per bot roles, prevent downgrading from Business plan
+            // If they have per bot roles, restrict portal to Business-only (no downgrade option)
             const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
             const businessPrices = [
               plans?.business?.prices?.current?.monthly,
               plans?.business?.prices?.current?.annually,
             ].filter(Boolean)
             
-            // Check if needed products include plans below business (indicating potential downgrade)
-            if (neededProducts && neededProducts.length > 0 && businessPrices.length > 0) {
-              const neededPrices = neededProducts.flat()
-              // Check if any needed price is NOT a business price (meaning lower tier)
-              const hasNonBusinessPlans = neededPrices.some(price => !businessPrices.includes(price))
-              
-              if (hasNonBusinessPlans) {
-                throw Error('Cannot downgrade from Business plan while per-bot roles are assigned to team members or invites. Please remove all per-bot role assignments before downgrading.')
-              }
+            if (businessPrices.length > 0) {
+              // Override neededProducts to only include Business plan so portal opens for invoices etc.
+              neededProducts = [businessPrices]
             }
           }
         }
