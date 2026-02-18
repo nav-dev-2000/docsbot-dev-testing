@@ -49,7 +49,8 @@ export default async function createCheckoutSession(req, res) {
 
   if (req.method === 'POST') {
     const { tier, frequency, email, upgrade, sale, currency } = req.body
-    const isAnnualSale = sale === 'annual-2026'
+    // Promo ended: ignore annual sale param and do not auto-apply annual sale coupons.
+    const isAnnualSale = false
 
     try {
       if (tier && !upgrade) {

@@ -31,11 +31,20 @@ export default function AnnualSaleBanner({ team, user, fullWidth = false }) {
     }
   }, [])
 
+  // Promo ended: keep full component for reuse, but disable rendering for now.
+  const PROMO_DISABLED = true
+  if (PROMO_DISABLED) return null
+
   if (!shouldShow || isDismissed) return null
 
   return (
     <div className="pt-4">
-      <div className={clsx('mx-auto px-4 sm:px-6 md:px-8', fullWidth ? '' : 'max-w-7xl')}>
+      <div
+        className={clsx(
+          'mx-auto px-4 sm:px-6 md:px-8',
+          fullWidth ? '' : 'max-w-7xl'
+        )}
+      >
         <div className="relative">
           <Link
             href="/app/account"

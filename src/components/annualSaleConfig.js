@@ -1,6 +1,9 @@
 import { stripePlan } from '@/utils/helpers'
 
 export const getAnnualSalePersonaMessage = (team) => {
+  // Promo ended: keep logic for future reuse, but disable messaging.
+  return null
+
   if (!team) return null
   const planId = stripePlan(team)?.id || ''
   const isLegacyPro = planId === 'pro'
