@@ -257,9 +257,14 @@ export default function Footer() {
         </div>
         <EmailSubscribe />
         <div className="mt-12 border-t border-gray-200 py-8">
-          <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2026 UglyRobot, LLC. All rights reserved.
-          </p>
+          <div className="space-y-2 xl:text-center">
+            <p className="text-base text-gray-400">
+              &copy; 2026 UglyRobot, LLC. All rights reserved.
+            </p>
+            <p className="text-sm text-gray-400">
+              DocsBot&reg; is a registered trademark of UglyRobot, LLC.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

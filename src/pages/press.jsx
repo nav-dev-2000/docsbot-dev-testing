@@ -152,6 +152,10 @@ export default function PressPage() {
                   </a>{' '}
                   and we'll get it to you as soon as possible.
                 </p>
+                <p className="mt-3 text-sm text-gray-500">
+                  <span className="font-medium">DocsBot&reg;</span> is a registered trademark of
+                  UglyRobot, LLC.
+                </p>
               </div>
 
               {/* Press Contact Section */}
