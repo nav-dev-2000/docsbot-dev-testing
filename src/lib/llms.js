@@ -103,6 +103,10 @@ export const BENCHMARKS = {
     title: 'AIME 2026',
     description: 'American Invitational Mathematics Examination 2026 - Evaluates advanced mathematical problem-solving abilities (contest-level math)',
   },
+  APEXAgents: {
+    title: 'APEX Agents',
+    description: 'Evaluates long-horizon professional agent tasks with real-world objectives and constraints',
+  },
   ARCAGI2: {
     title: 'ARC-AGI-2',
     description: 'Visual reasoning puzzles benchmark, ARC Prize Verified, testing abstract reasoning and visual problem-solving',
@@ -219,6 +223,7 @@ export const BENCHMARKS = {
   GDPvalAA: {
     title: 'GDPval-AA',
     description: 'Economic knowledge work evaluation focused on accuracy-adjusted GDPval results',
+    format: 'number',
   },
   GraphwalksBFS128k: {
     title: 'Graphwalks BFS (128k)',
@@ -350,6 +355,10 @@ export const BENCHMARKS = {
     title: 'ScreenSpot Pro',
     description: 'Evaluates screen understanding capabilities, testing models on their ability to interpret and reason about screen layouts and UI elements',
   },
+  SciCode: {
+    title: 'SciCode',
+    description: 'Evaluates scientific research coding and tooling performance on research-oriented programming tasks',
+  },
   SimpleQA: {
     title: 'SimpleQA',
     description: 'A benchmark that evaluates basic question-answering capabilities across common knowledge domains',
@@ -476,6 +485,10 @@ export const getBenchmarkDescription = (key) => {
 }
 
 export const formatBenchmarkScore = (key, score) => {
+  if (score == null) {
+    return 'N/A'
+  }
+
   const format = BENCHMARKS[key]?.format || 'percent'
   
   switch (format) {

@@ -1892,6 +1892,150 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 3.1 Pro',
+    slug: 'gemini-3-1-pro',
+    provider: 'google',
+    description:
+      'Gemini 3.1 Pro is an updated Gemini 3 Pro-class frontier model with stronger reasoning, coding, and agentic performance for complex multimodal work. It improves over Gemini 3 Pro on core reasoning, coding, and tool-using benchmarks while retaining the same long-context and multimodal capabilities.',
+    input_context_window: '1M',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2026-02-19',
+    knowledge_cut_off_date: 'January 2026',
+    api_providers: 'Google AI Studio, Vertex AI, Gemini app',
+    input_cost_per_million_tokens: 2.5,
+    output_cost_per_million_tokens: 15.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: true,
+      multi_step_workflows: true,
+      vision: true,
+    },
+    benchmarks: {
+      HumanitysLastExam: {
+        score: 44.4,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      HumanitysLastExamWithTools: {
+        score: 51.4,
+        notes: 'Search + Code',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      ARCAGI2: {
+        score: 77.1,
+        notes: 'ARC Prize Verified',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      GPQA: {
+        score: 94.3,
+        notes: 'Diamond, Scientific knowledge, No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      TerminalBench: {
+        score: 68.5,
+        notes: 'Terminus-2 harness',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      SWEBench: {
+        score: 80.6,
+        notes: 'Verified',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      SWEBenchPro: {
+        score: 54.2,
+        notes: 'Public',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      LiveCodeBenchPro: {
+        score: 2887,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      SciCode: {
+        score: 59.0,
+        notes: 'Scientific research coding',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      APEXAgents: {
+        score: 33.5,
+        notes: 'Long horizon professional tasks',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      GDPvalAA: {
+        score: 1317,
+        notes: 'Elo',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      Tau2BenchRetail: {
+        score: 90.8,
+        notes: 'Retail',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      Tau2BenchTelecom: {
+        score: 99.3,
+        notes: 'Telecom',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      MCPAtlas: {
+        score: 69.2,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      BrowseComp: {
+        score: 85.9,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      MMMUPro: {
+        score: 80.5,
+        notes: 'No tools',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      MMLU: {
+        score: 92.6,
+        notes: null,
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      MRCRv2_128k: {
+        score: 84.9,
+        notes: '8-needle, average',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+      MRCRv2_1M: {
+        score: 26.3,
+        notes: '8-needle, average',
+        source:
+          'https://deepmind.google/models/evals-methodology/gemini-3-1-pro',
+      },
+    },
+  },
+  {
     model_name: 'Gemini 3 Flash',
     slug: 'gemini-3-flash',
     provider: 'google',
