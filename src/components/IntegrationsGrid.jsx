@@ -1322,11 +1322,8 @@ export default function IntegrationsGrid({
                 )
                 if (statusResponse.ok) {
                   const botData = await statusResponse.json()
-                  if (
-                    botData.slackBotToken &&
-                    botData.slackBotUserId &&
-                    botData.slackTeamId
-                  ) {
+                  // Note: slackBotToken is stripped by getBot for security; use slackBotUserId/slackTeamId
+                  if (botData.slackBotUserId && botData.slackTeamId) {
                     console.log(
                       'Slack integration confirmed as connected via API check',
                     )
