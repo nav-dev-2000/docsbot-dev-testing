@@ -88,10 +88,8 @@ router.post(async (req, res) => {
         pageCount: 0,
         chunkCount: 0,
         questionCount: 0,
-        // Initialize per-bot roles: non-admin/owner team members get 'none' by default
-        roles: Object.fromEntries(
-          Object.entries(team.roles || {}).filter(([uid, role]) => role !== 'admin' && role !== 'owner').map(([uid]) => [uid, 'none'])
-        ),
+        // No per-bot overrides by default; team role inheritance handles access.
+        roles: {},
       })
 
     const botId = docRef.id
