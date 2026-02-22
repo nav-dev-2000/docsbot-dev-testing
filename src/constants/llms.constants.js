@@ -145,6 +145,44 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Claude Sonnet 4.6',
+    slug: 'claude-sonnet-4-6',
+    provider: 'anthropic',
+    description:
+      'Sonnet 4.6 is the most capable Sonnet model, balancing speed and intelligence with hybrid reasoning and a 1M context beta.',
+    input_context_window: '200K / 1M (beta)',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2026-02-17',
+    knowledge_cut_off_date: 'Aug 2025',
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
+    input_cost_per_million_tokens: 3.0,
+    output_cost_per_million_tokens: 15.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+    },
+    benchmarks: {
+      OSWorld: {
+        score: null,
+        notes: 'Reported in the launch announcement (see article for details).',
+        source: 'https://www.anthropic.com/news/claude-sonnet-4-6',
+      },
+    },
+  },
+  {
     model_name: 'Claude Haiku 4.5',
     slug: 'claude-haiku-4-5',
     provider: 'anthropic',
