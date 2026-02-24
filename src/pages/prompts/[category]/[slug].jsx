@@ -245,7 +245,7 @@ export const getStaticProps = async (context) => {
   } catch (error) {
     console.error('Error fetching prompt:', slug, error)
     return {
-      notFound: true, // This will return a 404 Not Found status
+      notFound: true,
       revalidate: REVALIDATE_SECONDS,
     }
   }
@@ -253,7 +253,26 @@ export const getStaticProps = async (context) => {
   if (!promptData) {
     console.error('Prompt not found:', slug)
     return {
-      notFound: true, // This will return a 404 Not Found status
+      notFound: true,
+      revalidate: REVALIDATE_SECONDS,
+    }
+  }
+
+  if (promptData.redirect_to) {
+    let targetCategory = category
+    try {
+      const targetPrompt = await getPrompt(promptData.redirect_to)
+      if (targetPrompt?.category) {
+        targetCategory = targetPrompt.category
+      }
+    } catch (error) {
+      console.error('Error fetching redirect target:', promptData.redirect_to, error)
+    }
+    return {
+      redirect: {
+        destination: `/prompts/${targetCategory}/${promptData.redirect_to}`,
+        permanent: true,
+      },
       revalidate: REVALIDATE_SECONDS,
     }
   }

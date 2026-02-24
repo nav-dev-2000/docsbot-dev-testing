@@ -609,6 +609,7 @@ const PROMPT_SELECT_FIELDS = [
   'ip',
   'type',
   'createdAt',
+  'redirect_to',
 ]
 
 // Lookup a prompt by ID
