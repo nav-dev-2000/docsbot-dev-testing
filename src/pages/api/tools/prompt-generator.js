@@ -211,10 +211,94 @@ export default async function handler(req, res) {
       })
     }
 
+    const openai = new OpenAI({
+      apiKey: process.env['OPENAI_API_KEY_TOOLS'],
+    })
+
+    // Early duplicate detection: embed user input and check cosine similarity against existing prompts
     try {
-      const openai = new OpenAI({
-        apiKey: process.env['OPENAI_API_KEY_TOOLS'],
+      console.log('[prompt-generator] duplicate check: embedding input')
+      const inputEmbeddingResponse = await openai.embeddings.create({
+        model: 'text-embedding-3-small',
+        input: input.slice(0, 8000),
+        dimensions: 512,
       })
+      const inputEmbedding = inputEmbeddingResponse.data?.[0]?.embedding
+
+      if (Array.isArray(inputEmbedding) && inputEmbedding.length > 0) {
+        const DUPLICATE_DISTANCE_THRESHOLD = 0.25
+
+        const dupQuery = firestore
+          .collection('prompts')
+          .findNearest({
+            vectorField: 'embedding_512',
+            queryVector: FieldValue.vector(inputEmbedding),
+            limit: 5,
+            distanceMeasure: 'COSINE',
+            distanceThreshold: 0.25,
+            distanceResultField: 'vector_distance',
+          })
+
+        const dupSnapshot = await dupQuery.get()
+
+        if (!dupSnapshot.empty) {
+          const candidates = dupSnapshot.docs.map((doc) => ({
+            slug: doc.id,
+            name: doc.data().name,
+            distance: doc.data().vector_distance,
+            cosineSimilarity: doc.data().vector_distance != null ? 1 - doc.data().vector_distance : null,
+          }))
+          console.log('[prompt-generator] duplicate check: nearest candidates', candidates)
+
+          const match = dupSnapshot.docs[0]
+          const matchDistance = match.data().vector_distance
+
+          if (matchDistance != null && matchDistance <= DUPLICATE_DISTANCE_THRESHOLD) {
+            const matchData = match.data()
+            const matchSlug = match.id
+            const matchCategory = matchData.category
+
+            console.log('[prompt-generator] duplicate check: redirecting to existing prompt', {
+              matchSlug,
+              matchCategory,
+              distance: matchDistance,
+              cosineSimilarity: 1 - matchDistance,
+            })
+
+            await phTrack(distinctId, 'Prompt Duplicate Redirect', {
+              tool: 'prompt-generator',
+              matchSlug,
+              matchCategory,
+              distance: matchDistance,
+            })
+
+            return res.status(200).json({
+              slug: matchSlug,
+              category: matchCategory,
+              duplicate: true,
+              name: matchData.name,
+              short_description: matchData.short_description,
+            })
+          } else {
+            console.log('[prompt-generator] duplicate check: closest match below threshold', {
+              slug: match.id,
+              name: match.data().name,
+              distance: matchDistance,
+              cosineSimilarity: matchDistance != null ? 1 - matchDistance : null,
+              requiredDistance: DUPLICATE_DISTANCE_THRESHOLD,
+            })
+          }
+        } else {
+          console.log('[prompt-generator] duplicate check: no matches within search range')
+        }
+      } else {
+        console.log('[prompt-generator] duplicate check: embedding failed, skipping')
+      }
+    } catch (dupErr) {
+      console.error('[prompt-generator] duplicate check failed:', dupErr)
+    }
+
+    try {
 
       const chat_completion = await openai.chat.completions.create({
         model: 'gpt-4.1-mini',
