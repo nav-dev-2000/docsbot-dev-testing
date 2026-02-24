@@ -181,8 +181,26 @@ export default async function handler(req, res) {
       })
     }
 
+    // Hard-block patterns that correlate strongly with sketchy / irrelevant traffic.
+    // Keep this conservative: false positives cost less than brand damage here.
+    const SKETCHY_REGEXES = [
+      /\b(delta|executor)\b/i,
+      /\bkey\b.{0,40}\b(generator|gen|maker)\b/i,
+      /\b(payment|transaction|balance)\b.{0,40}\bscreenshot\b/i,
+      /\b(gpay|fampay|paytm|phonepe)\b/i,
+      /\b(roblox|robux|free\s*fire|bgmi|blox\s*fruits)\b/i,
+      /\b(betting|casino|roulette|lottery|trading\s*signals?|0\s*dte|binary\s*options?)\b/i,
+      /\b(fake|forged)\b.{0,60}\b(receipt|invoice|statement|id|certificate)\b/i,
+      /\b(crack|serial|license\s*key)\b/i,
+    ]
+
+    const normalizeText = (s) => (s || '').toString().toLowerCase()
+
     // Check the input for forbidden content before calling OpenAI
-    if (containsForbiddenWords(input)) {
+    const inputLower = (input || '').toString().toLowerCase()
+    const inputIsSketchy = containsForbiddenWords(inputLower) || SKETCHY_REGEXES.some((re) => re.test(inputLower))
+
+    if (inputIsSketchy) {
       await phTrack(distinctId, 'Prompt Blocked', {
         reason: 'forbidden_input',
         tool: 'prompt-generator',
@@ -217,6 +235,11 @@ export default async function handler(req, res) {
                   type: 'string',
                   description:
                     'The full generated prompt text according to the instructions, no JSON or metadata.',
+                },
+                should_index: {
+                  type: 'boolean',
+                  description:
+                    'True ONLY if useful in business/professional/educational contexts, professional English tone, no PII/NSFW/scams/gambling/exploits. Otherwise false.',
                 },
                 name: {
                   type: 'string',
@@ -348,20 +371,15 @@ export default async function handler(req, res) {
                   description:
                     'An array of 1-4 tags that represent the prompt with proper capitalization',
                 },
-                should_index: {
-                  type: 'boolean',
-                  description:
-                    'Would someone working in a business, professional, or educational setting reasonably search for and use this prompt? Set to true only if the prompt is clearly business, workplace, educational, or professional (not personal, games, hobbies, entertainment, religion, politics, dating, lifestyle, or creative roleplay); written in English with a professional tone; contains no PII, product promotions, or political/religious agendas; and avoids unsafe or inappropriate content (adult, scams, gambling, hacking, fake documents, redeem/coupon codes, violence, drugs, or illegal activity). Otherwise, it is false.',
-                },
               },
               required: [
                 'prompt',
+                'should_index',
                 'name',
                 'short_description',
                 'icon',
                 'category',
                 'tags',
-                'should_index',
               ],
               additionalProperties: false,
             },
@@ -373,6 +391,12 @@ export default async function handler(req, res) {
         chat_completion.choices[0]?.message?.content,
       )
       let notIndexReason = null
+      const firstPassShouldIndex = responseData?.should_index === true
+
+      console.log('[prompt-generator] index: first model', {
+        should_index: responseData?.should_index,
+        name: responseData?.name,
+      })
 
       // Check if the response data contains any forbidden words
       if (responseData) {
@@ -383,9 +407,39 @@ export default async function handler(req, res) {
         if (containsForbiddenWords(jsonString)) {
           responseData.should_index = false
           notIndexReason = 'response_forbidden_content'
+          console.log('[prompt-generator] index: NOT indexed — response_forbidden_content')
         }
       }
 
+      if (responseData) {
+        const combined = [
+          responseData?.name,
+          responseData?.short_description,
+          responseData?.prompt,
+          Array.isArray(responseData?.tags) ? responseData.tags.join(' ') : '',
+        ].join('\n')
+        const normalized = normalizeText(combined)
+
+        if (containsForbiddenWords(normalized)) {
+          responseData.should_index = false
+          notIndexReason = notIndexReason || 'forbidden_words'
+          console.log('[prompt-generator] index: NOT indexed — forbidden_words in name/description/prompt/tags')
+        }
+        for (const re of SKETCHY_REGEXES) {
+          if (re.test(normalized)) {
+            responseData.should_index = false
+            notIndexReason = notIndexReason || 'sketchy_pattern'
+            console.log('[prompt-generator] index: NOT indexed — sketchy_pattern matched')
+            break
+          }
+        }
+      }
+
+      if (typeof responseData?.should_index !== 'boolean') {
+        responseData.should_index = false
+        notIndexReason = notIndexReason || 'model_missing_should_index'
+        console.log('[prompt-generator] index: NOT indexed — model_missing_should_index')
+      }
       // Convert name to a URL slug
       const slugify = (str) => {
         return str
@@ -425,69 +479,181 @@ export default async function handler(req, res) {
       if (isDuplicate) {
         responseData.should_index = false
         notIndexReason = notIndexReason || 'duplicate_slug'
+        console.log('[prompt-generator] index: NOT indexed — duplicate_slug', { slug })
       }
 
-      // Double-check should_index with GPT-4o-mini if it's currently set to true
-      if (responseData.should_index) {
+      if (!firstPassShouldIndex || !responseData.should_index) {
+        console.log('[prompt-generator] index: classifier skipped', {
+          firstPassShouldIndex,
+          should_index: responseData.should_index,
+          notIndexReason,
+        })
+      }
+
+      // Double-check should_index with a stronger model only when the first pass opted in.
+      if (firstPassShouldIndex && responseData.should_index) {
+        console.log('[prompt-generator] Running classifier (first pass opted in)')
         try {
-          // Function to verify if content should be indexed using GPT-4o-mini
+          // Create embedding early for semantic search (reused later if indexing)
+          let queryEmbedding = null
+          try {
+            if (
+              typeof responseData?.name === 'string' &&
+              typeof responseData?.short_description === 'string'
+            ) {
+              const embeddingInput = `${responseData.name} — ${responseData.short_description}`
+              const embeddingResponse = await openai.embeddings.create({
+                model: 'text-embedding-3-small',
+                input: embeddingInput,
+                dimensions: 512,
+              })
+              queryEmbedding =
+                embeddingResponse.data?.[0]?.embedding || null
+            }
+          } catch (embedErr) {
+            console.error('Embedding for semantic search failed:', embedErr)
+          }
+
+          // Firestore semantic search: find 5 closest existing prompts to avoid duplicates
+          let similarPromptsXml = ''
+          if (Array.isArray(queryEmbedding) && queryEmbedding.length > 0) {
+            try {
+              const nearestQuery = firestore
+                .collection('prompts')
+                .findNearest(
+                  'embedding_512',
+                  FieldValue.vector(queryEmbedding),
+                  {
+                    limit: 5,
+                    distanceMeasure: 'COSINE',
+                  },
+                )
+              const nearestSnapshot = await nearestQuery.get()
+              const similarPrompts =
+                nearestSnapshot?.docs?.map((doc) => {
+                  const d = doc.data()
+                  return {
+                    name: d.name || '',
+                    short_description: d.short_description || '',
+                  }
+                }) || []
+              console.log('[prompt-generator] semantic search results', {
+                query: `${responseData.name} — ${responseData.short_description}`,
+                count: similarPrompts.length,
+                similarPrompts,
+              })
+              if (similarPrompts.length > 0) {
+                similarPromptsXml = `
+<similar_existing_prompts>
+The following prompts are already in the library (closest semantic matches). Do NOT index if the new prompt is too similar to any of these—avoid duplicates.
+${similarPrompts
+  .map(
+    (p, i) =>
+      `  <prompt rank="${i + 1}">
+    <name>${(p.name || '').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</name>
+    <description>${(p.short_description || '')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')}</description>
+  </prompt>`,
+  )
+  .join('\n')}
+</similar_existing_prompts>`
+              }
+            } catch (searchErr) {
+              console.error('[prompt-generator] Firestore semantic search failed:', searchErr)
+            }
+          } else {
+            console.log('[prompt-generator] semantic search: skipped (no embedding or empty results)')
+          }
+
+          // Function to verify if content should be indexed using a stronger verifier model
           const verifyContentShouldBeIndexed = async (content) => {
             const VERIFICATION_PROMPT = `
-You are a content moderator tasked with determining if the following prompt should be publicly indexed in a professional prompt library.  
+You are a content moderator tasked with determining if the following prompt should be publicly indexed in a professional prompt library.
 
-The guiding principle is:  
-Would someone working in a business, professional, or educational setting reasonably search for and use this prompt?  
-- If yes → shouldIndex = true.  
-- If no → shouldIndex = false.  
+Return a strict JSON classification with:
+- shouldIndex: boolean
+- reason: enum string (see below)
+- confidence: number 0..1
 
-A prompt is **shouldIndex = true** only if it meets ALL of the following criteria:  
+Guiding principle:
+Would someone working in a business, professional, or educational setting reasonably search for and use this prompt?
+- If yes → shouldIndex = true.
+- If no → shouldIndex = false.
 
-### 1. Business/Professional Relevance  
-- Must be clearly useful in a business, workplace, educational, or professional context.  
-- Acceptable categories include:  
-  - Customer support, help desks, FAQs, ticket deflection.  
-  - Internal knowledge access (HR, onboarding, sales, operations, training).  
-  - Research over technical, academic, or regulatory documentation.  
-  - Business communication, management, productivity, planning, reporting, analysis.  
-  - Professional writing (emails, reports, proposals, policies, training material).  
-- Prompts primarily about personal life, games, hobbies, entertainment, religion, politics, dating, lifestyle, or creative roleplay are **shouldIndex = false**.  
+Hard disallowed examples (always shouldIndex=false):
+- Key generators, executors, unlocks, cracks (e.g. "delta executor key generator", "executor key", "keygen")
+- "payment/transaction failure screenshot" style prompts (e.g. gpay/fampay transaction screenshot)
+- Trading signals, pocket option, betting/gambling
 
-### 2. Language & Professionalism  
-- Must be in English.  
-- Must use professional or educational tone (not memes, slang, or casual roleplay).  
+A prompt is shouldIndex=true only if it meets ALL criteria:
 
-### 3. Privacy & Neutrality  
-- Must NOT contain Personally Identifiable Information (PII) such as names, phone numbers, emails, addresses, or IDs.  
-- Must NOT promote or advertise a specific product, service, or company.  
-- Must NOT promote religious, spiritual, or political agendas.  
+1) Business/Professional relevance
+- Clearly useful in workplace/education contexts (support, internal knowledge/HR, docs, research, business writing).
+- Personal life, games, hobbies, entertainment, dating, or roleplay → false.
 
-### 4. Safety & Appropriateness  
-- Must NOT be offensive, unsafe, or inappropriate.  
-- Must NOT involve adult, NSFW, or romantic content of any kind (sex, nudity, fetishes, chastity, dating, erotic roleplay).  
-- Must NOT involve scams, vouchers, coupons, codes, cracks, or exploits.  
-- Must NOT involve gambling, betting, lotteries, or speculative trading.  
-- Must NOT involve hacking, cheats, or system exploits.  
-- Must NOT involve generating fake or fraudulent documents (IDs, invoices, receipts, credentials, statements).  
-- Must NOT involve criminal, violent, or illegal activities in any jurisdiction, including weapons, drugs, or self-harm.  
+2) Language & professionalism
+- Must be English.
+- Must be professional/educational tone.
 
----
+3) Privacy & neutrality
+- No PII.
+- Not promoting a specific product/company.
+- No political/religious agendas.
 
-### Classification  
-- If the content meets all criteria and would appeal to a professional/business/educational user → classify as **shouldIndex = true**.  
-- If the content fails any criterion or is not clearly business/professional → classify as **shouldIndex = false**.  
+4) Safety & appropriateness
+- No NSFW/romantic content.
+- No scams/codes/cracks/exploits.
+- No gambling/betting/lotteries/speculative trading/options trading/cryptocurrency.
+- No hacking/cheats/system exploits.
+- No fake/fraudulent documents/screenshots (IDs, invoices, receipts, statements).
+- No illegal activity (weapons, drugs, self-harm, etc.).
+
+5) Duplicate check (CRITICAL — apply strictly):
+- If similar_existing_prompts are provided below, compare the new prompt to each one.
+- Reject (shouldIndex=false, reason=duplicate_too_similar) if the new prompt:
+  - Serves the same core purpose or use case as any existing prompt.
+  - Covers substantially overlapping scope (e.g. both are "email writing" or "code review").
+  - Is a minor variation (different wording, slightly different angle) of an existing prompt.
+  - Would be redundant for a user who already has the existing prompt.
+- Only index if the new prompt adds clearly distinct value: a different domain, a meaningfully different workflow, or a genuinely novel angle not covered by any existing prompt.
+- When in doubt, reject. Prefer a smaller, non-redundant library over near-duplicates for SEO strength.
+${similarPromptsXml}
+
+Reason enum (pick the best single reason):
+- professional_ok
+- duplicate_too_similar
+- non_professional
+- non_english
+- contains_pii
+- scam_or_keygen
+- gambling_or_trading
+- hacking_or_exploit
+- fraudulent_document
+- nsfw_or_romance
+- political_or_religious
+- other
 `.trim()
 
-            const verification = await openai.chat.completions.create({
-              model: 'gpt-5-nano',
-              messages: [
-                { role: 'system', content: VERIFICATION_PROMPT },
-                { role: 'user', content: `Prompt content to evaluate:
+            const userContent = `Prompt content to evaluate:
                   ${JSON.stringify({
                     name: content.name,
                     short_description: content.short_description,
                     prompt: content.prompt,
                     tags: content.tags,
-                  })}` },
+                  })}`
+
+            console.log('[prompt-generator] classify prompt (full):', {
+              systemPrompt: VERIFICATION_PROMPT,
+              userContent,
+            })
+
+            const verification = await openai.chat.completions.create({
+              model: 'gpt-5-mini',
+              reasoning_effort: 'medium',
+              messages: [
+                { role: 'system', content: VERIFICATION_PROMPT },
+                { role: 'user', content: userContent },
               ],
               store: true,
               response_format: {
@@ -504,8 +670,33 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
                         description:
                           'True ONLY if the prompt content meets ALL criteria for indexing, otherwise false',
                       },
+                      reason: {
+                        type: 'string',
+                        enum: [
+                          'professional_ok',
+                          'duplicate_too_similar',
+                          'non_professional',
+                          'non_english',
+                          'contains_pii',
+                          'scam_or_keygen',
+                          'gambling_or_trading',
+                          'hacking_or_exploit',
+                          'fraudulent_document',
+                          'nsfw_or_romance',
+                          'political_or_religious',
+                          'other',
+                        ],
+                        description:
+                          'Primary reason for the decision. Use professional_ok only when shouldIndex=true.',
+                      },
+                      confidence: {
+                        type: 'number',
+                        minimum: 0,
+                        maximum: 1,
+                        description: 'Confidence in the classification, 0..1',
+                      },
                     },
-                    required: ['shouldIndex'],
+                    required: ['shouldIndex', 'reason', 'confidence'],
                     additionalProperties: false,
                   },
                 },
@@ -515,31 +706,109 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
             try {
               const parsedResponse = JSON.parse(
                 verification.choices[0]?.message?.content ||
-                  '{"shouldIndex":false}',
+                  '{"shouldIndex":false,"reason":"other","confidence":0}',
               )
 
-              console.log('Second check shouldBeIndexed', parsedResponse)
-              return parsedResponse.shouldIndex === true
+              return {
+                shouldIndex: parsedResponse.shouldIndex === true,
+                reason: parsedResponse.reason || 'other',
+                confidence:
+                  typeof parsedResponse.confidence === 'number'
+                    ? parsedResponse.confidence
+                    : 0,
+              }
             } catch (parseError) {
               console.error('Error parsing verification response:', parseError)
-              return false
+              return { shouldIndex: false, reason: 'other', confidence: 0 }
             }
           }
 
           // Verify if the content should be indexed
-          const shouldBeIndexed =
+          const verificationResult =
             await verifyContentShouldBeIndexed(responseData)
 
+          console.log('[prompt-generator] Classifier output:', verificationResult)
+
           // Override should_index based on the verification result
-          responseData.should_index = shouldBeIndexed
-          if (!shouldBeIndexed) {
-            notIndexReason = notIndexReason || 'verification_result_false'
+          responseData.should_index = verificationResult?.shouldIndex === true
+          if (!responseData.should_index) {
+            notIndexReason =
+              notIndexReason ||
+              (verificationResult?.reason
+                ? `verification_${verificationResult.reason}`
+                : 'verification_result_false')
+            console.log('[prompt-generator] index: NOT indexed — classifier rejected', {
+              reason: verificationResult?.reason,
+              confidence: verificationResult?.confidence,
+            })
+          } else {
+            console.log('[prompt-generator] index: classifier approved', {
+              reason: verificationResult?.reason,
+              confidence: verificationResult?.confidence,
+            })
+          }
+          if (responseData.should_index && Array.isArray(queryEmbedding)) {
+            // Reuse embedding for save (avoid second API call)
+            responseData._queryEmbedding = queryEmbedding
           }
         } catch (verificationError) {
-          console.error('Error during content verification:', verificationError)
+          console.error('[prompt-generator] index: verification_error', verificationError)
           // If verification fails, err on the side of caution and set should_index to false
           responseData.should_index = false
           notIndexReason = notIndexReason || 'verification_error'
+        }
+      }
+
+      if (!responseData.should_index && !notIndexReason) {
+        notIndexReason = firstPassShouldIndex
+          ? 'model_overridden_false'
+          : 'model_first_pass_false'
+        console.log('[prompt-generator] index: NOT indexed — fallback reason', {
+          notIndexReason,
+        })
+      }
+
+      if (!responseData.should_index) {
+        const expirationDate = new Date()
+        expirationDate.setDate(expirationDate.getDate() + 60)
+        responseData.expires_at = expirationDate.toISOString()
+        responseData.should_index_reason = notIndexReason
+      }
+
+      if (responseData.should_index) {
+        try {
+          if (
+            typeof responseData?.name !== 'string' ||
+            typeof responseData?.short_description !== 'string'
+          ) {
+            throw new Error('Missing name or short_description for embedding')
+          }
+          // Reuse embedding from classifier semantic search if available
+          if (Array.isArray(responseData._queryEmbedding)) {
+            responseData.embedding_512 = responseData._queryEmbedding
+            delete responseData._queryEmbedding
+          } else {
+            const embeddingInput = `${responseData.name} — ${responseData.short_description}`
+            const embeddingResponse = await openai.embeddings.create({
+              model: 'text-embedding-3-small',
+              input: embeddingInput,
+              dimensions: 512,
+            })
+            responseData.embedding_512 =
+              embeddingResponse.data?.[0]?.embedding || null
+          }
+          if (!Array.isArray(responseData.embedding_512)) {
+            throw new Error('Invalid embedding response')
+          }
+        } catch (embeddingError) {
+          console.error('[prompt-generator] index: NOT indexed — embedding_error', embeddingError)
+          responseData.should_index = false
+          notIndexReason = notIndexReason || 'embedding_error'
+          const expirationDate = new Date()
+          expirationDate.setDate(expirationDate.getDate() + 60)
+          responseData.expires_at = expirationDate.toISOString()
+          responseData.should_index_reason = notIndexReason
+          responseData.embedding_512 = null
         }
       }
 
@@ -547,6 +816,12 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
       await addPrompt(ip, 'prompt', responseData, newId)
 
       responseData.slug = newId
+
+      console.log('[prompt-generator] index: final decision', {
+        should_index: responseData.should_index,
+        slug: newId,
+        notIndexReason: responseData.should_index ? null : (notIndexReason || responseData.should_index_reason),
+      })
 
       await phTrack(
         distinctId,
@@ -559,7 +834,12 @@ A prompt is **shouldIndex = true** only if it meets ALL of the following criteri
           ...(responseData.tags && { tags: responseData.tags }),
           ...(responseData.should_index
             ? {}
-            : { reason: notIndexReason || 'model_decision' }),
+            : {
+                reason:
+                  responseData.should_index_reason ||
+                  notIndexReason ||
+                  'model_decision',
+              }),
         },
       )
 

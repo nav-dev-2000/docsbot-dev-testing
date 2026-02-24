@@ -1,5 +1,5 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getFirestore, FieldValue } from 'firebase-admin/firestore'
+import { getFirestore, FieldValue, FieldPath } from 'firebase-admin/firestore'
 import crypto from 'crypto'
 import { stripePlan } from '@/utils/helpers'
 
@@ -182,6 +182,15 @@ export const lookupYoutubeBlogPost = async (videoId) => {
   }
   if (data && data.expiresAt) {
     data.expiresAt = data.expiresAt.toDate().toISOString()
+  }
+  // Legacy: normalize expires_at from DB to expiresAt
+  if (data && data.expires_at) {
+    if (typeof data.expires_at?.toDate === 'function') {
+      data.expiresAt = data.expires_at.toDate().toISOString()
+    } else if (data.expires_at instanceof Date) {
+      data.expiresAt = data.expires_at.toISOString()
+    }
+    delete data.expires_at
   }
   return data
 }
@@ -530,9 +539,25 @@ export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
 
     // Add expiration timestamp for non-indexed prompts
     if (data.should_index === false) {
-      // Set expiration to 7 days from now
-      const expirationDate = new Date()
-      expirationDate.setDate(expirationDate.getDate() + 7)
+      let expirationDate = null
+
+      if (data.expiresAt) {
+        expirationDate =
+          data.expiresAt instanceof Date
+            ? data.expiresAt
+            : new Date(data.expiresAt)
+      } else if (data.expires_at) {
+        expirationDate =
+          data.expires_at instanceof Date
+            ? data.expires_at
+            : new Date(data.expires_at)
+      }
+
+      if (!expirationDate || Number.isNaN(expirationDate.getTime())) {
+        expirationDate = new Date()
+        expirationDate.setDate(expirationDate.getDate() + 60)
+      }
+
       data.expiresAt = expirationDate
     } else if (type !== 'prompt') {
       // Set expiration to 1 days from now
@@ -541,23 +566,25 @@ export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
       data.expiresAt = expirationDate
     }
 
+    // Use FieldValue.vector() for embedding_512 so Firestore stores it as proper vector type (required for findNearest/KNN)
+    const { embedding_512, ...restData } = data
+    const docData = {
+      ...restData,
+      ip: hashIP(ip),
+      type,
+      createdAt: FieldValue.serverTimestamp(),
+    }
+    if (Array.isArray(embedding_512) && embedding_512.length > 0) {
+      docData.embedding_512 = FieldValue.vector(embedding_512)
+    }
+
     if (!id) {
       // Use add() method to automatically generate an ID
-      docRef = await firestore.collection('prompts').add({
-        ...data,
-        ip: hashIP(ip),
-        type,
-        createdAt: FieldValue.serverTimestamp(),
-      })
+      docRef = await firestore.collection('prompts').add(docData)
     } else {
       // Use set() method with the provided ID
       docRef = firestore.collection('prompts').doc(id)
-      await docRef.set({
-        ...data,
-        ip: hashIP(ip),
-        type,
-        createdAt: FieldValue.serverTimestamp(),
-      })
+      await docRef.set(docData)
     }
 
     return docRef.id
@@ -567,16 +594,40 @@ export const addPrompt = async (ip, type = 'prompt', data, id = null) => {
   }
 }
 
+// Prompt fields to select (excludes embedding_512 for performance and JSON serialization)
+const PROMPT_SELECT_FIELDS = [
+  'name',
+  'short_description',
+  'prompt',
+  'icon',
+  'category',
+  'tags',
+  'should_index',
+  'should_index_reason',
+  'expires_at',
+  'expiresAt',
+  'ip',
+  'type',
+  'createdAt',
+]
+
 // Lookup a prompt by ID
 export const getPrompt = async (promptId) => {
   if (!promptId || typeof promptId !== 'string') {
     throw new Error('Invalid prompt ID')
   }
-  const ref = await firestore.collection('prompts').doc(promptId).get()
-  if (!ref.exists) return null
+  const docRef = firestore.collection('prompts').doc(promptId)
+  const snapshot = await firestore
+    .collection('prompts')
+    .where(FieldPath.documentId(), '==', docRef)
+    .select(...PROMPT_SELECT_FIELDS)
+    .limit(1)
+    .get()
 
-  const data = ref.data()
-  data.id = promptId
+  if (snapshot.empty) return null
+  const doc = snapshot.docs[0]
+  const data = doc.data()
+  data.id = doc.id
   if (data && data.createdAt) {
     data.createdAt = data.createdAt.toDate().toISOString()
   }
