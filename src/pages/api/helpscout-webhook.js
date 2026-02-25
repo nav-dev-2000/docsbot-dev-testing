@@ -176,6 +176,26 @@ const buildMetadata = (team) => {
   return metadata
 }
 
+const isPaidTeam = (team) => {
+  const plan = stripePlan(team)
+  return plan?.id !== 'free'
+}
+
+const selectPreferredTeam = (teams = []) => {
+  const uniqueTeams = []
+  const seen = new Set()
+
+  for (const team of teams) {
+    if (!team?.id || seen.has(team.id)) continue
+    seen.add(team.id)
+    uniqueTeams.push(team)
+  }
+
+  if (!uniqueTeams.length) return null
+
+  return uniqueTeams.find((candidate) => isPaidTeam(candidate)) || uniqueTeams[0]
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     console.warn('Help Scout webhook: Method not allowed', { method: req.method })
@@ -227,16 +247,20 @@ export default async function handler(req, res) {
 
     const userDoc = await firestore.collection('users').doc(userRecord.uid).get()
 
+    const teamCandidates = []
     if (userDoc.exists && userDoc.data().currentTeam) {
-      team = await getTeam(userDoc.data().currentTeam)
-    }
-
-    if (!team) {
-      const teams = await getTeams(userRecord.uid)
-      if (teams?.length) {
-        team = teams[0]
+      const currentTeam = await getTeam(userDoc.data().currentTeam)
+      if (currentTeam) {
+        teamCandidates.push(currentTeam)
       }
     }
+
+    const teams = await getTeams(userRecord.uid)
+    if (teams?.length) {
+      teamCandidates.push(...teams)
+    }
+
+    team = selectPreferredTeam(teamCandidates)
 
     if (team) {
       matchedEmail = email
