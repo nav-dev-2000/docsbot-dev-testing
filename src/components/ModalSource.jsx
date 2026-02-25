@@ -629,7 +629,7 @@ export default function ModalSource({
                           content={`Includes AI analysis of images${source.processedImages ? ` (${source.processedImages.processed} processed, ${source.processedImages.skipped} skipped)` : ''}`}
                         >
                           <span className="flex-end cursor-help items-center text-sm font-medium text-gray-500">
-                            <PhotoIcon className="ml-2 inline-flex h-4 w-4 text-gray-500" />
+                            <PhotoIcon className="ml-2 mr-1 inline-flex h-4 w-4 text-gray-500" />
                             {source?.processedImages?.processed
                               ? `${source.processedImages.processed} `
                               : ''}
