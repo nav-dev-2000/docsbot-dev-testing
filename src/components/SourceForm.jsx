@@ -659,6 +659,19 @@ export default function SourceForm({
       .filter((entry) => entry.length > 0)
   }
 
+  const normalizeSourceTitle = (value) => {
+    if (typeof value !== 'string') return null
+
+    const cleaned = value
+      .trim()
+      .replace(/^undefined(?:\s+|\s*[:-]\s*)?/i, '')
+      .trim()
+
+    if (!cleaned || /^(undefined|null)$/i.test(cleaned)) return null
+
+    return cleaned
+  }
+
   async function createSource(overrideSelectedWebsiteUrls = null) {
     if (!validated) {
       // Provide more specific error message for urls source type
@@ -712,18 +725,18 @@ export default function SourceForm({
 
     if (selectedSourceType.fieldFile) {
       payload.file = file
-      payload.title = fileName
+      payload.title = normalizeSourceTitle(fileName)
     }
 
     if (selectedSourceType.fieldTitle) {
-      payload.title = title
+      payload.title = normalizeSourceTitle(title)
     }
 
     // Include title for Truto sources if it exists (even if fieldTitle is false)
     // Use ref value if available, otherwise use state
     const trutoTitle = trutoTitleRef.current || title
     if (selectedSourceType.isTruto && trutoTitle) {
-      payload.title = trutoTitle
+      payload.title = normalizeSourceTitle(trutoTitle)
     }
 
     if (selectedSourceType.fieldQA) {

@@ -25,6 +25,19 @@ import {
   vectorDbMaintenanceResponse,
 } from '@/lib/maintenance'
 
+const sanitizeSourceTitle = (value) => {
+  if (typeof value !== 'string') return null
+
+  const cleaned = value
+    .trim()
+    .replace(/^undefined(?:\s+|\s*[:-]\s*)?/i, '')
+    .trim()
+
+  if (!cleaned || /^(undefined|null)$/i.test(cleaned)) return null
+
+  return cleaned
+}
+
 export default async function handler(req, res) {
   configureFirebaseApp()
   const firestore = getFirestore()
@@ -226,7 +239,7 @@ export default async function handler(req, res) {
       })
     }
 
-    title = title?.trim() || null
+    title = sanitizeSourceTitle(title)
     if (sourceType.fieldTitle === 'required' && !title) {
       return res
         .status(400)

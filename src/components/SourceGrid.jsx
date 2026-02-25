@@ -22,6 +22,12 @@ export default function SourceGrid({
 }) {
   const [fullSources, setFullSources] = useState([])
 
+  const getDisplayTitle = (value) => {
+    if (typeof value !== 'string') return ''
+
+    return value.replace(/^undefined(?:\s+|\s*[:-]\s*)?/i, '').trim()
+  }
+
   const sourceArg = (type, arg) => {
     const sourceType = sourceTypes.find((sourceType) => sourceType.id === type)
     return sourceType[arg] || null
@@ -91,7 +97,9 @@ export default function SourceGrid({
                   </div>
                 )}
                 <div className="flex-1 truncate text-sm">
-                  <p className="truncate text-xs text-gray-600">{source.title}</p>
+                  <p className="truncate text-xs text-gray-600">
+                    {getDisplayTitle(source.title) || source.url}
+                  </p>
                   <p className="truncate text-xs text-gray-500">{source.url}</p>
                 </div>
                 {source.scheduled && source.status === 'ready' && (

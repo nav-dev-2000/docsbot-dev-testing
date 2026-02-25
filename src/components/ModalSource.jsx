@@ -115,6 +115,12 @@ export default function ModalSource({
     return Array.from(new Set(Object.values(documentSource.fileTypes)))
   }, [])
 
+  const getDisplayTitle = (value) => {
+    if (typeof value !== 'string') return ''
+
+    return value.replace(/^undefined(?:\s+|\s*[:-]\s*)?/i, '').trim()
+  }
+
   useEffect(() => {
     if (!team || !user) return
     setModify(canUserModifySources(team, user.uid, bot))
@@ -593,7 +599,7 @@ export default function ModalSource({
                   <div className="flex-grow overflow-y-auto rounded-lg bg-white p-8 shadow">
                     <div className="pb-2">
                       <h3 className="inline-flex text-2xl font-bold">
-                        {source?.title ?? source?.url}
+                        {getDisplayTitle(source?.title) || source?.url}
                       </h3>
                       <h1 className="flex-end inline-flex pl-2 text-sm font-medium text-gray-500">
                         {
