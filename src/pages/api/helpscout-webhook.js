@@ -196,6 +196,25 @@ const selectPreferredTeam = (teams = []) => {
   return uniqueTeams.find((candidate) => isPaidTeam(candidate)) || uniqueTeams[0]
 }
 
+const resolveTeamCandidates = async ({ currentTeamId, userTeamIds = [] }) => {
+  const candidateIds = []
+  const seenIds = new Set()
+
+  const addCandidateId = (teamId) => {
+    if (!teamId || seenIds.has(teamId)) return
+    seenIds.add(teamId)
+    candidateIds.push(teamId)
+  }
+
+  addCandidateId(currentTeamId)
+  userTeamIds.forEach(addCandidateId)
+
+  if (!candidateIds.length) return []
+
+  const candidates = await Promise.all(candidateIds.map((teamId) => getTeam(teamId)))
+  return candidates.filter(Boolean)
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     console.warn('Help Scout webhook: Method not allowed', { method: req.method })
@@ -247,18 +266,11 @@ export default async function handler(req, res) {
 
     const userDoc = await firestore.collection('users').doc(userRecord.uid).get()
 
-    const teamCandidates = []
-    if (userDoc.exists && userDoc.data().currentTeam) {
-      const currentTeam = await getTeam(userDoc.data().currentTeam)
-      if (currentTeam) {
-        teamCandidates.push(currentTeam)
-      }
-    }
-
+    const currentTeamId = userDoc.exists ? userDoc.data().currentTeam : null
     const teams = await getTeams(userRecord.uid)
-    if (teams?.length) {
-      teamCandidates.push(...teams)
-    }
+    const userTeamIds = (teams || []).map((candidate) => candidate?.id).filter(Boolean)
+
+    const teamCandidates = await resolveTeamCandidates({ currentTeamId, userTeamIds })
 
     team = selectPreferredTeam(teamCandidates)
 
