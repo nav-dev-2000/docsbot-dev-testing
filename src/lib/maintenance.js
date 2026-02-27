@@ -10,3 +10,11 @@ export const vectorDbMaintenanceResponse = () => ({
   message: VECTOR_DB_MAINTENANCE_MESSAGE,
   statusPage: VECTOR_DB_MAINTENANCE_STATUS_PAGE,
 })
+
+/** Per-bot flag: when true, prevents adding, refreshing, or deleting sources, and deleting the bot. */
+export const isBotSourcesFrozen = (bot) =>
+  bot && bot.freezeSources === true
+
+export const freezeSourcesResponse = () => ({
+  message: 'This bot is undergoing short maintenance. Please try again later.',
+})

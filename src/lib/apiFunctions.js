@@ -4,6 +4,7 @@ import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getStorage } from 'firebase-admin/storage'
 import { getBot, getTeam } from '@/lib/dbQueries'
 import { deleteTenant } from '@/lib/weaviate'
+import { deleteTurbopufferNamespace } from '@/lib/turbopuffer'
 import { QueueSourceExpel } from '@/lib/service'
 import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
@@ -336,18 +337,18 @@ export const deleteBot = async (teamId, botId) => {
     })
   })
 
-  //delete schema in weaviate async
-  if (bot.indexId === 'TenantDocument') {
+  // Clean up vector DB: Turbopuffer namespace or Weaviate tenant
+  if (bot.vectorDatabase === 'turbopuffer') {
+    try {
+      await deleteTurbopufferNamespace(teamId, botId, bot.region || 'US')
+    } catch (error) {
+      console.warn('Error deleting Turbopuffer namespace:', error)
+    }
+  } else if (bot.indexId === 'TenantDocument') {
     try {
       deleteTenant(team, botId)
     } catch (error) {
       console.warn('Error deleting Weaviate Tenant:', error)
-    }
-  } else {
-    try {
-      //deleteSchema(bot.indexId)
-    } catch (error) {
-      console.warn('Error deleting Weaviate Schema:', error)
     }
   }
 
@@ -412,6 +413,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     widgetType,
     brandAnalysis,
     searchDocumentationLimit,
+    vectorDatabase,
+    region,
   } = req.body
 
   let allowOpenEndedTopicsValue = allowOpenEndedTopics
@@ -967,6 +970,21 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.allowOpenEndedTopics = Boolean(allowOpenEndedTopicsValue)
   } else if (!isUpdate) {
     botData.allowOpenEndedTopics = true // Default to true
+  }
+
+  if (vectorDatabase !== undefined) {
+    if (!['turbopuffer', 'weaviate'].includes(vectorDatabase)) {
+      throw new Error('vectorDatabase must be "turbopuffer" or "weaviate".')
+    }
+    botData.vectorDatabase = vectorDatabase
+  }
+
+  if (region !== undefined) {
+    const normalized = String(region).toUpperCase()
+    if (!['US', 'EU'].includes(normalized)) {
+      throw new Error('region must be "US" or "EU".')
+    }
+    botData.region = normalized
   }
 
   return botData

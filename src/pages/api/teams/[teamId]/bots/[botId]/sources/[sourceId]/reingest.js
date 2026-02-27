@@ -17,6 +17,8 @@ import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
+  isBotSourcesFrozen,
+  freezeSourcesResponse,
 } from '@/lib/maintenance'
 import { canUserModifySources } from '@/utils/function.utils'
 
@@ -61,6 +63,9 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
     }
 
     if (!canSourceTypeSchedule(source.type)) {
@@ -120,6 +125,9 @@ export default async function handler(req, res) {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
     }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
+    }
 
     try {
       const { faqs } = req.body
@@ -153,6 +161,9 @@ export default async function handler(req, res) {
   } else if (req.method === 'POST') {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
     }
 
     if (isTrutoSourceType(source.type)) {

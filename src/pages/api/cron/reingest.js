@@ -21,6 +21,7 @@ import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
+  isBotSourcesFrozen,
 } from '@/lib/maintenance'
 
 export default async function handler(request, response) {
@@ -64,7 +65,14 @@ export default async function handler(request, response) {
 
       const botRef = doc.ref.parent.parent
       const botId = botRef.id
-      const botName = (await botRef.get()).data().name
+      const botSnap = await botRef.get()
+      const botData = botSnap.data() || {}
+      const botName = botData.name
+
+      if (isBotSourcesFrozen(botData)) {
+        console.log('source', doc.id, 'skipped: bot has freezeSources enabled')
+        return
+      }
 
       const teamRef = botRef.parent.parent
       const teamId = teamRef.id

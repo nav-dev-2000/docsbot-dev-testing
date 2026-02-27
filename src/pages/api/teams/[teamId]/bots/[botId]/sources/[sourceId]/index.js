@@ -14,6 +14,8 @@ import { GetTrutoSelected, RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
+  isBotSourcesFrozen,
+  freezeSourcesResponse,
 } from '@/lib/maintenance'
 
 export default async function handler(req, res) {
@@ -51,6 +53,9 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
     }
 
     //check user is allowed to edit this source or not
@@ -148,6 +153,9 @@ export default async function handler(req, res) {
   } else if (req.method === 'DELETE') {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
     }
 
     //check user is allowed to delete this source or not

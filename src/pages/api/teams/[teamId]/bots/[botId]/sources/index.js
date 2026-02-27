@@ -23,6 +23,8 @@ import { RunSyncJob, GetSyncJobID } from '@/lib/truto'
 import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
+  isBotSourcesFrozen,
+  freezeSourcesResponse,
 } from '@/lib/maintenance'
 
 const sanitizeSourceTitle = (value) => {
@@ -68,6 +70,9 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     if (isVectorDbMaintenanceEnabled()) {
       return res.status(503).json(vectorDbMaintenanceResponse())
+    }
+    if (isBotSourcesFrozen(bot)) {
+      return res.status(503).json(freezeSourcesResponse())
     }
 
     //check user is allowed to edit bot or not

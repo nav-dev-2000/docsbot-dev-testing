@@ -14,6 +14,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { QueueSourceIngest } from '@/lib/service'
 import axios from 'axios'
 import { stripePlan } from '@/utils/helpers'
+import { isBotSourcesFrozen } from '@/lib/maintenance'
 
 export default async function handler(request, response) {
   configureFirebaseApp()
@@ -79,6 +80,10 @@ export default async function handler(request, response) {
         )
         // if the run is finished, trigger an ingest pub/sub message
         if (result.data.data.status === 'SUCCEEDED') {
+          if (isBotSourcesFrozen(bot)) {
+            console.log('source', doc.id, 'skipped: bot has freezeSources enabled')
+            return
+          }
           if (source.type === 'youtube') {
             await QueueSourceIngest(
               teamId,

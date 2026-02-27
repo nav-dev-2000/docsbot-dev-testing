@@ -89,14 +89,15 @@ export const QueueIntegration = async (teamId, type, appID, appSecret) => {
   return messageId
 }
 
-export const QueueBotCopy = async (teamId, fromBotId, toBotId) => {
+export const QueueBotCopy = async (teamId, fromBotId, toBotId, region) => {
   const dataBuffer = Buffer.from(
     JSON.stringify({
       action: 'copy',
       teamId,
       fromBotId,
       toBotId,
-     })
+      region,
+    })
   )
   const messageId = await PUBSUB_CLIENT.topic(PUBSUB_TOPIC).publishMessage({ data: dataBuffer })
   console.log(`Message ${messageId} published to ${PUBSUB_TOPIC}.`)

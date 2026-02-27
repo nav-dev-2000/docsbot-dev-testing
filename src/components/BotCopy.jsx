@@ -8,13 +8,30 @@ import ModalCheckout from '@/components/ModalCheckout'
 import { useRouter } from 'next/router'
 import Tooltip from '@/components/Tooltip'
 
+const isTurbopuffer = (bot) => bot.vectorDatabase === 'turbopuffer'
+
+// Infer vector DB for legacy bots that lack vectorDatabase in DB (e.g. Weaviate)
+const getVectorDbForCopy = (bot) =>
+  bot.vectorDatabase ?? (bot.indexId === 'TenantDocument' ? 'weaviate' : 'turbopuffer')
+
 export const BotCopyModal = ({ team, bot }) => {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [botName, setBotName] = useState(`${bot.name} Copy`)
   const [showUpgrade, setShowUpgrade] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
+  const [region, setRegion] = useState('US')
   const router = useRouter()
+
+  // Set default region from Cloudflare headers when modal opens (Turbopuffer only)
+  useEffect(() => {
+    if (open && isTurbopuffer(bot)) {
+      fetch('/api/region')
+        .then((res) => res.json())
+        .then(({ region: detected }) => setRegion(detected || 'US'))
+        .catch(() => {})
+    }
+  }, [open, bot.vectorDatabase])
 
   const createCopy = async () => {
     if (!botName) {
@@ -27,11 +44,14 @@ export const BotCopyModal = ({ team, bot }) => {
     const urlParams = ['teams', team.id, 'bots']
     const apiPath = '/api/' + urlParams.join('/')
 
+    const vectorDb = getVectorDbForCopy(bot)
     const data = {
       ...bot,
       name: botName,
       embeddingModel: bot.embeddingModel || 'text-embedding-ada-002',
       copyFrom: bot.id,
+      vectorDatabase: vectorDb,
+      ...(vectorDb === 'turbopuffer' && { region }),
     }
 
     if (data?.id) {
@@ -168,6 +188,31 @@ export const BotCopyModal = ({ team, bot }) => {
                                 />
                               </div>
                             </div>
+                            {isTurbopuffer(bot) && (
+                              <div>
+                                <label
+                                  htmlFor="region"
+                                  className="block text-sm font-medium text-gray-900"
+                                >
+                                  Data Storage Region
+                                </label>
+                                <div className="mt-1">
+                                  <select
+                                    id="region"
+                                    name="region"
+                                    value={region}
+                                    onChange={(e) =>
+                                      setRegion(e.target.value)
+                                    }
+                                    disabled={isUpdating}
+                                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+                                  >
+                                    <option value="US">United States (faster)</option>
+                                    <option value="EU">European Union</option>
+                                  </select>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>

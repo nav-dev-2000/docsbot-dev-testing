@@ -5,6 +5,7 @@ import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { bentoTrack } from '@/lib/bento'
 import { createRouter } from 'next-connect'
 import { createTenant } from '@/lib/weaviate'
+import { detectRegionFromHeaders } from '@/lib/regionUtils'
 import { stripePlan } from '@/utils/helpers'
 import { QueueBotCopy } from '@/lib/service'
 import { phTrack } from '@/lib/posthog'
@@ -60,6 +61,9 @@ router.post(async (req, res) => {
       return res.status(400).json({ message: error?.message })
     }
 
+    const vectorDatabase = botData.vectorDatabase ?? 'turbopuffer'
+    const region = botData.region ?? detectRegionFromHeaders(req.headers)
+
     //increment botCounts on team first to avoid race condition
     await firestore.runTransaction(async (transaction) => {
       const teamRef = firestore.collection('teams').doc(team.id)
@@ -81,9 +85,11 @@ router.post(async (req, res) => {
       .collection('bots')
       .add({
         ...botData,
+        vectorDatabase,
+        region,
         createdAt: FieldValue.serverTimestamp(),
         status: 'pending',
-        indexId: 'TenantDocument',
+        indexId: vectorDatabase === 'weaviate' ? 'TenantDocument' : 'turbopuffer',
         sourceCount: 0,
         pageCount: 0,
         chunkCount: 0,
@@ -94,39 +100,41 @@ router.post(async (req, res) => {
 
     const botId = docRef.id
 
-    try {
-      await createTenant(team, botId)
-    } catch (error) {
-      console.error('Error creating bot DB', error)
-      if (botId) {
-        // Delete bot object
-        await firestore
-          .collection('teams')
-          .doc(team.id)
-          .collection('bots')
-          .doc(botId)
-          .delete()
-      }
-      // Decrement botCount on team since bot creation failed
-      await firestore.runTransaction(async (transaction) => {
-        const teamRef = firestore.collection('teams').doc(team.id)
-        const sfDoc = await transaction.get(teamRef)
-        if (!sfDoc.exists) {
-          throw 'Team does not exist!'
+    if (vectorDatabase === 'weaviate') {
+      try {
+        await createTenant(team, botId)
+      } catch (error) {
+        console.error('Error creating bot DB', error)
+        if (botId) {
+          // Delete bot object
+          await firestore
+            .collection('teams')
+            .doc(team.id)
+            .collection('bots')
+            .doc(botId)
+            .delete()
         }
+        // Decrement botCount on team since bot creation failed
+        await firestore.runTransaction(async (transaction) => {
+          const teamRef = firestore.collection('teams').doc(team.id)
+          const sfDoc = await transaction.get(teamRef)
+          if (!sfDoc.exists) {
+            throw 'Team does not exist!'
+          }
 
-        const currentBotCount = sfDoc.data().botCount || 0
-        const newBotCount = Math.max(currentBotCount - 1, 0) // Ensure count doesn't go below 0
-        transaction.update(teamRef, {
-          botCount: newBotCount,
+          const currentBotCount = sfDoc.data().botCount || 0
+          const newBotCount = Math.max(currentBotCount - 1, 0) // Ensure count doesn't go below 0
+          transaction.update(teamRef, {
+            botCount: newBotCount,
+          })
         })
-      })
-      return res
-        .status(500)
-        .json({
-          message:
-            'Error creating bot DB. Please try again or contact support.',
-        })
+        return res
+          .status(500)
+          .json({
+            message:
+              'Error creating bot DB. Please try again or contact support.',
+          })
+      }
     }
 
     
@@ -145,7 +153,7 @@ router.post(async (req, res) => {
       }
 
       console.log(`copying ${copyFrom} to ${botId}...`)
-      await QueueBotCopy(team.id, copyFrom, botId)
+      await QueueBotCopy(team.id, copyFrom, botId, region)
     }
 
     // Clear Cloudflare cache after creating the bot (asynchronously)

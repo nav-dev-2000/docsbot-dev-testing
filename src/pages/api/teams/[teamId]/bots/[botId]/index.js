@@ -8,6 +8,7 @@ import { deleteBot } from '@/lib/apiFunctions'
 import { validateBotParams } from '@/lib/apiFunctions'
 import { canUserCreateDeleteBot, canUserEditBot, canUserManageBotSettings, canUserViewBot } from '@/utils/function.utils'
 import { clearCloudflareCache } from '@/lib/cloudflare'
+import { isBotSourcesFrozen } from '@/lib/maintenance'
 
 export default async function handler(req, res) {
   configureFirebaseApp()
@@ -90,6 +91,12 @@ export default async function handler(req, res) {
     if (!canUserCreateDeleteBot(team, userId)) {
       return res.status(403).json({
         message: 'You are not allowed to delete bot.',
+      })
+    }
+    const bot = await getBot(team.id, botId)
+    if (bot && isBotSourcesFrozen(bot)) {
+      return res.status(503).json({
+        message: 'This bot is undergoing short maintenance. Please try again later.',
       })
     }
     try {

@@ -1,8 +1,8 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
 import { getBot } from '@/lib/dbQueries'
-import { createTenant } from '@/lib/weaviate'
 import { QueueSourceIngest } from '@/lib/service'
+import { detectRegionFromHeaders } from '@/lib/regionUtils'
 import { isValidURL, sanitizeURL } from '@/utils/helpers'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import { i18n } from '@/constants/strings.constants'
@@ -193,7 +193,9 @@ export default async function handler(req, res) {
         signatureKey: crypto.randomBytes(32).toString('hex'),
         createdAt: FieldValue.serverTimestamp(),
         status: 'pending',
-        indexId: 'TenantDocument',
+        vectorDatabase: 'turbopuffer',
+        region: detectRegionFromHeaders(req.headers),
+        indexId: 'turbopuffer',
         sourceCount: 0,
         pageCount: 0,
         chunkCount: 0,
@@ -225,20 +227,7 @@ export default async function handler(req, res) {
         })
       }
 
-      try {
-        // Create Weaviate tenant for the bot
-        const demoTeam = { id: DEMO_TEAM_ID }
-        await createTenant(demoTeam, botId)
-      } catch (error) {
-        console.error('Error creating bot DB', error)
-        // Delete bot object if tenant creation fails
-        await docRef.delete()
-        return res
-          .status(500)
-          .json({
-            message: 'Error creating bot database. Please try again or contact support.',
-          })
-      }
+      // Turbopuffer: no tenant creation needed. Skip createTenant for demo bots.
 
       // 4. Screenshot URL is already saved in botData above
 
@@ -268,7 +257,7 @@ export default async function handler(req, res) {
         botId,
         sourceRef.id,
         1000, // page limit for demo
-        'TenantDocument',
+        'turbopuffer',
         'url',
         sourceData.title,
         hrefURL,
@@ -305,7 +294,7 @@ export default async function handler(req, res) {
           botId,
           sitemapRef.id,
           100000, // page limit for demo
-          'TenantDocument',
+          'turbopuffer',
           'sitemap',
           sitemapData.title,
           hrefURL,
