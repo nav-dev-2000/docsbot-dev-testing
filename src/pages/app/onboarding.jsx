@@ -22,6 +22,7 @@ import {
   getBotRequest,
   updateBotRequest,
 } from '@/services/bots'
+import { updateTeamRequest } from '@/services/teams'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { canUserCreateDeleteBot } from '@/utils/function.utils'
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
@@ -1344,6 +1345,35 @@ function Onboarding({ team }) {
         setLastAnalyzedUrl(normalizedInput)
         const resolvedLanguage = normalizeLanguageCode(data.language)
         setAnalysisData(data)
+
+        // Use extracted company name for team name when available (first-time onboarding from signup only)
+        let isFirstTimeFromSignup = false
+        try {
+          const stored = window.localStorage?.getItem(SIGNUP_ONBOARDING_CACHE_KEY)
+          if (stored) {
+            const parsed = JSON.parse(stored)
+            const { timestamp } = parsed || {}
+            if (typeof timestamp === 'number') {
+              const oneDayMs = 24 * 60 * 60 * 1000
+              if (Date.now() - timestamp <= oneDayMs) {
+                isFirstTimeFromSignup = true
+              }
+            }
+          }
+        } catch (_) {
+          /* ignore */
+        }
+        const companyName = (data.businessName || '').trim()
+        if (
+          isFirstTimeFromSignup &&
+          companyName &&
+          companyName.length >= 2 &&
+          companyName.length <= 100
+        ) {
+          updateTeamRequest(team.id, { name: companyName }).catch((err) => {
+            console.warn('Could not update team name from website:', err)
+          })
+        }
 
         // Use new field names from API
         if (data.botName) {
