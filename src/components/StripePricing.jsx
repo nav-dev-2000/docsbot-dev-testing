@@ -1,6 +1,7 @@
 import Alert from '@/components/Alert'
 import { CheckBadgeIcon, CheckIcon, PlusIcon } from '@heroicons/react/24/solid'
-import { useEffect, useState } from 'react'
+import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
@@ -12,12 +13,14 @@ import {
   featureDefinitions,
 } from '@/constants/pricing.constants'
 import { stripePlan, checkPlanPermission } from '@/utils/helpers'
+import { getIncompatibleSourceTypesForPlan } from '@/utils/sourceTypePlanChecks'
+import Tooltip from '@/components/Tooltip'
 import SocialFaces from '@/components/SocialFaces'
 
 // Helper function to get differentiating features for each tier
 const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
   const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
-  
+
   // Always include core limits that users care about most
   const coreLimits = [
     'docsBots',
@@ -27,79 +30,106 @@ const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
     'teamUsers',
   ]
   const features = []
-  
+
   // Add core limits first (always show these)
-  coreLimits.forEach(key => {
+  coreLimits.forEach((key) => {
     const value = currentTier.features[key]
     if (value !== undefined && value !== false && value !== 0) {
       features.push([key, value])
     }
   })
-  
+
   // For Free tier, also show basic included features
   if (tierIndex === 0) {
     Object.entries(currentTier.features).forEach(([key, value]) => {
-      if (!coreLimits.includes(key) && typeof value === 'boolean' && value === true) {
+      if (
+        !coreLimits.includes(key) &&
+        typeof value === 'boolean' &&
+        value === true
+      ) {
         features.push([key, value])
       }
     })
     return features.slice(0, 8)
   }
-  
+
   // For other tiers, add what's new or improved (excluding core limits already added)
   const differentiatingFeatures = []
-  
+
   // Add other improved limits (excluding core limits already handled)
   Object.entries(currentTier.features).forEach(([key, value]) => {
     if (coreLimits.includes(key)) return // Skip core limits, already added
-    
+
     const prevValue = previousTier?.features[key]
     const featureDef = featureDefinitions[key]
-    
+
     if (featureDef?.category === 'limits') {
       // Show if it's a meaningful increase
-      if (typeof value === 'number' && typeof prevValue === 'number' && value > prevValue) {
+      if (
+        typeof value === 'number' &&
+        typeof prevValue === 'number' &&
+        value > prevValue
+      ) {
         differentiatingFeatures.push([key, value])
-      } else if (typeof value === 'string' && value !== prevValue && value !== 'false' && value !== '') {
+      } else if (
+        typeof value === 'string' &&
+        value !== prevValue &&
+        value !== 'false' &&
+        value !== ''
+      ) {
         differentiatingFeatures.push([key, value])
       }
     }
   })
-  
+
   // Add newly enabled features (false -> true, or false -> string value)
   Object.entries(currentTier.features).forEach(([key, value]) => {
     if (coreLimits.includes(key)) return // Skip core limits, already added
-    
+
     const prevValue = previousTier?.features[key]
-    
+
     if (featureDefinitions[key]?.category !== 'limits') {
-      if ((prevValue === false || prevValue === 0 || prevValue === '') && 
-          (value === true || (typeof value === 'string' && value !== 'false' && value !== '') || (typeof value === 'number' && value > 0))) {
+      if (
+        (prevValue === false || prevValue === 0 || prevValue === '') &&
+        (value === true ||
+          (typeof value === 'string' && value !== 'false' && value !== '') ||
+          (typeof value === 'number' && value > 0))
+      ) {
         differentiatingFeatures.push([key, value])
       }
     }
   })
-  
+
   // Combine core limits with differentiating features
   const allFeatures = [...features, ...differentiatingFeatures]
-  
+
   // Prioritize by importance and limit to 8 features total
   return allFeatures
     .sort((a, b) => {
       const [aKey] = a
       const [bKey] = b
-      
+
       // Core limits always come first
       if (coreLimits.includes(aKey) && !coreLimits.includes(bKey)) return -1
       if (!coreLimits.includes(aKey) && coreLimits.includes(bKey)) return 1
       if (coreLimits.includes(aKey) && coreLimits.includes(bKey)) {
         return coreLimits.indexOf(aKey) - coreLimits.indexOf(bKey)
       }
-      
+
       // Then by category priority
       const aCat = featureDefinitions[aKey]?.category
       const bCat = featureDefinitions[bKey]?.category
-      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, features: 4, sources: 5, customization: 6, support: 7, compliance: 8 }
+      const priority = {
+        limits: 0,
+        integrations: 1,
+        analytics: 2,
+        ai: 3,
+        features: 4,
+        sources: 5,
+        customization: 6,
+        support: 7,
+        compliance: 8,
+      }
       return (priority[aCat] || 99) - (priority[bCat] || 99)
     })
     .slice(0, 14)
@@ -114,11 +144,15 @@ export function StripePricingTable({
   defaultFrequency = null,
   bots = null,
   teamInvites = [],
+  teamSourceTypes = [],
 }) {
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(() => {
     if (defaultFrequency) {
-      return frequencies.find((option) => option.value === defaultFrequency) || frequencies[0]
+      return (
+        frequencies.find((option) => option.value === defaultFrequency) ||
+        frequencies[0]
+      )
     }
     return frequencies[0]
   })
@@ -135,16 +169,46 @@ export function StripePricingTable({
   const currentPlanId = stripePlan(team)?.id || null
   const upgradeInterval =
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
-  const allowUpgradeFrequencyToggle = isUpgrade && saleConfig?.forceAnnualInUpgrade
-  const forcedUpgradeFrequency = allowUpgradeFrequencyToggle ? frequency.value : upgradeInterval
+  const allowUpgradeFrequencyToggle =
+    isUpgrade && saleConfig?.forceAnnualInUpgrade
+  const forcedUpgradeFrequency = allowUpgradeFrequencyToggle
+    ? frequency.value
+    : upgradeInterval
   const displayFrequency = isUpgrade
-    ? frequencies.find((option) => option.value === forcedUpgradeFrequency) || frequencies[0]
+    ? frequencies.find((option) => option.value === forcedUpgradeFrequency) ||
+      frequencies[0]
     : frequency
+  const visibleTiers = pricingTiers.filter(
+    (tier) => !tier.legacy && tier.showInStripe !== false,
+  )
+  const currentTierIndex = visibleTiers.findIndex(
+    (tier) => tier.id === currentPlanId,
+  )
+  const upgradeTiers = isUpgrade ? visibleTiers : visibleTiers
+  const normalizedSourceTypes = Array.isArray(teamSourceTypes)
+    ? teamSourceTypes
+    : []
+  const incompatibleSourceTypesByTier = useMemo(() => {
+    if (normalizedSourceTypes.length === 0) return {}
+    const result = {}
+    visibleTiers.forEach((tier) => {
+      const incompatible = getIncompatibleSourceTypesForPlan({
+        team,
+        targetPlanId: tier.id,
+        usedSourceTypeIds: normalizedSourceTypes,
+      })
+      if (incompatible.length > 0) {
+        result[tier.id] = incompatible
+      }
+    })
+    return result
+  }, [normalizedSourceTypes, team, visibleTiers])
 
   async function openPortal(tier) {
     setErrorText(null)
     setOpening(true)
-    const shouldApplyAnnualSale = shouldShowAnnualSale && displayFrequency.value === 'annually'
+    const shouldApplyAnnualSale =
+      shouldShowAnnualSale && displayFrequency.value === 'annually'
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
       method: 'POST',
       headers: {
@@ -177,95 +241,125 @@ export function StripePricingTable({
     setOpening(false)
   }
 
-  const isDisableSelectPlanButton = (id) => {
-    console.log(id)
+  const getPlanSelectionDisableReasons = (id) => {
+    const reasons = []
     const planLimits = plans[id]
-    if (!planLimits) {
-      return false // Don't disable if plan not found
-    }
-    
-    let isDisableButton = false
-    
-    // Resolve researchTasks limit (can be number or object)
-    const researchTasksLimit = typeof planLimits.researchTasks === 'number' 
-      ? planLimits.researchTasks 
-      : typeof planLimits.researchTasks === 'object' && planLimits.researchTasks !== null
-        ? (planLimits.researchTasks.monthly || planLimits.researchTasks.lifetime || 0)
-        : 0
-    
-    // Calculate effective research count (excluding trial research up to 2)
+    if (!planLimits) return reasons
+
+    const researchTasksLimit =
+      typeof planLimits.researchTasks === 'number'
+        ? planLimits.researchTasks
+        : typeof planLimits.researchTasks === 'object' &&
+            planLimits.researchTasks !== null
+          ? planLimits.researchTasks.monthly ||
+            planLimits.researchTasks.lifetime ||
+            0
+          : 0
+
     const currentPlan = stripePlan(team)
-    const currentPlanResearchLimit = typeof currentPlan?.researchTasks === 'number' 
-      ? currentPlan.researchTasks 
-      : 0
-    
-    // If current plan has no monthly research tasks, they may have used trial research (up to 2)
-    const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
-    const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
-    
-    // Ensure plan limits are numbers for proper comparison
-    const planBotsLimit = Number(planLimits.bots) || 0
-    const planPagesLimit = Number(planLimits.pages) || 0
-    const planQuestionsLimit = Number(planLimits.questions) || 0
-    const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
-    
-    // Get current usage values
-    const currentBots = Number(team?.botCount ?? 0)
-    const currentPages = Number(team?.pageCount ?? 0)
-    const currentQuestions = Number(team?.questionCount ?? 0)
-    const currentTeamMembers = Object.keys(team?.roles || {}).length + teamInvites.length
-    
-    if (
-      currentBots > planBotsLimit ||
-      currentPages > planPagesLimit ||
-      currentQuestions > planQuestionsLimit ||
-      currentTeamMembers > planTeamMembersLimit ||
-      researchCount > researchTasksLimit
-    ) {
-      isDisableButton = true
+    const currentPlanResearchLimit =
+      typeof currentPlan?.researchTasks === 'number'
+        ? currentPlan.researchTasks
+        : 0
+    const trialResearchAmount =
+      currentPlanResearchLimit === 0
+        ? Math.min(2, Number(team?.researchCount ?? 0))
+        : 0
+    const researchCount = Math.max(
+      0,
+      Number(team?.researchCount ?? 0) - trialResearchAmount,
+    )
+
+    if (!isUpgrade) {
+      const planBotsLimit = Number(planLimits.bots) || 0
+      const planPagesLimit = Number(planLimits.pages) || 0
+      const planQuestionsLimit = Number(planLimits.questions) || 0
+      const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
+
+      const currentBots = Number(team?.botCount ?? 0)
+      const currentPages = Number(team?.pageCount ?? 0)
+      const currentQuestions = Number(team?.questionCount ?? 0)
+      const currentTeamMembers =
+        Object.keys(team?.roles || {}).length + teamInvites.length
+
+      if (currentBots > planBotsLimit) {
+        reasons.push(`Bots: ${currentBots}/${planBotsLimit}`)
+      }
+      if (currentPages > planPagesLimit) {
+        reasons.push(`Pages: ${currentPages}/${planPagesLimit}`)
+      }
+      if (currentQuestions > planQuestionsLimit) {
+        reasons.push(`Questions: ${currentQuestions}/${planQuestionsLimit}`)
+      }
+      if (currentTeamMembers > planTeamMembersLimit) {
+        reasons.push(
+          `Team members: ${currentTeamMembers}/${planTeamMembersLimit}`,
+        )
+      }
+      if (researchCount > researchTasksLimit) {
+        reasons.push(`Research tasks: ${researchCount}/${researchTasksLimit}`)
+      }
     }
-    
-    // Disable downgrade from Business plan if per-bot roles exist
+
     if (isUpgrade) {
-      const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
-      const planLevels = { free: 1, hobby: 2, personal: 3, pro: 4, standard: 5, business: 6, enterprise: 7 }
+      const isCurrentlyBusinessOrHigher = checkPlanPermission(
+        team,
+        'business',
+      ).allowed
+      const planLevels = {
+        free: 1,
+        hobby: 2,
+        personal: 3,
+        pro: 4,
+        standard: 5,
+        business: 6,
+        enterprise: 7,
+      }
       const targetTierLevel = planLevels[id] || 0
-      const businessLevel = planLevels['business']
+      const businessLevel = planLevels.business
       const isDowngradingToBelowBusiness = targetTierLevel < businessLevel
-      
+
       if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-        // Check if per-bot roles exist (if bots data is available)
         if (bots && Array.isArray(bots)) {
           const teamMemberIds = Object.keys(team?.roles || {})
-          const hasPerBotRoles = bots.some(bot => {
+          const hasPerBotRoles = bots.some((bot) => {
             if (!bot.roles) return false
-            return Object.keys(bot.roles).some(memberId => {
+            return Object.keys(bot.roles).some((memberId) => {
               const botRole = bot.roles[memberId]
-              return botRole && botRole !== 'default' && teamMemberIds.includes(memberId)
+              return (
+                botRole &&
+                botRole !== 'default' &&
+                teamMemberIds.includes(memberId)
+              )
             })
           })
-          
-          const invitesHaveBotOverrides = teamInvites.some(invite => {
-            return invite.botOverrides && Array.isArray(invite.botOverrides) && invite.botOverrides.length > 0
-          })
-          
+
+          const invitesHaveBotOverrides = teamInvites.some(
+            (invite) =>
+              invite.botOverrides &&
+              Array.isArray(invite.botOverrides) &&
+              invite.botOverrides.length > 0,
+          )
+
           if (hasPerBotRoles || invitesHaveBotOverrides) {
-            isDisableButton = true
+            reasons.push('Per-bot roles require Business or higher')
           }
         } else {
-          // If bots data not available, conservatively disable all downgrades from Business
-          // Backend will allow if no per-bot roles exist
-          isDisableButton = true
+          reasons.push('Cannot verify per-bot roles for Business downgrade')
         }
       }
     }
-    
-    return isDisableButton
-  }
 
-  const visibleTiers = pricingTiers.filter((tier) => !tier.legacy && tier.showInStripe !== false)
-  const currentTierIndex = visibleTiers.findIndex((tier) => tier.id === currentPlanId)
-  const upgradeTiers = isUpgrade ? visibleTiers : visibleTiers
+    if (incompatibleSourceTypesByTier[id]?.length > 0) {
+      reasons.push(
+        `Unsupported source types: ${incompatibleSourceTypesByTier[id]
+          .map((source) => source.title)
+          .join(', ')}`,
+      )
+    }
+
+    return reasons
+  }
 
   const shouldShowAnnualSale = Boolean(saleConfig)
   const personaSaleMessage =
@@ -273,7 +367,8 @@ export function StripePricingTable({
     saleConfig?.getCheckoutMessage?.(team) ||
     saleConfig?.message
   const frequencyOptions = frequencies
-  const isCurrencyLocked = isUpgrade && Boolean(team?.stripeSubscriptionCurrency)
+  const isCurrencyLocked =
+    isUpgrade && Boolean(team?.stripeSubscriptionCurrency)
 
   return (
     <div>
@@ -384,147 +479,193 @@ export function StripePricingTable({
         )}
         <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
           {upgradeTiers.map((tier, index) => {
-            const annualSaleTotal = shouldShowAnnualSale && displayFrequency.value === 'annually'
-              ? saleConfig?.annualTotals?.[tier.id]?.[currency]
-              : null
-            const annualTotal = annualSaleTotal ?? tier.price[currency][displayFrequency.value]
+            const annualSaleTotal =
+              shouldShowAnnualSale && displayFrequency.value === 'annually'
+                ? saleConfig?.annualTotals?.[tier.id]?.[currency]
+                : null
+            const annualTotal =
+              annualSaleTotal ?? tier.price[currency][displayFrequency.value]
             const monthlyEquivalent = annualTotal / 12
-            const isLowerOrCurrentTier = isUpgrade && currentTierIndex >= 0 && index <= currentTierIndex
+            const isCurrentTier =
+              isUpgrade && currentTierIndex >= 0 && index === currentTierIndex
+            const isDowngradeTier =
+              isUpgrade && currentTierIndex >= 0 && index < currentTierIndex
             return (
-            <div
-              key={tier.id}
-              className={clsx(
-                tier.mostPopular
-                  ? 'ring-2 ring-cyan-600'
-                  : 'ring-1 ring-gray-200',
-                'rounded-3xl p-6 xl:p-8',
-              )}
-            >
-              <div className="flex items-center justify-between gap-x-4">
-                <h3
-                  id={tier.id}
-                  className={clsx(
-                    tier.mostPopular ? 'text-cyan-600' : 'text-gray-900',
-                    'text-lg font-semibold leading-8',
-                  )}
-                >
-                  {tier.name}
-                </h3>
-                {tier.mostPopular ? (
-                  <p className="rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600">
-                    Most popular
-                  </p>
-                ) : null}
-              </div>
-              <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">
-                {tier.description}
-              </p>
-              {displayFrequency?.value === 'monthly' ? (
-                <>
-                <p className="mt-2 flex items-baseline gap-x-1">
-                  <span className="text-4xl font-bold tracking-tight text-gray-600">
-                    {currencies[currency].symbol}
-                    {tier.price[currency][displayFrequency?.value].toFixed(0)}
-                  </span>
-                  <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                    /month
-                  </span>
+              <div
+                key={tier.id}
+                className={clsx(
+                  tier.mostPopular
+                    ? 'ring-2 ring-cyan-600'
+                    : 'ring-1 ring-gray-200',
+                  'rounded-3xl p-6 xl:p-8',
+                )}
+              >
+                <div className="flex items-center justify-between gap-x-4">
+                  <h3
+                    id={tier.id}
+                    className={clsx(
+                      tier.mostPopular ? 'text-cyan-600' : 'text-gray-900',
+                      'text-lg font-semibold leading-8',
+                    )}
+                  >
+                    {tier.name}
+                  </h3>
+                  {tier.mostPopular ? (
+                    <p className="rounded-full bg-cyan-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-cyan-600">
+                      Most popular
+                    </p>
+                  ) : null}
+                </div>
+                <p className="mt-4 text-sm leading-6 text-gray-600 xl:h-16">
+                  {tier.description}
                 </p>
-              </>
-              ) : (
-                <>
-                  <p className="mt-6 flex items-baseline gap-x-2">
-                    {shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
-                      <span className="text-xl font-semibold tracking-tight text-gray-400 line-through">
+                {displayFrequency?.value === 'monthly' ? (
+                  <>
+                    <p className="mt-2 flex items-baseline gap-x-1">
+                      <span className="text-4xl font-bold tracking-tight text-gray-600">
                         {currencies[currency].symbol}
-                        {tier.price[currency].monthly.toFixed(0)}
+                        {tier.price[currency][displayFrequency?.value].toFixed(
+                          0,
+                        )}
                       </span>
-                    ) : null}
-                    <span className="text-4xl font-bold tracking-tight text-gray-600">
-                      {currencies[currency].symbol}
-                      {monthlyEquivalent.toFixed(0)}
-                    </span>
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
-                      /month
-                    </span>
-                  </p>
-                  <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
-                    (
-                    {shouldShowAnnualSale && displayFrequency.value === 'annually' ? (
-                      <>
+                      <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                        /month
+                      </span>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="mt-6 flex items-baseline gap-x-2">
+                      {shouldShowAnnualSale &&
+                      displayFrequency.value === 'annually' ? (
                         <span className="text-xl font-semibold tracking-tight text-gray-400 line-through">
                           {currencies[currency].symbol}
-                          {tier.price[currency].annually.toFixed(0)}
+                          {tier.price[currency].monthly.toFixed(0)}
                         </span>
-                        <span className="text-xl font-bold tracking-tight text-gray-700">
+                      ) : null}
+                      <span className="text-4xl font-bold tracking-tight text-gray-600">
+                        {currencies[currency].symbol}
+                        {monthlyEquivalent.toFixed(0)}
+                      </span>
+                      <span className="-ml-0.5 text-sm font-semibold leading-6 text-gray-600">
+                        /month
+                      </span>
+                    </p>
+                    <p className="mt-0 flex items-baseline gap-x-1 text-gray-500">
+                      (
+                      {shouldShowAnnualSale &&
+                      displayFrequency.value === 'annually' ? (
+                        <>
+                          <span className="text-xl font-semibold tracking-tight text-gray-400 line-through">
+                            {currencies[currency].symbol}
+                            {tier.price[currency].annually.toFixed(0)}
+                          </span>
+                          <span className="text-xl font-bold tracking-tight text-gray-700">
+                            {currencies[currency].symbol}
+                            {annualTotal.toFixed(0)}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-xl font-bold tracking-tight">
                           {currencies[currency].symbol}
                           {annualTotal.toFixed(0)}
                         </span>
-                      </>
-                    ) : (
-                      <span className="text-xl font-bold tracking-tight ">
-                        {currencies[currency].symbol}
-                        {annualTotal.toFixed(0)}
+                      )}
+                      <span className="-ml-0.5 text-sm font-semibold leading-6">
+                        /annually
                       </span>
-                    )}
-                    <span className="-ml-0.5 text-sm font-semibold leading-6 ">/annually</span>
-                    )
-                  </p>
-                </>
-              )}
-              <button
-                aria-describedby={tier.id}
-                onClick={() => openPortal(tier.id)}
-                disabled={opening || isDisableSelectPlanButton(tier.id) || isLowerOrCurrentTier}
-                className={clsx(
-                  tier.mostPopular
-                    ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
-                    : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
-                  'mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800 disabled:cursor-not-allowed disabled:opacity-50',
+                      )
+                    </p>
+                  </>
                 )}
-              >
-                {isUpgrade ? (isLowerOrCurrentTier ? 'Current plan' : 'Upgrade') : 'Subscribe'}
-              </button>
-              <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
-                {index === 0
-                  ? 'Including:'
-                  : `Everything in ${upgradeTiers[index - 1]?.name || 'Free'} plan, and:`}
-              </h3>
-              <ul className="mt-3 space-y-3 text-left">
-                {getDifferentiatingFeatures(tier, index, upgradeTiers).map(([key, value]) => {
-                  const featureDef = featureDefinitions[key]
-                  if (!featureDef) return null
-                  
-                  let displayText = featureDef.label
-                  if (typeof value === 'string' && value !== 'true') {
-                    displayText = `${featureDef.label}: ${value}`
-                  } else if (typeof value === 'number') {
-                    displayText = `${value} ${featureDef.label}`
-                  }
-                  
+                {(() => {
+                  const disableReasons = getPlanSelectionDisableReasons(tier.id)
+                  const hasDisableReasons = disableReasons.length > 0
                   return (
-                    <li
-                      key={key}
-                      className="group grid grid-cols-[20px_1fr] items-start gap-3 text-sm/6 text-gray-600"
-                    >
-                      <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center text-gray-400">
-                        <PlusIcon aria-hidden="true" className="size-4" />
-                      </span>
-                      <span className="min-w-0 leading-6">{displayText}</span>
-                    </li>
+                    <>
+                      <button
+                        aria-describedby={tier.id}
+                        onClick={() => openPortal(tier.id)}
+                        disabled={opening || hasDisableReasons || isCurrentTier}
+                        className={clsx(
+                          tier.mostPopular
+                            ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
+                            : 'text-cyan-600 ring-1 ring-inset ring-cyan-500 hover:ring-cyan-800',
+                          'mt-6 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-800 disabled:cursor-not-allowed disabled:opacity-50',
+                        )}
+                      >
+                        {isUpgrade
+                          ? isCurrentTier
+                            ? 'Current plan'
+                            : isDowngradeTier
+                              ? 'Downgrade'
+                              : 'Upgrade'
+                          : 'Subscribe'}
+                      </button>
+                      {hasDisableReasons && (
+                        <div className="mt-2 flex items-center justify-center gap-1 text-xs text-amber-700">
+                          <span>Usage exceeds limits</span>
+                          <Tooltip
+                            content={disableReasons.join(', ')}
+                            placement="top"
+                          >
+                            <span
+                              className="inline-flex cursor-help items-center"
+                              aria-label="View plan limits details"
+                            >
+                              <InformationCircleIcon className="h-4 w-4" />
+                            </span>
+                          </Tooltip>
+                        </div>
+                      )}
+                    </>
                   )
-                })}
-              </ul>
-              <div className="mt-6 text-center">
-                <Link
-                  href="/pricing#comparison-table"
-                  className="text-sm font-medium text-cyan-600 hover:text-cyan-500"
-                >
-                  Compare all features →
-                </Link>
+                })()}
+                <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
+                  {index === 0
+                    ? 'Including:'
+                    : `Everything in ${upgradeTiers[index - 1]?.name || 'Free'} plan, and:`}
+                </h3>
+                <ul className="mt-3 space-y-3 text-left">
+                  {getDifferentiatingFeatures(tier, index, upgradeTiers).map(
+                    ([key, value]) => {
+                      const featureDef = featureDefinitions[key]
+                      if (!featureDef) return null
+
+                      let displayText = featureDef.label
+                      if (typeof value === 'string' && value !== 'true') {
+                        displayText = `${featureDef.label}: ${value}`
+                      } else if (typeof value === 'number') {
+                        displayText = `${value} ${featureDef.label}`
+                      }
+
+                      return (
+                        <li
+                          key={key}
+                          className="group grid grid-cols-[20px_1fr] items-start gap-3 text-sm/6 text-gray-600"
+                        >
+                          <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center text-gray-400">
+                            <PlusIcon aria-hidden="true" className="size-4" />
+                          </span>
+                          <span className="min-w-0 leading-6">
+                            {displayText}
+                          </span>
+                        </li>
+                      )
+                    },
+                  )}
+                </ul>
+                <div className="mt-6 text-center">
+                  <Link
+                    href="/pricing#comparison-table"
+                    className="text-sm font-medium text-cyan-600 hover:text-cyan-500"
+                  >
+                    Compare all features →
+                  </Link>
+                </div>
               </div>
-            </div>
-          )})}
+            )
+          })}
         </div>
       </div>
 

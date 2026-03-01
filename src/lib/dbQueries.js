@@ -474,6 +474,39 @@ export async function getSources(
   return { sources, pagination }
 }
 
+export async function getTeamSourceTypeIds(teamId) {
+  const botsSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .select(FieldPath.documentId())
+    .get()
+
+  if (botsSnapshot.empty) {
+    return []
+  }
+
+  const sourceTypeIds = new Set()
+
+  for (const botDoc of botsSnapshot.docs) {
+    const sourcesSnapshot = await firestore
+      .collection('teams')
+      .doc(teamId)
+      .collection('bots')
+      .doc(botDoc.id)
+      .collection('sources')
+      .select('type')
+      .get()
+
+    sourcesSnapshot.forEach((sourceDoc) => {
+      const type = sourceDoc.data()?.type
+      if (type) sourceTypeIds.add(type)
+    })
+  }
+
+  return [...sourceTypeIds]
+}
+
 export async function getSource(team, bot, sourceId) {
   const sourceRef = await firestore
     .collection('teams')

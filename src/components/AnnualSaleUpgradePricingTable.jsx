@@ -1,6 +1,13 @@
 import { StripePricingTable } from '@/components/StripePricing'
 
-export default function AnnualSaleUpgradePricingTable({ team, email, setErrorText, bots = null, teamInvites = [] }) {
+export default function AnnualSaleUpgradePricingTable({
+  team,
+  email,
+  setErrorText,
+  bots = null,
+  teamInvites = [],
+  teamSourceTypes = [],
+}) {
   // Promo ended: keep wrapper component to avoid touching callers.
   return (
     <StripePricingTable
@@ -11,6 +18,7 @@ export default function AnnualSaleUpgradePricingTable({ team, email, setErrorTex
       defaultFrequency="annually"
       bots={bots}
       teamInvites={teamInvites}
+      teamSourceTypes={teamSourceTypes}
     />
   )
 }

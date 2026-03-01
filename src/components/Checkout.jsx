@@ -15,7 +15,14 @@ import SaleLoyalty, { LOYALTY_SALE_DEADLINE } from '@/components/SaleLoyalty'
 import AnnualSaleUpgradePricingTable from '@/components/AnnualSaleUpgradePricingTable'
 import { getAnnualSalePersonaMessage } from '@/components/annualSaleConfig'
 
-export default function Checkout({ team, children, upgrade = false, bots = null, teamInvites = [] }) {
+export default function Checkout({
+  team,
+  children,
+  upgrade = false,
+  bots = null,
+  teamInvites = [],
+  teamSourceTypes = [],
+}) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [isStripeCustomer, setIsStripeCustomer] = useState(
@@ -256,6 +263,7 @@ export default function Checkout({ team, children, upgrade = false, bots = null,
                             setErrorText={setErrorText}
                             bots={bots}
                             teamInvites={teamInvites}
+                            teamSourceTypes={teamSourceTypes}
                           />
                         ) : (
                           <StripePricingTable
@@ -265,6 +273,7 @@ export default function Checkout({ team, children, upgrade = false, bots = null,
                             mode="upgrade"
                             bots={bots}
                             teamInvites={teamInvites}
+                            teamSourceTypes={teamSourceTypes}
                           />
                         )}
                       </div>

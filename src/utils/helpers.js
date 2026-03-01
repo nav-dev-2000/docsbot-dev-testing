@@ -248,64 +248,19 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
     currentPlan.pages > 100000 ||
     currentPlan.bots > 100
 
-  const planLevels = {
-    free: 1,
-    hobby: 2,
-    personal: 3,
-    pro: 4,
-    standard: 5,
-    business: 6,
-    enterprise: 7,
-  }
-
-  const currentPlanLevel = planLevels[currentPlan.id] || 0
+  const currentPlanLevel = getPlanLevel(currentPlan.id)
 
   // If a specific plan is provided, check if current plan matches or exceeds it
   if (requiredPlan) {
-    requiredPlan = requiredPlan.toLowerCase()
-    let requiredPlanLevel = planLevels[requiredPlan] || 999
-
-    // Check if the team was created before March 27, 2025 and the required plan is 'personal'
-    // If so, downgrade the required plan to 'hobby' for grandfathered accounts (truto sources)
-    if (requiredPlan === 'personal' && team.createdAt) {
-      const createdDate = new Date(team.createdAt)
-      const cutoffDate = new Date('2025-03-28')
-
-      if (createdDate < cutoffDate) {
-        // Downgrade required plan level for grandfathered accounts
-        requiredPlanLevel = planLevels['hobby']
-      }
-    }
-
-    // grandfathered old power (personal) for helpscout
-    if (feature == 'helpscout') {
-      if (team.createdAt) {
-        const createdDate = new Date(team.createdAt)
-        const cutoffDate = new Date('2025-05-28')
-        if (createdDate < cutoffDate) {
-          // Downgrade required plan level for grandfathered accounts
-          requiredPlanLevel = planLevels['personal']
-        }
-      }
-    }
-
-    // grandfathered old pro (standard) for branding
-    if (feature == 'branding') {
-      if (team.createdAt) {
-        const createdDate = new Date(team.createdAt)
-        const cutoffDate = new Date('2025-06-03')
-        if (createdDate < cutoffDate) {
-          // Downgrade required plan level for grandfathered accounts
-          requiredPlanLevel = planLevels['pro']
-        }
-      }
-    }
-
+    const requiredPlanLevel = getRequiredPlanLevel(team, requiredPlan, feature)
     return {
       allowed: currentPlanLevel >= requiredPlanLevel || isEnterprise,
-      requiredPlanLabel: requiredPlan === 'hobby' ? 'Personal' : 
-                        requiredPlan === 'pro' ? 'Standard' :
-                        requiredPlan.charAt(0).toUpperCase() + requiredPlan.slice(1),
+      requiredPlanLabel:
+        requiredPlan === 'hobby'
+          ? 'Personal'
+          : requiredPlan === 'pro'
+            ? 'Standard'
+            : requiredPlan.charAt(0).toUpperCase() + requiredPlan.slice(1),
     }
   }
 
@@ -314,6 +269,54 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
     allowed: false,
     requiredPlanLabel: 'Enterprise',
   }
+}
+
+export const PLAN_LEVELS = {
+  free: 1,
+  hobby: 2,
+  personal: 3,
+  pro: 4,
+  standard: 5,
+  business: 6,
+  enterprise: 7,
+}
+
+export const getPlanLevel = (planId) => PLAN_LEVELS[planId] || 0
+
+export const getRequiredPlanLevel = (team, requiredPlan, feature = null) => {
+  if (!requiredPlan) return null
+  const normalizedPlan = requiredPlan.toLowerCase()
+  let requiredPlanLevel = PLAN_LEVELS[normalizedPlan] || 999
+  const createdAt = team?.createdAt ? new Date(team.createdAt) : null
+  const hasValidCreatedAt =
+    createdAt && typeof createdAt.getTime === 'function' && !Number.isNaN(createdAt.getTime())
+
+  // Check if the team was created before March 27, 2025 and the required plan is 'personal'
+  // If so, downgrade the required plan to 'hobby' for grandfathered accounts (truto sources)
+  if (normalizedPlan === 'personal' && hasValidCreatedAt) {
+    const cutoffDate = new Date('2025-03-28')
+    if (createdAt < cutoffDate) {
+      requiredPlanLevel = PLAN_LEVELS['hobby']
+    }
+  }
+
+  // grandfathered old power (personal) for helpscout
+  if (feature === 'helpscout' && hasValidCreatedAt) {
+    const cutoffDate = new Date('2025-05-28')
+    if (createdAt < cutoffDate) {
+      requiredPlanLevel = PLAN_LEVELS['personal']
+    }
+  }
+
+  // grandfathered old pro (standard) for branding
+  if (feature === 'branding' && hasValidCreatedAt) {
+    const cutoffDate = new Date('2025-06-03')
+    if (createdAt < cutoffDate) {
+      requiredPlanLevel = PLAN_LEVELS['pro']
+    }
+  }
+
+  return requiredPlanLevel
 }
 
 export function getStats(doc, timeDeltaOrRange) {

@@ -3,11 +3,15 @@ import { getURL, getNeededStripeProduct, stripePlan, checkPlanPermission } from 
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
-import { getInvitesFromTeam, getBots } from '@/lib/dbQueries'
+import { getInvitesFromTeam, getBots, getTeamSourceTypeIds } from '@/lib/dbQueries'
 import * as cookie from 'cookie'
 import { canUserManageBilling } from '@/utils/function.utils'
 import { canUserModifyTeam } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
+import {
+  getIncompatibleSourceTypesForPlan,
+  isPlanCompatibleWithSourceTypes,
+} from '@/utils/sourceTypePlanChecks'
 
 const ANNUAL_SALE_COUPONS = {
   production: {
@@ -30,6 +34,22 @@ const getAnnualSaleCoupon = (tier) => {
 
 const resolvePriceId = (plans, tier, frequency) => {
   return plans?.[tier]?.prices?.current?.[frequency] || null
+}
+
+const filterNeededProductsByPlanIds = (neededProducts, plans, allowedPlanIds = []) => {
+  if (!Array.isArray(neededProducts) || neededProducts.length === 0) {
+    return neededProducts
+  }
+  const allowedSet = new Set(allowedPlanIds)
+  return neededProducts.filter((priceList) => {
+    if (!Array.isArray(priceList) || priceList.length === 0) return false
+    const planId = Object.entries(plans || {}).find(([, plan]) => {
+      const planPrices = Object.values(plan?.prices?.current || {})
+      if (planPrices.length === 0) return false
+      return planPrices.every((price) => priceList.includes(price))
+    })?.[0]
+    return planId ? allowedSet.has(planId) : false
+  })
 }
 
 export default async function createCheckoutSession(req, res) {
@@ -148,6 +168,23 @@ export default async function createCheckoutSession(req, res) {
           }
         }
 
+        const teamSourceTypeIds = await getTeamSourceTypeIds(team.id)
+        if (teamSourceTypeIds.length > 0) {
+          const incompatibleSources = getIncompatibleSourceTypesForPlan({
+            team,
+            targetPlanId: tier,
+            usedSourceTypeIds: teamSourceTypeIds,
+          })
+          if (incompatibleSources.length > 0) {
+            const incompatibleList = incompatibleSources
+              .map((source) => source.title)
+              .join(', ')
+            throw Error(
+              `This plan doesn't support these source types: ${incompatibleList}. Remove/disable them or choose a higher plan.`,
+            )
+          }
+        }
+
         const params = {
           success_url: `${getURL()}/app/account?session_id={CHECKOUT_SESSION_ID}`,
           cancel_url: `${getURL()}/app/account`,
@@ -237,7 +274,32 @@ export default async function createCheckoutSession(req, res) {
         })
 
         const teamInvites = await getInvitesFromTeam(team.id)
+        const allPlans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
         let neededProducts = getNeededStripeProduct(team, teamInvites)
+        const teamSourceTypeIds = await getTeamSourceTypeIds(team.id)
+        if (teamSourceTypeIds.length > 0) {
+          const allowedPlanIds = Object.keys(allPlans).filter((planId) =>
+            isPlanCompatibleWithSourceTypes({
+              team,
+              targetPlanId: planId,
+              usedSourceTypeIds: teamSourceTypeIds,
+            }),
+          )
+          const fallbackPlanId = stripePlan(team)?.id
+          const effectiveAllowedPlanIds =
+            allowedPlanIds.length > 0
+              ? allowedPlanIds
+              : fallbackPlanId
+                ? [fallbackPlanId]
+                : []
+          if (effectiveAllowedPlanIds.length > 0) {
+            neededProducts = filterNeededProductsByPlanIds(
+              neededProducts,
+              allPlans,
+              effectiveAllowedPlanIds,
+            )
+          }
+        }
 
         // Check if team is on Business plan and has per bot roles - prevent downgrading
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
@@ -299,6 +361,22 @@ export default async function createCheckoutSession(req, res) {
             const allPrices = neededProducts.flat()
             if (!allPrices.includes(targetPriceId)) {
               throw Error('Your current usage exceeds the limits of your current and selected plan. Please select a higher tier plan to upgrade to.')
+            }
+          }
+
+          if (teamSourceTypeIds.length > 0) {
+            const incompatibleSources = getIncompatibleSourceTypesForPlan({
+              team,
+              targetPlanId: tier,
+              usedSourceTypeIds: teamSourceTypeIds,
+            })
+            if (incompatibleSources.length > 0) {
+              const incompatibleList = incompatibleSources
+                .map((source) => source.title)
+                .join(', ')
+              throw Error(
+                `This plan doesn't support these source types: ${incompatibleList}. Remove/disable them or choose a higher plan.`,
+              )
             }
           }
           

@@ -22,7 +22,7 @@ import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
-import { getBots, getInvitesFromTeam } from '@/lib/dbQueries'
+import { getBots, getInvitesFromTeam, getTeamSourceTypeIds } from '@/lib/dbQueries'
 import { getUserRole, canUserManageBilling } from '@/utils/function.utils'
 import ModalPasswordReset from '@/components/ModalPasswordReset'
 import Tooltip from '@/components/Tooltip'
@@ -74,7 +74,15 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   ) : cardContent
 }
 
-function Account({ team, bots, checkout, teamInvites = [], role, canManageBilling }) {
+function Account({
+  team,
+  bots,
+  checkout,
+  teamInvites = [],
+  teamSourceTypes = [],
+  role,
+  canManageBilling,
+}) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
@@ -191,7 +199,12 @@ function Account({ team, bots, checkout, teamInvites = [], role, canManageBillin
 
       {canManageBilling && (
         <div className="mt-6 rounded-lg bg-white p-8 shadow">
-          <Checkout team={team} bots={bots} teamInvites={teamInvites} />
+          <Checkout
+            team={team}
+            bots={bots}
+            teamInvites={teamInvites}
+            teamSourceTypes={teamSourceTypes}
+          />
           <Cancel team={team} bots={bots} />
         </div>
       )}
@@ -351,6 +364,7 @@ export const getServerSideProps = async (context) => {
       data.props.userId,
     )
     data.props.bots = await getBots(data.props.team)
+    data.props.teamSourceTypes = await getTeamSourceTypeIds(data.props.team.id)
 
     // Fetch team invites for member count calculation
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
