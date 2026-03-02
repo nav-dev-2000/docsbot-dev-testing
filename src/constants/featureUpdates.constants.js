@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-01',
+    title: 'New vector database for training data',
+    description:
+      'Migrated training data to a new vector database for lower latency, faster responses, more accurate search, and US/EU data residency choice.',
+  },
+  {
     date: '2026-02-12',
     title: 'Zapier integration update',
     description:
