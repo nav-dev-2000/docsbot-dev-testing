@@ -15,7 +15,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import FieldToggle from '@/components/FieldToggle'
 
-const BotSearch = ({ team, bot, setErrorText }) => {
+const BotSearch = ({ team, bot, setErrorText, fullWidth = false }) => {
   const [searchInput, setSearchInput] = useState('')
   const [searchSize] = useState(16)
   const [searchData, setSearchData] = useState([])
@@ -93,7 +93,7 @@ const BotSearch = ({ team, bot, setErrorText }) => {
     <div
       className={clsx(
         'grid grid-cols-1 gap-4',
-        selectedCardData ? 'lg:grid-cols-2' : 'mx-auto max-w-4xl',
+        selectedCardData ? 'lg:grid-cols-2' : fullWidth ? '' : 'mx-auto max-w-4xl',
       )}
     >
       <div className="w-full">

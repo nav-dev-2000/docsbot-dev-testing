@@ -46,6 +46,8 @@ import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalQA from '@/components/ModalQA'
 import { canUserEditBot } from '@/utils/function.utils'
+import Widget from '@new-dashboard/Widget'
+
 
 const streamdownRemarkPlugins = [
   ...Object.values(defaultRemarkPlugins),
@@ -100,7 +102,7 @@ const ChatRow = memo(({
     return (
       <>
         <div className="relative mt-4 max-w-fit rounded-md bg-teal-50 text-left shadow-sm sm:rounded-lg">
-          <div className="absolute -inset-7 flex h-28 w-12 items-center text-2xl font-extrabold tracking-tighter">
+          <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
             <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-2 shadow-lg">
               <UserCircleIcon
                 className="h-7 w-7 text-white"
@@ -108,7 +110,7 @@ const ChatRow = memo(({
               />
             </span>
           </div>
-          <div dir="auto" className="prose min-w-full p-4 px-6 text-start sm:px-8">
+          <div dir="auto" className="relative z-10 prose min-w-full p-4 px-6 text-start sm:px-8">
             {isMounted && answer.images && answer.images.length > 0 && (
               <div className="mb-2 flex flex-wrap gap-2">
                 {answer.images.map((imageUrl, index) => (
@@ -218,7 +220,7 @@ const ChatRow = memo(({
           dir="auto"
           className={clsx(
             answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-            'min-w-full p-6 text-start sm:px-8',
+            'relative z-10 min-w-full p-6 text-start sm:px-8',
           )}
         >
           {markdownContent ? (
@@ -231,11 +233,12 @@ const ChatRow = memo(({
           {answer.markdown && (
             <div
               className={clsx(
-                'flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
+                'relative z-10 flex items-end justify-between px-6 pb-4 pr-4 sm:justify-end sm:px-8 sm:pr-4',
+                !(answer.sources?.length > 0 && answer.sources.filter(s => !(s.used === false && !isContextBoost)).length > 0 && !hideSources) && !answer.options && '-mt-4',
               )}
             >
               {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && !hideSources && (
-                <div className="block text-left sm:hidden">
+                <div className="relative z-10 block text-left sm:hidden">
                   <div className="text-sm font-semibold text-gray-800">
                     {bot.labels.sources}
                   </div>
@@ -313,7 +316,7 @@ const ChatRow = memo(({
           )}
         </div>
         {answer.sources?.length > 0 && answer.sources.filter(source => !(source.used === false && !isContextBoost)).length > 0 && (
-          <div className="col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
+          <div className="relative z-10 col-span-4 mt-4 hidden overflow-y-scroll text-left sm:block">
             <div className="text-sm font-semibold text-gray-800">
               {bot.labels.sources}
             </div>
@@ -348,7 +351,7 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true }) => {
   if (!toolCalls || toolCalls.length === 0) return null
 
   return (
-    <div className="mb-2 flex flex-col text-left">
+    <div className="mb-0 flex flex-col text-left">
       {toolCalls.map((toolCall, idx) => {
         const name = toolCall.name || ''
         
@@ -522,8 +525,9 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
 })
 ReasoningItem.displayName = 'ReasoningItem'
 
-export default function Chat({ team, bot, showResearchMode = false }) {
-  const [question, setQuestion] = useState('')
+export default function Chat({ team, bot, showResearchMode = false, newDashboard = false }) {
+  const questionRef = useRef('')
+  const [formKey, setFormKey] = useState(0)
   const [answers, setAnswers] = useState([])
   const [currentAnswer, setCurrentAnswer] = useState('')
   const [currentSource, setCurrentSource] = useState(null)
@@ -612,13 +616,20 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedModel])
   
-  const [questions, setQuestions] = useState(
+  const [questions, setQuestions] = useState(() =>
     bot.questions
       ? bot.questions.length >= 4
-        ? grabQuestions(bot)
+        ? bot.questions.slice(0, 4)
         : bot.questions.slice(0, 2)
       : [],
   )
+  const lastRandomizedBotIdRef = useRef(null)
+  useEffect(() => {
+    if (!bot?.questions || bot.questions.length < 4 || lastRandomizedBotIdRef.current === bot?.id) return
+    lastRandomizedBotIdRef.current = bot?.id
+    const id = setTimeout(() => setQuestions(grabQuestions(bot)), 100)
+    return () => clearTimeout(id)
+  }, [bot?.id])
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
   const [hideSources, setHideSources] = useState(
@@ -769,20 +780,16 @@ export default function Chat({ team, bot, showResearchMode = false }) {
   }, [team, user, bot])
 
 
-  useEffect(() => {
+  const resizeTextarea = useCallback(() => {
     const textarea = textareaRef.current
-    if (textarea) {
-      textarea.style.height = 'auto'
-      textarea.style.height = textarea.scrollHeight + 'px'
-    }
-  }, [question, selectedImages])
+    if (!textarea) return
+    textarea.style.height = 'auto'
+    textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px'
+  }, [])
 
-  //clear error text when question changes
   useEffect(() => {
-    if (question) {
-      setErrorText(null)
-    }
-  }, [question])
+    resizeTextarea()
+  }, [selectedImages.length, formKey, resizeTextarea])
 
   // make api call to ask question
   const askQuestion = async (askedQuestion) => {
@@ -815,7 +822,6 @@ export default function Chat({ team, bot, showResearchMode = false }) {
         },
       ]
     })
-    setQuestion('')
     // Clear selected images after adding to message
     setSelectedImages([])
     setImageUrls([])
@@ -1416,18 +1422,17 @@ export default function Chat({ team, bot, showResearchMode = false }) {
           <Link
             href={source.url}
             target="_blank"
-            className="focus:outline-none"
+            rel="noopener noreferrer"
+            className="text-left text-sm font-medium text-cyan-600 hover:text-cyan-800 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-1"
           >
-            <p className="text-left">
-              {source.title}
-              {page}
-            </p>
+            {source.title}
+            {page}
           </Link>
         ) : (
-          <p className="text-left">
+          <span className="text-left text-sm text-gray-600">
             {source.title || source.url}
             {page}
-          </p>
+          </span>
         )}
       </li>
     )
@@ -1435,7 +1440,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
 
   // ChatRow is now defined outside of Chat for proper memoization
 
-  const ModelSelector = () => {
+  const ModelSelector = ({ align = 'left' }) => {
     const isDisabled =
       !team?.supportsGPT4 ||
       !team?.openAIKey ||
@@ -1491,7 +1496,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Listbox.Options className="absolute bottom-full left-0 z-10 mb-2 max-h-72 w-72 origin-bottom-right divide-y divide-gray-200 overflow-hidden overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+            <Listbox.Options className={clsx(
+              "absolute bottom-full z-10 mb-2 max-h-72 w-72 divide-y divide-gray-200 overflow-hidden overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none",
+              align === 'left' ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'
+            )}>
               {validModels.map((model) => (
                 <Listbox.Option
                   key={model.id}
@@ -1542,7 +1550,7 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     )
   }
 
-  const ReasoningSelector = () => {
+  const ReasoningSelector = ({ align = 'left' }) => {
     // Only show if model supports reasoning
     if (!isReasoningModel(selectedModel) || !reasoningEffort) {
       return null
@@ -1606,7 +1614,10 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Listbox.Options className="absolute bottom-full left-0 z-10 mb-2 max-h-72 w-72 origin-bottom-right divide-y divide-gray-200 overflow-hidden overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+            <Listbox.Options className={clsx(
+              "absolute bottom-full z-10 mb-2 max-h-72 w-72 divide-y divide-gray-200 overflow-hidden overflow-y-auto rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none",
+              align === 'left' ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'
+            )}>
               {reasoningOptions.map((option) => (
                 <Listbox.Option
                   key={option.value}
@@ -1729,26 +1740,121 @@ export default function Chat({ team, bot, showResearchMode = false }) {
     }
   }, [pendingUpgrade])
 
-  return (
-    <div className="relative flex justify-center py-4 h-[calc(100dvh-8rem)] overflow-hidden">
-      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
-      <div className="flex w-full flex-col px-10 text-center sm:max-w-3xl lg:max-w-7xl lg:px-12 h-full overflow-hidden">
-        <div className="shrink-0">
-          {bot.logo && !showResearchMode && (
-            <div className="flex items-center justify-center">
-              <img src={bot.logo} alt={bot.name} className="max-h-9 w-auto" />
+  const messages = useMemo(() => {
+    const msgs = []
+    answers.forEach((ans, idx) => {
+      if (ans.type === 'question') {
+        msgs.push({
+          id: `q-${idx}`,
+          role: 'user',
+          content: ans.question,
+          images: ans.images || [],
+        })
+      } else {
+        const isLast = idx === answers.length - 1
+        const content =
+          isLast && loading && !ans.markdown ? currentAnswer : ans.markdown
+
+        msgs.push({
+          id: ans.id || `a-${idx}`,
+          role: 'assistant',
+          content: content,
+          sources: ans.sources || [],
+          answerId: ans.id,
+          toolCalls: ans.agentEvents?.filter(e => e.type === 'tool_call') || [],
+        })
+      }
+    })
+    return msgs
+  }, [answers, currentAnswer, loading])
+
+  const standardMessagesUI = useMemo(() => {
+    // Render all completed messages (everything except the last one if it's streaming)
+    const completedMessages = answers.slice(0, 
+      loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' 
+        ? answers.length - 1 
+        : answers.length
+    )
+    const result = []
+    completedMessages.forEach((answer, index) => {
+      // Render agent events (reasoning and tool calls) in order before answer
+      if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
+        const agentEvents = []
+        answer.agentEvents.forEach((event, eventIndex) => {
+          const hasFollowingEvent = eventIndex < answer.agentEvents.length - 1
+          if (event.type === 'reasoning') {
+            agentEvents.push(
+              <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} />
+            )
+          } else if (event.type === 'tool_call') {
+            agentEvents.push(
+              <div key={`toolcall-${answer.id || index}-${eventIndex}`} className="mt-2">
+                <ToolCallDisplay toolCalls={[event]} isStreamingStarted={true} />
+              </div>
+            )
+          }
+        })
+        // Wrap all agent events in a container with extra top margin
+        if (agentEvents.length > 0) {
+          result.push(
+            <div key={`agent-events-${answer.id || index}`} className="mt-4">
+              {agentEvents}
             </div>
-          )}
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {bot.name}
-          </p>
-          <p className="mx-auto mt-5 max-w-prose text-xl text-gray-500">
-            {bot.description}
-          </p>
+          )
+        }
+      }
+      // Render the message (question or answer)
+      result.push(
+        <ChatRow
+          key={answer.id || `${answer.type}-${index}`}
+          answer={answer}
+          question={answers[index - 1]?.question}
+          currentAnswerText={undefined}
+          isStreaming={false}
+          team={team}
+          bot={bot}
+          isContextBoost={isContextBoost}
+          hideSources={hideSources}
+          canModify={canModify}
+          isCopied={isCopied}
+          copiedId={copiedId}
+          ratings={ratings}
+          handleCopyText={handleCopyText}
+          setRating={setRating}
+          askQuestion={askQuestion}
+          Source={Source}
+          SourceResearch={SourceResearch}
+        />
+      )
+    })
+    return result
+  // Note: Including UI state props so completed messages update on state changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])
+
+  return (
+    <div className={clsx("relative flex flex-col items-center overflow-hidden h-full gap-4")}>
+      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+
+      <Widget
+        size="md"
+        className={clsx(
+          'min-h-0 w-full flex-1',
+          'md:max-w-[60%]',
+        )}
+      >
+        <Widget.Header
+          {...(bot.logo ? { logo: bot.logo } : {})}
+          title={bot.name}
+          subtitle={bot.description}
+        />
+
+        <Widget.Body>
           <Alert 
             title="Welcome to your new AI Agent!" 
             type="info"
             dismissKey="agent-beta-welcome"
+            className="mt-0"
           >
             You are chatting using our new Agent functionality, which
             provides more intelligent and contextual responses, tool calling to
@@ -1757,159 +1863,111 @@ export default function Chat({ team, bot, showResearchMode = false }) {
             case, such as providing different instructions for when the agent
             should look up information from your docs.
           </Alert>
-        </div>
 
-        <FullSource />
+          <FullSource />
 
-        <div
-          ref={messagesScrollRef}
-          onScroll={updateShouldAutoScroll}
-          className="mt-4 flex-1 min-h-0 overflow-y-auto pb-4 px-8"
-        >
-          {useMemo(() => {
-            // Render all completed messages (everything except the last one if it's streaming)
-            const completedMessages = answers.slice(0, 
-              loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' 
-                ? answers.length - 1 
-                : answers.length
-            )
-            const result = []
-            completedMessages.forEach((answer, index) => {
-              // Render agent events (reasoning and tool calls) in order before answer
-              if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
-                const agentEvents = []
-                answer.agentEvents.forEach((event, eventIndex) => {
-                  const hasFollowingEvent = eventIndex < answer.agentEvents.length - 1
+          <div
+            ref={messagesScrollRef}
+            onScroll={updateShouldAutoScroll}
+            className="flex-1 px-10"
+          >
+            {standardMessagesUI}
+            {/* Render agent events (reasoning and tool calls) while loading, in order */}
+            {loading && agentEvents.length > 0 && (
+              <div className="mt-4">
+                {agentEvents.map((event, eventIndex) => {
+                  const hasFollowingEvent = eventIndex < agentEvents.length - 1
+                  const isAnswerStreaming = currentAnswer.length > 0
                   if (event.type === 'reasoning') {
-                    agentEvents.push(
-                      <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} />
+                    return (
+                      <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
                     )
                   } else if (event.type === 'tool_call') {
-                    agentEvents.push(
-                      <div key={`toolcall-${answer.id || index}-${eventIndex}`} className="mt-2">
-                        <ToolCallDisplay toolCalls={[event]} isStreamingStarted={true} />
+                    return (
+                      <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
+                        <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
                       </div>
                     )
                   }
-                })
-                // Wrap all agent events in a container with extra top margin
-                if (agentEvents.length > 0) {
-                  result.push(
-                    <div key={`agent-events-${answer.id || index}`} className="mt-4">
-                      {agentEvents}
-                    </div>
-                  )
-                }
-              }
-              // Render the message (question or answer)
-              result.push(
-                <ChatRow
-                  key={answer.id || `${answer.type}-${index}`}
-                  answer={answer}
-                  question={answers[index - 1]?.question}
-                  currentAnswerText={undefined}
-                  isStreaming={false}
-                  team={team}
-                  bot={bot}
-                  isContextBoost={isContextBoost}
-                  hideSources={hideSources}
-                  canModify={canModify}
-                  isCopied={isCopied}
-                  copiedId={copiedId}
-                  ratings={ratings}
-                  handleCopyText={handleCopyText}
-                  setRating={setRating}
-                  askQuestion={askQuestion}
-                  Source={Source}
-                  SourceResearch={SourceResearch}
-                />
-              )
-            })
-            return result
-          // Note: Including UI state props so completed messages update on state changes
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])}
-          {/* Render agent events (reasoning and tool calls) while loading, in order */}
-          {loading && agentEvents.length > 0 && (
-            <div className="mt-4">
-              {agentEvents.map((event, eventIndex) => {
-                const hasFollowingEvent = eventIndex < agentEvents.length - 1
-                const isAnswerStreaming = currentAnswer.length > 0
-                if (event.type === 'reasoning') {
-                  return (
-                    <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
-                  )
-                } else if (event.type === 'tool_call') {
-                  return (
-                    <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
-                      <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
-                    </div>
-                  )
-                }
-                return null
-              })}
-            </div>
-          )}
-          {/* Render streaming message separately so only it updates */}
-          {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
-            <ChatRow
-              key="streaming-answer"
-              answer={answers[answers.length - 1]}
-              question={answers[answers.length - 2]?.question}
-              currentAnswerText={currentAnswer}
-              isStreaming={true}
-              team={team}
-              bot={bot}
-              isContextBoost={isContextBoost}
-              hideSources={hideSources}
-              canModify={canModify}
-              isCopied={isCopied}
-              copiedId={copiedId}
-              ratings={ratings}
-              handleCopyText={handleCopyText}
-              setRating={setRating}
-              askQuestion={askQuestion}
-              Source={Source}
-              SourceResearch={SourceResearch}
-            />
-          )}
+                  return null
+                })}
 
-          <Alert title={errorText} type="warning" />
+              </div>
+            )}
+            {/* Render streaming message separately so only it updates */}
+            {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
+              <ChatRow
+                key="streaming-answer"
+                answer={answers[answers.length - 1]}
+                question={answers[answers.length - 2]?.question}
+                currentAnswerText={currentAnswer}
+                isStreaming={true}
+                team={team}
+                bot={bot}
+                isContextBoost={isContextBoost}
+                hideSources={hideSources}
+                canModify={canModify}
+                isCopied={isCopied}
+                copiedId={copiedId}
+                ratings={ratings}
+                handleCopyText={handleCopyText}
+                setRating={setRating}
+                askQuestion={askQuestion}
+                Source={Source}
+                SourceResearch={SourceResearch}
+              />
+            )}
 
-          {showQuestion && (
-            <div className="mx-auto mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
-              {questions &&
-                questions.length > 0 &&
-                questions.map((recommendedQuestion) => (
-                  <button
-                    type="button"
-                    className="flex w-full items-center rounded-lg border border-gray-300 p-3 text-cyan-700 hover:bg-white hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50"
-                    onClick={() => {
-                      setQuestion(recommendedQuestion)
-                      askQuestion(recommendedQuestion)
-                    }}
-                    key={recommendedQuestion}
-                  >
-                    <LightBulbIcon
-                      className="mr-1 h-4 w-4 text-cyan-700"
-                      aria-hidden="true"
-                    />
-                    <p className="text-left text-xs">{recommendedQuestion}</p>
-                  </button>
-                ))}
-            </div>
-          )}
+            <Alert title={errorText} type="warning" />
 
-          <div ref={messagesEndRef} />
-        </div>
+            {showQuestion && (
+              <div className="mx-auto mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+                {questions &&
+                  questions.length > 0 &&
+                  questions.map((recommendedQuestion) => (
+                    <button
+                      type="button"
+                      className="flex w-full items-center rounded-lg border border-gray-300 p-3 text-cyan-700 hover:bg-white hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50"
+                      onClick={() => {
+                        setFormKey((k) => k + 1)
+                        questionRef.current = ''
+                        askQuestion(recommendedQuestion)
+                      }}
+                      key={recommendedQuestion}
+                    >
+                      <LightBulbIcon
+                        className="mr-1 h-4 w-4 text-cyan-700"
+                        aria-hidden="true"
+                      />
+                      <p className="text-left text-xs">{recommendedQuestion}</p>
+                    </button>
+                  ))}
+              </div>
+            )}
 
-        <div className="shrink-0 bg-white/80 backdrop-blur pt-2">
+            <div ref={messagesEndRef} />
+          </div>
+        </Widget.Body>
+
+        <Widget.Footer
+          isDemo={false}
+          branding={false}
+        >
           <form
             className="mt-2 flex flex-col justify-center"
+            translate="no"
             onSubmit={(e) => {
               e.preventDefault()
               if (!loading) {
-                askQuestion(question)
+                const value = questionRef.current || textareaRef.current?.value || ''
+                if (value.trim().length >= 2) {
+                  setErrorText(null)
+                  setFormKey((k) => k + 1)
+                  questionRef.current = ''
+                  askQuestion(value.trim())
+                } else {
+                  setErrorText('Please enter a full question.')
+                }
               }
             }}
             disabled={loading}
@@ -2014,15 +2072,20 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                   </div>
                 )}
                 <textarea
+                  key={formKey}
                   ref={textareaRef}
                   name="query"
                   id="query"
-                  value={question}
+                  defaultValue=""
                   maxLength={2000}
                   minLength={2}
                   required
                   rows={1}
-                  onChange={(e) => setQuestion(e.target.value)}
+                  onChange={(e) => {
+                    questionRef.current = e.target.value
+                    resizeTextarea()
+                  }}
+                  onFocus={() => setErrorText(null)}
                   onKeyDown={(e) => {
                     //this detects if the user is typing in a IME session (ie Kanji autocomplete) to avoid premature submission
                     if (e.isComposing || e.keyCode === 229) {
@@ -2031,16 +2094,33 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                     if (e.key === 'Enter') {
                       e.preventDefault()
                       if (e.shiftKey) {
-                        setQuestion((prevQuestion) => `${prevQuestion}\n`)
+                        const ta = textareaRef.current
+                        if (ta) {
+                          const start = ta.selectionStart
+                          const end = ta.selectionEnd
+                          const val = ta.value
+                          ta.value = val.slice(0, start) + '\n' + val.slice(end)
+                          questionRef.current = ta.value
+                          ta.selectionStart = ta.selectionEnd = start + 1
+                          resizeTextarea()
+                        }
                       } else if (!e.shiftKey && !loading) {
-                        askQuestion(question)
+                        const value = questionRef.current || textareaRef.current?.value || ''
+                        if (value.trim().length >= 2) {
+                          setErrorText(null)
+                          setFormKey((k) => k + 1)
+                          questionRef.current = ''
+                          askQuestion(value.trim())
+                        } else {
+                          setErrorText('Please enter a full question.')
+                        }
                       }
                     }
                   }}
                   tabIndex={1}
                   autoComplete="off"
                   className={clsx(
-                    'text-md block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 outline-none focus:border-none focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 sm:px-4',
+                    'text-md block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 outline-none ring-0 focus:ring-0 focus:border-cyan-600 disabled:opacity-50 sm:px-4',
                     selectedImages.length > 0 ? 'pt-24' : 'pt-3',
                   )}
                   placeholder={bot.labels.inputPlaceholder}
@@ -2071,43 +2151,44 @@ export default function Chat({ team, bot, showResearchMode = false }) {
                 </button>
               </div>
             </div>
-
-            <div className="flex items-start justify-between">
-              {isContextBoost && showResearchMode ? (
-                <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
-                  Note: Enabling Context Boost passes more source context in
-                  order to answer detailed questions at the expense of more
-                  token usage.
-                </p>
-              ) : (
-                <span />
-              )}
-              <div className="flex items-center justify-center text-xs text-gray-500">
-                <span>Use Shift + Enter to skip to a new line.</span>
-                {!showQuestion && (
-                  <button
-                    type="button"
-                    className="ml-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
-                    onClick={() => {
-                      setAnswers([])
-                      setShowQuestion(true)
-                      setQuestion('')
-                      setErrorText(null)
-                      setConversationId(uuidv4())
-                      setAgentEvents([])
-                      agentEventsRef.current = []
-                    }}
-                  >
-                    <ArrowPathIcon
-                      className="mr-0.5 h-3 w-3"
-                      aria-hidden="true"
-                    />
-                    Reset
-                  </button>
-                )}
-              </div>
-            </div>
           </form>
+        </Widget.Footer>
+      </Widget>
+
+      <div className="flex items-start justify-between w-full max-w-[60%]">
+        {isContextBoost && showResearchMode ? (
+          <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
+            Note: Enabling Context Boost passes more source context in
+            order to answer detailed questions at the expense of more
+            token usage.
+          </p>
+        ) : (
+          <span />
+        )}
+        <div className="flex items-center justify-center text-xs text-gray-500">
+          <span>Use Shift + Enter to skip to a new line.</span>
+          {!showQuestion && (
+            <button
+              type="button"
+              className="ml-1 flex items-center text-gray-600 hover:text-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2"
+              onClick={() => {
+                setAnswers([])
+                setShowQuestion(true)
+                setFormKey((k) => k + 1)
+                questionRef.current = ''
+                setErrorText(null)
+                setConversationId(uuidv4())
+                setAgentEvents([])
+                agentEventsRef.current = []
+              }}
+            >
+              <ArrowPathIcon
+                className="mr-0.5 h-3 w-3"
+                aria-hidden="true"
+              />
+              Reset
+            </button>
+          )}
         </div>
       </div>
       

@@ -48,7 +48,7 @@ const isAlertDismissed = (dismissKey) => {
   return prefs[`dismissed-${dismissKey}`] === true
 }
 
-export default function Alert({ title, type, children, onClose = noop, dismissKey }) {
+export default function Alert({ title, type, children, onClose = noop, dismissKey, className }) {
   const [show, setShow] = useState(true)
   const alertRef = useRef(null);
 
@@ -108,7 +108,8 @@ export default function Alert({ title, type, children, onClose = noop, dismissKe
           'bg-yellow-50': type === 'warning', 
           'bg-green-50': type === 'success',
           'bg-blue-50': type !== 'error' && type !== 'warning' && type !== 'success'
-        }
+        },
+        className,
       )}
       ref={alertRef}
     >

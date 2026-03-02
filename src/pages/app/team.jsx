@@ -184,8 +184,8 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
     <div class="text-left text-xs leading-5">
       <div><strong>Team roles</strong></div>
       <div>Admin: manage team, billing, and all bots.</div>
-      <div>Editor: Viewer plus edit sources and instructions.</div>
-      <div>Viewer: view bot content, logs, and reports.</div>
+      <div>Editor: edit instructions, sources, search; view chat, research, leads, analytics; export logs. No widget, deploy, or webhooks.</div>
+      <div>Viewer: view bot content, logs, and reports only.</div>
       <div>None: no access unless a bot role is assigned.</div>
     </div>
   `
@@ -193,9 +193,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
     <div class="text-left text-xs leading-5">
       <div><strong>Bot roles</strong></div>
       <div>Default: inherit the team role.</div>
-      <div>Admin: manage settings, integrations, and exports.</div>
-      <div>Editor: Viewer plus edit sources and instructions.</div>
-      <div>Viewer: view bot content, logs, and reports.</div>
+      <div>Admin: full access including widget, deploy, webhooks, system settings, glossary, starters, and exports.</div>
+      <div>Editor: edit instructions, sources, search; view chat, research, leads, analytics; export logs. No widget, deploy, or webhooks.</div>
+      <div>Viewer: view bot content, logs, and reports only.</div>
       <div>None: no access to this bot.</div>
     </div>
   `

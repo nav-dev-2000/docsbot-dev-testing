@@ -1,15 +1,15 @@
-import { useEffect, useState, useCallback } from 'react'
-import { XMarkIcon } from '@heroicons/react/20/solid'
+import { useEffect, useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
-import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import { i18n } from '@/constants/strings.constants'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import FieldToggle from '@/components/FieldToggle'
+import RadioField from '@/components/RadioField'
 import Tooltip from '@/components/Tooltip'
 import PresetPromptSelect from '@/components/PresetPromptSelect'
 import Glossary from '@/components/Glossary'
+import ModelSelector from '@/components/ModelSelector'
 import SuggestedQuestions from '@/components/SuggestedQuestions'
 
 export default function FormBot({
@@ -24,9 +24,7 @@ export default function FormBot({
   const [botName, setBotName] = useState(bot?.name || '')
   const [botDescription, setBotDescription] = useState(bot?.description || '')
   const [privacy, setPrivacy] = useState(bot?.privacy || 'public')
-  const [model, setModel] = useState(
-    bot?.model || defaultModel
-  )
+  const [model, setModel] = useState(bot?.model || defaultModel)
   const [questions, setQuestions] = useState(bot?.questions || [])
   const [glossary, setGlossary] = useState(bot?.glossary || [])
   const [rateLimitMessages, setRateLimitMessages] = useState(
@@ -49,27 +47,6 @@ export default function FormBot({
   const [temperature, setTemperature] = useState(bot?.temperature || 0)
   const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
   const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
-
-  // Define which models should be shown based on conditions
-  const modelVisibility = {
-    'gpt-5.2': true,
-    'gpt-5.1': true,
-    'gpt-5':
-      model === 'gpt-5',
-    'gpt-4.1': !short,
-    'gpt-5-mini': true,
-    'gpt-4.1-mini': true,
-    'gpt-5-nano':
-      (checkPlanPermission(team, 'personal').allowed && !short) || model === 'gpt-5-nano',
-    'gpt-4.1-nano': !short,
-    'gpt-4.5-preview': model === 'gpt-4.5-preview',
-    'gpt-4o': !short,
-    'gpt-4o-mini': model === 'gpt-4o-mini',
-    'gpt-4-turbo': model === 'gpt-4-turbo',
-    'gpt-4': model === 'gpt-4',
-    'gpt-3.5-turbo': model === 'gpt-3.5-turbo',
-    'gpt-3.5-turbo-0613': model === 'gpt-3.5-turbo-0613',
-  }
 
   useEffect(() => {
     setBotSettings({
@@ -109,7 +86,7 @@ export default function FormBot({
   const handleAgentPromptChange = (value) => {
     // Don't allow HELPSCOUT preset for agent prompts
     if (value === 'HELPSCOUT') return
-    
+
     setAgentRole(value)
     setAgentPrompt(
       (PRESET_PROMPTS[value]?.prompt || '')
@@ -150,10 +127,18 @@ export default function FormBot({
     // For users on the personal plan:
     // - They should be able to select gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini without any issues
     // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
-    if (!checkPlanPermission(team, 'personal').allowed) { //free or hobby plan
+    if (!checkPlanPermission(team, 'personal').allowed) {
+      //free or hobby plan
       // For non-personal plans, keep existing behavior
       if (
-        ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-5-nano', 'gpt-4.1', 'gpt-4o'].includes(model)
+        [
+          'gpt-5.2',
+          'gpt-5.1',
+          'gpt-5',
+          'gpt-5-nano',
+          'gpt-4.1',
+          'gpt-4o',
+        ].includes(model)
       ) {
         setShowUpgrade(true)
         setModel('gpt-4.1-mini')
@@ -168,7 +153,9 @@ export default function FormBot({
         !team.supportsGPT4
       ) {
         setModel('gpt-5-mini') // Default to gpt-5-mini since they're on paid plan
-        console.log('Reverting to gpt-5-mini for paid plan user without OpenAI key')
+        console.log(
+          'Reverting to gpt-5-mini for paid plan user without OpenAI key',
+        )
       }
       // If they're selecting gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, don't change anything
     }
@@ -198,35 +185,6 @@ export default function FormBot({
     })
   }
 
-  const updateGlossary = (index, newGlossary) => {
-    setGlossary((glossary) => {
-      const newGlossaries = [...glossary]
-      newGlossaries[index] = newGlossary
-      console.log(newGlossaries)
-      return newGlossaries
-    })
-  }
-
-  const removeGlossary = (index) => {
-    setGlossary((glossary) => {
-      const newGlossaries = [...glossary]
-      newGlossaries.splice(index, 1)
-      return newGlossaries
-    })
-  }
-
-  const addGlossary = () => {
-    if (checkPlanPermission(team, 'pro', 'glossary').allowed) {
-      setGlossary((glossary) => {
-        const newGlossaries = [...glossary]
-        newGlossaries.push({ word: '', translation: '' })
-        return newGlossaries
-      })
-    } else {
-      setShowUpgrade(true)
-    }
-  }
-
   useEffect(() => {
     //check for valid IPv4 and IPv6 addresses
     const ipArray = rateLimitIPField
@@ -243,118 +201,6 @@ export default function FormBot({
       })
     setRateLimitIPAllowlist(ipArray)
   }, [rateLimitIPField])
-
-  const QuestionPrompt = ({ index }) => {
-    const [question, setQuestion] = useState(questions[index])
-
-    return (
-      <div className="flex items-start pt-2">
-        <div className="w-full text-sm">
-          <input
-            type="text"
-            value={question}
-            autoComplete="off"
-            onChange={(e) => setQuestion(e.target.value)}
-            onBlur={(e) => {
-              updateQuestion(index, e.target.value)
-            }}
-            placeholder={`What is ${bot.name}?`}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
-          />
-        </div>
-        <div className="m-auto flex items-center text-center">
-          <button
-            type="button"
-            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            onClick={() => removeQuestion(index)}
-          >
-            <span className="sr-only">Remove question: {question}</span>
-            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  const GlossaryEntry = ({ index }) => {
-    const [word, setWord] = useState(glossary[index].word)
-    const [translation, setTranslation] = useState(glossary[index].translation)
-    const [isDirty, setIsDirty] = useState(false)
-
-    // Sync with parent state changes
-    useEffect(() => {
-      if (!isDirty) {
-        setWord(glossary[index].word)
-        setTranslation(glossary[index].translation)
-      }
-    }, [glossary[index], isDirty])
-
-    // Update parent state when component loses focus entirely
-    const handleFocusOut = useCallback(() => {
-      if (isDirty) {
-        updateGlossary(index, { word, translation })
-        setIsDirty(false)
-      }
-    }, [index, word, translation, isDirty])
-
-    const isDisabled =
-      disabled || !checkPlanPermission(team, 'pro', 'glossary').allowed
-
-    return (
-      <div
-        className="flex items-start pt-2"
-        onBlur={(e) => {
-          // Only update parent if focus is leaving this component entirely
-          // Check if the relatedTarget (where focus is going) is not a child of this component
-          if (!e.currentTarget.contains(e.relatedTarget)) {
-            handleFocusOut()
-          }
-        }}
-      >
-        <div className="grid w-full grid-cols-2 gap-2 text-sm">
-          <div>
-            <input
-              type="text"
-              value={word}
-              autoComplete="off"
-              onChange={(e) => {
-                setWord(e.target.value)
-                setIsDirty(true)
-              }}
-              placeholder={`Word`}
-              disabled={isDisabled}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              value={translation}
-              autoComplete="off"
-              onChange={(e) => {
-                setTranslation(e.target.value)
-                setIsDirty(true)
-              }}
-              placeholder={`Equivalent in sources`}
-              disabled={isDisabled}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
-            />
-          </div>
-        </div>
-        <div className="m-auto flex items-center text-center">
-          <button
-            type="button"
-            className="ml-1 flex h-5 w-5 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-            onClick={() => removeGlossary(index)}
-            disabled={disabled}
-          >
-            <span className="sr-only">Remove Glossary entry: {word}</span>
-            <XMarkIcon className="h-5 w-5 text-gray-700" aria-hidden="true" />
-          </button>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <>
@@ -423,525 +269,48 @@ export default function FormBot({
       <fieldset>
         <legend className="text-sm font-medium text-gray-900">Privacy</legend>
         <div className="mt-2 space-y-2">
-          <div className="relative flex items-start">
-            <div className="absolute flex h-5 items-center">
-              <input
-                id="privacy-public"
-                name="privacy"
-                value="public"
-                aria-describedby="privacy-public-description"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                checked={privacy === 'public'}
-                onChange={() => setPrivacy('public')}
-                disabled={disabled}
-              />
-            </div>
-            <div className="pl-7 text-sm">
-              <label
-                htmlFor="privacy-public"
-                className="font-medium text-gray-900"
-              >
-                Public access
-              </label>
-              <p id="privacy-public-description" className="text-gray-500">
-                Allows for embedding on the frontend of websites.
-              </p>
-            </div>
-          </div>
-          <div>
-            <div className="relative flex items-start">
-              <div className="absolute flex h-5 items-center">
-                <input
-                  id="privacy-private"
-                  name="privacy"
-                  value="private"
-                  aria-describedby="privacy-private-to-project-description"
-                  type="radio"
-                  className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                  checked={privacy === 'private'}
-                  onChange={() => setPrivacy('private')}
-                  disabled={disabled}
-                />
-              </div>
-              <div className="pl-7 text-sm">
-                <label
-                  htmlFor="privacy-private"
-                  className="font-medium text-gray-900"
-                >
-                  Private
-                  {!checkPlanPermission(team, 'hobby').allowed && (
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                      Paid
-                    </span>
-                  )}
-                </label>
-                <p id="privacy-private-description" className="text-gray-500">
-                  Authenticated API access only. Good for internal company
-                  content.
-                </p>
-              </div>
-            </div>
-          </div>
+          <RadioField
+            id="privacy-public"
+            name="privacy"
+            value="public"
+            checked={privacy === 'public'}
+            onChange={() => setPrivacy('public')}
+            disabled={disabled}
+            descriptionId="privacy-public-description"
+            label="Public access"
+            description="Allows for embedding on the frontend of websites."
+          />
+          <RadioField
+            id="privacy-private"
+            name="privacy"
+            value="private"
+            checked={privacy === 'private'}
+            onChange={() => setPrivacy('private')}
+            disabled={disabled}
+            ariaDescribedBy="privacy-private-to-project-description"
+            descriptionId="privacy-private-description"
+            label={
+              <>
+                Private
+                {!checkPlanPermission(team, 'hobby').allowed && (
+                  <span className="ml-4 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    Paid
+                  </span>
+                )}
+              </>
+            }
+            description="Authenticated API access only. Good for internal company content."
+          />
         </div>
       </fieldset>
 
-        <fieldset>
-          <legend className="text-sm font-medium text-gray-900">
-            OpenAI Model
-          </legend>
-          <div className="mt-2 space-y-2">
-            {/* Render models based on visibility rules */}
-            {modelVisibility['gpt-5.2'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-5-2"
-                    name="model"
-                    value="gpt-5.2"
-                    aria-describedby="gpt-5-2-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-5.2'}
-                    onChange={() => setModel('gpt-5.2')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-5-2" className="font-medium text-gray-900">
-                    GPT-5.2 - Most Powerful
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                      Recommended
-                    </span>
-                  </label>
-                  <p id="gpt-5-2-description" className="text-gray-500">
-                    Latest flagship tuned for long-context work, stronger tool use, and adaptive reasoning.{' '}
-                    <span className="font-bold text-xs">
-                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                    </span>
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-5.1'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-5-1"
-                    name="model"
-                    value="gpt-5.1"
-                    aria-describedby="gpt-5-1-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-5.1'}
-                    onChange={() => setModel('gpt-5.1')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-5-1" className="font-medium text-gray-900">
-                    GPT-5.1 - Adaptive Flagship
-                  </label>
-                  <p id="gpt-5-1-description" className="text-gray-500">
-                    Previous flagship with adaptive reasoning and fast responses for complex tasks.{' '}
-                    <span className="font-bold text-xs">
-                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                    </span>
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-5'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-5"
-                    name="model"
-                    value="gpt-5"
-                    aria-describedby="gpt-5-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-5'}
-                    onChange={() => setModel('gpt-5')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-5" className="font-medium text-gray-900">
-                    GPT-5 - Powerful General-Purpose Model
-                  </label>
-                  <p id="gpt-5-description" className="text-gray-500">
-                    Smartest, fastest, most useful model yet, with thinking built in
-                    — so you get the best answer, every time.{' '}
-                    <span className="font-bold text-xs">
-                      Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                    </span>
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4.1'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4.1"
-                    name="model"
-                    value="gpt-4.1"
-                    aria-describedby="gpt-4.1-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4.1'}
-                    onChange={() => setModel('gpt-4.1')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4.1"
-                    className="font-medium text-gray-900"
-                  >
-                    GPT-4.1
-                  </label>
-                  <p id="gpt-4.1-description" className="text-gray-500">
-                    Previous generation model good at instruction following.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-5-mini'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-5-mini"
-                    name="model"
-                    value="gpt-5-mini"
-                    aria-describedby="gpt-5-mini-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-5-mini'}
-                    onChange={() => setModel('gpt-5-mini')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-5-mini" className="font-medium text-gray-900">
-                    GPT-5 mini - Best Value
-                    <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                      Recommended
-                    </span>
-                  </label>
-                  <p id="gpt-5-mini-description" className="text-gray-500">
-                    Smart, fast, and useful model. Good for most support use cases.{' '}
-                    {team.supportsGPT4 && (
-                      <span className="font-bold text-xs">
-                        Requires <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">organization verification</Link>.
-                      </span>
-                    )}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4.1-mini'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4.1-mini"
-                    name="model"
-                    value="gpt-4.1-mini"
-                    aria-describedby="gpt-4.1-mini-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4.1-mini'}
-                    onChange={() => setModel('gpt-4.1-mini')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4.1-mini"
-                    className="font-medium text-gray-900"
-                  >
-                    GPT-4.1 mini
-                  </label>
-                  <p id="gpt-4.1-mini-description" className="text-gray-500">
-                    Faster than GPT-4.1 while still good at instruction following.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-5-nano'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-5-nano"
-                    name="model"
-                    value="gpt-5-nano"
-                    aria-describedby="gpt-5-nano-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-5-nano'}
-                    onChange={() => setModel('gpt-5-nano')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-5-nano" className="font-medium text-gray-600">
-                    GPT-5 nano - Fast & Cost Effective
-                  </label>
-                  <p id="gpt-5-nano-description" className="text-gray-500">
-                    Included in all plans. Affordable & extremely fast model.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4.1-nano'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4.1-nano"
-                    name="model"
-                    value="gpt-4.1-nano"
-                    aria-describedby="gpt-4.1-nano-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4.1-nano'}
-                    onChange={() => setModel('gpt-4.1-nano')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4.1-nano"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT-4.1 nano
-                  </label>
-                  <p id="gpt-4.1-nano-description" className="text-gray-500">
-                    Previous generation model. We recommend upgrading to at least GPT-4.1 mini.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4.5-preview'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4.5-preview"
-                    name="model"
-                    value="gpt-4.5-preview"
-                    aria-describedby="gpt-4.5-preview-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4.5-preview'}
-                    onChange={() => setModel('gpt-4.5-preview')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4.5-preview"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT-4.5 - Not Recommended
-                    <span className="ml-4 inline-flex items-center rounded-full bg-orange-600 px-2.5 py-0.5 text-xs font-medium text-white">
-                      Retiring June 2025
-                    </span>
-                  </label>
-                  <p id="gpt-4.5-preview-description" className="text-gray-500">
-                    Very slow, expensive ($0.27/question), and low rate limits.
-                    Not recommended for most use cases.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4o'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4o"
-                    name="model"
-                    value="gpt-4o"
-                    aria-describedby="gpt-4o-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4o'}
-                    onChange={() => setModel('gpt-4o')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-4o" className="font-medium text-gray-600">
-                    GPT-4o
-                  </label>
-                  <p id="gpt-4o-description" className="text-gray-500">
-                    Previous generation general purpose model. Consider
-                    upgrading to GPT-4.1.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4o-mini'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4o-mini"
-                    name="model"
-                    value="gpt-4o-mini"
-                    aria-describedby="gpt-4o-mini-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4o-mini'}
-                    onChange={() => setModel('gpt-4o-mini')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4o-mini"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT-4o mini
-                  </label>
-                  <p id="gpt-4o-mini-description" className="text-gray-500">
-                    Previous generation model. Consider upgrading to GPT-4.1 mini.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4-turbo'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4-turbo"
-                    name="model"
-                    value="gpt-4-turbo"
-                    aria-describedby="gpt-4-turbo-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4-turbo'}
-                    onChange={() => setModel('gpt-4-turbo')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-4-turbo"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT-4 Turbo - Legacy
-                  </label>
-                  <p id="gpt-4-turbo-description" className="text-gray-500">
-                    Previous generation model. Recommend upgrading to GPT-4.1.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-4'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-4"
-                    name="model"
-                    value="gpt-4"
-                    aria-describedby="gpt-4-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-4'}
-                    onChange={() => setModel('gpt-4')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label htmlFor="gpt-4" className="font-medium text-gray-600">
-                    GPT-4 - Legacy
-                  </label>
-                  <p id="gpt-4-description" className="text-gray-500">
-                    Previous generation model. Recommend upgrading to GPT-4.1.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-3.5-turbo'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-3.5-turbo"
-                    name="model"
-                    value="gpt-3.5-turbo"
-                    aria-describedby="gpt-3.5-turbo-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-3.5-turbo'}
-                    onChange={() => setModel('gpt-3.5-turbo')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-3.5-turbo"
-                    className="font-medium text-gray-600"
-                  >
-                    GPT 3.5 Turbo - Legacy
-                  </label>
-                  <p id="gpt-3.5-turbo-description" className="text-gray-500">
-                    Previous generation model. Recommend upgrading to GPT-4.1.
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {modelVisibility['gpt-3.5-turbo-0613'] && (
-              <div className="relative flex items-start">
-                <div className="absolute flex h-5 items-center">
-                  <input
-                    id="gpt-3.5-turbo-0613"
-                    name="model"
-                    value="gpt-3.5-turbo-0613"
-                    aria-describedby="gpt-3.5-turbo-0613-description"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-500"
-                    checked={model === 'gpt-3.5-turbo-0613'}
-                    onChange={() => setModel('gpt-3.5-turbo-0613')}
-                    disabled={disabled}
-                  />
-                </div>
-                <div className="pl-7 text-sm">
-                  <label
-                    htmlFor="gpt-3.5-turbo-0613"
-                    className="font-medium text-gray-500"
-                  >
-                    GPT 3.5 Turbo (Old June 2023 Version) - Legacy
-                  </label>
-                  <p
-                    id="gpt-3.5-turbo-0613-description"
-                    className="text-gray-500"
-                  >
-                    The previous model retiring June 2024. Not recommended.
-                  </p>
-                </div>
-              </div>
-            )}
-        </div>
-        {short && (
-          <p className="mt-2 text-xs text-gray-500">
-            More model choices available later in your bot settings
-          </p>
-        )}
-        </fieldset>
-
+      <ModelSelector
+        team={team}
+        model={model}
+        onModelChange={setModel}
+        disabled={disabled}
+        short={short}
+      />
 
       <div className="grid grid-cols-2 gap-4">
         <div>
@@ -1013,15 +382,18 @@ export default function FormBot({
           <SuggestedQuestions
             questions={questions}
             addQuestion={addQuestion}
-            QuestionPrompt={QuestionPrompt}
+            updateQuestion={updateQuestion}
+            removeQuestion={removeQuestion}
+            placeholder={`What is ${bot.name}?`}
           />
 
           <Glossary
             team={team}
+            bot={bot}
             glossary={glossary}
-            addGlossary={addGlossary}
+            onGlossaryChange={setGlossary}
+            onUpgradeRequired={() => setShowUpgrade(true)}
             disabled={disabled}
-            GlossaryEntry={GlossaryEntry}
           />
 
           <div className="border-t border-gray-900/10 pt-6">

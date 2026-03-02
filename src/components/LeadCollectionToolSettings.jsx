@@ -36,6 +36,8 @@ import {
   supportsLeadFieldPlaceholder,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import { AppearanceBlock } from '@new-dashboard/PageAppearance/Appearance.Options'
+import { AppearanceAccordion, AppearanceInput, AppearanceSelect, AppearanceToggle } from '@new-dashboard/PageAppearance/Appearance.Options'
 
 const FIELD_TYPE_LABELS = {
   text: 'Text',
@@ -455,668 +457,677 @@ export default function LeadCollectionToolSettings({
     onChange(false)
   }
 
-  return (
-    <div className="rounded-lg border border-gray-200 p-3">
-      <FieldToggle
-        label="Enable Lead Collection Tool"
-        description="Collect lead data from users in the widget with a customizable form."
-        enabled={enabled}
-        setEnabled={handleToggle}
-        disabled={disabled}
-        isNew={true}
-        planLabel={
-          !personalPlanCheck.allowed ? personalPlanCheck.requiredPlanLabel : null
-        }
-      />
+  const leadCollectModes = LEAD_COLLECT_MODES.map(mode => ({
+    id: mode,
+    label: MODE_LABELS[mode] || mode
+  }))
 
-      {enabled && (
-        <div className="mt-3 space-y-3 border-t border-gray-200 pt-3">
-          <div className="grid gap-2 md:grid-cols-2">
-            <div>
-              <label className="block text-sm font-medium text-gray-900">
-                Trigger Mode
-              </label>
-              <select
+  return (
+    <AppearanceBlock
+      title="Lead Collection Tool"
+      titleTag="h4"
+      description="Collect lead data from users in the widget with a customizable form."
+      isLast={true}
+    >
+      <div className="flex flex-col gap-4">
+        <AppearanceToggle
+          label="Enable Lead Collection Tool"
+          enabled={enabled}
+          setEnabled={handleToggle}
+          disabled={disabled}
+          isNew={true}
+          planLabel={
+            !personalPlanCheck.allowed ? personalPlanCheck.requiredPlanLabel : null
+          }
+        />
+
+        {enabled && (
+          <>
+            <AppearanceBlock
+              title="Trigger Mode"
+              titleTag="label"
+              titleProps={{
+                htmlFor: 'lead-collect-trigger-mode',
+              }}
+              description="Controls whether lead fields are requested before first response or before escalation."
+              isLast={true}
+            >
+              <AppearanceSelect
+                id="lead-collect-trigger-mode"
+                data={leadCollectModes}
                 value={config.mode}
+                disabled={disabled}
                 onChange={(event) =>
                   updateConfig({
                     ...config,
                     mode: event.target.value,
                   })
                 }
-                disabled={disabled}
-                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-              >
-                {LEAD_COLLECT_MODES.map((mode) => (
-                  <option key={mode} value={mode}>
-                    {MODE_LABELS[mode] || mode}
-                  </option>
-                ))}
-              </select>
-              <span className="text-[11px] text-gray-500">
-                Controls whether lead fields are requested before first response or
-                before escalation.
-              </span>
-            </div>
-            <div>
-              <label
-                htmlFor="lead-collect-message"
-                className="block text-sm font-medium text-gray-900"
-              >
-                Prompt Message
-              </label>
-              <input
-                id="lead-collect-message"
+              />
+            </AppearanceBlock>
+
+            <AppearanceBlock
+              title="Prompt Message"
+              htmlFor="lead-collect-message"
+              description={
+                <>
+                  This message will appear before the lead collection form. Supports{' '}
+                  <a
+                    href="https://www.markdownguide.org/basic-syntax/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 underline hover:text-cyan-500"
+                  >
+                    Markdown
+                  </a>
+                  .
+                </>
+              }
+              isLast={true}
+            >
+              <AppearanceInput
                 type="text"
+                id="lead-collect-message"
                 value={leadCollectMessage}
+                placeholder="Before we continue, could you share a few details?"
+                disabled={disabled}
                 onChange={(event) =>
                   onLeadCollectMessageChange?.(event.target.value)
                 }
-                disabled={disabled}
-                placeholder="Before we continue, could you share a few details?"
-                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
               />
-              <span className="text-[11px] text-gray-500">
-                This message will appear before the lead collection form. Supports{' '}
-                <a
-                  href="https://www.markdownguide.org/basic-syntax/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-600 underline hover:text-cyan-500"
-                >
-                  Markdown
-                </a>
-                .
-              </span>
-            </div>
-          </div>
+            </AppearanceBlock>
 
-          <div className="space-y-2 border-t border-gray-200 pt-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <label className="text-sm font-medium text-gray-900">
-                Form Fields
-              </label>
-              <div className="flex items-center gap-2">
-                {!standardPlanCheck.allowed && (
-                  <Tooltip
-                    content={`${standardPlanCheck.requiredPlanLabel} plan required to add fields beyond ${DEFAULT_LEAD_FIELD_KEYS.join(' + ')}.`}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => onRequireUpgrade?.()}
-                      disabled={disabled}
-                      className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800 hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      {standardPlanCheck.requiredPlanLabel}
-                    </button>
-                  </Tooltip>
-                )}
-                <div className="w-36">
-                  <FieldTypeListbox
-                    value={newFieldType}
-                    onChange={handleNewFieldTypeSelect}
-                    disabled={disabled}
-                    id="lead-new-field-type"
-                    placeholder="Add new field"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-start justify-between gap-2">
-              <p className="text-[11px] text-gray-500">
-                Name and email are recommended minimum. Keep your form as short
-                as possible to reduce user friction.
-              </p>
-              <p className="ml-auto text-right text-[11px] text-gray-500">
-                Drag fields by the handle to reorder them.
-              </p>
-            </div>
-            {missingDefaultFieldKeys.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="text-[11px] text-gray-500">
-                  Restore recommended defaults:
-                </p>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {missingDefaultFieldKeys.map((fieldKey) => (
-                    <button
-                      key={fieldKey}
-                      type="button"
-                      onClick={() => restoreDefaultField(fieldKey)}
-                      disabled={disabled}
-                      className="rounded border border-cyan-200 px-2 py-0.5 text-[11px] font-semibold text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      Add {fieldKey}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="space-y-2">
-              {config.fields.map((field, fieldIndex) => {
-                const duplicateKeyCount = keyCounts[(field.key || '').trim()] || 0
-                const selectOptions = normalizeOptionsForEditor(field)
-                const fieldIdBase = `lead-field-${fieldIndex}`
-                const normalizedFieldKey = (field?.key || '').trim()
-                const isDefaultKeyField = DEFAULT_LEAD_FIELD_KEYS.includes(
-                  normalizedFieldKey,
-                )
-                const isKeyLockedByPlan =
-                  !standardPlanCheck.allowed && isDefaultKeyField
-                const fieldType = field.type || 'text'
-                const typeMeta = getFieldTypeMeta(fieldType)
-                const FieldTypeIcon = typeMeta.Icon
-                const supportsPattern = ['text', 'email', 'tel', 'url'].includes(fieldType)
-                const supportsLength = ['text', 'email', 'tel', 'url', 'textarea'].includes(fieldType)
-                const supportsRange = [
-                  'number',
-                  'date',
-                  'time',
-                  'datetime-local',
-                  'month',
-                  'week',
-                ].includes(fieldType)
-                const rangeInputType = getRangeInputType(fieldType)
-                const showPlaceholder = supportsLeadFieldPlaceholder(fieldType)
-                const hasValidationData =
-                  Boolean(field.pattern) ||
-                  field.min !== undefined ||
-                  field.max !== undefined ||
-                  field.step !== undefined ||
-                  field.minLength !== undefined ||
-                  field.maxLength !== undefined
-                const isDragging = draggedFieldIndex === fieldIndex
-                const isDragOver =
-                  dragOverFieldIndex === fieldIndex &&
-                  draggedFieldIndex !== null &&
-                  draggedFieldIndex !== fieldIndex
-
-                return (
-                  <div
-                    key={`${field.key || 'field'}-${fieldIndex}`}
-                    className={`rounded-md border p-2.5 transition ${
-                      isDragOver
-                        ? 'border-cyan-400 bg-cyan-50/40'
-                        : 'border-gray-200'
-                    } ${isDragging ? 'opacity-75' : ''}`}
-                    onDragOver={(event) => {
-                      if (disabled || draggedFieldIndex === null) return
-                      event.preventDefault()
-                      setDragOverFieldIndex(fieldIndex)
-                    }}
-                    onDrop={(event) => {
-                      event.preventDefault()
-                      if (disabled || draggedFieldIndex === null) return
-                      moveField(draggedFieldIndex, fieldIndex)
-                      setDraggedFieldIndex(null)
-                      setDragOverFieldIndex(null)
-                    }}
-                  >
-                    <div className="mb-2 flex items-center justify-between">
-                      <p className="text-sm font-medium text-gray-900">
-                        <span className="inline-flex items-center gap-1.5">
-                          <FieldTypeIcon
-                            className="h-4 w-4 text-gray-500"
-                            aria-hidden="true"
-                          />
-                          <span>{field.label || field.key || 'Untitled field'}</span>
-                        </span>
+            <AppearanceAccordion
+              title="Form Fields"
+              titleTag="h5"
+            >
+              <div className="space-y-3">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center justify-end gap-2">
+                    <div className="flex items-center gap-2">
+                      {!standardPlanCheck.allowed && (
+                        <Tooltip
+                          content={`${standardPlanCheck.requiredPlanLabel} plan required to add fields beyond ${DEFAULT_LEAD_FIELD_KEYS.join(' + ')}.`}
+                        >
+                          <button
+                            type="button"
+                            onClick={() => onRequireUpgrade?.()}
+                            disabled={disabled}
+                            className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800 hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {standardPlanCheck.requiredPlanLabel}
+                          </button>
+                        </Tooltip>
+                      )}
+                      <div className="w-36">
+                        <FieldTypeListbox
+                          value={newFieldType}
+                          onChange={handleNewFieldTypeSelect}
+                          disabled={disabled}
+                          id="lead-new-field-type"
+                          placeholder="Add new field"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <p className="text-[11px] text-gray-500">
+                      Name and email are recommended minimum. Keep your form as short
+                      as possible to reduce user friction.
+                    </p>
+                    <p className="ml-auto text-right text-[11px] text-gray-500">
+                      Drag fields by the handle to reorder them.
+                    </p>
+                  </div>
+                  {missingDefaultFieldKeys.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="text-[11px] text-gray-500">
+                        Restore recommended defaults:
                       </p>
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          draggable={!disabled}
-                          onDragStart={(event) => {
-                            if (disabled) return
-                            event.dataTransfer.effectAllowed = 'move'
-                            event.dataTransfer.setData('text/plain', String(fieldIndex))
-                            setDraggedFieldIndex(fieldIndex)
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {missingDefaultFieldKeys.map((fieldKey) => (
+                          <button
+                            key={fieldKey}
+                            type="button"
+                            onClick={() => restoreDefaultField(fieldKey)}
+                            disabled={disabled}
+                            className="rounded border border-cyan-200 px-2 py-0.5 text-[11px] font-semibold text-cyan-700 hover:border-cyan-300 hover:bg-cyan-50 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            Add {fieldKey}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="space-y-2">
+                    {config.fields.map((field, fieldIndex) => {
+                      const duplicateKeyCount = keyCounts[(field.key || '').trim()] || 0
+                      const selectOptions = normalizeOptionsForEditor(field)
+                      const fieldIdBase = `lead-field-${fieldIndex}`
+                      const normalizedFieldKey = (field?.key || '').trim()
+                      const isDefaultKeyField = DEFAULT_LEAD_FIELD_KEYS.includes(
+                        normalizedFieldKey,
+                      )
+                      const isKeyLockedByPlan =
+                        !standardPlanCheck.allowed && isDefaultKeyField
+                      const fieldType = field.type || 'text'
+                      const typeMeta = getFieldTypeMeta(fieldType)
+                      const FieldTypeIcon = typeMeta.Icon
+                      const supportsPattern = ['text', 'email', 'tel', 'url'].includes(fieldType)
+                      const supportsLength = ['text', 'email', 'tel', 'url', 'textarea'].includes(fieldType)
+                      const supportsRange = [
+                        'number',
+                        'date',
+                        'time',
+                        'datetime-local',
+                        'month',
+                        'week',
+                      ].includes(fieldType)
+                      const rangeInputType = getRangeInputType(fieldType)
+                      const showPlaceholder = supportsLeadFieldPlaceholder(fieldType)
+                      const hasValidationData =
+                        Boolean(field.pattern) ||
+                        field.min !== undefined ||
+                        field.max !== undefined ||
+                        field.step !== undefined ||
+                        field.minLength !== undefined ||
+                        field.maxLength !== undefined
+                      const isDragging = draggedFieldIndex === fieldIndex
+                      const isDragOver =
+                        dragOverFieldIndex === fieldIndex &&
+                        draggedFieldIndex !== null &&
+                        draggedFieldIndex !== fieldIndex
+
+                      return (
+                        <div
+                          key={`${field.key || 'field'}-${fieldIndex}`}
+                          className={`rounded-md border p-2.5 transition ${
+                            isDragOver
+                              ? 'border-cyan-400 bg-cyan-50/40'
+                              : 'border-gray-200'
+                          } ${isDragging ? 'opacity-75' : ''}`}
+                          onDragOver={(event) => {
+                            if (disabled || draggedFieldIndex === null) return
+                            event.preventDefault()
+                            setDragOverFieldIndex(fieldIndex)
                           }}
-                          onDragEnd={() => {
+                          onDrop={(event) => {
+                            event.preventDefault()
+                            if (disabled || draggedFieldIndex === null) return
+                            moveField(draggedFieldIndex, fieldIndex)
                             setDraggedFieldIndex(null)
                             setDragOverFieldIndex(null)
                           }}
-                          disabled={disabled}
-                          className="inline-flex cursor-grab items-center rounded border border-gray-200 p-1 text-gray-500 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                          title="Drag to reorder"
-                          aria-label="Drag to reorder field"
                         >
-                          <Bars3Icon className="h-4 w-4" aria-hidden="true" />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => removeField(fieldIndex)}
-                          disabled={disabled || config.fields.length <= 1}
-                          className="inline-flex items-center rounded border border-red-200 p-1 text-red-600 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
-                          title="Remove field"
-                          aria-label="Remove field"
-                        >
-                          <TrashIcon className="h-4 w-4" aria-hidden="true" />
-                        </button>
-                      </div>
-                    </div>
-
-                    <div
-                      className={`grid gap-2 ${
-                        showPlaceholder ? 'md:grid-cols-3' : 'md:grid-cols-2'
-                      }`}
-                    >
-                      <div>
-                        <label
-                          htmlFor={`${fieldIdBase}-key`}
-                          className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                        >
-                          Key
-                        </label>
-                        <input
-                          id={`${fieldIdBase}-key`}
-                          type="text"
-                          value={field.key || ''}
-                          onChange={(event) =>
-                            updateField(fieldIndex, {
-                              key: sanitizeLeadCollectInputName(event.target.value),
-                            })
-                          }
-                          disabled={disabled || isKeyLockedByPlan}
-                          className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                        />
-                        {isKeyLockedByPlan && (
-                          <p className="mt-1 text-[11px] text-gray-500">
-                            {standardPlanCheck.requiredPlanLabel} required to edit
-                            default field keys.
-                          </p>
-                        )}
-                        {duplicateKeyCount > 1 && (
-                          <p className="mt-1 text-[11px] text-red-600">
-                            Field keys must be unique.
-                          </p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor={`${fieldIdBase}-label`}
-                          className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                        >
-                          Label
-                        </label>
-                        <input
-                          id={`${fieldIdBase}-label`}
-                          type="text"
-                          value={field.label || ''}
-                          onChange={(event) =>
-                            updateField(fieldIndex, {
-                              label: event.target.value,
-                            })
-                          }
-                          disabled={disabled}
-                          className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                        />
-                      </div>
-
-                      {showPlaceholder && (
-                        <div>
-                          <label
-                            htmlFor={`${fieldIdBase}-placeholder`}
-                            className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                          >
-                            Placeholder
-                          </label>
-                          <input
-                            id={`${fieldIdBase}-placeholder`}
-                            type="text"
-                            value={field.placeholder || ''}
-                            onChange={(event) =>
-                              updateField(fieldIndex, {
-                                placeholder: event.target.value,
-                              })
-                            }
-                            disabled={disabled}
-                            className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                          />
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="mt-2 grid gap-2 md:grid-cols-2">
-                      <div>
-                        <label
-                          htmlFor={`${fieldIdBase}-help`}
-                          className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                        >
-                          Help Text
-                        </label>
-                        <input
-                          id={`${fieldIdBase}-help`}
-                          type="text"
-                          value={field.help || ''}
-                          onChange={(event) =>
-                            updateField(fieldIndex, {
-                              help: event.target.value,
-                            })
-                          }
-                          disabled={disabled}
-                          className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor={`${fieldIdBase}-required`}
-                          className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                        >
-                          Required
-                        </label>
-                        <div className="mt-1">
-                          <input
-                            id={`${fieldIdBase}-required`}
-                            type="checkbox"
-                            checked={Boolean(field.required)}
-                            onChange={(event) =>
-                              updateField(fieldIndex, {
-                                required: event.target.checked,
-                              })
-                            }
-                            disabled={disabled}
-                            className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-600"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {(supportsPattern || supportsLength || supportsRange) && (
-                      <details className="mt-2 rounded-md border border-gray-200 bg-gray-50/50 px-2 py-1.5">
-                        <summary className="cursor-pointer text-xs font-medium uppercase tracking-wide text-gray-600">
-                          Validation
-                          {hasValidationData && (
-                            <span className="ml-2 rounded-full bg-cyan-100 px-1.5 py-0.5 text-[10px] font-semibold text-cyan-800">
-                              Set
-                            </span>
-                          )}
-                        </summary>
-
-                        <div className="mt-2 grid gap-2 md:grid-cols-3">
-                          {supportsPattern && (
-                            <div>
-                              <label
-                                htmlFor={`${fieldIdBase}-pattern`}
-                                className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                              >
-                                Pattern
-                              </label>
-                              <input
-                                id={`${fieldIdBase}-pattern`}
-                                type="text"
-                                value={field.pattern || ''}
-                                onChange={(event) =>
-                                  updateField(fieldIndex, {
-                                    pattern: event.target.value,
-                                  })
-                                }
-                                disabled={disabled}
-                                placeholder="^\\+?[0-9\\s\\-()]{7,20}$"
-                                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                              />
-                            </div>
-                          )}
-
-                          {supportsRange && (
-                            <>
-                              <div>
-                                <label
-                                  htmlFor={`${fieldIdBase}-min`}
-                                  className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
-                                >
-                                  <span>Min</span>
-                                  <Tooltip content={getRangeConstraintHint(fieldType, 'min')}>
-                                    <button
-                                      type="button"
-                                      className="inline-flex items-center text-gray-400 hover:text-gray-600"
-                                      aria-label="Min format help"
-                                    >
-                                      <QuestionMarkCircleIcon
-                                        className="h-3.5 w-3.5"
-                                        aria-hidden="true"
-                                      />
-                                    </button>
-                                  </Tooltip>
-                                </label>
-                                <input
-                                  id={`${fieldIdBase}-min`}
-                                  type={rangeInputType}
-                                  value={field.min ?? ''}
-                                  onChange={(event) =>
-                                    updateField(fieldIndex, {
-                                      min: event.target.value,
-                                    })
-                                  }
-                                  disabled={disabled}
-                                  placeholder={getRangeFormatHint(fieldType)}
-                                  className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                          <div className="mb-2 flex items-center justify-between">
+                            <p className="text-sm font-medium text-gray-900">
+                              <span className="inline-flex items-center gap-1.5">
+                                <FieldTypeIcon
+                                  className="h-4 w-4 text-gray-500"
+                                  aria-hidden="true"
                                 />
-                              </div>
-                              <div>
-                                <label
-                                  htmlFor={`${fieldIdBase}-max`}
-                                  className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
-                                >
-                                  <span>Max</span>
-                                  <Tooltip content={getRangeConstraintHint(fieldType, 'max')}>
-                                    <button
-                                      type="button"
-                                      className="inline-flex items-center text-gray-400 hover:text-gray-600"
-                                      aria-label="Max format help"
-                                    >
-                                      <QuestionMarkCircleIcon
-                                        className="h-3.5 w-3.5"
-                                        aria-hidden="true"
-                                      />
-                                    </button>
-                                  </Tooltip>
-                                </label>
-                                <input
-                                  id={`${fieldIdBase}-max`}
-                                  type={rangeInputType}
-                                  value={field.max ?? ''}
-                                  onChange={(event) =>
-                                    updateField(fieldIndex, {
-                                      max: event.target.value,
-                                    })
-                                  }
-                                  disabled={disabled}
-                                  placeholder={getRangeFormatHint(fieldType)}
-                                  className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                                />
-                              </div>
-                            </>
-                          )}
-                          {supportsRange && (
-                            <div>
-                              <label
-                                htmlFor={`${fieldIdBase}-step`}
-                                className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
-                              >
-                                <span>Step</span>
-                                <Tooltip content={getRangeConstraintHint(fieldType, 'step')}>
-                                  <button
-                                    type="button"
-                                    className="inline-flex items-center text-gray-400 hover:text-gray-600"
-                                    aria-label="Step format help"
-                                  >
-                                    <QuestionMarkCircleIcon
-                                      className="h-3.5 w-3.5"
-                                      aria-hidden="true"
-                                    />
-                                  </button>
-                                </Tooltip>
-                              </label>
-                              <input
-                                id={`${fieldIdBase}-step`}
-                                type="number"
-                                value={field.step ?? ''}
-                                onChange={(event) =>
-                                  updateField(fieldIndex, {
-                                    step: event.target.value,
-                                  })
-                                }
-                                disabled={disabled}
-                                placeholder={getRangeStepUnitLabel(fieldType)}
-                                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                              />
-                            </div>
-                          )}
-
-                          {supportsLength && (
-                            <>
-                              <div>
-                                <label
-                                  htmlFor={`${fieldIdBase}-minlength`}
-                                  className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                                >
-                                  Min Length
-                                </label>
-                                <input
-                                  id={`${fieldIdBase}-minlength`}
-                                  type="number"
-                                  min={0}
-                                  value={field.minLength ?? ''}
-                                  onChange={(event) =>
-                                    updateField(fieldIndex, {
-                                      minLength: event.target.value,
-                                    })
-                                  }
-                                  disabled={disabled}
-                                  className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                                />
-                              </div>
-                              <div>
-                                <label
-                                  htmlFor={`${fieldIdBase}-maxlength`}
-                                  className="block text-xs font-medium uppercase tracking-wide text-gray-500"
-                                >
-                                  Max Length
-                                </label>
-                                <input
-                                  id={`${fieldIdBase}-maxlength`}
-                                  type="number"
-                                  min={1}
-                                  value={field.maxLength ?? ''}
-                                  onChange={(event) =>
-                                    updateField(fieldIndex, {
-                                      maxLength: event.target.value,
-                                    })
-                                  }
-                                  disabled={disabled}
-                                  className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                                />
-                              </div>
-                            </>
-                          )}
-                        </div>
-                      </details>
-                    )}
-
-                    {field.type === 'select' && (
-                      <div className="mt-2">
-                        <div className="mb-2 flex items-center justify-between">
-                          <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                            Options
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => addSelectOption(fieldIndex)}
-                            disabled={disabled}
-                            className="text-[11px] font-semibold text-cyan-700 hover:text-cyan-800 disabled:cursor-not-allowed disabled:text-gray-400"
-                          >
-                            Add Option
-                          </button>
-                        </div>
-                        <div className="space-y-2">
-                          {selectOptions.map((option, optionIndex) => (
-                            <div
-                              key={`${field.key}-option-${optionIndex}`}
-                              className="grid gap-2 md:grid-cols-12"
-                            >
-                              <label
-                                htmlFor={`${fieldIdBase}-option-value-${optionIndex}`}
-                                className="sr-only"
-                              >
-                                Option value
-                              </label>
-                              <input
-                                id={`${fieldIdBase}-option-value-${optionIndex}`}
-                                type="text"
-                                value={option.value}
-                                onChange={(event) =>
-                                  updateSelectOption(
-                                    fieldIndex,
-                                    optionIndex,
-                                    {
-                                      value: sanitizeLeadCollectInputName(
-                                        event.target.value,
-                                      ),
-                                    },
-                                  )
-                                }
-                                disabled={disabled}
-                                placeholder="Value"
-                                className="md:col-span-5 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                              />
-                              <label
-                                htmlFor={`${fieldIdBase}-option-label-${optionIndex}`}
-                                className="sr-only"
-                              >
-                                Option label
-                              </label>
-                              <input
-                                id={`${fieldIdBase}-option-label-${optionIndex}`}
-                                type="text"
-                                value={option.label}
-                                onChange={(event) =>
-                                  updateSelectOption(
-                                    fieldIndex,
-                                    optionIndex,
-                                    { label: event.target.value },
-                                  )
-                                }
-                                disabled={disabled}
-                                placeholder="Label (optional)"
-                                className="md:col-span-5 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
-                              />
+                                <span>{field.label || field.key || 'Untitled field'}</span>
+                              </span>
+                            </p>
+                            <div className="flex items-center gap-2">
                               <button
                                 type="button"
-                                onClick={() => removeSelectOption(fieldIndex, optionIndex)}
-                                disabled={disabled || selectOptions.length <= 1}
-                                className="md:col-span-2 inline-flex items-center justify-center rounded-md border border-red-200 px-2 py-1 text-red-600 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
-                                title="Remove option"
-                                aria-label="Remove option"
+                                draggable={!disabled}
+                                onDragStart={(event) => {
+                                  if (disabled) return
+                                  event.dataTransfer.effectAllowed = 'move'
+                                  event.dataTransfer.setData('text/plain', String(fieldIndex))
+                                  setDraggedFieldIndex(fieldIndex)
+                                }}
+                                onDragEnd={() => {
+                                  setDraggedFieldIndex(null)
+                                  setDragOverFieldIndex(null)
+                                }}
+                                disabled={disabled}
+                                className="inline-flex cursor-grab items-center rounded border border-gray-200 p-1 text-gray-500 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                                title="Drag to reorder"
+                                aria-label="Drag to reorder field"
+                              >
+                                <Bars3Icon className="h-4 w-4" aria-hidden="true" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => removeField(fieldIndex)}
+                                disabled={disabled || config.fields.length <= 1}
+                                className="inline-flex items-center rounded border border-red-200 p-1 text-red-600 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+                                title="Remove field"
+                                aria-label="Remove field"
                               >
                                 <TrashIcon className="h-4 w-4" aria-hidden="true" />
                               </button>
                             </div>
-                          ))}
+                          </div>
+
+                          <div
+                            className={`grid gap-2 ${
+                              showPlaceholder ? 'md:grid-cols-3' : 'md:grid-cols-2'
+                            }`}
+                          >
+                            <div>
+                              <label
+                                htmlFor={`${fieldIdBase}-key`}
+                                className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                              >
+                                Key
+                              </label>
+                              <input
+                                id={`${fieldIdBase}-key`}
+                                type="text"
+                                value={field.key || ''}
+                                onChange={(event) =>
+                                  updateField(fieldIndex, {
+                                    key: sanitizeLeadCollectInputName(event.target.value),
+                                  })
+                                }
+                                disabled={disabled || isKeyLockedByPlan}
+                                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                              />
+                              {isKeyLockedByPlan && (
+                                <p className="mt-1 text-[11px] text-gray-500">
+                                  {standardPlanCheck.requiredPlanLabel} required to edit
+                                  default field keys.
+                                </p>
+                              )}
+                              {duplicateKeyCount > 1 && (
+                                <p className="mt-1 text-[11px] text-red-600">
+                                  Field keys must be unique.
+                                </p>
+                              )}
+                            </div>
+
+                            <div>
+                              <label
+                                htmlFor={`${fieldIdBase}-label`}
+                                className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                              >
+                                Label
+                              </label>
+                              <input
+                                id={`${fieldIdBase}-label`}
+                                type="text"
+                                value={field.label || ''}
+                                onChange={(event) =>
+                                  updateField(fieldIndex, {
+                                    label: event.target.value,
+                                  })
+                                }
+                                disabled={disabled}
+                                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                              />
+                            </div>
+
+                            {showPlaceholder && (
+                              <div>
+                                <label
+                                  htmlFor={`${fieldIdBase}-placeholder`}
+                                  className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                >
+                                  Placeholder
+                                </label>
+                                <input
+                                  id={`${fieldIdBase}-placeholder`}
+                                  type="text"
+                                  value={field.placeholder || ''}
+                                  onChange={(event) =>
+                                    updateField(fieldIndex, {
+                                      placeholder: event.target.value,
+                                    })
+                                  }
+                                  disabled={disabled}
+                                  className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                />
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="mt-2 grid gap-2 md:grid-cols-2">
+                            <div>
+                              <label
+                                htmlFor={`${fieldIdBase}-help`}
+                                className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                              >
+                                Help Text
+                              </label>
+                              <input
+                                id={`${fieldIdBase}-help`}
+                                type="text"
+                                value={field.help || ''}
+                                onChange={(event) =>
+                                  updateField(fieldIndex, {
+                                    help: event.target.value,
+                                  })
+                                }
+                                disabled={disabled}
+                                className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                              />
+                            </div>
+                            <div>
+                              <label
+                                htmlFor={`${fieldIdBase}-required`}
+                                className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                              >
+                                Required
+                              </label>
+                              <div className="mt-1">
+                                <input
+                                  id={`${fieldIdBase}-required`}
+                                  type="checkbox"
+                                  checked={Boolean(field.required)}
+                                  onChange={(event) =>
+                                    updateField(fieldIndex, {
+                                      required: event.target.checked,
+                                    })
+                                  }
+                                  disabled={disabled}
+                                  className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-600"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {(supportsPattern || supportsLength || supportsRange) && (
+                            <details className="mt-2 rounded-md border border-gray-200 bg-gray-50/50 px-2 py-1.5">
+                              <summary className="cursor-pointer text-xs font-medium uppercase tracking-wide text-gray-600">
+                                Validation
+                                {hasValidationData && (
+                                  <span className="ml-2 rounded-full bg-cyan-100 px-1.5 py-0.5 text-[10px] font-semibold text-cyan-800">
+                                    Set
+                                  </span>
+                                )}
+                              </summary>
+
+                              <div className="mt-2 grid gap-2 md:grid-cols-3">
+                                {supportsPattern && (
+                                  <div>
+                                    <label
+                                      htmlFor={`${fieldIdBase}-pattern`}
+                                      className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                    >
+                                      Pattern
+                                    </label>
+                                    <input
+                                      id={`${fieldIdBase}-pattern`}
+                                      type="text"
+                                      value={field.pattern || ''}
+                                      onChange={(event) =>
+                                        updateField(fieldIndex, {
+                                          pattern: event.target.value,
+                                        })
+                                      }
+                                      disabled={disabled}
+                                      placeholder="^\\+?[0-9\\s\\-()]{7,20}$"
+                                      className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                    />
+                                  </div>
+                                )}
+
+                                {supportsRange && (
+                                  <>
+                                    <div>
+                                      <label
+                                        htmlFor={`${fieldIdBase}-min`}
+                                        className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
+                                      >
+                                        <span>Min</span>
+                                        <Tooltip content={getRangeConstraintHint(fieldType, 'min')}>
+                                          <button
+                                            type="button"
+                                            className="inline-flex items-center text-gray-400 hover:text-gray-600"
+                                            aria-label="Min format help"
+                                          >
+                                            <QuestionMarkCircleIcon
+                                              className="h-3.5 w-3.5"
+                                              aria-hidden="true"
+                                            />
+                                          </button>
+                                        </Tooltip>
+                                      </label>
+                                      <input
+                                        id={`${fieldIdBase}-min`}
+                                        type={rangeInputType}
+                                        value={field.min ?? ''}
+                                        onChange={(event) =>
+                                          updateField(fieldIndex, {
+                                            min: event.target.value,
+                                          })
+                                        }
+                                        disabled={disabled}
+                                        placeholder={getRangeFormatHint(fieldType)}
+                                        className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label
+                                        htmlFor={`${fieldIdBase}-max`}
+                                        className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
+                                      >
+                                        <span>Max</span>
+                                        <Tooltip content={getRangeConstraintHint(fieldType, 'max')}>
+                                          <button
+                                            type="button"
+                                            className="inline-flex items-center text-gray-400 hover:text-gray-600"
+                                            aria-label="Max format help"
+                                          >
+                                            <QuestionMarkCircleIcon
+                                              className="h-3.5 w-3.5"
+                                              aria-hidden="true"
+                                            />
+                                          </button>
+                                        </Tooltip>
+                                      </label>
+                                      <input
+                                        id={`${fieldIdBase}-max`}
+                                        type={rangeInputType}
+                                        value={field.max ?? ''}
+                                        onChange={(event) =>
+                                          updateField(fieldIndex, {
+                                            max: event.target.value,
+                                          })
+                                        }
+                                        disabled={disabled}
+                                        placeholder={getRangeFormatHint(fieldType)}
+                                        className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                                {supportsRange && (
+                                  <div>
+                                    <label
+                                      htmlFor={`${fieldIdBase}-step`}
+                                      className="flex items-center gap-1 text-xs font-medium uppercase tracking-wide text-gray-500"
+                                    >
+                                      <span>Step</span>
+                                      <Tooltip content={getRangeConstraintHint(fieldType, 'step')}>
+                                        <button
+                                          type="button"
+                                          className="inline-flex items-center text-gray-400 hover:text-gray-600"
+                                          aria-label="Step format help"
+                                        >
+                                          <QuestionMarkCircleIcon
+                                            className="h-3.5 w-3.5"
+                                            aria-hidden="true"
+                                          />
+                                        </button>
+                                      </Tooltip>
+                                    </label>
+                                    <input
+                                      id={`${fieldIdBase}-step`}
+                                      type="number"
+                                      value={field.step ?? ''}
+                                      onChange={(event) =>
+                                        updateField(fieldIndex, {
+                                          step: event.target.value,
+                                        })
+                                      }
+                                      disabled={disabled}
+                                      placeholder={getRangeStepUnitLabel(fieldType)}
+                                      className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                    />
+                                  </div>
+                                )}
+
+                                {supportsLength && (
+                                  <>
+                                    <div>
+                                      <label
+                                        htmlFor={`${fieldIdBase}-minlength`}
+                                        className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                      >
+                                        Min Length
+                                      </label>
+                                      <input
+                                        id={`${fieldIdBase}-minlength`}
+                                        type="number"
+                                        min={0}
+                                        value={field.minLength ?? ''}
+                                        onChange={(event) =>
+                                          updateField(fieldIndex, {
+                                            minLength: event.target.value,
+                                          })
+                                        }
+                                        disabled={disabled}
+                                        className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label
+                                        htmlFor={`${fieldIdBase}-maxlength`}
+                                        className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                      >
+                                        Max Length
+                                      </label>
+                                      <input
+                                        id={`${fieldIdBase}-maxlength`}
+                                        type="number"
+                                        min={1}
+                                        value={field.maxLength ?? ''}
+                                        onChange={(event) =>
+                                          updateField(fieldIndex, {
+                                            maxLength: event.target.value,
+                                          })
+                                        }
+                                        disabled={disabled}
+                                        className="mt-1 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+                            </details>
+                          )}
+
+                          {field.type === 'select' && (
+                            <div className="mt-2">
+                              <div className="mb-2 flex items-center justify-between">
+                                <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                                  Options
+                                </p>
+                                <button
+                                  type="button"
+                                  onClick={() => addSelectOption(fieldIndex)}
+                                  disabled={disabled}
+                                  className="text-[11px] font-semibold text-cyan-700 hover:text-cyan-800 disabled:cursor-not-allowed disabled:text-gray-400"
+                                >
+                                  Add Option
+                                </button>
+                              </div>
+                              <div className="space-y-2">
+                                {selectOptions.map((option, optionIndex) => (
+                                  <div
+                                    key={`${field.key}-option-${optionIndex}`}
+                                    className="grid gap-2 md:grid-cols-12"
+                                  >
+                                    <label
+                                      htmlFor={`${fieldIdBase}-option-value-${optionIndex}`}
+                                      className="sr-only"
+                                    >
+                                      Option value
+                                    </label>
+                                    <input
+                                      id={`${fieldIdBase}-option-value-${optionIndex}`}
+                                      type="text"
+                                      value={option.value}
+                                      onChange={(event) =>
+                                        updateSelectOption(
+                                          fieldIndex,
+                                          optionIndex,
+                                          {
+                                            value: sanitizeLeadCollectInputName(
+                                              event.target.value,
+                                            ),
+                                          },
+                                        )
+                                      }
+                                      disabled={disabled}
+                                      placeholder="Value"
+                                      className="md:col-span-5 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                    />
+                                    <label
+                                      htmlFor={`${fieldIdBase}-option-label-${optionIndex}`}
+                                      className="sr-only"
+                                    >
+                                      Option label
+                                    </label>
+                                    <input
+                                      id={`${fieldIdBase}-option-label-${optionIndex}`}
+                                      type="text"
+                                      value={option.label}
+                                      onChange={(event) =>
+                                        updateSelectOption(
+                                          fieldIndex,
+                                          optionIndex,
+                                          { label: event.target.value },
+                                        )
+                                      }
+                                      disabled={disabled}
+                                      placeholder="Label (optional)"
+                                      className="md:col-span-5 block w-full rounded-md border-gray-300 px-2.5 py-1.5 text-xs shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50"
+                                    />
+                                    <button
+                                      type="button"
+                                      onClick={() => removeSelectOption(fieldIndex, optionIndex)}
+                                      disabled={disabled || selectOptions.length <= 1}
+                                      className="md:col-span-2 inline-flex items-center justify-center rounded-md border border-red-200 px-2 py-1 text-red-600 hover:bg-red-50 hover:text-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+                                      title="Remove option"
+                                      aria-label="Remove option"
+                                    >
+                                      <TrashIcon className="h-4 w-4" aria-hidden="true" />
+                                    </button>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      </div>
-                    )}
+                      )
+                    })}
                   </div>
-                )
-              })}
-            </div>
-          </div>
+                </div>
 
-          {hasDuplicateKeys && (
-            <p className="text-[11px] text-red-600">
-              Field keys must be unique before saving.
-            </p>
-          )}
+                {hasDuplicateKeys && (
+                  <p className="text-[11px] text-red-600">
+                    Field keys must be unique before saving.
+                  </p>
+                )}
 
-          {hasExtraFields && !standardPlanCheck.allowed && (
-            <p className="text-[11px] text-gray-500">
-              Extra fields are configured. Adding more requires the{' '}
-              {standardPlanCheck.requiredPlanLabel} plan.
-            </p>
-          )}
-        </div>
-      )}
-    </div>
+                {hasExtraFields && !standardPlanCheck.allowed && (
+                  <p className="text-[11px] text-gray-500">
+                    Extra fields are configured. Adding more requires the{' '}
+                    {standardPlanCheck.requiredPlanLabel} plan.
+                  </p>
+                )}
+              </div>
+            </AppearanceAccordion>
+          </>
+        )}
+      </div>
+    </AppearanceBlock>
   )
 }

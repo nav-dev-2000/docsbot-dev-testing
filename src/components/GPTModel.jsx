@@ -1,6 +1,6 @@
 import { CubeIcon } from '@heroicons/react/24/outline'
 import Tooltip from '@/components/Tooltip'
-export default function GPTModel({ bot }) {
+export default function GPTModel({ bot, isPlain = false }) {
   let label
   if (bot.model === 'gpt-5.2') {
     label = 'GPT-5.2'
@@ -35,6 +35,11 @@ export default function GPTModel({ bot }) {
   } else {
     label = 'GPT-3.5'
   }
+  
+  if (isPlain) {
+    return label
+  }
+
   return (
     <Tooltip content="AI LLM model used for generating responses">
       <p className="flex items-center text-sm capitalize text-gray-500">

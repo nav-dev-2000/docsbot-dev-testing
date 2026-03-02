@@ -19,7 +19,6 @@ import ModalAPI from '@/components/ModalAPI'
 import PrivacyStatus from '@/components/PrivacyStatus'
 import Link from 'next/link'
 import RobotIcon from '@/components/RobotIcon'
-import ModalPrompt from '@/components/ModalPrompt'
 import ModalBotEdit from '@/components/ModalBotEdit'
 import GPTModel from '@/components/GPTModel'
 import { i18n } from '@/constants/strings.constants'
@@ -95,13 +94,6 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               </div>
 
               <div className="mt-2 flex-wrap md:flex md:space-x-3">
-                <div data-wizard="custom-instructions">
-                  <ModalPrompt
-                    team={team}
-                    bot={bot}
-                    integrations={integrations}
-                  />
-                </div>
                 {canUserManageBotSettings(team, user?.uid, bot) && (
                   <div data-wizard="edit-bot">
                     <ModalBotEdit team={team} bot={bot} setBot={setBot} />
@@ -173,7 +165,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                 <div className="mt-2 flex w-full justify-between space-x-2 md:justify-end">
                   <Tooltip content="View user conversation history">
                     <Link
-                      href={`/app/bots/${bot.id}/conversations`}
+                      href={`/app/bots/${bot.id}/analytics/conversations`}
                       className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={bot.conversationCount <= 0}
                       data-wizard="conversations"
@@ -189,7 +181,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                   </Tooltip>
                   <Tooltip content="View user questions and debug or fine-tune bot answers">
                     <Link
-                      href={`/app/bots/${bot.id}/questions`}
+                      href={`/app/bots/${bot.id}/analytics/questions`}
                       className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={bot.questionCount <= 0}
                       data-wizard="questions"
@@ -224,7 +216,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
                   </Tooltip>
                   <Tooltip content="View statistics and reports about the bot's performance and user questions">
                     <Link
-                      href={`/app/bots/${bot.id}/reports`}
+                      href={`/app/bots/${bot.id}/analytics/reports`}
                       className="flex items-center justify-center gap-x-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={bot.questionCount <= 0}
                       data-wizard="reports"
@@ -245,7 +237,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
               <Link
                 type="button"
                 className="mt-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
-                href={`/app/bots/${bot.id}/widget`}
+                href={`/app/bots/${bot.id}/widget/design`}
                 data-wizard="widget-settings"
               >
                 <CodeBracketSquareIcon
@@ -289,7 +281,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
         <Tooltip content="User messages in current month">
           <Link
             className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100 sm:!border-l-0 lg:!border-l lg:border-gray-200"
-            href={`/app/bots/${bot.id}/questions`}
+            href={`/app/bots/${bot.id}/analytics/questions`}
           >
             <ChatBubbleBottomCenterTextIcon
               className="h-5 w-5 text-gray-400"
@@ -304,8 +296,7 @@ export default function BotCard({ team, bot, integrations, setBot }) {
         <Tooltip content="Research queries performed">
           <Link
             className="flex items-center justify-center space-x-1 px-6 py-5 text-center text-sm font-medium hover:bg-gray-100"
-            href={`/app/bots/${bot.id}/research`}
-          >
+            href={`/app/bots/${bot.id}/research`}>
             <BeakerIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             <span className="text-gray-900">
               <LocalStringNum value={bot.researchCount || 0} />

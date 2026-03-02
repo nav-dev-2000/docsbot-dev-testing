@@ -87,7 +87,48 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: error?.message })
     }
   } else if (req.method === 'DELETE') {
-    //check user is allowed to delete bot or not (team-level permission)
+    // If this is a research job deletion, handle it specially
+    const { tab, jobId } = req.query
+    if (tab === 'research' && jobId) {
+      // First verify bot exists
+      let bot
+      try {
+        bot = await getBot(team.id, botId)
+        if (!bot) {
+          return res.status(404).json({ message: 'Bot not found' })
+        }
+      } catch (error) {
+        return res.status(500).json({ message: error?.message })
+      }
+
+      // Check per-bot permission to edit bot
+      if (!canUserEditBot(team, userId, bot)) {
+        return res.status(403).json({
+          message: 'You are not allowed to delete research jobs in this bot.',
+        })
+      }
+
+      // Soft delete: update status to "deleted" instead of actually deleting
+      try {
+        await firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('research')
+          .doc(jobId)
+          .update({
+            status: 'deleted',
+            cancelledAt: new Date(),
+          })
+        return res.json({ ok: true })
+      } catch (error) {
+        console.warn('Error soft deleting job:', error)
+        return res.status(500).json({ message: error?.message || 'Error' })
+      }
+    }
+
+    // Default: check user is allowed to delete bot or not (team-level permission)
     if (!canUserCreateDeleteBot(team, userId)) {
       return res.status(403).json({
         message: 'You are not allowed to delete bot.',
@@ -135,6 +176,68 @@ export default async function handler(req, res) {
         return res.status(403).json({
           message: 'You are not allowed to view this bot.',
         })
+      }
+
+      const { tab, jobId } = req.query
+
+      // Handle Research Tab
+      if (tab === 'research') {
+        const baseRef = firestore
+          .collection('teams')
+          .doc(team.id)
+          .collection('bots')
+          .doc(botId)
+          .collection('research')
+
+        if (jobId) {
+          // Single Job
+          const jobSnap = await baseRef.doc(jobId).get()
+          if (jobSnap.exists) {
+            const data = jobSnap.data() || {}
+            return res.json({
+              jobId: jobSnap.id,
+              ...data,
+              createdAt: data.createdAt?.toDate?.() || data.createdAt || null,
+              completedAt: data.completedAt?.toDate?.() || data.completedAt || null,
+            })
+          } else {
+            return res.status(404).json({ message: 'Research job not found' })
+          }
+        } else {
+          // List Jobs
+          let { page, perPage } = req.query
+          perPage = perPage ? parseInt(perPage) : 25
+          page = page ? parseInt(page) : 0
+
+          const snapshot = await baseRef.orderBy('createdAt', 'desc').get()
+          const allJobs = snapshot.docs
+            .map((doc) => {
+              const data = doc.data()
+              return {
+                jobId: doc.id,
+                ...data,
+                createdAt: data.createdAt?.toDate?.() || data.createdAt,
+                completedAt: data.completedAt?.toDate?.() || data.completedAt,
+              }
+            })
+            .filter((job) => job.status !== 'deleted')
+
+          const totalCount = allJobs.length
+          const startIndex = page * perPage
+          const endIndex = startIndex + perPage
+          const jobs = allJobs.slice(startIndex, endIndex)
+
+          return res.json({
+            jobs,
+            pagination: {
+              perPage,
+              page,
+              viewableCount: totalCount,
+              totalCount,
+              hasMorePages: (page + 1) * perPage < totalCount,
+            },
+          })
+        }
       }
       
       return res.json(bot)

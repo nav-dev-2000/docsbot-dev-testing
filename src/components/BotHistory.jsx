@@ -1055,7 +1055,7 @@ export default function BotHistory({ team, bot, dateRange = null }) {
                   by enabling Agent Mode in your widget settings.
                 </p>
                 <Link
-                  href={`/app/bots/${bot?.id}/widget`}
+                  href={`/app/bots/${bot?.id}/widget/design`}
                   className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                 >
                   <RobotIcon

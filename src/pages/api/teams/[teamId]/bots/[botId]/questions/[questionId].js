@@ -1,6 +1,6 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore } from 'firebase-admin/firestore'
-import { getBot, getQuestions } from '@/lib/dbQueries'
+import { getBot, getQuestion } from '@/lib/dbQueries'
 import userTeamCheck from '@/lib/userTeamCheck'
 
 import { canUserEditBot } from '@/utils/function.utils'
@@ -40,8 +40,14 @@ export default async function handler(req, res) {
 
     // delete question
     try {
-      const questionRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('questions').doc(questionId)
-      await questionRef.update({ 
+      const questionRef = firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('questions')
+        .doc(questionId)
+      await questionRef.update({
         deleted: true,
         vector: null,
         question: null,
@@ -50,7 +56,7 @@ export default async function handler(req, res) {
         sources: [],
         //ip: null,
         metadata: null,
-       })
+      })
 
       return res.json({ message: 'success' })
     } catch (error) {
@@ -63,7 +69,13 @@ export default async function handler(req, res) {
 
     // save sourceId to question
     try {
-      const questionRef = firestore.collection('teams').doc(team.id).collection('bots').doc(botId).collection('questions').doc(questionId)
+      const questionRef = firestore
+        .collection('teams')
+        .doc(team.id)
+        .collection('bots')
+        .doc(botId)
+        .collection('questions')
+        .doc(questionId)
       await questionRef.update({ revised })
 
       return res.json({ message: 'success' })

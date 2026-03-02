@@ -50,10 +50,15 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [questions, setQuestions] = useState(
     bot.questions
       ? bot.questions.length >= 4
-        ? grabQuestions(bot)
+        ? bot.questions.slice(0, 4)
         : bot.questions.slice(0, 2)
       : [],
   )
+  useEffect(() => {
+    if (bot?.questions && bot.questions.length >= 4) {
+      setQuestions(grabQuestions(bot))
+    }
+  }, [bot?.id])
   const [isCopied, setIsCopied] = useState(false)
   const [copiedId, setCopiedId] = useState('')
   const [screenWidth, setScreenWidth] = useState(null)

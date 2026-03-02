@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
@@ -7,8 +8,12 @@ const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
 
   useEffect(() => {
     if (childRef.current) {
+      const finalContent = React.isValidElement(content)
+        ? renderToStaticMarkup(content)
+        : content;
+
       const instance = tippy(childRef.current, {
-        content,
+        content: finalContent,
         theme: 'light',
         placement,
         allowHTML: true,

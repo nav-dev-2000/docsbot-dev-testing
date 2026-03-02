@@ -8,7 +8,6 @@ import {
   UsersIcon,
   ArrowRightIcon,
   CheckBadgeIcon,
-  DocumentTextIcon,
   Square3Stack3DIcon,
   ChatBubbleBottomCenterTextIcon,
 } from '@heroicons/react/24/outline'
@@ -328,6 +327,16 @@ export const getServerSideProps = async (context) => {
     
     // Fetch bots for wizard redirect
     const role = getUserRole(data.props.team, data.props.userId)
+
+    // Users with no team role should go straight to bots list
+    if (role === 'none') {
+      return {
+        redirect: {
+          destination: '/app/bots',
+          permanent: false,
+        },
+      }
+    }
     const allBots = await getBots(data.props.team)
     data.props.bots =
       role === 'none'

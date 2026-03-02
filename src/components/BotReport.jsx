@@ -467,7 +467,7 @@ export default function BotReport({ team, bot }) {
               type="button"
               onClick={() => {
                 if (blurEnabled) return
-                const url = `/app/bots/${bot.id}/reports/print?month=${selected?.value}`
+                const url = `/app/bots/${bot.id}/analytics/reports/print?month=${selected?.value}`
                 const newWindow = window.open(
                   url,
                   '_blank',

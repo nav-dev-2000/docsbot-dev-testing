@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from '@/utils/classNames'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 //icon can be default, robot, life-ring, or question-circle
 const iconMap = {
@@ -42,6 +43,7 @@ export default function FieldRadioIcon({
   setIcon,
   imageOptions = [],
   imageBackgroundStyle = {},
+  loading = false,
   props,
 }) {
   const list = type === 'bot' ? botIconMap : iconMap
@@ -167,6 +169,8 @@ export default function FieldRadioIcon({
               />
             ) : option.key === 'none' ? (
               <span>None</span>
+            ) : option.key === 'custom' && loading ? (
+              <LoadingSpinner className="size-6 text-cyan-600" />
             ) : option.key === 'custom' && isCustomUploaded ? (
               <img src={icon} alt="icon" className="h-9 w-9 object-contain" />
             ) : (

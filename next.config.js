@@ -216,7 +216,40 @@ const nextConfig = {
       },
     ])
 
-    return [...existing, ...modelRedirects, ...compareRedirects]
+    const botDashboardRedirects = [
+      {
+        source: '/app/bots/:botId/questions',
+        destination: '/app/bots/:botId/analytics/questions',
+        permanent: true,
+      },
+      {
+        source: '/app/bots/:botId/questions/:questionId',
+        destination: '/app/bots/:botId/analytics/questions/:questionId',
+        permanent: true,
+      },
+      {
+        source: '/app/bots/:botId/conversations',
+        destination: '/app/bots/:botId/analytics/conversations',
+        permanent: true,
+      },
+      {
+        source: '/app/bots/:botId/reports',
+        destination: '/app/bots/:botId/analytics/reports',
+        permanent: true,
+      },
+      {
+        source: '/app/bots/:botId/reports/print',
+        destination: '/app/bots/:botId/analytics/reports/print',
+        permanent: true,
+      },
+      {
+        source: '/app/bots/:botId/webhooks',
+        destination: '/app/bots/:botId/configure/webhooks',
+        permanent: true,
+      },
+    ]
+
+    return [...existing, ...botDashboardRedirects, ...modelRedirects, ...compareRedirects]
   },
   webpack: (config, { isServer }) => {
     if (isServer) {

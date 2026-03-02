@@ -51,8 +51,7 @@ export default function SourceGrid({
 
   return (
     <div>
-      <div className="mt-8 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-gray-800">Sources</h2>
+      <div className="flex items-center justify-between">
         <Paginator
           page={paginationData.page}
           totalCount={paginationData.totalCount}

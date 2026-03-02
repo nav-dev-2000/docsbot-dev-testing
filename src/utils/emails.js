@@ -44,7 +44,7 @@ export const sendReportEmail = async (userId, reportName, report) => {
   <ul>`
 
   for (const bot of report.reports) {
-    emailBody += `<li><a href="https://docsbot.ai/app/bots/${bot.botId}/reports">${bot.name}</a></li>`
+    emailBody += `<li><a href="https://docsbot.ai/app/bots/${bot.botId}/analytics/reports">${bot.name}</a></li>`
   }
 
   emailBody += `</ul>

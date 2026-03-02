@@ -29,7 +29,7 @@ export default function InviteMember({
     <div class="text-left text-xs leading-5">
       <div><strong>Team roles</strong></div>
       <div>Admin: manage team, billing, and all bots.</div>
-      <div>Editor: Viewer plus edit sources and instructions.</div>
+      <div>Editor: Viewer plus edit sources and instructions; can export logs.</div>
       <div>Viewer: view bot content, logs, and reports.</div>
       <div>None: no access unless a bot role is assigned.</div>
     </div>

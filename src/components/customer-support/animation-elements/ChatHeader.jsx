@@ -19,7 +19,7 @@ export const ChatHeader = ({ isActive = false, className }) => {
         >
             <DocsBotLogo
                 className={clsx(
-                    'w-auto mx-auto',
+                    'w-auto mx-auto text-white',
                     transition,
                     {
                         ['h-3']: isActive,

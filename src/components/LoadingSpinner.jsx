@@ -1,13 +1,14 @@
-import React from 'react'
+import clsx from 'clsx'
 import styles from './LoadingSpinner.module.css'
 
-export default function LoadingSpinner({ small = false, large = false }) {
-  const sizeClass = small ? 'w-3 h-3' : large ? 'h-8 w-8' : 'w-4 h-4'
+export default function LoadingSpinner({ small = false, large = false, className }) {
+  const hasSize = className?.includes('w-') || className?.includes('h-') || className?.includes('size-')
+  const sizeClass = hasSize ? '' : small ? 'w-3 h-3' : large ? 'h-8 w-8' : 'w-4 h-4'
 
   return (
     <svg
       role="status"
-      className={sizeClass + ' mr-1 inline animate-spin'}
+      className={clsx(sizeClass, 'mr-1 inline animate-spin', className)}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

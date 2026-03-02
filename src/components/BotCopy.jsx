@@ -14,7 +14,7 @@ const isTurbopuffer = (bot) => bot.vectorDatabase === 'turbopuffer'
 const getVectorDbForCopy = (bot) =>
   bot.vectorDatabase ?? (bot.indexId === 'TenantDocument' ? 'weaviate' : 'turbopuffer')
 
-export const BotCopyModal = ({ team, bot }) => {
+export const BotCopyModal = ({ team, bot, iconOnly = false, iconColor }) => {
   const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState(null)
   const [botName, setBotName] = useState(`${bot.name} Copy`)
@@ -94,8 +94,15 @@ export const BotCopyModal = ({ team, bot }) => {
       />
       <Tooltip content="Duplicate this bot & its sources">
         <button
-          className="flex items-center text-sm text-gray-600 hover:text-gray-800"
-          onClick={() => {
+          className={
+            iconOnly
+              ? 'rounded p-1.5 transition hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent'
+              : 'flex items-center text-sm text-gray-600 hover:text-gray-800'
+          }
+          style={iconOnly && iconColor ? { color: iconColor } : undefined}
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
             if (!checkPlanPermission(team, 'personal', 'duplicate').allowed) {
               setShowUpgrade(true)
             } else {
@@ -104,10 +111,10 @@ export const BotCopyModal = ({ team, bot }) => {
           }}
         >
           <DocumentDuplicateIcon
-            className="mr-1 h-4 w-4 flex-shrink-0"
+            className={iconOnly ? 'h-4 w-4' : 'mr-1 h-4 w-4 flex-shrink-0'}
             aria-hidden="true"
           />
-          <p>Duplicate</p>
+          {!iconOnly && <p>Duplicate</p>}
         </button>
       </Tooltip>
       <Transition.Root show={open} as={Fragment}>

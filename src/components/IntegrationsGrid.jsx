@@ -1,8 +1,10 @@
 import { Fragment, useEffect, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
   LinkIcon,
   ClipboardIcon,
+  ClipboardDocumentIcon,
   CheckIcon,
   ArrowTopRightOnSquareIcon,
   ChatBubbleLeftEllipsisIcon,
@@ -58,7 +60,7 @@ const IntegrationCard = ({ title, icon, children, isNew, minPlan }) => {
   )
 }
 
-const ChatWidgetInfo = ({ bot, openLinksInNewTab }) => {
+const ChatWidgetInfo = ({ bot, openLinksInNewTab, newDashboard, onConfigureClick }) => {
   return (
     <>
       <p className="text-md text-gray-800">
@@ -70,14 +72,24 @@ const ChatWidgetInfo = ({ bot, openLinksInNewTab }) => {
         <li>Configure widget placement and behavior</li>
       </ul>
       <div className="mt-4">
-        <Link
-          href={`/app/bots/${bot.id}/widget`}
-          target={openLinksInNewTab ? '_blank' : undefined}
-          className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-        >
-          <ChatBubbleLeftEllipsisIcon className="mr-2 h-4 w-4" />
-          Configure Widget
-        </Link>
+        {newDashboard ? (
+          <button
+            onClick={onConfigureClick}
+            className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+          >
+            <ChatBubbleLeftEllipsisIcon className="mr-2 h-4 w-4" />
+            Configure Widget
+          </button>
+        ) : (
+          <Link
+            href={`/app/bots/${bot.id}/widget/design`}
+            target={openLinksInNewTab ? "_blank" : undefined}
+            className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+          >
+            <ChatBubbleLeftEllipsisIcon className="mr-2 h-4 w-4" />
+            Configure Widget
+          </Link>
+        )}
       </div>
     </>
   )
@@ -408,7 +420,8 @@ const WebhooksInfo = ({ bot, openLinksInNewTab }) => {
       </ul>
       <div className="mt-4">
         <Link
-          href={`/app/bots/${bot.id}/webhooks`}
+          href={`/app/bots/${bot.id}/configure/webhooks`}
+          shallow={!openLinksInNewTab}
           target={openLinksInNewTab ? '_blank' : undefined}
           className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
         >
@@ -1156,6 +1169,7 @@ export default function IntegrationsGrid({
   integrations = [],
   compact = false,
   openLinksInNewTab = false,
+  newDashboard = false,
 }) {
   const helpScoutIntegration = integrations?.find((i) => i.id === 'helpscout')
   const [subscribedTags, setSubscribedTags] = useState([])
@@ -1168,6 +1182,9 @@ export default function IntegrationsGrid({
     slackTeamName: bot.slackTeamName,
     slackConnectedAt: bot.slackConnectedAt,
   })
+  const [showWidgetModal, setShowWidgetModal] = useState(false)
+  const [copiedEmbed, setCopiedEmbed] = useState(false)
+  const [copiedIframe, setCopiedIframe] = useState(false)
 
   const hasPowerPlan = checkPlanPermission(team, 'personal').allowed
   const mcpPlanPermission = checkPlanPermission(team, 'standard')
@@ -1390,7 +1407,12 @@ export default function IntegrationsGrid({
             <ChatBubbleLeftEllipsisIcon className="h-8 w-8 text-cyan-600" />
           }
         >
-          <ChatWidgetInfo bot={bot} openLinksInNewTab={openLinksInNewTab} />
+          <ChatWidgetInfo
+            bot={bot}
+            openLinksInNewTab={openLinksInNewTab}
+            newDashboard={newDashboard}
+            onConfigureClick={() => setShowWidgetModal(true)}
+          />
         </IntegrationCard>
 
         {/* Share Links Card */}
@@ -1521,6 +1543,111 @@ export default function IntegrationsGrid({
       </div>
 
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+
+      <Transition.Root show={showWidgetModal} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={setShowWidgetModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+                  <div className="absolute right-0 top-0 pr-4 pt-4">
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                      onClick={() => setShowWidgetModal(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  <div className="p-8">
+                    <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                      Configure Chat Widget
+                    </h2>
+                    <p className="mb-6 text-sm text-gray-600">
+                      Embed this DocsBot as a floating widget on your website by adding the script below, or use the iframe embed for a fixed position.
+                    </p>
+
+                    <div className="space-y-6">
+                      {/* Script Embed */}
+                      <div>
+                        <div className="mb-2 flex items-center justify-between">
+                          <label className="text-sm font-semibold text-gray-900">Script Embed</label>
+                          <button
+                            onClick={() => {
+                              const embed = `<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>\n<script type="text/javascript">\n  DocsBotAI.init({id: "${team.id}/${bot.id}"});\n</script>`
+                              navigator.clipboard.writeText(embed)
+                              setCopiedEmbed(true)
+                              setTimeout(() => setCopiedEmbed(false), 2000)
+                            }}
+                            className="text-xs font-medium text-cyan-600 hover:text-cyan-500 flex items-center"
+                          >
+                            {copiedEmbed ? <><CheckIcon className="mr-1 h-3 w-3" /> Copied!</> : <><ClipboardDocumentIcon className="mr-1 h-3 w-3" /> Copy script</>}
+                          </button>
+                        </div>
+                        <pre className="overflow-x-auto rounded-md bg-gray-800 p-3 text-[10px] text-gray-100 font-mono leading-relaxed">
+                          {`<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>\n<script type="text/javascript">\n  DocsBotAI.init({id: "${team.id}/${bot.id}"});\n</script>`}
+                        </pre>
+                      </div>
+
+                      {/* iFrame Embed */}
+                      <div>
+                        <div className="mb-2 flex items-center justify-between">
+                          <label className="text-sm font-semibold text-gray-900">iFrame Embed</label>
+                          <button
+                            onClick={() => {
+                              const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`
+                              navigator.clipboard.writeText(iframe)
+                              setCopiedIframe(true)
+                              setTimeout(() => setCopiedIframe(false), 2000)
+                            }}
+                            className="text-xs font-medium text-cyan-600 hover:text-cyan-500 flex items-center"
+                          >
+                            {copiedIframe ? <><CheckIcon className="mr-1 h-3 w-3" /> Copied!</> : <><ClipboardDocumentIcon className="mr-1 h-3 w-3" /> Copy iframe</>}
+                          </button>
+                        </div>
+                        <pre className="overflow-x-auto rounded-md bg-gray-800 p-3 text-[10px] text-gray-100 font-mono leading-relaxed">
+                          {`<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`}
+                        </pre>
+                      </div>
+
+                      <div className="mt-8 border-t border-gray-100 pt-6">
+                        <Link
+                          href={`/app/bots/${bot.id}/widget/design`}
+                          className="flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700"
+                        >
+                          Customize Widget Appearance
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
     </>
   )
 }

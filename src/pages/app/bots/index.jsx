@@ -14,6 +14,7 @@ import {
 import Alert from '@/components/Alert'
 import { getBots } from '@/lib/dbQueries'
 import BotDelete from '@/components/BotDelete'
+import { BotCopyModal } from '@/components/BotCopy'
 import clsx from 'clsx'
 import LocalStringNum from '@/components/LocalStringNum'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -55,7 +56,7 @@ function Bots({ preBots, team }) {
     }
   }
 
-  const BotsGrid = ({ bots }) => {
+  const BotsGrid = ({ bots, team, canModify: canModifyGrid }) => {
     const hasBots = bots && bots.length > 0
 
     return (
@@ -71,7 +72,12 @@ function Bots({ preBots, team }) {
           className='md:grid-cols-2 mt-0 grid grid-cols-1 justify-items-center gap-6'
         >
           {hasBots && bots.map((bot) => (
-            <BotItem key={bot.id} bot={bot} />
+            <BotItem
+              key={bot.id}
+              bot={bot}
+              team={team}
+              canModify={canModifyGrid}
+            />
           ))}
           {canModify && (
             <li className={clsx(" w-full", hasBots ? 'col-span-1' : 'col-span-2')}>
@@ -86,7 +92,7 @@ function Bots({ preBots, team }) {
     )
   }
 
-  const BotItem = ({ bot }) => {
+  const BotItem = ({ bot, team, canModify: canModifyBot }) => {
     if (!bot || !bot.id) return null
 
     const brandColor = bot.color && bot.color.trim() ? bot.color : '#0ea5e9'
@@ -139,7 +145,7 @@ function Bots({ preBots, team }) {
               <div className="flex h-full flex-col w-full max-w-md mx-auto">
                 <div className="flex h-full flex-col rounded-t-2xl rounded-b-none border border-gray-200 bg-white shadow-lg shadow-gray-900/5 backdrop-blur pb-3 overflow-hidden border-b-0">
                   <div
-                    className="flex flex-wrap items-center justify-between gap-3 pl-3 pr-4 py-3 shadow-sm"
+                    className="relative flex flex-wrap items-center justify-between gap-3 pl-3 pr-4 py-3 shadow-sm"
                     style={{ background: `linear-gradient(to bottom, ${brandColor} 70%, ${brandColor}ee 100%)` }}
                   >
                     <div className="flex min-w-0 items-center gap-4 w-full">
@@ -155,6 +161,16 @@ function Bots({ preBots, team }) {
                         {bot.name}
                       </h3>
                     </div>
+                    {canModifyBot && (
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                        <BotCopyModal
+                          team={team}
+                          bot={bot}
+                          iconOnly
+                          iconColor={titleColor}
+                        />
+                      </div>
+                    )}
                   </div>
                   <div className="mt-4 px-3 flex flex-1 flex-col justify-between">
                     {description ? (
@@ -245,7 +261,11 @@ function Bots({ preBots, team }) {
 
       <ModalCheckout team={currentTeam} open={showUpgrade} setOpen={setShowUpgrade} />
 
-      <BotsGrid bots={visibleBots} />
+      <BotsGrid
+        bots={visibleBots}
+        team={currentTeam}
+        canModify={canModify}
+      />
 
     </DashboardWrap>
   )

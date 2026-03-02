@@ -353,7 +353,7 @@ export default function WidgetPreview({
   )
 }
 
-function LeadCollectPreview({ leadCollect, labels, color }) {
+export function LeadCollectPreview({ leadCollect, labels, color }) {
   const fields = Array.isArray(leadCollect?.fields) ? leadCollect.fields : []
   const [leadFormValues, setLeadFormValues] = useState({})
   const [leadFormTouched, setLeadFormTouched] = useState(false)

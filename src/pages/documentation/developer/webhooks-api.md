@@ -196,7 +196,7 @@ Verification is optional but recommended to ensure webhooks originate from DocsB
 
 **Header format:** `X-DocsBot-Signature: sha256=<hex>`
 
-**Signing key:** Find yours on the [Webhooks](/app/bots) page for your bot (Integrations → Webhooks). Copy the signing key from there.
+**Signing key:** Find yours on the [Webhooks](/app/bots) page for your bot (Configure → Webhooks). Copy the signing key from there.
 
 ### Verification (Node.js)
 

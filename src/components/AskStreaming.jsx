@@ -31,7 +31,18 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
   const [loadingMessage, setLoadingMessage] = useState('')
   const [errorText, setErrorText] = useState(null)
   const [rating, setRating] = useState(0)
-  const [questions, setQuestions] = useState(bot.questions ? (bot.questions.length > 3 ? grabQuestions(bot) : bot.questions) : [])
+  const [questions, setQuestions] = useState(
+    bot.questions
+      ? bot.questions.length > 3
+        ? bot.questions.slice(0, 4)
+        : bot.questions
+      : [],
+  )
+  useEffect(() => {
+    if (bot?.questions && bot.questions.length > 3) {
+      setQuestions(grabQuestions(bot))
+    }
+  }, [bot?.id])
   const [hideSources, setHideSources] = useState(() => bot?.hideSources || false)
   const [user] = useAuthState(auth)
   const posthog = usePostHog()
