@@ -369,6 +369,8 @@ export function StripePricingTable({
   const frequencyOptions = frequencies
   const isCurrencyLocked =
     isUpgrade && Boolean(team?.stripeSubscriptionCurrency)
+  const alternateBillingIntervalLabel =
+    displayFrequency.value === 'monthly' ? 'annual' : 'monthly'
 
   return (
     <div>
@@ -395,10 +397,12 @@ export function StripePricingTable({
             ? 'Upgrade to access more capacity and features. Changes apply immediately.'
             : 'Please choose a plan that fits your needs. You can upgrade or downgrade at any time.'}
         </p>
-        <p className="text-md mx-auto flex items-center justify-center font-semibold text-teal-500">
-          <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back
-          guarantee!
-        </p>
+        {!isUpgrade && (
+          <p className="text-md mx-auto flex items-center justify-center font-semibold text-teal-500">
+            <CheckBadgeIcon className="mr-1 h-5 w-5" /> 14-day money-back
+            guarantee!
+          </p>
+        )}
       </div>
 
       <div className="mx-auto my-10">
@@ -447,7 +451,7 @@ export function StripePricingTable({
           </p>
         ) : (
           <p className="mt-2 text-center text-sm text-gray-600">
-            {`Showing ${displayFrequency.label.toLowerCase()} pricing to match your current billing interval. Open the billing portal to change to monthly plans.`}
+            {`Showing ${displayFrequency.label.toLowerCase()} pricing to match your current billing interval. Open the billing portal to switch to ${alternateBillingIntervalLabel} plans.`}
           </p>
         )}
         {!isCurrencyLocked && (
