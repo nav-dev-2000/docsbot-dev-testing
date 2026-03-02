@@ -542,7 +542,7 @@ export default function DashboardWrap({
                 />
               )}
 
-            <main className="flex-1">
+            <main className="min-h-0 flex-1 overflow-y-auto">
               <div className="py-4 sm:py-8">
                 <div
                   className={clsx(
