@@ -198,7 +198,7 @@ function PrintView({ team, bot, month }) {
     )
 }
 
-const Bot = ({
+const BotInner = ({
     team,
     bot: initialBot,
     bots,
@@ -206,13 +206,7 @@ const Bot = ({
     preConversations,
     preQuestions,
     openQuestion,
-    isPrintView,
-    printMonth,
 }) => {
-    if (isPrintView) {
-        return <PrintView team={team} bot={initialBot} month={printMonth} />
-    }
-
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
     const { botId } = router.query
@@ -703,6 +697,20 @@ const Bot = ({
             />
         </AppShell>
     )
+}
+
+const Bot = (props) => {
+    if (props.isPrintView) {
+        return (
+            <PrintView
+                team={props.team}
+                bot={props.bot}
+                month={props.printMonth}
+            />
+        )
+    }
+
+    return <BotInner {...props} />
 }
 
 export const getServerSideProps = async (context) => {
