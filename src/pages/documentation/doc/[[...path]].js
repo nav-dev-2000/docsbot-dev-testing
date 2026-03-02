@@ -66,9 +66,28 @@ const postsParams = {
   order: 'asc',
 }
 
-const SinglePage = ({ seo }) => {
+const SinglePage = ({ seo, wpRecoverableError = false }) => {
   const { loading, error, data } = usePost(params)
   const { loading: menuLoading, error: menuError, data: menuData } = usePosts(postsParams)
+
+  if (wpRecoverableError) {
+    return (
+      <>
+        <Header />
+        <div className="bg-white py-12 sm:py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Documentation is temporarily unavailable
+            </h1>
+            <p className="mt-4 text-base text-gray-600">
+              We couldn’t fetch this page from WordPress right now. Please try again shortly.
+            </p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
 
   if (loading || menuLoading) {
     return (
@@ -232,21 +251,52 @@ const SinglePage = ({ seo }) => {
  * @returns {Promise<*>}
  */
 export async function getStaticPaths() {
-  const postsData = await usePosts.fetcher().get({ postType: 'docs', per_page: 100 })
+  const disableDocsPrerender = process.env.DISABLE_DOCS_PRERENDER === 'true'
 
-  const postsPath = postsData.result.map(({ link }) => {
+  if (disableDocsPrerender) {
     return {
-      // path is the catch all route, so it must be array with url segments
-      // if you don't want to support date urls just remove the date from the path
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+
+  let postsData
+
+  try {
+    postsData = await usePosts.fetcher().get({ postType: 'docs', per_page: 100 })
+  } catch (error) {
+    console.warn('Skipping docs pre-render path generation because WordPress is unavailable.', error)
+
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
+  }
+
+  // This route is at /documentation/doc/[[...path]] so the catch-all `path` should
+  // only include segments *after* that base. WordPress links may include locale
+  // prefixes (e.g. /en/documentation/doc/...) so we detect the base segments.
+  const postsPath = postsData.result.map(({ link }) => {
+    const segments = removeSourceUrl({ link, backendUrl: getWPUrl() })
+      .substring(1)
+      .split('/')
+      .filter(Boolean)
+
+    const baseIdx = segments.findIndex((segment, idx) => {
+      return segment === 'documentation' && segments[idx + 1] === 'doc'
+    })
+
+    const path = baseIdx >= 0 ? segments.slice(baseIdx + 2) : segments
+    return {
       params: {
-        path: removeSourceUrl({ link, backendUrl: getWPUrl() }).substring(1).split('/'),
+        path,
       },
     }
   })
 
   return {
     paths: [...postsPath],
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 
@@ -288,6 +338,34 @@ export async function getStaticProps(context) {
 
     return addHookData(settledPromises, { revalidate: 60 * 60 })
   } catch (e) {
+    const statusCode = e?.status || e?.response?.status
+    const errorMessage = typeof e?.message === 'string' ? e.message : ''
+    const errorCode = e?.code
+    const isRecoverableWordPressError =
+      e instanceof SyntaxError ||
+      errorMessage.includes('is not valid JSON') ||
+      errorMessage.includes('Unexpected token <') ||
+      statusCode === 429 ||
+      (typeof statusCode === 'number' && statusCode >= 500) ||
+      errorCode === 'ECONNRESET' ||
+      errorCode === 'ETIMEDOUT' ||
+      errorMessage.toLowerCase().includes('network') ||
+      errorMessage.toLowerCase().includes('fetch')
+
+    if (isRecoverableWordPressError) {
+      console.warn('WordPress fetch failed during docs generation. Serving ISR fallback.', {
+        path: context?.params?.path,
+        statusCode,
+      })
+
+      return {
+        props: {
+          wpRecoverableError: true,
+        },
+        revalidate: 60,
+      }
+    }
+
     return handleError(e, context)
   }
 }

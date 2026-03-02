@@ -18,8 +18,27 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 
 const params = { postType: ['page', 'post'] }
 
-const SinglePage = ({ seo }) => {
+const SinglePage = ({ seo, wpRecoverableError = false }) => {
   const { loading, error, data } = usePost(params)
+
+  if (wpRecoverableError) {
+    return (
+      <>
+        <Header />
+        <div className="bg-white py-12 sm:py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Page temporarily unavailable
+            </h1>
+            <p className="mt-4 text-base text-gray-600">
+              We couldn’t fetch this page from WordPress right now. Please try again shortly.
+            </p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
 
   return (
     <>
@@ -91,45 +110,53 @@ const SinglePage = ({ seo }) => {
  * @returns {Promise<*>}
  */
 export async function getStaticPaths() {
-  const postsData = await usePosts
-    .fetcher()
-    .get({ postType: 'post', per_page: 60 })
+  try {
+    const postsData = await usePosts
+      .fetcher()
+      .get({ postType: 'post', per_page: 60 })
 
-  const postsPath = postsData.result.map(({ link }) => {
-    return {
-      // path is the catch all route, so it must be array with url segments
-      // if you don't want to support date urls just remove the date from the path
-      params: {
-        path: removeSourceUrl({ link, backendUrl: getWPUrl() })
-          .substring(1)
-          .split('/'),
-      },
-    }
-  })
-
-  const pagesData = await usePosts
-    .fetcher()
-    .get({ postType: 'page', per_page: 50 })
-
-  const pagePaths = pagesData.result
-    .map(({ link }) => {
-      const normalizedLink = removeSourceUrl({ link, backendUrl: getWPUrl() })
-      if (normalizedLink === '/') {
-        return false
-      }
-
+    const postsPath = postsData.result.map(({ link }) => {
       return {
-        // path is the catch all route, so it must be array with url segments
         params: {
-          path: normalizedLink.substring(1).split('/'),
+          path: removeSourceUrl({ link, backendUrl: getWPUrl() })
+            .substring(1)
+            .split('/'),
         },
       }
     })
-    .filter(Boolean)
 
-  return {
-    paths: [...postsPath, ...pagePaths],
-    fallback: true,
+    const pagesData = await usePosts
+      .fetcher()
+      .get({ postType: 'page', per_page: 50 })
+
+    const pagePaths = pagesData.result
+      .map(({ link }) => {
+        const normalizedLink = removeSourceUrl({ link, backendUrl: getWPUrl() })
+        if (normalizedLink === '/') {
+          return false
+        }
+
+        return {
+          params: {
+            path: normalizedLink.substring(1).split('/'),
+          },
+        }
+      })
+      .filter(Boolean)
+
+    return {
+      paths: [...postsPath, ...pagePaths],
+      fallback: 'blocking',
+    }
+  } catch (error) {
+    console.warn(
+      'Skipping WP pre-render path generation because WordPress is unavailable.',
+      error,
+    )
+    return {
+      paths: [],
+      fallback: 'blocking',
+    }
   }
 }
 
@@ -170,6 +197,33 @@ export async function getStaticProps(context) {
 
       return addHookData(settledPromises, { revalidate: 60 * 60 })
     } catch (e) {
+      const statusCode = e?.status || e?.response?.status
+      const errorMessage = typeof e?.message === 'string' ? e.message : ''
+      const errorCode = e?.code
+      const isRecoverableWordPressError =
+        e instanceof SyntaxError ||
+        errorMessage.includes('is not valid JSON') ||
+        errorMessage.includes('Unexpected token <') ||
+        statusCode === 429 ||
+        (typeof statusCode === 'number' && statusCode >= 500) ||
+        errorCode === 'ECONNRESET' ||
+        errorCode === 'ETIMEDOUT' ||
+        errorMessage.toLowerCase().includes('network') ||
+        errorMessage.toLowerCase().includes('fetch')
+
+      if (isRecoverableWordPressError) {
+        console.warn('WordPress fetch failed during page generation. Serving ISR fallback.', {
+          path: context?.params?.path,
+          statusCode,
+        })
+        return {
+          props: {
+            wpRecoverableError: true,
+          },
+          revalidate: 60,
+        }
+      }
+
       return handleError(e, context)
     }
   }
