@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { Dialog, Transition } from '@headlessui/react'
 import {
@@ -51,8 +51,9 @@ const SidebarDesktop = ({
 }) => {
     const [isOpen, setIsOpen] = useState(true)
     const [hasHydrated, setHasHydrated] = useState(false)
+    const [animate, setAnimate] = useState(false)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (typeof window === 'undefined') return
         const savedState = window.localStorage.getItem(SIDEBAR_STATE_KEY)
         if (savedState !== null) {
@@ -170,7 +171,8 @@ const SidebarDesktop = ({
     return (
         <div
             className={clsx(
-                'hidden h-full flex-none flex-col bg-cyan-700 transition-all duration-200 md:flex print:!hidden',
+                'hidden h-full flex-none flex-col bg-cyan-700 md:flex print:!hidden',
+                animate && 'transition-all duration-200',
                 isOpen ? 'w-48' : 'w-16',
             )}
         >
@@ -183,7 +185,10 @@ const SidebarDesktop = ({
                             'absolute -right-2 top-1/2 z-40 flex size-5 -translate-y-1/2 items-center justify-center rounded-full bg-white text-cyan-800 shadow-md ring-1 ring-gray-100',
                             'hover:bg-cyan-50 focus:outline-none',
                         )}
-                        onClick={() => setIsOpen((open) => !open)}
+                        onClick={() => {
+                            setAnimate(true)
+                            setIsOpen((open) => !open)
+                        }}
                         aria-expanded={isOpen}
                         aria-label={
                             isOpen ? 'Collapse sidebar' : 'Expand sidebar'
