@@ -2074,6 +2074,97 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 3.1 Flash-Lite',
+    slug: 'gemini-3-1-flash-lite',
+    provider: 'google',
+    description:
+      "Gemini 3.1 Flash-Lite is an addition to the Gemini 3 series of natively multimodal reasoning models. It is cost-efficient and fast, optimized for high-volume, latency-sensitive tasks like translation and classification.",
+    input_context_window: '1M',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2026-03-03',
+    knowledge_cut_off_date: 'January 2026',
+    api_providers: 'Google AI Studio, Vertex AI',
+    input_cost_per_million_tokens: 0.25,
+    output_cost_per_million_tokens: 1.5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: false,
+      multi_step_workflows: true,
+      vision: true,
+    },
+    benchmarks: {
+      OutputSpeedTokensPerSecond: {
+        score: 363,
+        notes: 'Output speed, tokens/sec',
+        source:
+          'https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/',
+      },
+      HumanitysLastExam: {
+        score: 16.0,
+        notes: 'No tools, full set (text + multimodal)',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      GPQA: {
+        score: 86.9,
+        notes: 'Diamond, no tools',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      MMMUPro: {
+        score: 76.8,
+        notes: 'No tools',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      CharXivReasoning: {
+        score: 73.2,
+        notes: 'Chart reasoning / info synthesis',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      VideoMMMU: {
+        score: 84.8,
+        notes: 'Knowledge acquisition from videos',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      SimpleQA: {
+        score: 43.3,
+        notes: 'Verified',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      FACTSBenchmarkSuite: {
+        score: 40.6,
+        notes: 'Factuality across grounding/parametric/search/MM',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      MMMLU: {
+        score: 88.9,
+        notes: 'Multilingual Q&A',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      LiveCodeBench: {
+        score: 72.0,
+        notes: 'Code generation (UI: 2025-01-01 to 2025-05-01)',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      MRCRv2_128k: {
+        score: 60.1,
+        notes: 'Long context performance (8-needle), 128k average',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+      MRCRv2_1M: {
+        score: 12.3,
+        notes: 'Long context performance (8-needle), 1M pointwise',
+        source: 'https://deepmind.google/models/evals-methodology/gemini-3-1-flash-lite',
+      },
+    },
+  },
+  {
     model_name: 'Gemini 3 Flash',
     slug: 'gemini-3-flash',
     provider: 'google',
