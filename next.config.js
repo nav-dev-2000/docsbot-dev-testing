@@ -66,6 +66,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Ahrefs broken backlink target: https://docsbot.ai/privacy
+        source: '/privacy',
+        destination: '/legal/privacy-policy',
+        permanent: true,
+      },
+      {
         source: '/terms-of-service',
         destination: '/legal/terms-of-service',
         permanent: true,
@@ -95,6 +101,7 @@ const nextConfig = {
         destination: 'https://www.producthunt.com/products/docsbot-ai',
         permanent: true,
       },
+
       {
         source: '/tools/ai-prompt-generator',
         destination: '/tools/prompt/ai-prompt-generator',
@@ -163,6 +170,12 @@ const nextConfig = {
       {
         source: '/article/gpt-5-release-date-features-what-to-expect-from-openais-next-model',
         destination: '/article/gpt-5-is-live-on-docsbot-better-answers-fewer-hallucinations-lower-costs',
+        permanent: true,
+      },
+      {
+        // Ahrefs broken backlink target
+        source: '/article/the-perfect-prompt-6-essential-components-for-creating-effective-ai-prompts',
+        destination: '/article/how-to-write-a-prompt',
         permanent: true,
       },
       {
