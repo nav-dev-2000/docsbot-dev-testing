@@ -3,6 +3,7 @@ import { CheckBadgeIcon, CheckIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import * as cookie from 'cookie'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
 import {
@@ -372,6 +373,30 @@ export function StripePricingTable({
   const alternateBillingIntervalLabel =
     displayFrequency.value === 'monthly' ? 'annual' : 'monthly'
 
+  // Trial is enabled via Staff Tools (team.canTrial). Only show banner when it
+  // will actually be applied in Stripe checkout (new customers without a Stripe customer id).
+  const shouldShowTrialBanner =
+    !isUpgrade && Boolean(team?.canTrial) && !team?.stripeCustomerId
+
+  // Stripe checkout can override the default trial length (e.g. via coupon).
+  // Keep UI messaging accurate by matching the same override logic used server-side.
+  const [trialDays, setTrialDays] = useState(14)
+  useEffect(() => {
+    if (!shouldShowTrialBanner) return
+    if (typeof window === 'undefined') return
+    try {
+      const cookies = cookie.parse(document.cookie || '')
+      const couponId = cookies['docsbot_coupon']
+      if (couponId === 'paul-higgins') {
+        setTrialDays(30)
+      } else {
+        setTrialDays(14)
+      }
+    } catch (e) {
+      setTrialDays(14)
+    }
+  }, [shouldShowTrialBanner])
+
   return (
     <div>
       <div className="mb-2 text-center">
@@ -406,6 +431,15 @@ export function StripePricingTable({
       </div>
 
       <div className="mx-auto my-10">
+        {shouldShowTrialBanner && (
+          <div className="mx-auto mb-6 max-w-2xl">
+            <Alert
+              type="info"
+              title={`A ${trialDays}-day free trial will be applied to your account.`}
+            />
+          </div>
+        )}
+
         {!isUpgrade || allowUpgradeFrequencyToggle ? (
           <>
             <div className="flex justify-center">
