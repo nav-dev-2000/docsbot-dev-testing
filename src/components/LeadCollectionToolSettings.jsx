@@ -254,6 +254,7 @@ export default function LeadCollectionToolSettings({
   onRequireUpgrade,
 }) {
   const [newFieldType, setNewFieldType] = useState(null)
+  const [isFormFieldsOpen, setIsFormFieldsOpen] = useState(false)
   const [draggedFieldIndex, setDraggedFieldIndex] = useState(null)
   const [dragOverFieldIndex, setDragOverFieldIndex] = useState(null)
   const lastEnabledConfigRef = useRef(null)
@@ -447,6 +448,7 @@ export default function LeadCollectionToolSettings({
         toPersistedLeadCollect(lastEnabledConfigRef.current) ||
         toPersistedLeadCollect(config) ||
         toPersistedLeadCollect(createDefaultLeadCollectOptions())
+      setIsFormFieldsOpen(true)
       onChange(
         restoredConfig || toPersistedLeadCollect(createDefaultLeadCollectOptions()),
       )
@@ -454,6 +456,7 @@ export default function LeadCollectionToolSettings({
     }
 
     lastEnabledConfigRef.current = config
+    setIsFormFieldsOpen(false)
     onChange(false)
   }
 
@@ -540,6 +543,8 @@ export default function LeadCollectionToolSettings({
             <AppearanceAccordion
               title="Form Fields"
               titleTag="h5"
+              open={isFormFieldsOpen}
+              onOpenChange={setIsFormFieldsOpen}
             >
               <div className="space-y-3">
                 <div className="space-y-2">

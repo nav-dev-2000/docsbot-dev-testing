@@ -157,10 +157,21 @@ const AppearanceAccordion = ({
     isNew = false,
     isLast = false,
     defaultOpen = false,
+    open,
+    onOpenChange,
     className,
     children,
 }) => {
     const [isOpen, setIsOpen] = useState(defaultOpen)
+    const isControlled = typeof open === 'boolean'
+    const currentOpen = isControlled ? open : isOpen
+
+    const handleOpenChange = (nextOpen) => {
+        if (!isControlled) {
+            setIsOpen(nextOpen)
+        }
+        onOpenChange?.(nextOpen)
+    }
     const contentId = useId()
     const TitleTag = titleTag ? titleTag : 'div'
 
@@ -176,12 +187,12 @@ const AppearanceAccordion = ({
         >
             <button
                 type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
+                onClick={() => handleOpenChange(!currentOpen)}
+                aria-expanded={currentOpen}
                 aria-controls={contentId}
                 className={clsx(
                     'group flex w-full items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-opacity-75 focus-visible:rounded-md',
-                    isOpen && 'mb-4',
+                    currentOpen && 'mb-4',
                 )}
             >
                 <div>
@@ -219,7 +230,7 @@ const AppearanceAccordion = ({
                         className={clsx(
                             'size-5 text-gray-400 transition-transform duration-200 group-hover:text-cyan-600',
                             {
-                                'rotate-180': isOpen,
+                                'rotate-180': currentOpen,
                             }
                         )}
                         aria-hidden="true"
@@ -228,7 +239,7 @@ const AppearanceAccordion = ({
             </button>
             <div
                 id={contentId}
-                className={clsx({ hidden: !isOpen })}
+                className={clsx({ hidden: !currentOpen })}
             >
                 {children}
             </div>
