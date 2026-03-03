@@ -132,6 +132,13 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         setErrorText('')
         setIsUpdating(true)
 
+        const changedSettings = Object.fromEntries(
+            Object.entries(botSettings).filter(([key, value]) => {
+                if (key === 'classify') return false
+                return JSON.stringify(value) !== JSON.stringify(bot?.[key])
+            }),
+        )
+
         const urlParams = ['teams', team.id, 'bots', bot.id]
         const apiPath = '/api/' + urlParams.join('/')
 
@@ -140,7 +147,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(botSettings),
+            body: JSON.stringify(changedSettings),
         })
         if (response.ok) {
             const data = await response.json()

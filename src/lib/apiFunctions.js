@@ -711,36 +711,51 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
   }
 
   if (glossary !== undefined) {
-    // Check if the team has Pro plan permissions
-    if (glossary && glossary.length > 0 && !checkPlanPermission(team, 'pro', 'glossary').allowed && !isSuperAdmin(userId)) {
-      throw new Error('Glossary feature is only available on the Standard plan or higher.')
-    }
-    
-    botData.glossary = glossary || []
-    
-    // If the user doesn't have Pro plan and there are existing glossary entries in the bot
-    // (e.g., downgraded from Pro to a lower plan), we'll clear the glossary entries
-    if (bot?.glossary?.length > 0 && !checkPlanPermission(team, 'pro', 'glossary').allowed && !isSuperAdmin(userId)) {
-      botData.glossary = []
-    } else if (Array.isArray(botData.glossary)) {
-      // Trim words and translations, convert words to lowercase
-      botData.glossary = botData.glossary.map(entry => ({
-        word: entry.word?.trim().toLowerCase() || '',
-        translation: entry.translation?.trim() || ''
-      }))
-      botData.glossary = botData.glossary.filter((g) => 
-        g?.word && g.word !== '' && g?.translation && g.translation !== ''
-      )
-      
-      // Remove entries with duplicate words
+    const normalizeGlossary = (entries = []) => {
+      if (!Array.isArray(entries)) return []
+
+      const normalizedEntries = entries
+        .map((entry) => ({
+          word: entry.word?.trim().toLowerCase() || '',
+          translation: entry.translation?.trim() || '',
+        }))
+        .filter(
+          (entry) =>
+            entry?.word &&
+            entry.word !== '' &&
+            entry?.translation &&
+            entry.translation !== '',
+        )
+
       const uniqueWords = new Set()
-      botData.glossary = botData.glossary.filter(entry => {
+      return normalizedEntries.filter((entry) => {
         if (uniqueWords.has(entry.word)) {
           return false
         }
         uniqueWords.add(entry.word)
         return true
       })
+    }
+
+    const hasGlossaryAccess =
+      checkPlanPermission(team, 'pro', 'glossary').allowed || isSuperAdmin(userId)
+    const normalizedIncomingGlossary = normalizeGlossary(glossary)
+    const normalizedExistingGlossary = normalizeGlossary(bot?.glossary)
+    const glossaryChanged =
+      JSON.stringify(normalizedIncomingGlossary) !==
+      JSON.stringify(normalizedExistingGlossary)
+
+    // Only enforce plan restrictions when glossary data is actually changing.
+    if (
+      glossaryChanged &&
+      normalizedIncomingGlossary.length > 0 &&
+      !hasGlossaryAccess
+    ) {
+      throw new Error('Glossary feature is only available on the Standard plan or higher.')
+    }
+
+    if (glossaryChanged) {
+      botData.glossary = normalizedIncomingGlossary
     }
   }
 
