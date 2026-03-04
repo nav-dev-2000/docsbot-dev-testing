@@ -3,6 +3,7 @@ import ChatAgent from '@/components/ChatAgent'
 import TipsButton from '@new-dashboard/TipsButton'
 import { CubeTransparentIcon, GlobeAmericasIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Alert from '@/components/Alert'
 import OpenAIIcon from '@/components/OpenAIIcon'
 import CohereIcon from '@/components/CohereIcon'
 import clsx from 'clsx'
@@ -68,10 +69,10 @@ const PageChatChat = ({ team, bot }) => {
           })
         : null
     return (
-        <div className="relative h-full flex-1">
+        <div className="relative flex flex-col">
             <div
                 className={clsx(
-                    'mb-4 flex items-center justify-end gap-2',
+                    'mb-4 flex shrink-0 items-center justify-end gap-2',
                     'md:absolute md:right-0 md:top-0 md:z-10 md:mb-0',
                 )}
             >
@@ -272,7 +273,39 @@ const PageChatChat = ({ team, bot }) => {
                 </TipsButton>
             </div>
 
-            <ChatAgent team={team} bot={bot} showResearchMode={true} />
+            {!bot?.isAgent && botId && (
+                <div className="mb-4 flex shrink-0 w-full justify-center">
+                    <div className="w-full md:max-w-[60%]">
+                        <Alert title="Agent Mode is here!" type="info">
+                            Please enable our new{' '}
+                            <Link
+                                href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 underline hover:text-blue-500"
+                            >
+                                Agentic mode
+                            </Link>
+                            {' '}for better results and to use all our new features. It
+                            provides more intelligent and contextual responses, tool
+                            calling to perform actions, conversation view, and more.
+                            When enabling, set your agent instructions and please test.
+                            <span className="mt-2 block">
+                                <Link
+                                    href={`/app/bots/${botId}/widget/design`}
+                                    className="inline-block rounded-lg border border-blue-600 px-4 py-2 font-medium transition hover:bg-blue-100"
+                                >
+                                    Enable Agent Mode
+                                </Link>
+                            </span>
+                        </Alert>
+                    </div>
+                </div>
+            )}
+
+            <div className="min-h-[70vh] w-full">
+                <ChatAgent team={team} bot={bot} showResearchMode={true} />
+            </div>
         </div>
     )
 }

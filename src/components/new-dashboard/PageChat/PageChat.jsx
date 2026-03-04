@@ -94,7 +94,7 @@ const PageChat = ({ team, bot }) => {
 
     return (
         <div
-            className="h-full flex-1 p-8"
+            className="flex min-h-full flex-1 flex-col bg-white p-8"
             style={widgetRootStyle}
             suppressHydrationWarning
         >

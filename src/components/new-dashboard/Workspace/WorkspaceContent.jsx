@@ -9,12 +9,15 @@ const WorkspaceContent = ({ data, activeId, hasPattern: propHasPattern }) => {
     )
     const showPattern = propHasPattern ?? activeItem?.hasPattern
 
+    const isChat = activeId === 'chat'
+
     return (
         <div
             className={clsx(
-                "min-h-0 flex flex-1 flex-col bg-gray-50",
+                "min-h-0 flex flex-1 flex-col overflow-y-auto",
+                isChat ? 'bg-white' : 'bg-gray-50',
                 {
-                    ["bg-[url('/images/grid-bots.png')] bg-repeat"]: showPattern,
+                    ["bg-[url('/images/grid-bots.png')] bg-repeat"]: showPattern && !isChat,
                 },
             )}
             {...(showPattern && {

@@ -798,6 +798,10 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       setErrorText('Please enter a full question.')
       return
     }
+    if (!bot.agentPrompt || !String(bot.agentPrompt).trim()) {
+      setErrorText('Set your agent prompt in Custom Instructions to enable chat.')
+      return
+    }
 
     // Abort previous request if it exists
     if (abortControllerRef.current) {
@@ -1283,6 +1287,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       setCopiedId('')
     }, 1500)
   }
+
+  // Agent chat requires a non-empty agent prompt (Custom Instructions)
+  const missingAgentPrompt = !bot.agentPrompt || !String(bot.agentPrompt).trim()
 
   const FullSource = () => {
     if (!currentSource) return null
@@ -1833,13 +1840,13 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])
 
   return (
-    <div className={clsx("relative flex flex-col items-center overflow-hidden h-full gap-4")}>
+    <div className={clsx("relative flex min-h-[70vh] flex-col items-center gap-4")}>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
 
       <Widget
         size="md"
         className={clsx(
-          'min-h-0 w-full flex-1',
+          'min-h-[70vh] w-full',
           'md:max-w-[60%]',
         )}
       >
@@ -1850,19 +1857,21 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
         />
 
         <Widget.Body>
-          <Alert 
-            title="Welcome to your new AI Agent!" 
-            type="info"
-            dismissKey="agent-beta-welcome"
-            className="mt-0"
-          >
-            You are chatting using our new Agent functionality, which
-            provides more intelligent and contextual responses, tool calling to
-            perform actions, as well as image and model selection support! You
-            may need to adjust your custom prompt to tune behavior for your use
-            case, such as providing different instructions for when the agent
-            should look up information from your docs.
-          </Alert>
+          {bot.isAgent && !missingAgentPrompt && (
+            <Alert 
+              title="Welcome to your new AI Agent!" 
+              type="info"
+              dismissKey="agent-beta-welcome"
+              className="mt-0"
+            >
+              You are chatting using our new Agent functionality, which
+              provides more intelligent and contextual responses, tool calling to
+              perform actions, as well as image and model selection support! You
+              may need to adjust your custom prompt to tune behavior for your use
+              case, such as providing different instructions for when the agent
+              should look up information from your docs.
+            </Alert>
+          )}
 
           <FullSource />
 
@@ -1920,7 +1929,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
             <Alert title={errorText} type="warning" />
 
-            {showQuestion && (
+            {showQuestion && !missingAgentPrompt && (
               <div className="mx-auto mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
                 {questions &&
                   questions.length > 0 &&
@@ -1949,10 +1958,18 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           </div>
         </Widget.Body>
 
-        <Widget.Footer
-          isDemo={false}
-          branding={false}
-        >
+        <Widget.Footer isDemo={false} branding={false}>
+          {missingAgentPrompt ? (
+            <div className="flex flex-col items-center justify-center gap-2 py-3 text-center text-sm text-amber-800">
+              <p>Chat is disabled until you set an agent prompt.</p>
+              <Link
+                href={`/app/bots/${bot.id}/configure/instructions`}
+                className="font-medium text-amber-700 underline decoration-amber-600 underline-offset-2 hover:text-amber-900"
+              >
+                Configure Custom Instructions
+              </Link>
+            </div>
+          ) : (
           <form
             className="mt-2 flex flex-col justify-center"
             translate="no"
@@ -2152,10 +2169,12 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
               </div>
             </div>
           </form>
+          )}
         </Widget.Footer>
       </Widget>
 
-      <div className="flex items-start justify-between w-full max-w-[60%]">
+      {!missingAgentPrompt && (
+      <div className="mb-8 flex items-start justify-between w-full max-w-[60%]">
         {isContextBoost && showResearchMode ? (
           <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
             Note: Enabling Context Boost passes more source context in
@@ -2191,6 +2210,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           )}
         </div>
       </div>
+      )}
       
     </div>
   )

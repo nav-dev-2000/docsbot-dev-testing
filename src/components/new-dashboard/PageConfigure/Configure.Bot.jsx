@@ -117,13 +117,24 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
 
     const isDirty = useMemo(() => {
         const formOnlyKeys = new Set(['classify'])
+        // Treat empty string and undefined as equal for optional string fields (avoids false dirty when agent mode is off and agentPrompt is unset)
+        const optionalStringKeys = new Set(['agentPrompt', 'agentRole', 'description'])
+        const defaultModel = 'gpt-5-mini'
         return Object.keys(botSettings)
             .filter((key) => !formOnlyKeys.has(key))
-            .some(
-                (key) =>
-                    JSON.stringify(botSettings[key]) !==
-                    JSON.stringify(bot?.[key]),
-            )
+            .some((key) => {
+                const a = botSettings[key]
+                const b = bot?.[key]
+                if (optionalStringKeys.has(key)) {
+                    return (a || undefined) !== (b || undefined)
+                }
+                if (key === 'model') {
+                    const normA = a || defaultModel
+                    const normB = b || defaultModel
+                    return normA !== normB
+                }
+                return JSON.stringify(a) !== JSON.stringify(b)
+            })
     }, [botSettings, bot])
 
     useUnsavedChangesWarning(isDirty, isUpdating)

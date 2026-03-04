@@ -735,15 +735,14 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                         setOpen={setShowUpgrade}
                     />
 
-                    {showPromptModal ? (
-                        <ModalPrompt
-                            team={team}
-                            integrations={bot.integrations || []}
-                            bot={bot}
-                            open={showPromptModal}
-                            setOpen={setShowPromptModal}
-                        />
-                    ) : (
+                    <ModalPrompt
+                        team={team}
+                        integrations={bot.integrations || []}
+                        bot={bot}
+                        open={showPromptModal}
+                        setOpen={setShowPromptModal}
+                    />
+
                     <form
                         className="flex h-full min-h-0 flex-col"
                         onSubmit={(e) => {
@@ -759,7 +758,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                                         title="Agent Mode is here!"
                                         type="info"
                                     >
-                                        When ready, you can enable our new{' '}
+                                        Please enable our new{' '}
                                         <Link
                                             href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
                                             target="_blank"
@@ -767,7 +766,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                                         >
                                             Agentic mode
                                         </Link>
-                                        , which provides more intelligent and
+                                        {' '}for better results and to use all our new
+                                        features. It provides more intelligent and
                                         contextual responses, tool calling to
                                         perform actions, conversaton view, and
                                         so much more! When enabling,{' '}
@@ -807,7 +807,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                             </div>
                         </div>
                     </form>
-                    )}
                 </Workspace.Sidebar>
 
                 <div className="flex h-full min-h-0 flex-1 justify-center py-10 pl-0 lg:pl-[60%]">

@@ -267,6 +267,14 @@ const BotInner = ({
     useEffect(() => {
         if (!router.isReady || authLoading) return
 
+        const resolvedBotId = Array.isArray(botId) ? botId[0] : botId
+
+        // If bot is not ready, redirect from chat to sources so user can train it
+        if (bot && bot.status !== 'ready' && derivedTab === 'chat') {
+            router.replace(`/app/bots/${resolvedBotId}/configure/sources`, undefined, { shallow: true })
+            return
+        }
+
         // Use server value for redirect to avoid race: client canManageIntegrations
         // is set in a separate effect and may still be false on first run after auth.
         const hasDeployAccess = canManageIntegrationsFromServer || canManageIntegrations
@@ -298,7 +306,7 @@ const BotInner = ({
         if (currentPath !== correctPathClean) {
             router.replace(correctPath, undefined, { shallow: true })
         }
-    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, configureControls, canManageIntegrations, canManageIntegrationsFromServer, isConfigureControlRestricted, router])
+    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, bot, configureControls, canManageIntegrations, canManageIntegrationsFromServer, isConfigureControlRestricted, router])
 
     const isBotDisabled = bot?.privacy === 'private' || bot?.status !== 'ready'
 

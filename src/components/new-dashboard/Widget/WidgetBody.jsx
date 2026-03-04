@@ -9,7 +9,7 @@ const WidgetBody = ({ children, className, ...props }) => {
     return (
         <div
             className={clsx(
-                'flex-1 overflow-y-scroll relative pb-8',
+                'min-h-0 flex-1 overflow-y-auto relative pb-8',
                 isSmall ? 'p-4' : 'p-6',
                 className,
             )}
