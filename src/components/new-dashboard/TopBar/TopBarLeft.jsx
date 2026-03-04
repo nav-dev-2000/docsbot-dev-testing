@@ -16,7 +16,22 @@ const Tag = ({ status, className, ...props }) => {
             label = 'Ready'
             dotColor = 'bg-green-600'
             break
-
+        case 'pending':
+            label = 'Awaiting Sources'
+            dotColor = 'bg-yellow-500'
+            break
+        case 'indexing':
+            label = 'Copying'
+            dotColor = 'bg-blue-500'
+            break
+        case 'failed':
+            label = 'Sync Failed'
+            dotColor = 'bg-red-500'
+            break
+        case 'queued':
+            label = 'Queued'
+            dotColor = 'bg-gray-500'
+            break
         default:
             label = 'Unknown'
             dotColor = 'bg-gray-600'

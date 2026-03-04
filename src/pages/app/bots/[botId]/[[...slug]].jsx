@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import {
@@ -218,34 +218,39 @@ const BotInner = ({
 
     const [canManageSettings, setCanManageSettings] = useState(false)
     const [canManageIntegrations, setCanManageIntegrations] = useState(false)
+    const [permissionsResolved, setPermissionsResolved] = useState(false)
     useEffect(() => {
-        if (!authLoading) {
-            setCanManageSettings(canUserManageBotSettings(team, user?.uid, bot))
-            setCanManageIntegrations(canUserManageIntegrations(team, user?.uid, bot))
-        }
+        if (authLoading) return
+
+        setCanManageSettings(canUserManageBotSettings(team, user?.uid, bot))
+        setCanManageIntegrations(canUserManageIntegrations(team, user?.uid, bot))
+        setPermissionsResolved(true)
     }, [authLoading, user?.uid, team, bot])
 
     const analyticsControls = useMemo(
         () => ['reports', 'questions', 'conversations'],
         [],
     )
-    const configureControls = useMemo(() => {
-        const controls = ['instructions', 'sources', 'search']
-
-        if (canManageIntegrations) {
-            controls.push('webhooks')
-        }
-        if (canManageSettings) {
-            controls.splice(1, 0, 'system')
-            controls.push('glossary', 'questions')
-        }
-
-        return controls
-    }, [canManageSettings, canManageIntegrations])
+    const configureControls = useMemo(
+        () => ['system', 'instructions', 'sources', 'questions', 'glossary', 'webhooks', 'search'],
+        [],
+    )
     const widgetControls = useMemo(
         () => ['design', 'content', 'actions', 'deploy'],
         [],
     )
+    const isConfigureControlRestricted = useCallback((control) => {
+        if (['system', 'questions', 'glossary'].includes(control)) {
+            return !canManageSettings
+        }
+
+        if (control === 'webhooks') {
+            return !canManageIntegrations
+        }
+
+        return false
+    }, [canManageIntegrations, canManageSettings])
+
 
     const { tab: derivedTab, control: derivedControl } = useMemo(
         () => slugToTabControl(router.query.slug || []),
@@ -264,8 +269,10 @@ const BotInner = ({
             return
         }
 
-        if (correctTab === 'configure' && !configureControls.includes(correctControl)) {
-            correctControl = 'sources'
+        if (correctTab === 'configure') {
+            if (!configureControls.includes(correctControl) || isConfigureControlRestricted(correctControl)) {
+                correctControl = 'sources'
+            }
         }
 
         const correctPath = tabControlToPath(
@@ -280,7 +287,7 @@ const BotInner = ({
         if (currentPath !== correctPathClean) {
             router.replace(correctPath, undefined, { shallow: true })
         }
-    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, configureControls, canManageIntegrations, router])
+    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, configureControls, canManageIntegrations, canManageSettings, isConfigureControlRestricted, router])
 
     const isBotDisabled = bot?.privacy === 'private' || bot?.status !== 'ready'
 
@@ -288,9 +295,11 @@ const BotInner = ({
     const analyticsControl = analyticsControls.includes(derivedControl)
         ? derivedControl
         : 'reports'
-    const configureControl = configureControls.includes(derivedControl)
-        ? derivedControl
-        : 'sources'
+    const configureControl =
+        configureControls.includes(derivedControl) &&
+        !isConfigureControlRestricted(derivedControl)
+            ? derivedControl
+            : 'sources'
     const widgetControl = widgetControls.includes(derivedControl)
         ? derivedControl
         : 'design'
@@ -425,7 +434,7 @@ const BotInner = ({
             shallow: true,
             isActive: activeId === 'configure' && configureControl === 'search',
         },
-    ].filter((option) => !option.requiresManageSettings || canManageSettings)
+    ]
 
     const setActiveId = (id, options = {}) => {
         let path
@@ -551,7 +560,12 @@ const BotInner = ({
             icon: Cog6ToothIcon,
             content: configureContent,
             allowActiveClick: true,
-            options: configureMenuOptions,
+            options: configureMenuOptions.map((option) => ({
+                ...option,
+                disabled:
+                    (option.requiresManageSettings && !canManageSettings) ||
+                    (option.name === 'Webhooks' && !canManageIntegrations),
+            })),
         },
         {
             id: 'widget',
@@ -616,9 +630,12 @@ const BotInner = ({
         },
     ]
 
-    const visibleMenu = canManageIntegrations
-        ? menu
-        : menu.filter((item) => item.id !== 'widget' && item.id !== 'deploy')
+    const visibleMenu = menu.map((item) => ({
+        ...item,
+        disabled:
+            (item.id === 'widget' || item.id === 'deploy') &&
+            (!permissionsResolved || !canManageIntegrations),
+    }))
 
     const botSidebarNavigation = visibleMenu.map((item) => {
         const baseHref = normalizedBotId ? `/app/bots/${normalizedBotId}` : '/app/bots'
@@ -641,6 +658,8 @@ const BotInner = ({
             icon: item.icon,
             wizardId: item.wizardId,
             shallow: true,
+            disabled: item.disabled,
+            tooltip: item.disabled ? `${item.title} (restricted)` : item.title,
             onClick: () => setActiveId(item.id),
         }
     })
@@ -659,8 +678,8 @@ const BotInner = ({
             variant: 'back',
             items: [
                 {
-                    name: 'Back',
-                    tooltip: 'Back to Main Dashboard',
+                    name: 'Bots',
+                    tooltip: 'Back to Bots',
                     href: '/app/bots',
                     icon: ArrowLeftIcon,
                 },

@@ -200,10 +200,8 @@ export default function FormBot({
         'gpt-4.1': !short,
         'gpt-5-mini': true,
         'gpt-4.1-mini': true,
-        'gpt-5-nano':
-            (checkPlanPermission(team, 'personal').allowed && !short) ||
-            model === 'gpt-5-nano',
-        'gpt-4.1-nano': !short,
+        'gpt-5-nano': model === 'gpt-5-nano',
+        'gpt-4.1-nano': model === 'gpt-4.1-nano',
         'gpt-4.5-preview': model === 'gpt-4.5-preview',
         'gpt-4o': !short,
         'gpt-4o-mini': model === 'gpt-4o-mini',

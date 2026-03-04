@@ -69,7 +69,13 @@ const SidebarDesktop = ({
     }, [hasHydrated, isOpen])
 
     const renderNavItem = (item) => {
+        const isDisabled = Boolean(item.disabled)
         const handleItemClick = (event) => {
+            if (isDisabled) {
+                event.preventDefault()
+                return
+            }
+
             if (!item.onClick) return
             event.preventDefault()
             item.onClick(event)
@@ -90,7 +96,10 @@ const SidebarDesktop = ({
                         : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
                     'group flex items-center rounded-md py-2 text-sm font-medium transition',
                     isOpen ? 'px-2' : 'justify-center px-2',
+                    isDisabled && 'pointer-events-none opacity-40 hover:bg-transparent',
                 )}
+                aria-disabled={isDisabled}
+                tabIndex={isDisabled ? -1 : undefined}
             >
                 {item.icon && (
                     <item.icon
@@ -127,9 +136,7 @@ const SidebarDesktop = ({
             item.onClick(event)
         }
 
-        const backLabel = item.name?.startsWith('←')
-            ? item.name
-            : `← ${item.name}`
+        const backLabel = item.name || 'Back'
         const collapsedLabel = item.tooltip || backLabel
 
         const link = (
@@ -143,9 +150,12 @@ const SidebarDesktop = ({
                     isOpen ? 'px-2 py-1.5' : 'justify-center px-2 py-1.5',
                 )}
             >
-                {!isOpen && item.icon && (
+                {item.icon && (
                     <item.icon
-                        className="size-4 flex-shrink-0 text-cyan-100/60"
+                        className={clsx(
+                            'size-4 flex-shrink-0 text-cyan-100/60',
+                            isOpen ? 'mr-2' : 'mr-0',
+                        )}
                         aria-hidden="true"
                     />
                 )}
@@ -238,38 +248,63 @@ const SidebarDesktop = ({
                                             className={clsx(
                                                 'mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-cyan-100/60',
                                                 isCollapsible
-                                                    ? 'select-none'
+                                                    ? 'cursor-pointer select-none hover:text-cyan-100'
                                                     : 'cursor-default',
                                             )}
-                                        >
-                                            <span>{section.title}</span>
-                                            {isCollapsible && (
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
+                                            {...(isCollapsible && {
+                                                role: 'button',
+                                                tabIndex: 0,
+                                                onClick: () =>
+                                                    onToggleSection(sectionId),
+                                                onKeyDown: (e) => {
+                                                    if (
+                                                        e.key === 'Enter' ||
+                                                        e.key === ' '
+                                                    ) {
+                                                        e.preventDefault()
                                                         onToggleSection(
                                                             sectionId,
                                                         )
                                                     }
-                                                    className="flex items-center text-cyan-100/60"
-                                                    aria-expanded={!isCollapsed}
-                                                    aria-label={`Toggle ${section.title}`}
-                                                >
-                                                    <ChevronDownIcon
-                                                        className={clsx(
-                                                            'size-4 transition-transform',
-                                                            {
-                                                                '-rotate-90':
-                                                                    isCollapsed,
-                                                            },
-                                                        )}
-                                                    />
-                                                </button>
+                                                },
+                                                'aria-expanded': !isCollapsed,
+                                                'aria-label': `Toggle ${section.title}`,
+                                            })}
+                                        >
+                                            <span>{section.title}</span>
+                                            {isCollapsible && (
+                                                <ChevronDownIcon
+                                                    className={clsx(
+                                                        'size-4 flex-shrink-0 transition-transform',
+                                                        {
+                                                            '-rotate-90':
+                                                                isCollapsed,
+                                                        },
+                                                    )}
+                                                    aria-hidden="true"
+                                                />
                                             )}
                                         </div>
                                     )}
 
-                                    {!isCollapsed && (
+                                    {isCollapsible ? (
+                                        <div
+                                            className={clsx(
+                                                'grid transition-[grid-template-rows] duration-200 ease-in-out',
+                                                isCollapsed
+                                                    ? 'grid-rows-[0fr]'
+                                                    : 'grid-rows-[1fr]',
+                                            )}
+                                        >
+                                            <div className="min-h-0 overflow-hidden">
+                                                <div className="space-y-1">
+                                                    {section.items.map(
+                                                        renderNavItem,
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : (
                                         <div className="space-y-1">
                                             {section.items.map(renderNavItem)}
                                         </div>
@@ -394,9 +429,7 @@ const Sidebar = ({
                                                 if (!item) return null
 
                                                 const backLabel =
-                                                    item.name?.startsWith('←')
-                                                        ? item.name
-                                                        : `← ${item.name}`
+                                                    item.name || 'Back'
 
                                                 return (
                                                     <div key={sectionId}>
@@ -426,6 +459,12 @@ const Sidebar = ({
                                                             }}
                                                             className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-cyan-100/70 transition hover:text-white"
                                                         >
+                                                            {item.icon && (
+                                                                <item.icon
+                                                                    className="size-4 flex-shrink-0 text-cyan-100/60"
+                                                                    aria-hidden="true"
+                                                                />
+                                                            )}
                                                             {backLabel}
                                                         </Link>
                                                     </div>
@@ -438,39 +477,138 @@ const Sidebar = ({
                                                         <div className="my-3 h-px bg-cyan-200/10" />
                                                     )}
                                                     {section.title && (
-                                                        <div className="mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-cyan-100/60">
-                                                            <span>
-                                                                {section.title}
-                                                            </span>
-                                                            {isCollapsible && (
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() =>
+                                                        <div
+                                                            className={clsx(
+                                                                'mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-cyan-100/60',
+                                                                isCollapsible &&
+                                                                    'cursor-pointer hover:text-cyan-100',
+                                                            )}
+                                                            {...(isCollapsible && {
+                                                                role: 'button',
+                                                                tabIndex: 0,
+                                                                onClick: () =>
+                                                                    toggleSection(
+                                                                        sectionId,
+                                                                    ),
+                                                                onKeyDown: (
+                                                                    e,
+                                                                ) => {
+                                                                    if (
+                                                                        e.key ===
+                                                                            'Enter' ||
+                                                                        e.key ===
+                                                                            ' '
+                                                                    ) {
+                                                                        e.preventDefault()
                                                                         toggleSection(
                                                                             sectionId,
                                                                         )
                                                                     }
-                                                                    className="flex items-center text-cyan-100/60"
-                                                                    aria-expanded={
-                                                                        !isCollapsed
-                                                                    }
-                                                                    aria-label={`Toggle ${section.title}`}
-                                                                >
-                                                                    <ChevronDownIcon
-                                                                        className={clsx(
-                                                                            'size-4 transition-transform',
-                                                                            {
-                                                                                '-rotate-90':
-                                                                                    isCollapsed,
-                                                                            },
-                                                                        )}
-                                                                    />
-                                                                </button>
+                                                                },
+                                                                'aria-expanded':
+                                                                    !isCollapsed,
+                                                                'aria-label': `Toggle ${section.title}`,
+                                                            })}
+                                                        >
+                                                            <span>
+                                                                {
+                                                                    section.title
+                                                                }
+                                                            </span>
+                                                            {isCollapsible && (
+                                                                <ChevronDownIcon
+                                                                    className={clsx(
+                                                                        'size-4 flex-shrink-0 transition-transform',
+                                                                        {
+                                                                            '-rotate-90':
+                                                                                isCollapsed,
+                                                                        },
+                                                                    )}
+                                                                    aria-hidden="true"
+                                                                />
                                                             )}
                                                         </div>
                                                     )}
 
-                                                    {!isCollapsed && (
+                                                    {isCollapsible ? (
+                                                        <div
+                                                            className={clsx(
+                                                                'grid transition-[grid-template-rows] duration-200 ease-in-out',
+                                                                isCollapsed
+                                                                    ? 'grid-rows-[0fr]'
+                                                                    : 'grid-rows-[1fr]',
+                                                            )}
+                                                        >
+                                                            <div className="min-h-0 overflow-hidden">
+                                                                <div className="space-y-1">
+                                                                    {section.items.map(
+                                                                        (
+                                                                            item,
+                                                                        ) => {
+                                                                    const handleItemClick =
+                                                                        (
+                                                                            event,
+                                                                        ) => {
+                                                                            if (
+                                                                                !item.onClick
+                                                                            ) {
+                                                                                return
+                                                                            }
+                                                                            event.preventDefault()
+                                                                            item.onClick(
+                                                                                event,
+                                                                            )
+                                                                        }
+                                                                    const isActive =
+                                                                        item.isActive ??
+                                                                        item.name ===
+                                                                            page
+
+                                                                    return (
+                                                                        <Link
+                                                                            key={
+                                                                                item.name
+                                                                            }
+                                                                            href={
+                                                                                item.href ||
+                                                                                '/app'
+                                                                            }
+                                                                            shallow={
+                                                                                item.shallow
+                                                                            }
+                                                                            onClick={
+                                                                                handleItemClick
+                                                                            }
+                                                                            data-wizard={
+                                                                                item.wizardId
+                                                                            }
+                                                                            className={clsx(
+                                                                                isActive
+                                                                                    ? 'bg-cyan-800 text-white'
+                                                                                    : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                                                                item.disabled && 'pointer-events-none opacity-40 hover:bg-transparent',
+                                                                                'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                                                            )}
+                                                                            aria-disabled={item.disabled ? true : undefined}
+                                                                            tabIndex={item.disabled ? -1 : undefined}
+                                                                        >
+                                                                            {item.icon && (
+                                                                                <item.icon
+                                                                                    className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                                                                                    aria-hidden="true"
+                                                                                />
+                                                                            )}
+                                                                            {
+                                                                                item.name
+                                                                            }
+                                                                        </Link>
+                                                                    )
+                                                                },
+                                                            )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ) : (
                                                         <div className="space-y-1">
                                                             {section.items.map(
                                                                 (item) => {
@@ -515,8 +653,11 @@ const Sidebar = ({
                                                                                 isActive
                                                                                     ? 'bg-cyan-800 text-white'
                                                                                     : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                                                                item.disabled && 'pointer-events-none opacity-40 hover:bg-transparent',
                                                                                 'group flex items-center rounded-md px-2 py-2 text-base font-medium',
                                                                             )}
+                                                                            aria-disabled={item.disabled ? true : undefined}
+                                                                            tabIndex={item.disabled ? -1 : undefined}
                                                                         >
                                                                             {item.icon && (
                                                                                 <item.icon

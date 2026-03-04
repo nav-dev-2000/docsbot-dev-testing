@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { CloudArrowUpIcon } from '@heroicons/react/24/outline'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 
 import Link from 'next/link'
 import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning'
@@ -96,7 +96,7 @@ const ConfigureGlossary = ({ team, bot, setBot }) => {
                 >
                     <Tooltip content="Save Changes">
                         <IconButton
-                            icon={isUpdating ? LoadingSpinner : CloudArrowUpIcon}
+                            icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                             label="Save Changes"
                             theme="blueSolid"
                             size="sm"
@@ -126,7 +126,7 @@ const ConfigureGlossary = ({ team, bot, setBot }) => {
                 <div className="col-start-1 row-start-3 flex justify-end md:sticky md:top-0 md:col-start-2 md:row-start-1 md:h-min">
                     <Button
                         label={isUpdating ? 'Saving' : 'Save Changes'}
-                        icon={isUpdating ? LoadingSpinner : CloudArrowUpIcon}
+                        icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                         theme="blueSolid"
                         size="md"
                         onClick={updateBot}

@@ -13,8 +13,8 @@ import {
     ArrowPathIcon,
     BugAntIcon,
     PhotoIcon,
-    CloudArrowUpIcon,
 } from '@heroicons/react/24/outline'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import LoadingSpinner from '@/components/LoadingSpinner'
@@ -969,7 +969,7 @@ export default function ModalPrompt({
                                     >
                                         {!isUpdating ? (
                                             <>
-                                                <CloudArrowUpIcon className="size-4" aria-hidden />
+                                                <SaveDiskIcon className="size-4 shrink-0" aria-hidden />
                                                 Save Changes
                                             </>
                                         ) : (

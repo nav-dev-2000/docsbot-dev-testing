@@ -12,6 +12,7 @@ const WorkspaceButton = forwardRef(
             isActive,
             isVertical = false,
             allowActiveClick = false,
+            disabled = false,
             href,
             className,
             children,
@@ -30,7 +31,7 @@ const WorkspaceButton = forwardRef(
                 ['bg-cyan-600 text-white']: isActive,
                 ['text-gray-400 hover:text-cyan-600 hover:border-b-2 hover:border-cyan-600']:
                     !isActive,
-                ['pointer-events-none']: isActive && !allowActiveClick,
+                ['pointer-events-none']: (isActive && !allowActiveClick) || disabled,
                 ['text-xs/5 px-2 py-2']: isSmall,
                 ['text-xs/6 sm:text-sm/6 px-3 py-2']: !isSmall,
             },
@@ -45,7 +46,8 @@ const WorkspaceButton = forwardRef(
                 {
                     ['pointer-events-none border-gray-200 bg-white shadow text-gray-800']:
                         isActive,
-                    ['text-gray-500 hover:bg-gray-200']: !isActive,
+                    ['text-gray-500 hover:bg-gray-200']: !isActive && !disabled,
+                    ['opacity-40']: disabled,
                 },
                 className,
             )
@@ -65,6 +67,8 @@ const WorkspaceButton = forwardRef(
                 ref={ref}
                 href={href}
                 className={buttonClasses}
+                aria-disabled={disabled ? true : undefined}
+                tabIndex={disabled ? -1 : undefined}
                 {...props}
             >
                 {icon && <Icon className={iconClasses} />}

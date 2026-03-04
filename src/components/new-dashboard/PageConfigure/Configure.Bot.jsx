@@ -13,7 +13,7 @@ import IconButton from '@new-dashboard/IconButton'
 import Tooltip from '@/components/Tooltip'
 import Workspace from '@new-dashboard/Workspace'
 
-import { CloudArrowUpIcon } from '@heroicons/react/24/outline'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 
 const Block = forwardRef(function Block(
     { tagName, title, icon, value, ...props },
@@ -176,7 +176,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                 >
                     <Tooltip content="Save Changes">
                         <IconButton
-                            icon={isUpdating ? LoadingSpinner : CloudArrowUpIcon}
+                            icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                             label="Save Changes"
                             theme="blueSolid"
                             size="sm"
@@ -215,7 +215,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                 <div className="col-start-1 row-start-3 flex justify-end md:sticky md:top-0 md:col-start-2 md:row-start-1 md:h-min">
                     <Button
                         label={isUpdating ? 'Saving' : 'Save Changes'}
-                        icon={isUpdating ? LoadingSpinner : CloudArrowUpIcon}
+                        icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                         theme="blueSolid"
                         size="md"
                         type="submit"

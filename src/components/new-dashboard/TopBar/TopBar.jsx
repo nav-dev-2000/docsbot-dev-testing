@@ -4,7 +4,7 @@ import TopBarBox from './TopBarBox'
 import TopBarLeft from './TopBarLeft'
 import TopBarRight from './TopBarRight'
 
-import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 
 const TopBarMobile = ({ team, bot, bots }) => {
     return (
@@ -37,7 +37,7 @@ const TopBar = ({ team, bot, bots, hasBorder = false, setSidebarOpen }) => {
                 onClick={() => setSidebarOpen(true)}
             >
                 <span className="sr-only">Open sidebar</span>
-                <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
 
             <div className="flex flex-1 justify-between px-4">

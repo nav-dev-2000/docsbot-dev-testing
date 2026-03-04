@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import Chip from '@new-dashboard/Chip'
 import Note from '@new-dashboard/Note'
-import OpenAILogo from '@/components/OpenAILogo'
 
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
@@ -121,29 +120,23 @@ const RadioBox = ({
                     }
                 />
 
-                <div className="relative">
-                    <div className="flex size-8 items-center justify-center rounded-lg bg-black">
-                        <OpenAILogo className="size-4 text-white" />
-                    </div>
-
-                    <div
+                <div
+                    className={clsx(
+                        'absolute right-4 top-4',
+                        'flex size-6 items-center justify-center rounded-full',
+                        isChecked ? 'bg-cyan-600' : 'bg-white',
+                    )}
+                >
+                    <CheckCircleIcon
                         className={clsx(
-                            'absolute right-0 top-1/2 -translate-y-1/2',
-                            'flex size-6 items-center justify-center rounded-full',
-                            isChecked ? 'bg-cyan-600' : 'bg-white',
+                            'size-6',
+                            isChecked ? 'text-white' : 'text-gray-500',
                         )}
-                    >
-                        <CheckCircleIcon
-                            className={clsx(
-                                'size-6',
-                                isChecked ? 'text-white' : 'text-gray-500',
-                            )}
-                        />
-                    </div>
+                    />
                 </div>
 
                 <p
-                    className={clsx('text-base font-semibold text-gray-800', {
+                    className={clsx('pr-8 text-base font-semibold text-gray-800', {
                         ['flex max-w-full flex-wrap items-center gap-x-2 gap-y-1']:
                             hasTags,
                     })}

@@ -22,7 +22,8 @@ import AppearanceContent from './Appearance.Content'
 import Workspace from '@new-dashboard/Workspace'
 import { decideTextColor, getColorForLightBackground } from '@/utils/colors'
 import IconButton from '@new-dashboard/IconButton'
-import { CloudArrowUpIcon, PencilIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { PencilIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 import Tooltip from '@/components/Tooltip'
 import AppearanceActions from './Appearance.Actions'
 import {
@@ -565,7 +566,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 name="submit-form"
                 {...(isUpdating
                     ? { icon: LoadingSpinner }
-                    : { icon: CloudArrowUpIcon })}
+                    : { icon: SaveDiskIcon })}
+                theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                className={clsx(
+                    isDirty && !isUpdating && 'animate-pulse',
+                )}
                 label="Save Changes"
                 onClick={(event) => {
                     event.preventDefault()
