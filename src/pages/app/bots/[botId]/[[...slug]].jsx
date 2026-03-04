@@ -34,7 +34,11 @@ import {
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
 import { auth } from '@/config/firebase-ui.config'
-import { canUserManageBotSettings, canUserManageIntegrations, canUserViewBot } from '@/utils/function.utils'
+import {
+    canUserManageBotSettings,
+    canUserManageIntegrations,
+    canUserViewBot,
+} from '@/utils/function.utils'
 
 import { useRouter } from 'next/router'
 import PageAppearance from '@new-dashboard/PageAppearance'
@@ -264,8 +268,15 @@ const BotInner = ({
         let correctControl = derivedControl
 
         // Widget and deploy are admin-only (canManageIntegrations)
-        if (!canManageIntegrations && (correctTab === 'widget' || correctTab === 'deploy')) {
-            router.replace(`/app/bots/${Array.isArray(botId) ? botId[0] : botId}`, undefined, { shallow: true })
+        if (
+            !canManageIntegrations &&
+            (correctTab === 'widget' || correctTab === 'deploy')
+        ) {
+            router.replace(
+                `/app/bots/${Array.isArray(botId) ? botId[0] : botId}`,
+                undefined,
+                { shallow: true },
+            )
             return
         }
 
@@ -425,7 +436,8 @@ const BotInner = ({
             name: 'Webhooks',
             href: configureHref('webhooks'),
             shallow: true,
-            isActive: activeId === 'configure' && configureControl === 'webhooks',
+            isActive:
+                activeId === 'configure' && configureControl === 'webhooks',
             requiresManageSettings: true,
         },
         {
@@ -638,7 +650,9 @@ const BotInner = ({
     }))
 
     const botSidebarNavigation = visibleMenu.map((item) => {
-        const baseHref = normalizedBotId ? `/app/bots/${normalizedBotId}` : '/app/bots'
+        const baseHref = normalizedBotId
+            ? `/app/bots/${normalizedBotId}`
+            : '/app/bots'
         let href
         if (item.id === 'analytics') {
             href = analyticsHref('reports')
@@ -652,6 +666,17 @@ const BotInner = ({
             href = baseHref
         }
 
+        const children = Array.isArray(item.options)
+            ? item.options.map((option) => ({
+                  name: option.name,
+                  href: option.href,
+                  shallow: option.shallow,
+                  isActive: option.isActive,
+                  wizardId: option.wizardId,
+                  onClick: () => setActiveId(item.id),
+              }))
+            : undefined
+
         return {
             name: item.title,
             href,
@@ -661,6 +686,7 @@ const BotInner = ({
             disabled: item.disabled,
             tooltip: item.disabled ? `${item.title} (restricted)` : item.title,
             onClick: () => setActiveId(item.id),
+            children,
         }
     })
 
@@ -698,7 +724,9 @@ const BotInner = ({
         },
     ]
 
-    const activeSidebarPage = visibleMenu.find((item) => item.id === activeId)?.title
+    const activeSidebarPage = visibleMenu.find(
+        (item) => item.id === activeId,
+    )?.title
 
     return (
         <AppShell
@@ -746,7 +774,9 @@ export const getServerSideProps = async (context) => {
             }
         }
 
-        if (!canUserViewBot(data.props.team, data.props.bot, data.props.userId)) {
+        if (
+            !canUserViewBot(data.props.team, data.props.bot, data.props.userId)
+        ) {
             return {
                 notFound: true,
             }
@@ -766,7 +796,11 @@ export const getServerSideProps = async (context) => {
         } = slugToTabControl(slug)
 
         // Redirect non-admins away from webhooks, widget, and deploy (admin-only via canManageIntegrations)
-        const canManageIntegrations = canUserManageIntegrations(data.props.team, data.props.userId, data.props.bot)
+        const canManageIntegrations = canUserManageIntegrations(
+            data.props.team,
+            data.props.userId,
+            data.props.bot,
+        )
         if (!canManageIntegrations) {
             const normalizedBotId = Array.isArray(botId) ? botId[0] : botId
             if (tab === 'widget' || tab === 'deploy') {

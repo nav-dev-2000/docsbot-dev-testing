@@ -1,4 +1,11 @@
-import { Fragment, useEffect, useLayoutEffect, useMemo, useState } from 'react'
+import {
+    Fragment,
+    useEffect,
+    useLayoutEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react'
 import Link from 'next/link'
 import { Dialog, Transition } from '@headlessui/react'
 import {
@@ -52,6 +59,9 @@ const SidebarDesktop = ({
     const [isOpen, setIsOpen] = useState(true)
     const [hasHydrated, setHasHydrated] = useState(false)
     const [animate, setAnimate] = useState(false)
+    const [activeFlyout, setActiveFlyout] = useState(null)
+    const [flyoutHeight, setFlyoutHeight] = useState(0)
+    const flyoutRef = useRef(null)
 
     useLayoutEffect(() => {
         if (typeof window === 'undefined') return
@@ -68,6 +78,14 @@ const SidebarDesktop = ({
         window.localStorage.setItem(SIDEBAR_STATE_KEY, String(isOpen))
     }, [hasHydrated, isOpen])
 
+    useLayoutEffect(() => {
+        if (!activeFlyout?.name || !flyoutRef.current) return
+        const nextHeight = flyoutRef.current.offsetHeight
+        if (nextHeight && nextHeight !== flyoutHeight) {
+            setFlyoutHeight(nextHeight)
+        }
+    }, [activeFlyout?.name, flyoutHeight])
+
     const renderNavItem = (item) => {
         const isDisabled = Boolean(item.disabled)
         const handleItemClick = (event) => {
@@ -80,23 +98,42 @@ const SidebarDesktop = ({
             event.preventDefault()
             item.onClick(event)
         }
-        const isActive = item.isActive ?? item.name === page
+
+        const hasChildren = Array.isArray(item.children) && item.children.length
+        const isChildActive = hasChildren
+            ? item.children.some(
+                  (child) => child.isActive ?? child.name === page,
+              )
+            : false
+        const isActive = (item.isActive ?? item.name === page) || isChildActive
+        const shouldShowInline = isOpen && hasChildren && isActive
+        const shouldEnableFlyout =
+            !isDisabled && hasChildren && (!isOpen || !shouldShowInline)
+        const isFlyoutOpen =
+            shouldEnableFlyout &&
+            activeFlyout?.name === item.name &&
+            (activeFlyout.isParentHovered || activeFlyout.isFlyoutHovered)
+        const flyoutGap = 12
+        const childCount = item.children?.length ?? 0
+        const estimatedFlyoutHeight = flyoutHeight || childCount * 36 + 16
 
         const itemLabel = item.tooltip || item.name
         const link = (
             <Link
-                key={item.name}
                 href={item.href || '/app'}
                 shallow={item.shallow}
                 onClick={handleItemClick}
                 data-wizard={item.wizardId}
+                aria-haspopup={hasChildren ? 'menu' : undefined}
+                aria-expanded={hasChildren ? isFlyoutOpen : undefined}
                 className={clsx(
                     isActive
                         ? 'bg-cyan-800 text-white hover:text-white'
                         : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
                     'group flex items-center rounded-md py-2 text-sm font-medium transition',
                     isOpen ? 'px-2' : 'justify-center px-2',
-                    isDisabled && 'pointer-events-none opacity-40 hover:bg-transparent',
+                    isDisabled &&
+                        'pointer-events-none opacity-40 hover:bg-transparent',
                 )}
                 aria-disabled={isDisabled}
                 tabIndex={isDisabled ? -1 : undefined}
@@ -115,7 +152,7 @@ const SidebarDesktop = ({
             </Link>
         )
 
-        if (!isOpen && itemLabel) {
+        if (!isOpen && itemLabel && !hasChildren) {
             return (
                 <Tooltip key={item.name} content={itemLabel} placement="right">
                     {link}
@@ -123,7 +160,259 @@ const SidebarDesktop = ({
             )
         }
 
-        return link
+        if (!hasChildren) {
+            return (
+                <Link
+                    key={item.name}
+                    href={item.href || '/app'}
+                    shallow={item.shallow}
+                    onClick={handleItemClick}
+                    data-wizard={item.wizardId}
+                    className={clsx(
+                        isActive
+                            ? 'bg-cyan-800 text-white hover:text-white'
+                            : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                        'group flex items-center rounded-md py-2 text-sm font-medium transition',
+                        isOpen ? 'px-2' : 'justify-center px-2',
+                    )}
+                >
+                    {item.icon && (
+                        <item.icon
+                            className={clsx(
+                                'size-5 flex-shrink-0 text-cyan-200',
+                                isOpen ? 'mr-2' : 'mr-0',
+                            )}
+                            aria-hidden="true"
+                        />
+                    )}
+
+                    {isOpen && item.name}
+                </Link>
+            )
+        }
+
+        if (!shouldEnableFlyout) {
+            return (
+                <div key={item.name} className="space-y-1">
+                    {link}
+                    {shouldShowInline && (
+                        <div className="space-y-1 pl-5">
+                            <div className="relative space-y-1 pl-3">
+                                <span className="absolute bottom-4 left-0 top-0 -mt-1 w-2 rounded-b-lg border-l border-cyan-200/20" />
+                                {item.children.map((child) => {
+                                    const isChildSelected =
+                                        child.isActive ?? child.name === page
+                                    return (
+                                        <div
+                                            key={child.name}
+                                            className="relative"
+                                        >
+                                            <span className="absolute -left-3 top-1/2 -mt-0.5 h-2 w-3 -translate-y-1/2 rounded-bl-lg border-b border-cyan-200/20" />
+                                            <Link
+                                                href={child.href || '/app'}
+                                                shallow={child.shallow}
+                                                onClick={(event) => {
+                                                    if (child.onClick) {
+                                                        child.onClick(event)
+                                                    }
+                                                }}
+                                                className={clsx(
+                                                    isChildSelected
+                                                        ? 'text-white'
+                                                        : 'text-cyan-100/60 hover:text-cyan-100/80',
+                                                    'block rounded-md px-3 py-1 text-sm font-medium transition',
+                                                )}
+                                            >
+                                                {child.name}
+                                            </Link>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )
+        }
+
+        return (
+            <div
+                key={item.name}
+                data-flyout-parent={item.name}
+                className="relative"
+                onMouseEnter={(event) => {
+                    const rect = event.currentTarget.getBoundingClientRect()
+                    setActiveFlyout({
+                        name: item.name,
+                        top: rect.top,
+                        left: rect.right + flyoutGap,
+                        isParentHovered: true,
+                        isFlyoutHovered: false,
+                    })
+                }}
+                onMouseLeave={(event) => {
+                    const isFlyoutTarget = event.relatedTarget?.closest?.(
+                        `[data-flyout="${item.name}"]`,
+                    )
+                    const isBridgeTarget = event.relatedTarget?.closest?.(
+                        `[data-flyout-bridge="${item.name}"]`,
+                    )
+                    if (isFlyoutTarget || isBridgeTarget) {
+                        setActiveFlyout((prev) =>
+                            prev?.name === item.name
+                                ? {
+                                      ...prev,
+                                      isParentHovered: false,
+                                      isFlyoutHovered: true,
+                                  }
+                                : prev,
+                        )
+                        return
+                    }
+                    setActiveFlyout((prev) => {
+                        if (prev?.name !== item.name) return prev
+                        const nextState = {
+                            ...prev,
+                            isParentHovered: false,
+                        }
+                        if (!nextState.isFlyoutHovered) {
+                            return null
+                        }
+                        return nextState
+                    })
+                }}
+            >
+                {link}
+                {isFlyoutOpen && childCount > 0 && (
+                    <div
+                        data-flyout-bridge={item.name}
+                        onMouseEnter={() =>
+                            setActiveFlyout((prev) =>
+                                prev?.name === item.name
+                                    ? { ...prev, isFlyoutHovered: true }
+                                    : prev,
+                            )
+                        }
+                        onMouseLeave={(event) =>
+                            setActiveFlyout((prev) => {
+                                if (prev?.name !== item.name) return prev
+                                if (
+                                    event.relatedTarget?.closest?.(
+                                        `[data-flyout="${item.name}"]`,
+                                    )
+                                ) {
+                                    return prev
+                                }
+                                if (
+                                    event.relatedTarget?.closest?.(
+                                        `[data-flyout-parent="${item.name}"]`,
+                                    )
+                                ) {
+                                    return {
+                                        ...prev,
+                                        isFlyoutHovered: false,
+                                        isParentHovered: true,
+                                    }
+                                }
+                                const nextState = {
+                                    ...prev,
+                                    isFlyoutHovered: false,
+                                }
+                                if (!nextState.isParentHovered) {
+                                    return null
+                                }
+                                return nextState
+                            })
+                        }
+                        style={{
+                            top: activeFlyout?.top,
+                            left: activeFlyout?.left - flyoutGap,
+                            width: flyoutGap,
+                            height: estimatedFlyoutHeight,
+                        }}
+                        className="fixed z-40 bg-transparent"
+                    />
+                )}
+                <div
+                    ref={flyoutRef}
+                    data-flyout={item.name}
+                    onMouseEnter={() =>
+                        setActiveFlyout((prev) =>
+                            prev?.name === item.name
+                                ? { ...prev, isFlyoutHovered: true }
+                                : prev,
+                        )
+                    }
+                    onMouseLeave={(event) =>
+                        setActiveFlyout((prev) => {
+                            if (prev?.name !== item.name) return prev
+                            const isParentTarget =
+                                event.relatedTarget?.closest?.(
+                                    `[data-flyout-parent="${item.name}"]`,
+                                )
+                            const isBridgeTarget =
+                                event.relatedTarget?.closest?.(
+                                    `[data-flyout-bridge="${item.name}"]`,
+                                )
+                            if (isParentTarget || isBridgeTarget) {
+                                return {
+                                    ...prev,
+                                    isFlyoutHovered: false,
+                                    isParentHovered: true,
+                                }
+                            }
+                            const nextState = {
+                                ...prev,
+                                isFlyoutHovered: false,
+                            }
+                            if (!nextState.isParentHovered) {
+                                return null
+                            }
+                            return nextState
+                        })
+                    }
+                    style={
+                        isFlyoutOpen
+                            ? {
+                                  top: activeFlyout?.top,
+                                  left: activeFlyout?.left,
+                              }
+                            : undefined
+                    }
+                    className={clsx(
+                        'fixed z-50 w-48 overflow-hidden rounded-xl bg-cyan-800 py-1 shadow-lg',
+                        isFlyoutOpen ? 'block' : 'hidden',
+                    )}
+                >
+                    <div className="space-y-0">
+                        {item.children.map((child) => {
+                            const isChildSelected =
+                                child.isActive ?? child.name === page
+                            return (
+                                <Link
+                                    key={child.name}
+                                    href={child.href || '/app'}
+                                    shallow={child.shallow}
+                                    onClick={(event) => {
+                                        if (child.onClick) {
+                                            child.onClick(event)
+                                        }
+                                    }}
+                                    className={clsx(
+                                        isChildSelected
+                                            ? 'bg-cyan-700 text-white'
+                                            : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                        'block px-3 py-2 text-sm font-medium transition',
+                                    )}
+                                >
+                                    {child.name}
+                                </Link>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     const renderBackItem = (section) => {
@@ -330,6 +619,7 @@ const Sidebar = ({
         [dashboardNavigation],
     )
     const [collapsedSections, setCollapsedSections] = useState({})
+    const [mobileExpanded, setMobileExpanded] = useState({})
 
     useEffect(() => {
         setCollapsedSections((prev) => {
@@ -511,9 +801,7 @@ const Sidebar = ({
                                                             })}
                                                         >
                                                             <span>
-                                                                {
-                                                                    section.title
-                                                                }
+                                                                {section.title}
                                                             </span>
                                                             {isCollapsible && (
                                                                 <ChevronDownIcon
@@ -545,66 +833,75 @@ const Sidebar = ({
                                                                         (
                                                                             item,
                                                                         ) => {
-                                                                    const handleItemClick =
-                                                                        (
-                                                                            event,
-                                                                        ) => {
-                                                                            if (
-                                                                                !item.onClick
-                                                                            ) {
-                                                                                return
-                                                                            }
-                                                                            event.preventDefault()
-                                                                            item.onClick(
-                                                                                event,
-                                                                            )
-                                                                        }
-                                                                    const isActive =
-                                                                        item.isActive ??
-                                                                        item.name ===
-                                                                            page
+                                                                            const handleItemClick =
+                                                                                (
+                                                                                    event,
+                                                                                ) => {
+                                                                                    if (
+                                                                                        !item.onClick
+                                                                                    ) {
+                                                                                        return
+                                                                                    }
+                                                                                    event.preventDefault()
+                                                                                    item.onClick(
+                                                                                        event,
+                                                                                    )
+                                                                                }
+                                                                            const isActive =
+                                                                                item.isActive ??
+                                                                                item.name ===
+                                                                                    page
 
-                                                                    return (
-                                                                        <Link
-                                                                            key={
-                                                                                item.name
-                                                                            }
-                                                                            href={
-                                                                                item.href ||
-                                                                                '/app'
-                                                                            }
-                                                                            shallow={
-                                                                                item.shallow
-                                                                            }
-                                                                            onClick={
-                                                                                handleItemClick
-                                                                            }
-                                                                            data-wizard={
-                                                                                item.wizardId
-                                                                            }
-                                                                            className={clsx(
-                                                                                isActive
-                                                                                    ? 'bg-cyan-800 text-white'
-                                                                                    : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
-                                                                                item.disabled && 'pointer-events-none opacity-40 hover:bg-transparent',
-                                                                                'group flex items-center rounded-md px-2 py-2 text-base font-medium',
-                                                                            )}
-                                                                            aria-disabled={item.disabled ? true : undefined}
-                                                                            tabIndex={item.disabled ? -1 : undefined}
-                                                                        >
-                                                                            {item.icon && (
-                                                                                <item.icon
-                                                                                    className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
-                                                                                    aria-hidden="true"
-                                                                                />
-                                                                            )}
-                                                                            {
-                                                                                item.name
-                                                                            }
-                                                                        </Link>
-                                                                    )
-                                                                },
-                                                            )}
+                                                                            return (
+                                                                                <Link
+                                                                                    key={
+                                                                                        item.name
+                                                                                    }
+                                                                                    href={
+                                                                                        item.href ||
+                                                                                        '/app'
+                                                                                    }
+                                                                                    shallow={
+                                                                                        item.shallow
+                                                                                    }
+                                                                                    onClick={
+                                                                                        handleItemClick
+                                                                                    }
+                                                                                    data-wizard={
+                                                                                        item.wizardId
+                                                                                    }
+                                                                                    className={clsx(
+                                                                                        isActive
+                                                                                            ? 'bg-cyan-800 text-white'
+                                                                                            : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                                                                        item.disabled &&
+                                                                                            'pointer-events-none opacity-40 hover:bg-transparent',
+                                                                                        'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                                                                    )}
+                                                                                    aria-disabled={
+                                                                                        item.disabled
+                                                                                            ? true
+                                                                                            : undefined
+                                                                                    }
+                                                                                    tabIndex={
+                                                                                        item.disabled
+                                                                                            ? -1
+                                                                                            : undefined
+                                                                                    }
+                                                                                >
+                                                                                    {item.icon && (
+                                                                                        <item.icon
+                                                                                            className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                                                                                            aria-hidden="true"
+                                                                                        />
+                                                                                    )}
+                                                                                    {
+                                                                                        item.name
+                                                                                    }
+                                                                                </Link>
+                                                                            )
+                                                                        },
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -626,49 +923,203 @@ const Sidebar = ({
                                                                                 event,
                                                                             )
                                                                         }
+                                                                    const hasChildren =
+                                                                        Array.isArray(
+                                                                            item.children,
+                                                                        ) &&
+                                                                        item
+                                                                            .children
+                                                                            .length
+                                                                    const isChildActive =
+                                                                        hasChildren
+                                                                            ? item.children.some(
+                                                                                  (
+                                                                                      child,
+                                                                                  ) =>
+                                                                                      child.isActive ??
+                                                                                      child.name ===
+                                                                                          page,
+                                                                              )
+                                                                            : false
                                                                     const isActive =
-                                                                        item.isActive ??
-                                                                        item.name ===
-                                                                            page
+                                                                        (item.isActive ??
+                                                                            item.name ===
+                                                                                page) ||
+                                                                        isChildActive
+                                                                    const itemKey = `${sectionId}-${item.name}`
+                                                                    const expandedKey =
+                                                                        Object.keys(
+                                                                            mobileExpanded,
+                                                                        ).find(
+                                                                            (
+                                                                                key,
+                                                                            ) =>
+                                                                                mobileExpanded[
+                                                                                    key
+                                                                                ],
+                                                                        )
+                                                                    const isExpanded =
+                                                                        hasChildren &&
+                                                                        (expandedKey
+                                                                            ? expandedKey ===
+                                                                              itemKey
+                                                                            : isChildActive)
 
                                                                     return (
-                                                                        <Link
+                                                                        <div
                                                                             key={
                                                                                 item.name
                                                                             }
-                                                                            href={
-                                                                                item.href ||
-                                                                                '/app'
-                                                                            }
-                                                                            shallow={
-                                                                                item.shallow
-                                                                            }
-                                                                            onClick={
-                                                                                handleItemClick
-                                                                            }
-                                                                            data-wizard={
-                                                                                item.wizardId
-                                                                            }
                                                                             className={clsx(
-                                                                                isActive
-                                                                                    ? 'bg-cyan-800 text-white'
-                                                                                    : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
-                                                                                item.disabled && 'pointer-events-none opacity-40 hover:bg-transparent',
-                                                                                'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                                                                hasChildren &&
+                                                                                    'space-y-1',
                                                                             )}
-                                                                            aria-disabled={item.disabled ? true : undefined}
-                                                                            tabIndex={item.disabled ? -1 : undefined}
                                                                         >
-                                                                            {item.icon && (
-                                                                                <item.icon
-                                                                                    className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
-                                                                                    aria-hidden="true"
-                                                                                />
-                                                                            )}
-                                                                            {
-                                                                                item.name
-                                                                            }
-                                                                        </Link>
+                                                                            <Link
+                                                                                href={
+                                                                                    item.href ||
+                                                                                    '/app'
+                                                                                }
+                                                                                shallow={
+                                                                                    item.shallow
+                                                                                }
+                                                                                onClick={(
+                                                                                    event,
+                                                                                ) => {
+                                                                                    if (
+                                                                                        hasChildren
+                                                                                    ) {
+                                                                                        event.preventDefault()
+                                                                                        setMobileExpanded(
+                                                                                            (
+                                                                                                prev,
+                                                                                            ) => {
+                                                                                                if (
+                                                                                                    prev[
+                                                                                                        itemKey
+                                                                                                    ]
+                                                                                                ) {
+                                                                                                    return {}
+                                                                                                }
+                                                                                                return {
+                                                                                                    [itemKey]: true,
+                                                                                                }
+                                                                                            },
+                                                                                        )
+                                                                                        if (
+                                                                                            item.onClick
+                                                                                        ) {
+                                                                                            item.onClick(
+                                                                                                event,
+                                                                                            )
+                                                                                        }
+                                                                                        return
+                                                                                    }
+                                                                                    handleItemClick(
+                                                                                        event,
+                                                                                    )
+                                                                                }}
+                                                                                data-wizard={
+                                                                                    item.wizardId
+                                                                                }
+                                                                                aria-haspopup={
+                                                                                    hasChildren
+                                                                                        ? 'menu'
+                                                                                        : undefined
+                                                                                }
+                                                                                aria-expanded={
+                                                                                    hasChildren
+                                                                                        ? isExpanded
+                                                                                        : undefined
+                                                                                }
+                                                                                className={clsx(
+                                                                                    isActive
+                                                                                        ? 'bg-cyan-800 text-white'
+                                                                                        : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                                                                    item.disabled &&
+                                                                                        'pointer-events-none opacity-40 hover:bg-transparent',
+                                                                                    'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                                                                )}
+                                                                                aria-disabled={
+                                                                                    item.disabled
+                                                                                        ? true
+                                                                                        : undefined
+                                                                                }
+                                                                                tabIndex={
+                                                                                    item.disabled
+                                                                                        ? -1
+                                                                                        : undefined
+                                                                                }
+                                                                            >
+                                                                                {item.icon && (
+                                                                                    <item.icon
+                                                                                        className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                                                                                        aria-hidden="true"
+                                                                                    />
+                                                                                )}
+                                                                                {
+                                                                                    item.name
+                                                                                }
+                                                                            </Link>
+                                                                            {hasChildren &&
+                                                                                isExpanded && (
+                                                                                    <div className="space-y-1 pl-5">
+                                                                                        <div className="relative space-y-1 pl-3">
+                                                                                            <span className="absolute bottom-4 left-0 top-0 -mt-1 w-2 rounded-b-lg border-l border-cyan-200/20" />
+                                                                                            {item.children.map(
+                                                                                                (
+                                                                                                    child,
+                                                                                                ) => {
+                                                                                                    const isChildSelected =
+                                                                                                        child.isActive ??
+                                                                                                        child.name ===
+                                                                                                            page
+                                                                                                    return (
+                                                                                                        <div
+                                                                                                            key={
+                                                                                                                child.name
+                                                                                                            }
+                                                                                                            className="relative"
+                                                                                                        >
+                                                                                                            <span className="absolute -left-3 top-1/2 -mt-0.5 h-2 w-3 -translate-y-1/2 rounded-bl-lg border-b border-cyan-200/20" />
+                                                                                                            <Link
+                                                                                                                href={
+                                                                                                                    child.href ||
+                                                                                                                    '/app'
+                                                                                                                }
+                                                                                                                shallow={
+                                                                                                                    child.shallow
+                                                                                                                }
+                                                                                                                onClick={(
+                                                                                                                    event,
+                                                                                                                ) => {
+                                                                                                                    if (
+                                                                                                                        child.onClick
+                                                                                                                    ) {
+                                                                                                                        child.onClick(
+                                                                                                                            event,
+                                                                                                                        )
+                                                                                                                    }
+                                                                                                                }}
+                                                                                                                className={clsx(
+                                                                                                                    isChildSelected
+                                                                                                                        ? 'text-white'
+                                                                                                                        : 'text-cyan-100/60 hover:text-cyan-100/80',
+                                                                                                                    'block rounded-md px-3 py-1 text-sm font-medium transition',
+                                                                                                                )}
+                                                                                                            >
+                                                                                                                {
+                                                                                                                    child.name
+                                                                                                                }
+                                                                                                            </Link>
+                                                                                                        </div>
+                                                                                                    )
+                                                                                                },
+                                                                                            )}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                )}
+                                                                        </div>
                                                                     )
                                                                 },
                                                             )}
