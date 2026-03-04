@@ -1101,7 +1101,7 @@ export function ResearchInterface({
         try {
             // If we are answering clarifications, call the continue endpoint
             if (clarifyingJob) {
-                const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${clarifyingJob.jobId}`
+                const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/research/${clarifyingJob.jobId}`
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
@@ -3101,7 +3101,7 @@ export function Research({
         // Fallback: fetch from internal DB and add/select
         ;(async () => {
             try {
-                const path = `/api/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+                const path = `/api/teams/${team.id}/bots/${bot.id}/research/${jobId}`
                 const response = await fetch(path, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
@@ -3252,7 +3252,7 @@ export function Research({
         try {
             // First try to fetch from internal API (Firestore)
             // This ensures we always have the latest data even if the Bot API is unreachable
-            const internalPath = `/api/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+            const internalPath = `/api/teams/${team.id}/bots/${bot.id}/research/${jobId}`
             const internalResponse = await fetch(internalPath)
 
             let jobData = null
@@ -3269,7 +3269,7 @@ export function Research({
 
             if (isActive && process.env.NEXT_PUBLIC_BOT_API_URL) {
                 try {
-                    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+                    const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/research/${jobId}`
                     const response = await fetch(apiUrl, {
                         method: 'GET',
                         headers: {
@@ -3339,7 +3339,7 @@ export function Research({
 
     const cancelJob = async (jobId) => {
         try {
-            const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+            const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/research/${jobId}`
             const response = await fetch(apiUrl, {
                 method: 'DELETE',
                 headers: {
@@ -3384,7 +3384,7 @@ export function Research({
         setDeleteConfirm(null)
         setDeletingJobId(jobId)
         try {
-            const path = `/api/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+            const path = `/api/teams/${team.id}/bots/${bot.id}/research/${jobId}`
             const response = await fetch(path, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
@@ -3464,7 +3464,7 @@ export function Research({
         // Just fetch the individual job status after a short delay to get any updates
         setTimeout(async () => {
             try {
-                const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+                const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/research/${jobId}`
                 const response = await fetch(apiUrl, {
                     method: 'GET',
                     headers: {
@@ -3476,7 +3476,7 @@ export function Research({
                     let job = await response.json()
                     if (job.status === 'clarifying' && !job.clarifications) {
                         try {
-                            const path = `/api/teams/${team.id}/bots/${bot.id}?tab=research&jobId=${jobId}`
+                            const path = `/api/teams/${team.id}/bots/${bot.id}/research/${jobId}`
                             const dbRes = await fetch(path, {
                                 method: 'GET',
                                 headers: { 'Content-Type': 'application/json' },
