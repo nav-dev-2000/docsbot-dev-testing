@@ -1,13 +1,13 @@
 {
   "display_information": {
-    "name": "DocsBot AI",
-    "description": "Provides instant AI answers from your documentation",
+    "name": "DocsBot",
+    "description": "Instant AI answers from your documentation and content",
     "background_color": "#111827",
-    "long_description": "Connect your DocsBot account to Slack to instantly answer questions in your workspace. The integration will let your team members get documentation answers without leaving Slack."
+    "long_description": "Connect your DocsBot account to Slack and bring your AI Agents right into your workspace. Instantly answer questions, surface documentation, and support your team-without ever leaving Slack."
   },
   "features": {
     "app_home": {
-      "home_tab_enabled": true,
+      "home_tab_enabled": false,
       "messages_tab_enabled": true,
       "messages_tab_read_only_enabled": false
     },
@@ -15,39 +15,56 @@
       "display_name": "DocsBot",
       "always_online": true
     },
+    "slash_commands": [
+      {
+        "command": "/docsbot",
+        "url": "https://api.docsbot.ai/slack/events",
+        "description": "Choose which DocsBot to talk to",
+        "usage_hint": "[use|switch|clear] [bot name]",
+        "should_escape": false
+      }
+    ],
     "assistant_view": {
-      "assistant_description": "DocsBot is an AI assistant that can answer questions from your documentation.",
+      "assistant_description": "Your AI assistant for instant answers from your documentation and content.",
       "suggested_prompts": []
     }
   },
   "oauth_config": {
+    "redirect_urls": [
+      "https://docsbot.ai/api/teams/"
+    ],
     "scopes": {
-      "bot": [
-        "assistant:write",
-        "channels:join",
-        "im:history",
-        "channels:history",
-        "groups:history",
-        "chat:write"
-      ],
       "user": [
         "users:read",
         "users:read.email"
+      ],
+      "bot": [
+        "reactions:write",
+        "app_mentions:read",
+        "assistant:write",
+        "channels:history",
+        "channels:join",
+        "chat:write",
+        "commands",
+        "groups:history",
+        "im:history"
       ]
     }
   },
   "settings": {
     "event_subscriptions": {
+      "request_url": "https://api.docsbot.ai/slack/events",
       "bot_events": [
+        "app_mention",
         "assistant_thread_context_changed",
         "assistant_thread_started",
         "message.im"
-      ],
-      "user_events": [
       ]
     },
     "interactivity": {
-      "is_enabled": false
+      "is_enabled": true,
+      "request_url": "https://api.docsbot.ai/slack/events",
+      "message_menu_options_url": "https://api.docsbot.ai/slack/events"
     },
     "org_deploy_enabled": true,
     "socket_mode_enabled": false,

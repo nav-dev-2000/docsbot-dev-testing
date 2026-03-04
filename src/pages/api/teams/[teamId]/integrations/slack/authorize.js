@@ -45,14 +45,21 @@ export default async function handler(req, res) {
     // Generate a random state parameter for security (teamId_defaultBotId_random)
     const state = `${teamId}_${defaultBotId || ''}_${crypto.randomBytes(16).toString('hex')}`
 
-    // Define scopes needed for the Slack bot
-    const scopes = [
+    // Bot scopes should match the Slack app manifest exactly
+    const botScopes = [
+      'reactions:write',
+      'app_mentions:read',
       'assistant:write',
-      'channels:join',
-      'im:history',
       'channels:history',
-      'groups:history',
+      'channels:join',
       'chat:write',
+      'commands',
+      'groups:history',
+      'im:history',
+    ]
+
+    // User scopes must be sent via user_scope
+    const userScopes = [
       'users:read',
       'users:read.email',
     ]
@@ -80,8 +87,8 @@ export default async function handler(req, res) {
 
     const authUrl = new URL('https://slack.com/oauth/v2/authorize')
     authUrl.searchParams.append('client_id', process.env.SLACK_CLIENT_ID)
-    authUrl.searchParams.append('scope', scopes.join(' '))
-    authUrl.searchParams.append('user_scope', '')
+    authUrl.searchParams.append('scope', botScopes.join(' '))
+    authUrl.searchParams.append('user_scope', userScopes.join(' '))
     authUrl.searchParams.append('redirect_uri', redirectUri)
     authUrl.searchParams.append('state', state)
     authUrl.searchParams.append('code_challenge', codeChallenge)
