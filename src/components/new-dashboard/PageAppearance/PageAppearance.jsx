@@ -133,6 +133,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         }
     })
     const [showColorPicker, setShowColorPicker] = useState(false)
+    const previousBranding = useRef(branding)
+    const previousImageUploads = useRef(imageUploads)
+    const previousLeadCollect = useRef(leadCollect)
     const iconRef = useRef(null)
     const avatarRef = useRef(null)
     const logoRef = useRef(null)
@@ -197,6 +200,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         setShowCopyButton(bot.showCopyButton || false)
         setIsAgent(nextIsAgent)
         setTools(nextTools)
+        previousBranding.current = nextBranding
+        previousImageUploads.current = nextImageUploads
+        previousLeadCollect.current = nextLeadCollect
         setLinkSafetyEnabled(bot.linkSafetyEnabled === true)
         setImageUploads(nextImageUploads)
         setLeadCollect(nextLeadCollect)
@@ -208,6 +214,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     }, [team, user, bot])
 
     useEffect(() => {
+        if (previousBranding.current === branding) {
+            return
+        }
+
+        previousBranding.current = branding
+
         if (
             !branding &&
             !checkPlanPermission(team, 'business', 'branding').allowed
@@ -218,6 +230,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     }, [branding, team])
 
     useEffect(() => {
+        if (previousImageUploads.current === imageUploads) {
+            return
+        }
+
+        previousImageUploads.current = imageUploads
+
         if (
             imageUploads &&
             !checkPlanPermission(team, 'standard', 'imageUploads').allowed
@@ -228,6 +246,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     }, [imageUploads, team])
 
     useEffect(() => {
+        if (previousLeadCollect.current === leadCollect) {
+            return
+        }
+
+        previousLeadCollect.current = leadCollect
+
         if (
             isLeadCollectEnabled(leadCollect) &&
             !checkPlanPermission(team, 'personal', 'leadCollect').allowed
@@ -722,7 +746,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                         }}
                     >
                         {(!isAgent || errorText) && (
-                            <div className="-mt-4 px-6">
+                            <div className="mt-2 px-6">
                                 <Alert title={errorText} type="error" />
 
                                 {!isAgent && (
