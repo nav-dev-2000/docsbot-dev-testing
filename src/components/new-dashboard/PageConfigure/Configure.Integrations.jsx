@@ -1,7 +1,7 @@
 import IntegrationsGrid from '@/components/IntegrationsGrid'
 import Workspace from '@new-dashboard/Workspace'
 
-const PageConfigureIntegrations = ({ team, bot, integrations }) => {
+const PageConfigureIntegrations = ({ team, bot, integrations, canModifyTeam = false }) => {
     return (
         <div id="page-deploy" className="h-full overflow-y-auto px-8">
             <div className="flex flex-col gap-8 py-8">
@@ -12,6 +12,7 @@ const PageConfigureIntegrations = ({ team, bot, integrations }) => {
                     bot={bot}
                     integrations={integrations}
                     newDashboard={true}
+                    canModifyTeam={canModifyTeam}
                 />
             </div>
         </div>

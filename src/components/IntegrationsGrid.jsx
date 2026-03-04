@@ -18,6 +18,7 @@ import {
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import classNames from '@/utils/classNames'
+import { getBotIdFromChannelMapping, getChannelDisplayName, getValidChannelEntries } from '@/lib/slackHelpers'
 import SlackLogo from '@/components/SlackLogo'
 import HelpScoutLogo from '@/components/HelpScoutLogo'
 import OpenAILogo from '@/components/OpenAILogo'
@@ -156,12 +157,10 @@ const ShareLinksInfo = ({ team, bot }) => {
 const SlackInfo = ({
   team,
   bot,
-  slackConnection,
+  botSlackMappings,
   isSlackConnected,
   hasPowerPlan,
-  isConnectingSlack,
-  handleConnectSlack,
-  handleDisconnectSlack,
+  canModifyTeam,
   setShowUpgrade,
   openLinksInNewTab,
 }) => {
@@ -170,126 +169,82 @@ const SlackInfo = ({
       <>
         <div>
           <p className="text-md text-gray-800">
-            Connect your Slack workspace to integrate this bot with your paid
-            team's Slack channels as an AI Assistant.
+            Connect your bot to Slack to answer questions directly in your workspace channels. Slack is managed at the team level.
           </p>
-          <ul className="mt-2 list-disc pl-5 text-sm text-gray-800">
-            <li>
-              Once you install the DocsBot AI Assistant app, everyone in your
-              workspace can start using it right away
-            </li>
-            <li>
-              Interact with our DocsBot AI Assistant in Slack alongside
-              channels, or the App Home tab
-            </li>
-          </ul>
-          <div className="mt-4">
-            {!hasPowerPlan ? (
+          {!hasPowerPlan && (
+            <div className="mt-4">
               <button
                 type="button"
                 onClick={() => setShowUpgrade(true)}
-                className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               >
-                <CreditCardIcon
-                  className="mr-1.5 h-5 w-5 flex-shrink-0"
-                  aria-hidden="true"
-                />
+                <CreditCardIcon className="mr-1.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
                 Upgrade Plan
               </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleConnectSlack}
-                disabled={isConnectingSlack}
-                className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            </div>
+          )}
+          <div className="mt-4">
+            <Link
+              href="/app/api#slack-settings"
+              className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+            >
+              <SlackLogo className="mr-2 h-4 w-4" />
+              {canModifyTeam ? 'Manage Slack in Team settings' : 'View Team settings'}
+            </Link>
+            <div className="mt-3 flex justify-end">
+              <Link
+                href="https://docsbot.ai/documentation/doc/slack-integration"
+                target={openLinksInNewTab ? '_blank' : undefined}
+                rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
+                className="inline-flex items-center text-sm text-cyan-600 hover:text-cyan-800"
               >
-                {isConnectingSlack ? (
-                  <>
-                    <LoadingSpinner small className="mr-3 text-gray-500" />
-                    Connecting...
-                  </>
-                ) : (
-                  <>
-                    <SlackLogo className="mr-2 h-4 w-4" />
-                    Add to Slack
-                  </>
-                )}
-              </button>
-            )}
+                Read documentation
+                <ArrowTopRightOnSquareIcon className="ml-1 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
-        <Link
-          href="https://docsbot.ai/documentation/doc/slack-integration"
-          target={openLinksInNewTab ? '_blank' : undefined}
-          rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
-          className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
-        >
-          Read documentation
-          <ArrowTopRightOnSquareIcon
-            className="ml-1 h-4 w-4"
-            aria-hidden="true"
-          />
-        </Link>
       </>
     )
   }
 
-  const connectedDate = slackConnection.slackConnectedAt
-    ? new Date(slackConnection.slackConnectedAt).toUTCString()
-    : 'Unknown date'
-
   return (
     <>
       <div>
-        <div className="flex items-center">
-          <CheckCircleIcon
-            className="h-5 w-5 text-green-600"
-            aria-hidden="true"
-          />
-          <span className="ml-1 text-sm font-medium text-green-700">
-            Connected to {slackConnection.slackTeamName || 'Slack workspace'}
-          </span>
-        </div>
-        {slackConnection.slackBotUserId && (
+        <p className="text-md text-gray-800">
+          Your team has Slack connected. Here&apos;s where this bot answers questions:
+        </p>
+        {botSlackMappings.length > 0 ? (
+          <ul className="mt-3 space-y-2">
+            {botSlackMappings.map(({ workspaceName, isDefaultForWorkspace, channelEntries }) => (
+              <li key={workspaceName} className="rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-sm">
+                <span className="font-medium text-gray-900">{workspaceName}</span>
+                {isDefaultForWorkspace && (
+                  <span className="ml-2 inline-flex rounded-full bg-cyan-100 px-2 py-0.5 text-xs font-medium text-cyan-800">
+                    Default
+                  </span>
+                )}
+                {channelEntries.length > 0 && (
+                  <p className="mt-1 text-xs text-gray-600">
+                    Channels: <code className="rounded bg-gray-200 px-1">{channelEntries.map((c) => c.channelName).join(', ')}</code>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
           <p className="mt-2 text-sm text-gray-600">
-            Bot User ID:{' '}
-            <code className="rounded bg-gray-100 px-1 py-0.5">
-              {slackConnection.slackBotUserId}
-            </code>
+            This bot isn&apos;t assigned to any workspace or channel yet. To use it in Slack, set it as the default or assign it to specific channels in Team settings.
           </p>
         )}
-        {slackConnection.slackTeamId && (
-          <p className="mt-1 text-sm text-gray-600">
-            Slack Team:{' '}
-            <code className="rounded bg-gray-100 px-1 py-0.5">
-              {slackConnection.slackTeamId}
-            </code>
-          </p>
-        )}
-        <p className="mt-1 text-sm text-gray-600">
-          Connected on: {connectedDate}
-        </p>
-        <p className="mt-4 text-gray-800">
-          You can chat with your bot alongside any channel by clicking our icon
-          in the top right corner.
-        </p>
-        <div className="mt-4 space-y-2">
-          <button
-            type="button"
-            onClick={handleConnectSlack}
+        <div className="mt-4">
+          <Link
+            href="/app/api#slack-settings"
             className="inline-flex w-full items-center justify-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
           >
             <SlackLogo className="mr-2 h-4 w-4" />
-            Reconnect to Slack
-          </button>
-          <button
-            type="button"
-            onClick={handleDisconnectSlack}
-            className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-4 py-1 text-sm font-medium text-red-600 hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-          >
-            <XMarkIcon className="mr-1 h-4 w-4" />
-            Disconnect
-          </button>
+            Configure Slack Integration
+          </Link>
         </div>
       </div>
       <Link
@@ -299,10 +254,7 @@ const SlackInfo = ({
         className="mt-3 inline-flex items-center justify-end text-sm text-cyan-600 hover:text-cyan-800"
       >
         Read documentation
-        <ArrowTopRightOnSquareIcon
-          className="ml-1 h-4 w-4"
-          aria-hidden="true"
-        />
+        <ArrowTopRightOnSquareIcon className="ml-1 h-4 w-4" aria-hidden="true" />
       </Link>
     </>
   )
@@ -1170,18 +1122,43 @@ export default function IntegrationsGrid({
   compact = false,
   openLinksInNewTab = false,
   newDashboard = false,
+  canModifyTeam = false,
 }) {
   const helpScoutIntegration = integrations?.find((i) => i.id === 'helpscout')
+  const slackIntegration = integrations?.find((i) => i.id === 'slack')
   const [subscribedTags, setSubscribedTags] = useState([])
   const [defaultMailboxes, setDefaultMailboxes] = useState([])
   const [showUpgrade, setShowUpgrade] = useState(false)
-  const [isConnectingSlack, setIsConnectingSlack] = useState(false)
-  const [slackConnection, setSlackConnection] = useState({
-    slackBotUserId: bot.slackBotUserId,
-    slackTeamId: bot.slackTeamId,
-    slackTeamName: bot.slackTeamName,
-    slackConnectedAt: bot.slackConnectedAt,
-  })
+
+  // Workspace-level Slack: use team.slackWorkspaceIds for list, integrations/slack.workspaces for details
+  const workspaces = slackIntegration?.workspaces || {}
+  const workspaceIds = Array.isArray(team?.slackWorkspaceIds) && team.slackWorkspaceIds.length > 0
+    ? team.slackWorkspaceIds
+    : Object.keys(workspaces)
+  const connectedWorkspaces = workspaceIds
+    .map((id) => [id, workspaces[id]])
+    .filter(([, ws]) => ws && ws?.slackTeamId)
+  const hasLegacySlack = bot.slackTeamId && bot.slackTeamName
+  const isSlackConnected = connectedWorkspaces.length > 0 || hasLegacySlack
+
+  // Build read-only mappings: which workspaces/channels this bot is default for
+  let botSlackMappings = connectedWorkspaces
+    .map(([workspaceId, ws]) => {
+      const isDefaultForWorkspace = ws?.defaultBotId === bot.id || (hasLegacySlack && ws?.slackTeamId === bot.slackTeamId)
+      const channelEntries = getValidChannelEntries(ws?.channelBotMap || {})
+        .filter(([, mapping]) => getBotIdFromChannelMapping(mapping) === bot.id)
+        .map(([chId, mapping]) => ({ channelId: chId, channelName: getChannelDisplayName(chId, mapping) }))
+      if (!isDefaultForWorkspace && channelEntries.length === 0) return null
+      return {
+        workspaceName: ws?.slackTeamName || `Workspace ${workspaceId}`,
+        isDefaultForWorkspace,
+        channelEntries,
+      }
+    })
+    .filter(Boolean)
+  if (hasLegacySlack && botSlackMappings.length === 0) {
+    botSlackMappings = [{ workspaceName: bot.slackTeamName || 'Slack workspace', isDefaultForWorkspace: true, channelEntries: [] }]
+  }
   const [showWidgetModal, setShowWidgetModal] = useState(false)
   const [copiedEmbed, setCopiedEmbed] = useState(false)
   const [copiedIframe, setCopiedIframe] = useState(false)
@@ -1189,54 +1166,6 @@ export default function IntegrationsGrid({
   const hasPowerPlan = checkPlanPermission(team, 'personal').allowed
   const mcpPlanPermission = checkPlanPermission(team, 'standard')
   const hasStandardPlan = mcpPlanPermission.allowed
-
-  // Check if Slack is connected
-  const isSlackConnected =
-    slackConnection.slackBotUserId && slackConnection.slackTeamId
-
-  // Add an effect to listen for postMessage events from the Slack OAuth callback window
-  useEffect(() => {
-    const handlePostMessage = (event) => {
-      console.log('Received postMessage event:', event.data)
-
-      // Allow messages from any origin that have our expected format
-      if (event.data && typeof event.data === 'object') {
-        // Check if the message is a Slack connected message with the expected format
-        if (
-          event.data.type === 'SLACK_CONNECTED' &&
-          event.data.teamId === team.id &&
-          event.data.botId === bot.id
-        ) {
-          console.log(
-            'Valid Slack connection message received, updating state',
-            event.data,
-          )
-
-          // Update the Slack connection state with the new values
-          setSlackConnection({
-            slackBotUserId: event.data.slackBotUserId,
-            slackTeamId: event.data.slackTeamId,
-            slackTeamName: event.data.slackTeamName,
-            slackConnectedAt: event.data.slackConnectedAt,
-          })
-
-          // Also update the connecting state
-          setIsConnectingSlack(false)
-        }
-      }
-    }
-
-    // Add event listener for messages
-    window.addEventListener('message', handlePostMessage)
-
-    console.log('PostMessage event listener added for Slack integration')
-
-    // Remove event listener on cleanup
-    return () => {
-      console.log('Removing postMessage event listener')
-      window.removeEventListener('message', handlePostMessage)
-    }
-  }, [team.id, bot.id])
 
   useEffect(() => {
     if (!helpScoutIntegration || !helpScoutIntegration?.tags) {
@@ -1277,123 +1206,6 @@ export default function IntegrationsGrid({
 
     setDefaultMailboxes(assignedMailboxes)
   }, [helpScoutIntegration, bot.id])
-
-  const handleConnectSlack = async () => {
-    setIsConnectingSlack(true)
-
-    try {
-      const response = await fetch(
-        `/api/teams/${team.id}/bots/${bot.id}/integrations/slack/authorize`,
-      )
-
-      if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`)
-      }
-
-      const data = await response.json()
-
-      if (data.url) {
-        const popupFeatures =
-          'width=800,height=600,menubar=no,toolbar=no,location=no,resizable=yes,scrollbars=yes,status=no'
-
-        const slackWindow = window.open(
-          data.url,
-          'Connect to Slack',
-          popupFeatures,
-        )
-
-        if (!slackWindow) {
-          throw new Error('Popup was blocked by the browser or failed to open')
-        }
-
-        slackWindow.focus()
-
-        // Poll for changes to the window status
-        const checkInterval = 1000 // Check every second
-        const maxChecks = 300 // Maximum number of checks (5 minutes)
-        let checkCount = 0
-
-        const checkIntegrationStatus = setInterval(() => {
-          checkCount++
-
-          // Check if we've exceeded the maximum number of checks
-          if (checkCount > maxChecks) {
-            clearInterval(checkIntegrationStatus)
-            setIsConnectingSlack(false)
-            console.log('Stopped checking for Slack window - max time exceeded')
-          }
-
-          // Check if the window is closed
-          if (slackWindow.closed) {
-            clearInterval(checkIntegrationStatus)
-            setIsConnectingSlack(false)
-            console.log('Slack authorization window was closed')
-
-            // The page may be reloaded by the postMessage event listener if successful,
-            // but we'll also check the integration status directly after a delay
-            setTimeout(async () => {
-              try {
-                // Check if integration is now connected by fetching fresh bot data
-                const statusResponse = await fetch(
-                  `/api/teams/${team.id}/bots/${bot.id}`,
-                )
-                if (statusResponse.ok) {
-                  const botData = await statusResponse.json()
-                  // Note: slackBotToken is stripped by getBot for security; use slackBotUserId/slackTeamId
-                  if (botData.slackBotUserId && botData.slackTeamId) {
-                    console.log(
-                      'Slack integration confirmed as connected via API check',
-                    )
-                    window.location.reload()
-                  }
-                }
-              } catch (statusError) {
-                console.error(
-                  'Failed to check integration status:',
-                  statusError,
-                )
-              }
-            }, 2000)
-          }
-        }, checkInterval)
-      } else {
-        throw new Error('No redirect URL returned from the API')
-      }
-    } catch (error) {
-      console.error('Error connecting to Slack:', error)
-    } finally {
-      setIsConnectingSlack(false)
-    }
-  }
-
-  const handleDisconnectSlack = async () => {
-    try {
-      setIsConnectingSlack(true)
-
-      const response = await fetch(
-        `/api/teams/${team.id}/bots/${bot.id}/integrations/slack/disconnect`,
-        {
-          method: 'POST',
-        },
-      )
-
-      if (!response.ok) {
-        throw new Error('Failed to disconnect Slack')
-      }
-
-      // Update local state
-      setSlackConnection({
-        slackBotUserId: null,
-        slackTeamId: null,
-        slackTeamName: null,
-        slackConnectedAt: null,
-      })
-    } catch (error) {
-      console.error('Error disconnecting Slack:', error)
-    } finally {
-      setIsConnectingSlack(false)
-    }
-  }
 
   return (
     <>
@@ -1438,12 +1250,10 @@ export default function IntegrationsGrid({
             <SlackInfo
               team={team}
               bot={bot}
-              slackConnection={slackConnection}
+              botSlackMappings={botSlackMappings}
               isSlackConnected={isSlackConnected}
               hasPowerPlan={hasPowerPlan}
-              isConnectingSlack={isConnectingSlack}
-              handleConnectSlack={handleConnectSlack}
-              handleDisconnectSlack={handleDisconnectSlack}
+              canModifyTeam={canModifyTeam}
               setShowUpgrade={setShowUpgrade}
               openLinksInNewTab={openLinksInNewTab}
             />

@@ -42,6 +42,16 @@ The blog is located in the `/src/pages/articles/[[...path]].js` folder and `/src
 
 The application is located in the `/src/pages/app` folder. Each file in this folder represents a single page in the application. Most app pages use SSR to check auth cookies, fetch data from the database, and are powered by Vercel functions. 
 
+### Slack OAuth local testing
+
+Slack does not allow `localhost` as an OAuth redirect URL. To test the Slack integration locally:
+
+1. **Start ngrok** pointing at port 3000: `ngrok http 3000`
+2. **Add ngrok to Firebase**: In [Firebase Console](https://console.firebase.google.com) → Authentication → Settings → Authorized domains, add your ngrok host (e.g. `abc123.ngrok-free.app`).
+3. **Add redirect URL to Slack**: In [Slack API](https://api.slack.com/apps) → Your app → OAuth & Permissions → Redirect URLs, add `https://YOUR-NGROK-SUBDOMAIN.ngrok-free.app/api/teams/*/integrations/slack/callback` (or the exact callback URL for your team).
+4. **Set HOST_URL** in `.env.local` to your ngrok URL: `HOST_URL=https://YOUR-SUBDOMAIN.ngrok-free.app`
+5. **Use ngrok for the whole flow**: Open the app at the ngrok URL (not localhost), log in there, then connect Slack. The callback needs your session cookie, which is only sent when the app and callback share the same domain.
+
 ### API
 
 The API is located in the `/src/pages/api` folder. Each file in this folder represents a single API endpoint. The API is powered by [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction). API endpoints use the Firebase authentication cookie to authenticate users, and fallback to the `Authorization: Bearer APIKEY` header if the cookie is not present.

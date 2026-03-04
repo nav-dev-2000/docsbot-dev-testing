@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
@@ -27,6 +28,7 @@ import ModalOpenAI from '@/components/ModalOpenAI'
 import { getUserRole } from '@/utils/function.utils'
 import { checkPlanPermission } from '@/utils/helpers'
 import APIIntegration from '@/components/integrations/helpscout'
+import SlackAdminIntegration from '@/components/integrations/slackAdmin'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import SlackLogo from '@/components/SlackLogo'
 import OpenAILogo from '@/components/OpenAILogo'
@@ -96,8 +98,17 @@ const getInterfaceName = (domain) => {
 }
 
 function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: initialMcpClients = [] }) {
+  const router = useRouter()
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (window.location.hash === '#slack-settings') {
+      const el = document.getElementById('slack-settings')
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [router.asPath])
   const [openRemoveModal, setOpenRemoveModal] = useState(false)
   const [apiKey, setApiKey] = useState(user.apiKey || 'No Key')
   const [copyMessage, setCopyMessage] = useState(null)
@@ -550,12 +561,14 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
             <Link href="/app/bots" className="text-cyan-600 hover:text-cyan-800">
               Bots page
             </Link>{' '}
-            and click the <span className="font-medium">Integrations & Sharing</span> button for the bot you want to set up.
+            and click the <span className="font-medium">Deploy</span> button for the bot you want to set up.
           </p>
         </div>
       </div>
 
       <APIIntegration {...{ team, integrations, bots, setErrorText }} />
+
+      <SlackAdminIntegration {...{ team, bots, setErrorText }} />
 
       {checkPlanPermission(team, 'standard').allowed ? (
         <div className="mt-8 rounded-lg bg-white p-8 shadow">

@@ -1,5 +1,23 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-03',
+    title: 'Slack connect at team level only',
+    description:
+      'Slack is now connected only from Team settings (API/Integrations). Deploy tab shows read-only bot mappings; use /docsbot in Slack for channel overrides.',
+  },
+  {
+    date: '2026-03-02',
+    title: 'Workspace-level Slack integration',
+    description:
+      'Slack credentials now stored at workspace level. Connect from any bot to set it as default; disconnect workspaces in Team settings.',
+  },
+  {
+    date: '2026-03-02',
+    title: 'Team-wide Slack multi-bot routing',
+    description:
+      'Connect one Slack workspace to multiple bots and set workspace defaults plus channel-to-bot mappings in Team settings.',
+  },
+  {
     date: '2026-03-02',
     title: 'Redesigned bot dashboard',
     description:

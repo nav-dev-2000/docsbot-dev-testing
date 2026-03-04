@@ -37,6 +37,7 @@ import { auth } from '@/config/firebase-ui.config'
 import {
     canUserManageBotSettings,
     canUserManageIntegrations,
+    canUserModifyTeam,
     canUserViewBot,
 } from '@/utils/function.utils'
 
@@ -210,6 +211,8 @@ const BotInner = ({
     preConversations,
     preQuestions,
     openQuestion,
+    canModifyTeam = false,
+    canManageIntegrations: canManageIntegrationsFromServer = false,
 }) => {
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
@@ -264,19 +267,16 @@ const BotInner = ({
     useEffect(() => {
         if (!router.isReady || authLoading) return
 
+        // Use server value for redirect to avoid race: client canManageIntegrations
+        // is set in a separate effect and may still be false on first run after auth.
+        const hasDeployAccess = canManageIntegrationsFromServer || canManageIntegrations
+
         let correctTab = derivedTab
         let correctControl = derivedControl
 
         // Widget and deploy are admin-only (canManageIntegrations)
-        if (
-            !canManageIntegrations &&
-            (correctTab === 'widget' || correctTab === 'deploy')
-        ) {
-            router.replace(
-                `/app/bots/${Array.isArray(botId) ? botId[0] : botId}`,
-                undefined,
-                { shallow: true },
-            )
+        if (!hasDeployAccess && (correctTab === 'widget' || correctTab === 'deploy')) {
+            router.replace(`/app/bots/${Array.isArray(botId) ? botId[0] : botId}`, undefined, { shallow: true })
             return
         }
 
@@ -298,7 +298,7 @@ const BotInner = ({
         if (currentPath !== correctPathClean) {
             router.replace(correctPath, undefined, { shallow: true })
         }
-    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, configureControls, canManageIntegrations, canManageSettings, isConfigureControlRestricted, router])
+    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, configureControls, canManageIntegrations, canManageIntegrationsFromServer, isConfigureControlRestricted, router])
 
     const isBotDisabled = bot?.privacy === 'private' || bot?.status !== 'ready'
 
@@ -637,6 +637,7 @@ const BotInner = ({
                     team={team}
                     bot={bot}
                     integrations={integrations}
+                    canModifyTeam={canModifyTeam}
                 />
             ),
         },
@@ -787,6 +788,8 @@ export const getServerSideProps = async (context) => {
         data.props.bots = allBots.filter((b) =>
             canUserViewBot(data.props.team, b, data.props.userId),
         )
+        data.props.canModifyTeam = canUserModifyTeam(data.props.team, data.props.userId)
+        data.props.canManageIntegrations = canUserManageIntegrations(data.props.team, data.props.userId, data.props.bot)
 
         const {
             tab,
@@ -796,12 +799,7 @@ export const getServerSideProps = async (context) => {
         } = slugToTabControl(slug)
 
         // Redirect non-admins away from webhooks, widget, and deploy (admin-only via canManageIntegrations)
-        const canManageIntegrations = canUserManageIntegrations(
-            data.props.team,
-            data.props.userId,
-            data.props.bot,
-        )
-        if (!canManageIntegrations) {
+        if (!data.props.canManageIntegrations) {
             const normalizedBotId = Array.isArray(botId) ? botId[0] : botId
             if (tab === 'widget' || tab === 'deploy') {
                 return {

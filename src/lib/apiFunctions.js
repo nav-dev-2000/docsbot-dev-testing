@@ -17,6 +17,7 @@ import {
   isLeadCollectEnabled,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
 
 const TOPIC_LIMIT = 50
 
@@ -299,6 +300,43 @@ export const deleteBot = async (teamId, botId) => {
   }
   // Commit the remaining batch
   await researchBatch.commit()
+
+  // If bot is default or in channel map for any Slack workspace, update workspace config
+  const integrationRef = firestore.collection('teams').doc(teamId).collection('integrations').doc('slack')
+  const integrationDoc = await integrationRef.get()
+  const slackData = integrationDoc.data() || {}
+  const workspaces = slackData.workspaces || {}
+  let slackUpdated = false
+  const updates = {}
+  for (const [slackTeamId, ws] of Object.entries(workspaces)) {
+    if (!ws || typeof ws !== 'object') continue
+    let changed = false
+    const next = { ...ws }
+    if (ws.defaultBotId === botId) {
+      const validEntries = getValidChannelEntries(ws.channelBotMap || {})
+      const otherBotIds = validEntries
+        .map(([, m]) => getBotIdFromChannelMapping(m))
+        .filter((id) => id && id !== botId)
+      next.defaultBotId = otherBotIds[0] || null
+      if (!next.defaultBotId) delete next.defaultBotId
+      changed = true
+    }
+    const validEntries = getValidChannelEntries(ws.channelBotMap || {})
+    const hasBotInChannels = validEntries.some(([, m]) => getBotIdFromChannelMapping(m) === botId)
+    if (ws.channelBotMap && hasBotInChannels) {
+      const remaining = validEntries.filter(([, m]) => getBotIdFromChannelMapping(m) !== botId)
+      next.channelBotMap = remaining.length > 0 ? Object.fromEntries(remaining) : null
+      if (!next.channelBotMap) delete next.channelBotMap
+      changed = true
+    }
+    if (changed) {
+      updates[slackTeamId] = next
+      slackUpdated = true
+    }
+  }
+  if (slackUpdated) {
+    await integrationRef.set({ workspaces: { ...workspaces, ...updates } }, { merge: true })
+  }
 
   //delete bot
   await firestore

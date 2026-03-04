@@ -51,12 +51,10 @@ export async function getBots(team, resultLimit = 1000) {
     // Remove webhooks to avoid serializing nested Firestore Timestamps
     delete bot.webhooks
 
-    // Remove sensitive Slack token information before returning
-    Object.keys(bot).forEach((key) => {
-      if (key.startsWith('slack')) {
-        delete bot[key]
-      }
-    })
+    // Remove sensitive Slack token only; keep slackTeamId, slackTeamName, etc. for backwards compat in IntegrationsGrid
+    if (bot.slackBotToken) {
+      delete bot.slackBotToken
+    }
 
     bots.push(bot)
   })
@@ -1453,7 +1451,18 @@ export async function getTeamIntegrations(teamId) {
     .get()
   integrationsSnapshot.forEach((doc) => {
     const docData = doc.data()
-    integrations.push({ id: doc.id, ...docData })
+    if (doc.id === 'slack') {
+      const { slackOAuthPending, workspaces: rawWorkspaces, workspaceIds: _workspaceIds, ...rest } = docData
+      const workspaces = {}
+      for (const [id, ws] of Object.entries(rawWorkspaces || {})) {
+        if (!ws || typeof ws !== 'object') continue
+        const { slackBotToken, ...wsRest } = ws
+        workspaces[id] = wsRest
+      }
+      integrations.push({ id: doc.id, ...rest, workspaces })
+    } else {
+      integrations.push({ id: doc.id, ...docData })
+    }
   })
 
   return integrations
