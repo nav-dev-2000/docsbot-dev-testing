@@ -34,7 +34,7 @@ const WidgetTrigger = ({
     return (
         <Wrapper
             className={clsx(
-                'flex items-center mt-6',
+                'mt-6 flex w-full items-center',
                 {
                     ['justify-end']: alignment === 'right',
                     ['justify-start']: alignment === 'left',

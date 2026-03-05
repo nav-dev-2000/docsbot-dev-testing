@@ -472,6 +472,32 @@ export async function getSources(
   return { sources, pagination }
 }
 
+const SOURCE_STATUSES = ['ready', 'failed', 'queued', 'indexing', 'processing', 'pending']
+
+/** Returns counts of sources by status for a bot. Uses Firestore count aggregation (no document reads). */
+export async function getSourceCountsByStatus(teamId, botId) {
+  const baseRef = firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('sources')
+
+  const [totalSnapshot, ...statusSnapshots] = await Promise.all([
+    baseRef.count().get(),
+    ...SOURCE_STATUSES.map((status) =>
+      baseRef.where('status', '==', status).count().get(),
+    ),
+  ])
+
+  const total = totalSnapshot.data().count
+  const counts = { total }
+  SOURCE_STATUSES.forEach((status, i) => {
+    counts[status] = statusSnapshots[i].data().count
+  })
+  return counts
+}
+
 export async function getTeamSourceTypeIds(teamId) {
   const botsSnapshot = await firestore
     .collection('teams')

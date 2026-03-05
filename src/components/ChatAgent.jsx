@@ -1840,14 +1840,13 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])
 
   return (
-    <div className={clsx("relative flex min-h-[70vh] flex-col items-center gap-4")}>
+    <div className={clsx("relative flex min-h-[85vh] flex-1 flex-col items-center gap-4")}>
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
 
       <Widget
         size="md"
         className={clsx(
-          'min-h-[70vh] w-full',
-          'md:max-w-[60%]',
+          'min-h-[85vh] flex-1 w-full max-w-5xl md:w-[80%]',
         )}
       >
         <Widget.Header
@@ -1878,7 +1877,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           <div
             ref={messagesScrollRef}
             onScroll={updateShouldAutoScroll}
-            className="flex-1 px-10"
+            className="flex-1"
           >
             {standardMessagesUI}
             {/* Render agent events (reasoning and tool calls) while loading, in order */}
@@ -1930,7 +1929,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
             <Alert title={errorText} type="warning" />
 
             {showQuestion && !missingAgentPrompt && (
-              <div className="mx-auto mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+              <div className="mx-auto mt-2 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
                 {questions &&
                   questions.length > 0 &&
                   questions.map((recommendedQuestion) => (
@@ -2174,7 +2173,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       </Widget>
 
       {!missingAgentPrompt && (
-      <div className="mb-8 flex items-start justify-between w-full max-w-[60%]">
+      <div className="mb-8 flex items-start justify-between w-full max-w-5xl md:w-[80%]">
         {isContextBoost && showResearchMode ? (
           <p className="hidden max-w-prose text-left text-xs text-gray-500 sm:block">
             Note: Enabling Context Boost passes more source context in

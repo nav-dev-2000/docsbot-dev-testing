@@ -1,6 +1,7 @@
 import React from 'react'
 import ChatAgent from '@/components/ChatAgent'
 import TipsButton from '@new-dashboard/TipsButton'
+import SourcesStatusBox from '@new-dashboard/PageChat/SourcesStatusBox'
 import { CubeTransparentIcon, GlobeAmericasIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Alert from '@/components/Alert'
@@ -69,13 +70,15 @@ const PageChatChat = ({ team, bot }) => {
           })
         : null
     return (
-        <div className="relative flex flex-col">
+        <div className="relative flex min-h-[85vh] flex-col">
             <div
                 className={clsx(
-                    'mb-4 flex shrink-0 items-center justify-end gap-2',
-                    'md:absolute md:right-0 md:top-0 md:z-10 md:mb-0',
+                    'mb-4 flex shrink-0 items-center justify-between gap-4',
+                    'md:absolute md:left-0 md:right-0 md:top-0 md:z-10 md:mb-0',
                 )}
             >
+                <SourcesStatusBox teamId={team?.id} botId={botId} />
+                <div className="flex items-center gap-2">
                 <TipsButton
                     title="Improving Chatbot Responses"
                     color="yellow"
@@ -271,11 +274,12 @@ const PageChatChat = ({ team, bot }) => {
                         </p>
                     )}
                 </TipsButton>
+                </div>
             </div>
 
             {!bot?.isAgent && botId && (
                 <div className="mb-4 flex shrink-0 w-full justify-center">
-                    <div className="w-full md:max-w-[60%]">
+                    <div className="w-full max-w-5xl md:w-[80%]">
                         <Alert title="Agent Mode is here!" type="info">
                             Please enable our new{' '}
                             <Link
@@ -303,7 +307,7 @@ const PageChatChat = ({ team, bot }) => {
                 </div>
             )}
 
-            <div className="min-h-[70vh] w-full">
+            <div className="min-h-0 flex-1 w-full">
                 <ChatAgent team={team} bot={bot} showResearchMode={true} />
             </div>
         </div>

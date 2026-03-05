@@ -88,6 +88,7 @@ export default function WidgetPreview({
   imageUploads,
 }) {
   const [isMounted, setIsMounted] = useState(false)
+  const [previewMode, setPreviewMode] = useState('widget') // 'widget' | 'embed'
 
   useEffect(() => {
     setIsMounted(true)
@@ -104,8 +105,41 @@ export default function WidgetPreview({
 
   return (
     <div className="sticky top-20">
-      <h3 className="mb-4 text-2xl font-bold">Preview</h3>
-      <div className="overflow-hidden rounded-xl bg-white shadow-xl">
+      <div className="relative mb-4 flex items-center justify-between">
+        <h3 className="text-2xl font-bold">Preview</h3>
+        <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-1 py-0.5">
+          <button
+            type="button"
+            onClick={() => setPreviewMode('widget')}
+            className={classNames(
+              'rounded-md px-2 py-1 text-xs font-medium transition-colors',
+              previewMode === 'widget'
+                ? 'bg-white text-gray-900 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900',
+            )}
+          >
+            Widget
+          </button>
+          <button
+            type="button"
+            onClick={() => setPreviewMode('embed')}
+            className={classNames(
+              'rounded-md px-2 py-1 text-xs font-medium transition-colors',
+              previewMode === 'embed'
+                ? 'bg-white text-gray-900 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900',
+            )}
+          >
+            Embed
+          </button>
+        </div>
+      </div>
+      <div
+        className={classNames(
+          'overflow-hidden rounded-xl bg-white shadow-xl',
+          previewMode === 'widget' ? 'max-w-[448px]' : 'w-full',
+        )}
+      >
         <div
           className="flex items-center justify-center px-3 py-2 text-xs"
           style={{
@@ -325,7 +359,12 @@ export default function WidgetPreview({
           )}
         </div>
       </div>
-      <div className="mt-6 flex">
+      <div
+        className={classNames(
+          'mt-6 flex',
+          previewMode === 'widget' ? 'max-w-[448px]' : 'w-full',
+        )}
+      >
         <div
           className={classNames(
             alignment === 'right' ? 'ml-auto' : 'mr-auto',
