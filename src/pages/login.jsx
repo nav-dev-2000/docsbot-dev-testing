@@ -40,9 +40,13 @@ function Login() {
     const isYearInReviewShare = /^\/\d{4}-in-review\/[A-Za-z0-9]{20}$/.test(
       decodedRedirect,
     )
+    // Slack Marketplace OAuth: user returns here after login to pick team + bot
+    const isSlackConnectedRedirect = decodedRedirect.startsWith('/app/slack/connected')
 
     const isAllowedRedirect =
-      Object.values(routePaths).includes(decodedRedirect) || isYearInReviewShare
+      Object.values(routePaths).includes(decodedRedirect) ||
+      isYearInReviewShare ||
+      isSlackConnectedRedirect
 
     if (isAllowedRedirect) {
       setRedirectPath(decodedRedirect)

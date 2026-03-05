@@ -48,7 +48,9 @@ Slack does not allow `localhost` as an OAuth redirect URL. To test the Slack int
 
 1. **Start ngrok** pointing at port 3000: `ngrok http 3000`
 2. **Add ngrok to Firebase**: In [Firebase Console](https://console.firebase.google.com) → Authentication → Settings → Authorized domains, add your ngrok host (e.g. `abc123.ngrok-free.app`).
-3. **Add redirect URL to Slack**: In [Slack API](https://api.slack.com/apps) → Your app → OAuth & Permissions → Redirect URLs, add `https://YOUR-NGROK-SUBDOMAIN.ngrok-free.app/api/teams/*/integrations/slack/callback` (or the exact callback URL for your team).
+3. **Add redirect URL to Slack**: In [Slack API](https://api.slack.com/apps) → Your app → OAuth & Permissions → Redirect URLs:
+   - **First (primary) URL** – for App Directory / Marketplace installs: `https://YOUR-NGROK-SUBDOMAIN.ngrok-free.app/api/slack/oauth/callback`. In production this should be `https://docsbot.ai/api/slack/oauth/callback`.
+   - Team-specific callbacks (for “Add to Slack” from the dashboard): `https://YOUR-NGROK-SUBDOMAIN.ngrok-free.app/api/teams/`.
 4. **Set HOST_URL** in `.env.local` to your ngrok URL: `HOST_URL=https://YOUR-SUBDOMAIN.ngrok-free.app`
 5. **Use ngrok for the whole flow**: Open the app at the ngrok URL (not localhost), log in there, then connect Slack. The callback needs your session cookie, which is only sent when the app and callback share the same domain.
 
