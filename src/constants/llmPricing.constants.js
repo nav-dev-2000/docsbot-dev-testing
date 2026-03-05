@@ -1,6 +1,16 @@
 export const LLM_PRICING = {
   'Chat/Completion Models': [
     {
+      model_name: 'GPT-5.4',
+      model_slug: 'gpt-5-4',
+      page_slug: 'gpt-5-4',
+      context: '272K (1M experimental)',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 2.50,
+      cached_input_token_cost_per_million: 0.25,
+      output_token_cost_per_million: 15,
+    },
+    {
       model_name: 'GPT-5.2',
       model_slug: 'gpt-5-2',
       page_slug: 'gpt-5-2',

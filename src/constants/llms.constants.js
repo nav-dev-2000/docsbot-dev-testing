@@ -4686,6 +4686,220 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT‑5.4',
+    slug: 'gpt-5-4',
+    provider: 'openai',
+    description:
+      'GPT‑5.4 is OpenAI’s most capable frontier model for professional work, released in March 2026. It combines the industry-leading coding capabilities of GPT‑5.3‑Codex with improved reasoning, computer use, and tool efficiency. GPT‑5.4 introduces native state-of-the-art computer-use capabilities, tool search for working with large tool ecosystems efficiently, and up to 1M token context (experimental). Available in ChatGPT as GPT‑5.4 Thinking, in Codex, and via OpenAI API as gpt-5.4.',
+    input_context_window: '272K (1M experimental in Codex)',
+    maximum_output_tokens: null,
+    input_cost_per_million_tokens: 2.50,
+    output_cost_per_million_tokens: 15,
+    open_source: false,
+    release_date: '2026-03-05',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'OpenAI API (gpt-5.4), ChatGPT (GPT‑5.4 Thinking), Codex',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      // Professional tasks
+      GDPvalWinsOrTies: {
+        score: 83.0,
+        notes: 'wins or ties vs industry professionals across 44 occupations',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      FinanceAgent: {
+        score: 56.0,
+        notes: 'v1.1',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      InvestmentBankingModelingTasks: {
+        score: 87.3,
+        notes: 'Internal benchmark, junior investment banking analyst tasks',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OfficeQA: {
+        score: 68.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Coding
+      SWEBenchPro: {
+        score: 57.7,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      TerminalBench: {
+        score: 75.1,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Computer use and vision
+      OSWorld: {
+        score: 75.0,
+        notes: 'OSWorld-Verified, exceeds human performance (72.4%)',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      MMMUProNoTools: {
+        score: 81.2,
+        notes: 'no tools, visual understanding and reasoning',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      MMMUProWithTools: {
+        score: 82.1,
+        notes: 'with tools, visual understanding and reasoning',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Tool use
+      BrowseComp: {
+        score: 82.7,
+        notes: 'agentic web search, persistent browsing for hard-to-locate information',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      MCPAtlas: {
+        score: 67.2,
+        notes: 'multi-step workflows using MCP servers',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      Toolathlon: {
+        score: 54.6,
+        notes: 'agent tool calling, multi-step real-world tasks with APIs/tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      Tau2BenchTelecom: {
+        score: 98.9,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Academic
+      GPQA: {
+        score: 92.8,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      HumanitysLastExamNoTools: {
+        score: 39.8,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 52.1,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      FrontierScienceResearch: {
+        score: 33.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      FrontierMathTier1_3: {
+        score: 47.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      FrontierMathTier4: {
+        score: 27.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Long context
+      GraphwalksBFS0K_128K: {
+        score: 93.0,
+        notes: '0K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      GraphwalksBFS256K_1M: {
+        score: 21.4,
+        notes: '256K–1M',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      GraphwalksParents0_128K: {
+        score: 89.8,
+        notes: '0–128K (accuracy)',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      GraphwalksParents256K_1M: {
+        score: 32.4,
+        notes: '256K–1M (accuracy)',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle4K_8K: {
+        score: 97.3,
+        notes: '8-needle, 4K–8K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle8K_16K: {
+        score: 91.4,
+        notes: '8-needle, 8K–16K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle16K_32K: {
+        score: 97.2,
+        notes: '8-needle, 16K–32K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle32K_64K: {
+        score: 90.5,
+        notes: '8-needle, 32K–64K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle64K_128K: {
+        score: 86.0,
+        notes: '8-needle, 64K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 79.3,
+        notes: '8-needle, 128K–256K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle256K_512K: {
+        score: 57.5,
+        notes: '8-needle, 256K–512K',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      OpenAIMRCRv2Needle512K_1M: {
+        score: 36.6,
+        notes: '8-needle, 512K–1M',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Abstract reasoning
+      ARCAGI1: {
+        score: 93.7,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      ARCAGI2: {
+        score: 73.3,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+
+      // Evals without reasoning
+      OmniDocBench: {
+        score: 0.109,
+        notes: 'normalized edit distance (lower is better), reasoning effort: none',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+      Tau2BenchTelecomNoReasoning: {
+        score: 64.3,
+        notes: 'reasoning effort: none',
+        source: 'https://openai.com/index/introducing-gpt-5-4/',
+      },
+    },
+  },
+  {
     model_name: 'GPT‑5.2',
     slug: 'gpt-5-2',
     provider: 'openai',
