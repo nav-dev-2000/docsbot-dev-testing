@@ -87,6 +87,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/documentation/doc/training-a-chatbot-from-amazon-s3-digital-ocean-spaces',
+        destination: '/documentation/doc/carbon-cloud-source-connections-update',
+        permanent: false,
+      },
+      {
+        source: '/documentation/doc/training-a-chatbot-from-gitbook',
+        destination: '/documentation/doc/carbon-cloud-source-connections-update',
+        permanent: false,
+      },
+      {
+        source: '/documentation/doc/training-a-chatbot-from-guru',
+        destination: '/documentation/doc/carbon-cloud-source-connections-update',
+        permanent: false,
+      },
+      {
+        source: '/documentation/doc/training-a-chatbot-from-zotero',
+        destination: '/documentation/doc/carbon-cloud-source-connections-update',
+        permanent: false,
+      },
+      {
         source: '/documentation/developer/integrations/zapier',
         destination: '/documentation/doc/zapier-integration',
         permanent: true,
