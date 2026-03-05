@@ -34,10 +34,6 @@
       "https://docsbot.ai/api/teams/"
     ],
     "scopes": {
-      "user": [
-        "users:read",
-        "users:read.email"
-      ],
       "bot": [
         "reactions:write",
         "app_mentions:read",
@@ -47,7 +43,8 @@
         "chat:write",
         "commands",
         "groups:history",
-        "im:history"
+        "im:history",
+        "users:read"
       ]
     }
   },
