@@ -1840,13 +1840,25 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   }, [answers, loading, isCopied, copiedId, ratings, isContextBoost])
 
   return (
-    <div className={clsx("relative flex min-h-[85vh] flex-1 flex-col items-center gap-4")}>
+    <div
+      className={clsx(
+        'relative flex flex-1 flex-col items-center gap-4',
+        {
+          ['h-full']: missingAgentPrompt,
+          ['min-h-[100vh] md:min-h-[540px] md:h-full']: !missingAgentPrompt,
+        },
+      )}
+    >
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
 
       <Widget
         size="md"
         className={clsx(
-          'min-h-[85vh] flex-1 w-full max-w-5xl md:w-[80%]',
+          'flex-1 w-full max-w-5xl md:w-[80%]',
+          {
+            ['']: missingAgentPrompt,
+            ['min-h-[100vh] md:min-h-[540px] md:h-full']: !missingAgentPrompt,
+          }
         )}
       >
         <Widget.Header
@@ -1855,7 +1867,10 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           subtitle={bot.description}
         />
 
-        <Widget.Body>
+        <Widget.Body
+          emptyLabel={missingAgentPrompt ? 'Chat is disabled until you set an agent prompt.' : null}
+          emptyLink={`/app/bots/${bot.id}/configure/instructions`}
+        >
           {bot.isAgent && !missingAgentPrompt && (
             <Alert 
               title="Welcome to your new AI Agent!" 
@@ -1959,18 +1974,8 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           </div>
         </Widget.Body>
 
+        {!missingAgentPrompt && (
         <Widget.Footer isDemo={false} branding={false}>
-          {missingAgentPrompt ? (
-            <div className="flex flex-col items-center justify-center gap-2 py-3 text-center text-sm text-amber-800">
-              <p>Chat is disabled until you set an agent prompt.</p>
-              <Link
-                href={`/app/bots/${bot.id}/configure/instructions`}
-                className="font-medium text-amber-700 underline decoration-amber-600 underline-offset-2 hover:text-amber-900"
-              >
-                Configure Custom Instructions
-              </Link>
-            </div>
-          ) : (
           <form
             className="mt-2 flex flex-col justify-center"
             translate="no"
@@ -2170,8 +2175,8 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
               </div>
             </div>
           </form>
-          )}
         </Widget.Footer>
+        )}
       </Widget>
 
       {!missingAgentPrompt && (

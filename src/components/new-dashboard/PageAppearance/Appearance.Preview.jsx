@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
-import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
 import Widget from '@new-dashboard/Widget'
 import { LeadCollectPreview } from '@/components/WidgetPreview'
 import { isLeadCollectEnabled } from '@/lib/leadCollect'
+import SegmentedControl from '../SegmentedControl'
 
 const isExternalImage = (value) =>
     typeof value === 'string' && value.includes('://')
@@ -124,41 +124,14 @@ const ApperancePreview = ({
     return (
         <div className="flex h-full w-full flex-col items-center">
             <div className="-mt-10 mb-4 flex w-full justify-end">
-                <RadioGroup
+                <SegmentedControl
                     value={previewMode}
                     onChange={setPreviewMode}
-                    className="grid grid-cols-2 gap-x-1 rounded-lg bg-gray-50 p-1 text-center text-sm font-semibold leading-5 shadow-inner ring-1 ring-inset ring-gray-200"
-                >
-                    <RadioGroup.Label className="sr-only">
-                        Preview mode
-                    </RadioGroup.Label>
-                    <RadioGroup.Option
-                        value="widget"
-                        className={({ checked }) =>
-                            clsx(
-                                checked
-                                    ? 'border-cyan-600 text-cyan-600'
-                                    : 'border-transparent text-gray-500',
-                                'cursor-pointer rounded-lg border-2 px-6 py-2',
-                            )
-                        }
-                    >
-                        <span>Widget</span>
-                    </RadioGroup.Option>
-                    <RadioGroup.Option
-                        value="embed"
-                        className={({ checked }) =>
-                            clsx(
-                                checked
-                                    ? 'border-cyan-600 text-cyan-600'
-                                    : 'border-transparent text-gray-500',
-                                'cursor-pointer rounded-lg border-2 px-6 py-2',
-                            )
-                        }
-                    >
-                        <span>Embed</span>
-                    </RadioGroup.Option>
-                </RadioGroup>
+                    options={[
+                        { value: 'widget', label: 'Widget' },
+                        { value: 'embed', label: 'Embed' },
+                    ]}
+                />
             </div>
             <div
                 className={clsx(
@@ -190,9 +163,9 @@ const ApperancePreview = ({
                                 showCopyButton={showCopyButton}
                             />
 
-                            <Widget.Bubble
-                                content={'Why are you so amazing?'}
-                            />
+                                <Widget.Bubble
+                                    content={'Why are you so amazing?'}
+                                />
 
                             {showLeadCollectBeforeResponse && (
                                 <Fragment>
