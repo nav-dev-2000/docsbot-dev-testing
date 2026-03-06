@@ -1183,14 +1183,15 @@ export async function getTeams(userId) {
         : null
       delete team.openAIKeyPreview
 
+      // Capture plan before removing Stripe metadata from the response payload.
+      team.plan = stripePlan(team)
+
       //delete sensitive data keys starting with stripe
       Object.keys(team).forEach((key) => {
         if (key.startsWith('stripe')) {
           delete team[key]
         }
       })
-      //add stripe plan
-      team.plan = stripePlan(team)
 
       teams.push(team)
     })
@@ -1223,14 +1224,15 @@ export async function getUserTeams(userId) {
         : null
       delete team.openAIKeyPreview
 
+      // Capture plan before removing Stripe metadata from the response payload.
+      team.plan = stripePlan(team)
+
       //delete sensitive data keys starting with stripe
       Object.keys(team).forEach((key) => {
         if (key.startsWith('stripe')) {
           delete team[key]
         }
       })
-      //add stripe plan
-      team.plan = stripePlan(team)
 
       teams.push(team)
     })

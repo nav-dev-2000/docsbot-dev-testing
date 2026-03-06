@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
+import { Fragment, useState, useEffect, useCallback } from 'react'
 import {
   Bars3BottomLeftIcon,
   HomeIcon,
@@ -10,7 +9,6 @@ import {
   ServerStackIcon,
   CreditCardIcon,
   ChevronRightIcon,
-  ChevronUpDownIcon,
   UserGroupIcon,
   BellIcon,
 } from '@heroicons/react/24/outline'
@@ -23,7 +21,6 @@ import { stripePlan } from '@/utils/helpers'
 import { logout } from '@/api/logout'
 import { auth } from '@/config/firebase-ui.config'
 import { routePaths } from '@/constants/routePaths.constants'
-import logo from '@/images/docsbot-logo-white.png'
 import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
@@ -34,8 +31,8 @@ import * as cookie from 'cookie'
 import AnnualSaleBanner from '@/components/AnnualSaleBanner'
 import DashboardWizard from '@/components/DashboardWizard'
 import YearlyReportNotice from '@/components/YearlyReportNotice'
-import Button from '@new-dashboard/Button'
 import Sidebar from './new-dashboard/Sidebar'
+import TeamsSelector from './new-dashboard/TeamsSelector'
 
 export default function DashboardWrap({
   page,
@@ -313,7 +310,7 @@ export default function DashboardWrap({
                 <span className="sr-only">Open sidebar</span>
                 <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
               </button>
-              <div className="flex flex-1 justify-between px-4">
+              <div className="flex flex-1 items-center justify-between px-4">
                 <div className="flex flex-1 items-center">
                   <h1 className="text-md font-semibold text-gray-900 lg:ml-4 lg:text-xl">
                     <Tooltip content={`Go to ${page}`}>
@@ -327,21 +324,7 @@ export default function DashboardWrap({
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
-                <Tooltip content="Switch Team">
-                  <Link
-                    className="ml-2 flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm"
-                    href={'/app/team'}
-                  >
-                    <p className="flex items-center overflow-hidden text-xs leading-tight text-gray-500 md:text-sm">
-                      {team?.name || ''}
-                    </p>
-                    <ChevronUpDownIcon
-                      className="h-5 w-5 flex-shrink-0 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">Switch Team</span>
-                  </Link>
-                </Tooltip>
+                <TeamsSelector team={team} className="ml-2 self-center" />
                 <div className="ml-2 flex flex-none items-center md:ml-6">
                   {/* Notifications dropdown */}
                   <Menu as="div" className="relative ml-3">

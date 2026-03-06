@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-06',
+    title: 'Quick team switching from the dashboard header',
+    description:
+      'Switch teams from the top bar and create a new team from the same dropdown without leaving your current workflow.',
+  },
+  {
     date: '2026-03-05',
     title: 'GPT-5.4 Model Support',
     description:
