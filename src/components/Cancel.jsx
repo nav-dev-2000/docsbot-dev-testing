@@ -190,7 +190,7 @@ export default function Cancel({ team, bots }) {
   ]
 
   const FeatureHighlights = () => {
-    const recentUpdates = FEATURE_UPDATES.slice(0, 6)
+    const recentUpdates = FEATURE_UPDATES.slice(0, 12)
 
     return (
       <div className="mt-6">
@@ -393,8 +393,8 @@ export default function Cancel({ team, bots }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-                  <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <Dialog.Panel className="relative flex max-h-[85vh] transform flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+                  <div className="overflow-y-auto bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <Alert title={errorText} type="error" />
                     <div className="sm:flex sm:items-start">
                       <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
