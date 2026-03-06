@@ -91,7 +91,7 @@ import {
 } from '@/components/Research'
 
 // Internal reusable UserMessage component matching conversations.jsx styling
-// Supports right-aligned layout (research.jsx) with matching padding and icon sizes
+// Keeps the bubble on the right while allowing text alignment to follow content direction
 function UserMessage({ text, alias, email, html, className = '' }) {
     return (
         <div
@@ -99,7 +99,7 @@ function UserMessage({ text, alias, email, html, className = '' }) {
         >
             <div
                 dir="auto"
-                className={`text-md rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-right text-gray-700 ${html ? 'first:p:my-0 leading-snug' : ''}`}
+                className={`text-md rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start text-gray-700 ${html ? 'first:p:my-0 leading-snug' : ''}`}
             >
                 {html ? (
                     <div dangerouslySetInnerHTML={{ __html: html }} />
