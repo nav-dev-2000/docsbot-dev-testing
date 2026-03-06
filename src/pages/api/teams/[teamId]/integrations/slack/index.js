@@ -71,6 +71,9 @@ export default async function handler(req, res) {
         const validEntries = getValidChannelEntries(workspaceConfig.channelBotMap || {})
         merged.channelBotMap = validEntries.length > 0 ? Object.fromEntries(validEntries) : FieldValue.delete()
       }
+      if (Object.prototype.hasOwnProperty.call(workspaceConfig, 'adminsOnly')) {
+        merged.adminsOnly = workspaceConfig.adminsOnly === true
+      }
 
       if (Object.keys(merged).some((k) => merged[k] !== undefined)) {
         mergedWorkspaces[slackTeamId] = merged

@@ -81,6 +81,7 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
     const wsConfig = slackConfig.workspaces?.[workspaceId] || {}
     const defaultBotId = workspaceEdits[workspaceId]?.defaultBotId ?? wsConfig.defaultBotId ?? bots[0]?.id ?? ''
     const channelBotMap = Object.fromEntries(getValidChannelEntries(wsConfig.channelBotMap || {}))
+    const adminsOnly = workspaceEdits[workspaceId]?.adminsOnly ?? wsConfig.adminsOnly ?? false
 
     try {
       const updated = await updateSlackIntegration(team.id, {
@@ -88,6 +89,7 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
           [workspaceId]: {
             defaultBotId: defaultBotId || undefined,
             channelBotMap,
+            adminsOnly,
           },
         },
       })
@@ -378,6 +380,32 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
                     <label className="block text-sm font-medium text-gray-700">Default bot</label>
                     <div className="mt-1">
                       <BotSelect workspaceId={workspaceId} />
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-5 items-center">
+                      <input
+                        id={`admins-only-${workspaceId}`}
+                        type="checkbox"
+                        checked={workspaceEdits[workspaceId]?.adminsOnly ?? wsConfig.adminsOnly ?? false}
+                        onChange={(e) => {
+                          const checked = e.target.checked
+                          setWorkspaceEdits((prev) => ({
+                            ...prev,
+                            [workspaceId]: { ...prev[workspaceId], adminsOnly: checked },
+                          }))
+                        }}
+                        className="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <label htmlFor={`admins-only-${workspaceId}`} className="text-sm font-medium text-gray-700">
+                        Only workspace admins can change bot (e.g. use /docsbot or switch bot)
+                      </label>
+                      <p className="mt-0.5 text-xs text-gray-500">
+                        When on, only Slack workspace admins and owners can run /docsbot or switch bots; others will see a message to ask an admin.
+                      </p>
                     </div>
                   </div>
 
