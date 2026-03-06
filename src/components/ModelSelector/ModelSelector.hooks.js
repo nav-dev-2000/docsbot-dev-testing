@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react'
-import { checkPlanPermission } from '@/utils/helpers'
 
 export function useModelSelector({
     team,
@@ -23,18 +22,16 @@ export function useModelSelector({
     )
 
     const modelVisibility = useMemo(() => {
-        const canUsePersonal = checkPlanPermission(team, 'personal').allowed
-
         return {
+            'gpt-5.4': true,
             'gpt-5.2': true,
-            'gpt-5.1': true,
+            'gpt-5.1': selectedModel === 'gpt-5.1',
             'gpt-5': selectedModel === 'gpt-5',
             'gpt-4.1': !short,
             'gpt-5-mini': true,
             'gpt-4.1-mini': true,
-            'gpt-5-nano':
-                (canUsePersonal && !short) || selectedModel === 'gpt-5-nano',
-            'gpt-4.1-nano': !short,
+            'gpt-5-nano': selectedModel === 'gpt-5-nano',
+            'gpt-4.1-nano': selectedModel === 'gpt-4.1-nano',
             'gpt-4.5-preview': selectedModel === 'gpt-4.5-preview',
             'gpt-4o': !short,
             'gpt-4o-mini': selectedModel === 'gpt-4o-mini',
@@ -43,7 +40,7 @@ export function useModelSelector({
             'gpt-3.5-turbo': selectedModel === 'gpt-3.5-turbo',
             'gpt-3.5-turbo-0613': selectedModel === 'gpt-3.5-turbo-0613',
         }
-    }, [short, selectedModel, team])
+    }, [short, selectedModel])
 
     return {
         model: selectedModel,

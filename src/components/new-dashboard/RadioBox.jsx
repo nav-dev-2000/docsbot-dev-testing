@@ -60,6 +60,12 @@ const LIFECYCLE_TAGS = [
     },
 ]
 
+const INCLUDED_TAG = {
+    key: 'included',
+    content: 'Included',
+    className: 'border-emerald-500 bg-emerald-50 text-emerald-700',
+}
+
 const RadioBox = ({
     id,
     name,
@@ -75,16 +81,22 @@ const RadioBox = ({
     capabilities = {},
     lifecycle = {},
     hasVerification = false,
+    included = false,
 }) => {
     const isChecked = checked !== undefined ? checked : isSelected
     const statusTag = status ? STATUS_TAGS[status] : null
     const capabilityTags = CAPABILITY_TAGS.filter(
-        (tag) => capabilities[tag.key],
+        (tag) =>
+            capabilities[tag.key] &&
+            !(tag.key === 'best' && included),
     )
     const lifecycleTags = LIFECYCLE_TAGS.filter((tag) => lifecycle[tag.key])
-    const tags = [statusTag, ...capabilityTags, ...lifecycleTags].filter(
-        Boolean,
-    )
+    const tags = [
+        statusTag,
+        ...(included ? [INCLUDED_TAG] : []),
+        ...capabilityTags,
+        ...lifecycleTags,
+    ].filter(Boolean)
     const hasTags = tags.length > 0
 
     return (
@@ -177,7 +189,7 @@ const RadioBox = ({
             )}
 
             {hasVerification && (
-                <Note>
+                <Note color="yellow">
                     Requires{' '}
                     <Link
                         href="https://help.openai.com/en/articles/10910291-api-organization-verification"

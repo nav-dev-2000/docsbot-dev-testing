@@ -218,6 +218,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                             bot={{ ...bot, ...botSettings }}
                             disabled={isUpdating}
                             newDashboard={true}
+                            onOpenAIKeyRequired={() => setShowOpenAI(true)}
                         />
                     </form>
                 </div>

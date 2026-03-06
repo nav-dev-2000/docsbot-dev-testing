@@ -545,11 +545,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   const [selectedModel, setSelectedModel] = useState(bot.model)
   
   // Models that support reasoning effort
-  // GPT-5.1 series: gpt-5.1, gpt-5.2
+  // GPT-5.4 / GPT-5.1 series: gpt-5.4, gpt-5.1, gpt-5.2
   // GPT-5.0 series: gpt-5, gpt-5-mini, gpt-5-nano
   // O-series: o1, o1-mini, o3, o3-mini, o4, o4-mini
   const reasoningModels = [
-    'gpt-5.1', 'gpt-5.2',  // GPT-5.1 series
+    'gpt-5.4', 'gpt-5.1', 'gpt-5.2',  // GPT-5.4 / GPT-5.1 series
     'gpt-5', 'gpt-5-mini', 'gpt-5-nano',  // GPT-5.0 series
     'o1', 'o1-mini', 'o3', 'o3-mini', 'o4', 'o4-mini'  // O-series
   ]
@@ -561,8 +561,8 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   
   // Get default reasoning effort based on model
   const getDefaultReasoningEffort = (model) => {
-    // GPT-5.1 series: default "none"
-    if (model === 'gpt-5.1' || model === 'gpt-5.2') {
+    // GPT-5.4 / GPT-5.1 series: default "none"
+    if (model === 'gpt-5.4' || model === 'gpt-5.1' || model === 'gpt-5.2') {
       return 'none'
     }
     // GPT-5.0 series: default "minimal"
@@ -579,8 +579,8 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   
   // Get supported reasoning effort values for a model (ordered highest to lowest)
   const getSupportedReasoningEfforts = (model) => {
-    // GPT-5.1 series: "high", "medium", "low", "none"
-    if (model === 'gpt-5.1' || model === 'gpt-5.2') {
+    // GPT-5.4 / GPT-5.1 series: "high", "medium", "low", "none"
+    if (model === 'gpt-5.4' || model === 'gpt-5.1' || model === 'gpt-5.2') {
       return ['high', 'medium', 'low', 'none']
     }
     // GPT-5.0 series: "high", "medium", "low", "minimal"
@@ -717,10 +717,16 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
   const validModels = [
     {
+      id: 'gpt-5.4',
+      name: 'GPT-5.4',
+      description:
+        'Newest frontier model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
+    },
+    {
       id: 'gpt-5.2',
       name: 'GPT-5.2',
       description:
-        'Most powerful flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
+        'Flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
     },
     {
       id: 'gpt-5.1',
@@ -1463,7 +1469,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       : 'Change model'
 
     return (
-      <Listbox value={selectedModel} onChange={setSelectedModel}>
+      <Listbox value={selectedModel} onChange={setSelectedModel} disabled={isDisabled}>
         <div className="relative">
           <div className="inline-block">
             <Tooltip content={tooltipContent} placement="top">
@@ -1475,12 +1481,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       ? 'cursor-not-allowed text-gray-400 opacity-50'
                       : 'text-gray-600 hover:text-cyan-600',
                   )}
-                  onClick={(e) => {
-                    if (!checkPlanPermission(team, 'hobby').allowed) {
+                  onClick={() => {
+                    if (isDisabled && !checkPlanPermission(team, 'hobby').allowed) {
                       setPendingUpgrade(true)
-                    }
-                    if (isDisabled) {
-                      e.preventDefault()
                     }
                   }}
                 >
@@ -1568,7 +1571,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     
     // Map of all possible reasoning effort options
     const allReasoningOptions = {
-      none: { value: 'none', label: 'None', description: 'Least reasoning (GPT-5.1 default)' },
+      none: { value: 'none', label: 'None', description: 'Least reasoning (5.1+ default)' },
       minimal: { value: 'minimal', label: 'Minimal', description: 'Minimal reasoning (GPT-5 default)' },
       low: { value: 'low', label: 'Low', description: 'Light reasoning (O-series default)' },
       medium: { value: 'medium', label: 'Medium', description: 'Balanced reasoning' },
@@ -1584,7 +1587,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       !checkPlanPermission(team, 'hobby').allowed
 
     return (
-      <Listbox value={reasoningEffort} onChange={setReasoningEffort}>
+      <Listbox value={reasoningEffort} onChange={setReasoningEffort} disabled={isDisabled}>
         <div className="relative">
           <div className="inline-block">
             <Tooltip content="Reasoning effort" placement="top">
@@ -1596,12 +1599,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       ? 'cursor-not-allowed text-gray-400 opacity-50'
                       : 'text-gray-600 hover:text-cyan-600',
                   )}
-                  onClick={(e) => {
-                    if (!checkPlanPermission(team, 'hobby').allowed) {
+                  onClick={() => {
+                    if (isDisabled && !checkPlanPermission(team, 'hobby').allowed) {
                       setPendingUpgrade(true)
-                    }
-                    if (isDisabled) {
-                      e.preventDefault()
                     }
                   }}
                 >
@@ -1879,54 +1879,56 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
             onScroll={updateShouldAutoScroll}
             className="flex-1"
           >
-            {standardMessagesUI}
-            {/* Render agent events (reasoning and tool calls) while loading, in order */}
-            {loading && agentEvents.length > 0 && (
-              <div className="mt-4">
-                {agentEvents.map((event, eventIndex) => {
-                  const hasFollowingEvent = eventIndex < agentEvents.length - 1
-                  const isAnswerStreaming = currentAnswer.length > 0
-                  if (event.type === 'reasoning') {
-                    return (
-                      <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
-                    )
-                  } else if (event.type === 'tool_call') {
-                    return (
-                      <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
-                        <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
-                      </div>
-                    )
-                  }
-                  return null
-                })}
+            <div className="px-10">
+              {standardMessagesUI}
+              {/* Render agent events (reasoning and tool calls) while loading, in order */}
+              {loading && agentEvents.length > 0 && (
+                <div className="mt-4">
+                  {agentEvents.map((event, eventIndex) => {
+                    const hasFollowingEvent = eventIndex < agentEvents.length - 1
+                    const isAnswerStreaming = currentAnswer.length > 0
+                    if (event.type === 'reasoning') {
+                      return (
+                        <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
+                      )
+                    } else if (event.type === 'tool_call') {
+                      return (
+                        <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
+                          <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
+                        </div>
+                      )
+                    }
+                    return null
+                  })}
 
-              </div>
-            )}
-            {/* Render streaming message separately so only it updates */}
-            {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
-              <ChatRow
-                key="streaming-answer"
-                answer={answers[answers.length - 1]}
-                question={answers[answers.length - 2]?.question}
-                currentAnswerText={currentAnswer}
-                isStreaming={true}
-                team={team}
-                bot={bot}
-                isContextBoost={isContextBoost}
-                hideSources={hideSources}
-                canModify={canModify}
-                isCopied={isCopied}
-                copiedId={copiedId}
-                ratings={ratings}
-                handleCopyText={handleCopyText}
-                setRating={setRating}
-                askQuestion={askQuestion}
-                Source={Source}
-                SourceResearch={SourceResearch}
-              />
-            )}
+                </div>
+              )}
+              {/* Render streaming message separately so only it updates */}
+              {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (
+                <ChatRow
+                  key="streaming-answer"
+                  answer={answers[answers.length - 1]}
+                  question={answers[answers.length - 2]?.question}
+                  currentAnswerText={currentAnswer}
+                  isStreaming={true}
+                  team={team}
+                  bot={bot}
+                  isContextBoost={isContextBoost}
+                  hideSources={hideSources}
+                  canModify={canModify}
+                  isCopied={isCopied}
+                  copiedId={copiedId}
+                  ratings={ratings}
+                  handleCopyText={handleCopyText}
+                  setRating={setRating}
+                  askQuestion={askQuestion}
+                  Source={Source}
+                  SourceResearch={SourceResearch}
+                />
+              )}
 
-            <Alert title={errorText} type="warning" />
+              <Alert title={errorText} type="warning" />
+            </div>
 
             {showQuestion && !missingAgentPrompt && (
               <div className="mx-auto mt-2 grid w-full grid-cols-1 gap-3 md:grid-cols-2">

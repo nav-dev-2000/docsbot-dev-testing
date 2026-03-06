@@ -25,6 +25,27 @@ export default function ModelSelector({
                 OpenAI Model
             </legend>
             <div className="mt-2 space-y-2">
+                {modelVisibility['gpt-5.4'] && (
+                    <RadioField
+                        id="gpt-5-4"
+                        name="model"
+                        value="gpt-5.4"
+                        checked={model === 'gpt-5.4'}
+                        onChange={() => setModel('gpt-5.4')}
+                        disabled={disabled}
+                        descriptionId="gpt-5-4-description"
+                        label={
+                            <>
+                                GPT-5.4 - Newest Frontier
+                                <span className="ml-4 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+                                    Recommended
+                                </span>
+                            </>
+                        }
+                        description="Latest frontier model with native computer-use, ~1M context window, improved reasoning, and tool efficiency. Requires organization verification."
+                    />
+                )}
+
                 {modelVisibility['gpt-5.2'] && (
                     <RadioField
                         id="gpt-5-2"
@@ -158,7 +179,7 @@ export default function ModelSelector({
                             <>
                                 Smart, fast, and useful model. Good for most
                                 support use cases.{' '}
-                                {team.supportsGPT4 && (
+                                {team.supportsGPT4 && team.openAIKey && (
                                     <span className="text-xs font-bold">
                                         Requires{' '}
                                         <Link

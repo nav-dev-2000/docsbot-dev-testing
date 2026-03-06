@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { checkPlanPermission } from '@/utils/helpers'
+import { useModelSelector } from '@/components/ModelSelector/ModelSelector.hooks'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import { i18n } from '@/constants/strings.constants'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -26,13 +27,22 @@ import {
 
 const AVAILABLE_MODELS = [
     {
+        id: 'gpt-5-4',
+        value: 'gpt-5.4',
+        title: 'GPT-5.4',
+        description:
+            'Latest flagship with long-context, strong tool use, and adaptive reasoning.',
+        status: 'Newest Frontier',
+        capabilities: { powerful: true },
+        hasVerification: true,
+    },
+    {
         id: 'gpt-5-2',
         value: 'gpt-5.2',
         title: 'GPT-5.2',
         description:
-            'Latest flagship tuned for long-context work, stronger tool use, and adaptive reasoning.',
+            'Previous flagship tuned for long-context work, stronger tool use, and adaptive reasoning.',
         status: 'recommended',
-        capabilities: { powerful: true },
         hasVerification: true,
     },
     {
@@ -154,12 +164,31 @@ const AVAILABLE_MODELS = [
 export const getModelLabel = (modelId) =>
     AVAILABLE_MODELS.find((m) => m.value === modelId)?.title ?? modelId
 
+const MODELS_REQUIRING_OPENAI_KEY = [
+    'gpt-5.4',
+    'gpt-5.2',
+    'gpt-5.1',
+    'gpt-5',
+    'gpt-4.1',
+    'gpt-4o',
+]
+
+/** Models available without an OpenAI API key (show "Included" label when no key is set) */
+const MODELS_INCLUDED_WITHOUT_KEY = [
+    'gpt-5-nano',
+    'gpt-5-mini',
+    'gpt-4o-mini',
+    'gpt-4.1-mini',
+    'gpt-4.1-nano',
+]
+
 export default function FormBot({
     team,
     bot,
     setBotSettings,
     disabled,
     short = false,
+    onOpenAIKeyRequired,
 }) {
     const [user] = useAuthState(auth)
 
@@ -192,24 +221,13 @@ export default function FormBot({
     const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
     const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
 
-    // Define which models should be shown based on conditions
-    const modelVisibility = {
-        'gpt-5.2': true,
-        'gpt-5.1': true,
-        'gpt-5': model === 'gpt-5',
-        'gpt-4.1': !short,
-        'gpt-5-mini': true,
-        'gpt-4.1-mini': true,
-        'gpt-5-nano': model === 'gpt-5-nano',
-        'gpt-4.1-nano': model === 'gpt-4.1-nano',
-        'gpt-4.5-preview': model === 'gpt-4.5-preview',
-        'gpt-4o': !short,
-        'gpt-4o-mini': model === 'gpt-4o-mini',
-        'gpt-4-turbo': model === 'gpt-4-turbo',
-        'gpt-4': model === 'gpt-4',
-        'gpt-3.5-turbo': model === 'gpt-3.5-turbo',
-        'gpt-3.5-turbo-0613': model === 'gpt-3.5-turbo-0613',
-    }
+    const { modelVisibility, setModel: applyModelChange } = useModelSelector({
+        team,
+        model,
+        defaultModel,
+        onModelChange: setModel,
+        short,
+    })
 
     useEffect(() => {
         setBotSettings({
@@ -274,22 +292,17 @@ export default function FormBot({
         }
     }, [privacy])
 
-    //show upgrade if they change model to gpt-5.2, gpt-5.1, or gpt-5
+    // Revert model and/or show upgrade when selecting a model that requires OpenAI key or higher plan
     useEffect(() => {
         // For users on the personal plan:
         // - They should be able to select gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini without any issues
-        // - Only show upgrade for gpt-5, gpt-4.1, gpt-4o if they don't have supportsGPT4
+        // - Only show upgrade for key-required models if they don't have supportsGPT4
         if (!checkPlanPermission(team, 'personal').allowed) {
-            //free or hobby plan
-            // For non-personal plans, keep existing behavior
+            // free or hobby plan
             if (
                 [
-                    'gpt-5.2',
-                    'gpt-5.1',
-                    'gpt-5',
+                    ...MODELS_REQUIRING_OPENAI_KEY,
                     'gpt-5-nano',
-                    'gpt-4.1',
-                    'gpt-4o',
                 ].includes(model)
             ) {
                 setShowUpgrade(true)
@@ -299,23 +312,19 @@ export default function FormBot({
                 )
             }
         } else {
-            // For paid plan users (personal and above)
-            // If they select a full model without OpenAI key, revert to a mini model
-            // The modal will be triggered by NewBotPanel/ModalBotEdit components
+            // For paid plan users (personal and above): if they select a model that requires an OpenAI key but they don't have one, revert and open the add-key modal
             if (
-                ['gpt-5.2', 'gpt-5.1', 'gpt-5', 'gpt-4.1', 'gpt-4o'].includes(
-                    model,
-                ) &&
-                !team.supportsGPT4
+                MODELS_REQUIRING_OPENAI_KEY.includes(model) &&
+                !team.openAIKey
             ) {
-                setModel('gpt-5-mini') // Default to gpt-5-mini since they're on paid plan
+                setModel('gpt-5-mini')
+                onOpenAIKeyRequired?.()
                 console.log(
                     'Reverting to gpt-5-mini for paid plan user without OpenAI key',
                 )
             }
-            // If they're selecting gpt-5-mini, gpt-5-nano, gpt-4.1-mini, gpt-4.1-nano, gpt-4o-mini, don't change anything
         }
-    }, [model, team, checkPlanPermission])
+    }, [model, team, checkPlanPermission, onOpenAIKeyRequired])
 
     useEffect(() => {
         //check for valid IPv4 and IPv6 addresses
@@ -642,7 +651,7 @@ export default function FormBot({
                                         value={modelItem.value}
                                         checked={model === modelItem.value}
                                         onChange={() =>
-                                            setModel(modelItem.value)
+                                            applyModelChange(modelItem.value)
                                         }
                                         disabled={disabled}
                                         title={modelItem.title}
@@ -650,12 +659,21 @@ export default function FormBot({
                                         status={modelItem.status}
                                         capabilities={modelItem.capabilities}
                                         hasVerification={
-                                            modelItem.hasVerification
+                                            modelItem.value === 'gpt-5-mini'
+                                                ? team?.openAIKey &&
+                                                  modelItem.hasVerification
+                                                : modelItem.hasVerification
                                         }
                                         expirationDate={
                                             modelItem.expirationDate
                                         }
                                         lifecycle={modelItem.lifecycle}
+                                        included={
+                                            !team?.openAIKey &&
+                                            MODELS_INCLUDED_WITHOUT_KEY.includes(
+                                                modelItem.value,
+                                            )
+                                        }
                                     />
                                 ),
                         )}

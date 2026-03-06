@@ -63,8 +63,8 @@ const SidebarDesktop = ({
     const [flyoutHeight, setFlyoutHeight] = useState(0)
     const flyoutRef = useRef(null)
 
+    // useLayoutEffect is safe here: SidebarDesktop only mounts on the client (see ClientSidebarDesktop).
     useLayoutEffect(() => {
-        if (typeof window === 'undefined') return
         const savedState = window.localStorage.getItem(SIDEBAR_STATE_KEY)
         if (savedState !== null) {
             setIsOpen(savedState === 'true')
@@ -78,7 +78,7 @@ const SidebarDesktop = ({
         window.localStorage.setItem(SIDEBAR_STATE_KEY, String(isOpen))
     }, [hasHydrated, isOpen])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (!activeFlyout?.name || !flyoutRef.current) return
         const nextHeight = flyoutRef.current.offsetHeight
         if (nextHeight && nextHeight !== flyoutHeight) {
@@ -606,6 +606,27 @@ const SidebarDesktop = ({
             </div>
         </div>
     )
+}
+
+/**
+ * Client-only wrapper so SidebarDesktop can use useLayoutEffect (reads localStorage
+ * before paint). Renders a same-layout placeholder until mounted to avoid SSR warning
+ * and prevent flash of wrong open/closed state.
+ */
+const ClientSidebarDesktop = (props) => {
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => setMounted(true), [])
+
+    if (!mounted) {
+        return (
+            <div
+                className="hidden h-full w-48 flex-none flex-col bg-cyan-700 md:flex print:!hidden"
+                aria-hidden="true"
+            />
+        )
+    }
+
+    return <SidebarDesktop {...props} />
 }
 
 const Sidebar = ({
@@ -1139,7 +1160,7 @@ const Sidebar = ({
                 </Dialog>
             </Transition.Root>
 
-            <SidebarDesktop
+            <ClientSidebarDesktop
                 page={page}
                 sections={sections}
                 collapsedSections={collapsedSections}

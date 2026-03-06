@@ -1,6 +1,6 @@
 import clsx from "clsx"
 
-const Note = ({ size = 'sm', color = 'yellow', className, children }) => {
+const Note = ({ size = 'sm', color, className, children }) => {
     let cssSize, cssColor, cssFontSize
 
     switch (size) {

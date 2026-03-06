@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-05',
+    title: 'GPT-5.4 Model Support',
+    description:
+      'Bots can now use the newest GPT-5.4 frontier model with improved reasoning, real world knowledge, and better tool efficiency.',
+  },
+  {
     date: '2026-03-04',
     title: 'Slack App Improvements: Multi-bot per Workspace',
     description:
