@@ -171,6 +171,14 @@ const TeamsSelector = ({ team, className = '' }) => {
   const [switchingTeamId, setSwitchingTeamId] = useState('')
   const [errorText, setErrorText] = useState('')
 
+  const getPostSwitchPath = useCallback(() => {
+    if (router.pathname === '/app/bots/[botId]/[[...slug]]') {
+      return '/app/bots'
+    }
+
+    return router.asPath
+  }, [router.asPath, router.pathname])
+
   useEffect(() => {
     if (!team?.id) {
       return
@@ -254,14 +262,21 @@ const TeamsSelector = ({ team, className = '' }) => {
           hydrateTeams([data.team])
         }
 
-        await router.replace(router.asPath)
+        const postSwitchPath = getPostSwitchPath()
+
+        if (typeof window !== 'undefined') {
+          window.location.replace(postSwitchPath)
+          return
+        }
+
+        await router.replace(postSwitchPath)
       } catch (error) {
         setErrorText(error?.message || 'Unable to switch teams right now.')
       } finally {
         setSwitchingTeamId('')
       }
     },
-    [hydrateTeams, router, switchingTeamId, team?.id, user?.uid],
+    [getPostSwitchPath, hydrateTeams, router, switchingTeamId, team?.id, user?.uid],
   )
 
   const createTeam = useCallback(async () => {
