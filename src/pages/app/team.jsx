@@ -8,17 +8,17 @@ import {
   InformationCircleIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  CloudArrowUpIcon,
+  BuildingOffice2Icon,
 } from '@heroicons/react/24/outline'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getAuth } from 'firebase-admin/auth'
 import { configureFirebaseApp } from '@/config/firebase-server.config'
-import { getTeams, getTeamUsers, getInvitesFromEmail, getInvitesFromTeam, getBots } from '@/lib/dbQueries'
+import { getTeamUsers, getInvitesFromEmail, getInvitesFromTeam, getBots } from '@/lib/dbQueries'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
-import { Fragment, useState, useEffect } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon, PencilIcon } from '@heroicons/react/20/solid'
-import Router from 'next/router'
+import { useState, useEffect, useRef } from 'react'
+import { PencilIcon } from '@heroicons/react/20/solid'
 import { isSuperAdmin, stripePlan, checkPlanPermission } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import InviteMember from '@/components/InviteMember'
@@ -29,139 +29,16 @@ import ModalCheckout from '@/components/ModalCheckout'
 import { teamMembersRoles, botMembersRoles } from '@/constants/permissions.constants'
 import { canUserInvite, canUserModifyTeam, getUserRole } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
+import { ref, uploadBytes } from 'firebase/storage'
+import { storage } from '@/config/firebase-ui.config'
+import { v4 as uuidv4 } from 'uuid'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import IconButton from '@/components/new-dashboard/IconButton'
 
-function TeamSelect({ team, userId, userTeams, changeTeam }) {
-	const [selected, setSelected] = useState(team)
-
-	useEffect(() => {
-		if (selected.id !== team.id) {
-			changeTeam(selected.id)
-		}
-	}, [selected])
-
-	useEffect(() => {
-		setSelected(team)
-	}, [team])
-
-	return (
-		<div className="grow">
-			<Listbox value={selected} onChange={setSelected}>
-				{({ open }) => (
-					<>
-						<Listbox.Label className="block text-sm font-medium text-gray-700">
-							Current Team
-						</Listbox.Label>
-						<div className="mt-2 max-w-xl text-xs text-gray-500">
-							<p>Switch between different team dashboards that you have access to.</p>
-						</div>
-						<div className="mt-1">
-							<Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 sm:text-sm">
-								<span className="inline-flex w-full justify-between truncate">
-									<div>
-										<span className="truncate">{selected?.name}</span>
-										<span className="ml-4 truncate font-semibold capitalize text-gray-800">
-											{selected?.roles[userId]}
-										</span>
-									</div>
-									<div className="hidden sm:block">
-										<span className="truncate text-gray-500">
-											{selected?.botCount || 'No'} Bots
-										</span>
-									</div>
-								</span>
-								<span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-									<ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-								</span>
-							</Listbox.Button>
-
-							<Transition
-								show={open}
-								as={Fragment}
-								leave="transition ease-in duration-100"
-								leaveFrom="opacity-100"
-								leaveTo="opacity-0"
-							>
-								<Listbox.Options className="absolute z-10 mt-1 max-h-60 w-5/6 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:w-3/5 sm:text-sm">
-									{userTeams.map((team) => (
-										<Listbox.Option
-											key={team.id}
-											className={({ active }) =>
-												classNames(
-													active ? 'bg-cyan-600 text-white' : 'text-gray-900',
-													'relative cursor-default select-none py-2 pl-10 pr-3'
-												)
-											}
-											value={team}
-										>
-											{({ selected, active }) => (
-												<>
-													{selected ? (
-														<span
-															className={classNames(
-																active ? 'text-white' : 'text-cyan-600',
-																'absolute inset-y-0 left-0 flex items-center pl-4'
-															)}
-														>
-														<CheckIcon className="h-5 w-5" aria-hidden="true" />
-														</span>
-													) : null}
-													<div className="flex justify-between">
-														<div>
-															<span
-																className={classNames(
-																	selected ? 'font-semibold' : 'font-normal',
-																	'truncate'
-																)}
-															>
-															{team.name}
-															</span>
-															<span
-																className={classNames(
-																	active ? 'text-cyan-200' : 'text-gray-800',
-																	'ml-4 truncate font-semibold capitalize'
-																)}
-															>
-															{team.roles[userId]}
-															</span>
-														</div>
-														<div className="hidden sm:block">
-															<span
-																className={classNames(
-																	active ? 'text-cyan-200' : 'text-gray-500',
-																	'truncate'
-																)}
-															>
-															{team.botCount || 'No'} Bots
-															</span>
-															<span
-																className={classNames(
-																	active ? 'text-cyan-200' : 'text-gray-500',
-																	'ml-4 truncate capitalize'
-																)}
-															>
-															{team.sourceCount || 'No'} Sources
-															</span>
-														</div>
-													</div>
-												</>
-											)}
-										</Listbox.Option>
-									))}
-								</Listbox.Options>
-							</Transition>
-						</div>
-					</>
-				)}
-			</Listbox>
-		</div>
-	)
-}
-
-function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bots }) {
+function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
   const [currTeam, setCurrTeam] = useState(team)
-  const [currUserTeams, setCurrUserTeams] = useState(userTeams)
   const [currTeamUsers, setCurrTeamUsers] = useState(teamUsers)
   const [currTeamInvites, setCurrTeamInvites] = useState(teamInvites)
   const [teamBots, setTeamBots] = useState(bots)
@@ -170,6 +47,9 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
   const [removeUser, setRemoveUser] = useState(null)
   const [transferToUser, setTransferToUser] = useState(null)
   const [newTeamName, setNewTeamName] = useState(team.name)
+  const [teamLogo, setTeamLogo] = useState(team.logo || null)
+  const [uploadingTeamLogo, setUploadingTeamLogo] = useState(null)
+  const teamLogoRef = useRef(null)
   const [weaviateUrl, setWeaviateUrl] = useState(team.weaviateUrl || '')
   const [weaviateApiKey, setWeaviateApiKey] = useState('')
   const [isUpdating, setIsUpdating] = useState(false)
@@ -199,41 +79,6 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
       <div>None: no access to this bot.</div>
     </div>
   `
-
-  const changeTeam = async (teamId) => {
-    setErrorText('')
-
-    if (teamId === currTeam.id || !teamId) {
-      setErrorText('Please enter a different valid team')
-      return
-    }
-
-    const urlParams = ['users', userId]
-    const apiPath = '/api/' + urlParams.join('/')
-
-    const response = await fetch(apiPath, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ currentTeam: teamId }),
-    })
-    if (response.ok) {
-      const { users: newUsers, invites: newInvites, team: newTeam } = await response.json()
-      setCurrTeam(newTeam)
-      setNewTeamName(newTeam.name)
-      setCurrTeamUsers(newUsers)
-      setCurrTeamInvites(newInvites)
-      await Router.replace(Router.asPath)
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again.')
-      }
-    }
-  }
 
   const changeMemberRole = async (role) => {
     // Handle special "transfer_ownership" option
@@ -313,6 +158,58 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
     }
   }
 
+  useEffect(() => {
+    setTeamLogo(currTeam?.logo || null)
+  }, [currTeam?.id, currTeam?.logo])
+
+  const updateTeamLogo = async (logoUrl) => {
+    setErrorText('')
+    const urlParams = ['teams', currTeam.id]
+    const apiPath = '/api/' + urlParams.join('/')
+    const response = await fetch(apiPath, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ logo: logoUrl || '' }),
+    })
+    if (response.ok) {
+      const data = await response.json()
+      setCurrTeam(data)
+      setTeamLogo(data.logo || null)
+    } else {
+      try {
+        const data = await response.json()
+        setErrorText(data.message || 'Failed to update team icon.')
+      } catch {
+        setErrorText('Failed to update team icon.')
+      }
+    }
+  }
+
+  const handleTeamLogoFileChange = (e) => {
+    const file = e.target.files?.[0]
+    if (!file || !currTeam?.id) return
+    setUploadingTeamLogo(true)
+    setErrorText('')
+    const uuid = uuidv4()
+    const extension = file.name.split('.').pop()
+    const filepath = `teams/${currTeam.id}/images/${uuid}.${extension}`
+    const storageRef = ref(storage, filepath)
+    uploadBytes(storageRef, file)
+      .then(() => {
+        const url =
+          process.env.NODE_ENV === 'development'
+            ? `https://firebasestorage.googleapis.com/v0/b/docsbot-test-c2482.appspot.com/o/${encodeURIComponent(filepath)}?alt=media`
+            : `https://cdn.docsbot.ai/${encodeURIComponent(filepath)}?alt=media`
+        updateTeamLogo(url)
+      })
+      .catch((err) => {
+        console.warn(err)
+        setErrorText('Error uploading image. Please try again.')
+      })
+      .finally(() => setUploadingTeamLogo(false))
+    e.target.value = ''
+  }
+
   const updateTeam = async () => {
     if (!canUserModifyTeam(currTeam, userId) && !isSuperAdmin(userId)) {
       return
@@ -335,11 +232,6 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
       const data = await response.json()
       setCurrTeam(data)
       setNewTeamName(data.name)
-      setCurrUserTeams((teams) => {
-        const index = teams.find((team) => team.id === data.id)
-        teams[index] = data
-        return teams
-      })
       setIsUpdating(false)
     } else {
       try {
@@ -460,38 +352,107 @@ function Team({ team, userId, teamUsers, userTeams, userInvites, teamInvites, bo
         />
       ))}
 
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-lg bg-white p-4 py-6 shadow">
-        <TeamSelect {...{ team: currTeam, userId, userTeams: currUserTeams, changeTeam }} />
-        {canUserModifyTeam(currTeam, userId) && (
-          <div>
-            <label htmlFor="team_name" className="block text-sm font-medium text-gray-700">
-              Rename Team
+      <div className="flex flex-wrap items-stretch gap-6 rounded-lg bg-white p-4 py-6 shadow">
+        <div className="flex w-full min-w-0 items-stretch gap-6">
+          <div className="flex flex-shrink-0 flex-col">
+            <label className="block text-sm font-medium text-gray-700">
+              Team Icon
             </label>
-            <div className="mt-2 max-w-xl text-xs text-gray-500">
-              <p>Enter a new team name for {currTeam.name}.</p>
-            </div>
-            <div className="mt-1 flex rounded-md shadow-sm">
-              <div className="relative flex flex-grow items-stretch focus-within:z-10">
-                <input
-                  type="text"
-                  id="team_name"
-                  value={newTeamName}
-                  onChange={(e) => setNewTeamName(e.target.value)}
-                  className="block w-full rounded-none rounded-l-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                  placeholder="Team Name"
-                />
-              </div>
-              <button
-                type="button"
-                onClick={updateTeam}
-                disabled={newTeamName === currTeam.name || isUpdating}
-                className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 disabled:opacity-25"
+            <p className="mt-2 max-w-md text-xs text-gray-500">
+              {canUserModifyTeam(currTeam, userId)
+                ? 'Upload or remove the icon shown in the team selector.'
+                : 'The icon shown in the team selector.'}
+            </p>
+            <div className="mt-1 flex items-center gap-2">
+            <div className="relative h-12 w-12 flex-shrink-0">
+              <div
+                className={classNames(
+                  'flex h-full w-full items-center justify-center overflow-hidden rounded-lg border-2 border-gray-200 bg-gray-100',
+                )}
               >
-                Update
-              </button>
+                {teamLogo ? (
+                  <img
+                    src={teamLogo}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                ) : (
+                  <BuildingOffice2Icon className="h-6 w-6 text-gray-500" aria-hidden="true" />
+                )}
+              </div>
+              {teamLogo && canUserModifyTeam(currTeam, userId) && (
+                <button
+                  type="button"
+                  onClick={() => updateTeamLogo('')}
+                  className="absolute -right-1.5 -top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                  aria-label="Remove team icon"
+                >
+                  <XMarkIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                </button>
+              )}
+            </div>
+            {canUserModifyTeam(currTeam, userId) && (
+              <>
+                <input
+                  ref={teamLogoRef}
+                  type="file"
+                  accept="image/png, image/jpeg, image/gif, image/webp"
+                  onChange={handleTeamLogoFileChange}
+                  className="sr-only"
+                />
+                <Tooltip
+                  content={
+                    <span className="text-xs/none">
+                      {teamLogo ? 'Change Image' : 'Upload Image'}
+                    </span>
+                  }
+                >
+                  <IconButton
+                    type="button"
+                    icon={
+                      uploadingTeamLogo ? LoadingSpinner : CloudArrowUpIcon
+                    }
+                    label={teamLogo ? 'Change team icon' : 'Upload team icon'}
+                    onClick={() => teamLogoRef.current?.click()}
+                    disabled={!!uploadingTeamLogo}
+                    className="!h-12 !w-12"
+                  />
+                </Tooltip>
+              </>
+            )}
             </div>
           </div>
-        )}
+          {canUserModifyTeam(currTeam, userId) && (
+            <div className="flex min-w-0 flex-1 flex-col">
+              <label htmlFor="team_name" className="block text-sm font-medium text-gray-700">
+                Rename Team
+              </label>
+              <p className="mt-2 max-w-md text-xs text-gray-500">
+                Enter a new team name for {currTeam.name}.
+              </p>
+              <div className="mt-1 flex rounded-md shadow-sm">
+                <div className="relative flex flex-grow items-stretch focus-within:z-10">
+                  <input
+                    type="text"
+                    id="team_name"
+                    value={newTeamName}
+                    onChange={(e) => setNewTeamName(e.target.value)}
+                    className="block w-full rounded-none rounded-l-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                    placeholder="Team Name"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={updateTeam}
+                  disabled={newTeamName === currTeam.name || isUpdating}
+                  className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 disabled:opacity-25"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       <InviteMember
@@ -1077,7 +1038,6 @@ export const getServerSideProps = async (context) => {
         },
       }
     }
-    data.props.userTeams = await getTeams(data.props.userId)
     data.props.teamUsers = await getTeamUsers(data.props.team.id)
     data.props.teamInvites = await getInvitesFromTeam(data.props.team.id)
     data.props.bots = await getBots(data.props.team)

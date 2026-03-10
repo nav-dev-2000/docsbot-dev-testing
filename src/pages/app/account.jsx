@@ -82,6 +82,7 @@ function Account({
   teamSourceTypes = [],
   role,
   canManageBilling,
+  userId,
 }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
@@ -92,7 +93,7 @@ function Account({
   const [newDisplayName, setNewDisplayName] = useState('')
   const [isUpdatingName, setIsUpdatingName] = useState(false)
   const isGoogleAccount = user?.providerData?.some((p) => p.providerId === 'google.com')
-  const isOwner = role === 'owner'
+  const isOwner = team?.roles?.[userId] === 'owner'
   const posthog = usePostHog()
 
   useEffect(() => {

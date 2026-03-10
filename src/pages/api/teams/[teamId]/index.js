@@ -37,6 +37,7 @@ export default async function handler(req, res) {
 
     let {
       name,
+      logo,
       openAIKey,
       weaviateUrl,
       weaviateApiKey,
@@ -44,10 +45,15 @@ export default async function handler(req, res) {
     } = req.body
     let newTeam = {}
     if (name) {
-      newTeam.name = name
-      newTeam.name.trim()
-
+      newTeam.name = name.trim()
       phTrack(userId, 'Team Name Updated', {}, team.id)
+    }
+    if (typeof logo === 'string') {
+      const trimmed = logo.trim()
+      newTeam.logo = trimmed || null
+      if (trimmed) {
+        phTrack(userId, 'Team Logo Updated', {}, team.id)
+      }
     }
 
     if (canTrial !== undefined) {

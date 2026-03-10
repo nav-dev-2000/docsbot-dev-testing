@@ -332,8 +332,16 @@ const TeamsSelector = ({ team, className = '' }) => {
           onMouseEnter={() => loadTeams()}
           onFocus={() => loadTeams()}
         >
-          <span className="size-8 flex flex-none items-center justify-center rounded-lg bg-gray-100 text-gray-700">
-            <BuildingOffice2Icon className="size-4" aria-hidden="true" />
+          <span className="size-8 flex flex-none items-center justify-center overflow-hidden rounded-lg bg-gray-100 text-gray-700">
+            {team.logo ? (
+              <img
+                src={team.logo}
+                alt=""
+                className="size-full object-contain"
+              />
+            ) : (
+              <BuildingOffice2Icon className="size-4" aria-hidden="true" />
+            )}
           </span>
 
           <span className="flex flex-row items-center gap-2 text-sm font-semibold">
@@ -403,7 +411,7 @@ const TeamsSelector = ({ team, className = '' }) => {
                       <span className="flex min-w-0 items-start gap-3">
                         <span
                           className={clsx(
-                            'mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg border',
+                            'mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg border',
                             isCurrentTeam
                               ? 'border-cyan-200 bg-cyan-100 text-cyan-700'
                               : 'border-gray-200 bg-gray-50 text-gray-500',
@@ -411,6 +419,12 @@ const TeamsSelector = ({ team, className = '' }) => {
                         >
                           {isCurrentTeam ? (
                             <CheckIcon className="h-4 w-4" aria-hidden="true" />
+                          ) : option.logo ? (
+                            <img
+                              src={option.logo}
+                              alt=""
+                              className="size-full object-contain"
+                            />
                           ) : (
                             <BuildingOffice2Icon
                               className="h-4 w-4"

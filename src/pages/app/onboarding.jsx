@@ -168,6 +168,32 @@ const selectBestLogo = (logos, selectedColor) => {
   return fullLogos[0]?.url || iconLogos[0]?.url || logos[0]?.url || ''
 }
 
+/** Matches auto-generated team names: "X's Team" or "X's Team 2", "X's Team 3" */
+const isDefaultTeamName = (name) =>
+  typeof name === 'string' &&
+  name.trim().length > 0 &&
+  /^.+'s Team(\s+\d+)?$/.test(name.trim())
+
+/**
+ * Selects the best icon URL from brand.dev logos for small square display (e.g. team avatar).
+ * Prefers type === 'icon' (favicon/square) over type === 'logo' (horizontal).
+ * @param {Array} logos - Array of { url, mode, type } from brand.dev API
+ * @param {string} backgroundColor - Hex color of display background (TeamsSelector uses light gray)
+ * @returns {string} - Best icon URL or empty string
+ */
+const selectBestIconForTeam = (logos, backgroundColor) => {
+  if (!logos || logos.length === 0) return ''
+  const iconLogos = logos.filter((logo) => logo.type === 'icon')
+  if (iconLogos.length === 0) return ''
+  const isLight = isColorLight(backgroundColor)
+  const targetMode = isLight ? 'light' : 'dark'
+  const matching = iconLogos.find((logo) => logo.mode === targetMode)
+  if (matching) return matching.url
+  const opaque = iconLogos.find((logo) => logo.mode === 'has_opaque_background')
+  if (opaque) return opaque.url
+  return iconLogos[0]?.url || ''
+}
+
 const buildPrompt = (key, name, description) => {
   const template =
     PRESET_PROMPTS[key] || PRESET_PROMPTS[DEFAULT_PROMPT_KEY] || {}
@@ -1346,47 +1372,6 @@ function Onboarding({ team }) {
         const resolvedLanguage = normalizeLanguageCode(data.language)
         setAnalysisData(data)
 
-        // Use extracted company name for team name when available (first-time onboarding from signup only)
-        let isFirstTimeFromSignup = false
-        try {
-          const stored = window.localStorage?.getItem(SIGNUP_ONBOARDING_CACHE_KEY)
-          if (stored) {
-            const parsed = JSON.parse(stored)
-            const { timestamp } = parsed || {}
-            if (typeof timestamp === 'number') {
-              const oneDayMs = 24 * 60 * 60 * 1000
-              if (Date.now() - timestamp <= oneDayMs) {
-                isFirstTimeFromSignup = true
-              }
-            }
-          }
-        } catch (_) {
-          /* ignore */
-        }
-        const companyName = (data.businessName || '').trim()
-        if (
-          isFirstTimeFromSignup &&
-          companyName &&
-          companyName.length >= 2 &&
-          companyName.length <= 100
-        ) {
-          updateTeamRequest(team.id, { name: companyName }).catch((err) => {
-            console.warn('Could not update team name from website:', err)
-          })
-        }
-
-        // Use new field names from API
-        if (data.botName) {
-          setBotName(data.botName)
-        }
-        if (data.botDescription) {
-          setBotDescription(data.botDescription)
-        }
-
-        setBotLanguage(resolvedLanguage)
-        setSupportLink(data.supportUrl || '')
-        setWidgetType(data.widgetType || 'other')
-
         // Select initial color - prioritize brand data, fall back to API/random preset
         let initialColor = null
         if (data.colors && data.colors.length > 0) {
@@ -1412,6 +1397,48 @@ function Onboarding({ team }) {
           // Fall back to AI-detected logo if brand data not available
           initialLogo = data.logoUrl
         }
+
+        // Copy brand to team when appropriate: icon if team has none; name only if still default
+        const companyName = (data.businessName || '').trim()
+        const teamPayload = {}
+        if (
+          isDefaultTeamName(team?.name) &&
+          companyName &&
+          companyName.length >= 2 &&
+          companyName.length <= 100
+        ) {
+          teamPayload.name = companyName
+        }
+        if (!team?.logo) {
+          const teamIconUrl =
+            data.logos && data.logos.length > 0
+              ? selectBestIconForTeam(data.logos, '#f3f4f6')
+              : data.logoUrl || ''
+          if (
+            teamIconUrl &&
+            typeof teamIconUrl === 'string' &&
+            teamIconUrl.trim()
+          ) {
+            teamPayload.logo = teamIconUrl.trim()
+          }
+        }
+        if (Object.keys(teamPayload).length > 0) {
+          updateTeamRequest(team.id, teamPayload).catch((err) => {
+            console.warn('Could not update team from website:', err)
+          })
+        }
+
+        // Use new field names from API
+        if (data.botName) {
+          setBotName(data.botName)
+        }
+        if (data.botDescription) {
+          setBotDescription(data.botDescription)
+        }
+
+        setBotLanguage(resolvedLanguage)
+        setSupportLink(data.supportUrl || '')
+        setWidgetType(data.widgetType || 'other')
 
         setBrandColor(initialColor)
         setLogoUrl(initialLogo)
