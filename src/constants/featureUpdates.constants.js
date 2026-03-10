@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-10',
+    title: 'Team icon in selector and settings',
+    description:
+      'Upload a custom team icon on the Team page. Icons appear in the team selector and are copied from the first bot’s brand when available.',
+  },
+  {
     date: '2026-03-06',
     title: 'Quick team switching from the dashboard header',
     description:

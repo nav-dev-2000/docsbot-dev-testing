@@ -384,7 +384,11 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                 <button
                   type="button"
                   onClick={() => updateTeamLogo('')}
+<<<<<<< HEAD
                   className="absolute -right-1.5 -top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+=======
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+>>>>>>> b9408992 (Enhance TeamsSelector to show team brand icon)
                   aria-label="Remove team icon"
                 >
                   <XMarkIcon className="h-3.5 w-3.5" aria-hidden="true" />
