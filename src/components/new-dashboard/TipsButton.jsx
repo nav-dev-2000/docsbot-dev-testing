@@ -8,7 +8,7 @@ const TipsButton = ({
     icon,
     title,
     label,
-    errorLabel,
+    warning,
     action,
     color = 'yellow',
     position = 'center',
@@ -17,38 +17,44 @@ const TipsButton = ({
 }) => {
     const [ariaHidden, setAriaHidden] = useState(false)
 
-    let buttonColor, errorLabelColor
+    let buttonColor, warningColor
 
     switch (color) {
         case 'yellow':
             buttonColor =
                 'border-yellow-100 bg-yellow-100 text-yellow-800 group-hover:border-yellow-500'
-            errorLabelColor = 'bg-red-50 border border-red-300 text-red-600'
+            warningColor = 'bg-amber-300 text-amber-800'
+            break
+
+        case 'amber':
+            buttonColor =
+                'border-transparent bg-amber-400 text-amber-900 group-hover:border-amber-800'
             break
 
         case 'blue':
         case 'cyan':
             buttonColor =
                 'border-cyan-100 bg-cyan-100 text-cyan-800 group-hover:border-cyan-500'
-            errorLabelColor = 'bg-red-100 text-red-600'
+            warningColor = 'bg-amber-50 text-amber-700'
             break
 
         case 'red':
             buttonColor =
                 'border-red-100 bg-red-100 text-red-800 group-hover:border-red-500'
-            errorLabelColor = 'bg-white text-red-600'
+            warningColor = 'bg-amber-50 text-amber-600'
             break
 
         default:
             buttonColor =
                 'border-silver-100 bg-white text-silver-800 group-hover:border-cyan-300 group-hover:bg-cyan-50'
-            errorLabelColor = 'bg-red-100 text-red-600'
+            warningColor = 'bg-amber-100 text-amber-600'
             break
     }
 
     const IconComponent = icon || LightBulbIcon
     const hasLabel = Boolean(label)
-    const hasErrorLabel = hasLabel && Boolean(errorLabel)
+    const hasWarning = hasLabel && Boolean(warning)
+    const actionTarget = action?.target || '_self'
 
     return (
         <div
@@ -63,7 +69,7 @@ const TipsButton = ({
                     {
                         ['h-10 gap-2 px-3']: hasLabel,
                         ['size-10']: !hasLabel,
-                        ['pr-0']: hasLabel && hasErrorLabel,
+                        ['pr-0']: hasLabel && hasWarning,
                     },
                     buttonColor,
                 )}
@@ -72,15 +78,15 @@ const TipsButton = ({
                 {hasLabel && (
                     <span className="text-xs font-semibold">{label}</span>
                 )}
-                {(hasLabel && hasErrorLabel) && (
+                {(hasLabel && hasWarning) && (
                     <span
                         className={clsx(
                             'relative flex h-9 items-center overflow-hidden mr-[1px] pl-2 pr-3 text-xs font-semibold rounded-r-full',
-                            errorLabelColor,
+                            warningColor,
                         )}
                     >
                         <ExclamationCircleIcon className="mr-1 size-3.5" />
-                        {errorLabel}
+                        {warning}
                     </span>
                 )}
             </button>
@@ -107,10 +113,11 @@ const TipsButton = ({
                 <div className="text-xs/none text-gray-500">{children}</div>
 
                 {action?.label && action?.href && (
-                    <div className="mt-3 text-xs/none font-semibold">
+                    <div className="mt-3 pt-3 border-t border-gray-200 text-xs/none font-semibold">
                         <Link
                             href={action.href}
-                            target={action.target || '_self'}
+                            target={actionTarget}
+                            {...(actionTarget === '_self' ? { shallow: true } : {})}
                             {...action.props}
                             className={clsx(
                                 'text-cyan-600 transition hover:text-cyan-800',

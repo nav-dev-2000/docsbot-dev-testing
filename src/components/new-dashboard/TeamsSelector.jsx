@@ -327,32 +327,31 @@ const TeamsSelector = ({ team, className = '' }) => {
       <Tooltip content="Switch Team">
         <Menu.Button
           type="button"
-          className="group flex h-11 items-center rounded-xl border border-gray-200 bg-white px-3 text-left shadow-sm transition hover:border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+          className="group flex flex-row items-center gap-2 text-gray-800 hover:text-cyan-600 focus:outline-none"
           onClick={() => loadTeams()}
           onMouseEnter={() => loadTeams()}
           onFocus={() => loadTeams()}
         >
-          <span className="flex min-w-0 items-center gap-3">
-            <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-cyan-700">
-              <BuildingOffice2Icon className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <span className="min-w-0 max-w-[10rem] truncate text-sm font-semibold text-gray-900 md:max-w-[12rem]">
-              {team.name}
-            </span>
+          <span className="size-8 flex flex-none items-center justify-center rounded-lg bg-gray-100 text-gray-700">
+            <BuildingOffice2Icon className="size-4" aria-hidden="true" />
           </span>
-          <span className="ml-2 flex items-center">
-            {isLoadingTeams ? (
-              <ArrowPathIcon
-                className="h-5 w-5 animate-spin text-gray-400"
-                aria-hidden="true"
-              />
-            ) : (
-              <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400 transition group-hover:text-gray-500"
-                aria-hidden="true"
-              />
-            )}
+
+          <span className="flex flex-row items-center gap-2 text-sm font-semibold">
+            {team.name}
           </span>
+
+          {isLoadingTeams ? (
+            <ArrowPathIcon
+              className="size-4 animate-spin text-gray-400"
+              aria-hidden="true"
+            />
+          ) : (
+            <ChevronUpDownIcon
+              className="size-4 text-gray-400 transition group-hover:text-gray-500"
+              aria-hidden="true"
+            />
+          )}
+
           <span className="sr-only">Switch Team</span>
         </Menu.Button>
       </Tooltip>
@@ -366,7 +365,7 @@ const TeamsSelector = ({ team, className = '' }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-20 mt-3 w-[24rem] max-w-[calc(100vw-2rem)] origin-top-right overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-20 mt-1 w-[24rem] max-w-[calc(100vw-2rem)] origin-top-right overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="border-b border-gray-100 px-4 py-3">
             <p className="text-sm font-semibold text-gray-900">Switch teams</p>
             <p className="text-xs text-gray-500">

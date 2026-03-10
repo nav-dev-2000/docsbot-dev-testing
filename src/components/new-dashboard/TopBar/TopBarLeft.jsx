@@ -176,7 +176,7 @@ const TopBarLeft = ({ bot, bots, wizardId }) => {
                                 >
                                     <Menu.Items
                                         className={clsx(
-                                            'absolute left-0 z-20 mt-2 w-full min-w-[240px] origin-top-left overflow-y-auto rounded-md bg-white font-normal shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
+                                            'absolute left-0 z-20 mt-2 w-full min-w-[240px] origin-top-left overflow-y-auto border border-gray-200 rounded-2xl bg-white font-normal shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none',
                                             menuMaxHeightClass,
                                             {
                                                 'pointer-events-none opacity-60':

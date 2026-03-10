@@ -31,7 +31,7 @@ const PageChatChat = ({ team, bot }) => {
             {!bot?.isAgent && botId && (
                 <div className="mb-4 flex w-full shrink-0 justify-center pt-2 md:pt-16">
                     <div className="w-full max-w-5xl md:w-[80%]">
-                        <Alert title="Agent Mode is here!" type="info">
+                        <Alert title="Agent Mode is here!" type="info" className="mt-0 mb-0">
                             Please enable our new{' '}
                             <Link
                                 href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
