@@ -71,7 +71,9 @@ const BotSearch = ({ team, bot, setErrorText, fullWidth = false }) => {
 
         if (response.ok) {
           const data = await response.json()
-          setSearchData(data)
+          // API returns { sources: [...] }; accept array or object with sources
+          const items = Array.isArray(data) ? data : (data?.sources ?? [])
+          setSearchData(items)
           setErrorText('')
         } else {
           const errorData = await response.json()
