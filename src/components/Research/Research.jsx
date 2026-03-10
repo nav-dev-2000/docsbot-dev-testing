@@ -6,6 +6,7 @@ import {
     useCallback,
     useMemo,
 } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
@@ -235,39 +236,33 @@ function RotatingQuotes() {
         'Review previous customer questions to identify trending issues and prepare proactive solutions.',
     ]
 
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
-    const [isVisible, setIsVisible] = useState(true)
+    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(() =>
+        Math.floor(Math.random() * quotes.length),
+    )
 
     useEffect(() => {
-        // Start with a random quote
-        setCurrentQuoteIndex(Math.floor(Math.random() * quotes.length))
-
         const interval = setInterval(() => {
-            setIsVisible(false)
-
-            setTimeout(() => {
-                setCurrentQuoteIndex(
-                    (prevIndex) => (prevIndex + 1) % quotes.length,
-                )
-                setIsVisible(true)
-            }, 500) // Half second fade out
-        }, 4000) // Change quote every 4 seconds
+            setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length)
+        }, 4000)
 
         return () => clearInterval(interval)
     }, [quotes.length])
 
     return (
         <div className="mb-4 flex justify-center">
-            <div
-                className={`text-center transition-opacity duration-500 ${
-                    isVisible ? 'opacity-100' : 'opacity-0'
-                }`}
-            >
-                <p className="flex w-full items-center justify-start gap-2 text-left text-sm italic text-gray-500">
-                    <LightBulbIcon className="h-4 w-4 text-gray-500" />"
-                    {quotes[currentQuoteIndex]}"
-                </p>
-            </div>
+            <AnimatePresence mode="wait">
+                <motion.p
+                    key={currentQuoteIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="flex w-full items-center justify-center gap-2 text-center text-sm italic text-gray-500"
+                >
+                    <LightBulbIcon className="h-4 w-4 flex-shrink-0 text-gray-500" />
+                    "{quotes[currentQuoteIndex]}"
+                </motion.p>
+            </AnimatePresence>
         </div>
     )
 }
