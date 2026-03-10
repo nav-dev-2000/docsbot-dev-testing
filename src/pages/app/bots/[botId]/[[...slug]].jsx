@@ -27,7 +27,6 @@ import {
     Cog6ToothIcon,
     CreditCardIcon,
     HomeIcon,
-    MagnifyingGlassIcon,
     ServerStackIcon,
     ShareIcon,
     SwatchIcon,
@@ -536,13 +535,6 @@ const BotInner = ({
             wizardId: 'leads',
             icon: UsersIcon,
             content: <PageLeads key={bot.id} team={team} bot={bot} />,
-        },
-        {
-            id: 'search',
-            title: 'Search',
-            wizardId: 'search',
-            icon: MagnifyingGlassIcon,
-            content: <PageConfigure.Search key={bot.id} team={team} bot={bot} />,
         },
         {
             id: 'analytics',

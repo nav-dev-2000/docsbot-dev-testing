@@ -1278,7 +1278,7 @@ export default function TableQuestions({
                                 filterOptions={filterOptions}
                             />
                             <div className="flex flex-wrap items-center gap-4 sm:justify-end sm:gap-2 md:gap-4">
-                                <Tooltip content="Semantic search - finds questions by meaning, not just keywords">
+                                <Tooltip content="Semantic search - finds questions by meaning, not keywords">
                                     <div className="w-full sm:w-64">
                                         <div className="flex">
                                             <div className="-mr-px grid grow grid-cols-1 focus-within:relative">

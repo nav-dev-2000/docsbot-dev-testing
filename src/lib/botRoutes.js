@@ -10,7 +10,7 @@ const VALID_CONTROLS = {
   widget: ['design', 'content', 'actions', 'deploy'],
 }
 
-const TOP_LEVEL_TABS = ['chat', 'research', 'leads', 'search', 'deploy']
+const TOP_LEVEL_TABS = ['chat', 'research', 'leads', 'deploy']
 
 /**
  * Convert a catch-all slug array into { tab, control, questionId }.
@@ -25,6 +25,11 @@ function slugToTabControl(slug) {
 
   if (TOP_LEVEL_TABS.includes(first)) {
     return { tab: first, control: null }
+  }
+
+  // Search is only under configure; redirect /search to /configure/search
+  if (first === 'search') {
+    return { tab: 'configure', control: 'search' }
   }
 
   if (VALID_CONTROLS[first]) {

@@ -117,7 +117,7 @@ export const FEATURE_UPDATES = [
     date: '2026-01-13',
     title: 'Semantic search for question logs',
     description:
-      'Search question logs by meaning, not just keywords. Find user questions using natural language queries.',
+      'Search question logs by meaning, not keywords. Semantic-only search with natural language queries.',
   },
   {
     date: '2026-01-13',

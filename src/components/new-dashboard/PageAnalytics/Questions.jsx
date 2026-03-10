@@ -54,6 +54,46 @@ const PageAnalyticsQuestions = ({ team, bot, preQuestions, openQuestion }) => {
     ) {
         setErrorText(null)
 
+        const searchQuery = search && search.trim() !== '' ? search.trim() : ''
+
+        if (searchQuery) {
+            // Use vector search API (POST .../questions/search)
+            const path = `/api/teams/${team.id}/bots/${botId}/questions/search`
+            const body = {
+                query: searchQuery,
+                page: Number(page) || 0,
+                perPage: 50,
+            }
+            if (dateRange?.startDate)
+                body.startDate = new Date(dateRange.startDate).toISOString()
+            if (dateRange?.endDate) {
+                const end = new Date(dateRange.endDate)
+                end.setHours(23, 59, 59, 999)
+                body.endDate = end.toISOString()
+            }
+            const response = await fetch(path, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            })
+            const data = await response.json().catch(() => ({}))
+            if (response.ok && data.success) {
+                setQuestions({
+                    questions: data.questions ?? [],
+                    pagination: data.pagination ?? emptyQuestions.pagination,
+                })
+            } else {
+                setQuestions(emptyQuestions)
+                setErrorText(
+                    data.message ||
+                        data.error ||
+                        'Something went wrong, please try again.',
+                )
+            }
+            return
+        }
+
+        // List questions (GET .../questions) with filters
         const urlParams = [
             'teams',
             team.id,
@@ -64,17 +104,10 @@ const PageAnalyticsQuestions = ({ team, bot, preQuestions, openQuestion }) => {
                 '&' +
                 buildParams(ipFilter, rating, escalated, couldAnswer, dateRange),
         ]
-        let path = '/api/' + urlParams.join('/')
-
-        if (search && search.trim() !== '') {
-            path += '&search=' + encodeURIComponent(search.trim())
-        }
-
+        const path = '/api/' + urlParams.join('/')
         const response = await fetch(path, {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
         })
 
         if (response.ok) {
