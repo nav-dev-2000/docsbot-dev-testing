@@ -9,10 +9,11 @@ import {
 } from '@/services/teams'
 import SlackLogo from '@/components/SlackLogo'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import Note from '@/components/new-dashboard/Note'
 import { checkPlanPermission } from '@/utils/helpers'
 import { getBotIdFromChannelMapping, getChannelDisplayName, getValidChannelEntries } from '@/lib/slackHelpers'
 
-export default function SlackAdminIntegration({ team, bots, setErrorText }) {
+export default function SlackAdminIntegration({ team, bots, setErrorText, setTeam }) {
   const [slackConfig, setSlackConfig] = useState({ workspaces: {} })
   const [workspaceBots, setWorkspaceBots] = useState({})
   const [workspaceEdits, setWorkspaceEdits] = useState({})
@@ -69,8 +70,9 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
     new Set([
       ...(Array.isArray(team?.slackWorkspaceIds) ? team.slackWorkspaceIds : []),
       ...Object.keys(slackConfig.workspaces || {}),
+      ...Object.keys(workspaceBots || {}),
     ]),
-  ).filter(Boolean)
+  ).filter((workspaceId) => Boolean(workspaceId) && (slackConfig.workspaces?.[workspaceId] || workspaceBots?.[workspaceId]))
 
   const saveWorkspaceSettings = async (workspaceId) => {
     if (!workspaceId) return
@@ -124,6 +126,12 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
     try {
       const updated = await deleteSlackWorkspace(team.id, workspaceId)
       setSlackConfig({ workspaces: updated?.workspaces || {} })
+      if (setTeam) {
+        setTeam((prev) => ({
+          ...prev,
+          slackWorkspaceIds: (prev?.slackWorkspaceIds || []).filter((id) => id !== workspaceId),
+        }))
+      }
       setWorkspaceBots((prev) => {
         const next = { ...prev }
         delete next[workspaceId]
@@ -248,7 +256,11 @@ export default function SlackAdminIntegration({ team, bots, setErrorText }) {
         .
       </p>
 
-      {successText && <p className="mt-3 text-sm text-green-700">{successText}</p>}
+      {successText && (
+        <Note className="mt-3">
+          {successText}
+        </Note>
+      )}
 
       {isLoading ? (
         <p className="mt-4 text-sm text-gray-500">Loading Slack settings…</p>

@@ -6,6 +6,7 @@ import { getUserTeams, getBots } from '@/lib/dbQueries'
 import DashboardWrap from '@/components/DashboardWrap'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import SlackLogo from '@/components/SlackLogo'
+import Note from '@/components/new-dashboard/Note'
 import { canUserModifyTeam } from '@/utils/function.utils'
 import { CheckCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
@@ -60,16 +61,16 @@ function SlackConnected({ userId, team, teamsWithBots }) {
     <DashboardWrap page="Slack" title="Connect Slack" team={team}>
       <div className="mx-auto max-w-lg space-y-6">
         {errorMessage && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 flex items-start gap-3">
-            <ExclamationTriangleIcon className="h-6 w-6 flex-shrink-0 text-red-600" />
+          <Note color="red" size="md" className="flex items-start gap-3 leading-normal">
+            <ExclamationTriangleIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-red-600" />
             <div>
               <p className="font-medium text-red-800">Connection failed</p>
               <p className="mt-1 text-sm text-red-700">{errorMessage}</p>
-              <Link href="/app/api" className="mt-2 inline-block text-sm font-medium text-red-700 hover:text-red-800 underline">
+              <Link href="/app/api" className="mt-2 inline-block text-sm font-medium text-red-700 underline hover:text-red-800">
                 Go to Integrations
               </Link>
             </div>
-          </div>
+          </Note>
         )}
 
         {!errorCode && !slackTeamId && (
@@ -94,7 +95,9 @@ function SlackConnected({ userId, team, teamsWithBots }) {
               </div>
             </div>
             {claimError && (
-              <p className="mb-3 text-sm text-red-600">{claimError}</p>
+              <Note color="red" className="mb-3 leading-normal">
+                {claimError}
+              </Note>
             )}
             {(teamsWithBots || []).length === 0 ? (
               <p className="text-sm text-gray-600">You don’t have permission to add Slack to any team. Ask a team owner or admin to connect Slack.</p>

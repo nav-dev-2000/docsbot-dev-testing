@@ -101,6 +101,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
   const router = useRouter()
   const [errorText, setErrorText] = useState(null)
   const [open, setOpen] = useState(false)
+  const [currentTeam, setCurrentTeam] = useState(team)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -141,7 +142,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
     }
 
     try {
-      const response = await fetch(`/api/teams/${team.id}/mcp-oauth/revoke`, {
+      const response = await fetch(`/api/teams/${currentTeam.id}/mcp-oauth/revoke`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -196,7 +197,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
 
     const removeKey = async () => {
       setProcessing(true)
-      const urlParams = ['teams', team.id]
+      const urlParams = ['teams', currentTeam.id]
       const apiPath = '/api/' + urlParams.join('/')
 
       const response = await fetch(apiPath, {
@@ -208,7 +209,10 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
       })
       if (response.ok) {
         const data = await response.json()
-        team.openAIKey = data.openAIKey
+        setCurrentTeam((prev) => ({
+          ...prev,
+          openAIKey: data.openAIKey,
+        }))
         setAllowApiRemove(false)
       } else {
         try {
@@ -292,15 +296,18 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
   }
 
   return (
-    <DashboardWrap page="API/Integrations" team={team} bots={bots}>
+    <DashboardWrap page="API/Integrations" team={currentTeam} bots={bots}>
       <Alert title={errorText} type="error" />
       <ModalOpenAI
         {...{
-          team,
+          team: currentTeam,
           open,
           setOpen,
           onKey: (key) => {
-            team.openAIKey = key.substring(0, 3) + '...' + key.substring(47, 51)
+            setCurrentTeam((prev) => ({
+              ...prev,
+              openAIKey: key.substring(0, 3) + '...' + key.substring(47, 51),
+            }))
             setAllowApiRemove(true)
           },
         }}
@@ -308,9 +315,9 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
       <RemoveKeyModal />
 
       <div className="rounded-lg bg-white p-8 shadow">
-        <h3 className="text-2xl font-bold">{team.AzureDeploymentBase && 'Azure '}OpenAI API Key</h3>
+        <h3 className="text-2xl font-bold">{currentTeam.AzureDeploymentBase && 'Azure '}OpenAI API Key</h3>
 
-        {team.AzureDeploymentBase ? (
+        {currentTeam.AzureDeploymentBase ? (
           <>
             <p className="text-md mt-2 text-justify text-gray-800">
               Your team is configured to use an Azure custom endpoint. You should enter your Azure
@@ -326,13 +333,13 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
             </p>
             <ul>
               <li className="text-md mt-2 text-justify text-gray-800">
-                <strong>Endpoint:</strong> {team.AzureDeploymentBase}
+                <strong>Endpoint:</strong> {currentTeam.AzureDeploymentBase}
               </li>
               <li className="text-md mt-2 text-justify text-gray-800">
-                <strong>Chat Deployment Name:</strong> {team.AzureDeploymentName}
+                <strong>Chat Deployment Name:</strong> {currentTeam.AzureDeploymentName}
               </li>
               <li className="text-md mt-2 text-justify text-gray-800">
-                <strong>Embeddings Deployment Name:</strong> {team.AzureDeploymentNameEmbed}
+                <strong>Embeddings Deployment Name:</strong> {currentTeam.AzureDeploymentNameEmbed}
               </li>
             </ul>
           </>
@@ -352,7 +359,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
         <div className="mt-4 flex justify-between">
           <div>
             <div className="mt-4 flex items-center justify-start">
-              <pre className="">{team.openAIKey}</pre>
+              <pre className="">{currentTeam.openAIKey}</pre>
               <a
                 type="button"
                 className="ml-2 flex cursor-pointer items-center justify-end text-sm font-medium text-gray-500 hover:text-gray-900"
@@ -361,7 +368,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
                 }}
               >
                 <PencilIcon className="mr-0.5 h-4 w-4" aria-hidden="true" />
-                {team.openAIKey ? 'Edit' : 'Add'}
+                {currentTeam.openAIKey ? 'Edit' : 'Add'}
               </a>
               {allowApiRemove && (
                 <a
@@ -376,7 +383,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
                 </a>
               )}
             </div>
-            {team.supportsGPT4 && team.openAIKey ? (
+            {currentTeam.supportsGPT4 && currentTeam.openAIKey ? (
               <p className="mt-4 text-sm italic">GPT-5 Support Enabled</p>
             ) : (
               <>
@@ -396,14 +403,14 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
         </div>
       </div>
 
-      {(team.weaviateUrl && team.weaviateApiKey) && (
+      {(currentTeam.weaviateUrl && currentTeam.weaviateApiKey) && (
         <div className="mt-8 rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">Custom Training DB</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
             Your team is configured to use a custom vector database for your training data.
           </p>
           <div className="mt-4 flex items-center justify-start">
-            <pre className="block">{team.weaviateUrl}</pre>
+            <pre className="block">{currentTeam.weaviateUrl}</pre>
           </div>
         </div>
       )}
@@ -475,7 +482,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
             use the team ID below for the admin API and chat APIs.
           </p>
           <h3 className="mt-8 text-xl font-bold">Team ID</h3>
-          <pre className="block">{team.id}</pre>
+          <pre className="block">{currentTeam.id}</pre>
         </div>
       </div>
 
@@ -566,11 +573,11 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
         </div>
       </div>
 
-      <APIIntegration {...{ team, integrations, bots, setErrorText }} />
+      <APIIntegration team={currentTeam} integrations={integrations} bots={bots} setErrorText={setErrorText} />
 
-      <SlackAdminIntegration {...{ team, bots, setErrorText }} />
+      <SlackAdminIntegration team={currentTeam} bots={bots} setErrorText={setErrorText} setTeam={setCurrentTeam} />
 
-      {checkPlanPermission(team, 'standard').allowed ? (
+      {checkPlanPermission(currentTeam, 'standard').allowed ? (
         <div className="mt-8 rounded-lg bg-white p-8 shadow">
           <h3 className="text-2xl font-bold">MCP OAuth Clients</h3>
           <p className="text-md mt-2 text-justify text-gray-800">
