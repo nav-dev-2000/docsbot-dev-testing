@@ -1871,22 +1871,6 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           emptyLabel={missingAgentPrompt ? 'Chat is disabled until you set an agent prompt.' : null}
           emptyLink={`/app/bots/${bot.id}/configure/instructions`}
         >
-          {bot.isAgent && !missingAgentPrompt && (
-            <Alert 
-              title="Welcome to your new AI Agent!" 
-              type="info"
-              dismissKey="agent-beta-welcome"
-              className="mt-0"
-            >
-              You are chatting using our new Agent functionality, which
-              provides more intelligent and contextual responses, tool calling to
-              perform actions, as well as image and model selection support! You
-              may need to adjust your custom prompt to tune behavior for your use
-              case, such as providing different instructions for when the agent
-              should look up information from your docs.
-            </Alert>
-          )}
-
           <FullSource />
 
           <div
