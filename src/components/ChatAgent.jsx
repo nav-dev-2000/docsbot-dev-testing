@@ -1854,7 +1854,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       <Widget
         size="md"
         className={clsx(
-          'flex-1 w-full max-w-5xl md:w-[80%]',
+          'flex-1 w-full max-w-5xl',
           {
             ['']: missingAgentPrompt,
             ['min-h-[100vh] md:min-h-[540px] md:h-full']: !missingAgentPrompt,

@@ -12,14 +12,14 @@ const PageChatChat = ({ team, bot }) => {
     const botId = bot?.id
 
     return (
-        <div className={clsx('relative flex h-full min-h-0 flex-col')}>
+        <div className={clsx('relative flex h-full min-h-0 flex-col md:pl-0 md:pr-[150px] lg:px-[150px]')}>
             <div
                 className={clsx(
                     'mb-4 flex shrink-0 items-center justify-between gap-4',
                     'md:absolute md:left-0 md:right-0 md:top-0 md:z-10 md:mb-0',
                 )}
             >
-                <div className="ml-auto flex items-end gap-2">
+                <div className="ml-auto flex md:flex-col items-end gap-2">
                     <PageChatSources teamId={team?.id} botId={botId} />
 
                     <PageChatOverview team={team} bot={bot} />
@@ -29,8 +29,8 @@ const PageChatChat = ({ team, bot }) => {
             </div>
 
             {!bot?.isAgent && botId && (
-                <div className="mb-4 flex w-full shrink-0 justify-center pt-2 md:pt-16">
-                    <div className="w-full max-w-5xl md:w-[80%]">
+                <div className="mb-4 flex w-full shrink-0 justify-center pt-2 md:pt-0">
+                    <div className="w-full max-w-5xl">
                         <Alert title="Agent Mode is here!" type="info" className="mt-0 mb-0">
                             Please enable our new{' '}
                             <Link

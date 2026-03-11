@@ -2,7 +2,10 @@ import { useState } from 'react'
 import clsx from 'clsx'
 
 import Link from 'next/link'
-import { LightBulbIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline'
+import {
+    LightBulbIcon,
+    ExclamationCircleIcon,
+} from '@heroicons/react/24/outline'
 
 const TipsButton = ({
     icon,
@@ -12,6 +15,7 @@ const TipsButton = ({
     action,
     color = 'yellow',
     position = 'center',
+    isWarningStacked = false,
     className,
     children,
 }) => {
@@ -56,6 +60,8 @@ const TipsButton = ({
     const hasWarning = hasLabel && Boolean(warning)
     const actionTarget = action?.target || '_self'
 
+    const isStacked = hasLabel && hasWarning && isWarningStacked
+
     return (
         <div
             className={clsx('group relative block', className)}
@@ -70,24 +76,58 @@ const TipsButton = ({
                         ['h-10 gap-2 px-3']: hasLabel,
                         ['size-10']: !hasLabel,
                         ['pr-0']: hasLabel && hasWarning,
+                        ['md:h-auto md:flex-col md:px-1 md:py-2 md:rounded-lg']: isStacked,
                     },
                     buttonColor,
                 )}
             >
-                <IconComponent className="size-4" />
-                {hasLabel && (
-                    <span className="text-xs font-semibold">{label}</span>
-                )}
-                {(hasLabel && hasWarning) && (
-                    <span
-                        className={clsx(
-                            'relative flex h-9 items-center overflow-hidden mr-[1px] pl-2 pr-3 text-xs font-semibold rounded-r-full',
-                            warningColor,
+                {isStacked ? (
+                    <>
+                        <span
+                            className={clsx('flex items-center', {
+                                ['gap-2']: hasLabel,
+                            })}
+                        >
+                            <IconComponent className="size-4" />
+                            {hasLabel && (
+                                <span className="text-xs font-semibold">
+                                    {label}
+                                </span>
+                            )}
+                        </span>
+                        {hasLabel && hasWarning && (
+                            <span
+                                className={clsx(
+                                    'relative mr-[1px] flex h-9 items-center overflow-hidden rounded-r-full pl-2 pr-3 text-xs font-semibold',
+                                    'md:h-auto md:-mx-1 md:-mb-2 md:px-2 md:py-1.5 md:rounded-b-lg md:rounded-t-none',
+                                    warningColor,
+                                )}
+                            >
+                                <ExclamationCircleIcon className="mr-1 size-3.5" />
+                                {warning}
+                            </span>
                         )}
-                    >
-                        <ExclamationCircleIcon className="mr-1 size-3.5" />
-                        {warning}
-                    </span>
+                    </>
+                ) : (
+                    <>
+                        <IconComponent className="size-4" />
+                        {hasLabel && (
+                            <span className="text-xs font-semibold">
+                                {label}
+                            </span>
+                        )}
+                        {hasLabel && hasWarning && (
+                            <span
+                                className={clsx(
+                                    'relative mr-[1px] flex h-9 items-center overflow-hidden rounded-r-full pl-2 pr-3 text-xs font-semibold',
+                                    warningColor,
+                                )}
+                            >
+                                <ExclamationCircleIcon className="mr-1 size-3.5" />
+                                {warning}
+                            </span>
+                        )}
+                    </>
                 )}
             </button>
 
@@ -113,11 +153,13 @@ const TipsButton = ({
                 <div className="text-xs/none text-gray-500">{children}</div>
 
                 {action?.label && action?.href && (
-                    <div className="mt-3 pt-3 border-t border-gray-200 text-xs/none font-semibold">
+                    <div className="mt-3 border-t border-gray-200 pt-3 text-xs/none font-semibold">
                         <Link
                             href={action.href}
                             target={actionTarget}
-                            {...(actionTarget === '_self' ? { shallow: true } : {})}
+                            {...(actionTarget === '_self'
+                                ? { shallow: true }
+                                : {})}
                             {...action.props}
                             className={clsx(
                                 'text-cyan-600 transition hover:text-cyan-800',

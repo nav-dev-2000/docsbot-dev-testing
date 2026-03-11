@@ -68,6 +68,8 @@ const SourcesTooltip = ({ counts, total, failed, ready, manageHref }) => {
         <TipsButton
             icon={DocumentTextIcon}
             label={`${total} Sources`}
+            warning={failed > 0 ? `${failed} Need Review` : null}
+            isWarningStacked={failed > 0 ? true : false}
             color="white"
             position="right"
             title="Sources By Status"
@@ -318,15 +320,6 @@ function PageChatSources({ teamId, botId }) {
                 ready={ready}
                 manageHref={manageHref}
             />
-
-            {failed > 0 && (
-                <WarningTooltip
-                    failed={failed}
-                    manageHref={manageHref}
-                    failedSources={failedSources}
-                    failedSourcesLoading={failedSourcesLoading}
-                />
-            )}
         </>
     )
 }
