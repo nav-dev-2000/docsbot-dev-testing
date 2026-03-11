@@ -91,38 +91,45 @@ export default function SourceGrid({
                   />
                 </div>
                 <div className="relative w-full truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white px-3 py-2 first-letter:truncate">
-                  <div className="flex flex-1 items-center justify-between">
-                    <div className="flex items-center text-sm">
-                      <p className="font-medium text-gray-900 hover:text-gray-600">
-                        {source.name}
-                      </p>
-                      {source.pageCount ? (
-                        <p className="ml-2 text-xs text-gray-500">
-                          {source.pageCount} Source pages
-                        </p>
-                      ) : null}
-                    </div>
-                  </div>
                   {source.status !== 'ready' && (
                     <div className="absolute right-2 top-2">
                       <BadgeStatusSource source={source} small={true} />
                     </div>
                   )}
-                  <div className="flex-1 truncate text-sm">
-                    {displayTitle && (
-                      <p className="truncate text-xs text-gray-600">
+                  <div
+                    className={classNames(
+                      'flex-1 truncate',
+                      source.status !== 'ready' && 'pr-24'
+                    )}
+                  >
+                    {displayTitle ? (
+                      <p className="truncate text-sm font-medium text-gray-900 hover:text-gray-600">
                         {displayTitle}
                       </p>
+                    ) : (
+                      hasDistinctUrl && (
+                        <p className="truncate text-sm font-medium text-gray-900 hover:text-gray-600">
+                          {source.url}
+                        </p>
+                      )
                     )}
-                    {hasDistinctUrl && (
+                    {hasDistinctUrl && displayTitle && (
                       <p className="truncate text-xs text-gray-500">
                         {source.url}
                       </p>
                     )}
+                    <div className="mt-1 flex items-center text-xs text-gray-600">
+                      <span className="font-normal">{source.name}</span>
+                      {source.pageCount ? (
+                        <span className="ml-2 font-normal">
+                          · {source.pageCount} source pages
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
                   {source.scheduled && source.status === 'ready' && (
                     <ClockIcon
-                      className="absolute right-2 top-2 h-3 w-3 text-gray-400"
+                      className="absolute right-2 bottom-2 h-3 w-3 text-gray-400"
                       title="Scheduled"
                     />
                   )}
