@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import ContentSection from '@/components/ContentSection'
 import { resolveBatch } from '@/utils/promises'
+import { getRecoverableWordPressErrorDetails } from '@/utils/wordpressErrors'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import { Disclosure } from '@headlessui/react'
@@ -66,28 +67,9 @@ const postsParams = {
   order: 'asc',
 }
 
-const SinglePage = ({ seo, wpRecoverableError = false }) => {
+const SinglePageContent = ({ seo }) => {
   const { loading, error, data } = usePost(params)
   const { loading: menuLoading, error: menuError, data: menuData } = usePosts(postsParams)
-
-  if (wpRecoverableError) {
-    return (
-      <>
-        <Header />
-        <div className="bg-white py-12 sm:py-24">
-          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-              Documentation is temporarily unavailable
-            </h1>
-            <p className="mt-4 text-base text-gray-600">
-              We couldn’t fetch this page from WordPress right now. Please try again shortly.
-            </p>
-          </div>
-        </div>
-        <Footer />
-      </>
-    )
-  }
 
   if (loading || menuLoading) {
     return (
@@ -244,6 +226,29 @@ const SinglePage = ({ seo, wpRecoverableError = false }) => {
   )
 }
 
+const SinglePage = ({ seo, wpRecoverableError = false }) => {
+  if (wpRecoverableError) {
+    return (
+      <>
+        <Header />
+        <div className="bg-white py-12 sm:py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Documentation is temporarily unavailable
+            </h1>
+            <p className="mt-4 text-base text-gray-600">
+              We couldn’t fetch this page from WordPress right now. Please try again shortly.
+            </p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  return <SinglePageContent seo={seo} />
+}
+
 /**
  * This is an example of pre-rendering a set of pages at build times.
  * In this specific example, we are pre-rendering the first 50 posts (within dates in the URL) and the first 50 pages.
@@ -338,24 +343,15 @@ export async function getStaticProps(context) {
 
     return addHookData(settledPromises, { revalidate: 60 * 60 })
   } catch (e) {
-    const statusCode = e?.status || e?.response?.status
-    const errorMessage = typeof e?.message === 'string' ? e.message : ''
-    const errorCode = e?.code
-    const isRecoverableWordPressError =
-      e instanceof SyntaxError ||
-      errorMessage.includes('is not valid JSON') ||
-      errorMessage.includes('Unexpected token <') ||
-      statusCode === 429 ||
-      (typeof statusCode === 'number' && statusCode >= 500) ||
-      errorCode === 'ECONNRESET' ||
-      errorCode === 'ETIMEDOUT' ||
-      errorMessage.toLowerCase().includes('network') ||
-      errorMessage.toLowerCase().includes('fetch')
+    const { statusCode, codes, messages, isRecoverableWordPressError } =
+      getRecoverableWordPressErrorDetails(e)
 
     if (isRecoverableWordPressError) {
       console.warn('WordPress fetch failed during docs generation. Serving ISR fallback.', {
         path: context?.params?.path,
         statusCode,
+        code: codes[0],
+        message: messages[0],
       })
 
       return {

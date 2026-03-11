@@ -6,13 +6,14 @@ import Pagination from '@/components/blog/Pagination'
 import { NextSeo } from 'next-seo'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { getRecoverableWordPressErrorDetails } from '@/utils/wordpressErrors'
 
 const params = {
   postType: 'post',
   per_page: 12,
 }
 
-const ArchivePage = ({ seo }) => {
+const ArchivePageContent = ({ seo }) => {
   const { data } = usePosts(params)
 
   return (
@@ -146,6 +147,30 @@ const ArchivePage = ({ seo }) => {
   )
 }
 
+const ArchivePage = ({ seo, wpRecoverableError = false }) => {
+  if (wpRecoverableError) {
+    return (
+      <>
+        <Header />
+        <div className="bg-white py-12 sm:py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Articles are temporarily unavailable
+            </h1>
+            <p className="mt-4 text-base text-gray-600">
+              We could not fetch the article index from WordPress right now. Please try again
+              shortly.
+            </p>
+          </div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  return <ArchivePageContent seo={seo} />
+}
+
 // Hardcode the main archive pagination pages
 export async function getStaticPaths() {
   return {
@@ -196,6 +221,25 @@ export async function getStaticProps(context) {
     })
     return addHookData([usePostData], { revalidate: 1 * 60 * 60 })
   } catch (e) {
+    const { statusCode, codes, messages, isRecoverableWordPressError } =
+      getRecoverableWordPressErrorDetails(e)
+
+    if (isRecoverableWordPressError) {
+      console.warn('WordPress fetch failed during article archive generation. Serving ISR fallback.', {
+        path: context?.params?.path,
+        statusCode,
+        code: codes[0],
+        message: messages[0],
+      })
+
+      return {
+        props: {
+          wpRecoverableError: true,
+        },
+        revalidate: 60,
+      }
+    }
+
     return handleError(e, context)
   }
 }
