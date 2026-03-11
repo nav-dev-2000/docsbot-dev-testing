@@ -1,6 +1,9 @@
 // Research Job Normalization
 export * from './utils/normalizeResearchJobTools'
 
+// Research Suggestions
+export * from './utils/researchSuggestions'
+
 // Citation Utilities
 export * from './utils/extractUrlAnnotations'
 export * from './utils/injectCitationPlaceholders'

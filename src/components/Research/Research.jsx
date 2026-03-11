@@ -6,7 +6,6 @@ import {
     useCallback,
     useMemo,
 } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { stripePlan, isSuperAdmin } from '@/utils/helpers'
@@ -39,6 +38,9 @@ import {
     QuestionMarkCircleIcon,
     BellIcon,
     ChatBubbleLeftRightIcon,
+    FlagIcon,
+    LanguageIcon,
+    ChartBarIcon,
 } from '@heroicons/react/24/outline'
 import {
     CheckCircleIcon as CheckCircleIconSolid,
@@ -72,6 +74,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import { canUserEditBot } from '@/utils/function.utils'
 import { auth } from '@/config/firebase-ui.config'
+import { getPreference, setPreference } from '@/utils/preferences'
 import LoadingDots from '@/components/LoadingDots'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Paginator from '@/components/Paginator'
@@ -89,6 +92,7 @@ import {
     buildUsageSnapshot,
     formatResearchUsageDisplay,
     calculateResearchCost,
+    RESEARCH_SUGGESTIONS,
 } from '@/components/Research'
 
 // Internal reusable UserMessage component matching conversations.jsx styling
@@ -215,54 +219,155 @@ function BotMessage({ text, html, className = '', children }) {
     )
 }
 
-// Rotating quotes component for research suggestions
-function RotatingQuotes() {
-    const quotes = [
-        'Analyze support conversation themes to spot recurring complaints and gaps.',
-        'Identify common customer questions and create a comprehensive FAQ from support history.',
-        'Review customer support interactions to find documentation gaps and improvement opportunities.',
-        'Audit support sources by comparing our manuals vs online help docs.',
-        "Research and compare our product features with a competitor's.",
-        'Create a whitepaper for my product combining the manual and web search for common pain points.',
-        'Generate sales prospect briefings with internal and web intelligence.',
-        "Run competitive content gap analysis comparing my landing pages and a competitor's.",
-        'Scan market trends and opportunities from internal data plus web sources.',
-        'Deliver a technical product deep dive from my internal docs.',
-        'Turn a product release note and manual into a full blog article with supporting research.',
-        'Convert our troubleshooting guide into a step-by-step help center article.',
-        'Compare quarterly financial reports against competitor filings to highlight performance gaps.',
-        'Generate a sales playbook for prospect from my SOPs and market research.',
-        'Analyze chatbot interactions to understand user intent patterns and improve responses.',
-        'Review previous customer questions to identify trending issues and prepare proactive solutions.',
-    ]
+// Icon map for suggestion chips
+const SUGGESTION_ICONS = {
+    ChatBubbleLeftRightIcon,
+    DocumentMagnifyingGlassIcon,
+    DocumentTextIcon,
+    GlobeAltIcon,
+    CodeBracketSquareIcon,
+    LightBulbIcon,
+    CalendarIcon,
+    FlagIcon,
+    MagnifyingGlassIcon,
+    LanguageIcon,
+    ChartBarIcon,
+    UserCircleIcon,
+}
 
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(() =>
-        Math.floor(Math.random() * quotes.length),
-    )
+// Horizontal clickable suggestion chips for research prompts (carousel)
+const SUGGESTION_CAROUSEL_INTERVAL_MS = 4000
+
+function SuggestionChips({ onSelect, disabled }) {
+    const scrollRef = useRef(null)
+    const itemRef = useRef(null)
+    const [hasOverflow, setHasOverflow] = useState(true)
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length)
-        }, 4000)
+        const container = scrollRef.current
+        if (!container) return
+        const check = () => {
+            setHasOverflow(
+                container.scrollWidth > container.clientWidth,
+            )
+        }
+        check()
+        const ro = new ResizeObserver(check)
+        ro.observe(container)
+        return () => ro.disconnect()
+    }, [])
 
-        return () => clearInterval(interval)
-    }, [quotes.length])
+    useEffect(() => {
+        const container = scrollRef.current
+        const item = itemRef.current
+        if (!container || !item || disabled) return
+
+        const itemWidth = item.offsetWidth + 8 // gap-2 = 8px
+        const advance = () => {
+            if (!container) return
+            const maxScroll = container.scrollWidth - container.clientWidth
+            if (maxScroll <= 0) return
+
+            const nextScroll = container.scrollLeft + itemWidth
+            if (nextScroll >= maxScroll) {
+                container.scrollTo({ left: 0, behavior: 'smooth' })
+            } else {
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' })
+            }
+        }
+
+        const id = setInterval(advance, SUGGESTION_CAROUSEL_INTERVAL_MS)
+        return () => clearInterval(id)
+    }, [disabled])
+
+    const scrollBy = (direction) => {
+        const container = scrollRef.current
+        const item = itemRef.current
+        if (!container || !item || disabled) return
+        const itemWidth = item.offsetWidth + 8
+        const maxScroll = container.scrollWidth - container.clientWidth
+        if (maxScroll <= 0) return
+
+        if (direction === 'left') {
+            const nextScroll = container.scrollLeft - itemWidth
+            container.scrollTo({
+                left: nextScroll < 0 ? maxScroll : nextScroll,
+                behavior: 'smooth',
+            })
+        } else {
+            const nextScroll = container.scrollLeft + itemWidth
+            container.scrollTo({
+                left: nextScroll >= maxScroll ? 0 : nextScroll,
+                behavior: 'smooth',
+            })
+        }
+    }
 
     return (
-        <div className="mb-4 flex justify-center">
-            <AnimatePresence mode="wait">
-                <motion.p
-                    key={currentQuoteIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="flex w-full items-center justify-center gap-2 text-center text-sm italic text-gray-500"
-                >
-                    <LightBulbIcon className="h-4 w-4 flex-shrink-0 text-gray-500" />
-                    "{quotes[currentQuoteIndex]}"
-                </motion.p>
-            </AnimatePresence>
+        <div className="relative mb-4 overflow-hidden">
+            {hasOverflow && (
+                <>
+                    <button
+                        type="button"
+                        onClick={() => scrollBy('left')}
+                        disabled={disabled}
+                        aria-label="Scroll suggestions left"
+                        className={clsx(
+                            'absolute -left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-white/40 backdrop-blur-sm transition-colors hover:bg-white/60 focus:outline-none',
+                            disabled && 'cursor-not-allowed opacity-50',
+                        )}
+                    >
+                        <ChevronLeftIcon className="h-5 w-5 text-gray-600" />
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => scrollBy('right')}
+                        disabled={disabled}
+                        aria-label="Scroll suggestions right"
+                        className={clsx(
+                            'absolute -right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center bg-white/40 backdrop-blur-sm transition-colors hover:bg-white/60 focus:outline-none',
+                            disabled && 'cursor-not-allowed opacity-50',
+                        )}
+                    >
+                        <ChevronRightIcon className="h-5 w-5 text-gray-600" />
+                    </button>
+                </>
+            )}
+            <div
+                ref={scrollRef}
+                className="flex snap-x snap-mandatory flex-nowrap gap-2 overflow-x-auto pb-1 scroll-smooth"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+                {RESEARCH_SUGGESTIONS.map((suggestion, index) => {
+                    const IconComponent =
+                        SUGGESTION_ICONS[suggestion.icon] || LightBulbIcon
+                    const isFirst = index === 0
+                    return (
+                        <button
+                            key={index}
+                            ref={isFirst ? itemRef : undefined}
+                            type="button"
+                            disabled={disabled}
+                            onClick={() => onSelect(suggestion)}
+                            className={clsx(
+                                'flex min-w-0 max-w-[280px] flex-shrink-0 snap-start items-start gap-2 rounded-xl border px-4 py-2 text-left text-sm transition-colors',
+                                'border-gray-200 bg-white text-gray-700 hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-800',
+                                'focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-1',
+                                disabled && 'cursor-not-allowed opacity-50',
+                            )}
+                        >
+                            <IconComponent className="mt-1.5 h-4 w-4 flex-shrink-0 text-cyan-600" />
+                            <span className="min-w-0 break-words italic">
+                                "{suggestion.prompt}"
+                            </span>
+                        </button>
+                    )
+                })}
+            </div>
+            <div
+                aria-hidden
+                className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-50 to-transparent"
+            />
         </div>
     )
 }
@@ -794,6 +899,17 @@ export function ResearchInterface({
     const textareaRef = useRef(null)
     const [clarificationsMarkdown, setClarificationsMarkdown] = useState('')
     const posthog = usePostHog()
+    const [researchAgentAlertDismissed, setResearchAgentAlertDismissed] =
+        useState(false)
+
+    useEffect(() => {
+        if (
+            typeof window !== 'undefined' &&
+            getPreference('dismissed-research-agent-info') === true
+        ) {
+            setResearchAgentAlertDismissed(true)
+        }
+    }, [])
 
     const refreshUsage =
         typeof refreshResearchCount === 'function'
@@ -1278,6 +1394,8 @@ export function ResearchInterface({
 
                     // Call onJobCreated and recordResearchTaskStarted, but don't fail the entire operation if these fail
                     if (data.jobId) {
+                        setPreference('dismissed-research-agent-info', true)
+                        setResearchAgentAlertDismissed(true)
                         try {
                             onJobCreated(data.jobId)
                         } catch (err) {
@@ -1465,7 +1583,7 @@ export function ResearchInterface({
                             ? clarifyingJob.title
                             : 'Deep Research Agent'}
                     </p>
-                    {!clarifyingJob && (
+                    {!clarifyingJob && !researchAgentAlertDismissed && (
                         <Alert
                             title="Deep Research Agent"
                             type="info"
@@ -1486,7 +1604,35 @@ export function ResearchInterface({
                 <div className="mt-6">
                     <Alert title={errorText} type="warning" />
 
-                    {!clarifyingJob && <RotatingQuotes />}
+                    {!clarifyingJob && (
+                        <>
+                            <p className="mb-2 text-center text-sm text-gray-500">
+                                Choose a template prompt or write your own.
+                            </p>
+                            <SuggestionChips
+                            disabled={loading || showUpgrade}
+                            onSelect={(suggestion) => {
+                                setQuestion(suggestion.prompt)
+                                setWebSearchValue(suggestion.webSearch)
+                                setCodeInterpreterValue(
+                                    suggestion.codeInterpreter,
+                                )
+                                setQuestionHistoryValue(
+                                    suggestion.questionHistory,
+                                )
+                                setDocsSearchValue(suggestion.docsSearch)
+                                updateSelectedJobTools(
+                                    suggestion.webSearch,
+                                    suggestion.codeInterpreter,
+                                    suggestion.questionHistory,
+                                    suggestion.docsSearch,
+                                )
+                                setErrorText(null)
+                                textareaRef.current?.focus()
+                            }}
+                        />
+                        </>
+                    )}
 
                     {clarifyingJob && (
                         <>
