@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-11',
+    title: 'Zendesk Guide section-based article sync filtering',
+    description:
+      'Zendesk Guide sync can now limit article imports to selected sections instead of syncing all Help Center articles.',
+  },
+  {
     date: '2026-03-10',
     title: 'Team icon in selector and settings',
     description:
