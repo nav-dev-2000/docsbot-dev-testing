@@ -1398,28 +1398,31 @@ function Onboarding({ team }) {
           initialLogo = data.logoUrl
         }
 
-        // Copy brand to team when appropriate: icon if team has none; name only if still default
+        // Copy brand to team only when creating the first bot (never overwrite existing team branding)
+        const isFirstBot = (team?.botCount ?? 0) === 0
         const companyName = (data.businessName || '').trim()
         const teamPayload = {}
-        if (
-          isDefaultTeamName(team?.name) &&
-          companyName &&
-          companyName.length >= 2 &&
-          companyName.length <= 100
-        ) {
-          teamPayload.name = companyName
-        }
-        if (!team?.logo) {
-          const teamIconUrl =
-            data.logos && data.logos.length > 0
-              ? selectBestIconForTeam(data.logos, '#f3f4f6')
-              : data.logoUrl || ''
+        if (isFirstBot) {
           if (
-            teamIconUrl &&
-            typeof teamIconUrl === 'string' &&
-            teamIconUrl.trim()
+            isDefaultTeamName(team?.name) &&
+            companyName &&
+            companyName.length >= 2 &&
+            companyName.length <= 100
           ) {
-            teamPayload.logo = teamIconUrl.trim()
+            teamPayload.name = companyName
+          }
+          if (!team?.logo) {
+            const teamIconUrl =
+              data.logos && data.logos.length > 0
+                ? selectBestIconForTeam(data.logos, '#f3f4f6')
+                : data.logoUrl || ''
+            if (
+              teamIconUrl &&
+              typeof teamIconUrl === 'string' &&
+              teamIconUrl.trim()
+            ) {
+              teamPayload.logo = teamIconUrl.trim()
+            }
           }
         }
         if (Object.keys(teamPayload).length > 0) {
