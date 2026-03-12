@@ -725,10 +725,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.language = resolvedLanguage
 
     if (languageChanged) {
-      botData.labels = {
-        ...i18n[resolvedLanguage].labels,
-        ...(sanitizedLabels !== undefined ? sanitizedLabels : botData.labels || {}),
-      }
+      // Use only the new language's labels; incoming labels are from the old language
+      botData.labels = { ...i18n[resolvedLanguage].labels }
     } else if (sanitizedLabels !== undefined) {
       const currentLabels = bot?.labels || i18n[resolvedLanguage].labels
       botData.labels = {

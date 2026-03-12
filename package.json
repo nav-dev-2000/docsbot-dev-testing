@@ -11,7 +11,8 @@
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
     "sitemap": "node scripts/generate-sitemap.js",
     "news": "node scripts/latest-news.js",
-    "truto-sync": "node scripts/truto-sync.js"
+    "truto-sync": "node scripts/truto-sync.js",
+    "validate-translations": "node scripts/validate-translations.js"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

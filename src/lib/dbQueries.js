@@ -39,9 +39,9 @@ export async function getBots(team, resultLimit = 1000) {
     if (!bot.model) {
       bot.model = 'gpt-4.1-mini'
     }
-    // if the bot is missing labels, populate with defaults
+    // if the bot is missing labels, populate with defaults (fallback to en if language unknown)
     bot.labels = {
-      ...i18n[bot.language]?.labels,
+      ...(i18n[bot.language]?.labels || i18n.en.labels),
       ...(bot.labels || {}),
     }
 
@@ -344,9 +344,9 @@ export async function getBot(teamId, botId) {
       bot.model = 'gpt-4.1-mini'
     }
 
-    // if the bot is missing labels, populate with defaults
+    // if the bot is missing labels, populate with defaults (fallback to en if language unknown)
     bot.labels = {
-      ...i18n[bot.language]?.labels,
+      ...(i18n[bot.language]?.labels || i18n.en.labels),
       ...(bot.labels || {}),
     }
 

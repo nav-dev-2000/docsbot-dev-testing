@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { checkPlanPermission } from '@/utils/helpers'
 import { useModelSelector } from '@/components/ModelSelector/ModelSelector.hooks'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
@@ -228,6 +228,18 @@ export default function FormBot({
         onModelChange: setModel,
         short,
     })
+
+    // Sync labels to new language when user changes language (skip initial mount to preserve custom labels)
+    const isInitialMount = useRef(true)
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false
+            return
+        }
+        if (language && i18n[language]?.labels) {
+            setLabels(i18n[language].labels)
+        }
+    }, [language])
 
     useEffect(() => {
         setBotSettings({

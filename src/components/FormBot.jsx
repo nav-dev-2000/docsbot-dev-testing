@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -47,6 +47,18 @@ export default function FormBot({
   const [temperature, setTemperature] = useState(bot?.temperature || 0)
   const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
   const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
+
+  // Sync labels to new language when user changes language (skip initial mount to preserve custom labels)
+  const isInitialMount = useRef(true)
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+      return
+    }
+    if (language && i18n[language]?.labels) {
+      setLabels(i18n[language].labels)
+    }
+  }, [language])
 
   useEffect(() => {
     setBotSettings({
