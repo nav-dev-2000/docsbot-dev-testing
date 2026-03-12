@@ -991,14 +991,19 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     
     if (Array.isArray(topics)) {
       // Validate and sanitize topics
-      const validTopics = topics
+      let validTopics = topics
         .filter(topic => typeof topic === 'string' && topic.trim().length > 0)
         .map(topic => topic.trim())
         // Remove duplicates
         .filter((topic, index, arr) => arr.indexOf(topic) === index)
 
+      // When copying a bot, truncate to TOPIC_LIMIT instead of failing
       if (validTopics.length > TOPIC_LIMIT) {
-        throw new Error(`You can only have up to ${TOPIC_LIMIT} topics.`)
+        if (copyFrom) {
+          validTopics = validTopics.slice(0, TOPIC_LIMIT)
+        } else {
+          throw new Error(`You can only have up to ${TOPIC_LIMIT} topics.`)
+        }
       }
 
       if (validTopics.length === TOPIC_LIMIT) {
