@@ -23,6 +23,8 @@ const AppearanceContent = ({
     team,
     branding,
     setBranding,
+    keepFooterVisible,
+    setKeepFooterVisible,
 }) => {
     return (
         <>
@@ -140,7 +142,7 @@ const AppearanceContent = ({
                     />
 
                     <AppearanceBlock
-                        title="Custom Content"
+                        title="Footer Content"
                         titleTag="label"
                         titleProps={{ htmlFor: 'footer-text' }}
                         description={
@@ -160,8 +162,7 @@ const AppearanceContent = ({
                                 >
                                     privacy policy disclaimer
                                 </button>
-                                , etc. Hidden after the user starts a
-                                conversation. Supports{' '}
+                                , etc. Supports{' '}
                                 <Link
                                     href="https://www.markdownguide.org/basic-syntax/"
                                     target="_blank"
@@ -172,7 +173,6 @@ const AppearanceContent = ({
                             </>
                         }
                         isNew={true}
-                        isLast={true}
                     >
                         <AppearanceInput
                             id="footer-text"
@@ -188,6 +188,16 @@ const AppearanceContent = ({
                             }
                             disabled={isUpdating}
                         />
+
+                    <AppearanceToggle
+                        label="Keep footer visible after conversation starts"
+                        description="When enabled, the footer message will remain visible even after the user sends their first message."
+                        enabled={keepFooterVisible}
+                        setEnabled={() => setKeepFooterVisible(!keepFooterVisible)}
+                        disabled={isUpdating}
+                        isLast={true}
+                        className="mt-4"
+                    />
                     </AppearanceBlock>
                 </div>
             </AppearanceBlock>

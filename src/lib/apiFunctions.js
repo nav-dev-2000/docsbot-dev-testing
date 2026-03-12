@@ -428,6 +428,7 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     showButtonLabel,
     showCopyButton,
     linkSafetyEnabled,
+    keepFooterVisible,
     labels,
     questions,
     glossary,
@@ -693,6 +694,12 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     botData.linkSafetyEnabled = !!linkSafetyEnabled
   } else if (!isUpdate && bot?.linkSafetyEnabled === undefined) {
     botData.linkSafetyEnabled = false
+  }
+
+  if (keepFooterVisible !== undefined) {
+    botData.keepFooterVisible = !!keepFooterVisible
+  } else if (!isUpdate && bot?.keepFooterVisible === undefined) {
+    botData.keepFooterVisible = false
   }
 
   if (hideSources !== undefined) {

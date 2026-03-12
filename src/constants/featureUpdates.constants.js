@@ -1,6 +1,12 @@
 export const FEATURE_UPDATES = [
   {
     date: '2026-03-12',
+    title: 'Widget Content options: Keep footer message visible',
+    description:
+      'When enabled, the footer message will remain visible even after the user sends their first message.',
+  },
+  {
+    date: '2026-03-12',
     title: 'Zoho Desk ticket source',
     description:
       'Import recent closed Zoho Desk tickets as source content for your bots to learn from staff responses.',

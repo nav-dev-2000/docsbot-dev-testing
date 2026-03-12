@@ -117,6 +117,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
         bot.linkSafetyEnabled === true,
     )
+    const [keepFooterVisible, setKeepFooterVisible] = useState(
+        bot.keepFooterVisible === true,
+    )
     const [imageUploads, setImageUploads] = useState(
         ((bot.imageUploads === undefined || bot.imageUploads) &&
             checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
@@ -205,6 +208,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         previousImageUploads.current = nextImageUploads
         previousLeadCollect.current = nextLeadCollect
         setLinkSafetyEnabled(bot.linkSafetyEnabled === true)
+        setKeepFooterVisible(bot.keepFooterVisible === true)
         setImageUploads(nextImageUploads)
         setLeadCollect(nextLeadCollect)
     }, [bot?.id, team])
@@ -330,6 +334,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         if (imageUploads !== initialImageUploads) return true
         if (logo !== (bot.logo || null)) return true
         if (linkSafetyEnabled !== (bot.linkSafetyEnabled === true)) return true
+        if (keepFooterVisible !== (bot.keepFooterVisible === true)) return true
 
         if (
             JSON.stringify(allowedDomains) !==
@@ -364,6 +369,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         tools,
         leadCollect,
         linkSafetyEnabled,
+        keepFooterVisible,
     ])
 
     useEffect(() => {
@@ -518,6 +524,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             imageUploads,
             leadCollect,
             linkSafetyEnabled,
+            keepFooterVisible,
         }
 
         const urlParams = ['teams', team.id, 'bots', bot.id]
@@ -655,6 +662,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setShowCopyButton={setShowCopyButton}
                     linkSafetyEnabled={linkSafetyEnabled}
                     setLinkSafetyEnabled={setLinkSafetyEnabled}
+                    keepFooterVisible={keepFooterVisible}
+                    setKeepFooterVisible={setKeepFooterVisible}
                     imageUploads={imageUploads}
                     setImageUploads={setImageUploads}
                 />
