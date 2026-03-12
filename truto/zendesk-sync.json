@@ -37,13 +37,13 @@
       "query": {
         "page_type": "articles",
         "collection": {
-          "id": "{{section.value}}",
-          "type": "section"
+          "id": "{{category.value}}",
+          "type": "category"
         }
       },
       "integrated_account_id": "{{args.integrated_account_id}}",
-      "loop_on": "section",
-      "run_if": "$exists(section)"
+      "loop_on": "category",
+      "run_if": "$exists(category)"
     },
     {
       "type": "request",
@@ -54,7 +54,7 @@
         "page_type": "articles"
       },
       "integrated_account_id": "{{args.integrated_account_id}}",
-      "run_if": "$not($exists(section))"
+      "run_if": "$not($exists(category))"
     },
     {
       "type": "add_context",
