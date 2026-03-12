@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-12',
+    title: 'Zoho Desk ticket source',
+    description:
+      'Import recent closed Zoho Desk tickets as source content for your bots to learn from staff responses.',
+  },
+  {
     date: '2026-03-11',
     title: 'Zendesk Guide section-based article sync filtering',
     description:

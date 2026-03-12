@@ -90,3 +90,10 @@ This script re-exports `FIREBASE_SERVICE_ACCOUNT_KEY` with properly escaped newl
 - There are no automated test suites (no Jest, Vitest, Cypress, etc.) in this repo. Linting (`npm run lint`) is the primary automated quality check.
 - The `tools/zapier-cli/` directory is a separate Zapier integration package with its own `package-lock.json`; it is independent of the main app.
 - Next.js `.env.local` does NOT override system environment variables. If secrets are injected via the VM environment, they take precedence over `.env.local` values.
+
+### Skills
+
+---
+name: truto-sync-jobs
+description: Edit, push, and debug Truto sync jobs in this repo. Use when working on files in `truto/*.json`, `src/lib/truto.js`, Truto sync-job runs, webhook payloads, or Zoho/Freshdesk/Zendesk sync behavior. See `.cursor/skills/truto-sync-jobs/SKILL.md` when needed.
+---

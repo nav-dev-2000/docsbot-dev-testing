@@ -1,10 +1,14 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { firebaseConfig } from '@/config/firebase-ui.config'
 import { getFirestore } from 'firebase-admin/firestore'
+import { getStorage } from 'firebase-admin/storage'
 import { QueueSourceRegest } from '@/lib/service'
 import { stripePlan } from '@/utils/helpers'
 import { getSource, getSources, getTeam } from '@/lib/dbQueries'
 import { GetIntegratedAccountsByTenantID, GetTenantId, DeleteIntegratedAccount } from '@/lib/truto'
 import crypto from 'crypto'
+
+const DEBUG_CONTENT_PREVIEW_LENGTH = 500
 
 // const findTrutoSourceByIntegrationId = async (integrationId) => {
 //     const db = getFirestore()
@@ -137,6 +141,46 @@ export default async function handler(req, res) {
     if (!source) {
         console.log('no source found for integration_id', integrated_account_id)
         return res.status(200).send({ message: 'OK' })
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        const bucket = getStorage().bucket(`gs://${firebaseConfig.storageBucket}`)
+        const prefix = `teams/${team_id}/bots/${bot_id}/sources/${source_id}`
+        const [files] = await bucket.getFiles({ prefix })
+        const account = { team_id, bot_id, source_id }
+        const fileList = await Promise.all(
+          files.map(async (file, index) => {
+            const [metadata] = await file.getMetadata()
+            const size = Number(metadata?.size ?? 0)
+            const includeContent = index < 2
+            let contentPreview = ''
+            if (includeContent) {
+              try {
+                const [buf] = await file.download()
+                const str = buf.toString('utf8')
+                contentPreview = str.length > DEBUG_CONTENT_PREVIEW_LENGTH
+                  ? str.slice(0, DEBUG_CONTENT_PREVIEW_LENGTH) + '...'
+                  : str
+              } catch (e) {
+                contentPreview = `(failed to read: ${e.message})`
+              }
+            }
+            return {
+              name: file.name,
+              size,
+              ...(includeContent && { content: contentPreview }),
+            }
+          })
+        )
+        console.log('[Truto webhook] Firebase storage after sync:', JSON.stringify({
+          account,
+          fileCount: fileList.length,
+          files: fileList,
+        }, null, 2))
+      } catch (debugErr) {
+        console.error('[Truto webhook] Debug list storage failed:', debugErr)
+      }
     }
 
     try {

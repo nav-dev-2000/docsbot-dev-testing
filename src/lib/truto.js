@@ -115,6 +115,11 @@ const RunSyncJob = async (
     const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - (integratedAccount.context.months || 3)))
     args.start_date = monthAgo.toISOString().split('T')[0]
     args.base_url = `https://${integratedAccount.context.subdomain}.zendesk.com/agent/tickets/`
+  } else if (integratedAccount.integration.name === 'zohodesk') {
+    const monthAgo = new Date(new Date().setMonth(new Date().getMonth() - (integratedAccount.context?.months || 3)))
+    args.start_date = monthAgo.toISOString()
+    const portalId = integratedAccount.context?.portalId || 'default'
+    args.base_url = `https://desk.zoho.com/desk/portal/${portalId}/#/tickets/`
   }
 
   console.log('args', args)

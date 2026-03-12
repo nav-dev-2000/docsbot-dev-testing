@@ -175,6 +175,44 @@ const GetSyncJob = async (sync_job_id, env = 'staging') => {
   }
 }
 
+const GetSyncJobRun = async (run_id, env = 'staging') => {
+  const resp = await fetch(`${TRUTO_BASE_URL}/sync-job-run/${run_id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': GetAuth(env)
+    }
+  })
+
+  if (resp.ok) {
+    return await resp.json()
+  } else {
+    console.error(await resp.json())
+    throw new Error('Failed to get sync job run')
+  }
+}
+
+const ListSyncJobRuns = async (sync_job_id, limit = 10, env = 'staging') => {
+  const params = new URLSearchParams({
+    sync_job_id,
+    limit: String(limit)
+  })
+  const resp = await fetch(`${TRUTO_BASE_URL}/sync-job-run?${params.toString()}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': GetAuth(env)
+    }
+  })
+
+  if (resp.ok) {
+    return await resp.json()
+  } else {
+    console.error(await resp.json())
+    throw new Error('Failed to list sync job runs')
+  }
+}
+
 async function getSyncJobDetails(type, configPath, env = 'staging') {
   const syncJobId = GetSyncJobId(type, env);
   if (!syncJobId) {
@@ -186,19 +224,60 @@ async function getSyncJobDetails(type, configPath, env = 'staging') {
   console.log(JSON.stringify(jobDetails, null, 2));
 }
 
+async function getSyncJobRunDetails(runId, env = 'staging') {
+  const runDetails = await GetSyncJobRun(runId, env)
+  console.log('Sync Job Run Details:')
+  console.log(JSON.stringify(runDetails, null, 2))
+}
+
+async function listSyncJobRunDetails(type, env = 'staging', limit = 10) {
+  const syncJobId = GetSyncJobId(type, env)
+  if (!syncJobId) {
+    throw new Error(`No sync job ID found for type ${type} in ${env} environment`)
+  }
+
+  const runDetails = await ListSyncJobRuns(syncJobId, limit, env)
+  console.log(`Sync Job Runs (${type}, ${env}, limit ${limit}):`)
+  console.log(JSON.stringify(runDetails, null, 2))
+}
+
 async function main() {
   const args = process.argv.slice(2);
   if (args.length < 2) {
-    console.error('Usage: node createTruto.js <type> <action> [environment]');
-    console.error('Example: node createTruto.js notion create');
-    console.error('Example: node createTruto.js confluence update production');
-    console.error('Example: node createTruto.js notion get staging');
+    console.error('Usage: node scripts/truto-sync.js <type> <action> [args...]');
+    console.error('Example: node scripts/truto-sync.js notion create staging');
+    console.error('Example: node scripts/truto-sync.js confluence update production');
+    console.error('Example: node scripts/truto-sync.js notion get staging');
+    console.error('Example: node scripts/truto-sync.js zohodesk runs staging 10');
+    console.error('Example: node scripts/truto-sync.js zohodesk run a1944c5b-22c3-4799-9022-584cf215cc4f staging');
     process.exit(1);
   }
 
-  const [type, action, env = 'staging'] = args;
+  const [type, action, ...rest] = args;
   const configPath = `truto/${type}-sync.json`;
+  let env = 'staging';
+  let runId = null;
+  let limit = 10;
   
+  switch (action) {
+    case 'run':
+      if (rest.length < 1) {
+        throw new Error('Usage: node scripts/truto-sync.js <type> run <run_id> [environment]')
+      }
+      [runId, env = 'staging'] = rest;
+      break;
+    case 'runs':
+      [env = 'staging', limit = '10'] = rest;
+      limit = Number.parseInt(limit, 10);
+      if (Number.isNaN(limit) || limit <= 0) {
+        throw new Error('Limit must be a positive integer')
+      }
+      break;
+    default:
+      [env = 'staging'] = rest;
+      break;
+  }
+
   // Force production environment if prod is specified
   if (env === 'prod') {
     env = 'production';
@@ -210,7 +289,7 @@ async function main() {
   }
 
   try {
-    if (!fs.existsSync(configPath)) {
+    if (['create', 'update'].includes(action) && !fs.existsSync(configPath)) {
       throw new Error(`Config file not found: ${configPath}`);
     }
 
@@ -224,8 +303,14 @@ async function main() {
       case 'get':
         await getSyncJobDetails(type, configPath, env);
         break;
+      case 'run':
+        await getSyncJobRunDetails(runId, env);
+        break;
+      case 'runs':
+        await listSyncJobRunDetails(type, env, limit);
+        break;
       default:
-        console.error('Invalid action. Use "create", "update", or "get"');
+        console.error('Invalid action. Use "create", "update", "get", "run", or "runs"');
         process.exit(1);
     }
   } catch (error) {
@@ -248,5 +333,7 @@ module.exports = {
   updateTrutoSyncJob,
   CreateWebHook,
   DeleteSyncJob,
-  GetSyncJob
+  GetSyncJob,
+  GetSyncJobRun,
+  ListSyncJobRuns
 };

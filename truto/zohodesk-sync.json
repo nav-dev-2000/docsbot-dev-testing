@@ -1,0 +1,110 @@
+{
+  "id": "",
+  "integration_name": "zohodesk",
+  "args_schema": {
+    "integrated_account_id": {
+      "type": "string",
+      "format": "integrated_account_id",
+      "required": true
+    },
+    "webhook_id": {
+      "type": "string",
+      "format": "webhook_id"
+    },
+    "google_cloud_storage_datastore_id": {
+      "type": "string",
+      "format": "datastore_id"
+    },
+    "team_id": {
+      "type": "string",
+      "required": true
+    },
+    "bot_id": {
+      "type": "string",
+      "required": true
+    },
+    "source_id": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "string",
+      "required": true
+    },
+    "base_url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "resources": [
+    {
+      "type": "request",
+      "name": "list-tickets",
+      "resource": "tickets-search",
+      "method": "list",
+      "query": {
+        "status": "Closed",
+        "createdTimeRange": "{{args.start_date}},2099-12-31T23:59:59.000Z"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}"
+    },
+    {
+      "type": "add_context",
+      "name": "add-ticket-context",
+      "config": {
+        "expression": "{ \"ticket_id\": resources.`tickets-search`.id, \"subject\": resources.`tickets-search`.subject, \"description\": resources.`tickets-search`.description, \"ticket_url\": $firstNonEmpty(resources.`tickets-search`.webUrl, args.base_url & resources.`tickets-search`.id) }"
+      },
+      "depends_on": "list-tickets"
+    },
+    {
+      "type": "request",
+      "name": "comments",
+      "resource": "ticketing/comments",
+      "method": "list",
+      "depends_on": "list-tickets",
+      "query": {
+        "ticket_id": "{{resources.tickets-search.id}}"
+      },
+      "integrated_account_id": "{{args.integrated_account_id}}"
+    },
+    {
+      "name": "combine-ticket-comments",
+      "type": "transform",
+      "config": {
+        "expression": "{ \"file_id\": ticket_id, \"file_name\": ticket_id, \"file_title\": subject, \"file_url\": ticket_url, \"content\": \"<h2>Customer Message</h2>\n\" & description & \"\n\n---------\n\n\" & $reduce($sort(resources.`ticketing`.comments, function($l, $r) { $l.created_at < $r.created_at }), function($acc, $v) { ($v.is_private = false) ? $acc & ($v.author.type in [\"Agent\", \"AGENT\", \"user\"] ? \"<h2>Staff Response</h2>\n\" : \"<h2>Customer Message</h2>\n\") & $v.remote_data.summary & \"\n\n---------\n\n\" : $acc }, \"\" ) }"
+      },
+      "depends_on": "comments"
+    },
+    {
+      "name": "google-cloud-storage",
+      "type": "destination",
+      "destination_type": "datastore",
+      "method": "uploadObject",
+      "config": {
+        "id": "{{args.google_cloud_storage_datastore_id}}",
+        "config": {
+          "path": "teams/{{args.team_id}}/bots/{{args.bot_id}}/sources/{{args.source_id}}",
+          "file_name": "{{payload.records.0.file_name}}.html",
+          "content": "{{payload.records.0.content}}",
+          "upload_type": "resumable",
+          "headers": {
+            "Content-Type": "text/html",
+            "X-Goog-Meta-File-Id": "{{payload.records.0.file_id}}",
+            "X-Goog-Meta-File-Url": "{{payload.records.0.file_url}}",
+            "X-Goog-Meta-File-Title": "{{payload.records.0.file_title}}"
+          }
+        }
+      },
+      "run_if": "$exists(args.google_cloud_storage_datastore_id)",
+      "resources_to_persist": [
+        "combine-ticket-comments"
+      ]
+    }
+  ],
+  "environment_id": "5e6c1566-bd23-4b05-a481-f579eec913b7",
+  "created_at": "2025-03-11T00:00:00.000Z",
+  "updated_at": "2025-03-11T00:00:00.000Z",
+  "default_runtime_version": 4,
+  "label": "Fetch all the tickets from Zoho Desk",
+  "args_validation": "$firstNonEmpty(args.webhook_id, args.google_cloud_storage_datastore_id) ? null : { \"message\": \"Need one of webhook_id or google_cloud_storage_datastore_id in args\" }"
+}

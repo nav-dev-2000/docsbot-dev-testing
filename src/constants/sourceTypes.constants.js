@@ -27,6 +27,7 @@ import GithubLogo from '@/components/GithubLogo'
 import SalesforceLogo from '@/components/SalesforceLogo'
 import ConfluenceLogo from '@/components/ConfluenceLogo'
 import FreshdeskLogo from '@/components/FreshdeskLogo'
+import ZohoDeskLogo from '@/components/ZohoDeskLogo'
 import S3Logo from '@/components/S3Logo'
 import SlackLogo from '@/components/SlackLogo'
 import GCSLogo from '@/components/GCSLogo'
@@ -572,6 +573,25 @@ export const sourceTypes = [
     instructionsUrl: '/documentation/doc/training-a-chatbot-from-freshdesk',
   },
   {
+    id: 'zohodesk',
+    title: 'Zoho Desk Tickets',
+    description: 'Answer questions from Zoho Desk tickets (BETA)',
+    fullDescription: 'Connect to Zoho Desk via our partner Truto to import recent resolved/closed tickets. We transform all ticket conversations into generic FAQs without personal information to answer future user questions. Please read our instructions for more information.',
+    icon: ZohoDeskLogo,
+    isTruto: 'zohodesk',
+    minPlan: 'pro',
+    isNew: true,
+    coming: false,
+    fieldUrl: false,
+    fieldTitle: false,
+    fieldFile: false,
+    fieldSchedule: true,
+    fieldQA: false,
+    fieldImages: true,
+    category: 'Customer Support',
+    instructionsUrl: '/documentation/doc/training-a-chatbot-from-zoho-desk',
+  },
+  {
     id: 'zendesk-tickets',
     title: 'Zendesk Tickets',
     description: 'Answer questions from Zendesk tickets',
@@ -593,7 +613,7 @@ export const sourceTypes = [
   {
     id: 'freescout',
     title: 'FreeScout Tickets',
-    description: 'Answer questions from FreeScout tickets (BETA)',
+    description: 'Answer questions from FreeScout tickets',
     fullDescription:
       'Connect to FreeScout to import recent closed tickets from a selected mailbox. We transform conversations into generic FAQs without personal information. Requires the FreeScout API & Webhooks module to be installed.',
     icon: FreeScoutLogo,
