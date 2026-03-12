@@ -981,12 +981,22 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   // Handle topics array
   if (topics !== undefined) {
+    const hasTopicPermission = checkPlanPermission(team, 'business', 'topics').allowed
+    const isDeletionOnly =
+      !copyFrom &&
+      !hasTopicPermission &&
+      !isSuperAdmin(userId) &&
+      Array.isArray(topics) &&
+      Array.isArray(bot?.topics) &&
+      topics.length <= bot.topics.length &&
+      topics.every((t) => bot.topics.includes(t))
+
     // Check if the team has Business plan permissions for topic management
-    // Skip validation when copying a bot
-    if (!copyFrom && !checkPlanPermission(team, 'business', 'topics').allowed && !isSuperAdmin(userId)) {
+    // Skip validation when copying a bot or when only deleting topics (allowed on all plans)
+    if (!copyFrom && !hasTopicPermission && !isSuperAdmin(userId) && !isDeletionOnly) {
       throw new Error('Topic management is only available on the Business plan or higher. Please upgrade your plan to use this feature.')
     }
-    
+
     if (Array.isArray(topics)) {
       // Validate and sanitize topics
       let validTopics = topics

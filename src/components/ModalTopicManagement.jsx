@@ -178,13 +178,19 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
 
   const saveChanges = async () => {
     if (submitting) return
-    
-    // Check if user has permission to save topics
-    if (!canManageTopics) {
+
+    const originalTopics = (bot?.topics || []).slice(0, TOPIC_LIMIT)
+    const isDeletionOnly =
+      !canManageTopics &&
+      topics.length <= originalTopics.length &&
+      topics.every((t) => originalTopics.includes(t))
+
+    // Check if user has permission to save topics (or is only deleting)
+    if (!canManageTopics && !isDeletionOnly) {
       setShowUpgrade(true)
       return
     }
-    
+
     setSubmitting(true)
     setErrorText(null)
     
@@ -194,10 +200,11 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          topics: topics,
-          allowOpenEndedTopics: allowOpenEndedTopics,
-        }),
+        body: JSON.stringify(
+          isDeletionOnly
+            ? { topics }
+            : { topics, allowOpenEndedTopics }
+        ),
       })
 
       if (response.ok) {
@@ -425,7 +432,6 @@ export default function ModalTopicManagement({ team, bot, open, setOpen }) {
                                         <button
                                           type="button"
                                           onClick={() => deleteTopic(originalIndex)}
-                                          disabled={!canManageTopics}
                                           className="inline-flex items-center p-1 border border-transparent rounded text-red-400 hover:text-red-600 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                           <TrashIcon className="h-4 w-4" aria-hidden="true" />
