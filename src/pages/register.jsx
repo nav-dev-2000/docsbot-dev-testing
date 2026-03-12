@@ -23,11 +23,11 @@ import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { usePostHog } from 'posthog-js/react'
-import { SIGNUP_ONBOARDING_CACHE_KEY } from '@/constants/storageKeys.constants'
 import {
   WEBSITE_PATH_WARNING_COPY,
   validateWebsiteInput,
 } from '@/utils/websiteValidation'
+import { persistSignupOnboardingCache } from '@/utils/signupOnboardingCache'
 
 function Register({ teamCount }) {
   const router = useRouter()
@@ -59,17 +59,12 @@ function Register({ teamCount }) {
   const persistSignupSelections = useCallback(
     (normalizedSite) => {
       if (typeof window === 'undefined') return
-      if (!usageType) return
       try {
-        const payload = {
+        const payload = persistSignupOnboardingCache(window.localStorage, {
           usageType,
           site: normalizedSite || null,
-          timestamp: Date.now(),
-        }
-        window.localStorage.setItem(
-          SIGNUP_ONBOARDING_CACHE_KEY,
-          JSON.stringify(payload),
-        )
+        })
+        if (!payload) return
       } catch (error) {
         console.error('Failed to persist onboarding selections', error)
       }

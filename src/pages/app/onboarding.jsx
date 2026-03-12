@@ -64,7 +64,6 @@ import { usePostHog } from 'posthog-js/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import clsx from 'clsx'
 import { SketchPicker } from 'react-color'
-import { SIGNUP_ONBOARDING_CACHE_KEY } from '@/constants/storageKeys.constants'
 import {
   VECTOR_DB_MAINTENANCE_ENABLED,
   VECTOR_DB_MAINTENANCE_STATUS_PAGE,
@@ -74,6 +73,11 @@ import {
   usageTypeToPromptKey,
   WEBSITE_PATH_WARNING_COPY,
 } from '@/utils/websiteValidation'
+import {
+  readSignupOnboardingCache,
+  removeSignupOnboardingCache,
+  shouldAutoAnalyzeSignupSeed,
+} from '@/utils/signupOnboardingCache'
 
 const SourceForm = dynamic(() => import('@/components/SourceForm'), {
   ssr: false,
@@ -709,40 +713,23 @@ function Onboarding({ team }) {
       typeof team?.botCount === 'number' ? team.botCount : 0
 
     if (createdBot || teamBotCount > 0) {
-      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+      removeSignupOnboardingCache(window.localStorage)
       signupSeedAppliedRef.current = true
       return
     }
 
-    const stored = window.localStorage.getItem(
-      SIGNUP_ONBOARDING_CACHE_KEY,
+    const { cache, shouldClear } = readSignupOnboardingCache(
+      window.localStorage,
     )
-    if (!stored) {
+    if (shouldClear) {
+      removeSignupOnboardingCache(window.localStorage)
+    }
+    if (!cache) {
       signupSeedAppliedRef.current = true
       return
     }
 
-    let parsed = null
-    try {
-      parsed = JSON.parse(stored)
-    } catch (error) {
-      console.error('Failed to parse signup onboarding cache', error)
-      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
-      signupSeedAppliedRef.current = true
-      return
-    }
-
-    const { usageType: cachedUsageType, site: cachedSite, timestamp } =
-      parsed || {}
-
-    if (typeof timestamp === 'number') {
-      const oneDayMs = 24 * 60 * 60 * 1000
-      if (Date.now() - timestamp > oneDayMs) {
-        window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
-        signupSeedAppliedRef.current = true
-        return
-      }
-    }
+    const { usageType: cachedUsageType, site: cachedSite } = cache || {}
 
     if (typeof cachedUsageType === 'string' && !promptEdited) {
       const presetKey = usageTypeToPromptKey(cachedUsageType)
@@ -789,7 +776,7 @@ function Onboarding({ team }) {
     const teamBotCount =
       typeof team?.botCount === 'number' ? team.botCount : 0
     if (createdBot || teamBotCount > 0) {
-      window.localStorage.removeItem(SIGNUP_ONBOARDING_CACHE_KEY)
+      removeSignupOnboardingCache(window.localStorage)
     }
   }, [createdBot, team])
 
@@ -1553,31 +1540,24 @@ function Onboarding({ team }) {
 
     // Small delay to ensure state updates have been applied
     const timer = setTimeout(() => {
-      // Check if we have both URL and usage type from signup cache
-      const stored = window.localStorage.getItem(SIGNUP_ONBOARDING_CACHE_KEY)
-      if (!stored) return
-
-      let parsed = null
-      try {
-        parsed = JSON.parse(stored)
-      } catch (error) {
-        return
+      const { cache, shouldClear } = readSignupOnboardingCache(
+        window.localStorage,
+      )
+      if (shouldClear) {
+        removeSignupOnboardingCache(window.localStorage)
       }
 
-      const { usageType: cachedUsageType, site: cachedSite } = parsed || {}
-      
-      // Only auto-trigger if we have both URL and usage type from signup
       if (
-        cachedSite &&
-        cachedSite.trim() &&
-        cachedUsageType &&
-        !autoAnalysisTriggeredRef.current &&
-        !isAnalyzing &&
-        !useManualEntry &&
-        currentStep === 0
+        shouldAutoAnalyzeSignupSeed({
+          cache,
+          autoAnalysisTriggered: autoAnalysisTriggeredRef.current,
+          isAnalyzing,
+          useManualEntry,
+          currentStep,
+        })
       ) {
         autoAnalysisTriggeredRef.current = true
-        
+
         // Trigger analysis (it will handle moving to step 1 internally)
         handleAnalyze()
       }

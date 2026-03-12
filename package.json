@@ -8,6 +8,9 @@
     "start": "next start",
     "prebuild": "node scripts/generate-sitemap.js && node scripts/latest-news.js",
     "lint": "next lint",
+    "test": "npm run test:core",
+    "test:core": "vitest run",
+    "test:core:watch": "vitest",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
     "sitemap": "node scripts/generate-sitemap.js",
     "news": "node scripts/latest-news.js",
@@ -90,6 +93,7 @@
     "globby": "^11.0.1",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "sharp": "0.33.1"
+    "sharp": "0.33.1",
+    "vitest": "^4.0.18"
   }
 }

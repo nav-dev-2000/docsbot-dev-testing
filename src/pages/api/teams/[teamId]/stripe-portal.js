@@ -12,6 +12,11 @@ import {
   getIncompatibleSourceTypesForPlan,
   isPlanCompatibleWithSourceTypes,
 } from '@/utils/sourceTypePlanChecks'
+import {
+  getExceededPlanLimits,
+  isDowngradingBelowBusiness,
+  teamHasPerBotRoleAssignments,
+} from '@/utils/checkoutValidation'
 
 const ANNUAL_SALE_COUPONS = {
   production: {
@@ -86,84 +91,30 @@ export default async function createCheckoutSession(req, res) {
           throw Error('Invalid plan selected.')
         }
         
-        // Resolve researchTasks limit (can be number or object)
-        const researchTasksLimit = typeof planLimits.researchTasks === 'number' 
-          ? planLimits.researchTasks 
-          : typeof planLimits.researchTasks === 'object' && planLimits.researchTasks !== null
-            ? (planLimits.researchTasks.monthly || planLimits.researchTasks.lifetime || 0)
-            : 0
-        
-        // Calculate effective research count (excluding trial research up to 2)
-        const currentPlan = stripePlan(team)
-        const currentPlanResearchLimit = typeof currentPlan?.researchTasks === 'number' 
-          ? currentPlan.researchTasks 
-          : 0
-        
-        // If current plan has no monthly research tasks, they may have used trial research (up to 2)
-        const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
-        const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
-        
-        // Ensure plan limits are numbers for proper comparison
-        const planBotsLimit = Number(planLimits.bots) || 0
-        const planPagesLimit = Number(planLimits.pages) || 0
-        const planQuestionsLimit = Number(planLimits.questions) || 0
-        const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
-        
-        // Get current usage values
-        const currentBots = Number(team?.botCount ?? 0)
-        const currentPages = Number(team?.pageCount ?? 0)
-        const currentQuestions = Number(team?.questionCount ?? 0)
-        const currentTeamMembers = Object.keys(team?.roles || {}).length + teamInvites.length
-        
-        const exceededLimits = []
-        if (currentBots > planBotsLimit) {
-          exceededLimits.push(`bots (${currentBots} > ${planBotsLimit})`)
-        }
-        if (currentPages > planPagesLimit) {
-          exceededLimits.push(`pages (${currentPages} > ${planPagesLimit})`)
-        }
-        if (currentQuestions > planQuestionsLimit) {
-          exceededLimits.push(`questions (${currentQuestions} > ${planQuestionsLimit})`)
-        }
-        if (currentTeamMembers > planTeamMembersLimit) {
-          exceededLimits.push(`team members (${currentTeamMembers} > ${planTeamMembersLimit})`)
-        }
-        if (researchCount > researchTasksLimit) {
-          exceededLimits.push(`research tasks (${researchCount} > ${researchTasksLimit})`)
-        }
-        
+        const exceededLimits = getExceededPlanLimits({
+          team,
+          planLimits,
+          inviteCount: teamInvites.length,
+          currentPlan: stripePlan(team),
+        })
+
         if (exceededLimits.length > 0) {
           throw Error(`This plan does not fit your current usage. The following limits are exceeded: ${exceededLimits.join(', ')}.`)
         }
 
         // Check if team is on Business plan and has per bot roles - prevent downgrading
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
-        const planLevels = { free: 1, hobby: 2, personal: 3, pro: 4, standard: 5, business: 6, enterprise: 7 }
-        const targetTierLevel = planLevels[tier] || 0
-        const businessLevel = planLevels['business']
-        const isDowngradingToBelowBusiness = targetTierLevel < businessLevel
+        const isDowngradingToBelowBusiness = isDowngradingBelowBusiness(tier)
         
         if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-          // Check if any member or invite has per bot roles
           const bots = await getBots(team)
-          const teamMemberIds = Object.keys(team.roles || {})
-          
-          // Check if any bot has per bot roles for any team member
-          const hasPerBotRoles = bots.some(bot => {
-            if (!bot.roles) return false
-            return Object.keys(bot.roles).some(memberId => {
-              const botRole = bot.roles[memberId]
-              // Check if member has a non-default role
-              return botRole && botRole !== 'default' && teamMemberIds.includes(memberId)
+          if (
+            teamHasPerBotRoleAssignments({
+              bots,
+              teamRoles: team.roles,
+              teamInvites,
             })
-          })
-          
-          // Check if any invite has bot overrides
-          const invitesHaveBotOverrides = teamInvites.some(invite => {
-            return invite.botOverrides && Array.isArray(invite.botOverrides) && invite.botOverrides.length > 0
-          })
-          
-          if (hasPerBotRoles || invitesHaveBotOverrides) {
+          ) {
             throw Error('Cannot downgrade from Business plan while per-bot roles are assigned to team members or invites. Please remove all per-bot role assignments before downgrading.')
           }
         }
@@ -305,26 +256,14 @@ export default async function createCheckoutSession(req, res) {
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
         
         if (isCurrentlyBusinessOrHigher) {
-          // Check if any member or invite has per bot roles
           const bots = await getBots(team)
-          const teamMemberIds = Object.keys(team.roles || {})
-          
-          // Check if any bot has per bot roles for any team member
-          const hasPerBotRoles = bots.some(bot => {
-            if (!bot.roles) return false
-            return Object.keys(bot.roles).some(memberId => {
-              const botRole = bot.roles[memberId]
-              // Check if member has a non-default role
-              return botRole && botRole !== 'default' && teamMemberIds.includes(memberId)
+          if (
+            teamHasPerBotRoleAssignments({
+              bots,
+              teamRoles: team.roles,
+              teamInvites,
             })
-          })
-          
-          // Check if any invite has bot overrides
-          const invitesHaveBotOverrides = teamInvites.some(invite => {
-            return invite.botOverrides && Array.isArray(invite.botOverrides) && invite.botOverrides.length > 0
-          })
-          
-          if (hasPerBotRoles || invitesHaveBotOverrides) {
+          ) {
             // If they have per bot roles, restrict portal to Business-only (no downgrade option)
             const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
             const businessPrices = [
@@ -382,29 +321,17 @@ export default async function createCheckoutSession(req, res) {
           
           // Check if downgrading from Business plan with per-bot roles
           const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
-          const planLevels = { free: 1, hobby: 2, personal: 3, pro: 4, standard: 5, business: 6, enterprise: 7 }
-          const targetTierLevel = planLevels[tier] || 0
-          const businessLevel = planLevels['business']
-          const isDowngradingToBelowBusiness = targetTierLevel < businessLevel
+          const isDowngradingToBelowBusiness = isDowngradingBelowBusiness(tier)
           
           if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-            // Check if any member or invite has per bot roles
             const bots = await getBots(team)
-            const teamMemberIds = Object.keys(team.roles || {})
-            
-            const hasPerBotRoles = bots.some(bot => {
-              if (!bot.roles) return false
-              return Object.keys(bot.roles).some(memberId => {
-                const botRole = bot.roles[memberId]
-                return botRole && botRole !== 'default' && teamMemberIds.includes(memberId)
+            if (
+              teamHasPerBotRoleAssignments({
+                bots,
+                teamRoles: team.roles,
+                teamInvites,
               })
-            })
-            
-            const invitesHaveBotOverrides = teamInvites.some(invite => {
-              return invite.botOverrides && Array.isArray(invite.botOverrides) && invite.botOverrides.length > 0
-            })
-            
-            if (hasPerBotRoles || invitesHaveBotOverrides) {
+            ) {
               throw Error('Cannot downgrade from Business plan while per-bot roles are assigned to team members or invites. Please remove all per-bot role assignments before downgrading.')
             }
           }

@@ -62,6 +62,8 @@ DocsBot AI is a Next.js 14 (Pages Router) SaaS application. It relies on externa
 - **Dev server:** `npm run dev` (starts on port 3000)
 - **Lint:** `npm run lint`
 - **Build:** `npm run build` (runs `prebuild` scripts for sitemap/news generation first)
+- **Core test suite:** `npm run test:core`
+- **Watch mode for local iteration:** `npm run test:core:watch`
 
 ### Environment setup
 
@@ -87,9 +89,21 @@ This script re-exports `FIREBASE_SERVICE_ACCOUNT_KEY` with properly escaped newl
 
 - The `next.config.js` runs `scripts/generate-sitemap.js` and `scripts/latest-news.js` during server-side webpack builds; these write to `public/` and are safe to ignore.
 - The headless WordPress integration (`@headstartwp/next`) is disabled via `DISABLE_HEADLESS=1`; without it, blog routes (`/articles/*`) and WP-sourced docs will fail.
-- There are no automated test suites (no Jest, Vitest, Cypress, etc.) in this repo. Linting (`npm run lint`) is the primary automated quality check.
+- The main automated regression suite is Vitest under `tests/core/**/*.test.js`. It is intentionally optimized for fast agent/PR feedback and currently covers API surface contracts, selected API runtime flows, auth/team middleware, signup/onboarding/checkout logic, and shared helpers/utilities.
 - The `tools/zapier-cli/` directory is a separate Zapier integration package with its own `package-lock.json`; it is independent of the main app.
 - Next.js `.env.local` does NOT override system environment variables. If secrets are injected via the VM environment, they take precedence over `.env.local` values.
+
+### Testing expectations for agents
+
+- **Default check for most code changes:** run `npm run test:core`.
+- **Also run lint for production code changes:** run `npm run lint` after modifying app code, API routes, middleware, services, shared utilities, or constants used by runtime code.
+- **When changing a covered area, start narrow:** run the most relevant file(s) first with `npx vitest run tests/core/<file>.test.js`, then finish with `npm run test:core`.
+- **When to add or update tests:**
+  - Add/extend tests when changing `src/pages/api/**`, `src/middleware/**`, `src/services/**`, `src/utils/**`, or shared logic in `src/lib/**`.
+  - Prefer runtime handler tests for API routes that verify method guards, auth/security checks, and key input/output behavior.
+  - Prefer focused unit tests for pure helpers and extracted business-logic helpers.
+- **When full manual UI testing is not necessary:** if a change is limited to shared non-UI logic already covered by Vitest and does not alter rendered UI behavior, automated coverage plus lint is usually sufficient.
+- **When manual UI testing is still expected:** if you change rendered onboarding/dashboard/pricing UI or user interaction flows, do the relevant UI/manual test in addition to `npm run test:core`.
 
 ### Skills
 
