@@ -135,8 +135,10 @@ const ApperancePreview = ({
             </div>
             <div
                 className={clsx(
-                    'flex h-full w-full flex-col items-center',
-                    previewMode === 'widget' ? 'w-[448px]' : 'w-full',
+                    'flex h-full min-w-0 flex-col items-center',
+                    previewMode === 'widget'
+                        ? 'w-full max-w-[448px]'
+                        : 'w-full',
                 )}
             >
                 {isLoadingImages ? (
