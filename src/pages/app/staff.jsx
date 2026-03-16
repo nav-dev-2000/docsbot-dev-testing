@@ -1,4 +1,6 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
+import { Disclosure } from '@headlessui/react'
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
@@ -231,65 +233,84 @@ function Staff({ team, userId }) {
             </div>
           ) : null}
         </div>
-        <div className="w-full border-t border-gray-200 pt-4">
-          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="w-url"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Custom Weaviate URL
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-600 sm:max-w-md">
-                  <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
-                    https://
-                  </span>
-                  <input
-                    type="text"
-                    name="w-url"
-                    id="w-url"
-                    autoComplete="off"
-                    value={weaviateUrl}
-                    onChange={(e) => setWeaviateUrl(e.target.value)}
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="xxx.xxx.weaviate.cloud"
-                  />
+        <Disclosure as="div" className="w-full border-t border-gray-200 pt-4">
+          {({ open }) => (
+            <>
+              <Disclosure.Button className="flex w-full items-center justify-between py-2 text-left">
+                <span className="text-sm font-medium text-gray-900">
+                  Custom Weaviate
+                </span>
+                {open ? (
+                  <ChevronDownIcon className="h-5 w-5 text-gray-500" />
+                ) : (
+                  <ChevronRightIcon className="h-5 w-5 text-gray-500" />
+                )}
+              </Disclosure.Button>
+              <Disclosure.Panel as="div" className="pt-2">
+                <p className="mb-4 text-sm text-amber-700">
+                  Only for enterprise accounts who pay for a custom Weaviate vector database cluster.
+                </p>
+                <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                  <div className="sm:col-span-2">
+                    <label
+                      htmlFor="w-url"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Custom Weaviate URL
+                    </label>
+                    <div className="mt-2">
+                      <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-600 sm:max-w-md">
+                        <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
+                          https://
+                        </span>
+                        <input
+                          type="text"
+                          name="w-url"
+                          id="w-url"
+                          autoComplete="off"
+                          value={weaviateUrl}
+                          onChange={(e) => setWeaviateUrl(e.target.value)}
+                          className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                          placeholder="xxx.xxx.weaviate.cloud"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <label
+                      htmlFor="w-key"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Custom Weaviate API Key
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="w-key"
+                        id="w-key"
+                        autoComplete="off"
+                        value={weaviateApiKey}
+                        onChange={(e) => setWeaviateApiKey(e.target.value)}
+                        placeholder={team.weaviateApiKey ? '••••••••••••••••••' : ''}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    onClick={updateTeam}
+                    disabled={isUpdating}
+                    className="mt-8 rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 disabled:opacity-25 sm:col-span-2"
+                  >
+                    Save
+                  </button>
                 </div>
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="w-key"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Custom Weaviate API Key
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="w-key"
-                  id="w-key"
-                  autoComplete="off"
-                  value={weaviateApiKey}
-                  onChange={(e) => setWeaviateApiKey(e.target.value)}
-                  placeholder={team.weaviateApiKey ? '••••••••••••••••••' : ''}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              onClick={updateTeam}
-              disabled={isUpdating}
-              className="mt-8 rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 disabled:opacity-25 sm:col-span-2"
-            >
-              Save
-            </button>
-          </div>
-        </div>
+              </Disclosure.Panel>
+            </>
+          )}
+        </Disclosure>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-white p-4 shadow">
