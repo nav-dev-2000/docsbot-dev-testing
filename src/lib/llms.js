@@ -116,6 +116,14 @@ export const BENCHMARKS = {
     description:
       'Abstract reasoning benchmark (ARC Prize Verified) evaluating core pattern recognition and problem-solving on ARC-AGI-1 tasks',
   },
+  ARC_AGI_V2: {
+    title: 'ARC-AGI-2',
+    description: 'Visual reasoning puzzles benchmark (alternate key for ARCAGI2)',
+  },
+  BirdSQL: {
+    title: 'Bird-SQL',
+    description: 'Evaluates SQL query generation and database interaction capabilities',
+  },
   BirdSQLDev: {
     title: 'Bird-SQL (Dev)',
     description: 'Evaluates SQL query generation and database interaction capabilities',
@@ -168,6 +176,10 @@ export const BENCHMARKS = {
     title: 'DocVQA',
     description: 'Document Visual Question Answering - Evaluates the ability of AI models to comprehend and answer questions based on document images',
   },
+  DROP: {
+    title: 'DROP',
+    description: 'Discrete Reasoning Over Paragraphs - reading comprehension benchmark',
+  },
   EgoSchemaTest: {
     title: 'EgoSchema (test)',
     description: 'Evaluates video understanding and temporal reasoning capabilities',
@@ -175,6 +187,10 @@ export const BENCHMARKS = {
   ERQA: {
     title: 'ERQA',
     description: 'Evaluates visual question answering capabilities',
+  },
+  ARC: {
+    title: 'ARC',
+    description: 'AI2 Reasoning Challenge - science question answering',
   },
   ExpertPreference: {
     title: 'Expert Preference',
@@ -204,6 +220,10 @@ export const BENCHMARKS = {
     title: 'FrontierMath (Tier 4)',
     description: 'Advanced mathematics benchmark covering FrontierMath Tier 4 tasks with Python assistance',
   },
+  FrontierScienceResearch: {
+    title: 'Frontier Science Research',
+    description: 'Evaluates scientific research capabilities',
+  },
   GlobalMMLU: {
     title: 'Global MMLU',
     description: 'A multilingual version of the MMLU benchmark that tests knowledge across multiple languages and cultures',
@@ -215,6 +235,14 @@ export const BENCHMARKS = {
   GPQA: {
     title: 'GPQA',
     description: 'Graduate-level Physics Questions Assessment - Tests advanced physics knowledge with Diamond Science level questions',
+  },
+  GPQADiamond: {
+    title: 'GPQA Diamond',
+    description: 'GPQA Diamond tier - graduate-level physics assessment',
+  },
+  GSM8K: {
+    title: 'GSM8K',
+    description: 'Grade School Math 8K - mathematical reasoning benchmark',
   },
   GDPvalWinsOrTies: {
     title: 'GDPval (wins or ties)',
@@ -233,9 +261,37 @@ export const BENCHMARKS = {
     title: 'Graphwalks Parents (128k)',
     description: 'Evaluates long context graph traversal capabilities using parent relationships at 128k context length',
   },
+  GraphwalksBFS0K_128K: {
+    title: 'Graphwalks BFS (0K–128K)',
+    description: 'Long context graph traversal using breadth-first search, 0K–128K context range',
+  },
+  GraphwalksBFS256K_1M: {
+    title: 'Graphwalks BFS (256K–1M)',
+    description: 'Long context graph traversal using breadth-first search, 256K–1M context range',
+  },
+  GraphwalksParents0_128K: {
+    title: 'Graphwalks Parents (0–128K)',
+    description: 'Long context graph traversal using parent relationships, 0–128K context range',
+  },
+  GraphwalksParents256K_1M: {
+    title: 'Graphwalks Parents (256K–1M)',
+    description: 'Long context graph traversal using parent relationships, 256K–1M context range',
+  },
   HellaSwag: {
     title: 'HellaSwag',
     description: 'A challenging sentence completion benchmark',
+  },
+  HealthBench: {
+    title: 'HealthBench',
+    description: 'Medical/health domain benchmark',
+  },
+  HealthBenchHard: {
+    title: 'HealthBench Hard',
+    description: 'HealthBench hard difficulty variant',
+  },
+  HiddenMath: {
+    title: 'Hidden Math',
+    description: 'Internal math reasoning benchmark',
   },
   HMMT2025: {
     title: 'HMMT 2025',
@@ -265,6 +321,10 @@ export const BENCHMARKS = {
     title: 'Internal API Instruction Following',
     description: 'Evaluates hard instruction following tasks for API usage',
   },
+  InvestmentBankingModelingTasks: {
+    title: 'Investment Banking Modeling Tasks',
+    description: 'Internal benchmark for junior investment banking analyst modeling tasks',
+  },
   LMArena: {
     title: 'LM Arena',
     description: 'A benchmark that evaluates chat model performance through ELO ratings, where models compete against each other in head-to-head comparisons judged by users',
@@ -282,6 +342,10 @@ export const BENCHMARKS = {
     title: 'MATH',
     description: 'Tests mathematical problem-solving abilities across various difficulty levels',
   },
+  MATH500: {
+    title: 'MATH 500',
+    description: 'MATH benchmark with 500 problems',
+  },
   MathArenaApex: {
     title: 'Math Arena Apex',
     description: 'A challenging benchmark featuring difficult math contest problems that test advanced mathematical reasoning',
@@ -297,6 +361,22 @@ export const BENCHMARKS = {
   MMMUPro: {
     title: 'MMMU Pro',
     description: 'A more advanced version of MMMU that evaluates multimodal understanding and reasoning across standard and vision sets',
+  },
+  MMMUProNoTools: {
+    title: 'MMMU Pro (no tools)',
+    description: 'MMMU Pro evaluated without tool use - visual understanding and reasoning',
+  },
+  MMMUProWithTools: {
+    title: 'MMMU Pro (with tools)',
+    description: 'MMMU Pro evaluated with tools - visual understanding and reasoning',
+  },
+  MMMUProWithPython: {
+    title: 'MMMU Pro (with Python)',
+    description: 'MMMU Pro evaluated with Python tool assistance',
+  },
+  MMMLU: {
+    title: 'MMMLU',
+    description: 'Multilingual MMLU variant',
   },
   MRCRv2_128k: {
     title: 'MRCR v2 (128k)',
@@ -322,6 +402,10 @@ export const BENCHMARKS = {
     title: 'MTOB (Full)',
     description: "Machine Translation from One Book (Full) - Evaluates LLMs' ability to translate between English and low-resource languages using a complete grammar book as the only reference material",
   },
+  'MBPP+': {
+    title: 'MBPP+',
+    description: 'Mostly Basic Python Programming Plus - code generation benchmark',
+  },
   MultiFileRefactoring: {
     title: 'Multi-file Refactoring',
     description: 'Evaluates ability to refactor code across multiple files with cleaner fixes',
@@ -343,9 +427,58 @@ export const BENCHMARKS = {
     title: 'OpenAI MRCR2 Needle (256k)',
     description: 'Long context performance benchmark at 256k context length',
   },
+  OpenAIMRCRv2Needle4K_8K: {
+    title: 'OpenAI MRCR2 Needle (4K–8K)',
+    description: 'Long context needle-in-haystack benchmark, 4K–8K range',
+  },
+  OpenAIMRCRv2Needle8K_16K: {
+    title: 'OpenAI MRCR2 Needle (8K–16K)',
+    description: 'Long context needle-in-haystack benchmark, 8K–16K range',
+  },
+  OpenAIMRCRv2Needle16K_32K: {
+    title: 'OpenAI MRCR2 Needle (16K–32K)',
+    description: 'Long context needle-in-haystack benchmark, 16K–32K range',
+  },
+  OpenAIMRCRv2Needle32K_64K: {
+    title: 'OpenAI MRCR2 Needle (32K–64K)',
+    description: 'Long context needle-in-haystack benchmark, 32K–64K range',
+  },
+  OpenAIMRCRv2Needle64K_128K: {
+    title: 'OpenAI MRCR2 Needle (64K–128K)',
+    description: 'Long context needle-in-haystack benchmark, 64K–128K range',
+  },
+  OpenAIMRCRv2Needle128K_256K: {
+    title: 'OpenAI MRCR2 Needle (128K–256K)',
+    description: 'Long context needle-in-haystack benchmark, 128K–256K range',
+  },
+  OpenAIMRCRv2Needle256K_512K: {
+    title: 'OpenAI MRCR2 Needle (256K–512K)',
+    description: 'Long context needle-in-haystack benchmark, 256K–512K range',
+  },
+  OpenAIMRCRv2Needle512K_1M: {
+    title: 'OpenAI MRCR2 Needle (512K–1M)',
+    description: 'Long context needle-in-haystack benchmark, 512K–1M range',
+  },
   OSWorld: {
     title: 'OSWorld',
     description: 'Evaluates computer use and web navigation tasks in simulated OS environments',
+  },
+  OfficeQA: {
+    title: 'Office QA',
+    description: 'Evaluates office/productivity domain question answering',
+  },
+  OutputSpeedTokensPerSecond: {
+    title: 'Output Speed (tokens/sec)',
+    description: 'Token generation throughput',
+    format: 'number',
+  },
+  NTREX: {
+    title: 'NTREX',
+    description: 'Neural Translation Benchmark',
+  },
+  RepoQA: {
+    title: 'RepoQA',
+    description: 'Repository-level code understanding benchmark',
   },
   ScaleMultichallenge: {
     title: 'Scale Multichallenge',
@@ -379,6 +512,10 @@ export const BENCHMARKS = {
     title: 'Tau2Bench',
     description: 'Evaluates agentic tool use capabilities, testing models on their ability to effectively use tools in agentic scenarios',
   },
+  Taubench: {
+    title: 'Taubench',
+    description: 'Tau benchmark variant',
+  },
   Toolathon: {
     title: 'Toolathon',
     description: 'Assesses agentic tool-calling performance across multi-step tasks',
@@ -386,6 +523,10 @@ export const BENCHMARKS = {
   ToolDecathlon: {
     title: 'Tool-Decathlon',
     description: 'Agentic tool-use benchmark evaluating performance across a suite of diverse tool tasks',
+  },
+  BFCL: {
+    title: 'BFCL',
+    description: 'Berkeley Function Calling Leaderboard - function calling benchmark',
   },
   BFCLMultiTurn: {
     title: 'BFCL Multi-Turn',
@@ -444,9 +585,29 @@ export const BENCHMARKS = {
     title: 'Tau2Bench Telecom',
     description: 'Evaluates function calling capabilities in telecom domain scenarios',
   },
+  Tau2BenchTelecomNoReasoning: {
+    title: 'Tau2Bench Telecom (no reasoning)',
+    description: 'Tau2Bench Telecom evaluated without reasoning effort',
+  },
+  Translation_EN_to_14: {
+    title: 'Translation EN to 14',
+    description: 'English to 14-language translation benchmark',
+  },
+  Translation_14_to_EN: {
+    title: 'Translation 14 to EN',
+    description: '14-language to English translation benchmark',
+  },
+  USAMO2025: {
+    title: 'USAMO 2025',
+    description: 'USA Mathematical Olympiad 2025',
+  },
   TerminalBench: {
     title: 'Terminal-Bench 2.0',
     description: 'Evaluates agentic terminal coding capabilities using the Terminus-2 agent framework',
+  },
+  VendingBench: {
+    title: 'Vending-Bench',
+    description: 'Long-horizon agentic tasks benchmark',
   },
   VendingBench2: {
     title: 'Vending-Bench 2',

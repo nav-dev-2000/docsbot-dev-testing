@@ -4415,7 +4415,7 @@ const LLMS = [
           'Real-world coding benchmark; reported for GPT-5 family. Pro shares the coding stack and focuses on deeper reasoning.',
         source: 'https://openai.com/index/introducing-gpt-5/',
       },
-      AiderPolyglot: {
+      AIDERPolyglot: {
         score: 88.0,
         notes: 'Code editing/refactoring benchmark; reported for GPT-5 family.',
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
@@ -4537,7 +4537,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
       },
-      AiderPolyglot: {
+      AIDERPolyglot: {
         score: 88.0,
         notes: 'diff',
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
@@ -4769,7 +4769,7 @@ const LLMS = [
         notes: 'multi-step workflows using MCP servers',
         source: 'https://openai.com/index/introducing-gpt-5-4/',
       },
-      Toolathlon: {
+      Toolathon: {
         score: 54.6,
         notes: 'agent tool calling, multi-step real-world tasks with APIs/tools',
         source: 'https://openai.com/index/introducing-gpt-5-4/',
@@ -4786,7 +4786,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-5-4/',
       },
-      HumanitysLastExamNoTools: {
+      HumanitysLastExam: {
         score: 39.8,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4/',
@@ -4887,7 +4887,7 @@ const LLMS = [
       },
 
       // Evals without reasoning
-      OmniDocBench: {
+      OmniDocBench15: {
         score: 0.109,
         notes: 'normalized edit distance (lower is better), reasoning effort: none',
         source: 'https://openai.com/index/introducing-gpt-5-4/',
@@ -4939,7 +4939,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      Toolathlon: {
+      Toolathon: {
         score: 42.9,
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -4956,7 +4956,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      HumanitysLastExamNoTools: {
+      HumanitysLastExam: {
         score: 28.2,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -4983,7 +4983,7 @@ const LLMS = [
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      OmniDocBench: {
+      OmniDocBench15: {
         score: 0.1263,
         notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5052,7 +5052,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      Toolathlon: {
+      Toolathon: {
         score: 35.5,
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5069,7 +5069,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      HumanitysLastExamNoTools: {
+      HumanitysLastExam: {
         score: 24.3,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5096,7 +5096,7 @@ const LLMS = [
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      OmniDocBench: {
+      OmniDocBench15: {
         score: 0.2419,
         notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5312,7 +5312,7 @@ const LLMS = [
         notes: 'Verified',
         source: 'https://openai.com/index/introducing-gpt-5-1-for-developers/',
       },
-      AiderPolyglot: {
+      AIDERPolyglot: {
         score: 88.0,
         notes: 'diff',
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
@@ -5500,7 +5500,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
       },
-      AiderPolyglot: {
+      AIDERPolyglot: {
         score: 88.0,
         notes: 'diff',
         source: 'https://openai.com/index/introducing-gpt-5-for-developers/',
