@@ -4900,6 +4900,232 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT‑5.4 mini',
+    slug: 'gpt-5-4-mini',
+    provider: 'openai',
+    description:
+      "GPT‑5.4 mini is OpenAI's most capable small model, bringing many of the strengths of GPT‑5.4 to a faster, more efficient architecture designed for high-volume workloads. It significantly improves over GPT‑5 mini across coding, reasoning, multimodal understanding, and tool use while running more than 2x faster. GPT‑5.4 mini approaches GPT‑5.4 performance on several evaluations including SWE-Bench Pro and OSWorld-Verified, making it ideal for coding assistants, subagents, computer-using systems, and real-time multimodal applications.",
+    input_context_window: '400K',
+    maximum_output_tokens: null,
+    input_cost_per_million_tokens: 0.75,
+    output_cost_per_million_tokens: 4.50,
+    open_source: false,
+    release_date: '2026-03-17',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'OpenAI API, Codex, ChatGPT',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      // Coding
+      SWEBenchPro: {
+        score: 54.4,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      TerminalBench: {
+        score: 60.0,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Tool-calling
+      MCPAtlas: {
+        score: 57.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Toolathlon: {
+        score: 42.9,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Tau2BenchTelecom: {
+        score: 93.4,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Intelligence
+      GPQA: {
+        score: 88.0,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamNoTools: {
+        score: 28.2,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 41.5,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // MM / Vision / CUA
+      OSWorld: {
+        score: 72.1,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProWithPython: {
+        score: 78.0,
+        notes: 'with Python',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProNoTools: {
+        score: 76.6,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OmniDocBench: {
+        score: 0.1263,
+        notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Long context
+      OpenAIMRCRv2Needle64K_128K: {
+        score: 47.7,
+        notes: '8-needle, 64K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 33.6,
+        notes: '8-needle, 128K–256K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksBFS0K_128K: {
+        score: 76.3,
+        notes: '0K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksParents0_128K: {
+        score: 71.5,
+        notes: '0–128K (accuracy)',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT‑5.4 nano',
+    slug: 'gpt-5-4-nano',
+    provider: 'openai',
+    description:
+      "GPT‑5.4 nano is OpenAI's smallest, cheapest version of GPT‑5.4, optimized for tasks where speed and cost matter most. It is a significant upgrade over GPT‑5 nano and is recommended for classification, data extraction, ranking, and coding subagents that handle simpler supporting tasks. Available only in the API.",
+    input_context_window: '400K',
+    maximum_output_tokens: null,
+    input_cost_per_million_tokens: 0.20,
+    output_cost_per_million_tokens: 1.25,
+    open_source: false,
+    release_date: '2026-03-17',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'OpenAI API',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      // Coding
+      SWEBenchPro: {
+        score: 52.4,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      TerminalBench: {
+        score: 46.3,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Tool-calling
+      MCPAtlas: {
+        score: 56.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Toolathlon: {
+        score: 35.5,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Tau2BenchTelecom: {
+        score: 92.5,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Intelligence
+      GPQA: {
+        score: 82.8,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamNoTools: {
+        score: 24.3,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 37.7,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // MM / Vision / CUA
+      OSWorld: {
+        score: 39.0,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProWithPython: {
+        score: 69.5,
+        notes: 'with Python',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProNoTools: {
+        score: 66.1,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OmniDocBench: {
+        score: 0.2419,
+        notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Long context
+      OpenAIMRCRv2Needle64K_128K: {
+        score: 44.2,
+        notes: '8-needle, 64K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 33.1,
+        notes: '8-needle, 128K–256K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksBFS0K_128K: {
+        score: 73.4,
+        notes: '0K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksParents0_128K: {
+        score: 50.8,
+        notes: '0–128K (accuracy)',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+    },
+  },
+  {
     model_name: 'GPT‑5.2',
     slug: 'gpt-5-2',
     provider: 'openai',
