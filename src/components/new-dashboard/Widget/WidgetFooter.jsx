@@ -124,7 +124,10 @@ const WidgetFooter = ({
     const Container = ({ className, children }) => {
         return (
             <div className={clsx(
-                'flex-none relative z-0',
+                // Ensure popovers/tooltips in the footer render above chat/body content.
+                // The chat bubbles use z-indexes (e.g. `z-10`), so a `z-0` footer stacking context
+                // causes footer popovers to appear behind message text when overlapping.
+                'flex-none relative z-20',
                 isSmall ? 'px-4' : 'px-6',
                 className
             )} {...props}>

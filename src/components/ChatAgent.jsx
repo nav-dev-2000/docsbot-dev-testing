@@ -495,9 +495,9 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
   if (needsExpansion) {
     return (
       <details className="group mt-2 ms-6 text-sm text-gray-500">
-        <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
+        <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden min-h-0">
           <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
-          <span className="group-open:hidden">{preview}...</span>
+          <span className="group-open:hidden min-w-0 truncate">{preview}…</span>
           <span className="hidden group-open:inline text-gray-400 text-xs">Hide thinking</span>
           <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
         </summary>
@@ -545,11 +545,12 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   const [selectedModel, setSelectedModel] = useState(bot.model)
   
   // Models that support reasoning effort
-  // GPT-5.4 / GPT-5.1 series: gpt-5.4, gpt-5.1, gpt-5.2
+  // GPT-5.4 series: gpt-5.4, gpt-5.4-mini, gpt-5.4-nano
+  // GPT-5.x series: gpt-5.1, gpt-5.2
   // GPT-5.0 series: gpt-5, gpt-5-mini, gpt-5-nano
   // O-series: o1, o1-mini, o3, o3-mini, o4, o4-mini
   const reasoningModels = [
-    'gpt-5.4', 'gpt-5.1', 'gpt-5.2',  // GPT-5.4 / GPT-5.1 series
+    'gpt-5.4', 'gpt-5.4-mini', 'gpt-5.4-nano', 'gpt-5.1', 'gpt-5.2',  // GPT-5.4 / GPT-5.x series
     'gpt-5', 'gpt-5-mini', 'gpt-5-nano',  // GPT-5.0 series
     'o1', 'o1-mini', 'o3', 'o3-mini', 'o4', 'o4-mini'  // O-series
   ]
@@ -561,8 +562,13 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   
   // Get default reasoning effort based on model
   const getDefaultReasoningEffort = (model) => {
-    // GPT-5.4 / GPT-5.1 series: default "none"
-    if (model === 'gpt-5.4' || model === 'gpt-5.1' || model === 'gpt-5.2') {
+    // GPT-5.4 nano defaults to "medium"
+    if (model === 'gpt-5.4-nano') {
+      return 'medium'
+    }
+
+    // GPT-5.4 series: default "none"
+    if (model === 'gpt-5.4' || model === 'gpt-5.4-mini' || model === 'gpt-5.1' || model === 'gpt-5.2') {
       return 'none'
     }
     // GPT-5.0 series: default "minimal"
@@ -579,8 +585,12 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   
   // Get supported reasoning effort values for a model (ordered highest to lowest)
   const getSupportedReasoningEfforts = (model) => {
-    // GPT-5.4 / GPT-5.1 series: "high", "medium", "low", "none"
-    if (model === 'gpt-5.4' || model === 'gpt-5.1' || model === 'gpt-5.2') {
+    // GPT-5.4 series: "xhigh", "high", "medium", "low", "none"
+    if (model === 'gpt-5.4' || model === 'gpt-5.4-mini' || model === 'gpt-5.4-nano') {
+      return ['xhigh', 'high', 'medium', 'low', 'none']
+    }
+    // GPT-5.1 / GPT-5.2 series: "high", "medium", "low", "none"
+    if (model === 'gpt-5.1' || model === 'gpt-5.2') {
       return ['high', 'medium', 'low', 'none']
     }
     // GPT-5.0 series: "high", "medium", "low", "minimal"
@@ -723,10 +733,21 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
         'Newest frontier model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
     },
     {
+      id: 'gpt-5.4-mini',
+      name: 'GPT-5.4 mini',
+      description:
+        'Latest efficient model - fast, great coding & tool use',
+    },
+    {
+      id: 'gpt-5.4-nano',
+      name: 'GPT-5.4 nano',
+      description: 'Fast & cost-effective GPT-5.4 option',
+    },
+    {
       id: 'gpt-5.2',
       name: 'GPT-5.2',
       description:
-        'Flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
+        'Previous flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
     },
     {
       id: 'gpt-5.1',
@@ -1576,6 +1597,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       low: { value: 'low', label: 'Low', description: 'Light reasoning (O-series default)' },
       medium: { value: 'medium', label: 'Medium', description: 'Balanced reasoning' },
       high: { value: 'high', label: 'High', description: 'Maximum reasoning depth' },
+      xhigh: { value: 'xhigh', label: 'xHigh', description: 'Extra-high reasoning depth (GPT-5.4 only)' },
     }
     
     // Filter options to only show supported values for this model

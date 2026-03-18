@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 
 import Link from 'next/link'
@@ -16,6 +16,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 const ConfigureGlossary = ({ team, bot, setBot }) => {
     const [errorText, setErrorText] = useState(null)
     const [isUpdating, setIsUpdating] = useState(false)
+    const [bounceSave, setBounceSave] = useState(false)
     const [showUpgrade, setShowUpgrade] = useState(false)
     const [botSettings, setBotSettings] = useState({
         glossary: bot?.glossary || [],
@@ -34,6 +35,11 @@ const ConfigureGlossary = ({ team, bot, setBot }) => {
         [glossary, bot?.glossary],
     )
     useUnsavedChangesWarning(isDirty, isUpdating)
+
+    useEffect(() => {
+        // Bounce continuously while there are unsaved changes.
+        setBounceSave(Boolean(isDirty && !isUpdating))
+    }, [isDirty, isUpdating])
 
     async function updateBot() {
         setErrorText('')
@@ -98,7 +104,12 @@ const ConfigureGlossary = ({ team, bot, setBot }) => {
                         <IconButton
                             icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                             label="Save Changes"
-                            theme="blueSolid"
+                            theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                            className={
+                                bounceSave && isDirty && !isUpdating
+                                    ? 'animate-bounce'
+                                    : undefined
+                            }
                             size="sm"
                             onClick={updateBot}
                             disabled={isUpdating}
@@ -127,7 +138,11 @@ const ConfigureGlossary = ({ team, bot, setBot }) => {
                     <Button
                         label={isUpdating ? 'Saving' : 'Save Changes'}
                         icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
-                        theme="blueSolid"
+                        theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                        className={
+                            isDirty && !isUpdating ? 'animate-pulse'
+                                : undefined
+                        }
                         size="md"
                         onClick={updateBot}
                         disabled={isUpdating}

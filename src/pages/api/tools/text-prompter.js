@@ -221,7 +221,7 @@ Generate 3 professional email response variations that address the email convers
   },
 
   'answer-generator': {
-    model: 'gpt-5-mini',
+    model: 'gpt-5.4-mini',
     reasoning_effort: 'low',
     messages: [
       {

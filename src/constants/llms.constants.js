@@ -4690,9 +4690,9 @@ const LLMS = [
     slug: 'gpt-5-4',
     provider: 'openai',
     description:
-      'GPT‑5.4 is OpenAI’s most capable frontier model for professional work, released in March 2026. It combines the industry-leading coding capabilities of GPT‑5.3‑Codex with improved reasoning, computer use, and tool efficiency. GPT‑5.4 introduces native state-of-the-art computer-use capabilities, tool search for working with large tool ecosystems efficiently, and up to 1M token context (experimental). Available in ChatGPT as GPT‑5.4 Thinking, in Codex, and via OpenAI API as gpt-5.4.',
-    input_context_window: '272K (1M experimental in Codex)',
-    maximum_output_tokens: null,
+      'GPT‑5.4 is our frontier model for complex professional work. Learn more in our latest model guide. Reasoning.effort supports: none (default), low, medium, high and xhigh.',
+    input_context_window: '1,050,000',
+    maximum_output_tokens: '128K',
     input_cost_per_million_tokens: 2.50,
     output_cost_per_million_tokens: 15,
     open_source: false,
@@ -4906,12 +4906,12 @@ const LLMS = [
     description:
       "GPT‑5.4 mini is OpenAI's most capable small model, bringing many of the strengths of GPT‑5.4 to a faster, more efficient architecture designed for high-volume workloads. It significantly improves over GPT‑5 mini across coding, reasoning, multimodal understanding, and tool use while running more than 2x faster. GPT‑5.4 mini approaches GPT‑5.4 performance on several evaluations including SWE-Bench Pro and OSWorld-Verified, making it ideal for coding assistants, subagents, computer-using systems, and real-time multimodal applications.",
     input_context_window: '400K',
-    maximum_output_tokens: null,
+    maximum_output_tokens: '128K',
     input_cost_per_million_tokens: 0.75,
     output_cost_per_million_tokens: 4.50,
     open_source: false,
     release_date: '2026-03-17',
-    knowledge_cut_off_date: null,
+    knowledge_cut_off_date: 'Aug 31 2025',
     api_providers:
       'OpenAI API, Codex, ChatGPT',
     modalities: {
@@ -5019,12 +5019,12 @@ const LLMS = [
     description:
       "GPT‑5.4 nano is OpenAI's smallest, cheapest version of GPT‑5.4, optimized for tasks where speed and cost matter most. It is a significant upgrade over GPT‑5 nano and is recommended for classification, data extraction, ranking, and coding subagents that handle simpler supporting tasks. Available only in the API.",
     input_context_window: '400K',
-    maximum_output_tokens: null,
+    maximum_output_tokens: '128K',
     input_cost_per_million_tokens: 0.20,
     output_cost_per_million_tokens: 1.25,
     open_source: false,
     release_date: '2026-03-17',
-    knowledge_cut_off_date: null,
+    knowledge_cut_off_date: 'Aug 31 2025',
     api_providers:
       'OpenAI API',
     modalities: {
@@ -5137,7 +5137,7 @@ const LLMS = [
     output_cost_per_million_tokens: 14,
     open_source: false,
     release_date: '2025-12-10',
-    knowledge_cut_off_date: 'Mid 2025',
+    knowledge_cut_off_date: 'Aug 31 2025',
     api_providers:
       'OpenAI API (Responses & Chat Completions), ChatGPT (Instant, Thinking, Pro)',
     modalities: {
@@ -5222,7 +5222,7 @@ const LLMS = [
     output_cost_per_million_tokens: 10,
     open_source: false,
     release_date: '2025-11-13',
-    knowledge_cut_off_date: 'Fall 2024, July 2025 (mini/nano)',
+    knowledge_cut_off_date: 'Sep 30 2024',
     api_providers:
       'OpenAI API (Responses & Chat Completions), ChatGPT (Instant & Thinking), Codex (CLI & IDE)',
     modalities: {
@@ -5426,7 +5426,7 @@ const LLMS = [
     output_cost_per_million_tokens: 10,
     open_source: false,
     release_date: '2025-08-07',
-    knowledge_cut_off_date: 'Fall 2024, July 2025 (mini/nano)',
+    knowledge_cut_off_date: 'Sep 30 2024',
     api_providers: 'OpenAI API, ChatGPT (Free, Plus, Pro, Enterprise)',
     modalities: {
       text: true,
@@ -5583,6 +5583,118 @@ const LLMS = [
       FinanceAgent: {
         score: 46.9,
         source: 'https://www.anthropic.com/news/claude-sonnet-4-5',
+      },
+    },
+  },
+  {
+    model_name: 'GPT‑5 mini',
+    slug: 'gpt-5-mini',
+    provider: 'openai',
+    description:
+      "GPT‑5 mini is a faster, more cost-efficient version of GPT‑5 for cost-sensitive, low-latency, high-volume workloads. It's great for well-defined tasks and precise prompts. Reasoning.effort supports: none (default), low, medium, high.",
+    input_context_window: '400K',
+    maximum_output_tokens: '128K',
+    input_cost_per_million_tokens: 0.25,
+    output_cost_per_million_tokens: 2,
+    open_source: false,
+    release_date: '2025-08-07',
+    knowledge_cut_off_date: 'May 31, 2024',
+    api_providers: 'OpenAI API',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      // Coding
+      SWEBenchPro: {
+        score: 45.7,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      TerminalBench: {
+        score: 38.2,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Tool-calling
+      MCPAtlas: {
+        score: 47.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Toolathlon: {
+        score: 26.9,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      Tau2BenchTelecom: {
+        score: 74.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Intelligence
+      GPQA: {
+        score: 81.6,
+        notes: 'Diamond',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamNoTools: {
+        score: 18.3,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 31.6,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // MM / Vision / CUA
+      OSWorld: {
+        score: 42.0,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProWithPython: {
+        score: 74.1,
+        notes: 'with Python',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      MMMUProNoTools: {
+        score: 67.5,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OmniDocBench: {
+        score: 0.1791,
+        notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+
+      // Long context
+      OpenAIMRCRv2Needle64K_128K: {
+        score: 35.1,
+        notes: '8-needle, 64K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 19.4,
+        notes: '8-needle, 128K–256K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksBFS0K_128K: {
+        score: 73.4,
+        notes: '0K–128K',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
+      },
+      GraphwalksParents0_128K: {
+        score: 64.3,
+        notes: '0–128K (accuracy)',
+        source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
     },
   },

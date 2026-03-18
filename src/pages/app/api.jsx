@@ -115,7 +115,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
   const [copyMessage, setCopyMessage] = useState(null)
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
   const [integrations, setIntegrations] = useState(initialIntegrations)
-  const defaultModel = 'GPT-5 mini';
+  const defaultModel = 'GPT-5.4 nano';
   const [copiedApiKey, setCopiedApiKey] = useState(false)
   const [isCopyableApiKey, setIsCopyableApiKey] = useState(false)
   const [mcpClients, setMcpClients] = useState(initialMcpClients)

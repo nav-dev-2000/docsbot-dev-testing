@@ -65,6 +65,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
     const [open, setOpen] = useState(false)
     const [errorText, setErrorText] = useState(null)
     const [isUpdating, setIsUpdating] = useState(false)
+    const [bounceSave, setBounceSave] = useState(false)
     const [botSettings, setBotSettings] = useState({})
     const [showOpenAI, setShowOpenAI] = useState(false)
 
@@ -83,6 +84,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
             !showOpenAI &&
             !team.openAIKey &&
             ![
+                'gpt-5.4-nano',
                 'gpt-5-nano',
                 'gpt-5-mini',
                 'gpt-4o-mini',
@@ -99,6 +101,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
             // Only set default model if no model is already set or if the current model requires an API key
             const currentModel = botSettings.model || bot?.model
             const modelsThatRequireAPIKey = [
+                'gpt-5.4-mini',
                 'gpt-5.1',
                 'gpt-5',
                 'gpt-4.1',
@@ -109,7 +112,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                 !currentModel ||
                 modelsThatRequireAPIKey.includes(currentModel)
             ) {
-                const defaultModel = 'gpt-4.1-mini'
+                const defaultModel = 'gpt-5.4-nano'
                 setBotSettings({ ...botSettings, model: defaultModel })
             }
         }
@@ -119,7 +122,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         const formOnlyKeys = new Set(['classify'])
         // Treat empty string and undefined as equal for optional string fields (avoids false dirty when agent mode is off and agentPrompt is unset)
         const optionalStringKeys = new Set(['agentPrompt', 'agentRole', 'description'])
-        const defaultModel = 'gpt-5-mini'
+        const defaultModel = 'gpt-5.4-nano'
         return Object.keys(botSettings)
             .filter((key) => !formOnlyKeys.has(key))
             .some((key) => {
@@ -138,6 +141,11 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
     }, [botSettings, bot])
 
     useUnsavedChangesWarning(isDirty, isUpdating)
+
+    useEffect(() => {
+        // Bounce continuously while there are unsaved changes.
+        setBounceSave(Boolean(isDirty && !isUpdating))
+    }, [isDirty, isUpdating])
 
     async function updateBot() {
         setErrorText('')
@@ -189,7 +197,12 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                         <IconButton
                             icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                             label="Save Changes"
-                            theme="blueSolid"
+                            theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                            className={
+                                bounceSave && isDirty && !isUpdating
+                                    ? 'animate-bounce'
+                                    : undefined
+                            }
                             size="sm"
                             type="submit"
                             name="submit-form"
@@ -228,7 +241,11 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
                     <Button
                         label={isUpdating ? 'Saving' : 'Save Changes'}
                         icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
-                        theme="blueSolid"
+                        theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                        className={
+                            isDirty && !isUpdating ? 'animate-pulse'
+                                : undefined
+                        }
                         size="md"
                         type="submit"
                         name="submit-form"

@@ -733,7 +733,7 @@ Reason enum (pick the best single reason):
             })
 
             const verification = await openai.chat.completions.create({
-              model: 'gpt-5-mini',
+              model: 'gpt-5.4-mini',
               reasoning_effort: 'medium',
               messages: [
                 { role: 'system', content: VERIFICATION_PROMPT },

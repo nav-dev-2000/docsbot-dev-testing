@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 
 import Alert from '@/components/Alert'
@@ -14,6 +14,7 @@ import Workspace from '@new-dashboard/Workspace'
 const ConfigureQuestions = ({ team, bot, setBot }) => {
     const [errorText, setErrorText] = useState(null)
     const [isUpdating, setIsUpdating] = useState(false)
+    const [bounceSave, setBounceSave] = useState(false)
     const [botSettings, setBotSettings] = useState({
         questions: bot?.questions || [],
     })
@@ -51,6 +52,11 @@ const ConfigureQuestions = ({ team, bot, setBot }) => {
         [questions, bot?.questions],
     )
     useUnsavedChangesWarning(isDirty, isUpdating)
+
+    useEffect(() => {
+        // Bounce continuously while there are unsaved changes.
+        setBounceSave(Boolean(isDirty && !isUpdating))
+    }, [isDirty, isUpdating])
 
     async function updateBot() {
         setErrorText('')
@@ -97,7 +103,12 @@ const ConfigureQuestions = ({ team, bot, setBot }) => {
                         <IconButton
                             icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
                             label="Save Changes"
-                            theme="blueSolid"
+                            theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                            className={
+                                bounceSave && isDirty && !isUpdating
+                                    ? 'animate-bounce'
+                                    : undefined
+                            }
                             size="sm"
                             onClick={updateBot}
                             disabled={isUpdating}
@@ -125,7 +136,10 @@ const ConfigureQuestions = ({ team, bot, setBot }) => {
                     <Button
                         label={isUpdating ? 'Saving' : 'Save Changes'}
                         icon={isUpdating ? LoadingSpinner : SaveDiskIcon}
-                        theme="blueSolid"
+                        theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
+                        className={
+                            isDirty && !isUpdating ? 'animate-pulse' : undefined
+                        }
                         size="md"
                         onClick={updateBot}
                         disabled={isUpdating}

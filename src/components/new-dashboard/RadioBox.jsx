@@ -88,7 +88,8 @@ const RadioBox = ({
     const capabilityTags = CAPABILITY_TAGS.filter(
         (tag) =>
             capabilities[tag.key] &&
-            !(tag.key === 'best' && included),
+            !(tag.key === 'best' && included) &&
+            !(tag.key === 'costEffective' && included),
     )
     const lifecycleTags = LIFECYCLE_TAGS.filter((tag) => lifecycle[tag.key])
     const tags = [

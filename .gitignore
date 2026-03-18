@@ -39,3 +39,7 @@ cors.json
 
 public/sitemap*
 public/latest-news.json
+
+# stripe extension (local build outputs)
+/stripe/.build/
+/stripe/node_modules/

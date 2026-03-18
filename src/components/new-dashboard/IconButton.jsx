@@ -15,6 +15,7 @@ const IconButton = forwardRef(
             size = 'md',
             theme,
             className,
+            iconClassName,
             ...props
         },
         ref,
@@ -74,7 +75,11 @@ const IconButton = forwardRef(
                 )}
                 {...propsElement}
             >
-                {icon && <IconElement className={clsx(iconClass, '!mx-0')} />}
+                {icon && (
+                    <IconElement
+                        className={clsx(iconClass, '!mx-0', iconClassName)}
+                    />
+                )}
                 {faIcon && <FontAwesomeIcon icon={faIcon} size={faIconSize} />}
                 {label && <span className="sr-only">{label}</span>}
             </Element>

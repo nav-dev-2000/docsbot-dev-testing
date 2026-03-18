@@ -14,6 +14,7 @@ const Button = forwardRef(
             theme,
             size = 'sm',
             className,
+            iconClassName,
             ...props
         },
         ref,
@@ -65,9 +66,17 @@ const Button = forwardRef(
                 )}
                 {...propsElement}
             >
-                {(IconElement && iconPosition === 'lead') && <IconElement className="size-4" />}
+                {(IconElement && iconPosition === 'lead') && (
+                    <IconElement
+                        className={clsx('size-4', iconClassName)}
+                    />
+                )}
                 {label}
-                {(IconElement && iconPosition === 'trail') && <IconElement className="size-4" />}
+                {(IconElement && iconPosition === 'trail') && (
+                    <IconElement
+                        className={clsx('size-4', iconClassName)}
+                    />
+                )}
             </Element>
         )
     },

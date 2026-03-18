@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { checkPlanPermission } from '@/utils/helpers'
-import { useModelSelector } from '@/components/ModelSelector/ModelSelector.hooks'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import { i18n } from '@/constants/strings.constants'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserCreateDeleteBot, canUserManageBotSettings } from '@/utils/function.utils'
+import SystemModelSelector, {
+    MODELS_REQUIRING_OPENAI_KEY,
+} from '@/components/new-dashboard/SystemModelSelector'
 
 import Link from 'next/link'
 import ModalCheckout from '@/components/ModalCheckout'
 import FieldToggle from '@/components/FieldToggle'
-import RadioBox from '@new-dashboard/RadioBox'
 import Box from '@new-dashboard/Box'
 import Note from '@new-dashboard/Note'
 import FormField from '@new-dashboard/FormField'
@@ -25,162 +26,7 @@ import {
     Squares2X2Icon,
 } from '@heroicons/react/24/outline'
 
-const AVAILABLE_MODELS = [
-    {
-        id: 'gpt-5-4',
-        value: 'gpt-5.4',
-        title: 'GPT-5.4',
-        description:
-            'Latest flagship with long-context, strong tool use, and adaptive reasoning.',
-        status: 'Newest Frontier',
-        capabilities: { powerful: true },
-        hasVerification: true,
-    },
-    {
-        id: 'gpt-5-2',
-        value: 'gpt-5.2',
-        title: 'GPT-5.2',
-        description:
-            'Previous flagship tuned for long-context work, stronger tool use, and adaptive reasoning.',
-        status: 'recommended',
-        hasVerification: true,
-    },
-    {
-        id: 'gpt-5-1',
-        value: 'gpt-5.1',
-        title: 'GPT-5.1',
-        description:
-            'Previous flagship with adaptive reasoning and fast responses for complex tasks.',
-        hasVerification: true,
-    },
-    {
-        id: 'gpt-5',
-        value: 'gpt-5',
-        title: 'GPT-5',
-        description:
-            'Smartest, fastest, most useful model yet, with thinking built in — so you get the best answer, every time.',
-        capabilities: { generalPurpose: true },
-        hasVerification: true,
-    },
-    {
-        id: 'gpt-4.1',
-        value: 'gpt-4.1',
-        title: 'GPT-4.1',
-        description: 'Previous generation model good at instruction following.',
-    },
-    {
-        id: 'gpt-5-mini',
-        value: 'gpt-5-mini',
-        title: 'GPT-5 mini',
-        description:
-            'Smart, fast, and useful model. Good for most support use cases.',
-        status: 'recommended',
-        capabilities: { best: true },
-        hasVerification: true,
-    },
-    {
-        id: 'gpt-4.1-mini',
-        value: 'gpt-4.1-mini',
-        title: 'GPT-4.1 mini',
-        description:
-            'Faster than GPT-4.1 while still good at instruction following.',
-    },
-    {
-        id: 'gpt-5-nano',
-        value: 'gpt-5-nano',
-        title: 'GPT-5 nano',
-        description:
-            'Included in all plans. Affordable & extremely fast model.',
-        capabilities: {
-            fast: true,
-            costEffective: true,
-        },
-    },
-    {
-        id: 'gpt-4.1-nano',
-        value: 'gpt-4.1-nano',
-        title: 'GPT-4.1 nano',
-        description:
-            'Previous generation model. We recommend upgrading to at least GPT-4.1 mini.',
-    },
-    {
-        id: 'gpt-4.5-preview',
-        value: 'gpt-4.5-preview',
-        title: 'GPT-4.5',
-        description:
-            'Very slow, expensive ($0.27/question), and low rate limits. Not recommended for most use cases.',
-        expirationDate: 'June 2025',
-        status: 'notRecommended',
-    },
-    {
-        id: 'gpt-4o',
-        value: 'gpt-4o',
-        title: 'GPT-4o',
-        description:
-            'Previous generation general purpose model. Consider upgrading to GPT-4.1.',
-    },
-    {
-        id: 'gpt-4o-mini',
-        value: 'gpt-4o-mini',
-        title: 'GPT-4o mini',
-        description:
-            'Previous generation model. Consider upgrading to GPT-4.1 mini.',
-    },
-    {
-        id: 'gpt-4-turbo',
-        value: 'gpt-4-turbo',
-        title: 'GPT-4 Turbo',
-        description:
-            'Previous generation model. Recommend upgrading to GPT-4.1.',
-        lifecycle: { legacy: true },
-    },
-    {
-        id: 'gpt-4',
-        value: 'gpt-4',
-        title: 'GPT-4',
-        description:
-            'Previous generation model. Recommend upgrading to GPT-4.1.',
-        lifecycle: { legacy: true },
-    },
-    {
-        id: 'gpt-3.5-turbo',
-        value: 'gpt-3.5-turbo',
-        title: 'GPT 3.5 Turbo',
-        description:
-            'Previous generation model. Recommend upgrading to GPT-4.1.',
-        lifecycle: { legacy: true },
-    },
-    {
-        id: 'gpt-3.5-turbo-0613',
-        value: 'gpt-3.5-turbo-0613',
-        title: 'GPT 3.5 Turbo',
-        description:
-            'The legacy June 2023 snapshot of GPT-3.5 Turbo, succeeded by more efficient versions.',
-        status: 'notRecommended',
-        expirationDate: 'June 2024',
-    },
-]
-
-export const getModelLabel = (modelId) =>
-    AVAILABLE_MODELS.find((m) => m.value === modelId)?.title ?? modelId
-
-const MODELS_REQUIRING_OPENAI_KEY = [
-    'gpt-5.4',
-    'gpt-5.2',
-    'gpt-5.1',
-    'gpt-5',
-    'gpt-4.1',
-    'gpt-4o',
-]
-
-/** Models available without an OpenAI API key (show "Included" label when no key is set) */
-const MODELS_INCLUDED_WITHOUT_KEY = [
-    'gpt-5-nano',
-    'gpt-5-mini',
-    'gpt-4o-mini',
-    'gpt-4.1-mini',
-    'gpt-4.1-nano',
-]
+// Model options + hook-driven visibility live in `SystemModelSelector`.
 
 export default function FormBot({
     team,
@@ -192,7 +38,7 @@ export default function FormBot({
 }) {
     const [user] = useAuthState(auth)
 
-    const defaultModel = 'gpt-5-mini'
+    const defaultModel = 'gpt-5.4-nano'
     const [language, setLanguage] = useState(bot?.language || 'en')
     const [botName, setBotName] = useState(bot?.name || '')
     const [botDescription, setBotDescription] = useState(bot?.description || '')
@@ -220,14 +66,6 @@ export default function FormBot({
     const [temperature, setTemperature] = useState(bot?.temperature || 0)
     const [agentPrompt, setAgentPrompt] = useState(bot?.agentPrompt || '')
     const [agentRole, setAgentRole] = useState(bot?.agentRole || '')
-
-    const { modelVisibility, setModel: applyModelChange } = useModelSelector({
-        team,
-        model,
-        defaultModel,
-        onModelChange: setModel,
-        short,
-    })
 
     // Sync labels to new language when user changes language (skip initial mount to preserve custom labels)
     const isInitialMount = useRef(true)
@@ -317,11 +155,14 @@ export default function FormBot({
                     'gpt-5-nano',
                 ].includes(model)
             ) {
-                setShowUpgrade(true)
-                setModel('gpt-4.1-mini')
-                console.log(
-                    'Setting default free/hobby plan model to gpt-4.1-mini',
-                )
+                // GPT-5.4 mini should be gated by OpenAI key (not plan upgrade).
+                if (MODELS_REQUIRING_OPENAI_KEY.includes(model) && !team.openAIKey) {
+                    onOpenAIKeyRequired?.()
+                } else {
+                    setShowUpgrade(true)
+                }
+                setModel('gpt-5.4-nano')
+                console.log('Reverting free/hobby model to gpt-5.4-nano')
             }
         } else {
             // For paid plan users (personal and above): if they select a model that requires an OpenAI key but they don't have one, revert and open the add-key modal
@@ -329,10 +170,10 @@ export default function FormBot({
                 MODELS_REQUIRING_OPENAI_KEY.includes(model) &&
                 !team.openAIKey
             ) {
-                setModel('gpt-5-mini')
+                setModel('gpt-5.4-nano')
                 onOpenAIKeyRequired?.()
                 console.log(
-                    'Reverting to gpt-5-mini for paid plan user without OpenAI key',
+                    'Reverting to gpt-5.4-nano for paid plan user without OpenAI key',
                 )
             }
         }
@@ -650,46 +491,14 @@ export default function FormBot({
                             : '#model-section'
                     }
                 >
-                    <fieldset className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        <legend className="sr-only">OpenAI Models</legend>
-
-                        {AVAILABLE_MODELS.map(
-                            (modelItem) =>
-                                modelVisibility[modelItem.value] && (
-                                    <RadioBox
-                                        key={modelItem.id}
-                                        id={modelItem.id}
-                                        name="model"
-                                        value={modelItem.value}
-                                        checked={model === modelItem.value}
-                                        onChange={() =>
-                                            applyModelChange(modelItem.value)
-                                        }
-                                        disabled={disabled}
-                                        title={modelItem.title}
-                                        description={modelItem.description}
-                                        status={modelItem.status}
-                                        capabilities={modelItem.capabilities}
-                                        hasVerification={
-                                            modelItem.value === 'gpt-5-mini'
-                                                ? team?.openAIKey &&
-                                                  modelItem.hasVerification
-                                                : modelItem.hasVerification
-                                        }
-                                        expirationDate={
-                                            modelItem.expirationDate
-                                        }
-                                        lifecycle={modelItem.lifecycle}
-                                        included={
-                                            !team?.openAIKey &&
-                                            MODELS_INCLUDED_WITHOUT_KEY.includes(
-                                                modelItem.value,
-                                            )
-                                        }
-                                    />
-                                ),
-                        )}
-                    </fieldset>
+                    <SystemModelSelector
+                        team={team}
+                        model={model}
+                        onModelChange={setModel}
+                        disabled={disabled}
+                        short={short}
+                        defaultModel={defaultModel}
+                    />
                 </Box>
             </div>
         </>

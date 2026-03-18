@@ -501,7 +501,11 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       }
     }
     if (model.startsWith('gpt-5')) {
-      const isFullGPT5Model = model !== 'gpt-5-mini' && model !== 'gpt-5-nano'
+      const isFullGPT5Model =
+        model !== 'gpt-5-mini' &&
+        model !== 'gpt-5-nano' &&
+        model !== 'gpt-5.4-mini' &&
+        model !== 'gpt-5.4-nano'
       if (isFullGPT5Model && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
         throw new Error('GPT-5 models are not available at your plan level.')
       }
@@ -527,6 +531,8 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-4.1-nano',
       'gpt-4.1',
       'gpt-5.4',
+      'gpt-5.4-mini',
+      'gpt-5.4-nano',
       'gpt-5.2',
       'gpt-5.1',
       'gpt-5',
@@ -536,12 +542,22 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
     }
-    if (!['gpt-4o-mini', 'gpt-4.1-nano', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5-nano'].includes(model) && !team?.openAIKey) {
+    if (
+      ![
+        'gpt-4o-mini',
+        'gpt-4.1-nano',
+        'gpt-4.1-mini',
+        'gpt-5-mini',
+        'gpt-5-nano',
+        'gpt-5.4-nano',
+      ].includes(model) &&
+      !team?.openAIKey
+    ) {
       throw new Error('Please add your OpenAI API key to enable this model.')
     }
     botData.model = model
   } else if (!isUpdate) {
-    const defaultModel = 'gpt-5-mini'
+    const defaultModel = 'gpt-5.4-nano'
     botData.model = defaultModel
   }
 

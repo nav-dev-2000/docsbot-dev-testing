@@ -172,7 +172,14 @@ const TeamsSelector = ({ team, className = '' }) => {
   const [errorText, setErrorText] = useState('')
 
   const getPostSwitchPath = useCallback(() => {
-    if (router.pathname === '/app/bots/[botId]/[[...slug]]') {
+    // When under /app/bots/:id or /app/bots/:id/*, redirect to /app/bots so the new team loads cleanly.
+    const pathname = router.pathname
+    const pathWithoutQuery = (router.asPath || '').split('?')[0]
+    const isBotPanel =
+      pathname === '/app/bots/[botId]/[[...slug]]' ||
+      /^\/app\/bots\/[^/]+(\/|$)/.test(pathWithoutQuery)
+
+    if (isBotPanel) {
       return '/app/bots'
     }
 

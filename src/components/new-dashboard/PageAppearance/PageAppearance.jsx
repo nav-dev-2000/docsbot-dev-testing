@@ -65,6 +65,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [errorText, setErrorText] = useState(null)
     const [infoText, setInfoText] = useState(null)
     const [isUpdating, setIsUpdating] = useState(false)
+    const [bounceSave, setBounceSave] = useState(false)
     const [uploading, setUploading] = useState(null)
     const [showUpgrade, setShowUpgrade] = useState(false)
     const [canModify, setModify] = useState(false)
@@ -373,6 +374,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     ])
 
     useEffect(() => {
+        // Bounce continuously while there are unsaved changes.
+        setBounceSave(Boolean(isDirty && !isUpdating))
+    }, [isDirty, isUpdating])
+
+    useEffect(() => {
         const handleBrowseAway = (url) => {
             if (!isDirty || isUpdating) return
             if (
@@ -575,9 +581,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     ? { icon: LoadingSpinner }
                     : { icon: SaveDiskIcon })}
                 theme={isDirty && !isUpdating ? 'blueSolid' : undefined}
-                className={clsx(
-                    isDirty && !isUpdating && 'animate-pulse',
-                )}
+                className={bounceSave ? 'animate-bounce' : undefined}
                 label="Save Changes"
                 onClick={(event) => {
                     event.preventDefault()
@@ -731,7 +735,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     title={appearanceTitle}
                     action={SidebarActions}
                     className={clsx(
-                        'fixed left-0 top-0 z-[1000000] h-full !max-w-none md:absolute md:z-10 md:!max-w-[420px] lg:!max-w-[60%]',
+                        'fixed left-0 top-0 z-[1000000] h-full !max-w-none md:absolute md:z-30 md:!max-w-[420px] lg:!max-w-[60%]',
                         sidebarOpen
                             ? 'flex w-full lg:w-auto'
                             : 'hidden lg:flex',
@@ -758,60 +762,60 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                             e.preventDefault()
                         }}
                     >
-                        {(!isAgent || errorText) && (
-                            <div className="mt-2 px-6">
-                                <Alert title={errorText} type="error" />
-
-                                {!isAgent && (
-                                    <Alert
-                                        title="Agent Mode is here!"
-                                        type="info"
-                                    >
-                                        Please enable our new{' '}
-                                        <Link
-                                            href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
-                                            target="_blank"
-                                            className="text-blue-600 underline hover:text-blue-500"
-                                        >
-                                            Agentic mode
-                                        </Link>
-                                        {' '}for better results and to use all our new
-                                        features. It provides more intelligent and
-                                        contextual responses, tool calling to
-                                        perform actions, conversaton view, and
-                                        so much more! When enabling,{' '}
-                                        <strong>
-                                            <button
-                                                type="button"
-                                                onClick={() =>
-                                                    setShowPromptModal(true)
-                                                }
-                                                className="text-blue-600 underline hover:text-blue-500"
-                                            >
-                                                set your agent instructions
-                                            </button>{' '}
-                                            and please test!
-                                        </strong>{' '}
-                                        Start with a preset role and adjust,
-                                        then update or remove any instructions
-                                        that may conflict.
-                                        <button
-                                            type="button"
-                                            onClick={() =>
-                                                handleAgentToggle(true)
-                                            }
-                                            className="mt-2 block rounded-lg border border-blue-600 px-4 py-2 font-medium transition hover:bg-blue-100"
-                                            disabled={isUpdating}
-                                        >
-                                            Enable Agent Mode
-                                        </button>
-                                    </Alert>
-                                )}
-                            </div>
-                        )}
-
                         <div className="min-h-0 flex-1">
                             <div className="h-full overflow-y-auto p-6">
+                                {(!isAgent || errorText) && (
+                                    <div className="mb-4">
+                                        <Alert title={errorText} type="error" />
+
+                                        {!isAgent && (
+                                            <Alert
+                                                title="Agent Mode is here!"
+                                                type="info"
+                                            >
+                                                Please enable our new{' '}
+                                                <Link
+                                                    href="https://docsbot.ai/article/docsbot-goes-agentic-ai-agents-for-your-team-customers"
+                                                    target="_blank"
+                                                    className="text-blue-600 underline hover:text-blue-500"
+                                                >
+                                                    Agentic mode
+                                                </Link>
+                                                {' '}for better results and to use all our new
+                                                features. It provides more intelligent and
+                                                contextual responses, tool calling to
+                                                perform actions, conversaton view, and
+                                                so much more! When enabling,{' '}
+                                                <strong>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            setShowPromptModal(true)
+                                                        }
+                                                        className="text-blue-600 underline hover:text-blue-500"
+                                                    >
+                                                        set your agent instructions
+                                                    </button>{' '}
+                                                    and please test!
+                                                </strong>{' '}
+                                                Start with a preset role and adjust,
+                                                then update or remove any instructions
+                                                that may conflict.
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        handleAgentToggle(true)
+                                                    }
+                                                    className="mt-2 block rounded-lg border border-blue-600 px-4 py-2 font-medium transition hover:bg-blue-100"
+                                                    disabled={isUpdating}
+                                                >
+                                                    Enable Agent Mode
+                                                </button>
+                                            </Alert>
+                                        )}
+                                    </div>
+                                )}
+
                                 {activeAppearanceTab?.content}
                             </div>
                         </div>

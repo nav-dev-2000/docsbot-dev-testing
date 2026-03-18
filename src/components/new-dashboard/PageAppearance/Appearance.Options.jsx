@@ -332,8 +332,8 @@ const AppearanceCode = ({
                     icon={isCopied ? CheckIcon : ClipboardIcon}
                     className={clsx(
                         'absolute right-2 top-2',
-                        'bg-white/60 backdrop-blur-md border-white/30',
-                        'hover:bg-white/80',
+                        '!bg-white/10 backdrop-blur-sm border-white/20 !text-white',
+                        'hover:!bg-white/20',
                         buttonProps?.className,
                     )}
                     {...buttonProps}

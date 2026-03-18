@@ -1,5 +1,11 @@
 export const FEATURE_UPDATES = [
   {
+    date: '2026-03-18',
+    title: 'GPT-5.4 Mini and Nano are here!',
+    description:
+      'Fast, high-quality reasoning with strong tool efficiency for smarter, more efficient agents.',
+  },
+  {
     date: '2026-03-12',
     title: 'Widget Content options: Keep footer message visible',
     description:

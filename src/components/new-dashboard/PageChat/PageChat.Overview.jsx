@@ -1,6 +1,6 @@
 import React from 'react'
 import { i18n } from '@/constants/strings.constants'
-import { getModelLabel } from '@/components/FormBotNew'
+import { getModelLabel } from '@/components/new-dashboard/SystemModelSelector'
 
 import Link from 'next/link'
 import Tooltip from '@/components/Tooltip'

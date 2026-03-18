@@ -530,7 +530,7 @@ export const crawlAndExtract = async (url, metadata = {}) => {
   let chat_completion = null
   try {
     chat_completion = await openai.chat.completions.create({
-      model: 'gpt-5-mini',
+      model: 'gpt-5.4-mini',
       messages,
       response_format: {
         type: 'json_schema',
