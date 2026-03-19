@@ -1,0 +1,5 @@
+{
+  "date": "2026-01-23",
+  "title": "Dashboard chat shows reasoning and tool calls",
+  "description": "Chat dashboard shows reasoning events and search tool calls, plus a new reasoning selector for dashboard chats."
+}

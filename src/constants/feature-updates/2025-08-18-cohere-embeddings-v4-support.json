@@ -1,0 +1,5 @@
+{
+  "date": "2025-08-18",
+  "title": "Cohere embeddings v4 support",
+  "description": "Added Cohere embeddings v4. Now default for paid non-English bots on creation."
+}

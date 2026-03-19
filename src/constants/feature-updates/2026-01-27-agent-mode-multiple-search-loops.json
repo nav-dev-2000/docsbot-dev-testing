@@ -1,0 +1,5 @@
+{
+  "date": "2026-01-27",
+  "title": "Agent mode multiple search loops",
+  "description": "Bots can perform multiple searches with reasoning in between when documentation isn't found. Control limits via custom instructions or the new API parameter."
+}

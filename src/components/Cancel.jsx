@@ -10,7 +10,8 @@ import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
 import Alert from '@/components/Alert'
 import { usePostHog } from 'posthog-js/react'
-import { FEATURE_UPDATES } from '@/constants/featureUpdates.constants'
+import featureUpdates from '/public/feature-updates.json'
+const FEATURE_UPDATES = featureUpdates
 
 export default function Cancel({ team, bots }) {
   const posthog = usePostHog()

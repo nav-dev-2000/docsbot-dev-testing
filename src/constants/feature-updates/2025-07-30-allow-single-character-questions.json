@@ -1,0 +1,5 @@
+{
+  "date": "2025-07-30",
+  "title": "Allow Single-Character Questions",
+  "description": "API and Widgets now accept single-character questions, improving support for languages like Japanese."
+}

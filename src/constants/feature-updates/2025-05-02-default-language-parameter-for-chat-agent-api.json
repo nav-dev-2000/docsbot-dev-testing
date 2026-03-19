@@ -1,0 +1,5 @@
+{
+  "date": "2025-05-02",
+  "title": "Default Language Parameter for Chat Agent API",
+  "description": "Chat Agent API now supports a default language parameter as a fallback if AI cannot detect the language. Used by the widget (browser language)."
+}

@@ -1,0 +1,5 @@
+{
+  "date": "2026-01-29",
+  "title": "Widget link safety confirmation",
+  "description": "Added link safety feature in widget settings (off by default) to show a confirmation modal when clicking links outside the current site or allowed domains."
+}

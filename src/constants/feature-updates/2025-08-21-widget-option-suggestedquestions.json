@@ -1,0 +1,6 @@
+{
+  "date": "2025-08-21",
+  "title": "Widget option: suggestedQuestions",
+  "description": "Control how many random suggested questions appear in the embed widget.",
+  "href": "/documentation/developer/widget-integrations"
+}

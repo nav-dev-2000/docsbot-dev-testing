@@ -288,6 +288,7 @@ const nextConfig = {
     if (isServer) {
       require('./scripts/generate-sitemap')
       require('./scripts/latest-news')
+      require('./scripts/generate-feature-updates')
     }
 
     // Silence known dynamic require warning from @truto/truto-link-sdk client bundle

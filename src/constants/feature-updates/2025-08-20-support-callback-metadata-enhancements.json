@@ -1,0 +1,5 @@
+{
+  "date": "2025-08-20",
+  "title": "Support callback metadata enhancements",
+  "description": "Widget supportCallback now includes conversationId and conversationUrl in metadata for easier ticket integrations."
+}

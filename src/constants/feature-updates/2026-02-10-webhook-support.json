@@ -1,0 +1,6 @@
+{
+  "date": "2026-02-10",
+  "title": "Webhook support",
+  "description": "Subscribe to bot events (lead capture, deep research, escalation, rating) via REST hooks. Zapier-ready, per-bot storage, multi-event subscriptions. Configure in Integrations.",
+  "href": "/documentation/developer/webhooks-api"
+}

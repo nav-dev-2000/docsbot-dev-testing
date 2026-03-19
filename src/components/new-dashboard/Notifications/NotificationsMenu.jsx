@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import Link from 'next/link'
 import { Menu } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
@@ -13,7 +14,7 @@ const NotificationsMenu = forwardRef(
                 {...props}
                 className={clsx(
                     'w-full md:w-96 max-w-none md:max-w-[92vw] overflow-hidden',
-                    'md:absolute fixed z-50 md:z-20 inset-0 md:inset-auto origin-top-right md:right-0',
+                    'md:absolute fixed z-50 md:z-[100] inset-0 md:inset-auto origin-top-right md:right-0',
                     'flex md:flex-none flex-col md:mt-2 ring-1 ring-black ring-opacity-5 rounded-none md:rounded-md',
                     'bg-white shadow-lg focus:outline-none',
                     props.className,
@@ -85,12 +86,42 @@ const NotificationsMenu = forwardRef(
                                 <div
                                     className={clsx(
                                         'mt-1 text-sm',
-                                        isUnread
-                                            ? 'text-cyan-50'
-                                            : 'text-gray-600',
+                                        isUnread ? 'text-cyan-50' : 'text-gray-600',
                                     )}
                                 >
                                     {update.description}
+                                    {update.href ? (
+                                        <>
+                                            {' '}
+                                            <Link
+                                                href={update.href}
+                                                className={clsx(
+                                                    'inline-flex items-center font-medium',
+                                                    'hover:underline underline-offset-2',
+                                                    isUnread
+                                                        ? 'text-cyan-100'
+                                                        : 'text-cyan-700',
+                                                )}
+                                                target={
+                                                    update.href.startsWith('/')
+                                                        ? undefined
+                                                        : '_blank'
+                                                }
+                                                rel={
+                                                    update.href.startsWith('/')
+                                                        ? undefined
+                                                        : 'noreferrer noopener'
+                                                }
+                                                prefetch={false}
+                                                onClick={close}
+                                            >
+                                                Details
+                                                <span aria-hidden="true" className="ml-0">
+                                                    &rarr;
+                                                </span>
+                                            </Link>
+                                        </>
+                                    ) : null}
                                 </div>
                             </div>
                         )

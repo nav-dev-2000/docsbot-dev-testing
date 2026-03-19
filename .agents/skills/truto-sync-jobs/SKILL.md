@@ -1,6 +1,6 @@
 ---
 name: truto-sync-jobs
-description: Edit, push, and debug Truto sync jobs in this repo. Use when working on files in `truto/*.json`, `src/lib/truto.js`, Truto sync-job runs, webhook payloads, or Zoho/Freshdesk/Zendesk sync behavior.
+description: Edit, push, and debug Truto sync jobs in this repo. Use when working on files in `truto/*.json`, `src/lib/truto.js`, Truto sync-job runs, webhook payloads, or any isTruto source type sync behavior.
 ---
 
 # Truto Sync Jobs

@@ -1,0 +1,5 @@
+{
+  "date": "2025-08-02",
+  "title": "Semantic Search API: New Alpha parameter",
+  "description": "Semantic search API now has a new alpha parameter for more control over hybrid search."
+}

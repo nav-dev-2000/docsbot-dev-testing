@@ -1,0 +1,5 @@
+{
+  "date": "2025-04-30",
+  "title": "New API Endpoint for Ticket Writing on Escalation",
+  "description": "Added an API endpoint to write support tickets automatically on escalation, used by supportCallback in the chat widget."
+}

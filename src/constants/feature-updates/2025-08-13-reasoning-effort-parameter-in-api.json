@@ -1,0 +1,5 @@
+{
+  "date": "2025-08-13",
+  "title": "Reasoning Effort Parameter in API",
+  "description": "Chat Agent API docs updated to include the new reasoning effort parameter for more control over responses."
+}
