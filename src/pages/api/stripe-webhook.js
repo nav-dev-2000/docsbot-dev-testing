@@ -75,12 +75,16 @@ const findConfiguredPlan = (items, configuredPlans) => {
   return items[0]?.plan ?? null
 }
 
-//add Slack webhook
-const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL, {
+const slackWebhookOptions = {
   username: 'DocsBot-AI',
   icon_url: 'https://docsbot.ai/apple-touch-icon.png',
   channel: '#signups',
-})
+}
+
+const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL?.trim()
+const slack = slackWebhookUrl
+  ? new IncomingWebhook(slackWebhookUrl, slackWebhookOptions)
+  : { send: async () => {} }
 
 const webhookHandler = async (req, res) => {
   if (req.method === 'POST') {

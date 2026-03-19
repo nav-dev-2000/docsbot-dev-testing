@@ -9,7 +9,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline'
 const TopBarMobile = ({ team, bot, bots }) => {
     return (
         <div className="flex flex-1 items-center justify-between md:hidden">
-            <TopBarLeft bot={bot} bots={bots} />
+            <TopBarLeft bot={bot} bots={bots} wizardId="bot-switcher" />
 
             <div className="flex flex-none items-center gap-4">
                 <Notifications />

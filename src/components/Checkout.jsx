@@ -11,9 +11,11 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
 import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
+import { parseDocsbotCouponCookie } from '@/utils/couponCookie.utils'
 import SaleLoyalty, { LOYALTY_SALE_DEADLINE } from '@/components/SaleLoyalty'
 import AnnualSaleUpgradePricingTable from '@/components/AnnualSaleUpgradePricingTable'
 import { getAnnualSalePersonaMessage } from '@/components/annualSaleConfig'
+import PilotTrialActivation from '@/components/PilotTrialActivation'
 
 export default function Checkout({
   team,
@@ -22,6 +24,7 @@ export default function Checkout({
   bots = null,
   teamInvites = [],
   teamSourceTypes = [],
+  hasDemoTrialPromotion = false,
 }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
@@ -58,7 +61,7 @@ export default function Checkout({
   useEffect(() => {
     if (!isStripeCustomer) {
       const cookies = cookie.parse(document.cookie || '')
-      const couponId = cookies['docsbot_coupon']
+      const { couponId } = parseDocsbotCouponCookie(cookies['docsbot_coupon'])
       if (couponId) {
         setDealMessage(DEALS[couponId]?.message || DEFAULT_DEAL.message)
       }
@@ -179,7 +182,15 @@ export default function Checkout({
         </>
       ) : (
         <div className="">
-          {!isStripeCustomer && (
+          {!isStripeCustomer && hasDemoTrialPromotion && (
+            <PilotTrialActivation
+              team={team}
+              canManageBilling={true}
+              setErrorText={setErrorText}
+              compact={true}
+            />
+          )}
+          {!isStripeCustomer && !hasDemoTrialPromotion && (
             <AnnualSalePricingTable team={team} email={user?.email} setErrorText={setErrorText} />
           )}
           {!!team.stripeCustomerId && (

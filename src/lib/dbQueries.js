@@ -1244,6 +1244,7 @@ export async function getUserTeams(userId) {
 }
 
 // creates a team if one doesn't exist
+// @returns {Promise<string>} teamId
 export async function assignDefaultTeam(userId, name) {
   let teams = await getUserTeams(userId)
 
@@ -1272,6 +1273,8 @@ export async function assignDefaultTeam(userId, name) {
     createdAt: FieldValue.serverTimestamp(),
     currentTeam: teamId,
   })
+
+  return teamId
 }
 
 export async function getInvitesFromEmail(email) {

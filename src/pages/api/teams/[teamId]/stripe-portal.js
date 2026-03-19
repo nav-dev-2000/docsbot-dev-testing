@@ -17,6 +17,8 @@ import {
   isDowngradingBelowBusiness,
   teamHasPerBotRoleAssignments,
 } from '@/utils/checkoutValidation'
+import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
+import { parseDocsbotCouponCookie } from '@/utils/couponCookie.utils'
 
 const ANNUAL_SALE_COUPONS = {
   production: {
@@ -37,8 +39,15 @@ const getAnnualSaleCoupon = (tier) => {
   return ANNUAL_SALE_COUPONS[envKey]?.[tier] ?? null
 }
 
-const resolvePriceId = (plans, tier, frequency) => {
-  return plans?.[tier]?.prices?.current?.[frequency] || null
+const resolvePriceId = (plans, tier, frequency, currency) => {
+  const plan = plans?.[tier]
+  if (!plan?.prices) return null
+  // Support currency-keyed prices: plans[tier].prices.USD.monthly
+  if (currency && plan.prices[currency]?.[frequency]) {
+    return plan.prices[currency][frequency]
+  }
+  // Fallback: plans[tier].prices.current.monthly
+  return plan.prices?.current?.[frequency] || null
 }
 
 const filterNeededProductsByPlanIds = (neededProducts, plans, allowedPlanIds = []) => {
@@ -81,7 +90,7 @@ export default async function createCheckoutSession(req, res) {
       if (tier && !upgrade) {
         const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
         const selectedFrequency = isAnnualSale ? 'annually' : frequency
-        const price = resolvePriceId(plans, tier, selectedFrequency)
+        const price = resolvePriceId(plans, tier, selectedFrequency, currency)
         const teamInvites = await getInvitesFromTeam(team.id)
 
         if (!price) throw Error('Please select a valid plan.')
@@ -148,24 +157,38 @@ export default async function createCheckoutSession(req, res) {
           params.currency = currency.toLowerCase()
         }
         const cookies = cookie.parse(req.headers.cookie || '')
-        const couponId = cookies['docsbot_coupon']
+        const { couponId } = parseDocsbotCouponCookie(cookies['docsbot_coupon'])
+        const demoTrialCode = cookies['docsbot_demo_trial']
+        const demoTrialPayload = demoTrialCode
+          ? verifyDemoTrialToken(demoTrialCode)
+          : null
         const hasSubscription =
           team.stripeCustomerId &&
           ['active', 'trialing', 'past_due', 'incomplete'].includes(
             team.stripeSubscriptionStatus
           )
+        const isDemoTrial = Boolean(demoTrialPayload)
+
+        if (isDemoTrial) {
+          if (tier !== 'business') {
+            throw Error('Demo trials are only available for the Business plan.')
+          }
+          if (team.stripeCustomerId) {
+            throw Error('Demo trials are only available for new customers.')
+          }
+        }
         if (team.stripeCustomerId) {
           params.customer = team.stripeCustomerId
         } else {
           params.tax_id_collection = { enabled: true }
           params.customer_email = email
-          if (team.canTrial) {
+          if (team.canTrial || isDemoTrial) {
             params.subscription_data = {
               trial_period_days: 14,
             }
           }
         }
-        if (couponId && !hasSubscription) {
+        if (!isDemoTrial && couponId && !hasSubscription) {
           delete params.allow_promotion_codes
           if (couponId === 'paul-higgins') {
             params.subscription_data = {
@@ -175,6 +198,10 @@ export default async function createCheckoutSession(req, res) {
           } else {
             params.discounts = [{ coupon: couponId }]
           }
+        }
+        if (isDemoTrial) {
+          params.success_url = `${getURL()}/app`
+          params.cancel_url = `${getURL()}/app/activate`
         }
 
         if (isAnnualSale) {

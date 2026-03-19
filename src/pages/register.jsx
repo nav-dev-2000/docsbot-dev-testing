@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import clsx from 'clsx'
@@ -23,8 +23,10 @@ import { updateProfile } from 'firebase/auth'
 import { NextSeo } from 'next-seo'
 import { PencilIcon } from '@heroicons/react/24/outline'
 import { usePostHog } from 'posthog-js/react'
+import * as cookie from 'cookie'
 import {
   WEBSITE_PATH_WARNING_COPY,
+  ensureUrlHasProtocol,
   validateWebsiteInput,
 } from '@/utils/websiteValidation'
 import { persistSignupOnboardingCache } from '@/utils/signupOnboardingCache'
@@ -43,6 +45,9 @@ function Register({ teamCount }) {
   const [siteError, setSiteError] = useState('')
   const [siteWarning, setSiteWarning] = useState('')
   const posthog = usePostHog()
+  const signupQueryPresetAppliedRef = useRef(false)
+  /** When URL has business (+ optional domain) but no usage yet, apply after user picks usage. */
+  const pendingBusinessSignupFromQueryRef = useRef(null)
 
   const userTypes = [
     { value: 'business', title: 'Business', description: 'Create chatbots for your company.' },
@@ -55,6 +60,78 @@ function Register({ teamCount }) {
     { value: 'research', title: 'Document Q&A', description: 'Chat with your docs & files for research or education.' },
     { value: 'content', title: 'Content Creation', description: 'Generate custom content for your blog or social media.' },
   ]
+
+  /**
+   * Deep-link presets: usage/user/site from query when both usage and user are present;
+   * pilot: ?userType=business&domain=example.com — usage chosen on-page, then business + site apply.
+   */
+  useEffect(() => {
+    if (!router.isReady || signupQueryPresetAppliedRef.current) return
+
+    const q = router.query
+    const usageParamRaw =
+      typeof q.usageType === 'string'
+        ? q.usageType
+        : typeof q.usage === 'string'
+          ? q.usage
+          : null
+    const userParam =
+      typeof q.userType === 'string' ? q.userType : null
+    const siteParam =
+      typeof q.site === 'string'
+        ? q.site
+        : typeof q.domain === 'string'
+          ? q.domain
+          : null
+
+    const usageAllowed = new Set(['support', 'internal', 'research', 'content'])
+    const userAllowed = new Set(['business', 'personal'])
+
+    const validUsage =
+      usageParamRaw && usageAllowed.has(usageParamRaw) ? usageParamRaw : null
+
+    let siteNormalized = null
+    if (siteParam && userParam === 'business') {
+      const withProtocol = ensureUrlHasProtocol(siteParam)
+      const result = validateWebsiteInput(withProtocol)
+      if (result.valid && result.normalizedUrl) {
+        siteNormalized = result.normalizedUrl
+      }
+    }
+
+    if (validUsage) {
+      setUsageType(validUsage)
+    }
+
+    if (userParam === 'business' && userAllowed.has(userParam)) {
+      if (validUsage) {
+        setUserType('business')
+        if (siteNormalized) {
+          setSite(siteNormalized)
+          setSiteError('')
+          setSiteWarning('')
+        }
+      } else {
+        pendingBusinessSignupFromQueryRef.current = { site: siteNormalized }
+      }
+    } else if (userParam && userAllowed.has(userParam) && validUsage) {
+      setUserType(userParam)
+    }
+
+    signupQueryPresetAppliedRef.current = true
+  }, [router.isReady, router.query])
+
+  useEffect(() => {
+    const pending = pendingBusinessSignupFromQueryRef.current
+    if (!usageType || !pending) return
+    setUserType('business')
+    if (pending.site) {
+      setSite(pending.site)
+      setSiteError('')
+      setSiteWarning('')
+    }
+    pendingBusinessSignupFromQueryRef.current = null
+  }, [usageType])
 
   const persistSignupSelections = useCallback(
     (normalizedSite) => {
@@ -116,8 +193,15 @@ function Register({ teamCount }) {
     return validateBusinessSite(site)
   }, [userType, site, validateBusinessSite])
 
-  //set redirect path from query param
+  //set redirect path from demo trial cookie or query param
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const cookies = cookie.parse(document.cookie || '')
+      if (cookies['docsbot_demo_trial']) {
+        setRedirectPath('/app/activate')
+        return
+      }
+    }
     if (router.query.redirect) {
       //check if redirect path is valid
       if (Object.values(routePaths).includes(router.query.redirect)) {
@@ -168,6 +252,9 @@ function Register({ teamCount }) {
         accessToken: user?.user?.accessToken,
         name: name,
         isNewUser: true,
+        userType: userType ?? null,
+        domain: userType === 'business' && site?.trim() ? site.trim() : null,
+        email: user?.user?.email ?? null,
         onComplete: () => {
           if (window.bento !== undefined) {
             window.bento.identify(user?.user?.email)
@@ -208,6 +295,8 @@ function Register({ teamCount }) {
     googleUser,
     authLoading,
     setAuthLoading,
+    userType,
+    domain: site,
     onComplete: () => {
       const usageTypeForTracking = usageType ?? 'tools'
       if (window.bento !== undefined) {
@@ -275,7 +364,20 @@ function Register({ teamCount }) {
               {usageType && (
                 <>
               <p className="col-span-full mb-2 font-medium text-md text-gray-800">
-                Usage: {usageTypes.find((x) => x.value === usageType).title} <button onClick={() => setUsageType(null)} className="underline text-sm text-gray-500" title="Change"><PencilIcon className='h-3 w-3' /></button>
+                Usage: {usageTypes.find((x) => x.value === usageType).title}{' '}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setUsageType(null)
+                    setUserType(null)
+                    setSiteError('')
+                    setSiteWarning('')
+                  }}
+                  className="underline text-sm text-gray-500"
+                  title="Change"
+                >
+                  <PencilIcon className="h-3 w-3" />
+                </button>
               </p>
               <FieldRadioCards options={userTypes} selected={userType} setSelected={setUserType} />
               </>

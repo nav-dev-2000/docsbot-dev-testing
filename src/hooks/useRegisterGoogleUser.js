@@ -3,7 +3,14 @@ import { noop } from '@/utils/function.utils'
 import { postAuth } from '@/api/postAuth'
 import { getIsNewGmailUser } from '@/utils/firebase.utils'
 
-export function useRegisterGoogleUser({ googleUser, authLoading, setAuthLoading, onComplete = noop }) {
+export function useRegisterGoogleUser({
+  googleUser,
+  authLoading,
+  setAuthLoading,
+  userType = null,
+  domain = null,
+  onComplete = noop,
+}) {
   const authorizeUser = useCallback(postAuth, [])
   useEffect(() => {
     if (googleUser && !authLoading) {
@@ -13,10 +20,13 @@ export function useRegisterGoogleUser({ googleUser, authLoading, setAuthLoading,
         accessToken: googleUser?.user?.accessToken,
         name: googleUser?.user?.displayName,
         isNewUser,
+        userType: userType ?? null,
+        domain: userType === 'business' && domain?.trim() ? domain.trim() : null,
+        email: googleUser?.user?.email ?? null,
         onComplete: () => {
           onComplete()
         },
       })
     }
-  }, [googleUser, authLoading, authorizeUser, onComplete])
+  }, [googleUser, authLoading, authorizeUser, onComplete, userType, domain])
 }

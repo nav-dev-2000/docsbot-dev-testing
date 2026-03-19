@@ -4,6 +4,7 @@ import { InformationCircleIcon } from '@heroicons/react/24/outline'
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import * as cookie from 'cookie'
+import { parseDocsbotCouponCookie } from '@/utils/couponCookie.utils'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
 import {
@@ -13,128 +14,14 @@ import {
   enterpriseFeatures,
   featureDefinitions,
 } from '@/constants/pricing.constants'
+import {
+  getDifferentiatingFeatures,
+  getVisibleStripePricingTiers,
+} from '@/utils/pricingStripeTableFeatures'
 import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import { getIncompatibleSourceTypesForPlan } from '@/utils/sourceTypePlanChecks'
 import Tooltip from '@/components/Tooltip'
 import SocialFaces from '@/components/SocialFaces'
-
-// Helper function to get differentiating features for each tier
-const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
-  const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
-
-  // Always include core limits that users care about most
-  const coreLimits = [
-    'docsBots',
-    'sourcePages',
-    'messagesPerMonth',
-    'researchTasksPerMonth',
-    'teamUsers',
-  ]
-  const features = []
-
-  // Add core limits first (always show these)
-  coreLimits.forEach((key) => {
-    const value = currentTier.features[key]
-    if (value !== undefined && value !== false && value !== 0) {
-      features.push([key, value])
-    }
-  })
-
-  // For Free tier, also show basic included features
-  if (tierIndex === 0) {
-    Object.entries(currentTier.features).forEach(([key, value]) => {
-      if (
-        !coreLimits.includes(key) &&
-        typeof value === 'boolean' &&
-        value === true
-      ) {
-        features.push([key, value])
-      }
-    })
-    return features.slice(0, 8)
-  }
-
-  // For other tiers, add what's new or improved (excluding core limits already added)
-  const differentiatingFeatures = []
-
-  // Add other improved limits (excluding core limits already handled)
-  Object.entries(currentTier.features).forEach(([key, value]) => {
-    if (coreLimits.includes(key)) return // Skip core limits, already added
-
-    const prevValue = previousTier?.features[key]
-    const featureDef = featureDefinitions[key]
-
-    if (featureDef?.category === 'limits') {
-      // Show if it's a meaningful increase
-      if (
-        typeof value === 'number' &&
-        typeof prevValue === 'number' &&
-        value > prevValue
-      ) {
-        differentiatingFeatures.push([key, value])
-      } else if (
-        typeof value === 'string' &&
-        value !== prevValue &&
-        value !== 'false' &&
-        value !== ''
-      ) {
-        differentiatingFeatures.push([key, value])
-      }
-    }
-  })
-
-  // Add newly enabled features (false -> true, or false -> string value)
-  Object.entries(currentTier.features).forEach(([key, value]) => {
-    if (coreLimits.includes(key)) return // Skip core limits, already added
-
-    const prevValue = previousTier?.features[key]
-
-    if (featureDefinitions[key]?.category !== 'limits') {
-      if (
-        (prevValue === false || prevValue === 0 || prevValue === '') &&
-        (value === true ||
-          (typeof value === 'string' && value !== 'false' && value !== '') ||
-          (typeof value === 'number' && value > 0))
-      ) {
-        differentiatingFeatures.push([key, value])
-      }
-    }
-  })
-
-  // Combine core limits with differentiating features
-  const allFeatures = [...features, ...differentiatingFeatures]
-
-  // Prioritize by importance and limit to 8 features total
-  return allFeatures
-    .sort((a, b) => {
-      const [aKey] = a
-      const [bKey] = b
-
-      // Core limits always come first
-      if (coreLimits.includes(aKey) && !coreLimits.includes(bKey)) return -1
-      if (!coreLimits.includes(aKey) && coreLimits.includes(bKey)) return 1
-      if (coreLimits.includes(aKey) && coreLimits.includes(bKey)) {
-        return coreLimits.indexOf(aKey) - coreLimits.indexOf(bKey)
-      }
-
-      // Then by category priority
-      const aCat = featureDefinitions[aKey]?.category
-      const bCat = featureDefinitions[bKey]?.category
-      const priority = {
-        limits: 0,
-        integrations: 1,
-        analytics: 2,
-        ai: 3,
-        features: 4,
-        sources: 5,
-        customization: 6,
-        support: 7,
-        compliance: 8,
-      }
-      return (priority[aCat] || 99) - (priority[bCat] || 99)
-    })
-    .slice(0, 14)
-}
 
 export function StripePricingTable({
   team,
@@ -179,9 +66,7 @@ export function StripePricingTable({
     ? frequencies.find((option) => option.value === forcedUpgradeFrequency) ||
       frequencies[0]
     : frequency
-  const visibleTiers = pricingTiers.filter(
-    (tier) => !tier.legacy && tier.showInStripe !== false,
-  )
+  const visibleTiers = getVisibleStripePricingTiers(pricingTiers)
   const currentTierIndex = visibleTiers.findIndex(
     (tier) => tier.id === currentPlanId,
   )
@@ -386,7 +271,7 @@ export function StripePricingTable({
     if (typeof window === 'undefined') return
     try {
       const cookies = cookie.parse(document.cookie || '')
-      const couponId = cookies['docsbot_coupon']
+      const { couponId } = parseDocsbotCouponCookie(cookies['docsbot_coupon'])
       if (couponId === 'paul-higgins') {
         setTrialDays(30)
       } else {

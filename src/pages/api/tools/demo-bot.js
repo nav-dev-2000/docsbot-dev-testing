@@ -1,9 +1,12 @@
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import { getFirestore, FieldValue } from 'firebase-admin/firestore'
-import { getBot } from '@/lib/dbQueries'
 import { QueueSourceIngest } from '@/lib/service'
 import { detectRegionFromHeaders } from '@/lib/regionUtils'
-import { isValidURL, sanitizeURL } from '@/utils/helpers'
+import { getURL, isValidURL, sanitizeURL } from '@/utils/helpers'
+import {
+  createDemoTrialToken,
+  normalizeDomainForToken,
+} from '@/lib/demoTrialToken'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import { i18n } from '@/constants/strings.constants'
 import { crawlAndExtract } from '@/utils/crawlHelpers'
@@ -325,10 +328,25 @@ export default async function handler(req, res) {
       }
 
       // Return bot details
-      const createdBot = await getBot(DEMO_TEAM_ID, botId)
+      let demoRegisterUrl = null
+      let demoRegisterPath = null
+      const signupDomain = normalizeDomainForToken(url.hostname)
+      if (signupDomain) {
+        try {
+          const dealTag = createDemoTrialToken({ domain: signupDomain })
+          const base = getURL()
+          demoRegisterPath = `/pilot/${signupDomain}?deal=${encodeURIComponent(dealTag)}`
+          demoRegisterUrl = `${base}${demoRegisterPath}`
+        } catch (trialLinkError) {
+          console.warn('demo-bot: could not build branded demo signup URL', trialLinkError?.message)
+        }
+      }
+
       return res.status(201).json({
         ...botConfig,
         demoUrl: `/demo/${DEMO_TEAM_ID}/${botId}`,
+        demoRegisterUrl,
+        demoRegisterPath,
         screenshotUrl: firebaseScreenshotUrl || botConfig.screenshotUrl, // Use Firebase URL if available, fallback to original
       })
 

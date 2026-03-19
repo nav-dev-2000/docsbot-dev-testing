@@ -116,7 +116,10 @@ const TopBarLeft = ({ bot, bots, wizardId }) => {
 
                 {(!bots || bots.length <= 1) && (
                     <li>
-                        <h1 className="flex flex-row items-center gap-2 text-gray-800">
+                        <h1
+                            className="flex flex-row items-center gap-2 text-gray-800"
+                            data-wizard={wizardId}
+                        >
                             {bot?.name || 'Undefined Bot'}
                             {bot?.status && (
                                 <Tag status={bot?.status} aria-hidden="true" />

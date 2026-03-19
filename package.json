@@ -12,6 +12,7 @@
     "test:core": "vitest run",
     "test:core:watch": "vitest",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/stripe-webhook --project-name=docsbot-site",
+    "stripe:copy-products": "node scripts/stripe-copy-products.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "news": "node scripts/latest-news.js",
     "feature-updates": "node scripts/generate-feature-updates.js",

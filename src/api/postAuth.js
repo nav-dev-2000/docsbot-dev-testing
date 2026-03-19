@@ -1,6 +1,14 @@
 import { noop } from '@/utils/function.utils'
 
-export const postAuth = async function ({ accessToken, isNewUser, name, onComplete = noop }) {
+export const postAuth = async function ({
+  accessToken,
+  isNewUser,
+  name,
+  userType,
+  domain,
+  email,
+  onComplete = noop,
+}) {
   try {
     const response = await fetch('/api/auth', {
       method: 'POST',
@@ -11,6 +19,9 @@ export const postAuth = async function ({ accessToken, isNewUser, name, onComple
       body: JSON.stringify({
         isNewUser,
         name,
+        userType,
+        domain,
+        email,
       }),
     })
 

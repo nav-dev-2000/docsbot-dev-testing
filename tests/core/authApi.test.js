@@ -11,7 +11,7 @@ const mocks = vi.hoisted(() => ({
   getInvitesFromEmail: vi.fn(),
   acceptInvite: vi.fn(),
   bentoTrack: vi.fn(),
-  stripePlan: vi.fn(),
+  enrichTeamWithBrand: vi.fn(),
 }))
 
 vi.mock('@/config/firebase-server.config', () => ({
@@ -40,11 +40,9 @@ vi.mock('@/lib/bento', () => ({
   bentoTrack: mocks.bentoTrack,
 }))
 
-vi.mock('@/utils/helpers', () => {
-  return {
-    stripePlan: mocks.stripePlan,
-  }
-})
+vi.mock('@/lib/brandTeamEnrichment', () => ({
+  enrichTeamWithBrand: mocks.enrichTeamWithBrand,
+}))
 
 import handler from '@/pages/api/auth'
 
@@ -58,7 +56,7 @@ describe('/api/auth handler', () => {
     mocks.getInvitesFromEmail.mockReset()
     mocks.acceptInvite.mockReset()
     mocks.bentoTrack.mockReset()
-    mocks.stripePlan.mockReset()
+    mocks.enrichTeamWithBrand.mockReset()
 
     mocks.getAuth.mockImplementation(() => ({
       createSessionCookie: mocks.createSessionCookie,
@@ -69,6 +67,8 @@ describe('/api/auth handler', () => {
       email: 'User@Example.com',
     })
     mocks.getInvitesFromEmail.mockResolvedValue([])
+    mocks.assignDefaultTeam.mockResolvedValue('team-new-1')
+    mocks.enrichTeamWithBrand.mockResolvedValue(undefined)
   })
 
   it('returns 401 when the bearer token is missing', async () => {
@@ -155,6 +155,48 @@ describe('/api/auth handler', () => {
         expect.stringContaining('docsbot-prefs='),
       ]),
     )
+  })
+
+  it('calls enrichTeamWithBrand when business user has domain or email', async () => {
+    const req = createMockReq({
+      method: 'POST',
+      headers: { authorization: 'Bearer access-token' },
+      body: {
+        name: 'Acme',
+        isNewUser: true,
+        userType: 'business',
+        domain: 'https://acme.com',
+        email: 'user@acme.com',
+      },
+    })
+    const res = createMockRes()
+
+    await handler(req, res)
+
+    expect(mocks.assignDefaultTeam).toHaveBeenCalledWith('user-1', 'Acme')
+    expect(mocks.enrichTeamWithBrand).toHaveBeenCalledWith('team-new-1', {
+      domain: 'https://acme.com',
+      email: 'User@Example.com',
+    })
+    expect(res.statusCode).toBe(200)
+  })
+
+  it('does not call enrichTeamWithBrand when userType is not business', async () => {
+    const req = createMockReq({
+      method: 'POST',
+      headers: { authorization: 'Bearer access-token' },
+      body: {
+        name: 'User',
+        isNewUser: true,
+        userType: 'personal',
+        domain: 'https://example.com',
+      },
+    })
+    const res = createMockRes()
+
+    await handler(req, res)
+
+    expect(mocks.enrichTeamWithBrand).not.toHaveBeenCalled()
   })
 
   it('maps Firebase auth failures to a 401 response', async () => {

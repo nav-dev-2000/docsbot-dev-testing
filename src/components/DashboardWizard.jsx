@@ -102,6 +102,19 @@ const setCurrentWizardStep = (step) => {
     setWizardPreference('wizard-step', step)
 }
 
+/** Prefer a visible instance when the same selector exists in mobile + desktop markup. */
+const queryWizardTarget = (selector) => {
+    if (!selector || typeof document === 'undefined') return null
+    const nodes = document.querySelectorAll(selector)
+    for (const el of nodes) {
+        const rect = el.getBoundingClientRect()
+        if (rect.width > 0 && rect.height > 0) {
+            return el
+        }
+    }
+    return nodes[0] ?? null
+}
+
 // Wizard steps configuration
 const WIZARD_STEPS = [
     {
@@ -245,13 +258,19 @@ export default function DashboardWizard({
             return
         }
 
+        // First bot is created when onboarding finishes; don't overlay the tour before then.
+        if ((team?.botCount ?? 0) === 0) {
+            setIsVisible(false)
+            return
+        }
+
         // Only show for new users who haven't completed the wizard
         if (isNewUser() && !isWizardCompleted()) {
             const savedStep = getCurrentWizardStep()
             setCurrentStep(savedStep)
             setIsVisible(true)
         }
-    }, [router.asPath]) // Re-check when route changes
+    }, [router.asPath, team?.botCount]) // Re-check when route changes
 
     // Position overlay and tooltip
     useEffect(() => {
@@ -281,7 +300,7 @@ export default function DashboardWizard({
                 return
             }
 
-            const targetElement = document.querySelector(step.target)
+            const targetElement = queryWizardTarget(step.target)
             if (!targetElement) {
                 setTargetRect(null)
                 // Check if we're on a bot page

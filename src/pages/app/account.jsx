@@ -14,7 +14,9 @@ import {
   UsersIcon,
   BeakerIcon,
 } from '@heroicons/react/24/outline'
+import * as cookie from 'cookie'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
+import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import { stripePlan } from '@/utils/helpers'
@@ -83,6 +85,7 @@ function Account({
   role,
   canManageBilling,
   userId,
+  hasDemoTrialPromotion = false,
 }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
@@ -205,6 +208,7 @@ function Account({
             bots={bots}
             teamInvites={teamInvites}
             teamSourceTypes={teamSourceTypes}
+            hasDemoTrialPromotion={hasDemoTrialPromotion}
           />
           <Cancel team={team} bots={bots} />
         </div>
@@ -348,6 +352,14 @@ function Account({
 
 export const getServerSideProps = async (context) => {
   const data = await getAuthorizedUserCurrentTeam(context)
+  if (data?.redirect) return data
+
+  const cookies = cookie.parse(context.req?.headers?.cookie || '')
+  const demoCode = cookies['docsbot_demo_trial']
+  data.props = data.props || {}
+  data.props.hasDemoTrialPromotion = Boolean(
+    demoCode && verifyDemoTrialToken(demoCode)
+  )
 
   if (data?.props?.team) {
     const role = getUserRole(data.props.team, data.props.userId)

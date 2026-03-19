@@ -320,6 +320,125 @@ export const retrieveBrandByDomain = async (domain) => {
   }
 }
 
+/** Stable cache key for brand-by-email (avoids collisions in normalizeCacheKey for @). */
+const brandEmailCacheRawKey = (email) => {
+  const normalized = (email || '').trim().toLowerCase()
+  if (!normalized) return ''
+  return `https://brand-dev-email-cache.invalid/${encodeURIComponent(normalized)}`
+}
+
+/**
+ * Retrieves brand information by work email using brand.dev retrieve-by-email API.
+ * Rejects free providers and disposable addresses (HTTP 422 from API).
+ *
+ * @param {string} email
+ * @returns {Promise<
+ *   | { success: true, brand: object }
+ *   | { success: false, httpStatus: number, errorCode?: string, message?: string }
+ * >}
+ */
+export const retrieveBrandByEmail = async (email) => {
+  const API_KEY = process.env.BRANDDEV_API_KEY
+
+  if (!API_KEY) {
+    console.warn('BRANDDEV_API_KEY not set, skipping brand-by-email retrieval')
+    return { success: false, httpStatus: 503, message: 'Brand API not configured' }
+  }
+
+  const trimmed = typeof email === 'string' ? email.trim().toLowerCase() : ''
+  if (!trimmed || !trimmed.includes('@')) {
+    return { success: false, httpStatus: 400, message: 'Invalid email address' }
+  }
+
+  const cacheType = 'brand-dev-email'
+  const cacheOptions = { includePath: true }
+  const cacheRawKey = brandEmailCacheRawKey(trimmed)
+
+  try {
+    const cached = await getCacheEntry(cacheType, cacheRawKey, cacheOptions)
+    if (cached?.data) {
+      if (cached.data?.isError) {
+        return {
+          success: false,
+          httpStatus: cached.data.status || 400,
+          errorCode: cached.data.errorCode,
+          message: cached.data.message,
+        }
+      }
+      return { success: true, brand: cached.data }
+    }
+  } catch (cacheError) {
+    console.error('Failed to read brand-by-email cache', cacheError)
+  }
+
+  try {
+    console.log(`Retrieving brand data for email: ${trimmed}`)
+    const url = `https://api.brand.dev/v1/brand/retrieve-by-email?email=${encodeURIComponent(trimmed)}`
+
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 30000)
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      signal: controller.signal,
+    })
+
+    clearTimeout(timeoutId)
+
+    let body = null
+    try {
+      body = await response.json()
+    } catch {
+      body = null
+    }
+
+    if (response.ok && body?.status === 'ok' && body.brand) {
+      try {
+        await setCacheEntry(cacheType, cacheRawKey, body.brand, cacheOptions)
+      } catch (cacheError) {
+        console.error('Failed to write brand-by-email cache', cacheError)
+      }
+      return { success: true, brand: body.brand }
+    }
+
+    const errorCode = body?.error_code
+    const message = body?.message || 'Brand lookup failed'
+
+    if (response.status >= 400) {
+      try {
+        await setCacheEntry(
+          cacheType,
+          cacheRawKey,
+          {
+            isError: true,
+            status: response.status,
+            errorCode: errorCode || null,
+            message,
+            timestamp: new Date().toISOString(),
+          },
+          cacheOptions,
+        )
+      } catch (cacheError) {
+        console.error('Failed to write brand-by-email error cache', cacheError)
+      }
+    }
+
+    return {
+      success: false,
+      httpStatus: response.status,
+      errorCode,
+      message,
+    }
+  } catch (error) {
+    console.error('Error retrieving brand-by-email data:', error.message)
+    return { success: false, httpStatus: 500, message: error.message }
+  }
+}
+
 /**
  * Takes a screenshot of a URL using Jina AI
  * @param {string} url - The URL to capture

@@ -38,6 +38,7 @@ export default async function handler(req, res) {
     let {
       name,
       logo,
+      colors,
       openAIKey,
       weaviateUrl,
       weaviateApiKey,
@@ -54,6 +55,12 @@ export default async function handler(req, res) {
       if (trimmed) {
         phTrack(userId, 'Team Logo Updated', {}, team.id)
       }
+    }
+    if (Array.isArray(colors)) {
+      const valid = colors
+        .filter((c) => typeof c === 'string' && /^#[0-9A-Fa-f]{6}$/.test(c))
+        .slice(0, 10)
+      newTeam.colors = valid.length > 0 ? valid : null
     }
 
     if (canTrial !== undefined) {

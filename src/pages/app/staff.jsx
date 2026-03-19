@@ -19,6 +19,10 @@ function Staff({ team, userId }) {
   const [isEnablingTrial, setIsEnablingTrial] = useState(false)
   const [blogPath, setBlogPath] = useState('')
   const [isClearingBlogCache, setIsClearingBlogCache] = useState(false)
+  const [demoTrialInput, setDemoTrialInput] = useState('')
+  const [demoTrialUrl, setDemoTrialUrl] = useState('')
+  const [isGeneratingDemoUrl, setIsGeneratingDemoUrl] = useState(false)
+  const [demoUrlCopied, setDemoUrlCopied] = useState(false)
 
   const changeTeam = async (teamId) => {
     setErrorText('')
@@ -146,6 +150,61 @@ function Staff({ team, userId }) {
       setErrorText('Failed to clear cache. Please try again.')
     } finally {
       setIsClearingBlogCache(false)
+    }
+  }
+
+  const generateBrandedDemoUrl = async () => {
+    setErrorText('')
+    setSuccessText('')
+    setDemoUrlCopied(false)
+    setDemoTrialUrl('')
+
+    const trimmed = demoTrialInput.trim()
+    if (!trimmed) {
+      setErrorText('Enter a work email or company domain.')
+      return
+    }
+
+    setIsGeneratingDemoUrl(true)
+    try {
+      const body = trimmed.includes('@')
+        ? { email: trimmed }
+        : { domain: trimmed }
+      const response = await fetch('/api/tools/generate-demo-trial-url', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      })
+      const data = await response.json().catch(() => ({}))
+      if (!response.ok) {
+        setErrorText(data.message || 'Could not generate demo URL.')
+        return
+      }
+      setDemoTrialUrl(data.demoRegisterUrl || '')
+      setSuccessText(
+        data.domain
+          ? `Business trial link ready for ${data.domain}`
+          : 'Business trial link ready',
+      )
+    } catch (e) {
+      setErrorText('Could not generate demo URL. Please try again.')
+    } finally {
+      setIsGeneratingDemoUrl(false)
+    }
+  }
+
+  const copyDemoTrialUrl = async () => {
+    if (!demoTrialUrl || typeof navigator === 'undefined' || !navigator.clipboard) {
+      return
+    }
+    try {
+      await navigator.clipboard.writeText(demoTrialUrl)
+      setDemoUrlCopied(true)
+      setTimeout(() => setDemoUrlCopied(false), 2000)
+    } catch {
+      setErrorText('Could not copy to clipboard.')
     }
   }
 
@@ -313,32 +372,117 @@ function Staff({ team, userId }) {
         </Disclosure>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-white p-4 shadow">
-        <div className="w-full">
-          <h3 className="m-0 text-lg font-medium leading-6 text-gray-900">
-            Trial Settings
-          </h3>
-          <div className="mt-2 max-w-xl text-sm text-gray-500">
-            <p>
-              Enable trial access for this team. This will allow them to sign up
-              for a premium 14-day trial of up to Pro plan.
-            </p>
-          </div>
-        </div>
-        <div className="w-full border-t border-gray-200 pt-4">
-          <div className="flex items-center gap-2">
-            {!canTrial ? (
-              <button
-                type="button"
-                onClick={enableTrial}
-                disabled={isEnablingTrial || team.canTrial}
-                className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 disabled:opacity-25"
+      <div className="mt-6 rounded-lg bg-white p-4 shadow">
+        <div className="grid grid-cols-1 gap-8 border-gray-200 pb-2 lg:grid-cols-2 lg:gap-10 lg:pb-0">
+          <div className="min-w-0 lg:pr-2">
+            <h3 className="m-0 text-lg font-medium leading-6 text-gray-900">
+              Create a Business Trial Link
+            </h3>
+            <div className="mt-2 space-y-2 text-sm text-gray-500">
+              <p className="font-medium text-gray-700">
+                Create a Branded 14-Day Trial Special Sign-up Link for the Business Plan.
+              </p>
+              <p>
+                Generates a signed invite link (
+                <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">
+                  /pilot/company.com?deal=…
+                </code>
+                ). The recipient registers, checks out the Business trial, then lands in onboarding.
+              </p>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="demo_trial_email_or_domain"
+                className="block text-sm font-medium text-gray-700"
               >
-                {team.canTrial ? 'Trial Enabled' : 'Enable Trial'}
-              </button>
-            ) : (
-              <span className="text-sm text-cyan-600">✓ Trial is enabled</span>
-            )}
+                User email or company domain
+              </label>
+              <div className="mt-2 text-xs text-gray-500">
+                <p>
+                  Work email or company website domain. Free or disposable inboxes can’t be used
+                  with email lookup—enter the company domain instead if needed.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-stretch">
+                <div className="relative flex min-w-0 flex-1 items-stretch focus-within:z-10">
+                  <input
+                    type="text"
+                    id="demo_trial_email_or_domain"
+                    value={demoTrialInput}
+                    onChange={(e) => {
+                      setDemoTrialInput(e.target.value)
+                      setDemoTrialUrl('')
+                      setDemoUrlCopied(false)
+                    }}
+                    className="block w-full rounded-md border-gray-300 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                    placeholder="name@company.com or company.com"
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={generateBrandedDemoUrl}
+                    disabled={isGeneratingDemoUrl}
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50"
+                  >
+                    {isGeneratingDemoUrl ? 'Generating…' : 'Generate URL'}
+                  </button>
+                </div>
+              </div>
+              {demoTrialUrl ? (
+                <div className="mt-4">
+                  <label
+                    htmlFor="demo_trial_result"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Sign-up link
+                  </label>
+                  <div className="mt-1 flex gap-2">
+                    <input
+                      type="text"
+                      id="demo_trial_result"
+                      readOnly
+                      value={demoTrialUrl}
+                      className="block w-full min-w-0 rounded-md border-gray-300 bg-gray-50 font-mono text-xs text-gray-900 sm:text-sm"
+                    />
+                    <button
+                      type="button"
+                      onClick={copyDemoTrialUrl}
+                      className="shrink-0 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                    >
+                      {demoUrlCopied ? 'Copied' : 'Copy'}
+                    </button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="min-w-0 border-t border-gray-200 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <h3 className="m-0 text-lg font-medium leading-6 text-gray-900">
+              Enable trial
+            </h3>
+            <div className="mt-2 text-sm text-gray-500">
+              <p>
+                If the user has already signed up, switch to their team (above), then enable a trial
+                on <span className="font-semibold text-gray-800">{team.name || 'this team'}</span>.
+                They can then start the premium trial from billing.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center gap-2">
+              {!canTrial ? (
+                <button
+                  type="button"
+                  onClick={enableTrial}
+                  disabled={isEnablingTrial || team.canTrial}
+                  className="rounded-md bg-cyan-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 disabled:opacity-25"
+                >
+                  {team.canTrial ? 'Trial Enabled' : 'Enable Trial'}
+                </button>
+              ) : (
+                <span className="text-sm text-cyan-600">✓ Trial is enabled</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

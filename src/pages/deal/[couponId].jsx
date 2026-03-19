@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import * as cookie from 'cookie'
 import VideoPlayer from '@/components/VideoPlayer'
 import { DEALS } from '@/constants/deals.constants'
@@ -9,20 +9,72 @@ import { SparklesIcon } from '@heroicons/react/20/solid'
 import SocialFaces from '@/components/SocialFaces'
 import TrustedBy from '@/components/TrustedBy'
 import { NextSeo } from 'next-seo'
+import { CountdownTicker } from '@/components/SaleLoyalty'
+import {
+  parseDocsbotCouponCookie,
+  DEAL_COUPON_COOKIE_MAX_AGE_SEC,
+} from '@/utils/couponCookie.utils'
+
+function DealPageWeekCountdown({ deadline }) {
+  if (!deadline || deadline.getTime() <= Date.now()) {
+    return null
+  }
+
+  return (
+    <div className="mx-auto mt-6 max-w-2xl rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-center">
+      <p className="text-sm text-gray-300">
+        <span className="font-medium text-cyan-200">Limited time: </span>
+        <span className="text-gray-300">This offer ends in </span>
+        <CountdownTicker
+          deadline={deadline}
+          className="inline font-semibold text-cyan-200"
+        />
+      </p>
+    </div>
+  )
+}
 
 export default function Deal() {
   const router = useRouter()
   const { couponId } = router.query
   const deal = couponId && DEALS[couponId]
+  const [offerDeadline, setOfferDeadline] = useState(null)
 
   useEffect(() => {
-    if (couponId && deal) {
-      document.cookie = cookie.serialize('docsbot_coupon', couponId, {
-        path: '/',
-        maxAge: 60 * 60 * 24 * 30,
-      })
+    if (!router.isReady || !couponId || !deal) {
+      setOfferDeadline(null)
+      return
     }
-  }, [couponId, deal])
+
+    const parsed = cookie.parse(document.cookie || '')
+    const raw = parsed['docsbot_coupon']
+    const { couponId: existingId, expiresAtSec } = parseDocsbotCouponCookie(raw)
+    const nowSec = Math.floor(Date.now() / 1000)
+
+    let expSec = expiresAtSec
+    if (
+      existingId !== couponId ||
+      expSec == null ||
+      expSec <= nowSec
+    ) {
+      expSec = nowSec + DEAL_COUPON_COOKIE_MAX_AGE_SEC
+      document.cookie = cookie.serialize(
+        'docsbot_coupon',
+        `${couponId}|${expSec}`,
+        {
+          path: '/',
+          maxAge: DEAL_COUPON_COOKIE_MAX_AGE_SEC,
+        },
+      )
+    }
+
+    const d = new Date(expSec * 1000)
+    if (d.getTime() > Date.now()) {
+      setOfferDeadline(d)
+    } else {
+      setOfferDeadline(null)
+    }
+  }, [router.isReady, couponId, deal])
 
   // Show 404 if no valid deal is found
   if (!deal) {
@@ -101,6 +153,8 @@ export default function Deal() {
                     </p> 
                   </div>
 
+                  <DealPageWeekCountdown deadline={offerDeadline} />
+
                   <div className="mt-10 max-w-3xl mx-auto">
                     <div className="flex flex-col items-center justify-center">
                       <div className="max-w-md w-full mb-6">
@@ -123,7 +177,7 @@ export default function Deal() {
                           </Link>
                         </div>
                         <p className="mt-1 text-center text-sm text-gray-300 sm:mt-2">
-                          Start building your AI agent today with our standard pricing!
+                          Start building your AI agent today with our special offer!
                         </p>
                       </div>
                       <SocialFaces
@@ -223,7 +277,11 @@ export default function Deal() {
 
                   {deal.image && (
                     <div className="mt-8 flex justify-center">
-                      <img src={deal.image} alt="" className="h-32 w-auto" />
+                      <img
+                        src={deal.image}
+                        alt=""
+                        className="h-32 w-auto rounded-3xl object-contain"
+                      />
                     </div>
                   )}
 
@@ -239,9 +297,13 @@ export default function Deal() {
 
                 <div className="mx-auto max-w-2xl text-center mt-8">
                   <p className="text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+                    <span className="text-cyan-100/90">&ldquo;</span>
                     {deal.description}
-                  </p> 
+                    <span className="text-cyan-100/90">&rdquo;</span>
+                  </p>
                 </div>
+
+                <DealPageWeekCountdown deadline={offerDeadline} />
 
                 <div className="mt-10 max-w-3xl mx-auto">
                   <div className="flex flex-col items-center justify-center">
