@@ -752,6 +752,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                         team={team}
                         integrations={bot.integrations || []}
                         bot={bot}
+                        setBot={setBot}
                         open={showPromptModal}
                         setOpen={setShowPromptModal}
                     />

@@ -5625,7 +5625,7 @@ const LLMS = [
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      Toolathlon: {
+      Toolathon: {
         score: 26.9,
         notes: null,
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5642,7 +5642,7 @@ const LLMS = [
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      HumanitysLastExamNoTools: {
+      HumanitysLastExam: {
         score: 18.3,
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
@@ -5669,7 +5669,7 @@ const LLMS = [
         notes: 'no tools',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',
       },
-      OmniDocBench: {
+      OmniDocBench15: {
         score: 0.1791,
         notes: 'Overall Edit Distance (lower is better), reasoning effort: none',
         source: 'https://openai.com/index/introducing-gpt-5-4-mini-and-nano/',

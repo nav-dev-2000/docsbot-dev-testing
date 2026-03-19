@@ -51,6 +51,7 @@ export default function ModalPrompt({
     team,
     integrations,
     bot,
+    setBot,
     open,
     setOpen,
 }) {
@@ -375,10 +376,13 @@ export default function ModalPrompt({
             body: JSON.stringify(data),
         })
         if (response.ok) {
-            const data = await response.json()
+            const updatedBot = await response.json()
             setHasUnsavedChanges(false)
             setIsUpdating(false)
             setSuccessText('Changes saved successfully')
+            if (setBot && typeof setBot === 'function') {
+                setBot(updatedBot)
+            }
 
             // Clear success message after 3 seconds
             setTimeout(() => {

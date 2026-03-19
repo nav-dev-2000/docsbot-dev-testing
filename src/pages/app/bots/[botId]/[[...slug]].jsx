@@ -368,6 +368,7 @@ const BotInner = ({
                 key={bot.id}
                 team={team}
                 bot={bot}
+                setBot={setBot}
                 integrations={integrations}
             />
         ),
