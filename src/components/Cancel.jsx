@@ -254,7 +254,7 @@ export default function Cancel({ team, bots }) {
       value: 'Ease of use was less than expected',
       followup_question: 'What was complex or difficult to use?',
       suggestion:
-        'Ease of use is critical for us. Would you be open to a guided walkthrough to help streamline your experience and get  you setup with DocsBot AI? Book a time here: https://tidycal.com/docsbot/onboarding',
+        'Ease of use is critical for us. Would you be open to a guided walkthrough to help streamline your experience and get  you setup with DocsBot AI? Book a time here: https://tidycal.com/team/docsbot/onboarding',
     },
     {
       id: 'low_quality',

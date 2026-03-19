@@ -230,7 +230,7 @@ For serious traffic and custom integrations. Identify problem areas in your prod
             {
               role: 'system',
               content:
-                'Write a custom welcome to DocsBot AI email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just viewed their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/docsbot/onboarding.',
+                'Write a custom welcome to DocsBot AI email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just viewed their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/team/docsbot/onboarding.',
             },
             { role: 'system', content: `DocsBot AI context:\n${docsbot}` },
             { role: 'user', content: `Customer name: ${name}\nWebsite: ${website}` },
