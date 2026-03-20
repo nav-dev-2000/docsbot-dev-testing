@@ -30,7 +30,11 @@ const TopBarDesktop = ({ team, bot, bots }) => {
 
 const TopBar = ({ team, bot, bots, hasBorder = false, setSidebarOpen }) => {
     return (
-        <TopBarBox hasBorder={hasBorder} data-component="top-bar">
+        <TopBarBox
+            hasBorder={hasBorder}
+            className="relative z-50 md:z-[100]"
+            data-component="top-bar"
+        >
             <button
                 type="button"
                 className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 md:hidden"

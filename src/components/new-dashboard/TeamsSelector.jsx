@@ -380,7 +380,7 @@ const TeamsSelector = ({ team, className = '' }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-20 mt-1 w-[24rem] max-w-[calc(100vw-2rem)] origin-top-right overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-50 md:z-[100] mt-1 w-[24rem] max-w-[calc(100vw-2rem)] origin-top-right overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="border-b border-gray-100 px-4 py-3">
             <p className="text-sm font-semibold text-gray-900">Switch teams</p>
             <p className="text-xs text-gray-500">

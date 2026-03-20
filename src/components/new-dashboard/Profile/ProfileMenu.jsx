@@ -10,7 +10,7 @@ const ProfileMenu = forwardRef(
                 ref={ref}
                 {...props}
                 className={clsx(
-                    'z-20 absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
+                    'absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none md:z-[100]',
                     props.className,
                 )}
                 data-component="profile-menu"
