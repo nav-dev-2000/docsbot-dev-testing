@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import RobotIconSolid from '@/components/RobotIconSolid'
+import HeaderAuthSection from '@/components/HeaderAuthSection'
 import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 
 export default function DocsBotWeek2026Page() {
@@ -15,11 +16,16 @@ export default function DocsBotWeek2026Page() {
         />
       </Head>
 
-      <main className="bg-gray-900 text-white">
-        <section className="relative isolate overflow-hidden bg-gray-900">
+      <main className="relative min-h-screen w-full bg-gray-900 text-white">
+        {/* Fills the viewport behind content so bg stays correct when scrolling or zooming */}
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 z-0 bg-gray-900"
+        />
+        <section className="relative z-10 isolate min-h-screen w-full overflow-hidden bg-gray-900">
           <svg
             aria-hidden="true"
-            className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            className="absolute inset-0 -z-10 size-full stroke-white/10 [-webkit-mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
           >
             <defs>
               <pattern
@@ -60,29 +66,24 @@ export default function DocsBotWeek2026Page() {
             />
           </div>
 
-          <div className="mx-auto max-w-7xl px-6 pb-20 pt-8 sm:pb-24 lg:px-8 lg:pb-28">
-            <div className="flex items-center justify-between">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-8 sm:pb-24 lg:px-8 lg:pb-28">
+            <div className="flex items-center justify-between gap-4">
               <Link href="/" aria-label="Go to DocsBot home">
                 <Image src={docsbotLogo} alt="DocsBot" className="h-8 w-auto" priority />
               </Link>
-              <Link
-                href="#register"
-                className="rounded-md bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-100 ring-1 ring-inset ring-cyan-400/30 transition-colors hover:bg-cyan-500/25"
-              >
-                Register
-              </Link>
+              <HeaderAuthSection showAuthOnMobile />
             </div>
 
-            <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-2 lg:items-start lg:gap-12">
-              <div>
-                <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
-                  <span className="pr-1">Webinar</span>
-                  <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
-                    April 30th, 2026 at 10:00 AM CT
-                  </span>
-                </div>
+            <div className="mt-10 grid grid-cols-1 gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-8">
+              <div className="flex w-fit max-w-full shrink-0 items-center justify-self-start rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20 lg:col-start-1 lg:row-start-1">
+                <span className="pr-1">Webinar</span>
+                <span className="shrink-0 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
+                  April 30th, 2026 at 10:00 AM CT
+                </span>
+              </div>
 
-                <h1 className="mt-8 text-pretty text-5xl font-semibold leading-tight tracking-tight text-white sm:text-7xl">
+              <div className="lg:col-start-1 lg:row-start-2">
+                <h1 className="text-pretty text-5xl font-semibold leading-tight tracking-tight text-white sm:text-7xl">
                   <span className="block whitespace-nowrap text-[2.25rem] leading-none tracking-tighter sm:text-[2.5rem] lg:text-[2.9rem]">
                     DocsBot Week 2026
                   </span>
@@ -111,25 +112,19 @@ export default function DocsBotWeek2026Page() {
                 <p className="mt-6 bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-base font-bold leading-8 text-transparent">
                   Sign up to secure your place at our live event.
                 </p>
-
               </div>
 
-              <div
-                id="register"
-                className="rounded-2xl bg-white/95 p-5 shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:p-7"
-              >
-                <h2 className="text-2xl font-semibold tracking-tight text-gray-900">
-                  Register for the webinar
-                </h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  Reserve your spot for DocsBot Week 2026.
-                </p>
-                <div className="mt-5">
-                  <bento-embedded-customization data-embedded-customization="275dd909-4579-4fa6-8856-d2291d2dc900"></bento-embedded-customization>
-                </div>
+              <div id="register" className="lg:col-start-2 lg:row-start-2 lg:self-start">
+                {/* Hosted Bento Form — share/embed URL from Bento Forms → Embed */}
+                <iframe
+                  title="Register for DocsBot Week 2026 webinar"
+                  src="https://formsbybento.com/f04a55fad9446821a8cf840e2f5c3a0e"
+                  className="min-h-[480px] w-full rounded-xl border-0"
+                  loading="lazy"
+                />
               </div>
             </div>
-            <div className="mt-14 flex justify-center">
+            <div className="mt-24 flex justify-center sm:mt-28 lg:mt-32">
               <RobotIconSolid size="48" gradient={true} className="h-6 w-6" />
             </div>
           </div>

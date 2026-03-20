@@ -440,7 +440,13 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
             },
           ]}
         />
-        <div className="h-screen w-screen">
+        <div
+          className={
+            router.pathname === '/docsbot-week-2026'
+              ? 'min-h-screen w-full'
+              : 'h-screen w-screen'
+          }
+        >
           <Component {...props} />
         </div>
         {!router.asPath.startsWith('/chat/') &&
