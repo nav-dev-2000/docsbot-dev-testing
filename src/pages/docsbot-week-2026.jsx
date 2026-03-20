@@ -1,0 +1,140 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import RobotIconSolid from '@/components/RobotIconSolid'
+import docsbotLogo from '@/images/logos/docsbot-logo.svg'
+
+export default function DocsBotWeek2026Page() {
+  return (
+    <>
+      <Head>
+        <title>DocsBot Week 2026 Webinar | DocsBot AI</title>
+        <meta
+          name="description"
+          content="DocsBot Week 2026: AI That Acts. Register for the webinar and see how DocsBot agents move from AI answers to AI action."
+        />
+      </Head>
+
+      <main className="bg-gray-900 text-white">
+        <section className="relative isolate overflow-hidden bg-gray-900">
+          <svg
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+          >
+            <defs>
+              <pattern
+                x="50%"
+                y={-1}
+                id="docsbot-webinar-grid"
+                width={200}
+                height={200}
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y={-1} className="overflow-visible fill-gray-800/20">
+              <path
+                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                strokeWidth={0}
+              />
+            </svg>
+            <rect
+              fill="url(#docsbot-webinar-grid)"
+              width="100%"
+              height="100%"
+              strokeWidth={0}
+            />
+          </svg>
+
+          <div
+            aria-hidden="true"
+            className="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
+              }}
+              className="aspect-[1108/632] h-[70rem] w-[69.25rem] bg-gradient-to-r from-teal-500 to-cyan-600 opacity-20 lg:h-[75rem]"
+            />
+          </div>
+
+          <div className="mx-auto max-w-7xl px-6 pb-20 pt-8 sm:pb-24 lg:px-8 lg:pb-28">
+            <div className="flex items-center justify-between">
+              <Link href="/" aria-label="Go to DocsBot home">
+                <Image src={docsbotLogo} alt="DocsBot" className="h-8 w-auto" priority />
+              </Link>
+              <Link
+                href="#register"
+                className="rounded-md bg-cyan-500/15 px-4 py-2 text-sm font-semibold text-cyan-100 ring-1 ring-inset ring-cyan-400/30 transition-colors hover:bg-cyan-500/25"
+              >
+                Register
+              </Link>
+            </div>
+
+            <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-2 lg:items-start lg:gap-12">
+              <div>
+                <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
+                  <span className="pr-1">Webinar</span>
+                  <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
+                    April 30th, 2026 at 10:00 AM CT
+                  </span>
+                </div>
+
+                <h1 className="mt-8 text-pretty text-5xl font-semibold leading-tight tracking-tight text-white sm:text-7xl">
+                  <span className="block whitespace-nowrap text-[2.25rem] leading-none tracking-tighter sm:text-[2.5rem] lg:text-[2.9rem]">
+                    DocsBot Week 2026
+                  </span>
+                  <span
+                    className="relative mt-3 block font-bold text-transparent [-webkit-text-stroke:1px_#14b8a6] before:absolute before:inset-0 before:left-1 before:top-1 before:text-white before:content-[attr(data-text)] before:[-webkit-text-stroke:0]"
+                    data-text="Live Build."
+                  >
+                    Live Build.
+                  </span>
+                </h1>
+
+                <p className="mt-6 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+                  We&apos;re skill building live.
+                  {' '}
+                  See how you can take your bots from answers to <em>actions</em>.
+                </p>
+                <p className="mt-4 text-base font-bold leading-8 text-gray-300">What you will learn:</p>
+
+                <ul className="mt-3 space-y-2 text-base text-gray-200">
+                  <li>• First look and live demo</li>
+                  <li>• Q&A with DocsBot founder</li>
+                  <li>• Replay and resources sent after the event</li>
+                  <li>• Surprise announcement</li>
+                </ul>
+
+                <p className="mt-6 bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-base font-bold leading-8 text-transparent">
+                  Sign up to secure your place at our live event.
+                </p>
+
+              </div>
+
+              <div
+                id="register"
+                className="rounded-2xl bg-white/95 p-5 shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:p-7"
+              >
+                <h2 className="text-2xl font-semibold tracking-tight text-gray-900">
+                  Register for the webinar
+                </h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Reserve your spot for DocsBot Week 2026.
+                </p>
+                <div className="mt-5">
+                  <bento-embedded-customization data-embedded-customization="275dd909-4579-4fa6-8856-d2291d2dc900"></bento-embedded-customization>
+                </div>
+              </div>
+            </div>
+            <div className="mt-14 flex justify-center">
+              <RobotIconSolid size="48" gradient={true} className="h-6 w-6" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  )
+}
