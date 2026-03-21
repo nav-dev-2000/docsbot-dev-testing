@@ -44,6 +44,7 @@ Bot objects have the following properties:
 | **showCopyButton** | boolean | If true, display a copy-to-clipboard button after answers. Defaults to false. |
 | **hideSources** | boolean | If true, the widget will not display the sources of its answers. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
+| **glossary** | array | An array of glossary entries for term replacement. Each entry has `word` and `translation` properties. |
 
 ---
 
@@ -367,6 +368,34 @@ fetch("https://docsbot.ai/api/teams/FOX1XkWo8VMx3hp6Zjkb/bots/iADcTdrl7R51JiTjrW
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
 ```
+
+### Glossary Management
+
+To manage glossary entries, use the `glossary` property when updating a bot. Each glossary entry has `word` and `translation` properties:
+
+```json
+{
+  "glossary": [
+    {
+      "word": "SaaS",
+      "translation": "Software as a Service"
+    },
+    {
+      "word": "KPI",
+      "translation": "Key Performance Indicator"
+    }
+  ]
+}
+```
+
+The glossary automatically replaces the specified terms in user queries before processing. This is useful for:
+- Translating industry jargon to common terms
+- Standardizing product names or technical terminology
+- Handling regional language variations
+
+The glossary is also available for use with the [Semantic Search API](/documentation/developer/semantic-search-api) via the `use_glossary` parameter.
+
+---
 
 ### Response
 

@@ -5,6 +5,10 @@ description: List and retrieve deep research jobs with the admin API.
 
 Use the Admin API to list deep research jobs and retrieve details for a specific job. {% .lead %}
 
+{% callout title="Create Research Jobs" %}
+To create new research jobs and manage the research process, see the [Research API](/documentation/developer/research-api) documentation. That API provides the endpoints for creating jobs and providing clarifying answers.
+{% /callout %}
+
 ---
 
 ## Response Objects

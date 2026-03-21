@@ -21,7 +21,7 @@ This endpoint accepts a POST request with the following parameters:
 | **top_k**   | integer       | The number of source chunks to return. Optional, default is 4. |
 | **autocut** | integer/false | Autocut results to num groups. Optional, defaults to `false`   |
 | **alpha** | float | Keyword vs semantic search balance. Optional, default is `0.75`. An alpha of `1` is pure semantic search, while `0` is pure keyword search. |
-| **use_glossary** | boolean | Use the bot's glossary for term replacement. Optional, default is `false`. |
+| **use_glossary** | boolean | Use the bot's glossary for term replacement. Optional, default is `false`. See the [Bot API documentation](/documentation/developer/bot-api) for information on managing glossaries. |
 
 {% callout title="autocut behavior" %}
 Autocut introduces a maximum result counts. This method organizes results into groups based on significant distance jumps, offering a more intuitive way to segregate relevant from irrelevant data. Autocut addresses the reduction of irrelevant information fed into generative searches. Research by highlights the negative impact of irrelevant content on large language models, underscoring the importance of precision in search results. Autocut's design is rooted in the concept of intuitively "cutting" search results at natural breaks, improving AI-driven search efficiencies. When enabled, autocut will return the top num groups of results trimmed by the `top_k` parameter.
