@@ -92,7 +92,7 @@ function BotMessage({
         <div className="mb-4 flex items-start self-end">
             <div
                 dir="auto"
-                className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0"
+                className="text-md prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-6 py-4 text-start leading-snug text-gray-700 first:prose-p:my-0 prose-pre:my-0"
             >
                 <ModalQA
                     team={team}
@@ -1316,7 +1316,7 @@ const PageAnalyticsConversations = ({ team, bot, preConversations = null }) => {
                                         </div>
                                     </div>
                                     <div className="mb-4 flex items-start self-end opacity-50">
-                                        <div className="prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-8 py-2 text-xl leading-snug text-gray-400">
+                                        <div className="prose max-w-3xl rounded-2xl rounded-tr-none border bg-cyan-50 px-8 py-2 text-xl leading-snug text-gray-400 prose-pre:my-0">
                                             ⋯
                                         </div>
                                         <div className="ml-3 hidden h-10 w-10 flex-none items-center justify-center rounded-full bg-cyan-600 sm:flex lg:hidden xl:flex">

@@ -89,7 +89,7 @@ const WidgetBubble = ({
                     }
                 )}
             >
-                <div className={clsx('w-full prose first:prose-p:my-0', cssGlobal)}>
+                <div className={clsx('w-full prose first:prose-p:my-0 prose-pre:my-0', cssGlobal)}>
                     {content && (
                         <div className="w-full">
                             <Streamdown

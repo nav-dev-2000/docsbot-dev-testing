@@ -110,7 +110,7 @@ const ChatRow = memo(({
               />
             </span>
           </div>
-          <div dir="auto" className="relative z-10 prose min-w-full p-4 px-6 text-start sm:px-8">
+          <div dir="auto" className="relative z-10 prose min-w-full p-4 px-6 text-start sm:px-8 prose-pre:my-0">
             {isMounted && answer.images && answer.images.length > 0 && (
               <div className="mb-2 flex flex-wrap gap-2">
                 {answer.images.map((imageUrl, index) => (
