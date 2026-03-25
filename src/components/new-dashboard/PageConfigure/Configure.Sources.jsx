@@ -320,6 +320,24 @@ const PageConfigureSources = ({
     if (!bot) return null
 
     const showLoader = !hasLoadedSources
+    const sourceCount = bot?.sourceCount ?? paginationData?.totalCount ?? 0
+    const sourcePageCount =
+        bot?.pageCount ??
+        sources.reduce(
+            (total, source) => total + Number(source?.pageCount || 0),
+            0,
+        )
+
+    const stats = [
+        {
+            label: 'Sources',
+            value: sourceCount,
+        },
+        {
+            label: 'Source pages',
+            value: sourcePageCount,
+        },
+    ]
 
     return (
         <div
@@ -330,7 +348,23 @@ const PageConfigureSources = ({
                 <Workspace.Header
                     title="Sources"
                     description="Power your bot with reliable information. Upload or link content to control what it knows — and how confidently it answers."
-                />
+                >
+                    <div className="flex flex-wrap items-center justify-start gap-2">
+                        {stats.map((stat) => (
+                            <div
+                                key={stat.label}
+                                className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-900 ring-1 ring-inset ring-cyan-100"
+                            >
+                                <span className="tabular-nums font-semibold">
+                                    {stat.value.toLocaleString()}
+                                </span>
+                                <span className="text-cyan-700">
+                                    {stat.label}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </Workspace.Header>
 
                 {showLoader ? (
                     <Workspace.Loader
