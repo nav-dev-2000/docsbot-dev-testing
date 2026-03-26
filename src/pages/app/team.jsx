@@ -626,8 +626,8 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                                   {role.name}
                                 </option>
                               ))}
-                              {/* Add transfer ownership option for admins when current user is owner */}
-                              {currTeam?.roles?.[userId] === 'owner' && user.role === 'admin' && (
+                              {/* Owners can transfer ownership directly to any other team member. */}
+                              {currTeam?.roles?.[userId] === 'owner' && (
                                 <>
                                   <option disabled>──────────</option>
                                   <option value="transfer_ownership">

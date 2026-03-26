@@ -70,19 +70,49 @@ export default async function handler(req, res) {
           throw new Error('User is not part of this team!')
         }
 
-        // Verify target member is an admin
-        if (targetMemberRole !== 'admin') {
-          throw new Error('Ownership can only be transferred to an admin!')
+        const currentOwnerEntry = Object.entries(currentTeam.roles).find(
+          ([, existingRole]) => existingRole === 'owner'
+        )
+        if (!currentOwnerEntry) {
+          throw new Error('Team owner not found!')
         }
 
-        // Transfer ownership: new owner becomes owner, current owner becomes admin
+        const [currentOwnerId] = currentOwnerEntry
+
+        // Transfer ownership: new owner becomes owner, existing owner becomes admin.
         const newRoles = { ...currentTeam.roles }
         newRoles[memberId] = 'owner'
-        newRoles[userId] = 'admin'
+        newRoles[currentOwnerId] = 'admin'
 
-        await firestore.collection('teams').doc(team.id).update({
-          roles: newRoles
+        const teamRef = firestore.collection('teams').doc(team.id)
+        const botsSnapshot = await teamRef.collection('bots').get()
+        const batch = firestore.batch()
+
+        batch.update(teamRef, { roles: newRoles })
+
+        // Owners/admins should not retain per-bot overrides after the transfer.
+        botsSnapshot.forEach((botDoc) => {
+          const botData = botDoc.data() || {}
+          if (!botData.roles) {
+            return
+          }
+
+          const nextBotRoles = { ...botData.roles }
+          let hasChanges = false
+
+          for (const teamMemberId of [memberId, currentOwnerId]) {
+            if (nextBotRoles[teamMemberId] !== undefined) {
+              delete nextBotRoles[teamMemberId]
+              hasChanges = true
+            }
+          }
+
+          if (hasChanges) {
+            batch.update(botDoc.ref, { roles: nextBotRoles })
+          }
         })
+
+        await batch.commit()
 
         // Get updated team and users
         const updatedTeam = await getTeam(team.id)
