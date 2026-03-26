@@ -81,6 +81,12 @@
   background-color: white !important;
 }
 
+/* Streamdown already supplies its own code block spacing; remove prose's extra pre margins. */
+.prose [data-streamdown='code-block-body'] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* White background for mermaid blocks */
 [data-streamdown="mermaid-block"] {
   background-color: white !important;
