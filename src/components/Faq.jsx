@@ -1,6 +1,8 @@
 /* This example requires Tailwind CSS v3.0+ */
 import Link from 'next/link'
-import { FAQPageJsonLd } from 'next-seo'
+import { useRouter } from 'next/router'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildFaqEntities, buildFaqPage, buildPageUrl } from '@/lib/structuredData'
 
 const faqs = [
   {
@@ -118,14 +120,19 @@ const faqs = [
 ]
 
 export default function Faq() {
+  const router = useRouter()
+  const pageUrl = buildPageUrl(router.asPath)
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    ...buildFaqPage({
+      url: pageUrl,
+      mainEntity: buildFaqEntities(faqs),
+    }),
+  }
+
   return (
     <>
-      <FAQPageJsonLd
-        mainEntity={faqs.map((faq) => ({
-          questionName: faq.question,
-          acceptedAnswerText: faq.answer,
-        }))}
-      />
+      <JsonLd id="faq-schema" data={faqSchema} />
       <div id="faq" className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">

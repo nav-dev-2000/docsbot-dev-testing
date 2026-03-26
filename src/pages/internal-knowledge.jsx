@@ -11,13 +11,22 @@ import {
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid'
 
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NextSeo, FAQPageJsonLd } from 'next-seo'
+import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { SplitSection, Section, SectionContent, Highlights, Button } from "@/components/elements"
+import JsonLd from '@/components/seo/JsonLd'
+import {
+  buildFaqEntities,
+  buildFaqPage,
+  buildOrganization,
+  buildPageUrl,
+  buildService,
+  buildWebPage,
+  buildWebSite,
+} from '@/lib/structuredData'
 
 // Import: Elements
 import { DataConnection, DeepResearch } from '@/components/customer-support/animations'
@@ -631,9 +640,40 @@ export default function InternalKnowledge() {
     })),
   ]
 
+  const pageUrl = buildPageUrl('/internal-knowledge')
+  const pageTitle = 'Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot AI'
+  const pageDescription =
+    'Deploy an internal knowledge base chatbot that gives employees instant answers from SOPs, company documents, and internal documentation. Enterprise AI assistant with 24/7 access.'
+
+  const webPage = buildWebPage({
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+  })
+
+  const faqPage = buildFaqPage({
+    url: pageUrl,
+    mainEntity: buildFaqEntities(allFaqs),
+  })
+
+  const service = buildService({
+    url: pageUrl,
+    name: 'DocsBot AI Internal Knowledge Chatbot',
+    description: pageDescription,
+    serviceType: 'Internal knowledge base chatbot',
+  })
+
+  webPage.mainEntity = { '@id': service['@id'] }
+  webPage.hasPart = [{ '@id': faqPage['@id'] }]
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [buildOrganization(), buildWebSite(), webPage, faqPage, service],
+  }
+
   return (
     <>
-      <FAQPageJsonLd mainEntity={allFaqs} />
+      <JsonLd id="internal-knowledge-schema" data={schema} />
       <NextSeo
         title="Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot AI"
         description="Deploy an internal knowledge base chatbot that gives employees instant answers from SOPs, company documents, and internal documentation. Enterprise AI assistant with 24/7 access."

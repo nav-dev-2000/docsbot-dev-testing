@@ -16,14 +16,78 @@ import { getRecoverableWordPressErrorDetails } from '@/utils/wordpressErrors'
 import { NextSeo } from 'next-seo'
 import RegisterCTA from '@/components/RegisterCTA'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { useRouter } from 'next/router'
+import JsonLd from '@/components/seo/JsonLd'
+import {
+  buildBlogPosting,
+  buildOrganization,
+  buildPageUrl,
+  buildWebPage,
+  buildWebSite,
+  stripHtml,
+} from '@/lib/structuredData'
 
 const params = { postType: ['page', 'post'] }
 
 const SinglePageContent = ({ seo }) => {
   const { loading, error, data } = usePost(params)
+  const router = useRouter()
+
+  const post = data?.post
+  const isPost = post?.type === 'post'
+  const pageUrl = post?.link || buildPageUrl(router.asPath)
+  const headline = stripHtml(post?.title?.rendered || '')
+  const description =
+    seo?.yoast_head_json?.description ||
+    stripHtml(post?.excerpt?.rendered || '')
+  const imageUrl =
+    post?._embedded?.['wp:featuredmedia']?.[0]?.source_url || null
+  const datePublished = seo?.yoast_head_json?.article_published_time || null
+  const dateModified = seo?.yoast_head_json?.article_modified_time || null
+  const authorName = seo?.yoast_head_json?.article_author || null
+
+  const webPageSchema =
+    isPost && headline
+      ? buildWebPage({
+          url: pageUrl,
+          name: headline,
+          description,
+        })
+      : null
+
+  const blogPostingSchema =
+    isPost && headline
+      ? buildBlogPosting({
+          url: pageUrl,
+          headline,
+          description,
+          image: imageUrl || undefined,
+          datePublished,
+          dateModified,
+          authorName,
+        })
+      : null
+
+  if (webPageSchema && blogPostingSchema) {
+    webPageSchema.mainEntity = { '@id': blogPostingSchema['@id'] }
+  }
+
+  const schema =
+    webPageSchema && blogPostingSchema
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            buildOrganization(),
+            buildWebSite(),
+            webPageSchema,
+            blogPostingSchema,
+          ],
+        }
+      : null
 
   return (
     <>
+      <JsonLd id="blog-post-schema" data={schema} />
       {seo?.yoast_head_json && (
         <NextSeo
           title={seo.yoast_head_json.title}

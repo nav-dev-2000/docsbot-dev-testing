@@ -20,6 +20,16 @@ import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SentryQuote from '@/components/SentryQuote'
+import JsonLd from '@/components/seo/JsonLd'
+import {
+  buildFaqEntities,
+  buildFaqPage,
+  buildOrganization,
+  buildPageUrl,
+  buildService,
+  buildWebPage,
+  buildWebSite,
+} from '@/lib/structuredData'
 
 // Import: Elements
 import { VideoOverlay, Button } from '@/components/elements'
@@ -674,8 +684,61 @@ export default function DocumentationChatbot() {
     },
   }
 
+  const extractText = (content) => {
+    if (typeof content === 'string') return content
+    if (content && typeof content === 'object' && content.props?.children) {
+      return Array.isArray(content.props.children)
+        ? content.props.children.map((child) => extractText(child)).join('')
+        : extractText(content.props.children)
+    }
+    return ''
+  }
+
+  const allFaqs = [
+    ...heroFaqs.map((faq) => ({
+      questionName: faq.question,
+      acceptedAnswerText: faq.answer,
+    })),
+    ...dataFaq.map((faq) => ({
+      questionName: faq.question,
+      acceptedAnswerText: extractText(faq.answer),
+    })),
+  ]
+
+  const pageUrl = buildPageUrl('/documentation-chatbot')
+  const pageTitle = 'AI Chatbot for Documentation | Document AI Search | DocsBot'
+  const pageDescription =
+    'Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations. Perfect for technical docs and knowledge bases.'
+
+  const webPage = buildWebPage({
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+  })
+
+  const faqPage = buildFaqPage({
+    url: pageUrl,
+    mainEntity: buildFaqEntities(allFaqs),
+  })
+
+  const service = buildService({
+    url: pageUrl,
+    name: 'DocsBot AI Documentation Chatbot',
+    description: pageDescription,
+    serviceType: 'AI documentation chatbot',
+  })
+
+  webPage.mainEntity = { '@id': service['@id'] }
+  webPage.hasPart = [{ '@id': faqPage['@id'] }]
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [buildOrganization(), buildWebSite(), webPage, faqPage, service],
+  }
+
   return (
     <>
+      <JsonLd id="documentation-chatbot-schema" data={schema} />
       <NextSeo
         title="AI Chatbot for Documentation | Document AI Search | DocsBot"
         description="Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations. Perfect for technical docs and knowledge bases."

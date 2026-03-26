@@ -11,10 +11,20 @@ import {
 
 import Head from 'next/head'
 import Link from 'next/link'
-import { NextSeo, FAQPageJsonLd } from 'next-seo'
+import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MattCromwellQuote from '@/components/MattCromwellQuote'
+import JsonLd from '@/components/seo/JsonLd'
+import {
+  buildFaqEntities,
+  buildFaqPage,
+  buildOrganization,
+  buildPageUrl,
+  buildService,
+  buildWebPage,
+  buildWebSite,
+} from '@/lib/structuredData'
 
 // Import: Elements
 import { AccurateAnswers, SmartEscalation, MultilingualChat } from '@/components/customer-support/animations'
@@ -663,9 +673,40 @@ export default function Home() {
     })),
   ]
 
+  const pageUrl = buildPageUrl('/customer-support')
+  const pageTitle = 'AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot AI'
+  const pageDescription =
+    'Make support faster and less stressful with an AI chatbot that’s available 24/7, resolves 84% of tickets, and speaks in your tone—no coding required.'
+
+  const webPage = buildWebPage({
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+  })
+
+  const faqPage = buildFaqPage({
+    url: pageUrl,
+    mainEntity: buildFaqEntities(allFaqs),
+  })
+
+  const service = buildService({
+    url: pageUrl,
+    name: 'DocsBot AI Customer Support Chatbot',
+    description: pageDescription,
+    serviceType: 'AI customer support chatbot',
+  })
+
+  webPage.mainEntity = { '@id': service['@id'] }
+  webPage.hasPart = [{ '@id': faqPage['@id'] }]
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [buildOrganization(), buildWebSite(), webPage, faqPage, service],
+  }
+
   return (
     <>
-      <FAQPageJsonLd mainEntity={allFaqs} />
+      <JsonLd id="customer-support-schema" data={schema} />
       <NextSeo
         title="AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot AI"
         description="Make support faster and less stressful with an AI chatbot that’s available 24/7, resolves 84% of tickets, and speaks in your tone—no coding required."

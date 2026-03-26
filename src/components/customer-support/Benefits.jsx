@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { FAQPageJsonLd } from "next-seo";
 import Link from "next/link";
 import { Section, SectionContent } from "@/components/elements";
 
@@ -306,20 +305,11 @@ export const Benefits = ({ title, description, initialPersonaKey, personas = def
 
   const theme = 'medium';
 
-  // Create FAQ data from personas for JSON-LD
-  const faqs = Object.values(personas).map((persona) => ({
-    questionName: persona.question,
-    acceptedAnswerText: persona.paragraphs.map(p => extractText(p)).join(' '),
-  }));
-
     return (
         <Section
           theme={ theme }
           className="lg:gap-6"
         >
-            <FAQPageJsonLd
-              mainEntity={faqs}
-            />
             {(title || description) && (
               <SectionContent
                 theme={ theme }

@@ -21,6 +21,15 @@ import CTASection from '@/components/CTASection'
 import VideoPlayer from '@/components/VideoPlayer'
 import SecuritySection from '@/components/SecuritySection'
 import { UseCases } from '@/components/home/UseCases'
+import JsonLd from '@/components/seo/JsonLd'
+import { HOW_IT_WORKS_FEATURES } from '@/data/howItWorks'
+import {
+  buildHowTo,
+  buildOrganization,
+  buildPageUrl,
+  buildWebPage,
+  buildWebSite,
+} from '@/lib/structuredData'
 
 
 
@@ -30,8 +39,39 @@ import { UseCases } from '@/components/home/UseCases'
 
 
 export default function Home() {
+  const pageUrl = buildPageUrl('/')
+  const pageTitle = 'DocsBot AI - Custom chatbots from your documentation'
+  const pageDescription =
+    'Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more.'
+
+  const howToSteps = HOW_IT_WORKS_FEATURES.map((feature) => ({
+    name: feature.name,
+    text: feature.description,
+  }))
+
+  const webPage = buildWebPage({
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+  })
+
+  const howTo = buildHowTo({
+    url: pageUrl,
+    name: 'How DocsBot Works',
+    description: 'Create, train, refine, and launch your DocsBot AI assistant.',
+    steps: howToSteps,
+  })
+
+  webPage.mainEntity = { '@id': howTo['@id'] }
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [buildOrganization({ includeContactPoint: true }), buildWebSite(), webPage, howTo],
+  }
+
   return (
     <>
+      <JsonLd id="home-schema" data={schema} />
       <Head>
         <link rel="preconnect" href="https://cdn.docsbot.com" />
       </Head>
