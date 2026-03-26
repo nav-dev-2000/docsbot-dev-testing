@@ -77,9 +77,13 @@ export default function DocsBotWeek2026Page() {
             <div className="mt-10 grid grid-cols-1 gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-8">
               <div className="flex w-fit max-w-full shrink-0 items-center justify-self-start rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20 lg:col-start-1 lg:row-start-1">
                 <span className="pr-1">Webinar</span>
-                <span className="shrink-0 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
+                <Link
+                  href="https://docsbot.ai/article/docsbot-week-2026-ai-that-acts"
+                  className="shrink-0 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white no-underline transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                  aria-label="DocsBot Week 2026: April 30th, 2026 at 10:00 AM CT — read the announcement"
+                >
                   April 30th, 2026 at 10:00 AM CT
-                </span>
+                </Link>
               </div>
 
               <div className="lg:col-start-1 lg:row-start-2">
@@ -109,8 +113,19 @@ export default function DocsBotWeek2026Page() {
                   <li>• Surprise announcement</li>
                 </ul>
 
-                <p className="mt-6 bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-base font-bold leading-8 text-transparent">
-                  Sign up to secure your place at our live event.
+                <p className="mt-6 text-base font-bold leading-8">
+                  <span className="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
+                    Sign up to secure your place and{' '}
+                  </span>
+                  <Link
+                    href="https://docsbot.ai/article/docsbot-week-2026-ai-that-acts"
+                    className="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent underline decoration-cyan-400 underline-offset-2 hover:decoration-cyan-200"
+                  >
+                    learn more
+                  </Link>
+                  <span className="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
+                    .
+                  </span>
                 </p>
               </div>
 
