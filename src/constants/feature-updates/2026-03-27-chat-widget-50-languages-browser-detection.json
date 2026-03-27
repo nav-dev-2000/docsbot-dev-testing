@@ -1,0 +1,6 @@
+{
+  "date": "2026-03-27",
+  "title": "50 languages & widget browser language detection",
+  "description": "Our bots & embeddable widget now support 50 languages! THe widget detects the visitor's browser language & loads the matching language pack automatically.",
+  "href": "/documentation/developer/embeddable-chat-widget"
+}

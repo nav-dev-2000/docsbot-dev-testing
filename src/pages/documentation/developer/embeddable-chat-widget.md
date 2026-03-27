@@ -190,29 +190,17 @@ options: {
   labels: {
       poweredBy: 'Powered by',
       inputPlaceholder: 'Send a message...',
-      firstMessage: 'What can I help you with?', //supports markdown
+      firstMessage: 'What can I help you with?', // supports markdown
       sources: 'Sources',
-      helpful: 'Rate as helpful', //title hover text
-      unhelpful: 'Rate as unhelpful', //title hover text
-      getSupport: 'Contact support', //only used with Agent mode off
+      helpful: 'Rate as helpful', // title hover text
+      unhelpful: 'Rate as unhelpful', // title hover text
+      getSupport: 'Contact support', // only used with Agent mode off
       floatingButton: 'Help',
       suggestions: 'Not sure what to ask?',
       close: 'Close',
       create: 'Create your own!',
-      rateLimitMessage: 'You are sending messages too fast. Please slow down.',
-      leadCollectMessage: 'Before we continue, could you share a few details?', // prompt text before form
-      requiredField: 'Please fill out required fields.',
-      leadCollectEmpty: 'No fields configured.',
-      selectOption: 'Select an option', // used to localize default select placeholders
-      continue: 'Continue',
-      feedbackMessage: 'Was this answer helpful?', //only used with Agent mode off
-      feedbackYes: "Yes", //only used with Agent mode off
-      feedbackNo: "No", //only used with Agent mode off
-      leadCollectConfirmation: '', // currently not shown in the new lead flow
-      resetChat: "Reset conversation", //title text
-      footerMessage: "", // if set will show at conversation start. Supports Markdown. Set keepFooterVisible: true to keep it visible after a conversation starts.
-      copyResponse: 'Copy response',
-      copied: 'Copied!',
+      submit: 'Submit',
+      cancel: 'Cancel',
       agentActivityThinking: 'Thinking…',
       agentActivityTool: 'Working…',
       agentActivitySearchDocumentation: 'Searching documentation…',
@@ -222,7 +210,58 @@ options: {
       agentActivityStripeBillingPortal: 'Creating billing portal link…',
       agentActivityStripeRefundLatestPayment: 'Processing refund…',
       agentActivityStripeCancelSubscription: 'Processing cancellation…',
-    }, // Override all the default labels for your own language.
+      stripeAmount: 'Amount',
+      stripeInvoice: 'Invoice',
+      stripeAmountDue: 'Due',
+      stripeAmountPaid: 'Paid',
+      stripeDate: 'Date',
+      stripeViewInvoice: 'View invoice',
+      stripeHideLineItems: 'Hide line items',
+      stripeViewLineItems: 'View {count} line item(s)',
+      stripeItem: 'Item',
+      stripeQty: 'Qty',
+      stripeSubscription: 'Subscription',
+      stripeCurrentPeriod: 'Current period',
+      stripeTrialEnds: 'Trial ends',
+      stripeTrialDayLeft: 'day left',
+      stripeTrialDaysLeft: 'days left',
+      stripeCancelsAtPeriodEnd: 'Cancels at period end',
+      stripeIntervalDay: 'day',
+      stripeIntervalWeek: 'week',
+      stripeIntervalMonth: 'month',
+      stripeIntervalYear: 'year',
+      stripeIntervalDays: 'days',
+      stripeIntervalWeeks: 'weeks',
+      stripeIntervalMonths: 'months',
+      stripeIntervalYears: 'years',
+      stripeStatusDraft: 'Draft',
+      stripeStatusOpen: 'Open',
+      stripeStatusPaid: 'Paid',
+      stripeStatusUncollectible: 'Uncollectible',
+      stripeStatusVoid: 'Void',
+      stripeStatusIncomplete: 'Incomplete',
+      stripeStatusIncompleteExpired: 'Incomplete expired',
+      stripeStatusTrialing: 'Trialing',
+      stripeStatusActive: 'Active',
+      stripeStatusPastDue: 'Past due',
+      stripeStatusPastDueUnresolved: 'Past due (unresolved)',
+      stripeStatusCanceled: 'Canceled',
+      stripeStatusUnpaid: 'Unpaid',
+      stripeStatusPaused: 'Paused',
+      rateLimitMessage: 'You are sending messages too fast. Please slow down.',
+      leadCollectMessage: 'Before we continue, could you share a few details?',
+      requiredField: 'Please fill out required fields.',
+      continue: 'Continue',
+      leadCollectEmpty: 'No fields configured.',
+      selectOption: 'Select an option',
+      feedbackMessage: 'Was this answer helpful?', // only used with Agent mode off
+      feedbackYes: 'Yes', // only used with Agent mode off
+      feedbackNo: 'No', // only used with Agent mode off
+      resetChat: 'Reset conversation', // title text
+      footerMessage: '', // if set, shown at conversation start; supports Markdown. Set keepFooterVisible: true to keep it visible after a conversation starts.
+      copyResponse: 'Copy response',
+      copied: 'Copied!',
+    }, // Optional per-key overrides; see Labels and internationalization below.
   keepFooterVisible: false, // Keep the footerMessage visible after a conversation starts. Default is false.
   horizontalMargin: 20, // Horizontal margin in pixels from side. Default is 20.
   verticalMargin: 20, // Vertical margin in pixels from bottom. Default is 20.
@@ -239,6 +278,14 @@ options: {
   ] // Array of example questions to show in the widget. Suggestions are picked at random.
 }
 ```
+
+### Labels and internationalization
+
+The widget detects the visitor's browser language and loads a matching language pack when available. Dashboard **label** customizations interact with that behavior as follows:
+
+- **Browser language matches the bot language** (the language chosen in bot settings): the widget uses your dashboard copy for customizable strings such as the **first message**, **floating button text**, and **footer message**.
+- **Browser language does not match the bot language**: the widget uses the **default strings** from the detected locale pack for the UI. Dashboard customizations for the **first message** and **button text** are not applied; the **footer message** still comes from the dashboard as it's optional and may include important legal notices.
+- **`options.labels` in embed code**: any label keys you set in the embed **always** take effect for those keys, regardless of browser language or dashboard settings. This allows you to do your own language customization logic.
 
 ### Lead Collection
 
