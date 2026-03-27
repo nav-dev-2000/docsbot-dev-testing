@@ -228,7 +228,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
 
     return (
       <Transition.Root show={openRemoveModal} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setOpenRemoveModal}>
+        <Dialog as="div" className="relative z-modal" onClose={setOpenRemoveModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

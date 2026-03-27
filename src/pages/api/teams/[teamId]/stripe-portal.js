@@ -15,7 +15,10 @@ import {
 import {
   getExceededPlanLimits,
   isDowngradingBelowBusiness,
+  isDowngradingBelowStandard,
   teamHasPerBotRoleAssignments,
+  teamHasStripeActionsEnabled,
+  teamHasLeadCollectCustomFields,
 } from '@/utils/checkoutValidation'
 import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
 import { parseDocsbotCouponCookie } from '@/utils/couponCookie.utils'
@@ -114,7 +117,25 @@ export default async function createCheckoutSession(req, res) {
         // Check if team is on Business plan and has per bot roles - prevent downgrading
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
         const isDowngradingToBelowBusiness = isDowngradingBelowBusiness(tier)
-        
+
+        // Check if team is on Standard plan and has Stripe actions or lead custom fields - prevent downgrading
+        const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
+        const isDowngradingToBelowStandard = isDowngradingBelowStandard(tier)
+
+        if (isCurrentlyStandardOrHigher && isDowngradingToBelowStandard) {
+          const bots = await getBots(team)
+          if (teamHasStripeActionsEnabled({ bots })) {
+            throw Error(
+              'Cannot downgrade while Stripe billing support actions are enabled on one or more bots. Disable Stripe Tools in Widget → Actions before downgrading.',
+            )
+          }
+          if (teamHasLeadCollectCustomFields({ bots })) {
+            throw Error(
+              'Cannot downgrade while custom lead fields are configured on one or more bots. Remove custom fields (keep only name/email) in Widget → Actions before downgrading.',
+            )
+          }
+        }
+
         if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
           const bots = await getBots(team)
           if (
@@ -281,9 +302,11 @@ export default async function createCheckoutSession(req, res) {
 
         // Check if team is on Business plan and has per bot roles - prevent downgrading
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
-        
+        const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
+
+        const bots = await getBots(team)
+
         if (isCurrentlyBusinessOrHigher) {
-          const bots = await getBots(team)
           if (
             teamHasPerBotRoleAssignments({
               bots,
@@ -297,12 +320,21 @@ export default async function createCheckoutSession(req, res) {
               plans?.business?.prices?.current?.monthly,
               plans?.business?.prices?.current?.annually,
             ].filter(Boolean)
-            
+
             if (businessPrices.length > 0) {
-              // Override neededProducts to only include Business plan so portal opens for invoices etc.
               neededProducts = [businessPrices]
             }
           }
+        } else if (
+          isCurrentlyStandardOrHigher &&
+          (teamHasStripeActionsEnabled({ bots }) || teamHasLeadCollectCustomFields({ bots }))
+        ) {
+          // If they have Stripe actions or lead custom fields, restrict portal to Standard and above
+          neededProducts = filterNeededProductsByPlanIds(
+            neededProducts,
+            allPlans,
+            ['standard', 'business', 'enterprise'],
+          )
         }
 
         const sanitizeSubscriptionUpdateFeatures = (features) => {
@@ -346,10 +378,28 @@ export default async function createCheckoutSession(req, res) {
             }
           }
           
+          // Check if downgrading from Standard plan with Stripe actions or lead custom fields
+          const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
+          const isDowngradingToBelowStandard = isDowngradingBelowStandard(tier)
+
+          if (isCurrentlyStandardOrHigher && isDowngradingToBelowStandard) {
+            const bots = await getBots(team)
+            if (teamHasStripeActionsEnabled({ bots })) {
+              throw Error(
+                'Cannot downgrade while Stripe billing support actions are enabled on one or more bots. Disable Stripe Tools in Widget → Actions before downgrading.',
+              )
+            }
+            if (teamHasLeadCollectCustomFields({ bots })) {
+              throw Error(
+                'Cannot downgrade while custom lead fields are configured on one or more bots. Remove custom fields (keep only name/email) in Widget → Actions before downgrading.',
+              )
+            }
+          }
+
           // Check if downgrading from Business plan with per-bot roles
           const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
           const isDowngradingToBelowBusiness = isDowngradingBelowBusiness(tier)
-          
+
           if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
             const bots = await getBots(team)
             if (

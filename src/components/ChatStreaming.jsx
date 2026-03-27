@@ -141,7 +141,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
     // Send message to server when connection is established
     ws.onopen = function (event) {
       setShowQuestion(false)
-      setLoadingMessage('Thinking...')
+      setLoadingMessage(bot.labels.agentActivityThinking)
       setAnswers((prev) => {
         //add new question
         return [...prev, { type: 'question', question: askedQuestion }]
@@ -338,7 +338,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setCurrentSource}>
+        <Dialog as="div" className="relative z-modal" onClose={setCurrentSource}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

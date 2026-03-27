@@ -71,6 +71,7 @@ const WorkspaceTabs = ({ data, activeId, setActiveId, isVertical = false }) => {
                     isActive,
                     shallow,
                     wizardId,
+                    requiresManageSettings: _requiresManageSettings,
                     ...rest
                 } = option
 

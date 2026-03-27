@@ -42,6 +42,12 @@ const getToolEnabled = (toolConfig, defaultEnabled = true) => {
   return defaultEnabled
 }
 
+/** Widget JSON only: DB still uses `jp` for Japanese; expose ISO 639-1 `ja`. */
+function widgetJsonLanguageCode(language) {
+  const raw = language || 'en'
+  return String(raw).toLowerCase() === 'jp' ? 'ja' : raw
+}
+
 export default async function handler(req, res) {
   // Run the middleware
   await runMiddleware(req, res, cors)
@@ -72,6 +78,7 @@ export default async function handler(req, res) {
           teamId: teamId,
           botName: bot.name,
           description: bot.description,
+          language: widgetJsonLanguageCode(bot.language),
           allowedDomains: bot.allowedDomains || [],
           color: bot.color || '#1292EE',
           icon: bot.icon || 'default',

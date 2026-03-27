@@ -1094,13 +1094,13 @@ export default function SourceForm({
         />
         
         {/* URL Limit Dialog for Free Plan */}
-        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-50">
+        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-modal">
           <DialogBackdrop
             transition
             className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
           />
 
-          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="fixed inset-0 z-modal w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <DialogPanel
                 transition
@@ -2526,13 +2526,13 @@ https://example.com/page2`
         />
         
         {/* URL Limit Dialog for Free Plan */}
-        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-50">
+        <Dialog open={showUrlLimitDialog} onClose={() => setShowUrlLimitDialog(false)} className="relative z-modal">
           <DialogBackdrop
             transition
             className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
           />
 
-          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="fixed inset-0 z-modal w-screen overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <DialogPanel
                 transition

@@ -55,6 +55,8 @@ Replace `[teamId]`, `[botId]`, and `[conversationId]` with your actual team ID, 
 - **Private bots**: Authentication is required
 - **Public bots**: Authentication is optional but recommended
 
+Bearer token options: [Authentication — Private bots](/documentation/developer/authentication#private-bots).
+
 ### Headers
 
 ```
@@ -280,6 +282,6 @@ response = requests.post(
 
 4. **Transaction Safety**: Both operations (conversation update, if applicable, and lead save) are performed atomically. If either operation fails, both are rolled back. If the conversation doesn't exist, only the lead save operation is performed.
 
-5. **Private Bots**: For bots with `privacy: 'private'`, authentication is required. Public bots can be called without authentication, but it's recommended to include the API key/signature.
+5. **Private Bots**: For bots with `privacy: 'private'`, authentication is required. See [Authentication — Private bots](/documentation/developer/authentication#private-bots) for JWT (recommended), HMAC, and API key Bearer options. Public bots can be called without authentication, but including a valid token is still recommended for higher limits.
 
 6. **Metadata Structure**: The metadata object can contain any key-value pairs you need. Common fields include: `email`, `name`, `company`, `phone`, `source`, etc.

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, forwardRef } from 'react'
+import { useState, useEffect, useMemo, useRef, forwardRef } from 'react'
 import { i18n } from '@/constants/strings.constants'
 import clsx from 'clsx'
 
@@ -14,6 +14,58 @@ import Tooltip from '@/components/Tooltip'
 import Workspace from '@new-dashboard/Workspace'
 
 import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
+
+/** Keys managed only in the form UI, not persisted with bot settings. */
+const SYSTEM_FORM_ONLY_KEYS = new Set(['classify'])
+/** Optional strings where empty and undefined compare equal (matches dirty detection). */
+const SYSTEM_OPTIONAL_STRING_KEYS = new Set([
+    'agentPrompt',
+    'agentRole',
+    'description',
+])
+const SYSTEM_DEFAULT_MODEL = 'gpt-5.4-nano'
+
+/** Stable stringify so label maps compare equal regardless of key insertion order (Firestore / spread vs i18n object). */
+const stableStringify = (value) => {
+    const seen = new WeakSet()
+    const walk = (v) => {
+        if (v === null || typeof v !== 'object') {
+            return v
+        }
+        if (seen.has(v)) {
+            return '[Circular]'
+        }
+        seen.add(v)
+        if (Array.isArray(v)) {
+            return v.map(walk)
+        }
+        const out = {}
+        for (const key of Object.keys(v).sort()) {
+            out[key] = walk(v[key])
+        }
+        return out
+    }
+    try {
+        return JSON.stringify(walk(value))
+    } catch {
+        return JSON.stringify(value)
+    }
+}
+
+function systemSettingValuesDiffer(key, formValue, savedValue) {
+    if (SYSTEM_OPTIONAL_STRING_KEYS.has(key)) {
+        return (formValue || undefined) !== (savedValue || undefined)
+    }
+    if (key === 'model') {
+        const normA = formValue || SYSTEM_DEFAULT_MODEL
+        const normB = savedValue || SYSTEM_DEFAULT_MODEL
+        return normA !== normB
+    }
+    if (key === 'labels') {
+        return stableStringify(formValue) !== stableStringify(savedValue)
+    }
+    return JSON.stringify(formValue) !== JSON.stringify(savedValue)
+}
 
 const Block = forwardRef(function Block(
     { tagName, title, icon, value, ...props },
@@ -118,27 +170,20 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         }
     }, [showOpenAI, botSettings.model, bot?.model])
 
-    const isDirty = useMemo(() => {
-        const formOnlyKeys = new Set(['classify'])
-        // Treat empty string and undefined as equal for optional string fields (avoids false dirty when agent mode is off and agentPrompt is unset)
-        const optionalStringKeys = new Set(['agentPrompt', 'agentRole', 'description'])
-        const defaultModel = 'gpt-5.4-nano'
-        return Object.keys(botSettings)
-            .filter((key) => !formOnlyKeys.has(key))
-            .some((key) => {
-                const a = botSettings[key]
-                const b = bot?.[key]
-                if (optionalStringKeys.has(key)) {
-                    return (a || undefined) !== (b || undefined)
-                }
-                if (key === 'model') {
-                    const normA = a || defaultModel
-                    const normB = b || defaultModel
-                    return normA !== normB
-                }
-                return JSON.stringify(a) !== JSON.stringify(b)
-            })
+    const systemDirtySnapshot = useMemo(() => {
+        const reasons = []
+        for (const key of Object.keys(botSettings)) {
+            if (SYSTEM_FORM_ONLY_KEYS.has(key)) continue
+            const a = botSettings[key]
+            const b = bot?.[key]
+            if (systemSettingValuesDiffer(key, a, b)) {
+                reasons.push({ field: key, current: a, saved: b })
+            }
+        }
+        return { dirty: reasons.length > 0, reasons }
     }, [botSettings, bot])
+
+    const isDirty = systemDirtySnapshot.dirty
 
     useUnsavedChangesWarning(isDirty, isUpdating)
 
@@ -147,6 +192,21 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         setBounceSave(Boolean(isDirty && !isUpdating))
     }, [isDirty, isUpdating])
 
+    const lastSystemBounceLogKey = useRef('')
+    useEffect(() => {
+        if (!bounceSave) {
+            lastSystemBounceLogKey.current = ''
+            return
+        }
+        const key = JSON.stringify(systemDirtySnapshot.reasons)
+        if (lastSystemBounceLogKey.current === key) return
+        lastSystemBounceLogKey.current = key
+        console.log(
+            '[PageConfigure.General] Save button bouncing — unsaved changes:',
+            systemDirtySnapshot.reasons,
+        )
+    }, [bounceSave, systemDirtySnapshot])
+
     async function updateBot() {
         setErrorText('')
         setIsUpdating(true)
@@ -154,7 +214,7 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         const changedSettings = Object.fromEntries(
             Object.entries(botSettings).filter(([key, value]) => {
                 if (key === 'classify') return false
-                return JSON.stringify(value) !== JSON.stringify(bot?.[key])
+                return systemSettingValuesDiffer(key, value, bot?.[key])
             }),
         )
 

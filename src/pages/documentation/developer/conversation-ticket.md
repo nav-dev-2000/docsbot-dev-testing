@@ -33,6 +33,8 @@ Replace `[teamId]`, `[botId]`, and `[conversationId]` with your actual team ID, 
 - **Private bots**: Authentication is required, or if you want to force a new ticket
 - **Public bots**: No authentication required, but returns cached ticket only if one was already created
 
+Bearer token options: [Authentication — Private bots](/documentation/developer/authentication#private-bots).
+
 ---
 
 ## Response

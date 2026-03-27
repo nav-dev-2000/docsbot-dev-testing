@@ -20,6 +20,36 @@ const sanitizeMetadata = (metadata) => {
   return JSON.parse(JSON.stringify(metadata))
 }
 
+
+const sanitizeBotSecrets = (bot) => {
+  if (!bot || typeof bot !== 'object') {
+    return bot
+  }
+
+  if (bot.slackBotToken) {
+    delete bot.slackBotToken
+  }
+
+  if (bot.tools?.stripe && typeof bot.tools.stripe === 'object') {
+    const stripe = { ...bot.tools.stripe }
+    delete stripe.accessToken
+    delete stripe.refreshToken
+    delete stripe.oauthStateHash
+    delete stripe.oauthStateExpiresAt
+    delete stripe.oauthUpdatedBy
+    // Legacy per-bot Stripe secret keys (deprecated; OAuth only now)
+    delete stripe.secretKey
+    delete stripe.secretKeyObfuscated
+    delete stripe.clearOAuthConnection
+    bot.tools = {
+      ...bot.tools,
+      stripe,
+    }
+  }
+
+  return bot
+}
+
 export async function getBots(team, resultLimit = 1000) {
   const querySnapshot = await firestore
     .collection('teams')
@@ -51,12 +81,7 @@ export async function getBots(team, resultLimit = 1000) {
     // Remove webhooks to avoid serializing nested Firestore Timestamps
     delete bot.webhooks
 
-    // Remove sensitive Slack token only; keep slackTeamId, slackTeamName, etc. for backwards compat in IntegrationsGrid
-    if (bot.slackBotToken) {
-      delete bot.slackBotToken
-    }
-
-    bots.push(bot)
+    bots.push(sanitizeBotSecrets(bot))
   })
 
   return bots
@@ -302,7 +327,8 @@ export async function getConversationStats(
   }
 }
 
-export async function getBot(teamId, botId) {
+export async function getBot(teamId, botId, options = {}) {
+  const { sanitize = true } = options
   // Sanity check for valid parameters
   if (
     !teamId ||
@@ -358,12 +384,7 @@ export async function getBot(teamId, botId) {
       bot.webhooks = mapWebhookEntries(bot.webhooks)
     }
 
-    // Remove sensitive Slack token information before returning
-    if (bot.slackBotToken) {
-      delete bot.slackBotToken;
-    }
-
-    return bot
+    return sanitize ? sanitizeBotSecrets(bot) : bot
   } else {
     return null
   }

@@ -1,3 +1,5 @@
+import { getLeadCollectExtraFields } from '@/lib/leadCollect'
+
 export const PLAN_LEVELS = {
   free: 1,
   hobby: 2,
@@ -109,4 +111,33 @@ export const teamHasPerBotRoleAssignments = ({
 export const isDowngradingBelowBusiness = (tier) => {
   const targetTierLevel = PLAN_LEVELS[tier] || 0
   return targetTierLevel < PLAN_LEVELS.business
+}
+
+export const isDowngradingBelowStandard = (tier) => {
+  const targetTierLevel = PLAN_LEVELS[tier] || 0
+  return targetTierLevel < PLAN_LEVELS.standard
+}
+
+/**
+ * Returns true if any bot has Stripe billing support actions enabled.
+ * Used to block downgrades from Standard when Stripe actions are in use.
+ */
+export const teamHasStripeActionsEnabled = ({ bots = [] } = {}) => {
+  return bots.some(
+    (bot) =>
+      bot?.tools?.stripe &&
+      typeof bot.tools.stripe === 'object' &&
+      bot.tools.stripe.enabled === true,
+  )
+}
+
+/**
+ * Returns true if any bot has lead collection with custom fields (beyond name/email).
+ * Used to block downgrades from Standard when custom lead fields are in use.
+ */
+export const teamHasLeadCollectCustomFields = ({ bots = [] } = {}) => {
+  return bots.some((bot) => {
+    const extra = getLeadCollectExtraFields(bot?.leadCollect)
+    return Array.isArray(extra) && extra.length > 0
+  })
 }

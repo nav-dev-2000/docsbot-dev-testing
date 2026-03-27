@@ -142,9 +142,13 @@ export default function App({ Component, pageProps }) {
         capture_pageview: !isIframe,
         // Disable heatmaps for iframe routes
         enable_heatmaps: !isIframe,
-        // Enable debug mode in development
-        loaded: (posthog) => {
-          if (process.env.NODE_ENV === 'development') posthog.debug()
+        // Verbose PostHog logging: opt-in via NEXT_PUBLIC_POSTHOG_DEBUG=1 or true
+        loaded: (ph) => {
+          const raw = process.env.NEXT_PUBLIC_POSTHOG_DEBUG
+          const enabled =
+            raw === '1' ||
+            (typeof raw === 'string' && raw.toLowerCase() === 'true')
+          ph.debug(enabled)
         },
       })
     }

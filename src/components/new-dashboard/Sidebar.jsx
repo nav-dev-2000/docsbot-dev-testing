@@ -666,7 +666,7 @@ const Sidebar = ({
             <Transition.Root show={sidebarOpen} as={Fragment}>
                 <Dialog
                     as="div"
-                    className="relative z-40 md:hidden print:hidden"
+                    className="relative z-modal md:hidden print:hidden"
                     onClose={setSidebarOpen}
                 >
                     <Transition.Child
@@ -681,7 +681,7 @@ const Sidebar = ({
                         <div className="fixed inset-0 bg-gray-800 bg-opacity-75" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 z-40 flex">
+                    <div className="fixed inset-0 z-modal flex">
                         <Transition.Child
                             as={Fragment}
                             enter="transition ease-in-out duration-300 transform"

@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     // fetch bot first
     let bot
     try {
-      bot = await getBot(team.id, botId)
+      bot = await getBot(team.id, botId, { sanitize: false })
       if (!bot) {
         return res.status(404).json({ message: 'Bot not found' })
       }

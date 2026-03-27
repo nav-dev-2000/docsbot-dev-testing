@@ -50,7 +50,9 @@ export default function FormBot({
         bot?.rateLimitMessages || 10,
     )
     const [labels, setLabels] = useState(
-        bot?.labels || i18n[bot?.language]?.labels || null,
+        bot?.labels ||
+            i18n[bot?.language]?.labels ||
+            i18n.en.labels,
     )
     const [rateLimitSeconds, setRateLimitSeconds] = useState(
         bot?.rateLimitSeconds || 60,
@@ -78,6 +80,31 @@ export default function FormBot({
             setLabels(i18n[language].labels)
         }
     }, [language])
+
+    // Re-hydrate from server bot after save (or when switching bots) so local state matches getBot() merge order / payload.
+    useEffect(() => {
+        if (!bot) return
+        setLanguage(bot.language || 'en')
+        setBotName(bot.name || '')
+        setBotDescription(bot.description || '')
+        setPrivacy(bot.privacy || 'public')
+        setModel(bot.model || defaultModel)
+        setQuestions(bot.questions || [])
+        setGlossary(bot.glossary || [])
+        setRateLimitMessages(bot.rateLimitMessages ?? 10)
+        setLabels(
+            bot.labels ||
+                i18n[bot.language]?.labels ||
+                i18n.en.labels,
+        )
+        setRateLimitSeconds(bot.rateLimitSeconds ?? 60)
+        setRateLimitIPAllowlist(bot.rateLimitIPAllowlist || [])
+        setRateLimitIPField(bot.rateLimitIPAllowlist?.join(', ') || '')
+        setRecordIP(bot.recordIP || false)
+        setTemperature(bot.temperature ?? 0)
+        setAgentPrompt(bot.agentPrompt || '')
+        setAgentRole(bot.agentRole || '')
+    }, [bot?.id, bot?.updatedAt])
 
     useEffect(() => {
         setBotSettings({

@@ -17,7 +17,8 @@
     "news": "node scripts/latest-news.js",
     "feature-updates": "node scripts/generate-feature-updates.js",
     "truto-sync": "node scripts/truto-sync.js",
-    "validate-translations": "node scripts/validate-translations.js"
+    "validate-translations": "node scripts/validate-translations.js",
+    "merge-widget-locales": "node .agents/skills/widget-locale-merge/scripts/merge-widget-locales.mjs"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

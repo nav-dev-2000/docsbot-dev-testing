@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useRef } from 'react'
+import { useMemo, useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -9,7 +9,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
 
-import { checkPlanPermission } from '@/utils/helpers'
+import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalPrompt from '@/components/ModalPrompt'
 import { ref, uploadBytes } from 'firebase/storage'
@@ -30,6 +30,17 @@ import {
     isLeadCollectEnabled,
     sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import { STRIPE_OAUTH_POSTMESSAGE_TYPE } from '@/lib/stripeConnect'
+
+/** After OAuth or GET /bot, merge server stripe (incl. stripeUserId) into local form state. */
+const mergeServerStripeIntoLocalTools = (setTools, nextBot) => {
+    const serverStripe = nextBot?.tools?.stripe
+    if (!serverStripe || typeof serverStripe !== 'object') return
+    setTools((prev) => ({
+        ...prev,
+        stripe: { ...(prev.stripe || {}), ...serverStripe },
+    }))
+}
 
 const toWidgetLeadCollectState = (leadCollect) => {
     if (!leadCollect || typeof leadCollect !== 'object') {
@@ -48,6 +59,7 @@ const toWidgetLeadCollectState = (leadCollect) => {
     }
 }
 
+
 const normalizeHexColor = (value) => {
     if (!value) return null
     const trimmed = value.trim()
@@ -59,11 +71,219 @@ const normalizeHexColor = (value) => {
     return normalized
 }
 
+/** Stable stringify for debugging JSON.stringify false positives (key order). */
+const stableStringify = (value) => {
+    const seen = new WeakSet()
+    const walk = (v) => {
+        if (v === null || typeof v !== 'object') {
+            return v
+        }
+        if (seen.has(v)) {
+            return '[Circular]'
+        }
+        seen.add(v)
+        if (Array.isArray(v)) {
+            return v.map(walk)
+        }
+        const out = {}
+        for (const key of Object.keys(v).sort()) {
+            out[key] = walk(v[key])
+        }
+        return out
+    }
+    try {
+        return JSON.stringify(walk(value))
+    } catch {
+        return JSON.stringify(value)
+    }
+}
+
+/** Clone tools for dirty-checks; OAuth tokens are not returned from the API. Legacy per-bot Stripe secret key fields are stripped if present. */
+const stripStripeSensitiveFromTools = (tools) => {
+    if (!tools || typeof tools !== 'object') {
+        return tools
+    }
+    const next = { ...tools }
+    if (next.stripe && typeof next.stripe === 'object') {
+        const stripe = { ...next.stripe }
+        delete stripe.accessToken
+        delete stripe.refreshToken
+        delete stripe.oauthStateHash
+        delete stripe.oauthStateExpiresAt
+        delete stripe.clearOAuthConnection
+        delete stripe.secretKey
+        delete stripe.secretKeyObfuscated
+        next.stripe = stripe
+    }
+    return next
+}
+
+/**
+ * Explains why the widget appearance form considers itself dirty (for debugging
+ * e.g. Stripe tools staying "unsaved" after save due to JSON shape/order).
+ */
+const computeAppearanceDirtySnapshot = (
+    bot,
+    team,
+    {
+        color,
+        icon,
+        alignment,
+        botIcon,
+        branding,
+        supportLink,
+        showButtonLabel,
+        headerAlignment,
+        hideSources,
+        showCopyButton,
+        isAgent,
+        imageUploads,
+        logo,
+        linkSafetyEnabled,
+        keepFooterVisible,
+        allowedDomains,
+        labels,
+        tools,
+        leadCollect,
+    },
+) => {
+    const reasons = []
+
+    const initialBotIcon = bot.botIcon || 'none'
+    const initialBranding = bot.branding === undefined ? true : bot.branding
+    const initialIsAgent = bot.isAgent === undefined ? false : bot.isAgent
+    const initialImageUploads =
+        ((bot.imageUploads === undefined || bot.imageUploads) &&
+            checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
+        false
+    const initialLabels =
+        bot.labels || i18n[bot.language]?.labels || i18n.en.labels
+    const initialTools = bot.tools || {
+        human_escalation: { enabled: true },
+        followup_rating: { enabled: true },
+    }
+    const initialLeadCollect = (() => {
+        if (!bot?.leadCollect) return false
+        try {
+            return toWidgetLeadCollectState(bot.leadCollect)
+        } catch {
+            return false
+        }
+    })()
+
+    const push = (field, extra = {}) => reasons.push({ field, ...extra })
+
+    if (color !== (bot.color || '#1292EE')) {
+        push('color', { current: color, saved: bot.color || '#1292EE' })
+    }
+    if (icon !== (bot.icon || 'default')) {
+        push('icon', { current: icon, saved: bot.icon || 'default' })
+    }
+    if (alignment !== (bot.alignment || 'right')) {
+        push('alignment', { current: alignment, saved: bot.alignment || 'right' })
+    }
+    if (botIcon !== initialBotIcon) {
+        push('botIcon', { current: botIcon, saved: initialBotIcon })
+    }
+    if (branding !== initialBranding) {
+        push('branding', { current: branding, saved: initialBranding })
+    }
+    if (supportLink !== (bot.supportLink || '')) {
+        push('supportLink', { current: supportLink, saved: bot.supportLink || '' })
+    }
+    if (showButtonLabel !== (bot.showButtonLabel || false)) {
+        push('showButtonLabel', {
+            current: showButtonLabel,
+            saved: bot.showButtonLabel || false,
+        })
+    }
+    if (headerAlignment !== (bot.headerAlignment || 'center')) {
+        push('headerAlignment', {
+            current: headerAlignment,
+            saved: bot.headerAlignment || 'center',
+        })
+    }
+    if (hideSources !== bot.hideSources) {
+        push('hideSources', { current: hideSources, saved: bot.hideSources })
+    }
+    if (showCopyButton !== (bot.showCopyButton || false)) {
+        push('showCopyButton', {
+            current: showCopyButton,
+            saved: bot.showCopyButton || false,
+        })
+    }
+    if (isAgent !== initialIsAgent) {
+        push('isAgent', { current: isAgent, saved: initialIsAgent })
+    }
+    if (imageUploads !== initialImageUploads) {
+        push('imageUploads', {
+            current: imageUploads,
+            saved: initialImageUploads,
+        })
+    }
+    if (logo !== (bot.logo || null)) {
+        push('logo', { current: logo, saved: bot.logo || null })
+    }
+    if (linkSafetyEnabled !== (bot.linkSafetyEnabled === true)) {
+        push('linkSafetyEnabled', {
+            current: linkSafetyEnabled,
+            saved: bot.linkSafetyEnabled === true,
+        })
+    }
+    if (keepFooterVisible !== (bot.keepFooterVisible === true)) {
+        push('keepFooterVisible', {
+            current: keepFooterVisible,
+            saved: bot.keepFooterVisible === true,
+        })
+    }
+
+    if (
+        JSON.stringify(allowedDomains) !==
+        JSON.stringify(bot.allowedDomains || [])
+    ) {
+        push('allowedDomains', {
+            current: allowedDomains,
+            saved: bot.allowedDomains || [],
+            stableEqual:
+                stableStringify(allowedDomains) ===
+                stableStringify(bot.allowedDomains || []),
+        })
+    }
+    if (JSON.stringify(labels) !== JSON.stringify(initialLabels)) {
+        push('labels', {
+            stableEqual: stableStringify(labels) === stableStringify(initialLabels),
+        })
+    }
+    const toolsSansSensitive = stripStripeSensitiveFromTools(tools)
+    const initialToolsSansSensitive = stripStripeSensitiveFromTools(initialTools)
+    const toolsStructDirty =
+        stableStringify(toolsSansSensitive) !==
+        stableStringify(initialToolsSansSensitive)
+
+    if (toolsStructDirty) {
+        push('tools', {
+            structDirty: toolsStructDirty,
+            hint: 'Tools (including non-secret Stripe fields) differ from saved bot (or shape/key order).',
+        })
+    }
+    if (JSON.stringify(leadCollect) !== JSON.stringify(initialLeadCollect)) {
+        push('leadCollect', {
+            stableEqual:
+                stableStringify(leadCollect) ===
+                stableStringify(initialLeadCollect),
+        })
+    }
+
+    return { dirty: reasons.length > 0, reasons }
+}
+
 const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const router = useRouter()
     const [user] = useAuthState(auth)
     const [errorText, setErrorText] = useState(null)
     const [infoText, setInfoText] = useState(null)
+    const [stripeOAuthLoading, setStripeOAuthLoading] = useState(false)
+    const [stripeOAuthError, setStripeOAuthError] = useState('')
     const [isUpdating, setIsUpdating] = useState(false)
     const [bounceSave, setBounceSave] = useState(false)
     const [uploading, setUploading] = useState(null)
@@ -157,67 +377,188 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     )
     const brandColors = useMemo(() => bot?.brandAnalysis?.colors || [], [bot])
 
+    const hydrateAppearanceStateFromBot = useCallback(
+        (nextBot) => {
+            if (!nextBot || !team) return
+
+            const nextAllowedDomains = nextBot.allowedDomains || []
+            const nextColor = nextBot.color || '#1292EE'
+            const nextBotIcon = nextBot.botIcon || 'none'
+            const nextBranding =
+                nextBot.branding === undefined ? true : nextBot.branding
+            const nextIsAgent =
+                nextBot.isAgent === undefined ? false : nextBot.isAgent
+            const nextLabels =
+                nextBot.labels ||
+                i18n[nextBot.language]?.labels ||
+                i18n.en.labels
+            const nextTools = nextBot.tools || {
+                human_escalation: { enabled: true },
+                followup_rating: { enabled: true },
+            }
+            const nextImageUploads =
+                ((nextBot.imageUploads === undefined ||
+                    nextBot.imageUploads) &&
+                    checkPlanPermission(team, 'standard', 'imageUploads')
+                        .allowed) ||
+                false
+            const nextLeadCollect = (() => {
+                if (!nextBot?.leadCollect) {
+                    return false
+                }
+
+                try {
+                    return toWidgetLeadCollectState(nextBot.leadCollect)
+                } catch (error) {
+                    return false
+                }
+            })()
+
+            setAllowedDomains(nextAllowedDomains)
+            setAllowedDomainsText(nextAllowedDomains.join(', '))
+            setLogo(nextBot.logo || null)
+            setHeaderAlignment(nextBot.headerAlignment || 'center')
+            setColor(nextColor)
+            setColorInput(nextColor)
+            setIcon(nextBot.icon || 'default')
+            setAlignment(nextBot.alignment || 'right')
+            setBotIcon(nextBotIcon)
+            setBranding(nextBranding)
+            setSupportLink(nextBot.supportLink || '')
+            setShowButtonLabel(nextBot.showButtonLabel || false)
+            setLabels(nextLabels)
+            setHideSources(nextBot.hideSources)
+            setShowCopyButton(nextBot.showCopyButton || false)
+            setIsAgent(nextIsAgent)
+            setTools(nextTools)
+            previousBranding.current = nextBranding
+            previousImageUploads.current = nextImageUploads
+            previousLeadCollect.current = nextLeadCollect
+            setLinkSafetyEnabled(nextBot.linkSafetyEnabled === true)
+            setKeepFooterVisible(nextBot.keepFooterVisible === true)
+            setImageUploads(nextImageUploads)
+            setLeadCollect(nextLeadCollect)
+        },
+        [team],
+    )
+
     useEffect(() => {
         if (!bot || !team) return
-
-        const nextAllowedDomains = bot.allowedDomains || []
-        const nextColor = bot.color || '#1292EE'
-        const nextBotIcon = bot.botIcon || 'none'
-        const nextBranding = bot.branding === undefined ? true : bot.branding
-        const nextIsAgent = bot.isAgent === undefined ? false : bot.isAgent
-        const nextLabels =
-            bot.labels || i18n[bot.language]?.labels || i18n.en.labels
-        const nextTools = bot.tools || {
-            human_escalation: { enabled: true },
-            followup_rating: { enabled: true },
-        }
-        const nextImageUploads =
-            ((bot.imageUploads === undefined || bot.imageUploads) &&
-                checkPlanPermission(team, 'standard', 'imageUploads')
-                    .allowed) ||
-            false
-        const nextLeadCollect = (() => {
-            if (!bot?.leadCollect) {
-                return false
-            }
-
-            try {
-                return toWidgetLeadCollectState(bot.leadCollect)
-            } catch (error) {
-                return false
-            }
-        })()
-
-        setAllowedDomains(nextAllowedDomains)
-        setAllowedDomainsText(nextAllowedDomains.join(', '))
-        setLogo(bot.logo || null)
-        setHeaderAlignment(bot.headerAlignment || 'center')
-        setColor(nextColor)
-        setColorInput(nextColor)
-        setIcon(bot.icon || 'default')
-        setAlignment(bot.alignment || 'right')
-        setBotIcon(nextBotIcon)
-        setBranding(nextBranding)
-        setSupportLink(bot.supportLink || '')
-        setShowButtonLabel(bot.showButtonLabel || false)
-        setLabels(nextLabels)
-        setHideSources(bot.hideSources)
-        setShowCopyButton(bot.showCopyButton || false)
-        setIsAgent(nextIsAgent)
-        setTools(nextTools)
-        previousBranding.current = nextBranding
-        previousImageUploads.current = nextImageUploads
-        previousLeadCollect.current = nextLeadCollect
-        setLinkSafetyEnabled(bot.linkSafetyEnabled === true)
-        setKeepFooterVisible(bot.keepFooterVisible === true)
-        setImageUploads(nextImageUploads)
-        setLeadCollect(nextLeadCollect)
-    }, [bot?.id, team])
+        hydrateAppearanceStateFromBot(bot)
+        // Intentionally bot?.id + team only: re-hydrating on every bot prop update would
+        // clobber in-progress edits. After save, updateBot calls hydrate with the response.
+    }, [bot?.id, team, hydrateAppearanceStateFromBot])
 
     useEffect(() => {
         if (!team || !user) return
         setModify(canUserEditBot(team, user.uid, bot))
     }, [team, user, bot])
+
+    const handledStripeOAuthReturn = useRef(false)
+    useEffect(() => {
+        handledStripeOAuthReturn.current = false
+    }, [bot?.id])
+
+    useEffect(() => {
+        const raw = router.query.stripe_connect
+        const stripeConnect = Array.isArray(raw) ? raw[0] : raw
+        if (!stripeConnect || handledStripeOAuthReturn.current) return
+        if (!team?.id || !bot?.id || !setBot) return
+
+        handledStripeOAuthReturn.current = true
+
+        let cancelled = false
+        ;(async () => {
+            const reasonRaw = router.query.reason
+            const reason = Array.isArray(reasonRaw) ? reasonRaw[0] : reasonRaw
+            if (stripeConnect === 'success') {
+                setErrorText(null)
+                setInfoText('Stripe connected successfully.')
+            } else if (stripeConnect === 'error') {
+                setInfoText(null)
+                setErrorText(
+                    `Stripe connection failed${reason ? `: ${reason}` : '.'}`,
+                )
+            }
+            try {
+                const res = await fetch(`/api/teams/${team.id}/bots/${bot.id}`)
+                if (!cancelled && res.ok) {
+                    const data = await res.json()
+                    setBot(data)
+                    mergeServerStripeIntoLocalTools(setTools, data)
+                }
+            } catch {
+                // ignore
+            }
+            if (!cancelled) {
+                const nextQuery = { ...router.query }
+                delete nextQuery.stripe_connect
+                delete nextQuery.reason
+                router.replace(
+                    { pathname: router.pathname, query: nextQuery },
+                    undefined,
+                    { shallow: true },
+                )
+            }
+        })()
+        return () => {
+            cancelled = true
+        }
+    }, [router.query, team?.id, bot?.id, setBot, router, setTools])
+
+    const refreshStripeConnectionFromServer = useCallback(async () => {
+        if (!team?.id || !bot?.id || !setBot) return
+        try {
+            const res = await fetch(`/api/teams/${team.id}/bots/${bot.id}`)
+            if (!res.ok) return
+            const nextBot = await res.json()
+            setBot(nextBot)
+            mergeServerStripeIntoLocalTools(setTools, nextBot)
+        } catch {
+            // ignore
+        }
+    }, [team?.id, bot?.id, setBot, setTools])
+
+    useEffect(() => {
+        const onMessage = (event) => {
+            if (typeof window === 'undefined') return
+            if (event.origin !== window.location.origin) return
+            const data = event.data
+            if (!data || data.type !== STRIPE_OAUTH_POSTMESSAGE_TYPE) return
+            if (data.teamId !== team?.id || data.botId !== bot?.id) return
+
+            setStripeOAuthLoading(false)
+            if (data.success) {
+                setStripeOAuthError('')
+                setErrorText(null)
+                setInfoText('Stripe connected successfully.')
+                ;(async () => {
+                    try {
+                        const res = await fetch(
+                            `/api/teams/${team.id}/bots/${bot.id}`,
+                        )
+                        if (res.ok) {
+                            const nextBot = await res.json()
+                            setBot(nextBot)
+                            mergeServerStripeIntoLocalTools(setTools, nextBot)
+                        }
+                    } catch {
+                        // ignore
+                    }
+                })()
+            } else {
+                setInfoText(null)
+                const reason = data.reason ? String(data.reason) : ''
+                const msg = reason
+                    ? `Stripe connection failed: ${reason}`
+                    : 'Stripe connection failed.'
+                setStripeOAuthError(msg)
+                setErrorText(msg)
+            }
+        }
+        window.addEventListener('message', onMessage)
+        return () => window.removeEventListener('message', onMessage)
+    }, [team?.id, bot?.id, setBot, setTools])
 
     useEffect(() => {
         if (previousBranding.current === branding) {
@@ -297,86 +638,85 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         }
     }, [showColorPicker])
 
-    const isDirty = useMemo(() => {
-        const initialBotIcon = bot.botIcon || 'none'
-        const initialBranding = bot.branding === undefined ? true : bot.branding
-        const initialIsAgent = bot.isAgent === undefined ? false : bot.isAgent
-        const initialImageUploads =
-            ((bot.imageUploads === undefined || bot.imageUploads) &&
-                checkPlanPermission(team, 'standard', 'imageUploads')
-                    .allowed) ||
-            false
-        const initialLabels =
-            bot.labels || i18n[bot.language]?.labels || i18n.en.labels
-        const initialTools = bot.tools || {
-            human_escalation: { enabled: true },
-            followup_rating: { enabled: true },
-        }
-        const initialLeadCollect = (() => {
-            if (!bot?.leadCollect) return false
-            try {
-                return toWidgetLeadCollectState(bot.leadCollect)
-            } catch (error) {
-                return false
-            }
-        })()
+    const appearanceDirtySnapshot = useMemo(
+        () =>
+            computeAppearanceDirtySnapshot(
+                bot,
+                team,
+                {
+                    color,
+                    icon,
+                    alignment,
+                    botIcon,
+                    branding,
+                    supportLink,
+                    showButtonLabel,
+                    headerAlignment,
+                    hideSources,
+                    showCopyButton,
+                    isAgent,
+                    imageUploads,
+                    logo,
+                    linkSafetyEnabled,
+                    keepFooterVisible,
+                    allowedDomains,
+                    labels,
+                    tools,
+                    leadCollect,
+                },
+            ),
+        [
+            bot,
+            team,
+            color,
+            icon,
+            alignment,
+            botIcon,
+            branding,
+            supportLink,
+            showButtonLabel,
+            headerAlignment,
+            hideSources,
+            showCopyButton,
+            isAgent,
+            imageUploads,
+            logo,
+            allowedDomains,
+            labels,
+            tools,
+            leadCollect,
+            linkSafetyEnabled,
+            keepFooterVisible,
+        ],
+    )
 
-        if (color !== (bot.color || '#1292EE')) return true
-        if (icon !== (bot.icon || 'default')) return true
-        if (alignment !== (bot.alignment || 'right')) return true
-        if (botIcon !== initialBotIcon) return true
-        if (branding !== initialBranding) return true
-        if (supportLink !== (bot.supportLink || '')) return true
-        if (showButtonLabel !== (bot.showButtonLabel || false)) return true
-        if (headerAlignment !== (bot.headerAlignment || 'center')) return true
-        if (hideSources !== bot.hideSources) return true
-        if (showCopyButton !== (bot.showCopyButton || false)) return true
-        if (isAgent !== initialIsAgent) return true
-        if (imageUploads !== initialImageUploads) return true
-        if (logo !== (bot.logo || null)) return true
-        if (linkSafetyEnabled !== (bot.linkSafetyEnabled === true)) return true
-        if (keepFooterVisible !== (bot.keepFooterVisible === true)) return true
-
-        if (
-            JSON.stringify(allowedDomains) !==
-            JSON.stringify(bot.allowedDomains || [])
-        )
-            return true
-        if (JSON.stringify(labels) !== JSON.stringify(initialLabels))
-            return true
-        if (JSON.stringify(tools) !== JSON.stringify(initialTools)) return true
-        if (JSON.stringify(leadCollect) !== JSON.stringify(initialLeadCollect))
-            return true
-
-        return false
-    }, [
-        bot,
-        team,
-        color,
-        icon,
-        alignment,
-        botIcon,
-        branding,
-        supportLink,
-        showButtonLabel,
-        headerAlignment,
-        hideSources,
-        showCopyButton,
-        isAgent,
-        imageUploads,
-        logo,
-        allowedDomains,
-        labels,
-        tools,
-        leadCollect,
-        linkSafetyEnabled,
-        keepFooterVisible,
-    ])
+    const isDirty = appearanceDirtySnapshot.dirty
 
     useEffect(() => {
         // Bounce continuously while there are unsaved changes.
         setBounceSave(Boolean(isDirty && !isUpdating))
     }, [isDirty, isUpdating])
+
+    const lastAppearanceBounceLogKey = useRef('')
+    useEffect(() => {
+        if (!bounceSave) {
+            lastAppearanceBounceLogKey.current = ''
+            return
+        }
+        const key = JSON.stringify(
+            appearanceDirtySnapshot.reasons.map((r) =>
+                r.field === 'tools'
+                    ? [r.field, r.structDirty]
+                    : [r.field, r.stableEqual],
+            ),
+        )
+        if (lastAppearanceBounceLogKey.current === key) return
+        lastAppearanceBounceLogKey.current = key
+        console.log(
+            '[PageAppearance] Save button bouncing — unsaved changes:',
+            appearanceDirtySnapshot.reasons,
+        )
+    }, [bounceSave, appearanceDirtySnapshot])
 
     useEffect(() => {
         const handleBrowseAway = (url) => {
@@ -509,6 +849,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     async function updateBot() {
         setAllowedDomainsText(allowedDomains.join(', '))
         setErrorText('')
+
         setIsUpdating(true)
 
         const botSettings = {
@@ -547,6 +888,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             const data = await response.json()
             setIsUpdating(false)
             if (setBot) setBot(data)
+            // Match local form state to getBot() shape (merged labels, sanitized stripe,
+            // etc.) so dirty detection agrees with the saved baseline.
+            hydrateAppearanceStateFromBot(data)
         } else {
             try {
                 const data = await response.json()
@@ -693,6 +1037,13 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setLeadCollect={setLeadCollect}
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
+                    bot={bot}
+                    canManageStripeActions={isSuperAdmin(user?.uid)}
+                    stripeOAuthLoading={stripeOAuthLoading}
+                    setStripeOAuthLoading={setStripeOAuthLoading}
+                    stripeOAuthError={stripeOAuthError}
+                    setStripeOAuthError={setStripeOAuthError}
+                    onStripeOAuthPopupClosed={refreshStripeConnectionFromServer}
                 />
             ),
         },
@@ -765,6 +1116,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     >
                         <div className="min-h-0 flex-1">
                             <div className="h-full overflow-y-auto p-6">
+                                {infoText ? (
+                                    <div className="mb-4">
+                                        <Alert title={infoText} type="info" />
+                                    </div>
+                                ) : null}
                                 {(!isAgent || errorText) && (
                                     <div className="mb-4">
                                         <Alert title={errorText} type="error" />

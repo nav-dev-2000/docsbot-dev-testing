@@ -67,7 +67,7 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
     setSources([])
     setRating(0)
     setAnswerId(null)
-    setLoadingMessage(bot.labels.thinking)
+    setLoadingMessage(bot.labels.agentActivityThinking)
 
     //get apiBase from env
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_WEBSOCKET}/teams/${teamId}/bots/${bot.id}/chat`
@@ -75,7 +75,7 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
 
     // Send message to server when connection is established
     ws.onopen = function (event) {
-      setLoadingMessage(bot.labels.thinking)
+      setLoadingMessage(bot.labels.agentActivityThinking)
       //get name and email
       const metadata = {}
       let testing = false
@@ -124,9 +124,9 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
       const data = JSON.parse(event.data)
       if (data.sender === 'bot') {
         if (data.type === 'start') {
-          setLoadingMessage(bot.labels.thinking)
+          setLoadingMessage(bot.labels.agentActivityThinking)
         } else if (data.type === 'stream') {
-          setLoadingMessage(bot.labels.thinking)
+          setLoadingMessage(bot.labels.agentActivityThinking)
           //append to answer
           setAnswer((prev) => prev + data.message)
         } else if (data.type === 'info') {

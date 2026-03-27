@@ -18,7 +18,7 @@ import {
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
 import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
-
+import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
 const TOPIC_LIMIT = 50
 
 export const deleteSource = async (
@@ -408,7 +408,7 @@ export const deleteBot = async (teamId, botId) => {
   return true
 }
 
-export function validateBotParams(req, team, userId, isUpdate, bot) {
+export async function validateBotParams(req, team, userId, isUpdate, bot) {
   const {
     name,
     description,
@@ -906,27 +906,125 @@ export function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (tools !== undefined) {
     // tools is an object, keyed by tool name with enabled boolean
-    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": false }
-    // Verify the tools schema before assigning
-    const validTools = {};
+    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": false, "stripe": { ... } }
+    const validTools = {}
     for (const [toolName, toolConfig] of Object.entries(tools)) {
+      if (toolName === 'stripe') {
+        continue
+      }
       if (typeof toolConfig === 'boolean') {
-        // Keep legacy false|object shape for downstream compatibility.
-        validTools[toolName] = toolConfig;
+        validTools[toolName] = toolConfig
       } else if (typeof toolConfig === 'object' && toolConfig !== null) {
         if (!('enabled' in toolConfig)) {
-          validTools[toolName] = { ...toolConfig };
-          continue;
+          validTools[toolName] = { ...toolConfig }
+          continue
         }
         validTools[toolName] = {
           enabled: Boolean(toolConfig.enabled),
-          ...toolConfig
-        };
+          ...toolConfig,
+        }
       } else {
-        throw new Error(`Invalid tool configuration for "${toolName}". Each tool must be a boolean or an object.`);
+        throw new Error(
+          `Invalid tool configuration for "${toolName}". Each tool must be a boolean or an object.`,
+        )
       }
     }
-    botData.tools = validTools;
+
+    if (tools.stripe && typeof tools.stripe === 'object' && isSuperAdmin(userId)) {
+      const stripeEnabled = tools.stripe.enabled === true
+
+      const existingStripe = bot?.tools?.stripe || {}
+      const incoming = tools.stripe
+      const clearOAuth = incoming.clearOAuthConnection === true
+
+      const {
+        accessToken: _ignoreAt,
+        refreshToken: _ignoreRt,
+        stripeUserId: _ignoreSuid,
+        oauthStateHash: _ignoreOh,
+        oauthStateExpiresAt: _ignoreOe,
+        clearOAuthConnection: _ignoreClear,
+        secretKey: _ignoreSk,
+        secretKeyObfuscated: _ignoreSko,
+        ...stripeFromClient
+      } = incoming
+
+      let mergedStripe = {
+        ...existingStripe,
+        ...stripeFromClient,
+      }
+
+      if (clearOAuth) {
+        mergedStripe = { ...mergedStripe }
+        const dropKeys = [
+          'accessToken',
+          'refreshToken',
+          'stripeUserId',
+          'stripeAccountDisplayName',
+          'scope',
+          'tokenType',
+          'livemode',
+          'connectedAt',
+          'updatedAt',
+          'oauthScopes',
+          'oauthStateHash',
+          'oauthStateExpiresAt',
+          'oauthScope',
+          'oauthUpdatedBy',
+          'oauthUpdatedAt',
+        ]
+        for (const k of dropKeys) {
+          delete mergedStripe[k]
+        }
+      } else {
+        const serverOnlyKeys = [
+          'accessToken',
+          'refreshToken',
+          'stripeUserId',
+          'oauthStateHash',
+          'oauthStateExpiresAt',
+        ]
+        for (const key of serverOnlyKeys) {
+          if (Object.prototype.hasOwnProperty.call(existingStripe, key)) {
+            mergedStripe[key] = existingStripe[key]
+          } else {
+            delete mergedStripe[key]
+          }
+        }
+      }
+
+      for (const k of OBSOLETE_STRIPE_TOOL_METADATA_KEYS) {
+        delete mergedStripe[k]
+      }
+
+      delete mergedStripe.clearOAuthConnection
+      delete mergedStripe.secretKey
+      delete mergedStripe.secretKeyObfuscated
+
+      if (stripeEnabled) {
+        const tok =
+          typeof mergedStripe.accessToken === 'string'
+            ? mergedStripe.accessToken.trim()
+            : ''
+        if (!tok) {
+          throw new Error(
+            'Stripe tools are enabled but this bot is not connected. Use Connect with Stripe, then save, or disable Stripe tools.',
+          )
+        }
+      }
+
+      validTools.stripe = mergedStripe
+    }
+
+    if (
+      !isSuperAdmin(userId) &&
+      bot?.tools?.stripe &&
+      typeof bot.tools.stripe === 'object'
+    ) {
+      validTools.stripe = structuredClone(bot.tools.stripe)
+    }
+
+    botData.tools = validTools
   } else if (!isUpdate) {
     botData.tools = {
       human_escalation: { enabled: true },

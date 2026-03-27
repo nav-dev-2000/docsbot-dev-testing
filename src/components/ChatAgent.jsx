@@ -457,7 +457,7 @@ const BrainIcon = ({ className }) => (
 )
 
 // Component to display a single reasoning item
-const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false, isAnswerStreaming = false }) => {
+const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false, isAnswerStreaming = false, thinkingLabel = 'Thinking…' }) => {
   // Show "Thought" if there's a following event OR if the answer has started streaming
   const isComplete = hasFollowingEvent || isAnswerStreaming
   
@@ -467,7 +467,7 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
       return (
         <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
           <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
-          <span className="font-medium">{isComplete ? 'Thought' : 'Thinking...'}</span>
+          <span className="font-medium">{isComplete ? 'Thought' : thinkingLabel}</span>
         </div>
       )
     }
@@ -1326,7 +1326,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={setCurrentSource}>
+        <Dialog as="div" className="relative z-modal" onClose={setCurrentSource}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -1813,7 +1813,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           const hasFollowingEvent = eventIndex < answer.agentEvents.length - 1
           if (event.type === 'reasoning') {
             agentEvents.push(
-              <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} />
+              <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} thinkingLabel={bot.labels.agentActivityThinking} />
             )
           } else if (event.type === 'tool_call') {
             agentEvents.push(
@@ -1910,7 +1910,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                     const isAnswerStreaming = currentAnswer.length > 0
                     if (event.type === 'reasoning') {
                       return (
-                        <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} />
+                        <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} thinkingLabel={bot.labels.agentActivityThinking} />
                       )
                     } else if (event.type === 'tool_call') {
                       return (

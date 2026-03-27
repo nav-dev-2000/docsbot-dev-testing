@@ -36,6 +36,7 @@ const navigation = [
     links: [
       { title: 'Embedding', href: '/documentation/developer/embeddable-chat-widget' },
       { title: 'Widget Integrations', href: '/documentation/developer/widget-integrations' },
+      { title: 'Stripe Actions', href: '/documentation/developer/stripe-actions' },
     ]
   },
   {

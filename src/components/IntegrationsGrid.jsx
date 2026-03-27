@@ -1355,7 +1355,7 @@ export default function IntegrationsGrid({
       <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
 
       <Transition.Root show={showWidgetModal} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={setShowWidgetModal}>
+        <Dialog as="div" className="relative z-modal" onClose={setShowWidgetModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -1368,7 +1368,7 @@ export default function IntegrationsGrid({
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="fixed inset-0 z-modal overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}

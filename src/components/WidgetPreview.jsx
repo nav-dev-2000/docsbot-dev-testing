@@ -26,6 +26,7 @@ import { useEffect, useState } from 'react'
 import docsbotLogo from '@/images/logos/docsbot-logo.svg'
 import Image from 'next/image'
 import { isLeadCollectEnabled, supportsLeadFieldPlaceholder } from '@/lib/leadCollect'
+import { StripeSubscriptionDemoCard } from '@/components/StripeSubscriptionPreview'
 
 const iconMap = {
   default: { icon: faComment, label: 'Comment' },
@@ -45,6 +46,43 @@ const botIconMap = {
   info: { icon: faInfo, label: 'Info' },
   book: { icon: faBook, label: 'Book' },
   custom: { icon: faPlus, label: 'Custom Icon' },
+}
+
+function StripePlanDemoBotRow({ botIcon, color, labels }) {
+  const avatarBgColor = getLighterColor(color || '#1292EE', 0.6)
+  const avatarFontColor = decideTextColor(avatarBgColor)
+
+  return (
+    <div className="items-top mb-3 flex justify-start">
+      {botIcon !== 'none' && (
+        <div
+          className="mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100"
+          style={{
+            backgroundColor: avatarBgColor,
+            color: avatarFontColor,
+          }}
+        >
+          {botIcon.includes('://') ? (
+            <img src={botIcon} alt="icon" className="h-auto w-1/2 object-scale-down" />
+          ) : (
+            <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="xs" />
+          )}
+        </div>
+      )}
+      <div className="mr-1 flex min-w-0 max-w-full flex-1 flex-col gap-2">
+        <div className="rounded-2xl rounded-tl-none bg-[#f1f3f5] px-3 py-3 text-sm leading-snug text-gray-800">
+          <Streamdown
+            mode="static"
+            isAnimating={false}
+            remarkPlugins={streamdownRemarkPlugins}
+          >
+            {`You're on the **Pro** plan ($49/mo).`}
+          </Streamdown>
+        </div>
+        <StripeSubscriptionDemoCard labels={labels} />
+      </div>
+    </div>
+  )
 }
 
 const streamdownRemarkPlugins = [
@@ -102,6 +140,9 @@ export default function WidgetPreview({
     leadCollectEnabled && leadCollectMode === 'before_response'
   const showLeadCollectBeforeEscalation =
     leadCollectEnabled && leadCollectMode === 'before_escalation'
+  const showStripeRecentBillingPreview =
+    tools?.stripe?.enabled === true &&
+    tools?.stripe?.recent_billing?.enabled === true
 
   return (
     <div className="sticky top-20">
@@ -245,6 +286,25 @@ export default function WidgetPreview({
                   }}
                 />
               )}
+
+          {showStripeRecentBillingPreview && (
+            <>
+              <div
+                className="mb-3 self-end rounded-2xl rounded-tr-none bg-white px-3 py-3 text-sm text-gray-700"
+                style={{
+                  backgroundColor: color,
+                  color: decideTextColor(color),
+                }}
+              >
+                What is my current plan?
+              </div>
+              <StripePlanDemoBotRow
+                botIcon={botIcon}
+                color={color}
+                labels={labels}
+              />
+            </>
+          )}
 
           {tools?.human_escalation?.enabled === undefined
             ? true

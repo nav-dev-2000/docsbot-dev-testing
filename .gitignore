@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+stripe/node_modules
+stripe/.build
 /.pnp
 .pnp.js
 

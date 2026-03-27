@@ -1,0 +1,57 @@
+{
+  "$schema": "https://stripe.com/stripe-app.schema.json",
+  "id": "ai.docsbot.billing-support",
+  "name": "DocsBot",
+  "version": "0.1.2",
+  "icon": "./docsbot_icon_32.png",
+  "ui_extension": {
+    "views": [
+      {
+        "viewport": "settings",
+        "component": "AppSettings"
+      }
+    ],
+    "content_security_policy": {
+      "purpose": "No external resources required for settings view."
+    }
+  },
+  "extensions": null,
+  "permissions": [
+    {
+      "permission": "invoice_read",
+      "purpose": "Read invoices for customer support actions"
+    },
+    {
+      "permission": "customer_read",
+      "purpose": "Read customer records for refunds, billing context, and support actions"
+    },
+    {
+      "permission": "subscription_read",
+      "purpose": "Read subscriptions for customer support actions"
+    },
+    {
+      "permission": "product_read",
+      "purpose": "Read products linked to invoice and subscription line items for support summaries"
+    },
+    {
+      "permission": "subscription_write",
+      "purpose": "Update subscriptions for customer support actions"
+    },
+    {
+      "permission": "customer_portal_write",
+      "purpose": "Create billing portal sessions for customer self-service"
+    },
+    {
+      "permission": "charge_write",
+      "purpose": "Process refunds for customer support actions"
+    }
+  ],
+  "post_install_action": {
+    "type": "settings"
+  },
+  "allowed_redirect_uris": [
+    "https://docsbot.ai/api/stripe/oauth/callback"
+  ],
+  "distribution_type": "public",
+  "stripe_api_access_type": "oauth"
+}

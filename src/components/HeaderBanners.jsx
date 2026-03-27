@@ -268,7 +268,7 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
       </div>
 
       <Transition.Root show={isModalOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-[60]" onClose={handleCloseModal}>
+        <Dialog as="div" className="relative z-modal" onClose={handleCloseModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-200"
@@ -281,7 +281,7 @@ export function LoyaltyBanner({ team, user, fullWidth = false }) {
             <div className="fixed inset-0 bg-gray-900/60" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-[60] overflow-y-auto">
+          <div className="fixed inset-0 z-modal overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
               <Transition.Child
                 as={Fragment}

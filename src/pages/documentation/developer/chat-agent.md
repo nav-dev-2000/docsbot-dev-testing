@@ -18,6 +18,10 @@ This endpoint accepts a POST request with the following parameters:
 
 Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 
+### Authentication
+
+Use `Authorization: Bearer <token>` when you need authenticated behavior (higher `question` limits, **private** bots, and other options noted below). Token types (user API key, recommended JWT for private bots, legacy HMAC) are documented in [Authentication](/documentation/developer/authentication#private-bots).
+
 ### Parameters
 
 | Parameter              | Type            | Description                                                                                                                                                                                                                 |
@@ -39,6 +43,17 @@ Replace `[teamId]` and `[botId]` with your actual team and bot identifiers.
 | **reasoning_effort**   | string          | Reasoning depth for the response. Requires authentication to override default. Options: 'none' (GPT-5.1 and GPT-5.4 default, fastest), 'minimal' (GPT-5 only, least reasoning), 'low' (light reasoning), 'medium' (balanced reasoning), 'high' (most reasoning), 'xhigh' (GPT-5.4 only, extra-high). Defaults: GPT-5.1 → 'none', GPT-5 → 'minimal', GPT-5.4 → 'none', other reasoning models → 'low', non-reasoning models → ignored. Optional, defaults to model-specific default. |
 | **search_limit**      | integer         | Maximum number of times the `search_documentation` tool can be called. Requires authentication to override default. Minimum: 1, Maximum: 4. Optional, defaults to bot's `searchDocumentationLimit` or 2. Note: This is a default limit and does not guarantee that many searches will occur. The AI will only perform additional searches based on your custom instructions and if it determines it still hasn't found the required information and needs to try different search queries. |
 
+### Trusted private metadata with JWT
+
+Send a **signed JWT** as the Bearer token:
+
+```http
+Authorization: Bearer <jwt>
+```
+
+Trusted private values (e.g. `priv_*`) live in the JWT payload. See [Authentication](/documentation/developer/authentication#private-bots). For Stripe (`priv_stripe_customer_id` in JWT `metadata`), see [Stripe Actions](/documentation/developer/stripe-actions).
+
+Unsigned private metadata values are treated as untrusted and ignored. For why signing matters, how `priv_` keys differ from regular metadata (not stored in logs or sent to the LLM), and the widget, see [Trusted private metadata with Bearer JWT](/documentation/developer/embeddable-chat-widget#trusted-private-metadata-with-bearer-jwt).
 
 {% callout title="Vision" %}
 Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which means they can process both text and images. If the bot is using one of these models, you can include image URLs in your request via the `image_urls` parameter to provide additional context for the AI. The AI will use both the text and images to generate a response. If you're using a model that doesn't support images, the API will return an error if you include via the `image_urls` in your request. For details on using vision and its limitations, see the [OpenAI Docs](https://platform.openai.com/docs/guides/vision).
@@ -73,9 +88,17 @@ When `stream` is `False` (default), the response is an array of JSON objects wit
 | **event** | string | Type of event indicating which type of tool is run. |
 | **data**  | dict   | Information about answer                            |
 
-When `stream` is `True`, the response is a [SSE stream of events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), each containing the same properties as above mapped to the proper SSE fields `event` and `data`. In this case data is a JSON string that must be parsed. It is recommended to use a package like [Better SSE](https://www.npmjs.com/package/better-sse) to handle SSE streams in the browser. See this [response example](/sse-response.txt) for more details.
+When `stream` is `True`, the response is a [SSE stream of events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), each mapped to the SSE fields `event` and `data`. For every event type **except** `stream`, `data` is a **JSON string** (parse it with `JSON.parse`). **`stream`** events are different: each `data` line is a **plain-text token** to append (not JSON). It is recommended to use a package like [Better SSE](https://www.npmjs.com/package/better-sse) to handle SSE streams in the browser. See this [response example](/sse-response.txt) for more details.
 
 The Chat Agent API can also emit `tool_call` and `reasoning` events. These can be used to show tool usage or reasoning summaries in your UI. Reasoning events only appear for reasoning-capable models (like GPT-5 family), and are most common when you increase `reasoning_effort`.
+
+### SSE data shapes (streaming)
+
+| SSE `event` | `data` shape | Meaning |
+| ----------- | ------------ | ------- |
+| **`reasoning`** | JSON string: `{"text":"..."}` | Model reasoning summary. Summaries may be **deduplicated**; you may see updates where `text` is empty—only non-empty `text` values are useful to show as distinct UI updates. |
+| **`tool_call`** | JSON string: `{"name":"<tool_name>","params":"<json string>"}` | One event per tool invocation when the agent emits a tool call. There is **no** separate SSE type for “search documentation”: it appears as `name: "search_documentation"`. Other bound tools (Stripe, human escalation, etc.) use the same `tool_call` shape with their own `name`. |
+| **`stream`** | Plain text (not JSON) | Answer token stream; append each `data` payload to the in-progress assistant message. |
 
 ### The data object
 
@@ -209,11 +232,121 @@ When streaming response is enabled via the `stream` parameter, the answer is ini
 
 ### tool_call
 
-The `tool_call` event reports a tool invocation from the agent. It includes the tool `name` and JSON `params`, which you can render to show what the agent is doing in real time.
+The `tool_call` event reports a tool invocation from the agent. Use it to show what the agent is doing (e.g. “Searching documentation…”, “Opening billing portal…”).
+
+#### Shape (always the same)
+
+Each SSE message has `event: tool_call`. The **`data`** field is a **JSON-encoded object** with:
+
+- **`name`** — tool name (string).
+- **`params`** — tool arguments **serialized again as JSON, but delivered as a string** (the object you parse from `data` has `params` as a string containing JSON).
+
+On the client, parse twice when you need structured args: `JSON.parse(event.data)` then `JSON.parse(parsed.params)` (unless your SSE library already parses `data` for you).
+
+There is **no** dedicated SSE event for documentation search: the agent uses the tool name `search_documentation`. The server may **omit** a `tool_call` for `search_documentation` when deduplication decides the call would not retrieve anything new (streaming may filter or drop redundant search args).
+
+#### Example: `search_documentation`
+
+After one `JSON.parse` of `data`:
+
+```json
+{
+  "name": "search_documentation",
+  "params": "{\"query\":[\"password reset steps\",\"forgot password\"],\"question\":\"How do I reset my password if I forgot my email?\"}"
+}
+```
+
+After `JSON.parse` on `params`:
+
+```json
+{
+  "query": ["password reset steps", "forgot password"],
+  "question": "How do I reset my password if I forgot my email?"
+}
+```
+
+#### Example: `human_escalation`
+
+After `JSON.parse` of `data`:
+
+```json
+{
+  "name": "human_escalation",
+  "params": "{\"confirmation_question\":\"Would you like me to connect you with our support team?\",\"yes\":\"Yes, please\",\"no\":\"No thanks\"}"
+}
+```
+
+Parsed `params`:
+
+```json
+{
+  "confirmation_question": "Would you like me to connect you with our support team?",
+  "yes": "Yes, please",
+  "no": "No thanks"
+}
+```
+
+#### Example: Stripe tools
+
+Stripe-related tools use the same `tool_call` envelope. Typical examples (parse `params` as above). Full behavior and JWT requirements are in [Stripe Actions](/documentation/developer/stripe-actions).
+
+`stripe_recent_invoices_and_subscriptions`:
+
+```json
+{
+  "name": "stripe_recent_invoices_and_subscriptions",
+  "params": "{\"limit\":10}"
+}
+```
+
+`stripe_billing_portal`:
+
+```json
+{
+  "name": "stripe_billing_portal",
+  "params": "{\"return_url\":\"https://app.example.com/account\"}"
+}
+```
+
+Or with defaults:
+
+```json
+{
+  "name": "stripe_billing_portal",
+  "params": "{}"
+}
+```
+
+`stripe_refund_latest_payment`:
+
+```json
+{
+  "name": "stripe_refund_latest_payment",
+  "params": "{\"confirm_refund_request\":true}"
+}
+```
+
+`stripe_cancel_subscription` (fields depend on your bot’s cancellation / feedback configuration):
+
+```json
+{
+  "name": "stripe_cancel_subscription",
+  "params": "{\"confirmed\":true,\"subscription_id\":\"sub_123\",\"feedback\":\"too_expensive\",\"cancellation_details_comment\":\"User said price was too high\"}"
+}
+```
+
+#### Wire-level SSE (illustrative)
+
+```text
+event: tool_call
+data: {"name":"search_documentation","params":"{\"query\":[\"pricing\"],\"question\":\"What is your pricing?\"}"}
+```
+
+Your client library may already parse the `data` line into an object; the important part is that **`params` is nested JSON as a string**.
 
 ### reasoning
 
-The `reasoning` event includes a reasoning summary in `text`. The summary can be empty, and these events only appear for reasoning-capable models (like GPT-5 family), primarily when `reasoning_effort` is set above the default.
+The `reasoning` event includes a reasoning summary in `text`. The summary can be empty; when streaming, treat empty `text` as a no-op for UI. These events only appear for reasoning-capable models (like GPT-5 family), primarily when `reasoning_effort` is set above the default. See the [SSE data shapes (streaming)](#sse-data-shapes-streaming) table for deduplication notes.
 
 ### Example Response with Tool Call + Reasoning
 

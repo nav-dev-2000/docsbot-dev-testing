@@ -5,7 +5,10 @@ import {
   getExceededPlanLimits,
   getPlanResearchTasksLimit,
   isDowngradingBelowBusiness,
+  isDowngradingBelowStandard,
   teamHasPerBotRoleAssignments,
+  teamHasStripeActionsEnabled,
+  teamHasLeadCollectCustomFields,
 } from '@/utils/checkoutValidation'
 
 describe('checkoutValidation', () => {
@@ -128,5 +131,62 @@ describe('checkoutValidation', () => {
     expect(isDowngradingBelowBusiness('standard')).toBe(true)
     expect(isDowngradingBelowBusiness('business')).toBe(false)
     expect(isDowngradingBelowBusiness('enterprise')).toBe(false)
+  })
+
+  it('treats only lower-than-standard targets as restricted for Standard features', () => {
+    expect(isDowngradingBelowStandard('personal')).toBe(true)
+    expect(isDowngradingBelowStandard('pro')).toBe(true)
+    expect(isDowngradingBelowStandard('standard')).toBe(false)
+    expect(isDowngradingBelowStandard('business')).toBe(false)
+    expect(isDowngradingBelowStandard('enterprise')).toBe(false)
+  })
+
+  it('detects Stripe actions enabled on any bot', () => {
+    expect(
+      teamHasStripeActionsEnabled({
+        bots: [{ tools: { stripe: { enabled: true } } }],
+      }),
+    ).toBe(true)
+
+    expect(
+      teamHasStripeActionsEnabled({
+        bots: [
+          { tools: {} },
+          { tools: { stripe: { enabled: false } } },
+        ],
+      }),
+    ).toBe(false)
+  })
+
+  it('detects lead collection custom fields on any bot', () => {
+    expect(
+      teamHasLeadCollectCustomFields({
+        bots: [
+          {
+            leadCollect: {
+              fields: [
+                { key: 'name' },
+                { key: 'email' },
+                { key: 'phone' },
+              ],
+            },
+          },
+        ],
+      }),
+    ).toBe(true)
+
+    expect(
+      teamHasLeadCollectCustomFields({
+        bots: [
+          {
+            leadCollect: {
+              fields: [{ key: 'name' }, { key: 'email' }],
+            },
+          },
+        ],
+      }),
+    ).toBe(false)
+
+    expect(teamHasLeadCollectCustomFields({ bots: [] })).toBe(false)
   })
 })

@@ -87,7 +87,7 @@ Creates or updates a lead and merges metadata. If conversation exists, conversat
 - Private bots: required
 - Public bots: optional (recommended)
 
-For more examples and details, see [Conversation Lead Capture](/documentation/developer/conversation-lead).
+Bearer token options (API key, JWT, HMAC): [Authentication](/documentation/developer/authentication#private-bots). For more examples and details, see [Conversation Lead Capture](/documentation/developer/conversation-lead).
 
 ---
 

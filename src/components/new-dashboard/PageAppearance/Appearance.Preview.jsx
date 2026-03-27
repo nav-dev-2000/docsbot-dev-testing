@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import Widget from '@new-dashboard/Widget'
 import { LeadCollectPreview } from '@/components/WidgetPreview'
+import { StripeSubscriptionDemoCard } from '@/components/StripeSubscriptionPreview'
 import { isLeadCollectEnabled } from '@/lib/leadCollect'
 import SegmentedControl from '../SegmentedControl'
 
@@ -39,6 +40,9 @@ const ApperancePreview = ({
 
     const canEscalate = tools?.human_escalation?.enabled === true
     const canCollectFeedback = tools?.followup_rating?.enabled === true
+    const showStripeRecentBillingPreview =
+        tools?.stripe?.enabled === true &&
+        tools?.stripe?.recent_billing?.enabled === true
     const FeedbackWrapper = canCollectFeedback ? 'div' : Fragment
 
     const imageUrls = useMemo(() => {
@@ -220,6 +224,21 @@ const ApperancePreview = ({
                                     </>
                                 )}
                             </FeedbackWrapper>
+
+                            {showStripeRecentBillingPreview && (
+                                <>
+                                    <Widget.Bubble content="What is my current plan?" />
+                                    <div className="flex flex-col gap-2">
+                                        <Widget.Bubble
+                                            content={"You're on the **Pro** plan ($49/mo)."}
+                                            isBot={true}
+                                            botIcon={botIcon}
+                                            labels={labels}
+                                        />
+                                        <StripeSubscriptionDemoCard labels={labels} />
+                                    </div>
+                                </>
+                            )}
 
                             {canEscalate && isAgent && (
                                 <Fragment>

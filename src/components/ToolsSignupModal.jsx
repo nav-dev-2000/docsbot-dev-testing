@@ -100,7 +100,7 @@ export default function ToolsSignupModal({
   }
 
   return (
-    <Dialog open={open} onClose={() => {}} className="relative z-50">
+    <Dialog open={open} onClose={() => {}} className="relative z-modal">
       <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">

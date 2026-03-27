@@ -59,6 +59,9 @@ module.exports = {
       maxWidth: {
         '2xl': '40rem',
       },
+      zIndex: {
+        modal: '1000000',
+      },
       keyframes: {
         'bounce-slide-down': {
           '0%': { transform: 'translate(-50%, -100%)', opacity: '0' },
