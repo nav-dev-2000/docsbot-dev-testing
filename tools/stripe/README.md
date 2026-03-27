@@ -10,9 +10,9 @@ Public Stripe app that grants OAuth access for **Widget → Actions** (invoices,
 
 ## App manifest
 
-- **Manifest:** `stripe/stripe-app.json`
+- **Manifest:** `tools/stripe/stripe-app.json`
 - **App id:** `ai.docsbot.billing-support` (after upload, this must match the Dashboard).
-- **Upload:** `cd stripe && stripe apps upload`
+- **Upload:** `cd tools/stripe && stripe apps upload`
 - **References:** [Stripe Apps OAuth](https://docs.stripe.com/stripe-apps), [App manifest](https://docs.stripe.com/stripe-apps/reference/app-manifest)
 
 `allowed_redirect_uris` must include your production callback:
@@ -21,7 +21,7 @@ Public Stripe app that grants OAuth access for **Widget → Actions** (invoices,
 
 Add staging or tunnel URLs to the manifest before upload if needed. For local dev, use a [manifest that `extends` the base file](https://docs.stripe.com/stripe-apps/reference/app-manifest) with your tunnel URL.
 
-The dashboard starts OAuth at `POST /api/teams/{teamId}/bots/{botId}/stripe/oauth/authorize` with JSON body `{ "popup": true }` to open Stripe in a popup. The callback serves a small HTML page that `postMessage`s to `window.opener` (type `DOCSBOT_STRIPE_OAUTH`, same origin) so the widget Actions tab can refresh bot state without a full-page redirect. Omit `popup` or use `{ "popup": false }` for a redirect-only flow. The authorize URL includes `scope` set to the same permission IDs as `stripe/stripe-app.json` (space-separated). Final access is still governed by the uploaded manifest.
+The dashboard starts OAuth at `POST /api/teams/{teamId}/bots/{botId}/stripe/oauth/authorize` with JSON body `{ "popup": true }` to open Stripe in a popup. The callback serves a small HTML page that `postMessage`s to `window.opener` (type `DOCSBOT_STRIPE_OAUTH`, same origin) so the widget Actions tab can refresh bot state without a full-page redirect. Omit `popup` or use `{ "popup": false }` for a redirect-only flow. The authorize URL includes `scope` set to the same permission IDs as `tools/stripe/stripe-app.json` (space-separated). Final access is still governed by the uploaded manifest.
 
 ## Environment (site)
 
@@ -47,7 +47,7 @@ For purely local OAuth, use ngrok (or similar), set `HOST_URL` to that HTTPS URL
 ## Upload (required for app settings to load)
 
 ```bash
-cd stripe
+cd tools/stripe
 stripe apps upload
 ```
 
@@ -59,7 +59,7 @@ If the settings view shows **"Loading of extension bundle failed"**:
 ## Local preview
 
 ```bash
-cd stripe
+cd tools/stripe
 stripe apps start
 ```
 

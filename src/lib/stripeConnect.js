@@ -1,6 +1,6 @@
 /**
  * Public callback path (no "connect" segment). Keep in sync with
- * stripe/stripe-app.json `allowed_redirect_uris`.
+ * tools/stripe/stripe-app.json `allowed_redirect_uris`.
  */
 export const STRIPE_OAUTH_CALLBACK_PATH = '/api/stripe/oauth/callback'
 
@@ -22,7 +22,7 @@ export const OBSOLETE_STRIPE_TOOL_METADATA_KEYS = [
 ]
 
 /**
- * App manifest permission IDs — must match stripe/stripe-app.json `permissions[].permission`.
+ * App manifest permission IDs — must match tools/stripe/stripe-app.json `permissions[].permission`.
  * Used for marketplace authorize `scope` (space-separated) and tests.
  */
 export const STRIPE_APPS_MANIFEST_PERMISSION_IDS = [

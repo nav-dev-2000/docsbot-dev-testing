@@ -2,8 +2,8 @@
 
 # dependencies
 /node_modules
-stripe/node_modules
-stripe/.build
+tools/stripe/node_modules
+tools/stripe/.build
 /.pnp
 .pnp.js
 
@@ -44,5 +44,5 @@ public/latest-news.json
 public/feature-updates.json
 
 # stripe extension (local build outputs)
-/stripe/.build/
-/stripe/node_modules/
+/tools/stripe/.build/
+/tools/stripe/node_modules/

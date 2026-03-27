@@ -39,6 +39,7 @@ This script re-exports `FIREBASE_SERVICE_ACCOUNT_KEY` with properly escaped newl
 - The headless WordPress integration (`@headstartwp/next`) is disabled via `DISABLE_HEADLESS=1`; without it, blog routes (`/articles/*`) and WP-sourced docs will fail.
 - The main automated regression suite is Vitest under `tests/core/**/*.test.js`. It is intentionally optimized for fast agent/PR feedback and currently covers API surface contracts, selected API runtime flows, auth/team middleware, signup/onboarding/checkout logic, and shared helpers/utilities.
 - The `tools/zapier-cli/` directory is a separate Zapier integration package with its own `package-lock.json`; it is independent of the main app.
+- The `tools/stripe/` directory is the Stripe Apps UI extension (`stripe apps upload` / `stripe apps start`); it has its own `package-lock.json` and is excluded from the root Next.js TypeScript project and Vercel uploads (see `.vercelignore`).
 - Next.js `.env.local` does NOT override system environment variables. If secrets are injected via the VM environment, they take precedence over `.env.local` values.
 
 ### Testing expectations for agents
