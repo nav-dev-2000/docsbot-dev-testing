@@ -1,0 +1,6 @@
+{
+  "date": "2026-03-27",
+  "title": "Chat widget: live tool & reasoning activity",
+  "description": "The embeddable widget now shows tool calls, searches, and reasoning summary titles as the bot streams its reply. Hide via showAgentActivity: false in options.",
+  "href": "/documentation/developer/embeddable-chat-widget"
+}

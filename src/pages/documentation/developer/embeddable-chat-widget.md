@@ -147,9 +147,14 @@ The `DocsBotAI.init()` function returns a promise that resolves when the DocsBot
 
 If you would like override the widget settings optionally pass an `options` object with the properties to override. Here is an example of the properties you can override:
 
+#### Agent activity (reasoning and tools)
+
+In **agent mode**, the widget can show an **agent activity** row while a reply is streaming: live **reasoning** summaries from reasoning SSE events (often shown as a “thinking” line) and **tool** status for tool calls—for example searching documentation or the web. String labels for those states are customizable under `options.labels` (for example `agentActivityThinking`, `agentActivitySearchDocumentation`, `agentActivityWebSearch`, and other `agentActivity*` keys in the example below).
+
 ```js
 options: {
-  isAgent: true, //wether to enable the more powerful agent mode
+  isAgent: true, // whether to enable the more powerful agent mode
+  showAgentActivity: true, // optional: set to false to hide the agent activity row (reasoning + tool status). Omit for default (shown).
   useFeedback: true, //collect user feedback after answers
   useEscalation: true, // Enable the escalation button or agent tool
   botName: "DocsBot", //name of the bot.
