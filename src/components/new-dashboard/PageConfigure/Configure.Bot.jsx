@@ -23,6 +23,12 @@ const SYSTEM_OPTIONAL_STRING_KEYS = new Set([
     'agentRole',
     'description',
 ])
+/** Array fields where missing/undefined on the bot equals an empty form default. */
+const SYSTEM_OPTIONAL_ARRAY_KEYS = new Set([
+    'glossary',
+    'questions',
+    'rateLimitIPAllowlist',
+])
 const SYSTEM_DEFAULT_MODEL = 'gpt-5.4-nano'
 
 /** Stable stringify so label maps compare equal regardless of key insertion order (Firestore / spread vs i18n object). */
@@ -63,6 +69,11 @@ function systemSettingValuesDiffer(key, formValue, savedValue) {
     }
     if (key === 'labels') {
         return stableStringify(formValue) !== stableStringify(savedValue)
+    }
+    if (SYSTEM_OPTIONAL_ARRAY_KEYS.has(key)) {
+        const normA = Array.isArray(formValue) ? formValue : []
+        const normB = Array.isArray(savedValue) ? savedValue : []
+        return JSON.stringify(normA) !== JSON.stringify(normB)
     }
     return JSON.stringify(formValue) !== JSON.stringify(savedValue)
 }
