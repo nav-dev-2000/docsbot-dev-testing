@@ -118,6 +118,10 @@ const ANALYZING_STEPS = [
   'Generating your custom configuration...',
 ]
 
+/** Min height for the live chat iframe on Test & Adjust (step 3). */
+const ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS =
+  'min-h-[max(46rem,min(88vh,58rem))]'
+
 const isColorLight = (hexColor) => {
   if (!hexColor) return false
   const hex = hexColor.replace('#', '')
@@ -2987,7 +2991,12 @@ function Onboarding({ team }) {
 
                 {/* Right Column - Preview/Sources */}
                 <div
-                  className="relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0 min-h-[500px]"
+                  className={classNames(
+                    'relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0',
+                    currentStep === 3
+                      ? 'min-h-[max(54rem,min(92vh,62rem))]'
+                      : 'min-h-[500px]',
+                  )}
                   style={{
                     backgroundImage: `url(${circuitBg.src})`,
                     backgroundSize: 'cover',
@@ -3170,10 +3179,11 @@ function Onboarding({ team }) {
                               ? createdBot.imageUploads
                               : false
                           }
+                          hidePreviewModeToggle
                         />
                       </div>
                     ) : currentStep === 3 && createdBot ? (
-                      <div className="mx-auto flex h-full max-w-md flex-col">
+                      <div className="mx-auto w-full max-w-md">
                         <div className="mb-4">
                           <h3 className="text-lg font-semibold text-gray-900">
                             Try it out
@@ -3184,11 +3194,14 @@ function Onboarding({ team }) {
                         </div>
 
                         <div
-                          className="relative"
+                          className={classNames(
+                            'relative',
+                            ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS,
+                          )}
                           onMouseEnter={() => setHasInteractedWithBot(true)}
                         >
                           {!iframeLoaded && (
-                            <div className="flex min-h-[700px] items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
+                            <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
                               <div className="text-center">
                                 <LoadingSpinner className="mx-auto h-8 w-8 text-cyan-600" />
                                 <p className="mt-3 text-sm text-gray-600">
@@ -3197,7 +3210,7 @@ function Onboarding({ team }) {
                               </div>
                             </div>
                           )}
-                          
+
                           <iframe
                             key={savedAgentPrompt}
                             src={`${
@@ -3205,7 +3218,10 @@ function Onboarding({ team }) {
                                 ? `http://localhost:3000/iframe/${team.id}/${createdBot.id}`
                                 : `https://docsbot.ai/iframe/${team.id}/${createdBot.id}`
                             }?agent=true&testing=true&signature=${createdBot.signature}`}
-                            className="mx-auto min-h-[700px] w-full"
+                            className={classNames(
+                              'mx-auto block w-full rounded-lg border border-gray-200',
+                              ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS,
+                            )}
                             onLoad={() => setIframeLoaded(true)}
                           ></iframe>
 

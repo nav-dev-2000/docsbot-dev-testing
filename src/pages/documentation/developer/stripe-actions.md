@@ -33,147 +33,33 @@ The bot calls Stripe using the OAuth **access token** (and refresh token) stored
 
 ## Refund guardrails
 
-When **Refund latest payment** is enabled, you can configure a **refund guardrails prompt** in Widget → Actions. This prompt defines your business rules for when the bot may issue a refund. To prevent prompt injection—where a user could try to override your rules via the chat—refund approval is handled by a **separate, out-of-band LLM call**. That call receives only your rules (the guardrails prompt) and full, structured metadata about the customer and recent payment and subscription history. The main chat model never sees or executes your guardrails text as instruction, so users cannot inject conflicting instructions.
+When **Refund latest payment** is enabled, you can configure a **refund guardrails prompt** in Widget → Actions. This prompt defines your business rules for when the bot may issue a refund. To prevent prompt injection—where a user could try to override your rules via the chat—refund approval is handled by a **separate, out-of-band LLM call**. That call receives only your rules and a **billing snapshot** for the customer (recent payments, invoices, subscriptions, and similar). The main chat model never sees or executes your guardrails text as instruction, so users cannot inject conflicting instructions.
 
-**What the approval call receives**
+**What the approval step sees**
 
-- Your **refund guardrails prompt** (the rules you configure in the dashboard).
-- **Customer context**: Details below -
+Besides your guardrails text, it gets a **fresh billing snapshot** for that Stripe customer. You simply describe your policy in normal business terms. The model can use anything in that snapshot that matches what you asked for.
 
-### Context Scope
+**You can write rules about things like:**
 
-- **Invoices:** up to **50** (newest first), all appear under `invoices`.
-- **Subscriptions:** up to **20**.
-- **Charges:** Stripe returns up to **50**; **`recent_payments` only includes the first 15** (newest). `summary.payment_count` is how many charges were returned (≤ 50), not how many rows appear in `recent_payments`.
-- **`latest_payment`** is always the **single** newest charge (first row of the charge list).
-- **`summary.total_paid`** is set only when every included “paid-ish” invoice shares one **currency**; otherwise it is `null`.
+- **Who they are** — roughly how long they’ve been a customer or payment count.
+- **The payment you’d refund** — Always the **most recent** successful charge: amount, date, currency, a short description, whether it’s already been fully or partly refunded, whether there’s a dispute, and whether it looks like a subscription/invoice charge or a one-off payment.
+- **Earlier charges** — A limited list of recent payments so you can spot patterns (for example, someone who already got a full refund on a prior charge).
+- **Invoices** — Recent invoices with status, amounts, dates, and billing periods.
+- **Subscriptions** — Whether they’re subscribed, if cancel-at-period-end is on, renewal timing, status in plain language, and **plan names** (so you can treat “Personal” differently from “Pro” or “Enterprise”).
+- **High-level totals** — Counts of subscriptions and recent activity, and sometimes an approximate **total paid** when Stripe’s data is all in one currency
 
-### Example structured context (illustrative)
+The snapshot covers many recent invoices and subscriptions and about the **fifteen newest** card charges—enough for policy checks, not a full account export.
 
-```json
-{
-  "as_of": "2025-03-20 14:32:01",
-  "customer": {
-    "email": "alex@example.com",
-    "name": "Alex Rivera",
-    "customer_since": "2024-06-10 09:15:00"
-  },
-  "summary": {
-    "subscription_count": 1,
-    "recent_invoice_count": 12,
-    "recent_payment_count": 8,
-    "total_paid": "708.00",
-    "subscription_start_date": "2024-06-10 09:15:00"
-  },
-  "subscriptions": [
-    {
-      "cancel_at_period_end": false,
-      "period_end_date": "2025-04-10 09:15:00",
-      "stripe_subscription_status": "active",
-      "assistant_subscription_state": "active_will_renew",
-      "assistant_subscription_note": "Active and will renew at the next billing period unless canceled.",
-      "items": [
-        {
-          "plan_name": "Pro",
-          "quantity": 1
-        }
-      ]
-    }
-  ],
-  "invoices": [
-    {
-      "status": "paid",
-      "amount_due": "0.00",
-      "amount_paid": "59.00",
-      "currency": "usd",
-      "date": "2025-03-10 09:16:02",
-      "period_start": "2025-03-10 09:15:00",
-      "period_end": "2025-04-10 09:15:00"
-    },
-    {
-      "status": "paid",
-      "amount_due": "0.00",
-      "amount_paid": "59.00",
-      "currency": "usd",
-      "date": "2025-02-10 09:16:11",
-      "period_start": "2025-02-10 09:15:00",
-      "period_end": "2025-03-10 09:15:00"
-    }
-  ],
-  "recent_payments": [
-    {
-      "amount": "59.00",
-      "currency": "usd",
-      "date": "2025-03-10 09:16:05",
-      "status": "succeeded",
-      "amount_refunded": "0.00",
-      "refund_status": "none",
-      "refunded": false,
-      "disputed": false
-    },
-    {
-      "amount": "59.00",
-      "currency": "usd",
-      "date": "2025-02-10 09:16:14",
-      "status": "succeeded",
-      "amount_refunded": "15.00",
-      "refund_status": "partial",
-      "refunded": false,
-      "disputed": false
-    },
-    {
-      "amount": "49.00",
-      "currency": "usd",
-      "date": "2024-12-05 18:22:00",
-      "status": "succeeded",
-      "amount_refunded": "49.00",
-      "refund_status": "full",
-      "refunded": true,
-      "disputed": false
-    }
-  ],
-  "latest_payment": {
-    "amount": "59.00",
-    "currency": "usd",
-    "date": "2025-03-10 09:16:05",
-    "status": "succeeded",
-    "description": "Subscription update",
-    "amount_refunded": "0.00",
-    "refund_status": "none",
-    "refunded": false,
-    "disputed": false,
-    "has_invoice": true
-  }
-}
-```
+**What comes back**
 
-### Fields you might write rules against
+The approval step answers **yes or no** and supplies **short reason text** for the main chat. Your prompt can steer both the decision and how the reason is worded (policy wording, links to terms, next steps).
 
-| Area | Useful for |
-|------|------------|
-| `latest_payment.*` | “Refund only if …” on the **most recent** charge (`refund_status`, `amount_refunded`, `has_invoice`, `description`). |
-| `recent_payments[]` | Prior payment / **partial or full** refunds on recent charges (only **15** rows). |
-| `invoices[]` | Timing, amounts, billing periods (no invoice `billing_reason` in this payload today). |
-| `subscriptions[]` + `summary.subscription_*` | Whether they’re subscribed, cancel-at-period-end, period end, human-readable plan names. |
-| `customer.*` / `summary.total_paid` | Tenure and rough lifetime paid (when `total_paid` is non-null). |
+If it says **yes**, the refund runs and the bot can confirm using that reason. If **no**, the bot tells the user the reason so the answer matches your policy.
 
-If you want this as a `.md` file in the repo, say where it should live (e.g. `docs/`) and we can add it.
+**Examples of outcomes**
 
-**What the approval call returns**
-
-The subtool returns a **yes/no approval** and **reason text** to the main model. The model uses this as context to reply to the user. Your guardrails prompt can shape both the decision and the wording of the reason (e.g. to cite policy, link to terms, or suggest next steps).
-
-**Example — approved:**
-
-- `approved: true`
-- `reason: $20 payment for invoice #12345 has been refunded.`
-
-**Example — denied:**
-
-- `approved: false`
-- `reason: It's been more than 14 days since your payment. According to our [Terms of Service](https://example.com/terms) refunds are no longer allowed.`
-
-If approved, the bot proceeds with the refund and can confirm using the reason. If denied, the bot replies to the user using the reason so the response stays consistent with your policy and any links you specified in the guardrails.
+- *Approved:* “The $20 charge from March 10 has been refunded.”
+- *Denied:* “It’s been more than 14 days since your payment. Per our [Terms of Service](https://example.com/terms), we can’t refund automatically—please contact support.”
 
 **Example guardrails prompts**
 
@@ -195,7 +81,7 @@ If approved, the bot proceeds with the refund and can confirm using the reason. 
   *Approve only if this is the first refund for this customer (no other refunds in the provided payment history). If the customer has had a full refund before, deny and escalate to support.*
 
 - **Personal plan only; escalate higher tiers**  
-  *Approve refunds for the most recent payment only when the customer’s active subscription is on the **Personal** plan (use `subscriptions[].items[].plan_name` in the structured context). If they are on **Business**, **Pro**, **Enterprise**, or any other plan, deny the refund and instruct the agent to call the **human_escalation** tool so a human handles the request.*
+  *Approve refunds for the most recent payment only when the customer’s active plan name is **Personal**. If they are on **Business**, **Pro**, **Enterprise**, or any other plan, deny the refund and instruct the agent to call the **human_escalation** tool so a human handles the request.*
 
 Use the guardrails prompt that matches your policy. The approval call has no access to the conversation text, so user messages cannot override these rules.
 
