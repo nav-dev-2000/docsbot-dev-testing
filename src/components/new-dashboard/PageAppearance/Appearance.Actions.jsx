@@ -8,8 +8,33 @@ import {
 import LeadCollectionToolSettings from '@/components/LeadCollectionToolSettings'
 import Tooltip from '@/components/Tooltip'
 import { i18n } from '@/constants/strings.constants'
+import {
+    BOOKING_ACTION_KEYS,
+    BOOKING_ACTIONS,
+    DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
+    normalizeBookingPathInput,
+} from '@/lib/botActions'
 import { checkPlanPermission } from '@/utils/helpers'
 import { LinkSlashIcon } from '@heroicons/react/24/outline'
+
+const SCHEDULING_EMBED_OPTION_LABELS = {
+    hideEventDetails: {
+        default: {
+            label: 'Hide event details',
+            description: 'Remove event details from the embedded booking view.',
+        },
+        tidycal: {
+            label: 'Hide the profile avatar',
+            description: 'Hide the profile avatar in the embedded booking view.',
+        },
+    },
+    hideCookieBanner: {
+        default: {
+            label: 'Hide cookie banner',
+            description: 'Hide the provider cookie notice in the embed.',
+        },
+    },
+}
 
 const CANCELLATION_FEEDBACK_ENUMS = [
     'too_expensive',
@@ -73,8 +98,37 @@ const getStripeStatus = (stripe) => {
     return 'active'
 }
 
+const SchedulingProviderIcon = ({ src }) => (
+    <div className="flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+        <img src={src} alt="" aria-hidden="true" className="size-6 object-contain" />
+    </div>
+)
+
+const SchedulingActionToggle = ({
+    enabled,
+    name,
+    iconSrc,
+    isUpdating,
+    onEnabledChange,
+}) => (
+    <AppearanceToggle
+        enabled={enabled}
+        setEnabled={onEnabledChange}
+        disabled={isUpdating}
+        label={
+            <div className="flex items-center gap-3">
+                <SchedulingProviderIcon src={iconSrc} />
+                <span className="text-sm font-semibold text-gray-900">{name}</span>
+            </div>
+        }
+    />
+)
+
 const AppearanceActions = ({
     bot,
+    actions,
+    setActions,
+    toggleSchedulingAction,
     isAgent,
     labels,
     setLabels,
@@ -98,8 +152,67 @@ const AppearanceActions = ({
     const stripe = normalizeStripe(tools?.stripe)
     const stripeStatus = getStripeStatus(stripe)
     const stripePlanCheck = checkPlanPermission(team, 'standard', 'stripeActions')
+    const schedulingPlanCheck = checkPlanPermission(team, 'personal', 'bookingActions')
     const connectLoading = stripeOAuthLoading
     const connectError = stripeOAuthError
+    const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
+        const meta = BOOKING_ACTIONS[key]
+        const active = actions?.[key]
+        const bookingValue = active?.[meta.urlKey] || ''
+        const isEnabled =
+            active?.enabled === undefined ? Boolean(active) : Boolean(active.enabled)
+        let normalizedBookingPath = ''
+        try {
+            normalizedBookingPath = bookingValue
+                ? normalizeBookingPathInput(
+                      bookingValue,
+                      `bot.actions.${key}.${meta.urlKey}`,
+                      meta,
+                  )
+                : ''
+        } catch (error) {
+            normalizedBookingPath = ''
+        }
+
+        return {
+            key,
+            name: meta.label,
+            urlKey: meta.urlKey,
+            embedOptionKeys: meta.embedOptionKeys || [],
+            examplePrefix: meta.examplePrefix,
+            examplePath: meta.examplePath,
+            enabled: isEnabled,
+            instructions: active?.instructions || '',
+            bookingValue,
+            normalizedBookingPath,
+            embedOptions: Object.fromEntries(
+                (meta.embedOptionKeys || []).map((optionKey) => [
+                    optionKey,
+                    Boolean(active?.[optionKey]),
+                ]),
+            ),
+            iconSrc: `/branding/scheduling-icons/${key}.svg`,
+        }
+    })
+
+    const updateSchedulingActionField = (actionKey, field, value) => {
+        setActions((prev) => ({
+            ...(prev || {}),
+            [actionKey]: {
+                ...(prev?.[actionKey] || {}),
+                [field]: value,
+            },
+        }))
+    }
+
+    const handleSchedulingToggle = (actionKey, nextEnabled) => {
+        if (nextEnabled && !schedulingPlanCheck.allowed) {
+            setShowUpgrade(true)
+            return
+        }
+
+        toggleSchedulingAction(actionKey, nextEnabled)
+    }
 
     const setStripe = (nextStripe) =>
         setTools({
@@ -185,7 +298,7 @@ const AppearanceActions = ({
 
     return (
         <>
-            <AppearanceBlock className="flex flex-col gap-2">
+            <AppearanceBlock className="flex flex-col gap-4">
                 <AppearanceToggle
                     label="Collect Feedback"
                     description="Collect ratings (CSAT) from users after they interact with the bot."
@@ -205,107 +318,99 @@ const AppearanceActions = ({
                     disabled={isUpdating}
                     isNew={false}
                 />
-            </AppearanceBlock>
+                <AppearanceToggle
+                    label={
+                        isAgent
+                            ? 'Enable Escalation Tool'
+                            : 'Enable Support Link'
+                    }
+                    description={
+                        isAgent
+                            ? 'Enable escalation detection tool to allow the bot to detect when a user needs to speak to a human, and ask them to confirm.'
+                            : 'Enable a support link button in the widget.'
+                    }
+                    enabled={
+                        tools?.human_escalation?.enabled === undefined
+                            ? true
+                            : tools?.human_escalation?.enabled
+                    }
+                    setEnabled={(enabled) =>
+                        setTools({
+                            ...tools,
+                            human_escalation: {
+                                enabled,
+                            },
+                        })
+                    }
+                    disabled={isUpdating}
+                    isNew={false}
+                />
 
-            <AppearanceBlock
-                title={isAgent ? 'Escalation Tool' : 'Support Link'}
-                titleTag="h4"
-                description={
-                    isAgent
-                        ? 'Enable escalation detection tool to allow the bot to detect when a user needs to speak to a human, and ask them to confirm.'
-                        : 'Enable a support link button in the widget.'
-                }
-            >
-                <div className="flex flex-col gap-4">
-                    <AppearanceToggle
-                        label={
-                            isAgent
-                                ? 'Enable Escalation Tool'
-                                : 'Enable Support Link'
-                        }
-                        enabled={
-                            tools?.human_escalation?.enabled === undefined
-                                ? true
-                                : tools?.human_escalation?.enabled
-                        }
-                        setEnabled={(enabled) =>
-                            setTools({
-                                ...tools,
-                                human_escalation: {
-                                    enabled,
-                                },
-                            })
-                        }
-                        disabled={isUpdating}
-                        isNew={false}
-                    />
+                {tools?.human_escalation?.enabled && (
+                    <div className="ml-4 flex flex-col gap-4">
+                        <AppearanceBlock
+                            title="Button Link"
+                            titleTag="label"
+                            titleProps={{
+                                htmlFor: 'support-link',
+                            }}
+                            description={
+                                isAgent ? (
+                                    <>
+                                        This link will be used when the user confirms they need to speak to a human. Optional, you can{' '}
+                                        <a href="/documentation/developer/embeddable-chat-widget#support-callback" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800">register a JS event</a>
+                                        {' '}instead.
+                                    </>
+                                ) : (
+                                    'This link will appear after the bot replies.'
+                                )
+                            }
+                            isLast={true}
+                        >
+                            <AppearanceInput
+                                id="support-link"
+                                name="support-link"
+                                type="text"
+                                value={supportLink}
+                                onChange={(e) =>
+                                    setSupportLink(e.target.value)
+                                }
+                                disabled={
+                                    isUpdating ||
+                                    !tools?.human_escalation?.enabled
+                                }
+                                placeholder="https://example.com/support/"
+                            />
+                        </AppearanceBlock>
 
-                    {tools?.human_escalation?.enabled && (
-                        <>
+                        {!isAgent && (
                             <AppearanceBlock
-                                title="Button Link"
+                                title="Button Label"
                                 titleTag="label"
                                 titleProps={{
-                                    htmlFor: 'support-link',
+                                    htmlFor: 'support-label',
                                 }}
-                                description={
-                                    isAgent ? (
-                                        <>
-                                            This link will be used when the user confirms they need to speak to a human. Optional, you can{' '}
-                                            <a href="/documentation/developer/embeddable-chat-widget#support-callback" target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline hover:text-cyan-800">register a JS event</a>
-                                            {' '}instead.
-                                        </>
-                                    ) : (
-                                        'This link will appear after the bot replies.'
-                                    )
-                                }
+                                description="This text will appear on the support link button if a link has been set."
                                 isLast={true}
                             >
                                 <AppearanceInput
-                                    id="support-link"
-                                    name="support-link"
+                                    id="support-label"
+                                    name="support-label"
                                     type="text"
-                                    value={supportLink}
+                                    value={labels.getSupport}
                                     onChange={(e) =>
-                                        setSupportLink(e.target.value)
+                                        setLabels({
+                                            ...labels,
+                                            getSupport: e.target.value,
+                                        })
                                     }
-                                    disabled={
-                                        isUpdating ||
-                                        !tools?.human_escalation?.enabled
-                                    }
-                                    placeholder="https://example.com/support/"
+                                    disabled={isUpdating}
+                                    placeholder="Support text"
                                 />
                             </AppearanceBlock>
-
-                            {!isAgent && (
-                                <AppearanceBlock
-                                    title="Button Label"
-                                    titleTag="label"
-                                    titleProps={{
-                                        htmlFor: 'support-label',
-                                    }}
-                                    description="This text will appear on the support link button if a link has been set."
-                                    isLast={true}
-                                >
-                                    <AppearanceInput
-                                        id="support-label"
-                                        name="support-label"
-                                        type="text"
-                                        value={labels.getSupport}
-                                        onChange={(e) =>
-                                            setLabels({
-                                                ...labels,
-                                                getSupport: e.target.value,
-                                            })
-                                        }
-                                        disabled={isUpdating}
-                                        placeholder="Support text"
-                                    />
-                                </AppearanceBlock>
-                            )}
-                        </>
-                    )}
-                </div>
+                        )}
+                    </div>
+                )}
             </AppearanceBlock>
 
             <LeadCollectionToolSettings
@@ -329,13 +434,163 @@ const AppearanceActions = ({
                 onRequireUpgrade={() => setShowUpgrade(true)}
             />
 
+            {isAgent && (
+                <div className="mt-5 border-t border-gray-200 pt-5">
+                    <AppearanceBlock
+                        title="Scheduling Tools"
+                        titleTag="h4"
+                        isNew={true}
+                        planLabel={
+                            !schedulingPlanCheck.allowed
+                                ? schedulingPlanCheck.requiredPlanLabel
+                                : null
+                        }
+                        description="Trigger an embedded calendar booking widget to book a meeting with you. When available, the user’s name and email are prefilled. Booking details are also added to metadata so you can see them in logs and the AI can use them for future responses."
+                    >
+                        <div className="flex flex-col">
+                            {schedulingActions.map((action) => (
+                                <div
+                                    key={action.key}
+                                    className="border-t border-gray-200 pt-3 first:border-t-0 first:pt-0 flex flex-col gap-3"
+                                >
+                                    <SchedulingActionToggle
+                                        enabled={action.enabled}
+                                        name={action.name}
+                                        iconSrc={action.iconSrc}
+                                        isUpdating={isUpdating}
+                                        onEnabledChange={(next) =>
+                                            handleSchedulingToggle(
+                                                action.key,
+                                                next,
+                                            )
+                                        }
+                                    />
+                                    {action.enabled ? (
+                                        <div className="ml-4 flex flex-col gap-2 pb-3">
+                                            <label
+                                                htmlFor={`${action.key}-booking-url`}
+                                                className="text-xs font-medium text-gray-700"
+                                            >
+                                                Booking URL
+                                            </label>
+                                            <AppearanceInput
+                                                id={`${action.key}-booking-url`}
+                                                name={`${action.key}-booking-url`}
+                                                type="text"
+                                                value={action.bookingValue}
+                                                onChange={(e) =>
+                                                    updateSchedulingActionField(
+                                                        action.key,
+                                                        action.urlKey,
+                                                        e.target.value,
+                                                    )
+                                                }
+                                                disabled={
+                                                    isUpdating ||
+                                                    !schedulingPlanCheck.allowed
+                                                }
+                                                placeholder={`${action.examplePrefix}${action.examplePath}`}
+                                            />
+                                            <div className="text-xs text-gray-500">
+                                                Full URL or path only. Example path:{' '}
+                                                <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                    {action.examplePath}
+                                                </code>
+                                            </div>
+                                            {action.normalizedBookingPath ? (
+                                                <div className="text-[11px] text-gray-400">
+                                                    Saved as:{' '}
+                                                    <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                    {action.normalizedBookingPath}
+                                                </code>
+                                            </div>
+                                        ) : null}
+                                            <label
+                                                htmlFor={`${action.key}-instructions`}
+                                                className="text-xs font-medium text-gray-700"
+                                            >
+                                                When to trigger
+                                            </label>
+                                            <AppearanceInput
+                                                id={`${action.key}-instructions`}
+                                                name={`${action.key}-instructions`}
+                                                isMultiLine={true}
+                                                value={action.instructions}
+                                                onChange={(e) =>
+                                                    updateSchedulingActionField(
+                                                        action.key,
+                                                        'instructions',
+                                                        e.target.value,
+                                                    )
+                                                }
+                                                disabled={
+                                                    isUpdating ||
+                                                    !schedulingPlanCheck.allowed
+                                                }
+                                                placeholder={DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS}
+                                            />
+                                            {action.embedOptionKeys.map((optionKey) => {
+                                                const optionMetaConfig =
+                                                    SCHEDULING_EMBED_OPTION_LABELS[
+                                                        optionKey
+                                                    ]
+                                                const optionMeta =
+                                                    optionMetaConfig?.[
+                                                        action.key
+                                                    ] ||
+                                                    optionMetaConfig?.default
+                                                if (!optionMeta) return null
+
+                                                return (
+                                                    <AppearanceToggle
+                                                        key={`${action.key}-${optionKey}`}
+                                                        enabled={
+                                                            action.embedOptions[
+                                                                optionKey
+                                                            ]
+                                                        }
+                                                        setEnabled={(next) =>
+                                                            updateSchedulingActionField(
+                                                                action.key,
+                                                                optionKey,
+                                                                next,
+                                                            )
+                                                        }
+                                                        disabled={
+                                                            isUpdating ||
+                                                            !schedulingPlanCheck.allowed
+                                                        }
+                                                        label={optionMeta.label}
+                                                        description={
+                                                            optionMeta.description
+                                                        }
+                                                        className="mt-1"
+                                                    />
+                                                )
+                                            })}
+                                        </div>
+                                    ) : null}
+                                </div>
+                            ))}
+                        </div>
+                    </AppearanceBlock>
+                </div>
+            )}
+
             {canManageStripeActions ? (
             <div className="mt-5 border-t border-gray-200 pt-5">
                 <AppearanceBlock
                     title={
                         <>
-                            <img src="/branding/stripe-wordmark-blurple.svg" alt="" className="inline-block h-4 w-auto align-middle" aria-hidden />
-                            {' '}Billing support
+                            <span className="inline-flex items-center gap-3 align-middle">
+                                <img
+                                    src="/branding/stripe-wordmark-blurple.svg"
+                                    alt=""
+                                    aria-hidden="true"
+                                    className="h-5 w-auto"
+                                />
+                                <span>Billing support</span>
+                            </span>
                             <span className="relative -top-0.5 ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
                                 Beta
                             </span>

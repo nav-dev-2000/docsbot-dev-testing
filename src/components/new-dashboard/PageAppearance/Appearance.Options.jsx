@@ -19,7 +19,7 @@ const AppearanceToggle = ({
         <Switch.Group
             as="div"
             className={clsx(
-                'w-full rounded-lg bg-gray-100 px-4 pb-3 pt-2',
+                'w-full rounded-lg bg-gray-100 px-4 py-3',
                 className,
             )}
         >
@@ -27,7 +27,7 @@ const AppearanceToggle = ({
                 {label && (
                     <Switch.Label
                         as="span"
-                        className="flex-1 text-sm font-medium text-gray-800"
+                        className="flex flex-1 items-center text-sm font-medium text-gray-800"
                         passive
                     >
                         {label}

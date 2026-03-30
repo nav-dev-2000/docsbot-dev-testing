@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { pricingTiers } from '@/constants/pricing.constants'
+import { featureDefinitions, pricingTiers } from '@/constants/pricing.constants'
 import {
   formatStripeTableFeatureLabel,
   getDifferentiatingFeatures,
@@ -34,5 +34,20 @@ describe('pricingStripeTableFeatures', () => {
     expect(formatStripeTableFeatureLabel('slackIntegration', true)).toBe(
       'Slack integration',
     )
+  })
+
+  it('includes scheduling tools in the pricing table at Personal and above', () => {
+    expect(featureDefinitions.bookingActions).toEqual({
+      label: 'Scheduling tools',
+      category: 'features',
+    })
+
+    const hobby = pricingTiers.find((tier) => tier.id === 'hobby')
+    const personal = pricingTiers.find((tier) => tier.id === 'personal')
+    const business = pricingTiers.find((tier) => tier.id === 'business')
+
+    expect(hobby?.features.bookingActions).toBe(false)
+    expect(personal?.features.bookingActions).toBe(true)
+    expect(business?.features.bookingActions).toBe(true)
   })
 })

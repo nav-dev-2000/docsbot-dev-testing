@@ -485,7 +485,7 @@ export default function LeadCollectionToolSettings({
         />
 
         {enabled && (
-          <>
+          <div className="ml-4 flex flex-col gap-4">
             <AppearanceBlock
               title="Trigger Mode"
               titleTag="label"
@@ -1130,7 +1130,7 @@ export default function LeadCollectionToolSettings({
                 )}
               </div>
             </AppearanceAccordion>
-          </>
+          </div>
         )}
       </div>
     </AppearanceBlock>

@@ -33,6 +33,9 @@ Use `Authorization: Bearer <token>` when you need authenticated behavior (higher
 | **context_items**      | integer         | Number of sources to lookup for the bot to answer from. Optional, default is 5. Context boost uses 16 (more expensive token usage).                                                                                         |
 | **human_escalation**   | boolean         | Whether to enable the human escalation classifier tool. Optional, defaults to `false`.                                                                                                                                      |
 | **followup_rating**    | boolean         | Whether to include follow-up rating questions tool. Optional, defaults to `false`.                                                                                                                                          |
+| **calendly**           | boolean         | Whether to enable the Calendly booking tool for this request. When enabled, the agent can emit the `book_calendly` tool if the bot has `actions.calendly` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                    |
+| **calcom**             | boolean         | Whether to enable the Cal.com booking tool for this request. When enabled, the agent can emit the `book_calcom` tool if the bot has `actions.calcom` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                          |
+| **tidycal**            | boolean         | Whether to enable the TidyCal booking tool for this request. When enabled, the agent can emit the `book_tidycal` tool if the bot has `actions.tidycal` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                        |
 | **document_retriever** | boolean         | Whether to retrieve documents for the bot to answer from. Optional, defaults to `true`.                                                                                                                                     |
 | **full_source**        | boolean         | Whether the full source content should be returned. Optional, defaults to `false`.                                                                                                                                          |
 | **autocut**            | integer/boolean | Autocut results to num groups. Optional, defaults to `false`.                                                                                                                                                               |
@@ -69,6 +72,9 @@ Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which m
   "context_items": 5,
   "human_escalation": false,
   "followup_rating": false,
+  "calendly": true,
+  "calcom": false,
+  "tidycal": false,
   "document_retriever": true,
   "full_source": false,
   "stream": false,
@@ -245,6 +251,8 @@ On the client, parse twice when you need structured args: `JSON.parse(event.data
 
 There is **no** dedicated SSE event for documentation search: the agent uses the tool name `search_documentation`. The server may **omit** a `tool_call` for `search_documentation` when deduplication decides the call would not retrieve anything new (streaming may filter or drop redundant search args).
 
+Some tools are configured on the bot itself. For example, if `bot.actions.calendly`, `bot.actions.calcom`, or `bot.actions.tidycal` contains `enabled: true`, scheduling `instructions`, and the provider booking path generated from its validated URL, and your request explicitly enables that provider via `calendly: true`, `calcom: true`, or `tidycal: true`, the agent can emit a `tool_call` with `name: "book_calendly"`, `name: "book_calcom"`, or `name: "book_tidycal"` and then stop after returning the tool-provided booking message.
+
 #### Example: `search_documentation`
 
 After one `JSON.parse` of `data`:
@@ -285,6 +293,65 @@ Parsed `params`:
   "no": "No thanks"
 }
 ```
+
+#### Example: `book_calendly`
+
+After `JSON.parse` of `data`:
+
+```json
+{
+  "name": "book_calendly",
+  "params": "{\"instructions\":\"Use this when the user wants to book a demo or meeting.\"}"
+}
+```
+
+Parsed `params`:
+
+```json
+{
+  "instructions": "Use this when the user wants to book a demo or meeting."
+}
+```
+
+#### Example: `book_calcom`
+
+After `JSON.parse` of `data`:
+
+```json
+{
+  "name": "book_calcom",
+  "params": "{\"instructions\":\"Use this when the user wants to book office hours or a meeting.\"}"
+}
+```
+
+Parsed `params`:
+
+```json
+{
+  "instructions": "Use this when the user wants to book office hours or a meeting."
+}
+```
+
+#### Example: `book_tidycal`
+
+After `JSON.parse` of `data`:
+
+```json
+{
+  "name": "book_tidycal",
+  "params": "{\"instructions\":\"Use this when the user wants to book office hours or a meeting.\"}"
+}
+```
+
+Parsed `params`:
+
+```json
+{
+  "instructions": "Use this when the user wants to book office hours or a meeting."
+}
+```
+
+When any scheduling tool is triggered, the assistant should end generation immediately after the tool call and return the final text from the tool.
 
 #### Example: Stripe tools
 

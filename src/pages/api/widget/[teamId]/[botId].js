@@ -42,6 +42,18 @@ const getToolEnabled = (toolConfig, defaultEnabled = true) => {
   return defaultEnabled
 }
 
+const getSchedulingActionValue = (actionConfig) => {
+  if (!actionConfig || typeof actionConfig !== 'object') {
+    return false
+  }
+
+  const enabled =
+    actionConfig.enabled === undefined ? true : Boolean(actionConfig.enabled)
+  const rawValue = typeof actionConfig.url === 'string' ? actionConfig.url.trim() : ''
+
+  return enabled && Boolean(rawValue)
+}
+
 /** Widget JSON only: DB still uses `jp` for Japanese; expose ISO 639-1 `ja`. */
 function widgetJsonLanguageCode(language) {
   const raw = language || 'en'
@@ -73,6 +85,12 @@ export default async function handler(req, res) {
           return res.status(409).json({ message: 'Bot is not ready.' })
         }
 
+        const schedulingPlanAllowed = checkPlanPermission(
+          team,
+          'personal',
+          'bookingActions',
+        ).allowed
+
         const widget = {
           botId: botId,
           teamId: teamId,
@@ -98,6 +116,9 @@ export default async function handler(req, res) {
           isAgent: bot.isAgent || false,
           useEscalation: getToolEnabled(bot.tools?.human_escalation, true),
           useFeedback: getToolEnabled(bot.tools?.followup_rating, true),
+          useCalendly: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.calendly),
+          useCalCom: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.calcom),
+          useTidyCal: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.tidycal),
           useImageUpload: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
           leadCollect: false,
         }

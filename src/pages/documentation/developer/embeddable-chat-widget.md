@@ -284,6 +284,21 @@ options: {
 }
 ```
 
+### Scheduling Tools
+
+Use `useCalendly`, `useCalCom`, or `useTidyCal` to enable booking tools in the widget. These options are booleans only. The actual booking URL and behavior are configured on the bot via `bot.actions`.
+
+```js
+DocsBotAI.init({
+  id: "teamId/botId",
+  options: {
+    useCalendly: true,
+    useCalCom: false,
+    useTidyCal: false
+  }
+})
+```
+
 ### Labels and internationalization
 
 The widget detects the visitor's browser language and loads a matching language pack when available. Dashboard **label** customizations interact with that behavior as follows:
@@ -571,6 +586,14 @@ The DocsBot AI widget dispatches custom events for internal communication. While
 
 1. `docsbot_fetching_answer`: Triggered when the widget starts fetching an answer for a question. Includes the question as detail.
 2. `docsbot_fetching_answer_complete`: Fired when the widget has finished fetching an answer. Includes the final data object as detail.
+3. `docsbot_tool_call`: Fired whenever a `tool_call` SSE event arrives. The payload is normalized as:
+
+```js
+{
+  name: "book_tidycal",
+  data: { ...parsedToolParams }
+}
+```
 
 These events can be listened to using standard JavaScript event listeners. For example:
 
@@ -581,6 +604,10 @@ document.addEventListener("docsbot_fetching_answer", (event) => {
 
 document.addEventListener("docsbot_fetching_answer_complete", (event) => {
   console.log("Answer fetched:", event.detail);
+});
+
+document.addEventListener("docsbot_tool_call", function (event) {
+  console.log("Tool call received:", event.detail.name, event.detail.data);
 });
 ```
 

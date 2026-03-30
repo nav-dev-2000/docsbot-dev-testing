@@ -31,6 +31,12 @@ import {
     sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
 import { STRIPE_OAUTH_POSTMESSAGE_TYPE } from '@/lib/stripeConnect'
+import {
+    BOOKING_ACTION_KEYS,
+    buildDisplayBotActions,
+    createDefaultBookingAction,
+    sanitizeBotActions,
+} from '@/lib/botActions'
 
 /** After OAuth or GET /bot, merge server stripe (incl. stripeUserId) into local form state. */
 const mergeServerStripeIntoLocalTools = (setTools, nextBot) => {
@@ -145,6 +151,7 @@ const computeAppearanceDirtySnapshot = (
         labels,
         tools,
         leadCollect,
+        actions,
     },
 ) => {
     const reasons = []
@@ -274,6 +281,16 @@ const computeAppearanceDirtySnapshot = (
         })
     }
 
+    const initialActions = buildDisplayBotActions(bot.actions || {})
+    const currentActions = actions || {}
+    if (stableStringify(currentActions) !== stableStringify(initialActions)) {
+        push('actions', {
+            stableEqual:
+                stableStringify(currentActions) ===
+                stableStringify(initialActions),
+        })
+    }
+
     return { dirty: reasons.length > 0, reasons }
 }
 
@@ -334,6 +351,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             human_escalation: { enabled: true },
             followup_rating: { enabled: true },
         },
+    )
+    const [actions, setActions] = useState(
+        buildDisplayBotActions(bot.actions || {}),
     )
     const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
         bot.linkSafetyEnabled === true,
@@ -396,6 +416,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 human_escalation: { enabled: true },
                 followup_rating: { enabled: true },
             }
+            const nextActions = buildDisplayBotActions(nextBot.actions || {})
             const nextImageUploads =
                 ((nextBot.imageUploads === undefined ||
                     nextBot.imageUploads) &&
@@ -431,6 +452,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             setShowCopyButton(nextBot.showCopyButton || false)
             setIsAgent(nextIsAgent)
             setTools(nextTools)
+            setActions(nextActions)
             previousBranding.current = nextBranding
             previousImageUploads.current = nextImageUploads
             previousLeadCollect.current = nextLeadCollect
@@ -441,6 +463,37 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         },
         [team],
     )
+
+    const toggleSchedulingAction = useCallback((key, enabled) => {
+        setActions((prev) => {
+            const next = { ...prev }
+            const currentAction = prev?.[key] || createDefaultBookingAction(key)
+
+            if (enabled) {
+                next[key] = {
+                    ...currentAction,
+                    enabled: true,
+                }
+
+                for (const otherKey of BOOKING_ACTION_KEYS) {
+                    if (otherKey === key || !prev?.[otherKey]) {
+                        continue
+                    }
+                    next[otherKey] = {
+                        ...prev[otherKey],
+                        enabled: false,
+                    }
+                }
+                return next
+            }
+
+            next[key] = {
+                ...currentAction,
+                enabled: false,
+            }
+            return next
+        })
+    }, [])
 
     useEffect(() => {
         if (!bot || !team) return
@@ -663,6 +716,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     labels,
                     tools,
                     leadCollect,
+                    actions,
                 },
             ),
         [
@@ -685,6 +739,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             labels,
             tools,
             leadCollect,
+            actions,
             linkSafetyEnabled,
             keepFooterVisible,
         ],
@@ -852,6 +907,15 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
         setIsUpdating(true)
 
+        let normalizedActions
+        try {
+            normalizedActions = sanitizeBotActions(actions || {})
+        } catch (error) {
+            setErrorText(error.message)
+            setIsUpdating(false)
+            return
+        }
+
         const botSettings = {
             allowedDomains,
             color,
@@ -868,6 +932,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             headerAlignment,
             isAgent,
             tools,
+            actions: normalizedActions,
             imageUploads,
             leadCollect,
             linkSafetyEnabled,
@@ -1022,6 +1087,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             title: 'Actions',
             content: (
                 <AppearanceActions
+                    actions={actions}
+                    setActions={setActions}
+                    toggleSchedulingAction={toggleSchedulingAction}
                     isAgent={isAgent}
                     handleAgentToggle={handleAgentToggle}
                     setShowPromptModal={setShowPromptModal}

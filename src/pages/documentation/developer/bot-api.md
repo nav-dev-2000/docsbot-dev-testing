@@ -44,6 +44,7 @@ Bot objects have the following properties:
 | **showCopyButton** | boolean | If true, display a copy-to-clipboard button after answers. Defaults to false. |
 | **hideSources** | boolean | If true, the widget will not display the sources of its answers. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
+| **actions** | dict | Optional action configuration for agent-only features. `actions.calendly`, `actions.calcom`, and `actions.tidycal` use `enabled`, `instructions`, and a shared `url` field. Incoming URLs are validated by provider prefix and stored as booking paths. Calendly, Cal.com, and TidyCal may also include `hideEventDetails`, and Calendly may include `hideCookieBanner`. |
 | **glossary** | array | An array of glossary entries for term replacement. Each entry has `word` and `translation` properties. |
 
 ---
@@ -183,6 +184,7 @@ This endpoint creates a new bot in a team. It accepts a POST request with the fo
 | **model** | string | The OpenAI model. Currently supports `gpt-4.1`, `gpt-4.1-mini`, `gpt-4o`, `gpt-4o-mini`, etc. |
 | **embeddingModel** | string | The embedding model. Currently supports `text-embedding-ada-002`, `text-embedding-3-large`, `text-embedding-3-small`, `embed-multilingual-v3.0`, and `embed-v4.0` (Cohere) depending on your plan. Default is `text-embedding-3-small` for free plans, `text-embedding-3-large` for paid English bots, and `embed-v4.0` for paid non-English bots. If copying from another bot, the embedding model must be the same as the source bot. |
 | **copyFrom** | string | (Optional) The ID of an existing bot in your team to copy from. If provided, the new bot will be created as a copy of the specified bot, with all sources copied over after creation. |
+| **actions** | dict | Optional agent action configuration. `actions.calendly`, `actions.calcom`, and `actions.tidycal` use scheduling `enabled`, `instructions`, and `url`. Incoming URLs are validated and stored as provider booking paths used when those actions are enabled for a Chat Agent request. Calendly, Cal.com, and TidyCal may also include `hideEventDetails`, and Calendly may include `hideCookieBanner`. |
 
 
 ### Examples
@@ -279,6 +281,7 @@ This endpoint updates specific fields for a specific bot by its ID. It accepts a
 | **showButtonLabel** | string | The text for the supportLink. If the supportLink is empty, this will not appear |
 | **showCopyButton** | boolean | If true, display a copy-to-clipboard button after answers. Defaults to false. |
 | **labels** | dict | This contains the user copy for labels on the chat widget. Please see the examples for usage |
+| **actions** | dict | Optional agent action configuration. `actions.calendly`, `actions.calcom`, and `actions.tidycal` use scheduling `enabled`, `instructions`, and `url`. Incoming URLs are validated and stored as provider booking paths used when those actions are enabled for a Chat Agent request. Calendly, Cal.com, and TidyCal may also include `hideEventDetails`, and Calendly may include `hideCookieBanner`. |
 
 **Note**: Each of these properties are optional! If a property is absent in a request its value won't be updated.
 
@@ -332,6 +335,20 @@ var raw = JSON.stringify({
     "supportLink":"",
     "showButtonLabel":false,
     "showCopyButton":false,
+    "actions": {
+      "calendly": {
+        "instructions": "Use this when the user wants to book a demo or meeting.",
+        "url": "https://calendly.com/docsbot/demo"
+      },
+      "calcom": {
+        "instructions": "Use this when the user wants to book office hours or a meeting.",
+        "url": "https://cal.com/docsbot/office-hours"
+      },
+      "tidycal": {
+        "instructions": "Use this when the user wants to book office hours or a meeting.",
+        "url": "https://tidycal.com/team/docsbot/office-hours"
+      }
+    },
     "labels": {
     "poweredBy":"Powered by",
     "inputPlaceholder":"Send a message...",
@@ -448,6 +465,38 @@ The glossary automatically replaces the specified terms in user queries before p
 
 The glossary is also available for use with the [Semantic Search API](/documentation/developer/semantic-search-api) via the `use_glossary` parameter.
 
+### Scheduling Action Configuration
+
+To store reusable scheduling behavior for agent integrations, save the provider configs on the bot. Each scheduling action stores its own `enabled` flag. When enabled, send a full provider booking URL in the API request.
+
+```json
+{
+  "actions": {
+    "calendly": {
+      "enabled": true,
+      "instructions": "Use this when the user wants to book a demo or meeting.",
+      "url": "https://calendly.com/docsbot/demo",
+      "hideEventDetails": true,
+      "hideCookieBanner": true
+    },
+    "calcom": {
+      "enabled": false,
+      "instructions": "Use this when the user wants to book office hours or a meeting.",
+      "url": "https://cal.com/docsbot/office-hours",
+      "hideEventDetails": true
+    },
+    "tidycal": {
+      "enabled": false,
+      "instructions": "Use this when the user wants to book office hours or a meeting.",
+      "url": "https://tidycal.com/team/docsbot/office-hours",
+      "hideEventDetails": true
+    }
+  }
+}
+```
+
+This stores the enabled state, decision instructions, and normalized booking path for each provider. Disabling one provider does not require deleting its saved settings. The Chat Agent will only expose these actions when the request explicitly enables them.
+
 ---
 
 ### Response
@@ -470,6 +519,27 @@ Response is the new JSON bot object:
   "pageCount":29,
   "sourceCount":1,
   "chunkCount":157,
+  "actions": {
+    "calendly": {
+      "enabled": true,
+      "instructions": "Use this when the user wants to book a demo or meeting.",
+      "url": "docsbot/demo",
+      "hideEventDetails": true,
+      "hideCookieBanner": true
+    },
+    "calcom": {
+      "enabled": false,
+      "instructions": "Use this when the user wants to book office hours or a meeting.",
+      "url": "docsbot/office-hours",
+      "hideEventDetails": true
+    },
+    "tidycal": {
+      "enabled": false,
+      "instructions": "Use this when the user wants to book office hours or a meeting.",
+      "url": "team/docsbot/office-hours",
+      "hideEventDetails": true
+    }
+  },
   "showButtonLabel":false,
   "showCopyButton":false,
   "botIcon":false,

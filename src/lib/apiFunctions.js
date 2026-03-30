@@ -17,6 +17,7 @@ import {
   isLeadCollectEnabled,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import { BOOKING_ACTION_KEYS, sanitizeBotActions } from '@/lib/botActions'
 import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
 import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
 const TOPIC_LIMIT = 50
@@ -443,6 +444,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     embeddingModel,
     isAgent,
     tools,
+    actions,
     leadCollect,
     imageUploads,
     temperature,
@@ -1030,6 +1032,34 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       human_escalation: { enabled: true },
       followup_rating: { enabled: true },
     }
+  }
+
+  if (actions !== undefined) {
+    const sanitizedActions = sanitizeBotActions(actions)
+    const hasEnabledSchedulingAction = BOOKING_ACTION_KEYS.some((actionKey) => {
+      const actionConfig = sanitizedActions?.[actionKey]
+      if (!actionConfig || typeof actionConfig !== 'object') {
+        return false
+      }
+
+      const enabled =
+        actionConfig.enabled === undefined ? true : Boolean(actionConfig.enabled)
+      const hasUrl = typeof actionConfig.url === 'string' && actionConfig.url.trim() !== ''
+
+      return enabled && hasUrl
+    })
+
+    if (
+      hasEnabledSchedulingAction &&
+      !checkPlanPermission(team, 'personal', 'bookingActions').allowed &&
+      !isSuperAdmin(userId)
+    ) {
+      throw new Error(
+        'Scheduling tools are only available on the Personal plan or higher.',
+      )
+    }
+
+    botData.actions = sanitizedActions
   }
 
   if (leadCollect !== undefined) {
