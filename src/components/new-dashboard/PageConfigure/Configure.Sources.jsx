@@ -5,6 +5,7 @@ import { checkPlanPermission } from '@/utils/helpers'
 import dynamic from 'next/dynamic'
 
 import Alert from '@/components/Alert'
+import LocalStringNum from '@/components/LocalStringNum'
 import SourceGrid from '@/components/SourceGrid'
 import SourceFailed from '@/components/SourceFailed'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -356,7 +357,7 @@ const PageConfigureSources = ({
                                 className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-900 ring-1 ring-inset ring-cyan-100"
                             >
                                 <span className="tabular-nums font-semibold">
-                                    {stat.value.toLocaleString()}
+                                    <LocalStringNum value={stat.value} />
                                 </span>
                                 <span className="text-cyan-700">
                                     {stat.label}
