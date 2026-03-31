@@ -6,6 +6,10 @@ import {
   limitLeadCollectToDefaultFields,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import {
+  DEFAULT_WEB_SEARCH_MODEL,
+  isWebSearchCompatibleModel,
+} from '@/lib/webSearch'
 
 // Initializing the cors middleware
 // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
@@ -42,14 +46,14 @@ const getToolEnabled = (toolConfig, defaultEnabled = true) => {
   return defaultEnabled
 }
 
-const getSchedulingActionValue = (actionConfig) => {
-  if (!actionConfig || typeof actionConfig !== 'object') {
+const getSchedulingToolValue = (toolConfig) => {
+  if (!toolConfig || typeof toolConfig !== 'object') {
     return false
   }
 
   const enabled =
-    actionConfig.enabled === undefined ? true : Boolean(actionConfig.enabled)
-  const rawValue = typeof actionConfig.url === 'string' ? actionConfig.url.trim() : ''
+    toolConfig.enabled === undefined ? true : Boolean(toolConfig.enabled)
+  const rawValue = typeof toolConfig.url === 'string' ? toolConfig.url.trim() : ''
 
   return enabled && Boolean(rawValue)
 }
@@ -90,6 +94,10 @@ export default async function handler(req, res) {
           'personal',
           'bookingActions',
         ).allowed
+        const webSearchAllowed =
+          checkPlanPermission(team, 'standard').allowed &&
+          Boolean(team?.openAIKey) &&
+          isWebSearchCompatibleModel(bot?.model || DEFAULT_WEB_SEARCH_MODEL)
 
         const widget = {
           botId: botId,
@@ -116,9 +124,13 @@ export default async function handler(req, res) {
           isAgent: bot.isAgent || false,
           useEscalation: getToolEnabled(bot.tools?.human_escalation, true),
           useFeedback: getToolEnabled(bot.tools?.followup_rating, true),
-          useCalendly: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.calendly),
-          useCalCom: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.calcom),
-          useTidyCal: schedulingPlanAllowed && getSchedulingActionValue(bot.actions?.tidycal),
+          useWebSearch:
+            (bot.isAgent || false) &&
+            webSearchAllowed &&
+            getToolEnabled(bot.tools?.web_search, false),
+          useCalendly: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calendly),
+          useCalCom: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calcom),
+          useTidyCal: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.tidycal),
           useImageUpload: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
           leadCollect: false,
         }

@@ -109,7 +109,7 @@ const sanitizeSchedulingActionConfig = (
     allowedHosts,
     examplePrefix,
   } = actionConfig
-  const label = `bot.actions.${actionKey}`
+  const label = `bot.tools.${actionKey}`
 
   assertPlainObject(config, label)
 
@@ -181,47 +181,48 @@ export const buildBookingDisplayUrl = (actionKey, value) => {
   return `${actionConfig.examplePrefix}${normalizedValue}`
 }
 
-export const buildDisplayBotActions = (actions) => {
-  if (!actions || typeof actions !== 'object' || Array.isArray(actions)) {
+export const buildDisplayBotTools = (tools) => {
+  if (!tools || typeof tools !== 'object' || Array.isArray(tools)) {
     return {}
   }
 
-  const nextActions = {}
+  const nextTools = {}
 
-  for (const [actionName, actionConfig] of Object.entries(actions)) {
-    if (!actionConfig || typeof actionConfig !== 'object' || Array.isArray(actionConfig)) {
+  for (const [toolName, toolConfig] of Object.entries(tools)) {
+    if (!toolConfig || typeof toolConfig !== 'object' || Array.isArray(toolConfig)) {
+      nextTools[toolName] = toolConfig
       continue
     }
 
-    const nextActionConfig = { ...actionConfig }
-    const bookingAction = BOOKING_ACTIONS[actionName]
+    const nextToolConfig = { ...toolConfig }
+    const bookingAction = BOOKING_ACTIONS[toolName]
 
     if (bookingAction) {
       const instructionsSource =
-        typeof actionConfig.instructions === 'string'
-          ? actionConfig.instructions
-          : actionConfig.prompt
+        typeof toolConfig.instructions === 'string'
+          ? toolConfig.instructions
+          : toolConfig.prompt
       const instructions =
         typeof instructionsSource === 'string' ? instructionsSource.trim() : ''
 
-      nextActionConfig.instructions =
+      nextToolConfig.instructions =
         instructions || DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS
-      delete nextActionConfig.prompt
-      nextActionConfig.enabled =
-        actionConfig.enabled === undefined ? true : Boolean(actionConfig.enabled)
-      nextActionConfig[bookingAction.urlKey] = buildBookingDisplayUrl(
-        actionName,
-        actionConfig[bookingAction.urlKey],
+      delete nextToolConfig.prompt
+      nextToolConfig.enabled =
+        toolConfig.enabled === undefined ? true : Boolean(toolConfig.enabled)
+      nextToolConfig[bookingAction.urlKey] = buildBookingDisplayUrl(
+        toolName,
+        toolConfig[bookingAction.urlKey],
       )
     }
 
-    nextActions[actionName] = nextActionConfig
+    nextTools[toolName] = nextToolConfig
   }
 
-  return nextActions
+  return nextTools
 }
 
-export const createDefaultBookingAction = (actionKey) => {
+export const createDefaultBookingTool = (actionKey) => {
   const actionConfig = BOOKING_ACTIONS[actionKey]
   if (!actionConfig) {
     return {}
@@ -246,30 +247,35 @@ export const sanitizeTidyCalActionConfig = (config) => {
   return sanitizeSchedulingActionConfig(config, BOOKING_ACTIONS.tidycal)
 }
 
-export const sanitizeBotActions = (actions) => {
-  assertPlainObject(actions, 'actions')
+export const sanitizeBotTools = (tools) => {
+  assertPlainObject(tools, 'tools')
 
-  const sanitizedActions = {}
+  const sanitizedTools = {}
 
-  for (const [actionName, actionConfig] of Object.entries(actions)) {
-    if (actionName === 'calendly') {
-      sanitizedActions.calendly = sanitizeCalendlyActionConfig(actionConfig)
+  for (const [toolName, toolConfig] of Object.entries(tools)) {
+    if (toolName === 'calendly') {
+      sanitizedTools.calendly = sanitizeCalendlyActionConfig(toolConfig)
       continue
     }
 
-    if (actionName === 'calcom') {
-      sanitizedActions.calcom = sanitizeCalComActionConfig(actionConfig)
+    if (toolName === 'calcom') {
+      sanitizedTools.calcom = sanitizeCalComActionConfig(toolConfig)
       continue
     }
 
-    if (actionName === 'tidycal') {
-      sanitizedActions.tidycal = sanitizeTidyCalActionConfig(actionConfig)
+    if (toolName === 'tidycal') {
+      sanitizedTools.tidycal = sanitizeTidyCalActionConfig(toolConfig)
       continue
     }
 
-    assertPlainObject(actionConfig, `actions.${actionName}`)
-    sanitizedActions[actionName] = { ...actionConfig }
+    if (typeof toolConfig === 'boolean') {
+      sanitizedTools[toolName] = toolConfig
+      continue
+    }
+
+    assertPlainObject(toolConfig, `tools.${toolName}`)
+    sanitizedTools[toolName] = { ...toolConfig }
   }
 
-  return sanitizedActions
+  return sanitizedTools
 }

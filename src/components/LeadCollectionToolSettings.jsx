@@ -10,6 +10,7 @@ import {
   Bars3Icon,
   Bars3BottomLeftIcon,
   CalendarDaysIcon,
+  ClipboardDocumentListIcon,
   ClockIcon,
   DocumentTextIcon,
   EnvelopeIcon,
@@ -171,6 +172,15 @@ const getRangeConstraintHint = (fieldType, constraint) => {
   return `${boundText} ${getRangeFormatHint(fieldType)}`
 }
 
+const ToolSectionTitle = ({ icon: Icon, name }) => (
+  <div className="flex items-center gap-3">
+    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+      <Icon className="size-5 text-gray-700" aria-hidden="true" />
+    </span>
+    <span className="text-sm font-semibold text-gray-900">{name}</span>
+  </div>
+)
+
 function FieldTypeListbox({
   value,
   onChange,
@@ -252,6 +262,9 @@ export default function LeadCollectionToolSettings({
   onLeadCollectMessageChange,
   disabled = false,
   onRequireUpgrade,
+  inline = false,
+  toggleLabel = 'Lead Collection',
+  toggleDescription = 'Collect lead data from users in the widget with a customizable form.',
 }) {
   const [newFieldType, setNewFieldType] = useState(null)
   const [isFormFieldsOpen, setIsFormFieldsOpen] = useState(false)
@@ -465,27 +478,22 @@ export default function LeadCollectionToolSettings({
     label: MODE_LABELS[mode] || mode
   }))
 
-  return (
-    <AppearanceBlock
-      title="Lead Collection Tool"
-      titleTag="h4"
-      description="Collect lead data from users in the widget with a customizable form."
-      isLast={true}
-    >
-      <div className="flex flex-col gap-4">
-        <AppearanceToggle
-          label="Enable Lead Collection Tool"
-          enabled={enabled}
-          setEnabled={handleToggle}
-          disabled={disabled}
-          isNew={true}
-          planLabel={
-            !personalPlanCheck.allowed ? personalPlanCheck.requiredPlanLabel : null
-          }
-        />
+  const toggle = (
+    <AppearanceToggle
+      label={toggleLabel}
+      description={toggleDescription}
+      enabled={enabled}
+      setEnabled={handleToggle}
+      disabled={disabled}
+      isNew={true}
+      planLabel={
+        !personalPlanCheck.allowed ? personalPlanCheck.requiredPlanLabel : null
+      }
+    />
+  )
 
-        {enabled && (
-          <div className="ml-4 flex flex-col gap-4">
+  const settings = enabled ? (
+    <div className={inline ? 'ml-4 flex flex-col gap-4' : 'flex flex-col gap-4'}>
             <AppearanceBlock
               title="Trigger Mode"
               titleTag="label"
@@ -1130,8 +1138,33 @@ export default function LeadCollectionToolSettings({
                 )}
               </div>
             </AppearanceAccordion>
-          </div>
-        )}
+    </div>
+  ) : null
+
+  if (inline) {
+    return (
+      <>
+        {toggle}
+        {settings}
+      </>
+    )
+  }
+
+  return (
+    <AppearanceBlock
+      title={
+        <ToolSectionTitle
+          icon={ClipboardDocumentListIcon}
+          name="Lead Collection"
+        />
+      }
+      titleTag="h4"
+      description="Collect lead data from users in the widget with a customizable form."
+      isLast={true}
+    >
+      <div className="flex flex-col gap-4">
+        {toggle}
+        {settings}
       </div>
     </AppearanceBlock>
   )

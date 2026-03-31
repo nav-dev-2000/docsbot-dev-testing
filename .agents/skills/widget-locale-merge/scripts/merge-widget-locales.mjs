@@ -7,6 +7,10 @@
  *   node .agents/skills/widget-locale-merge/scripts/merge-widget-locales.mjs
  *   node .../merge-widget-locales.mjs /path/to/widget/locales
  *   node .../merge-widget-locales.mjs --locales-dir /path/to/locales
+ *   node .../merge-widget-locales.mjs --english-labels /path/to/defaultLabels.mjs
+ *
+ * If the locales dir is .../src/locales, English (`en`) label strings are also read from
+ * sibling .../src/constants/defaultLabels.mjs when that file exists (widget canonical English).
  *
  * Default locales directory: <repo>/locales
  */
@@ -48,9 +52,51 @@ function parseLocalesDirArg(argv) {
   return null
 }
 
+function parseEnglishLabelsPathArg(argv) {
+  const args = argv.slice(2)
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--english-labels' && args[i + 1]) {
+      return args[++i]
+    }
+  }
+  return null
+}
+
 function resolveLocalesDir(arg) {
   if (!arg) return defaultLocalesDir
   return path.isAbsolute(arg) ? arg : path.resolve(process.cwd(), arg)
+}
+
+function resolveEnglishLabelsPath(explicit, localesDir) {
+  if (explicit) {
+    return path.isAbsolute(explicit) ? explicit : path.resolve(process.cwd(), explicit)
+  }
+  const inferred = path.join(localesDir, '..', 'constants', 'defaultLabels.mjs')
+  if (fs.existsSync(inferred)) return inferred
+  return null
+}
+
+/** Parses `export const name = { ... }` (object literal only). */
+function parseNamedConstObject(content, constName) {
+  const marker = `export const ${constName} = `
+  const idx = content.indexOf(marker)
+  if (idx === -1) throw new Error(`No export const ${constName} in file`)
+  let i = idx + marker.length
+  while (content[i] === ' ' || content[i] === '\n') i++
+  if (content[i] !== '{') throw new Error(`Expected { after export const ${constName} =`)
+  let depth = 0
+  const start = i
+  for (; i < content.length; i++) {
+    const c = content[i]
+    if (c === '{') depth++
+    else if (c === '}') {
+      depth--
+      if (depth === 0) {
+        return eval(`(${content.slice(start, i + 1)})`)
+      }
+    }
+  }
+  throw new Error(`Unbalanced braces in export const ${constName}`)
 }
 
 function parseDefaultExportObject(content) {
@@ -226,6 +272,23 @@ function main() {
     process.exit(1)
   }
 
+  const englishLabelsPath = resolveEnglishLabelsPath(
+    parseEnglishLabelsPathArg(process.argv),
+    localesDir,
+  )
+  let normalizedDefaultLabels = {}
+  if (englishLabelsPath) {
+    if (!fs.existsSync(englishLabelsPath)) {
+      console.error(`English labels file not found: ${englishLabelsPath}`)
+      process.exit(1)
+    }
+    const raw = parseNamedConstObject(
+      fs.readFileSync(englishLabelsPath, 'utf8'),
+      'defaultLabels',
+    )
+    normalizedDefaultLabels = normalizePackLabels(raw)
+  }
+
   const loadLocaleSync = (basename) => {
     const p = path.join(localesDir, `${basename}.js`)
     return parseDefaultExportObject(fs.readFileSync(p, 'utf8'))
@@ -242,11 +305,16 @@ function main() {
   const refPack = loadLocaleSync(refCode)
   const widgetNorm = normalizePackLabels(refPack.labels || {})
 
-  const baseEnLabels = { ...existingI18n.en.labels, ...EN_EXTRA }
-  const canonicalKeys = buildCanonicalKeys(
-    { ...existingI18n.en.labels },
-    widgetNorm,
-  )
+  const baseEnLabels = {
+    ...existingI18n.en.labels,
+    ...EN_EXTRA,
+    ...normalizedDefaultLabels,
+  }
+  const canonicalEnKeySource =
+    Object.keys(normalizedDefaultLabels).length > 0
+      ? { ...existingI18n.en.labels, ...normalizedDefaultLabels }
+      : { ...existingI18n.en.labels }
+  const canonicalKeys = buildCanonicalKeys(canonicalEnKeySource, widgetNorm)
 
   const packsByI18nKey = new Map()
   for (const fileCode of localeFiles) {
@@ -280,7 +348,7 @@ function main() {
 
   const enPack = {
     name: existingI18n.en.name,
-    labels: { ...existingI18n.en.labels, ...EN_EXTRA },
+    labels: { ...existingI18n.en.labels, ...EN_EXTRA, ...normalizedDefaultLabels },
   }
   merged.en = buildEntry('en', enPack)
 
@@ -319,8 +387,11 @@ function main() {
   const body = langOrder.map((k) => serializeLang(k, merged[k], canonicalKeys)).join('\n')
   const out = `export const i18n = {\n${body}\n}\n`
   fs.writeFileSync(outPath, out, 'utf8')
+  const englishLine = englishLabelsPath
+    ? `\nEnglish labels: ${englishLabelsPath}`
+    : ''
   console.log(
-    `Locales dir: ${localesDir}\nWrote ${outPath} (${langOrder.length} langs, ${canonicalKeys.length} label keys).`,
+    `Locales dir: ${localesDir}${englishLine}\nWrote ${outPath} (${langOrder.length} langs, ${canonicalKeys.length} label keys).`,
   )
 }
 

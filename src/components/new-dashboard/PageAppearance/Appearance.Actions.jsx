@@ -15,7 +15,19 @@ import {
     normalizeBookingPathInput,
 } from '@/lib/botActions'
 import { checkPlanPermission } from '@/utils/helpers'
-import { LinkSlashIcon } from '@heroicons/react/24/outline'
+import {
+    ClipboardDocumentListIcon,
+    GlobeAltIcon,
+    HandThumbUpIcon,
+    LifebuoyIcon,
+    LinkSlashIcon,
+} from '@heroicons/react/24/outline'
+import {
+    DEFAULT_WEB_SEARCH_MODEL,
+    WEB_SEARCH_COMPATIBLE_MODELS_LABEL,
+    formatWebSearchModelLabel,
+    isWebSearchCompatibleModel,
+} from '@/lib/webSearch'
 
 const SCHEDULING_EMBED_OPTION_LABELS = {
     hideEventDetails: {
@@ -124,10 +136,17 @@ const SchedulingActionToggle = ({
     />
 )
 
+const BuiltInToolLabel = ({ icon: Icon, name }) => (
+    <div className="flex items-center gap-3">
+        <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+            <Icon className="size-5 text-gray-700" aria-hidden="true" />
+        </span>
+        <span className="text-sm font-semibold text-gray-900">{name}</span>
+    </div>
+)
+
 const AppearanceActions = ({
     bot,
-    actions,
-    setActions,
     toggleSchedulingAction,
     isAgent,
     labels,
@@ -151,13 +170,21 @@ const AppearanceActions = ({
 }) => {
     const stripe = normalizeStripe(tools?.stripe)
     const stripeStatus = getStripeStatus(stripe)
+    const webSearchPlanCheck = checkPlanPermission(team, 'standard')
     const stripePlanCheck = checkPlanPermission(team, 'standard', 'stripeActions')
     const schedulingPlanCheck = checkPlanPermission(team, 'personal', 'bookingActions')
+    const hasOpenAIKey = Boolean(team?.openAIKey)
+    const webSearchModel = bot?.model || DEFAULT_WEB_SEARCH_MODEL
+    const webSearchModelCompatible = isWebSearchCompatibleModel(webSearchModel)
+    const webSearchEnabled =
+        tools?.web_search?.enabled === undefined
+            ? false
+            : tools?.web_search?.enabled
     const connectLoading = stripeOAuthLoading
     const connectError = stripeOAuthError
     const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
         const meta = BOOKING_ACTIONS[key]
-        const active = actions?.[key]
+        const active = tools?.[key]
         const bookingValue = active?.[meta.urlKey] || ''
         const isEnabled =
             active?.enabled === undefined ? Boolean(active) : Boolean(active.enabled)
@@ -166,7 +193,7 @@ const AppearanceActions = ({
             normalizedBookingPath = bookingValue
                 ? normalizeBookingPathInput(
                       bookingValue,
-                      `bot.actions.${key}.${meta.urlKey}`,
+                      `bot.tools.${key}.${meta.urlKey}`,
                       meta,
                   )
                 : ''
@@ -196,7 +223,7 @@ const AppearanceActions = ({
     })
 
     const updateSchedulingActionField = (actionKey, field, value) => {
-        setActions((prev) => ({
+        setTools((prev) => ({
             ...(prev || {}),
             [actionKey]: {
                 ...(prev?.[actionKey] || {}),
@@ -300,7 +327,12 @@ const AppearanceActions = ({
         <>
             <AppearanceBlock className="flex flex-col gap-4">
                 <AppearanceToggle
-                    label="Collect Feedback"
+                    label={
+                        <BuiltInToolLabel
+                            icon={HandThumbUpIcon}
+                            name="Collect Feedback"
+                        />
+                    }
                     description="Collect ratings (CSAT) from users after they interact with the bot."
                     enabled={
                         tools?.followup_rating?.enabled === undefined
@@ -320,9 +352,14 @@ const AppearanceActions = ({
                 />
                 <AppearanceToggle
                     label={
-                        isAgent
-                            ? 'Enable Escalation Tool'
-                            : 'Enable Support Link'
+                        <BuiltInToolLabel
+                            icon={LifebuoyIcon}
+                            name={
+                                isAgent
+                                    ? 'Human Support Escalation'
+                                    : 'Enable Support Link'
+                            }
+                        />
                     }
                     description={
                         isAgent
@@ -345,7 +382,6 @@ const AppearanceActions = ({
                     disabled={isUpdating}
                     isNew={false}
                 />
-
                 {tools?.human_escalation?.enabled && (
                     <div className="ml-4 flex flex-col gap-4">
                         <AppearanceBlock
@@ -411,35 +447,105 @@ const AppearanceActions = ({
                         )}
                     </div>
                 )}
+                {isAgent && (
+                    <AppearanceToggle
+                        label={
+                            <BuiltInToolLabel
+                                icon={GlobeAltIcon}
+                                name="Web Search"
+                            />
+                        }
+                        description={
+                            !webSearchModelCompatible
+                                ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
+                                : hasOpenAIKey
+                                    ? (
+                                        <>
+                                            Give your bot the ability to search the web for up to date information.{' '}
+                                            <a
+                                                href="https://developers.openai.com/api/docs/pricing#built-in-tools"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-cyan-600 underline hover:text-cyan-800"
+                                            >
+                                                Additional OpenAI API costs apply
+                                            </a>
+                                            .
+                                        </>
+                                    )
+                                    : 'Give your bot the ability to search the web for up to date information. Requires a team OpenAI API key.'
+                        }
+                        enabled={webSearchEnabled}
+                        setEnabled={(enabled) => {
+                            if (enabled && !webSearchModelCompatible) {
+                                return
+                            }
+
+                            if (enabled && !webSearchPlanCheck.allowed) {
+                                setShowUpgrade(true)
+                                return
+                            }
+
+                            if (enabled && !hasOpenAIKey) {
+                                return
+                            }
+
+                            setTools({
+                                ...tools,
+                                web_search: {
+                                    enabled,
+                                },
+                            })
+                        }}
+                        disabled={
+                            isUpdating ||
+                            (!webSearchModelCompatible && !webSearchEnabled)
+                        }
+                        planLabel={
+                            !webSearchPlanCheck.allowed
+                                ? webSearchPlanCheck.requiredPlanLabel
+                                : null
+                        }
+                        isNew={true}
+                    />
+                )}
+                <LeadCollectionToolSettings
+                    team={team}
+                    value={leadCollect}
+                    onChange={(nextValue) =>
+                        setLeadCollect(toWidgetLeadCollectState(nextValue))
+                    }
+                    leadCollectMessage={
+                        labels?.leadCollectMessage ||
+                        i18n.en.labels.leadCollectMessage ||
+                        ''
+                    }
+                    onLeadCollectMessageChange={(message) =>
+                        setLabels((prev) => ({
+                            ...prev,
+                            leadCollectMessage: message,
+                        }))
+                    }
+                    disabled={isUpdating}
+                    onRequireUpgrade={() => setShowUpgrade(true)}
+                    inline={true}
+                    toggleLabel={
+                        <BuiltInToolLabel
+                            icon={ClipboardDocumentListIcon}
+                            name="Lead Collection"
+                        />
+                    }
+                    toggleDescription="Collect lead data from users in the widget with a customizable form."
+                />
             </AppearanceBlock>
 
-            <LeadCollectionToolSettings
-                team={team}
-                value={leadCollect}
-                onChange={(nextValue) =>
-                    setLeadCollect(toWidgetLeadCollectState(nextValue))
-                }
-                leadCollectMessage={
-                    labels?.leadCollectMessage ||
-                    i18n.en.labels.leadCollectMessage ||
-                    ''
-                }
-                onLeadCollectMessageChange={(message) =>
-                    setLabels((prev) => ({
-                        ...prev,
-                        leadCollectMessage: message,
-                    }))
-                }
-                disabled={isUpdating}
-                onRequireUpgrade={() => setShowUpgrade(true)}
-            />
-
             {isAgent && (
-                <div className="mt-5 border-t border-gray-200 pt-5">
+                <div>
                     <AppearanceBlock
                         title="Scheduling Tools"
                         titleTag="h4"
                         isNew={true}
+                        isLast={true}
                         planLabel={
                             !schedulingPlanCheck.allowed
                                 ? schedulingPlanCheck.requiredPlanLabel
@@ -605,6 +711,7 @@ const AppearanceActions = ({
                     }
                     titleTag="h4"
                     description="If you use Stripe for billing, enable this action to help customers with invoices, subscriptions, billing portal, and refunds."
+                    isNew={true}
                 >
                 <AppearanceToggle
                     label="Enable Stripe Tools"

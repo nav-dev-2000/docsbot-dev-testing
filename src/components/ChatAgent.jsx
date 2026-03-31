@@ -21,11 +21,13 @@ import {
   BeakerIcon,
   ChevronDownIcon,
   SparklesIcon,
+  GlobeAltIcon,
 } from '@heroicons/react/24/outline'
 import {
   PaperAirplaneIcon,
   RectangleStackIcon as RectangleStackIconSolid,
   StopIcon,
+  GlobeAltIcon as GlobeAltIconSolid,
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
@@ -35,6 +37,12 @@ import Alert from '@/components/Alert'
 import RobotIcon from '@/components/RobotIcon'
 import LoadingDots from './LoadingDots'
 import { grabQuestions } from '@/utils/helpers'
+import {
+  DEFAULT_WEB_SEARCH_MODEL,
+  WEB_SEARCH_COMPATIBLE_MODELS_LABEL,
+  formatWebSearchModelLabel,
+  isWebSearchCompatibleModel,
+} from '@/lib/webSearch'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
@@ -47,6 +55,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import ModalQA from '@/components/ModalQA'
 import { canUserEditBot } from '@/utils/function.utils'
 import Widget from '@new-dashboard/Widget'
+import { i18n } from '@/constants/strings.constants'
 
 
 const streamdownRemarkPlugins = [
@@ -346,8 +355,333 @@ const ChatRow = memo(({
 })
 ChatRow.displayName = 'ChatRow'
 
+const WEB_SEARCH_TOOL_NAMES = new Set([
+  'web_search',
+  'web_search_call',
+  'web_search_preview',
+])
+
+function firstNonEmptyString(...candidates) {
+  for (const c of candidates) {
+    if (typeof c === 'string' && c.trim() !== '') return c
+  }
+  return ''
+}
+
+function normalizeActionType(value) {
+  if (typeof value !== 'string') return ''
+  const normalized = value.trim().toLowerCase()
+  if (
+    normalized === 'search' ||
+    normalized === 'open_page' ||
+    normalized === 'find_in_page'
+  ) {
+    return normalized
+  }
+  return ''
+}
+
+function tryParseJsonObject(str) {
+  if (typeof str !== 'string' || !str.trim()) return null
+  try {
+    const v = JSON.parse(str)
+    return v && typeof v === 'object' && !Array.isArray(v) ? v : null
+  } catch {
+    return null
+  }
+}
+
+function isWebSearchEnvelopeType(t) {
+  if (typeof t !== 'string') return false
+  const x = t.trim().toLowerCase()
+  return (
+    x === 'web_search_call' ||
+    x === 'web_search_preview' ||
+    x === 'web_search'
+  )
+}
+
+/**
+ * OpenAI / agent payloads may be a flat action `{ type, query }`, or an envelope
+ * `{ type: "web_search_call", action: {...} }` with `action` sometimes JSON-stringified.
+ */
+function unwrapWebSearchParamsObject(parsed) {
+  if (!parsed || typeof parsed !== 'object') return parsed
+
+  if (typeof parsed.params === 'string') {
+    const inner = tryParseJsonObject(parsed.params)
+    if (inner) return unwrapWebSearchParamsObject(inner)
+  }
+
+  const topType =
+    typeof parsed.type === 'string' ? parsed.type.trim().toLowerCase() : ''
+
+  if (parsed.action != null) {
+    const inner =
+      typeof parsed.action === 'string'
+        ? tryParseJsonObject(parsed.action)
+        : parsed.action
+    if (inner && typeof inner === 'object') {
+      if (isWebSearchEnvelopeType(topType)) {
+        return inner
+      }
+      if (
+        !topType &&
+        (normalizeActionType(inner.type) ||
+          normalizeActionType(inner.action_type) ||
+          firstNonEmptyString(
+            inner.query,
+            inner.url,
+            inner.pattern,
+            Array.isArray(inner.queries) ? inner.queries[0] : '',
+          ))
+      ) {
+        return inner
+      }
+    }
+  }
+
+  return parsed
+}
+
+function parseWebSearchToolCallParams(rawParams) {
+  let parsed = rawParams
+  if (typeof parsed === 'string') {
+    parsed = tryParseJsonObject(parsed)
+    if (!parsed) {
+      return {}
+    }
+  }
+  if (!parsed || typeof parsed !== 'object') {
+    return {}
+  }
+
+  parsed = unwrapWebSearchParamsObject(parsed)
+
+  const source = parsed
+
+  const query = firstNonEmptyString(
+    source.query,
+    source.action?.query,
+    Array.isArray(source.queries) ? source.queries[0] : '',
+    Array.isArray(source.action?.queries) ? source.action.queries[0] : '',
+  )
+  const url = firstNonEmptyString(
+    source.action?.url,
+    source.url,
+    source.action?.target_url,
+    source.target_url,
+  )
+  const pattern = firstNonEmptyString(
+    source.action?.pattern,
+    source.pattern,
+  )
+
+  const typeFromNestedAction = normalizeActionType(
+    typeof source.action?.type === 'string' ? source.action.type : '',
+  )
+  let actionType = normalizeActionType(
+    source.action_type ||
+      (typeof source.type === 'string' && !isWebSearchEnvelopeType(source.type)
+        ? source.type
+        : ''),
+  )
+  if (!actionType && typeFromNestedAction) {
+    actionType = typeFromNestedAction
+  }
+
+  if (!actionType) {
+    if (query) actionType = 'search'
+    else if (url && pattern) actionType = 'find_in_page'
+    else if (url) actionType = 'open_page'
+    else if (pattern) actionType = 'find_in_page'
+  }
+
+  return {
+    webSearchActionType: actionType,
+    webSearchQuery: query || '',
+    webSearchUrl: url || '',
+    webSearchPattern: pattern || '',
+  }
+}
+
+function compactActivityUrl(urlString) {
+  if (!urlString || typeof urlString !== 'string') return ''
+  try {
+    const href = /^https?:\/\//i.test(urlString.trim())
+      ? urlString.trim()
+      : `https://${urlString.trim()}`
+    const parsed = new URL(href)
+    const hostname = parsed.hostname.replace(/^www\./i, '')
+    const pathname = parsed.pathname === '/' ? '' : parsed.pathname
+    const compact = `${hostname}${pathname}`
+    if (compact.length <= 60) return compact
+    return `${compact.slice(0, 57)}...`
+  } catch {
+    const compact = urlString.trim()
+    if (compact.length <= 60) return compact
+    return `${compact.slice(0, 57)}...`
+  }
+}
+
+function faviconUrl(displayUrl) {
+  try {
+    const href = /^https?:\/\//i.test(displayUrl)
+      ? displayUrl
+      : `https://${displayUrl}`
+    const host = new URL(href).hostname.replace(/^www\./i, '')
+    if (!host) return ''
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=16`
+  } catch {
+    return ''
+  }
+}
+
+function normalizeWebSearchHref(urlString) {
+  if (!urlString || typeof urlString !== 'string') return ''
+  const t = urlString.trim()
+  if (!t) return ''
+  return /^https?:\/\//i.test(t) ? t : `https://${t}`
+}
+
+function splitTemplateAroundKey(template, key) {
+  if (typeof template !== 'string') return null
+  const token = `{${key}}`
+  const i = template.indexOf(token)
+  if (i === -1) return null
+  return { before: template.slice(0, i), after: template.slice(i + token.length) }
+}
+
+const AgentActivityWithUrl = memo(function AgentActivityWithUrl({
+  icon: Icon,
+  labelBefore = '',
+  labelAfter = '',
+  compactUrl,
+  fullUrl,
+  isStreamingStarted = true,
+}) {
+  const favicon = faviconUrl(fullUrl || compactUrl)
+
+  return (
+    <div className="ms-6 flex min-w-0 max-w-full items-center gap-2 text-sm text-gray-500">
+      {isStreamingStarted ? (
+        <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+      ) : (
+        <div className="relative h-4 w-4 shrink-0">
+          <div className="h-4 w-4 rounded-full border border-gray-300" />
+          <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400" />
+        </div>
+      )}
+      <span
+        dir="auto"
+        className="min-w-0 max-w-full font-medium [overflow-wrap:anywhere] line-clamp-2"
+      >
+        {labelBefore}
+        <span
+          className="inline-flex max-w-[min(36ch,70vw)] min-w-0 items-baseline gap-[0.28em] align-[-0.22em] font-mono text-[0.82em] text-gray-500/80"
+          title={fullUrl || compactUrl}
+        >
+          {favicon ? (
+            <img
+              src={favicon}
+              alt=""
+              width={12}
+              height={12}
+              loading="lazy"
+              className="h-3 w-3 shrink-0 rounded-sm"
+            />
+          ) : null}
+          <span className="min-w-0 flex-1 truncate">{compactUrl}</span>
+        </span>
+        {labelAfter}
+      </span>
+    </div>
+  )
+})
+AgentActivityWithUrl.displayName = 'AgentActivityWithUrl'
+
+function fillAgentLabelTemplate(template, replacements) {
+  if (typeof template !== 'string' || !template.trim()) return ''
+  let out = template
+  for (const [k, v] of Object.entries(replacements)) {
+    out = out.split(`{${k}}`).join(String(v ?? ''))
+  }
+  return out
+}
+
+function resolveWebSearchToolCallDisplay(labels, parsed) {
+  const defaultLabels = i18n?.en?.labels || {}
+  const q = { ...defaultLabels, ...(labels || {}) }
+  const base = q.agentActivityWebSearch || 'Searching the web…'
+  const actionType = parsed.webSearchActionType
+
+  if (actionType === 'search' && parsed.webSearchQuery) {
+    const t = fillAgentLabelTemplate(q.agentActivityWebSearchQuery, {
+      query: parsed.webSearchQuery,
+    })
+    return { kind: 'plain', text: t || base }
+  }
+
+  if (actionType === 'open_page' && parsed.webSearchUrl) {
+    const tmpl =
+      q.agentActivityWebSearchOpeningPage || 'Opening {url}'
+    const fullUrl = normalizeWebSearchHref(parsed.webSearchUrl)
+    const compact = compactActivityUrl(parsed.webSearchUrl)
+    const split = splitTemplateAroundKey(tmpl, 'url')
+    if (split && compact) {
+      return {
+        kind: 'withUrl',
+        labelBefore: split.before,
+        labelAfter: split.after,
+        compactUrl: compact,
+        fullUrl,
+      }
+    }
+    const t = fillAgentLabelTemplate(tmpl, {
+      url: compact,
+    })
+    return { kind: 'plain', text: t || base }
+  }
+
+  if (
+    actionType === 'find_in_page' &&
+    (parsed.webSearchUrl || parsed.webSearchPattern)
+  ) {
+    const tmpl = q.agentActivityWebSearchSearchingPage || ''
+    const fullUrl = normalizeWebSearchHref(parsed.webSearchUrl)
+    const compact = parsed.webSearchUrl
+      ? compactActivityUrl(parsed.webSearchUrl)
+      : ''
+    if (parsed.webSearchUrl && tmpl.includes('{url}')) {
+      const split = splitTemplateAroundKey(tmpl, 'url')
+      if (split && compact) {
+        const labelBefore = fillAgentLabelTemplate(split.before, {
+          pattern: parsed.webSearchPattern,
+        })
+        const labelAfter = fillAgentLabelTemplate(split.after, {
+          pattern: parsed.webSearchPattern,
+        })
+        return {
+          kind: 'withUrl',
+          labelBefore,
+          labelAfter,
+          compactUrl: compact,
+          fullUrl,
+        }
+      }
+    }
+    const t = fillAgentLabelTemplate(tmpl, {
+      url: compact,
+      pattern: parsed.webSearchPattern,
+    })
+    return { kind: 'plain', text: t || base }
+  }
+
+  return { kind: 'plain', text: base }
+}
+
 // Component to display tool calls - simplified inline style
-const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true }) => {
+const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {} }) => {
   if (!toolCalls || toolCalls.length === 0) return null
 
   return (
@@ -425,6 +759,43 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true }) => {
               </div>
             )
           }
+        } else if (WEB_SEARCH_TOOL_NAMES.has(name)) {
+          let parsed = {}
+          try {
+            parsed = parseWebSearchToolCallParams(toolCall.params)
+          } catch (error) {
+            console.error('Error parsing web_search tool_call params:', error)
+          }
+          const display = resolveWebSearchToolCallDisplay(labels, parsed)
+          if (display.kind === 'withUrl') {
+            return (
+              <AgentActivityWithUrl
+                key={toolCall.id || idx}
+                icon={GlobeAltIcon}
+                labelBefore={display.labelBefore}
+                labelAfter={display.labelAfter}
+                compactUrl={display.compactUrl}
+                fullUrl={display.fullUrl}
+                isStreamingStarted={isStreamingStarted}
+              />
+            )
+          }
+          return (
+            <div
+              key={toolCall.id || idx}
+              className="ms-6 flex items-center gap-2 text-sm text-gray-500"
+            >
+              {isStreamingStarted ? (
+                <GlobeAltIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+              ) : (
+                <div className="relative h-4 w-4 flex-shrink-0">
+                  <div className="h-4 w-4 rounded-full border border-gray-300" />
+                  <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400" />
+                </div>
+              )}
+              <span className="font-medium">{display.text}</span>
+            </div>
+          )
         } else if (name === 'human_escalation') {
           return (
             <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500">
@@ -445,7 +816,11 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true }) => {
     </div>
   )
 }, (prevProps, nextProps) => {
-  return prevProps.toolCalls === nextProps.toolCalls && prevProps.isStreamingStarted === nextProps.isStreamingStarted
+  return (
+    prevProps.toolCalls === nextProps.toolCalls &&
+    prevProps.isStreamingStarted === nextProps.isStreamingStarted &&
+    prevProps.labels === nextProps.labels
+  )
 })
 ToolCallDisplay.displayName = 'ToolCallDisplay'
 
@@ -526,6 +901,10 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
 ReasoningItem.displayName = 'ReasoningItem'
 
 export default function Chat({ team, bot, showResearchMode = false, newDashboard = false }) {
+  const getDefaultWebSearchEnabled = useCallback(
+    (currentBot) => currentBot?.tools?.web_search?.enabled === true,
+    [],
+  )
   const questionRef = useRef('')
   const [formKey, setFormKey] = useState(0)
   const [answers, setAnswers] = useState([])
@@ -543,6 +922,15 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   )
   const [conversationId, setConversationId] = useState(uuidv4())
   const [selectedModel, setSelectedModel] = useState(bot.model)
+  const [webSearch, setWebSearch] = useState(() => getDefaultWebSearchEnabled(bot))
+  const activeWebSearchModel =
+    selectedModel || bot.model || DEFAULT_WEB_SEARCH_MODEL
+  const webSearchModelCompatible =
+    isWebSearchCompatibleModel(activeWebSearchModel)
+  const canUseWebSearch =
+    Boolean(team?.openAIKey) &&
+    checkPlanPermission(team, 'standard').allowed &&
+    webSearchModelCompatible
   
   // Models that support reasoning effort
   // GPT-5.4 series: gpt-5.4, gpt-5.4-mini, gpt-5.4-nano
@@ -806,6 +1194,10 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     setModify(canUserEditBot(team, user.uid, bot))
   }, [team, user, bot])
 
+  useEffect(() => {
+    setWebSearch(getDefaultWebSearchEnabled(bot))
+  }, [bot, getDefaultWebSearchEnabled])
+
 
   const resizeTextarea = useCallback(() => {
     const textarea = textareaRef.current
@@ -817,6 +1209,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   useEffect(() => {
     resizeTextarea()
   }, [selectedImages.length, formKey, resizeTextarea])
+
+  const clearDraftQuestion = useCallback(() => {
+    questionRef.current = ''
+    setFormKey((k) => k + 1)
+  }, [])
 
   // make api call to ask question
   const askQuestion = async (askedQuestion) => {
@@ -885,6 +1282,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       full_source: true,
       stream: true,
       document_retriever: true,
+      web_search: canUseWebSearch && webSearch,
       human_escalation: false,
       followup_rating: false,
       image_urls: imageUrls,
@@ -1818,7 +2216,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           } else if (event.type === 'tool_call') {
             agentEvents.push(
               <div key={`toolcall-${answer.id || index}-${eventIndex}`} className="mt-2">
-                <ToolCallDisplay toolCalls={[event]} isStreamingStarted={true} />
+                <ToolCallDisplay
+                  toolCalls={[event]}
+                  isStreamingStarted={true}
+                  labels={bot.labels}
+                />
               </div>
             )
           }
@@ -1915,7 +2317,13 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                     } else if (event.type === 'tool_call') {
                       return (
                         <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
-                          <ToolCallDisplay toolCalls={[event]} isStreamingStarted={isAnswerStreaming || hasFollowingEvent} />
+                          <ToolCallDisplay
+                            toolCalls={[event]}
+                            isStreamingStarted={
+                              isAnswerStreaming || hasFollowingEvent
+                            }
+                            labels={bot.labels}
+                          />
                         </div>
                       )
                     }
@@ -1960,8 +2368,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       type="button"
                       className="flex w-full items-center rounded-lg border border-gray-300 p-3 text-cyan-700 hover:bg-white hover:text-cyan-800 focus:ring-cyan-600 focus:ring-offset-cyan-50"
                       onClick={() => {
-                        setFormKey((k) => k + 1)
-                        questionRef.current = ''
+                        clearDraftQuestion()
                         askQuestion(recommendedQuestion)
                       }}
                       key={recommendedQuestion}
@@ -1991,8 +2398,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 const value = questionRef.current || textareaRef.current?.value || ''
                 if (value.trim().length >= 2) {
                   setErrorText(null)
-                  setFormKey((k) => k + 1)
-                  questionRef.current = ''
+                  clearDraftQuestion()
                   askQuestion(value.trim())
                 } else {
                   setErrorText('Please enter a full question.')
@@ -2043,6 +2449,46 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       <PhotoIcon className="h-5 w-5" />
                     </button>
                   </Tooltip>
+                  {showResearchMode && (
+                    <Tooltip
+                      content={
+                        !webSearchModelCompatible
+                          ? `Web search requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(activeWebSearchModel)}.`
+                          : !team?.openAIKey
+                          ? 'OpenAI API key required to enable web search. Configure on the API page.'
+                          : !checkPlanPermission(team, 'standard').allowed
+                            ? 'Upgrade to Standard plan to enable web search.'
+                            : 'Web Search'
+                      }
+                    >
+                      <button
+                        type="button"
+                        className={clsx(
+                          'rounded-md p-2 hover:text-cyan-600',
+                          webSearch
+                            ? 'font-bold text-cyan-600'
+                            : 'text-gray-600',
+                          !canUseWebSearch && !webSearch && 'cursor-not-allowed opacity-50',
+                        )}
+                        onClick={() => {
+                          if (!canUseWebSearch && !webSearch) {
+                            if (!checkPlanPermission(team, 'standard').allowed) {
+                              setPendingUpgrade(true)
+                            }
+                            return
+                          }
+                          setErrorText(null)
+                          setWebSearch((prev) => !prev)
+                        }}
+                      >
+                        {webSearch ? (
+                          <GlobeAltIconSolid className="h-5 w-5" />
+                        ) : (
+                          <GlobeAltIcon className="h-5 w-5" />
+                        )}
+                      </button>
+                    </Tooltip>
+                  )}
                   {showResearchMode && (
                     <Tooltip
                       content={
@@ -2105,7 +2551,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                   ref={textareaRef}
                   name="query"
                   id="query"
-                  defaultValue=""
+                  defaultValue={questionRef.current}
                   maxLength={2000}
                   minLength={2}
                   required
@@ -2127,18 +2573,23 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                         if (ta) {
                           const start = ta.selectionStart
                           const end = ta.selectionEnd
-                          const val = ta.value
-                          ta.value = val.slice(0, start) + '\n' + val.slice(end)
-                          questionRef.current = ta.value
-                          ta.selectionStart = ta.selectionEnd = start + 1
-                          resizeTextarea()
+                          const nextValue =
+                            ta.value.slice(0, start) +
+                            '\n' +
+                            ta.value.slice(end)
+                          questionRef.current = nextValue
+                          ta.value = nextValue
+                          requestAnimationFrame(() => {
+                            ta.focus()
+                            ta.selectionStart = ta.selectionEnd = start + 1
+                            resizeTextarea()
+                          })
                         }
                       } else if (!e.shiftKey && !loading) {
                         const value = questionRef.current || textareaRef.current?.value || ''
                         if (value.trim().length >= 2) {
                           setErrorText(null)
-                          setFormKey((k) => k + 1)
-                          questionRef.current = ''
+                          clearDraftQuestion()
                           askQuestion(value.trim())
                         } else {
                           setErrorText('Please enter a full question.')
@@ -2205,8 +2656,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
               onClick={() => {
                 setAnswers([])
                 setShowQuestion(true)
-                setFormKey((k) => k + 1)
-                questionRef.current = ''
+                clearDraftQuestion()
                 setErrorText(null)
                 setConversationId(uuidv4())
                 setAgentEvents([])

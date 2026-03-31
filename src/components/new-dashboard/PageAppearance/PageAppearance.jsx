@@ -33,9 +33,9 @@ import {
 import { STRIPE_OAUTH_POSTMESSAGE_TYPE } from '@/lib/stripeConnect'
 import {
     BOOKING_ACTION_KEYS,
-    buildDisplayBotActions,
-    createDefaultBookingAction,
-    sanitizeBotActions,
+    buildDisplayBotTools,
+    createDefaultBookingTool,
+    sanitizeBotTools,
 } from '@/lib/botActions'
 
 /** After OAuth or GET /bot, merge server stripe (incl. stripeUserId) into local form state. */
@@ -124,6 +124,14 @@ const stripStripeSensitiveFromTools = (tools) => {
     return next
 }
 
+const getInitialDisplayTools = (tools) =>
+    buildDisplayBotTools(
+        tools || {
+            human_escalation: { enabled: true },
+            followup_rating: { enabled: true },
+        },
+    )
+
 /**
  * Explains why the widget appearance form considers itself dirty (for debugging
  * e.g. Stripe tools staying "unsaved" after save due to JSON shape/order).
@@ -151,7 +159,6 @@ const computeAppearanceDirtySnapshot = (
         labels,
         tools,
         leadCollect,
-        actions,
     },
 ) => {
     const reasons = []
@@ -165,10 +172,7 @@ const computeAppearanceDirtySnapshot = (
         false
     const initialLabels =
         bot.labels || i18n[bot.language]?.labels || i18n.en.labels
-    const initialTools = bot.tools || {
-        human_escalation: { enabled: true },
-        followup_rating: { enabled: true },
-    }
+    const initialTools = getInitialDisplayTools(bot.tools)
     const initialLeadCollect = (() => {
         if (!bot?.leadCollect) return false
         try {
@@ -281,16 +285,6 @@ const computeAppearanceDirtySnapshot = (
         })
     }
 
-    const initialActions = buildDisplayBotActions(bot.actions || {})
-    const currentActions = actions || {}
-    if (stableStringify(currentActions) !== stableStringify(initialActions)) {
-        push('actions', {
-            stableEqual:
-                stableStringify(currentActions) ===
-                stableStringify(initialActions),
-        })
-    }
-
     return { dirty: reasons.length > 0, reasons }
 }
 
@@ -346,15 +340,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [isAgent, setIsAgent] = useState(
         bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
     )
-    const [tools, setTools] = useState(
-        bot.tools || {
-            human_escalation: { enabled: true },
-            followup_rating: { enabled: true },
-        },
-    )
-    const [actions, setActions] = useState(
-        buildDisplayBotActions(bot.actions || {}),
-    )
+    const [tools, setTools] = useState(() => getInitialDisplayTools(bot.tools))
     const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
         bot.linkSafetyEnabled === true,
     )
@@ -412,11 +398,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 nextBot.labels ||
                 i18n[nextBot.language]?.labels ||
                 i18n.en.labels
-            const nextTools = nextBot.tools || {
-                human_escalation: { enabled: true },
-                followup_rating: { enabled: true },
-            }
-            const nextActions = buildDisplayBotActions(nextBot.actions || {})
+            const nextTools = getInitialDisplayTools(nextBot.tools)
             const nextImageUploads =
                 ((nextBot.imageUploads === undefined ||
                     nextBot.imageUploads) &&
@@ -452,7 +434,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             setShowCopyButton(nextBot.showCopyButton || false)
             setIsAgent(nextIsAgent)
             setTools(nextTools)
-            setActions(nextActions)
             previousBranding.current = nextBranding
             previousImageUploads.current = nextImageUploads
             previousLeadCollect.current = nextLeadCollect
@@ -465,9 +446,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     )
 
     const toggleSchedulingAction = useCallback((key, enabled) => {
-        setActions((prev) => {
+        setTools((prev) => {
             const next = { ...prev }
-            const currentAction = prev?.[key] || createDefaultBookingAction(key)
+            const currentAction = prev?.[key] || createDefaultBookingTool(key)
 
             if (enabled) {
                 next[key] = {
@@ -484,7 +465,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                         enabled: false,
                     }
                 }
-                return next
+        return next
             }
 
             next[key] = {
@@ -716,7 +697,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     labels,
                     tools,
                     leadCollect,
-                    actions,
                 },
             ),
         [
@@ -739,7 +719,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             labels,
             tools,
             leadCollect,
-            actions,
             linkSafetyEnabled,
             keepFooterVisible,
         ],
@@ -907,9 +886,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
         setIsUpdating(true)
 
-        let normalizedActions
+        let normalizedTools
         try {
-            normalizedActions = sanitizeBotActions(actions || {})
+            normalizedTools = sanitizeBotTools(tools || {})
         } catch (error) {
             setErrorText(error.message)
             setIsUpdating(false)
@@ -931,8 +910,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             logo,
             headerAlignment,
             isAgent,
-            tools,
-            actions: normalizedActions,
+            tools: normalizedTools,
             imageUploads,
             leadCollect,
             linkSafetyEnabled,
@@ -1087,8 +1065,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             title: 'Actions',
             content: (
                 <AppearanceActions
-                    actions={actions}
-                    setActions={setActions}
                     toggleSchedulingAction={toggleSchedulingAction}
                     isAgent={isAgent}
                     handleAgentToggle={handleAgentToggle}

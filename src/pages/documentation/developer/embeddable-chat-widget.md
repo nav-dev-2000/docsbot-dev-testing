@@ -149,7 +149,7 @@ If you would like override the widget settings optionally pass an `options` obje
 
 #### Agent activity (reasoning and tools)
 
-In **agent mode**, the widget can show an **agent activity** row while a reply is streaming: live **reasoning** summaries from reasoning SSE events (often shown as a “thinking” line) and **tool** status for tool calls—for example searching documentation or the web. String labels for those states are customizable under `options.labels` (for example `agentActivityThinking`, `agentActivitySearchDocumentation`, `agentActivityWebSearch`, and other `agentActivity*` keys in the example below).
+In **agent mode**, the widget can show an **agent activity** row while a reply is streaming: live **reasoning** summaries from reasoning SSE events (often shown as a “thinking” line) and **tool** status for tool calls—for example searching documentation or the web. String labels for those states are customizable under `options.labels` (for example `agentActivityThinking`, `agentActivitySearchDocumentation`, `agentActivityWebSearch`, optional finer-grained web-search strings such as `agentActivityWebSearchQuery` / `agentActivityWebSearchOpeningPage` / `agentActivityWebSearchSearchingPage` (placeholders `{query}`, `{url}`, `{pattern}`), `bookingStatus*` and `bookingSummary*` for booking tools, and other `agentActivity*` keys in the example below).
 
 ```js
 options: {
@@ -210,11 +210,19 @@ options: {
       agentActivityTool: 'Working…',
       agentActivitySearchDocumentation: 'Searching documentation…',
       agentActivityWebSearch: 'Searching the web…',
+      agentActivityWebSearchQuery: 'Searching web for {query}',
+      agentActivityWebSearchOpeningPage: 'Opening {url}',
+      agentActivityWebSearchSearchingPage: 'Searching page for {pattern}',
       agentActivityCodeInterpreter: 'Running code…',
       agentActivityStripeRecentInvoicesAndSubscriptions: 'Fetching account data…',
       agentActivityStripeBillingPortal: 'Creating billing portal link…',
       agentActivityStripeRefundLatestPayment: 'Processing refund…',
       agentActivityStripeCancelSubscription: 'Processing cancellation…',
+      bookingStatusBooked: 'Booked',
+      bookingStatusRescheduled: 'Rescheduled',
+      bookingSummaryEvent: 'Event',
+      bookingSummaryStarts: 'Starts',
+      bookingSummaryEnds: 'Ends',
       stripeAmount: 'Amount',
       stripeInvoice: 'Invoice',
       stripeAmountDue: 'Due',
@@ -286,7 +294,7 @@ options: {
 
 ### Scheduling Tools
 
-Use `useCalendly`, `useCalCom`, or `useTidyCal` to enable booking tools in the widget. These options are booleans only. The actual booking URL and behavior are configured on the bot via `bot.actions`.
+Use `useCalendly`, `useCalCom`, or `useTidyCal` to enable booking tools in the widget. These options are booleans only. The actual booking URL and behavior are configured on the bot via `bot.tools`.
 
 ```js
 DocsBotAI.init({

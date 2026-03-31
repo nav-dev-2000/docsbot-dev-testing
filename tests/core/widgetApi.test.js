@@ -29,11 +29,15 @@ describe('/api/widget/[teamId]/[botId]', () => {
     mocks.getTeam.mockReset()
     mocks.checkPlanPermission.mockReset()
 
-    mocks.getTeam.mockResolvedValue({ id: 'team-1', plan: 'business' })
+    mocks.getTeam.mockResolvedValue({
+      id: 'team-1',
+      plan: 'business',
+      openAIKey: 'sk-abc...1234',
+    })
     mocks.checkPlanPermission.mockReturnValue({ allowed: true })
   })
 
-  it('returns boolean scheduling flags as widget booking options', async () => {
+  it('returns boolean scheduling flags and web search as widget tool options', async () => {
     mocks.getBot.mockResolvedValue({
       id: 'bot-1',
       status: 'ready',
@@ -41,7 +45,11 @@ describe('/api/widget/[teamId]/[botId]', () => {
       description: 'Ask anything.',
       language: 'en',
       isAgent: true,
-      actions: {
+      model: 'gpt-5.4-nano',
+      tools: {
+        human_escalation: { enabled: true },
+        followup_rating: { enabled: false },
+        web_search: { enabled: true },
         calendly: {
           instructions: 'Book a demo.',
           url: 'docsbot/demo',
@@ -51,10 +59,6 @@ describe('/api/widget/[teamId]/[botId]', () => {
           instructions: 'Book office hours.',
           url: 'docsbot/office-hours',
         },
-      },
-      tools: {
-        human_escalation: { enabled: true },
-        followup_rating: { enabled: false },
       },
     })
 
@@ -67,6 +71,7 @@ describe('/api/widget/[teamId]/[botId]', () => {
     await widgetHandler(req, res)
 
     expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(true)
     expect(res.body.useCalendly).toBe(true)
     expect(res.body.useCalCom).toBe(false)
     expect(res.body.useTidyCal).toBe(false)
@@ -80,7 +85,6 @@ describe('/api/widget/[teamId]/[botId]', () => {
       description: 'Ask anything.',
       language: 'en',
       isAgent: false,
-      actions: {},
       tools: {},
     })
 
@@ -93,16 +97,58 @@ describe('/api/widget/[teamId]/[botId]', () => {
     await widgetHandler(req, res)
 
     expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(false)
     expect(res.body.useCalendly).toBe(false)
     expect(res.body.useCalCom).toBe(false)
     expect(res.body.useTidyCal).toBe(false)
   })
 
-  it('returns false for booking flags below the Personal plan', async () => {
-    mocks.getTeam.mockResolvedValue({ id: 'team-1', plan: 'hobby' })
+  it('returns false for web search without a team OpenAI key', async () => {
+    mocks.getTeam.mockResolvedValue({
+      id: 'team-1',
+      plan: 'business',
+      openAIKey: null,
+    })
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      model: 'gpt-5.4-nano',
+      tools: {
+        web_search: {
+          enabled: true,
+        },
+      },
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(false)
+  })
+
+  it('returns false for web search below the Standard plan and booking flags below the Personal plan', async () => {
+    mocks.getTeam.mockResolvedValue({
+      id: 'team-1',
+      plan: 'hobby',
+      openAIKey: 'sk-abc...1234',
+    })
     mocks.checkPlanPermission.mockImplementation((team, requiredPlan, feature) => {
       if (requiredPlan === 'personal' && feature === 'bookingActions') {
         return { allowed: false, requiredPlanLabel: 'Personal' }
+      }
+
+      if (requiredPlan === 'standard') {
+        return { allowed: false, requiredPlanLabel: 'Standard' }
       }
 
       return { allowed: true, requiredPlanLabel: 'Personal' }
@@ -114,14 +160,17 @@ describe('/api/widget/[teamId]/[botId]', () => {
       description: 'Ask anything.',
       language: 'en',
       isAgent: true,
-      actions: {
+      model: 'gpt-5.4-nano',
+      tools: {
+        web_search: {
+          enabled: true,
+        },
         calendly: {
           enabled: true,
           instructions: 'Book a demo.',
           url: 'docsbot/demo',
         },
       },
-      tools: {},
     })
 
     const req = createMockReq({
@@ -133,8 +182,37 @@ describe('/api/widget/[teamId]/[botId]', () => {
     await widgetHandler(req, res)
 
     expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(false)
     expect(res.body.useCalendly).toBe(false)
     expect(res.body.useCalCom).toBe(false)
     expect(res.body.useTidyCal).toBe(false)
+  })
+
+  it('returns false for web search on an incompatible bot model', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      model: 'gpt-4.1-nano',
+      tools: {
+        web_search: {
+          enabled: true,
+        },
+      },
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(false)
   })
 })

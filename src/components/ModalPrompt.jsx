@@ -47,6 +47,57 @@ const getCompanyName = (bot, team) => {
     return bot?.name || 'your company'
 }
 
+const isToolEnabled = (toolConfig, defaultEnabled = false) => {
+    if (toolConfig === true) return true
+    if (toolConfig === false || toolConfig === null || toolConfig === undefined) {
+        return false
+    }
+    if (typeof toolConfig === 'object' && !Array.isArray(toolConfig)) {
+        if (toolConfig.enabled === undefined) {
+            return defaultEnabled
+        }
+        return toolConfig.enabled === true
+    }
+    return false
+}
+
+const getInstructionToolNames = (tools) => {
+    const toolNames = ['search_documentation']
+    const enabledTools = tools && typeof tools === 'object' ? tools : {}
+
+    if (isToolEnabled(enabledTools.human_escalation, true)) {
+        toolNames.push('human_escalation')
+    }
+    if (isToolEnabled(enabledTools.web_search, false)) {
+        toolNames.push('web_search')
+    }
+    if (isToolEnabled(enabledTools.calendly, false)) {
+        toolNames.push('book_calendly')
+    }
+    if (isToolEnabled(enabledTools.calcom, false)) {
+        toolNames.push('book_calcom')
+    }
+    if (isToolEnabled(enabledTools.tidycal, false)) {
+        toolNames.push('book_tidycal')
+    }
+
+    if (isToolEnabled(enabledTools.stripe?.recent_billing, false)) {
+        toolNames.push('stripe_recent_invoices')
+        toolNames.push('stripe_customer_subscriptions')
+    }
+    if (isToolEnabled(enabledTools.stripe?.billing_portal, false)) {
+        toolNames.push('stripe_billing_portal')
+    }
+    if (isToolEnabled(enabledTools.stripe?.refund, false)) {
+        toolNames.push('stripe_refund_latest_payment')
+    }
+    if (isToolEnabled(enabledTools.stripe?.cancellation, false)) {
+        toolNames.push('stripe_cancel_subscription')
+    }
+
+    return [...new Set(toolNames)]
+}
+
 export default function ModalPrompt({
     team,
     integrations,
@@ -75,6 +126,7 @@ export default function ModalPrompt({
     const [showGeneratePopover, setShowGeneratePopover] = useState(false)
     const popoverRef = useRef(null)
     const buttonRef = useRef(null)
+    const agentPromptRef = useRef(null)
 
     // Debug functionality state
     const [showDebugModal, setShowDebugModal] = useState(false)
@@ -565,6 +617,32 @@ export default function ModalPrompt({
     }
 
     const isModalMode = open !== undefined
+    const instructionToolNames = getInstructionToolNames(bot?.tools)
+
+    const insertAgentToolReference = (toolName) => {
+        const textarea = agentPromptRef.current
+        const insertion = `\`${toolName}\``
+        const currentValue = agentPrompt || ''
+
+        if (!textarea) {
+            setAgentPrompt(currentValue + insertion)
+            return
+        }
+
+        const start = textarea.selectionStart ?? currentValue.length
+        const end = textarea.selectionEnd ?? currentValue.length
+        textarea.focus()
+
+        // Prefer the browser editing command so Cmd-Z treats this like normal typing.
+        textarea.setSelectionRange(start, end)
+        const inserted = document.execCommand('insertText', false, insertion)
+
+        if (!inserted) {
+            textarea.setRangeText(insertion, start, end, 'end')
+        }
+
+        textarea.dispatchEvent(new Event('input', { bubbles: true }))
+    }
 
     const mainContent = (
         <>
@@ -863,9 +941,48 @@ export default function ModalPrompt({
                                                     </p>
                                                 )}
                                             </div>
+                                            <div className="mt-4">
+                                                <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                                                    Enabled Tools
+                                                </p>
+                                                <p className="mt-1 text-xs text-gray-500">
+                                                    Reference these enabled
+                                                    tools in your instructions
+                                                    to customize when the agent
+                                                    should call them. Click a
+                                                    tool name to insert it at
+                                                    the cursor.
+                                                </p>
+                                                <div className="mt-2 flex flex-wrap gap-2">
+                                                    {instructionToolNames.map(
+                                                        (toolName) => (
+                                                            <button
+                                                                key={toolName}
+                                                                type="button"
+                                                                onMouseDown={(
+                                                                    e,
+                                                                ) =>
+                                                                    e.preventDefault()
+                                                                }
+                                                                onClick={() =>
+                                                                    insertAgentToolReference(
+                                                                        toolName,
+                                                                    )
+                                                                }
+                                                                className="inline-flex shrink-0 items-center rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-1 text-[11px] font-medium text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                            >
+                                                                <code>
+                                                                    {toolName}
+                                                                </code>
+                                                            </button>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            </div>
                                             <div className="mt-2">
                                                 <textarea
                                                     id="agentPrompt"
+                                                    ref={agentPromptRef}
                                                     className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
                                                     placeholder="You must set an agent prompt to use the agent mode. Please choose and customize a preset or use the prompt generator to create your agent mode prompt."
                                                     value={agentPrompt}

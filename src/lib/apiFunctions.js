@@ -17,9 +17,15 @@ import {
   isLeadCollectEnabled,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
-import { BOOKING_ACTION_KEYS, sanitizeBotActions } from '@/lib/botActions'
+import { BOOKING_ACTION_KEYS, sanitizeBotTools } from '@/lib/botActions'
 import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
 import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
+import {
+  DEFAULT_WEB_SEARCH_MODEL,
+  WEB_SEARCH_COMPATIBLE_MODELS_LABEL,
+  formatWebSearchModelLabel,
+  isWebSearchCompatibleModel,
+} from '@/lib/webSearch'
 const TOPIC_LIMIT = 50
 
 export const deleteSource = async (
@@ -444,7 +450,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     embeddingModel,
     isAgent,
     tools,
-    actions,
     leadCollect,
     imageUploads,
     temperature,
@@ -908,9 +913,10 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
 
   if (tools !== undefined) {
     // tools is an object, keyed by tool name with enabled boolean
-    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": false, "stripe": { ... } }
+    // e.g. { "human_escalation": { "enabled": true }, "followup_rating": false, "calendly": { ... }, "stripe": { ... } }
+    const sanitizedToolsInput = sanitizeBotTools(tools)
     const validTools = {}
-    for (const [toolName, toolConfig] of Object.entries(tools)) {
+    for (const [toolName, toolConfig] of Object.entries(sanitizedToolsInput)) {
       if (toolName === 'stripe') {
         continue
       }
@@ -1026,31 +1032,22 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       validTools.stripe = structuredClone(bot.tools.stripe)
     }
 
-    botData.tools = validTools
-  } else if (!isUpdate) {
-    botData.tools = {
-      human_escalation: { enabled: true },
-      followup_rating: { enabled: true },
-    }
-  }
-
-  if (actions !== undefined) {
-    const sanitizedActions = sanitizeBotActions(actions)
-    const hasEnabledSchedulingAction = BOOKING_ACTION_KEYS.some((actionKey) => {
-      const actionConfig = sanitizedActions?.[actionKey]
-      if (!actionConfig || typeof actionConfig !== 'object') {
+    const hasEnabledSchedulingTool = BOOKING_ACTION_KEYS.some((toolName) => {
+      const toolConfig = validTools?.[toolName]
+      if (!toolConfig || typeof toolConfig !== 'object') {
         return false
       }
 
       const enabled =
-        actionConfig.enabled === undefined ? true : Boolean(actionConfig.enabled)
-      const hasUrl = typeof actionConfig.url === 'string' && actionConfig.url.trim() !== ''
+        toolConfig.enabled === undefined ? true : Boolean(toolConfig.enabled)
+      const hasUrl =
+        typeof toolConfig.url === 'string' && toolConfig.url.trim() !== ''
 
       return enabled && hasUrl
     })
 
     if (
-      hasEnabledSchedulingAction &&
+      hasEnabledSchedulingTool &&
       !checkPlanPermission(team, 'personal', 'bookingActions').allowed &&
       !isSuperAdmin(userId)
     ) {
@@ -1059,7 +1056,44 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       )
     }
 
-    botData.actions = sanitizedActions
+    const webSearchConfig = validTools?.web_search
+    const webSearchEnabled =
+      typeof webSearchConfig === 'boolean'
+        ? webSearchConfig
+        : webSearchConfig &&
+            typeof webSearchConfig === 'object' &&
+            (webSearchConfig.enabled === undefined
+              ? false
+              : Boolean(webSearchConfig.enabled))
+
+    if (webSearchEnabled) {
+      if (!checkPlanPermission(team, 'standard').allowed && !isSuperAdmin(userId)) {
+        throw new Error('Web search is only available on the Standard plan or higher.')
+      }
+
+      if (!team?.openAIKey && !isSuperAdmin(userId)) {
+        throw new Error('Please add your OpenAI API key before enabling web search.')
+      }
+
+      const effectiveModel =
+        botData.model || bot?.model || DEFAULT_WEB_SEARCH_MODEL
+
+      if (
+        !isWebSearchCompatibleModel(effectiveModel) &&
+        !isSuperAdmin(userId)
+      ) {
+        throw new Error(
+          `Web search requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(effectiveModel)}.`,
+        )
+      }
+    }
+
+    botData.tools = validTools
+  } else if (!isUpdate) {
+    botData.tools = {
+      human_escalation: { enabled: true },
+      followup_rating: { enabled: true },
+    }
   }
 
   if (leadCollect !== undefined) {

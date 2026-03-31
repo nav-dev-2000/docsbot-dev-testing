@@ -3,16 +3,16 @@ import { describe, expect, it } from 'vitest'
 import {
   DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
   buildBookingDisplayUrl,
-  buildDisplayBotActions,
-  createDefaultBookingAction,
+  buildDisplayBotTools,
+  createDefaultBookingTool,
   sanitizeCalComActionConfig,
-  sanitizeBotActions,
+  sanitizeBotTools,
   sanitizeCalendlyActionConfig,
   sanitizeTidyCalActionConfig,
 } from '@/lib/botActions'
 
-describe('bot actions sanitization', () => {
-  it('accepts a valid calendly action config and stores only the booking path', () => {
+describe('bot tools sanitization', () => {
+  it('accepts a valid calendly tool config and stores only the booking path', () => {
     expect(
       sanitizeCalendlyActionConfig({
         instructions: '  Offer booking for demos.  ',
@@ -51,7 +51,7 @@ describe('bot actions sanitization', () => {
     })
   })
 
-  it('allows disabled booking actions to persist without a configured url yet', () => {
+  it('allows disabled booking tools to persist without a configured url yet', () => {
     expect(
       sanitizeCalendlyActionConfig({
         enabled: false,
@@ -68,7 +68,7 @@ describe('bot actions sanitization', () => {
       sanitizeCalendlyActionConfig({
         url: 'https://calendly.com/acme/demo',
       }),
-    ).toThrow('bot.actions.calendly.instructions is required.')
+    ).toThrow('bot.tools.calendly.instructions is required.')
   })
 
   it('requires a booking url for each provider', () => {
@@ -76,7 +76,7 @@ describe('bot actions sanitization', () => {
       sanitizeCalComActionConfig({
         instructions: 'Use this when the user wants office hours.',
       }),
-    ).toThrow('bot.actions.calcom.url is required.')
+    ).toThrow('bot.tools.calcom.url is required.')
   })
 
   it('rejects provider urls with the wrong prefix', () => {
@@ -85,7 +85,7 @@ describe('bot actions sanitization', () => {
         instructions: 'Use this when the user wants office hours.',
         url: 'https://example.com/docsbot/office-hours',
       }),
-    ).toThrow('bot.actions.calcom.url must start with https://cal.com/.')
+    ).toThrow('bot.tools.calcom.url must start with https://cal.com/.')
   })
 
   it('rejects host-like provider inputs without a URL scheme', () => {
@@ -94,12 +94,12 @@ describe('bot actions sanitization', () => {
         instructions: 'Use this when the user wants office hours.',
         url: 'cal.com/docsbot/office-hours',
       }),
-    ).toThrow('bot.actions.calcom.url must start with https://cal.com/.')
+    ).toThrow('bot.tools.calcom.url must start with https://cal.com/.')
   })
 
-  it('sanitizes the actions payload and preserves unknown action objects', () => {
+  it('sanitizes the tools payload and preserves unknown tool configs', () => {
     expect(
-      sanitizeBotActions({
+      sanitizeBotTools({
         calendly: {
           enabled: true,
           instructions: 'Offer booking for demos.',
@@ -157,7 +157,7 @@ describe('bot actions sanitization', () => {
       'https://cal.com/docsbot/office-hours',
     )
     expect(
-      buildDisplayBotActions({
+      buildDisplayBotTools({
         calendly: {
           enabled: true,
           instructions: 'Book a demo.',
@@ -175,7 +175,7 @@ describe('bot actions sanitization', () => {
 
   it('fills missing booking instructions with the generic fallback in display state', () => {
     expect(
-      buildDisplayBotActions({
+      buildDisplayBotTools({
         calendly: {
           enabled: false,
           url: 'docsbot/demo',
@@ -199,8 +199,8 @@ describe('bot actions sanitization', () => {
     })
   })
 
-  it('creates default booking actions with the shared trigger instructions', () => {
-    expect(createDefaultBookingAction('tidycal')).toEqual({
+  it('creates default booking tools with the shared trigger instructions', () => {
+    expect(createDefaultBookingTool('tidycal')).toEqual({
       enabled: false,
       instructions: DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
       url: '',
