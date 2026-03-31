@@ -27,6 +27,32 @@ import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
 import { preprocessMath } from '@/utils/markdown'
 
+function faviconUrl(displayUrl) {
+  try {
+    const href = /^https?:\/\//i.test(displayUrl)
+      ? displayUrl
+      : `https://${displayUrl}`
+    const host = new URL(href).hostname.replace(/^www\./i, '')
+    if (!host) return ''
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=16`
+  } catch {
+    return ''
+  }
+}
+
+const FAVICON_SOURCE_TYPES = new Set(['url', 'urls', 'sitemap', 'rss'])
+
+function sourceFaviconUrl(source) {
+  const sourceType =
+    typeof source?.type === 'string' ? source.type.trim().toLowerCase() : ''
+
+  if (!FAVICON_SOURCE_TYPES.has(sourceType) || !source?.url) {
+    return ''
+  }
+
+  return faviconUrl(source.url)
+}
+
 export default function Chat({ teamId, bot, showResearchMode = false }) {
   const [question, setQuestion] = useState('')
   const [answers, setAnswers] = useState([])
@@ -335,6 +361,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
     const page = currentSource?.page ? ` - Page ${currentSource?.page}` : ''
     const SourceIcon = currentSource?.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(currentSource)
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
@@ -379,10 +406,20 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
                         as="h3"
                         className="flex items-center justify-start text-xl font-semibold leading-6 text-gray-900"
                       >
-                        <SourceIcon
-                          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-800"
-                          aria-hidden="true"
-                        />
+                        {sourceFavicon ? (
+                          <img
+                            src={sourceFavicon}
+                            alt=""
+                            width={16}
+                            height={16}
+                            className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+                          />
+                        ) : (
+                          <SourceIcon
+                            className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-800"
+                            aria-hidden="true"
+                          />
+                        )}
                         {currentSource.url ? (
                           <Link
                             href={currentSource.url}
@@ -424,6 +461,7 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
   const SourceResearch = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
     const page = source.page ? ` - Page ${source.page}` : ''
 
     if (source.used === false) return null
@@ -434,10 +472,20 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
           onClick={() => setCurrentSource(source)}
           className="flex items-center text-left text-sm font-medium leading-tight text-gray-500"
         >
-          <SourceIcon
-            className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
-            aria-hidden="true"
-          />
+          {sourceFavicon ? (
+            <img
+              src={sourceFavicon}
+              alt=""
+              width={16}
+              height={16}
+              className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+            />
+          ) : (
+            <SourceIcon
+              className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+              aria-hidden="true"
+            />
+          )}
           {source.title || source.url}
           {page}
         </button>
@@ -447,14 +495,25 @@ export default function Chat({ teamId, bot, showResearchMode = false }) {
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
     const page = source.page ? ` - Page ${source.page}` : ''
 
     return (
       <li className="my-1 flex cursor-pointer items-center">
-        <SourceIcon
-          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
-          aria-hidden="true"
-        />
+        {sourceFavicon ? (
+          <img
+            src={sourceFavicon}
+            alt=""
+            width={16}
+            height={16}
+            className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+          />
+        ) : (
+          <SourceIcon
+            className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-400"
+            aria-hidden="true"
+          />
+        )}
         {source.url ? (
           <Link
             href={source.url}

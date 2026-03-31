@@ -171,15 +171,13 @@ const AppearanceActions = ({
     const stripe = normalizeStripe(tools?.stripe)
     const stripeStatus = getStripeStatus(stripe)
     const webSearchPlanCheck = checkPlanPermission(team, 'standard')
+    const isPublicBot = bot?.privacy !== 'private'
     const stripePlanCheck = checkPlanPermission(team, 'standard', 'stripeActions')
     const schedulingPlanCheck = checkPlanPermission(team, 'personal', 'bookingActions')
     const hasOpenAIKey = Boolean(team?.openAIKey)
     const webSearchModel = bot?.model || DEFAULT_WEB_SEARCH_MODEL
     const webSearchModelCompatible = isWebSearchCompatibleModel(webSearchModel)
-    const webSearchEnabled =
-        tools?.web_search?.enabled === undefined
-            ? false
-            : tools?.web_search?.enabled
+    const webSearchEnabled = !isPublicBot && tools?.web_search?.enabled === true
     const connectLoading = stripeOAuthLoading
     const connectError = stripeOAuthError
     const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
@@ -447,68 +445,6 @@ const AppearanceActions = ({
                         )}
                     </div>
                 )}
-                {isAgent && (
-                    <AppearanceToggle
-                        label={
-                            <BuiltInToolLabel
-                                icon={GlobeAltIcon}
-                                name="Web Search"
-                            />
-                        }
-                        description={
-                            !webSearchModelCompatible
-                                ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
-                                : hasOpenAIKey
-                                    ? (
-                                        <>
-                                            Give your bot the ability to search the web for up to date information.{' '}
-                                            <a
-                                                href="https://developers.openai.com/api/docs/pricing#built-in-tools"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-cyan-600 underline hover:text-cyan-800"
-                                            >
-                                                Additional OpenAI API costs apply
-                                            </a>
-                                            .
-                                        </>
-                                    )
-                                    : 'Give your bot the ability to search the web for up to date information. Requires a team OpenAI API key.'
-                        }
-                        enabled={webSearchEnabled}
-                        setEnabled={(enabled) => {
-                            if (enabled && !webSearchModelCompatible) {
-                                return
-                            }
-
-                            if (enabled && !webSearchPlanCheck.allowed) {
-                                setShowUpgrade(true)
-                                return
-                            }
-
-                            if (enabled && !hasOpenAIKey) {
-                                return
-                            }
-
-                            setTools({
-                                ...tools,
-                                web_search: {
-                                    enabled,
-                                },
-                            })
-                        }}
-                        disabled={
-                            isUpdating ||
-                            (!webSearchModelCompatible && !webSearchEnabled)
-                        }
-                        planLabel={
-                            !webSearchPlanCheck.allowed
-                                ? webSearchPlanCheck.requiredPlanLabel
-                                : null
-                        }
-                        isNew={true}
-                    />
-                )}
                 <LeadCollectionToolSettings
                     team={team}
                     value={leadCollect}
@@ -543,7 +479,6 @@ const AppearanceActions = ({
                 <div>
                     <AppearanceBlock
                         title="Scheduling Tools"
-                        titleTag="h4"
                         isNew={true}
                         isLast={true}
                         planLabel={
@@ -709,7 +644,6 @@ const AppearanceActions = ({
                             )}
                         </>
                     }
-                    titleTag="h4"
                     description="If you use Stripe for billing, enable this action to help customers with invoices, subscriptions, billing portal, and refunds."
                     isNew={true}
                 >
@@ -956,6 +890,106 @@ const AppearanceActions = ({
             </AppearanceBlock>
             </div>
             ) : null}
+
+            {isAgent ? (
+                <div className="mt-5">
+                    <AppearanceToggle
+                        label={
+                            <BuiltInToolLabel
+                                icon={GlobeAltIcon}
+                                name="Web Search"
+                            />
+                        }
+                        description={
+                            !webSearchModelCompatible
+                                ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
+                                : hasOpenAIKey
+                                    ? (
+                                        <>
+                                            Give your bot the ability to search the web for up to date information.{' '}
+                                            <a
+                                                href="https://developers.openai.com/api/docs/pricing#built-in-tools"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-cyan-600 underline hover:text-cyan-800"
+                                            >
+                                                Additional OpenAI API costs apply
+                                            </a>
+                                            .
+                                        </>
+                                    )
+                                    : 'Give your bot the ability to search the web for up to date information. Requires a team OpenAI API key.'
+                        }
+                        enabled={webSearchEnabled}
+                        setEnabled={(enabled) => {
+                            if (enabled && isPublicBot) {
+                                return
+                            }
+
+                            if (enabled && !webSearchModelCompatible) {
+                                return
+                            }
+
+                            if (enabled && !webSearchPlanCheck.allowed) {
+                                setShowUpgrade(true)
+                                return
+                            }
+
+                            if (enabled && !hasOpenAIKey) {
+                                return
+                            }
+
+                            setTools({
+                                ...tools,
+                                web_search: {
+                                    enabled,
+                                },
+                            })
+                        }}
+                        disabled={
+                            isUpdating ||
+                            isPublicBot ||
+                            (!webSearchModelCompatible && !webSearchEnabled)
+                        }
+                        planLabel={
+                            !webSearchPlanCheck.allowed
+                                ? webSearchPlanCheck.requiredPlanLabel
+                                : null
+                        }
+                        isNew={true}
+                        switchClassName={isPublicBot ? 'opacity-50' : undefined}
+                    />
+                    {isPublicBot ? (
+                        <div className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+                            Web search is not recommended for public bots due to response latency. You can enable it when chatting in the{' '}
+                            <a
+                                href={`/app/bots/${bot?.id}/chat`}
+                                className="font-medium underline hover:text-amber-950"
+                            >
+                                dashboard
+                            </a>
+                            ,{' '}
+                            <a
+                                href={`/app/bots/${bot?.id}/configure/system`}
+                                className="font-medium underline hover:text-amber-950"
+                            >
+                                set your bot to private
+                            </a>
+                            {' '}if it is for internal use, or override this setting via the widget embed code{' '}
+                            <a
+                                href="/documentation/developer/embeddable-chat-widget#option-overrides"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-medium underline hover:text-amber-950"
+                            >
+                                options
+                            </a>
+                            .
+                        </div>
+                    ) : null}
+                </div>
+            ) : null}
+
         </>
     )
 }

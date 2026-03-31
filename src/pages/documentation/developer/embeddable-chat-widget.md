@@ -157,6 +157,10 @@ options: {
   showAgentActivity: true, // optional: set to false to hide the agent activity row (reasoning + tool status). Omit for default (shown).
   useFeedback: true, //collect user feedback after answers
   useEscalation: true, // Enable the escalation button or agent tool
+  useWebSearch: true, // Enable the web search tool when the bot is in agent mode and an OpenAI key is added to the team.
+  useCalendly: true, // Enable the Calendly booking tool for this widget instance when configured on the bot.
+  useCalCom: false, // Enable the Cal.com booking tool for this widget instance when configured on the bot.
+  useTidyCal: false, // Enable the TidyCal booking tool for this widget instance when configured on the bot.
   botName: "DocsBot", //name of the bot.
   description: "Ask our AI support assistant your questions about our services.", //description of the bot. Only shown when no logo is present.
   allowedDomains: [
@@ -290,21 +294,6 @@ options: {
     "Can I view the question and answer history of my DocsBot interactions?"
   ] // Array of example questions to show in the widget. Suggestions are picked at random.
 }
-```
-
-### Scheduling Tools
-
-Use `useCalendly`, `useCalCom`, or `useTidyCal` to enable booking tools in the widget. These options are booleans only. The actual booking URL and behavior are configured on the bot via `bot.tools`.
-
-```js
-DocsBotAI.init({
-  id: "teamId/botId",
-  options: {
-    useCalendly: true,
-    useCalCom: false,
-    useTidyCal: false
-  }
-})
 ```
 
 ### Labels and internationalization

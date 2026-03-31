@@ -202,13 +202,17 @@ const ChatRow = memo(({
   } else {
     const markdownContent =
       answer.markdown || (isStreaming ? (currentAnswerText || '') : '')
+    const isLoadingOnly = !markdownContent
     return (
       <div
         className={clsx('grid grid-cols-1 gap-4 sm:grid-cols-12')}
       >
         <div
           className={clsx(
-            'relative col-span-1 mt-4 rounded-md border bg-white text-left shadow-sm sm:col-span-8 sm:rounded-lg',
+            'relative col-span-1 mt-4 border bg-white text-left shadow-sm sm:col-span-8',
+            isLoadingOnly
+              ? 'max-w-fit justify-self-start rounded-md sm:rounded-lg'
+              : 'rounded-md sm:rounded-lg',
           )}
           id={answer.id || null}
         >
@@ -228,8 +232,12 @@ const ChatRow = memo(({
         <div
           dir="auto"
           className={clsx(
-            answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
-            'relative z-10 min-w-full p-6 text-start sm:px-8',
+            isLoadingOnly
+              ? 'relative z-10 flex items-center p-4 px-6'
+              : clsx(
+                  answer.sources?.length > 0 ? 'pb-2 sm:pb-2' : '',
+                  'relative z-10 min-w-full p-6 text-start sm:px-8',
+                ),
           )}
         >
           {markdownContent ? (
@@ -537,6 +545,19 @@ function faviconUrl(displayUrl) {
   }
 }
 
+const FAVICON_SOURCE_TYPES = new Set(['url', 'urls', 'sitemap', 'rss'])
+
+function sourceFaviconUrl(source) {
+  const sourceType =
+    typeof source?.type === 'string' ? source.type.trim().toLowerCase() : ''
+
+  if (!FAVICON_SOURCE_TYPES.has(sourceType) || !source?.url) {
+    return ''
+  }
+
+  return faviconUrl(source.url)
+}
+
 function normalizeWebSearchHref(urlString) {
   if (!urlString || typeof urlString !== 'string') return ''
   const t = urlString.trim()
@@ -563,22 +584,15 @@ const AgentActivityWithUrl = memo(function AgentActivityWithUrl({
   const favicon = faviconUrl(fullUrl || compactUrl)
 
   return (
-    <div className="ms-6 flex min-w-0 max-w-full items-center gap-2 text-sm text-gray-500">
-      {isStreamingStarted ? (
-        <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
-      ) : (
-        <div className="relative h-4 w-4 shrink-0">
-          <div className="h-4 w-4 rounded-full border border-gray-300" />
-          <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400" />
-        </div>
-      )}
+    <div className={clsx("flex min-w-0 max-w-full items-center text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+      <AgentEventLeading icon={Icon} isStreamingStarted={isStreamingStarted} />
       <span
         dir="auto"
         className="min-w-0 max-w-full font-medium [overflow-wrap:anywhere] line-clamp-2"
       >
         {labelBefore}
         <span
-          className="inline-flex max-w-[min(36ch,70vw)] min-w-0 items-baseline gap-[0.28em] align-[-0.22em] font-mono text-[0.82em] text-gray-500/80"
+          className="inline-flex max-w-[min(36ch,70vw)] min-w-0 items-center gap-[0.28em] align-middle font-mono text-[0.82em] text-gray-500/80"
           title={fullUrl || compactUrl}
         >
           {favicon ? (
@@ -600,6 +614,35 @@ const AgentActivityWithUrl = memo(function AgentActivityWithUrl({
 })
 AgentActivityWithUrl.displayName = 'AgentActivityWithUrl'
 
+const AgentActivityWithValue = memo(function AgentActivityWithValue({
+  icon: Icon,
+  labelBefore = '',
+  labelAfter = '',
+  value = '',
+  fullValue = '',
+  isStreamingStarted = true,
+}) {
+  return (
+    <div className={clsx("flex min-w-0 max-w-full items-center text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+      <AgentEventLeading icon={Icon} isStreamingStarted={isStreamingStarted} />
+      <span
+        dir="auto"
+        className="min-w-0 max-w-full font-medium [overflow-wrap:anywhere] line-clamp-2"
+      >
+        {labelBefore}
+        <span
+          className="inline-flex max-w-[min(36ch,70vw)] min-w-0 items-center align-middle font-mono text-[0.82em] text-gray-500/80"
+          title={fullValue || value}
+        >
+          <span className="min-w-0 flex-1 truncate">{value}</span>
+        </span>
+        {labelAfter}
+      </span>
+    </div>
+  )
+})
+AgentActivityWithValue.displayName = 'AgentActivityWithValue'
+
 function fillAgentLabelTemplate(template, replacements) {
   if (typeof template !== 'string' || !template.trim()) return ''
   let out = template
@@ -609,6 +652,28 @@ function fillAgentLabelTemplate(template, replacements) {
   return out
 }
 
+function upsertReasoningEvent(events, incomingEvent) {
+  if (!incomingEvent?.reasoningId) {
+    return [...events, incomingEvent]
+  }
+
+  const existingIndex = events.findIndex(
+    (event) => event.type === 'reasoning' && event.reasoningId === incomingEvent.reasoningId,
+  )
+
+  if (existingIndex === -1) {
+    return [...events, incomingEvent]
+  }
+
+  const updated = [...events]
+  updated[existingIndex] = {
+    ...updated[existingIndex],
+    ...incomingEvent,
+    eventKey: updated[existingIndex].eventKey || incomingEvent.eventKey,
+  }
+  return updated
+}
+
 function resolveWebSearchToolCallDisplay(labels, parsed) {
   const defaultLabels = i18n?.en?.labels || {}
   const q = { ...defaultLabels, ...(labels || {}) }
@@ -616,7 +681,18 @@ function resolveWebSearchToolCallDisplay(labels, parsed) {
   const actionType = parsed.webSearchActionType
 
   if (actionType === 'search' && parsed.webSearchQuery) {
-    const t = fillAgentLabelTemplate(q.agentActivityWebSearchQuery, {
+    const tmpl = q.agentActivityWebSearchQuery || '{query}'
+    const split = splitTemplateAroundKey(tmpl, 'query')
+    if (split) {
+      return {
+        kind: 'withValue',
+        labelBefore: split.before,
+        labelAfter: split.after,
+        value: parsed.webSearchQuery,
+        fullValue: parsed.webSearchQuery,
+      }
+    }
+    const t = fillAgentLabelTemplate(tmpl, {
       query: parsed.webSearchQuery,
     })
     return { kind: 'plain', text: t || base }
@@ -680,6 +756,30 @@ function resolveWebSearchToolCallDisplay(labels, parsed) {
   return { kind: 'plain', text: base }
 }
 
+const AGENT_EVENT_ROW_CLASS =
+  'relative isolate py-1 pr-2 pl-8 before:absolute before:inset-y-0 before:left-5 before:right-0 before:-z-10 before:rounded-md before:transition-colors hover:before:bg-gray-100/70'
+const AGENT_EVENTS_TIMELINE_CLASS =
+  'relative ml-3 text-left before:absolute before:bottom-2 before:left-0 before:top-2 before:border-l before:border-gray-200 before:content-[\"\"]'
+
+function AgentEventLeading({
+  icon: Icon,
+  isStreamingStarted = true,
+  iconClassName,
+}) {
+  return (
+    <span className="absolute -left-[13px] top-1.5 z-10 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white">
+      {isStreamingStarted ? (
+        <Icon className={clsx('h-4 w-4 text-gray-400', iconClassName)} aria-hidden />
+      ) : (
+        <div className="relative h-4 w-4">
+          <div className="h-4 w-4 rounded-full border border-gray-300" />
+          <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400" />
+        </div>
+      )}
+    </span>
+  )
+}
+
 // Component to display tool calls - simplified inline style
 const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {} }) => {
   if (!toolCalls || toolCalls.length === 0) return null
@@ -703,22 +803,18 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
             // If there are terms, use expandable details
             if (allTerms.length > 0) {
               return (
-                <details key={toolCall.id || idx} className="group ms-6 text-sm text-gray-500">
-                  <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden">
-                    {isStreamingStarted ? (
-                      <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-                    ) : (
-                      <div className="relative w-4 h-4 flex-shrink-0">
-                        <div className="h-4 w-4 rounded-full border border-gray-300"></div>
-                        <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
-                      </div>
-                    )}
+                <details key={toolCall.id || idx} className="group text-sm text-gray-500">
+                  <summary className={clsx("cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden", AGENT_EVENT_ROW_CLASS)}>
+                    <AgentEventLeading
+                      icon={DocumentMagnifyingGlassIcon}
+                      isStreamingStarted={isStreamingStarted}
+                    />
                     <span className="font-medium">{isStreamingStarted ? 'Searched documentation:' : 'Searching documentation:'}</span>
                     <span className="group-open:hidden">{allTerms.length} {allTerms.length === 1 ? 'term' : 'terms'}</span>
                     <span className="hidden group-open:inline text-gray-400 text-xs">Hide terms</span>
                     <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
                   </summary>
-                  <ul className="mt-2 ms-6 space-y-1">
+                  <ul className="mt-2 ms-10 space-y-1">
                     {allTerms.map((term, termIdx) => (
                       <li key={termIdx} className="text-xs text-gray-500">
                         <pre className="inline whitespace-pre-wrap text-xs">{term}</pre>
@@ -731,30 +827,22 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
             
             // No terms at all, just show the label
             return (
-              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 ms-6">
-                {isStreamingStarted ? (
-                  <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-                ) : (
-                  <div className="relative w-4 h-4 flex-shrink-0">
-                    <div className="h-4 w-4 rounded-full border border-gray-300"></div>
-                    <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
-                  </div>
-                )}
+              <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+                <AgentEventLeading
+                  icon={DocumentMagnifyingGlassIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
                 <span className="font-medium">{isStreamingStarted ? 'Searched documentation' : 'Searching documentation'}</span>
               </div>
             )
           } catch (error) {
             console.error('Error parsing tool_call data:', error)
             return (
-              <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500 ms-8">
-                {isStreamingStarted ? (
-                  <DocumentMagnifyingGlassIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-                ) : (
-                  <div className="relative w-4 h-4 flex-shrink-0">
-                    <div className="h-4 w-4 rounded-full border border-gray-300"></div>
-                    <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400"></div>
-                  </div>
-                )}
+              <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+                <AgentEventLeading
+                  icon={DocumentMagnifyingGlassIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
                 <span className="font-medium">{isStreamingStarted ? 'Searched documentation' : 'Searching documentation'}</span>
               </div>
             )
@@ -780,26 +868,35 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
               />
             )
           }
+          if (display.kind === 'withValue') {
+            return (
+              <AgentActivityWithValue
+                key={toolCall.id || idx}
+                icon={GlobeAltIcon}
+                labelBefore={display.labelBefore}
+                labelAfter={display.labelAfter}
+                value={display.value}
+                fullValue={display.fullValue}
+                isStreamingStarted={isStreamingStarted}
+              />
+            )
+          }
           return (
             <div
               key={toolCall.id || idx}
-              className="ms-6 flex items-center gap-2 text-sm text-gray-500"
+              className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}
             >
-              {isStreamingStarted ? (
-                <GlobeAltIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
-              ) : (
-                <div className="relative h-4 w-4 flex-shrink-0">
-                  <div className="h-4 w-4 rounded-full border border-gray-300" />
-                  <div className="absolute left-0 top-0 h-4 w-4 animate-spin rounded-full border-t-2 border-gray-400" />
-                </div>
-              )}
+              <AgentEventLeading
+                icon={GlobeAltIcon}
+                isStreamingStarted={isStreamingStarted}
+              />
               <span className="font-medium">{display.text}</span>
             </div>
           )
         } else if (name === 'human_escalation') {
           return (
-            <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500">
-              <LifebuoyIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+            <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+              <AgentEventLeading icon={LifebuoyIcon} />
               <span className="font-medium">Escalating to human</span>
             </div>
           )
@@ -807,8 +904,8 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
         
         // Generic tool call
         return (
-          <div key={toolCall.id || idx} className="flex items-center gap-2 text-sm text-gray-500">
-            <BeakerIcon className="h-4 w-4 flex-shrink-0 text-gray-400" />
+          <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+            <AgentEventLeading icon={BeakerIcon} />
             <span className="font-medium">Using {name}</span>
           </div>
         )
@@ -831,6 +928,42 @@ const BrainIcon = ({ className }) => (
   </svg>
 )
 
+function parseReasoningText(text = '') {
+  const normalized = typeof text === 'string' ? text.replace(/\r\n/g, '\n') : ''
+  if (!normalized.trim()) {
+    return { title: '', body: '', hasStructuredTitle: false }
+  }
+
+  const lines = normalized.split('\n')
+  const firstNonEmptyIndex = lines.findIndex((line) => line.trim())
+  if (firstNonEmptyIndex === -1) {
+    return { title: '', body: '', hasStructuredTitle: false }
+  }
+
+  const firstLine = lines[firstNonEmptyIndex].trim()
+  const titleMatch = firstLine.match(/^\*\*(.+?)\*\*$/)
+
+  if (!titleMatch) {
+    return {
+      title: '',
+      body: normalized.trim(),
+      hasStructuredTitle: false,
+    }
+  }
+
+  const body = lines
+    .slice(firstNonEmptyIndex + 1)
+    .join('\n')
+    .replace(/^\n+/, '')
+    .trim()
+
+  return {
+    title: titleMatch[1].trim(),
+    body,
+    hasStructuredTitle: true,
+  }
+}
+
 // Component to display a single reasoning item
 const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = false, isAnswerStreaming = false, thinkingLabel = 'Thinking…' }) => {
   // Show "Thought" if there's a following event OR if the answer has started streaming
@@ -840,13 +973,59 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
     // Show "Thinking..." or "Thought" when reasoning is active but text is empty
     if (isStreaming || hasFollowingEvent) {
       return (
-        <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
-          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
+        <div className={clsx("mt-2 flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+          <AgentEventLeading
+            icon={BrainIcon}
+            iconClassName={clsx("h-4 w-4 text-gray-400", isStreaming && !isComplete && "animate-wobble")}
+          />
           <span className="font-medium">{isComplete ? 'Thought' : thinkingLabel}</span>
         </div>
       )
     }
     return null
+  }
+
+  const { title, body, hasStructuredTitle } = parseReasoningText(text)
+
+  if (hasStructuredTitle) {
+    if (body) {
+      return (
+        <details className="group mt-2 text-sm text-gray-500">
+          <summary className={clsx("cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden min-h-0", AGENT_EVENT_ROW_CLASS)}>
+            <AgentEventLeading
+              icon={BrainIcon}
+              iconClassName={clsx("h-4 w-4 text-gray-400", isStreaming && !isComplete && "animate-wobble")}
+            />
+            <span className="min-w-0 flex-1 truncate font-medium">
+              Thought:{' '}
+              <span className="text-gray-600 font-semibold">{title}</span>
+            </span>
+            <span className="ml-auto hidden whitespace-nowrap text-xs text-gray-400 group-open:inline">
+              Hide thinking
+            </span>
+            <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
+          </summary>
+          <div className="mt-2 ms-10 text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
+            <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
+              {body}
+            </Streamdown>
+          </div>
+        </details>
+      )
+    }
+
+    return (
+      <div className={clsx("mt-2 flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+        <AgentEventLeading
+          icon={BrainIcon}
+          iconClassName={clsx("h-4 w-4 text-gray-400", isStreaming && !isComplete && "animate-wobble")}
+        />
+        <span className="font-medium">
+          Thought:{' '}
+          <span className="text-gray-600 font-semibold">{title}</span>
+        </span>
+      </div>
+    )
   }
 
   // Get truncated preview (first ~150 chars or first 2 sentences)
@@ -869,14 +1048,19 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
 
   if (needsExpansion) {
     return (
-      <details className="group mt-2 ms-6 text-sm text-gray-500">
-        <summary className="cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden min-h-0">
-          <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
+      <details className="group mt-2 text-sm text-gray-500">
+        <summary className={clsx("cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden min-h-0", AGENT_EVENT_ROW_CLASS)}>
+          <AgentEventLeading
+            icon={BrainIcon}
+            iconClassName={clsx("h-4 w-4 text-gray-400", isStreaming && !isComplete && "animate-wobble")}
+          />
           <span className="group-open:hidden min-w-0 truncate">{preview}…</span>
-          <span className="hidden group-open:inline text-gray-400 text-xs">Hide thinking</span>
+          <span className="ml-auto hidden whitespace-nowrap text-xs text-gray-400 group-open:inline">
+            Hide thinking
+          </span>
           <ChevronDownIcon className="h-3 w-3 text-gray-400 transition-transform duration-150 group-open:rotate-180 flex-shrink-0" />
         </summary>
-        <div className="mt-2 ms-6 text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
+        <div className="mt-2 ms-10 text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
           <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
             {text}
           </Streamdown>
@@ -886,8 +1070,11 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
   }
 
   return (
-    <div className="mt-2 ms-6 flex items-center gap-2 text-sm text-gray-500">
-      <BrainIcon className={clsx("h-4 w-4 flex-shrink-0 text-gray-400", isStreaming && !isComplete && "animate-wobble")} />
+    <div className={clsx("mt-2 flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+      <AgentEventLeading
+        icon={BrainIcon}
+        iconClassName={clsx("h-4 w-4 text-gray-400", isStreaming && !isComplete && "animate-wobble")}
+      />
       <div className="text-gray-500 text-left [&_p]:text-left [&_*]:text-left">
         <Streamdown mode="static" isAnimating={false} remarkPlugins={streamdownRemarkPlugins}>
           {text}
@@ -899,6 +1086,68 @@ const ReasoningItem = memo(({ text, isStreaming = false, hasFollowingEvent = fal
   return prevProps.text === nextProps.text && prevProps.isStreaming === nextProps.isStreaming && prevProps.hasFollowingEvent === nextProps.hasFollowingEvent && prevProps.isAnswerStreaming === nextProps.isAnswerStreaming
 })
 ReasoningItem.displayName = 'ReasoningItem'
+
+const AgentEventsList = memo(function AgentEventsList({
+  events = [],
+  defaultOpen = false,
+  labels = {},
+  isStreaming = false,
+  isAnswerStreaming = false,
+}) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
+  if (!events || events.length === 0) {
+    return null
+  }
+
+  const countLabel = `Steps (${events.length})`
+
+  return (
+    <details
+      className="mt-4"
+      open={isOpen}
+      onToggle={(event) => setIsOpen(event.currentTarget.open)}
+    >
+      <summary className="group flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium text-gray-600 hover:bg-gray-100 [&::-webkit-details-marker]:hidden">
+        <span>{countLabel}</span>
+        <ChevronDownIcon className="h-4 w-4 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+      </summary>
+      <div className={clsx("mt-2", AGENT_EVENTS_TIMELINE_CLASS)}>
+        {events.map((event, eventIndex) => {
+          const hasFollowingEvent = eventIndex < events.length - 1
+
+          if (event.type === 'reasoning') {
+            return (
+              <ReasoningItem
+                key={event.eventKey || `reasoning-${eventIndex}`}
+                text={event.text}
+                isStreaming={isStreaming}
+                hasFollowingEvent={hasFollowingEvent}
+                isAnswerStreaming={isAnswerStreaming}
+                thinkingLabel={labels.agentActivityThinking}
+              />
+            )
+          }
+
+          if (event.type === 'tool_call') {
+            return (
+              <div key={event.eventKey || `toolcall-${eventIndex}`} className="mt-2">
+                <ToolCallDisplay
+                  toolCalls={[event]}
+                  isStreamingStarted={isAnswerStreaming || hasFollowingEvent || !isStreaming}
+                  labels={labels}
+                />
+              </div>
+            )
+          }
+
+          return null
+        })}
+      </div>
+    </details>
+  )
+})
+AgentEventsList.displayName = 'AgentEventsList'
 
 export default function Chat({ team, bot, showResearchMode = false, newDashboard = false }) {
   const getDefaultWebSearchEnabled = useCallback(
@@ -1405,13 +1654,14 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
             try {
               const reasoningData = JSON.parse(msg.data)
               const newEvent = {
-                id: uuidv4(),
+                eventKey: uuidv4(),
+                reasoningId: reasoningData.id || null,
                 type: 'reasoning',
                 text: reasoningData.text || '',
                 timestamp: Date.now(),
               }
               setAgentEvents((prev) => {
-                const updated = [...prev, newEvent]
+                const updated = upsertReasoningEvent(prev, newEvent)
                 agentEventsRef.current = updated
                 return updated
               })
@@ -1721,6 +1971,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
     const page = currentSource?.page ? ` - Page ${currentSource?.page}` : ''
     const SourceIcon = currentSource?.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(currentSource)
 
     return (
       <Transition.Root show={!!currentSource} as={Fragment}>
@@ -1765,10 +2016,20 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                         as="h3"
                         className="flex items-center justify-start text-xl font-semibold leading-6 text-gray-900"
                       >
-                        <SourceIcon
-                          className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-800"
-                          aria-hidden="true"
-                        />
+                        {sourceFavicon ? (
+                          <img
+                            src={sourceFavicon}
+                            alt=""
+                            width={16}
+                            height={16}
+                            className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+                          />
+                        ) : (
+                          <SourceIcon
+                            className="mr-1.5 h-4 w-4 flex-shrink-0 text-gray-800"
+                            aria-hidden="true"
+                          />
+                        )}
                         {currentSource.url ? (
                           <Link
                             href={currentSource.url}
@@ -1811,6 +2072,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
   const SourceResearch = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
     const page = source.page ? ` - Page ${source.page}` : ''
 
     if (source.used === false && !isContextBoost) return null
@@ -1821,13 +2083,23 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           onClick={() => setCurrentSource(source)}
           className="flex items-center text-left text-sm font-medium leading-tight text-gray-500"
         >
-          <SourceIcon
-            className={clsx(
-              'mr-1.5 h-4 w-4 flex-shrink-0',
-              source.used === true ? 'text-gray-600' : 'text-gray-400',
-            )}
-            aria-hidden="true"
-          />
+          {sourceFavicon ? (
+            <img
+              src={sourceFavicon}
+              alt=""
+              width={16}
+              height={16}
+              className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+            />
+          ) : (
+            <SourceIcon
+              className={clsx(
+                'mr-1.5 h-4 w-4 flex-shrink-0',
+                source.used === true ? 'text-gray-600' : 'text-gray-400',
+              )}
+              aria-hidden="true"
+            />
+          )}
           {source.title || source.url}
           {page}
         </button>
@@ -1837,19 +2109,30 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
     const page = source.page ? ` - Page ${source.page}` : ''
 
     if (source.used === false && !isContextBoost) return null
 
     return (
       <li className="my-1 flex cursor-pointer items-center">
-        <SourceIcon
-          className={clsx(
-            'mr-1.5 h-4 w-4 flex-shrink-0',
-            source.used === true ? 'text-gray-600' : 'text-gray-400',
-          )}
-          aria-hidden="true"
-        />
+        {sourceFavicon ? (
+          <img
+            src={sourceFavicon}
+            alt=""
+            width={16}
+            height={16}
+            className="mr-1.5 h-4 w-4 flex-shrink-0 rounded-sm"
+          />
+        ) : (
+          <SourceIcon
+            className={clsx(
+              'mr-1.5 h-4 w-4 flex-shrink-0',
+              source.used === true ? 'text-gray-600' : 'text-gray-400',
+            )}
+            aria-hidden="true"
+          />
+        )}
         {source.url ? (
           <Link
             href={source.url}
@@ -2202,37 +2485,24 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
         ? answers.length - 1 
         : answers.length
     )
+    let latestCompletedEventsIndex = -1
+    completedMessages.forEach((answer, index) => {
+      if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
+        latestCompletedEventsIndex = index
+      }
+    })
     const result = []
     completedMessages.forEach((answer, index) => {
       // Render agent events (reasoning and tool calls) in order before answer
       if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
-        const agentEvents = []
-        answer.agentEvents.forEach((event, eventIndex) => {
-          const hasFollowingEvent = eventIndex < answer.agentEvents.length - 1
-          if (event.type === 'reasoning') {
-            agentEvents.push(
-              <ReasoningItem key={`reasoning-${answer.id || index}-${eventIndex}`} text={event.text} isStreaming={false} hasFollowingEvent={hasFollowingEvent} thinkingLabel={bot.labels.agentActivityThinking} />
-            )
-          } else if (event.type === 'tool_call') {
-            agentEvents.push(
-              <div key={`toolcall-${answer.id || index}-${eventIndex}`} className="mt-2">
-                <ToolCallDisplay
-                  toolCalls={[event]}
-                  isStreamingStarted={true}
-                  labels={bot.labels}
-                />
-              </div>
-            )
-          }
-        })
-        // Wrap all agent events in a container with extra top margin
-        if (agentEvents.length > 0) {
-          result.push(
-            <div key={`agent-events-${answer.id || index}`} className="mt-4">
-              {agentEvents}
-            </div>
-          )
-        }
+        result.push(
+          <AgentEventsList
+            key={`agent-events-${answer.id || index}`}
+            events={answer.agentEvents}
+            defaultOpen={!loading && index === latestCompletedEventsIndex}
+            labels={bot.labels}
+          />
+        )
       }
       // Render the message (question or answer)
       result.push(
@@ -2306,31 +2576,14 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
               {standardMessagesUI}
               {/* Render agent events (reasoning and tool calls) while loading, in order */}
               {loading && agentEvents.length > 0 && (
-                <div className="mt-4">
-                  {agentEvents.map((event, eventIndex) => {
-                    const hasFollowingEvent = eventIndex < agentEvents.length - 1
-                    const isAnswerStreaming = currentAnswer.length > 0
-                    if (event.type === 'reasoning') {
-                      return (
-                        <ReasoningItem key={`streaming-reasoning-${eventIndex}`} text={event.text} isStreaming={true} hasFollowingEvent={hasFollowingEvent} isAnswerStreaming={isAnswerStreaming} thinkingLabel={bot.labels.agentActivityThinking} />
-                      )
-                    } else if (event.type === 'tool_call') {
-                      return (
-                        <div key={`streaming-toolcall-${eventIndex}`} className="mt-2">
-                          <ToolCallDisplay
-                            toolCalls={[event]}
-                            isStreamingStarted={
-                              isAnswerStreaming || hasFollowingEvent
-                            }
-                            labels={bot.labels}
-                          />
-                        </div>
-                      )
-                    }
-                    return null
-                  })}
-
-                </div>
+                <AgentEventsList
+                  key={`streaming-agent-events-${answers[answers.length - 1]?.id || 'current'}`}
+                  events={agentEvents}
+                  defaultOpen={true}
+                  labels={bot.labels}
+                  isStreaming={true}
+                  isAnswerStreaming={currentAnswer.length > 0}
+                />
               )}
               {/* Render streaming message separately so only it updates */}
               {loading && answers.length > 0 && answers[answers.length - 1].type === 'answer' && (

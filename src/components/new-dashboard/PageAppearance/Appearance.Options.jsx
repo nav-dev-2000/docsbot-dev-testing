@@ -14,6 +14,7 @@ const AppearanceToggle = ({
     isNew,
     planLabel,
     className,
+    switchClassName,
 }) => {
     return (
         <Switch.Group
@@ -26,7 +27,7 @@ const AppearanceToggle = ({
             <div className="flex items-center gap-2">
                 {label && (
                     <Switch.Label
-                        as="span"
+                        as="div"
                         className="flex flex-1 items-center text-sm font-medium text-gray-800"
                         passive
                     >
@@ -56,6 +57,7 @@ const AppearanceToggle = ({
                             ['bg-cyan-500']: enabled,
                             ['bg-gray-300']: !enabled,
                         },
+                        switchClassName,
                     )}
                 >
                     <span

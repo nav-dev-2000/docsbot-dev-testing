@@ -17,6 +17,32 @@ import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
 import { preprocessMath } from '@/utils/markdown'
 
+function faviconUrl(displayUrl) {
+  try {
+    const href = /^https?:\/\//i.test(displayUrl)
+      ? displayUrl
+      : `https://${displayUrl}`
+    const host = new URL(href).hostname.replace(/^www\./i, '')
+    if (!host) return ''
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=16`
+  } catch {
+    return ''
+  }
+}
+
+const FAVICON_SOURCE_TYPES = new Set(['url', 'urls', 'sitemap', 'rss'])
+
+function sourceFaviconUrl(source) {
+  const sourceType =
+    typeof source?.type === 'string' ? source.type.trim().toLowerCase() : ''
+
+  if (!FAVICON_SOURCE_TYPES.has(sourceType) || !source?.url) {
+    return ''
+  }
+
+  return faviconUrl(source.url)
+}
+
 export default function AskStreaming({ teamId, bot, isPublic = false }) {
   const [question, setQuestion] = useState('')
   const [answer, setAnswer] = useState('')
@@ -207,13 +233,24 @@ export default function AskStreaming({ teamId, bot, isPublic = false }) {
 
   const Source = ({ source }) => {
     const SourceIcon = source.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
     const page = source.page ? ` Page ${source.page}` : ''
 
     return (
       <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-cyan-500 focus-within:ring-offset-2 hover:border-gray-400">
         <div className="flex-shrink-0">
           <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 p-3 shadow-lg">
-            <SourceIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            {sourceFavicon ? (
+              <img
+                src={sourceFavicon}
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-sm"
+              />
+            ) : (
+              <SourceIcon className="h-6 w-6 text-white" aria-hidden="true" />
+            )}
           </span>
         </div>
         <div className="min-w-0 flex-1">

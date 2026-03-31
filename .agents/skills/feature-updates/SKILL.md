@@ -4,7 +4,9 @@ description: Guidelines for maintaining the product feature updates list. Use wh
 ---
 - Add new product features and noteworthy improvements by creating a JSON file in `src/constants/feature-updates/`. Skip small UX improvements or bug fixes.
 - **File naming:** `YYYY-MM-DD-slugified-title.json` (e.g. `2026-03-18-gpt-5-4-mini.json`). Use slug from title; if a file already exists for that date+slug, append `-2`, `-3`, etc.
+- **Title capitalization:** use sentence case. Capitalize only the first word and proper nouns/acronyms unless the product name or model name requires a different style.
 - **File format:** Each file must contain `date` (ISO `YYYY-MM-DD`), `title`, and `description`. Keep descriptions concise (<= 140 chars when possible).
+- **Announcement style:** focus descriptions on the user benefit or outcome first, not the technical implementation. Prefer what the feature helps users do over how it was built.
 - **Optional link:** Only include `href` if we can verify the correct URL from local docs/routes (search `src/pages/**` and `src/pages/documentation/**` for the matching page).
   - If a relevant route isn’t found or can’t be verified, omit `href` so the "Details" link is not rendered.
   - When present, `href` must be an internal path (must start with `/`) or a full `https://...` URL.

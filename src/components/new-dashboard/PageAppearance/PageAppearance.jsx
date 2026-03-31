@@ -303,9 +303,14 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [showPromptModal, setShowPromptModal] = useState(false)
     const [activeTab, setActiveTab] = useState('content')
     const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [hasHydrated, setHasHydrated] = useState(false)
     const controlValue = controlProp
         || (Array.isArray(router.query.control) ? router.query.control[0] : router.query.control)
         || 'design'
+
+    useEffect(() => {
+        setHasHydrated(true)
+    }, [])
 
     //bot settings
     const [allowedDomains, setAllowedDomains] = useState(
@@ -895,6 +900,17 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             return
         }
 
+        const finalTools =
+            bot?.privacy !== 'private' && normalizedTools?.web_search?.enabled === true
+                ? {
+                      ...normalizedTools,
+                      web_search: {
+                          ...(normalizedTools?.web_search || {}),
+                          enabled: false,
+                      },
+                  }
+                : normalizedTools
+
         const botSettings = {
             allowedDomains,
             color,
@@ -910,7 +926,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             logo,
             headerAlignment,
             isAgent,
-            tools: normalizedTools,
+            tools: finalTools,
             imageUploads,
             leadCollect,
             linkSafetyEnabled,
@@ -1082,7 +1098,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
                     bot={bot}
-                    canManageStripeActions={isSuperAdmin(user?.uid)}
+                    canManageStripeActions={hasHydrated && isSuperAdmin(user?.uid)}
                     stripeOAuthLoading={stripeOAuthLoading}
                     setStripeOAuthLoading={setStripeOAuthLoading}
                     stripeOAuthError={stripeOAuthError}

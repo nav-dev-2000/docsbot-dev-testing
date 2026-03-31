@@ -15,6 +15,32 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import FieldToggle from '@/components/FieldToggle'
 
+function faviconUrl(displayUrl) {
+  try {
+    const href = /^https?:\/\//i.test(displayUrl)
+      ? displayUrl
+      : `https://${displayUrl}`
+    const host = new URL(href).hostname.replace(/^www\./i, '')
+    if (!host) return ''
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=16`
+  } catch {
+    return ''
+  }
+}
+
+const FAVICON_SOURCE_TYPES = new Set(['url', 'urls', 'sitemap', 'rss'])
+
+function sourceFaviconUrl(source) {
+  const sourceType =
+    typeof source?.type === 'string' ? source.type.trim().toLowerCase() : ''
+
+  if (!FAVICON_SOURCE_TYPES.has(sourceType) || !source?.url) {
+    return ''
+  }
+
+  return faviconUrl(source.url)
+}
+
 const BotSearch = ({ team, bot, setErrorText, fullWidth = false }) => {
   const [searchInput, setSearchInput] = useState('')
   const [searchSize] = useState(16)
@@ -39,8 +65,22 @@ const BotSearch = ({ team, bot, setErrorText, fullWidth = false }) => {
   }, [searchInput])
 
   const SourceIcon = ({ source }) => {
-    const SourceIcon = source?.url ? LinkIcon : DocumentTextIcon
-    return <SourceIcon className="h-5 w-5 flex-none" />
+    const SourceGlyph = source?.url ? LinkIcon : DocumentTextIcon
+    const sourceFavicon = sourceFaviconUrl(source)
+
+    if (sourceFavicon) {
+      return (
+        <img
+          src={sourceFavicon}
+          alt=""
+          width={20}
+          height={20}
+          className="h-5 w-5 flex-none rounded-sm"
+        />
+      )
+    }
+
+    return <SourceGlyph className="h-5 w-5 flex-none" />
   }
 
   const handleSearch = async (e) => {
