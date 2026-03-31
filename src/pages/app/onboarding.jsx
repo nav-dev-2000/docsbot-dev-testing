@@ -2842,8 +2842,8 @@ function Onboarding({ team }) {
           animation: subtle-bounce 2s ease-in-out infinite;
         }
       `}</style>
-      <div className="flex min-h-screen flex-col bg-gray-50">
-        <header className="border-b border-gray-200 bg-white">
+      <div className="flex md:h-full md:min-h-0 flex-col bg-gray-50">
+        <header className="md:flex-grow-0 border-b border-gray-200 bg-white">
           <div className="mx-auto flex w-full max-w-7xl items-center px-6 py-4">
             <Image
               src={docsbotLogo}
@@ -2853,12 +2853,13 @@ function Onboarding({ team }) {
             />
           </div>
         </header>
-        <main className="flex flex-1 items-center justify-center bg-gray-100 px-4 py-10">
-          <div className="w-full max-w-7xl">
-            <div className="rounded-2xl border border-gray-200 bg-white">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
+        <main className="flex md:min-h-0 flex-1 flex-col bg-gray-100">
+          <div className="flex min-h-0 flex-1 justify-center px-4 py-10">
+            <div className="w-full max-w-7xl flex min-h-0 flex-1">
+              <div className="rounded-2xl border border-gray-200 bg-white flex min-h-0 flex-1">
+                <div className="grid md:min-h-0 flex-1 w-full grid-cols-1 lg:grid-cols-2">
                 {/* Left Column - Form Content */}
-                <div className="p-8 sm:p-12">
+                <div className="md:h-full md:min-h-0 md:overflow-y-auto p-8 sm:p-12">
                   <div className="space-y-6">
                     {isMaintenanceActive && currentStep === 0 && (
                       <Alert title="Vector database maintenance" type="warning">
@@ -2995,7 +2996,7 @@ function Onboarding({ team }) {
                     'relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0',
                     currentStep === 3
                       ? 'min-h-[max(54rem,min(92vh,62rem))]'
-                      : 'min-h-[500px]',
+                      : 'h-full min-h-0 overflow-y-auto items-center justify-center',
                   )}
                   style={{
                     backgroundImage: `url(${circuitBg.src})`,
@@ -3383,6 +3384,7 @@ function Onboarding({ team }) {
                     </div>
                   )}
                 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -3580,7 +3582,7 @@ function Onboarding({ team }) {
           </Dialog>
         </Transition.Root>
 
-        <footer className="border-t border-gray-200 bg-white">
+        <footer className="md:flex-grow-0 border-t border-gray-200 bg-white">
           <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-6">
             {(currentStep > 0 || team?.botCount > 0) && (
               <button
