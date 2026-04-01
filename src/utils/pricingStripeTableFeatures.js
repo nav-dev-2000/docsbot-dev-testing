@@ -98,11 +98,12 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
         integrations: 1,
         analytics: 2,
         ai: 3,
-        features: 4,
-        sources: 5,
-        customization: 6,
-        support: 7,
-        compliance: 8,
+        actions: 4,
+        features: 5,
+        sources: 6,
+        customization: 7,
+        support: 8,
+        compliance: 9,
       }
       return (priority[aCat] || 99) - (priority[bCat] || 99)
     })

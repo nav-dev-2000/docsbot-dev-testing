@@ -36,6 +36,7 @@ Use `Authorization: Bearer <token>` when you need authenticated behavior (higher
 | **calendly**           | boolean         | Whether to enable the Calendly booking tool for this request. When enabled, the agent can emit the `book_calendly` tool if the bot has `tools.calendly` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                    |
 | **calcom**             | boolean         | Whether to enable the Cal.com booking tool for this request. When enabled, the agent can emit the `book_calcom` tool if the bot has `tools.calcom` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                          |
 | **tidycal**            | boolean         | Whether to enable the TidyCal booking tool for this request. When enabled, the agent can emit the `book_tidycal` tool if the bot has `tools.tidycal` configured with `enabled: true`, `instructions`, and `url`. Optional, defaults to `false`.                        |
+| **custom_buttons**     | boolean         | Whether to enable saved custom button tools for this request. When enabled, every entry in `tools.customButtons` with `enabled: true`, `name`, `functionKey`, `instructions`, `buttonText`, `icon`, and `url` becomes an internal tool named `button_<functionKey>`. Optional, defaults to `false`. |
 | **document_retriever** | boolean         | Whether to retrieve documents for the bot to answer from. Optional, defaults to `true`.                                                                                                                                     |
 | **full_source**        | boolean         | Whether the full source content should be returned. Optional, defaults to `false`.                                                                                                                                          |
 | **autocut**            | integer/boolean | Autocut results to num groups. Optional, defaults to `false`.                                                                                                                                                               |
@@ -75,6 +76,7 @@ Newer AI models like GPT-4o and GPT-4.1 Turbo support multimodal inputs, which m
   "calendly": true,
   "calcom": false,
   "tidycal": false,
+  "custom_buttons": true,
   "document_retriever": true,
   "full_source": false,
   "stream": false,
@@ -253,6 +255,8 @@ There is **no** dedicated SSE event for documentation search: the agent uses the
 
 Some tools are configured on the bot itself. For example, if `bot.tools.calendly`, `bot.tools.calcom`, or `bot.tools.tidycal` contains `enabled: true`, scheduling `instructions`, and the provider booking path generated from its validated URL, and your request explicitly enables that provider via `calendly: true`, `calcom: true`, or `tidycal: true`, the agent can emit a `tool_call` with `name: "book_calendly"`, `name: "book_calcom"`, or `name: "book_tidycal"` and then stop after returning the tool-provided booking message.
 
+Custom buttons are also bot-configured tools. If `bot.tools.customButtons` contains an enabled entry like `{ "functionKey": "pricing", "icon": "BanknotesIcon", ... }` and your request includes `custom_buttons: true`, the agent can emit a `tool_call` with `name: "button_pricing"`. Stored keys never include the `button_` prefix; DocsBot adds that internally when exposing the tool. The saved `icon` does not change the tool name; it is widget metadata and falls back to `LinkIcon` when invalid or missing.
+
 #### Example: `search_documentation`
 
 After one `JSON.parse` of `data`:
@@ -348,6 +352,25 @@ Parsed `params`:
 ```json
 {
   "instructions": "Use this when the user wants to book office hours or a meeting."
+}
+```
+
+#### Example: `button_pricing`
+
+After `JSON.parse` of `data`:
+
+```json
+{
+  "name": "button_pricing",
+  "params": "{\"instructions\":\"Use this when the user asks about pricing plans or plan differences.\"}"
+}
+```
+
+Parsed `params`:
+
+```json
+{
+  "instructions": "Use this when the user asks about pricing plans or plan differences."
 }
 ```
 

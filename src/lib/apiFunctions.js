@@ -6,7 +6,11 @@ import { getBot, getTeam } from '@/lib/dbQueries'
 import { deleteTenant } from '@/lib/weaviate'
 import { deleteTurbopufferNamespace } from '@/lib/turbopuffer'
 import { QueueSourceExpel } from '@/lib/service'
-import { isSuperAdmin, checkPlanPermission } from '@/utils/helpers'
+import {
+  isSuperAdmin,
+  checkPlanPermission,
+  getCustomButtonsSlotLimit,
+} from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
 import crypto from 'crypto'
@@ -17,7 +21,11 @@ import {
   isLeadCollectEnabled,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
-import { BOOKING_ACTION_KEYS, sanitizeBotTools } from '@/lib/botActions'
+import {
+  BOOKING_ACTION_KEYS,
+  CUSTOM_BUTTONS_ACTION_KEY,
+  sanitizeBotTools,
+} from '@/lib/botActions'
 import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
 import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
 import {
@@ -920,6 +928,14 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       if (toolName === 'stripe') {
         continue
       }
+      // customButtons is a sanitized array; spreading an array would turn it into {0:…,1:…}
+      if (
+        toolName === CUSTOM_BUTTONS_ACTION_KEY &&
+        Array.isArray(toolConfig)
+      ) {
+        validTools[toolName] = toolConfig
+        continue
+      }
       if (typeof toolConfig === 'boolean') {
         validTools[toolName] = toolConfig
       } else if (typeof toolConfig === 'object' && toolConfig !== null) {
@@ -1055,6 +1071,27 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
         'Scheduling tools are only available on the Personal plan or higher.',
       )
     }
+
+    const customButtonsList = validTools?.customButtons
+    if (Array.isArray(customButtonsList) && customButtonsList.length > 0) {
+      const slotLimit = getCustomButtonsSlotLimit(team)
+      if (!isSuperAdmin(userId)) {
+        if (slotLimit === 0) {
+          throw new Error(
+            'Custom CTA buttons are only available on the Personal plan or higher.',
+          )
+        }
+        if (
+          slotLimit !== Number.POSITIVE_INFINITY &&
+          customButtonsList.length > slotLimit
+        ) {
+          throw new Error(
+            'Your plan includes one custom CTA button. Upgrade to Standard or higher to add more.',
+          )
+        }
+      }
+    }
+
 
     const webSearchConfig = validTools?.web_search
     const webSearchEnabled =

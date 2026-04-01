@@ -1,5 +1,5 @@
 export const WEB_SEARCH_COMPATIBLE_MODELS_LABEL =
-  'GPT-4o mini, GPT-4o, GPT-4.1 mini, GPT-4.1, or GPT-5+'
+  'GPT-4.1 mini, GPT-4.1, GPT-4o mini, GPT-4o, or GPT-5+'
 
 export const DEFAULT_WEB_SEARCH_MODEL = 'gpt-5.4-nano'
 

@@ -1,26 +1,38 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
+import clsx from 'clsx'
 import {
     AppearanceToggle,
     AppearanceBlock,
     AppearanceInput,
     AppearanceAccordion,
+    AppearanceActionCategory,
 } from './Appearance.Options'
 import LeadCollectionToolSettings from '@/components/LeadCollectionToolSettings'
-import Tooltip from '@/components/Tooltip'
+import PromptIcon from '@/components/PromptIcon'
+import { DEFAULT_CUSTOM_BUTTON_ICON } from '@/constants/heroIcons.constants'
 import { i18n } from '@/constants/strings.constants'
 import {
     BOOKING_ACTION_KEYS,
     BOOKING_ACTIONS,
+    buildCustomButtonFunctionKey,
+    createDefaultCustomButtonAction,
+    finalizeCustomButtonFunctionKeyInput,
+    sanitizeCustomButtonFunctionKeyLiveInput,
+    CUSTOM_BUTTON_TOOL_PREFIX,
     DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
+    DEFAULT_CUSTOM_BUTTON_TRIGGER_INSTRUCTIONS,
     normalizeBookingPathInput,
 } from '@/lib/botActions'
-import { checkPlanPermission } from '@/utils/helpers'
+import { checkPlanPermission, getCustomButtonsSlotLimit } from '@/utils/helpers'
 import {
+    ArrowPathIcon,
     ClipboardDocumentListIcon,
     GlobeAltIcon,
     HandThumbUpIcon,
     LifebuoyIcon,
     LinkSlashIcon,
+    PlusIcon,
+    TrashIcon,
 } from '@heroicons/react/24/outline'
 import {
     DEFAULT_WEB_SEARCH_MODEL,
@@ -145,6 +157,56 @@ const BuiltInToolLabel = ({ icon: Icon, name }) => (
     </div>
 )
 
+const CustomButtonActionToggle = ({
+    enabled,
+    displayName,
+    icon,
+    isUpdating,
+    onEnabledChange,
+}) => (
+    <AppearanceToggle
+        enabled={enabled}
+        setEnabled={onEnabledChange}
+        disabled={isUpdating}
+        label={
+            <div className="flex items-center gap-3">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+                    <PromptIcon
+                        icon={icon}
+                        className="size-6 text-gray-700"
+                    />
+                </div>
+                <span className="text-sm font-semibold text-gray-900">
+                    {displayName}
+                </span>
+            </div>
+        }
+    />
+)
+
+const ADD_CUSTOM_BUTTON_DASHED_CLASS =
+    'group flex w-full items-center justify-center gap-2 rounded-lg border-[2pt] border-dashed border-gray-200 bg-white px-4 py-3 text-center transition hover:border-cyan-500/40 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
+
+const AddCustomButtonDashedButton = ({ onClick, disabled }) => (
+    <button
+        type="button"
+        onClick={onClick}
+        disabled={disabled}
+        className={ADD_CUSTOM_BUTTON_DASHED_CLASS}
+    >
+        <PlusIcon
+            className="h-5 w-5 shrink-0 text-gray-500 group-hover:text-cyan-600"
+            aria-hidden="true"
+        />
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-800 group-hover:text-cyan-700">
+            Add new
+            <span className="rounded border border-gray-300 bg-gray-50 px-1.5 py-0.5 text-sm font-medium leading-none shadow-sm transition group-hover:border-cyan-400 group-hover:bg-cyan-50/60 group-hover:text-cyan-800">
+                button
+            </span>
+        </span>
+    </button>
+)
+
 const AppearanceActions = ({
     bot,
     toggleSchedulingAction,
@@ -167,7 +229,16 @@ const AppearanceActions = ({
     setStripeOAuthError,
     onStripeOAuthPopupClosed,
     canManageStripeActions = false,
+    customButtonFieldErrors = {},
+    onClearCustomButtonFieldError,
+    onClearCustomButtonRowErrors,
+    onClearAllCustomButtonFieldErrors,
 }) => {
+    const [customButtonPrompt, setCustomButtonPrompt] = useState('')
+    const [customButtonPromptOpen, setCustomButtonPromptOpen] = useState(false)
+    const [customButtonPromptLoading, setCustomButtonPromptLoading] =
+        useState(false)
+    const [customButtonPromptError, setCustomButtonPromptError] = useState('')
     const stripe = normalizeStripe(tools?.stripe)
     const stripeStatus = getStripeStatus(stripe)
     const webSearchPlanCheck = checkPlanPermission(team, 'standard')
@@ -180,6 +251,19 @@ const AppearanceActions = ({
     const webSearchEnabled = !isPublicBot && tools?.web_search?.enabled === true
     const connectLoading = stripeOAuthLoading
     const connectError = stripeOAuthError
+    const customButtons = Array.isArray(tools?.customButtons)
+        ? tools.customButtons
+        : []
+    const customButtonSlotLimit = getCustomButtonsSlotLimit(team)
+    const canUseCustomButtons = customButtonSlotLimit > 0
+    const canAddAnotherCustomButton =
+        customButtonSlotLimit === Number.POSITIVE_INFINITY ||
+        customButtons.length < customButtonSlotLimit
+    const customButtonsPlanCheck = checkPlanPermission(
+        team,
+        'personal',
+        'customButtons',
+    )
     const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
         const meta = BOOKING_ACTIONS[key]
         const active = tools?.[key]
@@ -191,7 +275,7 @@ const AppearanceActions = ({
             normalizedBookingPath = bookingValue
                 ? normalizeBookingPathInput(
                       bookingValue,
-                      `bot.tools.${key}.${meta.urlKey}`,
+                      meta.label,
                       meta,
                   )
                 : ''
@@ -237,6 +321,196 @@ const AppearanceActions = ({
         }
 
         toggleSchedulingAction(actionKey, nextEnabled)
+    }
+
+    const updateCustomButton = (index, field, value) => {
+        onClearCustomButtonFieldError?.(index, field)
+        if (field === 'name') {
+            onClearCustomButtonFieldError?.(index, 'functionKey')
+        }
+        setTools((prev) => {
+            const currentButtons = Array.isArray(prev?.customButtons)
+                ? prev.customButtons
+                : []
+
+            return {
+                ...(prev || {}),
+                customButtons: currentButtons.map((buttonConfig, buttonIndex) => {
+                    if (buttonIndex !== index) {
+                        return buttonConfig
+                    }
+
+                    const nextButton = {
+                        ...buttonConfig,
+                    }
+
+                    if (field === 'name') {
+                        nextButton.name = value
+                        if (!nextButton.__manualFunctionKey) {
+                            nextButton.functionKey =
+                                buildCustomButtonFunctionKey(value)
+                        }
+                        return nextButton
+                    }
+
+                    if (field === 'functionKey') {
+                        nextButton.functionKey =
+                            sanitizeCustomButtonFunctionKeyLiveInput(value)
+                        nextButton.__manualFunctionKey = true
+                        return nextButton
+                    }
+
+                    nextButton[field] = value
+                    return nextButton
+                }),
+            }
+        })
+    }
+
+    const finalizeCustomButtonFunctionKeyAtIndex = (index) => {
+        setTools((prev) => {
+            const currentButtons = Array.isArray(prev?.customButtons)
+                ? prev.customButtons
+                : []
+            const current = currentButtons[index]?.functionKey ?? ''
+            const finalized = finalizeCustomButtonFunctionKeyInput(current)
+            if (finalized === current) {
+                return prev
+            }
+            return {
+                ...(prev || {}),
+                customButtons: currentButtons.map((buttonConfig, buttonIndex) => {
+                    if (buttonIndex !== index) {
+                        return buttonConfig
+                    }
+                    return {
+                        ...buttonConfig,
+                        functionKey: finalized,
+                        __manualFunctionKey: true,
+                    }
+                }),
+            }
+        })
+    }
+
+    const createCustomButtonDraft = async () => {
+        const input = customButtonPrompt.trim()
+
+        if (!input || !team?.id || !bot?.id) {
+            return
+        }
+
+        if (!canUseCustomButtons || !canAddAnotherCustomButton) {
+            setCustomButtonPromptError(
+                !canUseCustomButtons
+                    ? 'Custom CTA buttons require the Personal plan or higher.'
+                    : 'Your plan includes one custom button. Upgrade to Standard or higher to add another.',
+            )
+            return
+        }
+
+        setCustomButtonPromptLoading(true)
+        setCustomButtonPromptError('')
+
+        try {
+            const response = await fetch(
+                `/api/teams/${team.id}/bots/${bot.id}/custom-button-draft`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ input }),
+                },
+            )
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(
+                    data?.message ||
+                        'Unable to generate a custom button draft.',
+                )
+            }
+
+            setTools((prev) => ({
+                ...(prev || {}),
+                customButtons: [
+                    ...(Array.isArray(prev?.customButtons)
+                        ? prev.customButtons
+                        : []),
+                    {
+                        ...createDefaultCustomButtonAction(),
+                        enabled: true,
+                        name: data?.name || '',
+                        functionKey: buildCustomButtonFunctionKey(
+                            data?.functionKey || data?.name || '',
+                        ),
+                        instructions: data?.instructions || '',
+                        buttonText: data?.buttonText || '',
+                        icon: data?.icon || DEFAULT_CUSTOM_BUTTON_ICON,
+                    },
+                ],
+            }))
+
+            setCustomButtonPrompt('')
+            setCustomButtonPromptOpen(false)
+            onClearAllCustomButtonFieldErrors?.()
+        } catch (error) {
+            setCustomButtonPromptError(
+                error?.message ||
+                    'Unable to generate a custom button draft.',
+            )
+        } finally {
+            setCustomButtonPromptLoading(false)
+        }
+    }
+
+    const removeCustomButton = (index) => {
+        onClearAllCustomButtonFieldErrors?.()
+        setTools((prev) => ({
+            ...(prev || {}),
+            customButtons: (Array.isArray(prev?.customButtons)
+                ? prev.customButtons
+                : []
+            ).filter((_, buttonIndex) => buttonIndex !== index),
+        }))
+    }
+
+    const openAddCustomButton = () => {
+        if (!canUseCustomButtons) {
+            setShowUpgrade(true)
+            return
+        }
+        if (!canAddAnotherCustomButton) {
+            setShowUpgrade(true)
+            return
+        }
+        setCustomButtonPromptOpen(true)
+        setCustomButtonPromptError('')
+    }
+
+    const handleCustomButtonToggle = (index, nextEnabled) => {
+        if (nextEnabled && !canUseCustomButtons) {
+            setShowUpgrade(true)
+            return
+        }
+
+        if (!nextEnabled) {
+            onClearCustomButtonRowErrors?.(index)
+        }
+        setTools((prev) => {
+            const currentButtons = Array.isArray(prev?.customButtons)
+                ? prev.customButtons
+                : []
+            return {
+                ...(prev || {}),
+                customButtons: currentButtons.map((buttonConfig, buttonIndex) =>
+                    buttonIndex === index
+                        ? { ...buttonConfig, enabled: nextEnabled }
+                        : buttonConfig,
+                ),
+            }
+        })
     }
 
     const setStripe = (nextStripe) =>
@@ -323,7 +597,7 @@ const AppearanceActions = ({
 
     return (
         <>
-            <AppearanceBlock className="flex flex-col gap-4">
+            <AppearanceBlock className="flex flex-col gap-4" isLast={true}>
                 <AppearanceToggle
                     label={
                         <BuiltInToolLabel
@@ -476,23 +750,21 @@ const AppearanceActions = ({
             </AppearanceBlock>
 
             {isAgent && (
-                <div>
-                    <AppearanceBlock
-                        title="Scheduling Tools"
-                        isNew={true}
-                        isLast={true}
-                        planLabel={
-                            !schedulingPlanCheck.allowed
-                                ? schedulingPlanCheck.requiredPlanLabel
-                                : null
-                        }
-                        description="Trigger an embedded calendar booking widget to book a meeting with you. When available, the user’s name and email are prefilled. Booking details are also added to metadata so you can see them in logs and the AI can use them for future responses."
-                    >
-                        <div className="flex flex-col">
+                <AppearanceActionCategory
+                    title="Scheduling Tools"
+                    isNew={true}
+                    planLabel={
+                        !schedulingPlanCheck.allowed
+                            ? schedulingPlanCheck.requiredPlanLabel
+                            : null
+                    }
+                    description="Trigger an embedded calendar booking widget to book a meeting with you. When available, the user’s name and email are prefilled. Booking details are also added to metadata so you can see them in logs and the AI can use them for future responses."
+                >
+                        <div className="flex flex-col gap-3">
                             {schedulingActions.map((action) => (
                                 <div
                                     key={action.key}
-                                    className="border-t border-gray-200 pt-3 first:border-t-0 first:pt-0 flex flex-col gap-3"
+                                    className="flex flex-col gap-3"
                                 >
                                     <SchedulingActionToggle
                                         enabled={action.enabled}
@@ -510,7 +782,7 @@ const AppearanceActions = ({
                                         <div className="ml-4 flex flex-col gap-2 pb-3">
                                             <label
                                                 htmlFor={`${action.key}-booking-url`}
-                                                className="text-xs font-medium text-gray-700"
+                                                className="text-xs font-semibold text-gray-900"
                                             >
                                                 Booking URL
                                             </label>
@@ -548,7 +820,7 @@ const AppearanceActions = ({
                                         ) : null}
                                             <label
                                                 htmlFor={`${action.key}-instructions`}
-                                                className="text-xs font-medium text-gray-700"
+                                                className="text-xs font-semibold text-gray-900"
                                             >
                                                 When to trigger
                                             </label>
@@ -614,38 +886,442 @@ const AppearanceActions = ({
                                 </div>
                             ))}
                         </div>
-                    </AppearanceBlock>
-                </div>
+                </AppearanceActionCategory>
+            )}
+
+            {isAgent && (
+                <AppearanceActionCategory
+                    title="Custom Buttons"
+                    titleTag="h4"
+                    isNew={true}
+                    planLabel={
+                        !canUseCustomButtons
+                            ? customButtonsPlanCheck.requiredPlanLabel
+                            : null
+                    }
+                    description="Let your bot trigger a clickable button to show to users based on your instructions. Use it for pricing and plans, booking or demos, signup or downloads, or any page you want visitors to reach in one click."
+                >
+                        <div className="flex flex-col gap-3">
+                            {canUseCustomButtons &&
+                            !canAddAnotherCustomButton &&
+                            customButtons.length > 0 ? (
+                                <p className="text-xs text-gray-600">
+                                    Your plan includes one custom button. Upgrade to
+                                    Standard or higher to add more.
+                                </p>
+                            ) : null}
+                            {!customButtonPromptOpen &&
+                            customButtons.length === 0 ? (
+                                <AddCustomButtonDashedButton
+                                    onClick={openAddCustomButton}
+                                    disabled={isUpdating}
+                                />
+                            ) : null}
+
+                            {customButtons.length > 0 ? (
+                            <div className="flex flex-col gap-3">
+                            {customButtons.map((buttonConfig, index) => {
+                                const functionKey = buttonConfig?.functionKey || ''
+                                const displayName =
+                                    buttonConfig?.name?.trim() || `Button ${index + 1}`
+                                const buttonEnabled =
+                                    buttonConfig?.enabled === undefined
+                                        ? true
+                                        : Boolean(buttonConfig.enabled)
+                                const btnErr = customButtonFieldErrors[index]
+                                const rowConfigAlert = btnErr?._row
+
+                                return (
+                                    <div
+                                        key={`custom-button-${index}`}
+                                        className="flex flex-col gap-3"
+                                    >
+                                        {rowConfigAlert ? (
+                                            <p
+                                                className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-800"
+                                                role="alert"
+                                            >
+                                                {rowConfigAlert}
+                                            </p>
+                                        ) : null}
+                                        <CustomButtonActionToggle
+                                            enabled={buttonEnabled}
+                                            displayName={displayName}
+                                            icon={buttonConfig?.icon}
+                                            isUpdating={isUpdating}
+                                            onEnabledChange={(next) =>
+                                                handleCustomButtonToggle(
+                                                    index,
+                                                    next,
+                                                )
+                                            }
+                                        />
+                                        {buttonEnabled ? (
+                                            <div className="ml-4 flex flex-col gap-2 pb-3">
+                                                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                                    <div className="flex min-w-0 flex-col gap-1">
+                                                        <label
+                                                            htmlFor={`custom-button-name-${index}`}
+                                                            className={clsx(
+                                                                'text-xs font-semibold',
+                                                                btnErr?.name
+                                                                    ? 'text-red-800'
+                                                                    : 'text-gray-900',
+                                                            )}
+                                                        >
+                                                            Name
+                                                        </label>
+                                                        <AppearanceInput
+                                                            id={`custom-button-name-${index}`}
+                                                            name={`custom-button-name-${index}`}
+                                                            type="text"
+                                                            value={
+                                                                buttonConfig?.name || ''
+                                                            }
+                                                            onChange={(e) =>
+                                                                updateCustomButton(
+                                                                    index,
+                                                                    'name',
+                                                                    e.target.value,
+                                                                )
+                                                            }
+                                                            disabled={isUpdating}
+                                                            placeholder="Pricing"
+                                                            errorMessage={btnErr?.name}
+                                                        />
+                                                    </div>
+                                                    <div className="flex min-w-0 flex-col gap-1">
+                                                        <label
+                                                            htmlFor={`custom-button-function-key-${index}`}
+                                                            className={clsx(
+                                                                'text-xs font-semibold',
+                                                                btnErr?.functionKey
+                                                                    ? 'text-red-800'
+                                                                    : 'text-gray-900',
+                                                            )}
+                                                        >
+                                                            Key
+                                                        </label>
+                                                        <AppearanceInput
+                                                            id={`custom-button-function-key-${index}`}
+                                                            name={`custom-button-function-key-${index}`}
+                                                            type="text"
+                                                            value={functionKey}
+                                                            onChange={(e) =>
+                                                                updateCustomButton(
+                                                                    index,
+                                                                    'functionKey',
+                                                                    e.target.value,
+                                                                )
+                                                            }
+                                                            onBlur={() =>
+                                                                finalizeCustomButtonFunctionKeyAtIndex(
+                                                                    index,
+                                                                )
+                                                            }
+                                                            disabled={isUpdating}
+                                                            errorMessage={
+                                                                btnErr?.functionKey
+                                                            }
+                                                        />
+                                                        <div className="text-xs text-gray-500">
+                                                            Lowercase letters, numbers, and
+                                                            underscores only.
+                                                        </div>
+                                                        <div className="text-[11px] text-gray-400">
+                                                            Internal tool name:{' '}
+                                                            <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                                {functionKey
+                                                                    ? `${CUSTOM_BUTTON_TOOL_PREFIX}${functionKey}`
+                                                                    : `${CUSTOM_BUTTON_TOOL_PREFIX}pricing`}
+                                                            </code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex flex-col gap-1">
+                                                    <label
+                                                        htmlFor={`custom-button-instructions-${index}`}
+                                                        className={clsx(
+                                                            'text-xs font-semibold',
+                                                            btnErr?.instructions
+                                                                ? 'text-red-800'
+                                                                : 'text-gray-900',
+                                                        )}
+                                                    >
+                                                        When to use
+                                                    </label>
+                                                    <p className="text-xs text-gray-500">
+                                                        Describe the topics, questions, or
+                                                        situations where the agent should offer
+                                                        this button.
+                                                    </p>
+                                                    <AppearanceInput
+                                                        id={`custom-button-instructions-${index}`}
+                                                        name={`custom-button-instructions-${index}`}
+                                                        isMultiLine
+                                                        rows={4}
+                                                        value={
+                                                            buttonConfig?.instructions ||
+                                                            ''
+                                                        }
+                                                        onChange={(e) =>
+                                                            updateCustomButton(
+                                                                index,
+                                                                'instructions',
+                                                                e.target.value,
+                                                            )
+                                                        }
+                                                        disabled={isUpdating}
+                                                        placeholder={
+                                                            DEFAULT_CUSTOM_BUTTON_TRIGGER_INSTRUCTIONS
+                                                        }
+                                                        errorMessage={
+                                                            btnErr?.instructions
+                                                        }
+                                                    />
+                                                </div>
+
+                                                <div className="flex flex-col gap-1">
+                                                    <label
+                                                        htmlFor={`custom-button-text-${index}`}
+                                                        className={clsx(
+                                                            'text-xs font-semibold',
+                                                            btnErr?.buttonText
+                                                                ? 'text-red-800'
+                                                                : 'text-gray-900',
+                                                        )}
+                                                    >
+                                                        Button text
+                                                    </label>
+                                                    <p className="text-xs text-gray-500">
+                                                        Label shown on the button in the chat
+                                                        widget.
+                                                    </p>
+                                                    <AppearanceInput
+                                                        id={`custom-button-text-${index}`}
+                                                        name={`custom-button-text-${index}`}
+                                                        type="text"
+                                                        value={
+                                                            buttonConfig?.buttonText || ''
+                                                        }
+                                                        onChange={(e) =>
+                                                            updateCustomButton(
+                                                                index,
+                                                                'buttonText',
+                                                                e.target.value,
+                                                            )
+                                                        }
+                                                        disabled={isUpdating}
+                                                        placeholder="View pricing"
+                                                        errorMessage={
+                                                            btnErr?.buttonText
+                                                        }
+                                                    />
+                                                </div>
+
+                                                <div className="flex flex-col gap-1">
+                                                    <label
+                                                        htmlFor={`custom-button-url-${index}`}
+                                                        className={clsx(
+                                                            'text-xs font-semibold',
+                                                            btnErr?.url
+                                                                ? 'text-red-800'
+                                                                : 'text-gray-900',
+                                                        )}
+                                                    >
+                                                        URL
+                                                    </label>
+                                                    <p className="text-xs text-gray-500">
+                                                        This is the link the button will take the user to when
+                                                        they click. Optionally{' '}
+                                                        <a
+                                                            href="/documentation/developer/embeddable-chat-widget#custom-action-buttons"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-cyan-600 underline hover:text-cyan-800"
+                                                        >
+                                                            register a JS event
+                                                        </a>
+                                                        {' '}
+                                                        to intercept the click.
+                                                    </p>
+                                                    <AppearanceInput
+                                                        id={`custom-button-url-${index}`}
+                                                        name={`custom-button-url-${index}`}
+                                                        type="text"
+                                                        value={buttonConfig?.url || ''}
+                                                        onChange={(e) =>
+                                                            updateCustomButton(
+                                                                index,
+                                                                'url',
+                                                                e.target.value,
+                                                            )
+                                                        }
+                                                        disabled={isUpdating}
+                                                        placeholder="https://example.com/path"
+                                                        errorMessage={btnErr?.url}
+                                                    />
+                                                    <div className="text-xs text-gray-500">
+                                                        Use a full link: https:// or http://,{' '}
+                                                        <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                            mailto:
+                                                        </code>
+                                                        ,{' '}
+                                                        <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                            tel:
+                                                        </code>
+                                                        , or an app deep link (e.g.{' '}
+                                                        <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-600">
+                                                            myapp://…
+                                                        </code>
+                                                        ).
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex justify-end pt-1">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            removeCustomButton(index)
+                                                        }
+                                                        disabled={isUpdating}
+                                                        className="inline-flex items-center gap-2 rounded-md border border-red-300 bg-white px-3 py-2 text-sm font-medium text-red-700 shadow-sm transition hover:border-red-400 hover:bg-red-50 hover:text-red-800 disabled:pointer-events-none disabled:opacity-50"
+                                                    >
+                                                        <TrashIcon
+                                                            className="h-4 w-4"
+                                                            aria-hidden="true"
+                                                        />
+                                                        Remove button
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ) : null}
+                                    </div>
+                                )
+                            })}
+                            </div>
+                            ) : null}
+
+                            {customButtonPromptOpen ? (
+                                <div
+                                    className={clsx(
+                                        'rounded-lg border border-gray-200 bg-gray-50 transition-colors',
+                                        !customButtonPromptLoading && 'p-4',
+                                    )}
+                                    aria-busy={customButtonPromptLoading}
+                                >
+                                    {customButtonPromptLoading ? (
+                                        <div
+                                            role="status"
+                                            aria-live="polite"
+                                            className="flex w-full flex-col items-center justify-center gap-2 px-4 py-4 text-center sm:flex-row sm:gap-3 sm:py-3"
+                                        >
+                                            <ArrowPathIcon
+                                                className="h-6 w-6 shrink-0 animate-spin text-gray-500"
+                                                aria-hidden
+                                            />
+                                            <p className="max-w-sm text-sm font-medium leading-snug text-gray-700">
+                                                Drafting your button—this usually takes a few
+                                                seconds.
+                                            </p>
+                                        </div>
+                                    ) : (
+                                        <div className="flex flex-col gap-3">
+                                            <p className="text-xs text-gray-500">
+                                                Tell us what the button is for and when it
+                                                should be triggered. We will draft the details
+                                                for you to edit before saving.
+                                            </p>
+                                            <AppearanceInput
+                                                id="custom-button-ai-prompt"
+                                                name="custom-button-ai-prompt"
+                                                isMultiLine
+                                                rows={3}
+                                                value={customButtonPrompt}
+                                                onChange={(e) =>
+                                                    setCustomButtonPrompt(
+                                                        e.target.value,
+                                                    )
+                                                }
+                                                disabled={isUpdating}
+                                                placeholder="Example: Send users to our pricing page whenever they ask about plan differences, pricing tiers, or what is included in each plan."
+                                            />
+                                            {customButtonPromptError ? (
+                                                <div className="text-xs text-red-600">
+                                                    {customButtonPromptError}
+                                                </div>
+                                            ) : null}
+                                            <div className="flex flex-wrap gap-2">
+                                                <button
+                                                    type="button"
+                                                    onClick={createCustomButtonDraft}
+                                                    disabled={
+                                                        isUpdating ||
+                                                        !customButtonPrompt.trim() ||
+                                                        !canAddAnotherCustomButton
+                                                    }
+                                                    className="inline-flex min-h-[40px] min-w-[8.5rem] items-center justify-center gap-2 rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-cyan-700 disabled:pointer-events-none disabled:opacity-50"
+                                                >
+                                                    Generate
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setCustomButtonPromptOpen(
+                                                            false,
+                                                        )
+                                                        setCustomButtonPrompt('')
+                                                        setCustomButtonPromptError('')
+                                                    }}
+                                                    disabled={isUpdating}
+                                                    className="inline-flex items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition hover:border-gray-400 hover:bg-gray-50 disabled:pointer-events-none disabled:opacity-50"
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : null}
+
+                            {!customButtonPromptOpen &&
+                            customButtons.length > 0 ? (
+                                <AddCustomButtonDashedButton
+                                    onClick={openAddCustomButton}
+                                    disabled={isUpdating}
+                                />
+                            ) : null}
+                        </div>
+                </AppearanceActionCategory>
             )}
 
             {canManageStripeActions ? (
-            <div className="mt-5 border-t border-gray-200 pt-5">
-                <AppearanceBlock
+                <AppearanceActionCategory
                     title={
-                        <>
-                            <span className="inline-flex items-center gap-3 align-middle">
-                                <img
-                                    src="/branding/stripe-wordmark-blurple.svg"
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="h-5 w-auto"
-                                />
-                                <span>Billing support</span>
-                            </span>
-                            <span className="relative -top-0.5 ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
-                                Beta
-                            </span>
-                            {!stripePlanCheck.allowed && (
-                                <Tooltip content={`The Stripe Billing Support Action is available on the ${stripePlanCheck.requiredPlanLabel} plan or higher.`}>
-                                    <span className="relative -top-0.5 ml-2 inline-flex cursor-help items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                                        {stripePlanCheck.requiredPlanLabel}
-                                    </span>
-                                </Tooltip>
-                            )}
-                        </>
+                        <span className="inline-flex items-center gap-3 align-middle">
+                            <img
+                                src="/branding/stripe-wordmark-blurple.svg"
+                                alt=""
+                                aria-hidden="true"
+                                className="h-5 w-auto"
+                            />
+                            <span>Billing support</span>
+                        </span>
                     }
                     description="If you use Stripe for billing, enable this action to help customers with invoices, subscriptions, billing portal, and refunds."
                     isNew={true}
+                    beta={true}
+                    planLabel={
+                        !stripePlanCheck.allowed
+                            ? stripePlanCheck.requiredPlanLabel
+                            : null
+                    }
+                    planTooltipContent={
+                        !stripePlanCheck.allowed
+                            ? `The Stripe Billing Support Action is available on the ${stripePlanCheck.requiredPlanLabel} plan or higher.`
+                            : undefined
+                    }
                 >
                 <AppearanceToggle
                     label="Enable Stripe Tools"
@@ -887,12 +1563,11 @@ const AppearanceActions = ({
                     </AppearanceAccordion>
                     </div>
                 )}
-            </AppearanceBlock>
-            </div>
+            </AppearanceActionCategory>
             ) : null}
 
             {isAgent ? (
-                <div className="mt-5">
+                <div className="mt-6 border-t border-gray-200 pt-6">
                     <AppearanceToggle
                         label={
                             <BuiltInToolLabel

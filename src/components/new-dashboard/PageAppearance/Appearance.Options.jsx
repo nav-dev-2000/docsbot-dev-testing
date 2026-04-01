@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 
+import Tooltip from '@/components/Tooltip'
 import { Switch } from '@headlessui/react'
 import IconButton from '@new-dashboard/Button.jsx'
 import { CheckIcon, ClipboardIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
@@ -150,6 +151,77 @@ const AppearanceBlock = ({
     )
 }
 
+/** Section card for action categories (scheduling, custom buttons, Stripe, etc.): top border, title row, optional badges, description, then content. */
+const AppearanceActionCategory = ({
+    title,
+    titleTag,
+    titleProps,
+    description,
+    planLabel,
+    planTooltipContent,
+    isNew = false,
+    beta = false,
+    className,
+    children,
+}) => {
+    const TitleTag = titleTag ? titleTag : 'div'
+
+    const planBadge = planLabel ? (
+        planTooltipContent ? (
+            <Tooltip content={planTooltipContent}>
+                <span className="relative -top-0.5 ml-2 inline-flex cursor-help items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    {planLabel}
+                </span>
+            </Tooltip>
+        ) : (
+            <span className="relative -top-0.5 ml-2 inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                {planLabel}
+            </span>
+        )
+    ) : null
+
+    const newBadge = isNew ? (
+        <span className="bg-animate relative -top-0.5 ml-2 inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
+            New!
+        </span>
+    ) : null
+
+    const betaBadge = beta ? (
+        <span className="relative -top-0.5 ml-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
+            Beta
+        </span>
+    ) : null
+
+    return (
+        <div className={clsx('mt-6 border-t border-gray-200 pt-6', className)}>
+            {(title || description) && (
+                <div className="mb-4">
+                    {title && (
+                        <TitleTag
+                            {...titleProps}
+                            className={clsx(
+                                'text-base font-bold text-gray-800',
+                                titleProps?.className,
+                            )}
+                        >
+                            {title}
+                            {betaBadge}
+                            {planLabel ? planBadge : newBadge}
+                        </TitleTag>
+                    )}
+
+                    {description && (
+                        <span className="mt-0.5 block text-xs text-gray-500">
+                            {description}
+                        </span>
+                    )}
+                </div>
+            )}
+            {children}
+        </div>
+    )
+}
+
 const AppearanceAccordion = ({
     title,
     titleTag,
@@ -249,25 +321,41 @@ const AppearanceAccordion = ({
     )
 }
 
-const AppearanceInput = ({ id, isMultiLine = false, className, ...props }) => {
+const AppearanceInput = ({
+    id,
+    isMultiLine = false,
+    className,
+    errorMessage,
+    ...props
+}) => {
     const Component = isMultiLine ? 'textarea' : 'input'
+    const invalid = Boolean(errorMessage)
 
     return (
-        <Component
-            id={id}
-            className={clsx(
-                'block w-full overflow-hidden rounded-md border-gray-300 px-4 py-2 text-sm text-gray-800 transition',
-                'hover:border-cyan-500',
-                'focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0',
-                'read-only:bg-gray-100',
-                'disabled:pointer-events-none disabled:opacity-50',
-                {
-                    'min-h-[88px]': isMultiLine,
-                },
-                className,
-            )}
-            {...props}
-        />
+        <div className="w-full">
+            <Component
+                id={id}
+                aria-invalid={invalid}
+                className={clsx(
+                    'block w-full overflow-hidden rounded-md border px-4 py-2 text-sm text-gray-800 transition',
+                    invalid
+                        ? 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0'
+                        : 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0',
+                    'read-only:bg-gray-100',
+                    'disabled:pointer-events-none disabled:opacity-50',
+                    {
+                        'min-h-[88px]': isMultiLine,
+                    },
+                    className,
+                )}
+                {...props}
+            />
+            {errorMessage ? (
+                <p className="mt-1 text-xs text-red-600" role="alert">
+                    {errorMessage}
+                </p>
+            ) : null}
+        </div>
     )
 }
 
@@ -345,4 +433,12 @@ const AppearanceCode = ({
     )
 }
 
-export { AppearanceToggle, AppearanceBlock, AppearanceAccordion, AppearanceInput, AppearanceSelect, AppearanceCode }
+export {
+    AppearanceToggle,
+    AppearanceBlock,
+    AppearanceActionCategory,
+    AppearanceAccordion,
+    AppearanceInput,
+    AppearanceSelect,
+    AppearanceCode,
+}

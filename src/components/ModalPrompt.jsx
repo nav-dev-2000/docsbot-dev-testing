@@ -32,6 +32,10 @@ import remarkExternalLinks from 'remark-external-links'
 import { preprocessMath } from '@/utils/markdown'
 import Workspace from '@new-dashboard/Workspace'
 import TipsButton from '@new-dashboard/TipsButton'
+import {
+    CUSTOM_BUTTON_TOOL_PREFIX,
+    getEnabledCustomButtons,
+} from '@/lib/botActions'
 
 // Helper function to get company name from bot metadata, team metadata, or bot name
 const getCompanyName = (bot, team) => {
@@ -93,6 +97,12 @@ const getInstructionToolNames = (tools) => {
     }
     if (isToolEnabled(enabledTools.stripe?.cancellation, false)) {
         toolNames.push('stripe_cancel_subscription')
+    }
+
+    for (const btn of getEnabledCustomButtons(enabledTools.customButtons)) {
+        if (btn.functionKey) {
+            toolNames.push(`${CUSTOM_BUTTON_TOOL_PREFIX}${btn.functionKey}`)
+        }
     }
 
     return [...new Set(toolNames)]

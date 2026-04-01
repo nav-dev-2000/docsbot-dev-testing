@@ -1,11 +1,12 @@
 import { getBot, getTeam } from '@/lib/dbQueries'
 import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
-import { checkPlanPermission } from '@/utils/helpers'
+import { checkPlanPermission, getCustomButtonsSlotLimit } from '@/utils/helpers'
 import {
   limitLeadCollectToDefaultFields,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
+import { getEnabledCustomButtons } from '@/lib/botActions'
 import {
   DEFAULT_WEB_SEARCH_MODEL,
   isWebSearchCompatibleModel,
@@ -98,6 +99,10 @@ export default async function handler(req, res) {
           checkPlanPermission(team, 'standard').allowed &&
           Boolean(team?.openAIKey) &&
           isWebSearchCompatibleModel(bot?.model || DEFAULT_WEB_SEARCH_MODEL)
+        const customButtonsPlanAllowed = getCustomButtonsSlotLimit(team) > 0
+        const enabledCustomButtonCount = customButtonsPlanAllowed
+          ? getEnabledCustomButtons(bot.tools?.customButtons).length
+          : 0
 
         const widget = {
           botId: botId,
@@ -131,6 +136,7 @@ export default async function handler(req, res) {
           useCalendly: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calendly),
           useCalCom: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calcom),
           useTidyCal: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.tidycal),
+          useCustomButtons: enabledCustomButtonCount > 0,
           useImageUpload: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
           leadCollect: false,
         }

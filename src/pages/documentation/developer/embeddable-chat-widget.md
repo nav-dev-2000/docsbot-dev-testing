@@ -157,10 +157,11 @@ options: {
   showAgentActivity: true, // optional: set to false to hide the agent activity row (reasoning + tool status). Omit for default (shown).
   useFeedback: true, //collect user feedback after answers
   useEscalation: true, // Enable the escalation button or agent tool
-  useWebSearch: true, // Enable the web search tool when the bot is in agent mode and an OpenAI key is added to the team.
-  useCalendly: true, // Enable the Calendly booking tool for this widget instance when configured on the bot.
+  useWebSearch: false, // Enable the web search tool when the bot is in agent mode and an OpenAI key is added to the team.
+  useCalendly: false, // Enable the Calendly booking tool for this widget instance when configured on the bot.
   useCalCom: false, // Enable the Cal.com booking tool for this widget instance when configured on the bot.
   useTidyCal: false, // Enable the TidyCal booking tool for this widget instance when configured on the bot.
+  useCustomButtons: false, // set true to opt in to custom_button tools (requires configured custom button tools; see Custom Action buttons below).
   botName: "DocsBot", //name of the bot.
   description: "Ask our AI support assistant your questions about our services.", //description of the bot. Only shown when no logo is present.
   allowedDomains: [
@@ -294,6 +295,39 @@ options: {
     "Can I view the question and answer history of my DocsBot interactions?"
   ] // Array of example questions to show in the widget. Suggestions are picked at random.
 }
+```
+
+
+### Custom Action buttons
+
+When using the **agent** chat API, you can opt in to `custom_button` terminal events from the model:
+
+- When **`options.useCustomButtons`** is `true` any enabled custom buttons in Widget settings may trigger, showing a clickable action button after the message.
+- Optionally pass a top-level **`customButtonCallback`** — `(event, key, button, history, metadata) => void | Promise<void>` — to observe or override the default behavior. **`key`** is the server `functionKey` for this CTA (use it to branch on which button was clicked). **`button`** is `{ functionKey, url, buttonText, message, answer }`. Call **`event.preventDefault()`** on the synthetic `event` to cancel opening the CTA URL in a new tab. The **`metadata`** object merges `identify` with `conversationId`, `conversationUrl` (when in agent mode), `answerType: 'custom_button'`, `functionKey`, `url`, `buttonText`, and `message`. If the callback throws, the widget logs a warning and still performs default navigation when not cancelled.
+
+Example:
+
+```js
+DocsBotAI.init({
+  id: 'teamId/botId',
+  customButtonCallback: async (event, key, button, history, metadata) => {
+    if (key === 'book_demo') {
+      // Let the default behavior run: open button.url in a new tab
+      return;
+    }
+    if (key === 'handle_in_app') {
+      event.preventDefault(); // skip default new-tab navigation for this key only
+      // e.g. route in your SPA using button.url or metadata
+      return;
+    }
+    // Optional: guard for unknown keys
+    // console.warn('Unhandled custom button key:', key);
+  },
+  options: {
+    isAgent: true,
+    useCustomButtons: true,
+  },
+});
 ```
 
 ### Labels and internationalization

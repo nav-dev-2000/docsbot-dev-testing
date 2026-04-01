@@ -9,7 +9,11 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserEditBot } from '@/utils/function.utils'
 
-import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
+import {
+    checkPlanPermission,
+    getCustomButtonsSlotLimit,
+    isSuperAdmin,
+} from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalPrompt from '@/components/ModalPrompt'
 import { ref, uploadBytes } from 'firebase/storage'
@@ -35,6 +39,8 @@ import {
     BOOKING_ACTION_KEYS,
     buildDisplayBotTools,
     createDefaultBookingTool,
+    getCustomButtonsFormValidationErrors,
+    hasCustomButtonsFormValidationErrors,
     sanitizeBotTools,
 } from '@/lib/botActions'
 
@@ -304,6 +310,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [activeTab, setActiveTab] = useState('content')
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [hasHydrated, setHasHydrated] = useState(false)
+    const [customButtonFieldErrors, setCustomButtonFieldErrors] = useState({})
     const controlValue = controlProp
         || (Array.isArray(router.query.control) ? router.query.control[0] : router.query.control)
         || 'design'
@@ -885,9 +892,70 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         }
     }
 
+    const clearCustomButtonFieldError = useCallback((index, field) => {
+        setCustomButtonFieldErrors((prev) => {
+            const row = prev[index]
+            if (!row?.[field]) return prev
+            const nextRow = { ...row }
+            delete nextRow[field]
+            const next = { ...prev }
+            if (Object.keys(nextRow).length === 0) delete next[index]
+            else next[index] = nextRow
+            return next
+        })
+    }, [])
+
+    const clearCustomButtonRowErrors = useCallback((index) => {
+        setCustomButtonFieldErrors((prev) => {
+            if (!(index in prev)) return prev
+            const next = { ...prev }
+            delete next[index]
+            return next
+        })
+    }, [])
+
+    const clearAllCustomButtonFieldErrors = useCallback(() => {
+        setCustomButtonFieldErrors({})
+    }, [])
+
     async function updateBot() {
         setAllowedDomainsText(allowedDomains.join(', '))
         setErrorText('')
+
+        const customBtnValidation = getCustomButtonsFormValidationErrors(
+            tools?.customButtons,
+        )
+        if (hasCustomButtonsFormValidationErrors(customBtnValidation)) {
+            setCustomButtonFieldErrors(customBtnValidation.byIndex || {})
+            setErrorText(
+                customBtnValidation.listError ||
+                    'Fix the highlighted custom button fields before saving.',
+            )
+            return
+        }
+        setCustomButtonFieldErrors({})
+
+        const customButtonCount = Array.isArray(tools?.customButtons)
+            ? tools.customButtons.length
+            : 0
+        const customButtonSlots = getCustomButtonsSlotLimit(team)
+        if (!isSuperAdmin(user?.uid)) {
+            if (customButtonSlots === 0 && customButtonCount > 0) {
+                setErrorText(
+                    'Custom CTA buttons are only available on the Personal plan or higher.',
+                )
+                return
+            }
+            if (
+                customButtonSlots !== Number.POSITIVE_INFINITY &&
+                customButtonCount > customButtonSlots
+            ) {
+                setErrorText(
+                    'Your plan includes one custom CTA button. Upgrade to Standard or higher to add more.',
+                )
+                return
+            }
+        }
 
         setIsUpdating(true)
 
@@ -1104,6 +1172,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     stripeOAuthError={stripeOAuthError}
                     setStripeOAuthError={setStripeOAuthError}
                     onStripeOAuthPopupClosed={refreshStripeConnectionFromServer}
+                    customButtonFieldErrors={customButtonFieldErrors}
+                    onClearCustomButtonFieldError={clearCustomButtonFieldError}
+                    onClearCustomButtonRowErrors={clearCustomButtonRowErrors}
+                    onClearAllCustomButtonFieldErrors={
+                        clearAllCustomButtonFieldErrors
+                    }
                 />
             ),
         },

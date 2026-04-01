@@ -271,6 +271,22 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
   }
 }
 
+/**
+ * Max rows allowed in `tools.customButtons` for this team's plan.
+ * @returns {number} `0` (unavailable), `1` (Personal/Pro), or `Infinity` (Standard+)
+ */
+export function getCustomButtonsSlotLimit(team) {
+  if (!checkPlanPermission(team, 'personal', 'customButtons').allowed) {
+    return 0
+  }
+  if (
+    !checkPlanPermission(team, 'standard', 'multipleCustomButtons').allowed
+  ) {
+    return 1
+  }
+  return Number.POSITIVE_INFINITY
+}
+
 export const PLAN_LEVELS = {
   free: 1,
   hobby: 2,
