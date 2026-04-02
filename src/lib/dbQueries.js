@@ -7,6 +7,7 @@ import { i18n } from '@/constants/strings.constants'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
 import { mapWebhookEntries } from '@/lib/webhooks'
+import { buildDisplayBotTools } from '@/lib/botActions'
 import crypto from 'crypto'
 import { sourceTypes } from '@/constants/sourceTypes.constants'
 configureFirebaseApp()
@@ -24,6 +25,12 @@ const sanitizeMetadata = (metadata) => {
 const sanitizeBotSecrets = (bot) => {
   if (!bot || typeof bot !== 'object') {
     return bot
+  }
+
+  if (bot.tools && typeof bot.tools === 'object' && !Array.isArray(bot.tools)) {
+    // Recover malformed action payloads (notably customButtons array-spread objects)
+    // before any API response hands them back to clients.
+    bot.tools = buildDisplayBotTools(bot.tools)
   }
 
   if (bot.slackBotToken) {

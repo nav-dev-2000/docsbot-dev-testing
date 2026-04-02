@@ -4,6 +4,7 @@ import {
   DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
   buildBookingDisplayUrl,
   buildDisplayBotTools,
+  coerceCustomButtonsToArray,
   createDefaultBookingTool,
   sanitizeCalComActionConfig,
   sanitizeBotTools,
@@ -205,5 +206,52 @@ describe('bot tools sanitization', () => {
       instructions: DEFAULT_BOOKING_TRIGGER_INSTRUCTIONS,
       url: '',
     })
+  })
+
+  it('coerces array-like objects (from spread corruption) back to arrays', () => {
+    expect(coerceCustomButtonsToArray(undefined)).toEqual([])
+    expect(coerceCustomButtonsToArray(null)).toEqual([])
+    expect(coerceCustomButtonsToArray([])).toEqual([])
+    const corrupted = {
+      0: { enabled: false, name: 'a' },
+      1: { enabled: false, name: 'b' },
+    }
+    expect(coerceCustomButtonsToArray(corrupted)).toEqual([
+      { enabled: false, name: 'a' },
+      { enabled: false, name: 'b' },
+    ])
+    expect(coerceCustomButtonsToArray({ enabled: true })).toBe(null)
+    expect(coerceCustomButtonsToArray({ 0: {}, 2: {} })).toBe(null)
+  })
+
+  it('buildDisplayBotTools restores customButtons from spread-corrupted objects', () => {
+    const corrupted = {
+      0: {
+        enabled: false,
+        name: ' Docs ',
+        instructions: ' When ',
+        buttonText: ' Go ',
+        url: '',
+      },
+    }
+    const out = buildDisplayBotTools({ customButtons: corrupted })
+    expect(Array.isArray(out.customButtons)).toBe(true)
+    expect(out.customButtons).toHaveLength(1)
+    expect(out.customButtons[0].name).toBe('Docs')
+  })
+
+  it('sanitizeBotTools accepts spread-corrupted customButtons and returns a sanitized array', () => {
+    const corrupted = {
+      0: {
+        enabled: false,
+        name: 'Test',
+        instructions: 'x',
+        buttonText: 'y',
+        url: '',
+      },
+    }
+    const sanitized = sanitizeBotTools({ customButtons: corrupted })
+    expect(Array.isArray(sanitized.customButtons)).toBe(true)
+    expect(sanitized.customButtons).toHaveLength(1)
   })
 })

@@ -29,6 +29,47 @@ export const CUSTOM_BUTTON_FUNCTION_KEY_PATTERN =
  */
 export const CUSTOM_BUTTONS_ACTION_KEY = 'customButtons'
 export const CUSTOM_BUTTON_TOOL_PREFIX = 'button_'
+
+/**
+ * `tools.customButtons` must be an array. Older bugs merged state with `{ ...tools }` while
+ * `customButtons` was an array, which produced a dense numeric-key object `{ 0: {...}, 1: {...} }`
+ * (arrays spread into objects). Restore a real array so UI + save validation can run.
+ *
+ * - `undefined` / `null` → `[]` (no custom buttons in form state)
+ * - Array → returned as-is
+ * - Plain object with only `"0"`, `"1"`, … keys → values in index order
+ * - Anything else → `null` (caller shows validation error or skips)
+ */
+export const coerceCustomButtonsToArray = (value) => {
+  if (value === undefined || value === null) {
+    return []
+  }
+  if (Array.isArray(value)) {
+    return value
+  }
+  if (typeof value !== 'object') {
+    return null
+  }
+
+  const keys = Object.keys(value)
+  if (keys.length === 0) {
+    return []
+  }
+
+  const numericKeys = keys.filter((k) => /^\d+$/.test(k))
+  if (numericKeys.length !== keys.length) {
+    return null
+  }
+
+  numericKeys.sort((a, b) => Number(a) - Number(b))
+  for (let i = 0; i < numericKeys.length; i += 1) {
+    if (numericKeys[i] !== String(i)) {
+      return null
+    }
+  }
+
+  return numericKeys.map((k) => value[k])
+}
 export const RESERVED_CUSTOM_BUTTON_TOOL_SUFFIXES = new Set([
   'search_documentation',
   'human_escalation',
@@ -249,17 +290,18 @@ const sanitizeCustomButtonConfig = (config) => {
 export const getCustomButtonsFormValidationErrors = (customButtons) => {
   const byIndex = {}
 
-  if (!Array.isArray(customButtons)) {
+  const coerced = coerceCustomButtonsToArray(customButtons)
+  if (coerced === null) {
     return {
       byIndex: {},
       listError: 'Custom buttons must be provided as a list.',
     }
   }
 
-  const derivedKeys = new Array(customButtons.length).fill(null)
+  const derivedKeys = new Array(coerced.length).fill(null)
 
-  for (let index = 0; index < customButtons.length; index += 1) {
-    const config = customButtons[index]
+  for (let index = 0; index < coerced.length; index += 1) {
+    const config = coerced[index]
 
     if (!config || typeof config !== 'object' || Array.isArray(config)) {
       byIndex[index] = {
@@ -355,11 +397,12 @@ export const hasCustomButtonsFormValidationErrors = (result) => {
 }
 
 export const sanitizeCustomButtonsActionConfig = (config) => {
-  if (!Array.isArray(config)) {
+  const coerced = coerceCustomButtonsToArray(config)
+  if (coerced === null) {
     throw new Error('Custom buttons must be provided as a list.')
   }
 
-  const sanitizedButtons = config.map((buttonConfig) =>
+  const sanitizedButtons = coerced.map((buttonConfig) =>
     sanitizeCustomButtonConfig(buttonConfig),
   )
   const seenFunctionKeys = new Set()
@@ -535,11 +578,12 @@ export const buildDisplayBotTools = (tools) => {
 
   for (const [toolName, toolConfig] of Object.entries(tools)) {
     if (toolName === CUSTOM_BUTTONS_ACTION_KEY) {
-      if (!Array.isArray(toolConfig)) {
+      const coerced = coerceCustomButtonsToArray(toolConfig)
+      if (coerced === null) {
         continue
       }
 
-      nextTools[toolName] = toolConfig
+      nextTools[toolName] = coerced
         .filter((buttonConfig) => buttonConfig && typeof buttonConfig === 'object')
         .map((buttonConfig) => {
           const name = cleanActionString(buttonConfig.name)
