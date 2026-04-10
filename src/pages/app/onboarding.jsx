@@ -118,9 +118,9 @@ const ANALYZING_STEPS = [
   'Generating your custom configuration...',
 ]
 
-/** Min height for the live chat iframe on Test & Adjust (step 3). */
-const ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS =
-  'min-h-[max(46rem,min(88vh,58rem))]'
+/** Try it out (step 3): height is (viewport − chrome), at least 600px, scales with the window. */
+const ONBOARDING_TEST_CHAT_IFRAME_HEIGHT_CLASS =
+  'h-[max(600px,calc(100vh-26rem))]'
 
 const isColorLight = (hexColor) => {
   if (!hexColor) return false
@@ -2995,7 +2995,8 @@ function Onboarding({ team }) {
                   className={classNames(
                     'relative rounded-b-2xl border-t border-gray-200 bg-gray-50 p-8 sm:p-12 lg:rounded-b-none lg:rounded-r-2xl lg:border-l lg:border-t-0',
                     currentStep === 3
-                      ? 'min-h-[max(54rem,min(92vh,62rem))]'
+                      ? // overflow-visible: robot extends left of the iframe; overflow-y-auto clips horizontal overflow. z-10: stack above left column.
+                        'z-10 h-full min-h-0 overflow-visible'
                       : 'h-full min-h-0 overflow-y-auto items-center justify-center',
                   )}
                   style={{
@@ -3197,7 +3198,7 @@ function Onboarding({ team }) {
                         <div
                           className={classNames(
                             'relative',
-                            ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS,
+                            ONBOARDING_TEST_CHAT_IFRAME_HEIGHT_CLASS,
                           )}
                           onMouseEnter={() => setHasInteractedWithBot(true)}
                         >
@@ -3220,8 +3221,7 @@ function Onboarding({ team }) {
                                 : `https://docsbot.ai/iframe/${team.id}/${createdBot.id}`
                             }?agent=true&testing=true&signature=${createdBot.signature}`}
                             className={classNames(
-                              'mx-auto block w-full rounded-lg border border-gray-200',
-                              ONBOARDING_TEST_CHAT_MIN_HEIGHT_CLASS,
+                              'mx-auto block h-full w-full rounded-lg border border-gray-200',
                             )}
                             onLoad={() => setIframeLoaded(true)}
                           ></iframe>
@@ -3229,7 +3229,7 @@ function Onboarding({ team }) {
                           {/* Robot pointing to example questions */}
                           {!hasInteractedWithBot && showRobotPointer && (
                             <div
-                              className="pointer-events-none absolute left-1/2 hidden -translate-x-1/2 lg:block"
+                              className="pointer-events-none absolute left-1/2 z-20 hidden -translate-x-1/2 lg:block"
                               style={{ top: '40%' }}
                             >
                               <div className="relative">

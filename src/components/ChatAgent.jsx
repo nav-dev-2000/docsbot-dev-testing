@@ -20,6 +20,7 @@ import {
   LifebuoyIcon,
   BeakerIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
   SparklesIcon,
   GlobeAltIcon,
 } from '@heroicons/react/24/outline'
@@ -1096,53 +1097,75 @@ const AgentEventsList = memo(function AgentEventsList({
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
+  useEffect(() => {
+    setIsOpen(defaultOpen)
+  }, [defaultOpen])
+
   if (!events || events.length === 0) {
     return null
   }
 
-  const countLabel = `Steps (${events.length})`
+  const sectionLabel = labels.agentActivitySection || 'Agent activity…'
+
+  const renderEvent = (event, eventIndex) => {
+    const hasFollowingEvent = eventIndex < events.length - 1
+
+    if (event.type === 'reasoning') {
+      return (
+        <ReasoningItem
+          key={event.eventKey || `reasoning-${eventIndex}`}
+          text={event.text}
+          isStreaming={isStreaming}
+          hasFollowingEvent={hasFollowingEvent}
+          isAnswerStreaming={isAnswerStreaming}
+          thinkingLabel={labels.agentActivityThinking}
+        />
+      )
+    }
+
+    if (event.type === 'tool_call') {
+      return (
+        <div key={event.eventKey || `toolcall-${eventIndex}`} className="mt-2">
+          <ToolCallDisplay
+            toolCalls={[event]}
+            isStreamingStarted={isAnswerStreaming || hasFollowingEvent || !isStreaming}
+            labels={labels}
+          />
+        </div>
+      )
+    }
+
+    return null
+  }
+
+  if (events.length === 1) {
+    return <div className="mt-4 ml-4">{renderEvent(events[0], 0)}</div>
+  }
 
   return (
     <details
-      className="mt-4"
+      className="mt-4 text-sm text-gray-500"
       open={isOpen}
       onToggle={(event) => setIsOpen(event.currentTarget.open)}
     >
-      <summary className="group flex cursor-pointer list-none items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium text-gray-600 hover:bg-gray-100 [&::-webkit-details-marker]:hidden">
-        <span>{countLabel}</span>
-        <ChevronDownIcon className="h-4 w-4 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+      <summary className="flex w-full cursor-pointer list-none items-center gap-2 rounded-md px-3 py-2 text-left text-gray-500 hover:text-gray-700 [&::-webkit-details-marker]:hidden">
+        <span className="min-w-0 flex-1 font-medium">{sectionLabel}</span>
+        {isOpen ? (
+          <ChevronDownIcon
+            className="ml-auto h-3 w-3 flex-shrink-0 text-gray-400"
+            aria-hidden
+          />
+        ) : (
+          <ChevronRightIcon
+            className="ml-auto h-3 w-3 flex-shrink-0 text-gray-400"
+            aria-hidden
+          />
+        )}
       </summary>
-      <div className={clsx("mt-2", AGENT_EVENTS_TIMELINE_CLASS)}>
-        {events.map((event, eventIndex) => {
-          const hasFollowingEvent = eventIndex < events.length - 1
-
-          if (event.type === 'reasoning') {
-            return (
-              <ReasoningItem
-                key={event.eventKey || `reasoning-${eventIndex}`}
-                text={event.text}
-                isStreaming={isStreaming}
-                hasFollowingEvent={hasFollowingEvent}
-                isAnswerStreaming={isAnswerStreaming}
-                thinkingLabel={labels.agentActivityThinking}
-              />
-            )
-          }
-
-          if (event.type === 'tool_call') {
-            return (
-              <div key={event.eventKey || `toolcall-${eventIndex}`} className="mt-2">
-                <ToolCallDisplay
-                  toolCalls={[event]}
-                  isStreamingStarted={isAnswerStreaming || hasFollowingEvent || !isStreaming}
-                  labels={labels}
-                />
-              </div>
-            )
-          }
-
-          return null
-        })}
+      <div className="ml-4 mt-2">
+        <div className={AGENT_EVENTS_TIMELINE_CLASS}>
+          {events.map((event, eventIndex) => renderEvent(event, eventIndex))}
+        </div>
       </div>
     </details>
   )
