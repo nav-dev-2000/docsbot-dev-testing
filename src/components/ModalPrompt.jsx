@@ -1,41 +1,24 @@
 import { Fragment, useEffect, useState, useRef } from 'react'
 import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning'
-import { Dialog, Transition, Listbox } from '@headlessui/react'
-import {
-    ExclamationTriangleIcon,
-    SparklesIcon,
-    XCircleIcon,
-    XMarkIcon,
-    BeakerIcon,
-    ChatBubbleBottomCenterTextIcon,
-    PencilSquareIcon,
-    ChevronUpDownIcon,
-    ArrowPathIcon,
-    BugAntIcon,
-    PhotoIcon,
-} from '@heroicons/react/24/outline'
-import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
-import { CheckIcon } from '@heroicons/react/20/solid'
+import { Dialog, Transition } from '@headlessui/react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
-import LoadingSpinner from '@/components/LoadingSpinner'
 import ModalCheckout from '@/components/ModalCheckout'
-import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
-import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { canUserEditBot } from '@/utils/function.utils'
-import Tooltip from '@/components/Tooltip'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
-import PresetPromptSelect from '@/components/PresetPromptSelect'
-import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
-import remarkExternalLinks from 'remark-external-links'
-import { preprocessMath } from '@/utils/markdown'
-import Workspace from '@new-dashboard/Workspace'
-import TipsButton from '@new-dashboard/TipsButton'
 import {
     CUSTOM_BUTTON_TOOL_PREFIX,
     getEnabledCustomButtons,
 } from '@/lib/botActions'
+import {
+    DEBUG_LOADING_TEXT,
+    InstructionHeader,
+    InstructionsForm,
+    InstructionsPreview,
+    InstructionsDebugModal,
+} from '@/components/ModalPromptSections'
 
 // Helper function to get company name from bot metadata, team metadata, or bot name
 const getCompanyName = (bot, team) => {
@@ -149,15 +132,6 @@ export default function ModalPrompt({
     const [debugSelectedImages, setDebugSelectedImages] = useState([])
     const debugFileInputRef = useRef(null)
 
-    // Debug progress text
-    const debugLoadingText = [
-        'Analyzing prompt structure...',
-        'Identifying behavioral patterns...',
-        'Evaluating instruction clarity...',
-        'Detecting potential improvements...',
-        'Generating optimization suggestions...',
-        'Finalizing recommendations...',
-    ]
     const [debugLoadingIndex, setDebugLoadingIndex] = useState(0)
 
     // Use external open state if provided, otherwise use local state
@@ -191,7 +165,7 @@ export default function ModalPrompt({
         if (isDebugging) {
             const interval = setInterval(() => {
                 setDebugLoadingIndex((prevIndex) => {
-                    if (prevIndex < debugLoadingText.length - 1) {
+                    if (prevIndex < DEBUG_LOADING_TEXT.length - 1) {
                         return prevIndex + 1
                     }
                     clearInterval(interval)
@@ -203,12 +177,7 @@ export default function ModalPrompt({
         } else {
             setDebugLoadingIndex(0)
         }
-    }, [isDebugging, debugLoadingText.length])
-
-    const streamdownRemarkPlugins = [
-        ...Object.values(defaultRemarkPlugins),
-        [remarkExternalLinks, { target: '_blank', rel: ['noopener'] }],
-    ]
+    }, [isDebugging])
 
     useEffect(() => {
         if (!team || !user) return
@@ -629,6 +598,8 @@ export default function ModalPrompt({
     const isModalMode = open !== undefined
     const instructionToolNames = getInstructionToolNames(bot?.tools)
 
+    const canEditInstructions = (activeTab === 'regular' || activeTab === 'agent') && bot.status === 'ready'
+
     const insertAgentToolReference = (toolName) => {
         const textarea = agentPromptRef.current
         const insertion = `\`${toolName}\``
@@ -654,507 +625,81 @@ export default function ModalPrompt({
         textarea.dispatchEvent(new Event('input', { bubbles: true }))
     }
 
+
     const mainContent = (
-        <>
-                    <Workspace.Header
-                        title="Custom Instructions"
-                        description="Adjust how your agent responds — set its tone, behavior, and context for every answer. Start by selecting a preset, or generate your own."
-                    >
-                        <TipsButton position="right">
-                            <div className="text-gray-500">
-                                <p className="text-sm font-semibold text-gray-800">
-                                    Example Custom Prompts
-                                </p>
-                                <div className="mt-2">
-                                    <ul className="ml-0 list-disc space-y-2 pl-4 text-sm text-gray-700">
-                                        <li className="text-sm text-gray-700">
-                                            <code>
-                                                Politely refuse to answer
-                                                questions unrelated to{' '}
-                                                {bot.name}.
-                                            </code>
-                                        </li>
-                                        <li className="text-sm text-gray-700">
-                                            <code>
-                                                Use \[...\] for block math and
-                                                \(...\) for inline math in your
-                                                response.
-                                            </code>{' '}
-                                            (for pretty display of equations)
-                                        </li>
-                                        <li className="text-sm text-gray-700">
-                                            <code>
-                                                If relevant to the user's
-                                                question, after your answer,
-                                                suggest my book "{bot.name} For
-                                                Dummies".
-                                            </code>
-                                        </li>
-                                        <li className="text-sm text-gray-700">
-                                            <code>
-                                                If the answer is not in the
-                                                provided context, recommend they
-                                                contact the {bot.name} support
-                                                team and provide a link to
-                                                https://mysite.com/support/
-                                            </code>
-                                        </li>
-                                        <li className="text-sm text-gray-700">
-                                            <code>
-                                                Always respond as if you are
-                                                Pee-wee Herman.
-                                            </code>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </TipsButton>
-                    </Workspace.Header>
+        <div
+            className="flex h-full min-h-0 flex-col gap-4 xl:flex-row xl:gap-6"
+            data-component="instructions-modal"
+        >
+            <div
+                className={clsx(
+                    'flex min-h-[900px] flex-1 flex-col xl:h-full',
+                    {
+                        ['rounded-lg bg-white shadow']: !isModalMode,
+                    },
+                )}
+            >
+                <InstructionHeader
+                    bot={bot}
+                    className={clsx('flex-none', {
+                        ['p-4']: !isModalMode,
+                    })}
+                />
 
-                    <form
-                        className="mt-6"
-                        onSubmit={(e) => {
-                            e.preventDefault()
-                            updatePrompt()
-                        }}
-                    >
-                        <Alert title={errorText} type="error" />
-                        <Alert title={successText} type="success" />
-                        <div className="grid grid-cols-1 gap-x-4 xl:grid-cols-[1fr_448px] xl:gap-x-6">
-                            <div
-                                className={clsx(
-                                    'flex min-w-0 flex-col order-1',
-                                    (activeTab === 'regular' ||
-                                        activeTab === 'agent') &&
-                                        bot.status === 'ready'
-                                        ? 'xl:col-start-1 xl:row-start-1'
-                                        : 'xl:col-span-2',
-                                )}
-                            >
-                                <div className="flex justify-between border-b border-gray-200">
-                                    <nav
-                                        className="-mb-px flex space-x-8"
-                                        aria-label="Tabs"
-                                    >
-                                        {tabs.map((tab) => (
-                                            <a
-                                                key={tab.name}
-                                                onClick={() =>
-                                                    !tab.disabled &&
-                                                    setActiveTab(tab.id)
-                                                }
-                                                className={clsx(
-                                                    tab.current
-                                                        ? 'border-cyan-500 text-cyan-600'
-                                                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                                                    'cursor-pointer whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium',
-                                                    tab.disabled &&
-                                                        'cursor-not-allowed opacity-50',
-                                                )}
-                                                aria-current={
-                                                    tab.current
-                                                        ? 'page'
-                                                        : undefined
-                                                }
-                                            >
-                                                {tab.name}
-                                            </a>
-                                        ))}
-                                    </nav>
-                                    <div className="relative flex items-center space-x-2">
-                                        <Tooltip content="Debug your prompt behavior">
-                                            <button
-                                                type="button"
-                                                onClick={() =>
-                                                    setShowDebugModal(true)
-                                                }
-                                                className="my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400"
-                                            >
-                                                <BugAntIcon className="mr-1 h-5 w-5" />
-                                                <span className="hidden sm:inline">
-                                                    Debug
-                                                </span>
-                                            </button>
-                                        </Tooltip>
-                                        {activeTab !== 'agent' &&
-                                            activeTab !== 'helpscout' && (
-                                                <Tooltip content="Generate or improve your prompt">
-                                                    <button
-                                                        ref={buttonRef}
-                                                        type="button"
-                                                        onClick={() =>
-                                                            setShowGeneratePopover(
-                                                                !showGeneratePopover,
-                                                            )
-                                                        }
-                                                        disabled={isGenerating}
-                                                        className={
-                                                            'my-2 inline-flex items-center rounded-lg border border-transparent px-2 py-1 text-gray-400 ring-inset hover:text-gray-500 hover:outline-none hover:ring-2 hover:ring-gray-400'
-                                                        }
-                                                    >
-                                                        <SparklesIcon
-                                                            className={clsx(
-                                                                'mr-1 h-5 w-5',
-                                                                isGenerating &&
-                                                                    'animate-ping',
-                                                            )}
-                                                        />{' '}
-                                                        <span className="hidden sm:inline">
-                                                            {showGeneratePopover
-                                                                ? 'Cancel'
-                                                                : 'Generate'}
-                                                        </span>
-                                                    </button>
-                                                </Tooltip>
-                                            )}
-                                        {activeTab !== 'agent' &&
-                                            activeTab !== 'helpscout' && (
-                                                <Transition
-                                                    show={showGeneratePopover}
-                                                    enter="transition ease-out duration-200"
-                                                    enterFrom="opacity-0 translate-y-1"
-                                                    enterTo="opacity-100 translate-y-0"
-                                                    leave="transition ease-in duration-150"
-                                                    leaveFrom="opacity-100 translate-y-0"
-                                                    leaveTo="opacity-0 translate-y-1"
-                                                >
-                                                    <div
-                                                        ref={popoverRef}
-                                                        className="absolute right-0 z-10 mt-0 w-80 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                                    >
-                                                        <div className="rounded-lg bg-gray-50 p-0">
-                                                            <textarea
-                                                                className="h-24 w-full resize-none rounded border-0 bg-gray-50 p-0 px-2 pt-2 text-sm leading-snug focus:border-0 focus:ring-0"
-                                                                placeholder="Describe what you're using the agent for..."
-                                                                value={
-                                                                    actionInput
-                                                                }
-                                                                onChange={(e) =>
-                                                                    setActionInput(
-                                                                        e.target
-                                                                            .value,
-                                                                    )
-                                                                }
-                                                                tabIndex={10}
-                                                            />
-                                                            <div className="flex items-center justify-between px-2 pb-2">
-                                                                <span className="flex items-center text-xs text-gray-400">
-                                                                    <ExclamationTriangleIcon className="h-5 w-5 pr-1" />
-                                                                    Replaces
-                                                                    custom
-                                                                    prompt
-                                                                </span>
-                                                                <div className="flex items-center">
-                                                                    <Tooltip content="Clear the prompt">
-                                                                        <button
-                                                                            className="mr-1 rounded px-2 py-1 text-xs font-semibold text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-                                                                            onClick={() =>
-                                                                                setActionInput(
-                                                                                    '',
-                                                                                )
-                                                                            }
-                                                                            disabled={
-                                                                                !actionInput
-                                                                            }
-                                                                            tabIndex={
-                                                                                12
-                                                                            }
-                                                                        >
-                                                                            <XCircleIcon className="h-5 w-5" />
-                                                                        </button>
-                                                                    </Tooltip>
-                                                                    <button
-                                                                        className="rounded bg-cyan-600 px-2 py-0.5 text-sm font-semibold text-white hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                                                        onClick={
-                                                                            generatePrompt
-                                                                        }
-                                                                        disabled={
-                                                                            isGenerating
-                                                                        }
-                                                                        tabIndex={
-                                                                            11
-                                                                        }
-                                                                    >
-                                                                        {isGenerating
-                                                                            ? 'Generating...'
-                                                                            : 'Create'}
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </Transition>
-                                            )}
-                                    </div>
-                                </div>
-                                <div className="-mt-1 flex-grow">
-                                    {activeTab === 'regular' && (
-                                        <div className="mt-4 h-fit">
-                                            <label
-                                                htmlFor="prompt"
-                                                className="sr-only"
-                                            >
-                                                Legacy Prompt
-                                            </label>
-                                            <p className="mt-2 text-sm text-gray-500">
-                                                Enter any custom instructions
-                                                here, this will be used for
-                                                non-agent mode responses such as
-                                                via the widget (with agent mode
-                                                disabled), Slack, Automations,
-                                                or legacy APIs.
-                                            </p>
-                                            <div className="mt-2 h-full">
-                                                <textarea
-                                                    id="prompt"
-                                                    className="block h-full min-h-[28rem] w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                                    placeholder="Enter custom instructions..."
-                                                    value={prompt}
-                                                    onChange={
-                                                        handlePromptChange
-                                                    }
-                                                    disabled={
-                                                        isUpdating || !canModify
-                                                    }
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
-                                    {activeTab === 'agent' && (
-                                        <div className="mt-4 h-full">
-                                            <label
-                                                htmlFor="agentPrompt"
-                                                className="sr-only"
-                                            >
-                                                Agent Prompt
-                                            </label>
-                                            <div className="">
-                                                <PresetPromptSelect
-                                                    value={selectedPreset}
-                                                    onChange={
-                                                        handlePresetChange
-                                                    }
-                                                    disabled={
-                                                        isUpdating || !canModify
-                                                    }
-                                                    defaultOptionLabel="Select a preset"
-                                                    defaultOptionDescription="Choose a default role for your agent to customize"
-                                                />
-                                                {selectedPreset && (
-                                                    <p className="mt-2 text-sm text-gray-500">
-                                                        Customize the template
-                                                        below and replace any
-                                                        variables in{' '}
-                                                        {'{curly_braces}'} with
-                                                        your specific
-                                                        information.
-                                                    </p>
-                                                )}
-                                            </div>
-                                            <div className="mt-4">
-                                                <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                                                    Enabled Tools
-                                                </p>
-                                                <p className="mt-1 text-xs text-gray-500">
-                                                    Reference these enabled
-                                                    tools in your instructions
-                                                    to customize when the agent
-                                                    should call them. Click a
-                                                    tool name to insert it at
-                                                    the cursor.
-                                                </p>
-                                                <div className="mt-2 flex flex-wrap gap-2">
-                                                    {instructionToolNames.map(
-                                                        (toolName) => (
-                                                            <button
-                                                                key={toolName}
-                                                                type="button"
-                                                                onMouseDown={(
-                                                                    e,
-                                                                ) =>
-                                                                    e.preventDefault()
-                                                                }
-                                                                onClick={() =>
-                                                                    insertAgentToolReference(
-                                                                        toolName,
-                                                                    )
-                                                                }
-                                                                className="inline-flex shrink-0 items-center rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-1 text-[11px] font-medium text-cyan-800 transition hover:border-cyan-300 hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                                            >
-                                                                <code>
-                                                                    {toolName}
-                                                                </code>
-                                                            </button>
-                                                        ),
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="mt-2">
-                                                <textarea
-                                                    id="agentPrompt"
-                                                    ref={agentPromptRef}
-                                                    className="block h-full min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                                    placeholder="You must set an agent prompt to use the agent mode. Please choose and customize a preset or use the prompt generator to create your agent mode prompt."
-                                                    value={agentPrompt}
-                                                    onChange={
-                                                        handleAgentPromptChange
-                                                    }
-                                                    disabled={
-                                                        isUpdating || !canModify
-                                                    }
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
-                                    {activeTab === 'helpscout' &&
-                                        helpScoutIntegration && (
-                                            <div className="mt-4 h-fit">
-                                                <label
-                                                    htmlFor="helpscoutPrompt"
-                                                    className="sr-only"
-                                                >
-                                                    Custom Help Scout Prompt
-                                                </label>
-                                                <div className="mb-2 flex items-center justify-between">
-                                                    <Tooltip
-                                                        content='<div class="text-sm"><p class="mb-2 font-semibold">Simply prompt for what it should not respond to</p><p class="text-gray-300">For example: Vacation or ticket auto-responders, spam emails, sales emails</p></div>'
-                                                        placement="top"
-                                                    >
-                                                        <span className="inline-flex cursor-help items-center gap-1.5 rounded-full bg-cyan-100 px-3 py-1 text-xs font-medium text-cyan-800">
-                                                            <span className="relative flex h-2 w-2">
-                                                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
-                                                                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500"></span>
-                                                            </span>
-                                                            New: Ability to
-                                                            prompt the AI when
-                                                            it should not
-                                                            respond
-                                                        </span>
-                                                    </Tooltip>
-                                                    <button
-                                                        type="button"
-                                                        onClick={
-                                                            handleUseHelpScoutTemplate
-                                                        }
-                                                        disabled={
-                                                            isUpdating ||
-                                                            !canModify
-                                                        }
-                                                        className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                                    >
-                                                        Use Recommended Template
-                                                    </button>
-                                                </div>
-                                                <div className="mt-2">
-                                                    <textarea
-                                                        id="helpscoutPrompt"
-                                                        className="block min-h-96 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                                        placeholder="Enter any custom prompt here, this will be used for helpscout responses."
-                                                        value={hsPrompt}
-                                                        onChange={
-                                                            handleHSPromptChange
-                                                        }
-                                                        disabled={
-                                                            isUpdating ||
-                                                            !canModify
-                                                        }
-                                                    />
-                                                </div>
-                                            </div>
-                                        )}
-                                </div>
-                            </div>
+                <InstructionsForm
+                    isModalMode={isModalMode}
+                    activeTab={activeTab}
+                    helpScoutIntegration={helpScoutIntegration}
+                    onSubmit={updatePrompt}
+                    tabs={tabs}
+                    onSelectTab={setActiveTab}
+                    errorText={errorText}
+                    successText={successText}
+                    prompt={prompt}
+                    onPromptChange={handlePromptChange}
+                    selectedPreset={selectedPreset}
+                    onPresetChange={handlePresetChange}
+                    agentPrompt={agentPrompt}
+                    onAgentPromptChange={handleAgentPromptChange}
+                    agentPromptRef={agentPromptRef}
+                    instructionToolNames={instructionToolNames}
+                    onInsertAgentTool={insertAgentToolReference}
+                    hsPrompt={hsPrompt}
+                    onHSPromptChange={handleHSPromptChange}
+                    onUseHelpScoutTemplate={handleUseHelpScoutTemplate}
+                    isUpdating={isUpdating}
+                    canModify={canModify}
+                    onOpenDebugModal={() => setShowDebugModal(true)}
+                    showGeneratePopover={showGeneratePopover}
+                    onToggleGeneratePopover={() =>
+                        setShowGeneratePopover(!showGeneratePopover)
+                    }
+                    buttonRef={buttonRef}
+                    popoverRef={popoverRef}
+                    actionInput={actionInput}
+                    onActionInputChange={(e) =>
+                        setActionInput(e.target.value)
+                    }
+                    onClearActionInput={() => setActionInput('')}
+                    isGenerating={isGenerating}
+                    onGeneratePrompt={generatePrompt}
+                    canEditInstructions={canEditInstructions}
+                    onReset={handleReset}
+                    hasUnsavedChanges={hasUnsavedChanges}
+                    saveButtonRef={saveButtonRef}
+                />
+            </div>
 
-                            {(activeTab === 'regular' ||
-                                activeTab === 'agent') &&
-                                bot.status === 'ready' && (
-                                    <div className="order-2 mx-auto mb-4 mt-6 flex h-full min-h-[600px] w-full flex-shrink-0 flex-col overflow-hidden sm:w-[448px] xl:col-start-2 xl:row-span-2 xl:row-start-1 xl:mb-0 xl:mt-0 xl:mx-0">
-                                        <h3 className="text-md mb-2 shrink-0 font-medium">
-                                            {activeTab === 'agent'
-                                                ? 'Test your agent'
-                                                : 'Test your bot'}
-                                        </h3>
-                                        <div
-                                            className="relative min-h-0 flex-1 overflow-hidden"
-                                            onClick={handleIframeClick}
-                                        >
-                                            {hasUnsavedChanges && (
-                                                <div className="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-gray-900 bg-opacity-40 text-white">
-                                                    <div className="px-4 text-center">
-                                                        <span className="text-md font-semibold">
-                                                            Save your changes
-                                                            before testing
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            )}
-                                            <iframe
-                                                src={`${
-                                                    process.env.NODE_ENV ===
-                                                    'development'
-                                                        ? `http://localhost:3000/iframe/${team.id}/${bot.id}`
-                                                        : `https://docsbot.ai/iframe/${team.id}/${bot.id}`
-                                                }?agent=${activeTab === 'agent' ? 'true' : 'false'}&signature=${bot.signature}&testing=true`}
-                                                className={`h-full w-full ${hasUnsavedChanges ? 'opacity-50' : ''}`}
-                                            ></iframe>
-                                        </div>
-                                    </div>
-                                )}
-
-                            <div
-                                className={clsx(
-                                    'order-3 flex justify-end gap-4',
-                                    (activeTab === 'regular' ||
-                                        activeTab === 'agent') &&
-                                        bot.status === 'ready'
-                                        ? 'mt-8 xl:col-start-1 xl:row-start-2 xl:mt-8'
-                                        : 'mt-12 sm:mt-8',
-                                )}
-                            >
-                                <button
-                                    type="button"
-                                    onClick={handleReset}
-                                    className={clsx(
-                                        'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm',
-                                        !hasUnsavedChanges &&
-                                            'cursor-not-allowed opacity-50',
-                                        !canModify && 'hidden',
-                                    )}
-                                    disabled={
-                                        !hasUnsavedChanges || !canModify
-                                    }
-                                >
-                                    <ArrowPathIcon
-                                        className="mr-2 h-5 w-5"
-                                        aria-hidden="true"
-                                    />
-                                    Reset
-                                </button>
-                                <button
-                                    type="submit"
-                                    name="submit-form"
-                                    ref={saveButtonRef}
-                                    className={
-                                        'inline-flex w-auto min-w-[9.5rem] items-center justify-center gap-2 whitespace-nowrap rounded-md border border-cyan-600 bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-700 hover:border-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-75 sm:text-sm' +
-                                        (canModify ? '' : ' hidden')
-                                    }
-                                    disabled={isUpdating || !canModify}
-                                >
-                                    {!isUpdating ? (
-                                        <>
-                                            <SaveDiskIcon className="size-4 shrink-0" aria-hidden />
-                                            Save Changes
-                                        </>
-                                    ) : (
-                                        <>
-                                            <LoadingSpinner /> Saving...
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </>
+            {activeTab !== 'helpscout' && (
+                <InstructionsPreview
+                    team={team}
+                    bot={bot}
+                    activeTab={activeTab}
+                    hasUnsavedChanges={hasUnsavedChanges}
+                    onIframeClick={handleIframeClick}
+                />
+            )}
+        </div>
     )
 
     return (
@@ -1164,12 +709,13 @@ export default function ModalPrompt({
                 open={showUpgrade}
                 setOpen={setShowUpgrade}
             />
+
             {isModalMode ? (
                 <Transition.Root show={isOpen} as={Fragment}>
                     <Dialog
                         as="div"
-                        className="relative z-[1000001]"
-                        onClose={() => setIsOpen(false)}
+                        className="relative z-modal"
+                        onClose={handleCloseModal}
                     >
                         <Transition.Child
                             as={Fragment}
@@ -1182,8 +728,9 @@ export default function ModalPrompt({
                         >
                             <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
                         </Transition.Child>
-                        <div className="fixed inset-0 z-modal overflow-y-auto">
-                            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+                        <div className="fixed inset-0">
+                            <div className="flex h-full min-h-0 items-end justify-center p-4 text-center sm:items-center sm:p-0">
                                 <Transition.Child
                                     as={Fragment}
                                     enter="ease-out duration-300"
@@ -1193,21 +740,24 @@ export default function ModalPrompt({
                                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                                 >
-                                    <Dialog.Panel className="relative flex max-h-[90vh] transform flex-col overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-7xl sm:p-6">
+                                    <Dialog.Panel
+                                        className="w-full max-w-[90%] h-full min-h-0 max-h-[90vh] relative p-4 rounded-lg bg-white shadow-xl text-left transition-all"
+                                        data-component="instructions-modal"
+                                    >
                                         <div className="absolute right-0 top-0 pr-4 pt-4 sm:block">
                                             <button
                                                 type="button"
                                                 className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                                onClick={() => setIsOpen(false)}
+                                                onClick={handleCloseModal}
                                             >
                                                 <span className="sr-only">Close</span>
                                                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                             </button>
                                         </div>
+
                                         <Dialog.Title className="sr-only">Custom Instructions</Dialog.Title>
-                                        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto pr-8">
-                                            {mainContent}
-                                        </div>
+
+                                        {mainContent}
                                     </Dialog.Panel>
                                 </Transition.Child>
                             </div>
@@ -1218,347 +768,33 @@ export default function ModalPrompt({
                 mainContent
             )}
 
-            {/* Debug Modal */}
-            <Transition.Root show={showDebugModal} as={Fragment}>
-                <Dialog
-                    as="div"
-                    className="relative z-modal"
-                    onClose={resetDebugModal}
-                >
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                    </Transition.Child>
-
-                    <div className="fixed inset-0 z-modal overflow-y-auto">
-                        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                            <Transition.Child
-                                as={Fragment}
-                                enter="ease-out duration-300"
-                                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                                enterTo="opacity-100 translate-y-0 sm:scale-100"
-                                leave="ease-in duration-200"
-                                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                            >
-                                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6">
-                                    <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                                        <button
-                                            type="button"
-                                            className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                            onClick={resetDebugModal}
-                                        >
-                                            <span className="sr-only">
-                                                Close
-                                            </span>
-                                            <XMarkIcon
-                                                className="h-6 w-6"
-                                                aria-hidden="true"
-                                            />
-                                        </button>
-                                    </div>
-
-                                    <div className="">
-                                        <Dialog.Title
-                                            as="h3"
-                                            className="mb-4 text-xl font-medium leading-6 text-gray-900"
-                                        >
-                                            <div className="flex items-center">
-                                                <BugAntIcon className="mr-2 h-6 w-6 text-cyan-600" />
-                                                <span>
-                                                    Debug Prompt Behavior
-                                                </span>
-                                            </div>
-                                        </Dialog.Title>
-
-                                        <Alert title={errorText} type="error" />
-
-                                        {!debugAnalysis ? (
-                                            <div className="space-y-4">
-                                                {!isDebugging ? (
-                                                    <>
-                                                        <p className="text-sm text-gray-600">
-                                                            Describe what you
-                                                            want your agent to
-                                                            do versus what it's
-                                                            actually doing. Our
-                                                            AI will analyze your
-                                                            prompt/instructions
-                                                            and suggest specific
-                                                            improvements.
-                                                        </p>
-
-                                                        <div>
-                                                            <label
-                                                                htmlFor="desired-behavior"
-                                                                className="block text-sm font-medium text-gray-700"
-                                                            >
-                                                                What should your
-                                                                bot do?{' '}
-                                                                <span className="text-gray-400">
-                                                                    (Optional)
-                                                                </span>
-                                                            </label>
-                                                            <p className="mt-1 text-xs text-gray-500">
-                                                                Describe the
-                                                                desired behavior
-                                                                (e.g., "answer
-                                                                questions
-                                                                professionally
-                                                                and cite
-                                                                sources")
-                                                            </p>
-                                                            <textarea
-                                                                id="desired-behavior"
-                                                                rows={3}
-                                                                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                                                placeholder="Describe what you want your bot to do (optional)..."
-                                                                value={
-                                                                    debugDesiredBehavior
-                                                                }
-                                                                onChange={(e) =>
-                                                                    setDebugDesiredBehavior(
-                                                                        e.target
-                                                                            .value,
-                                                                    )
-                                                                }
-                                                            />
-                                                        </div>
-
-                                                        <div>
-                                                            <label
-                                                                htmlFor="undesired-behavior"
-                                                                className="block text-sm font-medium text-gray-700"
-                                                            >
-                                                                What is your bot
-                                                                doing wrong?{' '}
-                                                                <span className="text-gray-400">
-                                                                    (Optional)
-                                                                </span>
-                                                            </label>
-                                                            <p className="mt-1 text-xs text-gray-500">
-                                                                Describe the
-                                                                problematic
-                                                                behavior (e.g.,
-                                                                "gives generic
-                                                                answers without
-                                                                using provided
-                                                                context")
-                                                            </p>
-                                                            <textarea
-                                                                id="undesired-behavior"
-                                                                rows={3}
-                                                                className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
-                                                                placeholder="Describe what your bot is doing wrong (optional)..."
-                                                                value={
-                                                                    debugUndesiredBehavior
-                                                                }
-                                                                onChange={(e) =>
-                                                                    setDebugUndesiredBehavior(
-                                                                        e.target
-                                                                            .value,
-                                                                    )
-                                                                }
-                                                            />
-                                                        </div>
-
-                                                        {/* Image Upload Section */}
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700">
-                                                                Screenshots
-                                                                (Optional)
-                                                            </label>
-                                                            <p className="mt-1 text-xs text-gray-500">
-                                                                Upload any
-                                                                conversation
-                                                                screenshots to
-                                                                help illustrate
-                                                                the issue
-                                                            </p>
-
-                                                            <input
-                                                                type="file"
-                                                                ref={
-                                                                    debugFileInputRef
-                                                                }
-                                                                onChange={
-                                                                    handleDebugImageSelect
-                                                                }
-                                                                accept="image/*"
-                                                                multiple
-                                                                className="hidden"
-                                                            />
-
-                                                            <div className="mt-2">
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={
-                                                                        triggerDebugFileInput
-                                                                    }
-                                                                    disabled={
-                                                                        debugSelectedImages.length >=
-                                                                        4
-                                                                    }
-                                                                    className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50"
-                                                                >
-                                                                    <PhotoIcon className="mr-2 h-4 w-4" />
-                                                                    Add
-                                                                    Screenshot
-                                                                </button>
-                                                                {debugSelectedImages.length >
-                                                                    0 && (
-                                                                    <p className="mt-1 text-xs text-gray-500">
-                                                                        {
-                                                                            debugSelectedImages.length
-                                                                        }
-                                                                        /4
-                                                                        images
-                                                                        selected
-                                                                    </p>
-                                                                )}
-                                                            </div>
-
-                                                            {debugSelectedImages.length >
-                                                                0 && (
-                                                                <div className="mt-3 flex flex-wrap gap-2">
-                                                                    {debugSelectedImages.map(
-                                                                        (
-                                                                            image,
-                                                                            index,
-                                                                        ) => (
-                                                                            <div
-                                                                                key={
-                                                                                    index
-                                                                                }
-                                                                                className="relative"
-                                                                            >
-                                                                                <img
-                                                                                    src={
-                                                                                        image.url
-                                                                                    }
-                                                                                    alt={`Screenshot ${index + 1}`}
-                                                                                    className="h-20 w-20 rounded-lg object-cover"
-                                                                                />
-                                                                                <button
-                                                                                    type="button"
-                                                                                    onClick={() =>
-                                                                                        removeDebugImage(
-                                                                                            index,
-                                                                                        )
-                                                                                    }
-                                                                                    className="absolute -right-1 -top-1 rounded-full bg-gray-500 p-1 text-white hover:bg-gray-600"
-                                                                                >
-                                                                                    <XMarkIcon className="h-3 w-3" />
-                                                                                </button>
-                                                                            </div>
-                                                                        ),
-                                                                    )}
-                                                                </div>
-                                                            )}
-                                                        </div>
-
-                                                        <div className="flex justify-end space-x-3 pt-4">
-                                                            <button
-                                                                type="button"
-                                                                className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
-                                                                onClick={
-                                                                    resetDebugModal
-                                                                }
-                                                            >
-                                                                Cancel
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 align-middle text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 sm:text-sm"
-                                                                onClick={
-                                                                    debugPrompt
-                                                                }
-                                                                disabled={
-                                                                    isDebugging ||
-                                                                    (!debugDesiredBehavior.trim() &&
-                                                                        !debugUndesiredBehavior.trim())
-                                                                }
-                                                            >
-                                                                Analyze Prompt
-                                                            </button>
-                                                        </div>
-                                                    </>
-                                                ) : (
-                                                    <div className="py-8 text-center">
-                                                        <LoadingSpinner />
-                                                        <p className="mt-4 animate-pulse text-gray-600">
-                                                            {
-                                                                debugLoadingText[
-                                                                    debugLoadingIndex
-                                                                ]
-                                                            }
-                                                        </p>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ) : (
-                                            <div className="space-y-4">
-                                                <div>
-                                                    <h4 className="mb-3 text-lg font-medium text-gray-900">
-                                                        Analysis & Suggestions
-                                                    </h4>
-                                                    <div className="max-w-none rounded-lg border bg-gray-50 p-4">
-                                                        <Streamdown
-                                                            mode="static"
-                                                            isAnimating={false}
-                                                            remarkPlugins={
-                                                                streamdownRemarkPlugins
-                                                            }
-                                                        >
-                                                            {preprocessMath(
-                                                                debugAnalysis,
-                                                            )}
-                                                        </Streamdown>
-                                                    </div>
-                                                </div>
-
-                                                <div className="flex justify-end space-x-3 pt-4">
-                                                    <button
-                                                        type="button"
-                                                        className="inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
-                                                        onClick={
-                                                            resetDebugModal
-                                                        }
-                                                    >
-                                                        Close
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        className="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:text-sm"
-                                                        onClick={() => {
-                                                            setDebugAnalysis('')
-                                                            setDebugDesiredBehavior(
-                                                                '',
-                                                            )
-                                                            setDebugUndesiredBehavior(
-                                                                '',
-                                                            )
-                                                        }}
-                                                    >
-                                                        Analyze Another Issue
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </Dialog.Panel>
-                            </Transition.Child>
-                        </div>
-                    </div>
-                </Dialog>
-            </Transition.Root>
+            <InstructionsDebugModal
+                show={showDebugModal}
+                onClose={resetDebugModal}
+                errorText={errorText}
+                debugDesiredBehavior={debugDesiredBehavior}
+                onDebugDesiredBehaviorChange={(e) =>
+                    setDebugDesiredBehavior(e.target.value)
+                }
+                debugUndesiredBehavior={debugUndesiredBehavior}
+                onDebugUndesiredBehaviorChange={(e) =>
+                    setDebugUndesiredBehavior(e.target.value)
+                }
+                debugSelectedImages={debugSelectedImages}
+                onDebugImageSelect={handleDebugImageSelect}
+                onRemoveDebugImage={removeDebugImage}
+                debugFileInputRef={debugFileInputRef}
+                onTriggerFileInput={triggerDebugFileInput}
+                isDebugging={isDebugging}
+                debugLoadingIndex={debugLoadingIndex}
+                debugAnalysis={debugAnalysis}
+                onAnalyzeAnother={() => {
+                    setDebugAnalysis('')
+                    setDebugDesiredBehavior('')
+                    setDebugUndesiredBehavior('')
+                }}
+                onAnalyze={debugPrompt}
+            />
         </>
     )
 }

@@ -1,13 +1,20 @@
 import React, { Fragment } from 'react'
 import { Title, Paragraph } from '@/components/Typography'
 import Note from '@new-dashboard/Note'
+import clsx from 'clsx'
 
-const WorkspaceHeader = ({ title, description, note, children }) => {
+const WorkspaceHeader = ({ title, description, note, className, children }) => {
     const hasChildren = React.Children.count(children) > 0 ? true : false
     const Component = hasChildren ? 'div' : Fragment
 
     return (
-        <div className="w-full flex flex-col gap-2" data-component="workspace-header">
+        <div
+            className={clsx(
+                'w-full flex flex-col gap-2',
+                className,
+            )}
+            data-component="workspace-header"
+        >
             <Component
                 {...(hasChildren && {
                     className: 'flex items-center gap-4',
@@ -29,7 +36,7 @@ const WorkspaceHeader = ({ title, description, note, children }) => {
                 )}
             </Component>
 
-            {description && <Paragraph>{description}</Paragraph>}
+            {description && <Paragraph className="-mt-2">{description}</Paragraph>}
 
             {note && (
                 <Note size="md" color="yellow">
