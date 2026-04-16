@@ -213,6 +213,7 @@ const BotInner = ({
     openQuestion,
     canModifyTeam = false,
     canManageIntegrations: canManageIntegrationsFromServer = false,
+    canManageBotSettings: canManageBotSettingsFromServer = false,
 }) => {
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
@@ -223,8 +224,12 @@ const BotInner = ({
         setBot(initialBot)
     }, [initialBot])
 
-    const [canManageSettings, setCanManageSettings] = useState(false)
-    const [canManageIntegrations, setCanManageIntegrations] = useState(false)
+    const [canManageSettings, setCanManageSettings] = useState(
+        canManageBotSettingsFromServer,
+    )
+    const [canManageIntegrations, setCanManageIntegrations] = useState(
+        canManageIntegrationsFromServer,
+    )
     const [permissionsResolved, setPermissionsResolved] = useState(false)
     useEffect(() => {
         if (authLoading) return
@@ -234,12 +239,17 @@ const BotInner = ({
         setPermissionsResolved(true)
     }, [authLoading, user?.uid, team, bot])
 
+    const hasManageSettingsAccess =
+        canManageBotSettingsFromServer || canManageSettings
+    const hasIntegrationsAccess =
+        canManageIntegrationsFromServer || canManageIntegrations
+
     const analyticsControls = useMemo(
         () => ['reports', 'questions', 'conversations'],
         [],
     )
     const configureControls = useMemo(
-        () => ['system', 'instructions', 'sources', 'questions', 'glossary', 'webhooks', 'search'],
+        () => ['system', 'instructions', 'sources', 'questions', 'glossary', 'webhooks', 'search', 'mcp-connections'],
         [],
     )
     const widgetControls = useMemo(
@@ -247,16 +257,16 @@ const BotInner = ({
         [],
     )
     const isConfigureControlRestricted = useCallback((control) => {
-        if (['system', 'questions', 'glossary'].includes(control)) {
-            return !canManageSettings
+        if (['system', 'questions', 'glossary', 'mcp-connections'].includes(control)) {
+            return !hasManageSettingsAccess
         }
 
         if (control === 'webhooks') {
-            return !canManageIntegrations
+            return !hasIntegrationsAccess
         }
 
         return false
-    }, [canManageIntegrations, canManageSettings])
+    }, [hasIntegrationsAccess, hasManageSettingsAccess])
 
 
     const { tab: derivedTab, control: derivedControl } = useMemo(
@@ -306,7 +316,20 @@ const BotInner = ({
         if (currentPath !== correctPathClean) {
             router.replace(correctPath, undefined, { shallow: true })
         }
-    }, [router.isReady, authLoading, derivedTab, derivedControl, botId, bot, configureControls, canManageIntegrations, canManageIntegrationsFromServer, isConfigureControlRestricted, router])
+    }, [
+        router.isReady,
+        authLoading,
+        derivedTab,
+        derivedControl,
+        botId,
+        bot,
+        configureControls,
+        canManageIntegrations,
+        canManageIntegrationsFromServer,
+        canManageBotSettingsFromServer,
+        isConfigureControlRestricted,
+        router,
+    ])
 
     const isBotDisabled = bot?.privacy === 'private' || bot?.status !== 'ready'
 
@@ -398,6 +421,14 @@ const BotInner = ({
             />
         ),
         webhooks: <PageConfigure.Webhooks key={bot.id} team={team} bot={bot} />,
+        'mcp-connections': (
+            <PageConfigure.McpConnectors
+                key={bot.id}
+                team={team}
+                bot={bot}
+                setBot={setBot}
+            />
+        ),
     }
     const configureContent =
         configureContentMap[configureControl] || configureContentMap.sources
@@ -439,6 +470,13 @@ const BotInner = ({
             shallow: true,
             isActive:
                 activeId === 'configure' && configureControl === 'glossary',
+            requiresManageSettings: true,
+        },
+        {
+            name: 'MCP Connections',
+            href: configureHref('mcp-connections'),
+            shallow: true,
+            isActive: activeId === 'configure' && configureControl === 'mcp-connections',
             requiresManageSettings: true,
         },
         {
@@ -584,8 +622,8 @@ const BotInner = ({
             options: configureMenuOptions.map((option) => ({
                 ...option,
                 disabled:
-                    (option.requiresManageSettings && !canManageSettings) ||
-                    (option.name === 'Webhooks' && !canManageIntegrations),
+                    (option.requiresManageSettings && !hasManageSettingsAccess) ||
+                    (option.name === 'Webhooks' && !hasIntegrationsAccess),
             })),
         },
         {
@@ -799,6 +837,11 @@ export const getServerSideProps = async (context) => {
         )
         data.props.canModifyTeam = canUserModifyTeam(data.props.team, data.props.userId)
         data.props.canManageIntegrations = canUserManageIntegrations(data.props.team, data.props.userId, data.props.bot)
+        data.props.canManageBotSettings = canUserManageBotSettings(
+            data.props.team,
+            data.props.userId,
+            data.props.bot,
+        )
 
         const {
             tab,
@@ -807,13 +850,14 @@ export const getServerSideProps = async (context) => {
             print: isPrint,
         } = slugToTabControl(slug)
 
+        const normalizedBotIdForRedirect = Array.isArray(botId) ? botId[0] : botId
+
         // Redirect non-admins away from webhooks, widget, and deploy (admin-only via canManageIntegrations)
         if (!data.props.canManageIntegrations) {
-            const normalizedBotId = Array.isArray(botId) ? botId[0] : botId
             if (tab === 'widget' || tab === 'deploy') {
                 return {
                     redirect: {
-                        destination: `/app/bots/${normalizedBotId}`,
+                        destination: `/app/bots/${normalizedBotIdForRedirect}`,
                         permanent: false,
                     },
                 }
@@ -821,7 +865,22 @@ export const getServerSideProps = async (context) => {
             if (tab === 'configure' && control === 'webhooks') {
                 return {
                     redirect: {
-                        destination: `/app/bots/${normalizedBotId}/configure/sources`,
+                        destination: `/app/bots/${normalizedBotIdForRedirect}/configure/sources`,
+                        permanent: false,
+                    },
+                }
+            }
+        }
+
+        // Bot admin-only configure tabs (same permission as System / Starters / Glossary)
+        if (!data.props.canManageBotSettings) {
+            if (
+                tab === 'configure' &&
+                ['system', 'questions', 'glossary', 'mcp-connections'].includes(control)
+            ) {
+                return {
+                    redirect: {
+                        destination: `/app/bots/${normalizedBotIdForRedirect}/configure/sources`,
                         permanent: false,
                     },
                 }

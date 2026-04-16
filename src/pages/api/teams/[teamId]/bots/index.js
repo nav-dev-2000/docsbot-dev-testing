@@ -16,6 +16,7 @@ import {
   isVectorDbMaintenanceEnabled,
   vectorDbMaintenanceResponse,
 } from '@/lib/maintenance'
+import { copyDemoTemplateStatisticsToBot } from '@/lib/demoBotStatistics'
 
 const router = createRouter()
 
@@ -137,7 +138,11 @@ router.post(async (req, res) => {
       }
     }
 
-    
+    // Copy demo template statistics to bot so that there will be pretty reports
+    const demoTeamId = process.env.NEXT_PUBLIC_DEMO_TEAM_ID
+    if (demoTeamId && team.id === demoTeamId) {
+      await copyDemoTemplateStatisticsToBot(firestore, docRef)
+    }
 
     // if copyFrom is defined, run the pubsub copy function
     if (copyFrom) {

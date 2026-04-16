@@ -38,7 +38,7 @@ const publicProxyRoutes = new Set(['preview.js', 'revalidate.js'])
 
 describe('API surface coverage inventory', () => {
   it('tracks every API route file in the repository', () => {
-    expect(apiFiles).toHaveLength(93)
+    expect(apiFiles).toHaveLength(97)
     expect(apiFiles).toContain('auth.js')
     expect(apiFiles).toContain('teams/[teamId]/stripe-portal.js')
     expect(apiFiles).toContain('stripe/oauth/callback.js')
@@ -47,6 +47,9 @@ describe('API surface coverage inventory', () => {
     )
     expect(apiFiles).toContain(
       'teams/[teamId]/bots/[botId]/custom-button-draft.js',
+    )
+    expect(apiFiles).toContain(
+      'teams/[teamId]/bots/[botId]/mcp-server-draft.js',
     )
     expect(apiFiles).toContain('tools/prompt-generator.js')
     expect(apiFiles).toContain('tools/generate-demo-trial-url.js')

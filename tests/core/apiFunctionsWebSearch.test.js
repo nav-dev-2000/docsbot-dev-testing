@@ -39,6 +39,8 @@ vi.mock('@/lib/service', () => ({
 
 vi.mock('@/utils/helpers', () => ({
   isSuperAdmin: vi.fn(() => false),
+  getCustomButtonsSlotLimit: vi.fn(() => 5),
+  getMcpServerSlotLimit: vi.fn(() => 5),
   checkPlanPermission: vi.fn((team, requiredPlan) => {
     if (requiredPlan === 'standard') {
       return { allowed: team?.plan === 'standard' || team?.plan === 'business', requiredPlanLabel: 'Standard' }
@@ -156,5 +158,55 @@ describe('validateBotParams web search enforcement', () => {
     ).rejects.toThrow(
       'Web search requires GPT-4.1 mini, GPT-4.1, GPT-4o mini, GPT-4o, or GPT-5+. Current model: GPT-4.1 nano.',
     )
+  })
+
+  it('does not persist MCP OAuth client secrets in bot mcpServers', async () => {
+    await expect(
+      validateBotParams(
+        {
+          body: {
+            mcpServers: [
+              {
+                serverLabel: 'Example MCP',
+                serverUrl: 'https://mcp.example.com/sse',
+                oauthClientId: 'client-id',
+                oauthClientSecret: 'super-secret',
+              },
+            ],
+          },
+        },
+        { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+        'user-1',
+        true,
+        { id: 'bot-1', tools: {}, model: 'gpt-5.4-mini' },
+      ),
+    ).resolves.toMatchObject({
+      mcpServers: [
+        {
+          oauthClientId: 'client-id',
+        },
+      ],
+    })
+
+    const botData = await validateBotParams(
+      {
+        body: {
+          mcpServers: [
+            {
+              serverLabel: 'Example MCP',
+              serverUrl: 'https://mcp.example.com/sse',
+              oauthClientId: 'client-id',
+              oauthClientSecret: 'super-secret',
+            },
+          ],
+        },
+      },
+      { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+      'user-1',
+      true,
+      { id: 'bot-1', tools: {}, model: 'gpt-5.4-mini' },
+    )
+
+    expect(botData.mcpServers[0].oauthClientSecret).toBeUndefined()
   })
 })

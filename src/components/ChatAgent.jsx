@@ -23,6 +23,7 @@ import {
   ChevronRightIcon,
   SparklesIcon,
   GlobeAltIcon,
+  ServerStackIcon,
 } from '@heroicons/react/24/outline'
 import {
   PaperAirplaneIcon,
@@ -762,6 +763,45 @@ const AGENT_EVENT_ROW_CLASS =
 const AGENT_EVENTS_TIMELINE_CLASS =
   'relative ml-3 text-left before:absolute before:bottom-2 before:left-0 before:top-2 before:border-l before:border-gray-200 before:content-[\"\"]'
 
+function humanizeSnakeCaseLabel(value) {
+  if (value == null || value === '') return ''
+  const s = String(value).trim()
+  if (!s) return ''
+  return s
+    .split(/[_\s]+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ')
+}
+
+function isMcpToolCallEvent(toolCall) {
+  const t = String(toolCall.tool_type || '').toLowerCase()
+  if (t === 'mcp') return true
+  const server = toolCall.mcp_server || toolCall.server_label
+  const tool = toolCall.mcp_tool || toolCall.tool_name
+  return Boolean(server && tool)
+}
+
+function getMcpToolCallLabels(toolCall) {
+  const serverRaw = toolCall.server_label || toolCall.mcp_server || ''
+  const toolRaw = toolCall.mcp_tool || toolCall.tool_name || ''
+  let serverLabel = humanizeSnakeCaseLabel(serverRaw)
+  let toolLabel = humanizeSnakeCaseLabel(toolRaw)
+  if (serverLabel && toolLabel) {
+    return { serverLabel, toolLabel }
+  }
+  const nameFallback = humanizeSnakeCaseLabel(
+    String(toolCall.name || '').replace(/^mcp_/i, ''),
+  )
+  if (!toolLabel) {
+    toolLabel = nameFallback || 'tool'
+  }
+  if (!serverLabel) {
+    serverLabel = 'MCP'
+  }
+  return { serverLabel, toolLabel }
+}
+
 function AgentEventLeading({
   icon: Icon,
   isStreamingStarted = true,
@@ -901,8 +941,23 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
               <span className="font-medium">Escalating to human</span>
             </div>
           )
+        } else if (isMcpToolCallEvent(toolCall)) {
+          const { serverLabel, toolLabel } = getMcpToolCallLabels(toolCall)
+          return (
+            <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
+              <AgentEventLeading
+                icon={ServerStackIcon}
+                isStreamingStarted={isStreamingStarted}
+              />
+              <span className="font-medium">
+                {isStreamingStarted ? 'Called' : 'Calling'}{' '}
+                <span className="font-normal text-gray-500">{serverLabel}: </span>
+                <span className="text-gray-700">{toolLabel}</span>
+              </span>
+            </div>
+          )
         }
-        
+
         // Generic tool call
         return (
           <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
@@ -1662,6 +1717,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 type: 'tool_call',
                 name: toolCallData.name,
                 params: toolCallData.params,
+                tool_type: toolCallData.tool_type,
+                mcp_server: toolCallData.mcp_server,
+                mcp_tool: toolCallData.mcp_tool,
+                tool_name: toolCallData.tool_name,
+                server_label: toolCallData.server_label,
                 timestamp: Date.now(),
               }
               setAgentEvents((prev) => {

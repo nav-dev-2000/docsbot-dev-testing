@@ -720,15 +720,15 @@ export default function ModalPrompt({
                     >
                         <Alert title={errorText} type="error" />
                         <Alert title={successText} type="success" />
-                        <div className="grid grid-cols-1 gap-x-4 lg:grid-cols-[1fr_448px] lg:gap-x-6">
+                        <div className="grid grid-cols-1 gap-x-4 xl:grid-cols-[1fr_448px] xl:gap-x-6">
                             <div
                                 className={clsx(
                                     'flex min-w-0 flex-col order-1',
                                     (activeTab === 'regular' ||
                                         activeTab === 'agent') &&
                                         bot.status === 'ready'
-                                        ? 'lg:col-start-1 lg:row-start-1'
-                                        : 'lg:col-span-2',
+                                        ? 'xl:col-start-1 xl:row-start-1'
+                                        : 'xl:col-span-2',
                                 )}
                             >
                                 <div className="flex justify-between border-b border-gray-200">
@@ -1068,7 +1068,7 @@ export default function ModalPrompt({
                             {(activeTab === 'regular' ||
                                 activeTab === 'agent') &&
                                 bot.status === 'ready' && (
-                                    <div className="order-2 mx-auto mb-4 mt-6 flex h-full min-h-[600px] w-full flex-shrink-0 flex-col overflow-hidden sm:w-[448px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mb-0 lg:mt-0 lg:mx-0">
+                                    <div className="order-2 mx-auto mb-4 mt-6 flex h-full min-h-[600px] w-full flex-shrink-0 flex-col overflow-hidden sm:w-[448px] xl:col-start-2 xl:row-span-2 xl:row-start-1 xl:mb-0 xl:mt-0 xl:mx-0">
                                         <h3 className="text-md mb-2 shrink-0 font-medium">
                                             {activeTab === 'agent'
                                                 ? 'Test your agent'
@@ -1107,7 +1107,7 @@ export default function ModalPrompt({
                                     (activeTab === 'regular' ||
                                         activeTab === 'agent') &&
                                         bot.status === 'ready'
-                                        ? 'mt-8 lg:col-start-1 lg:row-start-2 lg:mt-8'
+                                        ? 'mt-8 xl:col-start-1 xl:row-start-2 xl:mt-8'
                                         : 'mt-12 sm:mt-8',
                                 )}
                             >

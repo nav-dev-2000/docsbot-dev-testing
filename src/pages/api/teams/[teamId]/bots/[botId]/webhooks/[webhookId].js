@@ -4,13 +4,12 @@ import userTeamCheck from '@/lib/userTeamCheck'
 import { getFirestore, Timestamp, FieldValue } from 'firebase-admin/firestore'
 import { canUserManageIntegrations } from '@/utils/function.utils'
 import {
-  isBlockedWebhookTarget,
-  isValidHttpUrl,
   normalizeWebhookDoc,
   WEBHOOK_EVENT_LEAD_CREATED,
   WEBHOOK_EVENTS,
   normalizeWebhookEvents,
 } from '@/lib/webhooks'
+import { validateWebhookTargetUrlForSave } from '@/lib/validateWebhookTargetUrl'
 
 const firestore = getFirestore()
 
@@ -86,18 +85,11 @@ export default async function handler(req, res) {
     }
 
     if (targetUrl !== undefined) {
-      if (!isValidHttpUrl(targetUrl)) {
-        return res
-          .status(400)
-          .json({ message: 'targetUrl must be a valid URL.' })
+      const urlValidation = await validateWebhookTargetUrlForSave(targetUrl)
+      if (!urlValidation.ok) {
+        return res.status(400).json({ message: urlValidation.message })
       }
-      if (isBlockedWebhookTarget(targetUrl)) {
-        return res.status(400).json({
-          message:
-            'Webhook targetUrl cannot point to docsbot.ai or docsbot.com.',
-        })
-      }
-      updates.targetUrl = targetUrl
+      updates.targetUrl = urlValidation.normalizedUrl
     }
 
     if (inputEvents !== undefined) {

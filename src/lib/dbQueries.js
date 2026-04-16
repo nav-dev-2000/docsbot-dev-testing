@@ -54,6 +54,18 @@ const sanitizeBotSecrets = (bot) => {
     }
   }
 
+  if (Array.isArray(bot.mcpServers)) {
+    bot.mcpServers = bot.mcpServers.map((server) => {
+      if (!server || typeof server !== 'object') {
+        return server
+      }
+
+      const sanitizedServer = { ...server }
+      delete sanitizedServer.oauthClientSecret
+      return sanitizedServer
+    })
+  }
+
   return bot
 }
 

@@ -1,6 +1,7 @@
 import crypto from 'crypto'
 import { getFirestore, Timestamp } from 'firebase-admin/firestore'
 import { isBlockedWebhookTarget, mapWebhookEntries } from '@/lib/webhooks'
+import { validateOutboundFetchUrl } from '@/utils/outboundUrlValidation'
 
 const firestore = getFirestore()
 
@@ -20,8 +21,18 @@ export const sendWebhook = async (webhook, payload, signatureKey) => {
     headers['X-DocsBot-Signature'] = `sha256=${hmac.digest('hex')}`
   }
 
+  const outbound = await validateOutboundFetchUrl(webhook.targetUrl)
+  if (!outbound.valid) {
+    clearTimeout(timeout)
+    return {
+      ok: false,
+      status: null,
+      body: outbound.error,
+    }
+  }
+
   try {
-    const response = await fetch(webhook.targetUrl, {
+    const response = await fetch(outbound.normalizedUrl, {
       method: 'POST',
       headers,
       body,

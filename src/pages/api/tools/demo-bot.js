@@ -13,6 +13,7 @@ import { crawlAndExtract } from '@/utils/crawlHelpers'
 import { checkDemoBotRateLimit, saveDemoBotRecord } from '@/lib/tools'
 import crypto from 'crypto'
 import { uploadScreenshotToStorage } from '@/utils/crawlHelpers'
+import { copyDemoTemplateStatisticsToBot } from '@/lib/demoBotStatistics'
 
 const isColorLight = (hexColor) => {
   if (!hexColor) return false
@@ -159,7 +160,7 @@ export default async function handler(req, res) {
         color: initialColor,
         privacy: 'public',
         language: botConfig.language || 'en',
-        model: 'gpt-4.1-mini',
+        model: 'gpt-5.4-nano',
         temperature: 0,
         agentPrompt: supportPrompt
           .replace(/{company_name}/g, botConfig.businessName || botConfig.botName || 'your company')
@@ -320,6 +321,8 @@ export default async function handler(req, res) {
           sourceCount: sourceCount
         })
       })
+
+      await copyDemoTemplateStatisticsToBot(firestore, docRef)
 
       // Save demo bot record for rate limiting (only for unauthenticated users)
       if (!isDemo) {

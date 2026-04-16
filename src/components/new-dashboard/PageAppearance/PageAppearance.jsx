@@ -165,6 +165,7 @@ const computeAppearanceDirtySnapshot = (
         labels,
         tools,
         leadCollect,
+        mcpServers,
     },
 ) => {
     const reasons = []
@@ -187,6 +188,7 @@ const computeAppearanceDirtySnapshot = (
             return false
         }
     })()
+    const initialMcpServers = bot?.mcpServers || []
 
     const push = (field, extra = {}) => reasons.push({ field, ...extra })
 
@@ -290,6 +292,13 @@ const computeAppearanceDirtySnapshot = (
                 stableStringify(initialLeadCollect),
         })
     }
+    if (stableStringify(mcpServers || []) !== stableStringify(initialMcpServers)) {
+        push('mcpServers', {
+            stableEqual:
+                stableStringify(mcpServers || []) ===
+                stableStringify(initialMcpServers),
+        })
+    }
 
     return { dirty: reasons.length > 0, reasons }
 }
@@ -352,6 +361,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [isAgent, setIsAgent] = useState(
         bot.isAgent === undefined ? false : bot.isAgent, //default to false for old bots
     )
+
+    const [mcpServers, setMcpServers] = useState(bot.mcpServers || [])
     const [tools, setTools] = useState(() => getInitialDisplayTools(bot.tools))
     const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
         bot.linkSafetyEnabled === true,
@@ -446,6 +457,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             setShowCopyButton(nextBot.showCopyButton || false)
             setIsAgent(nextIsAgent)
             setTools(nextTools)
+            setMcpServers(nextBot.mcpServers || [])
             previousBranding.current = nextBranding
             previousImageUploads.current = nextImageUploads
             previousLeadCollect.current = nextLeadCollect
@@ -709,6 +721,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     labels,
                     tools,
                     leadCollect,
+                    mcpServers,
                 },
             ),
         [
@@ -731,6 +744,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             labels,
             tools,
             leadCollect,
+            mcpServers,
             linkSafetyEnabled,
             keepFooterVisible,
         ],
@@ -997,6 +1011,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             tools: finalTools,
             imageUploads,
             leadCollect,
+            mcpServers,
             linkSafetyEnabled,
             keepFooterVisible,
         }
@@ -1149,6 +1164,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             title: 'Actions',
             content: (
                 <AppearanceActions
+                    bot={bot}
+                    setBot={setBot}
                     toggleSchedulingAction={toggleSchedulingAction}
                     isAgent={isAgent}
                     handleAgentToggle={handleAgentToggle}
@@ -1165,13 +1182,14 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setLeadCollect={setLeadCollect}
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
-                    bot={bot}
                     canManageStripeActions={hasHydrated && isSuperAdmin(user?.uid)}
                     stripeOAuthLoading={stripeOAuthLoading}
                     setStripeOAuthLoading={setStripeOAuthLoading}
                     stripeOAuthError={stripeOAuthError}
                     setStripeOAuthError={setStripeOAuthError}
                     onStripeOAuthPopupClosed={refreshStripeConnectionFromServer}
+                    mcpServers={mcpServers}
+                    setMcpServers={setMcpServers}
                     customButtonFieldErrors={customButtonFieldErrors}
                     onClearCustomButtonFieldError={clearCustomButtonFieldError}
                     onClearCustomButtonRowErrors={clearCustomButtonRowErrors}

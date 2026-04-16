@@ -6,7 +6,7 @@ const TAB_DEFAULTS = {
 
 const VALID_CONTROLS = {
   analytics: ['reports', 'questions', 'conversations'],
-  configure: ['instructions', 'system', 'sources', 'webhooks', 'search', 'glossary', 'questions'],
+  configure: ['instructions', 'system', 'sources', 'webhooks', 'search', 'glossary', 'questions', 'mcp-connections'],
   widget: ['design', 'content', 'actions', 'deploy'],
 }
 

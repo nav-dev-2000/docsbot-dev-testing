@@ -10,6 +10,7 @@ import {
   isSuperAdmin,
   checkPlanPermission,
   getCustomButtonsSlotLimit,
+  getMcpServerSlotLimit,
 } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
@@ -316,6 +317,34 @@ export const deleteBot = async (teamId, botId) => {
   // Commit the remaining batch
   await researchBatch.commit()
 
+  //---------------------------
+  // Delete all MCP external OAuth registrations for bot
+  const mcpOAuthSnapshot = await firestore
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+    .collection('mcpExternalOAuth')
+    .select(FieldPath.documentId())
+    .get()
+
+  toDelete = []
+  mcpOAuthSnapshot.forEach(function (doc) {
+    toDelete.push(doc.ref)
+  })
+
+  counter = 0
+  let mcpOAuthBatch = firestore.batch()
+  for (let i = 0; i < toDelete.length; i++) {
+    mcpOAuthBatch.delete(toDelete[i])
+    counter++
+    if (counter % 50 === 0) {
+      await mcpOAuthBatch.commit()
+      mcpOAuthBatch = firestore.batch()
+    }
+  }
+  await mcpOAuthBatch.commit()
+
   // If bot is default or in channel map for any Slack workspace, update workspace config
   const integrationRef = firestore.collection('teams').doc(teamId).collection('integrations').doc('slack')
   const integrationDoc = await integrationRef.get()
@@ -469,6 +498,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     searchDocumentationLimit,
     vectorDatabase,
     region,
+    mcpServers,
   } = req.body
 
   let allowOpenEndedTopicsValue = allowOpenEndedTopics
@@ -1199,6 +1229,56 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     } else {
       botData.embeddingModel = 'text-embedding-3-small'
     }
+  }
+  if (mcpServers !== undefined) {
+    if (!Array.isArray(mcpServers)) {
+      throw new Error('mcpServers must be an array.')
+    }
+    const mcpSlotLimit = getMcpServerSlotLimit(team)
+    if (!isSuperAdmin(userId)) {
+      if (mcpSlotLimit === 0) {
+        throw new Error(
+          'Remote MCP connectors are only available on the Personal plan or higher.',
+        )
+      }
+      if (mcpServers.length > mcpSlotLimit) {
+        throw new Error(
+          mcpSlotLimit === 1
+            ? 'Your plan includes one remote MCP connector. Upgrade to Standard or higher to add more.'
+            : mcpSlotLimit === 5
+              ? 'Your plan includes up to five remote MCP connectors. Upgrade to Business for up to ten.'
+              : 'Your plan includes up to ten remote MCP connectors.',
+        )
+      }
+    }
+    // Validate each server
+    botData.mcpServers = mcpServers.map(server => {
+      if (!server.serverLabel || !server.serverUrl) {
+        throw new Error('MCP server must have a label and URL.')
+      }
+      return {
+          id: server.id || crypto.randomBytes(8).toString('hex'),
+          type: 'mcp',
+          serverLabel: server.serverLabel,
+          serverUrl: server.serverUrl,
+          serverDescription: server.serverDescription || '',
+          requireApproval: server.requireApproval || 'never',
+
+          // Optional manual OAuth/DCR credentials for registering with MCP OAuth servers.
+          // Persist both the current and older key names for backward compatibility.
+          oauthClientId: typeof server?.oauthClientId === 'string' ? server?.oauthClientId: '',
+          
+          enabled: server.enabled !== undefined ? Boolean(server.enabled) : false,
+          tools: Array.isArray(server?.tools) ? server?.tools : [],
+          isConnected: server.isConnected !== undefined ? Boolean(server.isConnected) : null,
+          isConnecting: server.isConnecting !== undefined ? Boolean(server.isConnecting) : false,
+          requiresOAuth: server.requiresOAuth !== undefined ? Boolean(server.requiresOAuth) : false,
+          tokenExpired: server.tokenExpired !== undefined ? Boolean(server.tokenExpired) : false,
+          createdAt: server.createdAt || new Date().toISOString(),
+      }
+    })
+  } else if (!isUpdate) {
+    botData.mcpServers = []
   }
 
   // Handle topics array

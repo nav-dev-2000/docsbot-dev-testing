@@ -38,16 +38,22 @@ describe('pricingStripeTableFeatures', () => {
 
   it('includes scheduling tools in the pricing table at Personal and above', () => {
     expect(featureDefinitions.bookingActions).toEqual({
-      label: 'Scheduling tools',
-      category: 'features',
+      label: 'Scheduling tools — Calendly, Cal.com, TidyCal',
+      category: 'actions',
     })
 
+    const free = pricingTiers.find((tier) => tier.id === 'free')
     const hobby = pricingTiers.find((tier) => tier.id === 'hobby')
     const personal = pricingTiers.find((tier) => tier.id === 'personal')
+    const pro = pricingTiers.find((tier) => tier.id === 'pro')
+    const standard = pricingTiers.find((tier) => tier.id === 'standard')
     const business = pricingTiers.find((tier) => tier.id === 'business')
 
+    expect(free?.features.bookingActions).toBe(false)
     expect(hobby?.features.bookingActions).toBe(false)
     expect(personal?.features.bookingActions).toBe(true)
+    expect(pro?.features.bookingActions).toBe(true)
+    expect(standard?.features.bookingActions).toBe(true)
     expect(business?.features.bookingActions).toBe(true)
   })
 })

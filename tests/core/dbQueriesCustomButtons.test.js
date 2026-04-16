@@ -101,6 +101,14 @@ describe('dbQueries customButtons normalization', () => {
         language: 'en',
         createdAt: createTimestamp('2026-04-01T00:00:00.000Z'),
         signatureKey: 'signature-key',
+        mcpServers: [
+          {
+            id: 'mcp-1',
+            serverLabel: 'Example',
+            oauthClientId: 'client-id',
+            oauthClientSecret: 'leaked-secret',
+          },
+        ],
         tools: {
           customButtons: {
             0: {
@@ -128,6 +136,7 @@ describe('dbQueries customButtons normalization', () => {
       instructions: 'When',
       buttonText: 'Go',
     })
+    expect(bot.mcpServers[0].oauthClientSecret).toBeUndefined()
   })
 
   it('getBots normalizes malformed customButtons for list views too', async () => {

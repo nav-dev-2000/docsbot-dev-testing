@@ -82,6 +82,35 @@ export const sanitizeURL = (url) => {
   return url
 }
 
+// Extracts the damain from a url and removes the subdomain if removeSubdomain is true
+// url - The url to extract the domain from
+// [removeSubdomain=true] - Whether to remove the subdomain
+// returns The domain from the url
+export const getDomainFromUrl = (url, removeSubdomain = true) => {
+  if (!url || typeof url !== 'string') return ''
+
+  try {
+    const { hostname } = new URL(url)
+    
+    if (removeSubdomain) {
+      const parts = hostname.split('.')
+
+      // Handle cases like cloudflare.com vs co.uk
+      if (parts.length > 2) {
+        return parts.slice(-2).join('.')
+      }
+    }
+
+    return hostname
+  } catch (error) {
+    return ''
+  }
+}
+
+/** Enabled tools on an MCP server config (matches configure UI: `tool.enabled` truthy). */
+export const countEnabledMcpTools = (server) =>
+  (server?.tools || []).filter((t) => t.enabled).length
+
 export const validateOpenAIKey = (team, key) => {
   return (
     team.AzureDeploymentBase ||
@@ -285,6 +314,25 @@ export function getCustomButtonsSlotLimit(team) {
     return 1
   }
   return Number.POSITIVE_INFINITY
+}
+
+/**
+ * Max remote MCP connector rows allowed in `mcpServers` for this team's plan.
+ * @returns {number} `0` (unavailable), `1` (Personal/Pro), `5` (Standard), or `10` (Business+)
+ */
+export function getMcpServerSlotLimit(team) {
+  if (!checkPlanPermission(team, 'personal', 'mcpServers').allowed) {
+    return 0
+  }
+  if (checkPlanPermission(team, 'business', 'mcpConnectorsBusiness').allowed) {
+    return 10
+  }
+  if (
+    checkPlanPermission(team, 'standard', 'multipleMcpServers').allowed
+  ) {
+    return 5
+  }
+  return 1
 }
 
 export const PLAN_LEVELS = {

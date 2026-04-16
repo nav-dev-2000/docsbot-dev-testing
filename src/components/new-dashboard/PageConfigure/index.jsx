@@ -6,6 +6,7 @@ import PageConfigureIntegrations from './Configure.Integrations.jsx'
 import PageConfigureGlossary from './Configure.Glossary.jsx'
 import PageConfigureQuestions from './Configure.Questions.jsx'
 import PageConfigureWebhooks from './Configure.Webhooks.jsx'
+import PageConfigureMcpConnectors from './Configure.McpConnectors.jsx'
 
 const PageConfigure = () => {
   return null
@@ -20,5 +21,6 @@ PageConfigure.Integrations = PageConfigureIntegrations
 PageConfigure.Glossary = PageConfigureGlossary
 PageConfigure.Questions = PageConfigureQuestions
 PageConfigure.Webhooks = PageConfigureWebhooks
+PageConfigure.McpConnectors = PageConfigureMcpConnectors
 
 export default PageConfigure
