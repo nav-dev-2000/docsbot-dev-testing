@@ -1011,9 +1011,15 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             tools: finalTools,
             imageUploads,
             leadCollect,
-            mcpServers,
             linkSafetyEnabled,
             keepFooterVisible,
+        }
+
+        if (
+            stableStringify(mcpServers || []) !==
+            stableStringify(bot?.mcpServers || [])
+        ) {
+            botSettings.mcpServers = mcpServers
         }
 
         const urlParams = ['teams', team.id, 'bots', bot.id]

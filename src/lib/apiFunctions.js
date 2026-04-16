@@ -1236,7 +1236,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     }
     const mcpSlotLimit = getMcpServerSlotLimit(team)
     if (!isSuperAdmin(userId)) {
-      if (mcpSlotLimit === 0) {
+      if (mcpSlotLimit === 0 && mcpServers.length > 0) {
         throw new Error(
           'Remote MCP connectors are only available on the Personal plan or higher.',
         )
