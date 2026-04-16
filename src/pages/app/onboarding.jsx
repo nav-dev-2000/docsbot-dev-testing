@@ -3018,7 +3018,7 @@ function Onboarding({ team }) {
                             <span>Loading sources…</span>
                           </div>
                         ) : !hasSources ? (
-                          <div className="rounded-xl border border-dashed border-gray-300 bg-white/50 p-6 text-center">
+                          <div className="rounded-xl border border-dashed border-gray-300 bg-white/95 p-6 text-center">
                             <p className="text-sm text-gray-500">
                               You haven't added any sources yet. Choose a source
                               type to get started.
