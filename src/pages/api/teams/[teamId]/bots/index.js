@@ -138,7 +138,7 @@ router.post(async (req, res) => {
       }
     }
 
-    // Copy demo template statistics to bot so that there will be pretty reports
+    // Copy demo template statistics to bot so that there will be pretty reports charts
     const demoTeamId = process.env.NEXT_PUBLIC_DEMO_TEAM_ID
     if (demoTeamId && team.id === demoTeamId) {
       await copyDemoTemplateStatisticsToBot(firestore, docRef)
