@@ -1,0 +1,6 @@
+{
+  "date": "2026-04-16",
+  "title": "Help Scout customer properties",
+  "description": "Custom customer properties you define in Help Scout are added to AI context. This allows your AI to answer questions about things like plan, product, or account tier you've already added to Help Scout.",
+  "href": "/documentation/doc/help-scout-integration"
+}

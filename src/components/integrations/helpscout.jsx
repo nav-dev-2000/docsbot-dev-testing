@@ -594,11 +594,17 @@ const HelpscoutIntegration = ({ team, integrations, bots, setErrorText }) => {
             </div>
             <div className="mb-4">
               <FieldToggle
-                label="Save Customer Info"
-                description="If enabled, responses will include user metadata (include name & email) in your questions log"
+                label="Save customer metadata"
+                description="When enabled, we store Help Scout customer data with each interaction so it can be used as model context for AI replies."
                 enabled={helpScoutIntegration.hasOwnProperty('saveMeta') ? helpScoutIntegration.saveMeta : true}
                 setEnabled={updateHelpscoutSaveMeta}
               />
+              <p className="mt-2 text-sm text-gray-500">
+                This includes the customer&apos;s name and email for logs, plus any{' '}
+                <strong>custom customer properties</strong> you set in Help Scout (for example fields you sync from
+                your CRM/Billing or other systems). That metadata is passed into the model so the bot can answer according to
+                your Help Scout prompt and instructions.
+              </p>
             </div>
             <div className="mb-4">
               <label className="block text-md font-bold text-gray-700">Tag Mappings:</label>

@@ -92,12 +92,16 @@ export default async function handler(req, res) {
       const isNewIntegration = !existingIntegration.exists
 
       // mark integration as pending
-      await firestore.collection('teams').doc(team.id).collection('integrations').doc(type).set({
+      const integrationPayload = {
         type,
         status: 'pending',
         appID,
         appSecret,
-      })
+      }
+      if (type === 'helpscout') {
+        integrationPayload.saveMeta = true
+      }
+      await firestore.collection('teams').doc(team.id).collection('integrations').doc(type).set(integrationPayload)
 
       // If this is a new Help Scout integration, set default prompt for all bots
       if (isNewIntegration && type === 'helpscout' && PRESET_PROMPTS.HELPSCOUT) {
