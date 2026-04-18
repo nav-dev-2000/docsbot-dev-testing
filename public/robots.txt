@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /?s=
+Disallow: /page/*/?s=
+Disallow: /search/
+
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+Sitemap: https://blog.docsbot.ai/sitemap_index.xml
