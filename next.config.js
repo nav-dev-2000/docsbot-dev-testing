@@ -284,6 +284,27 @@ const nextConfig = {
 
     return [...existing, ...botDashboardRedirects, ...modelRedirects, ...compareRedirects]
   },
+  async headers() {
+    return [
+      {
+        source: '/.well-known/mcp/server-card.json',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type, Authorization',
+          },
+        ],
+      },
+    ]
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap')

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "docsbot-mcp",
+    "title": "DocsBot MCP",
+    "version": "1.0.0"
+  },
+  "description": "DocsBot MCP endpoints for documentation and question history retrieval.",
+  "documentationUrl": "https://docsbot.ai/documentation/developer/mcp-server",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://api.docsbot.ai/teams/{teamId}/bots/{botId}/mcp/"
+  },
+  "transports": [
+    {
+      "id": "documentation",
+      "type": "streamable-http",
+      "endpoint": "https://api.docsbot.ai/teams/{teamId}/bots/{botId}/mcp/"
+    },
+    {
+      "id": "question-history",
+      "type": "streamable-http",
+      "endpoint": "https://api.docsbot.ai/teams/{teamId}/bots/{botId}/questions/mcp/"
+    }
+  ],
+  "capabilities": {
+    "tools": {
+      "listChanged": true
+    }
+  },
+  "authentication": {
+    "required": true,
+    "schemes": [
+      "bearer",
+      "oauth2"
+    ]
+  },
+  "tools": [
+    "dynamic"
+  ]
+}
