@@ -1,0 +1,4 @@
+interface:
+  display_name: "Truto CLI Sync Ops"
+  short_description: "Truto CLI + repo sync-job operations"
+  default_prompt: "Use Truto CLI and npm run truto-sync for Truto integration tasks, defaulting to development testing (mapped to staging where needed)."
