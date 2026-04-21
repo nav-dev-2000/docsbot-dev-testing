@@ -280,6 +280,16 @@ export const LLM_PRICING = {
       cached_input_token_cost_per_million: 0.5,
     },
     {
+      model_name: 'Claude Opus 4.7',
+      model_slug: 'claude-opus-4-7',
+      page_slug: 'claude-opus-4-7',
+      context: '1M/128K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 25,
+      cached_input_token_cost_per_million: 0.5,
+    },
+    {
       model_name: 'Claude Sonnet 4.6',
       model_slug: 'claude-sonnet-4-6',
       page_slug: 'claude-sonnet-4-6',

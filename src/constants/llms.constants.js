@@ -145,6 +145,69 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Claude Opus 4.7',
+    slug: 'claude-opus-4-7',
+    provider: 'anthropic',
+    description:
+      'Claude Opus 4.7 is Anthropic\'s most capable generally available model (released April 16, 2026). It features significant gains in advanced software engineering, long-horizon autonomy, and multimodal understanding. It supports higher resolution images (up to 2,576px), introduces an "xhigh" effort level, and includes real-time cyber safeguards. Outperforms Opus 4.6 on most benchmarks but remains below Claude Mythos Preview.',
+    input_context_window: '1M (beta)',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2026-04-16',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
+    input_cost_per_million_tokens: 5.0,
+    output_cost_per_million_tokens: 25.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+    },
+    benchmarks: {
+      CursorBench: {
+        score: 70.0,
+        notes: 'Significant jump from Opus 4.6 (58%).',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      BigLawBench: {
+        score: 90.9,
+        notes: 'Strong substantive accuracy with better reasoning calibration.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      VisualAcuityXBOW: {
+        score: 98.5,
+        notes: 'Step change from Opus 4.6 (54.5%).',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      FinanceAgent: {
+        score: 81.3,
+        notes: 'General Finance module; normalized to percentage scale for cross-model comparison.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      SWEBenchRakuten: {
+        score: null,
+        notes: 'Resolves 3x more production tasks than Opus 4.6.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      CodingResolution: {
+        score: null,
+        notes: '93-task benchmark; resolution lifted by 13% over Opus 4.6.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+    },
+  },
+  {
     model_name: 'Claude Sonnet 4.6',
     slug: 'claude-sonnet-4-6',
     provider: 'anthropic',

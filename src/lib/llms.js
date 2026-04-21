@@ -136,6 +136,10 @@ export const BENCHMARKS = {
     title: 'BrowseComp',
     description: 'Evaluates browsing and web comprehension capabilities',
   },
+  CursorBench: {
+    title: 'CursorBench',
+    description: 'Evaluates real-world software engineering and code editing performance on repository tasks',
+  },
   BrowseCompWithContext: {
     title: 'BrowseComp (with context management)',
     description: 'BrowseComp variant evaluated with context management strategies for longer multi-turn browsing tasks',
@@ -207,6 +211,10 @@ export const BENCHMARKS = {
   FinanceAgent: {
     title: 'Finance Agent',
     description: 'Evaluates agents on core financial analyst tasks, measuring their ability to interpret and analyze financial data',
+  },
+  CodingResolution: {
+    title: 'Coding Resolution',
+    description: 'Tracks production coding task resolution rates on long-horizon software engineering workloads',
   },
   FrontierMath: {
     title: 'FrontierMath',
@@ -500,6 +508,10 @@ export const BENCHMARKS = {
     title: 'SWE-Bench Verified',
     description: 'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
   },
+  SWEBenchRakuten: {
+    title: 'SWE-Bench Rakuten',
+    description: 'Production software engineering benchmark based on Rakuten task resolution outcomes',
+  },
   SWEBenchPro: {
     title: 'SWE-Bench Pro',
     description: 'Evaluates software engineering on multi-language SWE-Bench Pro benchmark of real-world GitHub issues',
@@ -539,6 +551,10 @@ export const BENCHMARKS = {
   VIBEPro: {
     title: 'VIBE-Pro',
     description: 'Office/productivity agent benchmark focused on real-world work tasks',
+  },
+  VisualAcuityXBOW: {
+    title: 'Visual Acuity (XBOW)',
+    description: 'Evaluates high-resolution visual understanding and perception on the XBOW visual acuity benchmark',
   },
   MultiSWEBench: {
     title: 'Multi-SWE-Bench',
