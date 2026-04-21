@@ -283,7 +283,7 @@ const Answer = ({
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
-                                <Dialog.Panel className="relative flex max-h-[calc(100vh-2rem)] transform flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:max-h-[calc(100vh-4rem)] sm:w-full sm:max-w-5xl">
+                                <Dialog.Panel className="relative flex max-h-[calc(100vh-2rem)] transform flex-col overflow-visible rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:max-h-[calc(100vh-4rem)] sm:w-full sm:max-w-5xl">
                                     <div className="absolute left-0 right-0 top-0 z-10 flex justify-end bg-white/90 pr-4 pt-4 backdrop-blur-sm">
                                         <button
                                             type="button"
