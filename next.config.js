@@ -285,7 +285,23 @@ const nextConfig = {
     return [...existing, ...botDashboardRedirects, ...modelRedirects, ...compareRedirects]
   },
   async headers() {
+    const discoveryLinks = [
+      '</.well-known/api-catalog>; rel="api-catalog"',
+      '</.well-known/openapi.yaml>; rel="service-desc"',
+      '</documentation/developer>; rel="service-doc"',
+      '</.well-known/ai-plugin.json>; rel="describedby"',
+    ].join(', ')
+
     return [
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Link',
+            value: discoveryLinks,
+          },
+        ],
+      },
       {
         source: '/.well-known/mcp/server-card.json',
         headers: [
