@@ -985,7 +985,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       }
     }
 
-    if (tools.stripe && typeof tools.stripe === 'object' && isSuperAdmin(userId)) {
+    if (tools.stripe && typeof tools.stripe === 'object') {
       const stripeEnabled = tools.stripe.enabled === true
 
       const existingStripe = bot?.tools?.stripe || {}
@@ -1069,14 +1069,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       }
 
       validTools.stripe = mergedStripe
-    }
-
-    if (
-      !isSuperAdmin(userId) &&
-      bot?.tools?.stripe &&
-      typeof bot.tools.stripe === 'object'
-    ) {
-      validTools.stripe = structuredClone(bot.tools.stripe)
     }
 
     const hasEnabledSchedulingTool = BOOKING_ACTION_KEYS.some((toolName) => {

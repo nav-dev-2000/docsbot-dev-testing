@@ -7,7 +7,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { i18n } from '@/constants/strings.constants'
 import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { canUserEditBot } from '@/utils/function.utils'
+import { canUserEditBot, canUserManageBotSettings } from '@/utils/function.utils'
 
 import {
     checkPlanPermission,
@@ -1207,7 +1207,10 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
                     onRequireOpenAIKey={() => setShowOpenAIModal(true)}
-                    canManageStripeActions={hasHydrated && isSuperAdmin(user?.uid)}
+                    canManageStripeActions={
+                        hasHydrated &&
+                        canUserManageBotSettings(team, user?.uid, bot)
+                    }
                     stripeOAuthLoading={stripeOAuthLoading}
                     setStripeOAuthLoading={setStripeOAuthLoading}
                     stripeOAuthError={stripeOAuthError}

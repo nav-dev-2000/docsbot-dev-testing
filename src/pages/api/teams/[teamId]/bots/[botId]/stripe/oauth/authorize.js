@@ -4,7 +4,6 @@ import { getFirestore } from 'firebase-admin/firestore'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { getBot } from '@/lib/dbQueries'
 import { canUserManageBotSettings } from '@/utils/function.utils'
-import { isSuperAdmin } from '@/utils/helpers'
 import {
   OBSOLETE_STRIPE_TOOL_METADATA_KEYS,
   STRIPE_OAUTH_CALLBACK_PATH,
@@ -61,13 +60,6 @@ export default async function handler(req, res) {
 
   if (!canUserManageBotSettings(team, userId, bot)) {
     return res.status(403).json({ message: 'You are not allowed to edit this bot.' })
-  }
-
-  if (!isSuperAdmin(userId)) {
-    return res.status(403).json({
-      message:
-        'Stripe billing support connection is temporarily limited to DocsBot staff accounts.',
-    })
   }
 
   let popup = false
