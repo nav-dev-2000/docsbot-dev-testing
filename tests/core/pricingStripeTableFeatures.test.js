@@ -56,4 +56,20 @@ describe('pricingStripeTableFeatures', () => {
     expect(standard?.features.bookingActions).toBe(true)
     expect(business?.features.bookingActions).toBe(true)
   })
+
+  it('includes web search domain allowlist on Business only', () => {
+    expect(featureDefinitions.webSearchAllowedDomains).toEqual({
+      label: 'Web search domain allowlist',
+      category: 'actions',
+    })
+
+    const free = pricingTiers.find((tier) => tier.id === 'free')
+    const standard = pricingTiers.find((tier) => tier.id === 'standard')
+    const business = pricingTiers.find((tier) => tier.id === 'business')
+
+    expect(free?.features.webSearchAllowedDomains).toBe(false)
+    expect(standard?.features.webSearchAllowedDomains).toBe(false)
+    expect(standard?.features.webSearch).toBe(true)
+    expect(business?.features.webSearchAllowedDomains).toBe(true)
+  })
 })
