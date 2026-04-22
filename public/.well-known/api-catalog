@@ -1,21 +1,24 @@
 {
-  "name": "DocsBot API catalog",
-  "description": "Machine-readable API discovery links for DocsBot.",
-  "links": [
+  "linkset": [
     {
-      "href": "/.well-known/openapi.yaml",
-      "rel": "service-desc",
-      "type": "application/yaml"
-    },
-    {
-      "href": "/documentation/developer",
-      "rel": "service-doc",
-      "type": "text/html"
-    },
-    {
-      "href": "/.well-known/ai-plugin.json",
-      "rel": "describedby",
-      "type": "application/json"
+      "anchor": "https://docsbot.ai/",
+      "item": [
+        {
+          "href": "https://docsbot.ai/.well-known/openapi.yaml",
+          "rel": "service-desc",
+          "type": "application/yaml"
+        },
+        {
+          "href": "https://docsbot.ai/documentation/developer",
+          "rel": "service-doc",
+          "type": "text/html"
+        },
+        {
+          "href": "https://docsbot.ai/.well-known/ai-plugin.json",
+          "rel": "describedby",
+          "type": "application/json"
+        }
+      ]
     }
   ]
 }
