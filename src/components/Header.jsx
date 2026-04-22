@@ -38,13 +38,17 @@ export default function Header({transparent = false}) {
             </div>
             <div className="hidden space-x-4 lg:space-x-8 md:ml-10 md:flex">
               {NAVIGATION.map((item) => {
-                const { children, ...itemProps } = item;
+                const { children, ...itemProps } = item
+                const isBlogNav = itemProps.href === '/articles'
+                const active = isBlogNav
+                  ? router.asPath === '/articles' || router.asPath.startsWith('/articles/')
+                  : router.asPath === itemProps.href
                 return (
                   <NavItem
                     key={item.name}
                     href={itemProps.href}
                     name={itemProps.name}
-                    active={router.asPath === itemProps.href}
+                    active={active}
                     {...(children && { children })}
                   />
                 );

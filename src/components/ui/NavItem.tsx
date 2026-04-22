@@ -45,7 +45,7 @@ export const NavItem: React.FC<NavItemProps> = ({ href, name, active = false, ch
     }, [])
 
     const cssParent = clsx(
-        'text-base font-medium text-white border-b-2 border-solid border-transparent hover:border-teal-500 transition-colors',
+        'cursor-pointer text-base font-medium text-white border-b-2 border-solid border-transparent hover:border-teal-500 transition-colors',
         {
             ['border-teal-500']: active,
         },
@@ -80,25 +80,27 @@ export const NavItem: React.FC<NavItemProps> = ({ href, name, active = false, ch
                 onFocus={openMenu}
                 onBlur={scheduleClose}
                 className={clsx(
-                    'absolute left-0 top-full z-10 mt-2 w-56 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition transform ease-out duration-150',
+                    'absolute left-0 top-full z-10 w-56 rounded-md pt-0.5 before:absolute before:-top-2 before:left-0 before:h-2 before:w-full before:content-[""]',
                     isOpen
-                        ? 'opacity-100 translate-y-0 pointer-events-auto'
-                        : 'opacity-0 translate-y-1 pointer-events-none'
+                        ? 'cursor-pointer pointer-events-auto opacity-100 transition duration-150 ease-out transform translate-y-0'
+                        : 'pointer-events-none opacity-0 transition duration-150 ease-out transform translate-y-1',
                 )}
                 role="menu"
                 aria-label={name}
             >
+                <div className="rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
                 {children?.map((child) => (
                     <Link
                         key={child.name}
                         href={child.href}
                         role="menuitem"
                         tabIndex={-1}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                         {child.name}
                     </Link>
                 ))}
+                </div>
             </div>
         </div>
     )

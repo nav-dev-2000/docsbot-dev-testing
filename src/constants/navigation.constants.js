@@ -21,5 +21,13 @@ export const NAVIGATION = [
   { name: 'Pricing', href: '/pricing' },
   { name: 'Docs', href: '/documentation' },
   { name: 'Developers', href: '/documentation/developer' },
-  { name: 'Blog', href: '/articles' },
+  {
+    name: 'Blog',
+    href: '/articles',
+    children: [
+      { name: 'News', href: '/articles/category/news' },
+      { name: 'Case Studies', href: '/articles/category/case-studies' },
+      { name: 'Articles', href: '/articles/category/article' },
+    ],
+  },
 ]

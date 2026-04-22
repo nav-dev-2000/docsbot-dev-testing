@@ -4,7 +4,7 @@ const formsPlugin = require('@tailwindcss/forms')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{js,jsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
     './node_modules/react-tailwindcss-datepicker/dist/index.esm.js',
     './node_modules/streamdown/dist/**/*.{js,cjs,mjs}',
   ],
